@@ -1,5 +1,5 @@
 ---
-title: Associer une ressource Cognitive Services à un ensemble de qualifications – Recherche Azure
+title: Attacher une ressource Cognitive Services à un ensemble de qualifications – Recherche Azure
 description: Instructions à suivre pour attacher un abonnement Cognitive Services tout-en-un à un ensemble d’enrichissement cognitif dans Recherche Azure.
 manager: cgronlun
 author: LuisCabrer
@@ -7,36 +7,36 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/07/2018
+ms.date: 01/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 509125e7c93f34b9ce28c58cb1ec96db1074d995
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119643"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351456"
 ---
-# <a name="associate-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Associer une ressource Cognitive Services à un ensemble de qualifications dans le service Recherche Azure 
+# <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Attacher une ressource Cognitive Services à un ensemble de qualifications dans Recherche Azure 
 
-Les algorithmes d’intelligence artificielle pilotant les pipelines de [recherche cognitive](cognitive-search-concept-intro.md) pour le traitement de données non structurées sont basés sur des [**ressources de Cognitive Services**](https://azure.microsoft.com/services/cognitive-services/). Des ressources telles que [**Vision par ordinateur**](https://azure.microsoft.com/services/cognitive-services/computer-vision/) assurent l’analyse d’image et la reconnaissance optique des caractères (OCR), extrayant du texte et une structure des fichiers image, tandis que l’[**Analyse de texte**](https://azure.microsoft.com/services/cognitive-services/text-analytics/) effectue un traitement en langage naturel, par exemple, pour la reconnaissance d’entités et l’extraction d’expressions clés.
+Les algorithmes d’intelligence artificielle pilotant les pipelines de [recherche cognitive](cognitive-search-concept-intro.md) pour le traitement de données non structurées sont basés sur des [**ressources de Cognitive Services**](https://azure.microsoft.com/services/cognitive-services/). Des ressources telles que [**Vision par ordinateur**](https://azure.microsoft.com/services/cognitive-services/computer-vision/) assurent l’analyse d’image et la reconnaissance optique des caractères (OCR), extrayant du texte et une structure des fichiers image, tandis que l’[**Analyse de texte**](https://azure.microsoft.com/services/cognitive-services/text-analytics/) effectue un traitement en langage naturel, par exemple pour la reconnaissance d’entités et l’extraction d’expressions clés.
 
-Vous pouvez enrichir gratuitement un nombre limité de documents, ou attacher une ressource Cognitive Services facturable pour les charges de travail plus volumineuses et plus fréquentes. Cet article explique comment associer une ressource Azure Cognitive Services à votre ensemble de qualifications cognitives pour enrichir des données en cours d’indexation.
+Vous pouvez enrichir gratuitement un nombre limité de documents, ou attacher une ressource Cognitive Services facturable pour les charges de travail plus volumineuses et plus fréquentes. Cet article explique comment associer une ressource Azure Cognitive Services à votre ensemble de qualifications cognitives pour enrichir des données durant l’[indexation de Recherche Azure](search-what-is-an-index.md).
 
 Si votre pipeline est composé exclusivement de [qualifications personnalisées](cognitive-search-create-custom-skill-example.md), vous n’avez pas besoin d’associer une ressource Cognitive Services.
 
 > [!NOTE]
 > Depuis le 21 décembre 2018, vous pouvez associer une ressource Cognitive Services à un ensemble de qualifications du service Recherche Azure. Cela nous permet de facturer l’exécution d’un ensemble de qualifications. Ce jour-là, nous avons également commencé à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents est toujours offerte sans frais supplémentaires.
 >
-> L’exécution de [qualifications cognitives intégrées](cognitive-search-predefined-skills.md) est facturée au [tarif de paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/), qui est le même que si vous exécutiez la tâche indépendamment de Recherche Azure. Les tarifs de l’extraction d’images sont ceux de la préversion. Ils sont décrits dans la page [Tarification de Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L’exécution de [qualifications cognitives intégrées](cognitive-search-predefined-skills.md) est facturée au [tarif de paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services), qui est le même que si vous aviez exécuté la tâche directement. L’extraction d’image est un événement facturable de Recherche Azure, actuellement proposé au tarif de la préversion. Pour plus d’informations, consultez la [page des tarifs de Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400) ou [Comment la facturation fonctionne](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="use-free-resources"></a>Utiliser des ressources gratuites
 
-Vous pouvez utiliser une option de traitement limitée et gratuite qui vous donne droit à 20 enrichissements de document par jour, ce qui est suffisant pour effectuer les exercices du didacticiel et du guide de démarrage rapide de recherche cognitive. 
+Vous pouvez utiliser une option de traitement gratuite, limitée aux exercices des guides de démarrage rapide et des tutoriels de la recherche cognitive. 
 
 > [!Important]
-> À partir du 1er février 2019, l’option **Gratuit (enrichissements limitée)** est limitée à 20 documents par jour. 
+> À partir du 1er février 2019, l’option **Gratuit (Enrichissements limités)** sera limitée à 20 documents par jour. 
 
 1. Ouvrez l’**Assistant Importation de données**.
 
@@ -48,7 +48,7 @@ Vous pouvez utiliser une option de traitement limitée et gratuite qui vous donn
 
    ![Section Option Attacher Cognitive Services développée](./media/cognitive-search-attach-cognitive-services/attach1.png "Option Attacher Cognitive Services développée")
 
-Passez à l’étape suivante, **Ajouter des enrichissements**. Pour obtenir une description des qualifications disponibles dans le portail, voir [« Étape 2 : Ajouter une qualification cognitive »](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) dans le guide de démarrage rapide de la recherche cognitive.
+Passez à l’étape suivante, **Ajouter des enrichissements**. Pour une description des compétences disponibles dans le portail, consultez [« Étape 2 : Ajouter une compétence cognitive »](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) dans le guide de démarrage rapide de la recherche cognitive.
 
 ## <a name="use-billable-resources"></a>Utiliser des ressources facturables
 
@@ -84,7 +84,7 @@ Pour les charges de travail comptant plus de 20 documents par jour, vous avez b
 
    ![Ressource Cognitive Services sélectionnée](./media/cognitive-search-attach-cognitive-services/attach2.png "Ressource Cognitive Services sélectionnée")
 
-1. Développez la section **Ajouter des enrichissements** pour sélectionner les qualifications cognitives spécifiques à exécuter sur vos données et poursuivre le processus. Pour obtenir une description des qualifications disponibles dans le portail, voir [« Étape 2 : Ajouter une qualification cognitive »](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) dans le guide de démarrage rapide de la recherche cognitive.
+1. Développez la section **Ajouter des enrichissements** pour sélectionner les qualifications cognitives spécifiques à exécuter sur vos données et poursuivre le processus. Pour une description des compétences disponibles dans le portail, consultez [« Étape 2 : Ajouter une compétence cognitive »](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) dans le guide de démarrage rapide de la recherche cognitive.
 
 ## <a name="attach-an-existing-skillset-to-a-cognitive-services-resource"></a>Attacher un ensemble de qualifications à une ressource Cognitive Services existante
 
@@ -92,7 +92,7 @@ Si vous avez un ensemble de qualifications existant, vous pouvez l’attacher à
 
 1. Dans la page **Vue d’ensemble du service**, cliquez sur **Ensemble de qualifications**.
 
-   ![Onglet Ensemble de qualifications](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Onglet Ensemble de qualifications")
+   (./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Onglet Ensemble de qualifications")(./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Onglet Ensemble de qualifications")
 
 1. Cliquez sur le nom de l’ensemble de qualifications, puis sélectionnez une ressource existante ou créez-en une. Cliquez sur **OK** pour confirmer vos modifications. 
 
