@@ -18,7 +18,7 @@ ms.locfileid: "34600627"
 # <a name="consumption-model"></a>Modèle de consommation
 
 Les itinéraires en ligne fournissent un ensemble de paramètres pour une description détaillée du modèle de consommation spécifique du véhicule.
-Selon la valeur de **vehicleEngineType**, deux grands modèles de consommation sont pris en charge : _combustion_ et _électrique_. Il n’est pas possible de spécifier les paramètres appartenant à des modèles différents dans la même requête.
+Selon la valeur de **vehicleEngineType**, deux grands modèles de consommation sont pris en charge : _Combustion_ et _Electric_. Il n’est pas possible de spécifier les paramètres appartenant à des modèles différents dans la même requête.
 Le modèle de consommation ne peut pas être utilisé avec les valeurs **travelMode** _bicycle_ et _pedestrian_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Contraintes des paramètres pour le modèle de consommation
