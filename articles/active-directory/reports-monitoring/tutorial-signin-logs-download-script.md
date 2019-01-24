@@ -4,7 +4,7 @@ description: Découvrez comment télécharger et utiliser un script PowerShell p
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4afe0c73-aee8-47f1-a6cb-2d71fd6719d1
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 07239e3411bc8df06cdff731343649867b59a3c9
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: ad34a5c3d72ec1f7fce0b56a85fd7c9cba007366
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213092"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824573"
 ---
-# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Tutoriel : Télécharger et utiliser un script pour accéder aux journaux de connexion
+# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Didacticiel : Télécharger et utiliser un script pour accéder aux journaux de connexion
 
 Vous pouvez télécharger les données des activités de connexion si vous souhaitez les utiliser en dehors du portail Azure. L’option **Télécharger** du portail Azure crée un fichier CSV contenant les 5 000 enregistrements les plus récents. Si vous avez besoin d’une plus grande flexibilité, par exemple pour télécharger plus de 5 000 enregistrements à la fois ou pour télécharger les journaux à intervalles planifiés, vous pouvez utiliser le bouton **Script** pour générer un script PowerShell visant à télécharger vos données.
 

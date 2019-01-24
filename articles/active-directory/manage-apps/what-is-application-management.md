@@ -3,26 +3,26 @@ title: Gestion des applications avec Azure Active Directory | Microsoft Docs
 description: Cet article présente les avantages de l’intégration d’Azure Active Directory avec vos applications locales, cloud et SaaS.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 10/30/2018
 ms.author: barbkess
 ms.reviewer: arvinh
-ms.openlocfilehash: 820c6a5cb0bf5fb2d98d27c171c1276866082700
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b0075c57faf8e980ab2d561a4e3ba589c992238c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716179"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464776"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gestion des applications avec Azure Active Directory
 
-Azure Active Directory (Azure AD) fournit un accès sécurisé et fluide aux applications cloud et locales. Les utilisateurs peuvent se connecter une seule fois pour accéder à Office 365 et à d’autres applications métier de Microsoft, à des milliers d’applications SaaS (software as a service), à des applications locales et des applications cœur de métier. Réduisez les coûts d’administration en automatisant le provisionnement des utilisateurs. Utilisez les stratégies d’authentification multifacteur et d’accès conditionnel pour fournir un accès sécurisé aux applications.
+Azure Active Directory (Azure AD) fournit un accès sécurisé et fluide aux applications cloud et locales. Les utilisateurs peuvent se connecter une seule fois pour accéder à Office 365 et à d’autres applications métier de Microsoft, à des applications SaaS (software as a service), à des applications locales et des applications cœur de métier. Réduisez les coûts d’administration en automatisant le provisionnement des utilisateurs. Utilisez les stratégies d’authentification multifacteur et d’accès conditionnel pour fournir un accès sécurisé aux applications.
 
-![Applications fédérées via Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
+![Applications fédérées via Azure AD](media/what-is-application-management/app-management-overview.png)
 
 ## <a name="why-manage-applications-with-a-cloud-solution"></a>Pourquoi gérer des applications avec une solution cloud ?
 
@@ -40,5 +40,5 @@ SSO améliore la sécurité. *Sans l’authentification unique*, les administrat
 Avec Azure AD, vous pouvez superviser les connexions aux applications par le biais de rapports tirant parti des outils SIEM (Security Incident and Event Monitoring). Vous pouvez accéder aux rapports à partir du portail ou des API. Auditez par programmation toute personne qui a accès à vos applications, puis supprimez l’accès aux utilisateurs inactifs par l’intermédiaire des révisions d’accès.
 
 ## <a name="manage-costs"></a>Gérer les coûts
-En migrant vers Azure AD, vous pouvez réduire les coûts et supprimer la contrainte que représente la gestion de votre infrastructure locale. Azure AD fournit également un accès en libre-service aux applications, ce qui fait gagner du temps aux administrateurs et aux utilisateurs. L’authentification unique élimine la nécessité d’avoir un mot de passe pour chaque application, ce qui permet de réduire les coûts liés à la réinitialisation des mots de passe des applications et à la perte de productivité lors de la récupération des mots de passe.
+En migrant vers Azure AD, vous pouvez réduire les coûts et supprimer la contrainte que représente la gestion de votre infrastructure locale. Azure AD fournit également un accès en libre-service aux applications, ce qui fait gagner du temps aux administrateurs et aux utilisateurs. L’authentification unique élimine les mots de passe propres à l’application. L’authentification unique permet de réduire les coûts liés à la réinitialisation des mots de passe des applications et à la perte de productivité lors de la récupération des mots de passe.
 

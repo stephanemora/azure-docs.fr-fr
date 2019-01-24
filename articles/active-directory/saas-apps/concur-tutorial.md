@@ -4,7 +4,7 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1eee0a5d-24fa-4986-9aef-3c543cfe3296
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 928205627ee971958fd2d98ad2c3cb91d9b491cc
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 930ecc6374d2be05867b28af624280f4617d6482
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808500"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827956"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-concur"></a>Tutoriel : Intégration d’Azure Active Directory à Concur
+# <a name="tutorial-azure-active-directory-integration-with-concur"></a>Tutoriel : Intégration d’Azure Active Directory à Concur
 
 Dans ce didacticiel, vous allez apprendre à intégrer Concur à Azure Active Directory (Azure AD).
 L’intégration de Concur à Azure AD vous offre les avantages suivants :
@@ -105,9 +105,9 @@ Pour configurer l’authentification unique Azure AD avec Concur, effectuez les 
 
     ![Informations d’authentification unique dans Domaine et URL Concur](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant le modèle suivant : `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL en utilisant le modèle suivant : `https://<customer-domain>.concursolutions.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<customer-domain>.concursolutions.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Concur](https://www.concur.co.in/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

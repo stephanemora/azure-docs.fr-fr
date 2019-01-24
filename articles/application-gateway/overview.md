@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 1/11/2019
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: 21aac318542f9d30cb44d940392d05367f1f7b9f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246464"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448940"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -102,7 +102,7 @@ La fonctionnalité d’affinité de session basée sur les cookies est utile lor
 
 ## <a name="websocket-and-http2-traffic"></a>Trafic WebSocket et HTTP/2
 
-Application Gateway prend en charge les protocoles WebSocket et HTTP/2 de manière native. Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket. La prise en charge de HTTP/2 peut être activée à l’aide d’Azure PowerShell.
+Application Gateway prend en charge les protocoles WebSocket et HTTP/2 de manière native. Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket.
 
 Les protocoles WebSocket et HTTP/2 permettent une communication en duplex intégral entre le serveur et le client via une connexion TCP de longue durée. Cela assure une communication plus interactive entre le serveur web et le client, qui peut être bidirectionnelle sans nécessiter d’interrogations, comme c’est le cas pour les implémentations basées sur le protocole HTTP. Ces protocoles engendrent une faible surcharge et peuvent réutiliser la même connexion TCP pour plusieurs demandes/réponses, ce qui entraîne une utilisation plus efficace des ressources. Ces protocoles sont conçus pour fonctionner sur les ports HTTP traditionnels (80 et 443).
 
@@ -113,6 +113,22 @@ Les en-têtes HTTP permettent au client et au serveur de passer des informations
 Application Gateway permet désormais de réécrire les en-têtes des requêtes HTTP entrantes et des réponses HTTP sortantes. Vous pouvez ajouter, supprimer ou mettre à jour les en-têtes de requête et de réponse HTTP pendant le déplacement des paquets de requête/réponse entre les pools client et back-end. Vous pouvez réécrire les champs d’en-tête standard (définis dans la [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) et non standard.  
 
 Pour plus d’informations sur cette fonctionnalité en préversion publique, consultez [Réécrire les en-têtes HTTP](rewrite-http-headers.md).
+
+## <a name="sizing"></a>Dimensionnement
+
+Application Gateway est actuellement disponible en 3 tailles : **Petit**, **Moyen** et **Grand**. Les instances de petite taille sont conçues pour les scénarios de développement et de test.
+
+Pour obtenir la liste complète des limites de la passerelle Application Gateway, consultez la page [Application Gateway limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) (Limites de la passerelle Application Gateway).
+
+Le tableau suivant présente un débit moyen de performances pour chaque instance d’application Gateway avec le déchargement SSL activé :
+
+| Taille moyenne de la réponse de la page principale | Petite | Moyenne | grand |
+| --- | --- | --- | --- |
+| 6 Ko |7,5 Mbits/s |13 Mbits/s |50 Mbits/s |
+| 100 Ko |35 Mbits/s |100 Mbits/s |200 Mbits/s |
+
+> [!NOTE]
+> Ces valeurs sont des valeurs approximatives pour un débit de passerelle d’application. Le débit réel dépend de divers détails d’environnement, tels que la taille de page moyenne, l’emplacement des instances de serveur principal et le temps de traitement d’une page par le serveur. Pour des calculs de performance exacts, vous devez exécuter vos propres tests. Ces valeurs sont fournies uniquement pour vous donner des conseils de planification de la capacité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,7 +3,7 @@ title: Présentation des connecteurs de proxy d’application Azure AD | Micros
 description: Couvre les bases sur les connecteurs de proxy d’application Azure AD.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca483e84b28b50d963ecc6c2e26499574f546e0f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134964"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473620"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 

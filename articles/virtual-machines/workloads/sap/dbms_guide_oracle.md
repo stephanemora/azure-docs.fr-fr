@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8686130e3b10ece605a6e648badf9aa1dae5e071
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 65c685936fabab65698a077f22c2dfde17469055
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435682"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436414"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement SGBD de machines virtuelles Oracle Azure pour charge de travail SAP
 
@@ -235,7 +235,7 @@ ms.locfileid: "53435682"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -321,13 +321,13 @@ Les notes SAP suivantes sont en lien avec SAP sur Azure quant au domaine traité
 
 | Numéro de la note | Intitulé |
 | --- | --- |
-| [1928533] |Applications SAP sur Azure : Produits et types de machines virtuelles Azure pris en charge |
-| [2015553] |SAP sur Microsoft Azure : Prérequis pour le support |
+| [1928533] |Applications SAP sur Azure : produits et types de machines virtuelles Azure pris en charge |
+| [2015553] |SAP sur Microsoft Azure : prérequis pour le support |
 | [1999351] |Résolution des problèmes de surveillance Azure améliorée pour SAP |
 | [2178632] |Métriques de surveillance clés pour SAP sur Microsoft Azure |
-| [2191498] |SAP sur Linux avec Azure : Surveillance avancée |
+| [2191498] |SAP sur Linux avec Azure : supervision améliorée |
 | [2039619] |Applications SAP sur Microsoft Azure à l’aide d’Oracle Database : Produits et versions pris en charge |
-| [2243692] |Linux sur machine virtuelle Microsoft Azure (IaaS) : Problèmes de licence SAP |
+| [2243692] |Linux sur machine virtuelle Microsoft Azure (IaaS) : Problèmes de licence SAP |
 | [2069760] |Installation et mise à niveau SAP pour Oracle Linux 7.x |
 | [1597355] |Recommandations relatives à l’espace d’échange pour Linux |
 | [2171857] |Oracle Database 12C - Prise en charge du système de fichiers dans Linux |

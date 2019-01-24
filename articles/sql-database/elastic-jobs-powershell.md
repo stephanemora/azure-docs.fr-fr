@@ -12,16 +12,16 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 34277aaa6ad6c5b22fb1691af83091e49d3bf5c1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 08571ac8b7e13bc0f414b481a481132793ba865d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021320"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452749"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Créer un agent de travail élastique à l’aide de PowerShell
 
-Les [travaux élastique](elastic-jobs-overview.md) permettent l’exécution d’un ou plusieurs scripts Transact-SQL (T-SQL) en parallèle sur plusieurs bases de données.
+Les [travaux élastique](sql-database-job-automation-overview.md#elastic-database-jobs) permettent l’exécution d’un ou plusieurs scripts Transact-SQL (T-SQL) en parallèle sur plusieurs bases de données.
 
 Dans ce tutoriel vous découvrez les étapes requises pour exécuter une requête sur plusieurs bases de données :
 
@@ -65,7 +65,7 @@ Si vous n’avez pas encore d’abonnement Azure, [créez un compte gratuit](htt
 
 ## <a name="create-required-resources"></a>Créer les ressources nécessaires
 
-La création d’un agent de travail élastique requiert une base de données (S0 ou une version ultérieure) pour une utilisation en tant que [Base de données des travaux](elastic-jobs-overview.md#job-database). 
+La création d’un agent de travail élastique requiert une base de données (S0 ou une version ultérieure) pour une utilisation en tant que [Base de données des travaux](sql-database-job-automation-overview.md#job-database). 
 
 *Le script ci-dessous crée un nouveau groupe de ressources, un serveur et une base de données pour une utilisation comme Base de données des travaux. Le script ci-dessous crée également un second serveur avec 2 bases de données vides par rapport auxquelles exécuter les travaux.*
 
@@ -210,7 +210,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>Définir les bases de données cibles sur lesquelles vous souhaitez exécuter le travail
 
-Un [groupe cible](elastic-jobs-overview.md#target-group) définit l’ensemble de base de données sur lequel une étape de travail s’exécute. 
+Un [groupe cible](sql-database-job-automation-overview.md#target-group) définit l’ensemble de base de données sur lequel une étape de travail s’exécute. 
 
 L’extrait de code suivant crée deux groupes cibles : *ServerGroup* et *ServerGroupExcludingDb2*. *ServerGroup* cible toutes les bases de données existant sur le serveur au moment de l’exécution, et *ServerGroupExcludingDb2* toutes les bases de données sur le serveur, à l’exception de *TargetDb2* :
 

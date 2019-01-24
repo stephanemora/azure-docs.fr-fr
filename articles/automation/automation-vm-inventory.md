@@ -3,19 +3,19 @@ title: Gérer une machine virtuelle Azure avec la collection d’inventaire | Mi
 description: Gérer une machine virtuelle avec la collection d’inventaire
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: inventaire, automatisation, suivi des modifications
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9fabaa2be850e5b15f10fc78adb14dfd5c112906
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403608"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426044"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gérer une machine virtuelle Azure avec la collecte d’inventaire
 
@@ -65,7 +65,7 @@ Les tables suivantes fournissent des informations sur chaque propriété qui peu
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Clé de Registre Windows   | Chemin d’accès pour rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
+|Clé de Registre Windows   | Chemin d’accès pour rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
 
 ### <a name="windows-files"></a>Fichiers Windows
 
@@ -126,3 +126,4 @@ Pour supprimer votre machine virtuelle de la gestion de l’inventaire, procéde
 
 * Pour en savoir plus sur la gestion des modifications dans les paramètres de registre et les fichiers sur vos machines virtuelles, consultez l’article relatif au [suivi des modifications apportées à votre environnement logiciel avec la solution Change Tracking](../log-analytics/log-analytics-change-tracking.md).
 * Pour en savoir plus sur la gestion des mises à jour Windows et de packages sur des machines virtuelles, consultez [La solution Update Management dans Azure](../operations-management-suite/oms-solution-update-management.md).
+

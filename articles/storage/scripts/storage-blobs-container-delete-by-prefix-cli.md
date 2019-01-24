@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 9e93dc14a4729011f74c5eafe94528608b89116f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 85ee6505adafab9587f3583cd4c7182efcc43c11
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29848285"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853729"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Supprimer des conteneurs selon un préfixe de nom de conteneur
 
@@ -48,10 +48,10 @@ Ce script utilise les commandes suivantes pour supprimer des conteneurs selon un
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az group create](/cli/azure/group) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage Azure dans le groupe de ressources spécifié. |
 | [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Crée un conteneur dans Stockage Blob Azure. |
-| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Répertorie les conteneurs inclus dans un compte de stockage Azure. |
+| [az storage container list](/cli/azure/storage/container) | Répertorie les conteneurs inclus dans un compte de stockage Azure. |
 | [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Supprime des conteneurs dans un compte de stockage Azure. |
 
 ## <a name="next-steps"></a>Étapes suivantes

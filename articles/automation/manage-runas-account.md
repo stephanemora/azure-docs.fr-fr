@@ -3,18 +3,18 @@ title: Gérer les comptes d’identification Azure Automation
 description: Cet article décrit comment gérer vos comptes d’identification avec PowerShell ou à partir du portail.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 34c8a7d547acf023af442599708f9c183e5b9ae9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726166"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431195"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gérer les comptes d’identification Azure Automation
 
@@ -389,3 +389,4 @@ Vous pouvez rapidement résoudre ces problèmes liés au compte d’identificati
 
 * Pour plus d’informations sur les principaux de service, consultez [Objets principal du service et application](../active-directory/develop/app-objects-and-service-principals.md).
 * Pour plus d’informations sur les certificats et les services Azure, consultez [Vue d’ensemble des certificats pour Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
+

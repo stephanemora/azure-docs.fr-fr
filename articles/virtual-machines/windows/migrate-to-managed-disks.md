@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: d280ad1180949167bb8ebfc6b21521736db0f55d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: disks
+ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777144"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474215"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrer des machines virtuelles Azure vers des disques gérés dans Azure
 
@@ -37,7 +38,7 @@ Vous pouvez migrer vers des disques gérés dans les cas de figure suivants :
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Convertir des machines virtuelles autonomes et des machines virtuelles dans un groupe à haute disponibilité en disques gérés   | [Convertir des machines virtuelles pour utiliser des disques gérés](convert-unmanaged-to-managed-disks.md) |
 | Une machine virtuelle unique du modèle Classic vers le modèle Resource Manager sur des disques gérés     | [Migrer une machine virtuelle unique](migrate-single-classic-to-resource-manager.md)  | 
-| Toutes les machines virtuelles d’un réseau virtuel du modèle Classic vers le modèle Resource Manager sur des disques gérés     | [Migration de ressources IaaS d’un environnement Classic vers Resource Manager](migration-classic-resource-manager-ps.md), puis [Convertir une machine virtuelle à partir de disques non gérés vers des disques gérés](convert-unmanaged-to-managed-disks.md) | 
+| Toutes les machines virtuelles d’un réseau virtuel du modèle Classic vers le modèle Resource Manager sur des disques gérés     | [Migration de ressources IaaS d’un environnement Classic vers Resource Manager](migration-classic-resource-manager-ps.md), puis [Convertir une machine virtuelle à partir de disques non gérés vers des disques gérés](convert-unmanaged-to-managed-disks.md) | 
 
 
 
@@ -64,20 +65,20 @@ Passez en revue les caractéristiques de performances des machines virtuelles fo
 
 Il existe sept types de disques gérés Premium qui peuvent être utilisés avec votre machine virtuelle, chacun d’eux présentant des limites d’E/S par seconde et de débit spécifiques. Prenez en compte ces limites lors de la sélection du type de disque Premium pour votre machine virtuelle en fonction des besoins en capacité, en performances, en extensibilité et en charges maximales de votre application.
 
-| Type de disque Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+| Type de disque Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Taille du disque           | 32 Go| 64 Go| 128 Go| 256 Go|512 Go | 1024 Go (1 To)    | 2 048 Go (2 To)    | 4 095 Go (4 To)    | 
-| IOPS par disque       | 120   | 240   | 500   | 1100  |2 300              | 5 000              | 7500              | 7500              | 
-| Débit par disque | 25 Mo par seconde  | 50 Mo par seconde  | 100 Mo par seconde | 125 Mo par seconde |150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde |
+| Taille du disque           | 32 Go| 64 Go| 128 Go| 256 Go|512 Go | 1024 Go (1 To)    | 2 048 Go (2 To)    | 4 095 Go (4 To)    | 
+| IOPS par disque       | 120   | 240   | 500   | 1100  |2 300              | 5 000              | 7500              | 7500              | 
+| Débit par disque | 25 Mo par seconde  | 50 Mo par seconde  | 100 Mo par seconde | 125 Mo par seconde |150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde |
 
 **Disques gérés Standard**
 
 Il existe sept types de disques gérés Standard qui peuvent être utilisés avec votre machine virtuelle. Chacun d’eux dispose d’une capacité différente, mais ils partagent les mêmes limites d’E/S par seconde et de débit. Choisissez le type de disque géré Standard selon les besoins en capacité de votre application.
 
-| Type de disque Standard  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+| Type de disque Standard  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Taille du disque           | 30 Go            | 64 Go            | 128 Go           | 256 Go           |512 Go           | 1024 Go (1 To)   | 2 048 Go (2 To)    | 4 095 Go (4 To)   | 
-| IOPS par disque       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Taille du disque           | 30 Go            | 64 Go            | 128 Go           | 256 Go           |512 Go           | 1024 Go (1 To)   | 2 048 Go (2 To)    | 4 095 Go (4 To)   | 
+| IOPS par disque       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | Débit par disque | 60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde |60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde | 
 
 ## <a name="disk-caching-policy"></a>Stratégie de mise en cache du disque

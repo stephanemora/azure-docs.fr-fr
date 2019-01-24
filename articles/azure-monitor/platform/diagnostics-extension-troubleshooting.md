@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103942"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473807"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
 Cet article contient des informations de dépannage pour les diagnostics Microsoft Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](diagnostics-extension-overview.md).
@@ -293,3 +293,4 @@ Par défaut, le portail des machines virtuelles affiche certains compteurs de pe
 - Les noms de compteur des données disponibles dans le stockage sont en anglais. Si les noms de compteur ne sont pas en anglais, ils n’apparaîtront pas dans le graphique des métriques du portail. **Atténuation** : modifiez la langue de la machine pour la définir sur l’anglais pour les comptes système. Pour ce faire, sélectionnez **Panneau de configuration** > **Région** > **Administrative** > **Copier les paramètres**. Ensuite, désactivez l’option **Écran d’accueil et comptes système** afin que la langue personnalisée ne soit pas appliquée au compte système.
 
 - Si vous utilisez des caractères génériques (\*) dans les noms de compteur de performances, le portail ne peut pas établir de corrélation entre le compteur configuré et le compteur collecté lors de l’envoi des compteurs de performances vers le récepteur du Stockage Azure. **Atténuation** : pour pouvoir utiliser des caractères génériques et permettre au portail de développer (\*), dirigez vos compteurs de performances vers le [récepteur « Azure Monitor »](diagnostics-extension-schema.md#diagnostics-extension-111).
+

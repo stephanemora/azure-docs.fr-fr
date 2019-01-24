@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: f15b2154c1bac4d699af91980a4bc2a7192bb0c9
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 5d92aa78b132b661af3cdc53b47c0340a0758dd8
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740873"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855310"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Présentation des ID d’instance des machines virtuelles d’un groupe identique de machines virtuelles Azure
 Cet article décrit les ID d’instance des groupes identiques ainsi que les différents modes de surface.
@@ -41,7 +41,7 @@ Une API REST : `GET https://management.azure.com/subscriptions/{subscriptionId}/
 
 PowerShell : `Get-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (pour plus d’informations, consultez la [documentation PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
 
-L’interface CLI : `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (pour plus d’informations, consultez la [documentation relative à l’interface CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instances))
+L’interface CLI : `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (pour plus d’informations, consultez la [documentation relative à l’interface CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest))
 
 Vous pouvez également utiliser [resources.azure.com](https://resources.azure.com) ou les [SDK Azure](https://azure.microsoft.com/downloads/) pour répertorier les machines virtuelles d’un groupe identique.
 

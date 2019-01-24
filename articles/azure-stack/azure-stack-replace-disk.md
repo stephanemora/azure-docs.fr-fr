@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: ad1234b6a0296a2fa46fe56786bbca4aca9ed470
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: d0b455261649fad95a92f7ad75f7af26d633cf5a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305959"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476884"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Remplacer un disque physique dans Azure Stack
 
@@ -29,10 +29,10 @@ Cet article décrit le processus général de remplacement d’un disque physiqu
 
 Vous pouvez appliquer cette procédure pour les systèmes intégrés et pour les déploiements de Kit de développement qui ont des disques remplaçables à chaud.
 
-Les étapes de remplacement de disque varient en fonction de votre fabricant de matériel OEM. Pour obtenir des instructions détaillées propres à votre système, consultez la documentation FRU (Field Replaceable Unit) de votre fournisseur. 
+Les étapes de remplacement de disque varient en fonction de votre fabricant de matériel OEM. Pour obtenir des instructions détaillées propres à votre système, consultez la documentation FRU (Field Replaceable Unit) de votre fournisseur.
 
 ## <a name="review-disk-alert-information"></a>Examiner les informations sur les alertes de disque
-En cas de défaillance d’un disque, vous recevez une alerte indiquant que la connectivité à un disque physique a été perdue. 
+En cas de défaillance d’un disque, vous recevez une alerte indiquant que la connectivité à un disque physique a été perdue.
 
  ![Alerte montrant la perte de connectivité au disque physique](media/azure-stack-replace-disk/DiskAlert.png)
 
@@ -47,7 +47,7 @@ Suivez les instructions FRU de votre fabricant de matériel OEM pour remplacer l
 
 Pour empêcher toute utilisation d’un disque non pris en charge dans un système intégré, le système bloque les disques qui ne sont pas pris en charge par votre fournisseur. Si vous essayez d’utiliser un disque non pris en charge, une alerte signale qu’un disque a été mis en quarantaine à cause d’un modèle ou d’un microprogramme non pris en charge.
 
-Une fois le disque remplacé, Azure Stack détecte automatiquement le nouveau disque et commence le processus de réparation de disque virtuel.  
+Une fois le disque remplacé, Azure Stack détecte automatiquement le nouveau disque et commence le processus de réparation de disque virtuel.
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>Vérifier l’état de la réparation de disque virtuel
  

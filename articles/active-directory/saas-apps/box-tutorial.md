@@ -1,10 +1,10 @@
 ---
-title: 'Tutoriel : intégration d’Azure Active Directory à Box | Microsoft Docs'
+title: 'Tutoriel : intégration d’Azure Active Directory à Box | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Box.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 188405d110b164d2c83a2a25d0c8705cba04a9e3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: bc54df3ce727eedb5638ba8f43cc7489fd2497c5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810863"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813234"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-box"></a>Didacticiel : intégration d’Azure Active Directory à Box
+# <a name="tutorial-azure-active-directory-integration-with-box"></a>Tutoriel : intégration d’Azure Active Directory à Box
 
 Dans ce didacticiel, vous allez apprendre à intégrer Box dans Azure Active Directory (Azure AD).
 L’intégration de Box dans Azure AD vous offre les avantages suivants :
@@ -106,14 +106,14 @@ Pour configurer l’authentification unique Azure AD avec Box, procédez comme 
 
     ![Informations d’authentification unique dans Domaine et URL Box](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL en utilisant le modèle suivant : `https://<SUBDOMAIN>.account.box.com`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.account.box.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `box.net`
 
     > [!NOTE]
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir la valeur, contactez [l’équipe du support Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-4. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
+4. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 

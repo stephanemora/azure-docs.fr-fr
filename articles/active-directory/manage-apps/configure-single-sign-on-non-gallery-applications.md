@@ -3,7 +3,7 @@ title: Authentification unique - applications hors galerie - Azure Active Direct
 description: Configurer l’authentification unique (SSO) sur des applications ne figurant pas dans la galerie d’Azure Active Directory (Azure AD)
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: article
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 01/08/2019
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
-ms.openlocfilehash: bb2fcbad3d415a8ac7a8e0c3237fcb97042defd7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c1472a78b0d1fbc287b151d9760fa549ad9b087e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121343"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474079"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurer l’authentification unique sur des applications hors galerie dans Azure Active Directory
 

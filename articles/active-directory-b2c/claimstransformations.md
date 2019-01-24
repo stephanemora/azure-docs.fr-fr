@@ -3,19 +3,19 @@ title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Définition de l’élément ClaimsTransformations dans le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b569fe6a354bed315fd2136cafdade667b6f3a8b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 152149f94bba9077909d5b5c6bf92f3706b31b8c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432794"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848442"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -37,7 +37,7 @@ L’élément **ClaimsTransformation** contient les attributs suivants :
 
 | Attribut |Obligatoire | Description |
 | --------- |-------- | ----------- |
-| Id |Oui | Identificateur servant à identifier de façon unique la transformation de revendication. L’identificateur est référencé à partir d’autres éléments XML dans la stratégie. |
+| ID |Oui | Identificateur servant à identifier de façon unique la transformation de revendication. L’identificateur est référencé à partir d’autres éléments XML dans la stratégie. |
 | Méthode de transformation | Oui | Méthode de transformation à utiliser dans la transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#Claims-transformations-reference). |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
@@ -117,7 +117,7 @@ L’élément **OutputClaim** contient les attributs suivants :
  
 Si la revendication d’entrée et la revendication de sortie sont du même type (chaîne ou booléen), vous pouvez utiliser la même revendication d’entrée que la revendication de sortie. Dans ce cas, la transformation de revendication change la revendication d’entrée avec la valeur de sortie.
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 
 Par exemple, vous pouvez stocker la dernière version de vos conditions d’utilisation du service que l’utilisateur a acceptée. Quand vous mettez à jour les conditions d’utilisation du service, vous pouvez demander à l’utilisateur d’accepter la nouvelle version. Dans l’exemple suivant, la transformation de revendication **HasTOSVersionChanged** compare la valeur de la revendication **TOSVersion** à la valeur de la revendication **LastTOSAcceptedVersion**, puis retourne la revendication **TOSVersionChanged** booléenne.
 
@@ -159,12 +159,12 @@ Par exemple, vous pouvez stocker la dernière version de vos conditions d’util
 
 Pour obtenir des exemples de transformations de revendications, consultez les pages de référence suivantes :
 
-- [Boolean](boolean-transformations.md)
+- [Booléen](boolean-transformations.md)
 - [Date](date-transformations.md)
 - [Integer](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Généralités](general-transformations.md)
 - [Compte social](social-transformations.md)
-- [String](string-transformations.md)
+- [Chaîne](string-transformations.md)
 - [StringCollection](stringcollection-transformations.md)
 

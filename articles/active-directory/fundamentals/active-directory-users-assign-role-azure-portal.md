@@ -3,7 +3,7 @@ title: Assigner des rôles d’annuaire à des utilisateurs - Azure Active Direc
 description: Instructions sur l’attribution de rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: e8646893d6dd57fd3f743f450f438cd962f02b36
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ea5fd592dfbebd59df0cbd72c49093ffe383feeb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095118"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448752"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Attribuer des rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory
 Si un utilisateur de votre organisation a besoin d’une autorisation pour gérer les ressources Azure Active Directory (Azure AD), vous devez assigner un rôle approprié à l’utilisateur dans Azure AD en fonction des actions qu’il souhaite effectuer et pour lesquelles il a besoin d’une permission.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 31804932cd4176cd55af752a7c1d05ae0a5f0cdf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 420b48101671c06ee1d820cd183ea0e5c2788635
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260765"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410549"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Comment charger, télécharger et lister des objets blob à l’aide du kit SDK Node.js v2
 
@@ -224,7 +224,7 @@ const downloadBlob = async (containerName, blobName) => {
     });
 };
 ```
-L’implémentation indiquée ici change la source pour retourner le contenu de l’objet blob en tant que chaîne. Vous pouvez également télécharger l’objet blob en tant que [flux](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtostream) ou directement dans un [fichier local](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtolocalfile).
+L’implémentation indiquée ici change la source pour retourner le contenu de l’objet blob en tant que chaîne. Vous pouvez également télécharger l’objet blob en tant que [flux](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtostream) ou directement dans un [fichier local](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest).
 
 ### <a name="delete-a-blob"></a>Supprimer un objet blob
 

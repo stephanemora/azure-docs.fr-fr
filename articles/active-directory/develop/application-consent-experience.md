@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: e3e333594b32cff018f02cd1d3b32eaf44c11a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3193e9ac6ac5e90584bbf548142b7573d61c310a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903854"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413071"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Comprendre les expériences de consentement de l’application Azure AD
 
@@ -33,7 +33,7 @@ Le consentement est le processus via lequel un utilisateur autorise une applicat
 L’expérience utilisateur réelle d’octroi du consentement varie selon les stratégies définies au niveau du locataire de l’utilisateur, le niveau d’autorité (ou rôle) de l’utilisateur et le type d’[autorisation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-permissions) demandé par l’application cliente. Cela signifie que les développeurs d’applications et les administrateurs de locataires contrôlent certains aspects de l’expérience de consentement. Les administrateurs ont la possibilité de configurer et de désactiver des stratégies au niveau d’un locataire ou d’une application afin de contrôler l’expérience de consentement au sein de leur locataire. Les développeurs d’applications peuvent définir les types d’autorisations demandées et s’ils souhaitent guider les utilisateurs vers le flux de consentement administrateur ou vers le flux de consentement utilisateur.
 
 - **Flux de consentement utilisateur** : intervient lorsqu’un développeur d’application dirige les utilisateurs vers le point de terminaison d’autorisation avec l’intention d’enregistrer le consentement pour l’utilisateur actif uniquement.
-- **Flux de consentement administrateur** : intervient lorsqu’un développeur d’application dirige les utilisateurs vers le point de terminaison de consentement administrateur avec l’intention d’enregistrer le consentement pour le locataire dans son intégralité. Pour s’assurer que le flux de consentement administrateur fonctionne correctement, les développeurs d’application doivent répertorier toutes les autorisations dans la propriété `RequiredResourceAccess` dans le manifeste de l’application. Pour plus d’informations, consultez [Manifeste d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+- **Flux de consentement administrateur** : intervient lorsqu’un développeur d’application dirige les utilisateurs vers le point de terminaison de consentement administrateur avec l’intention d’enregistrer le consentement pour le locataire dans son intégralité. Pour s’assurer que le flux de consentement administrateur fonctionne correctement, les développeurs d’application doivent répertorier toutes les autorisations dans la propriété `RequiredResourceAccess` dans le manifeste de l’application. Pour plus d’informations, consultez l’article [Manifeste d’application](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
 
 ## <a name="building-blocks-of-the-consent-prompt"></a>Blocs de construction de l’invite de consentement
 
@@ -84,4 +84,4 @@ Voici les expériences de consentement auxquelles un utilisateur peut être conf
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Obtenez une présentation détaillée de [la façon dont l’infrastructure de consentement Azure AD implémente le consentement](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
-- Pour plus de détails, découvrez [la façon dont une application mutualisée peut utiliser l’infrastructure de consentement](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) pour implémenter un consentement de type « utilisateur » et « admin », en prenant en charge des modèles d’applications mutualisées plus avancés.
+- Pour plus de détails, découvrez [la façon dont une application mutualisée peut utiliser l’infrastructure de consentement](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) pour implémenter un consentement de type « utilisateur » et « admin », en prenant en charge des modèles d’applications mutualisées plus avancés.

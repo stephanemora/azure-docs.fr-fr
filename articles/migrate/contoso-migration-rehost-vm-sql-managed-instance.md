@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 35d2234ee52516c4ebf3e354e1ab6890144cdd5d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879466"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826613"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migration de Contoso : réhéberger une application locale sur une machine virtuelle Azure et SQL Database Managed Instance
 
@@ -238,7 +238,7 @@ Contoso prend en compte ces facteurs :
     
 *Besoin de plus d’aide ?*
 
-Découvrez comment [configurer des itinéraires pour une instance gérée](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal#create-new-route-table-and-a-route).
+Découvrez comment [configurer des itinéraires pour une instance gérée](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
 ### <a name="create-a-managed-instance"></a>Créer une option Managed Instance
 
@@ -432,7 +432,7 @@ Pour configurer l’environnement source, les administrateurs de Contoso effectu
 
 Les administrateurs de Contoso doivent à présent configurer l’environnement de réplication cible :
 
-1. Dans **Préparer l’infrastructure** > **Cible**, ils sélectionnent les paramètres de la cible.
+1. Dans **Préparer l’infrastructure** > **Cible**, Contoso sélectionne les paramètres de la cible.
 2. Site Recovery vérifie qu’il existe un compte de stockage et un réseau dans la cible spécifiée.
 
 ### <a name="create-a-replication-policy"></a>Créer une stratégie de réplication
@@ -473,7 +473,7 @@ Maintenant, les administrateurs de Contoso peuvent commencer à répliquer la ma
 
     ![Activer la réplication - Sélectionner la machine virtuelle](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-5. Ils vérifient que la stratégie de réplication appropriée est sélectionnée et activent la réplication pour la machine virtuelle **WEBVM**. Ils suivent la progression de la réplication dans **Travaux**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
+5. Ils vérifient que la stratégie de réplication appropriée est sélectionnée et activent la réplication pour la machine virtuelle **WEBVM**. Contoso suit la progression de la réplication dans **Travaux**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 6. Dans le portail Azure, dans **Éléments principaux**, ils peuvent voir l’état des machines virtuelles répliquées sur Azure :
 
     ![Vue de l’infrastructure](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
@@ -519,7 +519,7 @@ Les administrateurs de Contoso doivent créer un projet Database Migration Servi
         ![Database Migration Service - Configurer les paramètres de migration](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Ils enregistrent les paramètres de migration, puis exécutent la migration.
-6. Dans **Vue d’ensemble**, ils supervisent l’état de la migration.
+6. Dans **Vue d’ensemble**, ils surveillent l’état de la migration.
 
     ![Database Migration Service - Surveiller](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 

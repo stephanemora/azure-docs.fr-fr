@@ -14,12 +14,12 @@ ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9d22bb288bafb5e9984c357d0bf9139973f5d262
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 53d74e9979b9f82d7a76d21517f2fd62ac95787a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262998"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54387980"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatiser la validation Azure Stack avec PowerShell
 
@@ -92,4 +92,4 @@ Ce didacticiel vous guide dans la création d’un script qui :
 Pour en savoir plus sur PowerShell sur Azure Stack, révisez les derniers modules.
 
 > [!div class="nextstepaction"]
-> [Module Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.5.0)
+> [Module Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

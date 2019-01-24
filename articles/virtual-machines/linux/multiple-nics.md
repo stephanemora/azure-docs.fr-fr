@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: zarhoads
-ms.openlocfilehash: 024cf099dd65db036ae0b68d7094a60427ffa69c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 300391d9a5079eefc90ba06ba819fc6d8a91ca05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119882"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851689"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Guide de création d’une machine virtuelle Linux dans Azure avec plusieurs cartes d’interface réseau
 
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Créer et configurer plusieurs cartes réseau
-Créez deux cartes réseau avec la commande [az network nic create](/cli/azure/network/nic#az_network_nic_create). L’exemple suivant crée deux cartes réseau, nommées *myNic1* et *myNic2*, connectées au groupe de sécurité réseau et avec une carte réseau se connectant à chaque sous-réseau :
+Créez deux cartes réseau avec la commande [az network nic create](/cli/azure/network/nic). L’exemple suivant crée deux cartes réseau, nommées *myNic1* et *myNic2*, connectées au groupe de sécurité réseau et avec une carte réseau se connectant à chaque sous-réseau :
 
 ```azurecli
 az network nic create \
@@ -105,7 +105,7 @@ Ajoutez des tables de routage au SE invité en suivant la procédure décrite da
 ## <a name="add-a-nic-to-a-vm"></a>Ajout d’une carte réseau à une machine virtuelle existante
 Les étapes précédentes ont permis de créer une machine virtuelle avec plusieurs cartes réseau. Vous pouvez également ajouter des cartes réseau à une machine virtuelle existante avec l’interface Azure CLI. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence. Si nécessaire, vous pouvez [redimensionner une machine virtuelle](change-vm-size.md).
 
-Créez une autre carte réseau avec [az network nic create](/cli/azure/network/nic#az_network_nic_create). L’exemple suivant crée une carte réseau nommée *myNic3* connectée au sous-réseau principal et au groupe de sécurité réseau créés lors des étapes précédentes :
+Créez une autre carte réseau avec [az network nic create](/cli/azure/network/nic). L’exemple suivant crée une carte réseau nommée *myNic3* connectée au sous-réseau principal et au groupe de sécurité réseau créés lors des étapes précédentes :
 
 ```azurecli
 az network nic create \
@@ -132,7 +132,7 @@ az vm nic add \
     --nics myNic3
 ```
 
-Démarrez la machine virtuelle avec [az vm start](/cli/azure/vm#az_vm_start) :
+Démarrez la machine virtuelle avec [az vm start](/cli/azure/vm) :
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -156,7 +156,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Démarrez la machine virtuelle avec [az vm start](/cli/azure/vm#az_vm_start) :
+Démarrez la machine virtuelle avec [az vm start](/cli/azure/vm) :
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM

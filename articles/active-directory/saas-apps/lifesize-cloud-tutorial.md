@@ -4,7 +4,7 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 75fab335-fdcd-4066-b42c-cc738fcb6513
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 312d1c8a1fdeb202d137b32a92e275b42c9934ee
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 09c162a905a64c59080486bf6d83127df4f066c2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064268"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808236"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Tutoriel : Intégration d’Azure Active Directory à Lifesize Cloud
+# <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à Lifesize Cloud
 
 Dans ce didacticiel, vous allez apprendre à intégrer Lifesize Cloud à Azure Active Directory (Azure AD).
 L’intégration de Lifesize Cloud dans Azure AD vous offre les avantages suivants :

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 94476486ed87662f3d6b989b8d5360dd792f8824
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: caa877a265fb8665e062cc0069247bca0994c4bf
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041178"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857095"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Incorporer un rapport dans Collections d’espaces de travail Power BI
 
@@ -84,7 +84,7 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 Le service Collections d’espaces de travail BI Power utilise des jetons d’incorporation, qui sont des jetons web JSON signés HMAC. Les jetons sont signés avec la clé d’accès issue de votre collection d’espaces de travail Power BI. Par défaut, les jetons d’incorporation sont utilisés pour fournir un accès en lecture seule à un rapport à incorporer dans une application. Les jetons d’incorporation sont émis pour un rapport donné et doivent être associés à une URL d’incorporation.
 
-Les jetons d’accès doivent être créés sur le serveur, car les clés d’accès sont utilisées pour signer / chiffrer les jetons. Pour plus d’informations sur la façon de créer des jetons d’accès, consultez [Authentification et autorisation avec le service Collections d’espaces de travail Power BI](app-token-flow.md). Vous pouvez également consulter la méthode [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Voici un exemple de ce à quoi cela ressemblerait avec le Kit de développement logiciel (SDK) .NET pour Power BI.
+Les jetons d’accès doivent être créés sur le serveur, car les clés d’accès sont utilisées pour signer / chiffrer les jetons. Pour plus d’informations sur la façon de créer des jetons d’accès, consultez [Authentification et autorisation avec le service Collections d’espaces de travail Power BI](app-token-flow.md). Vous pouvez également consulter la méthode [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN). Voici un exemple de ce à quoi cela ressemblerait avec le Kit de développement logiciel (SDK) .NET pour Power BI.
 
 Vous utilisez l’ID de rapport que vous avez récupéré précédemment. Une fois le jeton d’incorporation créé, vous utiliserez la clé d’accès pour générer le jeton, que vous pourrez utiliser dans une perspective JavaScript. La *classe PowerBIToken* requiert l’installation du [package NuGet Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
@@ -147,7 +147,7 @@ Le rapport sera incorporé automatiquement en fonction de la taille de son conte
 
 [Prise en main de l’exemple](get-started-sample.md)  
 [Authentification et autorisation dans les collections d’espaces de travail Power BI](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Package JavaScript Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 [Package NuGet Power BI API](https://www.nuget.org/profiles/powerbi)

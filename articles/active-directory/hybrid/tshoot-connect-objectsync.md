@@ -4,7 +4,7 @@ description: Cet article explique comment résoudre les problèmes de synchronis
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfd963ae38d42d245f2eec1ddb76c7af316039ba
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ed13014dd5ad559ed3793ff52ae410be9174ae2b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961125"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461312"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation d’objets avec la synchronisation Azure AD Connect
 Cet article explique les étapes de résolution des problèmes de synchronisation d’objets à l’aide de la tâche de résolution des problèmes. Pour voir le fonctionnement de la résolution des problèmes dans Azure Active Directory (Azure AD) Connect, regardez [cette courte vidéo](https://aka.ms/AADCTSVideo).

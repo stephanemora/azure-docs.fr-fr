@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec UltiPro | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec UltiPro | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et UltiPro.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: afc0f2b9-2eac-47ec-af04-65ed0fb0ca5a
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 5ad89a8d5a0e9329e9951b7a8f7145a24910277e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1cefc69ee3fa997a5f8a924a6ed443a8d300ba0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970557"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808100"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Tutoriel : Intégration d’Azure Active Directory à UltiPro
+# <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Tutoriel : Intégration d’Azure Active Directory à UltiPro
 
 Dans ce didacticiel, vous allez apprendre à intégrer UltiPro à Azure Active Directory (Azure AD).
 L’intégration d’UltiPro à Azure AD vous offre les avantages suivants :

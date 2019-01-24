@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Ariba | Microsoft Docs'
+title: 'Tutoriel : intégration d’Azure Active Directory à Ariba | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Ariba.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 81c66e73698f210c9ef364a8b328642f78e3012b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1326dbfc4257f0b6634976ca76a0667c908f951f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973976"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Didacticiel : intégration d’Azure Active Directory à Ariba
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec Ariba, procédez comm
     | `https://<subdomain>.sourcing.ariba.com` |
     | `https://<subdomain>.supplier.ariba.com` |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL en utilisant le modèle suivant : `http://<subdomain>.procurement-2.ariba.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `http://<subdomain>.procurement-2.ariba.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Nous vous suggérons d’utiliser ici la valeur de chaîne unique dans l’identificateur. Pour obtenir ces valeurs, contactez l’équipe du support technique d’Ariba au **1-866-218-2155**. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

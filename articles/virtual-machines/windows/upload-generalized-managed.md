@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 22e28e208d46a23a2dd7e36e1c3ba4be13be928a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1a5b9f7abbb17aeefa3647e965c63c1f6dc4b0a7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091946"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429257"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure
 
@@ -32,7 +32,7 @@ Pour un exemple de script, consultez [Exemple de script pour charger un disque d
 
 - Avant de télécharger un disque dur virtuel dans Azure, vous devez apprendre à [préparer un disque dur virtuel Windows à charger sur Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Consultez [Planification de la migration vers Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) avant de démarrer la migration vers [Managed Disks](managed-disks-overview.md).
-- Cet article nécessite le module AzureRM 5.6 ou version ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM.Compute` pour rechercher votre version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- Cet article nécessite le module AzureRM 5.6 ou version ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM.Compute` pour rechercher votre version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Généraliser la machine virtuelle source en utilisant Sysprep
@@ -100,7 +100,7 @@ Selon votre connexion réseau et la taille de votre fichier de disque dur virtue
  
 Vous pouvez également télécharger un disque dur virtuel sur votre compte de stockage en utilisant l’un des moyens suivants :
 
-- [AZCopy](http://aka.ms/downloadazcopy)
+- [AZCopy](https://aka.ms/downloadazcopy)
 - [API de copie d’un objet blob de stockage Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Téléchargement d’objets blob dans Storage Explorer](https://azurestorageexplorer.codeplex.com/)
 - [Référence sur l’API REST du service Import/Export Storage](https://msdn.microsoft.com/library/dn529096.aspx)
@@ -114,7 +114,7 @@ Vous pouvez également télécharger un disque dur virtuel sur votre compte de s
 
 
 
-## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Créer une image managée à partir du disque dur virtuel chargé 
+## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Créer une image gérée à partir du disque dur virtuel téléchargé 
 
 Créez une image managée à partir de votre disque dur virtuel de système d’exploitation généralisé. Remplacez les valeurs suivantes par vos propres informations.
 
@@ -126,7 +126,7 @@ $location = "East US"
 $imageName = "myImage"
 ```
 
-Créez l’image à l’aide de votre disque dur virtuel de système d’exploitation généralisé.
+Créez l’image à l’aide de votre disque dur virtuel généralisé de système d’exploitation.
 
 ```powershell
 $imageConfig = New-AzureRmImageConfig `

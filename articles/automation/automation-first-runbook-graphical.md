@@ -4,18 +4,18 @@ description: Ce didacticiel vous familiarise avec la création, le test et la pu
 keywords: runbook, modèle de runbook, automatisation des runbooks, runbook azure
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6a9e6bbf3bc507a4d45af03c791104c9490cd36f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195894"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426791"
 ---
 # <a name="my-first-graphical-runbook"></a>Mon premier Runbook graphique
 
@@ -29,7 +29,6 @@ ms.locfileid: "34195894"
 Ce didacticiel vous familiarise avec la création d’un [Runbook graphique](automation-runbook-types.md#graphical-runbooks) dans Azure Automation. Vous commencez avec un simple runbook qui teste et publie tout en expliquant comment suivre l’état du travail du runbook. Vous modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, vous terminez ce didacticiel en renforçant le runbook grâce à l’ajout des paramètres de runbook et des liens conditionnels.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -230,4 +229,5 @@ Vous modifiez maintenant le runbook afin qu’il tente de démarrer la machine v
 * Pour en savoir plus sur la création graphique, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 * Pour une prise en main des Runbooks PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-powershell.md)
 * Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md)
+
 

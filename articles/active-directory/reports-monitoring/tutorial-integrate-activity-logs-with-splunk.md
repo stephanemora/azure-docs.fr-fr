@@ -4,7 +4,7 @@ description: Découvrez comment intégrer des journaux Azure Active Directory av
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c4b605b6-6fc0-40dc-bd49-101d03f34665
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e45b175b97b7f395199dbc4521054fa69a4bb4a7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d12d220b7c648fed8fd2f0229b57a29fc775ff5e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623776"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809868"
 ---
 # <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor-preview"></a>Intégrer des journaux Azure AD avec Splunk à l’aide d’Azure Monitor (préversion)
 

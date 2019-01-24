@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 53bb09824a88980a171fa4067a9efd2fc067a898
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: da4fda3d0cfa6cb33d2dd8bb3bb844f18654c30a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992164"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851893"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(DÉPRÉCIÉ) Configurer un principal de service Azure Active Directory pour un cluster Kubernetes dans Container Service
 
@@ -149,7 +149,7 @@ Sortie (tronquée ici) :
 ...
 ```
 
-Si les informations d’identification de votre principal de service ont expiré, utilisez la commande [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) pour mettre à jour les informations d’identification :
+Si les informations d’identification de votre principal de service ont expiré, utilisez la commande [az ad sp reset-credentials](/cli/azure/ad/sp) pour mettre à jour les informations d’identification :
 
 ```azurecli
 az ad sp reset-credentials --name <appId>

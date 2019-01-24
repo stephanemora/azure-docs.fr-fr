@@ -4,7 +4,7 @@ description: Découvrez comment contrôler la jonction Azure AD Hybride de vos a
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: a2ae1d3f4166bfaa035902aaa5dc101636a98646
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fd6da7e0c350ef7da02b885973f1386edc7cbc48
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117535"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451423"
 ---
-# <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Contrôler la jonction d’Azure AD hybride de vos appareils
+# <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Contrôler la jointure d’Azure AD hybride de vos appareils
 
 La jonction Azure AD Hybride (Azure AD) est un processus qui consiste à inscrire automatiquement auprès d’Azure AD des appareils joints au domaine local. Vous pouvez parfois souhaiter ne pas inscrire tous vos appareils automatiquement. C’est le cas, par exemple, lors du déploiement initial, afin de vérifier que tout fonctionne conformément à ce qui est attendu.
 

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: 047b173339e2b3c0715d7843f581c1df231d6030
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: alerts
+ms.openlocfilehash: 43e842d6325897f484d9dff342505cace6640e78
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230932"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472280"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor  
 
@@ -247,4 +247,5 @@ Une fois l’opération réussie, le code 201 est retourné pour signaler la cr�
 * Comprendre les [actions Webhook pour les alertes de journal](../../azure-monitor/platform/alerts-log-webhook.md)
 * En savoir plus sur [Application Insights](../../azure-monitor/app/analytics.md)
 * En savoir plus sur [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+
 

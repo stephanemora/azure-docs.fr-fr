@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à YouEarnedIt | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à YouEarnedIt | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et YouEarnedIt.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: Azure-Active-Directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: fd65d6a5d210b4b0549236ec39844e36480b10c9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5b3746a1e29f436c277fd238e13fd46010941824
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790256"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825987"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutoriel : Intégration d’Azure Active Directory à YouEarnedIt
+# <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutoriel : Intégration d’Azure Active Directory à YouEarnedIt
 
 Dans ce didacticiel, vous allez apprendre à intégrer YouEarnedIt à Azure AD (Azure Active Directory).
 L’intégration d’YouEarnedIt à Azure AD vous offre les avantages suivants :
@@ -78,8 +78,8 @@ Pour configurer et tester l’authentification unique Azure AD avec YouEarnedIt
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique YouEarnedIt](#configure-youearnedit-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Créer un utilisateur de test YouEarnedIt](#create-youearnedit-test-user)** pour disposer, dans YouEarnedIt, d’un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
-5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test YouEarnedIt](#create-youearnedit-test-user)** pour disposer, dans YouEarnedIt, d’un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -104,22 +104,24 @@ Pour configurer l’authentification unique Azure AD avec YouEarnedIt, effectue
 
     ![Informations d’authentification unique dans Domaine et URL YouEarnedIt](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : 
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+
     | Environnement  | Modèle  |
     |:--- |:--- |
     | Production | `https://<company name>.youearnedit.com/users/sign_in` |
     | Bac à sable  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
+
     | Environnement  | Modèle  |
     |:--- |:--- |
     | Production | `<company name>.youearnedit.com` |
     | Bac à sable  |`<company name>.sandbox.youearnedit.com` |
 
-    > [!NOTE] 
+    > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez le responsable de la réussite des clients YouEarnedIt qui vous a été attribué pour obtenir ces valeurs.
 
-4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
@@ -192,11 +194,10 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans YouEarnedIt. Collaborez avec le responsable de la réussite des clients YouEarnedIt qui vous a été attribué pour ajouter des utilisateurs à la plateforme YouEarnedIt.
 
->[!NOTE]
->YouEarnedIt attend du fournisseur d'identité qu’il fournisse une valeur de nom d’utilisateur ou d’adresse e-mail dans l’attribut NameID. L’authentification échoue si aucune valeur de nom d’utilisateur ou d’adresse e-mail n’est trouvée dans la base de données ou ne correspond exactement. Cette opération nécessite l’importation des comptes dans le système de YouEarnedIt avant l’intégration de l’authentification unique (en général, via l’importation CSV ou API).
+> [!NOTE]
+> YouEarnedIt attend du fournisseur d'identité qu’il fournisse une valeur de nom d’utilisateur ou d’adresse e-mail dans l’attribut NameID. L’authentification échoue si aucune valeur de nom d’utilisateur ou d’adresse e-mail n’est trouvée dans la base de données ou ne correspond exactement. Cette opération nécessite l’importation des comptes dans le système de YouEarnedIt avant l’intégration de l’authentification unique (en général, via l’importation CSV ou API).
 
-
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -209,4 +210,3 @@ Le fait de cliquer sur la vignette YouEarnedIt dans le panneau d’accès doit v
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -3,18 +3,18 @@ title: Cibler des mises à jour en utilisant des collections SCCM dans Azure Aut
 description: Cet article vise à vous aider à configurer System Center Configuration Manager avec cette solution pour gérer les mises à jour des ordinateurs gérés SCCM.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f3ab50c4fdc080b157212bcc662a2acf6629483d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c3b595e9c4d4b98814d1b68adede97204bf3eb96
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097962"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422726"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Intégrer System Center Configuration Manager à Update Management
 
@@ -51,3 +51,4 @@ Pour gérer les mises à jour de machines virtuelles Windows Server qui sont des
 Après avoir apporté cette modification à la configuration, vous créez un déploiement en suivant les étapes décrites dans [Création d’un déploiement de mises à jour](automation-tutorial-update-management.md#schedule-an-update-deployment), puis vous sélectionnez **Groupes importés** dans la liste déroulante **Type** pour sélectionner le regroupement Configuration Manager approprié.
 
 ## <a name="next-steps"></a>Étapes suivantes
+

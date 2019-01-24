@@ -4,7 +4,7 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f57c5fef-49b0-4591-91ef-fc0de6d654ab
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 40d5905764dbf139db28cd1c113d06981be8205d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7f2276cfb6019c15b28eeab92ecf63c788858b7f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972326"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825593"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Didacticiel : Intégration d’Azure Active Directory à Cornerstone OnDemand
+# <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Tutoriel : Intégration d’Azure Active Directory à Cornerstone OnDemand
 
 Dans ce didacticiel, vous allez découvrir comment intégrer Cornerstone OnDemand à Azure Active Directory (Azure AD).
 L’intégration de Cornerstone OnDemand à Azure AD vous offre les avantages suivants :
@@ -105,9 +105,9 @@ Pour configurer l’authentification unique Azure AD avec Cornerstone OnDemand, 
 
     ![Informations d’authentification unique dans Domaine et URL Cornerstone onDemand](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant le modèle suivant : `https://<company>.csod.com`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<company>.csod.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL en utilisant le modèle suivant : `https://<company>.csod.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<company>.csod.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support client Cornerstone OnDemand](mailto:moreinfo@csod.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

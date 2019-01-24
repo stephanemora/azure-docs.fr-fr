@@ -2,7 +2,7 @@
 title: Intégrer des applications locales avec Cloud App Security - Azure Active Directory | Microsoft Docs
 description: Configurez une application locale dans Azure Active Directory pour utiliser Microsoft Cloud App Security (MCAS). Utilisez le contrôle d’application par accès conditionnel pour surveiller et contrôler les sessions en temps réel en fonction des stratégies d’accès conditionnel. Vous pouvez appliquer ces stratégies aux applications locales qui utilisent le proxy d’application dans Azure Active Directory (Azure AD).
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: e5e83d928893c2937df8be55d72bb22869891492
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215097"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472481"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configurer la supervision de l’accès aux applications en temps réel avec Microsoft Cloud App Security et Azure Active Directory
 Configurez une application locale dans Azure Active Directory (Azure AD) pour utiliser Microsoft Cloud App Security (MCAS) pour la supervision en temps réel. MCAS utilise le contrôle d’application par accès conditionnel pour surveiller et contrôler les sessions en temps réel en fonction des stratégies d’accès conditionnel. Vous pouvez appliquer ces stratégies aux applications locales qui utilisent le proxy d’application dans Azure Active Directory (Azure AD).
@@ -64,7 +64,7 @@ Pour configurer votre application avec le contrôle d’application à accès co
 
 ## <a name="test-conditional-access-app-control"></a>Tester le contrôle d’application par accès conditionnel
 
-Pour tester le déploiement des applications Azure AD avec le contrôle d’application à accès conditionnel, suivez les instructions de la section [Tester le déploiement d’applications Azure AD](/cloud-app-security/proxy-deployment-aad#test-the-deployment).
+Pour tester le déploiement des applications Azure AD avec le contrôle d’application à accès conditionnel, suivez les instructions de la section [Tester le déploiement d’applications Azure AD](/cloud-app-security/proxy-deployment-aad).
 
 
 

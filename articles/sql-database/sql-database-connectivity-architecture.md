@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 38b7c478e3b90347086c2dd005630d239db7fd89
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/17/2019
+ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038209"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388339"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -129,7 +129,7 @@ Pour modifier la stratégie de connexion Azure SQL Database pour un serveur Azur
 ## <a name="script-to-change-connection-settings-via-powershell"></a>Script permettant de modifier les paramètres de connexion via PowerShell
 
 > [!IMPORTANT]
-> Ce script nécessite le [module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+> Ce script nécessite le [module Azure PowerShell](/powershell/azure/install-az-ps).
 
 Le script PowerShell suivant montre comment modifier la stratégie de connexion.
 

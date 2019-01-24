@@ -3,19 +3,19 @@ title: Comment lier un abonnement Azure à Azure Active Directory B2C | Microsof
 description: Guide détaillé pour activer la facturation pour un client Azure AD B2C dans un abonnement Azure.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1486e303e4e94ee6140bcd6ed4f52bc433b9aae6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100053"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853185"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Liaison d’un abonnement Azure à un locataire Azure AD B2C
 

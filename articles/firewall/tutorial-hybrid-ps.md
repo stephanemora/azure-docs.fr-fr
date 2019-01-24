@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: fc02f754682046ead3f546fc1253e1c9ac0a63b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 511fb425c6b31d204c88094ec5b1a49316495a0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261466"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431518"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
@@ -45,7 +45,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour ce tutoriel, vous devez exécuter PowerShell localement. Le module Azure PowerShell 6.12.0 ou version ultérieure doit être installé. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
+Pour ce tutoriel, vous devez exécuter PowerShell localement. Le module Azure PowerShell 6.12.0 ou version ultérieure doit être installé. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
 
 Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 

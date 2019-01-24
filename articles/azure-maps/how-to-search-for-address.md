@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387427"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413547"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Rechercher une adresse à l’aide du service Azure Maps Search
 
@@ -158,7 +158,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
     |-----|------------|
     | number | true |
 
-    Si la requête comporte le paramètre [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la réponse peut inclure le côté de la rue (gauche/droite) et également une position de décalage par rapport à ce numéro.
+    Si la requête comporte le paramètre [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), la réponse peut inclure le côté de la rue (gauche/droite) et également une position de décalage par rapport à ce numéro.
   
 6. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
 
@@ -166,7 +166,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
     |-----|------------|
     | returnSpeedLimit | true |
   
-    Si le paramètre de requête [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse retourne la vitesse maximale autorisée.
+    Si le paramètre de requête [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) est défini, la réponse retourne la vitesse maximale autorisée.
 
 7. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
 
@@ -174,7 +174,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
     |-----|------------|
     | returnRoadUse | true |
 
-    Si le paramètre de requête [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse retourne le tableau de l’état du trafic routier des géocodes inverses au niveau des rues.
+    Si le paramètre de requête [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) est défini, la réponse retourne le tableau de l’état du trafic routier des géocodes inverses au niveau des rues.
 
 8. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
 
@@ -182,7 +182,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
     |-----|------------|
     | roadUse | true |
 
-    Vous pouvez limiter la requête de géocode inverse à un type spécifique de trafic routier à l’aide du paramètre de requête [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
+    Vous pouvez limiter la requête de géocode inverse à un type spécifique de trafic routier à l’aide du paramètre de requête [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse).
   
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Rechercher une intersection à l’aide d’une recherche d’intersection d’adresse inverse
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Samanage | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Samanage | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Samanage.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f0db4fb0-7eec-48c2-9c7a-beab1ab49bc2
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 6f48d5b3adc59165a965a64966a6ff2cdc099d93
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 55a666d03d49d298622c2936a99ccd30326c03bf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065360"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816498"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutoriel : Intégration d’Azure Active Directory à Samanage
+# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Didacticiel : Intégration d’Azure Active Directory à Samanage
 
 Dans ce didacticiel, vous allez apprendre à intégrer Samanage avec Azure Active Directory (Azure AD).
 L’intégration de Samanage à Azure AD vous offre les avantages suivants :

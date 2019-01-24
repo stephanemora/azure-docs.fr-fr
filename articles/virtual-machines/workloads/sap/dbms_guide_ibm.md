@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/11/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 945dcf5776867a9b892a879569a4b58890cb1975
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2c496f78650be6fc19197c82dc9534fbd256ac45
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075502"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422590"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement SGBD de machines virtuelles IBM DB2 Azure pour charge de travail SAP
 
@@ -235,7 +235,7 @@ ms.locfileid: "39075502"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -321,16 +321,16 @@ Les notes SAP suivantes sont en lien avec SAP sur Azure quant au domaine traité
 
 | Numéro de la note | Intitulé |
 | --- | --- |
-| [1928533] |Applications SAP sur Azure : produits et types de machines virtuelles pris en charge |
-| [2015553] |SAP sur Microsoft Azure : configuration requise |
+| [1928533] |Applications SAP sur Azure : produits et types de machines virtuelles Azure pris en charge |
+| [2015553] |SAP sur Microsoft Azure : prérequis pour le support |
 | [1999351] |Résolution des problèmes de surveillance Azure améliorée pour SAP |
 | [2178632] |Métriques de surveillance clés pour SAP sur Microsoft Azure |
-| [1409604] |Virtualisation sur Windows : surveillance améliorée |
-| [2191498] |SAP sur Linux avec Azure : surveillance améliorée |
-| [2233094] |DB6 : Exécution d’applications SAP sur Azure à l’aide d’IBM DB2 pour Linux, UNIX et Windows - Informations supplémentaires |
-| [2243692] |Linux sur Microsoft Azure Virtual Machines (IaaS) : problèmes de licence SAP |
-| [1984787] |SUSE LINUX Enterprise Server 12 : Notes d’installation |
-| [2002167] |Red Hat Enterprise Linux 7.x : Installation et mise à niveau |
+| [1409604] |Virtualisation sur Windows : supervision améliorée |
+| [2191498] |SAP sur Linux avec Azure : supervision améliorée |
+| [2233094] |DB6 : exécution d’applications SAP sur Azure à l’aide d’IBM DB2 pour Linux, UNIX et Windows - Informations supplémentaires |
+| [2243692] |Linux sur machine virtuelle Microsoft Azure (IaaS) : problèmes de licence SAP |
+| [1984787] |SUSE LINUX Enterprise Server 12 Notes d'installation |
+| [2002167] |Red Hat Enterprise Linux 7.x : installation et mise à niveau |
 | [1597355] |Recommandations relatives à l’espace d’échange pour Linux |
 
 Condition préalable à ce document, vous devez avoir lu le document [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) et d’autres guides de la [documentation sur la charge de travail SAP sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 

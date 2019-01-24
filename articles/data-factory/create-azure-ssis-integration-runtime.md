@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b772aa314316906a4079e3d6b8b4e0aeb0f54fba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022986"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434238"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Créer un Azure-SSIS Integration Runtime dans Azure Data Factory
 Cet article explique pas à pas comment provisionner Azure-SSIS Integration Runtime (IR) dans Azure Data Factory (ADF). Vous pouvez ensuite utiliser SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer et exécuter des packages SQL Server Integration Services (SSIS) sur ce runtime d’intégration dans Azure. 
@@ -50,7 +50,7 @@ Quand vous provisionnez Azure-SSIS IR, les composants Azure Feature Pack pour SS
     - Vous hébergez SSISDB dans Azure SQL Database avec des points de terminaison de service de réseau virtuel ou Managed Instance à l’intérieur d’un réseau virtuel. 
     - Vous souhaitez vous connecter à des banques de données locales à partir de packages SSIS en cours d’exécution sur votre Azure-SSIS IR. 
 
-- **Azure PowerShell**. Suivez les instructions de la rubrique [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps) si vous souhaitez exécuter un script PowerShell pour provisionner Azure-SSIS IR. 
+- **Azure PowerShell**. Suivez les instructions de la rubrique [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) si vous souhaitez exécuter un script PowerShell pour provisionner Azure-SSIS IR. 
 
 ### <a name="region-support"></a>Prise en charge de la région
 Pour obtenir la liste des régions Azure dans lesquelles ADF et Azure-SSIS IR sont actuellement disponibles, consultez [Disponibilité d’Azure Data Factory et de SSIS IR par région](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 

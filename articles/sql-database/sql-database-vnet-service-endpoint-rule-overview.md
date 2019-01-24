@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 1/16/2019
-ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/17/2019
+ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359848"
+ms.locfileid: "54390392"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Utiliser des règles et des points de terminaison de service de réseau virtuel pour Azure SQL Database
 
@@ -173,7 +173,7 @@ Stockage Azure a implémenté la même fonctionnalité qui vous permet de limite
 La technologie PolyBase est couramment utilisée pour charger des données dans Azure SQL Data Warehouse à partir de comptes Stockage Azure. Si le compte Stockage Azure à partir duquel vous chargez des données limite l’accès à un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue. Pour autoriser les scénarios d’importation et d’exportation PolyBase dans lesquels Azure SQL Data Warehouse se connecte de manière sécurisée à Stockage Azure au réseau virtuel, suivez les étapes indiquées ci-dessous :
 
 #### <a name="prerequisites"></a>Prérequis
-1.  Installez Azure PowerShell en vous aidant de ce [guide](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+1.  Installez Azure PowerShell en vous aidant de ce [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez commencer par le mettre à niveau avec un compte v2 universel en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Vous devez avoir activé **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** sous le menu de paramètres **Pare-feux et réseaux virtuels** du compte Stockage Azure. Pour plus d’informations, consultez ce [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
  

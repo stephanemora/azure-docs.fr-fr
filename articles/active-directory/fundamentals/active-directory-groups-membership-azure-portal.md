@@ -3,7 +3,7 @@ title: Ajouter ou supprimer un groupe dans un autre groupe - Azure Active Direct
 description: Instructions pour ajouter ou supprimer un groupe dans un autre groupe à l’aide d’Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: c13be8cbe9c05b9dcf513588825a22722c66e529
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 8decffd25f8c29e6430b30d1bb634ac9add63cbb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54061893"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450437"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Ajouter ou supprimer un groupe dans un autre groupe à l’aide d’Azure Active Directory
 Cet article vous aide à ajouter et supprimer un groupe d’un autre groupe à l’aide d’Azure Active Directory.

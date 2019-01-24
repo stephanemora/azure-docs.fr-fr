@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 11b6766533da65f55430d55bd8aa0b7067783e0c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b1077eefbe57b6440caa0171fb7429485eeeb78e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267468"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469183"
 ---
-# <a name="how-to-close-active-risk-events"></a>Fermeture des événements à risque actifs
+# <a name="how-to-close-active-risk-events"></a>Procédure : Fermer les événements à risque actifs
 
 Grâce aux [événements à risque](../reports-monitoring/concept-risk-events.md), Azure Active Directory détecte les indicateurs de comptes d’utilisateurs potentiellement compromis. En tant qu’administrateur, vous souhaitez fermer tous les événements à risque afin que les utilisateurs affectés ne soient plus exposés.
 

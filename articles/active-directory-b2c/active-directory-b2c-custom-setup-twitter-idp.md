@@ -3,19 +3,19 @@ title: Configurer la connexion avec un compte Twitter à l’aide de stratégies
 description: Configurez la connexion avec un compte Twitter à l’aide de stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 75d26387c8a9db1fa9acdc9d6b71bde63453c22d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: e1b99b405bd11c01f986162ecbf499d9fa4cf110
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887343"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851026"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Twitter à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -41,22 +41,22 @@ Pour utiliser Twitter comme fournisseur d’identité dans Azure AD B2C, vous de
 7. Dans la page **Détails de l’application**, sélectionnez **Modifier > Modifier les détails**, cochez la case **Activer la connexion avec Twitter**, puis sélectionnez **Enregistrer**.
 8. Sélectionnez **Clés et jetons** et prenez note des valeurs **Clé API de consommateur** et **Clé secrète API de consommateur** à utiliser ultérieurement.
 
-## <a name="create-a-policy-key"></a>Créer une clé de stratégie
+## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 
 Vous devez stocker la clé secrète que vous avez enregistré dans votre locataire Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité - PRÉVERSION**.
 5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 6. Pour **Options**, choisissez `Manual`.
 7. Entrez un **nom** pour la clé de stratégie. Par exemple : `TwitterSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
-8. Dans **Secret**, entrez le secret client que vous avez enregistré.
+8. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
 9. Pour **Utilisation de la clé**, sélectionnez `Encryption`.
 10. Cliquez sur **Créer**.
 
-## <a name="add-a-claims-provider"></a>Ajouter un fournisseur de revendications
+## <a name="add-a-claims-provider"></a>Ajout d’un fournisseur de revendications
 
 Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Twitter, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié. 
 
@@ -116,7 +116,7 @@ Vous pouvez définir un compte Twitter en tant que fournisseur de revendications
 2. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
 3. Cliquez sur **Télécharger**.
 
-## <a name="register-the-claims-provider"></a>Inscrire le fournisseur de revendications
+## <a name="register-the-claims-provider"></a>Inscription du fournisseur de revendications
 
 À ce stade, le fournisseur d’identité a été configuré, mais il n’est disponible dans aucun des écrans d’inscription ou de connexion. Pour changer cela, vous pouvez créer un doublon d’un modèle de parcours utilisateur et le modifier afin qu’il dispose également du fournisseur d’identité Twitter.
 
@@ -131,7 +131,7 @@ Vous pouvez définir un compte Twitter en tant que fournisseur de revendications
 L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisseur d’identité sur un écran d’inscription ou de connexion. Si vous ajoutez un élément **ClaimsProviderSelection** pour un compte Twitter, un nouveau bouton s’affiche quand un utilisateur arrive sur la page.
 
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé.
-2. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `TwitterExchange` :
+2. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `TwitterExchange` :
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="TwitterExchange" />
@@ -152,13 +152,13 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. I
 
 3. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
 
-## <a name="create-an-azure-ad-b2c-application"></a>Créer une application Azure AD B2C
+## <a name="create-an-azure-ad-b2c-application"></a>Création d’une application Azure AD B2C
 
 La communication avec Azure AD B2C s’effectue via une application que vous créez dans votre locataire. Cette section indique les étapes facultatives que vous pouvez effectuer pour créer une application de test si vous ne l’avez pas déjà fait.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application (par exemple, *testapp1*).
 6. Pour **Application/API web**, sélectionnez `Yes`, puis entrez `https://jwt.ms` pour l’**URL de réponse**.

@@ -3,7 +3,7 @@ title: S’inscrire aux éditions Premium - Azure Active Directory| Microsoft Do
 description: Instructions permettant de s’inscrire aux éditions Azure Active Directory Premium.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: fd5f9567c92201b4dfa08c74574df97fa8c91ae2
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 9a2c7ddc97bacf05cfcab14bffddb18e95c43d68
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065560"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446440"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>S’inscrire aux éditions Azure Active Directory Premium
 Vous pouvez acheter des éditions Azure Active Directory (Azure AD) Premium et les associer à votre abonnement Azure. Si vous devez créer un nouvel abonnement Azure, vous devez aussi activer votre offre de licences et l’accès au service Azure AD.

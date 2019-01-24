@@ -1,10 +1,10 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory dans Atlassian Cloud | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory dans Atlassian Cloud | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Atlassian Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 517c92336b8c5c6827717d4c2287c41eaaa14b55
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 55c1aa4a478031ebc49ec5ab7ea5744d9d980470
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810525"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825753"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Didacticiel : Intégration d’Azure Active Directory dans Atlassian Cloud
+# <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Tutoriel : Intégration d’Azure Active Directory dans Atlassian Cloud
 
 Dans ce didacticiel, vous allez apprendre à intégrer Atlassian Cloud à Azure Active Directory (Azure AD).
 L’intégration d’Atlassian Cloud dans Azure AD vous offre les avantages suivants :
@@ -132,7 +132,7 @@ Pour configurer l’authentification unique Azure AD avec Atlassian Cloud, proc�
 
 7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, procédez comme suit :
 
-    a. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
+    a. Cliquez sur l’**icône Modifier** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
     ![image](./media/atlassian-cloud-tutorial/tutorial_usermail.png)
 

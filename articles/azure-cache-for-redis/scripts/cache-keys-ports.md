@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 0c6f7b637e56d2bf39d8f03122ccb28bd7b1c773
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f9a963ec81b78cfcc6ded7d8f35f4066f931e53e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096743"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847314"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Obtenir le nom d’hôte, les ports et les clés pour le cache Azure pour Redis
 
@@ -39,7 +39,7 @@ Ce script utilise les commandes suivantes pour récupérer le nom d’hôte, les
 
 | Commande | Notes |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Récupérez les détails d’une instance du cache Azure pour Redis. |
+| [az redis show](https://docs.microsoft.com/cli/azure/redis) | Récupérez les détails d’une instance du cache Azure pour Redis. |
 | [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Récupérez les clés d’accès pour une instance du cache Azure pour Redis. |
 
 
@@ -47,4 +47,4 @@ Ce script utilise les commandes suivantes pour récupérer le nom d’hôte, les
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
 
-Des exemples supplémentaires de scripts CLI de cache Azure pour Redis sont disponibles dans la [documentation du cache Azure pour Redis](../cli-samples.md).
+Des exemples supplémentaires de scripts CLI de Cache Azure pour Redis sont disponibles dans la [documentation du Cache Azure pour Redis](../cli-samples.md).

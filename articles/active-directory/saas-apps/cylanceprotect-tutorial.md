@@ -1,10 +1,10 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à CylancePROTECT | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à CylancePROTECT | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et CylancePROTECT.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ea392d8c-c8aa-4475-99d0-b08524ef0f3a
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a9d5fb7d9ec150113a45b628b2b98c34146b8ab
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: ef66726fd065af67ea87d84e0e543a7d736af443
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063520"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818351"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Tutoriel : Intégration d’Azure Active Directory à CylancePROTECT
+# <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Didacticiel : Intégration d’Azure Active Directory à CylancePROTECT
 
 Dans ce didacticiel, vous allez apprendre à intégrer CylancePROTECT à Azure Active Directory (Azure AD).
 L’intégration de CylancePROTECT à Azure AD vous offre les avantages suivants :

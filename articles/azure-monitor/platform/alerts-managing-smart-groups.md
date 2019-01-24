@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: a76b82764b926a228dcb544e272e280789ca7356
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: a9434bebe82687b14f45b3c375572717d71d0e55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345133"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430617"
 ---
 # <a name="manage-smart-groups"></a>Gérer les groupes intelligents
 Les [groupes intelligents](https://aka.ms/smart-groups) utilisent des algorithmes d’apprentissage automatique afin de regrouper des alertes en fonction de leur similarité ou de leur concomitance. L’utilisateur peut désormais gérer des groupes intelligents au lieu de gérer chaque alerte individuellement. Grâce à cet article, découvrez comment accéder aux groupes intelligents et les utiliser dans Azure Monitor.
@@ -26,4 +26,5 @@ Les [groupes intelligents](https://aka.ms/smart-groups) utilisent des algorithme
 ![Surveillance](./media/alerts-managing-smart-groups/sg-list.jpg)
 3.  Cliquez sur un groupe intelligent pour ouvrir la page des détails comportant le motif du regroupement ainsi que les alertes de membre. Cette agrégation vous permet de traiter un seul groupe intelligent, au lieu d’examiner individuellement différentes alertes.   
 ![Surveillance](./media/alerts-managing-smart-groups/sg-details.jpg)
+
 

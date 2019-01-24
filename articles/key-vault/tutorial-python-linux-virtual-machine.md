@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 8c816d17807432d75b6102190fc37d25a525d7cf
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1e364003093d5e37a75830386cafe855b0bdcad2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244169"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467399"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-virtual-machine-in-python"></a>Tutoriel : utiliser Azure Key Vault avec une machine virtuelle Azure dans Python
+# <a name="tutorial-use-azure-key-vault-with-an-azure-virtual-machine-in-python"></a>Didacticiel : utiliser Azure Key Vault avec une machine virtuelle Azure dans Python
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données nécessaires pour accéder à vos applications, services et ressources informatiques.
 
@@ -101,7 +101,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create).
+Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm).
 
 L’exemple suivant crée une machine virtuelle nommée *myVM* et ajoute un compte d’utilisateur nommé *azureuser*. Le paramètre `--generate-ssh-keys` génère automatiquement une clé SSH qu’il place dans l’emplacement de clé par défaut (*~/.ssh*). Pour utiliser un ensemble spécifique de clés à la place, utilisez l’option `--ssh-key-value`.
 

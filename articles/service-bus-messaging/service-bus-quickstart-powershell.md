@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 36f1b39ca4cef33a8cfcdb295b5c4d59e1128a0c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259663"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426843"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser Azure PowerShell pour créer une file d’attente Service Bus
 Microsoft Azure Service Bus est un courtier de messages d’intégration d’entreprise qui offre des services de messagerie sécurisée et une fiabilité absolue. Un scénario classique Service Bus implique généralement le découplage de deux ou plusieurs applications, services ou processus, et le transfert des modifications de données ou d’état. Ces scénarios peuvent impliquer la planification de plusieurs traitements par lots dans d’autres applications ou services, ou le déclenchement du traitement des commandes. Par exemple, une société de vente au détail peut envoyer ses données de point de vente à un back-office ou un centre de distribution régional pour des mises à jour de l’inventaire et un réapprovisionnement. Dans ce scénario, l’application cliente envoie et reçoit des messages depuis une file d’attente Service Bus.
@@ -263,4 +263,4 @@ Dans cet article, vous avez créé un espace de noms Service Bus et d’autres r
 > [Mettre à jour l’inventaire à l’aide d’Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Installation et configuration d’Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Installation et configuration d’Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

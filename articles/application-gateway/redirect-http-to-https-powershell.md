@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: 3ffee01a1ea122674348259eda51d46c7d6762e2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0028f183276eb93b5c71330ec650eaf178523bdd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054843"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428918"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide d’Azure PowerShell
 
@@ -33,7 +33,7 @@ Dans cet article, vous apprendrez comment :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Pour exécuter les commandes de ce didacticiel, vous devez également exécuter `Login-AzureRmAccount` pour créer une connexion avec Azure.
+Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Pour exécuter les commandes de ce didacticiel, vous devez également exécuter `Login-AzureRmAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 

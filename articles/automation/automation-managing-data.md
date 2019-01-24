@@ -3,18 +3,18 @@ title: Gestion des données Azure Automation
 description: Cet article contient plusieurs rubriques concernant la gestion d’un environnement Azure Automation.  Il inclut actuellement Conservation des données, Sauvegarde Azure Automation et Récupération d'urgence dans Azure Automation.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 05da900e9ddf4cbb99df5c6d62ddb569059e2c4b
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42139840"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428475"
 ---
 # <a name="managing-azure-automation-data"></a>Gestion des données Azure Automation
 Cet article contient plusieurs rubriques concernant la gestion d’un environnement Azure Automation.
@@ -76,4 +76,5 @@ Le tableau suivant montre les paires de régions primaires et secondaires dispon
 | Japon Est |Japon Ouest |
 
 Dans l’éventualité peu probable que les données d’une région primaire soient perdues, Microsoft tente de les récupérer. Si les données primaires sont irrécupérables, un basculement géographique est effectué et les clients concernés en sont informés via leur abonnement.
+
 

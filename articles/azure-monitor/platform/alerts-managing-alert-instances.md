@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 29c2f58e4b4bea50d156192c818f8f91bbfeab4e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.subservice: alerts
+ms.openlocfilehash: 0324fffdfaaa512c3610d5389d68dba2164f8d55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283685"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436448"
 ---
 # <a name="manage-alert-instances"></a>Gérer les instances d’alerte
 Avec l’[expérience des alertes unifiées](https://aka.ms/azure-alerts-overview) dans Azure Monitor, vous pouvez maintenant voir vos différents types d’alertes dans Azure, sur plusieurs abonnements, dans un volet unique. Cet article vous explique comment afficher vos instances d’alerte et comment aller plus loin sur le portail pour rechercher des instances d’alerte spécifiques à dépanner.
@@ -43,3 +43,4 @@ Avec l’[expérience des alertes unifiées](https://aka.ms/azure-alerts-overvie
  
 1.  Si vous cliquez sur n’importe quelle instance d’alerte, la page **Détails de l’alerte** s’ouvre, vous permettant de rechercher des informations approfondies sur cette instance d’alerte spécifique.   
 ![Détails de l’alerte](media/alerts-managing-alert-instances/alert-details.jpg)  
+

@@ -3,18 +3,18 @@ title: Voir les changements de contenu de fichier avec Azure Automation
 description: Utilisez la fonctionnalité de changement de contenu de fichier de Change Tracking pour voir le contenu d’un fichier qui a changé.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0582505d66bbef3064359fa4047676c4ba60b4e9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870554"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437999"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Voir le contenu d’un fichier suivi avec Change Tracking
 
@@ -76,3 +76,4 @@ Consultez le didacticiel sur Change Tracking pour en savoir plus sur l’utilisa
 > [Dépanner les modifications apportées à votre environnement](automation-tutorial-troubleshoot-changes.md)
 
 * Utilisez les [recherches de journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md) pour afficher les données détaillées du suivi des modifications.
+

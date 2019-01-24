@@ -1,10 +1,10 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workplace by Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: da016d95891df97f8f5074277a37a3deb4df4016
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: a7e9276de2144318c2f8a510a7dc4211791d2ed6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973602"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814033"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutoriel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs
+# <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutoriel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs
 
 Dans ce didacticiel, vous allez apprendre à intégrer Workplace by Facebook à Azure Active Directory (Azure AD).
 L’intégration de Workplace by Facebook à Azure AD vous offre les avantages suivants :
@@ -117,7 +117,7 @@ Pour configurer l’authentification unique Azure AD avec Workplace by Facebook,
 
     ![Informations d’authentification unique dans Domaine et URL Workplace by Facebook](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<instancename>.facebook.com`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<instancename>.facebook.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL au format suivant : `https://www.facebook.com/company/<instanceID>`
 

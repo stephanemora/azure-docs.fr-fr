@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: 2028b9555ec20fc5e97511a2a908351b66aec216
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.subservice: alerts
+ms.openlocfilehash: e2f2a739f78072a0479e77e68e84c8f4b395468f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385497"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422224"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Étendre les alertes Log Analytics à Alertes Azure
 
@@ -62,3 +62,4 @@ Vous pouvez continuer à créer des alertes à partir de l’[API Log Analytics]
 * En savoir plus sur les outils de [lancement de l’extension des alertes de Log Analytics à Azure](alerts-extend-tool.md).
 * En savoir plus sur l’[expérience Alertes Azure](../../azure-monitor/platform/alerts-overview.md).
 * En savoir plus sur la création d’[alertes de journal dans Alertes Azure](alerts-unified-log.md).
+

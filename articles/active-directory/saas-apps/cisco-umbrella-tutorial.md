@@ -4,7 +4,7 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cbf58f7e5553f10087c854428a6a369cbb8c3bf9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f43c3072660ce4b9ca68c2bc58d1c752ce474e28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194998"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821905"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutoriel : Intégration d’Azure Active Directory à Cisco Umbrella
 
@@ -78,8 +78,8 @@ Pour configurer et tester l’authentification unique Azure AD avec [Nom de l�
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique Cisco Umbrella](#configure-cisco-umbrella-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Créer un utilisateur de test Cisco Umbrella](#create-cisco-umbrella-test-user)** pour avoir un équivalent de Britta Simon dans Cisco Umbrella, lié à la représentation Azure AD associée.
-5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Cisco Umbrella](#create-cisco-umbrella-test-user)** pour avoir un équivalent de Britta Simon dans Cisco Umbrella, lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
     c. Dans la zone de texte **URL d’authentification**, tapez l’URL `https://login.umbrella.com/sso`
 
-4. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML des métadonnées** en fonction des options définies, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML des métadonnées** en fonction des options définies, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -128,7 +128,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
 1. Dans une autre fenêtre de navigateur Web, connectez-vous au site de votre entreprise Cisco Umbrella en tant qu’administrateur.
 
-2.  Sur le côté gauche du menu, cliquez sur **Administrateur**, accédez à **Authentification**, puis cliquez sur **SAML**.
+2. Sur le côté gauche du menu, cliquez sur **Administrateur**, accédez à **Authentification**, puis cliquez sur **SAML**.
 
     ![Administrateur](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_admin.png)
 
@@ -144,7 +144,6 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
     ![Ensuite](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-
 6. Dans l'**Option A : Charger le fichier XML**, chargez le fichier **XML des métadonnées de fédération** que vous avez téléchargé à partir du portail Azure. Après avoir chargé les métadonnées, les valeurs ci-dessous sont automatiquement renseignées. Cliquez ensuite sur **SUIVANT**.
 
     ![Sélection du fichier ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
@@ -155,7 +154,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
 8. Cliquez sur **ENREGISTRER**.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
@@ -215,7 +214,7 @@ En l’occurrence, cet approvisionnement est une tâche manuelle.
 
 1. Dans une autre fenêtre de navigateur Web, connectez-vous au site de votre entreprise Cisco Umbrella en tant qu’administrateur.
 
-2.  Sur le côté gauche du menu, cliquez sur **Administrateur** et accédez à **Comptes**.
+2. Sur le côté gauche du menu, cliquez sur **Administrateur** et accédez à **Comptes**.
 
     ![Compte](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_account.png)
 
@@ -237,7 +236,7 @@ En l’occurrence, cet approvisionnement est une tâche manuelle.
 
     g. Cliquez sur **CREATE** (Créer).
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -250,4 +249,3 @@ Le fait de cliquer sur la vignette Cisco Umbrella dans le panneau d’accès doi
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -3,19 +3,19 @@ title: Vue d’ensemble d’Azure Automation
 description: Découvrez comment utiliser Azure Automation permet pour automatiser le cycle de vie de l’infrastructure et des applications.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 keywords: azure automation, DSC, powershell, configuration de l’état souhaité, gestion des mises à jour, suivi des modifications, inventaire, runbooks, python, graphique
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: f91464ebdd29c082fd721e9e4b2e029de991cc1e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958694"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434051"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Présentation d’Azure Automation
 
@@ -87,3 +87,4 @@ Vous pouvez consulter le prix d’Azure Automation sur la page relative à la [t
 
 > [!div class="nextstepaction"]
 > [Créer un compte Automation](automation-quickstart-create-account.md)
+

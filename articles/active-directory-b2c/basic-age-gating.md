@@ -3,19 +3,19 @@ title: Activer la vérification de l’âge dans Azure Active Directory B2C | Mi
 description: Découvrez comment identifier les mineurs à l’aide de votre application.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a9220349249315d807a9dba675f6b074ddd385fa
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: ddc4b7b899385eb7388198973460386a4a0af10c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291094"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845771"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Activer la vérification de l’âge dans Azure Active Directory B2C
 
@@ -75,7 +75,7 @@ La vérification de l’âge implique deux valeurs d’âge : l’âge auquel u
 
 ## <a name="age-gating-options"></a>Options de vérification de l’âge
  
-### <a name="allowing-minors-without-parental-consent"></a>Autoriser les mineurs sans accord parental
+### <a name="allowing-minors-without-parental-consent"></a>Autoriser les mineurs sans consentement parental
 
 Pour les flux utilisateur impliquant des opérations de création de compte et/ou de connexion, vous pouvez choisir d’autoriser les mineurs sans accord dans votre application. Les mineurs sans accord parental sont autorisés à se connecter ou à créer un compte normalement, et Azure AD B2C émet un jeton d’ID avec la revendication **legalAgeGroupClassification**. Cette revendication définit l’expérience des utilisateurs, notamment la collecte de l’accord parental et la mise à jour du champ **consentProvidedForMinor**.
 

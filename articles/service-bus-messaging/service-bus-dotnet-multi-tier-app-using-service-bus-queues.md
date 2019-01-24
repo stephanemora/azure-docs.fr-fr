@@ -3,19 +3,20 @@ title: Application multiniveau .NET utilisant Azure Service Bus | Microsoft D
 description: Un didacticiel .NET qui vous permet de développer dans Azure une application multiniveau qui utilise les files d’attente de Service Bus pour communiquer entre les différents niveaux.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: b905feef4d3a5445ba27b92637448443c3bbb4a3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: aaec8fd245c507e83967aa76f3e2f9d72b052cb1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855610"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849734"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Application multiniveau .NET avec les files d’attente Azure Service Bus
 
@@ -66,7 +67,7 @@ La première étape consiste à créer un *espace de noms* et à obtenir une [cl
 Dans cette section, vous générez le composant frontal de votre application. Tout d’abord, vous créez les pages affichées par votre application.
 Ensuite, ajoutez le code permettant d’envoyer les éléments à une file d’attente Service Bus et d’afficher les informations d’état de la file d’attente.
 
-### <a name="create-the-project"></a>Création du projet
+### <a name="create-the-project"></a>Créer le projet
 
 1. Lancez Visual Studio avec des privilèges d’administrateur : cliquez avec le bouton droit sur l’icône du programme **Visual Studio**, puis cliquez sur **Exécuter en tant qu’administrateur**. L’émulateur de calcul Azure, présenté plus loin dans cet article , nécessite que Visual Studio soit démarré avec les privilèges d’administrateur.
    

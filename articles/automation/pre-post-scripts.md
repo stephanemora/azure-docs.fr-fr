@@ -3,18 +3,18 @@ title: Configurer des pré/post-scripts sur votre déploiement Update Management
 description: Cet article explique comment configurer et gérer des pré/post-scripts pour les déploiements de mises à jour.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121309"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428237"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gérer les pré-scripts et les post-scripts (préversion)
 
@@ -224,3 +224,4 @@ Poursuivez avec le didacticiel pour apprendre à gérer les mises à jour de vos
 
 > [!div class="nextstepaction"]
 > [Gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure](automation-tutorial-update-management.md)
+

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bc044c8b59c939163336ecab01546fc26a7a2643
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6e5bcd6d9923b4051d44d51ff1a2534bc5e02f41
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806405"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445658"
 ---
 <a name="publish-an-azure-managed-application-to-azure-marketplace"></a>Publier une application gérée Azure sur la Place de marché Microsoft Azure 
 ========================================================
@@ -190,7 +190,7 @@ Le formulaire marketplace à l’intérieur d’une offre Azure Application comp
 
 #### <a name="preview-subscription-ids"></a>ID d’abonnement pour préversion
 
-Entrez ici la liste des ID d’abonnement Azure dont vous voulez qu’ils aient accès à l’offre dès sa publication. Ces abonnements autorisés vous permettent de tester l’offre préliminaire avant sa publication. Le portail Microsoft Cloud Partner vous permet d’autoriser jusqu’à 100 abonnements.
+Entrez ici la liste des ID d’abonnement Azure dont vous voulez qu’ils aient accès à l’offre dès sa publication. Ces abonnements autorisés vous permettent de tester l’offre préliminaire avant sa publication. Le portail Cloud Partner vous permet d’autoriser jusqu’à 100 abonnements.
 
 #### <a name="suggested-categories"></a>Catégories suggérées
 

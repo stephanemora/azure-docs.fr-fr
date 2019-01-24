@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 4b48ffb450459891118d5f526bbc73c4a2577ddd
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 1c3b7dc8e027169db51ab9ef50634a69a43cd3e0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268831"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462060"
 ---
-# <a name="how-to-configure-the-sign-in-risk-policy"></a>Procédure : Configurer la stratégie de connexion à risque
+# <a name="how-to-configure-the-sign-in-risk-policy"></a>Procédure : Configurer la stratégie en matière de risque à la connexion
 
 Azure Active Directory détecte les [types d’événements à risque](../reports-monitoring/concept-risk-events.md#risk-event-types) en temps réel et hors connexion. Tous les événements à risque qui sont détectés pendant la connexion d’un utilisateur viennent alimenter un concept logique appelé « connexion risquée ». Une connexion risquée est une tentative de connexion susceptible d’émaner d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
 
@@ -96,7 +96,7 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 * [Connexion à risque bloquée](flows.md#risky-sign-in-blocked)  
 * [Expériences de connexion avec Azure AD Identity Protection](flows.md)  
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 La sélection d’un niveau de risque **Élevé** réduit la fréquence de déclenchement d’une stratégie et minimise l’impact sur les utilisateurs.  
 

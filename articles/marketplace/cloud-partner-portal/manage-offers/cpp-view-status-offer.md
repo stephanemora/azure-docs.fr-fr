@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d7c2909e59643378e765fa51e2d261cbdc106822
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bdec2d699e8448c8e2303dfbabcb4d176a9ca389
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355073"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430379"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Voir l’état de la publication des offres de la Place de marché Microsoft Azure et d’AppSource
 
@@ -46,7 +46,7 @@ L’exemple d’onglet **Status** suivant pour un service de conseil affiche une
 
 ![Onglet Status pour le service de conseil affichant une erreur](./media/consulting-service-error.png)
 
-Le dernier exemple d’état d’une application Azure montre un problème de révision Microsoft critique.  Il contient un lien hypertexte vers l’élément VSTS qui contient des informations détaillées sur ce problème de révision.  Pour plus d’informations, consultez [Publier une offre d’application Azure]().
+Le dernier exemple d’état d’une application Azure montre un problème de révision Microsoft critique.  Il contient un lien hypertexte vers l’élément VSTS qui contient des informations détaillées sur ce problème de révision.  Pour plus d’informations, consultez [Publier une offre d’application Azure](cpp-publish-offer.md).
 
 ![Onglet Status de l’application Azure montrant un problème de révision](../azure-applications/media/status-tab-ms-review.png)
 

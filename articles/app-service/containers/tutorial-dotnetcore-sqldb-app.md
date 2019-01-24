@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fe6a1db295bc8fb1ab8e6c9d2d149be62871e733
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9695c3d40ee85cf1a46e078776c88ad2f61ed839
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629813"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465401"
 ---
 # <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Générer une application .NET Core et SQL Database dans Azure App Service sur Linux
 
@@ -364,7 +364,7 @@ Toutes les tâches existantes sont toujours affichées. Lorsque vous republiez v
 
 Accédez au [portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
+Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
@@ -387,7 +387,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Diffuser des journaux à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
-Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
+Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à Azure App Service](../app-service-web-tutorial-custom-domain.md)

@@ -4,7 +4,7 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 03bef6f2-3ea2-4eaa-a828-79c5f1346ce5
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 16bcd61d226fe97e9f3e4eb5c40f2fdf6c304a12
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: fb153317d90cf94781c5bb64dc8d5ce65021adcf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808279"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822873"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Didacticiel : Intégration d’Azure Active Directory à Palo Alto Networks - GlobalProtect
+# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Tutoriel : Intégration d’Azure Active Directory à Palo Alto Networks - GlobalProtect
 
 Dans ce didacticiel, vous découvrez comment intégrer Palo Alto Networks - GlobalProtect à Azure Active Directory (Azure AD).
 L’intégration de Palo Alto Networks - GlobalProtect à Azure AD vous offre les avantages suivants :
@@ -105,9 +105,9 @@ Pour configurer l’authentification unique Azure AD avec Palo Alto Networks -
 
     ![Informations d’authentification unique dans Domaine et URL de Palo Alto Networks - GlobalProtect](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<Customer Firewall URL>`.
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<Customer Firewall URL>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL en utilisant le modèle suivant : `https://<Customer Firewall URL>/SAML20/SP`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<Customer Firewall URL>/SAML20/SP`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez [l’équipe de support client de Palo Alto Networks - GlobalProtect](https://support.paloaltonetworks.com/support) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

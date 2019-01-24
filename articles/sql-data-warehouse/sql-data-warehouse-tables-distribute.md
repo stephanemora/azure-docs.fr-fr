@@ -10,17 +10,17 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 36db91cd7c4dad3c28c0c110ee837ca6d1284959
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b272dd1c5b12c9f171c7e8c7c346f4d6cd4b777
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575376"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413870"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Guide de conception des tables distribuées dans Azure SQL Data Warehouse
 Recommandations pour la conception des tables distribuées par hachage et par tourniquet dans Azure SQL Data Warehouse.
 
-Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez [Azure SQL Data Warehouse – architecture MPP (traitement massivement parallèle)](massively-parallel-processing-mpp-architecture.md). 
+Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez [Azure SQL Data Warehouse – architecture MPP (traitement massivement parallèle)](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>Qu’est-ce qu’une table distribuée ?
 Une table distribuée apparaît sous la forme d’une table unique, mais les lignes sont en réalité stockées sur 60 distributions. Les lignes sont distribuées avec un algorithme de hachage ou de tourniquet.  
@@ -29,11 +29,11 @@ Les **tables distribuées par hachage** améliorent les performances des requêt
 
 Une autre option de stockage de table est de répliquer une petite table sur tous les nœuds de calcul. Pour plus d’informations, consultez [Guide de conception pour les tables répliquées](design-guidance-for-replicated-tables.md). Pour choisir rapidement parmi les trois options, consultez Tables distribuées dans la [vue d’ensemble des tables](sql-data-warehouse-tables-overview.md). 
 
-Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.  Considérez par exemple les questions suivantes :
+Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.  Considérez par exemple les questions suivantes :
 
-- Quelle est la taille de la table ?   
-- Quelle est la fréquence d’actualisation de la table ?   
-- Est-ce que je dispose de tables de faits et de dimension dans un entrepôt de données ?   
+- Quelle est la taille de la table ?   
+- Quelle est la fréquence d’actualisation de la table ?   
+- Est-ce que je dispose de tables de faits et de dimension dans un entrepôt de données ?   
 
 
 ### <a name="hash-distributed"></a>Distribution par hachage
@@ -147,7 +147,7 @@ where two_part_name in
     from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
-    having min(row_count * 1.000)/max(row_count * 1.000) > .10
+    having (max(row_count * 1.000) - min(row_count * 1.000))/max(row_count * 1.000) >= .10
     )
 order by two_part_name, row_count
 ;

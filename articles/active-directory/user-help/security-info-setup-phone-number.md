@@ -3,7 +3,7 @@ title: Configurer les informations de sécurité pour utiliser un appel téléph
 description: Configurez vos informations de sécurité pour vérifier votre identité au moyen d’un numéro d’appareil mobile ou de téléphone professionnel.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 78b085bfad4dd3bab9d8b83f540b6ea315f911b9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f33982a584f831fbab190d94ce89a8d7c93d7913
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162102"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825219"
 ---
 # <a name="set-up-security-info-to-use-phone-calls-preview"></a>Configurer les informations de sécurité pour utiliser un appel téléphonique (préversion)
 

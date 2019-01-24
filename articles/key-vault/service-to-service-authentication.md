@@ -12,12 +12,12 @@ ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: e3239d57b34af396ee4b23f3b9b01b367eb3daa6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 216a2e31074f7afe944611de12fe2d45d9d236cf
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050113"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413751"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
@@ -55,7 +55,7 @@ Pour les applications .NET, la façon la plus simple d’utiliser une identité 
 
 La classe `AzureServiceTokenProvider` met en cache le jeton en mémoire et le récupère à partir d’Azure AD, juste avant l’expiration. Par la suite, vous n’aurez pas besoin de vérifier la date d’expiration avant d’appeler la méthode `GetAccessTokenAsync`. Il vous suffit d’appeler la méthode lorsque vous souhaitez utiliser le jeton. 
 
-La méthode `GetAccessTokenAsync` requiert un identificateur de ressource. Pour en savoir plus, voir [quels services Azure prennent en charge les identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
+La méthode `GetAccessTokenAsync` requiert un identificateur de ressource. Pour en savoir plus, voir [quels services Azure prennent en charge les identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/msi-overview).
 
 
 <a name="samples"></a>

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 983c2e6d03735ba26f7660fc07dcf1a05ef88189
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 291bcec5a2a3d1ed2d49816b0ed7317bcfb07995
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960394"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851854"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Remplacer le disque du système d’exploitation utilisé par une machine virtuelle Azure à l’aide de l’interface CLI
 
@@ -34,7 +34,7 @@ Vérifiez que la taille et le type de stockage de la machine virtuelle sont comp
 Cet article requiert Azure CLI version 2.0.25 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 
-Utilisez [az disk list](/cli/azure/disk#list) pour obtenir la liste des disques de votre groupe de ressources.
+Utilisez [az disk list](/cli/azure/disk) pour obtenir la liste des disques de votre groupe de ressources.
 
 ```azurecli-interactive
 az disk list \

@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: b720e07b3da446d3b6fcb106e94e9cc36128bb8c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 62ccf86d138ff71706aca4c19f548f175e6c09ce
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230643"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447613"
 ---
 # <a name="get-started"></a>Démarrage rapide : Créer un Standard Load Balancer à l’aide d’Azure PowerShell
 Ce démarrage rapide vous montre comment créer un Standard Load Balancer à l’aide d’Azure PowerShell. Pour tester l’équilibreur de charge, vous déployez deux machines virtuelles exécutant un serveur Windows, puis vous équilibrez la charge d’une application web entre les machines virtuelles. Pour plus d’informations sur l’équilibreur de charge standard, consultez [Qu’st-ce que Standard Load Balancer](load-balancer-standard-overview.md).
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.4.1 ou ultérieure pour les besoins de cet article. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure. 
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.4.1 ou ultérieure pour les besoins de cet article. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure. 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -281,7 +281,7 @@ Le paramètre `-AsJob` crée la machine virtuelle en tant que tâche en arrière
  
 Installez IIS avec une page web personnalisée sur les deux machines virtuelles principales comme suit :
 
-1. Obtenez l’adresse IP publique de l’équilibreur de charge. À l’aide de `Get-AzureRmPublicIPAdress`, obtenez l’adresse IP publique de l’équilibreur de charge.
+1. Obtenez l’adresse IP publique de l’équilibreur de charge. À l’aide de `Get-AzureRmPublicIPAddress`, obtenez l’adresse IP publique de l’équilibreur de charge.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `

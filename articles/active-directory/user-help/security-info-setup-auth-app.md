@@ -3,7 +3,7 @@ title: Configurer les informations de sécurité pour utiliser une application d
 description: Configurez vos informations de sécurité pour vérifier votre identité avec l’application Microsoft Authenticator.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 776f98269e3e0c31766246ca96636528f60c3e09
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 142d3442db9156876430b196a8e15b506db80018
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160624"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814458"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Configurer les informations de sécurité pour utiliser une application d’authentification (préversion)
 

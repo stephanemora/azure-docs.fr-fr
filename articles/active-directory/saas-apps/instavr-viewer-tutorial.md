@@ -4,7 +4,7 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 13ffa29f-d0a5-4b21-b296-cfd76f380940
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c63e7d03c0fc17e9892617aaeca94803c671acea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b0548ec2bb580c2898f610f00fd5ba911b314114
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194852"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutoriel : Intégration d’Azure Active Directory à InstaVR Viewer
 
@@ -79,8 +79,8 @@ Pour configurer et tester l’authentification unique Azure AD avec InstaVR Vie
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique InstaVR Viewer](#configure-instavr-viewer-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Créer un utilisateur de test InstaVR Viewer](#create-instavr-viewer-test-user)** pour avoir un équivalent de Britta Simon dans InstaVR Viewer lié à la représentation Azure AD associée.
-5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test InstaVR Viewer](#create-instavr-viewer-test-user)** pour avoir un équivalent de Britta Simon dans InstaVR Viewer lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -105,13 +105,13 @@ Pour configurer l’authentification unique Azure AD avec InstaVR Viewer, procé
 
     ![Informations d’authentification unique dans Domaine et URL InstaVR Viewer](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`.
-    
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+
     > [!NOTE]
     > Il n’existe pas de modèle fixe pour l’URL de connexion. Elle est générée lorsque le client InstaVR Viewer procède à l'empaquetage web. Elle est unique pour chaque client et package. Pour obtenir l'URL de connexion exacte, vous devez vous connecter à votre instance InstaVR Viewer et procéder à un empaquetage web.
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL au format suivant : `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`. 
-    
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+
     > [!NOTE]
     > La valeur de l'identificateur n'est pas réelle. Vous devez remplacer cette valeur par la valeur de l'identificateur réelle, ce qui est expliqué plus loin dans ce tutoriel.
 

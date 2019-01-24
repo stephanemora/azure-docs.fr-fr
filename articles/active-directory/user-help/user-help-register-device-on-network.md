@@ -3,7 +3,7 @@ title: Inscrire votre appareil personnel sur le réseau de votre organisation - 
 description: Découvrez comment inscrire votre appareil personnel sur le réseau de votre organisation afin de pouvoir accéder à des ressources protégées de votre organisation.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.component: user-help
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: dc3a0974eed7b044e137b45ec367c56d7534cee6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1f321ea3a7fffd4d54887fb41aee25b17d391e67
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054076"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825399"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Inscrire votre appareil personnel sur le réseau de votre organisation
 Inscrivez votre appareil personnel (généralement un téléphone ou une tablette) sur le réseau de votre organisation. Une fois votre appareil inscrit, il peut accéder aux ressources restreintes de votre organisation.

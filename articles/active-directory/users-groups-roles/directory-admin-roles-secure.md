@@ -13,16 +13,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c2ee0834b0c6872d96bebe71231f1a9424ff261a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387078"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438148"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
-La sécurité de la plupart ou de toutes les ressources professionnelles des organisations actuelles dépend de l’intégrité des comptes privilégiés qui administrent et gèrent les systèmes informatiques. Les personnes malveillantes, comme les pirates informatiques, ciblent souvent des comptes administrateur et d’autres moyens d’accès privilégié pour tenter d’accéder rapidement à des données sensibles et à des systèmes à l’aide d’attaques d’informations d’identification. Pour les services cloud, la prévention et la réponse sont de la responsabilité conjointe du fournisseur de services cloud et du client. Pour plus d’informations sur les dernières menaces sur les points de terminaison et le cloud, consultez le [rapport de renseignements de sécurité Microsoft](https://www.microsoft.com/security/sir/default.aspx). Cet article peut vous aider à créer une feuille de route afin de combler les lacunes de vos plans actuels, des conseils sont fournis ici.
+La sécurité de la plupart ou de toutes les ressources professionnelles des organisations actuelles dépend de l’intégrité des comptes privilégiés qui administrent et gèrent les systèmes informatiques. Les personnes malveillantes, comme les pirates informatiques, ciblent souvent des comptes administrateur et d’autres moyens d’accès privilégié pour tenter d’accéder rapidement à des données sensibles et à des systèmes à l’aide d’attaques d’informations d’identification. Pour les services cloud, la prévention et la réponse sont de la responsabilité conjointe du fournisseur de services cloud et du client. Pour plus d’informations sur les dernières menaces sur les points de terminaison et le cloud, consultez le [rapport de renseignements de sécurité Microsoft](https://www.microsoft.com/security/operations/security-intelligence-report). Cet article peut vous aider à créer une feuille de route afin de combler les lacunes de vos plans actuels, des conseils sont fournis ici.
 
 > [!NOTE] 
 > Microsoft s’engage aux plus hauts niveaux de confiance, de transparence, de conformité aux normes et aux réglementations. Découvrez comment l’équipe de réponse aux incidents mondiale de Microsoft permet d’atténuer les effets des attaques contre les services cloud, et comment la sécurité est intégrée dans les produits professionnels et services cloud Microsoft dans le [Centre de gestion de la confidentialité Microsoft - Sécurité](https://www.microsoft.com/trustcenter/security) et les objectifs de conformité Microsoft dans le [Centre de gestion de la confidentialité Microsoft - Conformité](https://www.microsoft.com/trustcenter/compliance).

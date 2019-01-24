@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 53aa40c047b2b5201cd74c0409d56e97d2880eb0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9f4bbf91b09abeb917fd9f49482881e33bf788ec
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602849"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413932"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportation d’une API hébergée sur Azure vers PowerApps et Microsoft Flow
 
@@ -156,7 +156,7 @@ Quand vous utilisez Azure AD, vous avez besoin de deux inscriptions d’applicat
 
 - Pour configurer l’inscription de l’API, utilisez la fonctionnalité [Autorisation/Authentification App Service](../app-service/configure-authentication-provider-aad.md).
 
-- Pour configurer l’inscription pour le connecteur, suivez les étapes de la section [Ajout d’une application Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). L’inscription doit disposer d’un accès délégué à votre API et de l’URL de réponse `https://msmanaged-na.consent.azure-apim.net/redirect`. 
+- Pour configurer l’inscription pour le connecteur, suivez les étapes de la section [Ajout d’une application Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). L’inscription doit disposer d’un accès délégué à votre API et de l’URL de réponse `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
 Pour plus d’informations, consultez les exemples d’inscription Azure AD pour [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) et [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/). Ces exemples utilisent Azure Resource Manager comme API ; substituez votre API si vous suivez les étapes.
 

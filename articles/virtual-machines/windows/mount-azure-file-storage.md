@@ -13,12 +13,13 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 8d537bdc882487784baef9f693e4677c76d3bd8d
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.component: files
+ms.openlocfilehash: a2ddaa28f7fbcc6b363ce2c636521fe54ea752f7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
-ms.locfileid: "27577549"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478176"
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>Utiliser des partages de fichiers Azure avec des machines virtuelles Windows 
 
@@ -72,6 +73,6 @@ Dans cette section, nous partons du principe que vous disposez déjà d’un par
 6. Cliquez avec le bouton droit sur le fichier et choisissez **Télécharger** pour le télécharger sur votre ordinateur local.
    
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également créer et gérer des partages de fichiers à l’aide de PowerShell. Pour plus d’informations, consultez [Prise en main du stockage de fichiers Azure sur Windows](../../storage/files/storage-dotnet-how-to-use-files.md).

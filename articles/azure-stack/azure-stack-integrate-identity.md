@@ -2,20 +2,20 @@
 title: Intégration au centre de données Azure Stack - Identité
 description: Découvrez comment intégrer les services Azure Stack AD FS aux services AD FS de votre centre de données
 services: azure-stack
-author: jeffgilb
+author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/08/19
-ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.date: 01/23/19
+ms.author: patricka
+ms.reviewer: thoroet
 keywords: ''
-ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4f599379de07a9628ee81425ddac2374411bdf97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263793"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852760"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
@@ -193,16 +193,21 @@ Pour la procédure suivante, vous devez utiliser un ordinateur qui dispose d’u
 
 Pour cette procédure, utilisez un ordinateur qui peut communiquer avec le point de terminaison privilégié dans Azure Stack et qui a accès au fichier de métadonnées que vous avez créé à l’étape précédente.
 
-1. Ouvrez une session Windows PowerShell avec des privilèges élevés.
+1. Ouvrez une session Windows PowerShell avec élévation de privilèges et connectez-vous au point de terminaison privilégié.
 
    ```PowerShell  
    $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
-   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. Exécutez la commande suivante pour mettre à jour le propriétaire de l’abonnement du fournisseur par défaut, en utilisant les paramètres correspondant à votre environnement :
+2. Maintenant que vous êtes connecté au point de terminaison privilégié, exécutez la commande suivante en utilisant les paramètres correspondant à votre environnement :
+
+    ```PowerShell
+    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
+    ```
+
+3. Exécutez la commande suivante pour mettre à jour le propriétaire de l’abonnement du fournisseur par défaut, en utilisant les paramètres correspondant à votre environnement :
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"

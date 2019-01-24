@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0f98f815c0417d1ee8ad5708589b5402a033f83a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5fc5829744d3740f3484303ae009145106264fec
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989532"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470713"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant Azure CLI
 
@@ -47,7 +47,7 @@ Avant de créer un réseau virtuel, vous devez créer un groupe de ressources po
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). L’exemple suivant permet de créer un réseau virtuel nommé *myVirtualNetwork1* avec le préfixe d’adresse *10.0.0.0/16*.
+Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet). L’exemple suivant permet de créer un réseau virtuel nommé *myVirtualNetwork1* avec le préfixe d’adresse *10.0.0.0/16*.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -88,7 +88,7 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-Créez un appairage entre *myVirtualNetwork1* et *myVirtualNetwork2* à l’aide d’[az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create). Si le paramètre `--allow-vnet-access` n’est pas spécifié, un appairage est établi, mais aucune communication ne peut passer.
+Créez un appairage entre *myVirtualNetwork1* et *myVirtualNetwork2* à l’aide d’[az network vnet peering create](/cli/azure/network/vnet/peering). Si le paramètre `--allow-vnet-access` n’est pas spécifié, un appairage est établi, mais aucune communication ne peut passer.
 
 ```azurecli-interactive
 az network vnet peering create \

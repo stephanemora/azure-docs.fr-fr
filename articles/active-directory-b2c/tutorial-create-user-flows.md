@@ -3,20 +3,20 @@ title: Tutoriel - Créer des flux d’utilisateur dans Azure Active Directory B2
 description: Découvrez comment créer des flux d’utilisateur pour vos applications dans Azure Active Directory B2C à l’aide du portail Azure.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: davidmu
-ms.openlocfilehash: eb69262b41351b8e0b813175b56ad4c93b1ce69b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248621"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845593"
 ---
-# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutoriel : Créer des flux d’utilisateur dans Azure Active Directory B2C
+# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Didacticiel : Créer des flux d’utilisateur dans Azure Active Directory B2C
 
 Dans vos applications, vous pouvez avoir des [flux d’utilisateur](active-directory-b2c-reference-policies.md) qui permettent aux utilisateurs de s’inscrire, de se connecter ou de gérer leur profil. Vous pouvez créer plusieurs flux d’utilisateur de types différents dans votre locataire Azure Active Directory (Azure AD) B2C et les utiliser dans vos applications selon vos besoins. Les flux d’utilisateurs peuvent être réutilisés entre les différentes applications.
 
