@@ -208,7 +208,7 @@ Perf
 ## <a name="protection-status"></a>État de la protection
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Ordinateurs avec durée d’état protection sans rapport
-Cet exemple répertorie les ordinateurs avec l’état de protection _Pas de rapport_ et la durée de cet état.
+Cet exemple répertorie les ordinateurs avec l’état de protection _Not Reporting_ et la durée de cet état.
 
 ```Kusto
 ProtectionStatus
