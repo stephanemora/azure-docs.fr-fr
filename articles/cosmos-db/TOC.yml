@@ -459,6 +459,8 @@ items:
   items:
   - name: Gérer un compte de base de données
     href: how-to-manage-database-account.md
+  - name: Configurer la durée de vie
+    href: how-to-time-to-live.md
   - name: Diffusion mondiale
     items:
     - name: Gérer la cohérence
@@ -477,12 +479,10 @@ items:
       href: how-to-create-container.md
     - name: Interroger un conteneur
       href: how-to-query-container.md
-    - name: Configurer la durée de vie
-      href: how-to-time-to-live.md
-    - name: Indexation
-      items:
-      - name: Configurer l’indexation
-        href: how-to-manage-indexing-policy.md
+  - name: Indexation
+    items:
+    - name: Configurer l’indexation
+      href: how-to-manage-indexing-policy.md
   - name: Sécurité
     items:
     - name: Configurer le pare-feu IP
@@ -617,9 +617,9 @@ items:
       href: use-cases.md
     - name: Applications de réseaux sociaux
       href: social-media-apps.md
-ms.openlocfilehash: 75984b49a5af0538c7534fb326808dcb3c35b46c
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 55b388b24d5526160423fa61c46620fc09796b24
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359797"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189624"

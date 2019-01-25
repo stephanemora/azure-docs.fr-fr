@@ -12,11 +12,11 @@ items:
   items:
   - name: Files d’attente Service Bus
     items:
-    - name: Créer une file d’attente Service Bus - Portail
-      href: service-bus-quickstart-portal.md
-    - name: Créer une file d’attente Service Bus - PowerShell
+    - name: Envoyer et recevoir des messages - PowerShell
       href: service-bus-quickstart-powershell.md
-    - name: Créer une file d’attente Service Bus - CLI
+    - name: Envoyer et recevoir des messages - Portail
+      href: service-bus-quickstart-portal.md
+    - name: Envoyer et recevoir des messages - CLI
       href: service-bus-quickstart-cli.md
     - name: Envoyer et recevoir des messages - .NET
       href: service-bus-dotnet-get-started-with-queues.md
@@ -58,7 +58,7 @@ items:
     href: service-bus-samples.md
 - name: Concepts
   items:
-  - name: Identités managées pour les ressources Azure
+  - name: Identités gérées pour les ressources Azure
     href: service-bus-managed-service-identity.md
   - name: Contrôle d’accès en fonction du rôle (préversion)
     href: service-bus-role-based-access-control.md
@@ -226,13 +226,13 @@ items:
     href: https://github.com/paolosalvatori/ServiceBusExplorer
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=service-bus
-  - name: Stack Overflow
+  - name: Dépassement de capacité de la pile
     href: http://stackoverflow.com/questions/tagged/azureservicebus
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: 6fd3d46596380360332366f600b84c82e0c75937
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 22607c611b9e733cd17b9ad13538e3e12d93e410
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260314"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212776"

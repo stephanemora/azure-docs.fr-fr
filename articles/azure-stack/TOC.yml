@@ -19,6 +19,8 @@ items:
       href: azure-stack-update-1807.md
 - name: Démarrages rapides
   items:
+  - name: Évaluer Microsoft Azure Stack
+    href: azure-stack-deploy-overview.md
   - name: Utiliser le portail d’administration
     href: azure-stack-manage-portals.md
   expanded: true
@@ -129,8 +131,16 @@ items:
       href: azure-stack-registration.md
     - name: Gestion des régions
       href: azure-stack-region-management.md
-    - name: Connexion à Azure à l’aide d’ExpressRoute
-      href: azure-stack-connect-expressroute.md
+    - name: Connexion à Azure
+      items:
+      - name: Connexion à l’aide de VPN
+        href: azure-stack-connect-vpn.md
+      - name: À propos de la passerelle VPN
+        href: azure-stack-vpn-gateway-about-vpn-gateways.md
+      - name: Paramètres de la passerelle VPN
+        href: azure-stack-vpn-gateway-settings.md
+      - name: Connexion à l’aide d’ExpressRoute
+        href: azure-stack-connect-expressroute.md
     - name: Activer l’interface de ligne de commande pour les utilisateurs
       href: azure-stack-cli-admin.md
     - name: Configurer l’environnement de gestion
@@ -391,13 +401,13 @@ items:
     href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
   - name: Informations sur la tarification
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
-  - name: Stack Overflow
+  - name: Dépassement de capacité de la pile
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Formation et certification
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 91c476e8e65642e490c3a42de7d5a340964f3ae5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 4d16a02c09ae801e44b0f3e4d5540a445d41fae6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411711"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319136"

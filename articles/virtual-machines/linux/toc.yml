@@ -170,29 +170,16 @@ items:
       - name: Procédure détaillée
         href: create-ssh-keys-detailed.md
   - name: Protéger les machines virtuelles
+    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     items:
-    - name: Sauvegarder des machines virtuelles
-      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      items:
-      - name: Sauvegarder une machine virtuelle unique
-        href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Sauvegarder plusieurs machines virtuelles
-        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Restaurer un disque
-        href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Restaurer des fichiers individuels
-        href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Configurer la reprise d’activité pour les machines virtuelles
-      href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      items:
-      - name: Activer la reprise d’activité pour une machine virtuelle
-        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Effectuer un exercice de reprise d’activité pour une machine virtuelle
-        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Basculer une machine virtuelle vers une autre région
-        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Déplacer des machines virtuelles vers une autre région
-      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Sauvegarder une machine virtuelle unique
+      href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Sauvegarder plusieurs machines virtuelles
+      href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Restaurer un disque
+      href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Restaurer des fichiers individuels
+      href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Gérer les machines virtuelles
     items:
     - name: Utilisation de machines virtuelles
@@ -560,9 +547,9 @@ items:
     href: faq.md
 - name: Résolution des problèmes
   href: ../troubleshooting/index.md
-ms.openlocfilehash: be99b17042aa8f36b8fb9a1ad7dedf3a945dcf75
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c230e40c62b3f7f1c485eb4051bed3a0314aa08d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54822669"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360137"
