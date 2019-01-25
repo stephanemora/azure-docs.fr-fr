@@ -3,23 +3,23 @@ title: Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs | Micros
 description: Guide du protocole pour les expressions et description d’AMQP 1.0 dans Azure Service Bus et Event Hubs
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: clemensv
-ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 88f586fac4392e880efc3ef611a7c03177582bff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542507"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856704"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -134,7 +134,7 @@ Un appel de « réception » au niveau de l’API se traduit par un performatif 
 
 Le verrouillage d’un message est levé dès que l’état terminal d’un transfert est *accepted*, *rejected*, ou *released*. Le message est supprimé de Service Bus lorsque l’état terminal est *accepted*. Il reste dans Service Bus et est remis au destinataire suivant dès que le transfert se voit attribuer un des autres états. Service Bus déplace automatiquement le message vers la file d’attente de lettre morte de l’entité lorsque le nombre maximal de remises autorisé pour l’entité est atteint, en raison des rejets ou libérations répétés.
 
-Bien qu’aujourd’hui les API Service Bus n’exposent pas directement une telle option, un client de protocole AMQP de niveau inférieur peut utiliser le modèle de crédit de lien pour transformer l’interaction de style « pull», qui consiste à émettre une unité de crédit pour chaque demande de réception en un modèle de style « push » qui consiste à émettre un grand nombre de crédits de lien et à recevoir les messages dès qu’ils sont disponibles, sans intervention supplémentaire. Le modèle Push est pris en charge par le biais des paramètres de propriétés [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount). Lorsqu’ils sont différents de zéro, le client AMQP l’utilise comme crédit de lien.
+Bien qu’aujourd’hui les API Service Bus n’exposent pas directement une telle option, un client de protocole AMQP de niveau inférieur peut utiliser le modèle de crédit de lien pour transformer l’interaction de style « pull», qui consiste à émettre une unité de crédit pour chaque demande de réception en un modèle de style « push » qui consiste à émettre un grand nombre de crédits de lien et à recevoir les messages dès qu’ils sont disponibles, sans intervention supplémentaire. Le modèle Push est pris en charge par le biais des paramètres de propriétés [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount). Lorsqu’ils sont différents de zéro, le client AMQP l’utilise comme crédit de lien.
 
 Dans ce contexte, il est important de comprendre que l’horloge d’expiration du verrou sur le message situé à l’intérieur de l’entité démarre lorsque le message est extrait de l’entité, et non lorsqu’il est envoyé. Chaque fois que le client indique qu’il est prêt à recevoir des messages en émettant un crédit de lien, on s’attend à ce qu’il extrait de manière active des messages sur le réseau et qu’il soit prêt à les gérer. Sinon, le verrouillage du message peut expirer avant même la remise du message. L’utilisation du contrôle de flux de crédit de lien doit refléter directement la disponibilité de traitement immédiate des messages disponibles distribués auprès du destinataire.
 
@@ -227,14 +227,14 @@ Les propriétés que l’application doit définir doivent être mappées au map
 | to |Identifiant de destination défini par l’application, non interprété par Service Bus. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
 | subject |Identifiant d’objet de message défini par l’application, non interprété par Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | reply-to |Indicateur reply-path défini par l’application, non interprété par Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlation-id |Identifiant de corrélation défini par l’application, non interprété par Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| content-type |Indicateur de type de contenu défini par l’application pour le corps, non interprété par Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| correlation-id |Identifiant de corrélation défini par l’application, non interprété par Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| content-type |Indicateur de type de contenu défini par l’application pour le corps, non interprété par Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Indicateur d’encodage de contenu défini par l’application pour le corps, non interprété par Service Bus. |Pas accessible via l’API Service Bus. |
 | absolute-expiry-time |Déclare à quel instant absolu le message expire. Ignoré en entrée (la durée de vie de l’en-tête est observée), fait autorité en sortie. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |Déclare à quelle heure le message a été créé. Pas utilisé par Service Bus |Pas accessible via l’API Service Bus. |
 | group-id |Identifiant défini par l’application pour un ensemble de messages connexes. Utilisé pour les sessions Service Bus. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Compteur identifiant le nombre de séquences relatives du message se trouvant dans la session. Ignoré par Service Bus. |Pas accessible via l’API Service Bus. |
-| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="message-annotations"></a>Annotations de message
 

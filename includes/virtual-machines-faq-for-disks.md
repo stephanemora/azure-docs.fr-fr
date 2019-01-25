@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553436"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841412"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -101,6 +101,10 @@ Les clients peuvent prendre une capture instantanée de leurs disques gérés, q
 
 Oui, les disques managés et non managés sont pris en charge. Nous vous recommandons d’utiliser des disques gérés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques gérés.
 
+**Puis-je localiser conjointement des disques managés et non sur la même machine virtuelle ?**
+
+ Non.
+
 **Si je crée un disque de 128 Gio et que j’augmente la taille à 130 Gio, suis-je facturé en fonction de la taille de disque supérieure (256 Gio) ?**
 
 Oui.
@@ -124,10 +128,6 @@ Actuellement, Azure Managed Disks prend uniquement en charge les disques gérés
 **Où trouver des exemples de modèles Azure Resource Manager pour créer des machines virtuelles avec des disques gérés ?**
 * [Liste de modèles utilisant des disques gérés](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**Puis-je localiser conjointement des disques managés et non sur la même machine virtuelle ?**
-
- Non.
 
 **Lorsque vous créez un disque à partir d’un objet blob, existe-t-il une relation continue avec cet objet blob source ?**
 

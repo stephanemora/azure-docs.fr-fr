@@ -47,12 +47,24 @@ items:
   items:
   - name: Vue d’ensemble
     href: user-help-auth-app-overview.md
-  - name: Prise en main
+  - name: Télécharger et installer l’application
     href: microsoft-authenticator-app-how-to.md
-  - name: Sauvegarde et récupération
-    href: microsoft-authenticator-app-backup-and-recovery.md
-  - name: Se connecter avec votre téléphone
+  - name: Vue d’ensemble de l’ajout de comptes
+    href: microsoft-authenticator-app-add-accounts-overview.md
+    items:
+    - name: Ajouter un compte professionnel ou scolaire
+      href: microsoft-authenticator-app-add-work-account.md
+    - name: Ajouter un compte Microsoft personnel
+      href: microsoft-authenticator-app-add-personal-account.md
+    - name: Ajouter un compte non-Microsoft personnel
+      href: microsoft-authenticator-app-add-non-microsoft-account.md
+    - name: Ajouter manuellement un compte
+      href: microsoft-authenticator-app-add-account-manual.md
+    expanded: true
+  - name: Se connecter à l’aide de l’application Microsoft Authenticator
     href: microsoft-authenticator-app-phone-signin-faq.md
+  - name: Sauvegarder et récupérer vos comptes
+    href: microsoft-authenticator-app-backup-and-recovery.md
   - name: Forum Aux Questions
     href: microsoft-authenticator-app-faq.md
 - name: Aide du portail MyApps
@@ -73,9 +85,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: Résoudre les problèmes liés au message « Vous ne pouvez pas y accéder »
     href: user-help-device-remediation.md
-ms.openlocfilehash: 27d0d3300a19d4c27bec48ebf411c7ac3ee6ad87
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9ccadb31ce331d3a9dc64aa26d5e8edab900cd1e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649583"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904095"

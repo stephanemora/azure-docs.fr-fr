@@ -3,18 +3,18 @@ title: Résolution des problèmes relatifs aux Runbooks Workers hybrides Azure A
 description: Cet article fournit des informations sur la résolution des problèmes liés aux Runbooks Workers hybrides Azure Automation.
 services: automation
 ms.service: automation
-ms.component: ''
+ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 57897060e79ffbd750b47b21e97bb16d651f835c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 9f83a0cf97acfd0bed990cc832ac08eb23c29ef1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583508"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434456"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Résoudre les problèmes liés aux Runbooks Workers hybrides
 
@@ -186,3 +186,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 * Obtenez des réponses de la part d’experts Azure via les [Forums Windows](https://azure.microsoft.com/support/forums/)
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), qui est le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 * Si vous avez besoin de plus d’aide, vous pouvez signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.
+

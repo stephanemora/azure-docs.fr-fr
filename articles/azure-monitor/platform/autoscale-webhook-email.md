@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: c655f117009c0c7c682ad92a951edc7e12255bc2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: autoscale
+ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325426"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463307"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Moonitor
 Cet article explique comment paramétrer des déclencheurs pour vous permettre d’appeler des URL web spécifiques ou d’envoyer des courriers électroniques en fonction d’actions de mise à l’échelle automatique dans Azure.  
@@ -120,3 +120,4 @@ Lorsque la notification de mise à l’échelle automatique est générée, les 
 | oldCapacity |Oui |Nombre d’instances (anciennes) actuel lors de l’exécution d’une action de mise à l’échelle par la mise à l’échelle automatique |
 | newCapacity |Oui |Le nouveau nombre d’instances auquel la mise à l’échelle automatique a mis la ressource à l’échelle |
 | properties |Non  |facultatif. Jeu de paires < clé, valeur > (par exemple, Dictionary < String, String >). Le champ properties est facultatif. Dans un flux de travail basé sur une application logique ou une interface utilisateur personnalisée, vous pouvez entrer des clés et des valeurs transmissibles par le biais de la charge utile. Une autre manière de transmettre des propriétés personnalisées au webhook sortant consiste à utiliser l’URI du webhook (sous la forme de paramètres de requête). |
+

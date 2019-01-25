@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 70370db841a08ae8ee62bda83bec4b1b9e2e7cf2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: cce2254ef54483e7d0c4d26fbc4b08de3b2366c3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001530"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825151"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -298,7 +298,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     
     N’hésitez pas à nous indiquer si vous avez besoin d’une fonctionnalité de capture d’instantanés de fichiers sur [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 
-* <a id="encypted-snapshots"></a>
+* <a id="encrypted-snapshots"></a>
 **Puis-je créer des instantanés d’un partage de fichiers chiffré ?**  
     Vous pouvez capturer un instantané de partages de fichiers Azure pour lesquels le chiffrement est activé au repos. Vous pouvez restaurer des fichiers depuis un instantané de partage vers un partage de fichiers chiffré. Si votre partage est chiffré, l’instantané de partage l’est également.
 

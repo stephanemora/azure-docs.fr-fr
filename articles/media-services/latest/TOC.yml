@@ -1,204 +1,211 @@
+items:
 - name: Documentation Media Services
   href: ./index.yml
 - name: Vue d’ensemble
   items:
-    - name: À propos de Media Services
-      href: media-services-overview.md
+  - name: À propos de Media Services
+    href: media-services-overview.md
 - name: Démarrages rapides
-  expanded: true
   items:
-    - name: Diffuser des fichiers vidéo en continu avec .NET
-      href: stream-files-dotnet-quickstart.md
+  - name: Diffuser des fichiers vidéo en continu avec .NET
+    href: stream-files-dotnet-quickstart.md
+  expanded: true
 - name: Didacticiels
-  expanded: true
   items:
-    - name: Encoder le fichier distant et diffuser la vidéo – REST
-      href: stream-files-tutorial-with-rest.md
-    - name: Encoder le fichier chargé et diffuser la vidéo – REST
-      href: stream-files-tutorial-with-api.md
-    - name: Diffuser en direct - .NET
-      href: stream-live-tutorial-with-api.md
-    - name: Analyser votre vidéo - .NET
-      href: analyze-videos-tutorial-with-api.md
+  - name: Encoder le fichier distant et diffuser la vidéo – REST
+    href: stream-files-tutorial-with-rest.md
+  - name: Encoder le fichier chargé et diffuser la vidéo – REST
+    href: stream-files-tutorial-with-api.md
+  - name: Diffuser en direct - .NET
+    href: stream-live-tutorial-with-api.md
+  - name: Analyser votre vidéo - .NET
+    href: analyze-videos-tutorial-with-api.md
+  expanded: true
 - name: Exemples
   items:
-    - name: "Exemples de code\_Azure"
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
-    - name: Azure CLI
-      href: cli-samples.md
+  - name: Exemples de code Azure
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3
+  - name: Azure CLI
+    href: cli-samples.md
 - name: Concepts
   items:
-    - name: Migrer de v2 vers v3
-      href: migrate-from-v2-to-v3.md
-    - name: Comptes
-      items:
-        - name: Quotas et limitations
-          href: limits-quotas-constraints.md
-        - name: Comptes de stockage
-          href: storage-account-concept.md
-    - name: Entités
-      href: entities-overview.md
-      items:
-        - name: Filtres de ressources et de comptes
-          href: filters-dynamic-manifest-overview.md
-        - name: Éléments multimédias
-          href: assets-concept.md
-        - name: Stratégies de clé de contenu
-          href: content-key-policy-concept.md
-        - name: LiveEvents et LiveOutputs
-          href: live-events-outputs-concept.md
-        - name: Points de terminaison de streaming
-          href: streaming-endpoint-concept.md
-        - name: Localisateurs de diffusion en continu
-          href: streaming-locators-concept.md
-        - name: Stratégies de diffusion en continu
-          href: streaming-policy-concept.md
-        - name: Transformations et travaux
-          href: transforms-jobs-concept.md
-    - name: Encodage du contenu
-      href: encoding-concept.md
-      items:
-        - name: Formats Media Encoder Standard
-          href: media-encoder-standard-formats.md
-        - name: Autogen échelle de débit adaptatif
-          href: autogen-bitrate-ladder.md
-    - name: Traitement des événements Event Grid
-      href: reacting-to-media-services-events.md
-    - name: Protection du contenu
-      href: content-protection-overview.md
-      items:
-        - name: Système multi-DRM avec contrôle d’accès
-          href: design-multi-drm-system-with-access-control.md
-    - name: Analyse du contenu
-      href: analyzing-video-audio-files-concept.md
-    - name: Diffusion d’événements en direct
-      href: live-streaming-overview.md
-      items:
-        - name: Encodeurs live recommandés
-          href: recommended-on-premises-live-encoders.md
-        - name: Utiliser un magnétoscope numérique cloud
-          href: live-event-cloud-dvr.md
-        - name: Comparaison des fonctionnalités
-          href: live-event-types-comparison.md
-        - name: États et facturation
-          href: live-event-states-billing.md
-        - name: Latence
-          href: live-event-latency.md
-    - name: Azure Media Player
-      href: use-azure-media-player.md
+  - name: Migrer de v2 vers v3
+    href: migrate-from-v2-to-v3.md
+  - name: Comptes
+    items:
+    - name: Quotas et limitations
+      href: limits-quotas-constraints.md
+    - name: Comptes de stockage
+      href: storage-account-concept.md
+  - name: Entités
+    href: entities-overview.md
+    items:
+    - name: Filtres de comptes et d’actifs multimédias
+      href: filters-dynamic-manifest-overview.md
+    - name: Éléments multimédias
+      href: assets-concept.md
+    - name: Stratégies de clé de contenu
+      href: content-key-policy-concept.md
+    - name: Événements en direct et Sorties en direct
+      href: live-events-outputs-concept.md
+    - name: Points de terminaison de diffusion en continu
+      href: streaming-endpoint-concept.md
+    - name: Localisateurs de diffusion en continu
+      href: streaming-locators-concept.md
+    - name: Stratégies de diffusion en continu
+      href: streaming-policy-concept.md
+    - name: Transformations et travaux
+      href: transforms-jobs-concept.md
+  - name: Encodage du contenu
+    href: encoding-concept.md
+    items:
+    - name: Formats Media Encoder Standard
+      href: media-encoder-standard-formats.md
+    - name: Autogen échelle de débit adaptatif
+      href: autogen-bitrate-ladder.md
+  - name: Traitement des événements Event Grid
+    href: reacting-to-media-services-events.md
+  - name: Protection du contenu
+    href: content-protection-overview.md
+    items:
+    - name: Système multi-DRM avec contrôle d’accès
+      href: design-multi-drm-system-with-access-control.md
+  - name: Analyse du contenu
+    href: analyzing-video-audio-files-concept.md
+  - name: Diffusion d’événements en direct
+    href: live-streaming-overview.md
+    items:
+    - name: Encodeurs live recommandés
+      href: recommended-on-premises-live-encoders.md
+    - name: Utiliser un magnétoscope numérique cloud
+      href: live-event-cloud-dvr.md
+    - name: Comparaison des fonctionnalités
+      href: live-event-types-comparison.md
+    - name: États et facturation
+      href: live-event-states-billing.md
+    - name: Latence
+      href: live-event-latency.md
+  - name: Azure Media Player
+    href: use-azure-media-player.md
 - name: Procédures
   items:
-    - name: Prise en main
-      items:
-        - name: Créer un compte - CLI
-          href: create-account-cli-how-to.md
-        - name: Accéder aux API - CLI
-          href: access-api-cli-how-to.md
-        - name: Mettre à l’échelle les unités réservées Multimédia - CLI
-          href: media-reserved-units-cli-how-to.md
-    - name: Configurer Postman
-      href: media-rest-apis-with-postman.md
-    - name: Téléchargement de contenu
-      items:
-        - name: À partir de HTTP - .NET
-          href: job-input-from-http-how-to.md
-        - name: À partir d’un fichier local - .NET
-          href: job-input-from-local-file-how-to.md
-        - name: À partir d’un fichier local - REST
-          href: upload-files-rest-how-to.md
-    - name: Encodage de contenu
-      items:
-        - name: Personnaliser les présélections de transformation - .NET
-          href: customize-encoder-presets-how-to.md
-    - name: Utiliser Event Grid
-      items:
-        - name: Surveiller les événements - Portail
-          href: monitor-events-portal-how-to.md
-        - name: Surveiller les événements - CLI
-          href: job-state-events-cli-how-to.md
-    - name: Protéger du contenu
-      items:
-        - name: Chiffrement dynamique AES-128 - .NET
-          href: protect-with-aes128.md
-        - name: Chiffrement dynamique DRM - .NET
-          href: protect-with-drm.md
-        - name: Obtenir une stratégie de clé de contenu - .NET
-          href: get-content-key-policy-dotnet-howto.md
-        - name: FairPlay hors connexion pour iOS
-          href: offline-fairplay-for-ios.md
-        - name: Widevine hors connexion pour Android
-          href: offline-widevine-for-android.md
-        - name: "PlayReady hors connexion pour Windows\_10"
-          href: offline-plaready-streaming-for-windows-10.md
-    - name: Création de filtres
-      items:
-        - name: Avec .NET
-          href: filters-dynamic-manifest-dotnet-howto.md
-        - name: Avec REST
-          href: filters-dynamic-manifest-rest-howto.md
-        - name: Avec l’interface CLI
-          href: filters-dynamic-manifest-cli-howto.md
+  - name: Prise en main
+    items:
+    - name: Créer un compte - CLI
+      href: create-account-cli-how-to.md
+    - name: Accéder aux API - CLI
+      href: access-api-cli-how-to.md
+    - name: Mettre à l’échelle les unités réservées Multimédia - CLI
+      href: media-reserved-units-cli-how-to.md
+  - name: Configurer Postman
+    href: media-rest-apis-with-postman.md
+  - name: Téléchargement de contenu
+    items:
+    - name: À partir de HTTP - .NET
+      href: job-input-from-http-how-to.md
+    - name: À partir d’un fichier local - .NET
+      href: job-input-from-local-file-how-to.md
+    - name: À partir d’un fichier local - REST
+      href: upload-files-rest-how-to.md
+  - name: Encodage de contenu
+    items:
+    - name: Personnaliser les présélections de transformation - .NET
+      href: customize-encoder-presets-how-to.md
+  - name: Utiliser Event Grid
+    items:
+    - name: Surveiller les événements - Portail
+      href: monitor-events-portal-how-to.md
+    - name: Surveiller les événements - CLI
+      href: job-state-events-cli-how-to.md
+  - name: Protéger du contenu
+    items:
+    - name: Chiffrement dynamique AES-128 - .NET
+      href: protect-with-aes128.md
+    - name: Chiffrement dynamique DRM - .NET
+      href: protect-with-drm.md
+    - name: Obtenir une stratégie de clé de contenu - .NET
+      href: get-content-key-policy-dotnet-howto.md
+    - name: FairPlay hors connexion pour iOS
+      href: offline-fairplay-for-ios.md
+    - name: Widevine hors connexion pour Android
+      href: offline-widevine-for-android.md
+    - name: PlayReady hors connexion pour Windows 10
+      href: offline-plaready-streaming-for-windows-10.md
+  - name: Création de filtres
+    items:
+    - name: Avec .NET
+      href: filters-dynamic-manifest-dotnet-howto.md
+    - name: Avec REST
+      href: filters-dynamic-manifest-rest-howto.md
+    - name: Avec l’interface CLI
+      href: filters-dynamic-manifest-cli-howto.md
 - name: Informations de référence
   items:
-    - name: Spécification OpenAPI (Swagger)
-      href: 'https://aka.ms/ams-v3-rest-sdk'
-    - name: REST
-      href: 'https://aka.ms/ams-v3-rest-ref'
-    - name: Azure CLI
-      href: 'https://aka.ms/ams-v3-cli-ref'
-    - name: Kits de développement logiciel (SDK)
-      items:
-        - name: .NET
-          href: 'https://aka.ms/ams-v3-dotnet-ref'
-        - name: Java
-          href: 'https://aka.ms/ams-v3-java-ref'
-        - name: Python
-          href: 'https://aka.ms/ams-v3-python-ref'
-        - name: Node.js
-          href: 'https://aka.ms/ams-v3-nodejs-ref'
-        - name: Go
-          href: 'https://aka.ms/ams-v3-go-ref'
-    - name: Modèle Resource Manager
-      href: /azure/templates/microsoft.media/allversions
-    - name: Schémas Event Grid
-      href: media-services-event-schemas.md
-    - name: Licences DRM
-      items:
-        - name: Modèle de licence PlayReady
-          href: playready-license-template-overview.md
-        - name: Modèle de licence Widevine
-          href: widevine-license-template-overview.md
-        - name: Conditions de licence FairPlay
-          href: fairplay-license-overview.md
+  - name: Spécification OpenAPI (Swagger)
+    href: https://aka.ms/ams-v3-rest-sdk
+  - name: REST
+    href: https://aka.ms/ams-v3-rest-ref
+  - name: Azure CLI
+    href: https://aka.ms/ams-v3-cli-ref
+  - name: Kits de développement logiciel (SDK)
+    items:
+    - name: .NET
+      href: https://aka.ms/ams-v3-dotnet-ref
+    - name: Java
+      href: https://aka.ms/ams-v3-java-ref
+    - name: Python
+      href: https://aka.ms/ams-v3-python-ref
+    - name: Node.js
+      href: https://aka.ms/ams-v3-nodejs-ref
+    - name: Go
+      href: https://aka.ms/ams-v3-go-ref
+  - name: Modèle Resource Manager
+    href: /azure/templates/microsoft.media/allversions
+  - name: Schémas Event Grid
+    href: media-services-event-schemas.md
+  - name: Licences DRM
+    items:
+    - name: Modèle de licence PlayReady
+      href: playready-license-template-overview.md
+    - name: Modèle de licence Widevine
+      href: widevine-license-template-overview.md
+    - name: Conditions de licence FairPlay
+      href: fairplay-license-overview.md
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/media-services/'
-    - name: Disponibilité régionale
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: vidéos
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
-    - name: Spécification OpenAPI (Swagger)
-      href: 'https://aka.ms/ams-v3-rest-sdk'
-    - name: Kits de développement logiciel/outils
-      items:
-        - name: Azure CLI
-          href: 'https://aka.ms/ams-v3-cli'
-        - name: .NET
-          href: 'https://aka.ms/ams-v3-dotnet-sdk'
-        - name: Java
-          href: 'https://aka.ms/ams-v3-java-sdk'
-        - name: Python
-          href: 'https://aka.ms/ams-v3-python-sdk'
-        - name: Node.js
-          href: 'https://aka.ms/ams-v3-nodejs-sdk'
-        - name: Ruby
-          href: 'https://aka.ms/ams-v3-ruby-sdk'
-    - name: Notes de publication
-      href: release-notes.md
-    - name: Forum Aux Questions
-      href: frequently-asked-questions.md
-    - name: Clouds et régions Azure
-      href: azure-clouds-regions.md
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/?category=web-mobile
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/media-services/
+  - name: Disponibilité régionale
+    href: https://azure.microsoft.com/regions/services/
+  - name: vidéos
+    href: https://azure.microsoft.com/resources/videos/index/?services=media-services
+  - name: Spécification OpenAPI (Swagger)
+    href: https://aka.ms/ams-v3-rest-sdk
+  - name: Kits de développement logiciel/outils
+    items:
+    - name: Azure CLI
+      href: https://aka.ms/ams-v3-cli
+    - name: .NET
+      href: https://aka.ms/ams-v3-dotnet-sdk
+    - name: Java
+      href: https://aka.ms/ams-v3-java-sdk
+    - name: Python
+      href: https://aka.ms/ams-v3-python-sdk
+    - name: Node.js
+      href: https://aka.ms/ams-v3-nodejs-sdk
+    - name: Ruby
+      href: https://aka.ms/ams-v3-ruby-sdk
+  - name: Notes de publication
+    href: release-notes.md
+  - name: Forum Aux Questions
+    href: frequently-asked-questions.md
+  - name: Clouds et régions Azure
+    href: azure-clouds-regions.md
+ms.openlocfilehash: c30302fa289ade85870db3e89fa70f5e79f61a99
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881373"

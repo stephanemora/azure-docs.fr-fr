@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 5a92f4543f865141d446f5b681674961f6fef046
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021031"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412867"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -52,7 +52,12 @@ Vous pouvez utiliser les outils suivants pour créer ou configurer un réseau vi
 * Fichier de configuration réseau (netcfg - pour les réseaux virtuels classiques uniquement). Consultez l’article [Configurer un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quelles plages d’adresses puis-je utiliser dans mes réseaux virtuels ?
-Toute plage d’adresses IP définie dans [RFC 1918](http://tools.ietf.org/html/rfc1918). Par exemple, 10.0.0.0/16.
+Toute plage d’adresses IP définie dans [RFC 1918](http://tools.ietf.org/html/rfc1918). Par exemple, 10.0.0.0/16. Vous ne pouvez pas ajouter les plages d’adresses suivantes :
+* 224.0.0.0/4 (multidiffusion)
+* 255.255.255.255/32 (diffusion)
+* 127.0.0.0/8 (bouclage)
+* 169.254.0.0/16 (lien-local)
+* 168.63.129.16/32 (DNS interne)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Puis-je avoir des adresses IP publiques dans mes réseaux virtuels ?
 Oui. Pour plus d’informations sur les plages d’adresses IP publiques, consultez [Create a virtual network](manage-virtual-network.md#create-a-virtual-network) (Créer un réseau virtuel). Les adresses IP publiques ne sont pas directement accessibles à partir d’Internet.

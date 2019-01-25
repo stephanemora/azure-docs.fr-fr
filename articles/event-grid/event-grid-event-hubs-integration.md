@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 12/13/2018
+ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 450cbf4deace7d3edc1fcb50b8c3d8a91e936012
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6e8ca9d3a7fbdf1926ac642ac60a37d298af0129
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385412"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476851"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Didacticiel : Diffuser en continu des Big Data dans un entrepôt de données
 Azure [Event Grid](overview.md) est un service de routage des événements intelligent qui vous permet de réagir aux notifications (événements) à partir d’applications et de services. Par exemple, ce service peut déclencher le traitement par une fonction Azure des données Event Hubs capturées dans un Stockage Blob Azure ou dans un référentiel Azure Data Lake Storage, ainsi que la migration des données vers d’autres référentiels de données. Cet [exemple d’intégration Event Hubs et Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) vous indique comment utiliser Event Hubs avec Event Grid pour migrer en toute transparence les données Event Hubs capturées du stockage blob vers un service SQL Data Warehouse.
@@ -257,7 +257,7 @@ Vous avez terminé de configurer votre hub d’événements, SQL Data Warehouse,
    private const string EventHubName = "hubdatamigration";
    ```
 
-6. Générez la solution. Exécutez l’application **WindTurbineGenerator.exe.**. 
+6. Générez la solution. Exécutez l’application **WindTurbineGenerator.exe**. 
 7. Après quelques minutes, interrogez la table dans votre entrepôt de données pour les données migrées.
 
     ![Résultats de la requête](media/event-grid-event-hubs-integration/query-results.png)

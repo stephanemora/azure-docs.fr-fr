@@ -4,7 +4,7 @@ description: Cet article vous guide dans les changements de configuration d’Az
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6579e2ced3742eb1a70ccca96b9608fc6da628ee
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 50088dd00b0410ea32b6b61516021563c7ae061f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190627"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463369"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronisation Azure AD Connect : modifier la configuration par défaut
 L’objectif de cet article est d’expliquer comment apporter des modifications à la configuration par défaut dans la synchronisation Azure Active Directory (Azure AD) Connect. Elle explique pas à pas la procédure pour les scénarios courants. À la fin, vous serez capable d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.

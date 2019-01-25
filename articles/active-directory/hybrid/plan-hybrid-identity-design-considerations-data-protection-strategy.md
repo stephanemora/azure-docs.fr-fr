@@ -4,7 +4,7 @@ description: Vous définissez la stratégie de protection des données pour que 
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 20782679a4e73c029d6c83fd3bc57914b4d28691
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bef5671637b26f4fd0d0c27211edca946c395cdf
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865044"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468554"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Définir la stratégie de protection des données pour votre solution d’identités hybrides
 Dans cette tâche, vous allez définir la stratégie de protection des données pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise définies dans :

@@ -3,7 +3,7 @@ title: Connexion par téléphone Microsoft Authenticator - Comptes Microsoft et
 description: Utilisez votre téléphone pour vous connecter à votre compte Microsoft au lieu de taper votre mot de passe. Cet article répond aux questions fréquentes concernant cette fonctionnalité.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3df4be80e1a979590a05ff10601485e950de54bd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 39ad9beeb6e562a4487588967910efaf0cbe4d84
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962215"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822533"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Connectez-vous avec votre téléphone, et non votre mot de passe
 L’application Microsoft Authenticator vous permet de sécuriser vos comptes en effectuant une vérification en deux étapes après avoir entré votre mot de passe. Vous pouvez aussi l’utiliser désormais pour remplacer purement et simplement le mot de passe associé à votre compte Microsoft.

@@ -4,7 +4,7 @@ description: Comprendre l’onglet Connecteurs dans Synchronization Service Mana
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 592fcd80b80ecbd101dd559aa8baf78a60aaa517
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5c3931fd75ea8e0780b8a7b4f613c865267074c1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306848"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466807"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilisation de connecteurs avec Azure AD Connect Sync Service Manager
 
@@ -66,7 +66,7 @@ L’action de recherche dans l’espace connecteur permet de rechercher des obje
 
 Commencez par sélectionner une **portée**. Vous pouvez rechercher des données (nom unique relatif, nom de domaine, ancre, sous-arborescence) ou l’état de l’objet (toutes les autres options).  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
-Par exemple, si vous effectuez une recherche dans la sous-arborescence, vous obtenez tous les objets d’une unité d’organisation.  
+ Par exemple, si vous effectuez une recherche dans la sous-arborescence, vous obtenez tous les objets d’une unité d’organisation.  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 À partir de cette grille, vous pouvez sélectionner un objet, sélectionner des **propriétés** et [les suivre](tshoot-connect-object-not-syncing.md) par le biais du métaverse, de l’espace connecteur source vers l’espace connecteur cible.
 

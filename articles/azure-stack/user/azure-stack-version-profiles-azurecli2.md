@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2ab696436a8cf139eff92edc3b8ff2c27b40a7aa
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 15354cd7472e7cffb7a40ca431bc23eb65b9a9a9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018379"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845892"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utiliser des profils de version des API avec Azure CLI dans Azure Stack
 
@@ -212,16 +212,13 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
       ```
     * Environnements AD FS
 
-        * Connectez-vous en tant qu’utilisateur à l’aide d’un navigateur web :  
-              ```azurecli  
-              az login
-              ```
         * Connectez-vous en tant qu’utilisateur à l’aide d’un navigateur web avec un code d’appareil :  
-              ```azurecli  
-              az login --use-device-code
-              ```
-        > [!Note]  
-        >Elle vous donne une URL et un code qui vous permettent de vous authentifier.
+           ```azurecli  
+           az login --use-device-code
+           ```
+
+           > [!NOTE]  
+           >Elle vous donne une URL et un code qui vous permettent de vous authentifier.
 
         * Connectez-vous en tant que principal de service :
         

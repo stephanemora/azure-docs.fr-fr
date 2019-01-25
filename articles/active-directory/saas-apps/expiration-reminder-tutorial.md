@@ -4,7 +4,7 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3df3d73e-80a4-4b35-bd3d-90bc4f6f6afd
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 04874eff4375ac57a8c8e15a11399ca650bd5c15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: aa5c8a69422c74efad74926cfaec544d5ee2f126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020602"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Tutoriel : Intégration d’Azure Active Directory à Expiration Reminder
 
@@ -78,8 +78,8 @@ Pour configurer et tester l’authentification unique Azure AD avec Expiration 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique Expiration Reminder](#configure-expiration-reminder-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Créer un utilisateur de test Expiration Reminder](#create-expiration-reminder-test-user)** pour avoir un équivalent de Britta Simon dans Expiration Reminder, lié à la représentation Azure AD associée.
-5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Expiration Reminder](#create-expiration-reminder-test-user)** pour avoir un équivalent de Britta Simon dans Expiration Reminder, lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD avec Expiration Reminder, 
 
     ![Informations d’authentification unique dans Domaine et URL Expiration Reminder](common/sp-signonurl.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL : `https://app.expirationreminder.net/account/sso`.
+    Dans la zone de texte **URL de connexion**, tapez une URL : `https://app.expirationreminder.net/account/sso`
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, à la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Raw)** en fonction des options définies, puis enregistrez-le sur votre ordinateur.
 

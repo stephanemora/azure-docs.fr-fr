@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 39cb9f606e6829fe8265a40216de5312c3e7e60b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 10f8b6b2b1ab6249eff4776c8cba869d72f448c5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075190"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851672"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer une homologation de réseau virtuel
 
@@ -32,7 +32,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com et connectez-vous avec un compte qui possède les [autorisations nécessaires](#permissions) pour utiliser les homologations.
-- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce tutoriel requiert le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell localement, vous devez également exécuter `Connect-AzureRmAccount` avec un compte qui possède les [autorisations nécessaires](#permissions) pour utiliser les homologations, afin de vous connecter à Azure.
+- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce tutoriel requiert le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell localement, vous devez également exécuter `Connect-AzureRmAccount` avec un compte qui possède les [autorisations nécessaires](#permissions) pour utiliser les homologations, afin de vous connecter à Azure.
 - Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` avec un compte qui possède les [autorisations nécessaires](#permissions) pour utiliser les homologations, afin de vous connecter à Azure.
 
 Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans [Autorisations](#permissions).
@@ -87,7 +87,7 @@ Avant de modifier une homologation, familiarisez-vous avec les [exigences et con
 
 **Commandes**
 
-- **Azure CLI** : [az network vnet peering list](/cli/azure/network/vnet/peering#az_network_vnet_peering_list) pour afficher la liste des homologations d’un réseau virtuel, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) pour afficher les paramètres d’une homologation spécifique et [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) pour modifier les paramètres de l’homologation.|
+- **Azure CLI** : [az network vnet peering list](/cli/azure/network/vnet/peering) pour afficher la liste des homologations d’un réseau virtuel, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) pour afficher les paramètres d’une homologation spécifique et [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) pour modifier les paramètres de l’homologation.|
 - **PowerShell** : [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) pour afficher les paramètres d’homologation et [Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) pour modifier les paramètres.
 
 ## <a name="delete-a-peering"></a>Supprimer une homologation
@@ -107,7 +107,7 @@ Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au l
 
 **Commandes**
 
-- **Azure CLI** : [az network vnet peering delete](/cli/azure/network/vnet/peering#az_network_vnet_peering_delete)
+- **Azure CLI** : [az network vnet peering delete](/cli/azure/network/vnet/peering)
 - **PowerShell** : [Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering)
 
 ## <a name="requirements-and-constraints"></a>Exigences et contraintes 

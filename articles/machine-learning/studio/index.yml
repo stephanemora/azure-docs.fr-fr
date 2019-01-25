@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 542bd4f23c32d4d59b11875ef96f8e1f261605ba
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: a4ceaec8c71d4c13a18c8e28cc057b4b6d5337d5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302270"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812503"
 documentType: LandingData
-title: Documentation Azure Machine Learning Studio
+title: Documentation Machine Learning Studio
 metadata:
-  title: Documentation - Tutoriels Azure Machine Learning Studio, informations de référence | Microsoft Docs
-  description: Azure Machine Learning Studio est un outil collaboratif fonctionnant par glisser-déplacer qui vous permet de générer, tester et déployer des solutions d’analyse prédictive à partir de vos données. Des didacticiels, des vidéos et des exemples de modèle vous montrent comment utiliser Studio pour créer et déployer des modèles Machine Learning.
+  title: Documentation Azure Machine Learning Studio - Tutoriels, informations de référence | Microsoft Docs
+  description: Machine Learning Studio est un outil collaboratif fonctionnant par glisser-déplacer qui vous permet de générer, tester et déployer des solutions d’analytique prédictive à partir de vos données. Des didacticiels, des vidéos et des exemples de modèle vous montrent comment utiliser Studio pour créer et déployer des modèles Machine Learning.
   services: machine-learning
   ms.service: machine-learning
   ms.component: studio
@@ -18,20 +18,10 @@ metadata:
   ms.author: jmartens
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.date: 09/24/2018
+  ms.date: 01/24/2019
 abstract:
-  description: Azure Machine Learning Studio est un outil collaboratif fonctionnant par glisser-déplacer qui vous permet de générer, tester et déployer des solutions d’analyse prédictive à partir de vos données. Des didacticiels, des vidéos et des exemples de modèle vous montrent comment utiliser Studio pour créer et déployer des modèles Machine Learning.
+  description: Azure Machine Learning Studio est un outil collaboratif fonctionnant par glisser-déplacer qui permet de générer, tester et déployer des solutions d’analytique prédictive à partir de vos données. Des didacticiels, des vidéos et des exemples de modèle vous montrent comment utiliser Studio pour créer et déployer des modèles Machine Learning.
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Commencer à découvrir Azure Machine Learning Studio
-      href: create-experiment
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-        href: create-experiment
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
@@ -39,19 +29,31 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="create-experiment">Créer votre première expérience</a>
+    - html: <a href="create-experiment">Créer votre première expérience Studio</a>
     - html: <a href="algorithm-choice">Choisir le meilleur algorithme</a>
-    - html: <a href="deploy-consume-web-service-guide">Rendre votre modèle opérationnel</a>
-    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">En savoir plus sur la science des données</a>
+    - html: <a href="deploy-consume-web-service-guide">Déployer des modèles en tant que services web</a>
+    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Lire « Science des données pour les débutants »</a>
 - title: Didacticiels pas à pas
   items:
   - type: paragraph
     text: 'Consulter des didacticiels étendus qui vous guident dans la création et le déploiement de modèles :'
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="walkthrough-develop-predictive-solution">Créer et déployer une solution prédictive</a>
     - html: <a href="azure-ml-customer-churn-scenario">Exemple d’évolution client</a>
+- title: Informations de référence
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Ligne de commande
+      html: <p><a href="powershell-module">Modules PowerShell</a></p>
+    - title: Modules
+      html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algorithmes et informations de référence sur les modules</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">API de gestion REST</a></p><p><a href="web-service-error-codes">Codes d’erreur de service web</a></p>
 - title: Plus de technologies Microsoft Azure Machine Learning
   items:
   - type: paragraph
@@ -70,15 +72,3 @@ sections:
       image:
         src: media/index/virtual-machines.svg
         href: /azure/machine-learning/data-science-virtual-machine/
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Ligne de commande
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.machinelearning">Module PowerShell (nouveau)</a></p><p><a href="powershell-module">Module PowerShell (classique)</a></p>
-    - title: Modules
-      html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algorithmes et informations de référence sur les modules</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">API de gestion REST</a></p><p><a href="web-service-error-codes">Codes d’erreur de service web</a></p>
