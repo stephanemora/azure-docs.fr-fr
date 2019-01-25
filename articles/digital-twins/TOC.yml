@@ -47,22 +47,28 @@ items:
       href: security-authenticating-apis.md
 - name: Procédures
   items:
-  - name: Comment autoriser les applications mutualisées
+  - name: Autoriser les applications multi-locataires
     href: how-to-multitenant-applications.md
-  - name: Comment créer des fonctions définies par l’utilisateur
+  - name: Créer des fonctions définies par l’utilisateur
     href: how-to-user-defined-functions.md
-  - name: Comment acheminer des événements et des messages par le biais de points de terminaison
+  - name: Acheminer des événements et des messages par le biais de points de terminaison
     href: how-to-egress-endpoints.md
-  - name: Comment configurer Postman
-    href: how-to-configure-postman.md
-  - name: Comment ajouter des objets blob à des objets
+  - name: Ajouter des objets blob à des objets
     href: how-to-add-blobs.md
-  - name: Comment utiliser Digital Twins Swagger
+  - name: Utiliser Digital Twins Swagger
     href: how-to-use-swagger.md
-  - name: Comment déboguer les fonctions définies par l’utilisateur
+  - name: Déboguer des fonctions définies par l’utilisateur
     href: how-to-diagnose-user-defined-functions.md
-  - name: Comment configurer l’analyse
+  - name: Configuration de l’analyse
     href: how-to-configure-monitoring.md
+  - name: Interroger les API Digital Twins
+    items:
+    - name: Configurer Postman
+      href: how-to-configure-postman.md
+    - name: Utiliser les API Digital Twins
+      href: how-to-navigate-apis.md
+    - name: Modèles de requête courants
+      href: how-to-query-common-apis.md
 - name: Informations de référence
   items:
   - name: Bibliothèque de client de fonctions définies par l’utilisateur
@@ -113,9 +119,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: vidéos
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
-ms.openlocfilehash: 04716146653b833461b8230c2895fd1a8b6dcd42
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 92d60cbe1de8d8f2b36d67e1a7ff2999a45e1a8e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993465"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102221"

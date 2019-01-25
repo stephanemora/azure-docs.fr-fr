@@ -30,20 +30,20 @@ items:
       items:
       - name: .NET
         href: storage-quickstart-blobs-dotnet.md
-      - name: Java
+      - name: Java (Kit de développement logiciel de stockage V10)
         href: storage-quickstart-blobs-java-v10.md
-      - name: Node.js
-        href: storage-quickstart-blobs-nodejs-v10.md
       - name: Python
         href: storage-quickstart-blobs-python.md
-      - name: JS/HTML
-        href: storage-quickstart-blobs-javascript-client-libraries.md
       - name: Go
         href: storage-quickstart-blobs-go.md
-      - name: PHP
-        href: storage-quickstart-blobs-php.md
       - name: Ruby
         href: storage-quickstart-blobs-ruby.md
+      - name: Node.js (Kit de développement logiciel de stockage V10)
+        href: storage-quickstart-blobs-nodejs-v10.md
+      - name: JS/HTML
+        href: storage-quickstart-blobs-javascript-client-libraries.md
+      - name: PHP
+        href: storage-quickstart-blobs-php.md
   - name: Didacticiels
     items:
     - name: Télécharger et traiter une image
@@ -74,13 +74,13 @@ items:
         href: storage-blob-static-website-host.md
       - name: 2 - Activer un domaine personnalisé avec SSL
         href: storage-blob-static-website-custom-domain.md
-    - name: Concevoir des applications à des fins de haute disponibilité
+    - name: Conception pour la haute disponibilité dans le stockage cloud
       items:
       - name: 1 - Rendre votre application hautement disponible
         href: storage-create-geo-redundant-storage.md
       - name: 2 - Simuler un échec avec le stockage RA-GRS
         href: storage-simulate-failure-ragrs-account-app.md
-    - name: Rechercher dans des données non structurées
+    - name: Rechercher des données non structurées dans le stockage cloud
       href: storage-unstructured-search.md
   - name: Exemples
     items:
@@ -94,7 +94,7 @@ items:
       href: storage-samples-blobs-cli.md
   - name: Concepts
     items:
-    - name: Gestion des comptes de stockage
+    - name: Comptes de stockage
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
       - name: Gérer un compte de stockage
@@ -111,7 +111,7 @@ items:
           href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Authentifier à partir d’une application
           href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Authentifier avec des identités managées
+        - name: Authentifier avec des identités gérées
           href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Utiliser une identité Azure AD avec l’interface CLI ou PowerShell
           href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -130,17 +130,70 @@ items:
         href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Stockage géo-redondant
         href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Guide de récupération d’urgence
-        href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Conception d’applications à haute disponibilité à l’aide de RA-GRS
-        href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Niveaux d’accès
+      href: storage-blob-storage-tiers.md
+    - name: Gérer le cycle de vie du stockage Blob Azure
+      href: storage-lifecycle-management-concepts.md
+    - name: Réaction aux événements
+      href: storage-blob-event-overview.md
+    - name: Cibles de performance et d’évolutivité
+      href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Liste de contrôle des performances et de l’évolutivité
+      href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Accès concurrentiel
+      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Guide de récupération d’urgence
+      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Déplacer des données vers et à partir du stockage
+      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Fonctionnalités d’objet blob de pages
+      href: storage-blob-pageblob-overview.md
+    - name: Disques Azure
       items:
-      - name: Niveaux d’accès
-        href: storage-blob-storage-tiers.md
-      - name: Gérer le cycle de vie du stockage Blob Azure
-        href: storage-lifecycle-management-concepts.md
-    - name: Sécurité
+      - name: Stockage Premium
+        items:
+        - name: Linux
+          items:
+          - name: Stockage Premium hautes performances pour les disques de machine virtuelle
+            href: ../../virtual-machines/linux/premium-storage.md
+          - name: Migration vers le stockage Premium à l'aide d'Azure Site Recovery
+            href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
+          - name: Conception pour de hautes performances
+            href: ../../virtual-machines/linux/premium-storage-performance.md
+        - name: Windows
+          items:
+          - name: Stockage Premium hautes performances pour les disques de machine virtuelle
+            href: ../../virtual-machines/windows/premium-storage.md
+          - name: Migration vers le stockage Premium à l'aide d'Azure Site Recovery
+            href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
+          - name: Conception pour de hautes performances
+            href: ../../virtual-machines/windows/premium-storage-performance.md
+      - name: Stockage standard
+        items:
+        - name: Linux
+          items:
+          - name: Stockage standard pour disques de machine virtuelle
+            href: ../../virtual-machines/linux/standard-storage.md
+        - name: Windows
+          items:
+          - name: Stockage standard pour disques de machine virtuelle
+            href: ../../virtual-machines/windows/standard-storage.md
+      - name: Résoudre les problèmes de disques durs virtuels attachés
+        href: storage-troubleshoot-vhds.md
+        items:
+        - name: Linux
+          items:
+          - name: Erreurs de suppression de ressources de stockage
+            href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
+          - name: Redémarrages inattendus de machines virtuelles avec des VHD joints
+            href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
+        - name: Windows
+          items:
+          - name: Erreurs de suppression de ressources de stockage
+            href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
+          - name: Redémarrages inattendus de machines virtuelles avec des VHD joints
+            href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md
+    - name: Sécuriser
       items:
       - name: Guide sur la sécurité
         href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -160,95 +213,81 @@ items:
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Activer le protocole TLS sécurisé pour le client du stockage Azure
         href: ../common/storage-security-tls.md
-    - name: Performances et mise à l’échelle
+      - name: Offres de conformité
+        href: ../common/storage-compliance-offerings.md
+    - name: Comparer les solutions de transfert de données
+      href: ../common/storage-choose-data-transfer-solution.md
       items:
-      - name: Cibles de performance et d’évolutivité
-        href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Liste de contrôle des performances et de l’évolutivité
-        href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Accès concurrentiel
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Migration des données
+      - name: Grand jeu de données, bande passante réseau faible
+        href: ../common/storage-solution-large-dataset-low-network.md
+      - name: Grand jeu de données, bande passante réseau modérée à élevée
+        href: ../common/storage-solution-large-dataset-moderate-high-network.md
+      - name: Petit jeu de données, bande passante réseau faible à modérée
+        href: ../common/storage-solution-small-dataset-low-moderate-network.md
+      - name: Transfert régulier de données
+        href: ../common/storage-solution-periodic-data-transfer.md
+    - name: Surveiller et résoudre des problèmes
       items:
-      - name: Comparer les solutions de transfert de données
-        href: ../common/storage-choose-data-transfer-solution.md
+      - name: Didacticiel sur la résolution des problèmes
+        href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Surveiller, diagnostiquer et résoudre les problèmes
+        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Mesures et journalisation
         items:
-        - name: Grand jeu de données, bande passante réseau faible
-          href: ../common/storage-solution-large-dataset-low-network.md
-        - name: Grand jeu de données, bande passante réseau modérée à élevée
-          href: ../common/storage-solution-large-dataset-moderate-high-network.md
-        - name: Petit jeu de données, bande passante réseau faible à modérée
-          href: ../common/storage-solution-small-dataset-low-moderate-network.md
-        - name: Transfert régulier de données
-          href: ../common/storage-solution-periodic-data-transfer.md
-      - name: Déplacer des données vers et à partir du stockage
-        href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Importer/Exporter des données
-        href: ../common/storage-import-export-service.md
+        - name: Mesures dans Azure Monitor
+          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Migrer vers de nouvelles mesures
+          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Storage Analytics
+          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Activer et afficher les mesures (Classic)
+          href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Importer/Exporter des données
+      href: ../common/storage-import-export-service.md
+      items:
+      - name: Examiner les conditions requises
+        href: ../common/storage-import-export-requirements.md
+      - name: Importer des données dans des objets BLOB
+        href: ../common/storage-import-export-data-to-blobs.md
+      - name: Importer des données dans des fichiers
+        href: ../common/storage-import-export-data-to-files.md
+      - name: Importer des données à partir d’objets BLOB
+        href: ../common/storage-import-export-data-from-blobs.md
+      - name: Procédure
         items:
-        - name: Examiner les conditions requises
-          href: ../common/storage-import-export-requirements.md
-        - name: Importer des données dans des objets BLOB
-          href: ../common/storage-import-export-data-to-blobs.md
-        - name: Importer des données dans des fichiers
-          href: ../common/storage-import-export-data-to-files.md
-        - name: Importer des données à partir d’objets BLOB
-          href: ../common/storage-import-export-data-from-blobs.md
-        - name: Procédure
+        - name: Afficher l’état des disques
+          href: ../common/storage-import-export-view-drive-status.md
+        - name: Revoir le statut du travail
+          href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
+        - name: Réparer un travail d’importation
+          href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
+        - name: Réparer un travail d’exportation
+          href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md
+      - name: Forum Aux Questions
+        href: ../common/storage-import-export-service-faq.md
+      - name: API REST
+        href: https://docs.microsoft.com/rest/api/storageimportexport/jobs
+      - name: Contacter le support technique
+        href: ../common/storage-import-export-contact-microsoft-support.md
+      - name: Archivage
+        items:
+        - name: Préparer des disques à l’importation (v1)
+          href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
           items:
-          - name: Afficher l’état des disques
-            href: ../common/storage-import-export-view-drive-status.md
-          - name: Revoir le statut du travail
-            href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
-          - name: Réparer un travail d’importation
-            href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
-          - name: Réparer un travail d’exportation
-            href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md
-        - name: Forum Aux Questions
-          href: ../common/storage-import-export-service-faq.md
-        - name: API REST
-          href: https://docs.microsoft.com/rest/api/storageimportexport/jobs
-        - name: Contacter le support technique
-          href: ../common/storage-import-export-contact-microsoft-support.md
-        - name: Archivage
+          - name: Définir des propriétés et métadonnées
+            href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+          - name: 'Exemple : préparer des disques pour l’importation'
+            href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+          - name: Référence des commandes rapide pour l’importation
+            href: ../common/storage-import-export-tool-quick-reference-v1.md
+        - name: Préparer des disques à l’importation (v2)
+          href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
           items:
-          - name: Préparer des disques à l’importation (v1)
-            href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
-            items:
-            - name: Définir des propriétés et métadonnées
-              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
-            - name: 'Exemple : préparer des disques pour l’importation'
-              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
-            - name: Référence des commandes rapide pour l’importation
-              href: ../common/storage-import-export-tool-quick-reference-v1.md
-          - name: Préparer des disques à l’importation (v2)
-            href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
-            items:
-            - name: Définir des propriétés et métadonnées
-              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
-            - name: 'Exemple : préparer des disques pour l’importation'
-              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
-            - name: Référence des commandes rapide pour l’importation
-              href: ../common/storage-import-export-tool-quick-reference-v1.md
-          - name: Créer un travail d’importation
-            href: ../common/storage-import-export-creating-an-import-job.md
-          - name: Créer un travail d’exportation
-            href: ../common/storage-import-export-creating-an-import-job.md
-          - name: Afficher l’état des travaux
-            href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
-          - name: Créer un travail d’exportation
-            href: ../common/storage-import-export-creating-an-import-job.md
-          - name: Énumérer des travaux
-            href: ../common/storage-import-export-enumerating-jobs.md
-          - name: Annuler et supprimer des travaux
-            href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
-          - name: Sauvegarder des manifestes de lecteur
-            href: ../common/storage-import-export-backing-up-drive-manifests.md
-          - name: Énumérer des travaux
-            href: ../common/storage-import-export-enumerating-jobs.md
-          - name: Diagnostics et récupération d’erreur
-            href: ../common/storage-import-export-diagnostics-and-error-recovery.md
-          - name: Commandes pour les travaux d’importation
+          - name: Définir des propriétés et métadonnées
+            href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+          - name: 'Exemple : préparer des disques pour l’importation'
+            href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+          - name: Référence des commandes rapide pour l’importation
             href: ../common/storage-import-export-tool-quick-reference-v1.md
         - name: Créer un travail d’importation
           href: ../common/storage-import-export-creating-an-import-job.md
@@ -270,46 +309,34 @@ items:
           href: ../common/storage-import-export-diagnostics-and-error-recovery.md
         - name: Commandes pour les travaux d’importation
           href: ../common/storage-import-export-tool-quick-reference-v1.md
-        - name: Fichier de manifeste de service
-          href: ../common/storage-import-export-file-format-manifest.md
-        - name: Fichier de propriétés et de métadonnées du service
-          href: ../common/storage-import-export-file-format-metadata-and-properties.md
-        - name: Fichier journal de service
-          href: ../common/storage-import-export-file-format-log.md
-    - name: Surveiller et résoudre des problèmes
-      items:
-      - name: Didacticiel sur la résolution des problèmes
-        href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Surveiller, diagnostiquer et résoudre les problèmes
-        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Mesures et journalisation
-        items:
-        - name: Mesures dans Azure Monitor
-          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Migrer vers de nouvelles mesures
-          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Storage Analytics
-          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Activer et afficher les mesures (Classic)
-          href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Gestion des événements
-      href: storage-blob-event-overview.md
-    - name: Fonctionnalités d’objet blob de pages
-      href: storage-blob-pageblob-overview.md
+      - name: Créer un travail d’importation
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: Créer un travail d’exportation
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: Afficher l’état des travaux
+        href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
+      - name: Créer un travail d’exportation
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: Énumérer des travaux
+        href: ../common/storage-import-export-enumerating-jobs.md
+      - name: Annuler et supprimer des travaux
+        href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
+      - name: Sauvegarder des manifestes de lecteur
+        href: ../common/storage-import-export-backing-up-drive-manifests.md
+      - name: Énumérer des travaux
+        href: ../common/storage-import-export-enumerating-jobs.md
+      - name: Diagnostics et récupération d’erreur
+        href: ../common/storage-import-export-diagnostics-and-error-recovery.md
+      - name: Commandes pour les travaux d’importation
+        href: ../common/storage-import-export-tool-quick-reference-v1.md
+      - name: Fichier de manifeste de service
+        href: ../common/storage-import-export-file-format-manifest.md
+      - name: Fichier de propriétés et de métadonnées du service
+        href: ../common/storage-import-export-file-format-metadata-and-properties.md
+      - name: Fichier journal de service
+        href: ../common/storage-import-export-file-format-log.md
   - name: Procédures
     items:
-    - name: Autoriser les demandes pour le stockage
-      items:
-      - name: S’authentifier avec Azure AD
-        items:
-        - name: Gérer les droits d’accès à l’aide de RBAC
-          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Authentifier à partir d’une application
-          href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Authentifier avec des identités managées
-          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Utiliser une identité Azure AD avec l’interface CLI ou PowerShell
-          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Développer avec des objets blob
       items:
       - name: REST
@@ -334,6 +361,10 @@ items:
         href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Classic CLI
         href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Gérer des objets Blob avec l’explorateur de stockage
+        href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Azure Automation
+        href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: chiffrement côté client
       items:
       - name: .NET
@@ -344,6 +375,8 @@ items:
         href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Configuration des chaînes de connexion
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Conception d’applications à haute disponibilité à l’aide de RA-GRS
+      href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Chiffrer et déchiffrer des objets Blob à l’aide d’Azure Key Vault
       href: storage-encrypt-decrypt-blobs-key-vault.md
     - name: Définir et récupérer des propriétés et métadonnées d’objet
@@ -386,7 +419,7 @@ items:
         href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
       - name: Déplacement des données
         href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement
-      - name: Resource Manager
+      - name: Gestionnaire de ressources
         href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
     - name: Java
       items:
@@ -428,7 +461,7 @@ items:
       href: https://azure.microsoft.com/pricing/details/storage/blobs/
     - name: Calculatrice de prix
       href: https://azure.microsoft.com/pricing/calculator/
-    - name: Stack Overflow
+    - name: Dépassement de capacité de la pile
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: vidéos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
@@ -488,8 +521,6 @@ items:
           href: /rest/api/storagerp
         - name: Importation/Exportation
           href: /rest/api/storageimportexport
-    - name: Offres de conformité
-      href: ../common/storage-compliance-offerings.md
 - name: Data Lake Storage Gen2
   items:
   - name: Basculer sur la documentation Data Lake Storage Gen1
@@ -596,13 +627,13 @@ items:
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Mises à jour de service
       href: https://azure.microsoft.com/updates/?product=storage
-    - name: Stack Overflow
+    - name: Dépassement de capacité de la pile
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: vidéos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: bba5e3bf1081d3141b3e754eb8c06e54f6528234
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0b87fc2be7602e865693c2013cf18ea11e47e7c3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261653"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104248"
