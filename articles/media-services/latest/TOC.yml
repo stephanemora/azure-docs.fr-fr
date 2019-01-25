@@ -40,15 +40,15 @@ items:
   - name: Entités
     href: entities-overview.md
     items:
-    - name: Filtres de ressources et de comptes
+    - name: Filtres de comptes et d’actifs multimédias
       href: filters-dynamic-manifest-overview.md
     - name: Éléments multimédias
       href: assets-concept.md
     - name: Stratégies de clé de contenu
       href: content-key-policy-concept.md
-    - name: LiveEvents et LiveOutputs
+    - name: Événements en direct et Sorties en direct
       href: live-events-outputs-concept.md
-    - name: Points de terminaison de streaming
+    - name: Points de terminaison de diffusion en continu
       href: streaming-endpoint-concept.md
     - name: Localisateurs de diffusion en continu
       href: streaming-locators-concept.md
@@ -203,9 +203,9 @@ items:
     href: frequently-asked-questions.md
   - name: Clouds et régions Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: dfafe49ba2f520bdc44c5a3e3cad0201d6e56da5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c30302fa289ade85870db3e89fa70f5e79f61a99
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810854"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881373"
