@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Vodeclic | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Vodeclic | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Vodeclic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d77a0f53-e3a3-445e-ab3e-119cef6e2e1d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8f53082a2f6a33e934c2e3138d08725ffdf4fa2b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444621"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815410"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Didacticiel : Intégration d’Azure Active Directory à Vodeclic
 
@@ -170,7 +170,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-vodeclic-test-user"></a>Créer un utilisateur de test Vodeclic
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Vodeclic. Collaborez avec [l’équipe du support technique Vodeclic](mailto:hotline@vodeclic.com) pour ajouter des utilisateurs dans la plateforme Vodeclic. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Vodeclic. Collaborez avec [l’équipe du support technique Vodeclic](mailto:hotline@vodeclic.com)  pour ajouter des utilisateurs dans la plateforme Vodeclic. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 > [!NOTE]
 > En fonction des besoins de l’application, vous devrez peut-être faire figurer votre ordinateur dans la liste verte. Pour cela, vous devez partager votre adresse IP publique avec [l’équipe de support technique Vodeclic](mailto:hotline@vodeclic.com).
@@ -211,7 +211,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Quand vous sélectionnez la vignette Vodeclic dans le panneau d’accès, vous êtes connecté automatiquement à votre application Vodeclic.
 
-Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
