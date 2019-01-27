@@ -4,7 +4,7 @@ description: Informations de référence des codes d’erreur des rapports d’a
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f8d3c3017a914f261c7e4f8bbe0e42d1edf8a9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0de3ced9974941399875ca98991430f10d4f8525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622429"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820153"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -135,7 +135,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |53002|L’application utilisée n’est pas une application approuvée pour l’accès conditionnel. L’utilisateur doit utiliser une des options de la liste des applications approuvées afin d’obtenir l’accès.|
 |53003|L’accès a été bloqué en raison de stratégies d’accès conditionnel.|
 |53004|L’utilisateur doit terminer le processus d’inscription de l’authentification multifacteur pour accéder à ce contenu. L’utilisateur doit s’inscrire à l’authentification multifacteur.|
-|65 001|L’application X n’est pas autorisée à accéder à l’application Y, ou l’autorisation a été révoquée. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation interactive pour cet utilisateur et cette ressource. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation à l’administrateur du locataire pour agir au nom de l’application Y pour la ressource Z.|
+|65 001|L’application X n’est pas autorisée à accéder à l’application Y, ou l’autorisation a été révoquée. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation interactive pour cet utilisateur et cette ressource. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation à l’administrateur du locataire pour agir au nom de l’application : Y pour la ressource : Z.|
 |65004|L’utilisateur a refusé de donner son consentement pour accéder à l’application. Demandez à l’utilisateur de réessayer de se connecter et de donner son consentement à l’application.|
 |65005|La liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a renvoyé une requête incorrecte ou la ressource est introuvable. Si l’application prend en charge SAML, vous avez peut-être configuré l’application avec un identificateur incorrect (entité). Testez la résolution décrite pour SAML en utilisant le lien ci-dessous : [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
 |70000|Octroi non valide pour l’une des raisons suivantes :<ul><li>L’assertion SAML 2.0 demandée a une méthode de confirmation d’objet non valide.</li><li>Le flux OnBehalfOf de l’application n’est pas pris en charge sur V2.</li><li>Le jeton d’actualisation principal n’est pas signé avec la clé de session.</li><li>Le jeton d’actualisation externe n’est pas valide.</li><li>L’octroi d’accès a été obtenu pour un autre locataire.</li></ul>|
@@ -160,7 +160,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |80001|L’Agent d’authentification ne peut pas se connecter à Active Directory. Assurez-vous que l’agent d’authentification est installé sur un ordinateur de jonction de domaine ayant une visibilité sur un contrôleur de domaine qui peut répondre à la requête de connexion de l’utilisateur.|
 |80002|Erreur interne. La requête de validation du mot de passe est arrivée à expiration. Nous n’avons pas pu envoyer la requête d’authentification au service d’identité hybride interne. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
 |80003|Réponse non valide reçue par l’Agent d’authentification. Une erreur inconnue s’est produite lors de la tentative d’authentification auprès de l’instance Active Directory locale. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
-|80005|Agent d’authentification : une erreur inconnue s’est produite lors du traitement de la réponse provenant de l’agent d’authentification. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
+|80005|Agent d’authentification : Une erreur inconnue s’est produite lors du traitement de la réponse provenant de l’agent d’authentification. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
 |80007|L’Agent d’authentification ne peut pas valider le mot de passe.|
 |80010|L’Agent d’authentification ne peut pas déchiffrer le mot de passe. |
 |80011|L’agent d’authentification n’a pas pu récupérer la clé de déchiffrement.|

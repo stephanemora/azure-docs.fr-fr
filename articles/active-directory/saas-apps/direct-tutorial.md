@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à direct | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à direct | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et direct.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bb197b820b9f4262eb5c93665c46c14f9497d0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092884"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822652"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Didacticiel : Intégration d’Azure Active Directory à direct
+# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutoriel : Intégration d’Azure Active Directory à direct
 
 Dans ce didacticiel, vous allez apprendre à intégrer direct à Azure Active Directory (Azure AD).
 
@@ -118,7 +118,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_url1.png)
 
-     Dans la zone de texte **URL de connexion**, tapez l’URL : `https://direct4b.com/sso` 
+     Dans la zone de texte **URL de connexion**, tapez l’URL : `https://direct4b.com/sso` 
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -164,7 +164,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="creating-a-direct-test-user"></a>Création d’un utilisateur de test direct
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans direct. Collaborez avec l’[équipe du support technique de direct](https://direct4b.com/ja/support.html#inquiry) pour ajouter des utilisateurs dans la plate-forme direct. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans direct. Collaborez avec l’ [équipe du support technique de direct](https://direct4b.com/ja/support.html#inquiry)  pour ajouter des utilisateurs dans la plateforme directe. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
@@ -208,9 +208,9 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
     a. Cliquez sur la mosaïque **direct** dans le volet d’accès, et vous serez redirigé vers la page d’authentification de l’application.
 
-    b. Entrez votre `subdomain` dans la zone de texte affichée et appuyez sur « 次へ (Suivant) ». Vous devriez être automatiquement connecté à votre application **direct**.
+    b. Entrez votre `subdomain` dans la zone de texte affichée et appuyez sur « 次へ (Suivant) ». Vous devriez être automatiquement connecté à votre application **direct**.
 
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

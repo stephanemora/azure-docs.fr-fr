@@ -3,7 +3,7 @@ title: Rapport de connexions risquées dans le portail Azure Active Directory | 
 description: En savoir plus sur le rapport des connexions risquées dans le portail Azure Active Directory
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 402aae15ae4fe8e6961fbc76a4ddaa470b8c797a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244713"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807760"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapport de connexions à risque dans le portail Azure Active Directory
 
@@ -63,7 +63,7 @@ Les éditions Azure AD Free et Basic vous fournissent la liste des connexions ri
 
 - **Utilisateur** : nom d’utilisateur qui a été utilisé pendant l’opération de connexion.
 - **IP** : adresse IP du périphérique qui a été utilisé pour la connexion à Azure Active Directory.
-- **Emplacement** : emplacement utilisé pour la connexion à Azure Active Directory.
+- **Emplacement** : emplacement utilisé pour la connexion à Azure Active Directory. Il s’agit d'une approximation du meilleur effort basée sur les suivis, les données de registre, les recherches inversées et d’autres informations.
 - **Heure de connexion** : heure à laquelle la connexion a été effectuée.
 - **État** : état de la connexion.
 
@@ -106,6 +106,9 @@ Lorsque vous sélectionnez un événement à risque, vous obtenez une vue de rap
 - Fermer manuellement les événements à risque. 
 
 ![les connexions risquées.](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> Vous pouvez trouver un événement à risque sans l’entrée correspondante dans le [rapport sur les connexions](concept-sign-ins.md). En effet, Identity Protection évalue le risque pour les connexions **interactives** et les connexions **non interactives**, alors que le rapport sur les connexions ne montre que les connexions interactives.
 
 Lorsque vous sélectionnez un utilisateur, vous obtenez une vue de rapport détaillé pour cet utilisateur qui vous permet d’effectuer les opérations suivantes :
 

@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 01/23/2019
 ms.author: cwatson
-ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e1d9c348f83600b48f4b202c8660d9387dfc5484
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584568"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856367"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendre votre facture Microsoft Azure
 Pour comprendre votre facture Azure, comparez-la avec le fichier détaillé sur l’utilisation quotidienne et les rapports de gestion des coûts dans le portail Azure.
 
 Cet article ne s’applique pas aux clients Azure disposant d’un Contrat Entreprise (clients EA). Si vous êtes client Contrat Entreprise, consultez la section [Comprendre la facture des clients Azure ayant un Contrat Entreprise](billing-understand-your-bill-ea.md).  
+
+La [Présentation de la facturation Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/) fournit une explication sur le fonctionnement de la facturation dans le programme Fournisseur de solutions Azure Cloud (Azure CSP), notamment le cycle de facturation, la tarification et l’utilisation.
 
 ## <a name="charges"></a>Passer en revue vos frais
 
@@ -33,7 +35,7 @@ Cet article ne s’applique pas aux clients Azure disposant d’un Contrat Entre
 
 Si vous souhaitez plus d’informations sur des frais figurant sur votre facture, vous pouvez comparer l’utilisation et les coûts avec le fichier d’utilisation ou avec le portail Azure.
 
-### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>Option 1 : Comparer l’utilisation et les coûts avec le fichier d’utilisation
+### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>Option 1 : Comparer l’utilisation et les coûts avec le fichier d’utilisation
 
 Le fichier CSV sur l’utilisation détaillée indique vos frais par période de facturation et l’utilisation quotidienne. Pour accéder au fichier, consultez [Obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md).
 
@@ -42,7 +44,7 @@ Vos frais d’utilisation sont affichés au niveau du compteur. Les termes suiva
  | Facture (PDF) | Utilisation détaillée (CSV)|
  | --- | --- |
 |Cycle de facturation | Période de facturation |
- |Nom |Catégorie du compteur |
+ |NOM |Catégorie du compteur |
  |type |Sous-catégorie du compteur |
  |Ressource |Nom du compteur |
  |Région |Région du compteur |
@@ -69,7 +71,7 @@ Pour plus d'informations, consultez les rubriques suivantes :
 - [Comprendre votre facture Azure](billing-understand-your-invoice.md)
 - [Comprendre votre utilisation détaillée d’Azure](billing-understand-your-invoice.md)
 
-### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Option 2 : Comparer l’utilisation et les coûts avec le portail Azure
+### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Option 2 : Comparer l’utilisation et les coûts avec le portail Azure
 
 Le portail Azure peut également vous aider à vérifier vos frais. Pour obtenir une vue d’ensemble rapide de l’utilisation et des frais facturés, consultez les graphiques de gestion des coûts.
 

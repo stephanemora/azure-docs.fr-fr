@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à EasyTerritory | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à EasyTerritory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et EasyTerritory.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d29b362d-e986-4f67-8ff2-e158e49353aa
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 33389d7d9029a88cc72bce47d87c62233063c804
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 377ed1a57a207d7313465221adbda92b80aa156d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448983"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813489"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-easyterritory"></a>Didacticiel : Intégration d’Azure Active Directory à EasyTerritory
+# <a name="tutorial-azure-active-directory-integration-with-easyterritory"></a>Tutoriel : Intégration d’Azure Active Directory à EasyTerritory
 
 Dans ce didacticiel, vous découvrez comment intégrer EasyTerritory à Azure Active Directory (Azure AD).
 
@@ -134,7 +134,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 1. Pour configurer l’authentification unique du côté **EasyTerritory**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à l’[équipe de support technique d’EasyTerritory](mailto:sales@easyterritory.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

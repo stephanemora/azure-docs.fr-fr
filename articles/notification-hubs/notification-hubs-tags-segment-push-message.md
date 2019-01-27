@@ -3,8 +3,8 @@ title: Routage et expressions de balise
 description: Cette rubrique explique les expressions de balise et de routage pour Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
@@ -12,28 +12,31 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: e08fca0b6b57d654f2b2ff7b935f38d8c517487b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 01/23/2019
+ms.author: jowargo
+ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776163"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828160"
 ---
 # <a name="routing-and-tag-expressions"></a>Routage et expressions de balise
-## <a name="overview"></a>Vue d'ensemble
+
+## <a name="overview"></a>Vue d’ensemble
+
 Les expressions de balise vous permettent de cibler des ensembles spécifiques d'appareils, ou plus précisément d'inscriptions, lors de l'envoi d'une notification push via Notification Hubs.
 
 ## <a name="targeting-specific-registrations"></a>Ciblage d'inscriptions spécifiques
-La seule façon de cibler des inscriptions de notification spécifiques consiste à les associer à des balises, puis à cibler ces balises. Comme indiqué dans la rubrique [Gestion des inscriptions](notification-hubs-push-notification-registration-management.md), pour recevoir des notifications push, une application doit inscrire un appareil sur un concentrateur de notification. Lorsqu’une inscription est créée sur un concentrateur de notification, le serveur principal d'application peut envoyer des notifications push.
-Le serveur principal d'application peut choisir les inscriptions à cibler avec une notification spécifique en procédant ainsi :
+
+La seule façon de cibler des inscriptions de notification spécifiques consiste à les associer à des balises, puis à cibler ces balises. Comme indiqué dans la rubrique [Gestion des inscriptions](notification-hubs-push-notification-registration-management.md), pour recevoir des notifications push, une application doit inscrire un appareil sur un concentrateur de notification. Lorsqu’une inscription est créée sur un concentrateur de notification, le serveur principal d'application peut envoyer des notifications push. Le serveur principal d'application peut choisir les inscriptions à cibler avec une notification spécifique en procédant ainsi :
 
 1. **Diffusion**: toutes les inscriptions dans le concentrateur de notification reçoivent la notification.
 2. **Balise**: toutes les inscriptions qui contiennent la balise spécifiée reçoivent la notification.
 3. **Expression de balise**: toutes les inscriptions dont le jeu de balises correspond à l'expression spécifiée reçoivent la notification.
 
 ## <a name="tags"></a>Balises
+
 Une balise est une chaîne de 120 caractères maximum, contenant des caractères alphanumériques ainsi que les caractères non alphanumériques suivants : « _ », « @ », « # », « . », « : » et « - ». L'exemple suivant montre une application à partir de laquelle vous pouvez recevoir des notifications toast concernant des groupes musicaux spécifiques. Dans ce scénario, une méthode simple pour acheminer des notifications consiste à étiqueter les inscriptions avec des balises représentant les différents groupes de musique, comme dans l'image suivante :
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
@@ -44,20 +47,19 @@ Pour plus d'informations sur la création d’inscriptions pour des balises, con
 
 Vous pouvez envoyer des notifications à des balises à l'aide des méthodes d’envoi de notifications de la classe `Microsoft.Azure.NotificationHubs.NotificationHubClient` dans le Kit de développement logiciel (SDK) [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) . Vous pouvez également utiliser Node.js ou les API REST Notifications Push.  Voici un exemple utilisant le Kit de développement logiciel (SDK).
 
-    Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
+```csharp
+Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
 
-    // Windows 8.1 / Windows Phone 8.1
-    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
-    "You requested a Beatles notification</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles");
+// Windows 8.1 / Windows Phone 8.1
+var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
+"You requested a Beatles notification</text></binding></visual></toast>";
+outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles");
 
-    // Windows 10
-    toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
-    "You requested a Wailers notification</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
-
-
-
+// Windows 10
+toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
+"You requested a Wailers notification</text></binding></visual></toast>";
+outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
+```
 
 Les balises n'ont pas besoin d'être provisionnées et peuvent référencer plusieurs concepts propres à l'application. Par exemple, les utilisateurs de cet exemple d'application peuvent publier des commentaires sur les groupes et recevoir des notifications toast non seulement concernant les commentaires sur leurs groupes favoris, mais également pour tous les commentaires de leurs amis, quel que soit le groupe qu’ils commentent. L'illustration suivante montre un exemple de ce scénario :
 
@@ -69,20 +71,26 @@ Même s’il est possible d’encoder plusieurs paramètres (par exemple, « ban
 
 Pour obtenir un didacticiel complet et détaillé sur la façon d'utiliser des balises pour l'envoi à des groupes d'intérêt, consultez la rubrique [Dernières nouvelles](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
+> [!NOTE]
+> Azure Notification Hubs prend en charge un maximum de 60 balises par inscription.
+
 ## <a name="using-tags-to-target-users"></a>Utilisation de balises pour cibler des utilisateurs
+
 Une autre façon d'utiliser des balises consiste à identifier tous les appareils d'un utilisateur particulier. Les inscriptions peuvent être étiquetées avec une balise contenant un ID utilisateur, comme dans l'illustration suivante :
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
 
-Dans cette illustration, le message étiqueté uid:Alice atteint toutes les inscriptions marquées uid:Alice et, par conséquent, tous les appareils d'Alice.
+Dans cette illustration, le message étiqueté uid: Alice atteint toutes les inscriptions marquées « uid:Alice » et, par conséquent, tous les appareils d'Alice.
 
 ## <a name="tag-expressions"></a>Expressions de balise
+
 Dans certains cas, une notification doit cibler un jeu d'inscriptions identifié non pas par une balise unique, mais par une expression booléenne sur des balises.
 
 Examinons une application de sports qui envoie un rappel à tous les abonnés habitant Boston qu’un match opposera les Red Sox aux Cardinals. Si l'application cliente inscrit des balises spécifiques à ces équipes et à ce lieu, la notification doit être ciblée pour tous les abonnés de Boston qui s’intéressent aux Red Sox ou aux Cardinals. Cette condition peut être exprimée avec l'expression booléenne suivante :
 
-    (follows_RedSox || follows_Cardinals) && location_Boston
-
+```csharp
+(follows_RedSox || follows_Cardinals) && location_Boston
+```
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
 
@@ -90,16 +98,18 @@ Les expressions de balise peuvent contenir tous les opérateurs booléens, notam
 
 Voici un exemple d’envoi de notifications effectué avec des expressions de balise et le Kit de développement logiciel (SDK).
 
-    Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
+```csharp
+Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
 
-    String userTag = "(location_Boston && !follows_Cardinals)";    
+String userTag = "(location_Boston && !follows_Cardinals)";
 
-    // Windows 8.1 / Windows Phone 8.1
-    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
-    "You want info on the Red Sox</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+// Windows 8.1 / Windows Phone 8.1
+var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
+"You want info on the Red Sox</text></binding></visual></toast>";
+outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
 
-    // Windows 10
-    toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
-    "You want info on the Red Sox</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+// Windows 10
+toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
+"You want info on the Red Sox</text></binding></visual></toast>";
+outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+```

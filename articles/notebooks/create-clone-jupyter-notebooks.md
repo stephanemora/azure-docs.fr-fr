@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164413"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844056"
 ---
 # <a name="create-and-clone-projects"></a>Créer et cloner des projets
 
@@ -30,7 +30,7 @@ Un projet gère également des métadonnées et d’autres paramètres de config
 
 Votre tableau de bord **Mes projets** sur `https://notebooks.azure.com/<userID>/projects` est l’emplacement où vous affichez, gérez et créez des projets :
 
-[![](media/my-projects-dashboard.png "Tableau de bord Mes projets dans Azure Notebooks")](media/my-projects-dashboard.png#lightbox)
+[![Tableau de bord Mes projets dans Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Les actions possibles dans le tableau de bord varient selon si vous êtes connecté avec le compte qui a l’ID utilisateur :
 

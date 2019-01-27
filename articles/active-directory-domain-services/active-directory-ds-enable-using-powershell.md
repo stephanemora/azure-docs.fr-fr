@@ -4,7 +4,7 @@ description: Activer Azure Active Directory Domain Services à l’aide de Power
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: ergreenl
-ms.openlocfilehash: b58df5ebf5332688424ac6ed2eeb9679487bcdc4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5ebb9f706d2e59b9c1227cec6fcc0e0619374069
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240254"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855004"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Activer Azure Active Directory Domain Services à l’aide de PowerShell
 Cet article vous montre comment activer les services de domaine Azure Active Directory (AD) avec PowerShell.
 
-## <a name="task-1-install-the-required-powershell-modules"></a>Tâche 1 : Installer les modules PowerShell nécessaires
+## <a name="task-1-install-the-required-powershell-modules"></a>Tâche 1 : Installer les modules PowerShell nécessaires
 
 ### <a name="install-and-configure-azure-ad-powershell"></a>Installation et configuration d'Azure AD PowerShell
 Suivez les instructions de l’article pour [Installer le module PowerShell Azure AD et vous connecter à Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Installation et configuration d'Azure PowerShell
-Suivez les instructions de l’article pour [Installer le module Azure PowerShell et vous connecter à votre abonnement Azure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Suivez les instructions de l’article pour [Installer le module Azure PowerShell et vous connecter à votre abonnement Azure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
-## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>Tâche 2 : Créer le principal du service requis dans votre annuaire Azure AD
+## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>Tâche 2 : Créer le principal du service requis dans votre annuaire Azure AD
 Saisissez la commande PowerShell suivante pour créer le principal du service requis pour Azure AD Domain Services dans votre annuaire Azure AD.
 ```powershell
 # Create the service principal for Azure AD Domain Services.
@@ -67,14 +67,14 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
-## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>Tâche 4 : Inscrire le fournisseur de ressources Azure AD Domain Services
+## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>Tâche 4 : Inscrire le fournisseur de ressources Azure AD Domain Services
 Saisissez la commande PowerShell suivante pour inscrire le fournisseur de ressources pour Azure AD Domain Services :
 ```powershell
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-## <a name="task-5-create-a-resource-group"></a>Tâche 5 : Créer un groupe de ressources
+## <a name="task-5-create-a-resource-group"></a>Tâche 5 : Créer un groupe de ressources
 Saisissez la commande PowerShell suivante pour créer un groupe de ressources :
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"
@@ -89,7 +89,7 @@ New-AzureRmResourceGroup `
 Vous pouvez créer le réseau virtuel et le domaine géré Azure AD Domain Services dans ce groupe de ressources.
 
 
-## <a name="task-6-create-and-configure-the-virtual-network"></a>Tâche 6 : Créer et configurer le réseau virtuel
+## <a name="task-6-create-and-configure-the-virtual-network"></a>Tâche 6 : Créer et configurer le réseau virtuel
 Créez maintenant le réseau virtuel dans lequel Azure AD Domain Services doit être activé. Veillez à utiliser un sous-réseau dédié pour Azure AD Domain Services. Ne déployez pas de machines virtuelles de charge de travail dans ce sous-réseau dédié.
 
 Tapez les commandes PowerShell suivantes pour créer un réseau virtuel avec un sous-réseau dédié pour Azure AD Domain Services.
@@ -117,7 +117,7 @@ $Vnet=New-AzureRmVirtualNetwork `
 ```
 
 
-## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Tâche 7 : Provisionner un domaine managé par Azure AD Domain Services
+## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Tâche 7 : Provisionner un domaine managé par Azure AD Domain Services
 Saisissez la commande PowerShell suivante pour activer Azure AD Domain Services pour votre annuaire :
 
 ```powershell

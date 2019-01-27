@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: acfdd9070b49805c20b8ef921b5387c151448aa1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 862d239227c277a92cbf80e54b010a4b184da016
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961499"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466089"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Création de cartes d’interface réseau virtuelle et d’utilisation des DNS internes pour la résolution des noms de machine virtuelle sur Azure
 
@@ -34,7 +34,7 @@ Les conditions requises sont :
 ## <a name="quick-commands"></a>Commandes rapides
 Si vous avez besoin d’accomplir rapidement cette tâche, la section suivante décrit les commandes nécessaires. Pour obtenir plus d’informations et davantage de contexte pour chaque étape, lisez la suite de ce document, à partir de [cette section](#detailed-walkthrough). Pour suivre ces étapes, vous avez besoin de la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et devez vous connecter à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
 
-Conditions préalables : groupe de ressources, réseau virtuel et sous-réseau, groupe de sécurité réseau avec SSH entrant.
+Conditions préalables : Groupe de ressources, réseau virtuel et sous-réseau, groupe de sécurité réseau avec SSH entrant.
 
 ### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Création d’une carte réseau virtuelle avec un nom DNS interne statique
 Créez la carte réseau virtuelle avec la commande [az network nic create](/cli/azure/network/nic#az_network_nic_create). L’indicateur de l’interface de ligne de commande `--internal-dns-name` sert à définir l’étiquette DNS, qui fournit le nom DNS statique pour la carte réseau virtuelle (vNic). L’exemple suivant crée une carte réseau virtuelle nommée `myNic`, la connecte au réseau virtuel `myVnet` et crée un enregistrement de nom DNS interne appelé `jenkins` :
@@ -49,7 +49,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>Déploiement d’une machine virtuelle et connexion de la carte réseau virtuelle
-Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). L’indicateur `--nics` connecte la carte réseau virtuelle à la machine virtuelle lors du déploiement sur Azure. L’exemple suivant crée une machine virtuelle nommée `myVM` avec Azure Managed Disks et joint la carte réseau virtuelle nommée `myNic` à partir de l’étape précédente :
+Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’indicateur `--nics` connecte la carte réseau virtuelle à la machine virtuelle lors du déploiement sur Azure. L’exemple suivant crée une machine virtuelle nommée `myVM` avec Azure Managed Disks et joint la carte réseau virtuelle nommée `myNic` à partir de l’étape précédente :
 
 ```azurecli
 az vm create \
@@ -80,7 +80,7 @@ az group create --name myResourceGroup --location westus
 
 L’étape suivante consiste à créer un réseau virtuel dans lequel lancer les machines virtuelles. Le réseau virtuel contient un sous-réseau pour cette procédure pas à pas. Pour plus d’informations sur les réseaux virtuels Azure, consultez la section [Créer un réseau virtuel](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
-Créez le réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). L’exemple suivant permet de créer un réseau virtuel nommé `myVnet` et un sous-réseau nommé `mySubnet` :
+Créez le réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet). L’exemple suivant permet de créer un réseau virtuel nommé `myVnet` et un sous-réseau nommé `mySubnet` :
 
 ```azurecli
 az network vnet create \
@@ -103,7 +103,7 @@ az network nsg create \
 ```
 
 ## <a name="add-an-inbound-rule-to-allow-ssh"></a>Ajouter une règle de trafic entrant pour autoriser SSH
-Ajoutez une règle de trafic entrant pour le groupe de sécurité réseau avec la commande [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). L’exemple suivant permet de créer une règle nommée `myRuleAllowSSH` :
+Ajoutez une règle de trafic entrant pour le groupe de sécurité réseau avec la commande [az network nsg rule create](/cli/azure/network/nsg/rule). L’exemple suivant permet de créer une règle nommée `myRuleAllowSSH` :
 
 ```azurecli
 az network nsg rule create \
@@ -149,7 +149,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Déployer la machine virtuelle dans l’infrastructure de réseau virtuel
 Nous disposons désormais d’un réseau virtuel, d’un sous-réseau intégré au réseau virtuel et d’un groupe de sécurité réseau jouant le rôle de pare-feu qui protège notre sous-réseau en bloquant l’ensemble du trafic entrant, à l’exception du port 22 pour SSH, et d’une carte réseau virtuelle. Vous pouvez maintenant déployer une machine virtuelle au sein de cette infrastructure réseau existante.
 
-Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée une machine virtuelle nommée `myVM` avec Azure Managed Disks et joint la carte réseau virtuelle nommée `myNic` à partir de l’étape précédente :
+Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’exemple suivant crée une machine virtuelle nommée `myVM` avec Azure Managed Disks et joint la carte réseau virtuelle nommée `myNic` à partir de l’étape précédente :
 
 ```azurecli
 az vm create \

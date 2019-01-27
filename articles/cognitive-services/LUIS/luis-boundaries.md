@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 716c6b67676bb3421fd5dbd0274ed41c7705c676
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7f8f4848b7181ad3df7ad4fa009ff284de381b75
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133517"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820408"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
@@ -24,30 +24,27 @@ LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](
 
 ## <a name="model-boundaries"></a>Limites du modèle
 
+
 |Domaine|Limite|
 |--|:--|--|
 | [Nom de l’application][luis-get-started-create-app] | * Nombre maximum de caractère par défaut |
 | [Test par lot][batch-testing]| jeux de 10 données, 1 000 énoncés par jeu de données|
-| **[Composite](./luis-concept-entity-types.md)|100 avec jusqu'à 10 enfants |
 | Liste explicite | 50 par application|
-| **[Hiérarchique](./luis-concept-entity-types.md) |100 avec jusqu'à 10 enfants |
 | [Intentions][intents]|500 par application<br>L’application [basée sur la répartition](https://aka.ms/dispatch-tool) a 500 sources de répartition correspondantes|
 | [Répertorier des entités](./luis-concept-entity-types.md) | Parent : 50, Enfant : 20 000 éléments. Le nom canonique est *nombre maximum de caractère par défaut. Les valeurs synonymes n’ont aucune restriction de longueur. |
+| [Entités issues de l’apprentissage automatique](./luis-concept-entity-types.md) :<br> Composite<br>  Hiérarchique<br> Simple|100 <br>Le nombre total d’entités issues de l’apprentissage automatique (simples, hiérarchiques et composites) ne peut pas dépasser 100. Les entités hiérarchiques et composites ne peuvent pas avoir plus de 10 enfants.  |
 | [Modèles](luis-concept-patterns.md)|500 modèles par application.<br>La longueur maximale du modèle est de 400 caractères.<br>3 entités Pattern.any par modèle<br>2 textes facultatifs maximum imbriqués dans le modèle|
 | [Pattern.any](./luis-concept-entity-types.md)|100 par application, 3 entités pattern.any par modèle |
 | [Liste d’expressions][phrase-list]|10 listes d’expressions, 5 000 éléments par liste|
 | [Entités prédéfinies](./luis-prebuilt-entities.md) | aucune limite|
 | [Entité d’expression régulière](./luis-concept-entity-types.md)|20 entités<br>500 caractères maximum par modèle d’entité d’expression régulière|
 | [Rôles](luis-concept-roles.md)|300 rôles par application. 10 rôles par entité|
-| **[Simple](./luis-concept-entity-types.md)| 100 entités|
 | [Énoncé][utterances] | 500 caractères|
 | [Énoncés][utterances] | 15 000 par application|
 | [Versions](luis-concept-version.md)| aucune limite |
 | [Nom de version][luis-how-to-manage-versions] | 10 caractères restreints à l’alphanumérique et point (.) |
 
 * 50 caractères par défaut maximum. 
-
-** Le nombre total d’entités simples, hiérarchiques et composites ne peut pas dépasser 100. Le nombre total d’entités hiérarchiques, d’entités composites, d’entités simples et d’entités enfants hiérarchiques ne peut pas dépasser 330. 
 
 ## <a name="intent-and-entity-naming"></a>Attribution de noms aux intentions et aux entités
 N’utilisez pas les caractères suivants dans les noms des intentions et des entités :
@@ -60,14 +57,21 @@ N’utilisez pas les caractères suivants dans les noms des intentions et des en
 |`]`|Crochet droit|
 |`\`|Barre oblique inverse|
 
+## <a name="key-usage"></a>Utilisation de la clé
+
+Language Understanding possède des clés séparées, un type pour la création et un type pour l'interrogation du point de terminaison de prédiction. Pour en savoir plus sur les différences entre les types de clés, voir [Clés de point de terminaison de création et de prédiction de requête dans LUIS](luis-concept-keys.md).
+
 ## <a name="key-limits"></a>Limites de clés
+
 La clé de création a différentes limites pour la création et le point de terminaison. La clé de point de terminaison de service LUIS n’est valide que pour les requêtes de point de terminaison.
+
 
 |Clé|Création|Point de terminaison|Objectif|
 |--|--|--|--|
-|Création/Starter|1 000 000/mois, 5/seconde|1 000/mois, 5/seconde|Création de votre application LUIS|
-|[Abonnement][pricing] - F0 - Niveau gratuit |non valide|10 000 par mois, 5/seconde|Interrogation de votre point de terminaison LUIS|
-|[Abonnement][pricing] - S0 - niveau de base|non valide|50/seconde|Interrogation de votre point de terminaison LUIS|
+|Création/Starter Language Understanding|1 000 000/mois, 5/seconde|1 000/mois, 5/seconde|Création de votre application LUIS|
+|[Abonnement][pricing] Language Understanding - F0 - Niveau gratuit |non valide|10 000 par mois, 5/seconde|Interrogation de votre point de terminaison LUIS|
+|[Abonnement][pricing] Language Understanding - S0 - Niveau de base|non valide|50/seconde|Interrogation de votre point de terminaison LUIS|
+|[Abonnement][pricing] Cognitive Services - S0 - Niveau standard|non valide|50/seconde|Interrogation de votre point de terminaison LUIS|
 |[Intégration de l’analyse des sentiments](luis-how-to-publish-app.md#enable-sentiment-analysis)|non valide|aucun frais|Ajout d’informations sur les sentiments, y compris l’extraction de données de phrases clés |
 |Intégration du Speech|non valide|5,50 USD/1 000 requêtes de point de terminaison|Convertir un énoncé vocal en énoncé de texte et retourner des résultats LUIS|
 

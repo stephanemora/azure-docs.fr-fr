@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620759"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457112"
 ---
 > [!div class="op_single_selector"]
 > * [C sur Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -41,7 +41,7 @@ Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure actif. Si vo
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Avant d’écrire du code pour votre appareil, déployez votre accélérateur de solution Monitoring à distance, puis ajoutez un nouvel appareil physique à cette solution.
+Avant d’écrire du code pour votre appareil, déployez votre accélérateur de solution Monitoring à distance, puis ajoutez un nouvel appareil réel à cette solution.
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Déployer votre accélérateur de solution Monitoring à distance
 
@@ -62,7 +62,7 @@ Pour ajouter un appareil à votre solution Monitoring à distance, procédez com
 
 1. Choisissez **+ Nouvel appareil**, puis **Physique** comme **Type de périphérique** :
 
-    ![Ajouter un appareil physique](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Ajouter un appareil réel](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Entrez **Physique-condenseur** comme ID de périphérique. Choisissez les options **Clé symétrique** et **Générer automatiquement des clés** :
 
@@ -72,7 +72,7 @@ Pour ajouter un appareil à votre solution Monitoring à distance, procédez com
 
     ![Récupérer les informations d’identification](media/iot-suite-selector-connecting/credentials.png)
 
-Vous venez d’ajouter un appareil physique à l’accélérateur de solution Monitoring à distance et de noter sa chaîne de connexion d’appareil. Dans les sections suivantes, vous allez implémenter l’application cliente qui utilise la chaîne de connexion de l’appareil pour se connecter à votre solution.
+Vous venez d’ajouter un appareil réel à l’accélérateur de solution Monitoring à distance et de noter sa chaîne de connexion d’appareil. Dans les sections suivantes, vous allez implémenter l’application cliente qui utilise la chaîne de connexion de l’appareil pour se connecter à votre solution.
 
 L’application cliente met en œuvre le modèle de périphérique **Condenseur** intégré. Un modèle d’appareil d’accélérateur de solution spécifie les éléments ci-après concernant un appareil :
 

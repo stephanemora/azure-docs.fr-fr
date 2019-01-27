@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Jostle | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Jostle | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jostle.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9ca4ca1f-8f68-4225-81a6-1666b486d6a8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: b988d908b995b1144837c8642a8864a87e2fc61a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fb048ed9752f3e06a08abc4410c394de0bebdb21
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437519"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819694"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Didacticiel : Intégration d’Azure Active Directory à Jostle
+# <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Tutoriel : Intégration d’Azure Active Directory à Jostle
 
 Dans ce didacticiel, vous allez apprendre à intégrer Jostle à Azure Active Directory (Azure AD).
 
@@ -134,7 +134,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 1. Pour configurer l’authentification unique du côté de Jostle, vous devez envoyer le fichier XML de métadonnées téléchargé à [l’équipe de support technique de Jostle](mailto:support@jostle.me). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 >
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Versal | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Versal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Versal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 5b2e53c0-61a3-4954-ae46-8c28c6368bfd
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeedes
-ms.openlocfilehash: a6e1f73218efb11da475f3e67188863c3b99de97
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a2d7661a9e837bebc873e54865f9b7c4259faf24
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421336"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816515"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-versal"></a>Didacticiel : Intégration d’Azure Active Directory à Versal
+# <a name="tutorial-azure-active-directory-integration-with-versal"></a>Tutoriel : Intégration d’Azure Active Directory à Versal
 
 Dans ce didacticiel, vous allez apprendre à intégrer Versal à Azure Active Directory (Azure AD).
 
@@ -132,7 +132,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 1. Pour configurer l’authentification unique côté **Versal**, vous devez envoyer le **XML de métadonnées** téléchargé et le **Certificat de signature SAML** à [l’équipe de support Versal](https://support.versal.com/hc/). Elle configurera votre organisation Versal afin que la connexion SSO SAML soit correctement mise en place des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
