@@ -4,7 +4,7 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 73c970e1-f1ba-420b-b225-414fdf93b140
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 91b831be10f71b8f7e5f4226a697ed92eadfd68c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 30d678d50408fb41e844ff474c464c4c467fed5e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446262"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818742"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-synergi"></a>Didacticiel : Intégration d’Azure Active Directory avec Synergi
+# <a name="tutorial-azure-active-directory-integration-with-synergi"></a>Tutoriel : Intégration d’Azure Active Directory avec Synergi
 
 Dans ce didacticiel, vous allez apprendre à intégrer Synergi avec Azure Active Directory (Azure AD).
 
@@ -132,7 +132,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 1. Pour configurer l’authentification unique du côté **Synergi**, vous devez envoyer le **Certificat (Base64) téléchargé, l’URL de déconnexion et l’ID d’entité SAML** à [l’équipe du support Synergi](https://www.irmsecurity.com/contact/).
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -168,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   
 ### <a name="create-a-synergi-test-user"></a>Créer un utilisateur de test Synergi
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Synergi. Pour ajouter des utilisateurs dans la plateforme Synergi, contactez [l’équipe du support Synergi](https://www.irmsecurity.com/contact/). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Synergi. Pour ajouter des utilisateurs dans la plateforme Synergi, contactez  [l’équipe du support Synergi](https://www.irmsecurity.com/contact/) . Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

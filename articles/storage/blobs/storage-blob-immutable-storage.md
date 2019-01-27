@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 01/21/2019
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 53c719fbeb31d605bd9dff170a798b262d44698a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f3a67c2eddba2b7bd734237466243da8f43a862a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634267"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848646"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Stocker des données vitales pour l’entreprise dans le stockage Blob Azure
 
@@ -197,7 +197,7 @@ Oui. Lors de la définition initiale d’une stratégie de conservation limitée
 
 **Cette fonctionnalité est-elle disponible dans les clouds nationaux et gouvernementaux ?**
 
-Le stockage immuable n’est à l’heure actuelle disponible que dans les régions publiques Azure. Si un cloud national vous intéresse en particulier, envoyez un e-mail à azurestoragefeedback@microsoft.com.
+Le stockage immuable est disponible dans les régions Azure publiques, Chine et Administration. Si le stockage immuable n’est pas disponible dans votre région, envoyez un e-mail à azurestoragefeedback@microsoft.com.
 
 ## <a name="sample-powershell-code"></a>Exemple de code PowerShell
 

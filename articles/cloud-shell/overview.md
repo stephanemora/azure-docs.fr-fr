@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 85d054be6b72c736ec66384b9caec71208f36802
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869361"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447205"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Vue d’ensemble d’Azure Cloud Shell
 Azure Cloud Shell est un shell interactif, accessible par navigateur pour la gestion des ressources Azure.
@@ -57,11 +57,16 @@ Cloud Shell propose un éditeur de texte graphique intégré s’appuyant sur l�
 
 [En savoir plus sur l’éditeur Cloud Shell](using-cloud-shell-editor.md).
 
+### <a name="integrated-with-docsmicrosoftcom"></a>Intégré avec docs.microsoft.com
+
+Vous pouvez utiliser Cloud Shell directement depuis la documentation hébergée sur [docs.microsoft.com](https://docs.microsoft.com). Il est intégré dans [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)et la [documentation d’Azure CLI](https://docs.microsoft.com/cli/azure) - cliquez sur le bouton « Essayer » dans un extrait de code pour ouvrir l'expérience immersive du shell. 
+
 ### <a name="multiple-access-points"></a>Plusieurs points d’accès
 Cloud Shell est un outil flexible qui s’utilise à partir de :
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Documentation « Essayez-le » d’Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Documentation d’Azure CLI](https://docs.microsoft.com/cli/azure)
+* [Documentation d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [Application mobile Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extension de compte Azure VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
