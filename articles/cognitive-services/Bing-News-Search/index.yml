@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0b934e7ac5b297b5c7349a9a9985f6c50d62d19f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 17fac6455ca225363726b347c428d176e78a1ff9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791946"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912797"
 documentType: LandingData
 title: Documentation de l’API Recherche d’actualités Bing
 titleSuffix: Azure Cognitive Services
 metadata:
   title: Documentation de l’API Recherche d’actualités Bing - Tutoriels, guides de démarrage rapide, informations de référence de l’API | Microsoft Docs
-  description: Découvrez comment utiliser l’API Recherche d’actualités Bing pour trouver sur le web des actualités en rapport avec les requêtes utilisateur. Ces tutoriels vous montrent comment créer des applications qui utilisent le service.
+  description: Découvrez comment utiliser l’API Recherche d’actualités Bing pour rechercher des actualités sur le web.
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -19,29 +19,50 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/16/2019
   ms.author: v-gedod
 abstract:
-  description: L’API Recherche d’actualités Bing offre une expérience similaire à Bing Actualités et retourne les articles identifiés par Bing comme ayant un rapport avec la requête d’un utilisateur.
+  description: L’API Recherche d’actualités Bing vous permet d’intégrer les fonctionnalités Bing de recherche d’actualités à vos applications. En envoyant des requêtes de recherche avec l’API, vous pouvez obtenir des articles d’actualité pertinents provenant de différentes catégories et sources, comme sur bing.com/news.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-news-search/search-the-web
+      html: <p>Découvrir l’API Recherche d’actualités Bing</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Qu’est-ce que l’API Recherche d’actualités Bing ?
+    - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
+      html: <p>Découvrez comment envoyer des requêtes de recherche à l’API Recherche d’actualités Bing.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Envoi de requêtes de recherche
+    - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
+      html: <p>Découvrez comment rechercher plusieurs types et catégories d’actualités.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Recherche d’actualités
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: 'Pour commencer à utiliser l’API Recherche d’actualités Bing, faites une requête et examinez la réponse JSON :'
+    text: 'Recherchez des actualités sur le web en :'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: csharp
+      href: news-search-sdk-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: java
+      href: news-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: nodejs
+      href: news-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -49,7 +70,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: python
+      href: news-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Développez des applications à l’aide de l’API Recherche d’actualités Bing :'
   - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">Application web à page unique</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">code source</a>
+    text: <a href="tutorial-bing-news-search-single-page-app">Application web à page unique</a>
 - title: Exemples
   items:
   - type: paragraph

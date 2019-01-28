@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 62bb4c70c2a5068c90196acc2a1898ceeaa6945c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 337c48d96a2ee679eda24500d9cb1a8d2581b2c7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787668"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912899"
 documentType: LandingData
-title: Documentation Recherche visuelle Bing
+title: Documentation de l’API Recherche visuelle Bing
 metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
-  title: Documentation Recherche visuelle Bing - Tutoriels, informations de référence sur l’API
-  description: Découvrez comment utiliser l’API Recherche visuelle Bing pour obtenir des insights sur une image. Ces tutoriels vous montrent comment créer des applications qui utilisent le service.
+  title: Documentation de l’API Recherche visuelle Bing - Tutoriels, guides de démarrage rapide, informations de référence sur l’API | Microsoft Docs
+  description: Découvrez comment utiliser l’API Recherche visuelle Bing pour obtenir des insights sur une image.
   services: cognitive-services
   author: swhite-msft
   manager: rosh
@@ -19,15 +19,36 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/24/2018
+  ms.date: 01/16/2019
   ms.author: scottwhi
 abstract:
-  description: L’API Recherche visuelle Bing offre une expérience similaire à Bing.com/images et retourne des insights sur une image, notamment des images visuellement similaires, des magasins où acheter les produits figurant dans l’image et des recherches associées.
+  description: L’API Recherche visuelle Bing fournit des détails d’image similaires à ceux illustrés sur Bing.com/images. En chargeant une image ou grâce à une URL d’image, l’API peut identifier de nombreux détails, notamment des images similaires, des sources d’achat, des pages web présentant cette image, etc.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-visual-search/overview
+      html: <p>Découvrir l’API Recherche visuelle Bing</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Qu’est-ce que l’API Recherche visuelle Bing ?
+    - href: /azure/cognitive-services/bing-visual-search/concepts/sending-queries
+      html: <p>Découvrez comment envoyer des requêtes de recherche à l’API Recherche visuelle Bing.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Envoi de requêtes de recherche
+    - href: /azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token
+      html: <p>Utiliser un jeton d’insights de l’API Recherche d’images Bing pour charger une image sur l’API Recherche visuelle Bing</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Recherche d’actualités
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: 'Pour commencer à utiliser l’API Recherche visuelle Bing, envoyez une image à Bing et récupérez des insights sur cette image :'
+    text: 'Obtenez des insights sur une image à l’aide de l’API Recherche visuelle Bing :'
   - type: table
     style: dataMatrix
     columns:
@@ -40,12 +61,12 @@ sections:
     - image:
         src: media/index/logo_python.svg
     rows:
-    - title: Votre première requête
+    - title: ''
       values:
-      - href: quickstarts/csharp
-      - href: quickstarts/java
-      - href: quickstarts/nodejs
-      - href: quickstarts/python
+      - href: visual-search-sdk-c-sharp
+      - href: java
+      - href: visual-search-sdk-node
+      - href: visual-search-sdk-python
 - title: Didacticiels pas à pas
   items:
   - type: paragraph
@@ -53,7 +74,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-visual-search-single-page-app">Application web à page unique</a> | <a href="tutorial-bing-visual-search-single-page-app-source">Code source</a>
+    - html: <a href="tutorial-bing-visual-search-single-page-app">Application web monopage</a>
 - title: Informations de référence
   items:
   - type: list

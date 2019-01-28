@@ -86,6 +86,22 @@ items:
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4- Nettoyer votre cluster et supprimer l’infrastructure
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: Bonnes pratiques
+  items:
+  - name: Vue d’ensemble des bonnes pratiques Service Fabric
+    href: service-fabric-best-practices-overview.md
+  - name: Sécurité
+    href: service-fabric-best-practices-security.md
+  - name: Mise en réseau
+    href: service-fabric-best-practices-networking.md
+  - name: Planification et mise à l’échelle de la capacité de calcul
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: Infrastructure as code
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: Surveillance et diagnostics
+    href: service-fabric-best-practices-monitoring.md
+  - name: Liste de vérification de disponibilité de la production
+    href: service-fabric-production-readiness-checklist.md
 - name: Exemples
   items:
   - name: Exemples de code
@@ -702,10 +718,6 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Résoudre les problèmes de votre cluster local
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: Bonnes pratiques
-    items:
-    - name: Liste de vérification de disponibilité de la production
-      href: service-fabric-production-readiness-checklist.md
 - name: Informations de référence
   items:
   - name: Azure PowerShell
@@ -827,9 +839,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: abf77c080d6093e9028f82ccac7b20d24389bdbb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5b487a8212cabb6809a9152e10dde7a1c9c7158f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352476"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913527"
