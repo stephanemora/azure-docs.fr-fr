@@ -11,14 +11,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: fe63813220d526536a31efb48b6ec29b6ae383e8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 233ce5623195a9a661f67b5c3ded40e68c8eb33a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121139"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843512"
 ---
 # <a name="set-alerts-in-application-insights"></a>Configuration d’alertes dans Application Insights
 [Azure Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application web. 
@@ -89,7 +89,20 @@ Les alertes les plus appréciées sont les suivantes :
 * Le **temps de réponse de serveur** pour le côté serveur des applications web. Outre la définition des alertes, gardez un œil sur cette métrique pour voir si elle varie de façon importante avec un taux de demandes élevé. Une telle variation peut indiquer que votre application manque de ressources. 
 * **Exceptions du serveur** - pour les afficher, vous devrez peut-être effectuer une [installation supplémentaire](../../azure-monitor/app/asp-net-exceptions.md).
 
-N’oubliez pas que les [diagnostics de taux d’échec proactifs](../../azure-monitor/app/proactive-failure-diagnostics.md) analysent automatiquement le taux selon lequel votre application répond aux demandes avec des codes d’échec. 
+N’oubliez pas que les [diagnostics de taux d’échec proactifs](../../azure-monitor/app/proactive-failure-diagnostics.md) analysent automatiquement le taux selon lequel votre application répond aux demandes avec des codes d’échec.
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Qui reçoit les notifications d’alerte (classiques) ?
+
+Cette section ne s’applique qu’aux alertes classiques et vous aidera à optimiser vos notifications d’alertes pour vous assurer que seuls les destinataires de votre choix reçoivent les notifications. Pour mieux comprendre la différence entre les [alertes classiques](../platform/alerts-classic.overview.md) et les nouvelles alertes, reportez-vous à l’[article de présentation des alertes](../platform/alerts-overview.md). Pour contrôler la notification d’alerte dans l’expérience des nouvelles alertes, utilisez les [groupes d’actions](../platform/action-groups.md).
+
+* Nous recommandons l’utilisation de destinataires spécifiques pour les notifications d’alertes classiques.
+
+* Pour les alertes liées aux métriques Application Insights (notamment les métriques de disponibilité), l’option **bulk/group** check-box, si elle est activée, envoie des alertes aux utilisateurs ayant des rôles de propriétaire, contributeur ou lecteur dans l’abonnement. En effet, _tous_ les utilisateurs ayant accès à la ressource Application Insights sont dans la portée et recevront des notifications. 
+
+> [!NOTE]
+> Si vous utilisez actuellement l’option **bulk/group** et que vous la désactivez, vous ne pourrez pas annuler la modification.
+
+Utilisez les nouvelles alertes d’expérience/alertes en temps réel si vous devez avertir les utilisateurs en fonction de leurs rôles. Avec les [groupes d’actions](../platform/action-groups.md), vous pouvez configurer des notifications par e-mail aux utilisateurs ayant n’importe quel rôle contributeur/propriétaire/lecteur (sans que ces rôles soient combinés en une même option).
 
 ## <a name="automation"></a>Automatisation
 * [Utiliser PowerShell pour automatiser la configuration d’alertes](../../azure-monitor/app/powershell-alerts.md)

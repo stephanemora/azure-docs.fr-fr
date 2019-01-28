@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.subservice: ''
+ms.openlocfilehash: 418d334133e1c223f2349ce79a51b229072c31e9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332317"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475320"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gérer l’utilisation et les coûts de Log Analytics
 
@@ -170,7 +170,7 @@ Pour obtenir la liste des ordinateurs qui envoient des **types de données factu
 
 L’exécution d’analyses sur différents types de données étant coûteuse, utilisez ces requêtes `union withsource = tt *` avec parcimonie. 
 
-Cela peut être étendu pour renvoyer le nombre d’ordinateurs par heure qui envoient des types de données facturés :
+Cela peut être étendu pour renvoyer le nombre d'ordinateurs par heure qui envoient des types de données facturés :
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -335,4 +335,5 @@ Lorsque vous recevez une alerte, utilisez les étapes de la section suivante pou
 * Modifier la [configuration du compteur de performances](data-sources-performance-counters.md).
 * Pour modifier vos paramètres de collecte d’événements, consultez [Configuration du journal des événements](data-sources-windows-events.md).
 * Pour modifier vos paramètres de collecte de messages syslog, consultez [Configuration syslog](data-sources-syslog.md).
+
 

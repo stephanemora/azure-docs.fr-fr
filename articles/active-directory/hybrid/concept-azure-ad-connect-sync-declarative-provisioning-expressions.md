@@ -4,7 +4,7 @@ description: Explique les expressions d’approvisionnement déclaratif.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 26c835e6c2f658f7ad852fdd02dc8974db33e47b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306048"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460491"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Synchronisation d’Azure AD Connect : Comprendre les expressions d’approvisionnement déclaratif
 Azure AD Connect sync s’appuie sur l’approvisionnement déclaratif introduit pour la première fois dans Forefront Identity Manager 2010. Il vous permet d’implémenter toute votre logique métier d’intégration des identités sans avoir à écrire de code compilé.
 
 Le langage d’expression utilisé dans les flux d’attributs constitue une partie essentielle de l’approvisionnement déclaratif. Le langage utilisé est un sous-ensemble de Microsoft® Visual Basic® pour Applications (VBA). Ce langage est utilisé dans Microsoft Office et les utilisateurs qui ont une certaine expérience de VBScript le reconnaîtront également. Le langage d’expression de l’approvisionnement déclaratif utilise uniquement des fonctions. Il ne s’agit pas d’un langage structuré. Il ne contient ni méthodes ni instructions. Les fonctions sont imbriquées pour exprimer le déroulement du programme.
@@ -32,13 +32,13 @@ Pour plus d’informations, consultez [Bienvenue dans la référence linguistiqu
 Les attributs sont fortement typés. Une fonction accepte uniquement les attributs de type correct. Elle respecte également la casse. Les noms des fonctions et les noms des attributs doivent avoir une casse appropriée, sinon une erreur est levée.
 
 ## <a name="language-definitions-and-identifiers"></a>Définitions linguistiques et identificateurs
-* Les fonctions ont un nom suivi d’arguments entre parenthèses : NomFonction (argument 1, argument N).
+* Les fonctions ont un nom suivi d’arguments entre parenthèses : NomFonction(argument 1, argument N).
 * Les attributs sont identifiés par des crochets : [NomAttribut]
 * Les paramètres sont identifiés par des signes de pourcentage : %NomParamètre%
-* Les constantes de chaîne sont placées entre guillemets : par exemple, "Contoso" (Remarque : vous devez utiliser des guillemets droits "" et non pas des guillemets courbes “”)
+* Les constantes de chaîne sont placées entre guillemets : Par exemple, "Contoso" (Remarque : vous devez utiliser des guillemets droits "" et non pas des guillemets courbes “”)
 * Les valeurs numériques sont exprimées sans guillemets et les valeurs attendues sont décimales. Les valeurs hexadécimales sont précédées de &H. Par exemple, 98052, &HFF
 * Les valeurs booléennes sont exprimées avec des constantes : True, False.
-* Les constantes intégrées et les littéraux sont exprimés uniquement par leur nom : NULL, CRLF, IgnoreThisFlow
+* Les constantes intégrées et les littéraux sont exprimés uniquement par leur nom : NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Fonctions
 L’approvisionnement déclaratif utilise de nombreuses fonctions pour permettre de transformer les valeurs d’attribut. Elles peuvent être imbriquées. Le résultat d’une fonction est alors transmis à une autre fonction.
@@ -73,7 +73,8 @@ Vous pouvez utiliser les opérateurs suivants :
 * **Opérateurs de comparaison** : &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Mathématiques** : +, -, \*, -
 * **Chaîne** : &amp; (concaténation)
-* **Logiques** : &amp;&amp; (et), || (ou)
+* 
+  **Logiques** : &&amp;amp; (et), || (ou)
 * **Ordre d’évaluation**: ( )
 
 Les opérateurs sont évalués de la gauche vers la droite et ont la même priorité d'évaluation. Par exemple, le \* (signe multiplicateur) n’est pas évalué avant - (soustraction). 2\*(5+3) n’est pas la même chose que 2\*5+3. Les parenthèses ( ) sont utilisées pour modifier l’ordre d’évaluation lorsqu’un ordre d’évaluation de la gauche vers la droite n’est pas approprié.
@@ -93,10 +94,10 @@ Par exemple,
 
 **Rubriques de présentation**
 
-* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
+* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
 
 **Rubriques de référence**
 
-* [Azure AD Connect Sync : Référence aux fonctions](reference-connect-sync-functions-reference.md)
+* [Synchronisation Azure AD Connect : Référence des fonctions](reference-connect-sync-functions-reference.md)
 

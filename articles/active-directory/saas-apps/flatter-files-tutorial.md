@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure AD à Flatter Files | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure AD à Flatter Files | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Flatter Files.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f86fe5e3-0e91-40d6-869c-3df6912d27ea
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: b0660e14b858cc77026ea008fcf122c79e656c13
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aaf6c6ba17e41c4d32aafa98dbd2c1dc2532e197
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433212"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808304"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Didacticiel : Intégration d’Azure Active Directory à Flatter Files
+# <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutoriel : Intégration d’Azure Active Directory à Flatter Files
 
 Dans ce didacticiel, vous allez apprendre à intégrer Flatter Files à Azure Active Directory (Azure AD).
 
@@ -154,7 +154,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     d. Cliquez sur **Update**.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

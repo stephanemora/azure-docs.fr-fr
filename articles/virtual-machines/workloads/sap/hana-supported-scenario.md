@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576491"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855453"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scénario pris en charge pour des grandes instances HANA
 Ce document décrit les scénarios pris en charge, avec les détails de leur architecture pour les grandes instances HANA.
@@ -31,13 +31,13 @@ Avant de procéder au provisionnement de l’unité HLI (Hana Large Instances), 
 ## <a name="terms-and-definitions"></a>Termes et définitions
 Découvrons les termes et définitions utilisés dans ce document.
 
-- SID : identificateur système du système HANA.
+- SID : Identificateur système du système HANA.
 - HLI (Hana Large Instances) : Grandes instances Hana.
-- Reprise d’activité après sinistre : site de reprise après sinistre.
-- Reprise d’activité après sinistre normale : configuration système utilisant des ressources dédiées à des fins de reprise après sinistre uniquement.
-- Reprise d’activité après sinistre polyvalente : système sur le site de reprise après sinistre, configuré pour utiliser un environnement hors production en même temps qu’une instance de production configurée pour une utilisation sur un événement de reprise après sinistre. 
-- SID unique : système doté d’une instance installée.
-- Multi SID : système doté de plusieurs instances configurées. Également appelé environnement MCOS.
+- Reprise d’activité après sinistre : Site de reprise après sinistre.
+- Reprise d’activité après sinistre normale : Configuration système utilisant des ressources dédiées à des fins de reprise après sinistre uniquement.
+- Récupération d’urgence polyvalente : Système sur le site de reprise après sinistre, configuré pour utiliser un environnement hors production en même temps qu’une instance de production configurée pour une utilisation sur un événement de reprise après sinistre. 
+- SID unique :  Système doté d’une instance installée.
+- Multi SID : Système doté de plusieurs instances configurées. Également appelé environnement MCOS.
 
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -56,11 +56,11 @@ Ce document détaille les deux composants dans chaque architecture prise en char
 
 Chaque serveur provisionné est préconfiguré avec les jeux d’interfaces Ethernet. Voici les détails des interfaces Ethernet configurées sur chaque unité HLI.
 
-- **A** : interface utilisée pour/par l’accès client.
-- **B** : interface utilisée pour la communication nœud à nœud. Interface configurée sur tous les serveurs (quelle que soit la topologie demandée), mais n’est utilisée que pour les 
+- **R** : Interface utilisée pour/par l’accès client.
+- **B** : Interface utilisée pour la communication nœud à nœud. Interface configurée sur tous les serveurs (quelle que soit la topologie demandée), mais n’est utilisée que pour les 
 - scénarios de scale-out.
-- **C** : interface utilisée pour la connectivité nœud au stockage.
-- **D** : interface utilisée pour la connexion nœud à appareil ISCSI dans l’installation STONITH. Configurée uniquement lorsque l’installation de HSR est demandée.  
+- **C** : Interface utilisée pour la connectivité nœud au stockage.
+- **D** : Interface utilisée pour la connexion nœud à appareil ISCSI dans l’installation STONITH. Configurée uniquement lorsque l’installation de HSR est demandée.  
 
 | INTERFACES LOGIQUES DE CARTE RÉSEAU | TYPE DE RÉFÉRENCE (SKU) | Nom avec le système d’exploitation SUSE | Nom avec le système d’exploitation RHEL | Cas d’utilisation|
 | --- | --- | --- | --- | --- |
@@ -235,9 +235,9 @@ Les points de montage suivants sont préconfigurés :
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
-- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
-- Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
+- Pour MCOS : La répartition de la taille des volumes est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
+- Sur le site de reprise après sinistre : Les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
+- Sur le site de reprise après sinistre : Les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
 
@@ -284,10 +284,10 @@ Les points de montage suivants sont préconfigurés :
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
-- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
-- Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
-- Sur le site de reprise après sinistre : les volumes partagés de données, de fichiers journaux et de sauvegardes de fichiers journaux pour l’AQ, marqués comme « QA Instance installation » (Installation de l’instance AQ), sont configurés pour l’installation de l’instance AQ.
+- Pour MCOS : La répartition de la taille des volumes est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
+- Sur le site de reprise après sinistre : Les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
+- Sur le site de reprise après sinistre : Les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- Sur le site de reprise après sinistre : Les volumes partagés de données, de fichiers journaux et de sauvegardes de fichiers journaux pour l’AQ, marqués comme « QA Instance installation » (Installation de l’instance AQ), sont configurés pour l’installation de l’instance AQ.
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
 ## <a name="5-hsr-with-stonith"></a>5. HSR avec STONITH
@@ -335,8 +335,8 @@ Les points de montage suivants sont préconfigurés :
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
-- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
-- STONITH : un SBD est configuré pour l’installation STONITH. L’utilisation de STONITH est néanmoins facultative.
+- Pour MCOS : La répartition de la taille des volumes est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
+- STONITH : Un SBD est configuré pour l’installation STONITH. L’utilisation de STONITH est néanmoins facultative.
 
 
 ## <a name="6-hsr-with-dr"></a>6. HSR avec reprise après sinistre
@@ -391,12 +391,12 @@ Les points de montage suivants sont préconfigurés :
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
-- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
-- STONITH : un SBD est configuré pour l’installation STONITH. L’utilisation de STONITH est néanmoins facultative.
-- Sur le site de reprise après sinistre : **deux jeux de volumes de stockage sont nécessaires** pour la réplication du nœud principal et du nœud secondaire.
-- Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
-- Sur le site de reprise après sinistre : les volumes partagés de données, de fichiers journaux et de sauvegardes de fichiers journaux pour l’AQ, marqués comme « QA Instance installation » (Installation de l’instance AQ), sont configurés pour l’installation de l’instance AQ.
+- Pour MCOS : La répartition de la taille des volumes est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
+- STONITH : Un SBD est configuré pour l’installation STONITH. L’utilisation de STONITH est néanmoins facultative.
+- Sur le site de reprise après sinistre : **Deux jeux de volumes de stockage sont nécessaires** pour la réplication du nœud principal et du nœud secondaire.
+- Sur le site de reprise après sinistre : Les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
+- Sur le site de reprise après sinistre : Les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- Sur le site de reprise après sinistre : Les volumes partagés de données, de fichiers journaux et de sauvegardes de fichiers journaux pour l’AQ, marqués comme « QA Instance installation » (Installation de l’instance AQ), sont configurés pour l’installation de l’instance AQ.
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
 
@@ -439,7 +439,7 @@ Les points de montage suivants sont préconfigurés :
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
-- Sur le nœud de secours : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA sur l’unité de secours.
+- Sur le nœud de secours : Les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA sur l’unité de secours.
  
 
 ## <a name="8-scale-out-with-standby"></a>8. Scale-out avec nœud de secours
@@ -558,8 +558,8 @@ Les points de montage suivants sont préconfigurés :
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
--  Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+-  Sur le site de reprise après sinistre : Les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
+- Sur le site de reprise après sinistre : Les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
 

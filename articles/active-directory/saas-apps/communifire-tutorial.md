@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Communifire | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Communifire | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Communifire.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: de2a164d-2115-43e7-a9ed-e54f483f4aeb
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 590d8fe0e974587effc7d8a3c59546b5684b146c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 44cb5c847ea6c4186001f789de8c7ce04842af38
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446229"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811364"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Didacticiel : Intégration d’Azure Active Directory à Communifire
+# <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutoriel : Intégration d’Azure Active Directory à Communifire
 
 Dans ce didacticiel, vous allez apprendre à intégrer Communifire à Azure Active Directory (Azure AD).
 
@@ -138,7 +138,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 1. Pour configurer l’authentification unique côté **Communifire**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique de Communifire](https://my.axerosolutions.com/spaces/77/communifire-support/help/welcome). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -177,7 +177,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Communifire. Communifire prend en charge l’approvisionnement juste-à-temps, option activée par défaut. S’il n’existe pas encore, un utilisateur est créé après l’enregistrement des détails du profil lors d’une tentative d’accès à Communifire.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support technique de Communifire](https://my.axerosolutions.com/spaces/77/communifire-support/help/welcome).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe de support technique Communifire](https://my.axerosolutions.com/spaces/77/communifire-support/help/welcome).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

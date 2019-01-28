@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: 830052341c4f0e3488c8e63da59cbef1f72e158a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 20bb0cb6982bcbea6b18989099322cfd3389b0b0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42146351"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819635"
 ---
-# <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Connexion des appareils IoT à Azure : IoT Hub et Event Hubs
+# <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Connexion des appareils IoT à Azure : IoT Hub et Event Hubs
 
 Azure propose des services spécialement développés pour divers types de connectivité et de communication pour vous aider à connecter vos données à la puissance du cloud. Azure IoT Hub et Azure Event Hubs sont des services cloud qui peuvent ingérer de grandes quantités de données et des processus ou stocker ces données pour des perspectives. Les deux services sont similaires, car ils prennent tous deux en charge l’ingestion des données avec une latence faible et une haute fiabilité, mais ils sont conçus à des fins différentes. IoT Hub a été développé spécifiquement pour répondre aux besoins uniques de la connexion à grande échelle des appareils IoT à Azure Cloud, alors que le service Event Hubs a été conçu pour la diffusion en continu du Big Data. C’est pourquoi Microsoft recommande d’utiliser Azure IoT Hub pour connecter des appareils IoT à Azure.
 
@@ -30,13 +30,14 @@ La table suivante fournit des détails sur le mode de comparaison entre les deux
 | Fonctionnalité IoT | Niveau standard IoT Hub | Niveau de base IoT Hub | Event Hubs |
 | --- | --- | --- | --- |
 | Messages d’appareil-à-cloud | ![Vérification][checkmark] | ![Vérification][checkmark] | ![Vérification][checkmark] |
-| Protocoles : HTTPS, AMQP, AMQP sur WebSockets | ![Vérification][checkmark] | ![Vérification][checkmark] | ![Vérification][checkmark] |
-| Protocoles : MQTT, MQTT sur WebSockets | ![Vérification][checkmark] | ![Vérification][checkmark] |  |
+| Protocols: HTTPS, AMQP, AMQP sur WebSockets | ![Vérification][checkmark] | ![Vérification][checkmark] | ![Vérification][checkmark] |
+| Protocols: MQTT, MQTT sur WebSockets | ![Vérification][checkmark] | ![Vérification][checkmark] |  |
 | Identité par appareil | ![Vérification][checkmark] | ![Vérification][checkmark] |  |
 | Fichier téléchargé à partir d’appareils | ![Vérification][checkmark] | ![Vérification][checkmark] |  |
 | Service Device Provisioning | ![Vérification][checkmark] | ![Vérification][checkmark] |  |
 | Messages de cloud-à-appareil | ![Vérification][checkmark] |  |  |
 | Gestion des jumeaux d'appareils et des appareils | ![Vérification][checkmark] |  |  |
+| Device Streams (préversion) | ![Vérification][checkmark] |  |  |
 | IoT Edge | ![Vérification][checkmark] |  |  |
 
 Même si le seul cas d’usage est l’ingestion de données appareil-à-cloud, nous recommandons fortement l’utilisation d’IoT Hub car il fournit un service conçu pour la connectivité des appareils IoT. 

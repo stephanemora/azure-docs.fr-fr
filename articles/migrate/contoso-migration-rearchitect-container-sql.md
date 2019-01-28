@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6f894310157432a6e03e6ec4753f5efc2d8ac66d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267417"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817229"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migration de Contoso : Réarchitecturer une application locale dans un conteneur Azure et Azure SQL Database
 
@@ -134,11 +134,11 @@ Voici ce dont Contoso a besoin pour exécuter ce scénario :
 Voici comment Contoso exécute la migration :
 
 > [!div class="checklist"]
-> * **Étape 1 : Approvisionner une instance SQL Database dans Azure**. Contoso approvisionne une instance SQL dans Azure. Une fois la machine virtuelle web frontend migrée vers un conteneur Azure, l’instance de conteneur avec l’application web frontend pointe vers cette base de données.
+> * **Étape 1 : Approvisionnez une instance SQL Database dans Azure** : Contoso approvisionne une instance SQL dans Azure. Une fois la machine virtuelle web frontend migrée vers un conteneur Azure, l’instance de conteneur avec l’application web frontend pointe vers cette base de données.
 > * **Étape 2 : Créer une instance Azure Container Registry**. Contoso provisionne un registre de conteneurs d’entreprise pour les images conteneur Docker.
 > * **Étape 3 : Provisionner Azure Service Fabric**. Il provisionne un cluster Service Fabric.
 > * **Étape 4 : Gérer les certificats Service Fabric**. Contoso configure des certificats pour l’accès d’Azure DevOps Services au cluster.
-> * **Étape 5 : Migrer la base de données avec l’Assistant Migration de données**. Il migre la base de données de l’application avec l’Assistant Migration de données.
+> * **Étape 5 : Migrer la base de données avec l’Assistant Migration de données** : Il migre la base de données de l’application avec l’Assistant Migration de données.
 > * **Étape 6 : Configurer Azure DevOps Services**. Contoso configure un nouveau projet dans Azure DevOps Services et importe le code dans le dépôt Git.
 > * **Étape 7 : Convertir l’application**. Contoso convertit l’application en conteneur à l’aide d’Azure DevOps et de SDK Tools.
 > * **Étape 8 : Configurer le build et la mise en production**. Contoso configure les pipelines de build et de mise en production pour créer et publier l’application sur l’ACR et le cluster Service Fabric.
@@ -282,7 +282,7 @@ Contoso a besoin de certificats de cluster pour autoriser l’accès d’Azure D
 
 8. Pour le déploiement d’Azure DevOps Services, ils doivent déterminer la valeur Base64 du certificat. Ils le font sur la station de travail locale du développeur à l’aide de PowerShell. Ils collent la sortie dans un fichier texte pour une utilisation ultérieure.
 
-    ```
+    ```powershell
         [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
     ```
 
@@ -530,7 +530,7 @@ Dans un premier temps, les administrateurs de Contoso provisionnent une base de 
 5. Dans le portail, ils ouvrent la nouvelle base de données > **Collection** > **Documents** et cliquent sur **Nouveau Document**.
 6. Ils collent le code JSON suivant dans la fenêtre de document. Il s’agit d’exemples de données sous la forme d’un seul tweet.
 
-    ```
+    ```json
     {
             "id": "2ed5e734-8034-bf3a-ac85-705b7713d911",
             "tweetId": 927750234331580911,
@@ -565,11 +565,11 @@ Cosmos DB étant provisionné, les administrateurs de Contoso peuvent configurer
 
 2. Ils renseignent les deux paramètres suivants :
 
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />
    ```
    
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
    ```
 

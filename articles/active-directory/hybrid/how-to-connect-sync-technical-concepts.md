@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect Sync : Concepts techniques | Microsoft Docs'
+title: 'Synchronisation d’Azure AD Connect : Concepts techniques | Microsoft Docs'
 description: Explique les concepts techniques liés à Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df3f244b70b52b6145b664c4e575c66542ada5b9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2bf9876fc551b9ab0eb24c03a17f3d789c00530e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309578"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463488"
 ---
-# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync : Concepts techniques
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Synchronisation d’Azure AD Connect : Concepts techniques
 Cet article est un résumé de la rubrique [Présentation de l’architecture](how-to-connect-sync-technical-concepts.md).
 
 Azure AD Connect Sync repose sur une plateforme de synchronisation de méta-annuaire solide.
@@ -86,8 +86,8 @@ Cela établit intrinsèquement un lien, et le flux d’attributs peut se produir
 Chaque fois qu’une règle détermine qu’un nouvel objet d’espace de connecteur doit être créé, on emploie le terme d’« approvisionnement ». Toutefois, étant donné que cette opération n’a lieu que dans l’espace de connecteur, elle n’est reportée dans la source de données connectée qu’une fois qu’une exportation est effectuée.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Azure AD Connect Sync : personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
-* [Intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md)
+* [Synchronisation Azure AD Connect : personnaliser les options de synchronisation](how-to-connect-sync-whatis.md)
+* [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
