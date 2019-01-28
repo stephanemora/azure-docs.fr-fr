@@ -26,7 +26,7 @@ Azure Front Door Service permet de distribuer des fichiers volumineux sans aucun
 
 </br>Dès lors qu’un bloc parvient à l’environnement de porte d’entrée, il est mis en cache et immédiatement remis à l’utilisateur. La porte d’entrée se prépare ensuite à récupérer le bloc suivant en parallèle. Cette prérécupération est l’assurance que le contenu a un bloc d’avance sur l’utilisateur, ce qui réduit la latence. Ce processus se poursuit jusqu'à ce que le fichier entier soit téléchargé (si nécessaire), que toutes les plages d’octets soient disponibles (si nécessaire), ou que le client mette fin à la connexion.
 
-</br>Pour plus d’informations sur la demande de plage d’octets, consultez [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
+</br>Pour plus d’informations sur la demande de plage d’octets, consultez [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 La porte d’entrée met en cache les blocs à mesure qu’elle les récupère, ce qui évite d’avoir à mettre l’intégralité du fichier dans le cache Front Door. Les demandes suivantes concernant le fichier ou les plages d’octets sont traitées à partir du cache. Si certains blocs ne sont pas mis en cache, ils sont demandés au backend via une prérécupération. Cette optimisation repose sur la capacité du backend à prendre en charge les demandes de plage d’octets. À défaut, cette optimisation n’est pas efficace.
 
 ## <a name="file-compression"></a>Compression de fichiers
