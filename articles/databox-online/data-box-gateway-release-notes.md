@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 31bcc5ed447b32f4474ecef6a8a9f79377061975
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 738cc5b4e90d9572b65f122076973e2d9f1b264f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078981"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450488"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notes de publication de préversion d’Azure Data Box Gateway
 
@@ -29,7 +29,7 @@ La préversion correspond à la version du logiciel **Data Box Gateway préversi
 
 Le tableau suivant récapitule les problèmes corrigés dans cette version.
 
-|  Non. | Problème |
+| Non. | Problème |
 | --- | --- |
 | **1.** | Dans cette version, lorsqu’un fichier chargé par un autre outil (AzCopy) est actualisé puis mis à jour d’une manière qui augmente/étend la taille du fichier, l’erreur suivante est observée : *Erreur 400 : InvalidBlobOrBlock (L’objet blob spécifié ou le contenu du bloc n’est pas valide.)*|
 | **2.** |En raison d’un bogue dans cette version, vous pouvez voir des instances du code d’erreur 110 dans *error.xml* avec des noms d’éléments non reconnaissables. | 
@@ -41,7 +41,7 @@ Le tableau suivant récapitule les problèmes corrigés dans cette version.
 
 Le tableau suivant résume les problèmes connus pour Data Box Gateway exécutant la préversion.
 
-|  Non. | Fonctionnalité | Problème | Solution de contournement/commentaires |
+| Non. | Fonctionnalité | Problème | Solution de contournement/commentaires |
 | --- | --- | --- | --- |
 | **1.** |Mises à jour |Les appareils Data Box Gateway créés dans les préversions antérieures ne peuvent pas être mis à jour vers cette version. |Téléchargez les images de disque virtuel de la nouvelle version, puis configurez et déployez de nouveaux appareils. Pour plus d’informations, consultez [Tutorial: Prepare to deploy Azure Data Box Gateway (Preview)](data-box-gateway-deploy-prep.md) (Didacticiel : Préparation du déploiement d’Azure Data Box Gateway (préversion)). |
 | **2.** |Disque de données configuré |Une fois que vous avez provisionné un disque de données d’une certaine taille spécifiée et créé le Data Box Gateway correspondant, vous ne devez pas réduire ce disque de données. Toute tentative de réduction du disque entraîne la perte de toutes les données locales sur l’appareil. | |

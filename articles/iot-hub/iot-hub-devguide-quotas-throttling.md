@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395154"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827378"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -47,9 +47,12 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 | Opérations de travaux<sup>1,3</sup> <br/> (créer, mettre à jour, répertorier, supprimer) | 1.67/s/unité (100/min/unité) | 1.67/s/unité (100/min/unité) | 83.33/s/unité (5 000/min/unité) |
 | Opérations de l’appareil de travaux<sup>1</sup> <br/> (mettre à jour le jumeau, appeler la méthode directe) | 10/s | Plus de 10/s ou 1/s/unité | 50/s/unité |
 | Configurations et déploiements de périphérie<sup>1</sup> <br/> (créer, mettre à jour, répertorier, supprimer) | 0,33/s/unité (20/min/unité) | 0,33/s/unité (20/min/unité) | 0,33/s/unité (20/min/unité) |
+| Fréquence d’émission de flux d’appareil<sup>4</sup> | 5 nouveaux flux/s | 5 nouveaux flux/s | 5 nouveaux flux/s |
+| Nombre maximal de flux d’appareils connectés simultanément<sup>4</sup> | 50 | 50 | 50 |
+| Transfert de données de flux de données maximale de l’appareil<sup>4</sup> (volume agrégé par jour) | 300 Mo | 300 Mo | 300 Mo |
 
 
-<sup>1</sup>Cette fonctionnalité n’est pas disponible dans le niveau de base d’IoT Hub. Pour plus d’informations, consultez [Comment choisir le bon IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>La taille du compteur de limitation est de 8 Ko. <br/><sup>3</sup>Vous ne pouvez avoir qu’un travail d’importation/exportation d’appareil actif à la fois.
+<sup>1</sup>Cette fonctionnalité n’est pas disponible dans le niveau de base d’IoT Hub. Pour plus d’informations, consultez [Comment choisir le bon IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>La taille du compteur de limitation est de 8 Ko. <br/><sup>3</sup>Vous ne pouvez avoir qu’un travail d’importation/exportation d’appareil actif à la fois. <br/><sup>4</sup>Les flux d’appareil IoT Hub sont uniquement disponibles pour les références SKU S1, S2, S3 et F1.
 
 La limitation des *connexions d’appareil* régit la fréquence à laquelle de nouvelles connexions d’appareil peuvent être établies avec un hub IoT. La limitation des *connexions d’appareils* ne régit pas le nombre maximal d’appareils connectés simultanément. Le taux de limitation des *connexions d’appareil* dépend du nombre d’unités provisionnées pour le hub IoT.
 
