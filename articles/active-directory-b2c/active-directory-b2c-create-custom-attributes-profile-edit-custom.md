@@ -3,19 +3,19 @@ title: Ajouter vos propres attributs à des stratégies personnalisées dans Azu
 description: Procédure pas à pas sur l’utilisation des propriétés d’extension et des attributs personnalisés, ainsi que sur la manière de les inclure dans l’interface utilisateur.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5513e0ff434862ea7eee42cb94ff2a0f67f6d390
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338742"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854052"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C : Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil
 
@@ -25,7 +25,7 @@ Dans cet article, vous allez créer un attribut personnalisé dans votre annuair
 
 ## <a name="prerequisites"></a>Prérequis
 
-Suivez les étapes de l’article [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
+Suivez les étapes de l’article [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-ad-b2c-by-using-custom-policies"></a>Utilisez les attributs personnalisés pour collecter des informations sur vos utilisateurs dans Azure AD B2C à l’aide de stratégies personnalisées.
 Votre annuaire Azure AD B2C comprend un ensemble intégré d’attributs. Voici quelques exemples d’attributs : **Given Name**, **Surname**, **City**, **Postal Code** et **userPrincipalName**. Vous serez souvent amené à créer vos propres attributs, tels que ceux-ci :
@@ -53,14 +53,14 @@ Les instructions de cette procédure figurent dans la section **Étapes suivante
 2. Dans le menu de navigation gauche, sélectionnez **Azure Active Directory**. Vous devrez peut-être sélectionner **Plus de services** pour le trouver.
 3. Sélectionnez **Inscriptions d’applications**. Sélectionnez **Nouvelle inscription d’application**.
 4. Fournissez les informations suivantes :
-    * Un nom pour l’application web : **WebApp-GraphAPI-DirectoryExtensions**
-    * Le type de l’application : **application web/API**
+    * Nom de l’application web : **WebApp-GraphAPI-DirectoryExtensions**.
+    * Type d’application : **Application/API web**.
     * L’URL de connexion : **https://{nom_du_locataire}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**.
 5. Sélectionnez **Créer**.
 6. Sélectionnez l’application web que vous venez de créer.
 7. Sélectionnez **Paramètres** > **Autorisations requises**.
 8. Sélectionnez l’API **Microsoft Azure Active Directory**.
-9. Dans Autorisations d’application, cochez l’option **Lire et écrire les données de l’annuaire**. Ensuite, sélectionnez **Enregistrer**.
+9. Cochez les autorisations d’application : **Accéder en lecture et en écriture aux données de l’annuaire**. Ensuite, sélectionnez **Enregistrer**.
 10. Sélectionnez **Accorder des autorisations**, puis confirmez en cliquant sur **Oui**.
 11. Copiez les identificateurs suivants dans le Presse-papiers, puis enregistrez-les :
     * **ID de l’application**. Exemple : `103ee0e6-f92d-4183-b576-8c3739027780`.
@@ -70,7 +70,7 @@ Les instructions de cette procédure figurent dans la section **Étapes suivante
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Modifier votre stratégie personnalisée pour ajouter **ApplicationObjectId**
 
-Si vous avez suivi les étapes décrites dans [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md), vous avez téléchargé et modifié les [fichiers d’exemple](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) suivants : **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** et **PasswordReset.xml**. Dans cette étape, vous allez apporter davantage de modifications à ces fichiers.
+Lorsque vous avez suivi les étapes d’[Azure Active Directory B2C : Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md), vous avez téléchargé et modifié les [fichiers exemples](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) nommés **TrustFrameworkBase.xml**,  **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** et **PasswordReset.xml**. Dans cette étape, vous allez apporter davantage de modifications à ces fichiers.
 
 * Ouvrez le fichier **TrustFrameworkBase.xml**, puis ajoutez la section `Metadata` comme indiqué dans l’exemple suivant. Insérez l’ID d’objet que vous avez enregistré précédemment pour la valeur `ApplicationObjectId` et l’ID d’application que vous avez enregistré pour la valeur `ClientId` : 
 

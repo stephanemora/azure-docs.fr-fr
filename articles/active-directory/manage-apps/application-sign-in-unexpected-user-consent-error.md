@@ -4,7 +4,7 @@ description: Aborde les erreurs qui peuvent se produire durant le processus de c
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 70413d3467b2f9d5591e6138ed1a7347db58264b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 362671e255f8dc36f9474fd2d4e3117e4cc0c1e4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354855"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477717"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erreur inattendue lors du consentement à une application
 
@@ -36,17 +36,17 @@ Certaines conditions doivent être réunies pour qu’un utilisateur consente au
 Cette erreur se produit quand un utilisateur, qui n’est pas un administrateur d’entreprise, tente d’utiliser une application qui demande des autorisations pouvant uniquement être accordées par un administrateur. Pour résoudre cette erreur, un administrateur peut accorder l’accès à l’application au nom de son organisation.
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Erreur : stratégie empêchant l’octroi d’autorisations
-* **AADSTS90093 :** Un administrateur de &lt;tenantDisplayName&gt; a défini une stratégie qui vous empêche d’octroyer à &lt;nom_application&gt; les autorisations qu’elle demande. Contactez un administrateur de &lt;tenantDisplayName&gt;, qui peut accorder des autorisations à cette application en votre nom.
+* **AADSTS90093 :** Un administrateur de &lt;tenantDisplayName&gt; a défini une stratégie qui vous empêche d’octroyer à &lt;nom_application&gt; les autorisations qu’elle demande. Contactez un administrateur de &lt;tenantDisplayName&gt;, qui peut accorder des autorisations à cette application en votre nom.
 
 Cette erreur se produit quand un utilisateur non-administrateur tente d’utiliser une application qui nécessite son consentement et que l’administrateur d’entreprise l’en empêche. Pour résoudre cette erreur, un administrateur peut accorder l’accès à l’application au nom de son organisation.
 
 ## <a name="intermittent-problem-error"></a>Erreur : problème intermittent
-* **AADSTS90090 :** Un problème intermittent s’est apparemment produit au cours du processus de connexion, lors de l’enregistrement des autorisations que vous avez tenté d’accorder à &lt;clientAppDisplayName&gt;. Réessayez plus tard.
+* **AADSTS90090 :** Un problème intermittent s’est apparemment produit au cours du processus de connexion, lors de l’enregistrement des autorisations que vous avez tenté d’accorder à &lt;clientAppDisplayName&gt;. Réessayez plus tard.
 
 Cette erreur indique qu’un problème intermittent côté service s’est produit. Vous pouvez le résoudre en essayant de donner à nouveau votre consentement à l’application.
 
 ## <a name="resource-not-available-error"></a>Erreur : ressource non disponible
-* **AADSTS65005 :** L’application &lt;clientAppDisplayName&gt; a demandé des autorisations pour accéder à une ressource &lt;resourceAppDisplayName&gt; qui n’est pas disponible. 
+* **AADSTS65005 :** L’application &lt;clientAppDisplayName&gt; a demandé des autorisations pour accéder à une ressource &lt;resourceAppDisplayName&gt; qui n’est pas disponible. 
 
 Contactez le développeur de l’application.
 
@@ -56,7 +56,7 @@ Contactez le développeur de l’application.
 Vérifiez que cette ressource est disponible ou contactez un administrateur de &lt;tenantDisplayName&gt;.
 
 ## <a name="permissions-mismatch-error"></a>Erreur : incompatibilité des autorisations
-* **AADSTS65005 :** L’application a fait une demande de consentement pour accéder à la ressource &lt;resourceAppDisplayName&gt;. Cette demande a échoué car elle ne correspond pas à la façon dont l’application a été préconfigurée pendant son inscription. Contactez le fournisseur de l’application.**
+* **AADSTS65005 :** L’application a fait une demande de consentement pour accéder à la ressource &lt;resourceAppDisplayName&gt;. Cette demande a échoué car elle ne correspond pas à la façon dont l’application a été préconfigurée pendant son inscription. Contactez le fournisseur de l’application.**
 
 Ces erreurs se produisent quand l’application à laquelle un utilisateur tente de donner son consentement demande des autorisations pour accéder à une application de ressources introuvable dans l’annuaire (locataire) de l’organisation. Cette situation peut se produire pour plusieurs raisons :
 

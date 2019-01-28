@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7c856a076a3958cdd3aef4134c703128194fcc5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581440"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849785"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Ajouter, mettre à jour ou supprimer une carte de crédit ou débit pour Azure
 
@@ -32,7 +32,7 @@ Dans le Centre des comptes, vous pouvez ajouter une nouvelle carte de crédit, m
 
 ## <a name="add-a-new-credit-or-debit-card"></a>Ajouter une nouvelle carte de crédit ou débit
 
-1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions) en tant qu’administrateur de compte.
+1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions) en tant qu’[administrateur de compte](billing-subscription-transfer.md#whoisaa).
 1. Sélectionnez un abonnement.
 1. Dans la partie droite de la page, sélectionnez **Manage payment methods (Gérer les modes de paiement)**.
 
@@ -49,7 +49,7 @@ Si vous obtenez une erreur après avoir ajouté la carte bancaire, consultez [Ca
 
 Si le numéro de votre carte bancaire reste le même en cas de renouvellement, mettez à jour les détails de la carte bancaire existante, tels que la date d’expiration. Si votre numéro de carte bancaire change, en cas de perte, de vol ou d’expiration, procédez comme indiqué dans la section [Ajouter une nouvelle carte bancaire à votre compte](#addcard). Vous n’avez pas besoin de mettre à jour le cryptogramme visuel.
 
-1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) en tant qu’administrateur de compte.
+1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) en tant qu’[administrateur de compte](billing-subscription-transfer.md#whoisaa).
 1. Sélectionnez l’abonnement lié à la carte.
 1. Sélectionnez **Gérer les modes de paiement**.
 1. Sélectionnez **Modifier** en regard de la carte à mettre à jour.
@@ -58,14 +58,14 @@ Si le numéro de votre carte bancaire reste le même en cas de renouvellement, m
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Utiliser une autre carte de crédit pour l’abonnement Azure
 
-1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) en tant qu’administrateur de compte.
+1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) en tant qu’[administrateur de compte](billing-subscription-transfer.md#whoisaa).
 1. Sélectionnez l’abonnement lié à la carte.
 1. Dans la partie droite de la page, sélectionnez **Manage payment methods (Gérer les modes de paiement)**.
 1. Cliquez sur **Utiliser à la place** en regard de la carte à utiliser. Cette opération met également à jour tous les autres abonnements actuellement associés à cette carte. 
 
 ## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Supprimer une carte de crédit ou débit du compte
 
-1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) en tant qu’administrateur de compte.
+1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) en tant qu’[administrateur de compte](billing-subscription-transfer.md#whoisaa).
 1. Sélectionnez l’abonnement lié à la carte.
 3. Dans la partie droite de la page, sélectionnez **Manage payment methods (Gérer les modes de paiement)**.
 4. Cliquez sur **Supprimer** en regard de la carte bancaire que vous souhaitez supprimer.
@@ -104,4 +104,4 @@ Pour ajouter ou mettre à jour l’ID de taxe, accédez à la section[**Profil**
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (Support request).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -8,12 +8,12 @@ ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848457"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475439"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Résoudre des erreurs en lien avec des ressources partagées
 
@@ -37,6 +37,65 @@ Pour résoudre ce problème, vous devez supprimer le module bloqué dans l’ét
 
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
+```
+
+### <a name="module-fails-to-import"></a>Scénario : Le module ne parvient pas à terminer l’importation ou il est impossible d’exécuter des cmdlets après l’importation
+
+#### <a name="issue"></a>Problème
+
+Un module ne parvient pas à importer ou réussit l’importation, mais aucune applet de commande n’est extraite.
+
+#### <a name="cause"></a>Cause :
+
+Voici quelques raisons courantes pour lesquelles l’importation d’un module dans Azure Automation peut échouer :
+
+* La structure ne correspond pas à la structure dont Automation a besoin.
+* Le module dépend d’un autre module qui n’a pas été déployé sur votre compte Automation.
+* Le module n’a pas de dépendances dans le dossier.
+* L’applet de commande `New-AzureRmAutomationModule` est utilisée pour charger le module, et vous n’avez pas spécifié le chemin de stockage complet ou vous n’avez pas chargé le module en utilisant une URL accessible publiquement.
+
+#### <a name="resolution"></a>Résolution :
+
+Une des solutions suivantes corrige ce problème :
+
+* Assurez-vous que le module suit le format suivant : NomModule.zip **->** NomModule ou Numéro de version **->** (ModuleName.psm1, ModuleName.psd1)
+* Ouvrez le fichier .psd1 et regardez si le module possède des dépendances. Si c’est le cas, téléchargez ces modules dans le compte Automation.
+* Assurez-vous que les fichiers .dll référencés sont présents dans le dossier de module.
+
+### <a name="all-modules-suspended"></a>Scénario : L’exécution d’Update-AzureModule.ps1 est suspendue lors de la mise à jour des modules
+
+#### <a name="issue"></a>Problème
+
+Lorsque vous utilisez le runbook [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) pour mettre à jour vos modules Azure, le processus de mise à jour du module est suspendu.
+
+#### <a name="cause"></a>Cause :
+
+Lors de l’utilisation du script `Update-AzureModule.ps1`, le paramètre par défaut déterminant le nombre de modules mis à jour simultanément est de 10. Le processus de mise à jour est sujet aux erreurs lorsque les modules mis à jour en même temps sont en nombre excessif.
+
+#### <a name="resolution"></a>Résolution :
+
+Il n’est pas courant que tous les modules AzureRM soient requis dans le même compte Automation. Il est recommandé de n’importer que les modules AzureRM dont vous avez besoin.
+
+> [!NOTE]
+> Éviter d’importer le module **AzureRM**. L’importation des modules **AzureRM** entraîne l’importation de tous les modules **AzureRM.\***, ce qui est déconseillé.
+
+Si le processus de mise à jour est suspendu, vous devez ajouter le paramètre `SimultaneousModuleImportJobCount` au script `Update-AzureModules.ps1` et fournir une valeur inférieure à la valeur par défaut qui est 10. Si vous implémentez cette logique, il est recommandé de commencer avec une valeur de 3 ou 5. `SimultaneousModuleImportJobCount` est un paramètre du runbook système `Update-AutomationAzureModulesForAccount` qui est utilisé pour mettre à jour les modules Azure. Ce changement allonge la durée du processus, mais il a plus de chances d’aboutir. L’exemple suivant montre le paramètre et où le mettre dans le runbook :
+
+ ```powershell
+         $Body = @"
+            {
+               "properties":{
+               "runbook":{
+                   "name":"Update-AutomationAzureModulesForAccount"
+               },
+               "parameters":{
+                    ...
+                    "SimultaneousModuleImportJobCount":"3",
+                    ... 
+               }
+              }
+           }
+"@
 ```
 
 ## <a name="run-as-accounts"></a>Compte d’identification

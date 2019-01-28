@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714298"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820782"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acheter et configurer un certificat SSL pour Azure App Service
 
@@ -50,7 +50,7 @@ Aidez-vous du tableau suivant pour configurer le certificat. Lorsque vous avez t
 | Paramètre | Description |
 |-|-|
 | NOM | Nom convivial de votre certificat App Service. |
-| Nom d’hôte de domaine nu | Cette étape est l’un des points les plus cruciaux du processus d’achat. Utilisez le nom de domaine racine que vous avez mappé à votre application. Ne commencez _pas_ le nom d’hôte par `www`. |
+| Nom d’hôte de domaine nu | Si vous spécifiez ici le domaine racine, vous obtenez un certificat qui sécurise *à la fois* le domaine racine et le sous-domaine `www`. Pour sécuriser un sous-domaine uniquement, indiquez ici son nom de domaine complet (par exemple, `mysubdomain.contoso.com`). |
 | Abonnement | Centre de données dans lequel l’application web est hébergée. |
 | Groupe de ressources | Groupe de ressources qui contient le certificat. Vous pouvez utiliser un nouveau groupe de ressources, ou sélectionner le même groupe de ressources que votre application App Service, par exemple. |
 | Référence (SKU) de certificat | Détermine le type de certificat à créer (certificat standard ou [certificat générique](https://wikipedia.org/wiki/Wildcard_certificate)). |
@@ -125,7 +125,7 @@ Accédez à votre application en utilisant `HTTPS://<domain_name>` au lieu de `H
 
 Si vous devez recréer la clé de votre certificat, sélectionnez le certificat dans la page [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), puis sélectionnez **Recréer la clé et synchroniser** dans le volet de navigation de gauche.
 
-Cliquez sur le bouton **Renouveler la clé** pour lancer le processus. Ce processus peut prendre de 1 à 10 minutes.
+Cliquez sur le bouton **Renouveler la clé** pour démarrer le processus. Ce processus peut prendre de 1 à 10 minutes.
 
 ![insérer une image de renouvellement de clé SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 

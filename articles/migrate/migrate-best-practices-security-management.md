@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 6238d3d7a64816df01be69458d784114368d9e17
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b2b5d62c54fbfdef8a5e448a089800eedcb66d07
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141337"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827497"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Meilleures pratiques pour la sécurisation et la gestion des charges de travail migrées vers Azure
 
@@ -71,7 +71,7 @@ Le chiffrement est une partie importante des pratiques de sécurité d’Azure. 
 ### <a name="encryption-for-iaas"></a>Chiffrement pour IaaS
 
 - **Machines virtuelles** : Pour les machines virtuelles, vous pouvez utiliser Azure Disk Encryption pour chiffrer vos disques de machines virtuelles Windows et Linux IaaS.
-    - Le chiffrement de disque tire parti de Bitlocker pour Windows et DM-Crypt pour Linux pour le chiffrement de volume pour le système d’exploitation et les disques de données.
+    - Le chiffrement de disque tire parti de BitLocker pour Windows et DM-Crypt pour Linux pour le chiffrement de volume pour le système d’exploitation et les disques de données.
     - Vous pouvez utiliser une clé de chiffrement créée par Azure, ou fournir vos propres clés de chiffrement, sauvegardées dans Azure Key Vault. 
     - Avec la fonctionnalité Chiffrement de disque, les données de machine virtuelle IaaS sont sécurisées au repos (sur le disque) et pendant le démarrage de la machine virtuelle. 
     - Azure Security Center vous envoie une alerte dès lors que certaines de vos machines virtuelles ne sont pas chiffrées.

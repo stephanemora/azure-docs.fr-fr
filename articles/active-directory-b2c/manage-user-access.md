@@ -3,19 +3,19 @@ title: Gérer les accès utilisateur dans Azure Active Directory B2C | Microsoft
 description: Découvrez comment identifier les mineurs, recueillir les données relatives à la date de naissance et au pays, et obtenir l’acceptation des conditions d’utilisation dans votre application à l’aide d’Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 982587fa7da41ea1de5fd11bb054f87039596da1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143457"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852029"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gérer l’accès utilisateur dans Azure Active Directory B2C
 
@@ -34,11 +34,11 @@ Les applications et les organisations peuvent décider d’empêcher les mineurs
 
 Si un utilisateur est identifié comme mineur, vous pouvez définir le flux utilisateur dans Azure AD B2C selon l’une des trois options suivantes :
 
-- **Renvoyer un jeton id_token JWT signé à l’application** : l’utilisateur est enregistré dans le répertoire, et un jeton est retourné à l’application. L’application continue à s’exécuter conformément aux règles d’entreprise. Par exemple, l’application peut lancer un processus de consentement parental. Pour utiliser cette méthode, choisissez de recevoir les revendications **ageGroup** et **consentProvidedForMinor** à partir de l’application.
+- **Renvoyer un jeton id_token JWT signé à l’application** : L’utilisateur est enregistré dans le répertoire, et un jeton est retourné à l’application. L’application continue à s’exécuter conformément aux règles d’entreprise. Par exemple, l’application peut lancer un processus de consentement parental. Pour utiliser cette méthode, choisissez de recevoir les revendications **ageGroup** et **consentProvidedForMinor** à partir de l’application.
 
-- **Envoyer un jeton JSON non signé à l’application** : Azure AD B2C indique à l’application que l’utilisateur est mineur, et fournit l’état de consentement parental de l’utilisateur. L’application continue à s’exécuter conformément aux règles d’entreprise. Un jeton JSON ne permet pas d’effectuer une authentification réussie avec l’application. L’application doit traiter l’utilisateur non authentifié conformément aux revendications incluses dans le jeton JSON, qui peut inclure **name**, **email**, **ageGroup** et **consentProvidedForMinor**.
+- **Envoyer un jeton JSON non signé à l’application** : Azure AD B2C indique à l’application que l’utilisateur est mineur, et fournit l’état de consentement parental de l’utilisateur. L’application continue à s’exécuter conformément aux règles d’entreprise. Un jeton JSON ne permet pas d’effectuer une authentification réussie avec l’application. L’application doit traiter l’utilisateur non authentifié conformément aux revendications incluses dans le jeton JSON, qui peut inclure **name**, **email**, **ageGroup** et **consentProvidedForMinor**.
 
-- **Bloquer l’utilisateur**: si un utilisateur est mineur et que le consentement parental n’a pas été donné, Azure AD B2C peut avertir l’utilisateur qu’il ou elle est bloqué(e). Aucun jeton n’est émis, l’accès est bloqué et le compte d’utilisateur n’est pas créé au moment de l’inscription. Pour implémenter cette notification, vous fournissez une page de contenu HTML/CSS appropriée afin d’informer l’utilisateur et de présenter les options appropriées. Aucune action supplémentaire émanant de l’application n’est requise pour les nouvelles inscriptions.
+- **Bloquer l’utilisateur** : Si un utilisateur est mineur et que le consentement parental n’a pas été donné, Azure AD B2C peut avertir l’utilisateur qu’il ou elle est bloqué(e). Aucun jeton n’est émis, l’accès est bloqué et le compte d’utilisateur n’est pas créé au moment de l’inscription. Pour implémenter cette notification, vous fournissez une page de contenu HTML/CSS appropriée afin d’informer l’utilisateur et de présenter les options appropriées. Aucune action supplémentaire émanant de l’application n’est requise pour les nouvelles inscriptions.
 
 ## <a name="get-parental-consent"></a>Obtenir le consentement parental
 
@@ -56,7 +56,7 @@ Voici un exemple de flux utilisateur pour le recueil du consentement parental :
 
 5. Lorsqu’un mineur ou un adulte révoque le consentement, l’API Graph Azure AD peut servir à modifier la valeur de **consentProvidedForMinor** afin d’afficher **denied**. L’application peut également supprimer un mineur dont le consentement a été révoqué. Il est possible de personnaliser le flux utilisateur de façon à ce que le mineur authentifié (ou le parent utilisant le compte du mineur) puisse révoquer le consentement. Azure AD B2C enregistre **consentProvidedForMinor** avec la valeur **denied**.
 
-Pour plus d’informations sur **legalAgeGroupClassification**, **consentProvidedForMinor** et **ageGroup**, consultez [Type de ressource utilisateur](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Pour plus d’informations sur les attributs personnalisés, consultez [Utiliser des attributs personnalisés pour recueillir des informations sur vos consommateurs](active-directory-b2c-reference-custom-attr.md). Lorsque vous traitez des attributs étendus à l’aide de l’API Graph Azure AD, vous devez utiliser la version longue de l’attribut, par exemple *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Pour plus d’informations sur **legalAgeGroupClassification**, **consentProvidedForMinor** et **ageGroup**, consultez [Type de ressource utilisateur](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Pour plus d’informations sur les attributs personnalisés, consultez [Utiliser des attributs personnalisés pour recueillir des informations sur vos consommateurs](active-directory-b2c-reference-custom-attr.md). Lorsque vous traitez des attributs étendus à l’aide de l’API Graph Azure AD, vous devez utiliser la version longue de l’attribut, par exemple *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth* : *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-country-data"></a>Recueillir la date de naissance et le nom du pays
 
