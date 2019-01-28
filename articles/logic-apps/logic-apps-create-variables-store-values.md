@@ -74,9 +74,9 @@ Vous pouvez créer une variable et déclarer son type de données et sa valeur i
 
    | Propriété | Obligatoire | Valeur |  Description |
    |----------|----------|-------|--------------|
-   | NOM | Oui | <*variable-name*> | Nom de la variable à incrémenter | 
-   | type | Oui | <*variable-type*> | Type de données de la variable. | 
-   | Valeur | Non  | <*start-value*> | Valeur initiale de votre variable. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur initiale de votre variable. | 
+   | Name | Oui | <*variable-name*> | Nom de la variable à incrémenter | 
+   | Type | Oui | <*variable-type*> | Type de données de la variable. | 
+   | Value | Non  | <*start-value*> | Valeur initiale de votre variable. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur initiale de votre variable. | 
    ||||| 
 
    ![Initialiser la variable](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -210,8 +210,8 @@ Pour augmenter, ou *incrément*, une variable d’une valeur constante, ajoutez 
 
    | Propriété | Obligatoire | Valeur |  Description |
    |----------|----------|-------|--------------|
-   | NOM | Oui | <*variable-name*> | Nom de la variable à incrémenter | 
-   | Valeur | Non  | <*increment-value*> | Valeur utilisée pour incrémenter la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour l’incrémentation de votre variable. | 
+   | Name | Oui | <*variable-name*> | Nom de la variable à incrémenter | 
+   | Value | Non  | <*increment-value*> | Valeur utilisée pour incrémenter la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour l’incrémentation de votre variable. | 
    |||| 
 
    Par exemple :  
@@ -330,8 +330,8 @@ Voici les propriétés disponibles pour l’action **Décrémenter une variable*
 
 | Propriété | Obligatoire | Valeur |  Description |
 |----------|----------|-------|--------------|
-| NOM | Oui | <*variable-name*> | Nom de la variable à décrémenter | 
-| Valeur | Non  | <*increment-value*> | Valeur de la décrémentation de la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour la décrémentation de votre variable. | 
+| Name | Oui | <*variable-name*> | Nom de la variable à décrémenter | 
+| Value | Non  | <*increment-value*> | Valeur de la décrémentation de la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour la décrémentation de votre variable. | 
 ||||| 
 
 Si vous passez du concepteur à l’éditeur en mode Code, voici comment l’action **Décrémenter une variable** s’affiche à l’intérieur de la définition de votre application logique, qui est au format JSON.
@@ -365,8 +365,8 @@ Voici les propriétés disponibles pour l’action **Définir une variable** :
 
 | Propriété | Obligatoire | Valeur |  Description | 
 |----------|----------|-------|--------------| 
-| NOM | Oui | <*variable-name*> | Nom de la variable à modifier | 
-| Valeur | Oui | <*new-value*> | Valeur que vous souhaitez attribuer à la variable. Le type de données des deux doit être identique. | 
+| Name | Oui | <*variable-name*> | Nom de la variable à modifier | 
+| Value | Oui | <*new-value*> | Valeur que vous souhaitez attribuer à la variable. Le type de données des deux doit être identique. | 
 ||||| 
 
 > [!NOTE]
@@ -423,8 +423,8 @@ Voici les propriétés disponibles pour les actions **Ajouter à...**  :
 
 | Propriété | Obligatoire | Valeur |  Description | 
 |----------|----------|-------|--------------| 
-| NOM | Oui | <*variable-name*> | Nom de la variable à modifier | 
-| Valeur | Oui | <*append-value*> | Valeur que vous souhaitez ajouter, qui peut être de tout type | 
+| Name | Oui | <*variable-name*> | Nom de la variable à modifier | 
+| Value | Oui | <*append-value*> | Valeur que vous souhaitez ajouter, qui peut être de tout type | 
 |||||  
 
 Si vous passez du concepteur à l’éditeur en mode Code, voici comment l’action **Ajouter à une variable tableau** s’affiche à l’intérieur de la définition de votre application logique, qui est au format JSON.
