@@ -4,17 +4,17 @@ description: Cet article vous explique comment créer et gérer des stratégies 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3c8fd185feff9a580e2d23926dcf60cb33121122
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312474"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847048"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Créer des stratégies et afficher les données de conformité par programmation avec Azure Policy
 
@@ -22,18 +22,20 @@ Cet article vous explique comment créer et gérer des stratégies par programma
 
 Pour plus d’informations sur la conformité, consultez [Obtention de données de conformité](getting-compliance-data.md).
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que les conditions préalables suivantes sont remplies :
 
 1. Si ce n’est pas déjà fait, installez [ARMClient](https://github.com/projectkudu/ARMClient). C’est un outil qui envoie des requêtes HTTP aux API Azure Resource Manager.
 
-1. Mettez à jour votre module AzureRM PowerShell vers la dernière version. Pour plus d’informations sur la version la plus récente, voir [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
+1. Procédez à la mise à jour de votre module Azure PowerShell vers la dernière version. Pour plus d'informations, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Pour plus d’informations sur la version la plus récente, voir [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
 1. Inscrivez le fournisseur de ressources Policy Insights à l’aide d’Azure PowerShell pour vérifier que votre abonnement fonctionne avec ce fournisseur de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à exécuter l’opération d’inscription pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Exécutez la commande suivante pour enregistrer le fournisseur de ressources :
 
    ```azurepowershell-interactive
-   Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
    Pour plus d’informations sur l’inscription et l’affichage des fournisseurs de ressources, consultez la page [Fournisseurs et types de ressources](../../../azure-resource-manager/resource-manager-supported-services.md).
@@ -72,13 +74,13 @@ Pour une meilleure visibilité de vos ressources, la première chose à faire es
 1. Exécutez la commande suivante pour créer une définition de stratégie en utilisant le fichier AuditStorageAccounts.json.
 
    ```azurepowershell-interactive
-   New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
+   New-AzPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
    La commande crée une définition de stratégie nommée _Audit Storage Accounts Open to Public Networks_.
-   Pour plus d’informations sur les autres paramètres que vous pouvez utiliser, consultez la page [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+   Pour plus d'informations sur les autres paramètres que vous pouvez utiliser, consultez [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
-   Lorsqu’il est appelé sans paramètre d’emplacement, par défaut, `New-AzureRmPolicyDefinition` enregistre la définition de stratégie dans l’abonnement sélectionné du contexte de sessions. Pour enregistrer la définition dans un autre emplacement, utilisez les paramètres suivants :
+   Lorsqu’il est appelé sans paramètre d’emplacement, par défaut, `New-AzPolicyDefinition` enregistre la définition de stratégie dans l’abonnement sélectionné du contexte de sessions. Pour enregistrer la définition dans un autre emplacement, utilisez les paramètres suivants :
 
    - **SubscriptionId** : enregistrer dans un autre abonnement. Une valeur _GUID_ est nécessaire.
    - **ManagementGroupName** : enregistrer dans un groupe d’administration. Une valeur de _chaîne_ est nécessaire.
@@ -86,21 +88,21 @@ Pour une meilleure visibilité de vos ressources, la première chose à faire es
 1. Après avoir créé votre définition de stratégie, vous pouvez créer une attribution de stratégie en exécutant les commandes suivantes :
 
    ```azurepowershell-interactive
-   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-   New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
+   $rg = Get-AzResourceGroup -Name 'ContosoRG'
+   $Policy = Get-AzPolicyDefinition -Name 'AuditStorageAccounts'
+   New-AzPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
    ```
 
    Remplacez _ContosoRG_ par le nom de votre groupe de ressources prévu.
 
-   Le paramètre **Étendue** sur `New-AzureRmPolicyAssignment` fonctionne également avec les abonnements et les groupes d’administration. Le paramètre utilise un chemin d’accès de ressource complet, que la propriété **ResourceId** renvoie sur `Get-AzureRmResourceGroup`. Pour chaque conteneur, le modèle **Étendue** est le suivant.
+   Le paramètre **Étendue** sur `New-AzPolicyAssignment` fonctionne également avec les abonnements et les groupes d’administration. Le paramètre utilise un chemin d’accès de ressource complet, que la propriété **ResourceId** renvoie sur `Get-AzResourceGroup`. Pour chaque conteneur, le modèle **Étendue** est le suivant.
    Remplacez `{rgName}`, `{subId}`, et `{mgName}` par le nom de votre groupe de ressources, l’ID d’abonnement et le nom du groupe d’administration, respectivement.
 
    - Groupe de ressources : `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Abonnement : `/subscriptions/{subId}/`
    - Groupe d'administration : `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Pour plus d’informations sur la gestion des stratégies de ressources à l’aide du module Azure Resource Manager PowerShell, consultez [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
+Pour plus d'informations sur la gestion des stratégies de ressources à l'aide du module Azure Resource Manager PowerShell, consultez [Az.Resources](/powershell/module/az.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Créer et assigner une définition de stratégie avec ARMClient
 
@@ -230,7 +232,7 @@ Pour plus d’informations sur la façon dont vous pouvez gérer les stratégies
 Pour plus d’informations sur les commandes et les requêtes de cet article, consultez les articles suivants.
 
 - [Ressources API REST Azure](/rest/api/resources/)
-- [Modules Azure RM PowerShell](/powershell/module/azurerm.resources/#policies)
+- [Modules Azure PowerShell](/powershell/module/az.resources/#policies)
 - [Commandes de stratégie Azure CLI](/cli/azure/policy?view=azure-cli-latest)
 - [Informations de référence sur l’API REST du fournisseur de ressources Policy Insights](/rest/api/policy-insights)
 - [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md)

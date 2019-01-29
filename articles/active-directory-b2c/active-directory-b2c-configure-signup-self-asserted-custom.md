@@ -3,21 +3,21 @@ title: Modifier l’inscription dans les stratégies personnalisées et configur
 description: Une procédure pas à pas sur l’ajout de revendications pour inscrire et configurer la saisie utilisateur
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 326b0289ebb7aa503d41d556bea15017c28f7a1e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344993"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853712"
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C : Modifier l’inscription pour ajouter de nouvelles recommandations et configurer la saisie utilisateur.
+# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C : Modifier l'inscription pour ajouter de nouvelles revendications et configurer la saisie utilisateur.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -266,7 +266,7 @@ L’écran d’inscription en mode test doit ressembler à ceci :
 }
 ```
 
-## <a name="optional-remove-email-verification-from-signup-journey"></a>Facultatif : Supprimer la vérification de l’adresse e-mail du parcours d’inscription
+## <a name="optional-remove-email-verification-from-signup-journey"></a>Facultatif : Supprimer la vérification de l'adresse e-mail du parcours d'inscription
 
 Pour ignorer la vérification de l’adresse e-mail, l’auteur de la stratégie peut choisir de supprimer `PartnerClaimType="Verified.Email"`. L’adresse e-mail sera requise mais pas vérifiée, sauf si « Requis » = true est supprimé.  Réfléchissez bien pour savoir si cette option peut vous être utile !
 

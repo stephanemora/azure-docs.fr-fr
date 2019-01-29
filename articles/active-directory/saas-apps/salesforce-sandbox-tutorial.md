@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Salesforce Sandbox | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Salesforce Sandbox | Microsoft Docs"
 description: Découvrez comment configurer une authentification unique entre Azure Active Directory et Salesforce Sandbox.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 48dcb4a3b1e06ab62905092055ba1b48bd0dddb7
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 33d39e617bd55b88d8f04785d937faf176463ee5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114494"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808814"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox
+# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutoriel : Intégration d'Azure Active Directory à Salesforce Sandbox
 
 Dans ce didacticiel, vous allez apprendre à intégrer Salesforce Sandbox avec Azure Active Directory (Azure AD).
 
 Les bacs à sable (sandbox) vous permettent de créer plusieurs copies de votre organisation dans des environnements distincts à des fins diverses, notamment le développement, le test et la formation, sans compromettre les données ou les applications de votre organisation de production Salesforce.
-Pour plus d’informations, consultez la page de [présentation Salesforce des bacs à sable](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
+Pour plus d'informations, consultez  [Présentation de Sandbox](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
 
 L’intégration de Salesforce Sandbox avec Azure AD vous offre les avantages suivants :
 
@@ -219,7 +219,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-25. Dans la page **Paramètres d’authentification unique SAML**, les champs sont automatiquement renseignés, tapez le nom de la configuration (par exemple, *SPSSOWAAD_Test*) dans la zone de texte **Nom** et cliquez sur Enregistrer.
+25. Sur la page **Paramètres d'authentification unique SAML**, les champs sont automatiquement renseignés. Entrez le nom de la configuration (par exemple : *SPSSOWAAD_Test*) dans la zone de texte **Nom** et cliquez sur Enregistrer.
 
     ![Configurer l'authentification unique](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
@@ -244,7 +244,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, dans le volet gauche, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Créer un utilisateur Azure AD][100]
 

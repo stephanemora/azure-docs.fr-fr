@@ -1,10 +1,10 @@
 ---
-title: 'Services de domaine Azure AD : Activer la synchronisation de mot de passe | Microsoft Docs'
+title: 'Azure AD Domain Services : Activer la synchronisation de mot de passe | Microsoft Docs'
 description: Prise en main des services de domaine Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
-ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be947e2867f00c34e5a0b66893765647349c7eeb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234202"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854205"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Activer la synchronisation du mot de passe pour Azure Active Directory Domain Services
 Dans les tâches précédentes, vous avez activé Azure Active Directory Domain Services pour votre locataire Azure Active Directory (Azure AD). Dans la tâche suivante, vous allez activer la synchronisation des hachages d’informations d’identification requis pour l’authentification NT LAN Manager (NTLM) et Kerberos avec Services de domaine Azure AD. Une fois la synchronisation des informations d’identification configurée, les utilisateurs peuvent se connecter au domaine managé à l’aide de leurs informations d’identification d’entreprise.
@@ -52,7 +52,7 @@ Installer la dernière version recommandée d’Azure AD Connect sur un ordinate
 
 **[Télécharger Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
-Version recommandée : **1.1.614.0**, publiée le 5 septembre 2017.
+Version recommandée : **1.1.614.0** - publiée le 5 septembre 2017.
 
 > [!WARNING]
 > Vous DEVEZ installer la dernière version recommandée d’Azure AD Connect pour que les informations d’identification de mot de passe héritées (nécessaires pour l’authentification NTLM et Kerberos) puissent être synchronisées avec votre client Azure AD. Cette fonctionnalité n’est pas disponible dans les versions antérieures d’Azure AD Connect ou avec l’outil DirSync hérité.

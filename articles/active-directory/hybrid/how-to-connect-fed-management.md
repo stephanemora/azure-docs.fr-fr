@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, gestion AD FS, AAD Connect, Connect, connexion, personnal
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 02256c3e45d198fe35c0b3686bf4c1bc6f64c51a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244455"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463896"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gérer et personnaliser Active Directory Federation Services à l’aide d’Azure AD Connect
 Cet article décrit comment gérer et personnaliser Active Directory Federation Services (ADFS) à l’aide d’Azure Active Directory (Azure AD) Connect. Il indique également d’autres tâches courantes liées à AD FS que vous devrez peut-être effectuer pour terminer la configuration d’une batterie de serveurs AD FS.
@@ -76,8 +76,8 @@ Il est recommandé que le nom d’utilisateur principal (UPN) local et le nom d�
 ![Sélection d’un attribut d’ID de substitution](./media/how-to-connect-fed-management/attributeselection.png)
 
 La configuration d’un ID de connexion de substitution pour AD FS comprend deux étapes principales :
-1. **Configuration du jeu de revendications d’émission** : Les règles de revendication d’émission dans la partie de confiance Azure AD sont modifiées pour utiliser l’attribut UserPrincipalName sélectionné en tant qu’ID de substitution de l’utilisateur.
-2. **Activation d’un ID de connexion de substitution dans la configuration d’AD FS** : La configuration AD FS est mise à jour afin que AD FS permette de rechercher des utilisateurs dans les forêts appropriées à l’aide de l’ID de substitution. Cette configuration est prise en charge pour AD FS sur Windows Server 2012 R2 (avec KB2919355) ou version ultérieure. Si les serveurs AD FS sont sous 2012 R2, Azure AD Connect vérifie la présence de la base de connaissances requise. Si la base de connaissances n’est pas détectée, un avertissement s’affiche après la configuration, comme indiqué ci-dessous :
+1. **Configuration du jeu de revendications d'émission** : les règles de revendication d'émission dans la partie de confiance Azure AD sont modifiées pour utiliser l'attribut UserPrincipalName sélectionné en tant qu'ID de substitution de l'utilisateur.
+2. **Activation d'un ID de connexion de substitution dans la configuration d'AD FS** : la configuration d'AD FS est mise à jour afin qu'AD FS puisse rechercher des utilisateurs dans les forêts appropriées à l'aide de l'ID de substitution. Cette configuration est prise en charge pour AD FS sur Windows Server 2012 R2 (avec KB2919355) ou version ultérieure. Si les serveurs AD FS sont sous 2012 R2, Azure AD Connect vérifie la présence de la base de connaissances requise. Si la base de connaissances n’est pas détectée, un avertissement s’affiche après la configuration, comme indiqué ci-dessous :
 
     ![Avertissement d’absence de base de connaissances sur 2012 R2](./media/how-to-connect-fed-management/kbwarning.png)
 
@@ -211,7 +211,7 @@ Azure AD Connect vous permet de spécifier un attribut à utiliser comme ancre s
 
 Par exemple, vous pouvez sélectionner **ms-ds-consistencyguid** comme attribut de l’ancre source et émettre **ms-ds-consistencyguid** comme **ImmutableID**, si l’attribut a une valeur. Si l’attribut n’a pas de valeur, émettez l’ID non modifiable **objectGuid** . Vous pouvez construire le jeu de règles de revendication personnalisées, comme indiqué dans la section suivante.
 
-**Règle 1 : attributs de la requête**
+**Règle 1 : attributs de la requête**
 
     c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
     => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
@@ -220,21 +220,21 @@ Dans cette règle, vous interrogez les valeurs de **ms-ds-consistencyguid** et *
 
 Par ailleurs, utiliser **add** à la place de **issue** évite d’ajouter un problème à la sortie de l’entité et permet d’utiliser les valeurs en tant que valeurs intermédiaires. Vous allez émettre la revendication dans une règle ultérieure, après avoir établi la valeur à utiliser comme ID non modifiable.
 
-**Règle 2 : vérifier si ms-ds-consistencyguid existe pour l’utilisateur**
+**Règle 2 : s'assurer que l'ID ms-ds-consistencyguid existe pour l'utilisateur**
 
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
 Cette règle définit un indicateur temporaire **idflag** dont la valeur est **useguid** si aucun ID **ms-ds-concistencyguid** n’est renseigné pour l’utilisateur. Il y a une logique à cela : AD FS n’autorise pas les revendications vides. De ce fait, lorsque vous ajoutez des revendications http://contoso.com/ws/2016/02/identity/claims/objectguid et http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid dans la règle 1, vous vous retrouvez avec une revendication **msdsconsistencyguid** uniquement si la valeur est renseignée pour l’utilisateur. Si elle n’est pas indiquée, AD FS voit que sa valeur sera vide et le supprime immédiatement. Tous les objets auront un **objectGuid**. Donc, cette revendication sera toujours là après l’exécution de la règle 1.
 
-**Règle 3 : émettre ms-ds-consistencyguid comme ID non modifiable s’il est présent**
+**Règle 3 : émettre ms-ds-consistencyguid comme ID non modifiable s'il est présent**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
 Il s’agit d’un contrôle **Exist** implicite. Si la valeur de la revendication existe, alors émettez-la en tant qu’ID non modifiable. L’exemple précédent utilise le **nameidentifier** de revendication. Vous devez le remplacer par un type de revendication approprié pour l’ID non modifiable dans votre environnement.
 
-**Règle 4 : émettre objectGuid comme ID non modifiable si ms-ds-consistencyGuid n’est pas présent**
+**Règle 4 : émettre objectGuid comme ID non modifiable si ms-ds-consistencyGuid n'est pas présent**
 
     c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]

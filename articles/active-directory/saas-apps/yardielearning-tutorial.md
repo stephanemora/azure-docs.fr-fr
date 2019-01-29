@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Yardi eLearning | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Yardi eLearning | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Yardi eLearning.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7ea58b54-ec5b-4576-8586-814b11d0f4fb
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a6bbb716957621daf4667a7e819c31eeedaa53a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9d5da9f1d49f666af4afc275e5ffa5f5afb6699e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437196"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811262"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Didacticiel : Intégration d’Azure Active Directory à Yardi eLearning
+# <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Tutoriel : Intégration d'Azure Active Directory à Yardi eLearning
 
 Dans ce didacticiel, vous allez apprendre à intégrer Yardi eLearning à Azure Active Directory (Azure AD).
 
@@ -130,7 +130,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 1. Pour configurer l’authentification unique côté **Yardi eLearning**, vous devez envoyer les **métadonnées XML** téléchargées à [l’équipe du support technique Yardi eLearning](mailto:elearning@yardi.com). 
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

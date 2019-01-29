@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 97de65acf724d12afd131ede25713e8f29d30bad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579785"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477632"
 ---
 # <a name="configure-recognize-text-containers"></a>Configurer des conteneurs Reconnaître le texte
 
@@ -32,6 +32,7 @@ Les paramètres de configuration des conteneurs Vision par ordinateur sont hiér
 * [Facturation](#billing-configuration-setting)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Paramètres d'identification du proxy HTTP](#http-proxy-credentials-settings)
 * [Journalisation](#logging-configuration-settings)
 * [Mounts](#mounts-configuration-settings)
 
@@ -116,6 +117,11 @@ Le tableau suivant décrit les paramètres de configuration pris en charge sous 
 | `TlsConnectionEstablishmentTimeoutMs` | Entier  | Délai d’attente, en millisecondes, pour établir une connexion SSL/TLS avec le serveur Fluentd. La valeur par défaut est de 10 000 millisecondes (10 secondes).<br/> Si `UseTLS` est défini sur false, cette valeur est ignorée. |
 | `UseTLS` | Booléen | Indique si le conteneur doit utiliser SSL/TLS pour communiquer avec le serveur Fluentd. La valeur par défaut est false. |
 
+
+## <a name="http-proxy-credentials-settings"></a>Paramètres d'identification du proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Paramètres de configuration Logging
 
 Les paramètres de configuration `Logging` gèrent la prise en charge de la journalisation ASP.NET Core pour votre conteneur. Vous pouvez utiliser les mêmes paramètres de configuration et valeurs pour votre conteneur que ceux d’une application ASP.NET Core. Les fournisseurs de journalisation suivants sont pris en charge par les conteneurs Vision par ordinateur :
@@ -164,3 +170,7 @@ Par exemple, la commande suivante définit un montage de liaison Docker dans le 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* Utiliser plus de [conteneurs Cognitive Services](../cognitive-services-container-support.md)

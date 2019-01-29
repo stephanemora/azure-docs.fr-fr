@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359695"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857146"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -171,7 +171,7 @@ Sous l’onglet Détails, sur un test spécifique, sélectionnez les points de s
 
 Sélectionnez **Voir les détails du test** d’un test spécifique pour afficher son nuage de points et les détails de l’emplacement de test.
 
-![Afficher des détails de test, modifier et désactiver un test web](./media/monitor-web-app-availability/5viewdetails.png)
+![Afficher les détails d'un test, modifier et désactiver un test web](./media/monitor-web-app-availability/5viewdetails.png)
 
 Vous souhaiterez peut-être désactiver les tests de disponibilité ou les règles d’alerte associées lorsque vous effectuez la maintenance de votre service.
 
@@ -186,13 +186,13 @@ Cliquez sur un point rouge.
 À partir d’un résultat de test de disponibilité, vous pouvez voir les détails de la transaction pour tous les composants. Ici, vous pouvez :
 
 * Vérifier la réponse reçue à partir de votre serveur.
-* Diagnostiquer la défaillance à l’aide des données de télémétrie côté serveur corrélées qui ont été collectées pendant le traitement du test de disponibilité en échec.
+* Diagnostiquer la défaillance à l'aide des données de télémétrie côté serveur corrélées qui ont été collectées pendant le traitement du test de disponibilité en échec.
 * Enregistrer un problème ou un élément de travail dans Git ou Azure Boards pour suivre le problème. Le bogue contient un lien vers cet événement.
 * Ouvrir le résultat du test web dans Visual Studio.
 
 Vous pouvez en découvrir plus sur l’expérience de diagnostic des transactions de bout en bout [ici](../../azure-monitor/app/transaction-diagnostics.md).
 
-Cliquez sur la ligne d’une exception pour afficher les détails de l’exception côté serveur qui a provoqué l’échec du test de disponibilité synthétique. Vous pouvez également obtenir la [capture instantanée de débogage](../../azure-monitor/app/snapshot-debugger.md) pour des diagnostics de niveau code plus riches.
+Cliquez sur la ligne d'une exception pour afficher les détails de l'exception côté serveur qui a provoqué l'échec du test de disponibilité synthétique. Vous pouvez également obtenir la [capture instantanée de débogage](../../azure-monitor/app/snapshot-debugger.md) pour des diagnostics de niveau code plus riches.
 
 ![Diagnostics côté serveur](./media/monitor-web-app-availability/open-instance-4.png)
 
@@ -203,7 +203,7 @@ Vous pouvez obtenir les types de règles d’alerte suivants sur les données de
 3. La durée moyenne des tests augmente au-dessus d’un certain seuil
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>L’alerte sur les emplacements de X en dehors de Y signalant des échecs
-La règle d’alerte pour les emplacements de X en dehors de Y est activée par défaut dans l’[expérience des nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) lorsque vous créez un nouveau test de disponibilité. Vous pouvez décliner en sélectionnant l’option « classique » ou en choisissant de désactiver la règle d’alerte.
+La règle d’alerte pour les emplacements de X en dehors de Y est activée par défaut dans l’[expérience des nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) lorsque vous créez un nouveau test de disponibilité. Vous pouvez décliner en sélectionnant l'option « classique » ou en choisissant de désactiver la règle d'alerte.
 
 ![Créer l’expérience](./media/monitor-web-app-availability/appinsights-71webtestUpload.png)
 
@@ -297,9 +297,9 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
     * Est-ce que l’option « Analyser les requêtes dépendantes » est activée pour le test ? Cela entraîne une vérification stricte des ressources telles que les scripts, les images, etc. Ces types de d’échecs peuvent être difficiles à remarquer sur un navigateur. Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement. Pour désensibiliser le test à ces échecs de ressource, il vous suffit de décocher la case « Analyser les requêtes dépendantes » dans la configuration du test. 
 
-    * Pour réduire la probabilité de bruit des spots réseau temporaires, etc., vérifiez que la case à cocher de configuration « Permettre les nouvelles tentatives pour les échecs des tests web » est activée. Vous pouvez également procéder aux tests à partir de plusieurs emplacements et gérer le seuil de la règle d’alerte en conséquence afin d’empêcher des problèmes propres aux emplacements provoquant des alertes injustifiées.
+    * Pour réduire la probabilité de bruit des spots réseau temporaires, etc., vérifiez que la case à cocher de configuration « Permettre les nouvelles tentatives pour les échecs des tests web » est activée. Vous pouvez également procéder aux tests à partir de plusieurs emplacements et gérer le seuil de règle d'alerte en conséquence afin d'éviter que des problèmes spécifiques à un emplacement ne provoquent des alertes injustifiées.
 
-    * Cliquez sur un des points rouges à partir de l’expérience de disponibilité, ou sur tout échec de disponibilité à partir du navigateur de recherche pour afficher les détails de la raison pour laquelle nous avons signalé l’échec. Le résultat de test, ainsi que les données de télémétrie côté serveur corrélées (si activées), doivent aider à comprendre pourquoi le test a échoué. Les causes courantes des problèmes temporaires proviennent du réseau ou de la connexion. 
+    * Cliquez sur un des points rouges à partir de l’expérience de disponibilité, ou sur tout échec de disponibilité à partir du navigateur de recherche pour afficher les détails de la raison pour laquelle nous avons signalé l’échec. Le résultat du test, ainsi que les données de télémétrie côté serveur corrélées (si activées), doivent aider à comprendre pourquoi le test a échoué. Les causes courantes des problèmes temporaires proviennent du réseau ou de la connexion. 
 
     * Est-ce que le délai d’attente du test est arrivé à expiration ? Nous abandonnons les tests après 2 minutes. Si votre test Ping ou multiétape prend plus de 2 minutes, nous le signalerons comme un échec. Pensez à diviser le test en plusieurs parties qui peuvent être effectuées dans des délais plus courts.
 
@@ -356,6 +356,22 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 * *Comment puis-je exécuter un test avec des certificats clients ?*
 
     Désolé, ce n’est pas pris en charge.
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Qui reçoit les notifications d'alerte (classiques) ?
+
+Cette section ne s'applique qu'aux alertes classiques et vous aidera à optimiser vos notifications d'alerte afin que seuls les destinataires de votre choix les reçoivent. Pour mieux comprendre la différence entre les [alertes classiques](../platform/alerts-classic.overview.md) et la nouvelle expérience d'alerte, reportez-vous à l'[article de présentation des alertes](../platform/alerts-overview.md). Pour contrôler la notification des alertes dans la nouvelle expérience d'alerte, utilisez des [groupes d'actions](../platform/action-groups.md).
+
+* Nous recommandons l'utilisation de destinataires spécifiques pour les notifications d'alertes classiques.
+
+* Pour les alertes relatives aux échecs de X sur Y emplacements, l'option **En bloc/groupe**, si elle est activée, envoie une notification aux utilisateurs dotés du rôle d'administrateur/co-administrateur.  Grosso modo, _tous_ les administrateurs de l'_abonnement_ recevront des notifications.
+
+* Pour les alertes relatives aux métriques de disponibilité (ou autres métriques d'Application Insights), l'option **En bloc/groupe**, si elle est activée, envoie une notification aux utilisateurs dotés du rôle de propriétaire, de contributeur ou de lecteur au sein de l'abonnement. Dans les faits, _tous_ les utilisateurs ayant accès à la ressource Application Insights sont concernés et recevront des notifications. 
+
+> [!NOTE]
+> Si vous utilisez actuellement l'option **En bloc/groupe** et que vous la désactivez, vous ne pourrez pas annuler la modification.
+
+Utilisez la nouvelle expérience d'alerte ou les alertes en temps quasi-réel si vous devez notifier les utilisateurs en fonction de leur rôle. Avec les [groupes d'actions](../platform/action-groups.md), vous pouvez configurer des notifications par e-mail à l'intention des utilisateurs dotés du rôle de contributeur, de propriétaire ou de lecteur (rôles non combinés en une même option).
+
 
 
 ## <a name="next"></a>Étapes suivantes

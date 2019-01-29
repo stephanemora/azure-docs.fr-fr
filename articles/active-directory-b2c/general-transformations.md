@@ -3,19 +3,19 @@ title: Exemples de transformations de revendications générales pour le schéma
 description: Exemples de transformations de revendications générales pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8ff418c24e9171d452bca873c4b8f66ada2adb7c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8cae6ec9693c0fadba059e641fb75e68bbbaec92
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431324"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853090"
 ---
 # <a name="general-claims-transformations"></a>Transformations de revendications générales
 
@@ -27,10 +27,10 @@ Cet article fournit des exemples pour l’utilisation de transformations de reve
 
 Vérifie si l’**inputClaim** existe, et définit **outputClaim** sur true ou false en conséquence.
 
-| Élément | TransformationClaimType | Type de données | Notes |
+| Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |Quelconque | Revendication d’entrée dont l’existence doit être vérifiée. |
-| outputClaim | outputClaim | booléenne | ClaimType généré après l’appel de cette ClaimsTransformation. |
+| OutputClaim | outputClaim | booléenne | ClaimType généré après l’appel de cette ClaimsTransformation. |
 
 Utilisez cette transformation de revendication pour vérifier si une revendication existe ou si elle contient une valeur quelconque. La valeur de retour est une valeur booléenne qui indique si la revendication existe. L’exemple suivant vérifie si l’adresse e-mail existe.
 
@@ -52,7 +52,7 @@ Utilisez cette transformation de revendication pour vérifier si une revendicati
 - Revendications de sortie : 
     - **outputClaim** : true
 
-## <a name="hash"></a>Hash
+## <a name="hash"></a>Hachage
 
 Hache le texte brut fourni à l’aide de la valeur salt et d’un secret.
 
@@ -60,8 +60,8 @@ Hache le texte brut fourni à l’aide de la valeur salt et d’un secret.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | plaintext | chaîne | Revendication d’entrée à chiffrer. |
 | InputClaim | salt | chaîne | Paramètre salt. Vous pouvez créer une valeur aléatoire à l’aide de la transformation des revendication `CreateRandomString`. |
-| InputParameter | randomizerSecret | chaîne | Pointe vers une **clé de stratégie** Azure AD B2C existante. Pour en créer une nouvelle : dans votre locataire Azure AD B2C, sélectionnez **Paramètres B2C > Infrastructure d’expérience d’identité**. Sélectionnez **Clés de stratégie** pour afficher les clés qui sont disponibles dans votre locataire. Sélectionnez **Ajouter**. Pour **Options**, sélectionnez **Manuel**. Fournissez un nom (il est possible que le préfixe B2C_1A_ soit ajouté automatiquement). Dans la zone Secret, entrez un secret à utiliser, tel que 1234567890. Pour Utilisation de la clé, sélectionnez **Secret**. Sélectionnez **Créer**. |
-| outputClaim | Hachage | chaîne | ClaimType généré après que cette transformation de revendication a été appelée. Revendication configurée dans l’inputClaim `plaintext`. |
+| InputParameter | randomizerSecret | chaîne | Pointe vers une **clé de stratégie** Azure AD B2C existante. Pour en créer une nouvelle : Dans votre locataire Azure AD B2C, sélectionnez **Paramètres B2C > Identity Experience Framework**. Sélectionnez **Clés de stratégie** pour afficher les clés qui sont disponibles dans votre locataire. Sélectionnez **Ajouter**. Pour **Options**, sélectionnez **Manuel**. Fournissez un nom (il est possible que le préfixe B2C_1A_ soit ajouté automatiquement). Dans la zone Secret, entrez un secret à utiliser, tel que 1234567890. Pour Utilisation de la clé, sélectionnez **Secret**. Sélectionnez **Créer**. |
+| OutputClaim | Hachage | chaîne | ClaimType généré après que cette transformation de revendication a été appelée. Revendication configurée dans l’inputClaim `plaintext`. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">

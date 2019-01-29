@@ -3,9 +3,9 @@ title: Tarification et facturation de Service Bus | Microsoft Docs
 description: Présentation de la structure de prix de Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: db5f4bc7cc62c61f13258b919226efbf63165371
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406837"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852930"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Tarification et facturation de Service Bus
 
@@ -32,8 +32,8 @@ Azure Service Bus est disponible en niveau Standard et [Premium](service-bus-pre
 
 Service Bus utilise les 2 mesures suivantes pour les files d’attente et les rubriques/abonnements :
 
-1. **Opérations de messagerie**: définies en tant qu’appels API par rapport aux points de terminaison du service de file d’attente ou de rubrique/abonnement. Cette mesure remplace les messages envoyés ou reçus en tant qu’unité principale de l’utilisation facturable des files d’attente et des rubriques/abonnements.
-2. **Connexions réparties**: définies comme le nombre maximal de connexions persistantes ouvertes par rapport aux files d’attente, rubriques ou abonnements pendant une période d’échantillonnage d’une heure donnée. Cette mesure s’applique uniquement au niveau Standard, dans lequel vous pouvez ouvrir des connexions supplémentaires (auparavant, les connexions étaient limitées à 100 par file d’attente/rubrique/abonnement) pour des frais minimaux par connexion.
+1. **Opérations de messagerie** : définies comme des appels d'API par rapport aux points de terminaison de service de file d'attente ou de rubrique/abonnement. Cette mesure remplace les messages envoyés ou reçus en tant qu’unité principale de l’utilisation facturable des files d’attente et des rubriques/abonnements.
+2. **Connexions réparties** : définies comme le nombre maximal de connexions persistantes ouvertes par rapport aux files d'attente, rubriques ou abonnements pendant une période d'échantillonnage d'une heure donnée. Cette mesure s’applique uniquement au niveau Standard, dans lequel vous pouvez ouvrir des connexions supplémentaires (auparavant, les connexions étaient limitées à 100 par file d’attente/rubrique/abonnement) pour des frais minimaux par connexion.
 
 Le niveau **standard** présente une tarification progressive pour les opérations exécutées avec les files d’attente et les rubriques/abonnements, ce qui entraîne des remises basées sur le volume de pouvant atteindre 80 %, pour les plus hauts niveaux d’utilisation. Il existe également des frais de base de niveau standard de 10 $ par mois, ce qui vous permet d'effectuer jusqu'à 12,5 millions d'opérations par mois sans frais supplémentaires.
 
@@ -95,8 +95,8 @@ Service Bus facture le nombre maximal de connexions simultanées réparties qui
 
 Par exemple : 
 
-1. Chacun des 10 000 appareils se connecte via une connexion AMQP unique et reçoit des commandes à partir d’une rubrique Service Bus. Les appareils envoient des événements de télémétrie à un Event Hub. Si tous les appareils se connectent 12 heures par jour, les frais de connexion suivants s’appliquent (en plus des frais liés à une autre rubrique Service Bus) : 10 000 connexions * 12 heures * 31 jours / 744 = 5 000 connexions réparties. Après le volume mensuel de 1 000 connexions réparties, vous serez facturé pour les 4 000 connexions réparties, au tarif de 0,03 $ par connexion répartie, pour un total de 120 $.
-2. 10 000 appareils reçoivent des messages d'une file d'attente Service Bus via HTTP, en spécifiant un délai d'expiration différent de zéro. Si tous les appareils se connectent 12 heures par jour, les frais de connexion suivants s’appliquent (en plus des autres frais liés à Service Bus) : 10 000 connexions de réception HTTP * 12 heures par jour * 31 jours / 744 heures = 5 000 connexions réparties.
+1. Chacun des 10 000 appareils se connecte via une connexion AMQP unique et reçoit des commandes à partir d’une rubrique Service Bus. Les appareils envoient des événements de télémétrie à un Event Hub. Si tous les appareils sont connectés 12 heures par jour, les frais de connexion suivants s'appliquent (en plus des autres frais liés à Service Bus) : 10 000 connexions x 12 heures x 31 jours / 744 = 5 000 connexions réparties. Après le volume mensuel de 1 000 connexions réparties, vous serez facturé pour les 4 000 connexions réparties, au tarif de 0,03 $ par connexion répartie, pour un total de 120 $.
+2. 10 000 appareils reçoivent des messages d'une file d'attente Service Bus via HTTP, en spécifiant un délai d'expiration différent de zéro. Si tous les appareils sont connectés 12 heures par jour, vous obtiendrez les frais de connexion suivants (en plus des autres frais liés à Service Bus) : 10 000 connexions de réception HTTP x 12 heures par jour x 31 jours / 744 heures = 5 000 connexions réparties.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Des frais de connexion répartie s’appliquent-ils aux files d’attente et rubriques/abonnements ?
 

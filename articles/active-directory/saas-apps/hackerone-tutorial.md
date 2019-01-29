@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec HackerOne | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à HackerOne | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HackerOne.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 229d1efb-b6a5-4df8-9839-5d551487db4e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e33ad66fe0ced9a426a608f4193ff52dec4f7ee
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fe070505970516efcd4e2ae46dedff2792f95b08
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441831"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817195"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Didacticiel : Intégration d’Azure Active Directory à HackerOne
+# <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutoriel : Intégration d'Azure Active Directory à HackerOne
 
 Dans ce didacticiel, vous allez apprendre à intégrer HackerOne à Azure Active Directory (Azure AD).
 
@@ -148,9 +148,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. Dans la zone de texte **Email Domain** , entrez un domaine enregistré.
 
-    b. Dans la zone de texte **Single Sign On URL**, collez la valeur de l’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
+    b. Dans les zones de texte   **Single Sign On URL**, collez la valeur de l' **URL du service d'authentification unique SAML**  que vous avez copiée à partir du portail Azure.
 
-    c. Ouvrez dans le Bloc-notes votre **Fichier de certificat** téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat X509**.
+    c. Dans le Bloc-notes, ouvrez le **Fichier de certificat** téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat X509** .
     
     d. Cliquez sur **Enregistrer**.
 
@@ -163,7 +163,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     b. Si la valeur du champ **Status** est égale à **Last test status: created**, contactez l’[équipe de support technique HackerOne](mailto:support@hackerone.com) pour demander une révision de votre configuration.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

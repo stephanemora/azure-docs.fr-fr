@@ -4,21 +4,23 @@ description: Cette procédure vous guide tout au long de la correction des resso
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 093b49bea167efb12b941f8f0baff6fbdae5be25
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 054ce3d3483c3515e89c36eafc5d9a771e8e608d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312644"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844141"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
 Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists** peuvent être placées dans un état conforme par le biais d’une **correction**. Pour effectuer la correction, vous indiquez à Policy d’exécuter l’effet **deployIfNotExists** de la stratégie assignée sur vos ressources existantes. Cet article explique les étapes nécessaires pour comprendre et exécuter des corrections avec Azure Policy.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Fonctionnement de la sécurité de la correction
 
@@ -51,7 +53,7 @@ az role definition list --name 'Contributor'
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmRoleDefinition -Name 'Contributor'
+Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## <a name="manually-configure-the-managed-identity"></a>Configurer manuellement l’identité managée
@@ -70,23 +72,23 @@ Quand vous créez une affectation à l’aide du portail, Policy génère l’id
 Pour créer une identité managée pendant l’affectation de la stratégie, vous devez définir **Location** et utiliser **AssignIdentity**. L’exemple suivant obtient la définition de la stratégie intégrée **Déployer Transparent Data Encryption SQL DB**, définit le groupe de ressources cible, puis crée l’affectation.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-Azccount if not using Cloud Shell
 
 # Get the built-in "Deploy SQL DB transparent data encryption" policy definition
-$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+$policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
 
 # Get the reference to the resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+$resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 
 # Create the assignment using the -Location and -AssignIdentity properties
-$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+$assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
 ```
 
 La `$assignment` variable contient à présent l’ID du principal de l’identité managée, ainsi que les valeurs standard retournées au moment de la création d’une affectation de stratégie. Elle est accessible via `$assignment.Identity.PrincipalId`.
 
 ### <a name="grant-defined-roles-with-powershell"></a>Accorder des rôles définis avec PowerShell
 
-La nouvelle identité managée doit effectuer la réplication par le biais d’Azure Active Directory pour pouvoir obtenir les rôles nécessaires. Une fois la réplication terminée, l’exemple suivant parcourt la définition de stratégie dans `$policyDef` à la recherche des **roleDefinitionIds** et utilise [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) pour accorder les rôles à la nouvelle identité managée.
+La nouvelle identité managée doit effectuer la réplication par le biais d’Azure Active Directory pour pouvoir obtenir les rôles nécessaires. Une fois la réplication terminée, l’exemple suivant parcourt la définition de stratégie dans `$policyDef` à la recherche des ID **roleDefinitionIds** et utilise [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) pour accorder les rôles à la nouvelle identité managée.
 
 ```azurepowershell-interactive
 # Use the $policyDef to get to the roleDefinitionIds array
@@ -96,7 +98,7 @@ if ($roleDefinitionIds.Count -gt 0)
 {
     $roleDefinitionIds | ForEach-Object {
         $roleDefId = $_.Split("/") | Select-Object -Last 1
-        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+        New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
     }
 }
 ```
