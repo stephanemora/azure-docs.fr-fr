@@ -47,7 +47,7 @@ La liste suivante des méthodes V2 et V3 identifie les méthodes V3 et les API q
 | GetLanguagesForTranslate     | [Langues](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Service Microsoft Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | Speak     | [Service Microsoft Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Détection     | [Detect](reference/v3-0-detect.md)         |
+| Detect     | [Detect](reference/v3-0-detect.md)         |
 | DetectArray     | [Detect](reference/v3-0-detect.md)         |
 | AddTranslation     | [API Microsoft Translator Hub](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [API Microsoft Translator Hub](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -75,12 +75,12 @@ La tarification de Microsoft Translator V3 est la même que celle de la V2 ; par
 
 | Méthode V3   | Caractères comptabilisés pour la facturation |
 |:----------- |:-------------|
-| Langues     | Aucun caractère envoyé, aucun comptabilisé, aucuns frais.          |
+| Languages     | Aucun caractère envoyé, aucun comptabilisé, aucuns frais.          |
 | Translate     | La comptabilisation se base sur le nombre de caractères envoyés pour traduction et dans combien de langues ils doivent être traduits. 50 caractères envoyés, 5 langues demandées, cela fait 50 x 5.           |
 | Transliterate     | Le nombre de caractères envoyés pour translittération est comptabilisé.         |
-| Recherche dans le dictionnaire et exemple     | Le nombre de caractères envoyés pour la recherche dans le dictionnaire et les exemples est comptabilisé.         |
+| Dictionary lookup & example     | Le nombre de caractères envoyés pour la recherche dans le dictionnaire et les exemples est comptabilisé.         |
 | BreakSentence     | Aucuns frais.       |
-| Détection     | Aucuns frais.      |
+| Detect     | Aucuns frais.      |
 
 ## <a name="v3-end-points"></a>Points de terminaison V3
 
