@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration de Azure Active Directory à BitaBIZ | Microsoft Docs'
+title: 'Tutoriel : Intégration de Azure Active Directory à BitaBIZ | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BitaBIZ.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1a51e677-c62b-4aee-9c61-56926aaaa899
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a05a4f1b9162a69e074bf6243236df48c8ce536
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ed4bada75bad19522e74b9064601c6882331e66e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429660"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815886"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Didacticiel : Intégration de Azure Active Directory à BitaBIZ
+# <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Tutoriel : Intégration de Azure Active Directory à BitaBIZ
 
 Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) dans BitaBIZ.
 
@@ -162,7 +162,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     g. Cliquez sur **Enregistrer la configuration Azure AD** pour enregistrer et activer la configuration de l’authentification unique.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
