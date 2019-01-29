@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect : Comment récupérer de la limite de 10 Go de base de données locale | Microsoft Docs'
+title: 'Azure AD Connect : Comment récupérer suite à une erreur liée à la limite de 10 Go de base de données locale | Microsoft Docs'
 description: Cette rubrique décrit comment récupérer le service de synchronisation Azure AD Connect lorsque celui-ci rencontre un problème lié à la limite de 10 Go de base de données locale.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 410559ab03f0e0be71f2eba27ed71c9f7cf05862
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 445137d268650f71bdc4d64342bc23d2b6da6daa
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238537"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474662"
 ---
-# <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect : Comment récupérer de la limite de 10 Go de base de données locale
+# <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect : Comment récupérer depuis la limite de 10 Go de base de données locale
 Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Vous pouvez utiliser la base de données locale par défaut de SQL Server 2012 installée avec Azure AD Connect ou utiliser votre propre base de données SQL complète. SQL Server Express impose une limite de taille de 10 Go. Lorsque vous utilisez la base de données locale et que cette limite est atteinte, le service de synchronisation Azure AD Connect ne peut plus démarrer ou se synchroniser correctement. Cet article indique les étapes de récupération.
 
 ## <a name="symptoms"></a>Symptômes
@@ -100,7 +100,7 @@ Cette étape consiste à réduire la probabilité de rencontrer le problème de 
 ## <a name="long-term-solution--migrate-to-full-sql"></a>Solution à long terme : migrer vers une base de données SQL complète
 En général, ce problème indique que la taille de base de données de 10 Go n’est plus suffisante pour qu’Azure AD Connect synchronise votre annuaire Active Directory local sur Azure AD. Nous vous recommandons de passer à la version complète de SQL Server. Vous ne pouvez pas remplacer directement la base de données locale d’un déploiement Azure AD Connect existant par la base de données de la version complète de SQL. Au lieu de cela, vous devez déployer un nouveau serveur Azure AD Connect avec la version complète de SQL. Nous vous recommandons d’effectuer une migration de basculement dans laquelle le nouveau serveur Azure AD Connect (avec la base de données SQL) est déployé comme serveur intermédiaire à côté du serveur Azure AD Connect existant (avec la base de données locale). 
 * Pour obtenir des instructions sur la configuration à distance de SQL avec Azure AD Connect, consultez l’article [Installation personnalisée d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
-* Pour obtenir des instructions sur la migration de basculement pour la mise à niveau d’Azure AD Connect, consultez l’article [Azure AD Connect : effectuer une mise à niveau vers la dernière version](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
+* Pour obtenir des instructions sur la migration de basculement pour la mise à niveau d'Azure AD Connect, consultez l'article [Azure AD Connect : effectuer une mise à niveau vers la dernière version](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md).

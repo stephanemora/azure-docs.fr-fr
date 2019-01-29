@@ -4,7 +4,7 @@ description: Comment utiliser la stratégie de groupe pour déployer le module c
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ebd949460f826c9529b9f392bc4a7f4918ee170
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7ccaf272a79268ecd781821593a6041d5653a39b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715038"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471886"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Résolution des problèmes liés à l’extension Volet d’accès pour Internet Explorer
 Cet article vous aide à résoudre les problèmes suivants :
@@ -28,7 +28,7 @@ Cet article vous aide à résoudre les problèmes suivants :
 * Vous ne parvenez pas à accéder à vos applications par le biais du portail Mes applications quand vous utilisez Internet Explorer.
 * Le message « Installer le logiciel » s’affiche même si vous avez déjà installé le logiciel.
 
-Si vous êtes administrateur, consultez aussi : [Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe](deploy-access-panel-browser-extension.md)
+Pour les administrateurs, voir aussi : [Déploiement de l'extension du volet d'accès pour Internet Explorer à l'aide de la stratégie de groupe](deploy-access-panel-browser-extension.md)
 
 ## <a name="run-the-diagnostic-tool"></a>Exécution de l’outil de diagnostic
 Vous pouvez diagnostiquer les problèmes d’installation de l’extension Volet d’accès en téléchargeant et en exécutant l’outil de diagnostic du volet d’accès :
