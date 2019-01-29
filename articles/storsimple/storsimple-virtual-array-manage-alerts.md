@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d4d680e3460fbeff73c2f334c6461da7967374d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 0cd3f506205a3ee4f4435b16fd2185eeb20aef3c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27786405"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447222"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utiliser StorSimple Device Manager pour gérer les alertes liées au StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La fonctionnalité Alertes dans le service StorSimple Device Manager vous permet d’examiner et d’effacer en temps réel les alertes relatives au StorSimple Virtual Array. Vous pouvez utiliser les alertes du panneau **Résumé de service** afin de surveiller de manière centralisée les problèmes d’état d’intégrité de vos instances StorSimple Virtual Array et de la solution globale Microsoft Azure StorSimple.
 
@@ -38,7 +38,6 @@ Vous pouvez choisir d’être averti par e-mail de la condition des alertes pour
 
 > [!NOTE]
 > Vous pouvez entrer un maximum de 20 adresses e-mail par tableau virtuel.
-
 
 Après avoir activé la notification par e-mail pour un tableau virtuel, les membres de la liste de notification reçoivent un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés depuis *storsimple-alerts-noreply@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
 
@@ -63,8 +62,8 @@ Après avoir activé la notification par e-mail pour un tableau virtuel, les mem
       
       > [!NOTE]
       > Si le message de notification de test ne peut pas être envoyé, le service StorSimple Device Manager affiche un message approprié. Cliquez sur **OK**, attendez quelques minutes, puis réessayez d'envoyer votre message de notification de test.
-      > 
-      > 
+      >
+      >
    5. En bas de la page, cliquez sur **Enregistrer** pour enregistrer votre configuration. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération.
       
       ![E-mail de notification de test des alertes envoyé](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
@@ -102,11 +101,11 @@ En cliquant sur une alerte dans la liste, vous obtenez des détails supplémenta
 
 Si vous devez envoyer les informations au Support Microsoft, vous pouvez copier les détails de l’alerte dans un fichier texte. Une fois que vous avez suivi les recommandations et résolu les alertes en local, vous avez intérêt à supprimer l’alerte de la liste. Sélectionnez l’alerte dans la liste, puis cliquez sur **Effacer**. Pour effacer plusieurs alertes, sélectionnez chaque alerte, cliquez sur n’importe quelle colonne, sauf la colonne **Alerte**, puis cliquez sur **Effacer** après avoir sélectionné toutes les alertes à effacer.
 
-Lorsque vous cliquez sur **Effacer**, vous avez la possibilité d’insérer des commentaires sur l'alerte et les étapes que vous avez suivies pour résoudre le problème. 
+Lorsque vous cliquez sur **Effacer**, vous avez la possibilité d’insérer des commentaires sur l'alerte et les étapes que vous avez suivies pour résoudre le problème.
 
 ![commentaires d’alerte](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
 
-Certains événements seront effacés par le système si un autre événement est déclenché avec de nouvelles informations. 
+Certains événements seront effacés par le système si un autre événement est déclenché avec de nouvelles informations.
 
 ## <a name="sort-and-review-alerts"></a>Tri et vérification des alertes
 
@@ -131,21 +130,21 @@ Les tableaux suivants répertorient certaines des alertes StorSimple que vous po
 
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
 |:--- |:--- |:--- |
-| L’appareil *<device name>* n’est pas connecté au cloud. |L’appareil nommé ne peut pas se connecter au cloud. |Impossible de se connecter au cloud. La raison peut être l’une des suivantes :<ul><li>Il peut y avoir un problème avec les paramètres réseau de votre appareil.</li><li>Il peut y avoir un problème avec les informations d’identification du compte de stockage.</li></ul>Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de l’appareil. |
+| L'appareil <*nom de l'appareil*> n'est pas connecté au cloud. |L’appareil nommé ne peut pas se connecter au cloud. |Impossible de se connecter au cloud. La raison peut être l’une des suivantes :<ul><li>Il peut y avoir un problème avec les paramètres réseau de votre appareil.</li><li>Il peut y avoir un problème avec les informations d’identification du compte de stockage.</li></ul>Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de l’appareil. |
 
 ### <a name="configuration-alerts"></a>Alertes de configuration
 
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
 |:--- |:--- |:--- |
 | La configuration d’un appareil virtuel local n’est pas prise en charge. |Performances lentes. |La configuration actuelle peut aboutir à une dégradation des performances. Vérifiez que votre serveur répond à la configuration minimale requise. Pour plus d’informations, accédez à [Configuration requise pour StorSimple Virtual Array](storsimple-ova-system-requirements.md). |
-| Vous n’avez presque plus d’espace disque approvisionné sur <*nom de l’appareil*>. |Avertissement d’espace disque. |Vous n’avez presque plus d’espace disque approvisionné. Pour libérer de l’espace, envisagez de déplacer des charges de travail vers un autre volume ou partage ou de supprimer des données. |
+| Vous manquez d'espace disque alloué sur <*nom de l'appareil*\>. |Avertissement d’espace disque. |Vous n’avez presque plus d’espace disque approvisionné. Pour libérer de l’espace, envisagez de déplacer des charges de travail vers un autre volume ou partage ou de supprimer des données. |
 
 ### <a name="job-failure-alerts"></a>Alertes d'échec de tâche
 
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
 |:--- |:--- |:--- |
-| Impossible d’effectuer la sauvegarde de <*nom de l’appareil*>. |Échec du travail de sauvegarde. |Impossible de créer une sauvegarde. Envisagez l’une des possibilités suivantes :<ul><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de sauvegarde. Vérifiez qu’il n’existe aucun problème de connectivité. Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de votre appareil virtuel.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul> Résolvez les problèmes, effacez l’alerte et recommencez l’opération. |
-| Impossible d’effectuer le clonage de <*nom de l’appareil*>. |Échec du travail de clonage. |La création d’un clone a échoué. Envisagez l’une des possibilités suivantes :<ul><li>Votre liste de sauvegarde n’est peut-être pas valide. Actualisez-la pour vérifier qu’elle est toujours valide.</li><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de clonage. Vérifiez qu’il n’existe aucun problème de connectivité.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul>Résolvez les problèmes, effacez l’alerte et recommencez l’opération. |
+| <*Nom de l'appareil*\> n'a pas pu être sauvegardé. |Échec du travail de sauvegarde. |Impossible de créer une sauvegarde. Envisagez l’une des possibilités suivantes :<ul><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de sauvegarde. Vérifiez qu’il n’existe aucun problème de connectivité. Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de votre appareil virtuel.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul>  Résolvez les problèmes, effacez l’alerte et recommencez l’opération. |
+| <*Nom de l'appareil*\> n'a pas pu être cloné. |Échec du travail de clonage. |La création d’un clone a échoué. Envisagez l’une des possibilités suivantes :<ul><li>Votre liste de sauvegarde n’est peut-être pas valide. Actualisez-la pour vérifier qu’elle est toujours valide.</li><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de clonage. Vérifiez qu’il n’existe aucun problème de connectivité.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul> Résolvez les problèmes, effacez l’alerte et recommencez l’opération. |
 
 ### <a name="networking-alerts"></a>Alertes de réseau
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
@@ -157,15 +156,14 @@ Les tableaux suivants répertorient certaines des alertes StorSimple que vous po
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
 |:--- |:--- |:--- |
 | Vous rencontrez des retards inattendus dans le transfert de données. |Transfert de données lent. |Les erreurs de limitation se produisent lorsque vous dépassez les valeurs cibles d’évolutivité d’un service de stockage. Le service de stockage effectue cette opération afin de s’assurer qu’aucun client ne peut utiliser le service au détriment des autres utilisateurs. Pour plus d’informations sur la résolution des problèmes de votre compte de stockage Azure, accédez à [Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| Vous n’avez presque plus d’espace disque de réservation locale sur <*nom de l’appareil*>. |Temps de réponse lent. |10 % de la taille approvisionnée totale pour <*nom de l’appareil*> sont réservés sur l’appareil local alors qu’il n’y a presque plus d’espace réservé. La charge de travail sur <*nom de l’appareil*> génère un taux d’évolution élevé ou bien vous avez migré récemment une grande quantité de données. Les performances peuvent s’en trouver réduites. Envisagez l’une des actions suivantes pour résoudre ce problème :<ul><li>Augmenter la bande passante du cloud pour cet appareil.</li><li>Réduire ou déplacer des charges de travail vers un autre volume ou partage.</li></ul> |
+| Vous manquez d'espace de réservation sur le disque local de <*nom de l'appareil*\>. |Temps de réponse lent. |10 % de la taille totale allouée à <*nom de l'appareil*\> sont réservés sur l'appareil local et vous êtes maintenant à court d'espace réservé. La charge de travail de <*nom de l'appareil*\> génère un taux d'évolution élevé ou bien vous avez récemment migré une grande quantité de données. Les performances peuvent s’en trouver réduites. Envisagez l’une des actions suivantes pour résoudre ce problème :<ul><li>Augmenter la bande passante du cloud pour cet appareil.</li><li>Réduire ou déplacer des charges de travail vers un autre volume ou partage.</li></ul> |
 
 ### <a name="security-alerts"></a>Alertes de sécurité
 
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
 |:--- |:--- |:--- |
-| Le mot de passe pour <*nom de l’appareil*> expirera dans <*nombre*> jours. |Avertissement de mot de passe. |Votre mot de passe expire dans <nombre> jours. Pensez à le changer. Pour plus d’informations, accédez à [Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
+| Le mot de passe de <*nom de l'appareil*\> expirera dans <*nombre*\> jours. |Avertissement de mot de passe. |Votre mot de passe expirera dans <*nombre*\> jours. Pensez à le changer. Pour plus d’informations, accédez à [Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez le StorSimple Virtual Array](storsimple-ova-overview.md).
-
