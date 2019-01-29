@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843204"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463743"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
 
@@ -75,7 +75,7 @@ Managed Instance dispose de sauvegardes automatiques, et permet aux utilisateurs
   - Options de bande : `REWIND`, `NOREWIND`, `UNLOAD`, et `NOUNLOAD` ne sont pas pris en charge
   - Options spécifiques au journal : `NORECOVERY`, `STANDBY`, et `NO_TRUNCATE` ne sont pas pris en charge
 
- Limites :  
+Limites :  
 
 - Managed Instance peut sauvegarder une base de données vers une sauvegarde comprenant jusqu’à 32 bandes, ce qui est suffisant pour les bases de données jusqu’à 4 To si la compression de sauvegarde est utilisée.
 - La taille maximale de la bande de sauvegarde est 195 Go (taille maximale d’un blob). Augmentez le nombre de bandes dans la commande de sauvegarde pour réduire la taille de bande individuelle et ne pas dépasser cette limite.
@@ -235,7 +235,7 @@ Actuellement, ni MSDTC, ni les [Transactions élastiques](https://docs.microsoft
 Certaines cibles spécifiques de Windows pour les événements XEvent ne sont pas prises en charge :
 
 - `etw_classic_sync target` n’est pas pris en charge. Stockez les fichiers `.xel` sur le Stockage Blob Azure. Consultez [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
-- `event_file target`n’est pas pris en charge. Stockez les fichiers `.xel` sur le Stockage Blob Azure. Consultez [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
+- `event_file target`n’est pas pris en charge. Stockez les fichiers `.xel` sur le Stockage Blob Azure. Consultez [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Bibliothèques externes
 
@@ -318,7 +318,7 @@ Les options de base de données suivantes sont fixées/remplacées et ne peuvent
 - Les groupe de fichiers mémoire optimisée existants sont renommés XTP  
 - Les options `SINGLE_USER` et `RESTRICTED_USER` sont changées en `MULTI_USER`
 
- Limites :  
+Limites :  
 
 - Les fichiers `.BAK` contenant plusieurs jeux de sauvegarde ne peuvent pas être restaurés.
 - Les fichiers `.BAK` contenant plusieurs fichiers journaux ne peuvent pas être restaurés.
@@ -426,7 +426,7 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Dépassement de l’espace de stockage avec des fichiers de base de données de petite taille
 
-Chaque instance gérée a jusqu’à 35 To de stockage réservé pour l’espace disque Premium Azure et chaque fichier de bases de données est placé sur un disque physique séparé. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance managée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne.
+Chaque instance gérée a jusqu’à 35 To de stockage réservé pour l’espace disque Premium Azure et chaque fichier de bases de données est placé sur un disque physique séparé. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne.
 
 Par exemple, une instance managée peut contenir un fichier d’une taille de 1,2 To placé sur un disque de 4 To et 248 fichiers (chacun d’une taille de 1 Go) placés sur des disques distincts de 128 Go. Dans cet exemple :
 
@@ -503,6 +503,12 @@ Même si ce code fonctionne avec les données d’une même instance, il nécess
 Il arrive que les modules CLR placés dans Managed Instance, et les requêtes distribuées ou serveurs liés faisant référence à une instance actuelle, ne parviennent pas à résoudre l’adresse IP de l’instance locale. Cette erreur est un problème temporaire.
 
 **Solution de contournement** : utilisez des connexions contextuelles dans le module CLR, si possible.
+
+### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>Les bases de données chiffrées avec TDE ne prennent pas en charge les sauvegardes initiées par l'utilisateur
+
+Vous ne pouvez pas exécuter `BACKUP DATABASE ... WITH COPY_ONLY` sur une base de données chiffrée avec TDE (Transparent Data Encryption). TDE vous oblige à chiffrer les sauvegardes avec des clés TDE internes. Et comme les clés ne peuvent pas être exportées, vous ne pouvez pas restaurer la sauvegarde.
+
+**Solution de contournement** : Utilisez des sauvegardes automatiques et des restaurations ponctuelles, ou désactivez le chiffrement de la base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

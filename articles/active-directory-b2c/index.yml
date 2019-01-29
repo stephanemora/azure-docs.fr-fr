@@ -1,89 +1,95 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 5b35405aa2d26f82952187cf36862520e86a25cd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158772"
 documentType: LandingData
 title: Documentation Azure Active Directory B2C
 metadata:
   title: Documentation Azure Active Directory B2C
-  meta.description: 'Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications.'
+  meta.description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications.
   services: active-directory-b2c
   author: davidmu1
   manager: daveba
   ms.service: active-directory
-  ms.component: B2C
+  ms.subservice: B2C
   ms.topic: landing-page
   ms.date: 03/29/2018
   ms.author: davidmu
 abstract:
-  description: 'Azure Active Directory (Azure AD) B2C est un service de gestion d’identité qui vous permet de personnaliser et de contrôler la façon dont les clients s’inscrivent, se connectent et gèrent leurs profils lorsqu’ils utilisent vos applications. Cela inclut les applications développées pour iOS, Android et .NET, entre autres. Azure AD B2C permet ces actions tout en protégeant les identités de vos clients. Découvrez comment utiliser Azure AD B2V en tirant parti de nos guides de démarrage rapide, de nos tutoriels et de nos exemples.'
+  description: Azure Active Directory (Azure AD) B2C est un service de gestion d’identité qui vous permet de personnaliser et de contrôler la façon dont les clients s’inscrivent, se connectent et gèrent leurs profils lorsqu’ils utilisent vos applications. Cela inclut les applications développées pour iOS, Android et .NET, entre autres. Azure AD B2C permet ces actions tout en protégeant les identités de vos clients. Découvrez comment utiliser Azure AD B2V en tirant parti de nos guides de démarrage rapide, de nos tutoriels et de nos exemples.
   aside:
     image:
-      alt: null
+      alt: 
       height: 110
       src: ./media/index/active-directory-b2c-video.PNG
       width: 250
-    title: 'Gestion des identités client avec Azure AD B2C (20:56)'
-    href: 'https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C'
+    title: Gestion des identités client avec Azure AD B2C (20:56)
+    href: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
     width: 250
 sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/active-directory-b2c/active-directory-b2c-overview
-            html: <p>En savoir plus sur Azure AD B2C et ses fonctionnalités.</p>
-            image:
-              src: ./media/index/i_get-started.svg
-            title: À propos d’Azure AD B2C
-          - href: /azure/active-directory-b2c/solution-articles
-            html: <p>Examinez la solution et les opportunités de formation à l’aide d’Azure AD B2C.</p>
-            image:
-              src: ./media/index/i_advanced.svg
-            title: Solutions et formation
-          - href: /azure/active-directory-b2c/trustframeworkpolicy
-            html: <p>Créez des scénarios avancés d’inscription et de connexion à l’aide de stratégies personnalisées dans Azure AD B2C.</p>
-            image:
-              src: ./media/index/i_investigate.svg
-            title: Identity Experience Framework (Infrastructure d’expérience d’identité)
-  - title: "Démarrages en 5\_minutes"
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
     items:
-      - type: paragraph
-        text: 'Apprenez à configurer la gestion des identités pour les clients qui utilisent votre application :'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_NET.svg'
-            text: .NET
-            href: 'https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app'
-          - image:
-              src: 'https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_windows.svg'
-            text: Bureau
-            href: 'https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app'
-          - image:
-              src: 'https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_nodejs.svg'
-            text: Page unique
-            href: 'https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-spa'
-  - title: Didacticiels pas à pas
+    - href: /azure/active-directory-b2c/active-directory-b2c-overview
+      html: <p>En savoir plus sur Azure AD B2C et ses fonctionnalités.</p>
+      image:
+        src: ./media/index/i_get-started.svg
+      title: À propos d’Azure AD B2C
+    - href: /azure/active-directory-b2c/solution-articles
+      html: <p>Examinez la solution et les opportunités de formation à l’aide d’Azure AD B2C.</p>
+      image:
+        src: ./media/index/i_advanced.svg
+      title: Solutions et formation
+    - href: /azure/active-directory-b2c/trustframeworkpolicy
+      html: <p>Créez des scénarios avancés d’inscription et de connexion à l’aide de stratégies personnalisées dans Azure AD B2C.</p>
+      image:
+        src: ./media/index/i_investigate.svg
+      title: Identity Experience Framework (Infrastructure d’expérience d’identité)
+- title: Démarrages en 5 minutes
+  items:
+  - type: paragraph
+    text: 'Apprenez à configurer la gestion des identités pour les clients qui utilisent votre application :'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Découvrez comment gérer l’inscription, la connexion et les profils de clients sur votre application ASP.NET, sur le bureau, ou sur des applications Node.js à page unique.'
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: ASP.NET
-            html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Créer un client</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Authentification des utilisateurs</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Accorder l’accès d’API</a></p>
-          - title: Bureau
-            html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Créer un client</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Authentification des utilisateurs</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Accorder l’accès d’API</a></p>
-          - title: Page unique
-            html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Créer un client</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Authentification des utilisateurs</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Accorder l’accès d’API</a></p>
-  - title: Exemples
+    - image:
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_NET.svg
+      text: .NET
+      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app
+    - image:
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_windows.svg
+      text: Bureau
+      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app
+    - image:
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_nodejs.svg
+      text: Page unique
+      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-spa
+- title: Didacticiels pas à pas
+  items:
+  - type: paragraph
+    text: Découvrez comment gérer l’inscription, la connexion et les profils de clients sur votre application ASP.NET, sur le bureau, ou sur des applications Node.js à page unique.
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: paragraph
-        text: Recherchez des exemples qui montrent comment gérer les identités client dans votre application.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="/azure/active-directory-b2c/code-samples">Mobile, bureau, web et applications à page unique</a>'
+    - title: ASP.NET
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Créer un client</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Authentification des utilisateurs</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Accorder l’accès d’API</a></p>
+    - title: Bureau
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Créer un client</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Authentification des utilisateurs</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Accorder l’accès d’API</a></p>
+    - title: Page unique
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Créer un client</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Authentification des utilisateurs</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Accorder l’accès d’API</a></p>
+- title: Exemples
+  items:
+  - type: paragraph
+    text: Recherchez des exemples qui montrent comment gérer les identités client dans votre application.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/active-directory-b2c/code-samples">Mobile, bureau, web et applications à page unique</a>

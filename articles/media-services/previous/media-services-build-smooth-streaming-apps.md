@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232683"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828313"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Génération d'une application Windows Store de diffusion en continu lisse
 
@@ -142,7 +142,7 @@ Après l'ajout des références, vous devez sélectionner la plateforme ciblée 
    Le contrôle MediaElement permet de lire des fichiers multimédias. La commande de réglage nommée sliderProgress servira dans la prochaine leçon à contrôler la progression du fichier multimédia.
 3. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
-Le contrôle MediaElement ne prend pas en charge le contenu de diffusion en continu lisse sans configuration supplémentaire. Pour activer la prise en charge de la diffusion en continu lisse, vous devez enregistrer le Gestionnaire de flux d'octets de diffusion en continu lisse en fonction de l'extension du nom de fichier et du type MIME.  Pour ce faire, utilisez la méthode MediaExtensionManager.RegisterByteStremHandler de l'espace de noms Windows.Media.
+Le contrôle MediaElement ne prend pas en charge le contenu de diffusion en continu lisse sans configuration supplémentaire. Pour activer la prise en charge de la diffusion en continu lisse, vous devez enregistrer le Gestionnaire de flux d'octets de diffusion en continu lisse en fonction de l'extension du nom de fichier et du type MIME.  Pour ce faire, utilisez la méthode MediaExtensionManager.RegisterByteStreamHandler de l'espace de noms Windows.Media.
 
 Dans le fichier XAML, certains gestionnaires d'événements sont associés aux contrôles.  Vous devez définir les gestionnaires d'événements en question.
 
