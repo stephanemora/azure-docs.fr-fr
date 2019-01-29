@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: fa858ffbae5c1a37851ea114efd0fbc9cf010e68
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 3f01d5342fbeeb5cb5e19af63a0dd91128778859
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200800"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823230"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Créer des flux de travail d’encodage avancé avec le Concepteur de flux de travail
 ## <a name="overview"></a>Vue d’ensemble
@@ -30,7 +30,7 @@ Les flux de travail peuvent inclure la logique de décision et le branchement cl
 
 Exemples de flux de travail que vous pouvez créer :
 
-* Flux de travail basés sur décision qui inspectent le contenu source pour la résolution et codent uniquement les pistes de sortie souhaitées.  Ceci sert à éliminer les pistes gaspillées générées par le dimensionnement par inadvertance du contenu source.
+* Flux de travail basés sur décision qui inspectent le contenu source pour la résolution et codent uniquement les pistes de sortie souhaitées.  Ceci sert à éliminer les pistes gaspillées générées par un dimensionnement malencontreux du contenu source.
 * Des fichiers d'entrée multiples peuvent être utilisés pour prendre en charge des légendes, des superpositions et pour assembler le contenu. 
 
 Cet outil permet aussi de modifier nos [flux de travail publiés](media-services-workflow-designer.md#existing_workflows). 

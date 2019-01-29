@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect : Mise à niveau automatique | Microsoft Docs'
+title: 'Azure AD Connect : Mise à niveau automatique | Microsoft Docs'
 description: Cette rubrique décrit la fonctionnalité de mise à niveau automatique intégrée dans Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 09/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 72503c9f073a046b81001322cdbb4fb8a1af76cf
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2c59d86de43772de9480edd3af187379220da8e8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224118"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470662"
 ---
-# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à niveau automatique
+# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à jour automatique
 Cette fonctionnalité date de la build [1.1.105.0 (publiée en février 2016)](reference-connect-version-history.md#111050).  Cette fonctionnalité a été mise à jour dans la [build 1.1.561](reference-connect-version-history.md#115610) et prend désormais en charge des scénarios supplémentaires.
 
 ## <a name="overview"></a>Vue d’ensemble

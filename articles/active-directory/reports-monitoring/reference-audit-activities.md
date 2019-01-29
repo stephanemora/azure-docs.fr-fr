@@ -4,7 +4,7 @@ description: Obtenez une vue d’ensemble des activités d’audit pouvant être
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: db801acbed649c4baa039858ce1d097237c8e227
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: a851d9cd4322f2460bfa7f74854c44e77a52e0a6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971373"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818181"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
@@ -227,9 +227,9 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Authorization|Mettre à jour la stratégie|
 |Authorization|Mettre à jour un attribut utilisateur|
 |Authorization|Charger une clé chiffrée CPIM|
-|Authorization|Autorisation utilisateur : l’API est désactivée pour l’ensemble de fonctionnalités du locataire|
-|Authorization|Autorisation utilisateur : accès accordé à l’utilisateur en tant que « Tenant Admin »|
-|Authorization|Autorisation utilisateur : les droits d’accès « Authenticated Users » ont été accordés à l’utilisateur|
+|Authorization|Autorisation utilisateur : L'API est désactivée pour l'ensemble de fonctionnalités du locataire|
+|Authorization|Autorisation utilisateur : Accès accordé à l'utilisateur en tant que « Tenant Admin »|
+|Authorization|Autorisation utilisateur : Les droits d'accès « Authenticated Users » ont été accordés à l'utilisateur|
 |Authorization|Vérifier si la fonctionnalité B2C est activée|
 |Authorization|Vérifier si la fonctionnalité est activée|
 |Authorization|Créer le programme|

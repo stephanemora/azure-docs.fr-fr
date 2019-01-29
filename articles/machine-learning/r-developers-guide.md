@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: bc00bd3b61398355c663d133c0c9a66c2a52aa8d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046322"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807454"
 ---
 # <a name="r-developers-guide-to-azure"></a>Guide du développeur R sur Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -33,15 +33,15 @@ Commençons par examiner les différentes options et les scénarios les plus par
 ## <a name="azure-services-with-r-language-support"></a>Services Azure avec prise en charge du langage R
 Cet article couvre les services Azure suivants qui prennent en charge le langage R :
 
-|Service                                                          |Description                                                                       |
+|de diffusion en continu                                                          |Description                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
 |[Data Science Virtual Machine](#data-science-virtual-machine) (Machine virtuelle Science des données)    |Une machine virtuelle personnalisée à utiliser comme une station de travail de science des données ou comme une cible de calcul personnalisée|
 |[ML Services sur HDInsight](#ml-services-on-hdinsight)            |Système basé sur un cluster pour l’exécution d’analyses R sur des grands jeux de données sur de nombreux nœuds   |
 |[Azure Databricks](#azure-databricks)                            |Environnement Spark collaboratif qui prend en charge R et autres langages               |
 |[Azure Machine Learning Studio](#azure-machine-learning-studio)  |Exécuter des scripts R personnalisés dans les expériences de machine learning d’Azure                      |
 |[Azure Batch](#azure-batch)                                      |Offre différentes options pour exécuter de façon économique du code R sur de nombreux nœuds dans un cluster|
-|[Azure Notebooks](#azure-notebooks)                              |une version cloud gratuite (mais limitée) des notebooks Jupyter                  |
-|[Azure SQL Database](#azure-sql-database)                        |Exécuter des scripts R à l’intérieur du moteur de base de données SQL Server                            |
+|[Azure Notebooks](#azure-notebooks)                              |une version cloud gratuite des notebooks Jupyter                  |
+|[Base de données SQL Azure](#azure-sql-database)                        |Exécuter des scripts R à l’intérieur du moteur de base de données SQL Server                            |
 
 ## <a name="data-science-virtual-machine"></a>Machine virtuelle de science des données
 La machine virtuelle [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) est une image de machine virtuelle personnalisée sur la plateforme cloud Microsoft Azure spécialement conçue pour la science des données. Elle a de nombreux outils de science des données courants, notamment :
@@ -104,16 +104,17 @@ Ce package facilite grandement l’utilisation d’Azure ML comme plateforme de 
 ## <a name="azure-batch"></a>Azure Batch
 Pour les travaux R à grande échelle, vous pouvez utiliser [Azure Batch](https://azure.microsoft.com/services/batch/).  Ce service fournit la planification des travaux à l’échelle du cloud et la gestion de la capacité de calcul, qui vous permettent de mettre à l’échelle votre charge de travail R sur des dizaines, des centaines ou des milliers de machines virtuelles.  Comme il s’agit d’une plateforme de traitement généralisée, quelques options sont possibles pour l’exécution des travaux R sur Azure Batch.
 
-Une option consiste à utiliser le package <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> de Microsoft.  Ce package R est un serveur backend parallèle pour le package `foreach`.  Il permet à chaque itération de la boucle `foreach` de s’exécuter en parallèle sur un nœud au sein du cluster Azure Batch.  Pour une introduction au package, lisez le billet de blog [« doAzureParallel: Take advantage of Azure’s flexible compute directly from your R session »](https://azure.microsoft.com/blog/doazureparallel/).
+Une option consiste à utiliser le package <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> de Microsoft.  Ce package R est un serveur backend parallèle pour le package `foreach`.  Il permet à chaque itération de la boucle `foreach` de s’exécuter en parallèle sur un nœud au sein du cluster Azure Batch.  Pour une introduction au package, lisez le billet de blog [« doAzureParallel: Take advantage of Azure’s flexible compute directly from your R session »](https://azure.microsoft.com/blog/doazureparallel/).
 
 Une autre option pour exécuter un script R dans Azure Batch consiste à faire un bundle de votre code avec « RScript.exe » sous la forme d’une application Batch dans le portail Azure.  Pour une procédure détaillée, consultez [« Charges de travail R sur Azure Batch ».](https://azure.microsoft.com/blog/r-workloads-on-azure-batch/)
 
 Une troisième option consiste à utiliser [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK), qui vous permet de provisionner des clusters Spark à la demande avec des conteneurs Docker dans Azure Batch.  Ceci offre un moyen économique d’exécuter des travaux Spark dans Azure.  En utilisant [SparklyR avec AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), vos scripts R peuvent bénéficier d’une augmentation du nombre d’instances dans le cloud facilement et à moindre coût.
 
 ## <a name="azure-notebooks"></a>Azure Notebooks
+
 [Azure Notebooks](https://notebooks.azure.com) est une méthode économique et facile pour les développeurs R qui préfèrent travailler avec des notebooks pour placer leur code dans Azure.  C’est un service gratuit pour toute personne développant et exécutant du code dans son navigateur avec [Jupyter](https://jupyter.org/), qui est un projet open source permettant de combiner du texte Markdown, du code exécutable et des graphiques sur un même canevas.
 
-Si Azure Notebooks est une option viable pour les projets à petite échelle, il présente néanmoins certaines limitations qui le rendent inapproprié pour les projets de science des données à grande échelle.  Actuellement, le service limite chaque processus du notebook à 4 Go de mémoire et la taille des jeux de données à 1 Go.  Pour la publication d’analyses plus petites, il s’agit cependant d’une option simple et gratuite.
+Le niveau de service gratuit d’Azure Notebooks Azure est une option viable pour les projets de faible envergure, car il limite le processus de chaque ordinateur portable à 4 Go de mémoire et la taille des jeux de données à 1 Go. Si vous avez besoin de puissance de calcul et de données au-delà de ces limites, cependant, vous pouvez exécuter des notebooks dans une instance Data Science Virtual Machine. Pour plus d’informations, consultez [Gérer et configurer des projets Azure Notebooks - Niveau Calcul](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) est le service de base de données cloud relationnelle intelligent et entièrement managé de Microsoft.  Il vous permet d’utiliser toute la puissance de SQL Server sans devoir configurer l’infrastructure.  Ceci inclut [Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), qui est un des ajouts les plus récents au service SQL.

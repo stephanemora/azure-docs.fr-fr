@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Reflektive | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à Reflektive | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Reflektive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 799a08b9-1ce6-46d1-9064-aa9f36f6604e
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 228bcc2e43337876b211158f70fe1136de494c85
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e8125fb60256e403b31fd896f9eabda37bfd5507
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041226"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814407"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Didacticiel : Intégration d’Azure Active Directory à Reflektive
+# <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Didacticiel : Intégration d'Azure Active Directory à Reflektive
 
 Dans ce didacticiel, vous allez apprendre à intégrer Reflektive à Azure Active Directory (Azure AD).
 
@@ -136,7 +136,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 7. Pour configurer l’authentification unique du côté **Reflektive**, vous devez envoyer le fichier téléchargé **XML de métadonnées** à [l’équipe du support technique Reflektive](https://support@reflektive.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -172,7 +172,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-reflektive-test-user"></a>Créer un test utilisateur Reflektive
 
-Dans cette section, vous créez un utilisateur nommé Britta Simon dans Reflektive. Collaborez avec l’[équipe du support technique Reflektive](mailto:support@reflektive.com) pour ajouter des utilisateurs dans la plate-forme Reflektive. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous créez un utilisateur nommé Britta Simon dans Reflektive. Collaborez avec l' [équipe du support technique de Reflektive](mailto:support@reflektive.com)  pour ajouter des utilisateurs sur la plate-forme Reflektive. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à LinkedIn Elevate | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à LinkedIn Elevate | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LinkedIn Elevate.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 209f87a77ff6e18fa08943385d9cf61bbf915089
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116174"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822635"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Didacticiel : Intégration d’Azure Active Directory à LinkedIn Elevate
+# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutoriel : Intégration d'Azure Active Directory à LinkedIn Elevate
 
 Dans ce didacticiel, vous allez apprendre à intégrer LinkedIn Elevate à Azure Active Directory (Azure AD).
 
@@ -240,7 +240,7 @@ Lorsque vous cliquez sur la mosaïque LinkedIn Elevate dans le volet d’accès,
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Didacticiel : Configuration de LinkedIn Elevate pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
+* [Tutoriel : Configuration de LinkedIn Elevate pour l'approvisionnement automatique d'utilisateurs avec Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 * [Configurer l’approvisionnement de l’utilisateur](linkedinelevate-provisioning-tutorial.md)

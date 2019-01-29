@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1010b5376a26a4d33c026be27ce363959954ca2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078869"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854163"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Profil et identifiant utilisateur pour Azure Notebooks
 
 Dans le puissant espace collaboratif d’Azure Notebooks, votre profil utilisateur présente aux autres votre image publique :
 
-[![](media/accounts/profile-page.png "Une page de profil Azure Notebooks")](media/accounts/profile-page.png#lightbox)
+[![Une page de profil Azure Notebooks](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 L’identifiant utilisateur fait partie des URL utilisées pour partager des projets et des blocs-notes. La liste suivante décrit les différents modèles d’URL :
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2c8c8233e8d471b0f1934df9ff7e0f2b4b3e3860
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199383"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819133"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumenter des applications web lors de l’exécution avec Application Insights Status Monitor
 
@@ -32,11 +32,13 @@ Status Monitor est utilisé pour instrumenter une application .NET hébergée da
 
 ![Capture d’écran des graphiques de vue d’ensemble App Insights qui contiennent des informations sur les demandes ayant échoué, le temps de réponse du serveur et les requêtes serveur](./media/monitor-performance-live-website-now/overview-graphs.png)
 
-Vous avez le choix entre trois façons d’appliquer Application Insights à vos applications web .NET :
+Deux méthodes sont disponibles pour appliquer Application Insights à vos applications web .NET :
 
 * **En cours de création :** [Ajoutez le Kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web.
 * **En cours d’exécution :** Instrumentez votre application web sur le serveur, comme décrit ci-dessous, sans régénérer ni redéployer le code.
-* **Les deux :** Intégrez le Kit de développement logiciel (SDK) à votre code d’application web et appliquez également les extensions à l’exécution. Profitez des avantages des deux options.
+
+> [!NOTE]
+> Si vous utilisez l'instrumentation En cours de création, l'instrumentation En cours d'exécution ne fonctionnera pas, même si elle est activée.
 
 Voici un résumé de ce que vous apporte chaque méthode :
 

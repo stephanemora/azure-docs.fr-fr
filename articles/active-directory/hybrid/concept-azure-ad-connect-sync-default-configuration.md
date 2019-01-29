@@ -1,10 +1,10 @@
 ---
-title: 'Synchronisation Azure AD Connect : présentation de la configuration par défaut | Microsoft Docs'
+title: 'Synchronisation d’Azure AD Connect : comprendre la configuration par défaut | Microsoft Docs'
 description: Cet article décrit la configuration par défaut dans la synchronisation Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bd708d279649138fcb17362491da4eb7539c478b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6de48b0f4c7c69ab0c6acb4099234b853d2c1523
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308748"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478567"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect Sync : comprendre la configuration par défaut
+# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronisation d’Azure AD Connect : Présentation de la configuration par défaut
 Cet article présente les règles de configuration out-of-box. Il décrit les règles et l’impact que celles-ci ont sur la configuration. Il vous guide également tout au long de la configuration par défaut de la synchronisation Azure AD Connect. L’objectif est que le lecteur comprenne comment fonctionne le modèle de configuration, nommé approvisionnement déclaratif, dans un exemple réel. Cet article suppose que vous avez déjà installé et configuré la synchronisation Azure AD Connect à l’aide de l’Assistant d’installation.
 
 Pour comprendre les détails du modèle de configuration, lisez [Comprendre l’approvisionnement déclaratif](concept-azure-ad-connect-sync-declarative-provisioning.md).
@@ -51,7 +51,7 @@ Les objets utilisateur suivants ne sont **pas** synchronisés avec Azure AD :
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
 * Ne synchronisez pas les objets qui pourraient ne pas fonctionner dans Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-  Ce masque de bits (&amp;H21C07000) pourrait exclure les objets suivants :
+  Ce masque de bits (&H21C07000) pourrait exclure les objets suivants :
   * Dossier public à extension messagerie (en préversion à partir de la version 1.1.524.0)
   * Boîte aux lettres de surveillance du système
   * Boîte aux lettres de base de données de boîtes aux lettres (Boîte aux lettres système)
@@ -94,7 +94,7 @@ Un objet groupe doit remplir les conditions suivantes pour être synchronisé :
 * Il doit compter moins de 50 000 membres. Ce chiffre correspond au nombre de membres du groupe local.
   * S’il compte plus de membres avant sa toute première synchronisation, le groupe n’est pas synchronisé.
   * Si le nombre de membres augmente à partir du moment où il a été créé, alors sa synchronisation est interrompue lorsqu’il atteint 50 000 membres, jusqu’à ce que le nombre redevienne inférieur à 50 000 membres.
-  * Remarque : la limite de 50 000 membres s’applique également avec Azure AD. Vous ne pouvez pas synchroniser les groupes d’un nombre de membres supérieur même si vous modifiez ou supprimez cette règle.
+  * Remarque : La limite de 50 000 membres s’applique également avec Azure AD. Vous ne pouvez pas synchroniser les groupes d’un nombre de membres supérieur même si vous modifiez ou supprimez cette règle.
 * Si le groupe est un **groupe de distribution**, il doit alors également être activé pour la messagerie. Consultez la page [Règles out-of-box de contact](#contact-out-of-box-rules) pour l’application de cette règle.
 
 Les objets groupe suivants ne sont **pas** synchronisés avec Azure AD :
@@ -134,7 +134,7 @@ Le SRE est un outil du kit de ressources installé avec la synchronisation Azure
 
 ![Règles de synchronisation entrante](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-Dans ce volet, vous voyez toutes les règles de synchronisation créées pour votre configuration. Chaque ligne du tableau correspond à une règle de synchronisation. À gauche, sous Types de règles, deux types sont présentés : Entrante et Sortante. Les termes entrante et sortante sont à prendre du point de vue du métaverse. Vous allez principalement vous concentrer sur les règles de trafic entrant dans cette vue d’ensemble. La liste actuelle des règles de synchronisation dépend du schéma détecté dans Active Directory. Dans l’image ci-dessus, la forêt de comptes (fabrikamonline.com) ne dispose d’aucun service (par exemple, Exchange ou Lync), et aucune règle de synchronisation n’a été créée pour ces services. Toutefois, dans la forêt de ressources (res.fabrikamonline.com), vous trouvez des règles de synchronisation pour ces services. Le contenu des règles diffère selon la version détectée. Par exemple, dans un déploiement avec Exchange 2013, plus de flux d’attributs sont configurés que dans Exchange 2010/2007.
+Dans ce volet, vous voyez toutes les règles de synchronisation créées pour votre configuration. Chaque ligne du tableau correspond à une règle de synchronisation. À gauche, sous Types de règles, deux types sont présentés : Entrante et Sortante. Les termes entrante et sortante sont à prendre du point de vue du métaverse. Vous allez principalement vous concentrer sur les règles de trafic entrant dans cette vue d’ensemble. La liste actuelle des règles de synchronisation dépend du schéma détecté dans Active Directory. Dans l’image ci-dessus, la forêt de comptes (fabrikamonline.com) ne dispose d’aucun service (par exemple, Exchange ou Lync), et aucune règle de synchronisation n’a été créée pour ces services. Toutefois, dans la forêt de ressources (res.fabrikamonline.com), vous trouvez des règles de synchronisation pour ces services. Le contenu des règles diffère selon la version détectée. Par exemple, dans un déploiement avec Exchange 2013, plus de flux d’attributs sont configurés que dans Exchange 2010/2007.
 
 ### <a name="synchronization-rule"></a>Règle de synchronisation
 Une règle de synchronisation est un objet de configuration avec un jeu d’attributs qui circule quand une condition est remplie. Elle sert aussi à décrire la relation entre un objet dans un espace de connecteur et un objet dans le métaverse, relation appelée **jointure** ou **correspondance**. Les règles de synchronisation ont une valeur de précédence qui indique leurs relations les unes par rapport aux autres. Une règle de synchronisation avec une valeur plus basse possède une précédence plus élevée et, dans un conflit de flux d’attributs, c’est la précédence la plus élevée qui l’emporte.
@@ -236,6 +236,6 @@ Nous en savons maintenant assez sur les règles de synchronisation pour comprend
 
 **Rubriques de présentation**
 
-* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
+* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
 

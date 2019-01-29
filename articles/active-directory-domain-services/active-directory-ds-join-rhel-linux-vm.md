@@ -1,10 +1,10 @@
 ---
-title: 'Version préliminaire des services de domaine Azure Active Directory : associer une machine virtuelle RHEL à un domaine géré | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Joindre une machine virtuelle RHEL à un domaine managé | Microsoft Docs'
 description: Joindre une machine virtuelle Linux Red Hat Enterprise aux services de domaine Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: bfad3b8c8347b885fd713d30c620d6c86377fab3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 44d6614c7e0f4f7a53a2f0579f8fe03c9d7847b7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155226"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850907"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Red Hat Enterprise Linux 7 à un domaine géré
 Cet article indique comment joindre une machine virtuelle Red Hat Enterprise Linux (RHEL) 7 à un domaine géré par les services de domaine Azure Active Directory.
@@ -87,7 +87,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     ```
 
      > [!NOTE]
-     > **Résolution des problèmes :** si *realm discover* ne peut pas trouver votre domaine géré :
+     > **Résolution des problèmes :** si *realm discover* ne parvient pas à trouver votre domaine managé :
      * Vérifiez que le domaine est accessible à partir de la machine virtuelle (effectuez un test ping).
      * Vérifiez également que la machine virtuelle a bien été déployée dans le réseau virtuel au sein duquel le domaine managé est disponible.
      * Vérifiez si vous avez mis à jour les paramètres du serveur DNS pour le réseau virtuel afin de pointer vers les contrôleurs de domaine du domaine managé.

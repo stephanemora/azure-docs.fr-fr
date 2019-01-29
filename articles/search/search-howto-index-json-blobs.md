@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6df8d9a5c1ca1e587834ea08f73b3dd9498f8537
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: cafb48f28e38794ce0757d50a5d87432b237e17c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753147"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467160"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob JSON avec un indexeur d’objets blob Recherche Azure
 Cet article explique comment configurer un indexeur d’objets blob Recherche Azure pour extraire le contenu structuré d’objets blob JSON dans Stockage Blob Azure.
@@ -23,6 +23,9 @@ Cet article explique comment configurer un indexeur d’objets blob Recherche Az
 Vous pouvez utiliser le [portail](#json-indexer-portal), l’[API REST](#json-indexer-rest) ou le [SDK .NET](#json-indexer-dotnet) pour indexer du contenu JSON. Dans toutes les approches, les documents JSON sont généralement situés dans un conteneur d’objets blob, dans un compte de stockage Azure. Pour obtenir des conseils sur l’envoi (push) de documents JSON depuis d’autres plateformes qu’Azure, consultez [Importation de données dans Recherche Azure](search-what-is-data-import.md).
 
 Les objets blob JSON dans Stockage Blob Azure se composent généralement d’un seul document JSON ou d’un tableau JSON. L’indexeur d’objets blob dans Recherche Azure peut analyser l’une ou l’autre de ces constructions selon la définition du paramètre **parsingMode** sur la requête.
+
+> [!IMPORTANT]
+> L'indexation d'objets blob JSON est généralement disponible, mais l'analyse JsonArray n'est accessible qu'en préversion publique et ne doit pas être utilisée dans des environnements de production. Pour plus d’informations, consultez [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 <a name="json-indexer-portal"></a>
 

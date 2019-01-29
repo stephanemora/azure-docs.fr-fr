@@ -3,7 +3,7 @@ title: Facteurs affectant les performances d’Azure AD Connect
 description: Ce document décrit les différents facteurs qui impactent les performances du moteur de provisionnement Azure AD Connect. Les organisations doivent tenir compte de ces facteurs pour planifier leur déploiement Azure AD Connect conformément à leurs exigences de synchronisation.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: cdca1b31f9b6cf10113dc0dba70b8f8991bafa2b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 801082164a0110178034c5fbe050ebe8e02b2772
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093964"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474130"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Facteurs affectant les performances d’Azure AD Connect
 
@@ -28,7 +28,7 @@ Azure AD Connect gère la synchronisation entre Active Directory et Azure AD. Ce
 | Scale| Nombre d’objets, tels que les utilisateurs, les groupes et les unités d’organisation, qui seront managés par Azure AD Connect. |
 | Matériel| Matériel (physique ou virtuel) utilisé pour Azure AD Connect et chaque composant matériel dont la capacité impacte les performances, notamment l’UC, la mémoire, le réseau et la configuration du disque dur. |
 | Configuration| Mode de traitement des annuaires et des informations par Azure AD Connect. |
-| Charge| Fréquence des modifications d’objets. Les charges peuvent varier au cours d’une heure, d’un jour ou d’une semaine. En fonction du composant, vous devrez peut-être prévoir des pics de charge ou une charge moyenne. |
+| charger| Fréquence des modifications d’objets. Les charges peuvent varier au cours d’une heure, d’un jour ou d’une semaine. En fonction du composant, vous devrez peut-être prévoir des pics de charge ou une charge moyenne. |
 
 L’objectif de ce document est de décrire les facteurs qui impactent les performances du moteur de provisionnement Azure AD Connect. Les organisations complexes ou de grande taille (celles devant provisionner plus de 100 000 objets) peuvent suivre les suggestions pour optimiser leur implémentation d’Azure AD Connect, en particulier si elles rencontrent certains problèmes de performances décrits dans ce document. Les autres composants d’Azure AD Connect, comme [Azure AD Connect Health](how-to-connect-health-agent-install.md) et les agents ne sont pas abordés ici.
 
@@ -41,7 +41,7 @@ Le diagramme ci-dessous illustre l’architecture générale d’un moteur de pr
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-Le moteur de provisionnement se connecte à chaque forêt Active Directory et à Azure AD. Importer est le processus consistant à obtenir des informations de chaque annuaire. Exporter fait référence à la mise à jour des annuaires à partir du moteur de provisionnement. Synchroniser est l’opération qui évalue les règles de transfert des objets au sein du moteur de provisionnement. Pour approfondir vos connaissances, consultez [Azure AD Connect Sync : présentation de l’architecture](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+Le moteur de provisionnement se connecte à chaque forêt Active Directory et à Azure AD. Importer est le processus consistant à obtenir des informations de chaque annuaire. Exporter fait référence à la mise à jour des annuaires à partir du moteur de provisionnement. Synchroniser est l’opération qui évalue les règles de transfert des objets au sein du moteur de provisionnement. Pour approfondir vos connaissances, consultez [Azure AD Connect Sync : présentation de l'architecture](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
 
 Azure AD Connect utilise les zones de transit, les règles et les processus suivants pour effectuer la synchronisation entre Active Directory et Azure AD :
 

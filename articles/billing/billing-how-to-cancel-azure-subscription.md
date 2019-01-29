@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 88ea3a5daa1a740ab545201bc48b612ea6a56a44
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584347"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810327"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Annuler votre abonnement Azure
 
@@ -37,10 +37,11 @@ Si vous annulez un plan de support Azure, vous êtes toujours facturé du reliqu
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Annuler l’abonnement à l’aide du portail Azure
 
 1. Sélectionnez votre abonnement dans la [page Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Sélectionnez l’abonnement à annuler, puis cliquez sur **Annuler l’abonnement**.
+2. Sélectionnez l'abonnement que vous souhaitez annuler.
+3. Sélectionnez **Vue d'ensemble**, puis **Annuler l'abonnement**.
 
     ![Capture d’écran qui montre le bouton Annuler](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-1. Suivez les invites et terminez l’annulation.
+3. Suivez les invites et terminez l’annulation.
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Que se passe-t-il après l’annulation de mon abonnement ?
 
@@ -60,4 +61,4 @@ Si votre abonnement n’est pas un abonnement de paiement à l’utilisation, co
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (Support request).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

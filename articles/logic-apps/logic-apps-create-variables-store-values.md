@@ -72,7 +72,7 @@ Vous pouvez créer une variable et déclarer son type de données et sa valeur i
 
 4. Fournissez les informations suivantes pour votre variable :
 
-   | Propriété | Obligatoire | Valeur |  Description |
+   | Propriété | Obligatoire | Value |  Description |
    |----------|----------|-------|--------------|
    | Name | Oui | <*variable-name*> | Nom de la variable à incrémenter | 
    | Type | Oui | <*variable-type*> | Type de données de la variable. | 
@@ -208,7 +208,7 @@ Pour augmenter, ou *incrément*, une variable d’une valeur constante, ajoutez 
 
 3. Fournissez les informations suivantes pour l’incrémentation de votre variable :
 
-   | Propriété | Obligatoire | Valeur |  Description |
+   | Propriété | Obligatoire | Value |  Description |
    |----------|----------|-------|--------------|
    | Name | Oui | <*variable-name*> | Nom de la variable à incrémenter | 
    | Value | Non  | <*increment-value*> | Valeur utilisée pour incrémenter la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour l’incrémentation de votre variable. | 
@@ -328,7 +328,7 @@ Pour réduire, ou *décrémenter*, une variable d’une valeur constante, procé
 
 Voici les propriétés disponibles pour l’action **Décrémenter une variable** :
 
-| Propriété | Obligatoire | Valeur |  Description |
+| Propriété | Obligatoire | Value |  Description |
 |----------|----------|-------|--------------|
 | Name | Oui | <*variable-name*> | Nom de la variable à décrémenter | 
 | Value | Non  | <*increment-value*> | Valeur de la décrémentation de la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour la décrémentation de votre variable. | 
@@ -363,7 +363,7 @@ La valeur est requise, car cette action n’a pas de valeur par défaut.
 
 Voici les propriétés disponibles pour l’action **Définir une variable** :
 
-| Propriété | Obligatoire | Valeur |  Description | 
+| Propriété | Obligatoire | Value |  Description | 
 |----------|----------|-------|--------------| 
 | Name | Oui | <*variable-name*> | Nom de la variable à modifier | 
 | Value | Oui | <*new-value*> | Valeur que vous souhaitez attribuer à la variable. Le type de données des deux doit être identique. | 
@@ -421,7 +421,7 @@ Pour les variables qui stockent des chaînes ou des tableaux, vous pouvez insér
 
 Voici les propriétés disponibles pour les actions **Ajouter à...**  :
 
-| Propriété | Obligatoire | Valeur |  Description | 
+| Propriété | Obligatoire | Value |  Description | 
 |----------|----------|-------|--------------| 
 | Name | Oui | <*variable-name*> | Nom de la variable à modifier | 
 | Value | Oui | <*append-value*> | Valeur que vous souhaitez ajouter, qui peut être de tout type | 

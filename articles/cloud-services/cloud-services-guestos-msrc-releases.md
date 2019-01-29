@@ -11,17 +11,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/22/2019
 ms.author: raiye
-ms.openlocfilehash: 154b925cc173a1a8fac697e347759764807a3052
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0a9b811f3781cd181c17b9ed92b9ca653ee91af0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107903"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828449"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+>[!NOTE]
+>Le système d'exploitation invité de janvier est actuellement déployé sur les machines virtuelles du service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d'exploitation invité de janvier. Cette liste est susceptible d’être modifiée.
+
+## <a name="january-2019-guest-os"></a>Système d'exploitation invité, janvier 2019
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| Version 01-19 | [4480961] | Sécurité de Windows 10 | 5.27 | 8 janvier 2019 |
+| Version 01-19 | [4480964] | Sécurité Windows | 4.62 | 8 janvier 2019 |
+| Version 01-19 | [4480972] | Sécurité Windows | 3.69 | 8 janvier 2019 |
+| Version 01-19 | [4480960] | Sécurité Windows | 2.82 | 8 janvier 2019 |
+| Version 01-19 | [4480074] | Sécurité .NET 4.x | 4.62 | 8 janvier 2019 |
+| Version 01-19 | [4480075] | Sécurité .NET 4.x | 3.69 | 8 janvier 2019 |
+| Version 01-19 | [4480076] | Sécurité .NET 4.x | 2.82 | 8 janvier 2019 |
+| Version 01-19 | [4480086] | Sécurité .NET 3.x | 4.62 | 8 janvier 2019 |
+| Version 01-19 | [4480083] | Sécurité .NET 3.x | 3.69 | 8 janvier 2019 |
+| Version 01-19 | [4480085] | Sécurité .NET 3.x | 2.82 | 8 janvier 2019 |
+| Version 01-19 | [4480979] | Clignote | 3.69, 4.62, 5.27 | 8 janvier 2019 |
+| Version 01-19 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 janvier 2019 |
+| N/A | [4471318] | Correctif cumulatif de décembre non relatif à la sécurité | 2.82 | 11 décembre 2018 |
+| N/A | [4470641] | Correctif cumulatif de décembre non relatif à la sécurité - .NET 3.x | 2.82 | 11 décembre 2018 |
+| N/A | [4470637] | Correctif cumulatif de décembre non relatif à la sécurité - .NET 4.x | 2.82 | 11 décembre 2018 |
+| N/A | [4471330] | Correctif cumulatif de décembre non relatif à la sécurité | 3.69 | 11 décembre 2018 |
+| N/A | [4470629] | Correctif cumulatif de décembre non relatif à la sécurité - .NET 3.x | 3.69 | 11 décembre 2018 |
+| N/A | [4470623] | Correctif cumulatif de décembre non relatif à la sécurité - .NET 4.x | 3.69 | 11 décembre 2018 |
+| N/A | [4471320] | Correctif cumulatif de décembre non relatif à la sécurité | 4.62 | 11 décembre 2018 |
+| N/A | [4470630] | Correctif cumulatif de décembre non relatif à la sécurité - .NET 3.x | 4.62 | 11 décembre 2018 |
+| N/A | [4470622] | Correctif cumulatif de décembre non relatif à la sécurité - .NET 4.x | 4.62 | 11 décembre 2018 |
+
+[4480961]: http://support.microsoft.com/kb/4480961
+[4480964]: http://support.microsoft.com/kb/4480964
+[4480972]: http://support.microsoft.com/kb/4480972
+[4480960]: http://support.microsoft.com/kb/4480960
+[4480074]: http://support.microsoft.com/kb/4480074
+[4480075]: http://support.microsoft.com/kb/4480075
+[4480076]: http://support.microsoft.com/kb/4480076
+[4480086]: http://support.microsoft.com/kb/4480086
+[4480083]: http://support.microsoft.com/kb/4480083
+[4480085]: http://support.microsoft.com/kb/4480085
+[4480979]: http://support.microsoft.com/kb/4480979
+[4480965]: http://support.microsoft.com/kb/4480965
+[4471318]: http://support.microsoft.com/kb/4471318
+[4470641]: http://support.microsoft.com/kb/4470641
+[4470637]: http://support.microsoft.com/kb/4470637
+[4471330]: http://support.microsoft.com/kb/4471330
+[4470629]: http://support.microsoft.com/kb/4470629
+[4470623]: http://support.microsoft.com/kb/4470623
+[4471320]: http://support.microsoft.com/kb/4471320
+[4470630]: http://support.microsoft.com/kb/4470630
+[4470622]: http://support.microsoft.com/kb/4470622
 
 ## <a name="december-2018-guest-os"></a>Système d’exploitation invité, décembre 2018
 
