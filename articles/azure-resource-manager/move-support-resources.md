@@ -118,7 +118,7 @@ Après avoir trouvé le fournisseur de ressources et le type de ressource, utili
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | -------------- | ------------ |
-| profils | Oui | Oui |
+| profiles | Oui | Oui |
 | profiles/endpoints | Oui | Oui |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
@@ -514,7 +514,7 @@ Après avoir trouvé le fournisseur de ressources et le type de ressource, utili
 | ------------- | -------------- | ------------ |
 | managementconfigurations | Oui | Oui |
 | solutions | Oui | Oui |
-| vues | Oui | Oui |
+| views | Oui | Oui |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -590,7 +590,7 @@ Après avoir trouvé le fournisseur de ressources et le type de ressource, utili
 | appliancedefinitions | Non  | Non  |
 | appliances | Non  | Non  |
 | applicationdefinitions | Non  | Non  |
-| web | Non  | Non  |
+| applications | Non  | Non  |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -632,7 +632,7 @@ Après avoir trouvé le fournisseur de ressources et le type de ressource, utili
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | -------------- | ------------ |
-| compte | Oui | Oui |
+| account | Oui | Oui |
 | account/extension | Oui | Oui |
 | account/project | Oui | Oui |
 
