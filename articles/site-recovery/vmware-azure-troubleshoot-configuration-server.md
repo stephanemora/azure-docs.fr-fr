@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 597b8f59ef6991f7868d3de481e98ed9a459077b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0eebfd8b75f428d3b8f6024ed6ee71c18c1309f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050793"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435972"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Résoudre les problèmes de serveur de configuration
 
@@ -36,13 +36,13 @@ La machine source s’inscrit auprès du serveur de configuration lorsque vous i
 
 4. Si la chaîne **Reason= >NULL** n’est pas trouvée, sur la machine source, ouvrez le fichier C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log. (Le dossier ProgramData peut être masqué. Si vous ne le voyez pas, dans l’Explorateur de fichiers, sous l’onglet **Affichage**, dans la section **Afficher/Masquer**, activez la case à cocher **Éléments masqués**.) Des défaillances peuvent être causées par plusieurs problèmes. 
 
-5. Recherchez la chaîne **post request: (7) - Connexion au serveur impossible**. Si la chaîne est trouvée :
+5. Recherchez la chaîne **post request: (7) - Couldn't connect to server**. Si la chaîne est trouvée :
     1. Résolvez les problèmes de réseau entre la machine source et le serveur de configuration. Vérifiez que le serveur de configuration est accessible à partir de la machine source à l’aide d’outils réseau tels que ping et Détermination d’itinéraire, ou d’un navigateur web. Assurez-vous que la machine source peut atteindre le serveur de configuration via le port 443.
     2. Vérifiez si des règles de pare-feu sur la machine source bloquent la connexion entre celle-ci et le serveur de configuration. Collaborez avec vos administrateurs réseau pour débloquer d’éventuels problèmes de connexion.
     3. Vérifiez que les dossiers répertoriés dans [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) (Dossiers de Site Recovery exclus des programmes antivirus) sont exclus du logiciel antivirus.
     4. Une fois les problèmes de réseau résolus, recommencez l’inscription en suivant les instructions de la section [Inscrire la machine source auprès du serveur de configuration](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. Si la chaîne **post request: (7) - Connexion au serveur impossible** n’est trouvée, dans le même fichier journal, recherchez la chaîne **request: (60) - Le certificat pair ne peut pas être authentifié avec les certificats d’autorité de certification donnés**. Cette erreur peut se produire si le certificat du serveur de configuration a expiré ou si la machine source ne prend en charge TLS 1.0 ou des protocoles SSL ultérieurs. Elle peut également se produire si un pare-feu bloque les communications SSL entre la machine source et le serveur de configuration. Si la chaîne est trouvée : 
+6. Si la chaîne **post request: (7) - Couldn't connect to server** est introuvable, dans le même fichier journal, recherchez la chaîne **request: (60) - Peer certificate cannot be authenticated with given CA certificates**. Cette erreur peut se produire si le certificat du serveur de configuration a expiré ou si la machine source ne prend en charge TLS 1.0 ou des protocoles SSL ultérieurs. Elle peut également se produire si un pare-feu bloque les communications SSL entre la machine source et le serveur de configuration. Si la chaîne est trouvée : 
     1. Pour résoudre le problème, connectez-vous à l’adresse IP du serveur de configuration via un navigateur web sur la machine source. Utilisez l’URI https :\/\/<adresse IP du serveur configuration\>: 443/. Assurez-vous que la machine source peut atteindre le serveur de configuration via le port 443.
     2. Vérifier si des règles de pare-feu sur la machine source doivent être ajoutées ou supprimées pour que celle-ci puisse communiquer avec le serveur de configuration. Compte tenu de la diversité des logiciels de pare-feu susceptibles d’être utilisés, nous ne pouvons pas répertorier toutes les configurations de pare-feu requises. Collaborez avec vos administrateurs réseau pour débloquer d’éventuels problèmes de connexion.
     3. Vérifiez que les dossiers répertoriés dans [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) (Dossiers de Site Recovery exclus des programmes antivirus) sont exclus du logiciel antivirus.  
@@ -58,6 +58,16 @@ La machine source s’inscrit auprès du serveur de configuration lorsque vous i
 
 Cette erreur se produit quand le service ne parvient pas à lire les données de la connexion de transport au moment de l’installation de l’agent de mobilité et de l’inscription auprès du serveur de configuration. Pour résoudre ce problème, assurez-vous que TLS 1.0 est activé sur votre machine source.
 
+## <a name="vcenter-discovery-failures"></a>Échec de découverte de vCenter
+
+Pour résoudre les échecs de découverte de vCenter, vérifiez que le serveur vCenter est ajouté aux paramètres du proxy de la liste byPass. Pour effectuer cette activité :
+
+- Téléchargez l’outil PsExec [ici](https://aka.ms/PsExec) pour accéder au contenu de l’utilisateur système.
+- Ouvrez Internet Explorer dans le contenu de l’utilisateur système en exécutant la ligne de commande suivante : psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+- Ajoutez les paramètres du proxy dans Internet Explorer et redémarrez le service tmanssvc.
+- Pour configurer les paramètres du proxy DRA, exécutez cd C:\Program Files\Microsoft Azure Site Recovery Provider.
+- Ensuite, exécutez DRCONFIGURATOR.EXE /configure /AddBypassUrls [ajouter l’adresse IP ou le FQDN du serveur vCenter fourni durant l’étape **Configurer le serveur vCenter/vSphere ESXi** du [déploiement du serveur de configuration](vmware-azure-deploy-configuration-server.md#configure-settings)]
+
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Modifier l’adresse IP du serveur de configuration
 
 Il est fortement recommandé de ne pas modifier l’adresse IP d’un serveur de configuration. Assurez-vous que toutes les adresses IP affectées au serveur de configuration sont statiques. N’utilisez pas d’adresses IP DHCP.
@@ -70,7 +80,7 @@ Pour éviter cette erreur, vérifiez que l’heure de votre système ne diffère
 
 Un certificat requis pour l’authentification de Site Recovery ne peut pas être créé. Recommencez la configuration après vous être assuré que vous opérez en tant qu’administrateur local.
 
-## <a name="register-the-source-machine-with-the-configuration-server"></a>Inscrire la machine source auprès du serveur de configuration
+## <a name="register-source-machine-with-configuration-server"></a>Inscrire l'ordinateur source auprès du serveur de configuration
 
 ### <a name="if-the-source-machine-runs-windows"></a>Si la machine source exécute Windows
 

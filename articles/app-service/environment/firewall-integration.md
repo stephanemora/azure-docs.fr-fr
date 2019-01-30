@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/20/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 52051ea221a3d49d86cc6b95e020e1075ce8cba2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 87331ed0d9e5a4ff51e3669390d1b40dea58574a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275548"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389247"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Verrouiller un environnement App Service
 
@@ -33,34 +33,60 @@ La solution pour sécuriser les adresses sortantes réside dans l’utilisation 
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configuration du pare-feu Azure avec votre environnement ASE 
 
-Les étapes pour verrouiller les sorties de votre environnement ASE avec le pare-feu Azure sont les suivantes :
+Les étapes pour verrouiller les sorties de votre environnement ASE existant avec le pare-feu Azure sont les suivantes :
 
-1. Créez un pare-feu Azure dans le réseau virtuel où est ou sera votre environnement ASE. [Documentation du pare-feu Azure](https://docs.microsoft.com/azure/firewall/)
-2. Dans l’interface utilisateur du pare-feu Azure, sélectionnez l’étiquette App Service Environment FQDN.
-3. Créez une table de routage avec les adresses de gestion provenant des [adresses de gestion App Service Environment]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) avec un tronçon suivant Internet. Les entrées de la table de routage sont nécessaires pour éviter des problèmes de routage asymétrique.
-4. Ajoutez des routes pour les dépendances d’adresse IP indiquées ci-dessous dans les dépendances d’adresse IP avec un tronçon suivant Internet.
-5. Ajoutez une route à votre table de routage pour 0.0.0.0/0 avec comme tronçon suivant de votre pare-feu Azure.
-6. Créez des points de terminaison de service pour votre sous-réseau ASE vers Azure SQL et Stockage Azure.
-7. Affectez la table de routage que vous avez créée à votre sous-réseau ASE.
+1. Activez les points de terminaison de service pour Azure SQL, Stockage et Event Hub sur votre sous-réseau ASE. Pour cela, accédez au portail réseau > sous-réseaux, et sélectionnez Microsoft.EventHub, Microsoft.SQL et Microsoft.Storage dans la liste déroulante des points de terminaison de service. Si vous activez des points de terminaison de service pour Azure SQL, toutes les dépendances à Azure SQL existantes dans vos applications doivent également être configurées avec les points de terminaison de service. 
+
+   ![sélectionner les points de terminaison de service][2]
+  
+1. Créez un sous-réseau nommé AzureFirewallSubnet dans le réseau virtuel où se trouve votre environnement ASE. Créez le pare-feu Azure en vous aidant des instructions fournies dans la [documentation sur le pare-feu Azure](https://docs.microsoft.com/azure/firewall/).
+1. Dans Interface utilisateur du pare-feu Azure > Règles > Collection de règles d’application, sélectionnez Ajouter une collection de règles d’application. Choisissez un nom, une priorité et l’action Autoriser. Dans la section Balises FQDN, entrez un nom, définissez les adresses sources sur * et sélectionnez les balises FQDN App Service Environment et Windows Update. 
+   
+   ![Ajouter une règle d’application][1]
+   
+1. Dans Interface utilisateur du pare-feu Azure > Règles > Collection de règles de réseau, sélectionnez Ajouter une collection de règles de réseau. Choisissez un nom, une priorité et l’action Autoriser. Dans la section Règles, entrez un nom, sélectionnez **N’importe lequel**, définissez les adresses sources et de destination sur *, et définissez les ports sur 123. Cette règle permet au système de synchroniser l’horloge à l’aide de NTP. Créez une autre règle de la même manière en définissant cette fois le port 12000 pour faciliter l’identification des éventuels problèmes système.
+
+   ![Ajouter une règle de réseau NTP][3]
+
+1. Créez une table de routage avec les adresses de gestion provenant des [adresses de gestion App Service Environment]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) avec un tronçon suivant Internet. Les entrées de la table de routage sont nécessaires pour éviter des problèmes de routage asymétrique. Ajoutez des routes pour les dépendances d’adresse IP indiquées ci-dessous dans les dépendances d’adresse IP avec un tronçon suivant Internet. Ajoutez une route d’appliance virtuelle à votre table de routage pour 0.0.0.0/0 avec comme tronçon suivant l’adresse IP privée de votre pare-feu Azure. 
+
+   ![Créer une table de routage][4]
+   
+1. Affectez la table de routage que vous avez créée à votre sous-réseau ASE.
+
+#### <a name="deploying-your-ase-behind-a-firewall"></a>Déployer votre environnement ASE derrière un pare-feu
+
+Les étapes à suivre pour déployer votre environnement ASE derrière un pare-feu sont les mêmes que celles pour configurer votre environnement ASE existant avec un pare-feu Azure, sauf que vous devez créer votre sous-réseau ASE, puis effectuer les étapes précédentes. Pour créer votre environnement ASE dans un sous-réseau existant, utilisez un modèle Resource Manager, comme décrit dans [Créer un ASE à l’aide d’un modèle Azure Resource Manager](https://docs.microsoft.com/azure/app-service/environment/create-from-template).
 
 ## <a name="application-traffic"></a>Trafic des applications 
 
 Les étapes ci-dessus permettent à votre environnement ASE de fonctionner sans problème. Vous devrez tout de même configurer des éléments pour répondre aux besoins de vos applications. Dans un environnement ASE configuré avec le pare-feu Azure, les applications font face à deux problèmes.  
 
-- Les noms FQDN des dépendances des applications doivent être ajoutés au pare-feu Azure ou à la table de routage.
-- Les routes doivent être créées pour les adresses d’où provient le trafic pour éviter des problèmes de routage asymétrique.
+- Les dépendances des applications doivent être ajoutées au pare-feu Azure ou à la table de routage. 
+- Les routes doivent être créées pour le trafic des applications afin d’éviter des problèmes de routage asymétrique.
 
 Si vos applications ont des dépendances, celles-ci doivent être ajoutées à votre pare-feu Azure. Créez des règles d’application pour autoriser le trafic HTTP/HTTPS et des règles de réseau pour tout le reste. 
 
 Si vous connaissez la plage d’adresses d’où provient le trafic de demande de vos applications, vous pouvez l’ajouter dans la table de routage qui est affectée à votre sous-réseau ASE. Si la plage d’adresses est grande ou non spécifiée, vous pouvez utiliser une appliance réseau comme la passerelle Application Gateway qui vous donnera une adresse à ajouter à votre table de routage. Pour plus d’informations sur la configuration d’une passerelle d’application avec votre environnement ASE ILB, lisez [Intégration de votre environnement App Service ILB à une passerelle d’application](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
 
+![Environnement ASE avec le flux de connexion du pare-feu Azure][5]
 
+Cette utilisation de la passerelle Application Gateway est un exemple de configuration de votre système. Si vous aviez suivi ce chemin, vous auriez dû ajouter une route dans la table de routage du sous-réseau ASE pour permettre le retour direct du trafic envoyé à Application Gateway. 
+
+## <a name="logging"></a>Journalisation 
+
+Le pare-feu Azure peut envoyer des journaux aux services Stockage Azure, Event Hub ou Log Analytics. Pour intégrer votre application avec n’importe quelle destination prise en charge, accédez au portail Pare-feu Azure > Journaux de diagnostic, puis activez les journaux pour la destination choisie. Si vous intégrez Log Analytics, vous pouvez suivre dans les journaux tout le trafic envoyé au pare-feu Azure. Pour voir le trafic refusé, ouvrez le portail Log Analytics > Journaux et entrez une requête comme celle-ci 
+
+    AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
+ 
+L’intégration de votre pare-feu Azure avec Log Analytics est très utile quand vous préparez une application sans connaître toutes ses dépendances. Pour en savoir plus sur Log Analytics, consultez [Analyser les données Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+ 
 ## <a name="dependencies"></a>Les dépendances
 
-Azure App Service présente des dépendances externes. Elles peuvent être divisées en plusieurs grandes catégories :
+Les informations suivantes sont requises uniquement si vous souhaitez configurer une appliance de pare-feu autre que le pare-feu Azure. 
 
-- Des services compatibles avec les points de terminaison de service doivent être configurés avec des points de terminaison de service si vous souhaitez verrouiller le trafic réseau sortant.
-- Les points de terminaison d’adresse IP n’ont pas de nom de domaine. Cela peut poser problème pour les dispositifs de pare-feu qui s’attendent à ce que tout le trafic HTTPS utilise des noms de domaine. Les points de terminaison d’adresse IP doivent être ajoutés à la table de routage définie sur le sous-réseau ASE.
+- Les services compatibles avec les points de terminaison de service doivent être configurés avec des points de terminaison de service.
+- Les dépendances d’adresses IP pour le trafic non-HTTP/S.
 - Les points de terminaison HTTP/HTTPS avec des noms FQDN peuvent être placés dans votre dispositif de pare-feu.
 - Les points de terminaison HTTP/HTTPS avec des caractères génériques sont des dépendances qui peuvent varier avec votre environnement ASE selon le nombre de qualificateurs. 
 - Les dépendances Linux sont uniquement un problème si vous déployez des applications Linux dans votre environnement ASE. Si vous ne déployez pas d’applications Linux dans votre environnement ASE, vous n’avez pas besoin d’ajouter ces adresses à votre pare-feu. 
@@ -72,21 +98,16 @@ Azure App Service présente des dépendances externes. Elles peuvent être divis
 |----------|
 | Azure SQL |
 | Stockage Azure |
-| Azure KeyVault |
+| Azure Event Hub |
 
+#### <a name="ip-address-dependencies"></a>Dépendances des adresses IP
 
-#### <a name="ip-address-dependencies"></a>Dépendances des adresses IP 
+| Point de terminaison | Détails |
+|----------| ----- |
+| \*:123 | Vérification de l’horloge NTP. Le trafic est vérifié à plusieurs points de terminaison sur le port 123 |
+| \*:12000 | Ce port est utilisé pour la supervision système. S’il est bloqué, certains problèmes seront plus difficiles à identifier, mais votre environnement ASE continuera de fonctionner |
 
-| Point de terminaison |
-|----------|
-| 40.77.24.27:443 |
-| 13.82.184.151:443 |
-| 13.68.109.212:443 |
-| 13.90.249.229:443 |
-| 13.91.102.27:443 |
-| 104.45.230.69:443 |
-| 168.62.226.198:12000 |
-
+Avec un pare-feu Azure, tout ce qui suit est automatiquement configuré avec les balises FQDN. 
 
 #### <a name="fqdn-httphttps-dependencies"></a>Dépendances HTTP/HTTPS FQDN 
 
@@ -116,6 +137,7 @@ Azure App Service présente des dépendances externes. Elles peuvent être divis
 |csc3-2009-2.crl.verisign.com:80 |
 |crl.verisign.com:80 |
 |ocsp.verisign.com:80 |
+|cacerts.digicert.com:80 |
 |azperfcounters1.blob.core.windows.net:443 |
 |azurewatsonanalysis-prod.core.windows.net:443 |
 |global.metrics.nsatc.net:80   |
@@ -132,6 +154,7 @@ Azure App Service présente des dépendances externes. Elles peuvent être divis
 |schemas.microsoft.com:443 |
 |management.core.windows.net:443 |
 |management.core.windows.net:80 |
+|management.azure.com:443 |
 |www.msftconnecttest.com:80 |
 |shavamanifestcdnprod1.azureedge.net:443 |
 |validation-v2.sls.microsoft.com:443 |
@@ -173,3 +196,9 @@ Azure App Service présente des dépendances externes. Elles peuvent être divis
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
 
+<!--Image references-->
+[1]: ./media/firewall-integration/firewall-apprule.png
+[2]: ./media/firewall-integration/firewall-serviceendpoints.png
+[3]: ./media/firewall-integration/firewall-ntprule.png
+[4]: ./media/firewall-integration/firewall-routetable.png
+[5]: ./media/firewall-integration/firewall-topology.png

@@ -13,15 +13,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 8488b968fe2ab823479d70a98ba86be97b28f67d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783618"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820969"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Détecter les mouvements avec Azure Media Analytics
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le processeur multimédia **Azure Media Motion Detector** vous permet d’identifier efficacement les passages intéressants dans une vidéo qui, autrement, serait longue et monotone. La détection de mouvement peut être utilisée sur des séquences d’une caméra fixe pour identifier les passages de la vidéo où un mouvement se produit. Elle génère un fichier JSON contenant des métadonnées avec des horodateurs et le cadre de limitation de la vidéo où s’est produit l’événement.
 
 Ciblant les vidéos de surveillance, cette technologie est en mesure de classer les mouvements en événements pertinents et en faux positifs, tels que les ombres et les variations d’éclairage. Cela vous permet de générer des alertes de sécurité à partir de séquences vidéo sans perdre de temps avec d’innombrables faux positifs, et tout en accédant rapidement aux moments clés dans des vidéos de surveillance longues.
@@ -31,7 +31,7 @@ Le processeur multimédia **Azure Media Motion Detector** est uniquement disponi
 Cet article fournit des informations détaillées sur **Azure Media Motion Detector** et illustre son utilisation avec le SDK Media Services pour .NET
 
 ## <a name="motion-detector-input-files"></a>Fichiers d’entrée du détecteur de mouvement
-Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MOV et WMV.
+Fichiers vidéo. Actuellement, les formats suivants sont pris en charge : MP4, MOV et WMV.
 
 ## <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Motion Detector**, vous devez spécifier une présélection de configuration. 
@@ -44,7 +44,7 @@ Vous pouvez utiliser les paramètres suivants :
 | sensitivityLevel |Chaîne : « low », « medium », « high » |Définit le niveau de sensibilité auquel les mouvements sont signalés. Réglez cette option pour ajuster le nombre de faux positifs. |« medium » |
 | frameSamplingValue |Entier positif |Définit la fréquence d’exécution de l’algorithme. 1 = chaque trame, 2 = toutes les 2 trames, etc. |1 |
 | detectLightChange |Booléen : « True », « False » |Définit si des changements d’éclairage sont signalés dans les résultats. |« False » |
-| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Exemple : 00:00:03 |Spécifie la fenêtre de temps entre les événements de mouvement lorsque 2 événements sont combinés et signalés comme 1. |00:00:00 |
+| mergeTimeThreshold |Xs-time : hh:mm:ss<br/>Exemple : 00:00:03 |Spécifie la fenêtre de temps entre les événements de mouvement lorsque 2 événements sont combinés et signalés comme 1. |00:00:00 |
 | detectionZones |Tableau de zones de détection :<br/>- Zone de détection est un tableau de 3 points ou plus<br/>- Point est une coordonnée x et y de 0 à 1. |Décrit la liste des zones de détection polygonale à utiliser.<br/>Les résultats sont signalés avec les zones en tant qu’ID, la première étant « id » :0 |Zone unique, couvrant la trame entière. |
 
 ### <a name="json-example"></a>Exemple JSON
@@ -105,7 +105,7 @@ Le tableau suivant décrit les éléments du fichier de sortie JSON.
 | Événements |Chaque fragment d’événement contient le mouvement détecté pendant cette durée. |
 | type |Dans la version actuelle, cette valeur est toujours de « 2 » pour le mouvement générique. Ce libellé permet aux API vidéo de classer le mouvement dans les versions ultérieures. |
 | RegionID |Comme expliqué ci-dessus, cette valeur sera toujours « 0 » dans la présente version. Ce libellé permet aux API vidéo de détecter du mouvement dans différentes régions dans les versions ultérieures. |
-| Régions |Fait référence à la zone dans la vidéo où un mouvement est susceptible de vous intéresser. <br/><br/>-« id » représente la zone de la région ; dans cette version, la seule valeur existante est ID 0. <br/>-« type » représente la forme de la région où un mouvement est susceptible de vous intéresser. Pour l’instant, seules « rectangle » et « polygone » sont prises en charge.<br/> Si vous avez indiqué « rectangle », les dimensions de la région sont X, Y, Width et Height. Les coordonnées X et Y représentent les coordonnées XY de l’angle supérieur gauche de la région sur une échelle normalisée de 0,0 à 1,0. La largeur et la hauteur représentent la taille de la région sur une échelle normalisée de 0,0 à 1,0. Dans la version actuelle, X, Y, Width et Height sont toujours fixés à 0, 0 et 1, 1. <br/>Si vous avez indiqué « polygone », les dimensions de la région sont en points. <br/> |
+| Régions |Fait référence à la zone dans la vidéo où un mouvement est susceptible de vous intéresser. <br/><br/>-« id » représente la zone de la région ; dans cette version, la seule valeur existante est ID 0. <br/>-« type » représente la forme de la région où un mouvement est susceptible de vous intéresser. Pour l’instant, seules « rectangle » et « polygone » sont prises en charge.<br/>  Si vous avez indiqué « rectangle », les dimensions de la région sont X, Y, Width et Height. Les coordonnées X et Y représentent les coordonnées XY de l’angle supérieur gauche de la région sur une échelle normalisée de 0,0 à 1,0. La largeur et la hauteur représentent la taille de la région sur une échelle normalisée de 0,0 à 1,0. Dans la version actuelle, X, Y, Width et Height sont toujours fixés à 0, 0 et 1, 1. <br/>Si vous avez indiqué « polygone », les dimensions de la région sont en points. <br/> |
 | Fragments |Les métadonnées sont mémorisées dans différents segments appelés fragments. Chaque fragment contient des valeurs de début (start), de durée (duration), un numéro d’intervalle et des événements (event). Un fragment sans aucun événement signifie qu’aucun mouvement n’a été détecté pendant cette heure de début et la durée. |
 | Crochets [] |Chaque crochet représente un intervalle dans l’événement. Les crochets vides pour cet intervalle signifient qu’aucun mouvement n’a été détecté. |
 | emplacements |Cette nouvelle entrée sous les événements répertorie l’emplacement dans lequel le mouvement s’est produit. Cette entrée est plus précise que les zones de détection. |
@@ -280,7 +280,7 @@ namespace VideoMotionDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Video Motion Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);

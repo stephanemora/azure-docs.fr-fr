@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 0fa695218bb1112324ef2ddac80e52f927a5971b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9ff75cbd0a4915cdf7045be9a45d11075dda15bd
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045294"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402317"
 ---
 # <a name="u-sql-programmability-guide"></a>Guide de programmabilité U-SQL
 
@@ -135,7 +135,7 @@ Chaque DLL d’assembly ou fichier de ressources chargé, comme un runtime diff�
 
 Enfin, notez que chaque base de données U-SQL ne peut contenir qu’une seule version d’un assembly donné. Par exemple, si vous avez besoin à la fois des versions 7 et 8 de la bibliothèque NewtonSoft Json.Net, vous devez les enregistrer dans deux bases de données distinctes. En outre, chaque script ne peut faire référence qu’à une seule version d’une DLL d’assembly donnée. À cet égard, U-SQL suit la sémantique de gestion et de contrôle de version d’assembly C#.
 
-## <a name="use-user-defined-functions-udf"></a>Utiliser les fonctions définies par l’utilisateur : UDF
+## <a name="use-user-defined-functions-udf"></a>Utiliser les fonctions définies par l’utilisateur : Fonctions définies par l'utilisateur
 Les fonctions U-SQL définies par l’utilisateur (ou UDF) sont des routines de programmation qui acceptent des paramètres, effectuent une action (telle qu’un calcul complexe) et retournent le résultat de celle-ci en tant que valeur. La valeur de retour d’une fonction définie par l’utilisateur ne peut être qu’une valeur scalaire unique. Une fonction définie par l’utilisateur U-SQL peut être appelée dans un script U-SQL de base comme toute autre fonction scalaire C#.
 
 Nous vous recommandons d’initialiser les fonctions définies par l’utilisateur U-SQL en tant que **publiques** et **statiques**.
@@ -426,7 +426,7 @@ Le fichier de sortie se présente comme suit :
 
 Cet exemple illustre un scénario d’utilisation plus complexe dans lequel nous utilisons une variable globale à l’intérieur de la section code-behind, qui est appliquée à l’ensemble de lignes de mémoire.
 
-## <a name="use-user-defined-types-udt"></a>Utiliser des types définis par l’utilisateur (UDT)
+## <a name="use-user-defined-types-udt"></a>Utiliser des types définis par l’utilisateur : UDT
 Les types définis par l’utilisateur (ou UDT) sont une autre fonctionnalité de programmabilité de U-SQL. Un type défini par l’utilisateur U-SQL agit comme un type défini par l’utilisateur C# standard. C# est un langage fortement typé qui permet d’utiliser des types définis par l’utilisateur intégrés et personnalisés.
 
 U-SQL ne peut pas implicitement sérialiser ou désérialiser des types définis par l’utilisateur arbitraires lorsque le type défini par l’utilisateur est transmis entre les sommets des jeux de lignes. Cela implique que l’utilisateur doit fournir un formateur explicite à l’aide de l’interface IFormatter. U-SQL connaît ainsi les méthodes de sérialisation et désérialisation pour le type défini par l’utilisateur.
@@ -529,12 +529,12 @@ L’interface `IFormatter` sérialise et désérialise un graphique d’objets a
 
 \<typeparam name="T"&gt;Type de racine pour le graphique d’objet à sérialiser et désérialiser.
 
-* **Désérialiser** : désérialise les données sur le flux fourni et reconstitue le graphique d’objet.
+* **Désérialiser** : désérialise les données sur le flux fourni et reconstitue le graphe d’objet.
 
-* **Sérialiser** : sérialise un objet ou graphique d’objet avec la racine donnée dans le flux fourni.
+* **Sérialiser** : sérialise un objet, ou graphe d’objet, avec la racine donnée dans le flux fourni.
 
 Instance `MyType` : instance du type.  
-Enregistreur `IColumnWriter` / lecteur `IColumnReader` : flux de la colonne sous-jacente.  
+Enregistreur `IColumnWriter` / Lecteur `IColumnReader` : flux de colonne sous-jacent.  
 Contexte `ISerializationContext` : énumération définissant un jeu d’indicateurs qui spécifie le contexte source ou cible pour le flux pendant la sérialisation.
 
 * **Intermediate** : spécifie que le contexte source ou cible n’est pas un magasin persistant.
@@ -1067,11 +1067,11 @@ UDO est généralement appelé explicitement dans un script U-SQL dans le cadre 
 ## <a name="use-user-defined-extractors"></a>Utiliser des extracteurs définis par l’utilisateur
 U-SQL vous permet d’importer des données externes en utilisant une instruction EXTRACT. Une instruction EXTRACT peut utiliser des extracteurs UDO intégrés :  
 
-* *Extractors.Text()*  : produit une extraction à partir de fichiers texte délimités de codages différents.
+* *Extractors.Text()*  : produit une extraction à partir de fichiers texte délimités d’encodages différents.
 
-* *Extractors.Csv()*  : produit une extraction à partir de fichiers de valeurs séparées par des virgules (CSV) de codages différents.
+* *Extractors.Csv()*  : produit une extraction à partir de fichiers de valeurs séparées par des virgules (CSV) d’encodages différents.
 
-* *Extractors.Tsv()*  : produit une extraction à partir de fichiers de valeurs séparées par des tabulations (TSV) de codages différents.
+* *Extractors.Tsv()*  : produit une extraction à partir de fichiers de valeurs séparées par des tabulations (TSV) d’encodages différents.
 
 Il peut être utile de développer un extracteur personnalisé. C’est le cas lors de l’importation de données si vous souhaitez effectuer l’une des tâches suivantes :
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Utiliser des générateurs de sortie définis par l’utilisateur
 Le générateur de sortie défini par l’utilisateur est un autre UDO U-SQL qui vous permet d’étendre les fonctionnalités U-SQL intégrées. Comme pour l’extracteur, il existe plusieurs générateurs de sortie intégrés.
 
-* *Outputters.Text()*  : écrit des données dans des fichiers texte délimités de codages différents.
-* *Outputters.Csv()*  : écrit des données dans des fichiers de valeurs séparées par des virgules (CSV) de codages différents.
-* *Outputters.Tsv()*  : écrit des données dans des fichiers de valeur séparées par des tabulations (TSV) de codages différents.
+* *Outputters.Text()*  : écrit des données dans des fichiers texte délimités d’encodages différents.
+* *Outputters.csv ()*: écrit des données dans des fichiers de valeurs séparées par des virgules (CSV) d’encodages différents.
+* *Outputters.Tsv()*  : écrit des données dans des fichiers de valeur séparées par des tabulations (TSV) d’encodages différents.
 
 Un générateur de sortie personnalisé vous permet d’écrire des données dans un format défini personnalisé. Cela peut être utile pour les tâches suivantes :
 
@@ -1300,7 +1300,7 @@ string val = row.Get<string>(col.Name)
 
 Cette approche permet de créer un générateur de sortie flexible pour tout schéma de métadonnées.
 
-Les données de sortie sont écrites dans le fichier en utilisant `System.IO.StreamWriter`. Le paramètre stream est défini sur `output.BaseStrea` dans `IUnstructuredWriter output`.
+Les données de sortie sont écrites dans le fichier en utilisant `System.IO.StreamWriter`. Le paramètre stream est défini sur `output.BaseStream` dans `IUnstructuredWriter output`.
 
 Notez qu’il est important de vider le tampon de données du fichier après chaque itération de la ligne. En outre, l’objet `StreamWriter` doit être utilisé avec l’attribut Disposable activé (par défaut) et avec le mot clé **using** :
 
@@ -1775,7 +1775,7 @@ Dans ce scénario d’utilisation, l’applicateur défini par l’utilisateur a
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
+303 Y0AB2CD34XY458890   Chevrolet,Cruise,2010,4Dr,32455
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 

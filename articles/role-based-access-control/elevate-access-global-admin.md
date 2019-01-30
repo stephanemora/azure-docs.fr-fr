@@ -1,6 +1,6 @@
 ---
-title: Élever l’accès d’un administrateur général dans Azure Active Directory | Microsoft Docs
-description: Cet article décrit comment élever l’accès d’un administrateur général dans Azure Active Directory à l’aide du portail Azure ou d’une API REST.
+title: Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure | Microsoft Docs
+description: Cet article décrit comment élever l’accès d’un administrateur général pour gérer tous les abonnements et groupes d’administration dans Azure Active Directory à l’aide du portail Azure ou d’une API REST.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2f66078a817f5e6ad7296df11634a1a6130a055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321663"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437468"
 ---
-# <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Élever l’accès d’un administrateur général dans Azure Active Directory
+# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
-Si vous êtes un [administrateur général](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) dans Azure Active Directory (Azure AD), il peut vous arriver de vouloir effectuer les opérations suivantes :
-
-- récupérer l’accès à un abonnement Azure quand un utilisateur a perdu cet accès ;
-- accorder à un autre utilisateur ou à vous-même l’accès à un abonnement Azure ;
-- afficher tous les abonnements Azure au sein d’une organisation ;
-- autoriser une application d’automation (telle qu’une application de facturation ou d’audit) à accéder à tous les abonnements Azure.
-
-Cet article décrit les différentes façons dont vous pouvez élever votre accès dans Azure AD.
+En tant qu’administrateur général dans Azure Active Directory (Azure AD), il est possible que vous n’ayez pas accès à tous les abonnements et groupes d’administration de votre annuaire. Cet article décrit les méthodes pour élever votre accès à tous les abonnements et groupes d’administration.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="why-would-you-need-to-elevate-your-access"></a>Pourquoi devez-vous élever votre accès ?
 
-Les ressources Azure AD et Azure sont sécurisées de façon indépendante les unes des autres. Ainsi, les attributions de rôles Azure AD n’accordent pas d’accès aux ressources Azure et inversement, les attributions de rôles Azure n’accordent pas d’accès à Azure AD. En revanche, si vous êtes administrateur général dans Azure AD, vous pouvez vous attribuer à vous-même un accès à tous les abonnements et groupes d’administration Azure de votre annuaire. Utilisez cette fonctionnalité si vous n’avez pas accès aux ressources de l’abonnement Azure, comme les machines virtuelles ou les comptes de stockage, et que vous voulez utiliser vos privilèges d’administrateur général pour accéder à ces ressources.
+Si vous êtes administrateur général, il peut vous arriver de vouloir effectuer les opérations suivantes :
+
+- Récupérer l’accès à un abonnement ou groupe d’administration Azure quand un utilisateur a perdu cet accès
+- Accorder à un autre utilisateur ou à vous-même l’accès à un abonnement ou groupe d’administration Azure
+- Voir tous les abonnements ou groupes d’administration Azure au sein d’une organisation
+- Autoriser une application d’automation (telle qu’une application de facturation ou d’audit) à accéder à tous les abonnements ou groupes d’administration Azure
+
+## <a name="how-does-elevate-access-work"></a>Comment fonctionne l’élévation de l’accès ?
+
+Les ressources Azure AD et Azure sont sécurisées de façon indépendante les unes des autres. Ainsi, les attributions de rôles Azure AD n’accordent pas d’accès aux ressources Azure et inversement, les attributions de rôles Azure n’accordent pas d’accès à Azure AD. En revanche, si vous êtes [administrateur général](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) dans Azure AD, vous pouvez vous attribuer à vous-même un accès à tous les abonnements et groupes d’administration Azure de votre annuaire. Utilisez cette fonctionnalité si vous n’avez pas accès aux ressources de l’abonnement Azure, comme les machines virtuelles ou les comptes de stockage, et que vous voulez utiliser vos privilèges d’administrateur général pour accéder à ces ressources.
 
 Quand vous élevez votre accès, le rôle [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) vous est attribué dans Azure au niveau de l’étendue racine (`/`). Ceci vous permet de voir toutes les ressources et d’attribuer des accès dans n’importe quel abonnement ou groupe d’administration de l’annuaire. Les attributions de rôle Administrateur de l’accès utilisateur peuvent être supprimées avec PowerShell.
 
@@ -55,19 +57,29 @@ Effectuez les étapes suivantes pour élever l’accès d’un administrateur g�
 
    ![Propriétés Azure AD - capture d’écran](./media/elevate-access-global-admin/aad-properties.png)
 
-1. Sous **Gestion des accès aux ressources Azure**, définissez le commutateur sur **Oui**.
+1. Sous **Gestion de l’accès pour les ressources Azure**, définissez la bascule sur **Oui**.
 
    ![Gestion des accès aux ressources Azure - capture d’écran](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Quand vous définissez le commutateur sur **Oui**, le rôle Administrateur de l’accès utilisateur vous est attribué dans Azure RBAC au niveau de l’étendue racine (/). Ceci vous accorde l’autorisation d’attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Ce commutateur est disponible seulement pour les utilisateurs auxquels le rôle Administrateur général a été attribué dans Azure AD.
+   Quand vous définissez la bascule sur **Oui**, le rôle Administrateur de l’accès utilisateur vous est attribué dans Azure RBAC au niveau de l’étendue racine (/). Ceci vous accorde l’autorisation d’attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Cette bascule est disponible seulement pour les utilisateurs auxquels le rôle Administrateur général a été attribué dans Azure AD.
 
-   Quand vous définissez le commutateur sur **Non**, le rôle Administrateur de l’accès utilisateur dans Azure RBAC est supprimé de votre compte d’utilisateur. Vous ne pouvez plus attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Vous pouvez voir et gérer seulement les abonnements et groupes d’administration Azure auxquels l’accès vous a été accordé.
+   Quand vous définissez la bascule sur **Non**, le rôle Administrateur de l’accès utilisateur dans Azure RBAC est supprimé de votre compte d’utilisateur. Vous ne pouvez plus attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Vous pouvez voir et gérer seulement les abonnements et groupes d’administration Azure auxquels l’accès vous a été accordé.
 
 1. Cliquez sur **Enregistrer** pour enregistrer votre paramètre.
 
-   Ce paramètre n’est pas une propriété globale et s’applique uniquement à l’utilisateur actuellement connecté.
+   Ce paramètre n’est pas une propriété globale et s’applique uniquement à l’utilisateur connecté. Vous ne pouvez pas élever l’accès pour tous les membres du rôle Administrateur général.
 
-1. Effectuez les tâches que vous devez accomplir via un accès avec élévation de privilèges. Lorsque vous avez terminé, repositionnez le commutateur sur **Non**.
+1. Déconnectez-vous et reconnectez-vous pour actualiser votre accès.
+
+    Vous devez maintenant avoir accès à tous les abonnements et à tous les groupes d’administration de votre annuaire. Vous remarquerez que vous a été octroyé le rôle Administrateur de l’accès utilisateur au niveau de l’étendue racine.
+
+   ![Attributions de rôle d’abonnement au niveau de l’étendue racine : capture d’écran](./media/elevate-access-global-admin/iam-root.png)
+
+1. Effectuez les modifications que vous devez apporter via l’accès élevé.
+
+    Pour plus d’informations sur l’attribution de rôles, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](role-assignments-portal.md). Si vous utilisez Azure AD Privileged Identity Management (PIM), consultez [Découvrir les ressources Azure à gérer dans PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou [Attribuer des rôles de ressources Azure dans PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+
+1. Quand vous avez terminé, définissez la bascule **Gestion de l’accès pour les ressources Azure** sur **Non**. Comme il s’agit d’un paramètre par utilisateur, vous devez être connecté sous le même utilisateur que celui utilisé pour élever l’accès.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -89,16 +101,22 @@ RoleDefinitionName : User Access Administrator
 RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9
 ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
+CanDelegate        : False
 ```
 
 ### <a name="remove-a-role-assignment-at-the-root-scope-"></a>Supprimer une attribution de rôle dans l’étendue racine (/)
 
-Pour supprimer l’attribution de rôle Administrateur des accès utilisateur d’un utilisateur dans l’étendue racine (`/`), utilisez la commande [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
+Pour supprimer l’attribution de rôle Administrateur de l’accès utilisateur d’un utilisateur dans l’étendue racine (`/`), effectuez les étapes suivantes.
 
-```azurepowershell
-Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
-  -RoleDefinitionName "User Access Administrator" -Scope "/"
-```
+1. Connectez-vous en tant qu’utilisateur pouvant supprimer l’accès élevé. Il peut s’agir du même utilisateur que celui utilisé pour élever l’accès ou d’un autre administrateur général disposant d’un accès élevé au niveau de l’étendue racine.
+
+
+1. Utilisez la commande [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) pour supprimer l’attribution de rôle Administrateur de l’accès utilisateur.
+
+    ```azurepowershell
+    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+      -RoleDefinitionName "User Access Administrator" -Scope "/"
+    ```
 
 ## <a name="rest-api"></a>API REST
 
