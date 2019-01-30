@@ -276,8 +276,8 @@ Lorsque vous copiez des données à partir d’OData, les mappages suivants sont
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | Datetime |
-| Edm.Decimal | Décimal |
+| Edm.DateTime | DateTime |
+| Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
 | Edm.Guid | Guid |
@@ -285,9 +285,9 @@ Lorsque vous copiez des données à partir d’OData, les mappages suivants sont
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Chaîne |
-| Edm.Time | intervalle de temps |
-| Edm.DateTimeOffset | DatetimeOffset |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]
 > Les types de données complexes OData (par exemple, **Object**), ne sont pas pris en charge.
