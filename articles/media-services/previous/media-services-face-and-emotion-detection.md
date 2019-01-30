@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 859e75819f96edd527fceb143faf8357738ce80e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5aab8a5d48b7a7d17aa44b74d65ee70cb9322944
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784458"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817552"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Détection des visages et des émotions avec Azure Media Analytics
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le processeur multimédia **Azure Media Face Detector** vous permet de compter, de suivre le mouvement, voire de mesurer la participation du public ainsi que ses réactions en analysant les expressions faciales. Ce service présente deux fonctionnalités : 
 
 * **Détection faciale**
@@ -42,7 +42,7 @@ Le processeur multimédia **Azure Media Face Detector** est uniquement disponibl
 Cet article apporte des précisions sur **Azure Media Face Detector** et illustre son utilisation avec le kit SDK Media Services pour .NET.
 
 ## <a name="face-detector-input-files"></a>Fichiers d’entrée du détecteur facial
-Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MOV et WMV.
+Fichiers vidéo. Actuellement, les formats suivants sont pris en charge : MP4, MOV et WMV.
 
 ## <a name="face-detector-output-files"></a>Fichiers de sortie du détecteur facial
 L’API de détection et de suivi facial permet une détection d’emplacement et un suivi de visage très précis ; elle peut détecter jusqu’à 64 visages humains dans une vidéo. Les visages filmés de face donnent les meilleurs résultats ; les visages filmés de côté ou les visages de taille réduite (24 x 24 pixels ou moins) peuvent ne pas être aussi précis.
@@ -152,7 +152,7 @@ Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vou
 #### <a name="attribute-descriptions"></a>Descriptions des attributs
 | Nom de l’attribut | Description |
 | --- | --- |
-| Mode |Faces : détection faciale uniquement.<br/>PerFaceEmotion : retourne les valeurs d’émotion indépendamment pour chaque détection faciale.<br/>AggregateEmotion : retourne les valeurs d’émotion moyennes pour tous les visages dans l’image. |
+| Mode |Visages : Détection faciale uniquement.<br/>PerFaceEmotion : Retourne les valeurs d’émotion indépendamment pour chaque détection faciale.<br/>AggregateEmotion : Retourne les valeurs d’émotion moyennes pour tous les visages dans l’image. |
 | AggregateEmotionWindowMs |Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie la longueur de la vidéo utilisée pour produire chaque résultat agrégé, en millisecondes. |
 | AggregateEmotionIntervalMs |Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie à quelle fréquence les résultats agrégés doivent être produits. |
 
@@ -418,7 +418,7 @@ namespace FaceDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Face Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Face Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);

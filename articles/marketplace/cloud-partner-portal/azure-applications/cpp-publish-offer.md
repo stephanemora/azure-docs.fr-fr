@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329988"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828092"
 ---
 # <a name="publish-azure-application-offer"></a>Publier une offre d’application Azure
 
@@ -36,7 +36,7 @@ Le tableau ci-après liste et décrit chacune des étapes de publication, et fou
 |  **Étape de publication**           | **Time**    | **Description**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Valider les prérequis         | < 15 min    | Les informations de l’offre et les paramètres de l’offre sont validés.                        |
-| Valider les paramètres du chiffre d’affaires influencé | < 15 min  |      |
+| Valider les paramètres du chiffre d’affaires influencé | < 15 min  | L’attribution d’utilisation de ressources Azure pour l’offre est vérifiée.             |
 | Certification                  | < 1 jour     | L’offre est analysée par l’équipe de certification d’Azure. Elle vérifie la présence de virus, de programmes malveillants, de problèmes de sécurité, ainsi que la conformité aux normes de sécurité. L’offre est vérifiée pour voir si elle répond aux critères d’éligibilité. Pour plus d’informations, consultez [Prérequis](./cpp-prerequisites.md). Si un problème est détecté, des commentaires sont fournis. |
 | Validation Test Drive          | < 2 heures   | (Facultatif) Si un Test Drive est présent, Microsoft valide qu’il peut être déployé et répliqué.  |
 | Empaquetage et référencement de génération de prospects | < 1 heure  | Les ressources techniques de l’offre sont empaquetées à des fins d’utilisation par le client, et les systèmes de prospection sont installés et déployés. |

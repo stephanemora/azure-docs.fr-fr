@@ -8,17 +8,17 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 10/05/2018
-ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/22/2019
+ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725146"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807267"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>S’authentifier et accéder aux ressources avec des identités managées dans Azure Logic Apps
 
-Pour accéder aux ressources des autres locataires d’Azure Active Directory (Azure AD) et authentifier votre identité sans vous connecter, votre application logique peut utiliser une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) (anciennement appelée MSI ou Managed Service Identity), plutôt que des informations d’identification ou des clés secrètes. Azure gère cette identité pour vous et vous aide à sécuriser vos informations d’identification, car vous n’êtes pas obligé de fournir ni de faire pivoter des secrets. Cet article montre comment vous pouvez créer et utiliser une identité managée attribuée par le système pour votre application logique. Pour en savoir plus sur les identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md)
+Pour accéder aux ressources des autres locataires d’Azure Active Directory (Azure AD) et authentifier votre identité sans vous connecter, votre application logique peut utiliser une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) (anciennement appelée MSI ou Managed Service Identity), plutôt que des informations d’identification ou des clés secrètes. Azure gère cette identité pour vous et vous aide à sécuriser vos informations d’identification, car vous n’êtes pas obligé de fournir ni de faire pivoter des secrets. Cet article montre comment vous pouvez configurer et utiliser une identité managée attribuée par le système pour votre application logique. Pour en savoir plus sur les identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
 > Vous pouvez actuellement disposer d’un maximum de 10 flux de travail d’applications logiques avec des identités assignées par le système dans chaque abonnement Azure.
@@ -29,40 +29,42 @@ Pour accéder aux ressources des autres locataires d’Azure Active Directory (A
 
 * L’application logique dans laquelle vous souhaitez utiliser l’identité managée attribuée par le système. Si vous n’avez pas une application logique, consultez [Créer votre premier flux de travail d’application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-<a name="create-identity"></a>
+<a name="enable-identity"></a>
 
-## <a name="create-managed-identity"></a>Créer une identité managée
+## <a name="enable-managed-identity"></a>Activer une identité managée
 
-Vous pouvez créer ou activer une identité managée attribuée par le système pour votre application logique via le Portail Azure, les modèles Azure Resource Manager ou Azure PowerShell. 
+Pour les entités managées attribuées par le système, vous n’avez pas besoin de créer manuellement cette identité. Pour configurer une identité managée attribuée par le système pour votre application logique, vous pouvez procéder comme suit : 
+
+* [Portail Azure](#azure-portal) 
+* [Modèles Microsoft Azure Resource Manager](#template) 
+* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
+
+<a name="azure-portal"></a>
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour activer une identité managée attribuée par le système pour votre application logique via le Portail Azure, activez le paramètre **Inscription auprès d’Azure Active Directory** dans les paramètres de flux de travail de votre application logique.
+Pour activer une identité managée attribuée par le système pour votre application logique via le portail Azure, activez le paramètre **Attribuée par le système** dans les paramètres d’identité de votre application logique.
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 
-1. Procédez comme suit : 
+1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Identité**. 
 
-   1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Paramètres de flux de travail**. 
+1. Sous **Attribuée par le système** > **État**, choisissez **Activé**. Puis, choisissez **Enregistrer** > **Oui**.
 
-   1. Sous **Managed Service Identity** > 
-   **Inscription auprès d’Azure Active Directory**, choisissez **Activé**.
+   ![Activer le paramètre d’identité managée](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
-   1. Quand vous avez terminé, sélectionnez **Enregistrer** dans la barre d’outils.
+   Votre application logique dispose maintenant d’une identité managée attribuée par le système et inscrite dans Azure Active Directory :
 
-      ![Activer le paramètre d’identité managée](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
+   ![GUID de l’ID d’objet](./media/create-managed-service-identity/object-id.png)
 
-      Votre application logique dispose maintenant d’une identité managée attribuée par le système et inscrite dans Azure Active Directory avec les propriétés et les valeurs suivantes :
+   | Propriété | Valeur | Description | 
+   |----------|-------|-------------| 
+   | **ID d’objet** | <*identity-resource-ID*> | Identificateur global unique (GUID) qui représente l’identité managée attribuée par le système pour votre application logique dans un locataire Azure AD | 
+   ||| 
 
-      ![GUID de l’ID du principal et l’ID du locataire](./media/create-managed-service-identity/principal-tenant-id.png)
+<a name="template"></a>
 
-      | Propriété | Valeur | Description | 
-      |----------|-------|-------------| 
-      | **ID du principal** | <*principal-ID*> | Identificateur global unique (GUID) qui représente l’application logique dans un locataire Azure AD | 
-      | **Tenant ID** | <*Azure-AD-tenant-ID*> | Identificateur global unique (GUID) qui représente le locataire Azure AD où votre application logique est maintenant un membre. À l’intérieur du locataire Azure AD, le principal du service a le même nom que l’instance d’application logique. | 
-      ||| 
-
-### <a name="deployment-template"></a>Modèle de déploiement
+### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 
 Lorsque vous souhaitez automatiser la création et le déploiement des ressources Azure telles que les applications logiques, vous pouvez utiliser des modèles [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). Pour créer une identité managée attribuée par le système pour votre application logique via un modèle, ajoutez l’élément `"identity"` et la propriété `"type"` à la définition de flux de travail d’application logique dans votre modèle de déploiement : 
 
@@ -109,7 +111,7 @@ Quand Azure crée votre application logique, la définition de flux de travail d
 
 | Propriété | Valeur | Description | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | Identificateur global unique (GUID) qui représente l’application logique dans le locataire Azure AD | 
+| **principalId** | <*principal-ID*> | Identificateur global unique (GUID) qui représente l’application logique dans le locataire Azure AD et qui s’affiche parfois comme « ID d’objet » ou `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Identificateur global unique (GUID) qui représente le locataire Azure AD où l’application logique est maintenant un membre. À l’intérieur du locataire Azure AD, le principal du service a le même nom que l’instance d’application logique. | 
 ||| 
 
@@ -150,11 +152,23 @@ Après avoir configuré votre application logique avec une identité managée at
 
 1. Fournissez les informations nécessaires pour cette action, telles que la **méthode** de demande et l’emplacement **URI** pour la ressource que vous souhaitez appeler.
 
+   Par exemple, supposons que vous utilisez l’authentification Azure Active Directory (Azure AD) avec [l’un de ces services Azure qui prennent en charge Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   Dans la zone **URI**, entrez l’URL du point de terminaison pour ce service Azure. 
+   Par conséquent, si vous utilisez Azure Resource Manager, entrez cette valeur dans la propriété **URI** :
+
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+
 1. Dans l’action HTTP, choisissez **Afficher les options avancées**. 
 
-1. Dans la liste **Authentification**, sélectionnez **Managed Service Identity**, qui affiche ensuite la propriété **Audience** que vous devez définir :
+1. Dans la liste **Authentification**, sélectionnez **Identité managée**. Après avoir sélectionné cette authentification, la propriété **Audience** s’affiche avec la valeur d’ID de ressource par défaut :
 
-   ![Sélectionnez Managed Service Identity.](./media/create-managed-service-identity/select-managed-service-identity.png)
+   ![Sélectionnez « Identité managée »](./media/create-managed-service-identity/select-managed-service-identity.png)
+
+   > [!IMPORTANT]
+   > 
+   > Dans la propriété **Audience**, la valeur d’ID de ressource doit correspondre exactement à ce qu’attend Azure AD, notamment les barres obliques de fin obligatoires. 
+   > Vous pouvez trouver ces valeurs d’ID de ressource dans ce [tableau décrivant les services Azure qui prennent en charge Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > Par exemple, si vous utilisez l’ID de ressource Azure Resource Manager, veillez à ce que l’URI contienne une barre oblique de fin.
 
 1. Continuez à créer l’application logique comme vous le souhaitez.
 
@@ -162,23 +176,21 @@ Après avoir configuré votre application logique avec une identité managée at
 
 ## <a name="remove-managed-identity"></a>Supprimer l’identité managée
 
-Pour désactiver une identité managée attribuée par le système sur votre application logique, vous pouvez suivre la procédure similaire à la création de l’identité via le Portail Azure, les modèles de déploiement Azure Resource Manager ou Azure PowerShell. 
+Pour désactiver une identité managée attribuée par le système sur votre application logique, vous pouvez suivre la procédure similaire à la configuration de l’identité via le portail Azure, les modèles de déploiement Azure Resource Manager ou Azure PowerShell. 
 
 Quand vous supprimez votre application logique, Azure supprime automatiquement d’Azure AD l’identité affectée par le système de votre application logique.
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Dans le Concepteur d’application logique, ouvrez votre application logique.
+Pour supprimer une identité managée attribuée par le système pour votre application logique via le portail Azure, désactivez le paramètre **Attribuée par le système** dans les paramètres d’identité de votre application logique.
 
-1. Procédez comme suit : 
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 
-   1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Paramètres de flux de travail**. 
-   
-   1. Sous **Managed Service Identity**, choisissez **Désactivé** pour la propriété **Inscription auprès d’Azure Active Directory**.
+1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Identité**. 
 
-   1. Quand vous avez terminé, sélectionnez **Enregistrer** dans la barre d’outils.
+1. Sous **Attribuée par le système** > **État**, choisissez **Désactivé**. Puis, choisissez **Enregistrer** > **Oui**.
 
-      ![Désactiver le paramètre d’identité managée](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
+   ![Désactiver le paramètre d’identité managée](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
 
 ### <a name="deployment-template"></a>Modèle de déploiement
 
@@ -194,4 +206,3 @@ Si vous avez créé l’identité managée attribuée par le système de l’app
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
-

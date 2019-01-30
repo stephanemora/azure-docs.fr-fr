@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Huddle | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec Huddle | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Huddle.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8389ba4c-f5f8-4ede-b2f4-32eae844ceb0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 050a5a210ab10a557b149513a0416b188f4618ba
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d9d145aa5da636574426f1ff4ad978eb857ab252
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885901"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827922"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Didacticiel : Intégration d’Azure Active Directory avec Huddle
+# <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Didacticiel : Intégration d’Azure Active Directory avec Huddle
 
 Dans ce didacticiel, vous allez apprendre à intégrer Huddle à Azure Active Directory (Azure AD).
 
@@ -101,11 +101,11 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     ![Configurer l'authentification unique][4]
 
-2. Cliquez sur **Modifier le mode d’authentification unique** en haut de l’écran pour sélectionner le mode **SAML**.
+2. Cliquez sur **Modifier le mode d’authentification unique** au-dessus de l’écran pour sélectionner le mode **SAML**.
 
     ![Configurer l'authentification unique](./media/huddle-tutorial/tutorial_general_300.png)
 
-3. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, cliquez sur le bouton **Sélectionner** correspondant au mode **SAML** afin d’activer l’authentification unique.
+3. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, cliquez sur **Sélectionner** pour le mode **SAML** afin d’activer l’authentification unique.
 
     ![Configurer l'authentification unique](./media/huddle-tutorial/tutorial_general_301.png)
 
@@ -137,7 +137,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     | `https://login.huddle.com/saml/idp-initiated-sso`|
     | |
 
-    c. Si vous souhaitez configurer l’application en **mode initié par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis procédez comme suit :
+    c. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Huddle](./media/huddle-tutorial/tutorial_huddle_url1.png)
 
@@ -169,7 +169,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, dans le volet gauche, sélectionnez successivement **Azure Active Directory**, **Utilisateurs** et **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Créer un utilisateur Azure AD][100]
 
@@ -177,7 +177,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/huddle-tutorial/create_aaduser_01.png) 
 
-3. Dans les propriétés de la fenêtre Utilisateur, procédez comme suit.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
     ![Création d’un utilisateur de test Azure AD](./media/huddle-tutorial/create_aaduser_02.png)
 
@@ -186,7 +186,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
-    c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans la zone Mot de passe.
+    c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Sélectionnez **Créer**.
 
@@ -242,7 +242,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+6. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
 
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

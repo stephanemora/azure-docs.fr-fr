@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Neota Logic Studio | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Neota Logic Studio | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Neota Logic Studio.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 842605e6-a91d-42cc-a0bb-e23e67173ae2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 667d2a5217f5c2aa29432a99cd0e07fc8d7b3ca7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6f2c91a9b94aeff1c0fa7ad7df137a30055230b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447034"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827038"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Didacticiel : Intégration d’Azure Active Directory à Neota Logic Studio
+# <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Didacticiel : Intégration d’Azure Active Directory à Neota Logic Studio
 
 Dans ce didacticiel, vous allez apprendre à intégrer Neota Logic Studio à Azure Active Directory (Azure AD).
 
@@ -130,10 +130,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Configurer l'authentification unique](./media/neotalogicstudio-tutorial/tutorial_general_400.png)
 
-1. Pour configurer l’authentification unique (SSO) pour votre application, contactez l’[équipe de support technique Neota Logic Studio](https://www.neotalogic.com/contact-us/) en lui fournissant le fichier **XML de métadonnées** téléchargé.
+1. Pour configurer l’authentification unique (SSO) pour votre application, contactez [l’équipe de support technique Neota Logic Studio](https://www.neotalogic.com/contact-us/) en lui fournissant le fichier **XML de métadonnées** téléchargé.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -168,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="creating-a-neota-logic-studio-test-user"></a>Création d’un utilisateur de test Neota Logic Studio
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Neota Logic Studio. Collaborez avec l’[équipe de support technique Neota Logic Studio](https://www.neotalogic.com/contact-us/) pour ajouter des utilisateurs dans la plateforme Neota Logic Studio. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Neota Logic Studio. Collaborez avec  [l’équipe de support technique Neota Logic Studio](https://www.neotalogic.com/contact-us/)  pour ajouter des utilisateurs dans la plateforme Neota Logic Studio. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 

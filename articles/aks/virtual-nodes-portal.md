@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 3b99afe82f77b6bd89b5afa458179abee4c98e4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999129"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845399"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels sur le Portail Azure
 
@@ -64,7 +64,7 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-L’exemple de sortie suivant illustre l’unique nœud de machine virtuelle créé, puis le nœud virtuel Linux, *virtual-node-aci-linux* :
+L’exemple de sortie suivant illustre l’unique nœud de machine virtuelle créé, puis le nœud virtuel Linux, *virtual-node-aci-linux* :
 
 ```
 $ kubectl get nodes
@@ -126,6 +126,9 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 
 Le pod reçoit une adresse IP interne du sous-réseau de réseau virtuel Azure délégué de façon à être utilisé avec des nœuds virtuels.
 
+> [!NOTE]
+> Si vous utilisez des images stockées dans Azure Container Registry, [configurez et utilisez un secret Kubernetes][acr-aks-secrets]. Une limitation actuelle de la préversion des nœuds virtuels est que vous ne pouvez pas utiliser l’authentification de principal du service Azure AD intégrée. Si vous n’utilisez pas de secret, le démarrage des pods planifiés sur les nœuds virtuels échoue et l’erreur `HTTP response status code 400 error code "InaccessibleImage"` est signalée.
+
 ## <a name="test-the-virtual-node-pod"></a>Tester le pod de nœud virtuel
 
 Pour tester le pod en cours d’exécution sur le nœud virtuel, accédez à l’application de démonstration avec un client web. Comme le pod possède une adresse IP interne, vous pouvez tester facilement cette connectivité à partir d’un autre pod sur le cluster AKS. Créez un pod de test et attachez-y une session Terminal :
@@ -140,7 +143,7 @@ Installez `curl` dans le pod en utilisant `apt-get` :
 apt-get update && apt-get install -y curl
 ```
 
-Maintenant, accédez à l’adresse de votre pod avec `curl` (par exemple, *http://10.241.0.4*). Indiquez votre propre adresse IP interne, obtenue avec la commande `kubectl get pods` précédente :
+Maintenant, accédez à l’adresse de votre pod avec `curl` (par exemple, *http://10.241.0.4*). Indiquez votre propre adresse IP interne, obtenue avec la commande `kubectl get pods` précédente :
 
 ```azurecli-interactive
 curl -L http://10.241.0.4
@@ -162,12 +165,12 @@ Fermez la session de terminal sur votre pod de test avec `exit`. Une fois la ses
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, un pod a été planifié sur le nœud virtuel et a reçu une adresse IP interne privée. Vous auriez tout aussi bien pu créer un déploiement de service et acheminer le trafic sur votre pod au moyen d’un équilibreur de charge ou d’un contrôleur d’entrée. Pour plus d’informations, consultez [Créer un contrôleur d’entrée de base dans AKS][aks-basic-ingress].
+Dans cet article, un pod a été planifié sur le nœud virtuel et a reçu une adresse IP interne privée. Vous auriez tout aussi bien pu créer un déploiement de service et router le trafic vers votre pod au moyen d’un équilibreur de charge ou d’un contrôleur d’entrée. Pour plus d’informations, consultez [Créer un contrôleur d’entrée de base dans AKS][aks-basic-ingress].
 
 Les nœuds virtuels constituent l’un des composants d’une solution de mise à l’échelle dans AKS. Pour plus d’informations sur ces solutions, voir les articles suivants :
 
-- [Utiliser le gestionnaire de mise à l’échelle horizontale automatique de pods Kubernetes][aks-hpa]
-- [Utiliser le gestionnaire de mise à l’échelle automatique de clusters Kubernetes][aks-cluster-autoscaler]
+- [Utiliser l’autoscaler de pods élastique Kubernetes][aks-hpa]
+- [Utiliser l’autoscaler de cluster Kubernetes][aks-cluster-autoscaler]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -183,3 +186,5 @@ Les nœuds virtuels constituent l’un des composants d’une solution de mise �
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
+[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
+

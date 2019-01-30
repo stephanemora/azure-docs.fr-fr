@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 17c25181709e6c75de2d23fb02fd55c0e6e41ae3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945075"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818028"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec REST
 
@@ -50,7 +50,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 - Consultez l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 - Installez le client REST [Postman](https://www.getpostman.com/) pour exécuter les API REST indiquées dans cet article. 
 
-    Dans ce didacticiel, nous utilisons **Postman**, mais tout autre outil REST serait approprié. Les autres solutions sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
+    Dans ce tutoriel, nous utilisons **Postman**, mais tout autre outil REST serait approprié. Les autres solutions possibles sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obtenir les informations d’authentification à partir du portail Azure
 
@@ -118,7 +118,7 @@ Vous pouvez ajouter à votre fichier web.config ou app.config des valeurs pour l
 
 ## <a name="get-the-access-token-using-postman"></a>Obtenir le jeton d’accès à l’aide de Postman
 
-Cette section explique comment utiliser **Postman** pour exécuter une API REST qui retourne un jeton de porteur JWT (jeton d’accès). Pour appeler une API REST Media Services, vous devez ajouter l’en-tête « d’autorisation » pour les appels, et ajouter la valeur de « Porteur *votre_jeton_d’accès* » pour chaque appel (comme indiqué dans la section suivante de ce didacticiel). 
+Cette section explique comment utiliser **Postman** pour exécuter une API REST qui retourne un jeton de porteur JWT (jeton d’accès). Pour appeler une API REST Media Services, vous devez ajouter l’en-tête « d’autorisation » pour les appels, et ajouter la valeur de « Porteur *votre_jeton_d’accès* » pour chaque appel (comme indiqué dans la section suivante de ce didacticiel). 
 
 1. Ouvrez **Postman**.
 2. Sélectionnez **POST**.

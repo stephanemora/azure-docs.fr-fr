@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 600651b6c9140aba178bf073675c49957987d10d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096586"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844736"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Présentation de la surveillance des tâches Stream Analytics et des requêtes
 
@@ -30,17 +30,17 @@ Une fenêtre s’affiche comme suit :
 ## <a name="metrics-available-for-stream-analytics"></a>Mesures disponibles pour Stream Analytics
 | Métrique                 | Définition                               |
 | ---------------------- | ---------------------------------------- |
-| Événements d'entrée en backlog       | Nombre d’événements d’entrée qui sont en backlog. |
-| Erreurs de conversion de données | Nombre d’événements de sortie qui n’ont pas pu être convertis dans le schéma de sortie attendu. |
-| Événements d’entrée précoces       | Nombre d’événements reçus en avance. |
+| Événements d'entrée en backlog       | Nombre d’événements d’entrée qui sont en backlog. Une valeur non nulle pour cette métrique implique que votre travail n’est pas en mesure de suivre le nombre d’événements entrants. Si cette valeur est croissante ou constamment différente de zéro, vous devez faire évoluer votre travail. Vous trouverez plus d’informations en consultant [Comprendre et ajuster les unités de diffusion en continu](stream-analytics-streaming-unit-consumption.md). |
+| Erreurs de conversion de données | Nombre d’événements de sortie qui n’ont pas pu être convertis dans le schéma de sortie attendu. La stratégie de l’erreur peut être modifiée sur 'Drop' pour supprimer les événements confrontés à ce scénario. |
+| Événements d’entrée précoces       | Événements dont l’horodatage d’application est antérieure à leur heure d’arrivée de plus de 5 minutes. |
 | Requêtes de fonction ayant échoué | Nombre d’appels à la fonction Azure Machine Learning ayant échoué (le cas échéant). |
 | Événements de fonction        | Nombre d’événements envoyés à la fonction Azure Machine Learning (le cas échéant). |
 | Requêtes de fonction      | Nombre d’appels à la fonction Azure Machine Learning (le cas échéant). |
-| Erreurs de désérialisation d’entrée       | Nombre d’événements qui n’ont pas pu être désérialisés.  |
+| Erreurs de désérialisation d’entrée       | Nombre d’événements d’entrée qui n’ont pas pu être désérialisés.  |
 | Octets des événements d’entrée      | Quantité de données reçues par le travail Stream Analytics, en octets. Cela permet de valider que les événements sont envoyés à la source d’entrée. |
-| Événements d’entrée           | Quantité de données reçues par le travail Stream Analytics, en nombre d’événements. Cela permet de valider que les événements sont envoyés à la source d’entrée. |
-| Sources d'entrée reçues       | Nombre d’événements provenant d’une source d’entrée. |
-| Événements d’entrée tardifs      | Nombre d’événements qui arrivent en retard de la source qui ont été supprimés ou dont l’horodatage a été réglé, en fonction de la configuration de la stratégie de classement des événements du paramètre de la plage de tolérance d’arrivée tardive. |
+| Événements d’entrée           | Nombre d’enregistrements désérialisé à partir des événements d’entrée. |
+| Sources d'entrée reçues       | Nombre d’événements reçus par le travail. Cela permet de valider que les événements sont envoyés à la source d’entrée. |
+| Événements d’entrée tardifs      | Événements reçus plus tard que la valeur configurée dans la fenêtre de tolérance d’arrivée tardive. En savoir plus sur les [Considérations relatives à l’ordre des événements Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md). |
 | Événements non ordonnés    | Nombre d’événements reçus dans le désordre qui ont été supprimés ou dont l’horodatage a été réglé, en fonction de la stratégie de classement des événements. Cela peut être affecté par la configuration du paramètre de la plage de tolérance pour les événements en désordre. |
 | Événements de sortie          | Quantité de données envoyées par le travail Stream Analytics à la cible de sortie, en nombre d’événements. |
 | Erreurs d’exécution         | Nombre total d’erreurs liées au traitement des requêtes (à l’exception des erreurs détectées lors de l’ingestion d’événements ou de la génération de résultats) |

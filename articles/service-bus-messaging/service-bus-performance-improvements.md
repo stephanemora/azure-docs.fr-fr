@@ -3,18 +3,19 @@ title: Meilleures pratiques pour améliorer les performances à l’aide d’Azu
 description: Explique comment utiliser Service Bus pour optimiser les performances lors de l’échange de messages répartis.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: cfce11546249310ce00e5f19ba81520cc9dd78cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392633"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848570"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
 
@@ -36,7 +37,7 @@ AMQP et SBMP sont plus efficaces, car ils maintiennent la connexion au Service B
 
 ## <a name="reusing-factories-and-clients"></a>Réutilisation de structures et de clients
 
-Des objets client Service Bus, tels que [QueueClient][QueueClient] ou [MessageSender][MessageSender], sont créés via un objet [MessagingFactory][MessagingFactory], qui assure également la gestion interne des connexions. Il est déconseillé de fermer les structures de messagerie ou les files d’attente, les rubriques et les clients d’abonnement après avoir envoyé un message, et de les recréer lorsque vous envoyez le message suivant. La fermeture d’une structure de messagerie supprime la connexion à Service Bus et une nouvelle connexion est établie au moment de la recréation de la structure. L’établissement d’une connexion est une opération coûteuse, que vous pouvez éviter en réutilisant les objets de structure et client dans plusieurs opérations. Vous pouvez utiliser en toute sécurité l’objet [QueueClient][QueueClient] pour envoyer des messages à partir de plusieurs threads et d’opérations asynchrones simultanées. 
+Des objets client Service Bus, tels que [QueueClient][QueueClient] ou [MessageSender][MessageSender], sont créés via un objet [MessagingFactory][MessagingFactory], qui assure également la gestion interne des connexions. Il est déconseillé de fermer les structures de messagerie ou les files d’attente, les rubriques et les clients d’abonnement après avoir envoyé un message, et de les recréer lorsque vous envoyez le message suivant. La fermeture d’une structure de messagerie supprime la connexion à Service Bus et une nouvelle connexion est établie au moment de la recréation de la structure. L’établissement d’une connexion est une opération coûteuse, que vous pouvez éviter en réutilisant les objets de structure et client dans plusieurs opérations. Vous pouvez utiliser en toute sécurité ces objets clients pour envoyer des messages à partir de plusieurs threads et d’opérations asynchrones simultanées. 
 
 ## <a name="concurrent-operations"></a>Opérations simultanées
 
@@ -71,7 +72,7 @@ Le client planifie les opérations parallèles en effectuant des opérations asy
 
 ## <a name="receive-mode"></a>Mode de réception
 
-Lorsque vous créez un client de file d’attente ou d’abonnement, vous pouvez spécifier un mode de réception : *verrouillage* ou *recevoir et supprimer*. Le mode par défaut est [Verrouillage][PeekLock]. Lorsqu’il fonctionne dans ce mode, le client envoie une demande pour recevoir un message de la part de Service Bus. Une fois que le client a reçu le message, il envoie une demande pour compléter le message.
+Lorsque vous créez un client de file d’attente ou d’abonnement, vous pouvez spécifier un mode de réception : *Verrouillage* ou *Recevoir et supprimer*. Le mode par défaut est [Verrouillage][PeekLock]. Lorsqu’il fonctionne dans ce mode, le client envoie une demande pour recevoir un message de la part de Service Bus. Une fois que le client a reçu le message, il envoie une demande pour compléter le message.
 
 Lors de la définition du mode de réception [ReceiveAndDelete][ReceiveAndDelete], les deux étapes sont combinées dans une requête unique. Cette étape réduit le nombre total d’opérations et peut améliorer le débit global des messages. Ce gain de performances est fourni au risque de perdre des messages.
 
@@ -127,42 +128,13 @@ La propriété (TTL) de durée de vie d’un message est vérifiée par le serve
 
 La lecture anticipée n’affecte pas le nombre d’opérations de messagerie facturables et est disponible uniquement pour le protocole client Service Bus. Le protocole HTTP ne prend pas en charge la lecture anticipée. La lecture anticipée est disponible pour les opérations de réception synchrones et asynchrones.
 
-## <a name="express-queues-and-topics"></a>Files d’attente et les rubriques rapides
-
-Les entités rapides garantissent un débit élevé et une faible latence et sont prises en charge uniquement dans la couche de messagerie Standard. Les entités créées dans les [espaces de noms Premium](service-bus-premium-messaging.md) ne prennent pas en charge l’option rapide. Avec les entités rapides, si un message est envoyé à une file d’attente ou à une rubrique, il n’est pas immédiatement stocké dans la banque de messagerie. Au lieu de cela, le message est mis en cache. Si un message reste dans la file d’attente pendant plus de quelques secondes, il est automatiquement écrit dans un stockage stable, afin d’éviter qu’il soit perdu en cas de panne. L’écriture du message en mémoire cache permet d’augmenter le débit et de réduire le temps de latence, car il n’a pas accès au stockage stable au moment où que le message est envoyé. Les messages consommés en quelques secondes ne sont pas écrits dans le magasin de messagerie. Dans l’exemple suivant, l’abonnement crée une rubrique rapide.
-
-```csharp
-TopicDescription td = new TopicDescription(TopicName);
-td.EnableExpress = true;
-namespaceManager.CreateTopic(td);
-```
-
-Si un message contenant des informations sensibles ne devant pas être égarées est envoyé à une entité rapide, l’expéditeur peut forcer Service Bus à placer immédiatement le message dans un dispositif de stockage stable en définissant la propriété [ForcePersistence][ForcePersistence] sur **true**.
-
-> [!NOTE]
-> Les entités rapides ne prennent pas en charge les transactions.
-
-## <a name="partitioned-queues-or-topics"></a>Files d’attente ou rubriques partitionnées
-
-En interne, Service Bus utilise le même nœud et stockage de messagerie pour traiter et stocker tous les messages d’une entité de messagerie (file d’attente ou rubrique). Une [file d’attente ou une rubrique partitionnée](service-bus-partitioning.md), elle, se répartit sur plusieurs nœuds et banques de messagerie. Les rubriques et files d’attente partitionnées donnent non seulement un débit plus élevé que les rubriques et files d’attente standard, mais ils présentent également une disponibilité supérieure. Pour créer une entité partitionnée, définissez la propriété [EnablePartitioning][EnablePartitioning] sur **true**, comme illustré dans l’exemple suivant. Pour plus d’informations sur les entités partitionnées, consultez [Files d’attente et rubriques partitionnées][Partitioned messaging entities].
-
-> [!NOTE]
-> Les entités partitionnées ne sont pas prises en charge dans le niveau [SKU Premium](service-bus-premium-messaging.md). 
-
-```csharp
-// Create partitioned queue.
-QueueDescription qd = new QueueDescription(QueueName);
-qd.EnablePartitioning = true;
-namespaceManager.CreateQueue(qd);
-```
-
 ## <a name="multiple-queues"></a>Files d’attente multiples
 
-S’il est impossible d’utiliser une file d’attente ou une rubrique partitionnée, la charge prévue ne peut pas être gérée par une seule file d’attente ou rubrique partitionnée. Vous devez utiliser plusieurs entités de messagerie. Lorsque vous utilisez plusieurs entités, créez un client dédié pour chacune d’elles au lieu d’utiliser le même client pour toutes les entités.
+Si la charge prévue ne peut pas être gérée par une seule file d’attente ou rubrique partitionnée, vous devez utiliser plusieurs entités de messagerie. Lorsque vous utilisez plusieurs entités, créez un client dédié pour chacune d’elles au lieu d’utiliser le même client pour toutes les entités.
 
 ## <a name="development-and-testing-features"></a>Fonctionnalités de développement et de test
 
-Service Bus possède une fonctionnalité utilisée spécifiquement pour le développement, qui **ne doit jamais servir dans les configurations de production** : [TopicDescription.EnableFilteringMessagesBeforePublishing][].
+Service Bus possède une fonctionnalité qui est utilisée spécifiquement pour le développement, qui **ne doit jamais être utilisée dans les configurations de production** : [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
 Lorsque de nouvelles règles ou des filtres sont ajoutés à la rubrique, vous pouvez utiliser [TopicDescription.EnableFilteringMessagesBeforePublishing][] pour vérifier que la nouvelle expression de filtre fonctionne comme prévu.
 
@@ -172,7 +144,7 @@ Les sections suivantes décrivent les scénarios de messagerie classiques et sou
 
 ### <a name="high-throughput-queue"></a>File d’attente à débit élevé
 
-Objectif : maximiser le débit d’une file d’attente unique. Le nombre d’expéditeurs et de destinataires est faible.
+Objectif : Maximiser le débit d’une file d’attente unique. Le nombre d’expéditeurs et de destinataires est faible.
 
 * Pour augmenter la vitesse de transmission globale dans la file d’attente, utilisez plusieurs structures de messages pour créer des expéditeurs. Pour chaque expéditeur, utilisez des opérations asynchrones ou plusieurs threads.
 * Pour augmenter la vitesse de réception depuis la file d’attente, utilisez plusieurs structures de messages pour créer des destinataires.
@@ -184,13 +156,13 @@ Objectif : maximiser le débit d’une file d’attente unique. Le nombre d’e
 
 ### <a name="multiple-high-throughput-queues"></a>Plusieurs files d’attente haut débit
 
-Objectif : Optimiser le débit global de plusieurs files d’attente. Le débit d’une file d’attente individuelle est modéré ou élevé.
+Objectif : Optimiser le débit global de plusieurs files d’attente. Le débit d’une file d’attente individuelle est modéré ou élevé.
 
 Pour obtenir un débit maximal sur plusieurs files d’attente, utiliser les paramètres conseillés pour maximiser le débit d’une file d’attente unique. En outre, utiliser des structures différentes pour créer des clients procédant à des envois ou des réceptions de la part de différentes files d’attente.
 
 ### <a name="low-latency-queue"></a>File d’attente à latence faible
 
-Objectif : réduire la latence de bout en bout d’une file d’attente ou d’une rubrique. Le nombre d’expéditeurs et de destinataires est faible. Le débit de la file d’attente est faible ou modéré.
+Objectif : Réduire la latence de bout en bout d’une file d’attente ou d’une rubrique. Le nombre d’expéditeurs et de destinataires est faible. Le débit de la file d’attente est faible ou modéré.
 
 * Désactiver le traitement par lots côté client. Le client envoie immédiatement un message.
 * Désactiver l’accès au magasin par lot. Le service écrit immédiatement le message pour le magasin.
@@ -200,7 +172,7 @@ Objectif : réduire la latence de bout en bout d’une file d’attente ou d’u
 
 ### <a name="queue-with-a-large-number-of-senders"></a>File d’attente comportant un grand nombre d’expéditeurs
 
-Objectif : maximiser le débit d’une file d’attente ou d’une rubrique comportant un grand nombre d’expéditeurs. Chaque expéditeur envoie des messages à une vitesse modérée. Le nombre de destinataires est faible.
+Objectif : Maximiser le débit d’une file d’attente ou d’une rubrique comportant un grand nombre d’expéditeurs. Chaque expéditeur envoie des messages à une vitesse modérée. Le nombre de destinataires est faible.
 
 Service Bus permet jusqu’à 1 000 connexions simultanées vers une entité de messagerie (ou 5 000 avec AMQP). Cette limite s’applique au niveau de l’espace de noms et les rubriques/files d’attente/abonnements sont limités par la limite de connexions simultanées par espace de noms. Pour les files d’attente, ce nombre est partagé entre les expéditeurs et les destinataires. Si les 1 000 connexions sont requises pour les expéditeurs, remplacez la file d’attente par une rubrique et un seul abonnement. Une rubrique accepte jusqu’à 1 000 connexions simultanées provenant d’expéditeurs, alors que l’abonnement accepte un 1 000 connexions simultanées destinataires. Si plus de 1 000 expéditeurs simultanés sont requis, les expéditeurs doivent envoyer leurs messages vers le protocole de Service Bus via HTTP.
 
@@ -215,7 +187,7 @@ Pour maximiser le débit, procédez comme suit :
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>File d’attente comportant un grand nombre de destinataires
 
-Objectif : optimiser la vitesse de réception d’une file d’attente ou d’abonnement comportant un grand nombre de destinataires. Chaque destinataire reçoit les messages à une vitesse modérée. Le nombre d’expéditeurs est faible.
+Objectif : Optimiser la vitesse de réception d’une file d’attente ou d’abonnement comportant un grand nombre de destinataires. Chaque destinataire reçoit les messages à une vitesse modérée. Le nombre d’expéditeurs est faible.
 
 Service Bus permet jusqu’à 1 000 connexions simultanées vers une entité. Si une file d’attente nécessite plus de 1 000 destinataires, remplacez la file d’attente par une rubrique et plusieurs abonnements. Chaque abonnement peut prendre en charge jusqu’à 1 000 connexions simultanées. Les destinataires peuvent également accéder à la file d’attente via le protocole HTTP.
 
@@ -229,7 +201,7 @@ Pour maximiser le débit, procédez comme suit :
 
 ### <a name="topic-with-a-small-number-of-subscriptions"></a>Rubrique comportant un petit nombre d’abonnements
 
-Objectif : maximiser le débit d’une rubrique comportant un petit nombre d’abonnements. Un message est reçu par un grand nombre d’abonnements, ce qui signifie que la vitesse de réception combinée sur l’ensemble des abonnements est supérieure à la vitesse d’envoi. Le nombre d’expéditeurs est faible. Le nombre de récepteurs par abonnement est faible.
+Objectif : Maximiser le débit d’une rubrique comportant un petit nombre d’abonnements. Un message est reçu par un grand nombre d’abonnements, ce qui signifie que la vitesse de réception combinée sur l’ensemble des abonnements est supérieure à la vitesse d’envoi. Le nombre d’expéditeurs est faible. Le nombre de récepteurs par abonnement est faible.
 
 Pour maximiser le débit, procédez comme suit :
 
@@ -243,7 +215,7 @@ Pour maximiser le débit, procédez comme suit :
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>Rubrique comportant un grand nombre d’abonnements
 
-Objectif : maximiser le débit d’une rubrique comportant un grand nombre d’abonnements. Un message est reçu par un grand nombre d’abonnements, ce qui signifie que la vitesse de réception associée à l’ensemble des abonnements est supérieure à la vitesse d’envoi. Le nombre d’expéditeurs est faible. Le nombre de récepteurs par abonnement est faible.
+Objectif : Maximiser le débit d’une rubrique comportant un grand nombre d’abonnements. Un message est reçu par un grand nombre d’abonnements, ce qui signifie que la vitesse de réception associée à l’ensemble des abonnements est supérieure à la vitesse d’envoi. Le nombre d’expéditeurs est faible. Le nombre de récepteurs par abonnement est faible.
 
 Les rubriques comportant un grand nombre d’abonnements affichent généralement un faible débit global si tous les messages sont acheminés vers tous les abonnements. Ce faible débit est dû au fait que chaque message est reçu plusieurs fois, et que tous les messages contenus dans une rubrique et tous les abonnements associés sont stockés dans le même magasin. Il est supposé que le nombre d’expéditeurs et nombre de récepteurs par abonnement est faible. Service Bus prend en charge jusqu’à 2 000 abonnements par rubrique.
 

@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Wingspan eTMF | Microsoft Azure'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Wingspan eTMF | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Wingspan eTMF.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ace320d3-521c-449c-992f-feabe7538de7
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: d27d2c6a6c6bae2ebd13f78da308f32275993ec5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1573b7259134037a8e573c6a01588ad782505ea3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434062"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821156"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Didacticiel : Intégration d’Azure Active Directory à Wingspan eTMF
+# <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Didacticiel : Intégration d’Azure Active Directory à Wingspan eTMF
 
 Dans ce didacticiel, vous découvrez comment intégrer Wingspan eTMF à Azure Active Directory (Azure AD).
 
@@ -132,7 +132,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le p
 1. Pour configurer l’authentification unique du côté **Wingspan eTMF**, vous devez envoyer le fichier **XML des métadonnées** téléchargé au [support technique de Wingspan eTMF](http://www.wingspan.com/contact-us/). Ils configurent les éléments pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -168,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="creating-a-wingspan-etmf-test-user"></a>Création d’un utilisateur de test de Wingspan eTMF
 
-Dans cette section, vous créez un utilisateur appelé Britta Simon dans Wingspan eTMF. Collaborez avec le [support technique de Wingspan eTMF](http://www.wingspan.com/contact-us/) pour ajouter des utilisateurs dans l’application Wingspan eTMF. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé Britta Simon dans Wingspan eTMF. Collaborez avec le  [support technique de Wingspan eTMF](http://www.wingspan.com/contact-us/) pour ajouter des utilisateurs dans l’application Wingspan eTMF. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 

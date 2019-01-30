@@ -4,7 +4,7 @@ description: Découvrez comment analyser les journaux d’activité Azure Active
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 759a0da93544e2a17b71d762924981f05c3ea322
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624197"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810772"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Analyser les journaux d’activité Azure AD avec Log Analytics (préversion)
 
@@ -93,9 +93,9 @@ Vous pouvez également définir des alertes sur votre requête. Par exemple, pou
 
 Vous pouvez également télécharger les vues Log Analytics prédéfinies pour les journaux d’activité Azure AD. Les vues fournissent plusieurs rapports utilisés dans des scénarios courants impliquant des d’événements d’audit et de connexion. Vous pouvez aussi créer des alertes sur les données figurant dans ces rapports, en effectuant les étapes décrites dans la section précédente.
 
-* **Événements de provisionnement de compte Azure AD** : cette vue affiche les rapports d’audit de l’activité de provisionnement. Elle indique notamment le nombre de nouveaux utilisateurs attribués et les échecs d’attribution, le nombre d’utilisateurs mis à jour et les échecs de mise à jour, ainsi que le nombre d’utilisateurs dont l’attribution a été annulée et les échecs d’annulation d’attribution.    
-* **Événements de connexion** : cette vue affiche les rapports les plus pertinents relatifs à la supervision de l’activité de connexion, par exemple, les connexions par application, utilisateur et appareil, ainsi qu’un récapitulatif de l’ensemble des connexions effectuées.
-* **Consentement des utilisateurs** : cette vue affiche les rapports relatifs au consentement des utilisateurs, comme le consentement donné par utilisateur, les connexions par les utilisateurs qui ont donné leur consentement ainsi que les connexions par application pour toutes les applications basées sur le consentement. 
+* **Événements de provisionnement de compte Azure AD** : Cette vue affiche les rapports d’audit de l’activité de provisionnement. Elle indique notamment le nombre de nouveaux utilisateurs attribués et les échecs d’attribution, le nombre d’utilisateurs mis à jour et les échecs de mise à jour, ainsi que le nombre d’utilisateurs dont l’attribution a été annulée et les échecs d’annulation d’attribution.    
+* **Événements de connexion** : Cette vue affiche les rapports les plus pertinents relatifs à la supervision de l’activité de connexion, par exemple, les connexions par application, utilisateur et appareil, ainsi qu’un récapitulatif de l’ensemble des connexions effectuées.
+* **Consentement des utilisateurs** : Cette vue affiche les rapports relatifs au consentement des utilisateurs, comme le consentement donné par utilisateur, les connexions par les utilisateurs qui ont donné leur consentement ainsi que les connexions par application pour toutes les applications basées sur le consentement. 
 
 Découvrez comment [installer et utiliser les vues Log Analytics des journaux d’activité Azure AD](howto-install-use-log-analytics-views.md). 
 

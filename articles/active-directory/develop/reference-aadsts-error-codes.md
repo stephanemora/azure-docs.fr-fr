@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/30/2018
+ms.date: 01/23/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 97f884a45a0a07e2b4c48f39483c70248e7a492e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e550eeba9b154e271cdad9df5cdfe9a308efbbe9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620381"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820306"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation
 
@@ -79,7 +79,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS50058 | UserInformationNotProvided : cela signifie qu’un utilisateur n’est pas connecté. Il s’agit d’une erreur courante qui est attendue lorsqu’un utilisateur n’est pas authentifié et n’est pas encore connecté.</br>Si cette erreur est encouragée dans un contexte d’authentification unique où l’utilisateur s’est connecté précédemment, cela signifie que la session d’authentification unique est introuvable ou invalide.</br>Cette erreur peut être retournée à l’application si prompt=none est spécifié. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided : les informations d’identification de locataire sont introuvables dans la requête ou déduites des informations d’identification fournies. L’utilisateur peut contacter l’administrateur du locataire pour qu’il l’aide à résoudre le problème. |
 | AADSTS50061 | SignoutInvalidRequest : la requête de déconnexion n’est pas valide. |
-| AADSTS50064 | CredentialAuthenticationError : la validation des informations d’identification a échoué. |
+| AADSTS50064 | CredentialAuthenticationError : la validation des informations d’identification sur le nom d’utilisateur ou le mot de passe a échoué. |
 | AADSTS50068 | SignoutInitiatorNotParticipant : la déconnexion a échoué. L’application qui a initié la déconnexion ne participe pas à la session active. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier : la déconnexion a échoué. La demande de déconnexion a spécifié un identificateur de nom qui ne correspond à aucune session existante. |
 | AADSTS50071 | SignoutMessageExpired : la demande de déconnexion a expiré. |
@@ -254,6 +254,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource : la ressource n’est pas configurée pour accepter des jetons d’appareil uniquement. |
 | AADSTS240001 | BulkAADJTokenUnauthorized : l’utilisateur n’est pas autorisé à inscrire des appareils dans Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing : id_token ne peut pas être utilisé comme octroi `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest : l’application est introuvable dans le répertoire/locataire. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être configuré de manière incorrecte la valeur d’identificateur de l’application ou envoyé votre requête d’authentification à un locataire incorrect. |
 | AADSTS700020 | InteractionRequired : l’octroi d’accès nécessite une interaction. |
 | AADSTS700022 | InvalidMultipleResourcesScope : la valeur fournie pour l’étendue du paramètre d’entrée n’est pas valide car elle contient plusieurs ressources. |
 | AADSTS700023 | InvalidResourcelessScope : la valeur fournie pour l’étendue du paramètre d’entrée n’est pas valide pour demander un jeton d’accès. |

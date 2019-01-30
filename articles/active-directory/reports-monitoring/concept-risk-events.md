@@ -4,7 +4,7 @@ description: Cet article offre une présentation détaillée des événements à
 services: active-directory
 keywords: azure active directory identity protection, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 7c352b92edede8bb986a00d5db846bda7b299df2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652147"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808083"
 ---
 # <a name="azure-active-directory-risk-events"></a>Événements à risque dans Azure Active Directory
 
@@ -44,6 +44,9 @@ De plus, vous pouvez utiliser l’[API Identity Protection relative aux événem
 - [Connexions depuis des emplacements inconnus](#sign-in-from-unfamiliar-locations) 
 
 ![Événement à risque](./media/concept-risk-events/91.png)
+
+> [!IMPORTANT]
+> Vous pouvez trouver un événement à risque sans l’entrée correspondante dans le [rapport sur les connexions](concept-sign-ins.md). En effet, Identity Protection évalue le risque pour les connexions **interactives** et les connexions **non interactives**, alors que le rapport sur les connexions ne montre que les connexions interactives.
 
 L’information que vous obtenez pour un événement à risque détecté est liée à votre abonnement Azure AD. 
 

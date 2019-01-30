@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c74c208e77539833c2bc5e1323713191e29aec64
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249028"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820238"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 
@@ -179,9 +179,9 @@ Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâc
 
 Pour assurer la protection des données dans le cloud, l’un des facteurs clés consiste à tenir compte des états que les données peuvent présenter, mais aussi des contrôles disponibles pour ces états. Pour les bonnes pratiques de chiffrement et de sécurité des données dans Azure, les recommandations que nous formulons s’articulent autour des états suivants des données :
 
-- Au repos : cela inclut tous les objets de stockage, conteneurs et types d’informations présents de manière statique sur un support physique, qu’il s’agisse d’un disque magnétique ou d’un disque optique.
+- Au repos : Cela inclut tous les objets de stockage, conteneurs et types d’informations présents de manière statique sur un support physique, qu’il s’agisse d’un disque magnétique ou d’un disque optique.
 
-- En transit : lorsque des données sont transférées entre des composants, des emplacements ou des programmes (sur le réseau, par exemple) via un bus de service (depuis un emplacement local vers le cloud, ou vice-versa, y compris via des connexions hybrides comme ExpressRoute), ou lors d’un processus d’entrée/sortie, on parle de données « en transit ».
+- En transit : Lorsque des données sont transférées entre des composants, des emplacements ou des programmes (sur le réseau, par exemple) via un bus de service (depuis un emplacement local vers le cloud, ou vice-versa, y compris via des connexions hybrides comme ExpressRoute), ou lors d’un processus d’entrée/sortie, on parle de données « en transit ».
 
 ### <a name="encryption-at-rest"></a>Chiffrement au repos
 
@@ -216,9 +216,9 @@ Réfléchissez aux banques d’informations que vous utilisez pour stocker les d
 
 Pour chaque banque d’informations que vous utilisez, tirez parti de la prise en charge existante pour le chiffrement au repos.
 
-- Stockage Azure : Voir [Chiffrement du service Stockage Azure pour les données au repos](https://docs.microsoft.com/azure/storage/storage-service-encryption)
+- Stockage Azure : Consultez [Chiffrement du service Stockage Azure pour les données au repos](https://docs.microsoft.com/azure/storage/storage-service-encryption),
 
-- SQL Azure : Voir [Transparent Data Encryption (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
+- SQL Azure : Consultez [Transparent Data Encryption (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
 
 - Machine virtuelle & stockage sur disque local ([Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption))
 
@@ -248,7 +248,7 @@ Si vous prenez en charge les clés gérées par le client, vous devez fournir un
 
 Comme le chiffrement au repos implique le chiffrement de l’hôte, de l’infrastructure et des données du locataire, la perte des clés due à une défaillance du système ou à des activités malveillantes peut signifier la perte de toutes les données chiffrées. Il est donc capital que votre solution de chiffrement au repos dispose d’un historique de récupération d’urgence complet, résistant aux défaillances du système et aux activités malveillantes.
 
-Les services qui implémentent le chiffrement au repos sont en général toujours vulnérables au niveau des données ou des clés de chiffrement qui restent non chiffrés sur le lecteur hôte (par exemple, dans le fichier d’échange du système d’exploitation hôte). Par conséquent, les services doivent s’assurer que le volume hôte soit chiffré pour leurs services. Pour faciliter cette opération, l’équipe Compute a activé le déploiement du chiffrement de l’hôte, qui utilise [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP et des extensions vers l’agent et le service DCM pour chiffrer le volume hôte.
+Les services qui implémentent le chiffrement au repos sont en général toujours vulnérables au niveau des données ou des clés de chiffrement qui restent non chiffrés sur le lecteur hôte (par exemple, dans le fichier d’échange du système d’exploitation hôte). Par conséquent, les services doivent s’assurer que le volume hôte soit chiffré pour leurs services. Pour faciliter cette opération, l’équipe Compute a activé le déploiement du chiffrement de l’hôte, qui utilise [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP et des extensions vers l’agent et le service DCM pour chiffrer le volume hôte.
 
 La plupart des services sont implémentés sur des machines virtuelles Azure standard. Ces services devraient automatiquement récupérés le[chiffrement de l’hôte](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) lorsque Compute l’active. Pour les services qui s’exécutent dans les clusters gérés par Compute, le chiffrement de l’hôte est activé automatiquement en même temps que Windows Server 2016 est déployé.
 
@@ -370,7 +370,7 @@ Microsoft Antimalware pour Azure Cloud Services et Machines virtuelles offre une
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) aide à coordonner la réplication, le basculement et la récupération des charges de travail et des applications afin qu’elles soient disponibles à partir d’un site secondaire si votre site principal tombe en panne.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Assurer la conformité : Liste des points à vérifier avec une prudence mesurée pour les services cloud (protection)
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Garantissez la conformité : Liste de contrôle d’obligation de diligence des services cloud (protéger)
 
 Microsoft a développé la [liste des points à vérifier avec une prudence mesurée pour les services cloud](https://aka.ms/cloudchecklist.download), afin d’aider les organisations à faire preuve d’une sage circonspection lorsqu’elles envisagent une migration vers le cloud. Cette liste fournit une structure à une organisation, quels que soient sa taille et son type — entreprises privées et organisations du secteur public, notamment tous les niveaux de l’administration et les associations —, en lui permettant d’identifier ses propres performances, services, gestion des données, de même que ses exigences et objectifs de gouvernance. L’organisation peut alors comparer les offres de divers fournisseurs de services cloud tout en jetant en définitive les bases d’un contrat de service cloud.
 

@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services : stratégie de mot de passe| Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Stratégie de mot de passe | Microsoft Docs'
 description: Comprendre les stratégies de mot de passe sur les domaines managés
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: dcc1de5fa0ac1f394d0fe12fd24a1d6e745df83e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0bb3ccb3841b60f6c94ac1d6126bd2b0d44af092
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284606"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852692"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur les domaines managés
 Cet article explique les stratégies de mot de passe par défaut sur un domaine managé. Il décrit également comment configurer ces stratégies.
@@ -59,8 +59,8 @@ Sur un domaine managé, les stratégies de mot de passe suivantes sont configur�
 ### <a name="account-lockout-settings"></a>Paramètres de verrouillage de compte
 Sur un domaine managé, les stratégies de verrouillage de compte suivantes sont configurées par défaut :
 * Durée de verrouillage de compte : 30
-* Nombre d’échecs d’ouverture de session autorisés : 5
-* Réinitialisation du nombre d’échecs d’ouverture de session après : 30 minutes
+* Nombre d’échecs d’ouverture de session autorisés : 5.
+* Réinitialisation le nombre d’échecs d’ouverture de session après : 30 minutes
 
 Effectivement, les comptes d’utilisateur sont verrouillés pendant 30 minutes si cinq mots de passe incorrects sont utilisés en l’espace de 2 minutes. Les comptes sont déverrouillés automatiquement après 30 minutes.
 
@@ -113,7 +113,7 @@ Pour créer une SMPA personnalisée sur votre domaine géré :
   ![SMPA appliquée](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
-> **Pour appliquer des stratégies de mot de passe personnalisées aux comptes d’utilisateur dans une unité d’organisation personnalisée :** les stratégies de mot de passe affinées ne peuvent être appliquées qu’à des groupes. Pour ne configurer une stratégie de mot de passe personnalisée que pour les utilisateurs d’une unité d’organisation personnalisée, créez un groupe incluant les utilisateurs de cette unité d’organisation.
+> **Pour appliquer des stratégies de mot de passe personnalisées pour des comptes utilisateur dans une unité organisationnelle personnalisée :** Des stratégies de mot de passe affinées peuvent être appliquées uniquement aux groupes. Pour ne configurer une stratégie de mot de passe personnalisée que pour les utilisateurs d’une unité d’organisation personnalisée, créez un groupe incluant les utilisateurs de cette unité d’organisation.
 >
 >
 

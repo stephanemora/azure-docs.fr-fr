@@ -4,7 +4,7 @@ description: Explique le modèle de configuration de l’approvisionnement décl
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9242ffc0c87ee9f314745463b8287ad7531a982d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 45b145d9a8922bc3da50cef7d9fa7aacf260417d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310288"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471770"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect Sync : présentation de l’approvisionnement déclaratif
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Synchronisation d’Azure AD Connect : Présentation de l’approvisionnement déclaratif
 Cette rubrique présente le modèle de configuration dans Azure AD Connect. Ce modèle est appelé « approvisionnement déclaratif » et vous permet de modifier la configuration en toute simplicité. De nombreux éléments décrits dans cette rubrique sont des éléments avancés, non indispensables pour la plupart des scénarios clients.
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -48,7 +48,7 @@ Le module Scope évalue un objet et détermine les règles qui sont dans la port
 La portée est définie selon des groupes et des clauses. Les clauses sont à l’intérieur des groupes. Un opérateur logique AND est utilisé entre toutes les clauses d’un groupe. Par exemple, (department = IT AND country = Denmark). Un opérateur logique OR est utilisé entre les groupes.
 
 ![Étendue](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
-La portée de cette image doit être lue comme (department = IT AND country = Denmark) OR (country = Sweden). Si le groupe 1 ou le groupe 2 est évalué comme true, la règle est dans la portée.
+ La portée de cette image doit être lue comme (department = IT AND country = Denmark) OR (country = Sweden). Si le groupe 1 ou le groupe 2 est évalué comme true, la règle est dans la portée.
 
 Le module Scope prend en charge les opérations suivantes.
 
@@ -68,13 +68,13 @@ Le module Scope prend en charge les opérations suivantes.
 ## <a name="join"></a>Join
 Le module Join dans le pipeline de synchronisation est chargé de rechercher la relation entre l’objet de la source et un objet dans la cible. Sur une règle de trafic entrant, cette relation serait un objet dans un espace de connecteur ayant une relation avec un objet dans le métaverse.  
 ![Jointure entre cs et mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
-L’objectif est de voir si une relation doit être établie avec un objet créé par un autre connecteur et se trouvant déjà dans le métaverse. Par exemple, dans une forêt de ressources de comptes, l’utilisateur de la forêt de comptes doit être associé à l’utilisateur de la forêt de ressources.
+ L’objectif est de voir si une relation doit être établie avec un objet créé par un autre connecteur et se trouvant déjà dans le métaverse. Par exemple, dans une forêt de ressources de comptes, l’utilisateur de la forêt de comptes doit être associé à l’utilisateur de la forêt de ressources.
 
 Les jointures sont principalement utilisées sur les règles de trafic entrant, pour joindre les objets d’espace de connecteur au même objet dans le métaverse.
 
 Les jointures sont définies comme un ou plusieurs groupes. À l’intérieur d’un groupe, il existe des clauses. Un opérateur logique AND est utilisé entre toutes les clauses d’un groupe. Un opérateur logique OR est utilisé entre les groupes. Les groupes sont traités de haut en bas. Lorsqu’un groupe a trouvé une correspondance exacte avec un objet dans la cible, aucune autre règle de jointure n’est évaluée. Si aucun ou plus d’un objet est trouvé, le traitement continue pour le groupe de règles suivant. Pour cette raison, les règles doivent être créées dans l’ordre, de la plus explicite à la moins explicite.  
 ![Définition de jointure](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
-Les jointures dans cette image sont traitées de haut en bas. Le pipeline de synchronisation détecte d’abord si une correspondance sur employeeID existe. Si ce n’est pas le cas, la deuxième règle détecte si le nom du compte peut être utilisé pour joindre les objets. Si aucune correspondance n’est trouvée, la troisième et dernière règle utilise le nom d’utilisateur pour trouver une correspondance moins stricte.
+ Les jointures dans cette image sont traitées de haut en bas. Le pipeline de synchronisation détecte d’abord si une correspondance sur employeeID existe. Si ce n’est pas le cas, la deuxième règle détecte si le nom du compte peut être utilisé pour joindre les objets. Si aucune correspondance n’est trouvée, la troisième et dernière règle utilise le nom d’utilisateur pour trouver une correspondance moins stricte.
 
 Si toutes les règles de jointure ont été évaluées et qu’il n’existe aucune correspondance exacte, le **type de lien** indiqué dans la page de **description** est utilisé. Si cette option a la valeur **Provision**, un nouvel objet est créé dans la cible.  
 ![Approvisionnement ou jointure](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
@@ -91,7 +91,7 @@ Un objet de métaverse demeure tant qu’une règle de synchronisation reste dan
 Lorsqu’un objet de métaverse est supprimé, tous les objets associés à une règle de synchronisation de trafic sortant marquée **Provision** sont marqués pour suppression.
 
 ## <a name="transformations"></a>Transformations
-Les transformations sont utilisées pour définir le flux d’attributs de la source vers la cible. Les flux peuvent être des **types**suivants : Direct, Constant ou Expression. Un flux direct envoie la valeur de l’attribut telle quelle, sans transformation supplémentaire. Un flux constant définit la valeur spécifiée. Une expression utilise le langage d’expression d’approvisionnement déclaratif pour exprimer la manière dont la transformation doit avoir lieu. Vous trouverez des informations sur le langage d’expression dans la rubrique [Comprendre le langage d’expression d’approvisionnement déclaratif](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) .
+Les transformations sont utilisées pour définir le flux d’attributs de la source vers la cible. Les flux peuvent être des **types**suivants : Direct, Constant ou Expression. Un flux direct envoie la valeur de l’attribut telle quelle, sans transformation supplémentaire. Un flux constant définit la valeur spécifiée. Une expression utilise le langage d’expression d’approvisionnement déclaratif pour exprimer la manière dont la transformation doit avoir lieu. Vous trouverez des informations sur le langage d’expression dans la rubrique [Comprendre le langage d’expression d’approvisionnement déclaratif](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) .
 
 ![Approvisionnement ou jointure](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
@@ -123,7 +123,7 @@ Voici un exemple :
 
 Dans *Out to AD - User Exchange hybrid*, vous trouverez le flux suivant :  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
-Cette expression doit être lue de la manière suivante : si la boîte aux lettres de l’utilisateur se trouve dans Azure AD, transmettre l’attribut d’Azure AD à Active Directory. Si ce n’est pas le cas, ne rien transmettre en retour à Active Directory. Dans ce cas, la valeur existante dans AD est conservée.
+ Cette expression doit être lue de la manière suivante : si la boîte aux lettres de l’utilisateur se trouve dans Azure AD, transmettre l’attribut d’Azure AD à Active Directory. Si ce n’est pas le cas, ne rien transmettre en retour à Active Directory. Dans ce cas, la valeur existante dans AD est conservée.
 
 ### <a name="importedvalue"></a>ImportedValue
 La fonction ImportedValue est différente de toutes les autres fonctions, car le nom d’attribut doit être placé entre guillemets doubles plutôt qu’entre crochets :   
@@ -158,9 +158,9 @@ Pour ce scénario, vous devez modifier la portée des règles de synchronisation
 
 **Rubriques de présentation**
 
-* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
+* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
 
 **Rubriques de référence**
 
-* [Azure AD Connect Sync : Référence aux fonctions](reference-connect-sync-functions-reference.md)
+* [Synchronisation Azure AD Connect : Référence des fonctions](reference-connect-sync-functions-reference.md)

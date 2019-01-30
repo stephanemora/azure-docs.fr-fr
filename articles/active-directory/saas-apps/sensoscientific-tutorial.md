@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Système de surveillance de température sans fil SensoScientific | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Système de surveillance de température sans fil SensoScientific | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Système de surveillance de température sans fil SensoScientific.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ee9a924d-ccde-45b0-ab40-877f82f5dfa2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 139a40f339c2f403999f1c3b7fe65192d45c84fd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 131d430217ca299698be6fb7e45a0c8270184864
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426919"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824473"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Didacticiel : Intégration d’Azure Active Directory avec Système de surveillance de température sans fil SensoScientific
+# <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutoriel : Intégration d’Azure Active Directory avec Système de surveillance de température sans fil SensoScientific
 
 Dans ce didacticiel, vous allez découvrir comment intégrer Système de surveillance de température sans fil SensoScientific avec Azure Active Directory (Azure AD).
 
@@ -145,7 +145,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     f. Cliquez sur **Enregistrer**.
   
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD](https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD](https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -180,7 +180,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="creating-a-sensoscientific-wireless-temperature-monitoring-system-test-user"></a>Création d’un utilisateur de test Système de surveillance de température sans fil SensoScientific
 
-Pour autoriser les utilisateurs d’Azure AD à se connecter à Système de surveillance de température sans fil SensoScientific, ils doivent être configurés dans Système de surveillance de température sans fil SensoScientific. Travaillez avec l’[équipe de support technique de Système de surveillance de température sans fil SensoScientific](https://www.sensoscientific.com/contact-us/) pour ajouter des utilisateurs dans la plateforme Système de surveillance de température sans fil SensoScientific. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Pour autoriser les utilisateurs d’Azure AD à se connecter à Système de surveillance de température sans fil SensoScientific, ils doivent être configurés dans Système de surveillance de température sans fil SensoScientific. Travaillez avec  [l’équipe de support technique de Système de surveillance de température sans fil SensoScientific](https://www.sensoscientific.com/contact-us/) pour ajouter des utilisateurs dans la plateforme Système de surveillance de température sans fil SensoScientific. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 

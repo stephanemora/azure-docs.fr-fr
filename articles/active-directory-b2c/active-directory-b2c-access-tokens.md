@@ -3,21 +3,21 @@ title: Demande de jetons d’accès dans Azure Active Directory B2C | Microsoft 
 description: Cet article vous montre comment configurer une application cliente et acquérir un jeton d’accès.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f3db56c7ce61960fca0e5347b2385bcc65a88354
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015347"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845144"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C : Demande de jetons d’accès
+# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C : Demande de jetons d'accès
 
 Un jeton d’accès (défini en tant que **access\_token** dans les réponses d’Azure AD B2C) est une forme de jeton de sécurité qu’un client peut utiliser pour accéder aux ressources sécurisées par un  [serveur d’autorisation](active-directory-b2c-reference-protocols.md), tel qu’une API web. Les jetons d’accès sont représentés en tant que jetons [JWT](active-directory-b2c-reference-tokens.md) et contiennent des informations sur le serveur de ressources prévu et les autorisations accordées au serveur. Lorsque vous appelez le serveur de ressources, le jeton d’accès doit être présent dans la requête HTTP.
 
@@ -105,8 +105,8 @@ Vous pouvez demander plus d’étendues (autorisations) pour une ressource que c
 
 Le standard OpenID Connect spécifie plusieurs valeurs spéciales d’étendue (« scope »). Les étendues spéciales suivantes représentent l’autorisation d’accès au profil de l’utilisateur :
 
-* **OpenID** : cette étendue demande un jeton d’ID
-* **offline\_access** : cette étendue demande un jeton d’actualisation (à l’aide du [flux de code d’authentification](active-directory-b2c-reference-oauth-code.md)).
+* **openid** : Cette étendue demande un jeton d’ID
+* **offline\_access** : Cette étendue demande un jeton d’actualisation (à l’aide du [flux de code d’authentification](active-directory-b2c-reference-oauth-code.md)).
 
 Si le paramètre `response_type` dans une requête `/authorize` inclut `token`, le paramètre `scope` doit inclure au moins l’une des étendues de ressource (autre que `openid` et `offline_access`) qui sera accordée. Sinon, la demande `/authorize` échoue.
 

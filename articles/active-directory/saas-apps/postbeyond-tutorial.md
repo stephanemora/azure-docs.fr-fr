@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à PostBeyond | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à PostBeyond | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PostBeyond.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 09992f08-ec50-4472-997f-ccbe719039e8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 724956bd2b39fe5d1c06606953b02bd733d3da3c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4d1a654626c3725c672707ade2a3e7994a31f26f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431054"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821377"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-postbeyond"></a>Didacticiel : Intégration d’Azure AD à PostBeyond
+# <a name="tutorial-azure-active-directory-integration-with-postbeyond"></a>Tutoriel : Intégration d’Azure AD à PostBeyond
 
 Dans ce didacticiel, vous allez apprendre à intégrer PostBeyond à Azure Active Directory (Azure AD).
 
@@ -134,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 1. Pour configurer l’authentification unique côté **PostBeyond**, vous devez envoyer le **Certificat (Base64)** téléchargé, **l’ID d’entité SAML**, **l’ID du service d’authentification unique SAML** et **l’URL de déconnexion** à [l’équipe du support technique PostBeyond](mailto:sso@postbeyond.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.

@@ -1,10 +1,10 @@
 ---
-title: 'Tutoriel : intégration d’Azure Active Directory à LCVista | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à LCVista | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LCVista.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8db80d6e-3275-419f-aa39-6115a7bc9800
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ec1783e6c9caabfbc5e03849b6d4c04b1f33d23
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 12e3719cb292ef0f2132597e6b849f79f596ff7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448153"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827803"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutoriel : Intégration d’Azure Active Directory à LCVista
+# <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutoriel : Intégration d’Azure Active Directory à LCVista
 
 Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) dans LCVista.
 
@@ -154,7 +154,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     e. Cliquez sur **Enregistrer** pour enregistrer les paramètres.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -190,7 +190,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="creating-a-lcvista-test-user"></a>Création d’un utilisateur de test LCVista
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans LCVista. Vous devez contactez l’[équipe de support technique LCVista](https://lcvista.com/contact) pour ajouter des utilisateurs dans l’application LCVista. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans LCVista. Vous devez contactez l’[équipe de support technique LCVista](https://lcvista.com/contact) pour ajouter des utilisateurs dans l’application LCVista. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 

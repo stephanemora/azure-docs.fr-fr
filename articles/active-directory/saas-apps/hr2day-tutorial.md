@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec HR2day by Merces | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec HR2day by Merces | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HR2day by Merces.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 984e2e9999a2aba7a595034f1fec8bafb976f310
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 327e6d94cbabd679531935ba330d3096d73f8897
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441610"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821020"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Didacticiel : Intégration d’Azure Active Directory avec HR2day by Merces
+# <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutoriel : Intégration d’Azure Active Directory avec HR2day by Merces
 
 Dans ce didacticiel, vous allez apprendre à intégrer HR2day by Merces à Azure Active Directory (Azure AD).
 
@@ -88,11 +88,11 @@ Dans HR2day by Merces, affectez le **nom d’utilisateur** dans Azure AD comme 
 
 Pour configurer et tester l’authentification unique Azure AD avec HR2day by Merces, vous devez suivre les indications des sections suivantes :
 
-1. [Configurer l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on) : Permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. [Créer un utilisateur de test Azure AD](#creating-an-azure-ad-test-user) : Tester l’authentification unique Azure AD avec Britta Simon.
-1. [Créer un utilisateur test HR2day by Merces](#creating-an-hr2day-by-merces-test-user) : Créer un équivalent de Britta Simon dans HR2day by Merces lié à la représentation de l’utilisateur Azure AD.
-1. [Affecter l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user) : Permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. [Tester l’authentification unique](#testing-single-sign-on) : Vérifier si la configuration fonctionne.
+1. [Configurer l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on) : Autorisez les utilisateurs à utiliser cette fonctionnalité.
+1. [Créer un utilisateur de test Azure AD](#creating-an-azure-ad-test-user) : Testez l’authentification unique Azure AD avec Britta Simon.
+1. [Créer un utilisateur test HR2day by Merces](#creating-an-hr2day-by-merces-test-user) : Créez un équivalent de Britta Simon dans HR2day by Merces lié à la représentation de l’utilisateur Azure AD.
+1. [Affecter l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user) : Activez Britta Simon afin qu’elle puisse utiliser l’authentification unique Azure AD.
+1. [Tester l’authentification unique](#testing-single-sign-on) : Vérifiez si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 

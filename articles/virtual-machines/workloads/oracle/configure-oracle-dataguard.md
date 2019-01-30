@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 08420be7171df78babf62b262fef84fd29fb34ab
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f341c7e4a56aacb35ee16cbae00115196325b46a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495061"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855820"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implémenter Oracle Data Guard sur une machine virtuelle Azure Linux 
 
@@ -40,7 +40,7 @@ L’image de la Place de marché que vous utilisez pour créer la machine virtue
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure 
 
-Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/reference-index#az_login), puis suivez les instructions à l’écran.
+Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/reference-index), puis suivez les instructions à l’écran.
 
 ```azurecli
 az login
@@ -48,7 +48,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
 
 L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `westus` :
 
@@ -688,6 +688,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Didacticiel : Créer des machines virtuelles à haute disponibilité](../../linux/create-cli-complete.md)
+[Tutoriel : Créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
 
 [Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)

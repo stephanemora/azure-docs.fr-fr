@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 27a330fa4d4f242a58d15ab3f08b70cef8b66d11
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783288"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810735"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Créer des clips avec Azure Media Clipper
 Cette section montre les étapes de base permettant de bien démarrer avec Azure Media Clipper. Les sections qui suivent fournissent des détails sur la configuration d’Azure Media Clipper.
@@ -88,24 +88,24 @@ var subclipper = new subclipper({
 ```
 
 Les paramètres de l’appel de méthode d’initialisation sont les suivants :
-- `selector` {OBLIGATOIRE, chaîne} : sélecteur CSS de l’élément HTML correspondant où le widget doit être restitué.
-- `restVersion` {OBLIGATOIRE, chaîne} : version de l’API REST Azure Media Services à cibler. La version REST définit le format de la sortie générée par le widget. Actuellement, seule la version 2.0 est prise en charge.
+- `selector` {REQUIRED, string} : Sélecteur CSS de l’élément HTML correspondant où le widget doit être restitué.
+- `restVersion` {REQUIRED, string} : Version de l’API REST Azure Media Services à cibler. La version REST définit le format de la sortie générée par le widget. Actuellement, seule la version 2.0 est prise en charge.
 - `submitSubclipCallback` {OBLIGATOIRE, promesse} : fonction de rappel appelée quand l’utilisateur clique sur le bouton « Envoyer » du widget. La fonction de rappel doit attendre la sortie générée par le widget (une configuration de travail de rendu ou une définition de filtre). Pour plus d’informations, consultez Envoyer un rappel de sous-clip.
-- `logLevel` {FACULTATIF, {'info', 'warn', 'error'}} : niveau de journalisation à afficher dans la console du navigateur. Valeur par défaut : error
-- `minimumMarkerGap` {FACULTATIF, entier} : taille minimale d’un sous-clip (en secondes). Remarque : la valeur doit être supérieure ou égale à 6, qui est également la valeur par défaut.
+- `logLevel` {OPTIONAL, {'info', 'warn', 'error'}} : Définit le niveau de journalisation à afficher dans la console du navigateur. Valeur par défaut : error
+- `minimumMarkerGap` {OPTIONAL, int} : Taille minimale d’un sous-clip (en secondes). Remarque : la valeur doit être supérieure ou égale à 6, qui est également la valeur par défaut.
 - `singleBitrateMp4Profile` {FACULTATIF, objet JSON} : profil mp4 à débit unique à utiliser pour la configuration du travail de rendu générée par le widget. S’il n’est pas fourni, le [profil MP4 à débit unique par défaut](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p) est utilisé.
 - `multiBitrateMp4Profile`{FACULTATIF, objet JSON} : profil mp4 multidébit à utiliser pour la configuration du travail de rendu générée par le widget. S’il n’est pas fourni, le [profil MP4 multidébit par défaut](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p) est utilisé.
 - `keymap` {FACULTATIF, objet JSON} : permet de personnaliser les raccourcis clavier du widget. Pour plus d’informations, consultez [Raccourcis clavier personnalisables](media-services-azure-media-clipper-keyboard-shortcuts.md).
 - `assetsPanelLoaderCallback` {FACULTATIF, promesse} : fonction de rappel appelée pour charger (de façon asynchrone) une nouvelle page d’actifs dans le volet d’actifs chaque fois que l’utilisateur fait défiler jusqu’en bas du volet. Pour plus d’informations, consultez Rappel de chargeur du volet d’actifs.
 - `height` {FACULTATIF, nombre} : hauteur totale du widget (la hauteur minimale est de 600 px sans le volet d’actifs, et de 850 px avec le volet d’actifs).
-- `subclippingMode` (FACULTATIF, {'all', 'render', 'filter'}) : modes de sous-découpage autorisés. La valeur par défaut est all.
+- `subclippingMode` (OPTIONAL, {'all', 'render', 'filter'}) : Mode(s) de sous-découpage autorisé(s). La valeur par défaut est all.
 - `filterAssetsTypes` (FACULTATIF, valeur booléenne) : ce paramètre vous permet d’afficher/masquer la liste déroulante de filtres dans le volet d’actifs. La valeur par défaut est true.
 - `speedLevels` (FACULTATIF, array) : ce paramètre vous permet de définir différents niveaux de vitesse pour le lecteur vidéo. Pour plus d’informations, consultez la [documentation d’Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions).
 - `resetOnJobDone` (FACULTATIF, valeur booléenne) : ce paramètre permet à Clipper de réinitialiser le sous-découpage à l’état initial quand un travail est envoyé avec succès.
 - `autoplayVideo` (FACULTATIF, valeur booléenne) : ce paramètre permet à Clipper de lire automatiquement la vidéo lors de son chargement. La valeur par défaut est true.
 - `language` {FACULTATIF, chaîne} : définit la langue du widget. Si vous ne spécifiez pas ce paramètre, le widget tente de localiser les messages conformément à la langue du navigateur. Si aucune langue n’est détectée dans le navigateur, le widget utilise l’anglais par défaut. Pour plus d’informations, consultez la section [Configurer la localisation](media-services-azure-media-clipper-localization.md).
 - `languages`{FACULTATIF, JSON} : ce paramètre remplace le dictionnaire de langues par défaut par un dictionnaire personnalisé défini par l’utilisateur. Pour plus d’informations, consultez la section [Configurer la localisation](media-services-azure-media-clipper-localization.md).
-- `extraLanguages`(Facultatif, JSON) : ce paramètre ajoute de nouvelles langues au dictionnaire par défaut. Pour plus d’informations, consultez la section [Configurer la localisation](media-services-azure-media-clipper-localization.md).
+- `extraLanguages` (Facultatif, JSON) : ce paramètre ajoute de nouvelles langues au dictionnaire par défaut. Pour plus d’informations, consultez la section [Configurer la localisation](media-services-azure-media-clipper-localization.md).
 
 ## <a name="typescript-definition"></a>Définition de TypeScript
 Vous trouverez un fichier de définition de [TypeScript](https://www.typescriptlang.org/) pour Clipper [ici](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).

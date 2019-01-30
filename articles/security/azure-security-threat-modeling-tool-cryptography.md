@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844649"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824624"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Infrastructure de sécurité : chiffrement | Atténuation des risques 
 | Produit/Service | Article |
@@ -29,7 +29,7 @@ ms.locfileid: "52844649"
 | **Appareil IoT** | <ul><li>[Stocker les clés de chiffrement façon sécurisée sur IoT Device](#keys-iot)</li></ul> | 
 | **Passerelle de cloud IoT** | <ul><li>[Générer une clé symétrique aléatoire de longueur suffisante pour l’authentification vers IoT Hub](#random-hub)</li></ul> | 
 | **Client mobile Dynamics CRM** | <ul><li>[Garantir qu’une stratégie de gestion des appareils, demandant un code confidentiel utilisateur et permettant la réinitialisation à distance, est en place](#pin-remote)</li></ul> | 
-| **Client Outlook Dynamics CRM** | <ul><li>[Garantir qu’une stratégie de gestion des appareils, demandant un code confidentiel/mot de passe/verrouillage auto et chiffrant toutes les données (p. ex. Bitlocker), est en place](#bitlocker)</li></ul> | 
+| **Client Outlook Dynamics CRM** | <ul><li>[Garantir qu’une stratégie de gestion des appareils, demandant un code confidentiel/mot de passe/verrouillage auto et chiffrant toutes les données (p. ex. BitLocker), est en place](#bitlocker)</li></ul> | 
 | **Serveur d’identité** | <ul><li>[Garantir que les clés de signature sont annulées lors de l’utilisation d’IdentityServer](#rolled-server)</li><li>[Garantir qu’un ID de client et une clé secrète client forts en termes de chiffrement sont utilisés dans IdentityServer](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>Utiliser uniquement les longueurs de clé et les chiffrements par bloc symétriques approuvés
@@ -209,7 +209,7 @@ Comme vous pouvez le constater, la clé primaire de l’appareil n’est pas pr�
 | **Informations de référence**              | N/A  |
 | **Étapes** | Garantissez qu’une stratégie de gestion des appareils, demandant un code confidentiel utilisateur et permettant la réinitialisation à distance, est en place. |
 
-## <a id="bitlocker"></a>Garantir qu’une stratégie de gestion des appareils, demandant un code confidentiel/mot de passe/verrouillage auto et chiffrant toutes les données (p. ex. Bitlocker), est en place
+## <a id="bitlocker"></a>Garantir qu’une stratégie de gestion des appareils, demandant un code confidentiel/mot de passe/verrouillage auto et chiffrant toutes les données (p. ex. BitLocker), est en place
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -218,7 +218,7 @@ Comme vous pouvez le constater, la clé primaire de l’appareil n’est pas pr�
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | N/A  |
-| **Étapes** | Garantissez qu’une stratégie de gestion des appareils, demandant un code confidentiel/mot de passe/verrouillage auto et chiffrant toutes les données (p. ex. Bitlocker), est en place. |
+| **Étapes** | Garantir qu’une stratégie de gestion des appareils, demandant un code confidentiel/mot de passe/verrouillage auto et chiffrant toutes les données (p. ex. BitLocker), est en place |
 
 ## <a id="rolled-server"></a>Garantir que les clés de signature sont annulées lors de l’utilisation d’IdentityServer
 

@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à 10,000ft Plans | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à 10,000ft Plans | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et 10,000ft Plans.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b60c955e-8fa3-4872-a897-c4e81fd7beac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: cc6b1036d98aca62360ed8a935d2d1719c7f4069
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 91c485d17b12a973f08660687a4135ff140a84b9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230350"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808049"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Didacticiel : Intégration d’Azure Active Directory à 10,000ft Plans
+# <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Didacticiel : Intégration d’Azure Active Directory à 10,000ft Plans
 
 Dans ce didacticiel, vous allez apprendre à intégrer 10,000ft Plans à Azure Active Directory (Azure AD).
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **10,000ft Plans**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/10000ftplans-tutorial/tutorial_10,000ftplans_samlbase.png)
+    ![Configurer l'authentification unique](./media/10000ftplans-tutorial/tutorial_10,000ftplans_samlbase.png)
 
 3. Dans la section **Domaine et URL 10,000ft Plans**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/10000ftplans-tutorial/tutorial_10,000ftplans_url.png)
+    ![Configurer l'authentification unique](./media/10000ftplans-tutorial/tutorial_10,000ftplans_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.10000ft.com`
 
@@ -121,20 +121,20 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Certificat (brut)**, puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/10000ftplans-tutorial/tutorial_10,000ftplans_certificate.png) 
+    ![Configurer l'authentification unique](./media/10000ftplans-tutorial/tutorial_10,000ftplans_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/10000ftplans-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/10000ftplans-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de 10,000ft Plans**, cliquez sur **Configurer 10,000ft** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/10000ftplans-tutorial/tutorial_10,000ftplans_configure.png) 
+    ![Configurer l'authentification unique](./media/10000ftplans-tutorial/tutorial_10,000ftplans_configure.png) 
 
 7. Pour configurer l’authentification unique côté **10,000ft Plans**, vous devez envoyer le **Certificat (brut) téléchargé, l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à [l’équipe du support 10,000ft Plans](https://www.10000ft.com/plans/support).
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -188,7 +188,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **10,000ft Plans**.
 
-    ![Configure Single Sign-On](./media/10000ftplans-tutorial/tutorial_10,000ftplans_app.png) 
+    ![Configurer l'authentification unique](./media/10000ftplans-tutorial/tutorial_10,000ftplans_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

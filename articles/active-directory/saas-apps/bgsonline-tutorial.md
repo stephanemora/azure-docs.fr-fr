@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à BGS Online | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à BGS Online | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BGS Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4fd6b29b-1b46-4fd1-9f5e-16b1c9d892cd
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 3e0da76410c00b8ec0865b094d15237f4f932fb5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9d0424c5a0cb8a8d2b6e5b9f028484613949c3da
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421388"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827888"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>Didacticiel : Intégration d’Azure Active Directory à BGS Online
+# <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>Tutoriel : Intégration d’Azure Active Directory à BGS Online
 
 Dans ce didacticiel, vous allez apprendre à intégrer BGS Online avec Azure Active Directory (Azure AD).
 
@@ -144,7 +144,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.

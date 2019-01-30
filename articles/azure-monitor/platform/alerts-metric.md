@@ -6,17 +6,17 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 117b65265c853194e93a97fe5e2b2dcc6e9f5bc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584303"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807386"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
 
-Dans Azure Monitor, les alertes de métrique vous avertissent lorsque l’une de vos métriques dépasse un certain seuil. Les alertes de métrique fonctionnent sur toute une gamme de métriques de plateforme multidimensionnelles, de métriques personnalisées, mais aussi de métriques standard et personnalisées d’Application Insights. Dans cet article, nous allons décrire comment créer, afficher et gérer des règles d’alerte de métrique via le portail Azure et Azure CLI. Vous pouvez également créer des règles d’alerte de métrique à l’aide de modèles Azure Resource Manager. Cette méthode est décrite dans [un autre article](../../azure-monitor/platform/alerts-enable-template.md).
+Dans Azure Monitor, les alertes de métrique vous avertissent lorsque l’une de vos métriques dépasse un certain seuil. Les alertes de métrique fonctionnent sur toute une gamme de métriques de plateforme multidimensionnelles, de métriques personnalisées, mais aussi de métriques standard et personnalisées d’Application Insights. Dans cet article, nous allons décrire comment créer, afficher et gérer des règles d’alerte de métrique via le portail Azure et Azure CLI. Vous pouvez également créer des règles d’alerte de métrique à l’aide de modèles Azure Resource Manager. Cette méthode est décrite dans [un autre article](alerts-metric-create-templates.md).
 
 Vous pouvez en savoir plus sur le fonctionnement des alertes de métrique dans la [vue d’ensemble des alertes de métrique](alerts-metric-overview.md).
 
@@ -31,23 +31,23 @@ La procédure suivante décrit comment créer une règle d’alerte de métrique
     > [!TIP]
     > La plupart des panneaux de ressources incluent également l’option **Alertes** dans leur menu de ressources, sous **Supervision**. Vous pouvez créer des alertes à partir de là également.
 
-3. Cliquez sur **Sélectionner une cible** dans le volet contextuel qui se charge, puis sélectionnez une ressource cible à modifier. Utilisez les listes déroulantes **Abonnement** et **Type de ressource** pour rechercher la ressource à surveiller. Vous pouvez également utiliser la barre de recherche pour rechercher votre ressource.
+3. Cliquez sur **Sélectionner une cible** dans le volet contextuel qui se charge, puis sélectionnez une ressource cible sur laquelle définir une alerte. Utilisez les listes déroulantes **Abonnement** et **Type de ressource** pour rechercher la ressource à surveiller. Vous pouvez également utiliser la barre de recherche pour rechercher votre ressource.
 
 4. Si la ressource sélectionnée dispose de métriques pour lesquelles vous pouvez créer des alertes, la zone des **signaux disponibles** dans la partie inférieure droite inclura des métriques. Vous pouvez afficher la liste complète des types de ressources pris en charge pour les alertes de métrique dans cet [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-5. Une fois que vous avez sélectionné une ressource cible, cliquez sur **Ajouter des critères**.
+5. Une fois que vous avez sélectionné une ressource cible, cliquez sur **Ajouter une condition**.
 
 6. Vous verrez alors une liste des signaux pris en charge pour la ressource. Sélectionnez la métrique sur laquelle vous souhaitez créer une alerte.
 
-7. Vous verrez un graphique de la métrique pendant les 6 dernières heures. Définissez la **période**, la **fréquence**, l’**opérateur** et le **seuil** afin de déterminer la logique que la règle d’alerte de métrique évaluera.
+7. Si vous le souhaitez, affinez la métrique en ajustant la **Période** et **l’Agrégation**. Si la métrique a des dimensions, une table **Dimensions** s’affiche. Sélectionnez une ou plusieurs valeurs par dimension. L’alerte de métrique évaluera la condition pour toutes les combinaisons de valeurs sélectionnées. [En savoir plus sur le fonctionnement de la génération d’alertes sur les métriques multidimensionnelles](alerts-metric-overview.md). Vous pouvez également **sélectionner \*** pour les dimensions. **Sélectionner \*** mettra à l’échelle la sélection de manière dynamique en fonction de toutes les valeurs actuelles et futures pour une dimension.
 
-8. À l’aide du graphique de métrique, vous pouvez déterminer un seuil raisonnable.
+8. Vous verrez un graphique de la métrique pendant les 6 dernières heures. Définissez les paramètres de l’alerte : le **type de condition**, la **fréquence**, **l’opérateur** et le **seuil** ou la **sensibilité** afin de déterminer la logique que la règle d’alerte de métrique évaluera. [En savoir plus sur le type de condition Seuils dynamiques et les options de sensibilité](alerts-dynamic-thresholds.md).
 
-9. Si la métrique a des dimensions, une table de dimension s’affichera. Sélectionnez une ou plusieurs valeurs par dimension. L’alerte de métrique évaluera la condition pour toutes les combinaisons de valeurs sélectionnées. [En savoir plus sur le fonctionnement de la génération d’alertes sur les métriques multidimensionnelles](alerts-metric-overview.md). Vous pouvez également **sélectionner \*** pour les dimensions. **Sélectionner \*** mettra à l’échelle la sélection de manière dynamique en fonction de toutes les valeurs actuelles et futures pour une dimension.
+9. Si vous utilisez un seuil statique, le graphique de métriques peut vous aider à déterminer ce qui pourrait être un seuil raisonnable. Si vous utilisez des seuils dynamiques, le graphique de métriques affiche les seuils calculés en fonction des données récentes.
 
 10. Cliquez sur **Terminé**.
 
-11. Si vous le souhaitez, ajoutez un autre critère pour surveiller une règle d’alerte complexe.
+11. Si vous le souhaitez, ajoutez un autre critère pour surveiller une règle d’alerte complexe. Actuellement, les utilisateurs peuvent avoir des règles d’alerte avec un critère Seuils dynamiques en tant que critère unique.
 
 12. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
 
@@ -73,7 +73,7 @@ Vous pouvez afficher et gérer les règles d’alerte de métrique à l’aide d
 
 4. Cliquez sur le nom de la règle d’alerte de métrique que vous souhaitez modifier.
 
-5. Dans Modifier la règle, cliquez sur le **critère d’alerte** que vous souhaitez modifier. Vous pouvez modifier la métrique, le seuil et les autres champs en fonction des besoins.
+5. Dans Modifier la règle, cliquez sur le **critère d’alerte** que vous souhaitez modifier. Vous pouvez modifier la métrique, la condition de seuil et les autres champs en fonction des besoins
 
     > [!NOTE]
     > Vous ne pouvez pas modifier la **ressource cible** et le **nom de la règle d’alerte** une fois l’alerte de métrique créée.
@@ -92,10 +92,10 @@ Les sections précédentes décrivaient comment créer, afficher et gérer des r
     az monitor metrics alert --help
     ```
 
-3. Vous pouvez créer une seule règle d’alerte de métrique qui surveille si le pourcentage d’UC moyen sur une machine virtuelle est supérieur à 70.
+3. Vous pouvez créer une seule règle d’alerte de métrique qui surveille si le pourcentage d’UC moyen sur une machine virtuelle est supérieur à 90
 
     ```azurecli
-    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90"
+    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
 
 4. Vous pouvez afficher toutes les alertes de métrique dans un groupe de ressources à l’aide de la commande suivante.
@@ -117,17 +117,19 @@ Les sections précédentes décrivaient comment créer, afficher et gérer des r
 6. Vous pouvez désactiver une règle d’alerte de métrique à l’aide de la commande suivante.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
 7. Vous pouvez supprimer une règle d’alerte de métrique à l’aide de la commande suivante.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créer des alertes de métrique à l’aide de modèles Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md)
 - [Comprendre le fonctionnement des alertes de métrique](alerts-metric-overview.md)
+- [Comprendre le fonctionnement des alertes de métrique avec la condition Seuils dynamiques](alerts-dynamic-thresholds.md).
 - [Comprendre le schéma des webhooks pour les alertes de métrique](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+

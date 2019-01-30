@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dedf5de1ac2c88a9a00fd5f62e0663b840c0fd9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438521"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823434"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurer des expériences de machine learning automatisé
 
@@ -219,7 +219,8 @@ Propriété |  Description | Valeur par défaut
 `iteration_timeout_minutes` |   Limite la quantité de temps (en minutes) d’une itération particulière. Si une itération dépasse la quantité spécifiée, cette itération est annulée. Si ce paramètre n’est pas défini, l’itération continue de s’exécuter jusqu’à ce qu’elle se termine. |   Aucun
 `n_cross_validations`   |Nombre de divisions pour la validation croisée.| Aucun
 `validation_size`   |Taille du jeu de validation définie en pourcentage de tous les échantillons de l’entraînement.|  Aucun
-`preprocess` | True/False <br/>True permet à l’expérience d’effectuer un prétraitement sur l’entrée. Voici un sous-ensemble de prétraitement<li>Données manquantes : Attribue des valeurs aux données manquantes – la moyenne pour les données numériques, la chaîne ayant le plus d’occurrences pour du texte </li><li>Données catégorielles : Si le type de données est numérique et que le nombre de valeurs uniques est inférieur à 5 pour cent, convertit en un encodage one-hot </li><li>Pour obtenir la liste complète, consultez [le dépôt GitHub](https://aka.ms/aml-notebooks)</li><br/>Remarque : Si les données sont éparses, vous ne pouvez pas utiliser preprocess = true |  False | 
+`preprocess` | True/False <br/>True permet à l’expérience d’effectuer un prétraitement sur l’entrée. Voici un sous-ensemble de prétraitement<li>Données manquantes : Attribue des valeurs aux données manquantes – la moyenne pour les données numériques, la chaîne ayant le plus d’occurrences pour du texte </li><li>Données catégorielles : Si le type de données est numérique et que le nombre de valeurs uniques est inférieur à 5 pour cent, convertit en un encodage one-hot </li><li>Pour obtenir la liste complète, consultez [le dépôt GitHub](https://aka.ms/aml-notebooks)</li><br/>Remarque : Si les données sont éparses, vous ne pouvez pas utiliser preprocess = true |  False |
+`enable_cache`  | True/False <br/>Définir ceci sur la valeur True permet d’effectuer le prétraitement une fois et de réutiliser les mêmes données prétraitées pour toutes les itérations. | True |
 `blacklist_models`  | L’expérience de machine learning automatisé fait des essais avec de nombreux algorithmes différents. Configurez pour exclure certains algorithmes de l’expérience. Pratique si vous savez qu’un ou plusieurs algorithmes spécifiques ne fonctionnent pas bien pour votre jeu de données. Exclure des algorithmes peut économiser des ressources de calcul et du temps d’entraînement.<br/>Valeurs autorisées pour la classification<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valeurs autorisées pour la régression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valeurs autorisées pour la prévision<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Aucun
 `whitelist_models`  | L’expérience de machine learning automatisé fait des essais avec de nombreux algorithmes différents. Configurez pour inclure certains algorithmes pour l’expérience. Pratique si vous savez qu’un ou plusieurs algorithmes spécifiques fonctionnent bien pour votre jeu de données. <br/>Valeurs autorisées pour la classification<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valeurs autorisées pour la régression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valeurs autorisées pour la prévision<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Aucun
 `verbosity` |Contrôle le niveau de journalisation, INFO étant le plus détaillé, CRITICAL étant le moins détaillé. Le niveau de détail prend les mêmes valeurs que celles définies dans le package de journalisation de Python. Les valeurs autorisées sont les suivantes :<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
@@ -272,7 +273,7 @@ Vous pouvez consulter vos résultats dans un widget ou en ligne si vous êtes da
 Les métriques suivantes sont enregistrées dans chaque itération pour une tâche de classification.
 
 |Métrique principale|Description|Calcul|Paramètres supplémentaires
---|--|--|--|--|
+--|--|--|--|
 AUC_Macro| « AUC » est « Area under the Receiver Operating Characteristic Curve » (la zone sous la courbe caractéristique de fonctionnement du récepteur). « Macro » est la moyenne arithmétique de l’AUC pour chaque classe.  | [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| « AUC » est « Area under the Receiver Operating Characteristic Curve » (la zone sous la courbe caractéristique de fonctionnement du récepteur). « Micro » est calculé globalement en combinant les vrais positifs et les faux positifs de chaque classe| [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
 AUC_Weighted  | « AUC » est « Area under the Receiver Operating Characteristic Curve » (la zone sous la courbe caractéristique de fonctionnement du récepteur). « Weighted » est la moyenne arithmétique du score pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.| [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
@@ -298,7 +299,7 @@ weighted_accuracy|La précision pondérée est la précision où le poids donné
 Les métriques suivantes sont enregistrées dans chaque itération pour une tâche de régression ou de prévision.
 
 |Métrique principale|Description|Calcul|Paramètres supplémentaires
---|--|--|--|--|
+--|--|--|--|
 explained_variance|La variance expliquée est la proportion selon laquelle un modèle mathématique compte pour la variation d’un jeu de données particulier. C’est le pourcentage de diminution de la variance des données d’origine par rapport à la variance des erreurs. Quand la moyenne des erreurs est 0, elle est égale à la variance expliquée.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Aucun|
 r2_score|R2 est le coefficient de détermination ou le pourcentage de réduction dans les erreurs quadratiques comparé à un modèle de référence qui génère la moyenne. Quand la moyenne des erreurs est 0, elle est égale à la variance expliquée.|[Calcul](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Aucun|
 spearman_correlation|La corrélation de Spearman est une mesure non paramétrique de la monotonie de la relation entre deux jeux de données. Contrairement à la corrélation de Pearson, la corrélation de Spearman ne suppose pas que les deux jeux de données sont normalement distribués. Comme d’autres coefficients de corrélation, celle-ci varie entre -1 et +1, 0 impliquant l’absence de corrélation. Les corrélations de -1 ou +1 impliquent une relation monotone exacte. Les corrélations positives impliquent que quand x augmente, y augmente également. Les corrélations négatives impliquent que quand x augmente, y diminue.|[Calcul](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Aucun|
@@ -321,7 +322,7 @@ Il y a deux façons de générer l’importance des caractéristiques.
 
 *   Une fois qu’une expérience est terminée, vous pouvez utiliser la méthode `explain_model` sur une des itérations.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import explain_model
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
@@ -338,7 +339,7 @@ Il y a deux façons de générer l’importance des caractéristiques.
 
 *   Pour visualiser l’importance des caractéristiques pour toutes les itérations, définissez l’indicateur `model_explainability` sur `True` dans AutoMLConfig.  
 
-    ```
+    ```python
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  primary_metric = 'AUC_weighted',
@@ -355,7 +356,7 @@ Il y a deux façons de générer l’importance des caractéristiques.
 
     Quand c’est fait, vous pouvez utiliser la méthode retrieve_model_explanation pour récupérer l’importance des caractéristiques pour une itération spécifique.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \

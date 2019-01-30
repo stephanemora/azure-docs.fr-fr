@@ -3,21 +3,21 @@ title: Application Extensions dans Azure Active Directory B2C | Microsoft Docs
 description: Restauration de l’application b2c-extensions-app.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 9/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ad3d459b1211d2777f57169f3ee896d2ab5618bc
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: afb8e6fcc7c16594c1377e6b848e0f09a18298b1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442822"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54842628"
 ---
-# <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C : application Extensions
+# <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C : Application d’extensions
 
 Lors de la création d’un annuaire Azure AD B2C, une application appelée `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` est automatiquement créée dans celui-ci. L’application **b2c-extensions-app** est visible sous *Inscriptions des applications*. Elle est utilisée par le service Azure AD B2C pour stocker des informations sur les utilisateurs et les attributs personnalisés. Si l’application est supprimée, Azure AD B2C ne pourra plus fonctionner correctement et votre environnement de production en sera affecté.
 
