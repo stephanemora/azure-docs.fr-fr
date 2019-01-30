@@ -1,10 +1,10 @@
 ---
-title: 'Services de domaine Azure AD : comparer les services de domaine Azure AD aux contrôleurs de domaine personnalisés | Microsoft Docs'
+title: 'Azure AD Domain Services : comparer Azure Active Directory Domain Services et les contrôleurs de domaine personnalisés | Microsoft Docs'
 description: Comparaison entre les services de domaine Azure AD et les contrôleurs de domaine personnalisés
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 45c1629aba2124230aa55f67583ff08584ab3c93
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155795"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847626"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Comment déterminer si les services de domaine Azure AD sont adaptés à votre cas d’utilisation ?
 Azure AD Domain Services vous permet de déployer vos charges de travail dans les services d’infrastructure Azure, sans avoir à vous soucier de maintenir votre infrastructure d’identité dans Azure. Ce service géré est différent d’un déploiement Windows Server Active Directory standard que vous déployez et gérez par vous-même. Le service est facile à déployer et assure une surveillance et une correction automatisées de l’intégrité. Le service est en constante évolution pour inclure la prise en charge de scénarios de déploiement courants.
@@ -36,21 +36,27 @@ Le tableau suivant vous permet de choisir entre l’utilisation des services de 
 
 | **Fonctionnalité** | **Services de domaine Azure AD** | **Infrastructure AD personnalisée sur des machines virtuelles Azure** |
 | --- |:---:|:---:|
-| [**Service géré**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&amp;#x2715;** |
+| [**Service géré**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |
+  **&#x2715;** |
 | [**Déploiements sécurisés**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |L’administrateur doit sécuriser le déploiement. |
 | [**Serveur DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (service géré) |**&#x2713;** |
-| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&amp;#x2715;** |**&#x2713;** |
+| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |
+  **&#x2715;** |**&#x2713;** |
 | [**Jonction de domaine**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Authentification de domaine à l’aide de NTLM et Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Délégation Kerberos contrainte**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|basée sur la ressource|basée sur la ressource et basée sur le compte|
 | [**Structure d’unité d’organisation personnalisée**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
-| [**Extensions de schéma**](active-directory-ds-comparison.md#schema-extensions) |**&amp;#x2715;** |**&#x2713;** |
-| [**Approbations de domaine/forêt AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&amp;#x2715;** |**&#x2713;** |
+| [**Extensions de schéma**](active-directory-ds-comparison.md#schema-extensions) |
+  **&#x2715;** |**&#x2713;** |
+| [**Approbations de domaine/forêt AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |
+  **&#x2715;** |**&#x2713;** |
 | [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
 | [**LDAP sécurisé (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
-| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&amp;#x2715;** |**&#x2713;** |
+| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |
+  **&#x2715;** |**&#x2713;** |
 | [**Group Policy**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
-| [**Déploiements géolocalisés**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&amp;#x2715;** |**&#x2713;** |
+| [**Déploiements géolocalisés**](active-directory-ds-comparison.md#geo-dispersed-deployments) |
+  **&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Service géré
 Les domaines des services de domaine Azure AD sont gérés par Microsoft. Vous n’avez pas à vous soucier des correctifs, des mises à jour, de la surveillance, des sauvegardes et de la disponibilité de votre domaine. Ces tâches de gestion sont proposées en tant que service par Microsoft Azure pour vos domaines gérés.
@@ -106,9 +112,9 @@ Les domaines gérés des services de domaine Azure AD sont disponibles dans un s
 ## <a name="do-it-yourself-diy-ad-deployment-options"></a>Options de déploiement AD personnalisé
 Vous disposez peut-être de cas d’utilisation de déploiement où vous avez besoin de certaines des fonctionnalités offertes par une installation Windows Server AD. Dans ces cas, envisagez l’une des options personnalisées suivantes :
 
-* **Domaine cloud autonome :** vous pouvez configurer un domaine cloud autonome à l’aide de machines virtuelles Azure qui ont été configurées en tant que contrôleurs de domaine. Cette infrastructure ne s’intègre pas à votre environnement AD local. Cette option nécessite un ensemble différent d’informations d’identification cloud pour l’ouverture de session/la gestion des machines virtuelles sur le cloud.
-* **Déploiement de forêt de ressources :** vous pouvez configurer un domaine dans la topologie de forêt de ressources à l’aide de machines virtuelles Azure configurées en tant que contrôleurs de domaine. Ensuite, vous pouvez configurer une relation d’approbation AD avec votre environnement AD local. Vous pouvez joindre au domaine des ordinateurs (machines virtuelles Azure) pour cette forêt de ressources dans le cloud. L’authentification de l’utilisateur a lieu sur une connexion VPN/ExpressRoute à votre répertoire local.
-* **Étendre votre domaine local à Azure :** vous pouvez connecter un réseau virtuel Azure à votre réseau local à l’aide d’une connexion VPN/ExpressRoute. Cette configuration permet de joindre des machines virtuelles Azure à votre AD local. Une autre solution consiste à promouvoir des contrôleurs de domaine répliqués de votre domaine local dans Azure en tant que machine virtuelle. Vous pouvez alors configurer celle-ci pour la réplication via une connexion VPN/ExpressRoute à votre répertoire local. Ce mode de déploiement étend efficacement votre domaine local à Azure.
+* **Domaine cloud autonome :** vous pouvez configurer un domaine cloud autonome à l'aide de machines virtuelles Azure qui ont été configurées en tant que contrôleurs de domaine. Cette infrastructure ne s’intègre pas à votre environnement AD local. Cette option nécessite un ensemble différent d’informations d’identification cloud pour l’ouverture de session/la gestion des machines virtuelles sur le cloud.
+* **Déploiement de forêt de ressources :** vous pouvez configurer un domaine dans la topologie de forêt de ressources à l'aide de machines virtuelles Azure configurées en tant que contrôleurs de domaine. Ensuite, vous pouvez configurer une relation d’approbation AD avec votre environnement AD local. Vous pouvez joindre au domaine des ordinateurs (machines virtuelles Azure) pour cette forêt de ressources dans le cloud. L’authentification de l’utilisateur a lieu sur une connexion VPN/ExpressRoute à votre répertoire local.
+* **Étendre votre domaine local à Azure :** vous pouvez connecter un réseau virtuel Azure à votre réseau local à l'aide d'une connexion VPN/ExpressRoute. Cette configuration permet de joindre des machines virtuelles Azure à votre AD local. Une autre solution consiste à promouvoir des contrôleurs de domaine répliqués de votre domaine local dans Azure en tant que machine virtuelle. Vous pouvez alors configurer celle-ci pour la réplication via une connexion VPN/ExpressRoute à votre répertoire local. Ce mode de déploiement étend efficacement votre domaine local à Azure.
 
 > [!NOTE]
 > Vous pouvez décider qu’une option personnalisée est mieux adaptée à vos cas d’utilisation de déploiement. Pensez à [partager vos commentaires](active-directory-ds-contact-us.md) pour nous aider à comprendre quelles fonctionnalités vous aideraient à choisir les services de domaine Azure AD à l’avenir. Ces commentaires nous permettent de faire évoluer le service pour mieux répondre à vos besoins et cas d’utilisation de déploiement.

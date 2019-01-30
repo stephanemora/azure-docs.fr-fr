@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: eb046ceebf9c6233fa5178d18603add2f0c26a29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608015"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808457"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migration de Contoso : Refactoriser une application locale vers une application web Azure et une base de données SQL Azure
 
@@ -347,7 +347,7 @@ Les administrateurs de Contoso configurent maintenant Azure DevOps pour lancer l
 
     ![Déployer App Service](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. Dans **Sélectionner un fichier ou dossier**, ils recherchent le fichier **SmartHotel.Registration.Wcf.zip** qui a été créé lors de la génération, puis ils cliquent sur **Enregistrer**.
+18. Sous **Sélectionner un fichier ou dossier**, ils recherchent le fichier **SmartHotel.Registration.Wcf.zip** qui a été créé lors de la génération, puis ils cliquent sur **Enregistrer**.
 
     ![Enregistrer WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 

@@ -195,7 +195,7 @@ Après avoir trouvé le fournisseur de ressources et le type de ressource, utili
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | -------------- | ------------ |
-| web | Oui | Oui |
+| applications | Oui | Oui |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -544,7 +544,7 @@ Après avoir trouvé le fournisseur de ressources et le type de ressource, utili
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | -------------- | ------------ |
-| web | Oui | Non  |
+| applications | Oui | Non  |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -570,7 +570,7 @@ Après avoir trouvé le fournisseur de ressources et le type de ressource, utili
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | -------------- | ------------ |
-| web | Oui | Oui |
+| applications | Oui | Oui |
 | networks | Oui | Oui |
 | volumes | Oui | Oui |
 

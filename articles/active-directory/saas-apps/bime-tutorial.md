@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Bime | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Bime | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 966c5dcb6f45590fe1b6a8bb2d8b53c37aeed6b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f00d9e094f7ced7c8ac31e2e2dae1657db1e82f2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446593"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815825"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Didacticiel : Intégration d’Azure Active Directory à Bime
+# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutoriel : Intégration d'Azure Active Directory à Bime
 
 Dans ce didacticiel, vous allez apprendre à intégrer Bime à Azure Active Directory (Azure AD).
 
@@ -46,7 +46,7 @@ Pour configurer l’intégration d’Azure AD à Bime, vous avez besoin des él�
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous ne disposez pas d’un environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [Offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -150,7 +150,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     d. Cliquez sur **Enregistrer**.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

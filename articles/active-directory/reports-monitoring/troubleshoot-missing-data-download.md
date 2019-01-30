@@ -1,10 +1,10 @@
 ---
-title: 'Résolution des problèmes : Données manquantes dans les journaux d’activité Azure Active Directory téléchargés | Microsoft Docs'
+title: "Résolution des problèmes : Données manquantes dans les journaux d'activité Azure Active Directory téléchargés | Microsoft Docs"
 description: Fournit une résolution au problème de données manquantes dans les journaux d’activité Azure Active Directory téléchargés.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2607c5dacf6f261f27e7805e02df189a2753404c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ea7ef4eb75cc7ffdf951e8d8799e898bfc31948b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625644"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818198"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Je ne parviens pas à trouver toutes les donnée dans les journaux d’activité Azure Active Directory que j’ai téléchargés
 

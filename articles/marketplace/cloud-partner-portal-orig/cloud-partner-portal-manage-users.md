@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d24cf56a898a4f4f8317246cbc2317e926256a77
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 56c646c2ab1f733c37a20cf6e6a5945b223beec4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806281"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447273"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Gestion des utilisateurs sur le portail Microsoft Cloud Partner
 ======================================
@@ -36,14 +36,14 @@ Pour **ajouter des utilisateurs et affecter des rôles** pour la publication de 
 <a name="step-2-click-add-user"></a>Étape 2. Cliquez sur Ajouter un utilisateur.
 -----------------------
 
-![Sélectionner Ajouter un utilisateur](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
+![Sélectionnez Ajouter un utilisateur](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
 
 <a name="step-3-type-email-address-and-select-a-role-assignment"></a>Étape 3. Tapez l’adresse e-mail et sélectionnez une affectation de rôle.
 --------------------------------------------------------
 
 Vous pouvez ajouter le nouvel utilisateur en tant que « propriétaire » ou « collaborateur ».
 
-**E-mail** : ajoutez les adresses e-mail des collègues travaillant sur la publication de l’offre. Les comptes Microsoft (Outlook, Hotmail et Live) et les ID d’organisation sont pris en charge.
+**E-mail** : ajoutez les adresses e-mail des collègues qui contribueront à la publication de l'offre. Les comptes Microsoft (Outlook, Hotmail et Live) et les ID d’organisation sont pris en charge.
 
 o Ajoutez un « groupe d’équipe/de courrier électronique/de sécurité » si l’individu qui utilise l’offre quitte l’organisation.
 
@@ -59,7 +59,8 @@ Actuellement, seuls les propriétaires peuvent accéder aux onglets Azure Payout
 <a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Étape 4. Sélectionnez le nom de l’éditeur pour lequel vous souhaitez ajouter le nouvel utilisateur, puis cliquez sur Ajouter pour terminer l’ajout de l’utilisateur.
 ----------------------------------------------------------------------------------------------------------------------------
 
-> `NOTE: The ‘publisher names’ for which your email is added as an owner or contributor will show up in the drop-down list of Publisher for selection.`
+> [!NOTE]
+> Les noms des éditeurs pour lesquels votre adresse e-mail est ajoutée en tant que propriétaire ou contributeur apparaîtront dans la liste déroulante des éditeurs à sélectionner.
 
 ![Attribuer un rôle : sélectionner un éditeur](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

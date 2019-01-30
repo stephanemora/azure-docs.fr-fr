@@ -1,5 +1,5 @@
 ---
-titre : Résoudre les problèmes de réentraînement d'un service web Machine Learning Studio classique - titleSuffix: Description d'Azure Machine Learning Studio : Identifiez et corrigez les problèmes courants rencontrés quand vous réentraînez le modèle d’un service web Azure Machine Learning Studio.
+titre : Résoudre les problèmes de réentraînement d'un service web Machine Learning Studio classique - titleSuffix: Description d'Azure Machine Learning Studio : Identifiez et corrigez les problèmes courants rencontrés lorsque vous réentraînez le modèle d'un service web Azure Machine Learning Studio.
 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 11/01/2017
@@ -31,7 +31,7 @@ Une fois tous les éléments en place, les principales étapes à suivre pour re
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Vérifiez que vous disposez de l’URL d’application de correctifs appropriée
 L’URL d’application de correctifs que vous utilisez doit être celle associée au nouveau point de terminaison d’évaluation que vous avez ajouté au service web d’évaluation. Il existe plusieurs façons d’obtenir l’URL des CORRECTIFS :
 
-**Option 1 : par programme**
+**Option 1 : par programmation**
 
 Pour obtenir l’URL d’application de correctifs appropriée :
 

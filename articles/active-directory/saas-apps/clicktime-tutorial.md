@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ClickTime | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à ClickTime | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ClickTime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 065225bb6c206f980c19955c682fc2c8a5deb950
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f1c7c3cf850ed48412c8a232e364f927248ed9bf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441766"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811118"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Didacticiel : Intégration d’Azure Active Directory à ClickTime
+# <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutoriel : Intégration d'Azure Active Directory à ClickTime
 
 Dans ce didacticiel, vous allez apprendre à intégrer ClickTime à Azure Active Directory (Azure AD).
 
@@ -148,7 +148,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     d.  Cliquez sur **Enregistrer**.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -245,7 +245,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette ClickTime dans le volet d’accès, vous devez être connecté automatiquement à votre application ClickTime.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

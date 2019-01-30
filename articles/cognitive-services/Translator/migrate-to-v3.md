@@ -78,7 +78,7 @@ La tarification de Microsoft Translator V3 est la même que celle de la V2 ; par
 | Languages     | Aucun caractère envoyé, aucun comptabilisé, aucuns frais.          |
 | Translate     | La comptabilisation se base sur le nombre de caractères envoyés pour traduction et dans combien de langues ils doivent être traduits. 50 caractères envoyés, 5 langues demandées, cela fait 50 x 5.           |
 | Transliterate     | Le nombre de caractères envoyés pour translittération est comptabilisé.         |
-| Dictionary lookup & example     | Le nombre de caractères envoyés pour la recherche dans le dictionnaire et les exemples est comptabilisé.         |
+| Dictionary lookup &amp; example     | Le nombre de caractères envoyés pour la recherche dans le dictionnaire et les exemples est comptabilisé.         |
 | BreakSentence     | Aucuns frais.       |
 | Detect     | Aucuns frais.      |
 

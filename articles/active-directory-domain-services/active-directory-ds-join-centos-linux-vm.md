@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services : joindre une machine virtuelle CentOS à un domaine managé | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Joindre une machine virtuelle CentOS à un domaine managé | Microsoft Docs'
 description: Joindre une machine virtuelle Linux CentOS à Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: cfa0ab1fdf72e3d363b5845c8602b0bea7ff6a12
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 3a321246c948c38abc5840fd4e2113a648151a21
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155182"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850397"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Linux CentOS à un domaine managé
 Cet article indique comment joindre une machine virtuelle Linux CentOS dans Azure à un domaine managé par Azure AD Domain Services.
@@ -87,7 +87,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     ```
 
     > [!NOTE]
-    > **Résolution des problèmes :** si *realm discover* ne peut pas trouver votre domaine géré :  
+    > **Résolution des problèmes :** Si *realm discover* ne parvient pas à trouver votre domaine managé :  
       * Vérifiez que le domaine est accessible à partir de la machine virtuelle (effectuez un test ping).  
       * Vérifiez également que la machine virtuelle a bien été déployée dans le réseau virtuel au sein duquel le domaine managé est disponible.
       * Vérifiez si vous avez mis à jour les paramètres du serveur DNS pour le réseau virtuel afin de pointer vers les contrôleurs de domaine du domaine managé.  

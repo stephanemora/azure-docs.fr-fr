@@ -3,9 +3,9 @@ title: Utilisation d’AMQP 1.0 avec l’API Java Service Bus | Microsoft Docs
 description: Découvrez comment utiliser Java Message Service (JMS) avec Azure Service Bus et le protocole Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
-ms.author: spelluru
-ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: aschhab
+ms.openlocfilehash: f0c3aac95b1d19dc3f217cc146532254d8740ca0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308068"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853287"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Utilisation de l’API Java Message Service (JMS) avec Service Bus et AMQP 1.0
 Advanced Message Queuing Protocol (AMQP) 1.0 est un protocole de messagerie « wire-level » efficace et fiable qui peut être utilisé pour créer des applications de messagerie interplateforme robustes.
@@ -48,7 +48,7 @@ Vous devez ajouter les quatre fichiers JAR suivants de l’archive de distributi
 
 ## <a name="coding-java-applications"></a>Codage d’applications Java
 ### <a name="java-naming-and-directory-interface-jndi"></a>JNDI (Java Naming and Directory Interface)
-JMS utilise l’interface JNDI (Java Naming and Directory Interface) pour créer une séparation entre les noms logiques et les noms physiques. Deux types d’objets JMS sont résolus à l’aide de JNDI : ConnectionFactory et Destination. JNDI utilise un modèle de fournisseur auquel vous pouvez connecter différents services d’annuaire afin de gérer les tâches de résolution de noms. La bibliothèque Apache Qpid JMS AMQP 1.0 est dotée d’un simple fournisseur JNDI fondé sur un fichier de propriétés qui est configuré à l’aide d’un fichier de propriétés au format suivant :
+JMS utilise l’interface JNDI (Java Naming and Directory Interface) pour créer une séparation entre les noms logiques et les noms physiques. Deux types d'objets JMS sont résolus à l'aide de JNDI : ConnectionFactory et Destination. JNDI utilise un modèle de fournisseur auquel vous pouvez connecter différents services d’annuaire afin de gérer les tâches de résolution de noms. La bibliothèque Apache Qpid JMS AMQP 1.0 est dotée d’un simple fournisseur JNDI fondé sur un fichier de propriétés qui est configuré à l’aide d’un fichier de propriétés au format suivant :
 
 ```
 # servicebus.properties - sample JNDI configuration

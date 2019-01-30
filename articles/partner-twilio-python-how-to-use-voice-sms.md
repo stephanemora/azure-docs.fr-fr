@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 63eb894c64919826922fa60f4e12894542a97c69
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994163"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447358"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Guide pratique pour utiliser Twilio avec les fonctionnalités vocales et SMS dans Python
 Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes](#NextSteps) .
@@ -47,8 +47,8 @@ L'API utilise les verbes Twilio ; par exemple, le verbe **&lt;Say&gt;** (Dire) 
 La liste suivante présente les verbes Twilio. Découvrez les autres verbes et fonctionnalités dans la page [Documentation de Twilio Markup Language][twiml].
 
 * **&lt;Dial&gt;** (Composer) : connecte l’appelant à un autre téléphone.
-* **&lt;Gather&gt;** (Rassembler) : collecte les chiffres numériques entrés sur le clavier du téléphone.
-* **&lt;Hangup&gt;** (Raccrocher) : met fin à un appel.
+* **&lt;Rassembler&gt;**  : collecte les chiffres numériques entrés sur le clavier du téléphone.
+* **&lt;Raccrocher&gt;**  : met fin à un appel.
 * **&lt;Pause&gt;** (Suspendre) : patiente silencieusement pendant un nombre déterminé de secondes.
 * **&lt;Play&gt;** (Lire) : lit un fichier audio.
 * **&lt;Queue&gt;** (Mettre en file d’attente) : Ajoute l’appelant à une file d’attente d’appelants.
@@ -88,8 +88,8 @@ Tout d’abord, [configurez une nouvelle machine virtuelle Linux Azure][azure_vm
   3. Ajoutez une **règle sortante** pour le **port 80**. Veillez à autoriser le trafic entrant à partir de n’importe quelle adresse.
 
 ### <a name="set-the-dns-name-label"></a>Définir l’étiquette du nom DNS
-  1. Accédez à la page [Adresses IP publiques] [azure_ips].
-  2. Sélectionnez l’adresse IP publique qui correspond à votre machine virtuelle.
+  1. Accédez à la page [Adresses IP publiques][azure_ips].
+  2. Sélectionnez l'adresse IP publique qui correspond à votre machine virtuelle.
   3. Définissez la valeur **Étiquette du nom DNS** dans la section **Configuration**. Dans le cadre de cet exemple, elle ressemble à *votre-étiquette-domaine*.centralus.cloudapp.azure.com
 
 Une fois que vous êtes en mesure de vous connecter via SSH à la machine virtuelle, vous pouvez installer la structure web de votre choix (les deux plus connues dans Python étant [Flask](http://flask.pocoo.org/) et [Django](https://www.djangoproject.com)). Vous pouvez installer l’une des deux en exécutant simplement la commande `pip install`.
