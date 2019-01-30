@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5aca80a4ebeadc9e54cf99fb4a220c6ee7c37cae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582421"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857010"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
 
@@ -64,6 +64,24 @@ Pour voir si la limite de dépense est activée, accédez à la [vue Abonnements
 
 Cliquez sur la bannière et suivez les invites pour supprimer la limite de dépense. Si vous n’avez pas entré d’informations de carte bancaire lors de votre inscription, vous devez les saisir pour supprimer la limite de dépense. Pour plus d’informations, consultez [Limite de dépense Azure : fonctionnement et activation ou désactivation](https://azure.microsoft.com/pricing/spending-limits/).
 
+Vous pouvez utiliser le service [Cloudyn](https://www.cloudyn.com/) pour créer des alertes permettant d’avertir automatiquement des parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives. Vous pouvez créer des alertes à l’aide de rapports prenant en charge les alertes basées sur des seuils budgétaires et des seuils de coût. Pour plus d’informations sur l’utilisation de Cloudyn, consultez [Tutoriel : Vérifier l’utilisation et les coûts](../cost-management/tutorial-review-usage.md).
+
+Cet exemple utilise le rapport des **coûts réels dans le temps** pour envoyer une notification quand vos dépenses sur une machine virtuelle Azure s’approchent de votre budget total. Dans ce scénario, vous disposez d’un budget total de 20 000 $, et souhaitez recevoir une notification quand les coûts sont proches de la moitié de votre budget, 9 000 $, et une alerte supplémentaire quand ils atteignent 10 000 $.
+
+1. Dans le menu en haut du portail Cloudyn, sélectionnez **Coûts** > **Analyse des coûts** > **Rapport des coûts réels dans le temps**. 
+2. Définissez **Groups (Groupes)** sur **Service** et **filtrez le service** sur **Azure/VM**. 
+3. Dans le coin supérieur droit du rapport, sélectionnez **Actions**, puis sélectionnez **Planifier le rapport**.
+4. Pour recevoir un e-mail du rapport à intervalle planifié, sélectionnez l’onglet **Planification** dans la boîte de dialogue **Enregistrer ou planifier ce rapport**. Veillez à sélectionner **Envoyer par e-mail**. Tous les regroupements, filtrages et balises que vous utilisez sont inclus dans le rapport envoyé par e-mail. 
+5. Sélectionnez l’onglet **Seuil**, puis **Actual Cost vs. Threshold** (Coût réel vs seuil). 
+   1. Dans le seuil **Alerte rouge**, entrez 10000. 
+   2. Dans le seuil **Alerte jaune**, entrez 9000. 
+   3. Dans la zone **Nombre d’alertes consécutives**, entrez le nombre d’alertes consécutives à recevoir. Quand vous aurez reçu le nombre total d’alertes que vous avez spécifié, vous ne recevrez plus d’autres alertes. 
+6. Sélectionnez **Enregistrer**.
+
+    ![Exemple illustrant les alertes rouges et jaunes basées sur les seuils de dépenses](./media/billing-getting-started/schedule-alert01.png)
+
+Vous pouvez également sélectionner la métrique de seuil **Pourcentage du coût vs. budget** pour créer des alertes. Vous pouvez ainsi spécifier les seuils sous forme de pourcentages de votre budget, plutôt que sous forme de valeurs de devise.
+
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Méthodes d’analyse de vos coûts lors de l’utilisation des services Azure
 
 ### <a name="tags"></a> Ajoutez des balises à vos ressources pour regrouper vos données de facturation
@@ -90,7 +108,7 @@ Une fois que vos services sont actifs, vérifiez régulièrement combien ils vou
 
     ![Capture d’écran de la vue de l’analyse des coûts dans le portail Azure](./media/billing-getting-started/cost-analysis.PNG)
 
-4. Vous pouvez filtrer les données en fonction de différentes propriétés : [balises](#tags), groupe de ressources, intervalle de temps, etc. Cliquez sur **Appliquer** pour confirmer les filtres et sur **Télécharger** pour exporter la vue vers un fichier de valeurs séparées par des virgules (.csv).
+4. Vous pouvez filtrer les données en fonction de différentes propriétés : [balises](#tags), type de ressource, groupe de ressources et intervalle de temps. Cliquez sur **Appliquer** pour confirmer les filtres et sur **Télécharger** pour exporter la vue vers un fichier de valeurs séparées par des virgules (.csv).
 
 5. En outre, vous pouvez cliquer sur une ressource pour afficher l’historique de vos dépenses quotidiennes et le coût des ressources chaque jour.
 

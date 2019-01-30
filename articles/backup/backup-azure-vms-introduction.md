@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 57d52412648cbe8a0791aa306075018a2092bf51
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265411"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827327"
 ---
 # <a name="about-azure-vm-backup"></a>À propos de la sauvegarde de machine virtuelle Azure
 
@@ -40,7 +40,7 @@ Voici comment Sauvegarde Azure effectue une sauvegarde de machines virtuelles Az
 
 Sauvegarde Azure ne chiffre pas les données dans le cadre du processus de sauvegarde. Sauvegarde Azure prend en charge la sauvegarde des machines virtuelles Azure chiffrées avec Azure Disk Encryption.
 
-- La sauvegarde des machines virtuelles chiffrées avec une clé de chiffrement Bitlocker (BEK) uniquement ou avec une BEK et une clé de chiffrement principale (KEK) est prise en charge, à la fois pour les machines virtuelles Azure gérées et non gérées.
+- La sauvegarde des machines virtuelles chiffrées avec une clé de chiffrement BitLocker (BEK) uniquement ou avec une BEK et une clé de chiffrement principale (KEK) est prise en charge, à la fois pour les machines virtuelles Azure gérées et non gérées.
 - Les BEK (secrets) et KEK (clés) sauvegardées sont chiffrées afin de pouvoir être lues et utilisées uniquement quand les utilisateurs autorisés les restaurent dans le coffre de clés.
 - Étant donné que la BEK est également sauvegardée, s’ils la perdent, les utilisateurs autorisés peuvent la restaurer dans le coffre de clés pour récupérer la machine virtuelle chiffrée. Les clés et secrets des machines virtuelles chiffrées sont sauvegardés sous forme chiffrée, si bien que ni les utilisateurs non autorisés, ni Azure ne peuvent lire ou utiliser les clés et secrets sauvegardés. Seuls les utilisateurs disposant du niveau d’autorisations approprié peuvent sauvegarder et restaurer des machines virtuelles chiffrées, ainsi que des clés et des secrets.
 
@@ -69,11 +69,11 @@ Quand des applications sont en cours d’exécution, Sauvegarde Azure prend des 
 
 Le tableau suivant explique les différents types de cohérence.
 
-**Instantané** | **Basé sur le service VSS** | **Détails** | **Récupération**
+**Instantané** | **Détails** | **Récupération** | **Considération**
 --- | --- | --- | ---
-**Cohérence des applications** | Oui (Windows uniquement) | Les sauvegardes cohérentes dans les applications capturent le contenu et les opérations d’E/S en attente de la mémoire. Les instantanés cohérents dans les applications utilisent l’enregistreur VSS (ou un pré/post-script pour Linux) qui garantissent la cohérence des données d’application avant une sauvegarde. | Lors de la récupération avec un instantané cohérent dans les applications, la machine virtuelle démarre. Il n’y a aucune altération ni perte des données. Les applications démarrent dans un état cohérent.
-**Cohérence du système de fichiers** | Oui (Windows uniquement) |  Les sauvegardes cohérentes dans le système de fichiers fournissent des sauvegardes cohérentes des fichiers de disque en prenant un instantané de tous les fichiers en même temps.<br/><br/> Les points de récupération de sauvegarde Azure sont cohérents dans les fichiers pour :<br/><br/> - les sauvegardes de machines virtuelles Linux qui n’ont pas de pré/post-scripts ou qui ont des scripts qui ont échoué ;<br/><br/> - les sauvegardes de machine virtuelle Windows où VSS a échoué. | Lors de la récupération avec un instantané cohérent dans les fichiers, la machine virtuelle démarre. Il n’y a aucune altération ni perte des données. Les applications ont besoin d’implémenter leur propre mécanisme de « correction » pour s’assurer que les données restaurées sont cohérentes.
-**Cohérence en cas d’incident** | Non  | Une cohérence en cas d’incident se produit souvent quand une machine virtuelle Azure s’arrête au moment de la sauvegarde.  Seules les données déjà présentes sur le disque au moment de la sauvegarde sont capturées et sauvegardées.<br/><br/> Un point de récupération cohérent en cas d’incident ne garantit pas la cohérence des données pour le système d’exploitation ou l’application. | Il n’y a aucune garantie, mais généralement la machine virtuelle démarre, puis effectue une vérification des disques afin de corriger les erreurs dues à des altérations. Toutes les données en mémoire ou écritures qui n’ont pas été transférées vers un disque sont perdues. Les applications implémentent leur propre vérification des données. Par exemple, pour une application de base de données, si un journal des transactions comporte des entrées qui ne figurent pas dans la base de données, le logiciel de base de données tourne jusqu’à ce que les données soient cohérentes.
+**Cohérence des applications** | Les sauvegardes cohérentes dans les applications capturent le contenu et les opérations d’E/S en attente de la mémoire. Les instantanés cohérents dans les applications utilisent l’enregistreur VSS (ou un pré/post-script pour Linux) qui garantissent la cohérence des données d’application avant une sauvegarde. | Lors de la récupération avec un instantané cohérent dans les applications, la machine virtuelle démarre. Il n’y a aucune altération ni perte des données. Les applications démarrent dans un état cohérent. | Windows : Tous les enregistreurs VSS ont réussi<br/><br/> Linux : Les pré/post-scripts sont configurés et ont réussi
+**Cohérence du système de fichiers** | Les sauvegardes cohérentes dans le système de fichiers fournissent des sauvegardes cohérentes des fichiers de disque en prenant un instantané de tous les fichiers en même temps.<br/><br/> | Lors de la récupération avec un instantané cohérent dans les fichiers, la machine virtuelle démarre. Il n’y a aucune altération ni perte des données. Les applications ont besoin d’implémenter leur propre mécanisme de « correction » pour s’assurer que les données restaurées sont cohérentes. | Windows : Certains enregistreurs VSS ont échoué <br/><br/> Linux : Par défaut (si les pré/post-scripts ne sont pas configurés ou ont échoué)
+**Cohérence en cas d’incident** | Une cohérence en cas d’incident se produit souvent quand une machine virtuelle Azure s’arrête au moment de la sauvegarde.  Seules les données déjà présentes sur le disque au moment de la sauvegarde sont capturées et sauvegardées.<br/><br/> Un point de récupération cohérent en cas d’incident ne garantit pas la cohérence des données pour le système d’exploitation ou l’application. | Il n’y a aucune garantie, mais généralement la machine virtuelle démarre, puis effectue une vérification des disques afin de corriger les erreurs dues à des altérations. Toutes les données en mémoire ou écritures qui n’ont pas été transférées vers un disque sont perdues. Les applications implémentent leur propre vérification des données. Par exemple, pour une application de base de données, si un journal des transactions comporte des entrées qui ne figurent pas dans la base de données, le logiciel de base de données tourne jusqu’à ce que les données soient cohérentes. | La machine virtuelle est arrêtée
 
 
 ## <a name="service-and-subscription-limits"></a>Limites du service et des abonnements

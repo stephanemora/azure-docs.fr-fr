@@ -3,8 +3,8 @@ title: Notifications Push vers des téléphones Windows spécifiques à l’aide
 description: Ce didacticiel vous apprend à utiliser Azure Notification Hubs pour envoyer des notifications vers des appareils Windows Phone 8 ou Windows Phone 8.1 (pas tous) enregistrés avec le serveur principal de l’application.
 services: notification-hubs
 documentationcenter: windows
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 42726bf5-cc82-438d-9eaa-238da3322d80
 ms.service: notification-hubs
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: fb408765a1185ac64a664cee458432bfce061c91
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 01/04/20189
+ms.author: jowargo
+ms.openlocfilehash: 806f71526433d5817450dc80427fbc9f2381307b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919135"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446610"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des appareils Windows Phone spécifiques à l’aide d’Azure Notification Hubs
+# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Tutoriel : Notifications Push vers des appareils Windows Phone spécifiques à l’aide d’Azure Notification Hubs
+
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 Ce didacticiel montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers des appareils Windows Phone 8 ou Windows Phone 8.1 spécifiques. Si vous ciblez Windows Phone 8.1 (non-Silverlight), reportez-vous à la version [Windows Universel](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) de ce didacticiel.
@@ -32,7 +33,7 @@ Vous activez ce scénario en incluant une ou plusieurs *balises* durant la créa
 > [!NOTE]
 > Le kit de développement logiciel (SDK) Windows Phone Notification Hubs ne prend pas en charge l’utilisation des services WNS avec les applications Silverlight Windows Phone 8.1. Pour utiliser WNS (et non MPNS) avec les applications Windows Phone 8.1 Silverlight, suivez le didacticiel Notification Hubs - Windows Phone Silverlight, qui s’appuie sur des API REST.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes : 
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Ajout d’une sélection de catégories à l’application mobile
@@ -41,47 +42,51 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Test de l'application
 
 ## <a name="prerequisites"></a>Prérequis
-Terminez le [didacticiel : notifications Push vers des applications Windows Phone à l’aide d’Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). Dans ce didacticiel, vous mettez à jour l’application mobile afin que vous puissiez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. 
+
+Suivre le [Tutoriel : Notifications Push vers des applications Windows Phone avec Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). Dans ce didacticiel, vous mettez à jour l’application mobile afin que vous puissiez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories.
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>Ajout d’une sélection de catégories à l’application mobile
+
 La première étape consiste à ajouter des éléments de l’interface utilisateur à votre page principale existante qui permettent à l’utilisateur de sélectionner des catégories auxquelles s’inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre Notification Hub avec les catégories sélectionnées sous forme de balises.
 
-1. Ouvrez le fichier de projet MainPage.xaml, puis remplacez les éléments **Grid** nommés `TitlePanel` et `ContentPanel` par le code suivant :
-   
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Breaking News" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="Categories" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
-   
-        <Grid Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <CheckBox Name="WorldCheckBox" Grid.Row="0" Grid.Column="0">World</CheckBox>
-            <CheckBox Name="PoliticsCheckBox" Grid.Row="1" Grid.Column="0">Politics</CheckBox>
-            <CheckBox Name="BusinessCheckBox" Grid.Row="2" Grid.Column="0">Business</CheckBox>
-            <CheckBox Name="TechnologyCheckBox" Grid.Row="0" Grid.Column="1">Technology</CheckBox>
-            <CheckBox Name="ScienceCheckBox" Grid.Row="1" Grid.Column="1">Science</CheckBox>
-            <CheckBox Name="SportsCheckBox" Grid.Row="2" Grid.Column="1">Sports</CheckBox>
-            <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
-        </Grid>
-2. Ajoutez au projet une classe nommée **Notifications**. Ajouter le modificateur **public** à la définition de la classe. Ensuite, ajoutez les instructions **using** suivantes au nouveau fichier de code :
-   
+1. Ouvrez le fichier `MainPage.xaml`, puis remplacez les éléments `Grid` nommés `TitlePanel` et `ContentPanel` par le code suivant :
+
+    ```xml
+    <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+        <TextBlock Text="Breaking News" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+        <TextBlock Text="Categories" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+    </StackPanel>
+
+    <Grid Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <CheckBox Name="WorldCheckBox" Grid.Row="0" Grid.Column="0">World</CheckBox>
+        <CheckBox Name="PoliticsCheckBox" Grid.Row="1" Grid.Column="0">Politics</CheckBox>
+        <CheckBox Name="BusinessCheckBox" Grid.Row="2" Grid.Column="0">Business</CheckBox>
+        <CheckBox Name="TechnologyCheckBox" Grid.Row="0" Grid.Column="1">Technology</CheckBox>
+        <CheckBox Name="ScienceCheckBox" Grid.Row="1" Grid.Column="1">Science</CheckBox>
+        <CheckBox Name="SportsCheckBox" Grid.Row="2" Grid.Column="1">Sports</CheckBox>
+        <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
+    </Grid>
+    ```
+2. Ajoutez au projet une classe nommée `Notifications`. Ajoutez le modificateur `public` à la définition de la classe. Ajoutez ensuite les instructions `using` suivantes au nouveau fichier :
+
     ```csharp
     using Microsoft.Phone.Notification;
     using Microsoft.WindowsAzure.Messaging;
     using System.IO.IsolatedStorage;
     using System.Windows;
     ```
-1. Ajoutez le code suivant dans la nouvelle classe **Notifications** :
-   
+3. Copiez le code suivant dans la nouvelle classe `Notifications` :
+
     ```csharp
     private NotificationHub hub;
 
@@ -162,7 +167,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 
         // The stored categories tags are passed with the template registration.
 
-        registrationTask.SetResult(await hub.RegisterTemplateAsync(channelUri.ToString(), 
+        registrationTask.SetResult(await hub.RegisterTemplateAsync(channelUri.ToString(),
             templateBodyMPNS, "simpleMPNSTemplateExample", this.RetrieveCategories()));
 
         return await registrationTask.Task;
@@ -192,31 +197,30 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
         }
 
         // Display a dialog of all the fields in the toast.
-        System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() => 
-        { 
-            MessageBox.Show(message.ToString()); 
+        System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
+        {
+            MessageBox.Show(message.ToString());
         });
     }
     ```
-    
+
     Cette classe utilise le stockage isolé pour stocker les catégories de nouvelles que cet appareil doit recevoir. Elle comporte également des méthodes pour s’inscrire à ces catégories à l’aide de l’inscription de notification [modèle](notification-hubs-templates-cross-platform-push-messages.md) .
-1. Dans le fichier de projet App.xaml.cs, ajoutez la propriété suivante à la classe **App** . Remplacez les espaces réservés `<hub name>` et `<connection string with listen access>` par le nom du hub de notification et la chaîne de connexion pour *DefaultListenSharedAccessSignature* obtenue précédemment.
-   
+4. Dans le fichier `App.xaml.cs` du projet, ajoutez la propriété suivante à la classe `App`. Remplacez les espaces réservés `<hub name>` et `<connection string with listen access>` par le nom du hub de notification et la chaîne de connexion pour *DefaultListenSharedAccessSignature* obtenue précédemment.
+
     ```csharp
     public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
     ```
 
    > [!NOTE]
    > Les informations d’identification distribuées avec une application cliente n’étant généralement pas sécurisées, vous ne devez distribuer que la clé d’accès d’écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d’accès complet est utilisée dans un service de serveur principal sécurisé pour l’envoi de notifications et la modification d’inscriptions existantes.
-   > 
-   > 
-2. Dans MainPage.xaml.cs, ajoutez la ligne suivante :
-   
+
+5. Dans `MainPage.xaml.cs`, ajoutez la ligne suivante :
+
     ```csharp
     using Windows.UI.Popups;
     ```
-1. Dans le fichier projet MainPage.xaml.cs, ajoutez la méthode suivante :
-   
+6. Dans le fichier projet MainPage.xaml.cs, ajoutez la méthode suivante :
+
     ```csharp
     private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
     {
@@ -234,24 +238,25 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
             result.RegistrationId);
     }
     ```
-   
-    Cette méthode crée une liste de catégories et utilise la classe **Notifications** pour stocker la liste dans le stockage local et inscrire les balises correspondantes auprès du Notification Hub. Lorsque des catégories sont modifiées, l'inscription est à nouveau créée avec les nouvelles catégories.
+
+    Cette méthode crée une liste de catégories et utilise la classe `Notifications` pour stocker la liste dans le stockage local et inscrire les balises correspondantes auprès de votre hub de notification. Lorsque des catégories sont modifiées, l'inscription est à nouveau créée avec les nouvelles catégories.
 
 Votre application peut désormais stocker un ensemble de catégories dans le stockage local sur l’appareil et s’inscrire auprès du hub de notification lorsque l’utilisateur modifie la sélection des catégories.
 
 ## <a name="register-for-notifications"></a>Inscription à des notifications
+
 Les étapes suivantes permettent l’inscription auprès du hub de notification au démarrage en utilisant les catégories qui ont été stockées dans le stockage local.
 
 > [!NOTE]
 > L’URI de canal affecté par le service de notification Push Microsoft (MPNS) pouvant changer à tout moment, vous devez vous inscrire fréquemment aux notifications afin d’éviter les défaillances de notification. Cet exemple s’inscrit aux notifications chaque fois que l’application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
 
-1. Ouvrez le fichier App.xaml.cs et ajoutez le modificateur **async** à la méthode **Application_Launching** et remplacez le code d’inscription Notification Hubs que vous avez ajouté dans le cadre du didacticiel [Prise en main de Notification Hubs] par le code suivant :
-   
+1. Ouvrez le fichier App.xaml.cs et ajoutez le modificateur `async` à la méthode `Application_Launching`, puis remplacez le code d’inscription Notification Hubs que vous avez ajouté dans le cadre du tutoriel [Prise en main de Notification Hubs] par le code suivant :
+
     ```csharp
     private async void Application_Launching(object sender, LaunchingEventArgs e)
     {
         var result = await notifications.SubscribeToCategories();
-    
+
         if (result != null)
             System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
@@ -259,15 +264,15 @@ Les étapes suivantes permettent l’inscription auprès du hub de notification 
             });
     }
     ```
-   
+
     Ce code garantit que chaque fois que l’application démarre, elle récupère les catégories du stockage local et demande une inscription pour ces catégories.
-2. Dans le fichier projet MainPage.xaml.cs, ajoutez le code suivant, qui implémente la méthode **OnNavigatedTo** :
-   
+2. Dans le fichier projet MainPage.xaml.cs, ajoutez le code suivant qui implémente la méthode `OnNavigatedTo` :
+
     ```csharp
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
         var categories = ((App)Application.Current).notifications.RetrieveCategories();
-    
+
         if (categories.Contains("World")) WorldCheckBox.IsChecked = true;
         if (categories.Contains("Politics")) PoliticsCheckBox.IsChecked = true;
         if (categories.Contains("Business")) BusinessCheckBox.IsChecked = true;
@@ -276,35 +281,37 @@ Les étapes suivantes permettent l’inscription auprès du hub de notification 
         if (categories.Contains("Sports")) SportsCheckBox.IsChecked = true;
     }
     ```
-   
+
     Ce code met à jour la page principale en fonction de l’état des catégories enregistrées précédemment.
 
 L'application est désormais terminée et peut stocker un ensemble de catégories dans le stockage local de l'appareil utilisé pour s'inscrire auprès du Notification Hub lorsque l'utilisateur modifie la sélection des catégories. Ensuite, définissez un serveur principal qui peut envoyer des notifications de catégorie à cette application.
 
 ## <a name="send-tagged-notifications"></a>Envoyer des notifications avec balises
+
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="test-the-app"></a>Test de l'application
+
 1. Dans Visual Studio, appuyez sur la touche F5 pour compiler et démarrer l’application.
-   
+
     ![Application mobile avec des catégories][1]
-   
+
     L’interface utilisateur de l’application fournit un ensemble de bascules qui vous permet de choisir les catégories auxquelles vous abonner.
 2. Activez une ou plusieurs bascules de catégories, puis cliquez sur **S'abonner**.
-   
+
     L'application convertit les catégories sélectionnées en balises et demande une nouvelle inscription de l'appareil pour les balises sélectionnées depuis le Notification Hub. Les catégories inscrites sont renvoyées et affichées dans une boîte de dialogue.
-   
+
     ![Message d’abonnement][2]
 3. Après avoir reçu la confirmation que l’enregistrement de vos catégories a bien été terminé, exécutez l’application de console pour envoyer des notifications pour chaque catégorie. Assurez-vous de recevoir une notification uniquement pour les catégories auxquelles vous êtes abonné.
-   
+
     ![Message de notification][3]
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Dans ce didacticiel, vous avez appris à envoyer des notifications Push à des appareils spécifiques ayant des balises associées à leurs enregistrements. Pour savoir comment envoyer des notifications à des utilisateurs spécifiques qui peuvent utiliser plusieurs appareils, passez au didacticiel suivant : 
 
 > [!div class="nextstepaction"]
 >[Notifications Push vers des utilisateurs spécifiques](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
-
 
 <!-- Anchors. -->
 [Add category selection to the app]: #adding-categories
@@ -318,8 +325,6 @@ Dans ce didacticiel, vous avez appris à envoyer des notifications Push à des a
 [2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
 [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png
 
-
-
 <!-- URLs.-->
 [Prise en main de Notification Hubs]: notification-hubs-windows-mobile-push-notifications-mpns.md
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
@@ -327,4 +332,3 @@ Dans ce didacticiel, vous avez appris à envoyer des notifications Push à des a
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
-

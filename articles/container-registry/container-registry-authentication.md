@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a68e4f70dac7aace9d49a41ecf282525ce6b1fd6
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752875"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851723"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>S’authentifier avec un registre de conteneurs Docker
 
@@ -26,13 +26,15 @@ Azure Container Registry ne prend pas en charge les opérations Docker non authe
 
 ## <a name="individual-login-with-azure-ad"></a>Connexion individuelle avec Azure AD
 
-Si vous utilisez directement votre registre, par exemple si vous extrayez des images et en envoyez depuis et vers votre station de travail de développement, authentifiez-vous à l’aide de la commande [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) dans [Azure CLI](/cli/azure/install-azure-cli) :
+Si vous utilisez directement votre registre, par exemple si vous extrayez des images et en envoyez depuis et vers une station de travail de développement, authentifiez-vous à l’aide de la commande [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) dans [Azure CLI](/cli/azure/install-azure-cli) :
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
 Si vous vous connectez avec `az acr login`, l’interface CLI utilise le jeton créé lorsque vous avez exécuté [az login](/cli/azure/reference-index#az-login) pour authentifier en toute transparence votre session avec votre registre. Une fois que vous êtes connecté de cette façon, vos informations d’identification sont mises en cache, et les commandes `docker` suivantes ne nécessitent pas de nom d’utilisateur ni de mot de passe. Si votre jeton arrive à expiration, vous pouvez l’actualiser en utilisant de nouveau la commande `az acr login` pour la réauthentification. L’utilisation de `az acr login` avec des identités Azure fournit un [accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md).
+
+Pour certains scénarios, vous serez peut-être amené à vous connecter à un registre avec votre identité individuelle dans Azure AD. Pour les scénarios entre les services ou pour gérer les besoins d’un groupe de travail où vous ne souhaitez pas gérer l’accès individuel, vous pouvez également vous connecter avec un [identité managée pour les ressources Azure](container-registry-authentication-managed-identity.md).
 
 ## <a name="service-principal"></a>Principal du service
 

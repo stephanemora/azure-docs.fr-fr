@@ -1,6 +1,6 @@
 ---
 title: FAQ Microsoft Azure Data Box Disk | Microsoft Docs sur les données
-description: Contient des questions fréquemment posées et des réponses au sujet d’Azure Data Box Disk, une solution de cloud qui vous permet de transférer de grandes quantités de données dans Azure
+description: Contient les questions fréquentes et leurs réponses au sujet d’Azure Data Box Disk, une solution cloud qui vous permet de transférer de grandes quantités de données dans Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 4320e56b04761c6adcae1db259eeecf332fbd781
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 68bc3302874849a69249a50dcecd46024ad939ef
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158786"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448327"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Qu’est-ce qu’Azure Data Box Disk ?
 
@@ -125,7 +125,7 @@ R.   Non. Pour l’instant, seul un compte de stockage, général ou classique, 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>Q. Quel est l’ensemble d’outils disponible pour mes données avec des disques Data Box Disk ?
 R. L’ensemble d’outils Data Box Disk contient trois outils :
  - **Outil de déverrouillage Data Box Disk** : utilisez cet outil pour déverrouiller les disques chiffrés qui sont fournis par Microsoft. Au déverrouillage des disques à l’aide de l’outil, vous devez fournir une clé d’accès indiquée sur la commande Data Box Disk dans le portail Azure. 
- - **Outil de validation Data Box Disk** : utilisez cet outil pour valider la taille, le format et les noms d’objets blob conformément aux conventions de nommage d’Azure. Il génère également des sommes de contrôle pour les données copiées qui sont ensuite utilisées pour vérifier les données chargées sur Azure.
+ - **Outil de validation Data Box Disk** : utilisez cet outil pour valider la taille, le format et les noms d’objets blob conformément aux conventions de nommage Azure. Il génère également des sommes de contrôle pour les données copiées qui sont ensuite utilisées pour vérifier les données chargées sur Azure.
  - **Outil de copie et de division Data Box Disk** : utilisez cet outil si vous avez plusieurs disques et que vous devez diviser et copier un jeu de données volumineux entre tous les disques. Cet outil est actuellement disponible pour Windows.
 
 L’ensemble d’outils est disponible pour Windows et Linux. Vous pouvez télécharger l’ensemble d’outils ici :

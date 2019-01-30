@@ -1,10 +1,10 @@
 ---
-title: 'Version préliminaire des services de domaine Azure Active Directory : associer une machine virtuelle Ubuntu à un domaine géré | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Joindre une machine virtuelle Ubuntu à un domaine managé | Microsoft Docs'
 description: Joindre une machine virtuelle Linux Ubuntu aux services de domaine Azure AD
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 709c227c955aba6b31ce415767470fa18ff3684f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 35b37a5c50346dc116b2f36394feecb82a0d88fd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155267"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845749"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Joindre une machine virtuelle Ubuntu dans Azure à un domaine géré
 Cet article indique comment joindre une machine virtuelle Linux Ubuntu à un domaine géré par les services de domaine Azure AD.
@@ -124,7 +124,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     ```
 
    > [!NOTE]
-   > **Résolution des problèmes :** si *realm discover* ne peut pas trouver votre domaine géré :
+   > **Résolution des problèmes :** si *realm discover* ne peut pas trouver votre domaine géré :
      * Vérifiez que le domaine est accessible à partir de la machine virtuelle (effectuez un test ping).
      * Vérifiez également que la machine virtuelle a bien été déployée dans le réseau virtuel au sein duquel le domaine managé est disponible.
      * Vérifiez si vous avez mis à jour les paramètres du serveur DNS pour le réseau virtuel afin de pointer vers les contrôleurs de domaine du domaine managé.

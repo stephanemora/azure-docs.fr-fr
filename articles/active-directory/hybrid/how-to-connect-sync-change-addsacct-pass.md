@@ -1,11 +1,11 @@
 ---
-title: 'Synchronisation Azure AD Connect : modification de mot de passe de compte AD DS | Microsoft Docs'
+title: 'Synchronisation d’Azure AD Connect :  Modifier le mot de passe du compte AD DS | Microsoft Docs'
 description: Cette rubrique décrit comment mettre à jour Azure AD Connect après la modification du mot de passe du compte AD DS.
 services: active-directory
 keywords: Compte AD DS, compte Active Directory, mot de passe
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 051ff6aa4e650f884a4712376b5dc420cc86fc3a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1b487651e938beadcada78eaf51b3f50beb7acf1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305488"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470534"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Modifier le mot de passe du compte AD DS
 Le compte AD DS fait référence au compte d’utilisateur utilisé par Azure AD Connect pour communiquer avec le répertoire Active Directory local. Si vous modifiez le mot de passe du compte AD DS, vous devez mettre à jour le service de synchronisation Azure AD Connect avec le nouveau mot de passe. Dans le cas contraire, la synchronisation avec le répertoire Active Directory local ne s’effectue plus correctement et les erreurs suivantes apparaissent :
@@ -54,6 +54,6 @@ Pour mettre à jour le service de synchronisation avec le nouveau mot de passe 
 ## <a name="next-steps"></a>Étapes suivantes
 **Rubriques de présentation**
 
-* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
+* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
 
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)

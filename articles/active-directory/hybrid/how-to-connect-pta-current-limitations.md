@@ -5,7 +5,7 @@ services: active-directory
 keywords: Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fabefcffdd7ee9a23d8989f897f30cbf027f42af
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d0816aebc033a0ac1c5b8a8f52106a586d20a9af
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426407"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478278"
 ---
-# <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : limitations actuelles
+# <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : Limitations actuelles
 
 >[!IMPORTANT]
 >L’authentification directe Azure Active Directory (Azure AD) est une fonctionnalité gratuite que vous pouvez utiliser sans avoir besoin d’aucune édition payante d’Azure AD. L’authentification directe est disponible seulement dans l’instance mondiale d’Azure AD, et pas sur le [cloud Microsoft Azure Allemagne](https://www.microsoft.de/cloud-deutschland) ni sur le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/).
@@ -33,7 +33,7 @@ Les scénarios suivants sont pris en charge :
 
 - L’utilisateur se connecte à des applications s’appuyant sur un navigateur web.
 - L’utilisateur se connecte aux clients Outlook à l’aide des protocoles hérités, comme Exchange ActiveSync, EAS, SMTP, POP et IMAP.
-- L’utilisateur se connecte aux applications clientes Office héritées et aux applications Office prenant en charge [l’authentification moderne](https://aka.ms/modernauthga) : les versions d’Office 2010, 2013 et 2016.
+- L’utilisateur se connecte aux applications clientes Office héritées et aux applications Office prenant en charge [l’authentification moderne](https://aka.ms/modernauthga) : les versions d’Office 2010, 2013 et 2016.
 - L’utilisateur se connecte à des applications de protocole héritées, telles que PowerShell version 1.0, etc.
 - Jonctions Azure AD pour les appareils Windows 10.
 - Mots de passe d'application pour l’authentification multifacteur.
@@ -55,10 +55,10 @@ L’activation de la synchronisation de hachage du mot de passe vous donne la po
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide](how-to-connect-pta-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
 - [Migrer à partir d’AD FS vers l’authentification directe](https://aka.ms/ADFSTOPTADPDownload) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
-- [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
-- [Présentation technique approfondie](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne l'authentification directe.
-- [Forum aux questions](how-to-connect-pta-faq.md) : trouvez des réponses aux questions fréquemment posées sur la fonctionnalité Authentification directe.
-- [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.
-- [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques approfondies sur l’authentification directe.
-- [Authentification unique transparente Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
+- [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : apprenez à configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d'utilisateur.
+- [Présentation technique approfondie](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne la fonctionnalité d'authentification directe.
+- [Forum Aux Questions](how-to-connect-pta-faq.md) : trouvez des réponses aux questions fréquemment posées sur la fonctionnalité Authentification directe.
+- [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : apprenez à résoudre les problèmes courants liés à la fonctionnalité d'authentification directe.
+- [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques détaillées sur la fonctionnalité d’authentification directe.
+- [Authentification unique fluide Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.

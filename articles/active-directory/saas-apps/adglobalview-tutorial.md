@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’ADP GlobalView à Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ADP GlobalView | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ADP GlobalView.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ffb6464f-714d-41a9-869a-2b7e5ae9f125
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 11a3df06cbd1c3f34bfd5b04c1f6dfc41cab8187
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8ac0856dcadb92b79090a6520ef29707fd7a3bae
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223110"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813676"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Didacticiel : Intégration d’ADP GlobalView à Azure Active Directory
+# <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Tutoriel : Intégration d’Azure Active Directory à ADP GlobalView
 
 Dans ce didacticiel, vous allez apprendre à intégrer ADP GlobalView à Azure Active Directory (Azure AD).
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **ADP GlobalView**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/adglobalview-tutorial/tutorial_adpglobalview_samlbase.png)
+    ![Configurer l'authentification unique](./media/adglobalview-tutorial/tutorial_adpglobalview_samlbase.png)
 
 3. Dans la section **Domaine et URL ADP GlobalView**, effectuez le étapes suivantes :
 
-    ![Configure Single Sign-On](./media/adglobalview-tutorial/tutorial_adpglobalview_url.png)
+    ![Configurer l'authentification unique](./media/adglobalview-tutorial/tutorial_adpglobalview_url.png)
 
      Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.globalview.adp.com/federate` ou `https://<subdomain>.globalview.adp.com/federate2`
 
@@ -119,13 +119,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/adglobalview-tutorial/tutorial_adpglobalview_certificate.png) 
+    ![Configurer l'authentification unique](./media/adglobalview-tutorial/tutorial_adpglobalview_certificate.png) 
 
 5. L’application ADP GlobalView s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. 
 
 6. La capture d’écran suivante montre un exemple : Le nom de la revendication sera toujours **« PersonImmutableID »** et sa valeur mappée à ExtensionAttribute2 qui contient la valeur EmployeeID de l’utilisateur. Ici, le mappage utilisateur d’Azure AD à ADP GlobalView est effectué avec EmployeeID, mais vous pouvez le mapper à une valeur différente également basée sur les paramètres de votre application. Vous pouvez collaborer avec l’équipe ADP GlobalView pour utiliser l’identificateur correct d’un utilisateur et mapper cette valeur à la revendication **"PersonImmutableID"**. Vous pouvez également mapper les revendications Email et UserID, comme indiqué dans l’image ci-dessous.
 
-    ![Configure Single Sign-On](./media/adglobalview-tutorial/tutorial_adpglobalview_attribute.png)
+    ![Configurer l'authentification unique](./media/adglobalview-tutorial/tutorial_adpglobalview_attribute.png)
 
 7. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
@@ -152,16 +152,16 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 8. Dans la section **Configuration d’ADP GlobalView**, cliquez sur **Configurer ADP Globalview** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/adglobalview-tutorial/tutorial_adpglobalview_configure.png) 
+    ![Configurer l'authentification unique](./media/adglobalview-tutorial/tutorial_adpglobalview_configure.png) 
 
 9. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/adglobalview-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/adglobalview-tutorial/tutorial_general_400.png)
 
 10. Pour configurer l’authentification unique côté **ADP GlobalView**, vous devez envoyer le **Certificat (en base64)** téléchargé, **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** au [support ADP GlobalView](https://www.adp.com/contact-us/overview.aspx).
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -212,7 +212,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **ADP GlobalView**.
 
-    ![Configure Single Sign-On](./media/adglobalview-tutorial/tutorial_adpglobalview_app.png) 
+    ![Configurer l'authentification unique](./media/adglobalview-tutorial/tutorial_adpglobalview_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

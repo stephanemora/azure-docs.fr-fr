@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Achieve3000 | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Achieve3000 | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Achieve3000.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 83a83d07-ff9c-46c4-b5ba-25fe2b2cd003
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 72e327f3cfa81b1ff27fcad743f5bb9a98737ed9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bdee3d64348b734488f7fb19bf6c57353908ae9b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053604"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822720"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Didacticiel : Intégration d’Azure Active Directory avec Achieve3000
+# <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Tutoriel : Intégration d’Azure Active Directory à Achieve3000
 
 Ce didacticiel explique comment intégrer Achieve3000 avec Azure Active Directory (Azure AD).
 
@@ -150,7 +150,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 8. Pour configurer l’authentification unique côté **Achieve3000**, vous devez envoyer le fichier **XML des métadonnées** téléchargé à [l’équipe du support Achieve3000](https://www.achieve3000.com/contact-us/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -186,7 +186,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-an-achieve3000-test-user"></a>Créer un utilisateur de test Achieve3000
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Achieve3000. Pour ajouter des utilisateurs dans la plateforme Achieve3000, collaborez avec l’[équipe du support technique Achieve3000](https://www.achieve3000.com/contact-us/). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Achieve3000. Pour ajouter des utilisateurs dans la plateforme withAchieve3000, collaborez avec l’ [équipe du support technique Achieve3000](https://www.achieve3000.com/contact-us/) . Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

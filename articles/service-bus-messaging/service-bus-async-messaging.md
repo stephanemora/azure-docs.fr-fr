@@ -3,23 +3,23 @@ title: Messagerie asynchrone Service Bus | Microsoft Docs
 description: Description de la messagerie asynchrone Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 9bacce96e65a7aef611bec3ddae8b1872d5f9fae
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 0ecc277e1b9bd94558c54b1c808fdc24f47c402e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391461"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845076"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Modèles de messagerie asynchrone et haute disponibilité
 
@@ -75,7 +75,7 @@ Dans les deux cas, une catastrophe naturelle ou une erreur humaine a provoqué l
 ## <a name="paired-namespaces"></a>Espaces de noms associés
 La fonctionnalité d’[espaces de noms associés][paired namespaces] prend en charge les scénarios dans lesquels une entité Service Bus ou un déploiement dans un centre de données n’est plus disponible. Bien qu’un tel événement soit rare, les systèmes distribués toujours doivent être préparés aux pires scénarios. En règle générale, cet événement se produit lorsque certains éléments dont dépend Service Bus rencontrent un problème de courte durée. Pour maintenir la disponibilité des applications pendant une panne, les utilisateurs de Service Bus peuvent utiliser deux espaces de noms différents, de préférence dans des centres de données distincts, pour héberger leurs entités de messagerie. Le reste de cette section utilise la terminologie suivante :
 
-* Espace de noms principal : espace de noms avec lequel l’application interagit pour envoyer et recevoir des opérations.
+* Espace de noms principal : espace de noms avec lequel l’application interagit pour envoyer et recevoir des opérations.
 * Espace de noms secondaire : espace de noms servant de sauvegarde de l’espace de noms principal. La logique d’application n’interagit pas avec cet espace de noms.
 * Intervalle de basculement : durée d’une panne permettant d’accepter les pannes normales avant que l’application bascule de l’espace de noms principal vers l’espace de noms secondaire.
 
@@ -109,11 +109,11 @@ public SendAvailabilityPairedNamespaceOptions(
 
 Ces paramètres ont les significations suivantes :
 
-* *secondaryNamespaceManager* : instance [NamespaceManager][NamespaceManager] initialisée pour l’espace de noms secondaire que la méthode [PairNamespaceAsync][PairNamespaceAsync] peut utiliser pour configurer l’espace de noms secondaire. Le gestionnaire d’espaces de noms sera utilisé pour obtenir la liste des files d’attente dans l’espace de noms et s’assurer que les files d’attente backlog requises existent. Si ce n’est pas le cas, ces files d’attente sont créées. [NamespaceManager][NamespaceManager] doit avoir la possibilité de créer un jeton avec la revendication **Gérer**.
-* *messagingFactory* : instance [MessagingFactory][MessagingFactory] de l’espace de noms secondaire. L’objet [MessagingFactory][MessagingFactory] est utilisé pour procéder aux envois, et si la propriété [EnableSyphon][EnableSyphon] est définie sur **true**, pour recevoir des messages de la part des files d’attente.
-* *backlogQueueCount* : nombre de files d’attente à créer. La valeur doit être au moins à 1. Lorsque vous envoyez des messages à la file d’attente, l’une d’entre elles est sélectionnée de manière aléatoire. Si vous définissez la valeur sur 1, une seule file d’attente peut être utilisée. Lorsque cela se produit et que la seule file d’attente génère des erreurs, le client ne peut pas faire de tentative avec une autre file d’attente et risque de ne pas envoyer votre message. Nous vous recommandons de définir cette valeur sur une valeur supérieure et la valeur par défaut est de 10. Vous pouvez lui attribuer une valeur supérieure ou inférieure selon la quantité de données que votre application envoie quotidiennement. Chaque file d’attente peut contenir jusqu’à 5 Go de messages.
-* *failoverInterval* : durée pendant laquelle vous allez accepter les défaillances sur l’espace de noms principal avant de basculer chaque entité sur l’espace de noms secondaire. Les basculements se produisent sur la base entité par entité. Les entités dans un espace de noms unique résident fréquemment sur différents nœuds au sein de Service Bus. La défaillance d’une entité n’implique pas nécessairement la défaillance d’une autre. Vous pouvez définir cette valeur sur [System.TimeSpan.Zero][System.TimeSpan.Zero] pour basculer sur le second espace de noms tout de suite après votre première défaillance non temporaire. Les défaillances qui déclenchent le minuteur de basculement sont les exceptions [MessagingException][MessagingException] dans lesquelles la propriété [IsTransient][IsTransient] a la valeur false ou [System.TimeoutException][System.TimeoutException]. D’autres exceptions, telles que [UnauthorizedAccessException][UnauthorizedAccessException] ne provoquent pas de basculement, car elles signalent que le client est configuré de façon incorrecte. Une exception [ServerBusyException][ServerBusyException] n’entraîne pas de basculement, car le modèle correct consiste à attendre 10 secondes, puis à renvoyer le message.
-* *enableSyphon* : indique que cette association particulière doit siphonner les messages de l’espace de noms secondaire et les placer sur l’espace de noms principal. En général, les applications qui envoient des messages doivent définir cette valeur sur**false** ; les applications qui reçoivent des messages doivent définir cette valeur sur **true**. La raison est que souvent, les destinataires de messages sont moins nombreux que les expéditeurs. En fonction du nombre de destinataires, vous pouvez choisir d’utiliser une seule instance d’application pour gérer les tâches de siphon. L’utilisation de nombreux destinataires a un coût pour chaque file d’attente backlog.
+* *secondaryNamespaceManager*: instance [NamespaceManager][NamespaceManager] initialisée pour l’espace de noms secondaire que la méthode [PairNamespaceAsync][PairNamespaceAsync] peut utiliser pour configurer l’espace de noms secondaire. Le gestionnaire d’espaces de noms sera utilisé pour obtenir la liste des files d’attente dans l’espace de noms et s’assurer que les files d’attente backlog requises existent. Si ce n’est pas le cas, ces files d’attente sont créées. [NamespaceManager][NamespaceManager] doit avoir la possibilité de créer un jeton avec la revendication **Gérer**.
+* *messagingFactory* : instance [MessagingFactory][MessagingFactory] de l’espace de noms secondaire. L’objet [MessagingFactory][MessagingFactory] est utilisé pour procéder aux envois, et si la propriété [EnableSyphon][EnableSyphon] est définie sur **true**, pour recevoir des messages de la part des files d’attente.
+* *backlogQueueCount* : nombre de files d’attente à créer. La valeur doit être au moins à 1. Lorsque vous envoyez des messages à la file d’attente, l’une d’entre elles est sélectionnée de manière aléatoire. Si vous définissez la valeur sur 1, une seule file d’attente peut être utilisée. Lorsque cela se produit et que la seule file d’attente génère des erreurs, le client ne peut pas faire de tentative avec une autre file d’attente et risque de ne pas envoyer votre message. Nous vous recommandons de définir cette valeur sur une valeur supérieure et la valeur par défaut est de 10. Vous pouvez lui attribuer une valeur supérieure ou inférieure selon la quantité de données que votre application envoie quotidiennement. Chaque file d’attente peut contenir jusqu’à 5 Go de messages.
+* *failoverInterval* : durée pendant laquelle vous allez accepter les défaillances sur l’espace de noms principal avant de basculer chaque entité sur l’espace de noms secondaire. Les basculements se produisent sur la base entité par entité. Les entités dans un espace de noms unique résident fréquemment sur différents nœuds au sein de Service Bus. La défaillance d’une entité n’implique pas nécessairement la défaillance d’une autre. Vous pouvez définir cette valeur sur [System.TimeSpan.Zero][System.TimeSpan.Zero] pour basculer sur le second espace de noms tout de suite après votre première défaillance non temporaire. Les défaillances qui déclenchent le minuteur de basculement sont les exceptions [MessagingException][MessagingException] dans lesquelles la propriété [IsTransient][IsTransient] a la valeur false ou [System.TimeoutException][System.TimeoutException]. D’autres exceptions, telles que [UnauthorizedAccessException][UnauthorizedAccessException] ne provoquent pas de basculement, car elles signalent que le client est configuré de façon incorrecte. Une exception [ServerBusyException][ServerBusyException] n’entraîne pas de basculement, car le modèle correct consiste à attendre 10 secondes, puis à renvoyer le message.
+* *enableSyphon* : indique que cette association particulière doit siphonner les messages de l’espace de noms secondaire et les placer sur l’espace de noms principal. En général, les applications qui envoient des messages doivent définir cette valeur sur**false** ; les applications qui reçoivent des messages doivent définir cette valeur sur **true**. La raison est que souvent, les destinataires de messages sont moins nombreux que les expéditeurs. En fonction du nombre de destinataires, vous pouvez choisir d’utiliser une seule instance d’application pour gérer les tâches de siphon. L’utilisation de nombreux destinataires a un coût pour chaque file d’attente backlog.
 
 Pour utiliser le code, créez une instance principale de [MessagingFactory][MessagingFactory], une instance secondaire de [MessagingFactory][MessagingFactory], une instance secondaire de [NamespaceManager][NamespaceManager] et une instance de [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions]. L’appel peut se réduire à ce qui suit :
 

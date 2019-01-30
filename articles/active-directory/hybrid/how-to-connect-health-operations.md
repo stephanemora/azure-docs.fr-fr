@@ -4,7 +4,7 @@ description: Cet article décrit les opérations supplémentaires pouvant être 
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7e0e2e19f2f21fa3199cbc4911fed3427cbc162c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 35bbc44a8a54071530806576294163cb7ba627ea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280509"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478295"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Opérations Azure Active Directory Connect Health
 Cette rubrique décrit les différentes opérations que vous pouvez effectuer à l’aide d’Azure Active Directory (Azure AD) Connect Health.
@@ -64,6 +64,7 @@ Azure AD Connect Health pour les services de fédération Active Directory (ADFS
 
 1. Sélectionnez le nom du serveur à supprimer afin d’ouvrir le panneau **Serveur** du panneau **Liste des services**.
 2. Dans le panneau **Serveur**, dans la barre d’action, cliquez sur **Supprimer**.
+![Capture d’écran d’Azure AD Connect Health - Supprimer le serveur](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. Confirmez en tapant le nom du serveur dans la boîte de confirmation.
 4. Cliquez sur **Supprimer**.
 
@@ -86,8 +87,9 @@ Quand vous supprimez une instance de service, tenez compte des points suivants 
 * Après avoir effectué cette opération, si vous souhaitez commencer à surveiller le service, vous devez désinstaller puis réinstaller l’agent d’intégrité sur tous les serveurs. Après avoir effectué cette opération, si vous souhaitez recommencer à surveiller le même serveur, vous devez désinstaller, réinstaller puis inscrire l’agent d’intégrité sur ce serveur.
 
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>Pour supprimer une instance de service du service Azure AD Connect Health
-1. À partir du panneau **Liste des services**, ouvrez le panneau **Service** en sélectionnant l’identificateur de service (nom de batterie) que vous souhaitez supprimer.
-2. Dans le panneau **Serveur**, dans la barre d’action, cliquez sur **Supprimer**.
+1. À partir du panneau **Liste des services**, ouvrez le panneau **Service** en sélectionnant l’identificateur de service (nom de batterie) que vous souhaitez supprimer. 
+2. Dans le panneau **Service**, dans la barre d’action, cliquez sur **Supprimer**. 
+![Capture d’écran d’Azure AD Connect Health - Supprimer le service](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Confirmez en tapant le nom du service dans la boîte de confirmation (par exemple : sts.contoso.com).
 4. Cliquez sur **Supprimer**.
    <br><br>
@@ -117,10 +119,10 @@ L’autorisation est accordée si un utilisateur final a accès au niveau Annuai
 
 ### <a name="allow-users-or-groups-access-to-azure-ad-connect-health"></a>Autoriser l’accès des utilisateurs ou des groupes à Azure AD Connect Health
 Les étapes suivantes montrent comment autoriser l’accès.
-#### <a name="step-1-select-the-appropriate-access-scope"></a>Étape 1 : Sélectionner l’étendue d’accès appropriée
+#### <a name="step-1-select-the-appropriate-access-scope"></a>Étape 1 : Sélectionner l’étendue d’accès appropriée
 Pour autoriser un accès utilisateur au niveau *toutes les instances de service* dans Azure AD Connect Health, ouvrez le panneau principal dans Azure AD Connect Health.<br>
 
-#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Étape 2 : Ajouter des utilisateurs et des groupes, et affecter des rôles
+#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Étape 2 : Ajouter des utilisateurs et des groupes, et affecter des rôles
 1. Dans la section **Configurer**, cliquez sur **Utilisateurs**.<br>
    ![Capture d’écran de la barre latérale de ressource d’Azure AD Connect Health](./media/how-to-connect-health-operations/startRBAC.png)
 2. Sélectionnez **Ajouter**.
@@ -140,7 +142,7 @@ Les utilisateurs et les groupes répertoriés ont désormais accès, en fonction
 >
 >
 
-#### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Étape 3 : Partager l’emplacement du panneau avec des utilisateurs ou des groupes
+#### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Étape 3 : Partager l’emplacement du panneau avec des utilisateurs ou des groupes
 1. Une fois les autorisations affectées, un utilisateur peut accéder à Azure AD Connect Health à [cette adresse](https://aka.ms/aadconnecthealth).
 2. Dans le panneau, l’utilisateur peut épingler le panneau (ou différentes parties de celui-ci) au tableau de bord. Il suffit de cliquer sur l’icône **Épingler au tableau de bord**.<br>
    ![Capture d’écran du panneau de contrôle d’accès en fonction du rôle d’Azure AD Connect Health, avec l’icône d’épinglage mise en surbrillance](./media/how-to-connect-health-operations/RBAC_pin_blade.png)

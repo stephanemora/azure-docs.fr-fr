@@ -1,6 +1,6 @@
 ---
 title: FAQ Microsoft Azure Data Box | Microsoft Docs sur les données
-description: Contient des questions fréquemment posées et des réponses au sujet d’Azure Data Box, une solution cloud qui vous permet de transférer de grandes quantités de données dans Azure.
+description: Contient les questions fréquentes et leurs réponses au sujet d’Azure Data Box, une solution cloud qui vous permet de transférer de grandes quantités de données dans Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359406"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449569"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum Aux Questions (FAQ)
 
@@ -192,7 +192,9 @@ Pour plus d’informations, consultez [Fonctionnalités de sécurité Data Box](
 
 ### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>Q. J’ai terminé de préparer la livraison et j’ai arrêté l’appareil. Puis-je quand même ajouter des données à Data Box ?
 R. Oui. Vous pouvez allumer l’appareil et ajouter d’autres données. Vous devrez relancer **Préparer l’expédition**, une fois la copie des données terminée.
-  
+
+### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>Q. J’ai reçu mon appareil mais il ne démarre pas. Comment le réexpédier ?
+R. Si votre appareil ne démarre pas, accédez à votre commande dans le portail Azure. Téléchargez une étiquette d’expédition et collez-la sur l’appareil. Pour plus d’informations, consultez [Télécharger une étiquette d’expédition](data-box-portal-admin.md#download-shipping-label).
 
 ## <a name="verify-and-upload"></a>Vérification et chargement
 

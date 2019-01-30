@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect Sync : Présentation des utilisateurs, des groupes et des contacts | Microsoft Docs'
+title: 'Synchronisation d’Azure AD Connect : Présentation des utilisateurs, des groupes et des contacts | Microsoft Docs'
 description: Décrit les utilisateurs, les groupes et les contacts dans Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
 ms.workload: identity
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46d0ce28d6381662847917ce83c77780f1bd9e4c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c59065b21935336a77e3fb88c30f12cded341808
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310578"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473926"
 ---
-# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect Sync : Présentation des utilisateurs, des groupes et des contacts
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Synchronisation d’Azure AD Connect : Présentation des utilisateurs, des groupes et des contacts
 Il existe plusieurs raisons pour lesquelles vous pouvez avoir plusieurs forêts Active Directory et il existe plusieurs topologies de déploiement différentes. Parmi les modèles courants, citons les déploiements de ressources de comptes et les forêts avec liste d’adresses globale synchronisées après fusion et acquisition. Mais même s’il existe des modèles pures, les modèles hybrides sont également courants. La configuration par défaut du service de synchronisation Azure AD Connect ne suppose pas l’existence d’un modèle particulier, mais des comportements différents peuvent être observés en fonction de la façon dont la correspondance utilisateur a été sélectionnée dans le guide d’installation.
 
 Dans cette rubrique, nous allons voir comment se comporte la configuration par défaut dans certaines topologies. Nous allons examiner la configuration et voir comment utiliser l’éditeur de règles de synchronisation pour vérifier la configuration.
@@ -73,6 +73,6 @@ L’hypothèse est que si un compte d’utilisateur désactivé est détecté, n
 Quand un objet a été exporté vers Azure AD, il n’est plus autorisé à modifier l’attribut sourceAnchor. Quand l’objet a été exporté, l’attribut de métaverse **cloudSourceAnchor** est défini avec la valeur **sourceAnchor** acceptée par Azure AD. Si **sourceAnchor** est modifié et ne correspond pas à **cloudSourceAnchor**, la règle **Out to AAD – User Join** génère l’erreur **L’attribut sourceAnchor a changé**. Dans ce cas, la configuration ou les données doivent être corrigées pour que le même sourceAnchor soit présent dans le métaverse et que l’objet puisse être de nouveau synchronisé.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Azure AD Connect Sync : personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
-* [Intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md)
+* [Synchronisation Azure AD Connect : personnaliser les options de synchronisation](how-to-connect-sync-whatis.md)
+* [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
 

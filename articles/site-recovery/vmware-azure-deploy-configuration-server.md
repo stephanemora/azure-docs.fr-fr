@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/11/2018
-ms.author: mayg
-ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/22/2018
+ms.author: ramamill
+ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794352"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468401"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -67,13 +67,16 @@ La licence fournie avec le modèle OVA est une licence d’évaluation valide pe
 3. Dans **Sélectionner une source**, saisissez l’emplacement du modèle OVF téléchargé.
 4. Dans **Examiner les détails**, sélectionnez **Suivant**.
 5. Dans **Sélectionner le nom et le dossier** et **Sélectionner la configuration**, acceptez les paramètres par défaut.
-6. Dans **Sélectionner un stockage**, et pour des performances optimales, sélectionnez **Remise à zéro rapide d’un approvisionnement important** dans **Sélectionner le format de disque virtuel**.
+6. Dans **Sélectionner un stockage**, et pour des performances optimales, sélectionnez **Remise à zéro rapide d’un approvisionnement important** dans **Sélectionner le format de disque virtuel**. L'utilisation de l'option d'allocation dynamique peut avoir un impact sur les performances du serveur de configuration.
 7. Dans le reste des pages de l’assistant, acceptez les paramètres par défaut.
 8. Dans **Prêt à finaliser** :
 
     * Pour configurer la machine virtuelle avec les paramètres par défaut, sélectionnez **Mettre sous tension après le déploiement** > **Terminer**.
 
     * Pour ajouter une interface réseau supplémentaire, désactivez **Mettre sous tension après le déploiement**, puis sélectionnez **Terminer**. Par défaut, le modèle de serveur de configuration est déployé avec une seule carte d’interface réseau, mais vous pouvez en ajouter d’autres après le déploiement.
+
+> [!IMPORTANT]
+> Veillez à ne pas modifier les configurations de ressources (restriction mémoire/cœurs/UC), modifier/supprimer des services ou fichiers installés sur le serveur de configuration après le déploiement. Cela aurait un impact sur l'inscription du serveur de configuration auprès des services Azure, ainsi que sur les performances de ce serveur.
 
 ## <a name="add-an-additional-adapter"></a>Ajouter une carte supplémentaire
 
@@ -119,7 +122,7 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 ## <a name="upgrade-the-configuration-server"></a>Mettre à niveau le serveur de configuration
 
-Pour mettre à niveau le serveur de configuration vers la version la plus récente, suivez ces [étapes](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Pour mettre à niveau le serveur de configuration vers la version la plus récente, suivez ces [étapes](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Pour obtenir des instructions détaillées sur la mise à niveau de tous les composants Site Recovery, cliquez [ici](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
 
 ## <a name="manage-the-configuration-server"></a>Gérer le serveur de configuration
 
@@ -141,20 +144,28 @@ Pour éviter toute interruption d’une réplication continue, assurez-vous que 
     Pour plus d’informations sur le serveur de configuration et ses fonctionnalités, voir [Architecture de la réplication VMware vers Azure](vmware-azure-architecture.md).
 5. Où peut-on trouver la dernière version du serveur de configuration ?
 
-    Pour savoir comment mettre à niveau le serveur de configuration via le portail, voir [Mettre à niveau le serveur de configuration](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Vous pouvez également la télécharger directement à partir du [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
+    Pour savoir comment mettre à niveau le serveur de configuration via le portail, voir [Mettre à niveau le serveur de configuration](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Pour obtenir des instructions détaillées sur la mise à niveau de tous les composants Site Recovery, voir [ici](https://aka.ms/asr_how_to_upgrade).
 6. Où puis-je télécharger la phrase secrète du serveur de configuration ?
 
     Reportez-vous à [cet article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) pour télécharger la phrase secrète.
-7. Où puis-je télécharger les clés d’inscription du coffre ?
+7. Puis-je modifier la phrase secrète ?
+
+    **Non**, il vous est **fortement déconseillé de modifier la phrase secrète** d'un serveur de configuration. Modifier la phrase secrète arrête la réplication des machines protégées et entraîne un état d’intégrité critique.
+8. Où puis-je télécharger les clés d’inscription du coffre ?
 
     Dans le **coffre Recovery Services**, **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**. Dans Serveurs, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
-8. Puis-je cloner un serveur de configuration existant et l’utiliser pour l’orchestration de la réplication ?
+9. Puis-je cloner un serveur de configuration existant et l’utiliser pour l’orchestration de la réplication ?
 
     **Non**, l’utilisation d’un composant de serveur de configuration cloné n’est pas prise en charge.
 
-9. Puis-je changer l’adresse IP du serveur de configuration ?
+10. Puis-je changer l’adresse IP du serveur de configuration ?
 
     **Non**, il est fortement recommandé de ne pas changer l’adresse IP d’un serveur de configuration. Vérifiez que toutes les adresses IP affectées au serveur de configuration sont des adresses IP statiques et pas des adresses IP DHCP.
+11. Puis-je configurer le serveur de configuration sur Azure ?
+
+    Il est conseillé de configurer le serveur de configuration sur l’environnement local moyennant une ligne de vue directe avec v-Center, et de réduire les latences de transfert de données. Vous pouvez procéder à des sauvegardes planifiées du serveur de configuration [à des fins de restauration automatique](vmware-azure-manage-configuration-server.md#failback-requirements).
+
+Pour plus de questions-réponses sur le serveur de configuration, reportez-vous à notre [documentation relative aux questions courantes sur le serveur configuration](vmware-azure-common-questions.md#configuration-server) .
 
 ## <a name="troubleshoot-deployment-issues"></a>Résoudre les problèmes de déploiement
 

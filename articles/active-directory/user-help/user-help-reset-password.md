@@ -3,7 +3,7 @@ title: Réinitialiser votre mot de passe à l’aide des informations de sécuri
 description: Comment réinitialiser votre mot de passe si vous l’oubliez, à l’aide des informations de sécurité et d’une vérification en deux étapes.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: a95d5adb4ee0eb8aa71f7759e3f2b5520bda5ff4
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6bf8c548d81b3cade487f3188cdafae82b5776d9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347702"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815937"
 ---
 # <a name="reset-your-work-or-school-password"></a>Réinitialiser votre mot de passe professionnel ou scolaire
 
@@ -159,7 +159,7 @@ Voici quelques cas d'erreur courants et leurs solutions :
 |J’obtiens une erreur quand j’essaie de changer mon mot de passe. |Votre mot de passe contient un mot, une expression ou un modèle qui rend votre mot de passe facile à deviner.| Réessayez en utilisant un mot de passe plus robuste.|
 |Après avoir entré mon identifiant utilisateur, j’accède à une page indiquant « Veuillez contacter votre administrateur ».|Microsoft a déterminé que votre mot de passe de compte d’utilisateur est géré par votre administrateur dans un environnement local. De ce fait, vous ne pouvez pas réinitialiser votre mot de passe à partir du lien « Vous ne pouvez pas accéder à votre compte ». |Contactez votre administrateur pour obtenir de l’aide.|
 |L’erreur « Votre compte n’est pas activé pour la réinitialisation de mot de passe » s’affiche lorsque j’entre mon identifiant utilisateur.|Votre administrateur n’a pas encore configuré votre compte de façon à ce que vous puissiez réinitialiser votre mot de passe.|Votre administrateur n’a pas activé la réinitialisation de mot de passe pour votre organisation à partir du lien « Votre compte n’est pas accessible » ou ne vous a pas octroyé de licence vous permettant d’utiliser la fonctionnalité.<br><br> Pour réinitialiser votre mot de passe, vous devez sélectionner le lien « Contacter un administrateur » afin d’envoyer un e-mail à l’administrateur de votre entreprise et l’informez que vous souhaitez réinitialiser votre mot de passe.|
-|Après avoir saisi mon identifiant utilisateur, j’obtiens une erreur indiquant « Nous n’avons pas pu vérifier votre compte ».|Le processus d’authentification n’a pas pu vérifier les informations liées à votre compte.|Si vous obtenez ce message, deux raisons possibles :<br><br>1. Votre administrateur a activé la réinitialisation de mot de passe pour votre organisation, mais vous n’êtes pas inscrit pour utiliser le service. Pour vous inscrire à la réinitialisation du mot de passe, consultez l’un des articles suivants, selon votre méthode de vérification : [Set up security info to use an authenticator app (preview) ](security-info-setup-auth-app.md) (Configurer les informations de sécurité pour utiliser une application d’authentification [préversion]), [Set up security info to use a phone call (preview)](security-info-setup-phone-number.md) (Configurer les informations de sécurité pour utiliser un appel téléphonique [préversion]), [Set up security info to use text messaging (preview)](security-info-setup-text-msg.md) (Configurer les informations de sécurité pour utiliser l’envoi de SMS [préversion]), [Set up security info to use email (preview)](security-info-setup-email.md) (Configurer les informations de sécurité pour utiliser les e-mails [préversion]), ou [Set up security info to use security questions (preview)](security-info-setup-questions.md) (Configurer les informations de sécurité pour utiliser les questions de sécurité [préversion]).<br><br>2. Votre administrateur n’a pas activé la réinitialisation de mot de passe pour votre organisation. Dans ce cas, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise demandant de réinitialiser votre mot de passe.|
+|Après avoir saisi mon identifiant utilisateur, j’obtiens une erreur indiquant « Nous n’avons pas pu vérifier votre compte ».|Le processus d’authentification n’a pas pu vérifier les informations liées à votre compte.|Si vous obtenez ce message, deux raisons possibles :<br><br>1. Votre administrateur a activé la réinitialisation de mot de passe pour votre organisation, mais vous n’êtes pas inscrit pour utiliser le service. Pour vous inscrire à la réinitialisation du mot de passe, consultez l’un des articles suivants, selon votre méthode de vérification : [Configurer les informations de sécurité pour utiliser une application d’authentification (préversion) ](security-info-setup-auth-app.md), [Configurer les informations de sécurité pour utiliser un appel téléphonique (préversion)](security-info-setup-phone-number.md), [Configurer les informations de sécurité pour utiliser l’envoi de SMS (préversion)](security-info-setup-text-msg.md), [Configurer les informations de sécurité pour utiliser les e-mails (préversion)](security-info-setup-email.md) ou [Configurer les informations de sécurité pour utiliser les questions de sécurité (préversion)](security-info-setup-questions.md).<br><br>2. Votre administrateur n’a pas activé la réinitialisation de mot de passe pour votre organisation. Dans ce cas, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise demandant de réinitialiser votre mot de passe.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -167,8 +167,8 @@ Voici quelques cas d'erreur courants et leurs solutions :
 
 - Découvrez les informations de sécurité avec l’article [Security info (preview) overview](user-help-security-info-overview.md) (Vue d’ensemble des informations de sécurité [préversion]).
 
-- Pour plus d’informations sur la vérification en deux étapes, consultez l’article [Aperçu de la vérification en deux étapes](user-help-two-step-verification-overview.md). 
+- Pour plus d’informations sur la vérification en deux étapes, consultez l’article [Two-step verification overview](user-help-two-step-verification-overview.md) (Vue d’ensemble de la vérification en deux étapes). 
 
-- En cas de perte ou d’oubli de votre mot de passe, réinitialisez-le à partir du [portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/)
+- En cas de perte ou d’oubli de votre mot de passe, réinitialisez-le à partir du [portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/).
 
 - Suivez les conseils de dépannage et obtenez de l’aide en cas de problème de connexion dans l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

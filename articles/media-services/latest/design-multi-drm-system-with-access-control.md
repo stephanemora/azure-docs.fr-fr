@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3e9909de5ec05710214279357134112804ab4ceb
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191239"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812996"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès 
 
@@ -145,7 +145,7 @@ Le tableau suivant indique cette correspondance.
 | **Gestion des clés** |Inutile pour l’implémentation de référence |
 | **Gestion de contenu** |Une application de console C# |
 
-En d’autres termes, IDP et STS sont fournis par Azure AD. [L’API Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) est utilisée pour le lecteur. Azure Media Services et Azure Media Player prend en charge CENC sur DASH, FairPlay sur HLS, PlayReady sur la diffusion en continu lisse et le chiffrement AES-128 pour DASH, HLS et la diffusion en continu lisse.
+En d’autres termes, IDP et STS sont fournis par Azure AD. [L’API Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) est utilisée pour le lecteur. Azure Media Services et le lecteur multimédia Azure prennent en charge CENC sur DASH, FairPlay sur HLS, PlayReady sur la diffusion en continu lisse et le chiffrement AES-128 pour DASH, HLS et la diffusion en continu lisse.
 
 Le schéma suivant présente la structure global et le flux de travail avec la correspondance technologique ci-dessus :
 

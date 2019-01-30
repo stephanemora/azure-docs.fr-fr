@@ -4,7 +4,7 @@ description: Cet article donne des informations sur la résolution des problème
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 036933c6b6e86856871c5f59f08fea20a0343ad7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 23787c777f20025d9310fac2efe0f429d66c4586
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310018"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470441"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation du hachage de mot de passe avec Azure AD Connect Sync
 Cette rubrique explique comment résoudre les problèmes de synchronisation du hachage de mot de passe. Si les mots de passe ne se synchronisent pas comme prévu, il peut s’agir d’un sous-ensemble d’utilisateurs ou de tous les utilisateurs.
@@ -233,7 +233,7 @@ Effectuez les étapes suivantes pour déterminer la raison pour laquelle aucun m
 3. Si cette fonction n’est pas activée dans Azure AD ou si l’état du canal de synchronisation n’est pas activé, exécutez l’Assistant Installation d’Azure AD Connect. Sélectionnez **Personnaliser les options de synchronisation** et désélectionnez la synchronisation de mot de passe. Cette modification désactive temporairement la fonction. Réexécutez l’Assistant, puis réactivez la synchronisation de mot de passe. Réexécutez le script pour vérifier que la configuration est correcte.
 
 4. Recherchez des erreurs dans le journal des événements. Recherchez les événements suivants, qui indiquent un problème :
-    * Source : « Synchronisation d’annuaires » ID : 0, 611, 652, 655 Si vous voyez ces événements, vous avez un problème de connectivité. Le message du journal des événements contient des informations sur la forêt où vous avez un problème. Pour plus d’informations, consultez [Problème de connectivité](#connectivity problem).
+    * Source : « Synchronisation d’annuaires » ID : 0, 611, 652, 655 Si vous voyez ces événements, vous avez un problème de connectivité. Le message du journal des événements contient des informations sur la forêt où vous avez un problème. Pour plus d’informations, consultez [Problème de connectivité](#connectivity problem).
 
 5. Si vous ne voyez aucune pulsation ou que rien d’autre n’a fonctionné, exécutez [Déclencher une synchronisation complète de tous les mots de passe](#trigger-a-full-sync-of-all-passwords). Exécutez le script une seule fois.
 
@@ -416,6 +416,6 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Implémenter la synchronisation de hachage de mot de passe avec Azure AD Connect Sync](how-to-connect-password-hash-synchronization.md)
-* [Azure AD Connect Sync : Personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
+* [Implémenter la synchronisation du hachage de mot de passe avec Azure AD Connect Sync](how-to-connect-password-hash-synchronization.md)
+* [Synchronisation Azure AD Connect : personnaliser les options de synchronisation](how-to-connect-sync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)

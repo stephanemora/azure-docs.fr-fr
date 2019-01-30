@@ -4,7 +4,7 @@ description: Ceci est la page d’Azure AD Connect Health spécifiant comment 
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d93207e6a5f0acabcf348981e799e801c39f48b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3d74a78d60959dc404165d0ac8c4483b8bd36a29
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278835"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464083"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Surveiller AD FS avec Azure AD Connect Health
 La documentation suivante est spécifique à la surveillance de votre infrastructure AD FS avec Azure AD Connect Health. Pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](how-to-connect-health-sync.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-health-adds.md).
@@ -44,7 +44,7 @@ L’analyse de l’utilisation d’Azure AD Connect Health observe le trafic d�
 
 Pour sélectionner des mesures supplémentaires, spécifiez un intervalle de temps ou, pour modifier le regroupement, cliquez avec le bouton droit sur le graphique d’analyse de l’utilisation, puis sélectionnez Modifier le graphique. Vous pouvez ensuite spécifier l’intervalle de temps, sélectionner une autre mesure et modifier le regroupement. Vous pouvez afficher la distribution du trafic d’authentification en fonction de « mesures » différentes et regrouper les mesures en fonction des paramètres de « regroupement » appropriés décrits dans la section suivante :
 
-**Métrique : Nombre total de demandes** : nombre total de demandes traitées par les serveurs AD FS.
+**Métrique : Nombre total de demandes** : nombre total de demandes traitées par les serveurs AD FS.
 
 |Regroupement | En quoi consiste le regroupement ? Quel est son intérêt ? |
 | --- | --- |
@@ -56,16 +56,16 @@ Pour sélectionner des mesures supplémentaires, spécifiez un intervalle de tem
 | Emplacement réseau | Regroupe la totalité des demandes en fonction de l’emplacement du réseau de l’utilisateur. Il peut s’agir d’un réseau intranet ou extranet. Ce regroupement permet de comparer les pourcentages de trafic issus de l’intranet et de l’extranet. |
 
 
-**Métrique : Nombre total de requêtes échouées** : nombre total de requêtes échouées traitées par le service de fédération.  (Cette métrique est disponible uniquement sur AD FS pour Windows Server 2012 R2)
+**Métrique : Nombre total de requêtes échouées** : nombre total de requêtes échouées traitées par le service de fédération.  (Cette métrique est disponible uniquement sur AD FS pour Windows Server 2012 R2)
 
 |Regroupement | En quoi consiste le regroupement ? Quel est son intérêt ? |
 | --- | --- |
-| Type d’erreur | Indique le nombre d’erreurs en fonction des types d’erreurs prédéfinis. Ce regroupement permet de mieux comprendre les types courants d’erreurs. <ul><li>Mot de passe ou nom incorrect : erreurs dues à un mot de passe ou un nom incorrect.</li> <li>« Verrouillage extranet » : défaillances provoquées par les requêtes reçues d’un utilisateur ne disposant d’aucun accès à l’extranet. </li><li> « Mot de passe expiré » : défaillances provoquées par des utilisateurs se connectant avec des mots de passe expirés.</li><li>« Compte désactivé » : défaillances dues aux utilisateurs se connectant avec un compte désactivé.</li><li>« Authentification de l’appareil » : défaillances provoquées par les utilisateurs ne réussissant pas à s’authentifier à l’aide de l’authentification de l’appareil.</li><li>« Authentification par certificat utilisateur » : défaillances dues aux utilisateurs ne réussissant pas à se connecter à cause d’un certificat non valide.</li><li>« MFA » : défaillances dues aux utilisateurs ne réussissant pas à s’identifier à l’aide de l’authentification multifacteur (Multi Factor Authentication, MFA).</li><li>« Autres informations d’identification » : « Autorisation d’émission » : défaillances dues à des défauts d’autorisation.</li><li>« Délégation d’émission » : défaillances dues à des erreurs de délégation d’émission.</li><li>« Acceptation de jetons » : défaillances dues au rejet par ADFS du jeton d’un fournisseur d’identité tiers.</li><li>« Protocole » : défaillances dues à des erreurs de protocoles.</li><li>« Inconnu » : intercepte tout. Toutes les autres défaillances qui n’entrent pas dans les catégories définies.</li> |
+| Type d’erreur | Indique le nombre d’erreurs en fonction des types d’erreurs prédéfinis. Ce regroupement permet de mieux comprendre les types courants d’erreurs. <ul><li>Nom d’utilisateur ou mot de passe incorrect : erreurs dues à un nom d’utilisateur ou mot de passe incorrect.</li> <li>« Verrouillage extranet » : défaillances provoquées par les requêtes reçues d’un utilisateur ne disposant d’aucun accès à l’extranet. </li><li> « Mot de passe expiré » : défaillances provoquées par des utilisateurs se connectant avec des mots de passe expirés.</li><li>« Compte désactivé » : défaillances dues aux utilisateurs se connectant avec un compte désactivé.</li><li>« Authentification de l’appareil » : défaillances provoquées par les utilisateurs ne réussissant pas à s’authentifier à l’aide de l’authentification de l’appareil.</li><li>« Authentification par certificat utilisateur » : défaillances dues aux utilisateurs ne réussissant pas à se connecter à cause d’un certificat non valide.</li><li>« MFA » : défaillances dues aux utilisateurs ne réussissant pas à s’identifier à l’aide de l’authentification multifacteur (Multi Factor Authentication, MFA).</li><li>« Autres informations d’identification » : « Autorisation d’émission » : défaillances dues à des défauts d’autorisation.</li><li>« Délégation d’émission » : défaillances dues à des erreurs de délégation d’émission.</li><li>« Acceptation de jetons » : défaillances dues au rejet par ADFS du jeton d’un fournisseur d’identité tiers.</li><li>« Protocole » : défaillances dues à des erreurs de protocoles.</li><li>« Inconnu » : intercepte tout. Toutes les autres défaillances qui n’entrent pas dans les catégories définies.</li> |
 | Serveur | Regroupe les erreurs en fonction du serveur. Ce regroupement permet de mieux comprendre la distribution des erreurs entre les serveurs. Une distribution inégale peut indiquer qu’un serveur présente un état défectueux. |
 | Emplacement réseau | Regroupe les erreurs en fonction de l’emplacement réseau des demandes (intranet et extranet). Ce regroupement procure une meilleure visibilité sur le type des demandes défaillantes. |
 |  Application | Regroupe les défaillances en fonction de l’application cible (partie de confiance). Ce regroupement permet d’identifier l’application cible présentant le nombre le plus important d’erreurs. |
 
-**Métrique : Nombre d’utilisateurs** : nombre moyen d’utilisateurs uniques qui utilisent activement l’authentification AD FS
+**Métrique : Nombre d’utilisateurs** : nombre moyen d’utilisateurs uniques qui utilisent activement l’authentification AD FS
 
 |Regroupement | En quoi consiste le regroupement ? Quel est son intérêt ? |
 | --- | --- |
@@ -82,7 +82,7 @@ Si vous sélectionnez l’option Filtre en haut du panneau, vous pouvez filtrer
 ## <a name="top-50-users-with-failed-usernamepassword-logins"></a>Les 50 utilisateurs dont la combinaison nom d’utilisateur/mot de passe échoue le plus souvent.
 Des informations d’identification erronées sont souvent à l’origine d’une demande d’authentification ayant échoué sur un serveur AD, autrement dit, un nom d’utilisateur ou un mot de passe incorrect. Ces erreurs sont généralement le résultat de mots de passe trop complexes, oubliés ou de fautes de frappe.
 
-Cependant, d’autres raisons peuvent donner lieu au traitement d’un nombre inattendu de demandes par vos serveurs AD FS, par exemple lorsqu’une application met en cache les informations d’identification utilisateur et que ces dernières expirent par la suite, ou lorsqu’un utilisateur malveillant tente de se connecter à un compte à l’aide d’une série de mots de passe bien connus. Ces deux exemples peuvent conduire à une augmentation considérable des demandes.
+Mais il existe également d’autres raisons pouvant entraîner un nombre anormalement élevé de demandes traitées par vos serveurs AD FS, par exemple : une application qui met en cache des informations d’identification utilisateur, qui expirent par la suite, ou un utilisateur malveillant qui tente de se connecter à un compte à l’aide d’une série de mots de passe bien connus. Ces deux exemples peuvent conduire à une augmentation considérable des demandes.
 
 Azure AD Connect Health pour AD FS fournit un rapport sur les 50 utilisateurs dont les tentatives de connexion échouent le plus fréquemment en raison d’un mot de passe ou d’un nom d’utilisateur non valide. Ce rapport est le résultat du traitement de tous les événements d’audit générés par les serveurs AD FS dans les batteries de serveurs.
 
@@ -132,7 +132,7 @@ En outre, il est possible qu’une seule adresse IP tente de se connecter plusie
 > 
 
 ### <a name="what-is-in-the-report"></a>Contenu du rapport
-Chaque élément du rapport d’adresse IP risquée affiche des informations agrégées sur les échecs de connexion AD FS qui dépassent le seuil défini. Il fournit les informations suivantes : ![Portail Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+Chaque élément du rapport d’adresse IP risquée affiche des informations agrégées sur les échecs de connexion AD FS qui dépassent le seuil défini. Il fournit les informations suivantes : ![Portail Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
 | Élément de rapport | Description |
 | ------- | ----------- |
@@ -192,7 +192,7 @@ Le seuil d’alerte peut être mis à jour dans les paramètres de seuil. Le seu
 
 ### <a name="faq"></a>Forum Aux Questions
 1. Pourquoi vois-je des plages d’adresses IP privées dans le rapport ?  <br />
-Les adresses IP privées (<i>10.x.x.x, 172.x.x.x et 192.168.x.x</i>) et les adresses IP Exchange sont filtrées et marquées comme True dans la liste verte d’adresses IP. Si vous voyez des plages d’adresses IP privées, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP client lorsqu’il transmet la requête au serveur proxy d’application web.
+Les adresses IP privées (<i>10.x.x.x, 172.x.x.x et 192.168.x.x</i>) et les adresses IP Exchange sont filtrées et marquées comme True dans la liste blanche d’adresses IP. Si vous voyez des plages d’adresses IP privées, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP client lorsqu’il transmet la requête au serveur proxy d’application web.
 
 2. Pourquoi des adresses IP d’équilibreur de charge s’affichent-elles dans le rapport ?  <br />
 Si vous voyez des adresses d’équilibreur de charge, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP cliente lorsqu’il transfère la requête au serveur proxy d’application web. Veuillez configurer correctement votre équilibreur de charge pour qu’il transfère l’adresse IP cliente. 

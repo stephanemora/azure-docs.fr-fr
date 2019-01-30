@@ -4,7 +4,7 @@ description: Découvrez comment installer et utiliser les vues Log Analytics pou
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fbe5515f05c66fb0763943c20ed8aaa4374e3d87
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624639"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825202"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installer et utiliser les vues Log Analytics pour Azure Active Directory
 
 Les vues Log Analytics pour Azure Active Directory facilitent la recherche et l’analyse des journaux d’activité Azure AD dans votre locataire Azure AD. Les journaux d’activité Azure AD sont les suivants :
 
-* Journaux d’audit : le [rapport d’activité des journaux d’audit](concept-audit-logs.md) vous permet de consulter l’historique de toutes les tâches effectuées dans votre locataire.
-* Journaux de connexion : le [rapport d’activité de connexion](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches consignées dans les journaux d’audit.
+* Journaux d’audit : Le [rapport d’activité des journaux d’audit](concept-audit-logs.md) vous permet de consulter l’historique de toutes les tâches effectuées dans votre locataire.
+* Journaux de connexion : Le [rapport d’activité de connexion](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches consignées dans les journaux d’audit.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -50,8 +50,8 @@ Pour utiliser les vues Log Analytics, vous devez préalablement :
 
 2. Quand vous êtes dans l’espace de travail, sélectionnez **Récapitulatif de l’espace de travail**. Vous devez normalement avoir les trois vues suivantes :
 
-    * **Événements de provisionnement de compte Azure AD** : cette vue affiche les rapports d’audit de l’activité de provisionnement. Elle indique notamment le nombre de nouveaux utilisateurs attribués et les échecs d’attribution, le nombre d’utilisateurs mis à jour et les échecs de mise à jour, ainsi que le nombre d’utilisateurs dont l’attribution a été annulée et les échecs d’annulation d’attribution.    
-    * **Événements de connexion** : cette vue affiche les rapports les plus pertinents relatifs à la supervision de l’activité de connexion, par exemple, les connexions par application, utilisateur et appareil, ainsi qu’un récapitulatif de l’ensemble des connexions effectuées.
+    * **Événements de provisionnement de compte Azure AD** : cette vue affiche les rapports d’audit de l’activité de provisionnement. Elle indique notamment le nombre de nouveaux utilisateurs attribués et les échecs d’attribution, le nombre d’utilisateurs mis à jour et les échecs de mise à jour, ainsi que le nombre d’utilisateurs dont l’attribution a été annulée et les échecs d’annulation d’attribution.    
+    * **Événements de connexion** : cette vue affiche les rapports les plus pertinents relatifs à la supervision de l’activité de connexion, par exemple, les connexions par application, utilisateur et appareil, ainsi qu’un récapitulatif de l’ensemble des connexions effectuées.
 
 3. Sélectionnez la vue qui vous intéresse pour accéder aux différents rapports associés. Vous pouvez également définir des alertes sur les paramètres de rapport de votre choix. Par exemple, définissons une alerte pour chaque erreur de connexion rencontrée. Pour ce faire, sélectionnez la vue **Événements de connexion**, sélectionnez le rapport **Erreurs de connexion rencontrées**, puis sélectionnez **Analytics** pour ouvrir la page de détails, avec la requête actuelle sous-jacente au rapport. 
 

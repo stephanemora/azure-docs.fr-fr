@@ -3,19 +3,19 @@ title: Référence - Infrastructures de confiance dans Azure Active Directory B2
 description: Rubrique sur les stratégies personnalisées Azure Active Directory B2C et l’infrastructure d’expérience d’identité.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 694d463c158f8c8beb0396edf22ac749c03e9e97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185777"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845688"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Définir des infrastructures de confiance avec l’infrastructure d’expérience d’identité Azure AD B2C
 
@@ -52,10 +52,10 @@ Les infrastructures de confiance constituent l’élément central du modèle d�
 - **La description des informations d’identité numérique offertes/exigées par les participants**.
 
 - **Les stratégies techniques pour la production et la consommation des informations d’identité numérique, qui serviront à calculer les niveaux de garantie et de protection. Ces stratégies écrites incluent généralement les catégories de stratégies suivantes :**
-    - Stratégies de vérification de l’identité, par exemple : *Quel est le niveau de vérification des informations d’identité d’une personne ?*
-    - Stratégies de sécurité, par exemple : *Quel est le niveau de protection de la confidentialité et de l’intégrité des informations ?*
-    - Stratégies de confidentialité, par exemple : *Quel contrôle un utilisateur a-t-il sur ses informations d’identification personnelle ?*
-    - Stratégies de survie, par exemple : *Si un fournisseur cesse son activité, comment fonctionne la continuité et la protection des informations d’identification personnelle ?*
+    - Stratégies de vérification de l’identité, par exemple : *quel est le niveau de vérification des informations d’identité d’une personne ?*
+    - Stratégies de sécurité, par exemple : *quel est le niveau de protection de la confidentialité et de l’intégrité des informations ?*
+    - Stratégies de confidentialité, par exemple : *quel contrôle un utilisateur a-t-il sur ses données personnelles ?*
+    - Stratégies de survie, par exemple : *Si un fournisseur cesse son activité, comment fonctionne la continuité et la protection des informations d’identification personnelle ?*
 
 - **Les profils techniques pour la production et la consommation des informations d’identité numérique. Ces profils incluent :**
     - Des interfaces d’étendue pour lesquelles des informations d’identité numérique sont accessibles à un niveau de garantie spécifié.

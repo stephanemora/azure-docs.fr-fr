@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: d3e6a17ba9d0712d921d8e0a1d0bcbcd68ce5cfb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360482"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812557"
 ---
 # <a name="azure-backup-architecture"></a>Architecture de Sauvegarde Azure
 
@@ -80,7 +80,7 @@ Sauvegarde Azure fournit différents agents en fonction du type de sauvegarde.
 **Différentielle** |  Stocke les blocs ayant changé depuis la sauvegarde complète initiale. Utilise une plus petite quantité de stockage et de réseau, et ne conserve pas de copies redondantes des données inchangées.<br/><br/> Inefficace, car les blocs de données inchangés entre les sauvegardes ultérieures sont transférés et stockés. | Non utilisée par Sauvegarde Azure.
 **Incrémentielle** | Efficacité élevée du point de vue du stockage et du réseau. Stocke uniquement les blocs de données ayant changé depuis la sauvegarde précédente. <br/><br/> Avec une sauvegarde incrémentielle, il est inutile d’effectuer des sauvegardes complètes régulières. | Utilisée par DPM/MABS pour les sauvegardes sur disque, et utilisée dans toutes les sauvegardes vers Azure.
 
-### <a name="comparison"></a>Comparaison
+### <a name="comparison"></a>Opérateurs de comparaison
 
 La consommation du stockage, l’objectif de délai de récupération (RTO) et la consommation réseau varient pour chaque type de sauvegarde. L’illustration suivante compare les types de sauvegarde.
 - La source de données A est composée de 10 blocs de stockage A1-A10, qui sont sauvegardés tous les mois.
@@ -99,7 +99,7 @@ Le tableau suivant récapitule les fonctionnalités pour différents types de sa
 Sauvegarder vers le coffre | ![Oui][green] | ![OUI][green] | ![Oui][green] 
 Sauvegarder sur disque DPM/MABS puis Azure | | | ![Oui][green] 
 Compresser les données envoyées pour la sauvegarde | ![Oui][green] | Aucune compression n’est effectuée lors du transfert des données. Le stockage croît légèrement, mais la restauration est plus rapide.  | ![Oui][green] 
-Exécuter une sauvegarde incrémentielle |![Oui][green] |![Oui][green] |![Oui][green] 
+Exécuter une sauvegarde incrémentielle |![Oui][green] |![OUI][green] |![Oui][green] 
 Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> Uniquement pour les serveurs DPM/MABS déployés localement. 
 
 ![clé de table](./media/backup-architecture/table-key.png)
@@ -163,7 +163,7 @@ Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> U
 - Les machines virtuelles Azure utilisent des disques pour stocker leur système d’exploitation, applications et données.
 - Les machines virtuelles Azure ont au moins deux disques : un pour le système d’exploitation et un disque temporaire. Elles peuvent également avoir des disques de données pour les données d’application. Les disques sont stockés en tant que disques durs virtuels.
 - Les disques durs virtuels sont stockés sous la forme d’objets blob de pages dans des comptes de stockage standard ou premium dans Azure.
-    - Stockage standard : prise en charge de disque fiable et économique pour les machines virtuelles exécutant des charges de travail qui ne sont pas sensibles à la latence. Le stockage standard peut utiliser des disques SSD Standard ou des disques SSD Premium.
+    - Stockage standard : prise en charge de disque fiable et économique pour les machines virtuelles exécutant des charges de travail qui ne sont pas sensibles à la latence. Le stockage standard peut utiliser des disques SSD Standard ou des disques HDD Standard.
     - Stockage Premium : prise en charge de disque à hautes performances. Utilise des disques SSD Premium.
 - Il existe différents niveaux de performances pour les disques :
     - Disque HDD Standard : repose sur des disques durs et est utilisé pour un stockage économique.
@@ -194,7 +194,7 @@ Quand vous restaurez des machines virtuelles Azure utilisant le stockage Premium
 
 Vous pouvez sauvegarder des machines virtuelles Azure avec disques managés.
 - Pour sauvegarder des machines virtuelles avec disques managés, vous devez procéder de la même façon que pour toute autre machine virtuelle Azure. Vous pouvez sauvegarder la machine virtuelle directement à partir des paramètres de machine virtuelle, ou vous pouvez activer la sauvegarde pour des machines virtuelles dans le coffre Recovery Services.
-- Vous pouvez sauvegarder des machines virtuelles sur des disques managés par le biais des collections RestorePoint basées sur des disques managés.
+- Vous pouvez sauvegarder des machines virtuelles sur des disques gérés par le biais des collections RestorePoint basées sur des disques gérés.
 - Sauvegarde Azure prend également en charge la sauvegarde des machines virtuelles avec disques managés chiffrées avec ADE.
 
 Quand vous restaurez des machines virtuelles avec disques managés, vous pouvez effectuer la restauration sur une machine virtuelle complète avec disques managés ou dans un compte de stockage.

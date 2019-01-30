@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e8e838fae0da3a47fe1b3ec8d412f956f5f28034
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975507"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468333"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurer les conteneurs docker Language Understanding 
 
@@ -35,6 +35,7 @@ Ce conteneur a les paramètres de configuration suivants :
 |Oui|[Facturation](#billing-setting)|Spécifie l’URI de point de terminaison de la ressource de service sur Azure.|
 |Oui|[Eula](#eula-setting)| Indique que vous avez accepté la licence pour le conteneur.|
 |Non |[Fluentd](#fluentd-settings)|Écrire les données des journaux et, éventuellement, des métriques, sur un serveur Fluentd.|
+|Non |[Proxy HTTP](#http-proxy-credentials-settings)|Configurer un proxy HTTP pour effectuer des requêtes sortantes.|
 |Non |[Journalisation](#logging-settings)|Fournit la prise en charge de la journalisation ASP.NET Core pour votre conteneur. |
 |Oui|[Mounts](#mount-settings)|Lire et écrire des données de l’ordinateur hôte sur le conteneur, et du conteneur sur l’ordinateur hôte.|
 
@@ -77,6 +78,10 @@ Vous trouverez ce paramètre aux emplacements suivants :
 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## <a name="http-proxy-credentials-settings"></a>Paramètres des informations d'identification du proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Paramètres de journalisation
  
@@ -189,3 +194,4 @@ ApiKey={APPLICATION_ID} \
 
 * Consultez [Guide pratique pour installer et exécuter des conteneurs](luis-container-howto.md).
 * Consultez les [Questions fréquentes (FAQ)](luis-resources-faq.md) pour résoudre les problèmes liés à la fonctionnalité LUIS.
+* Utiliser plus de [conteneurs Cognitive Services](../cognitive-services-container-support.md)

@@ -4,7 +4,7 @@ description: Cette rubrique propose une procédure de correction des erreurs Lar
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0882976df898d36f1d5a5ff06e0de5c747613719
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ffc8832fa2da9d4bfad23752a5bc767ace2b573e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306068"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478618"
 ---
-# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Synchronisation Azure AD Connect : gérer les erreurs LargeObject provoquées par l’attribut userCertificate
+# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Synchronisation d’Azure AD Connect : gérer les erreurs LargeObject provoquées par l’attribut userCertificate
 
 Azure AD impose une limite maximale de **15** valeurs de certificat sur l’attribut **userCertificate**. Si Azure AD Connect exporte un objet comportant plus de 15 valeurs vers Azure AD, Azure AD renvoie une erreur **LargeObject** avec le message :
 

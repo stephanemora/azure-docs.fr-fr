@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200516"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826477"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Utilisation d’Azure DNS pour les domaines privés
 
@@ -64,9 +64,9 @@ Azure DNS offre les fonctionnalités suivantes :
 Azure DNS présente les limites suivantes :
 
 * Un seul réseau virtuel d’inscription est autorisé par zone privée.
-* Jusqu’à 10 réseaux virtuels de résolution sont autorisés par zone privée.
+* Jusqu’à 10 réseaux virtuels de résolution sont autorisés par zone privée. Cette limite sera supprimée une fois cette fonctionnalité mise à la disposition générale.
 * Un réseau virtuel donné ne peut être lié qu’à une seule zone privée en tant que réseau virtuel d’inscription.
-* Un réseau virtuel donné peut être lié à un maximum de 10 zones privées en tant que réseau virtuel de résolution.
+* Un réseau virtuel donné peut être lié à un maximum de 10 zones privées en tant que réseau virtuel de résolution. Cette limite sera supprimée une fois cette fonctionnalité mise à la disposition générale.
 * Si vous spécifiez un réseau virtuel d’inscription, les enregistrements DNS pour les machines virtuelles de ce réseau virtuel qui sont inscrits dans la zone privée ne seront pas visibles ou récupérables à partir des API Azure Powershell et Azure CLI. Les enregistrements de machine virtuelle sont tout de même enregistrés et résolus avec succès.
 * Le DNS inversé fonctionne uniquement pour l’espace IP privé sur le réseau virtuel d’inscription.
 * Le DNS inversé pour une adresse IP privée qui n’est pas inscrite dans la zone privée (par exemple l’adresse IP privée d’une machine virtuelle sur un réseau virtuel qui est lié en tant que réseau virtuel de résolution à une zone privée) retourne *internal.cloudapp.net* comme suffixe DNS. Ce suffixe ne peut cependant pas être résolu.

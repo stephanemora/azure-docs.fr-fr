@@ -1,11 +1,11 @@
 ---
-title: Installation personnalisée d’Azure AD Connect | Microsoft Docs
+title: 'Azure AD Connect : installation personnalisée | Microsoft Docs'
 description: Ce document présente les options de l’installation personnalisée d’Azure AD Connect. Utilisez ces instructions pour installer Active Directory via Azure AD Connect.
 services: active-directory
 keywords: Qu’est-ce que Azure AD Connect, Installation d’Active Directory, Composants requis pour Azure AD
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 394f61f9fca06f5471edc62e99be8fa6bb415e40
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888093"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471631"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installation personnalisée d’Azure AD Connect
 Les **paramètres personnalisés** Azure AD Connect sont utilisés lorsque vous souhaitez davantage d’options d’installation. Ils sont utiles si vous disposez de plusieurs forêts ou si vous voulez configurer des fonctionnalités facultatives que l’installation rapide ne propose pas. Ils sont utilisés dans tous les cas où l’option d’[**installation rapide**](how-to-connect-install-express.md) ne convient pas à votre déploiement ou à votre topologie.
 
-Avant de commencer l’installation d’Azure AD Connect, veillez à [télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) et effectuer les étapes préalables décrites dans [Azure AD Connect : matériel et conditions préalables](how-to-connect-install-prerequisites.md). Assurez-vous également de disposer des comptes comme décrit dans [Autorisations et comptes Azure AD Connect](reference-connect-accounts-permissions.md).
+Avant de commencer l’installation d’Azure AD Connect, veillez à [télécharger Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) et effectuer les étapes préalables décrites dans [Azure AD Connect : matériel et prérequis](how-to-connect-install-prerequisites.md). Assurez-vous également de disposer des comptes comme décrit dans [Autorisations et comptes Azure AD Connect](reference-connect-accounts-permissions.md).
 
 Si les paramètres personnalisés ne correspondent pas à votre topologie, pour mettre à niveau DirSync, par exemple, consultez la [documentation connexe](#related-documentation) pour d’autres scénarios.
 
@@ -114,7 +114,7 @@ Si vous prévoyez d’utiliser le [filtrage basé sur le groupe](#sync-filtering
 
 Il est également possible que certains domaines ne soient pas accessibles en raison de restrictions de pare-feu. Ces domaines sont désélectionnés par défaut et présentent un avertissement.  
 ![Domaines inaccessibles](./media/how-to-connect-install-custom/unreachable.png)  
-S’il s’affiche, vérifiez que ces domaines sont effectivement inaccessibles et que ce message est normal.
+ S’il s’affiche, vérifiez que ces domaines sont effectivement inaccessibles et que ce message est normal.
 
 ### <a name="uniquely-identifying-your-users"></a>Identification unique de vos utilisateurs
 
@@ -129,14 +129,14 @@ La fonctionnalité Correspondance entre les forêts vous permet de définir la m
 | [Attribut de messagerie](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Cette option associe des utilisateurs et des contacts si l’attribut de messagerie a la même valeur dans des forêts différentes. Utilisez cette option si vos contacts ont été créés avec GALSync. Si cette option est sélectionnée, les objets utilisateur dont l’attribut de messagerie n’est pas rempli ne sont pas synchronisés avec Azure AD. |
 | [ObjectSID et msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Cette option associe un utilisateur activé dans une forêt de comptes à un utilisateur désactivé dans une forêt de ressources. Dans Exchange, cette configuration est connue en tant que « boîte aux lettres liée ». Cette option peut également être utilisée si vous utilisez uniquement Lync et si Exchange n’est pas présent dans la forêt de ressources. |
 | sAMAccountName et MailNickName |Cette option associe des attributs où l’ID de connexion est requis pour rechercher l’utilisateur. |
-| Un attribut spécifique |Cette option vous permet de sélectionner votre propre attribut. Si cette option est sélectionnée, les objets utilisateur dont l’attribut de messagerie (sélectionné) n’est pas rempli ne sont pas synchronisés avec Azure AD. **Limitation :** assurez-vous de sélectionner un attribut qui existe déjà dans le métaverse. Si vous sélectionnez un attribut personnalisé (non présent dans le métaverse), l’assistant échoue. |
+| Un attribut spécifique |Cette option vous permet de sélectionner votre propre attribut. Si cette option est sélectionnée, les objets utilisateur dont l’attribut de messagerie (sélectionné) n’est pas rempli ne sont pas synchronisés avec Azure AD. **Limitation** : assurez-vous de sélectionner un attribut qui existe déjà dans le métaverse. Si vous sélectionnez un attribut personnalisé (non présent dans le métaverse), l’assistant échoue. |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Sélectionnez la façon dont les utilisateurs doivent être identifiés avec Azure AD - ancre Source
 L’attribut sourceAnchor ne varie pas pendant la durée de vie d’un objet utilisateur. Il s’agit de la clé primaire liant l’utilisateur local avec l’utilisateur dans Azure AD.
 
 | Paramètre | Description |
 | --- | --- |
-| Let Azure manage the source anchor for me (Laisser Azure gérer l’ancre source pour moi) | Sélectionnez cette option si vous souhaitez qu’Azure AD sélectionne l’attribut pour vous. Si vous sélectionnez cette option, l’Assistant Azure AD Connect applique la logique de sélection d’attribut sourceAnchor décrite dans l’article [Principes de conception Azure Connect AD - Utilisation de msDS-ConsistencyGuid en tant que sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). L’Assistant vous indique quel attribut a été sélectionné comme attribut d’ancre source une fois l’installation personnalisée terminée. |
+| Let Azure manage the source anchor for me (Laisser Azure gérer l’ancre source pour moi) | Sélectionnez cette option si vous souhaitez qu’Azure AD sélectionne l’attribut pour vous. Si vous sélectionnez cette option, l’Assistant Azure AD Connect applique la logique de sélection d’attribut sourceAnchor décrite dans l’article [Azure AD Connect : Principes de conception - Utilisation de ms-DS-ConsistencyGuid en tant qu’attribut sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). L’Assistant vous indique quel attribut a été sélectionné comme attribut d’ancre source une fois l’installation personnalisée terminée. |
 | Un attribut spécifique | Sélectionnez cette option si vous souhaitez spécifier un attribut AD existant comme attribut sourceAnchor. |
 
 Comme l’attribut ne peut pas être modifié, vous devez prévoir l’attribut adéquat à utiliser. Pour cela, nous vous recommandons objectGUID. Cet attribut ne change pas, sauf si le compte d’utilisateur est déplacé entre les forêts/domaines. Évitez les attributs susceptibles de changer si une personne se marie ou si son affectation est modifiée. Vous ne pouvez pas utiliser d’attributs avec @-sign, donc les adresses de messagerie et userPrincipalName ne peuvent pas être utilisés. Par ailleurs, l’attribut respecte la casse ; si vous déplacez un objet entre des forêts, veillez à conserver ses minuscules/majuscules. Les attributs binaires sont codés en base 64, mais les autres types d’attributs restent à l’état non codé. Dans les scénarios de fédération et dans certaines interfaces Azure AD, cet attribut est également appelé « immutableID ». Vous trouverez plus d’informations sur l’ancre source dans les [principes de conception](plan-connect-design-concepts.md#sourceanchor).
@@ -159,7 +159,7 @@ Cet écran vous permet de sélectionner des fonctionnalités facultatives pour v
 >[!WARNING]
 >Les versions d’Azure AD Connect **1.0.8641.0** et antérieures s’appuient sur Azure Access Control Service pour la réécriture du mot de passe.  Ce service sera supprimé le **7 novembre 2018**.  Si vous utilisez l’une de ces versions d’Azure AD Connect et que vous avez activé la réécriture du mot de passe, il est possible que les utilisateurs ne puissent plus modifier ou réinitialiser leurs mots de passe une fois le service supprimé. La réécriture du mot de passe avec ces versions d’Azure AD Connect ne sera pas prise en charge.
 >
->Pour plus d’informations sur Azure Access Control Service, consultez [Comment : Effectuer une migration à partir d’Azure Access Control Service](../develop/active-directory-acs-migration.md)
+>Pour plus d’informations sur Azure Access Control Service, consultez [Guide pratique pour effectuer une migration à partir d’Azure Access Control Service](../develop/active-directory-acs-migration.md).
 >
 >Pour télécharger la dernière version d’Azure AD Connect, cliquez [ici](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
 
@@ -385,7 +385,7 @@ Lorsque vous cliquez sur le bouton Vérifier, Azure AD Connect vérifie la confi
 Pour vérifier que l’authentification de bout en bout réussit, vous devez effectuer manuellement un ou plusieurs des tests suivants :
 
 * Une fois que la synchronisation est terminée, utilisez la tâche supplémentaire Vérifier la connexion fédérée dans Azure AD Connect pour vérifier l’authentification d’un compte d’utilisateur local de votre choix.
-* Validez la connexion du navigateur à partir d’un ordinateur joint au domaine sur l’intranet : connectez-vous à https://myapps.microsoft.com et vérifiez la connexion avec votre compte connecté. Le compte d’administrateur AD DS intégré n’est pas synchronisé et ne peut pas être utilisé pour la vérification.
+* Validez la connexion d’un navigateur à partir d’une machine jointe au domaine sur l’intranet : connectez-vous à https://myapps.microsoft.com et vérifiez la connexion avec votre compte connecté. Le compte d’administrateur AD DS intégré n’est pas synchronisé et ne peut pas être utilisé pour la vérification.
 * Vérifiez que vous pouvez vous connecter à partir d’un appareil, depuis l’extranet. Sur un ordinateur personnel ou un appareil mobile, connectez-vous à https://myapps.microsoft.com et fournissez vos informations d’identification.
 * Valider la connexion à un client complet. Pour cela, connectez-vous à https://testconnectivity.microsoft.com, sélectionnez l’onglet **Office 365**, puis **Test d’authentification unique dans Office 365**.
 
@@ -416,7 +416,7 @@ Une fois l’installation terminée, déconnectez-vous puis reconnectez-vous à 
 
 Azure AD Connect étant installé, vous pouvez passer à [Vérification de l’installation et affectation des licences](how-to-connect-post-installation.md).
 
-Pour en savoir plus sur ces fonctionnalités, activées lors de l’installation, consultez les pages [Azure AD Connect Sync : Prévention des suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md) et [Utilisation d’Azure AD Connect Health pour la synchronisation](how-to-connect-health-sync.md).
+Pour en savoir plus sur ces fonctionnalités activées lors de l’installation, consultez les pages : [Prévention des suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md) et [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Pour en savoir plus sur ces sujets courants, consultez l’article [Planificateur Azure AD Connect Sync](how-to-connect-sync-feature-scheduler.md).
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 76ebbc8cc8dbea4b7f8f8226cf1d8570a421e8cf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034333"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806995"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveaux de cohérence et API Azure Cosmos DB
 
@@ -24,15 +24,48 @@ Les sections suivantes montrent le mappage entre la cohérence des données dema
 
 ## <a id="cassandra-mapping"></a>Mappage entre les niveaux de cohérence Apache Cassandra et Azure Cosmos DB
 
-Ce tableau ci-dessous montre le mappage des « cohérences de lecture » entre le client Apache Cassandra 4.x et le niveau de cohérence par défaut dans Azure Cosmos DB. Le tableau renseigne sur les déploiements dans plusieurs régions et dans une région unique.
+Ce tableau ci-dessous montre le mappage des cohérences entre Apache Cassandra et les niveaux de cohérence par défaut dans Azure Cosmos DB. Pour chacun des niveaux de cohérences en lecture et en écriture Cassandra, le niveau de cohérence Cosmos DB correspondant offre de plus strictes garanties.
 
-| **Apache Cassandra 4.x** | **Azure Cosmos DB (multi-région)** | **Azure Cosmos DB (région unique)** |
+Le tableau suivant présente le **mappage de cohérence en écriture** entre Azure Cosmos DB et Cassandra :
+
+| Cassandra | Azure Cosmos DB | Garantie |
 | - | - | - |
-| ONE, TWO, THREE | Préfixe cohérent | Préfixe cohérent |
-| LOCAL_ONE | Préfixe cohérent | Préfixe cohérent |
-| QUORUM, ALL, SERIAL | L’obsolescence limitée est la valeur par défaut. Le niveau de cohérence Forte est disponible en préversion privée. | Remarque |
-| LOCAL_QUORUM | Bounded staleness (En fonction de l'obsolescence) | Remarque |
-| LOCAL_SERIAL | Bounded staleness (En fonction de l'obsolescence) | Remarque |
+|ALL|Remarque  | Linéarisabilité |
+| EACH_QUORUM   | Remarque    | Linéarisabilité | 
+| QUORUM, SERIAL |  Remarque |    Linéarisabilité |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Préfixe cohérent |Préfixe cohérent global |
+| EACH_QUORUM   | Remarque    | Linéarisabilité |
+| QUORUM, SERIAL |  Remarque |    Linéarisabilité |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Préfixe cohérent | Préfixe cohérent global |
+| QUORUM, SERIAL | Remarque   | Linéarisabilité |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Préfixe cohérent | Préfixe cohérent global |
+| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | Obsolescence limitée | <ul><li>Obsolescence limitée.</li><li>Au plus des versions K ou d'un retard de temps.</li><li>Consultez la dernière valeur validée dans la région.</li></ul> |
+| ONE, LOCAL_ONE, ANY   | Préfixe cohérent | Préfixe cohérent par région |
+
+Le tableau suivant présente le **mappage de cohérence en lecture** entre Azure Cosmos DB et Cassandra :
+
+| Cassandra | Azure Cosmos DB | Garantie |
+| - | - | - |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | Remarque  | Linéarisabilité|
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Remarque |   Linéarisabilité |
+|LOCAL_ONE, ONE | Préfixe cohérent | Préfixe cohérent global |
+| ALL, QUORUM, SERIAL   | Remarque    | Linéarisabilité |
+| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Préfixe cohérent   | Préfixe cohérent global |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |    Préfixe cohérent   | Préfixe cohérent global |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Remarque |   Linéarisabilité |
+| LOCAL_ONE, ONE    | Préfixe cohérent | Préfixe cohérent global|
+| ALL, QUORUM, SERIAL   Forte linéarisabilité
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Préfixe cohérent  | Préfixe cohérent global |
+|ALL    |Remarque |Linéarisabilité |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  |Préfixe cohérent  |Préfixe cohérent global|
+|ALL, QUORUM, SERIAL    Forte linéarisabilité
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Préfixe cohérent  |Préfixe cohérent global |
+|ALL    |Remarque | Linéarisabilité |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Préfixe cohérent | Préfixe cohérent global |
+| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Obsolescence limitée   | <ul><li>Obsolescence limitée.</li><li>Au plus des versions K ou d'un retard de temps. </li><li>Consultez la dernière valeur validée dans la région.</li></ul>
+| LOCAL_ONE, ONE |Préfixe cohérent | Préfixe cohérent par région |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Préfixe cohérent | Préfixe cohérent par région |
+
 
 ## <a id="mongo-mapping"></a>Mappage entre les niveaux de cohérence MongoDB 3.4 et Azure Cosmos DB
 

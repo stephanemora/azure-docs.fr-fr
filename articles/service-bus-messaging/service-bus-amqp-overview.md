@@ -3,23 +3,23 @@ title: Vue d’ensemble d’AMQP 1.0 dans Azure Service Bus | Microsoft Docs
 description: Découvrez comment utiliser le protocole Advanced Message Queuing Protocol (AMQP) 1.0 dans Azure.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: b43cdfa0b5f9e5bf6a94f4f59034e07f59ddb163
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 70a0463094f98612169e78e4bcdd4eac9c8ebf24
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393330"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844702"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Prise en charge d’AMQP 1.0 dans Service Bus
 Le service cloud Azure Service Bus et le [Service Bus pour Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) local prennent en charge le protocole AMQP (Advanced Message Queueing Protocol) 1.0. Le protocole AMQP vous permet de développer des applications hybrides interplateforme à l’aide d’un protocole open standard. Vous pouvez générer des applications à l’aide de composants créés avec plusieurs langages et infrastructures, exécutées sur différents systèmes d’exploitation. Tous ces composants peuvent se connecter à Service Bus et échanger efficacement et sans difficulté des messages professionnels d’une fidélité optimale.
@@ -36,10 +36,10 @@ Ce sont ces problèmes qui ont motivé le développement d’AMQP (Advanced Mess
 ## <a name="amqp-10-technical-features"></a>Fonctionnalités techniques d’AMQP 1.0
 AMQP 1.0 est un protocole de messagerie « wire-level » efficace et fiable qui peut être utilisé pour créer des applications de messagerie interplateforme robustes. Il a un objectif simple : définir les mécanismes du transfert sécurisé, fiable et efficace des messages entre deux tiers. Les messages sont eux-mêmes codés à l’aide d’une représentation portable de données qui permet l’échange haute-fidélité de messages professionnels structurés entre des expéditeurs et des destinataires hétérogènes. La liste suivante décrit les principales caractéristiques :
 
-* **Efficacité** : le protocole orienté connexion AMQP 1.0 utilise un codage binaire pour les instructions de protocole et les messages professionnels transférés par son biais. Il intègre des schémas de contrôle de flux sophistiqués pour optimiser l’utilisation du réseau et des composants connectés. Le protocole a été conçu pour garantir l’équilibre entre efficacité, flexibilité et interopérabilité.
-* **Fiabilité** : le protocole AMQP 1.0 permet d’échanger des messages avec diverses garanties de fiabilité (autonomie, fiabilité, remise EOD, etc.).
-* **Flexibilité** : AMQP 1.0 est un protocole flexible qui permet de prendre en charge différentes topologies. Vous pouvez utiliser le même protocole pour les communications de client à client, de client à service Broker et de service Broker à service Broker.
-* **Indépendance vis-à-vis du répartiteur** : la spécification AMQP 1.0 n’applique aucune condition préalable sur le modèle de messagerie utilisé par un répartiteur. Cela signifie qu’il est possible d’ajouter facilement AMQP 1.0 à des services Broker de messagerie existants.
+* **Efficacité** : le protocole orienté connexion AMQP 1.0 utilise un codage binaire pour les instructions de protocole et les messages professionnels transférés par son biais. Il intègre des schémas de contrôle de flux sophistiqués pour optimiser l’utilisation du réseau et des composants connectés. Le protocole a été conçu pour garantir l’équilibre entre efficacité, flexibilité et interopérabilité.
+* **Fiabilité** : le protocole AMQP 1.0 permet d’échanger des messages avec diverses garanties de fiabilité (autonomie, fiabilité, remise EOD, etc.).
+* **Flexibilité** : AMQP 1.0 est un protocole flexible qui permet de prendre en charge différentes topologies. Vous pouvez utiliser le même protocole pour les communications de client à client, de client à service Broker et de service Broker à service Broker.
+* **Indépendance vis-à-vis du répartiteur** : la spécification AMQP 1.0 n’applique aucune condition préalable sur le modèle de messagerie utilisé par un répartiteur. Cela signifie qu’il est possible d’ajouter facilement AMQP 1.0 à des services Broker de messagerie existants.
 
 ## <a name="amqp-10-is-a-standard-with-a-capital-s"></a>AMQP 1.0 est une Norme (avec une majuscule N)
 AMQP 1.0 est une norme internationale approuvée par les organismes ISO et IEC sous la dénomination ISO/IEC 19464:2014.
@@ -48,8 +48,8 @@ AMQP 1.0 est développé depuis 2008 par un groupe de plus de 20 entreprises, 
 
 En octobre 2011, le travail de développement a été confié à un comité technique au sein de l’OASIS (Organization for the Advancement of Structured Information Standards) et la norme OASIS AMQP 1.0 a été publiée en octobre 2012. Les entreprises suivantes ont participé au comité technique dans le cadre du développement de la norme :
 
-* **Fournisseurs de technologie** : Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.
-* **Sociétés utilisatrices** : Bank of America, Crédit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
+* **Fournisseurs de technologie** : Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.
+* **Sociétés utilisatrices** : Bank of America, Crédit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
 
 Les normes ouvertes présentent généralement les avantages suivants :
 
@@ -67,7 +67,7 @@ La figure ci-dessous montre un exemple de déploiement dans lequel des clients J
 
 ![][0]
 
-**Figure 1 : exemple de scénario de déploiement illustrant la messagerie interplateforme avec Service Bus et AMQP 1.0**
+**Figure 1 : exemple de scénario de déploiement illustrant la messagerie interplateforme avec Service Bus et AMQP 1.0**
 
 Les bibliothèques clientes suivantes fonctionnent actuellement avec Service Bus :
 
@@ -79,7 +79,7 @@ Les bibliothèques clientes suivantes fonctionnent actuellement avec Service Bus
 | Python |Apache Qpid Proton-Python |
 | C# |AMQP .Net Lite |
 
-**Figure 2 : table des bibliothèques clientes d’AMQP 1.0**
+**Figure 2 : table des bibliothèques clientes d’AMQP 1.0**
 
 ## <a name="summary"></a>Résumé
 * AMQP 1.0 est un protocole de messagerie efficace et ouvert qui peut être utilisé pour créer des applications hybrides interplateforme. AMQP 1.0 est une norme OASIS.
@@ -91,10 +91,10 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 * [Utilisation de Service Bus à partir de .NET avec AMQP]
 * [Utilisation de Service Bus à partir de Java avec AMQP]
 * [Installation d’Apache Qpid Proton-C sur une machine virtuelle Linux Azure]
-* [AMQP dans Service Bus pour Windows Server]
+* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Utilisation de Service Bus à partir de .NET avec AMQP]: service-bus-amqp-dotnet.md
 [Utilisation de Service Bus à partir de Java avec AMQP]: service-bus-amqp-java.md
 [Installation d’Apache Qpid Proton-C sur une machine virtuelle Linux Azure]: service-bus-amqp-apache.md
-[AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx

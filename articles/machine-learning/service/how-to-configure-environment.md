@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353224"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815869"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 
@@ -55,7 +55,7 @@ Si vous disposez déjà d’un environnement Python 3, ou que vous voulez unique
 
 - Dans Windows, vous avez besoin de l’invite de commandes Windows ou Anaconda (installée par Anaconda et Miniconda).
 
-## <a id="anotebooks"></a>Azure Notebooks
+## <a id="aznotebooks"></a>Azure Notebooks
 
 [Azure Notebooks](https://notebooks.azure.com) (préversion) est un environnement de blocs-notes pour le cloud Azure. Il s’agit du moyen le plus simple de démarrer avec le développement Azure Machine Learning.
 
@@ -64,6 +64,8 @@ Si vous disposez déjà d’un environnement Python 3, ou que vous voulez unique
 
 Pour bien démarrer avec le développement Azure Notebooks, suivez les instructions consultez [les articles sur le démarrage rapide d’Azure Machine Learning service](quickstart-get-started.md).
 
+Par défaut, Azure Notebooks utilise un niveau de service gratuit limité à 4 Go de mémoire et de 1 Go de données. Cela étant, vous pouvez lever ces limites en attachant une instance Data Science Virtual Machine au projet Azure Notebooks. Pour plus d’informations, consultez [Gérer et configurer des projets Azure Notebooks - Niveau Calcul](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
 Une Data Science Virtual Machine (DSVM) ou « Machine virtuelle pour la science des données » est une image de machine virtuelle (VM) personnalisée. Elle est conçue pour les travaux de science des données préconfigurés avec :
@@ -71,10 +73,12 @@ Une Data Science Virtual Machine (DSVM) ou « Machine virtuelle pour la science
   - Des packages tels que TensorFlow, PyTorch, Scikit-learn, XGBoost et le Kit de développement logiciel (SDK) Azure Machine Learning.
   - Des outils de science des données appréciés tels que Spark Standalone et Drill.
   - Des outils Azure tels que Azure CLI, AzCopy et Explorateur Stockage.
-  - Des environnements de développement intégrés (IDE) tels que Visual Studio Code, PyCharm et RStudio.
-  - Le serveur Jupyter Notebook. 
+  - Des environnements de développement intégrés (IDE) tels que Visual Studio Code et PyCharm.
+  - Serveur Jupyter Notebook
 
-Le Kit de développement logiciel (SDK) Azure Machine Learning fonctionne aussi bien sur la version Windows que sur la version Ubuntu de la DSVM. Pour utiliser une DSVM en tant qu’environnement de développement, procédez comme suit :
+Le Kit de développement logiciel (SDK) Azure Machine Learning fonctionne aussi bien sur la version Windows que sur la version Ubuntu de la DSVM. Cela étant, si vous envisagez d’utiliser également DSVM comme cible de calcul, seule la version Ubuntu est prise en charge.
+
+Pour utiliser une DSVM en tant qu’environnement de développement, procédez comme suit :
 
 1. Créer une DSVM dans l’un des environnements suivants :
 

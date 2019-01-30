@@ -15,24 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
-ms.openlocfilehash: 958f661585b38b156cf523fe00986e7594474917
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.component: disks
+ms.openlocfilehash: 4f9e3468cc8ec94eeb3ba936b828e9adfd9a3e6d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093814"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478516"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Mettre à jour le type de stockage d’un disque managé
 
-Azure Managed Disks offre trois types de stockage : [SSD Premium](../windows/premium-storage.md), [SSD Standard](../windows/disks-standard-ssd.md) et [HDD Standard](../windows/standard-storage.md). Vous pouvez changer le type de stockage d’un disque managé avec un temps d’arrêt minimal en fonction de vos besoins en performances. Le changement du type de stockage d’un disque non managé n’est pas pris en charge. Toutefois, vous pouvez facilement [convertir un disque non managé en disque managé](convert-unmanaged-to-managed-disks.md).
+Azure Managed Disks offre trois options de stockage : [SSD Premium](../windows/premium-storage.md), [SSD Standard](../windows/disks-standard-ssd.md) et [HDD Standard](../windows/standard-storage.md). Vous pouvez changer le type de stockage d’un disque managé avec un temps d’arrêt minimal en fonction de vos besoins en performances. Le changement du type de stockage d’un disque non managé n’est pas pris en charge. Toutefois, vous pouvez facilement [convertir un disque non managé en disque managé](convert-unmanaged-to-managed-disks.md).
 
-Cet article montre comment convertir un disque managé standard en premium, et vice versa, à l’aide d’Azure PowerShell. Si vous devez installer ou mettre à niveau PowerShell, consultez [Installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+Cet article montre comment convertir un disque managé standard en premium, et vice versa, à l’aide d’Azure PowerShell. Si vous devez installer ou mettre à niveau PowerShell, consultez [Installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Étant donné que la conversion nécessite un redémarrage de la machine virtuelle, vous devez planifier la migration de votre stockage sur disque durant une fenêtre de maintenance préexistante. 
 * Si vous utilisez un disque non managé, commencez par [le convertir en disque managé](convert-unmanaged-to-managed-disks.md) pour pouvoir basculer entre les types de stockage. 
-* Les exemples de cet article nécessitent le module Azure PowerShell version 6.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Exécutez [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) pour créer une connexion avec Azure.
+* Les exemples de cet article nécessitent le module Azure PowerShell version 6.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Exécutez [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) pour créer une connexion avec Azure.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Convertir tous les disques managés d’une machine virtuelle de standard en premium

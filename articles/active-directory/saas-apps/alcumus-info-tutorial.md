@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Alcumus Info Exchange | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Alcumus Info Exchange | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Alcumus Info Exchange.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d26034b8-f0d5-4f65-aa56-0fc168ceec8c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 66ce8bb16e6e291742841766069b076c46a01c69
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d55aa873d0ad410b91dc678d1fe4784e00ed5487
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224596"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812469"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Didacticiel : Intégration d’Azure Active Directory avec Alcumus Info Exchange
+# <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Tutoriel : Intégration d’Azure Active Directory avec Alcumus Info Exchange
 
 Dans ce didacticiel, vous allez apprendre à intégrer Alcumus Info Exchange à Azure Active Directory (Azure AD).
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Alcumus Info Exchange**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_samlbase.png)
+    ![Configurer l'authentification unique](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_samlbase.png)
 
 3. Dans la section **Domaine et URL Alcumus Info Exchange**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_url.png)
+    ![Configurer l'authentification unique](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.info-exchange.com`
 
@@ -125,12 +125,12 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/alcumus-info-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/alcumus-info-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique côté **Alcumus Info Exchange**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe du support Alcumus Info Exchange](mailto:helpdesk@alcumusgroup.com).
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -184,7 +184,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Alcumus Info Exchange**.
 
-    ![Configure Single Sign-On](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_app.png) 
+    ![Configurer l'authentification unique](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

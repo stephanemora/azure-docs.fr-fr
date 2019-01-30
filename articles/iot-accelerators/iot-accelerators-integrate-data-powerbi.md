@@ -1,5 +1,5 @@
 ---
-title: Visualiser des données de surveillance à distance à l’aide de Power BI - Azure | Microsoft Docs
+title: Visualiser des données de supervision à distance à l’aide de Power BI - Azure | Microsoft Docs
 description: Ce tutoriel utilise Power BI Desktop et Cosmos DB pour intégrer les données d’une solution de surveillance à distance dans une visualisation personnalisée. Ainsi, les utilisateurs peuvent créer leurs propres tableaux de bord personnalisés et les partager avec des personnes qui ne se servent pas de cette solution.
 author: asdonald
 manager: hegate
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9daf0f0d1c7ca94308bfb0d894366b457a045770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970397"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470645"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualiser des données de surveillance à distance à l’aide de Power BI
 
@@ -28,7 +28,7 @@ Ce tutoriel vous montre comment connecter vos données de solution de surveillan
 
 ## <a name="information-needed-from-azure-portal"></a>Informations du portail Azure nécessaires
 
-1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous si nécessaire.
+1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous, si nécessaire.
 
 2. Dans le panneau gauche, cliquez sur Groupes de ressources.
 
@@ -40,7 +40,7 @@ Ce tutoriel vous montre comment connecter vos données de solution de surveillan
 
     ![Groupe de ressources](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
-5. Dans le volet de gauche, cliquez sur la section « Clés », puis notez les valeurs suivantes pour les utiliser dans Power BI :
+5. Dans le volet de gauche, cliquez sur la section « Clés », puis notez les valeurs suivantes pour les utiliser dans Power BI :
 
     - URI
     - Clé primaire
@@ -49,7 +49,7 @@ Ce tutoriel vous montre comment connecter vos données de solution de surveillan
 
 ## <a name="setting-up-the-stream-in-power-bi"></a>Configuration du flux dans Power BI
   
-1. Ouvrez l’application de bureau Power BI, puis cliquez sur « Obtenir des données » dans l’angle supérieur gauche. 
+1. Ouvrez l’application de bureau Power BI, puis cliquez sur « Obtenir des données » dans l’angle supérieur gauche. 
 
     ![Obtenir des données](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
@@ -84,7 +84,7 @@ Ce tutoriel vous montre comment connecter vos données de solution de surveillan
 
 ## <a name="creating-a-dashboard"></a>Création d’un tableau de bord
 
-Une fois le flux connecté, vous pouvez créer vos tableaux de bord personnalisés. Le tableau de bord ci-dessous montre des données de télémétrie obtenues par les appareils simulés, avec différents sélecteurs de vue tels que les suivants : 
+Une fois le flux connecté, vous pouvez créer vos tableaux de bord personnalisés. Le tableau de bord ci-dessous montre des données de télémétrie obtenues par les appareils simulés, avec différents sélecteurs de vue tels que les suivants : 
 
 * Emplacement des appareils sur une carte (à droite)
 * Appareils, avec état et niveau de gravité (en haut à gauche)

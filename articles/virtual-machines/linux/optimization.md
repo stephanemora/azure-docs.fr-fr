@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 91e9cb6b436cc78a0c5bd4769d38622abda4c04d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: disks
+ms.openlocfilehash: 6cccf31842825c3e4d50aa67165d19f8ac471695
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977568"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478159"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimiser votre machine virtuelle Linux sur Azure
 Il est simple de créer une machine virtuelle Linux à partir de la ligne de commande ou du portail. Ce didacticiel vous explique comment configurer votre machine virtuelle de manière à en optimiser les performances sur la plateforme Microsoft Azure. Dans cette rubrique, une machine virtuelle de serveur Ubuntu est utilisée, mais vous pouvez également créer des machines virtuelles Linux en utilisant vos [propres images en tant que modèles](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -33,7 +34,7 @@ Cet article repose sur l’hypothèse que vous disposez déjà d’un abonnement
 Lorsque vous créez une machine virtuelle Linux dans Azure, deux disques lui sont associés. **/dev/sda** est le disque de votre système d’exploitation, et **/dev/sdb** est votre disque temporaire.  Le disque de système d’exploitation principal (**/dev/sda**) est exclusivement destiné au système d’exploitation, car il est optimisé pour le démarrage rapide des machines virtuelles et ne délivre pas de performances adéquates pour vos charges de travail. Vous pouvez attacher un ou plusieurs disques à votre machine virtuelle afin de bénéficier d’un stockage persistant et optimisé pour vos données. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Ajout de disques selon vos objectifs de taille et de performances
-Selon la taille de machine virtuelle, vous pouvez attacher jusqu’à 16 disques supplémentaires dans une machine virtuelle série A, 32 disques dans une machine série D et 64 disques dans une machine série G, chacun de ces disques pouvant présenter une taille maximale de 1 To. Ajoutez des disques en fonction de vos besoins en matière d’espace et d’E/S par seconde. Les performances ciblées de chaque disque sont de 500 E/S par seconde pour un stockage Standard et de 5 000 E/S par seconde maximum pour un stockage Premium.  Pour plus d’informations sur les disques de Stockage Premium, consultez l’article [Stockage Premium : stockage à hauts niveaux de performances pour les machines virtuelles Azure](../windows/premium-storage.md).
+Selon la taille de machine virtuelle, vous pouvez attacher jusqu’à 16 disques supplémentaires dans une machine virtuelle série A, 32 disques dans une machine série D et 64 disques dans une machine série G, chacun de ces disques pouvant présenter une taille maximale de 1 To. Ajoutez des disques en fonction de vos besoins en matière d’espace et d’E/S par seconde. Les performances ciblées de chaque disque sont de 500 E/S par seconde pour un stockage Standard et de 5 000 E/S par seconde maximum pour un stockage Premium.  Pour plus d’informations sur le stockage Premium, consultez [Stockage Premium : stockage à hauts niveaux de performances pour les machines virtuelles Azure](../windows/premium-storage.md)
 
 Pour bénéficier des plus hauts niveaux d’E/S par seconde sur les disques de Stockage Premium dont le paramètre de cache est défini sur **ReadOnly** ou sur **None**, vous devez désactiver les **barrières** lors du montage du système de fichiers dans Linux. Ces barrières sont inutiles, car les écritures sur les disques de stockage Premium sont pérennes avec ces paramètres de cache.
 
@@ -132,7 +133,7 @@ Comme dans toute procédure d’optimisation, n’oubliez pas que vous devez eff
 
 Voici quelques liens utiles vous permettant d’accéder à des ressources supplémentaires : 
 
-* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.](premium-storage.md)
+* [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure](premium-storage.md)
 * [Guide d’utilisateur de l’agent Linux Azure](../extensions/agent-linux.md)
 * [Optimisation des performances MySQL sur les machines virtuelles Linux Azure](classic/optimize-mysql.md)
 * [Configuration d’un RAID logiciel sur Linux](configure-raid.md)

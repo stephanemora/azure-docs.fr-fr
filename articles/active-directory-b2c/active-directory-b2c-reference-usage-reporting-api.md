@@ -3,19 +3,19 @@ title: Définitions et exemples de l’API de rapports d’utilisation dans Azur
 description: Guide et exemples d’obtention de rapports sur les utilisateurs, les authentifications et les authentifications multifacteurs des locataires Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 544b0618f9135b684846c42bb7edeb37cf599883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cce6d71864d1c3e957937e374e90ee95a99e9f3c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445532"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844355"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Accès aux rapports d’utilisation dans Azure AD B2C via l’API de création de rapports
 
@@ -97,18 +97,18 @@ if ($oauth.access_token -ne $null) {
 
 
 ## <a name="usage-report-definitions"></a>Définitions de rapport d’utilisation
-* **tenantUserCount** : le nombre d’utilisateurs dans le locataire par type de fournisseur d’identité, par jour, au cours des 30 derniers jours. (Facultatif : un filtre `TimeStamp` fournit le nombre d’utilisateurs à partir d’une date spécifiée jusqu’à la date du jour.) Le rapport fournit les éléments suivants :
-  * **TotalUserCount** : nombre de tous les objets utilisateur.
-  * **OtherUserCount** : nombre d’utilisateurs d’Azure Active Directory (pas les utilisateurs d’Azure AD B2C).
-  * **LocalUserCount** : nombre de comptes utilisateur Azure AD B2C créés avec les informations d’identification locales du locataire Azure AD B2C.
+* **tenantUserCount** : nombre d’utilisateurs dans le locataire par type de fournisseur d’identité, par jour, au cours des 30 derniers jours. (Facultatif : un filtre `TimeStamp` fournit le nombre d’utilisateurs à partir d’une date spécifiée jusqu’à la date du jour.) Le rapport fournit les éléments suivants :
+  * **TotalUserCount** : nombre de tous les objets utilisateur.
+  * **OtherUserCount** : nombre d’utilisateurs d’Azure Active Directory (pas les utilisateurs d’Azure AD B2C).
+  * **LocalUserCount** : nombre de comptes utilisateur Azure AD B2C créés avec les informations d’identification locales du locataire Azure AD B2C.
 
-* **AlternateIdUserCount** : nombre d’utilisateurs d’Azure AD B2C inscrits auprès de fournisseurs d’identité externes (par exemple Facebook, un compte Microsoft ou un autre locataire Azure Active Directory, également appelé `OrgId`).
+* **AlternateIdUserCount** : nombre d’utilisateurs d’Azure AD B2C inscrits auprès de fournisseurs d’identité externes (par exemple Facebook, un compte Microsoft ou un autre locataire Azure Active Directory, également appelé `OrgId`).
 
-* **b2cAuthenticationCountSummary** : récapitulatif du nombre quotidien d’authentifications facturables au cours des 30 derniers jours, par jour et par type de flux d’authentification.
+* **b2cAuthenticationCountSummary** : récapitulatif du nombre quotidien d’authentifications facturables au cours des 30 derniers jours, par jour et par type de flux d’authentification.
 
-* **b2cAuthenticationCount** : nombre d’authentifications dans une période de temps définie. La période par défaut est celle des 30 derniers jours.  (Facultatif : les paramètres `TimeStamp` de début et de fin définissent une période spécifique.) La sortie inclut `StartTimeStamp` (première date d’activité de ce locataire ) et `EndTimeStamp` (dernière mise à jour).
+* **b2cAuthenticationCount** : nombre d’authentifications dans une période de temps définie. La période par défaut est celle des 30 derniers jours.  (Facultatif : les paramètres `TimeStamp` de début et de fin définissent une période spécifique.) La sortie inclut `StartTimeStamp` (première date d’activité de ce locataire ) et `EndTimeStamp` (dernière mise à jour).
 
-* **b2cMfaRequestCountSummary** : récapitulatif du nombre quotidien d’authentifications multifacteurs, par jour et par type (SMS ou vocales).
+* **b2cMfaRequestCountSummary** : récapitulatif du nombre quotidien d’authentifications multifacteurs, par jour et par type (SMS ou vocales).
 
 
 ## <a name="limitations"></a>Limites

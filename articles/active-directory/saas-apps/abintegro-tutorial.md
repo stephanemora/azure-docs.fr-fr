@@ -4,7 +4,7 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 99287e1f-4189-494a-97c8-e1c03d047fd3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 70b9d41ff9ed47e9ac376f1e13627cc82d87130f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 75e0a0c5084eae98466aee49ae257a79e48b5c07
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048291"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808219"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>Didacticiel : Intégration d’Azure Active Directory à Abintegro
+# <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>Didacticiel : Intégration d’Azure Active Directory à Abintegro
 
 Dans ce didacticiel, vous allez apprendre à intégrer Abintegro dans Azure Active Directory (Azure AD).
 
@@ -119,7 +119,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/abintegro-tutorial/tutorial_abintegro_certificate.png) 
+    ![Configure Single Sign-On](./media/abintegro-tutorial/tutorial_abintegro_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -128,7 +128,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 6. Pour configurer l’authentification unique côté **Abintegro**, vous devez envoyer le fichier **XML des métadonnées** téléchargé à l’[équipe de support technique Abintegro](mailto:support@abintegro.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187975"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828254"
 ---
 # <a name="content-protection-overview"></a>Présentation de la protection du contenu
 
@@ -39,12 +39,12 @@ Pour mener à bien votre conception de système/d’application de « protectio
 
 1. Code Azure Media Services
   
-  * Modèles de licence pour PlayReady, Widevine et/ou FairPlay. Les modèles vous permettent de configurer les droits et autorisations pour chacun des DRM utilisés
-  * Autorisation de remise de licence, spécifiant la logique de vérification d’autorisation basée sur les revendications dans JWT
-  * Clés de contenu, protocoles de diffusion en continu et DRM correspondants appliqués, définissant le chiffrement DRM
+  * Configurez les modèles de licence pour PlayReady, Widevine et/ou FairPlay. Les modèles vous permettent de configurer les droits et autorisations pour chacun des DRM utilisés.
+  * Définissez l'autorisation de remise de licence, spécifiant la logique de vérification d’autorisation basée sur les revendications dans JWT.
+  * Configurer le chiffrement DRM en spécifiant les clés de contenu et les protocoles diffusion en continu à utiliser.
 
   > [!NOTE]
-  > Vous pouvez chiffrer chaque élément multimédia avec plusieurs types de chiffrement (AES-128, PlayReady, Widevine, FairPlay). Consultez les [protocoles de diffusion en continu et les types de chiffrement](#streaming-protocols-and-encryption-types) pour identifier la meilleure combinaison.
+  > Vous pouvez chiffrer chaque ressource avec plusieurs types de chiffrement (AES-128, PlayReady, Widevine, FairPlay). Consultez les [protocoles de diffusion en continu et les types de chiffrement](#streaming-protocols-and-encryption-types) pour identifier la meilleure combinaison.
   
   Les articles suivants décrivent les étapes pour chiffrer du contenu avec AES et/ou DRM : 
   

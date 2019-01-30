@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à 123ContactForm | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à 123ContactForm | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et 123ContactForm.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: ecbe627697fc4f8b5fbfecf96c3cb65d9ffe4607
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 450fc8df69eb5ffb99cb6548e80cd4d3628e7419
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054350"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Didacticiel : Intégration d’Azure Active Directory à 123ContactForm
 
@@ -129,7 +129,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/123contactform-tutorial/tutorial_123contactform_certificate.png) 
+    ![Configure Single Sign-On](./media/123contactform-tutorial/tutorial_123contactform_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
@@ -156,7 +156,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     c. Si vous voulez configurer l’application en **mode lancé par le fournisseur de service**, copiez la valeur de **URL DE CONNEXION** pour votre instance et collez-la dans la zone de texte **URL de connexion** de la section **Domaine et URL 123ContactForm** sur le portail Azure.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

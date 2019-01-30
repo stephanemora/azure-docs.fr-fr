@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect sync : prévention des suppressions accidentelles | Microsoft Docs'
+title: 'Synchronisation d’Azure AD Connect : prévention des suppressions accidentelles | Microsoft Docs'
 description: Cette rubrique décrit la fonctionnalité Prévention des suppressions accidentelles dans Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a535d776da216029b905fb604ed378449a81082
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25bc3d0c0517278f20cba4fd4beb2fc4d82b66f1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309708"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464151"
 ---
-# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect Sync : Prévention des suppressions accidentelles
+# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronisation d’Azure AD Connect : prévention des suppressions accidentelles
 Cette rubrique décrit la fonctionnalité Prévention des suppressions accidentelles dans Azure AD Connect.
 
 Lors de l’installation d’Azure AD Connect, la fonctionnalité de prévention des suppressions accidentelles est activée par défaut et configurée de manière à interdire une exportation de plus de 500 suppressions. Cette fonctionnalité est conçue pour vous protéger contre les modifications accidentelles de la configuration et contre les modifications apportées à votre répertoire local qui auraient une incidence sur de nombreux utilisateurs et d’autres objets.
@@ -68,5 +68,5 @@ Si vous souhaitez que tous les éléments soient supprimés, procédez comme sui
 ## <a name="next-steps"></a>Étapes suivantes
 **Rubriques de présentation**
 
-* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
+* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: b1f4d278079b81b4a224dc4712426d1f078de110
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020402"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853593"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gérer les règles de détection intelligente d’Application Insights à l’aide de modèles Azure Resource Manager
 
@@ -154,6 +154,17 @@ Voici un tableau des noms de règle de détection intelligente tels qu’ils app
 | Fuite de mémoire potentielle détectée (préversion) | extension_memoryleakextension |
 | Problème de sécurité potentiel détecté (préversion) | extension_securityextensionspackage |
 | Problème d’utilisation des ressources détecté (préversion) | extension_resourceutilizationextensionspackage |
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Qui reçoit les notifications d'alerte (classiques) ?
+
+Cette section ne s'applique qu'aux alertes de détection intelligente classiques et vous aidera à optimiser vos notifications d'alerte afin que seuls les destinataires de votre choix les reçoivent. Pour mieux comprendre la différence entre les [alertes classiques](../platform/alerts-classic.overview.md et les nouvelles alertes, reportez-vous à l’[article de présentation des alertes](../platform/alerts-overview.md). Actuellement, les alertes de détection intelligente prennent uniquement en charge les alertes classiques. Les [alertes de détection intelligente sur Azure Cloud Services](./proactive-cloud-services.md) en sont la seule exception. Pour contrôler la notification des alertes de détection intelligente sur Azure Cloud Services, utilisez les [groupes d’actions](../platform/action-groups.md).
+
+* Nous recommandons l'utilisation de destinataires spécifiques pour les notifications d'alertes de détection intelligente/classiques.
+
+* Pour les alertes de détection intelligente, l’option **En bloc/groupe**, si elle est activée, envoie des alertes aux utilisateurs ayant des rôles de propriétaire, contributeur ou lecteur dans l’abonnement. Dans les faits, _tous_ les utilisateurs ayant accès à la ressource Application Insights sont concernés et recevront des notifications. 
+
+> [!NOTE]
+> Si vous utilisez actuellement l'option **En bloc/groupe** et que vous la désactivez, vous ne pourrez pas annuler la modification.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

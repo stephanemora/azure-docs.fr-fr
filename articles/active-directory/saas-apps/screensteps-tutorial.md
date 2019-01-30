@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ScreenSteps | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ScreenSteps | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ScreenSteps.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4563fe94-a88f-4895-a07f-79df44889cf9
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 105ec895635a882d562de48203222702a2c6bfed
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 50e59c9ab04c1f17d55461b0562491143c21e51d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421741"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815903"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Didacticiel : Intégration d’Azure AD à ScreenSteps
+# <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Didacticiel : Intégration d’Azure AD à ScreenSteps
 
 Dans ce didacticiel, vous allez apprendre à intégrer ScreenSteps à Azure Active Directory (Azure AD).
 
@@ -176,7 +176,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     h. Cliquez sur le bouton **Make default for account** (Configurer par défaut pour le compte) pour utiliser ce point de terminaison pour tous les utilisateurs qui se connectent à ScreenSteps. Vous pouvez également cliquer sur le bouton **Ajouter au site** pour utiliser ce point de terminaison pour des sites spécifiques dans **ScreenSteps**.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
@@ -213,7 +213,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-screensteps-test-user"></a>Créer un utilisateur de test ScreenSteps
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ScreenSteps. Pour ajouter des utilisateurs à la plateforme ScreenSteps, contactez [l’équipe du support ScreenSteps](https://www.screensteps.com/contact). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ScreenSteps. Pour ajouter des utilisateurs à la plateforme ScreenSteps, contactez  [l’équipe du support ScreenSteps](https://www.screensteps.com/contact) . Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

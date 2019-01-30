@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Novatus | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Novatus | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Novatus.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d2f13779-bdb7-4408-9738-be67ed3de4e5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ad4a59884fb2ca35fd594aba3f8aa8860827afd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c00d35dc5894476a54b598a7c80e9d9161d48753
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445039"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820663"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Didacticiel : Intégration d’Azure Active Directory à Novatus
+# <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Tutoriel : Intégration d’Azure Active Directory à Novatus
 
 Dans ce didacticiel, vous allez apprendre à intégrer Novatus à Azure Active Directory (Azure AD).
 
@@ -134,7 +134,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 1. Pour que l’authentification unique soit configurée pour votre application, contactez [l’équipe du support technique Novatus](mailto:jvinci@novatusinc.com). Joignez le fichier de **certificat téléchargé** à votre courrier et partagez les **URL des métadonnées** (**ID d’entité SAML, URL du service d’authentification unique SAML et URL de déconnexion**) avec l’équipe Novatus pour configurer l’authentification unique de son côté.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

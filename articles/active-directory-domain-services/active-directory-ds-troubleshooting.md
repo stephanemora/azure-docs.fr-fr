@@ -1,10 +1,10 @@
 ---
-title: 'Services de domaine Azure Active Directory : guide de dépannage | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Guide de résolution des problèmes | Microsoft Docs'
 description: Guide de dépannage pour les services de domaine Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: e2b7eb4f5be5e73e70f883f9510e7fc6a13d6bea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8b752585fc72b7f4be8e7b9320290f8ad56f53c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156084"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844651"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Services de domaine Azure AD : guide de dépannage
 Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer pendant la configuration ou l’administration des services de domaine Azure Active Directory (AD).
@@ -128,7 +128,7 @@ Pour résoudre cette erreur, activez cette application et réessayez d’activer
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Les utilisateurs sont incapables de se connecter aux services de domaine Asure AD gérés
 Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de se connecter au domaine géré nouvellement créé, effectuez les étapes de dépannage suivantes :
 
-* **Connectez-vous à l’aide du format UPN :** essayez de vous connecter en utilisant le format UPN (par exemple, « joeuser@contoso.com » au lieu du format SAMAccountName (« CONTOSO\joeuser »)). Le format SAMAccountName peut être généré automatiquement pour les utilisateurs dont le préfixe UPN est trop long ou identique à un autre utilisateur sur le domaine géré. Le format UPN garantit des données uniques au sein d’Azure AD.
+* **Connectez-vous à l'aide du format UPN :** Essayez de vous connecter en utilisant le format UPN (par exemple, « joeuser@contoso.com ») au lieu du format SAMAccountName (« CONTOSO\joeuser »). Le format SAMAccountName peut être généré automatiquement pour les utilisateurs dont le préfixe UPN est trop long ou identique à un autre utilisateur sur le domaine géré. Le format UPN garantit des données uniques au sein d’Azure AD.
 
 > [!NOTE]
 > Nous vous recommandons d’utiliser le format UPN pour vous connecter au domaine géré des services de domaine Azure AD.
@@ -136,8 +136,8 @@ Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de s
 >
 
 * Assurez-vous d'avoir [activé la synchronisation du mot de passe](active-directory-ds-getting-started-password-sync.md) selon les étapes décrites dans le guide de mise en route.
-* **Comptes externes** : assurez-vous que le compte d’utilisateur affecté n’est pas un compte externe dans le locataire Azure AD. Les exemples de comptes externes incluent les comptes Microsoft (par exemple, « joe@live.com ») ou les comptes d’utilisateurs d’un annuaire Azure AD externe. Dans la mesure où les services de domaine Azure AD n’ont pas d'informations d'identification pour ces comptes d'utilisateurs, ces utilisateurs ne peuvent pas se connecter au domaine géré.
-* **Comptes synchronisés** : si les comptes d’utilisateurs affectés sont synchronisés à partir d’un annuaire local, vérifiez que les points suivants sont respectés :
+* **Comptes externes :** Assurez-vous que le compte d’utilisateur affecté n’est pas un compte externe dans le locataire Azure AD. Les exemples de comptes externes incluent les comptes Microsoft (par exemple, « joe@live.com ») ou les comptes d’utilisateurs d’un annuaire Azure AD externe. Dans la mesure où les services de domaine Azure AD n’ont pas d'informations d'identification pour ces comptes d'utilisateurs, ces utilisateurs ne peuvent pas se connecter au domaine géré.
+* **Comptes synchronisés :** si les comptes d’utilisateurs affectés sont synchronisés à partir d’un annuaire local, vérifiez que les points suivants sont respectés :
 
   * Vous avez déployé la [dernière version recommandée d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)ou procédé à la mise à jour vers cette version.
   * Vous avez configuré Azure AD Connect pour [effectuer une synchronisation complète](active-directory-ds-getting-started-password-sync.md).
@@ -146,7 +146,7 @@ Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de s
 
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
-* **Comptes cloud uniquement**: si le compte d’utilisateur affecté est un compte d’utilisateur dans le cloud uniquement, assurez-vous que l’utilisateur a modifié son mot de passe après avoir activé les services de domaine Azure AD. Cette étape permet de générer les hachures d’informations d'identification requises pour les services de domaine Azure AD.
+* **Comptes cloud uniquement** : si le compte d’utilisateur affecté est un compte d’utilisateur dans le cloud uniquement : assurez-vous que l’utilisateur a modifié son mot de passe après que vous avez activé Azure AD Domain Services. Cette étape permet de générer les hachures d’informations d'identification requises pour les services de domaine Azure AD.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Il existe une ou plusieurs alertes sur votre domaine géré
 

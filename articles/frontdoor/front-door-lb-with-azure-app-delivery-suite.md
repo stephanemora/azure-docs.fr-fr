@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026005"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820819"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Équilibrage de charge avec la suite de livraison d’application Azure
 
 ## <a name="introduction"></a>Introduction
-Microsoft Azure fournit plusieurs services internationaux et régionaux qui vous permettent de gérer la distribution et l’équilibrage de charge de votre trafic réseau : Traffic Manager, Front Door Service, Application Gateway et Load Balancer.  Associée aux nombreuses régions Azure et à son architecture zonale, l’utilisation conjointe de ces services vous permet de créer des applications robustes, scalables et à hautes performances.
+Microsoft Azure propose plusieurs services globaux et régionaux destinés à gérer la distribution et l’équilibrage de la charge de votre trafic réseau : Traffic Manager, Front Door Service, Application Gateway, et Load Balancer.  Associée aux nombreuses régions Azure et à son architecture zonale, l’utilisation conjointe de ces services vous permet de créer des applications robustes, scalables et à hautes performances.
 
 ![Suite de livraison d’application ][1]
  
@@ -51,16 +51,16 @@ Load Balancer fait partie intégrante de la pile Azure SDN, et fournit des ser
 
 ## <a name="choosing-a-global-load-balancer"></a>Choix d’un équilibreur de charge global
 Quand vous devez choisir qui de Traffic Manager ou d’Azure Front Door utiliser comme équilibreur de charge global pour le routage global, vous devez examiner ce qui est similaire et ce qui est différent dans les deux services.   Ces deux services fournissent ce qui suit :
-- **Géoredondance multiple** : si une région connaît une défaillance, le trafic est acheminé vers la région la plus proche sans interruption et sans aucune intervention du propriétaire de l’application.
+- **Géoredondance multiple :** si une région connaît une défaillance, le trafic est acheminé vers la région la plus proche sans interruption et sans aucune intervention du propriétaire de l’application.
 - **Routage vers la région plus proche :** le trafic est acheminé automatiquement vers la région la plus proche.
 
 </br>Le tableau suivant décrit les différences entre Traffic Manager et Azure Front Door Service :</br>
 
 | Traffic Manager | Azure Front Door Service |
 | --------------- | ------------------------ |
-|**N’importe quel protocole :** étant donné que Traffic Manager fonctionne au niveau de la couche DNS, vous pouvez acheminer tous les types de trafic réseau : HTTP, TCP, UDP, et ainsi de suite. | **Accélération HTTP :** avec Front Door, le trafic est acheminé en proxy à la périphérie du réseau Microsoft.  Pour cette raison, la latence et le débit des requêtes HTTP(S) sont améliorées, ce qui réduit la latence pour la négociation SSL et l’utilisation de connexions à chaud d’AFD vers votre application.|
-|**Routage local :** avec le routage au niveau d’une couche DNS, le trafic va toujours de point à point.  Le routage de votre filiale vers votre centre de données local peut prendre un chemin direct, même sur votre propre réseau à l’aide de Traffic Manager. | **Scalabilité indépendante :** comme Front Door fonctionne avec la requête HTTP, les requêtes pour différents chemins d’URL peuvent être routées vers différents pools de backends / services régionaux (microservices) en fonction de règles et de l’intégrité de chaque microservice d’application.|
-|**Format de facturation :** la facturation basée sur DNS est mise à l’échelle en fonction du nombre d’utilisateurs et, pour les services à davantage d’utilisateurs, se stabilise afin de réduire le coût. |**Sécurité inline :** Front Door active des règles telles que la limitation du débit et les listes ACL d’adresses IP pour vous permettre de protéger vos backends avant que le trafic n’atteigne votre application. 
+|**N'importe quel protocole :** Traffic Manager fonctionnant au niveau de la couche DNS, vous pouvez acheminer tous les types de trafic réseau : HTTP, TCP, UDP, etc. | **Accélération HTTP :** avec Front Door, le trafic est acheminé en proxy à la périphérie du réseau Microsoft.  Pour cette raison, la latence et le débit des requêtes HTTP(S) sont améliorées, ce qui réduit la latence pour la négociation SSL et l’utilisation de connexions à chaud d’AFD vers votre application.|
+|**Routage local :** avec le routage au niveau d’une couche DNS, le trafic va toujours de point à point.  Le routage de votre filiale vers votre centre de données local peut prendre un chemin direct, même sur votre propre réseau à l’aide de Traffic Manager. | **Extensibilité indépendante :** comme Front Door fonctionne avec la requête HTTP, les requêtes pour différents chemins d’URL peuvent être routées vers différents pools de backends / services régionaux (microservices) en fonction de règles et de l’intégrité de chaque microservice d’application.|
+|**Format de facturation :** la facturation basée sur DNS est mise à l’échelle en fonction du nombre d’utilisateurs et, pour les services à davantage d’utilisateurs, se stabilise afin de réduire le coût. |**Sécurité incluse :** Front Door active des règles telles que la limitation du débit et les listes ACL d’adresses IP pour vous permettre de protéger vos backends avant que le trafic n’atteigne votre application. 
 
 </br>En raison des avantages offerts par Front Door en termes de performances, d’opérabilité et de sécurité pour les charges de travail HTTP, nous recommandons aux clients d’utiliser Front Door pour leurs charges de travail HTTP.    Traffic Manager et Front Door peuvent être utilisés en parallèle afin de servir tout le trafic pour votre application. 
 
