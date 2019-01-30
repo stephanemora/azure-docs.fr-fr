@@ -10,18 +10,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158854"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463029"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
-Cet article vous montre comment déplacer des ressources Azure vers un autre abonnement Azure ou un autre groupe de ressources sous le même abonnement. Vous pouvez utiliser le portail Azure, Azure PowerShell, Azure CLI ou l’API REST pour déplacer des ressources.
+Cet article vous montre comment déplacer des ressources Azure vers un autre abonnement Azure ou un autre groupe de ressources sous le même abonnement. Vous pouvez utiliser le portail Azure, Azure PowerShell, Azure CLI ou l’API REST pour déplacer des ressources. Pour suivre un tutoriel, consultez [Tutoriel : Déplacer des ressources Azure vers un autre groupe de ressources ou un autre abonnement](./resource-manager-tutorial-move-resources.md).
 
 Le groupe source et le groupe cible sont verrouillés pendant l’opération de déplacement. Les opérations d’écriture et de suppression sont bloquées sur les groupes de ressources tant que le déplacement n’est pas terminé. Ce verrou signifie que vous ne pouvez pas ajouter, mettre à jour ou supprimer des ressources dans les groupes de ressources, mais il ne signifie pas que les ressources sont figées. Par exemple, si vous déplacez un serveur SQL Server et sa base de données vers un nouveau groupe de ressources, une application qui utilise la base de données ne rencontre aucune interruption de service. Elle peut toujours lire et écrire dans la base de données.
 
@@ -56,6 +56,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Automatisation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Explorateur de données Azure
 * Azure Database pour MySQL
 * Azure Database pour PostgreSQL
 * Azure DevOps : les organisations Azure DevOps ayant acheté des extensions non-Microsoft doivent [annuler leurs achats](https://go.microsoft.com/fwlink/?linkid=871160) avant de pouvoir déplacer le compte entre des abonnements.
@@ -98,7 +99,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Tableaux de bord du portail
 * Power BI : Power BI Embedded et Collection d’espaces de travail Power BI
 * IP publique : l’IP publique de la référence SKU de base peut être déplacée. L’IP publique de la référence SKU standard ne peut pas être déplacée.
-* Coffre Recovery Services : vous devez être inscrit à une [préversion publique limitée](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Coffre Recovery Services : inscrire votre abonnement pour la [préversion publique limitée](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * Cache Azure pour Redis : si l’instance du Cache Azure pour Redis est configurée avec un réseau virtuel, l’instance ne peut pas être déplacée vers un autre abonnement. Consultez [Limitations des réseaux virtuels](#virtual-networks-limitations).
 * Scheduler
 * Recherche : vous ne pouvez pas déplacer simultanément plusieurs ressources de recherche dans des régions différentes. Déplacez-les plutôt dans des opérations distinctes.
@@ -166,6 +167,7 @@ Depuis le 24 septembre 2018, vous pouvez déplacer des disques managés. Cette 
 Les scénarios suivants ne sont pas encore pris en charge :
 
 * Les machines virtuelles avec un certificat stocké dans Key Vault peuvent être déplacées vers un nouveau groupe de ressources dans le même abonnement, mais pas entre abonnements.
+* Les disques managés dans les zones de disponibilité ne peuvent pas être déplacés vers un autre abonnement
 * Les groupes de machines virtuelles identiques avec un équilibreur de charge de référence SKU Standard ou avec une adresse IP publique de référence SKU Standard ne peuvent pas être déplacés
 * Les machines virtuelles auxquelles des plans sont associés créées à partir de ressources de la Place de marché ne peuvent pas être déplacées entre des groupes de ressources ou des abonnements. Déprovisionnez la machine virtuelle dans l’abonnement actuel, puis redéployez-la dans le nouvel abonnement.
 
@@ -305,7 +307,7 @@ Cette opération peut prendre plusieurs minutes.
 
 ### <a name="recovery-services-limitations"></a>Limitations de Recovery Services
 
-Pour déplacer un coffre Recovery Services, vous devez être inscrit à la [préversion publique limitée](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Pour déplacer un coffre Recovery Services, inscrivez votre abonnement pour la [préversion publique limitée](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
 Actuellement, vous pouvez déplacer un coffre Recovery Services par région à la fois. Vous ne pouvez pas déplacer les coffres qui sauvegardent les données Azure Files, Azure File Sync ou SQL dans des machines virtuelles IaaS.
 

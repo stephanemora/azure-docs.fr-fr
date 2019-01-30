@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
-ms.openlocfilehash: 3172ba12fbbd0135d1a5a3684145787c83aad040
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7d8c0a837f5618580c5e76e5ca97e19844b95698
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242413"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427166"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Bien démarrer avec l’authentification par certificat dans Azure Active Directory
 
@@ -43,7 +43,7 @@ Pour configurer l’authentification basée sur les certificats, les conditions 
 - Votre appareil client doit avoir accès à au moins une autorité de certification qui émet des certificats clients.
 - Un certificat client pour l’authentification du client doit avoir été émis pour votre client.
 
-## <a name="step-1-select-your-device-platform"></a>Étape 1 : Sélectionner la plateforme de votre appareil
+## <a name="step-1-select-your-device-platform"></a>Étape 1 : Sélectionner la plateforme de votre appareil
 
 Dans un premier temps, pour la plateforme d’appareil qui vous intéresse, vous devez passer en revue les éléments suivants :
 
@@ -133,7 +133,7 @@ Pour modifier une autorité de certification approuvée, utilisez l’applet de 
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
 
-## <a name="step-3-configure-revocation"></a>Étape 3 : Configurer la révocation
+## <a name="step-3-configure-revocation"></a>Étape 3 : Configurer la révocation
 
 Pour révoquer un certificat client, Azure Active Directory extrait la liste de révocation de certificat (CRL) à partir des URL téléchargées dans le cadre des informations sur l’autorité de certification et la met en cache. L’horodateur de la dernière publication (propriété**Effective Date** ) dans la liste de révocation de certificat permet de vérifier si la CRL est toujours valide. La CRL est référencée périodiquement pour révoquer l’accès à des certificats qui font partie de la liste.
 
@@ -161,7 +161,7 @@ Les étapes suivantes décrivent le processus de mise à jour et d’invalidatio
 
 La date que vous définissez doit être dans le futur. Si la date n’est pas dans le futur, la propriété **StsRefreshTokensValidFrom** n’est pas définie. Si la date est dans le futur, la propriété **StsRefreshTokensValidFrom** est définie sur l’heure actuelle (et non la date indiquée par la commande Set-MsolUser).
 
-## <a name="step-4-test-your-configuration"></a>Étape 4 : Tester votre configuration
+## <a name="step-4-test-your-configuration"></a>Étape 4 : Tester votre configuration
 
 ### <a name="testing-your-certificate"></a>Test de votre certificat
 

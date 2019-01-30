@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 44f61d7b90018b76b1903a04d219dcf0226f95e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302967"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852318"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning
 
@@ -39,7 +39,7 @@ Chaque étape peut être effectuée indépendamment ou dans le cadre d’une mê
 
 L’inscription de modèle vous permet de stocker vos modèles dans le cloud Azure, au sein de votre espace de travail, et d’en gérer les versions. Le registre de modèle facilite l’organisation et le suivi de vos modèles entraînés.
  
-Les modèles inscrits sont identifiés par leur nom et par leur version. Chaque fois que vous inscrivez un modèle portant le même nom qu’un modèle existant, le registre incrémente la version. Vous pouvez également fournir des étiquettes de métadonnées supplémentaires lors de l’inscription, qui peuvent être utilisées lors de la recherche de modèles. Le service Azure Machine Learning prend en charge les modèles stockés à l’aide de tout modèle pouvant être chargé au moyen de Python 3. 
+Les modèles inscrits sont identifiés par leur nom et par leur version. Chaque fois que vous inscrivez un modèle portant le même nom qu’un modèle existant, le registre incrémente la version. Vous pouvez également fournir des étiquettes de métadonnées supplémentaires lors de l’inscription, qui peuvent être utilisées lors de la recherche de modèles. Azure Machine Learning service prend en charge tous les modèles pouvant être chargés avec Python 3. 
 
 Vous ne pouvez pas supprimer les modèles qui sont utilisés par une image.
 
@@ -63,13 +63,13 @@ L’image peut également inclure des composants du SDK pour la journalisation e
 Azure Machine Learning prend en charge les infrastructures les plus courantes, mais d’une façon générale, les infrastructures pouvant être installées avec pip peuvent fonctionner.
 
 Lors de la création de votre espace de travail, par conséquent, plusieurs autres ressources Azure utilisées par cet espace de travail ont également été créées.
-Tous les objets utilisés pour créer l’image sont stockés dans le compte de stockage Azure de votre espace de travail. L’image est créée et stockée dans Azure Container Registry. Vous pouvez fournir des étiquettes de métadonnées supplémentaires lors de la création de l’image, qui sont également stockées par le registre d’images et peuvent être interrogées pour trouver votre image.
+Tous les objets utilisés pour créer l’image sont stockés dans le compte de stockage Azure de votre espace de travail. Vous pouvez fournir des étiquettes de métadonnées supplémentaires lorsque vous créez des images. Les étiquettes de métadonnées sont également stockées par le registre d’images et permettent de rechercher une image.
 
 Pour plus d’informations, consultez la section consacrée à la configuration et à l’inscription d’une image dans l’article [Déployer des modèles](how-to-deploy-and-where.md#configureimage).
 
 ## <a name="step-3-deploy-image"></a>Étape 3 : Déployer une image
 
-Vous pouvez déployer des images inscrites dans le cloud ou sur des périphériques de périmètre. Le processus de déploiement crée toutes les ressources nécessaires pour surveiller, équilibrer la charge et mettre automatiquement à l’échelle votre modèle. L’accès aux services déployés peut être sécurisé avec l’authentification par certificat en fournissant les ressources de sécurité lors du déploiement. Vous pouvez également mettre à niveau un déploiement existant pour utiliser une image plus récente.
+Vous pouvez déployer des images inscrites dans le cloud ou sur des périphériques de périmètre. Le processus de déploiement crée toutes les ressources nécessaires pour effectuer le monitoring, l’équilibrage de charge et la mise à l’échelle automatique du modèle. L’accès aux services déployés est sécurisable avec l’authentification par certificat en fournissant les ressources de sécurité lors du déploiement. Vous pouvez également mettre à niveau un déploiement existant pour utiliser une image plus récente.
 
 Les déploiements de service web peuvent également faire l’objet de recherches. Par exemple, vous pouvez rechercher tous les déploiements d’un modèle ou d’une image spécifique.
 

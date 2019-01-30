@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 0d45d460b56f956a97779b46a72d0e4cd97a6b41
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: db5482fe17b9181097e13d446937bc489c3db8fe
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849698"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462825"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d’urgence de machines virtuelles VMware
 
@@ -137,10 +137,12 @@ Vous exécutez des correctifs cumulatifs pour mettre à jour le serveur de confi
 - Si vous exécutez la version 9.7, 9.8, 9.9 ou 9.10, vous pouvez mettre à niveau directement vers la version 9.11.
 - Si vous exécutez la version 9.6 ou une version antérieure, et souhaitez mettre à niveau vers la version 9.11, vous devez d’abord mettre à niveau vers la version 9.7, avant de mettre à niveau vers la version 9.11.
 
-Des liens vers des correctifs cumulatifs pour la mise à niveau de toutes les versions du serveur de configuration sont disponibles dans la [page des mises à jour d’Azure](https://azure.microsoft.com/updates/?product=site-recovery).
+Pour obtenir des instructions détaillées sur la déclaration de support relative aux composants Azure Site Recovery, cliquez [ici](https://aka.ms/asr_support_statement).
+Des liens vers des correctifs cumulatifs pour la mise à niveau de toutes les versions du serveur de configuration sont disponibles [ici](https://aka.ms/asr_update_rollups).
 
 > [!IMPORTANT]
-> À chaque publication d’une nouvelle version « N » d’un composant Azure Site Recovery, toutes les versions inférieures à « N-4 » sont considérées comme non couvertes par le support. Il est toujours recommandé de procéder à une mise à niveau vers les dernières versions disponibles.
+> À chaque publication d’une nouvelle version « N » d’un composant Azure Site Recovery, toutes les versions inférieures à « N-4 » sont considérées comme non couvertes par le support. Il est toujours recommandé de procéder à une mise à niveau vers les dernières versions disponibles.</br>
+> Pour obtenir des instructions détaillées sur la déclaration de support relative aux composants Azure Site Recovery, cliquez [ici](https://aka.ms/asr_support_statement).
 
 Mettez à niveau le serveur comme suit :
 
@@ -158,6 +160,7 @@ Mettez à niveau le serveur comme suit :
     ![Mettre à jour](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Cliquez sur **Terminer** pour fermer le programme d’installation.
+8. Pour mettre à niveau le reste des composants Site Recovery, reportez-vous à nos [conseils de mise à niveau](https://aka.ms/asr_vmware_upgrades).
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Supprimer un serveur de configuration ou annuler son inscription
 
@@ -174,7 +177,7 @@ Mettez à niveau le serveur comme suit :
 
 Vous pouvez également supprimer le serveur de configuration à l’aide de PowerShell.
 
-1. [Installez](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) le module Azure PowerShell.
+1. [Installez](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) le module Azure PowerShell.
 2. Connectez-vous à votre compte Azure à l’aide de cette commande :
 
     `Connect-AzureRmAccount`

@@ -4,7 +4,7 @@ description: Vue d'ensemble et plan du contenu du guide des considérations rela
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d0930de0ac3272d2858e961ec2038093dcc9ccc9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344880"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463012"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Considérations relatives à la conception d'identités hybrides Azure Active Directory
 Les périphériques grand public se multiplient dans le monde de l'entreprise et les applications cloud software-as-a-service (SaaS) sont faciles à adopter. Par conséquent, le maintien du contrôle d'accès des utilisateurs aux applications sur les plateformes cloud et les centres de données internes est difficile.  
@@ -49,7 +49,7 @@ L’illustration ci-dessus est un exemple de solution d’identité hybride qui 
 
 Ce guide propose une série d'étapes et de tâches que vous pouvez suivre pour concevoir une solution d'identité hybride qui réponde aux exigences spécifiques de votre organisation. Au fil des étapes et des tâches suivantes, le guide présente les technologies et les options appropriées à votre disposition pour satisfaire aux exigences de niveau de qualité fonctionnelle et de qualité de service de votre organisation.
 
-**Hypothèses** : vous avez un peu d’expérience avec Windows Server, Active Directory Domain Services et Azure Active Directory. Dans ce document, on suppose que vous cherchez à savoir en quoi ces solutions peuvent répondre aux besoins de votre entreprise de façon autonome ou dans une solution intégrée.
+**Hypothèses** : Vous avez un peu d’expérience avec Windows Server, Active Directory Domain Services et Azure Active Directory. Dans ce document, on suppose que vous cherchez à savoir en quoi ces solutions peuvent répondre aux besoins de votre entreprise de façon autonome ou dans une solution intégrée.
 
 ## <a name="design-considerations-overview"></a>Présentation des considérations relatives à la conception
 Ce document propose un ensemble d'étapes et de tâches que vous pouvez suivre pour concevoir la solution d'identité hybride idéale en fonction de vos exigences. Les étapes sont présentées dans un ordre précis. Cependant, les considérations relatives à la conception que vous découvrirez dans les étapes suivantes pourront vous amener à revenir sur les décisions que vous aurez prises dans les étapes précédentes, en raison de conflits sur les choix de conception. Tout est mis en œuvre pour vous avertir des risques de conflits de conception tout au long du document. 

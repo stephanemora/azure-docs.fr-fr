@@ -5,21 +5,21 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/27/2018
+ms.date: 01/22/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: fcd5137792e573c3077a4b9d5e815b9bf20774f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: daf524e6802fbb0548ff2d30d32dc6fbd4bc68cb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155065"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476391"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Préparer l’hôte d’extension pour Azure Stack
 
-L’hôte d’extension sécurise Azure Stack en réduisant le nombre de ports TCP/IP requis. Cet article passe en revue la préparation d’Azure Stack pour l’hôte d’extension. Ce dernier est automatiquement activé via un package de mise à jour Azure Stack après la mise à jour 1808.
+L’hôte d’extension sécurise Azure Stack en réduisant le nombre de ports TCP/IP requis. Cet article passe en revue la préparation d’Azure Stack pour l’hôte d’extension. Ce dernier est automatiquement activé via un package de mise à jour Azure Stack après la mise à jour 1808. Cet article s’applique aux mises à jour 1808, 1809 et 1811 d’Azure Stack.
 
 ## <a name="certificate-requirements"></a>Configuration requise des certificats
 
@@ -201,8 +201,8 @@ Les ports de points de terminaison existants suivants doivent être fermés dans
 
 | Point de terminaison (VIP) | Protocole | Ports |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Portail (administrateur) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015 |
-| Portail (utilisateur) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003 |
+| Portail (administrateur) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
+| Portail (utilisateur) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |
 | Azure Resource Manager (administrateur) | HTTPS | 30024 |
 | Azure Resource Manager (utilisateur) | HTTPS | 30024 |
 

@@ -1,17 +1,17 @@
 ---
-titre : Réseaux neuronaux Net# - titleSuffix : Description d'Azure Machine Learning Studio : Syntaxe pour le langage de spécification des réseaux neuronaux Net#, avec des exemples montrant comment créer un modèle de réseau neuronal personnalisé à l’aide de Net# avec Azure Machine Learning Studio.
+titre : Créer des réseaux neuronaux personnalisés avec Net# titleSuffix: Description d'Azure Machine Learning Studio : Guide de la syntaxe du langage de spécification des réseaux neuronaux Net#. Découvrez comment créer des modèles de réseaux neuronaux personnalisés dans Azure Machine Learning Studio.
 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: reference
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/03/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning Studio
 
-Net# est un langage développé par Microsoft qui définit les architectures de réseaux neuronaux. L’utilisation de Net# pour définir la structure d’un réseau neuronal permet de spécifier des structures complexes, comme des réseaux neuronaux profonds ou des convolutions de dimensions arbitraires, connues pour améliorer l’apprentissage à partir de données telles que des images, des sons ou des vidéos.
+NET# est un langage développé par Microsoft et utilisé pour définir des architectures de réseaux neuronaux complexes, comme les réseaux neuronaux profonds ou les convolutions de dimensions arbitraires. Vous pouvez utiliser des structures complexes pour améliorer l’entraînement à partir de données telles que des images, des sons ou des vidéos.
 
 Vous pouvez utiliser une spécification d’architecture Net# dans les contextes suivants :
 
 + Tous les modules de réseau neuronal dans Microsoft Azure Machine Learning : [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) et [Neural Network Regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Les fonctions de réseau neuronal dans MicrosoftML : [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) et [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)pour le langage R, et [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) pour Python.
++ Les fonctions de réseau neuronal dans Microsoft ML Server : [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) et [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)pour le langage R, et [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) pour Python.
 
 
 Cet article décrit les concepts de base et la syntaxe nécessaire au développement d’un réseau neuronal personnalisé à l’aide de Net # : 
@@ -26,17 +26,17 @@ Cet article décrit les concepts de base et la syntaxe nécessaire au développe
 
 Un réseau neuronal se compose de nœuds, organisés en couches, et de connexions pondérées (ou bords) reliant les nœuds. Les connexions sont directionnelles ; chaque connexion présente un nœud source et un nœud de destination.  
 
-Chaque couche apte à l’apprentissage (couche masquée ou de sortie) présente un ou plusieurs **faisceaux de connexions**. Un faisceau de connexions se compose d'une couche source et d'une définition des connexions de cette couche. Toutes les connexions d’un même faisceau partagent la même couche source et la même couche de destination. En Net#, on considère qu'un faisceau de connexions appartient à sa couche de destination.
+Chaque couche apte à l’apprentissage (couche masquée ou de sortie) présente un ou plusieurs **faisceaux de connexions**. Un faisceau de connexions se compose d'une couche source et d'une définition des connexions de cette couche. Toutes les connexions d’un même faisceau partagent les mêmes couches source et de destination. En Net#, on considère qu'un faisceau de connexions appartient à sa couche de destination.
 
-Net# prend en charge différents types de faisceau de connexions, ce qui vous permet de personnaliser la façon dont les entrées sont mappées aux couches masquées et aux sorties.
+Net# prend en charge différents types de faisceau de connexions, qui vous permettent de personnaliser la façon dont les entrées sont mappées aux couches masquées et aux sorties.
 
 Le faisceau par défaut ou standard est un **faisceau complet**, dans lequel chaque nœud de la couche source est connecté à tous les nœuds de la couche de destination.
 
 En outre, Net# prend en charge les quatre types de faisceaux de connexions avancés suivants :
 
-+ **Faisceaux filtrés**. L’utilisateur peut définir un prédicat à l’aide de l’emplacement du nœud de la couche source et de celui de la couche de destination. Les nœuds sont connectés chaque fois que le prédicat a la valeur True.
++ **Faisceaux filtrés**. Vous pouvez définir un prédicat à l’aide de l’emplacement du nœud de la couche source et de celui de la couche de destination. Les nœuds sont connectés chaque fois que le prédicat a la valeur True.
 
-+ **Faisceaux convolutionnels**. L'utilisateur peut définir de petits voisinages de nœuds dans la couche source. Chaque nœud de la couche de destination est connecté à un voisinage de nœuds de la couche source.
++ **Faisceaux convolutionnels**. Vous pouvez définir de petits voisinages de nœuds dans la couche source. Chaque nœud de la couche de destination est connecté à un voisinage de nœuds de la couche source.
 
 + **Faisceaux de regroupement** et **faisceaux de normalisation de réponse**. Ces faisceaux sont similaires aux faisceaux convolutionnels dans le sens où l'utilisateur définit de petits voisinages de nœuds dans la couche source. Il existe une différence : les poids des bords dans ces faisceaux ne sont pas aptes à l’apprentissage. Au lieu de cela, une fonction prédéfinie est appliquée aux valeurs de nœud source, afin de déterminer la valeur du nœud de destination.
 
@@ -245,7 +245,7 @@ Pour plus d’informations sur les couches de regroupement, consultez les articl
 
 ## <a name="response-normalization-bundles"></a>Faisceaux de normalisation de réponse
 
-La **normalisation de réponse** est un schéma de normalisation local initialement proposé par Geoffrey Hinton et al. dans le document [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classification ImageNet avec les réseaux neuronaux convolutionnels profonds). 
+La **normalisation de réponse** est un schéma de normalisation local initialement proposé par Geoffrey Hinton et al. dans le document [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
 
 La normalisation de réponse permet de contribuer à la généralisation dans les réseaux neuronaux. Lorsqu’un neurone s’active à un niveau très élevé, la couche de normalisation de réponse locale supprime le niveau d’activation des neurones alentour. Cette opération s’effectue à l’aide de trois paramètres (`α`, `β` et `k`) et d’une structure convolutionnelle (ou forme de voisinage). Chaque neurone **y** de la couche de destination correspond à un neurone **x** de la couche source. Le niveau de l’activation de l’élément **y** est calculé via la formule suivante, où `f` correspond au niveau de l’activation d’un neurone et `Nx` au noyau (ou à l’ensemble qui contient les neurones dans le voisinage de l’élément **x**), comme défini par la structure convolutionnelle suivante :  
 

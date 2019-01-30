@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e04ee6b74be0bb7ec81166f43295a8a9377f8cf8
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351507"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381516"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement
 
@@ -93,7 +93,7 @@ Utilisation du modèle Resource Manager : Consultez le [tutoriel : Intégrer A
 
 En plus de paramétrer `enabledForTemplateDeployment` sur `true`, l’utilisateur déployant le modèle doit disposer de l’autorisation `Microsoft.KeyVault/vaults/deploy/action` pour l’étendue qui contient le coffre de clés, y compris le groupe de ressources et Key Vault. Les rôles [propriétaire](../role-based-access-control/built-in-roles.md#owner) et [contributeur](../role-based-access-control/built-in-roles.md#contributor) accordent cet accès. Si vous créez le coffre de clés, vous êtes le propriétaire et avez donc l’autorisation. Si le coffre de clés est sous un autre abonnement, le propriétaire du coffre de clés doit vous donner l’accès.
 
-La procédure suivante montre comment créer un rôle avec les permissions minimum et comment affecter l’utilisateur
+La procédure suivante montre comment créer un rôle avec les permissions minimales et comment affecter l’utilisateur
 1. Créez un fichier JSON de définition de rôle personnalisé :
 
     ```json

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 4e3a79c28fc0e67fbf22e4d0fde3de9528d3edf4
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319458"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382631"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -230,7 +230,7 @@ Lorsqu’une nouvelle stratégie est appliquée, le planning et la rétention de
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Les données envoyées à Azure sont-elles chiffrées ?
 
-Oui. Les données sont chiffrées sur l’ordinateur local avec AES256. Les données sont envoyées via une connexion HTTPS sécurisée.
+Oui. Les données sont chiffrées sur l’ordinateur local avec AES256. Les données sont envoyées via une connexion HTTPS sécurisée. Les données transmises dans le cloud sont protégées par une liaison HTTPS uniquement entre le stockage et le service de récupération. Le protocole iSCSI sécurise les données transmises entre l’ordinateur de l’utilisateur et le service de récupération. Le tunneling sécurisé est utilisé pour protéger le canal iSCSI.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Les données de sauvegarde sont-elles également chiffrées dans Azure ?
 

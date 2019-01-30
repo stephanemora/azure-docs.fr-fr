@@ -1,6 +1,6 @@
 ---
-title: Activer l’intégration de connexions LinkedIn dans Azure Active Directory | Microsoft Docs
-description: Explique comment activer et désactiver les connexions de comptes LinkedIn pour les applications Microsoft dans Azure Active Directory
+title: Activer l’intégration de LinkedIn dans Azure Active Directory | Microsoft Docs
+description: Explique comment activer et désactiver l’intégration LinkedIn aux applications Microsoft dans Azure Active Director
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 01/22/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 0eaa2656313ecd9b64503051265dc16285f0a1f3
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 44bd03a8f710cf4b61e063688c9532dc6cce6480
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492838"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465596"
 ---
-# <a name="linkedin-account-connections"></a>Connexions de comptes LinkedIn
+# <a name="linkedin-integration"></a>Intégration de LinkedIn
 
-Dans cet article, vous pouvez découvrir comment activer ou désactiver les connexions de comptes LinkedIn pour votre locataire dans le centre d’administration Azure Active Directory (Azure AD).
+Cet article montre comment vous pouvez activer ou désactiver l’intégration de LinkedIn pour votre locataire dans le centre d’administration Azure Active Directory (Azure AD).
 
 > [!IMPORTANT]
-> Le paramètre de connexions de comptes LinkedIn est en cours de déploiement sur les locataires Azure AD. Une fois déployée sur votre locataire, elle est activée par défaut. 
+> Le paramètre d’intégration de LinkedIn est en cours de déploiement sur les locataires Azure AD. Une fois déployée sur votre locataire, elle est activée par défaut.
 > 
 > Exceptions :
 > * Le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud for US Government, Microsoft Cloud Germany ou Azure et Office 365 gérés par 21Vianet en Chine.
@@ -33,25 +33,25 @@ Dans cet article, vous pouvez découvrir comment activer ou désactiver les conn
 
 > L’intégration ne fonctionne que si vous avez activé *et* si vous autorisez les utilisateurs à donner leur consentement pour que les applications accèdent aux données d’entreprise en leur nom. Pour plus d’informations sur le paramètre de consentement, voir [Comment supprimer l’accès d’un utilisateur à une application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
-## <a name="enable-or-disable-linkedin-account-connections-for-your-tenant-in-the-azure-portal"></a>Activer ou désactiver les connexions de comptes LinkedIn pour votre locataire dans le portail Azure
+## <a name="enable-or-disable-linkedin-integration-for-your-users-in-the-azure-portal"></a>Activer ou désactiver l’intégration de LinkedIn pour vos utilisateurs dans le portail Azure
 
-Vous pouvez activer ou désactiver les connexions de comptes LinkedIn pour votre locataire entier ou pour seulement les utilisateurs sélectionnés dans votre locataire.
+Vous pouvez activer ou désactiver l’intégration de LinkedIn pour votre locataire entier ou seulement pour les utilisateurs sélectionnés dans votre locataire.
 
 1. Connectez-vous au [centre d’administration Azure Active Directory](https://aad.portal.azure.com/) en utilisant un compte d’administrateur général pour le locataire Azure AD.
 2. Sélectionnez **Utilisateurs**.
 3. Dans le panneau **Utilisateurs**, sélectionnez **Paramètres utilisateur**.
-4. Sous **LinkedIn account connections (Connexions de comptes LinkedIn)**  :
-  * Sélectionnez **Oui** pour activer les connexions de comptes LinkedIn pour tous les utilisateurs dans votre locataire.
-  * Sélectionnez **Sélectionnés** pour activer les connexions de comptes LinkedIn uniquement pour les utilisateurs de locataire sélectionnés.
-  * Sélectionnez **Non** pour désactiver les connexions de comptes LinkedIn pour tous les utilisateurs. ![Activation des connexions de comptes LinkedIn](./media/linkedin-integration/linkedin-integration.png)
+4. Sous **Intégration LinkedIn** :
+  * Sélectionnez **Oui** pour activer l’intégration de LinkedIn pour tous les utilisateurs dans votre locataire
+  * Sélectionnez **Sélectionnés** pour activer l’intégration de LinkedIn uniquement pour les utilisateurs sélectionnés dans le locataire
+  * Sélectionnez **Non** si vous voulez désactiver l’intégration de LinkedIn pour tous les utilisateurs ![Activer l’intégration de LinkedIn](./media/linkedin-integration/linkedin-integration.png)
 5. Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
-## <a name="enable-or-disable-linkedin-account-connections-for-your-tenant-using-group-policy"></a>Activer ou désactiver les connexions de comptes LinkedIn pour votre locataire à l’aide d’une stratégie de groupe
+## <a name="enable-or-disable-linkedin-integration-for-your-users-in-group-policy"></a>Activer ou désactiver l’intégration de LinkedIn pour vos utilisateurs dans une stratégie de groupe
 
 1. Télécharger les [fichiers modèles d’administration Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 2. Extrayez les fichiers **ADMX** et copiez-les dans votre magasin central.
 3. Ouvrez la gestion des stratégies de groupe.
-4. Créez un objet de stratégie de groupe avec le paramètre suivant : **Configuration utilisateur** > **Modèles d’administration** > **Microsoft Office 2016**  >  **Divers** > **Afficher les fonctionnalités LinkedIn dans les applications Office**.
+4. Créez un objet de stratégie de groupe avec le paramètre suivant : **Configuration utilisateur** > **Modèles d’administration** > **Microsoft Office 2016** > **Divers** > **Afficher les fonctionnalités LinkedIn dans les applications Office**.
 5. Sélectionnez **Activé** ou **Désactivé**.
   
  État | Résultat
@@ -70,6 +70,7 @@ Cette stratégie de groupe affecte uniquement les applications Office 2016 insta
 * [Centre d’aide LinkedIn](https://www.linkedin.com/help/linkedin)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Utilisez le lien suivant pour afficher vos paramètres de connexions de comptes LinkedIn actuels dans le portail Azure :
 
-[Configurer les connexions de comptes LinkedIn](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 
+Utilisez le lien suivant pour afficher vos paramètres d’intégration LinkedIn actuels dans le portail Azure :
+
+[Afficher vos paramètres d’intégration LinkedIn actuels dans le portail Azure](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings)

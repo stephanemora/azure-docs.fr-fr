@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 53361ed460917fff42008283429967eff2e80ab2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345094"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462197"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personnaliser l’accélérateur de solution de surveillance à distance
 
@@ -77,7 +77,7 @@ Les étapes suivantes décrivent le processus de configuration d’un environnem
 
 ## <a name="customize-the-layout"></a>Personnaliser la disposition
 
-Chaque page de la solution de surveillance à distance est composée d’un ensemble de contrôles, appelés *panneaux* dans le code source. La page **Tableau de bord** se compose de cinq panneaux : Général, Carte, Alarmes, Télémétrie et Analyse. Vous trouverez le code source qui définit chaque page et ses panneaux dans le dépôt GitHub [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui). Par exemple, le code qui définit la page **Tableau de bord**, sa disposition et ses panneaux se trouve dans le dossier [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
+Chaque page de la solution de surveillance à distance est composée d’un ensemble de contrôles, appelés *panneaux* dans le code source. La page **Tableau de bord** se compose de cinq panneaux : Vue d’ensemble, Carte, Alertes, Télémétrie et Analytique. Vous trouverez le code source qui définit chaque page et ses panneaux dans le dépôt GitHub [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui). Par exemple, le code qui définit la page **Tableau de bord**, sa disposition et ses panneaux se trouve dans le dossier [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
 
 Étant donné que les panneaux gèrent leurs propres disposition et dimensionnement, vous pouvez facilement modifier la disposition d’une page. Apportez les modifications suivantes à l’élément **PageContent** du fichier `src/components/pages/dashboard/dashboard.js` pour :
 
@@ -335,7 +335,7 @@ Le graphique de télémétrie affiche maintenant la période de cinq minutes de 
 
 ## <a name="add-a-new-kpi"></a>Ajouter un nouvel indicateur de performance clé
 
-La page **Tableau de bord** affiche les indicateurs de performance clés dans le panneau **Analyse**. Ces indicateurs de performance clés sont calculés dans le fichier `src/components/pages/dashboard/dashboard.js`. Les indicateurs de performance clés sont affichés par le fichier `src/components/pages/dashboard/panels/analytics/analyticsPanel.js`. Les étapes suivantes décrivent comment calculer et afficher une nouvelle valeur d’indicateur de performance clé dans la page **Tableau de bord**. L’exemple fourni consiste à ajouter un nouveau changement de pourcentage dans l’indicateur de performance clé des alarmes d’avertissement :
+La page **Tableau de bord** affiche les indicateurs de performance clés dans le panneau **Analyse**. Ces indicateurs de performance clés sont calculés dans le fichier `src/components/pages/dashboard/dashboard.js`. Les indicateurs de performance clés sont affichés par le fichier `src/components/pages/dashboard/panels/analytics/analyticsPanel.js`. Les étapes suivantes décrivent comment calculer et afficher une nouvelle valeur d’indicateur de performance clé dans la page **Tableau de bord**. L’exemple fourni consiste à ajouter un nouveau changement de pourcentage dans l’indicateur de performance clé des alertes d’avertissement :
 
 1. Ouvrez le fichier `src/components/pages/dashboard/dashboard.js` . Modifiez l’objet **initialState** en lui ajoutant une propriété **warningAlertsChange** :
 
@@ -365,7 +365,7 @@ La page **Tableau de bord** affiche les indicateurs de performance clés dans le
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
       totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
       totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
-      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+      alertsPerDeviceId: updatedAlertsPerDeviceId
     };
     ```
 

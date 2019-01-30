@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 01/17/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 7a744520fe2a3b53b1306d4c80a5eca7d86258a7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: eed3cbbcdc02d0d2faa5f9076bd6fc2dd4328bd8
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104537"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391063"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Connectez-vous à Azure Stack en tant qu’opérateur à l’aide de PowerShell
 
@@ -29,7 +29,7 @@ Vous pouvez configurer Azure Stack pour utiliser PowerShell en vue de gérer les
 
 ## <a name="prerequisites"></a>Prérequis
 
-Effectuez les étapes prérequises suivantes à partir du [Kit de développement](./asdk/asdk-connect.md#connect-with-rdp) ou à partir d’un client externe Windows si vous êtes [connecté à l’ASDK par le biais d’un VPN](./asdk/asdk-connect.md#connect-with-vpn). 
+Effectuez les prérequis suivants à partir du [kit de développement](./asdk/asdk-connect.md#connect-with-rdp) ou à partir d’un client externe Windows si vous êtes [connecté à l’ASDK via un VPN (réseau privé virtuel)](./asdk/asdk-connect.md#connect-with-vpn). 
 
  - Installez les [modules Azure PowerShell compatibles avec Azure Stack](azure-stack-powershell-install.md).  
  - Téléchargez les [outils nécessaires pour utiliser Azure Stack](azure-stack-powershell-download.md).  
@@ -67,15 +67,13 @@ Connectez-vous à l’environnement d’opérateur Azure Stack avec PowerShell a
 
   # Sign in to your environment
 
-  $cred = get-credential
-
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
-    -TenantId $tenantId `
-    -Credential $cred
+    -TenantId $tenantId
   ```
 
-
+> [!Note]  
+> AD FS prend en charge uniquement l’authentification interactive avec des identités d’utilisateurs. Si un objet d’identification est nécessaire, vous devez utiliser un SPN (nom de principal du service). Pour plus d’informations sur la configuration d’un principal de service avec Azure Stack et AD FS en tant que service de gestion des identités, consultez [Gérer le principal de service pour AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="test-the-connectivity"></a>Tester la connectivité
 

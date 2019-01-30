@@ -5,7 +5,7 @@ services: active-directory
 keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 67f3299bcf5b852e05308a8e71004fcd613e83cf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158701"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446268"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Qu’est ce qu’une protection de base ?  
 
@@ -56,7 +56,7 @@ Cette stratégie de base vous offre la possibilité d’exclure des utilisateurs
 
 ## <a name="enable-a-baseline-policy"></a>Activer une stratégie de base 
 
-Lorsque des stratégies de base sont en préversion, par défaut, elles ne sont pas activées. Si vous souhaitez activer une stratégie, vous devrez le faire manuellement. Si vous activez explicitement les stratégies de ligne de base au stade de la préversion, elles restent actives lors de la mise à disposition générale de cette fonctionnalité. Le changement de comportement prévu est la raison pour laquelle vous disposez d’une troisième option pour définir l’état d’une stratégie, outre l’activation et la désactivation : **Activer automatiquement la stratégie à l’avenir**. Lorsque vous sélectionnez cette option, vous pouvez laisser les stratégies désactivées lors de la phase de préversion et laisser Microsoft les activer automatiquement lors de la mise à disposition générale de cette fonctionnalité. Si vous n’activez pas explicitement les stratégies de ligne de base dès à présent et ne sélectionnez pas l’option **Activer automatiquement la stratégie à l’avenir**, les stratégies restent désactivées lors de la mise à disposition générale de cette fonctionnalité.
+Lorsque des stratégies de base sont en préversion, par défaut, elles ne sont pas activées. Si vous souhaitez activer une stratégie, vous devrez le faire manuellement. Si vous activez explicitement les stratégies de ligne de base au stade de la préversion, elles restent actives lors de la mise à disposition générale de cette fonctionnalité. Le changement de comportement prévu est la raison pour laquelle vous disposez d’une troisième option pour définir l’état d’une stratégie, outre l’activation et la désactivation : **Activer automatiquement la stratégie à l’avenir**. Lorsque vous sélectionnez cette option, vous pouvez laisser les stratégies désactivées lors de la phase de préversion et laisser Microsoft les activer automatiquement lors de la mise à disposition générale de cette fonctionnalité. Si vous n’activez pas explicitement les stratégies de ligne de base dès à présent et ne sélectionnez pas l’option **Activer automatiquement la stratégie à l’avenir**, les stratégies restent désactivées lors de la mise à disposition générale de cette fonctionnalité.
 
 
 **Pour activer une stratégie de base :**  

@@ -4,7 +4,7 @@ description: Instructions pour résoudre les problèmes rencontrés lors de la c
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 17114818105935d8d6a7ac647f1d98c097e78efd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8f545aad7256764780a68f4b43ee30bf68749187
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354795"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469710"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problèmes de connexion à une application non issue de la galerie configurée pour l’authentification unique fédérée
 
@@ -34,7 +34,7 @@ Pour résoudre votre problème, vous devez vérifier la configuration de l’app
 
 ## <a name="application-not-found-in-directory"></a>Application introuvable dans le répertoire
 
-*Erreur AADSTS70001 : L’application avec l’identificateur « https://contoso.com » est introuvable dans l’annuaire*.
+*Erreur AADSTS70001 : L’application associée à l’identificateur « https://contoso.com » est introuvable dans le répertoire*.
 
 **Cause possible**
 
@@ -66,7 +66,7 @@ Une fois que vous avez mis à jour la valeur d’identificateur pour qu’elle c
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L’adresse de réponse ne correspond pas aux adresses de réponse configurées pour l’application. 
 
-*Erreur AADSTS50011 : L’adresse de réponse « https://contoso.com » ne correspond pas aux adresses de réponse configurées pour l’application*. 
+*Erreur AADSTS50011 : L’adresse de réponse « https://contoso.com » ne correspond pas aux adresses de réponse configurées pour l’application* 
 
 **Cause possible** 
 
@@ -100,7 +100,7 @@ Une fois que vous avez mis à jour la valeur de l’URL de réponse dans Azure A
 
 ## <a name="user-not-assigned-a-role"></a>Utilisateur non affecté à un rôle
 
-*Erreur AADSTS50105 : L’utilisateur connecté « brian@contoso.com » n’est pas affecté à un rôle pour l’application*
+*Erreur AADSTS50105 : L’utilisateur connecté « brian@contoso.com » n’est pas affecté à un rôle pour l’application*
 
 **Cause possible**
 
@@ -134,7 +134,7 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 11. Pointez sur **l’utilisateur** dans la liste pour afficher une **case à cocher**. Cliquez sur la case à cocher en regard de la photo de profil ou du logo de l’utilisateur pour ajouter ce dernier à la liste **Sélectionné**.
 
-12. **Facultatif :** si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cliquez sur la case à cocher pour ajouter cet utilisateur à la liste **Sélectionné**.
+12. **Facultatif** : Si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter cet utilisateur à la liste **Sélectionné**.
 
 13. Après avoir sélectionné les utilisateurs, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
 
@@ -146,7 +146,7 @@ Après quelques instants, les utilisateurs que vous avez sélectionnés seront e
 
 ## <a name="not-a-valid-saml-request"></a>Demande SAML non valide
 
-*Erreur AADSTS75005 : La demande n’est pas un message de protocole Saml2 valide.*
+*Erreur AADSTS75005 : La requête n’est pas un message de protocole Saml2 valide.*
 
 **Cause possible**
 
@@ -170,7 +170,7 @@ Il doit confirmer sa prise en charge de l’implémentation SAML Azure AD pour l
 
 ## <a name="no-resource-in-requiredresourceaccess-list"></a>Aucune ressource dans la liste requiredResourceAccess
 
-*Erreur AADSTS65005 : L’application cliente a demandé l’accès à la ressource « 00000002-0000-0000-c000-000000000000 ». La demande a échoué, car le client n’a pas spécifié cette ressource dans sa liste requiredResourceAccess*.
+*Erreur AADSTS65005 : L’application cliente a demandé l’accès à la ressource '00000002-0000-0000-c000-000000000000'. La demande a échoué, car le client n’a pas spécifié cette ressource dans sa liste requiredResourceAccess*.
 
 **Cause possible**
 
@@ -202,7 +202,7 @@ Une fois l’application reconfigurée, vous devez être en mesure de vous conne
 
 ## <a name="certificate-or-key-not-configured"></a>Certificat ou clé non configuré(e)
 
-Erreur AADSTS50003 : Aucune clé de signature configurée.
+Erreur AADSTS50003 : Aucune clé de signature configurée.
 
 **Cause possible**
 

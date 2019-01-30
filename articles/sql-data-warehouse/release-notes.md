@@ -10,19 +10,20 @@ ms.component: manage
 ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: a4737f4308f49547178bb216b90589c596f604c9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7a02a7fb8043c63ce47f7f0c7dccf025ab5ab402
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118436"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421451"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notes de publication pour Azure SQL Data Warehouse
 
-Azure SQL Data Warehouse est un entrepôt de données d’entreprise basé sur le cloud qui utilise le traitement massivement parallèle pour exécuter rapidement des requêtes complexes parmi des pétaoctets de données. Utilisez SQL Data Warehouse comme composant clé d’une solution Big Data. Importez des données volumineuses dans SQL Data Warehouse avec des requêtes T-SQL PolyBase simples, puis utilisez le traitement massivement parallèle pour exécuter des analyses hautes performances. À mesure de vos intégrations et analyses, l’entrepôt de données deviendra la seule source pertinente sur laquelle votre activité peut compter pour obtenir des informations précises.
+Azure SQL Data Warehouse (SQL DW) est un entrepôt de données d’entreprise cloud qui utilise le traitement massivement parallèle pour exécuter rapidement des requêtes complexes sur des pétaoctets de données. Utilisez SQL Data Warehouse comme composant clé d’une solution Big Data. Importez des données volumineuses dans SQL Data Warehouse avec des requêtes T-SQL PolyBase simples, puis utilisez le traitement massivement parallèle pour exécuter des analyses hautes performances. À mesure de vos intégrations et analyses, l’entrepôt de données deviendra la seule source pertinente sur laquelle votre activité peut compter pour obtenir des informations précises.
 
 Cliquez sur les liens ci-dessous pour en savoir plus sur les nouvelles fonctionnalités et les améliorations que vous pouvez attendre dans la dernière version d’Azure SQL Data Warehouse. Vous pouvez vous attendre à recevoir ces mises à jour de service au cours de votre programme de maintenance planifié.
 
+- [SQL DW version 10.0.10106.0](./release-notes-10-0-10106-0.md)
 - [Décembre 2018](./release-notes-december-2018.md)
 - [Octobre 2018](./release-notes-october-2018.md)
 - [Septembre 2018](./release-notes-september-2018.md)
@@ -39,9 +40,9 @@ Pour confirmer quelle version a été appliquée à votre entrepôt de données�
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-Exemple de sortie : ![Version de SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+Exemple de sortie : ![Version de SQL Data Warehouse](./media/release-notes/dw-version.png)
 
-Veuillez utiliser la date prévue pour confirmer quelle version a été appliquée à votre version d’Azure SQL Data Warehouse. 
+Utilisez la version identifiée pour confirmer quelle version a été appliquée à votre entrepôt de données SQL Azure. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

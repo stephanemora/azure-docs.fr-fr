@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992200"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428167"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Afficher la topologie d’un réseau virtuel Azure
 
@@ -46,7 +46,7 @@ Vous pouvez utiliser le [portail Azure](#azure-portal), l’[interface de ligne 
 
 6. Sélectionnez **Télécharger la topologie** pour télécharger l’image sous forme de fichier modifiable, au format svg.
 
-Les ressources affichées dans le diagramme sont un sous-ensemble des composants de mise en réseau du réseau virtuel. Par exemple, lorsqu’un groupe de sécurité réseau apparaît, les règles de sécurité qu’il contient ne figurent pas dans le diagramme. Bien qu’elles ne soient pas différenciées dans le diagramme, les lignes représentent l’une des deux relations : *Relation contenant-contenu* ou *associés*. Pour afficher la liste complète des ressources du réseau virtuel ainsi que le type de relation entre les ressources, générez la topologie avec [PowerShell](#powershell) ou l’[interface de ligne de commande Azure](#azure-cli).
+Les ressources affichées dans le diagramme sont un sous-ensemble des composants de mise en réseau du réseau virtuel. Par exemple, lorsqu’un groupe de sécurité réseau apparaît, les règles de sécurité qu’il contient ne figurent pas dans le diagramme. Bien qu’elles ne soient pas différenciées dans le diagramme, les lignes représentent l’une des deux relations : *Autonome* ou *Associé*. Pour afficher la liste complète des ressources du réseau virtuel ainsi que le type de relation entre les ressources, générez la topologie avec [PowerShell](#powershell) ou l’[interface de ligne de commande Azure](#azure-cli).
 
 ## <a name = "azure-cli"></a>Afficher la topologie - Interface de ligne de commande Azure
 
@@ -85,7 +85,7 @@ Le compte que vous utilisez doit disposer des [autorisations](required-rbac-perm
 
 Vous pouvez exécuter les commandes dans les étapes qui suivent :
 - Dans Azure Cloud Shell, en sélectionnant **Essayer** en haut à droite d’une commande. Azure Cloud Shell est un interpréteur de commandes interactif gratuit dans lequel les outils Azure communs ont été préinstallés et configurés pour pouvoir être utilisés avec votre compte.
-- En exécutant PowerShell à partir de votre ordinateur. Si vous exécutez PowerShell depuis votre ordinateur, les étapes décrites dans cet article nécessitent la version 5.7.0 du module AzureRm ou une version ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+- En exécutant PowerShell à partir de votre ordinateur. Si vous exécutez PowerShell depuis votre ordinateur, les étapes décrites dans cet article nécessitent la version 5.7.0 du module AzureRm ou une version ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
 
 Le compte que vous utilisez doit disposer des [autorisations](required-rbac-permissions.md) nécessaires.
 
@@ -138,12 +138,12 @@ Toutes les ressources renvoyées dans une topologie présentent l’un des types
 
 Toutes les ressources renvoyées dans une topologie ont les propriétés suivantes :
 
-- **Name** : nom de la ressource.
-- **id** : URI de la ressource.
-- **Location** : région Azure dans laquelle se trouve la ressource.
-- **Associations** : liste des associations réalisées vis-à-vis de l’objet référencé. Chaque association présente les propriétés suivantes :
-    - **AssociationType** : fait référence à la relation entre l’objet enfant et le parent. Les valeurs valides sont *Contains* et *Associated*.
-    - **name** : nom de la ressource référencée.
+- **Nom** : nom de la ressource.
+- **Id** : URI de la ressource.
+- **Emplacement** : région Azure dans laquelle se trouve la ressource.
+- **Associations** : liste des associations réalisées vis-à-vis de l’objet référencé. Chaque association présente les propriétés suivantes :
+    - **AssociationType** : référence la relation entre l’objet enfant et le parent. Les valeurs valides sont *Contains* et *Associated*.
+    - **Nom** : nom de la ressource référencée.
     - **ResourceId** : URI de la ressource référencée dans l’association.
 
 ## <a name="next-steps"></a>Étapes suivantes

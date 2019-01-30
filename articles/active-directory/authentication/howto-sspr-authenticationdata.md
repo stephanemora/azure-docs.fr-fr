@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: eb3c1177f86f4c595280521f4dbcbe8081f68895
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f30a0d80b40626530ecebdb129daff4a0c5215fc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296242"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426197"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Déployer la réinitialisation du mot de passe sans demander l’inscription de l’utilisateur final
 
@@ -75,7 +75,7 @@ Vous pouvez définir les champs suivants par le biais de PowerShell :
 
 * **Adresse électronique secondaire**
 * **Téléphone mobile**
-* **Téléphone de bureau** : ne peut être défini qu’en l’absence de synchronisation avec un annuaire local
+* **Téléphone de bureau** : ne peut être défini qu’en l’absence de synchronisation avec un annuaire local.
 
 ### <a name="use-powershell-version-1"></a>Utiliser PowerShell version 1
 

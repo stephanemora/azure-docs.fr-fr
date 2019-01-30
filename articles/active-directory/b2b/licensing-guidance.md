@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: d80794511f334cd6dc5af418e24fc774b7d8728f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d89fb86209af2074794d5a5abcdcebadec904799
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867508"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434272"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Guide d’attribution de licences pour Azure Active Directory B2B Collaboration
 
@@ -31,7 +31,7 @@ L’attribution de licences aux utilisateurs invités B2B est automatiquement ca
 
 Il existe des cas pour lesquels un utilisateur invité n’est pas signalé à l’aide de l’allocation d’utilisateur externe d’après le ratio de 1 à 5. Si un utilisateur invité possède déjà une licence Azure AD payante dans l’organisation de l’utilisateur, il ne consomme pas l’une de vos licences d’utilisateur invité B2B. De plus, les utilisateurs invités peuvent utiliser des fonctionnalités Azure AD gratuites sans avoir besoin de licences supplémentaires. Les utilisateurs invités ont accès à des fonctionnalités Azure AD gratuites même si vous n’avez acheté aucune licence Azure AD. 
 
-## <a name="examples-calculating-guest-user-licenses"></a>Exemples : Calculer le nombre de licences d’utilisateur invité
+## <a name="examples-calculating-guest-user-licenses"></a>Exemples : Calculer le nombre de licences d’utilisateur invité
 Une fois que vous avez déterminé le nombre d’utilisateurs invités qui a besoin d’accéder à vos services Azure AD payants, assurez-vous que vous avez suffisamment de licences Azure AD payantes pour couvrir les utilisateurs invités selon un ratio de 1 à 5. Voici quelques exemples :
 
 - Vous souhaitez permettre à 100 utilisateurs invités d’utiliser vos applications et services Azure AD et vous voulez leur accorder une gestion et un approvisionnement des accès. Vous souhaitez également imposer à 50 d’entre eux une authentification multifacteur et un accès conditionnel. Pour prendre en charge cette combinaison, vous avez besoin de 10 licences Azure AD Basic et de 10 licences Azure AD Premium P1. Si vous envisagez d’utiliser des fonctionnalités de protection de l’identité avec vos utilisateurs invités, vous avez besoin de licences Azure AD Premium P2 pour couvrir les utilisateurs invités et ce toujours selon un ratio de 1 à 5.

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f5d48a074f8069e243af5644f86ad3c3d8f559b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634861"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412306"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure
 
@@ -55,7 +55,7 @@ Une définition de rôle est une collection d’autorisations que vous utilisez 
 
    ![Attributions de rôles](./media/role-assignments-portal/role-assignments.png)
 
-## <a name="view-role-assignments"></a>Afficher les attributions de rôles
+## <a name="view-role-assignments"></a>Voir les attributions de rôles
 
 Lorsque vous gérez des accès, vous souhaitez savoir quelles sont les personnes ayant accès, quelles sont ses autorisations et à quel niveau. Pour répertorier l’accès d’un utilisateur, groupe, principal de service ou d’une identité gérée, vous affichez les attributions de rôles.
 
@@ -167,5 +167,5 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès. 
 
 * [Tutoriel : Accorder l’accès à un utilisateur avec RBAC et le portail Azure](quickstart-assign-role-user-portal.md)
 * [Tutoriel : accorder l’accès à un utilisateur avec RBAC et Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Rôles intégrés](built-in-roles.md)
+* [Résoudre des problèmes liés au contrôle d’accès en fonction du rôle dans Azure](troubleshooting.md)
 * [Organiser vos ressources avec des groupes d’administration Azure](../azure-resource-manager/management-groups-overview.md)

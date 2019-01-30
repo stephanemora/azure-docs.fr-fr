@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 8ff99b8c5cf839afb8c8e73c18c2c413998ba64a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 30b83613637d97bfe265c4f5a9c911d14da50c4f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261716"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810905"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
@@ -43,6 +43,7 @@ Dans un niveau, vous ne pouvez choisir qu’un seul type [d’édition](https://
 | [Surveillance et diagnostics](iot-hub-monitor-resource-health.md) | Oui | Oui |
 | [Messages de cloud-à-appareil](iot-hub-devguide-c2d-guidance.md) |   | Oui |
 | [Jumeaux d’appareil](iot-hub-devguide-device-twins.md), [Jumeaux de module](iot-hub-devguide-module-twins.md) et [Gestion des appareils](iot-hub-device-management-overview.md) |   | Oui |
+| [Flux d’appareils (préversion)](iot-hub-device-streams-overview.md) |   | Oui |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Oui |
 
 IoT Hub propose également un niveau gratuit à des fins de test et d’évaluation. Il possède toutes les fonctionnalités du niveau standard, mais ses allocations en termes de messages sont limitées. Vous ne pouvez pas faire évoluer le niveau gratuit vers le niveau de base ou standard. 

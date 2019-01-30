@@ -1,23 +1,18 @@
 ---
-title: Intégrer DNS Azure avec vos ressources Azure | Documents Microsoft
+title: Intégrer Azure DNS à vos ressources Azure
 description: Découvrez comment utiliser DNS Azure pour fournir un DNS pour vos ressources Azure.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 1/19/2018
+ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8e8a09ede66213247b306c77938dbff30651fee5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727146"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401416"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure
 
@@ -33,7 +28,7 @@ Vous pouvez configurer un domaine personnalisé pour [Applications Azure Functio
 
 Pour configurer un domaine personnalisé pour des applications de fonction Azure, un enregistrement CNAME est créé, ainsi qu’une configuration sur l’application de fonction proprement dite.
  
-Accédez à **Autres** > **Function App**, puis sélectionnez votre application de fonction. Cliquez sur **Fonctionnalités de la plateforme**, puis, sous **MISE EN RÉSEAU**, cliquez sur **Domaines personnalisés**.
+Accédez à **Function App**, puis sélectionnez votre application de fonction. Cliquez sur **Fonctionnalités de la plateforme** puis, sous **Mise en réseau**, cliquez sur **Domaines personnalisés**.
 
 ![Panneau d’application de fonction](./media/dns-custom-domain/functionapp.png)
 
@@ -51,7 +46,7 @@ Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Ent
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
 |Alias     | adatumfunction.azurewebsites.net        | Nom DNS pour lequel vous créez l’alias. Dans cet exemple, il s’agit du nom DNS adatumfunction.azurewebsites.net fourni par défaut à l’application de fonction.        |
 
-Revenez à votre application de fonction, cliquez sur **Fonctionnalités de la plateforme**, puis, sous **MISE EN RÉSEAU**, cliquez sur **Domaines personnalisés**. Ensuite, sous **Noms d’hôte**, cliquez sur **+ Ajouter un nom d’hôte**.
+Revenez à votre application de fonction, cliquez sur **Fonctionnalités de la plateforme** puis, sous **Mise en réseau**, cliquez sur **Domaines personnalisés**. Ensuite, sous **Noms d’hôte personnalisés**, cliquez sur **+ Ajouter un nom d’hôte**.
 
 Sur le panneau **Ajouter un nom d’hôte**, dans le champ de texte **nom d’hôte** entrez l’enregistrement CNAME, puis cliquez sur **Valider**. Si l’enregistrement a été trouvé, le bouton **Ajouter un nom d’hôte** s’affiche. Pour ajouter l’alias, cliquez sur **Ajouter un nom d’hôte**.
 
@@ -86,7 +81,7 @@ Une fois l’enregistrement A créé, exécutez `nslookup` pour valider les rés
 
 Les étapes suivantes vous guident tout au long de la configuration d’un domaine personnalisé pour une application web de service d’applications.
 
-Accédez à **Web + mobile** > **App Service**, sélectionnez la ressource pour laquelle vous configurez un nom de domaine personnalisé, puis cliquez sur **Domaines personnalisés**.
+Accédez à **App Service**, sélectionnez la ressource pour laquelle vous configurez un nom de domaine personnalisé, puis cliquez sur **Domaines personnalisés**.
 
 Notez l’URL actuelle affichée sur le panneau **Domaines personnalisés**. Cette adresse est utilisée en tant qu’alias pour l’enregistrement DNS créé.
 
@@ -149,7 +144,7 @@ Pour en savoir plus sur le mappage d’un domaine personnalisé à un point de t
 
 Les étapes suivantes vous guident tout au long de la configuration d’un enregistrement CNAME pour un point de terminaison CDN à l’aide de la méthode cdnverify. Cette méthode garantit l’absence de temps d’arrêt.
 
-Accédez à **Réseau** > **Profils CDN**, sélectionnez votre profil CDN, puis, sous **Général**, cliquez sur **Points de terminaison**.
+Accédez à **Mise en réseau** > **Profils CDN**, et sélectionnez votre profil CDN.
 
 Sélectionnez le point de terminaison que vous utilisez, puis cliquez sur **+ Domaine personnalisé**. Notez la valeur de **Nom d’hôte du point de terminaison**, car il s’agit de l’enregistrement vers lequel pointe l’enregistrement CNAME.
 

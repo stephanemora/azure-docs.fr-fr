@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: d57f34da261d51707caf499bfdf1fffa344b72a9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0b15861f663c98d3b873f95a0ea6c485ada91fb6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385513"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421604"
 ---
 # <a name="check-resource-usage-against-limits"></a>Vérifier l’utilisation des ressources par rapport aux limites
 
@@ -34,9 +34,9 @@ Dans cet article, vous apprendrez comment afficher le nombre de chaque type de r
 4. Sélectionnez le nom de l’abonnement pour lequel vous souhaitez afficher les informations d’utilisation.
 5. Sous **PARAMÈTRES**, sélectionnez **Utilisation + quota**.
 6. Vous pouvez sélectionner les options suivantes :
-    - **Types de ressources** : vous pouvez sélectionner tous les types de ressources ou sélectionnez les types de ressources spécifiques que vous souhaitez afficher.
-    - **Fournisseurs** : vous pouvez sélectionner tous les fournisseurs de ressources ou sélectionnez **Compute**, **Réseau** ou **Stockage**.
-    - **Emplacements** : vous pouvez sélectionner tous les emplacements Azure ou sélectionnez des emplacements spécifiques.
+    - **Types de ressources** : vous pouvez sélectionner tous les types de ressources ou sélectionner les types de ressources spécifiques que vous souhaitez afficher.
+    - **Fournisseurs** : vous pouvez sélectionner tous les fournisseurs de ressources ou sélectionner **Compute**, **Réseau** ou **Stockage**.
+    - **Emplacements** : vous pouvez sélectionner tous les emplacements Azure ou sélectionner des emplacements spécifiques.
     - Vous pouvez choisir d’afficher toutes les ressources ou uniquement les ressources où au moins une ressource est déployée.
 
     Dans l’image suivante, l’exemple montre toutes les ressources réseau avec au moins une ressource déployée dans USA Est :
@@ -47,7 +47,7 @@ Dans cet article, vous apprendrez comment afficher le nombre de chaque type de r
 
 ## <a name="powershell"></a>PowerShell
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous devez utiliser le module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Login-AzureRmAccount` pour vous connecter à Azure.
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous devez utiliser le module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Login-AzureRmAccount` pour vous connecter à Azure.
 
 Consultez votre utilisation par rapport aux limites avec [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). L’exemple suivant obtient l’utilisation des ressources où au moins une ressource est déployée dans l’emplacement USA Est :
 

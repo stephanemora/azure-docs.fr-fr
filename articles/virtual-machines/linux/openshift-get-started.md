@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: d68215359d50ac153d6df3bbcce5a9b6171698bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085437"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382364"
 ---
 # <a name="openshift-in-azure"></a>OpenShift dans Azure
 
@@ -35,12 +35,12 @@ OpenShift inclut Kubernetes pour la gestion et l’orchestration du conteneur. I
 Plusieurs versions de OpenShift sont disponibles :
 
 - OpenShift Container Platform
-- OpenShift dans Azure (version d’OpenShift complètement managée prévue début 2019)
+- OpenShift sur Azure (version d’OpenShift complètement managée prévue vers la fin du premier trimestre 2019)
 - OKD (anciennement OpenShift Origin)
 - OpenShift Dedicated
 - OpenShift Online
 
-Parmi les cinq versions décrites dans cet article, seules deux sont compatibles avec un déploiement dans Azure par les clients : OpenShift Container Platform et OKD.
+Parmi les cinq versions décrites dans cet article, seules deux peuvent être déployées sur Azure par les clients : OpenShift Container Platform et OKD.
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
@@ -50,7 +50,7 @@ Container Platform est une [version commerciale](https://www.openshift.com) adap
 
 ## <a name="openshift-on-azure"></a>OpenShift dans Azure
 
-OpenShift dans Azure est une version complètement managée d’OpenShift qui s’exécute dans Azure. Ce service est managé et pris en charge par Microsoft et Red Hat conjointement. Le cluster est déployé dans l’abonnement Azure du client. Le service est actuellement disponible en préversion privée. La version en disponibilité générale est prévue début 2019. Plus d’informations seront fournies à l’approche de la disponibilité générale.
+OpenShift dans Azure est une version complètement managée d’OpenShift qui s’exécute dans Azure. Ce service est managé et pris en charge par Microsoft et Red Hat conjointement. Le cluster est déployé dans l’abonnement Azure du client. Le service est actuellement en préversion privée. La version en disponibilité générale est prévue vers la fin du premier trimestre 2019. Pour les clients qui souhaitent participer à la préversion privée, remplissez le [formulaire de candidature](http://aka.ms/openshiftazureinterest).  Plus d’informations seront fournies à l’approche de la disponibilité générale.
 
 ## <a name="okd-formerly-openshift-origin"></a>OKD (anciennement OpenShift Origin)
 

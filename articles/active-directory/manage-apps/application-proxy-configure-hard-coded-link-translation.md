@@ -4,7 +4,7 @@ description: Couvre les bases sur les connecteurs de proxy d’application Azure
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6476793bc0c7398bb407a8ad2b245f48613717b7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230061"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461550"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD
 
@@ -33,9 +33,9 @@ Si vous ne pouvez pas utiliser des domaines personnalisés dans votre locataire,
 
 **Option 1 : Utiliser Managed Browser** – Cette solution s’applique uniquement si vous envisagez de recommander ou d’exiger que les utilisateurs accèdent à l’application par le biais d’Intune Managed Browser. Elle gère toutes les URL publiées. 
 
-**Option 2 : Utiliser l’extension MyApps** – Cette solution exige des utilisateurs qu’ils installent une extension de navigateur côté client, mais elle gère les URL publiées et fonctionne avec les navigateurs les plus populaires. 
+**Option 2 : Utiliser l’extension MyApps** – Cette solution exige des utilisateurs qu’ils installent une extension de navigateur côté client, mais elle gère les URL publiées et fonctionne avec les navigateurs les plus populaires. 
 
-**Option 3 : Utiliser le paramètre de traduction de lien** – Il s’agit d’un paramètre côté administrateur qui est invisible pour les utilisateurs. Toutefois, il gère uniquement les URL en HTML et CSS. Les URL internes codées en dur et générées par le biais de Javascript (par exemple) ne fonctionnent pas.  
+**Option 3 : Utiliser le paramètre de traduction de lien** – Il s’agit d’un paramètre côté administrateur qui n’est pas visible par les utilisateurs. Toutefois, il gère uniquement les URL en HTML et CSS. Les URL internes codées en dur et générées par le biais de Javascript (par exemple) ne fonctionnent pas.  
 
 Ces trois fonctionnalités garantissent le fonctionnement de vos liens quel que soit l’emplacement des utilisateurs. Lorsque vous avez des applications qui indiquent directement les points de terminaison internes ou des ports, vous pouvez mapper ces URL internes aux URL de Proxy d’application externes publiées. 
 
@@ -46,13 +46,13 @@ Ces trois fonctionnalités garantissent le fonctionnement de vos liens quel que 
 >Ou, si l’application que vous souhaitez configurer avec une traduction de liens est SharePoint, consultez [Configurer les mappages d’accès de substitution pour SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) pour une autre approche des liens de mappage. 
 
  
-### <a name="option-1-intune-managed-browser-integration"></a>Option 1 : Intégration d’Intune Managed Browser 
+### <a name="option-1-intune-managed-browser-integration"></a>Option 1 : Intégration d’Intune Managed Browser 
 
 Vous pouvez utiliser Intune Managed Browser afin de mieux protéger votre application et votre contenu. Pour utiliser cette solution, vous devez exiger/recommander que les utilisateurs accèdent à l’application par le biais d’Intune Managed Browser. Toutes les URL internes publiées avec Proxy d’application seront reconnues par Managed Browser et redirigées vers l’URL externe correspondante. Cela garantit le fonctionnement de toutes les URL internes codées en dur, et si un utilisateur accède au navigateur et tape directement l’URL interne, elle fonctionnera même si l’utilisateur est distant.  
 
 Pour plus d’informations, notamment sur la façon de configurer cette option, consultez la documentation de [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).  
 
-### <a name="option-2-myapps-browser-extension"></a>Option 2 : Extension de navigateur MyApps 
+### <a name="option-2-myapps-browser-extension"></a>Option 2 : Extension de navigateur MyApps 
 
 Avec l’extension de navigateur MyApps, toutes les URL internes publiées avec Proxy d’application sont reconnues par l’extension et redirigées vers l’URL externe correspondante. Cela garantit le fonctionnement de toutes les URL internes codées en dur, et si un utilisateur accède à la barre d’adresse du navigateur et tape directement l’URL interne, elle fonctionnera même si l’utilisateur est distant.  
 
@@ -60,7 +60,7 @@ Pour utiliser cette fonctionnalité, l’utilisateur doit télécharger l’exte
 
  
 
-### <a name="option-3-link-translation-setting"></a>Option 3 : Paramètre de traduction de lien 
+### <a name="option-3-link-translation-setting"></a>Option 3 : Paramètre de traduction de lien 
 
 Quand la traduction de lien est activée, le service Proxy d’application effectue des recherches dans le code HTML et CSS afin de trouver les liens internes publiés, puis traduit ces liens afin que vos utilisateurs bénéficient d’une expérience sans interruption. 
 
@@ -85,7 +85,7 @@ Il existe deux types de liens internes communs dans des applications locales :
 
 La traduction de lien est activée pour chaque application, afin que vous contrôliez l’expérience utilisateur pour chaque application. Activez la traduction de lien pour une application lorsque vous souhaitez que les liens *depuis* cette application soient traduits et pas les liens *vers* cette application. 
 
-Par exemple, supposons que vous disposez de trois applications publiées via le Proxy d’application qui sont toutes liées l’une à l’autre : Profits, Dépenses et Transports. Il existe une quatrième application, Commentaires, qui n’est pas publiée via le Proxy d’application.
+Par exemple, supposons que vous avez trois applications publiées via le proxy d’application et toutes liées entre elles : Profits, Dépenses et Transports. Il existe une quatrième application, Commentaires, qui n’est pas publiée via le Proxy d’application.
 
 Lorsque vous activez la traduction de lien pour l’application Profits, les liens vers Dépenses et Transports sont redirigés vers les URL externes pour ces applications, mais le lien vers Commentaires n’est pas redirigé, car il n’existe aucune URL externe. Les liens à partir de Dépenses et Transports de retour vers Profits ne fonctionnent pas, car la traduction de lien n’a pas été activée pour ces deux applications.
 

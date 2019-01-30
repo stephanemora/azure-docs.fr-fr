@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 78ad40796a31e0c803b892e0c1b50e66b32c2b0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430168"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425875"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
 
@@ -235,7 +235,7 @@ ms.locfileid: "49430168"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -328,9 +328,9 @@ Dans les sections suivantes, des parties de la documentation à laquelle le lien
 
 Avant de continuer, il y a certaines informations spécifiques sur SQL Server dans IaaS que vous devez connaître :
 
-* **Prise en charge des versions SQL** : pour les clients SAP, les versions SQL Server 2008 R2 et ultérieures sont prises en charge sur les machines virtuelles Microsoft Azure. Les éditions antérieures ne sont pas prises en charge. Pour plus d’informations, voir cette [déclaration officielle](https://support.microsoft.com/kb/956893) générale. En règle générale, SQL Server 2008 l’est également. Cependant, en raison de fonctionnalités significatives pour SAP introduites avec SQL Server 2008 R2, SQL Server 2008 R2 est la version minimale requise pour SAP. En général, vous devez penser à utiliser les versions de SQL Server les plus récentes pour exécuter une charge de travail SAP dans Azure IaaS. Les dernières versions de SQL Server offrent une meilleure intégration à certains des services et fonctionnalités Azure. Et elles comportent des modifications qui optimisent les opérations dans une infrastructure Azure IaaS. Cet article est donc limité à SQL Server 2016 et SQL Server 2017.
-* **Performances de SQL** : les machines virtuelles hébergées par Microsoft Azure fonctionnent bien, par rapport aux autres offres de virtualisation du cloud public. Cependant, les résultats peuvent varier au cas par cas. Consultez l’article [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
-* **Utilisation d’images de Microsoft Azure Marketplace**: la méthode la plus rapide pour déployer une nouvelle machine virtuelle Microsoft Azure consiste à utiliser une image de Microsoft Azure Marketplace. En effet, cette plateforme propose des images qui contiennent les versions les plus récentes de SQL Server. Les images hébergeant déjà SQL Server ne peuvent pas être directement utilisées pour les applications SAP NetWeaver. En effet, le classement par défaut installé au sein de ces images correspond à celui de SQL Server, et non au classement requis par les systèmes SAP NetWeaver. Pour pouvoir utiliser ces images, suivez la procédure décrite dans le chapitre [Utilisation d’images SQL Server issues de la Place de marché Microsoft Azure][dbms-guide-5.6]. 
+* **Prise en charge des versions SQL** : Pour les clients SAP, les versions SQL Server 2008 R2 et ultérieures sont prises en charge sur les machines virtuelles Microsoft Azure. Les éditions antérieures ne sont pas prises en charge. Pour plus d’informations, voir cette [déclaration officielle](https://support.microsoft.com/kb/956893) générale. En règle générale, SQL Server 2008 l’est également. Cependant, en raison de fonctionnalités significatives pour SAP introduites avec SQL Server 2008 R2, SQL Server 2008 R2 est la version minimale requise pour SAP. En général, vous devez penser à utiliser les versions de SQL Server les plus récentes pour exécuter une charge de travail SAP dans Azure IaaS. Les dernières versions de SQL Server offrent une meilleure intégration à certains des services et fonctionnalités Azure. Et elles comportent des modifications qui optimisent les opérations dans une infrastructure Azure IaaS. Cet article est donc limité à SQL Server 2016 et SQL Server 2017.
+* **Performances SQL** : Les machines virtuelles hébergées par Microsoft Azure fonctionnent bien par rapport aux autres offres de virtualisation cloud publiques, mais les résultats peuvent varier au cas par cas. Consultez l’article [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
+* **Utilisation d’images de la Place de marché Azure** : La méthode la plus rapide pour déployer une nouvelle machine virtuelle Microsoft Azure est d’utiliser une image de la Place de marché Microsoft Azure. En effet, cette plateforme propose des images qui contiennent les versions les plus récentes de SQL Server. Les images hébergeant déjà SQL Server ne peuvent pas être directement utilisées pour les applications SAP NetWeaver. En effet, le classement par défaut installé au sein de ces images correspond à celui de SQL Server, et non au classement requis par les systèmes SAP NetWeaver. Pour pouvoir utiliser ces images, suivez la procédure décrite dans le chapitre [Utilisation d’images SQL Server issues de la Place de marché Microsoft Azure][dbms-guide-5.6]. 
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Recommandations portant sur la structure des machines virtuelles/disques VHD pour les déploiements de SQL Server associés à SAP
@@ -422,8 +422,8 @@ La sauvegarde automatisée fournit un service de sauvegarde automatique pour les
 
 Vous trouverez plus d’informations sur les potentiels de cette méthode dans les articles suivants :
 
-- SQL Server 2014 : [Sauvegarde automatisée pour les machines virtuelles SQL Server 2014 (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
-- SQL Server 2016/2017 : [Sauvegarde automatisée version 2 pour les machines virtuelles Azure (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
+- SQL Server 2014 : [Sauvegarde automatisée pour les machines virtuelles SQL Server 2014 (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
+- SQL Server 2016/2017 : [Sauvegarde automatisée v2 pour les machines virtuelles Azure (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
 
 En consultant la documentation, vous pouvez constater que la fonctionnalité a été améliorée avec les versions plus récentes de SQL Server. Vous trouverez des détails supplémentaires sur les sauvegardes automatisées de SQL Server dans l’article [Sauvegarde managée SQL Server sur Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-2017). En théorie, la taille de sauvegarde est limitée à 12 To.  Les sauvegardes automatisées peuvent être une bonne solution pour les tailles de sauvegarde atteignant jusqu’à 12 To. Étant donné que plusieurs objets blob sont écrits en parallèle, vous pouvez vous attendre à un débit supérieur à 100 Mo/s. 
  
@@ -450,7 +450,7 @@ Dans la Place de marché Azure, Microsoft propose des machines virtuelles qui co
 
 * Ouvrez une fenêtre de commande Windows en tant qu’administrateur.
 * Remplacez le répertoire par celui-ci : C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012.
-* Exécutez la commande suivante : Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
+* Exécutez la commande : Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
   * `<local_admin_account_name`&gt; correspond au compte qui a été défini en tant que compte Administrateur lors du déploiement de la machine virtuelle pour la première fois, via la galerie.
 
 Le processus doit prendre quelques minutes seulement. Pour vérifier que le résultat attendu a été obtenu, effectuez les étapes suivantes :

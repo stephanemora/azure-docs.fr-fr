@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 81a47a730978a9ecdda7a09bbad0707d436fb116
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352680"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388474"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Ajouter Kubernetes sur la Place de marché Azure Stack
 
@@ -60,11 +60,11 @@ Créez un plan, une offre et un abonnement pour l’élément Kubernetes de la P
 
     e. Sélectionnez **Offre**. Sélectionnez le nom de l’offre que vous avez créée. Prenez note de l’ID d’abonnement.
 
-## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>Créer un principal du service et des informations d’identification dans AD FS
+## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>Créer un principal de service et des informations d’identification dans AD FS
 
-Si vous utilisez Active Directory Federation Services (AD FS) pour votre service de gestion des identités, vous devez créer un principal du service pour les utilisateurs déployant un cluster Kubernetes.
+Si vous utilisez AD FS (Active Directory Federated Services) pour votre service de gestion des identités, vous devez créer un principal de service pour les utilisateurs qui déploient un cluster Kubernetes.
 
-1. Créez et exportez un certificat à utiliser pour créer le principal du service. L’extrait de code ci-dessous montre comment créer un certificat auto-signé. 
+1. Créez et exportez un certificat à utiliser pour créer le principal de service. L’extrait de code ci-dessous montre comment créer un certificat auto-signé. 
 
     - Vous avez besoin des informations suivantes :
 
@@ -104,20 +104,20 @@ Si vous utilisez Active Directory Federation Services (AD FS) pour votre service
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. Créez le principal du service en utilisant le certificat.
+2. Créez un principal de service à l’aide du certificat.
 
     - Vous avez besoin des informations suivantes :
 
        | Valeur | Description                     |
        | ---   | ---                             |
        | Adresse IP ERCS | Dans le Kit de développement Azure Stack (ASDK), le point de terminaison privilégié est normalement `AzS-ERCS01`. |
-       | Nom de l’application | Nom simple pour le principal du service d’application. |
+       | Nom de l’application | Nom simple pour le principal de service d’application. |
        | Emplacement du magasin de certificats | Chemin sur votre ordinateur où vous avez stocké le certificat. Par exemple : `Cert:\LocalMachine\My\<someuid>` |
 
     - Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges. Exécutez le script suivant, en utilisant vos valeurs pour les paramètres :
 
         ```PowerShell  
-        #Create service principle using the certificate
+        #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
         #certificate store location. Eg. Cert:\LocalMachine\My
@@ -132,7 +132,7 @@ Si vous utilisez Active Directory Federation Services (AD FS) pour votre service
         # Creating a PSSession to the ERCS PrivilegedEndpoint
         $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-        # Get Service Principle Information
+        # Get Service principal Information
         $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
 
         # Get Stamp information
@@ -167,7 +167,7 @@ Si vous utilisez Active Directory Federation Services (AD FS) pour votre service
         $ServicePrincipal
         ```
 
-    - Les détails du principal du service se présentent comme l’extrait de code ci-dessous
+    - Les détails du principal de service se présentent comme dans l’extrait ci-dessous.
 
         ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

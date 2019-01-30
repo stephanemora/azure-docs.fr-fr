@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3262720f52bc75ba5d430e941da25568a105fe0d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276245"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391263"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement déconnecté de Azure pour les systèmes intégrés Azure Stack
 Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
@@ -49,7 +49,7 @@ Azure Stack a été conçu pour fonctionner de façon optimale avec une connexio
 |Place de marché – Possibilité de sélectionner et d’ajouter des packages de galerie directement à partir de la Place de marché Azure|Altérée – Lorsque vous déployez Azure Stack en mode déconnecté (sans connexion Internet), vous ne pouvez pas utiliser le portail Azure Stack pour télécharger des éléments de la Place de marché. Toutefois, vous pouvez utiliser [l’outil de syndication de la Place de marché](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) pour télécharger des éléments de la Place de marché sur un ordinateur qui dispose d’une connexion Internet, puis les transférer vers votre environnement Azure Stack.|
 |Utilisation des comptes de fédération Azure Active Directory pour gérer un déploiement de Azure Stack|Non disponible – Cette fonctionnalité nécessite une connexion à Azure. Des services de fédération Active Directory (AD FS) avec une instance de Active Directory local doivent être utilisés à la place.|
 |App Services|Altérée - WebApps peut nécessiter un accès à Internet pour le contenu mis à jour.|
-|Interface de ligne de commande (CLI)|Altérée – L’interface CLI a des fonctionnalités réduites en termes d’authentification et d’approvisionnement des principes de service.|
+|Interface de ligne de commande (CLI)|Altérée - L’interface CLI a des fonctionnalités réduites en ce qui concerne l’authentification et le provisionnement des principaux de service.|
 |Visual Studio – Cloud discovery|Altérée – Cloud Discovery découvre des clouds différents ou ne fonctionne pas du tout.|
 |Visual Studio – AD FS|Altérée – Seul Visual Studio Enterprise prend en charge AD FS.
 Télémétrie|Non disponible – Les données de télémétrie pour Azure Stack ainsi que les packages de galerie tiers qui dépendent des données de télémétrie.|

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/12/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 21baa89293c74ec49720bffc2506e20789fe9e55
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b897b50edf4d5a7eeabacc6da1505e165f2bb21a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411305"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431739"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-december-2018"></a>Nouveautés dans Azure SQL Data Warehouse Décembre 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en décembre 2018.
@@ -53,6 +53,9 @@ Pour plus d’informations sur le Magasin de données des requêtes dans Azure S
 Azure SQL Data Warehouse Gen2 prend à présent en charge des niveaux inférieurs de calcul. Les clients peuvent bénéficier des fonctionnalités de performances, de flexibilité et de sécurité exceptionnelles d’Azure SQL Data Warehouse à partir de 100 cDWU ([Data Warehouse Units](https://docs.microsoft.com/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu)) et mettre à l’échelle jusqu’à 30 000 cDWU en quelques minutes. Depuis la mi-décembre 2018, les clients bénéficient de performances Gen2 et de niveaux inférieurs de calcul dans [régions](https://docs.microsoft.com/azure/sql-data-warehouse/gen2-lower-tier-regions). Le reste des régions sera disponible en 2019.
 
 En supprimant le point d’entrée pour l’entreposage de données nouvelle génération, Microsoft ouvre les portes aux clients qui souhaitent évaluer tous les avantages offerts par un entrepôt de données sécurisé et à hautes performances sans avoir à deviner quel environnement d’essai est le mieux adapté. Les clients peuvent dorénavant commencer à 100 cDWU, alors que le point d’entrée précédant était de 500 cDWU. SQL Data Warehouse Gen2 continue à prendre en charge les opérations de suspension et de reprise, et va bien au-delà de la simple flexibilité de calcul. Gen2 prend également en charge une capacité illimitée de stockage columnstore, 2,5 fois plus de mémoire par requête, jusqu’à 128 requêtes simultanées et des fonctionnalités de [mise en cache adaptative](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/). Ces fonctionnalités offrent en moyenne des performances multipliées par cinq par rapport à la même instance Data Warehouse Unit sur Gen1 au même prix. Les sauvegardes géoredondantes sont standard pour Gen2, avec protection des données garantie intégrée. Azure SQL Data Warehouse Gen2 est prêt pour une mise à l’échelle à tout moment.
+
+## <a name="columnstore-background-merge"></a>Fusion en arrière-plan de columnstore
+Par défaut, Azure SQL Data Warehouse (Azure SQL DW) stocke les données dans un format en colonnes, avec des micro-partitions appelées [rowgroups](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression). Parfois, en raison de contraintes de mémoire au moment de la génération de l’index ou du chargement des données, les rowgroups peuvent être compressés alors qu’ils contiennent moins d’un million de lignes, leur taille optimale. Les rowgroups peuvent également devenir fragmentés en raison de suppressions. Des rowgroups de petite taille ou fragmentés entraînent une consommation de mémoire supérieure ainsi qu’une exécution inefficace des requêtes. Avec cette version d’Azure SQL DW, la tâche de maintenance en arrière-plan de columnstore fusionne les petits rowgroups compressés pour en créer des plus grands afin de mieux utiliser la mémoire et d’accélérer l’exécution des requêtes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un entrepôt SQL Data Warehouse][create a SQL Data Warehouse]. Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure][Azure glossary] lorsque vous rencontrez de nouveaux termes. Ou bien, consultez ces autres ressources de SQL Data Warehouse.  

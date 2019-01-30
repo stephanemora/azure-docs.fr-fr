@@ -11,19 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fd73863dacd7914e23199ba92211ea67e68f7d0d
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229572"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402147"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Images Red Hat Enterprise Linux dans Azure
 Cet article décrit les images Red Hat Enterprise Linux (RHEL) disponibles sur la Place de marché Azure, ainsi que les stratégies relatives à leur dénomination et à leur rétention.
 
 Vous trouverez des informations sur les stratégies de prise en charge de Red Hat pour toutes les versions de RHEL sur la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
+
+>[!Important]
+> Les images RHEL actuellement disponibles dans la place de marché Azure prennent en charge les modèles de licence BYOS (Apportez votre propre abonnement) ou Paiement à l’utilisation. [Azure Hybrid Use Benefit](../windows/hybrid-use-benefit-licensing.md) et le changement dynamique entre BYOS et le paiement à l’utilisation ne sont pas pris en charge. Le changement du mode de licence nécessite le redéploiement de la machine virtuelle à partir de l’image correspondante.
+
+>[!Note]
+> Pour tout problème lié aux images RHEL dans la galerie de la Place de marché Azure, ouvrez un ticket de support auprès de Microsoft.
 
 ## <a name="images-available-in-the-ui"></a>Images disponibles dans l’interface utilisateur
 Lorsque vous recherchez « Red Hat » dans la Place de marché, ou lorsque vous créez une ressource dans l’interface utilisateur du portail Azure, vous voyez un sous-ensemble d’images RHEL disponibles et les produits Red Hat associés. Vous pouvez toujours obtenir l’ensemble des images de machine virtuelle disponibles à l’aide d’Azure CLI, de PowerShell ou de l’API.

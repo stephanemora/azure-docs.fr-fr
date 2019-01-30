@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory dans 360 Online | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à 360 Online | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et 360 Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cda8eba6-843f-4a09-8c55-0aaf6e593d75
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: b45906c8ca22965865bc4bce5132677113bfb6db
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8f5a60566d65ea35934ff3847778d37990f4dc8c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227749"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807930"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Didacticiel : Intégration d’Azure Active Directory à 360 Online
+# <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Didacticiel : Intégration d’Azure Active Directory à 360 Online
 
 Dans ce didacticiel, vous allez apprendre à intégrer 360 Online avec Azure Active Directory (Azure AD).
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **360 Online**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/360online-tutorial/tutorial_360online_samlbase.png)
+    ![Configurer l'authentification unique](./media/360online-tutorial/tutorial_360online_samlbase.png)
 
 3. Dans la section **Domaine et URL 360 Online**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/360online-tutorial/tutorial_360online_url.png)
+    ![Configurer l'authentification unique](./media/360online-tutorial/tutorial_360online_url.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.public360online.com`
 
@@ -123,12 +123,12 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/360online-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/360online-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique côté **360 Online**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à l’[équipe de support technique 360 Online](mailto:360online@software-innovation.com). 
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -180,7 +180,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **360 Online**.
 
-    ![Configure Single Sign-On](./media/360online-tutorial/tutorial_360online_app.png) 
+    ![Configurer l'authentification unique](./media/360online-tutorial/tutorial_360online_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163229"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402300"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide de .NET
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "53163229"
 >
 >
 
-Dans cet article, vous apprenez à réaliser des opérations de gestion du système de fichiers sur Data Lake Storage Gen1 avec le kit de développement logiciel (SDK) .NET. Les opérations de gestion du système de fichiers comprennent la création de dossiers dans un compte Data Lake Storage Gen1, le chargement et le téléchargement de fichiers, etc.
+Dans cet article, vous allez découvrir comment réaliser des opérations de gestion du système de fichiers sur Data Lake Storage Gen1 avec le SDK .NET. Les opérations de gestion du système de fichiers comprennent la création de dossiers dans un compte Data Lake Storage Gen1, le chargement et le téléchargement de fichiers, etc.
 
 Pour obtenir des instructions sur l’exécution des opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET, consultez la section relative aux [opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md).
 

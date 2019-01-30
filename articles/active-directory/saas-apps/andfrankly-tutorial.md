@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory dans &frankly | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à &frankly | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et &frankly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1d702060-1b89-4e9d-9f01-ede4f1171c73
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 388203903f33d969a7796cf466078159e9b73ad0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 73acaeff6cbffc16aac1b30b9d63974c930c1537
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218098"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818062"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Didacticiel : Intégration d’Azure Active Directory dans &frankly
+# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Didacticiel : Intégration d’Azure Active Directory à &frankly
 
 Dans ce didacticiel, vous allez apprendre à intégrer &frankly à Azure Active Directory (Azure AD).
 
@@ -90,7 +90,9 @@ Pour configurer et tester l’authentification unique Azure AD avec &frankly, vo
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test &amp;frankly](#creating-a-frankly-test-user)** pour avoir un équivalent de Britta Simon dans &amp;frankly lié à la représentation Azure AD de l’utilisateur.
+3. 
+  **
+  [Création d’un utilisateur de test &frankly](#creating-a-frankly-test-user)** pour avoir un équivalent de Britta Simon dans &amp;amp;frankly lié à la représentation Azure AD de l’utilisateur.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -102,15 +104,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **&frankly**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/andfrankly-tutorial/tutorial_andfrankly_samlbase.png)
+    ![Configurer l'authentification unique](./media/andfrankly-tutorial/tutorial_andfrankly_samlbase.png)
 
 3. Dans la section **Domaine et URL &frankly**, si vous souhaitez configurer l’application en mode démarré par le **fournisseur d’identité**, suivez les étapes ci-dessous :
 
-    ![Configure Single Sign-On](./media/andfrankly-tutorial/tutorial_andfrankly_url.png)
+    ![Configurer l'authentification unique](./media/andfrankly-tutorial/tutorial_andfrankly_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
 
@@ -118,7 +120,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** :
 
-    ![Configure Single Sign-On](./media/andfrankly-tutorial/tutorial_andfrankly_url1.png)
+    ![Configurer l'authentification unique](./media/andfrankly-tutorial/tutorial_andfrankly_url1.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
     > [!NOTE] 
@@ -130,12 +132,12 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/andfrankly-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/andfrankly-tutorial/tutorial_general_400.png)
 
 7. Pour configurer l’authentification unique du côté **&frankly**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe du support &frankly](mailto:help@andfrankly.com). 
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -186,7 +188,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **&frankly**.
 
-    ![Configure Single Sign-On](./media/andfrankly-tutorial/tutorial_andfrankly_app.png) 
+    ![Configurer l'authentification unique](./media/andfrankly-tutorial/tutorial_andfrankly_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

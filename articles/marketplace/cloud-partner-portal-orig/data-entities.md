@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7b321ab04df405c56cab0952942b0d6e142da6d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 579856ab87aaf8d051f2e3c161bb2d0e2f693ed5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806233"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446576"
 ---
 # <a name="data-entities"></a>Entités de données
 
@@ -29,7 +29,7 @@ Cet article définit et fournit une vue d’ensemble des entités de données. I
 
 Une entité de données est une abstraction de l’implémentation physique des tables de base de données. Par exemple, dans des tables normalisées, une grande partie des données de chaque client peut être stockée dans une table client, et le reste peut-être réparti sur un petit ensemble de tables associées. Dans ce cas, l’entité de données pour le concept de client apparaît sous la forme d’une vue dénormalisée, dans laquelle chaque ligne contient toutes les données de la table client et de ses tables associées. Une entité de données encapsule un concept métier dans un format qui facilite le développement et l’intégration. La nature abstraite d’une entité de données peut simplifier le développement et la personnalisation d’applications. Par la suite, l’abstraction isole également code d’application de l’activité inévitable des tables physiques entre les versions.
 
-Pour résumer : l’entité de données fournit l’abstraction et l’encapsulation (vue dénormalisée) conceptuelles des schémas de table sous-jacents afin de représenter les concepts et fonctionnalités de données clés.
+Pour résumer : l’entité de données fournit l’abstraction et l’encapsulation (vue dénormalisée) conceptuelles des schémas de table sous-jacents afin de représenter les concepts et fonctionnalités de données clés.
 
 ## <a name="capabilities"></a>Fonctionnalités
 

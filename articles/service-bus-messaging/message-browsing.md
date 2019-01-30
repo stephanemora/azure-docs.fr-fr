@@ -3,22 +3,22 @@ title: Parcours des messages Azure Service Bus | Microsoft Docs
 description: Parcours et aperçu des messages Service Bus
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
-ms.author: spelluru
-ms.openlocfilehash: 7ce2e870be0178420d80682bd18adbef814c162f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 425cf262b80e83a4d06074a567a2921eee12f9c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857463"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855939"
 ---
 # <a name="message-browsing"></a>Parcours des messages
 
@@ -34,7 +34,7 @@ Peek retourne également les messages qui ont été verrouillés et dont le trai
 
 ## <a name="peek-apis"></a>API de l’outil Peek
 
-Les méthodes [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) et [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) sont fournies dans toutes les bibliothèques clientes .NET et Java, ainsi que sur tous les objets destinataires : **MessageReceiver**, **MessageSession**, **QueueClient** et **SubscriptionClient**. Peek traite l’ensemble des files d’attente et des abonnements, ainsi que leurs files d’attente de lettres mortes respectives.
+Les méthodes [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) et [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) sont fournies dans toutes les bibliothèques de client .NET et Java, ainsi que sur tous les objets récepteurs : **MessageReceiver**, **MessageSession**, **QueueClient** et **SubscriptionClient**. Peek traite l’ensemble des files d’attente et des abonnements, ainsi que leurs files d’attente de lettres mortes respectives.
 
 Quand elle est appelée à plusieurs reprises, la méthode Peek énumère tous les messages contenus dans le journal des files d’attente ou des abonnements, dans l’ordre de leur numéro séquentiel (du plus petit au plus grand). Cela correspond à l’ordre dans lequel les messages ont été mis en file d’attente, et pas à l’ordre dans lequel ils peuvent être récupérés au final.
 

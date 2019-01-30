@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190824"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411677"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -107,7 +107,7 @@ Pour SSMS, SSDT et les chaînes de connexion dans PowerShell, les applications d
 
 **Problème :** les utilisateurs obtiennent l’erreur **Cannot find server ’\<Name of the server>’ instance in connection mode ’ReadOnly’** (Impossible de trouver l’instance de serveur ’<Nom du serveur>’ en mode de connexion ’Lecture seule’).
 
-**Solution :** lors de la sélection de l’option **Separate the processing server from the querying pool** (Séparer le serveur de traitement du pool de requêtes), les connexions client utilisant la chaîne de connexion par défaut (sans :rw) sont redirigées vers des réplicas de pool de requêtes. Si les réplicas du pool de requêtes ne sont pas encore en ligne, car la synchronisation n’est pas terminée, les connexions client redirigées peuvent échouer. Pour empêcher l’échec des connexions, choisissez de ne pas séparer le serveur de traitement du pool de requêtes jusqu’à ce qu’un Scale-out et une opération de synchronisation soient terminés. Vous pouvez utiliser les métriques Mémoire et QPU pour surveiller l’état de synchronisation.
+**Solution :** lors de la sélection de l’option **Separate the processing server from the querying pool** (Séparer le serveur de traitement du pool de requêtes), les connexions client utilisant la chaîne de connexion par défaut (sans :rw) sont redirigées vers des réplicas de pool de requêtes. Si les réplicas du pool de requêtes ne sont pas encore en ligne, car la synchronisation n’est pas terminée, les connexions client redirigées peuvent échouer. Pour empêcher l’échec des connexions, vous devez avoir au moins deux serveurs dans le pool de requêtes quand vous effectuez une synchronisation. Chaque serveur est synchronisé individuellement pendant que les autres serveurs restent en ligne. Si vous choisissez de ne pas mettre le serveur de traitement dans le pool de requêtes durant le traitement, vous pouvez l’enlever du pool avant le traitement, puis le réintégrer au pool une fois le traitement terminé, mais avant la synchronisation. Utilisez les métriques Mémoire et QPU pour superviser l’état de synchronisation.
 
 ## <a name="related-information"></a>Informations connexes
 

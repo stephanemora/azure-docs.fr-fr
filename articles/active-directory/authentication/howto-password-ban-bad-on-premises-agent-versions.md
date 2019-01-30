@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 89d64a28d2fe43464995e434c9f3807047b29492
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1d27aa46148e0169909a7aaf05baaac18b050a34
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913634"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423661"
 ---
-# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Préversion : Historique des versions de l’agent de protection par mot de passe Azure AD
+# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Aperçu :  Historique des versions de l’agent de protection par mot de passe Azure AD
 
 |     |
 | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "50913634"
 
 ## <a name="12250"></a>1.2.25.0
 
-Date de publication : 1/11/2018
+Date de publication : 01/11/2018
 
 Correctifs :
 

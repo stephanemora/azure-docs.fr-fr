@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 6eb2452507c3adcb8532a0dd2e50ad701e35cd7f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579221"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448718"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Planifier des tâches U-SQL à l’aide de SQL Server Integration Services (SSIS)
 
@@ -40,9 +40,9 @@ Vous pouvez obtenir le script U-SQL à partir de différents emplacements par le
 
 ## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>Scénario 1 : Utilisation d’un script inline pour l’appel de fonctions table et de procédures stockées
 
-Dans l’éditeur de tâche d’Azure Data Lake Analytics, configurez **SourceType** en tant que **DiretInput** et placez les instructions U-SQL dans **USQLStatemnt**.
+Dans l’éditeur de tâche d’Azure Data Lake Analytics, configurez **SourceType** en tant que **DirectInput** et placez les instructions U-SQL dans **USQLStatemnt**.
 
-Pour faciliter la maintenance et la gestion du code, placez uniquement de courts scripts U-SQL comme scripts inline ; par exemple, vous pouvez appeler des fonctions table et des procédures stockées existantes dans vos bases de données U-SQL. 
+Pour faciliter la maintenance et la gestion du code, placez uniquement de petits scripts U-SQL comme scripts inline ; par exemple, vous pouvez appeler des fonctions table et des procédures stockées existantes dans vos bases de données U-SQL. 
 
 ![Modifier le script U-SQL inline dans une tâche SSIS](./media/data-lake-analytics-schedule-jobs-ssis/edit-inline-usql-script-in-ssis.png)
 
@@ -119,7 +119,7 @@ En mode création du package SSIS, ajoutez une **tâche de système de fichiers 
 
 Vous pouvez utiliser les fichiers U-SQL dans le Stockage Blob Azure par le biais d’une **tâche de téléchargement d’objet blob Azure** dans le Feature Pack Azure. Cette approche vous permet d’utiliser les scripts sur le cloud.
 
-Les étapes sont similaires au [Scénario 2 : Utilisation des fichiers U-SQL dans Azure Data Lake Storage](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Changez la tâche de système de fichiers Azure Data Lake Storage en tâche de téléchargement d’objet blob Azure. [En savoir plus sur la tâche de téléchargement d’objet blob Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+Les étapes sont similaires à celle du [scénario 2 : Utiliser des fichiers U-SQL dans Azure Data Lake Storage](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Changez la tâche de système de fichiers Azure Data Lake Storage en tâche de téléchargement d’objet blob Azure. [En savoir plus sur la tâche de téléchargement d’objet blob Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 Le flux de contrôle ressemble à ce qui suit.
 

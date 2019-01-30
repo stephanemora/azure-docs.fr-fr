@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c45023a462a5c01dfde806d7abbb9714aaf09b85
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 99b3a65feb232526cffecac4fec68d56fcd16ccb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189470"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846283"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Suivre les expérimentations et les métriques d’entraînement dans Azure Machine Learning
 
@@ -128,10 +128,10 @@ Le script se termine par ```run.complete()```, ce qui marque l’exécution comm
 
 Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effectue un simple balayage des paramètres sur les valeurs alpha du modèle pour capturer les métriques et les modèles entraînés dans les exécutions sous l’expérimentation. L’exemple est exécuté localement dans un environnement géré par l’utilisateur. 
 
-1. Créez un script d’entraînement. Ce code utilise ```%%writefile%%``` pour écrire le code de formation dans le dossier de script en tant que ```train.py```.
+1. Créez un script d’entraînement `train.py`.
 
   ```python
-  %%writefile $project_folder/train.py
+  # train.py
 
   import os
   from sklearn.datasets import load_diabetes
@@ -182,10 +182,11 @@ Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effect
   
   ```
 
-2. Le script ```train.py``` référence ```mylib.py```. Ce fichier vous permet d’obtenir la liste des valeurs alpha à utiliser dans le modèle Ridge.
+2. Le script `train.py` fait référence à `mylib.py`, qui permet d’obtenir la liste des valeurs alpha à utiliser dans le modèle Ridge.
 
   ```python
-  %%writefile $script_folder/mylib.py
+  # mylib.py
+  
   import numpy as np
 
   def get_alphas():
@@ -216,7 +217,31 @@ Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effect
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
+
+## <a name="cancel-a-run"></a>Annuler une exécution
+Vous pouvez annuler une exécution déjà soumise même si vous avez perdu la référence d’objet, tant que vous connaissez le nom de l’expérience et l’ID d’exécution. 
+
+```python
+from azureml.core import Experiment
+exp = Experiment(ws, "my-experiment-name")
+
+# if you don't know the run id, you can list all runs under an experiment
+for r in exp.get_runs():  
+    print(r.id, r.get_status())
+
+# if you know the run id, you can "rehydrate" the run
+from azureml.core import get_run
+r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
   
+# check the returned run type and status
+print(type(r), r.get_status())
+
+# you can only cancel a run if the status is Running
+if r.get_status() == 'Running':
+    r.cancel()
+```
+À l’heure actuelle, seuls les types ScriptRun et PipelineRun prennent en charge l’opération d’annulation.
+
 ## <a name="view-run-details"></a>Afficher les détails de l’exécution
 
 ### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Superviser l’exécution avec les widgets de notebook Jupyter

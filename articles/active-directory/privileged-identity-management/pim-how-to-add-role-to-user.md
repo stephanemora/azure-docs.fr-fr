@@ -12,18 +12,18 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 69bc2bb5fa06f4edc0283961063d2302c7905b4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724942"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438998"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Attribuer des rôles d’annuaire Azure AD dans PIM
 
 Avec Azure Active Directory (Azure AD), un administrateur général peut effectuer des attributions de rôles d’annuaire **permanentes**. Ces attributions de rôles peuvent être créées via le [portail Azure](../users-groups-roles/directory-assign-admin-roles.md) ou à l’aide de [commandes PowerShell](/powershell/module/azuread#directory_roles).
 
-Le service Azure AD Privileged Identity Management (PIM) permet également aux administrateurs de rôle privilégié d’établir des attributions de rôles d’annuaire permanentes. En outre, les administrateurs de rôle privilégié peuvent rendre les utilisateurs **éligibles** pour les rôles d’annuaire. Un administrateur éligible peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé. Pour plus d’informations sur les rôles que vous pouvez gérer à l’aide de PIM, consultez [Rôles d’annuaire Azure AD pouvant être gérés dans PIM](pim-roles.md).
+Le service Azure AD Privileged Identity Management (PIM) permet également aux administrateurs de rôle privilégié d’établir des attributions de rôles d’annuaire permanentes. De plus, les administrateurs de rôle privilégié peuvent rendre les utilisateurs **éligibles** pour les rôles d’annuaire. Un administrateur éligible peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé.
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Rendre un utilisateur éligible pour un rôle
 

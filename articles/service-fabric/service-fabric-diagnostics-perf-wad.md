@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 0675e06564fcacf5f7d14ef6986762f36df18b1b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: a6941e28bdfd922a68ff484c57031326a9aa5c0b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290320"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452630"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Analyse des performances avec l’extension Microsoft Azure Diagnostics
 
@@ -43,7 +43,7 @@ Pour collecter les compteurs de performances via Microsoft Azure Diagnostics, vo
     }
     ```
 
-    `scheduledTransferPeriod` définit à quelle fréquence les valeurs des compteurs collectés sont transférées vers votre table de stockage Azure et tous les récepteurs configurés. 
+    `scheduledTransferPeriod` définit à quelle fréquence les valeurs des compteurs collectées sont transférées vers votre table de stockage Azure et tous les récepteurs configurés. 
 
 3. Ajoutez les compteurs de performances à collecter au `PerformanceCounterConfiguration` qui a été déclaré à l’étape précédente. Chaque compteur à collecter est défini avec un `counterSpecifier`, un `sampleRate`, un `unit` et un `annotation`, ainsi qu’avec tous les `sinks` applicables.
 

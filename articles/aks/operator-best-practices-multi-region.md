@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 622cdd36a1ecf582c4cdb883b12753ee2a75d50e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52854293"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382450"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)
 
@@ -38,7 +38,7 @@ Un cluster AKS est déployé dans une seule région. Pour vous protéger contre 
 * [Régions appairées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * Pour votre zone géographique, choisissez deux régions appairées l’une à l’autre. Ces régions coordonnent les mises à jour de la plateforme et hiérarchisent les efforts de récupération si nécessaire.
 * Niveau de disponibilité des services (chaud/chaud, chaud/tiède, chaud/froid)
-  * Souhaitez-vous exécuter les deux régions en même temps, avec une région *prête* à commencer à servir le trafic ou une région qui a besoin de temps pour se préparer à cette tâche ?
+  * Souhaitez-vous utiliser les deux régions en même temps, avec une région *prête* à commencer à assurer le trafic ou une région qui a besoin de temps pour être prête à effectuer cette tâche ?
 
 La disponibilité des régions AKS et les régions appairées sont des considérations qui vont de pair. Déployez vos clusters AKS sur des régions appairées qui sont conçues pour gérer ensemble la reprise d’activité. Par exemple, AKS est disponible dans les régions *USA Est* et *USA Ouest*. Ces régions sont également appairées. Ces deux régions seraient recommandées dans le cadre de la création d’une stratégie AKS de continuité d’activité et de reprise d’activité.
 

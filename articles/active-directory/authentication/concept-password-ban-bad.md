@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 4c5fead0a7f4634a8f5ee005114d24cae9a2590f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7cb1acace3dd8605d7506013a6f1c0273dafa32f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739819"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421434"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
 
@@ -30,7 +30,7 @@ Les leaders du secteur vous recommandent de ne pas utiliser le même mot de pass
 
 Microsoft cherche toujours à garder une longueur d’avance sur les cybercriminels. Par conséquent, l’équipe Azure AD Identity Protection recherche en permanence les mots de passe couramment utilisés et compromis. Puis, ils bloquent ces mots de passe qui sont considérés comme étant trop courants dans ce que l’on appelle la liste globale de mots de passe interdits. Les cybercriminels utilisent également des stratégies semblables dans leurs attaques, par conséquent, Microsoft ne rend pas public le contenu de cette liste. Ces mots de passe vulnérables sont bloqués avant de devenir une véritable menace pour les clients de Microsoft. Pour plus d’informations sur les travaux en matière de sécurité actuels, consultez le [Rapport de renseignement sur la sécurité (SIR) de Microsoft](https://www.microsoft.com/security/intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Aperçu : liste personnalisée de mots de passe interdits
+## <a name="preview-custom-banned-password-list"></a>Aperçu : Liste personnalisée de mots de passe interdits
 
 Il se peut que certaines organisations veulent pousser plus loin la sécurité en ajoutant leurs propres personnalisations à la liste de mots de passe interdits dans ce que Microsoft appelle la liste de mots de passe interdits personnalisée. Les clients d’entreprise, comme Contoso peuvent ensuite choisir de bloquer des variantes de leurs noms de marque, des conditions spécifiques de la société ou d’autres éléments.
 
@@ -46,7 +46,7 @@ La protection des comptes cloud uniquement est utile, toutefois de nombreuses or
 
 Une correspondance des mots de passe avec ceux de la liste des mots de passe interdits est établie par conversion en minuscules de la chaîne et comparaison de celle-ci avec les mots de passe interdits connus au sein d’une instance de modification de 1 avec correspondance approximative.
 
-Exemple : le mot de passe est bloqué pour une organisation
+Exemple : Le mot de passe est bloqué pour une organisation
    - Un utilisateur tente de définir son mot de passe sur P@ssword. Celui-ci est converti en « mot de passe » et est bloqué dans la mesure où il s’agit d’une variante du mot de passe bloqué.
    - Un administrateur tente de définir un mot de passe utilisateur sur « Password123! » Celui-ci est converti en « password123! » Celui-ci est bloqué, dans la mesure où il s’agit d’une variante du mot de passe.
 

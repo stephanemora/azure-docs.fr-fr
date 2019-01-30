@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à QPrism | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à QPrism | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et QPrism.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 72ab75ba-132b-4f83-a34b-d28b81b6d7bc
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf22491d7531daecf4448e62e8594c3326d7b77
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8278b26f023ada109a8e6fa3965476e3dc4526c7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420272"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828058"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Didacticiel : Intégration d’Azure Active Directory à QPrism
+# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutoriel : Intégration d’Azure Active Directory à QPrism
 
 Dans ce didacticiel, vous allez apprendre à intégrer QPrism dans Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support QPrism](mailto:qsupport-ce@quatrro.com). 
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+1. Dans la section  **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
 
      ![Lien Téléchargement de certificat](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
@@ -156,7 +156,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-qprism-test-user"></a>Créer un utilisateur de test QPrism
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans QPrism. Collaborez avec [l’équipe de support QPrism](mailto:qsupport-ce@quatrro.com) pour ajouter des utilisateurs dans la plateforme QPrism. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans QPrism. Pour ajouter des utilisateurs dans la plateforme QPrism, rapprochez-vous de [l’équipe de support de QPrism](mailto:qsupport-ce@quatrro.com) . Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

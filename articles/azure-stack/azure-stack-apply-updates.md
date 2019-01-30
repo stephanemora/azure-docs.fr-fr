@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
-ms.openlocfilehash: 2a835e7cd9d4c45c1c39c3c135705cb4dff0e6fb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 190d81fc7811e4afdb32555407716f60f5b9a2d1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842184"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476136"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Effectuer des mises à jour dans Azure Stack
 
@@ -50,13 +50,11 @@ La procédure suivante montre comment importer et installer des mises à jour da
 
 2. Dans la zone de filtre, tapez **mise à jour**, puis sélectionnez le compte de stockage **updateadminaccount**.
 
-    ![Indique comment rechercher updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
-
 3. Dans les détails du compte de stockage, sous **Services**, sélectionnez **Objets Blob**.
  
     ![Indique comment obtenir les objets Blob pour le compte de stockage](media/azure-stack-apply-updates/ApplyUpdates3.png) 
- 
-4. Sous **Service BLOB**, sélectionnez **+ Conteneur** pour créer un conteneur. Entrez un nom (par exemple *Update-1709*), puis sélectionnez **OK**.
+
+4. Sous **Service BLOB**, sélectionnez **+ Conteneur** pour créer un conteneur. Entrez un nom (par exemple, *Update-1811*), puis sélectionnez **OK**.
  
      ![Indique comment ajouter un conteneur dans le compte de stockage](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
@@ -66,12 +64,12 @@ La procédure suivante montre comment importer et installer des mises à jour da
 
 6. Sous **Charger l’objet blob**, cliquez sur l’icône de dossier, accédez au fichier .exe de la mise à jour, puis cliquez sur **Ouvrir** dans la fenêtre de l’explorateur de fichiers.
   
-7. Sous **Charger l’objet blob**, cliquez sur **Charger**. 
+7. Sous **Charger l’objet blob**, cliquez sur **Charger**.
   
     ![Indique où charger chaque fichier de package](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Répétez les étapes 6 et 7 pour les fichiers *PackageName*.bin et Metadata.xml. N’importez pas le fichier Notification supplémentaire.txt s’il est inclus.
-9. Lorsque vous avez terminé, vous pouvez examiner les notifications (icône représentant une cloche dans le coin supérieur droit du portail). Les notifications doivent indiquer que le chargement est terminé. 
+8. Répétez les étapes 6 et 7 pour les fichiers *PackageName*.bin et Metadata.xml. N’importez pas le fichier Notification supplémentaire.txt s’il est inclus.
+9. Lorsque vous avez terminé, vous pouvez examiner les notifications (icône représentant une cloche dans le coin supérieur droit du portail). Les notifications doivent indiquer que le chargement est terminé.
 10. Revenez à la vignette Mise à jour dans le tableau de bord. La vignette doit indiquer qu’une mise à jour est disponible. Cliquez sur la vignette pour vérifier la mise à jour récemment ajoutée.
 11. Pour installer la mise à jour, sélectionnez le package marqué comme étant **Prêt**, cliquez dessus avec le bouton droit et sélectionnez **Mettre à jour maintenant** ou cliquez sur l’action **Mettre à jour maintenant** située en haut.
 12. Lorsque vous cliquez sur la mise à jour lors de son installation, son état s’affiche dans la zone **Update run details** (Détails sur la mise à jour en cours). À partir de cet emplacement, vous pouvez également cliquer sur **Télécharger les journaux complets** pour télécharger les fichiers journaux.

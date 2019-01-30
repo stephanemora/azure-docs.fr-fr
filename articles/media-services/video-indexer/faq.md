@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: ff3aa86fee7fc30cfc18edc3b413a4378df69662
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306964"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402045"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -28,18 +28,17 @@ Video Indexer est un service d’intelligence artificielle qui fait partie de Mi
 
 ### <a name="what-can-i-do-with-video-indexer"></a>Que puis-je faire avec Video Indexer ?
 
-Video Indexer permet d’effectuer les types d’opérations suivantes sur les fichiers multimédias :
+Voici certaines opérations que Video Indexer peut effectuer sur les fichiers multimédias :
 
-* Identifier et extraire la voix et identifier les intervenants.
-* Identifier et extraire le texte à l’écran dans une vidéo.
-* Identifier et étiqueter des objets dans un fichier vidéo.
-* Identifier les marques telles que Microsoft dans les pistes audio et le texte à l’écran dans une vidéo.
-* Détecter et identifier des visages à partir d’une base de données de célébrités et d’une base de données de visages définie par l’utilisateur.
-* Extraire des mots clés du contenu vidéo et audio en se basant sur le texte parlé et visuel.
-* Extraire les sujets abordés, mais pas nécessairement explicitement mentionnés, dans le contenu audio et vidéo, en fonction du texte parlé et visuel.
-* Créer des sous-titres à partir d’une piste audio.
+* Identification et extraction de la voix et identification des intervenants.
+* Identification et extraction du texte à l’écran dans une vidéo.
+* Détection d’objets dans un fichier vidéo.
+* Identification des marques (par exemple : Microsoft) dans les pistes audio et le texte à l’écran dans une vidéo.
+* Détection et identification de visages à partir d’une base de données de célébrités et d’une base de données de visages définie par l’utilisateur.
+* Extraction des sujets abordés, mais pas nécessairement mentionnés dans le contenu audio et vidéo.
+* Création de sous-titres à partir d’une piste audio.
 
-Pour plus d’informations, consultez [What is Content Moderator?](video-indexer-overview.md) (Présentation de Content Moderator).
+Pour obtenir plus d’informations et découvrir d’autres fonctionnalités Video Indexer, consultez [Vue d’ensemble](video-indexer-overview.md).
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Comment bien démarrer avec Video Indexer ?
 

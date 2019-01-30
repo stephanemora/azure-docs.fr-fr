@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 513067f09d8cac64ca747ff217c84667c5469d82
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 19ac1819c3b098597819ec75adcedeca929e802d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248212"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464542"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Déployer le conteneur Détection de langue sur Azure Kubernetes Service
 
@@ -38,7 +38,7 @@ Cette procédure nécessite plusieurs outils qui doivent être installés et ex�
 
 Cette procédure charge et exécute l’exemple de conteneur Cognitive Services pour la détection de langue. L’exemple a deux conteneurs : un pour l’application cliente et un pour le conteneur Cognitive Services. Vous devez envoyer (push) ces deux images à votre propre registre Azure Container Registry. Une fois qu’ils se trouvent sur votre propre registre, créez un service Azure Kubernetes pour accéder à ces images et exécuter les conteneurs. Quand les conteneurs sont en cours d’exécution, utilisez l’interface CLI **kubectl** pour observer les performances des conteneurs. Accédez à l’application cliente avec une requête HTTP et regardez les résultats. 
 
-
+![Idée conceptuelle de l’exécution d’exemples de conteneurs](../media/how-tos/container-instance-sample/containers.png)
 
 ## <a name="the-sample-containers"></a>Les exemples de conteneurs
 
@@ -407,8 +407,8 @@ az group delete --name cogserv-container-rg
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-> [!div class="nextstepaction"]
-> [Utiliser le service connecté Analytique de texte](../vs-text-connected-service.md)
+* Utiliser davantage de [conteneurs Cognitive Services](../../cognitive-services-container-support.md)
+* Utiliser le service connecté Analyse de texte](../vs-text-connected-service.md)
 
 
 <!--

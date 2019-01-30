@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262130"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412399"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions interceptées et les temps d’exécution des méthodes dans les applications web Java
 
@@ -96,6 +96,23 @@ Par défaut, `reportExecutionTime` est défini sur true, et `reportCaughtExcepti
 
 > [!NOTE]
 > Le fichier AI-agent.XML et le fichier jar de l’agent doivent se trouver dans le même dossier. Ils sont souvent placés ensemble dans le dossier `/resources` du projet. 
+
+### <a name="spring-rest-template"></a>Modèle Rest de Spring
+
+Pour qu’Application Insights instrumente correctement les appels HTTP effectués avec le modèle Rest de Spring, l’utilisation du client HTTP Apache est obligatoire. Par défaut, le modèle Rest de Spring n’est pas configuré pour utiliser le client HTTP Apache. En spécifiant [HttpComponentsClientHttpRequestfactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/HttpComponentsClientHttpRequestFactory.html) dans le constructeur d’un modèle Rest de Spring, ce dernier utilise le client HTTP Apache.
+
+Voici un exemple montrant comment procéder avec Spring Beans. Il s’agit d’un exemple très simple qui utilise les paramètres par défaut de la classe de la fabrique.
+
+```java
+@bean
+public ClientHttpRequestFactory httpRequestFactory() {
+return new HttpComponentsClientHttpRequestFactory()
+}
+@Bean(name = 'myRestTemplate')
+public RestTemplate dcrAccessRestTemplate() {
+    return new RestTemplate(httpRequestFactory())
+}
+```
 
 #### <a name="enable-w3c-distributed-tracing"></a>Activer le traçage distribué W3C
 

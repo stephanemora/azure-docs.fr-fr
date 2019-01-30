@@ -5,7 +5,7 @@ services: active-directory
 keywords: enterprise state roaming, cloud windows, comment activer enterprise state roaming
 documentationcenter: ''
 author: tanning
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 9dc223015f85d83278d48494bf05693c7932bdde
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 3e6b2d09c2b3c204fc62428ab53a4d4e33d57eac
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50128846"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448378"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Activer Enterprise State Roaming dans Azure Active Directory
 Enterprise State Roaming est disponible pour toute organisation disposant d’une licence Azure AD Premium ou Enterprise Mobility + Security (EMS). Pour plus d’informations sur l’obtention d’un abonnement Azure AD, consultez la page [du produit Azure AD](https://azure.microsoft.com/services/active-directory) .
@@ -41,7 +41,7 @@ Lorsque vous activez Enterprise State Roaming, votre organisation reçoit automa
 Pour qu’un appareil Windows 10 utilise le service Enterprise State Roaming, l’appareil doit s’authentifier à l’aide d’une identité Azure AD. Pour les appareils joints à Azure AD, l’identité de connexion principale de l’utilisateur est l’identité Azure AD. Ainsi, aucune configuration supplémentaire n’est requise. Pour les appareils qui utilisent un répertoire Active Directory local, l’administrateur informatique doit [configurer les appareils hybrides joints à Azure AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
 ## <a name="data-storage"></a>Stockage des données
-Les données Enterprise State Roaming sont hébergées dans une ou plusieurs [régions Azure](https://azure.microsoft.com/regions/) qui correspondent le plus à la valeur de pays/région définie dans l’instance Azure Active Directory. Les données Enterprise State Roaming sont partitionnées selon les trois principales régions : Amérique du Nord, EMEA et Asie-Pacifique. Les données Enterprise State Roaming pour le client sont situées localement dans la région géographique, et ne sont pas répliquées entre régions.  Par exemple : 
+Les données Enterprise State Roaming sont hébergées dans une ou plusieurs [régions Azure](https://azure.microsoft.com/regions/) qui correspondent le plus à la valeur de pays/région définie dans l’instance Azure Active Directory. Les données Enterprise State Roaming sont partitionnées selon les trois principales régions géographiques : Amérique du Nord, EMEA et Asie-Pacifique. Les données Enterprise State Roaming pour le client sont situées localement dans la région géographique, et ne sont pas répliquées entre régions.  Par exemple : 
 
 Valeur Pays/région | Emplacement de l’hébergement des données
 ---------------------|-------------------------
@@ -75,9 +75,9 @@ Les données synchronisées vers le cloud Microsoft à l’aide d’Enterprise S
 ### <a name="explicit-deletion"></a>Suppression explicite
 La suppression explicite est lorsqu’un administrateur Azure supprime un utilisateur ou un répertoire, ou qu’il demande explicitement que les données soient supprimées.
 
-* **Suppression d’un utilisateur**: lorsqu’un utilisateur est supprimé dans Azure AD, les données d’itinérance de l’utilisateur sont supprimées après 90 à 180 jours. 
-* **Suppression d’un répertoire**: la suppression d’un répertoire entier dans Azure AD est une opération à effet immédiat. Toutes les données de paramètres associées à ce répertoire sont supprimées après 90 à 180 jours. 
-* **Suppression à la demande**: si l’administrateur Azure AD souhaite supprimer manuellement des données d’utilisateur ou de paramètre spécifiques, il peut soumettre un ticket au [support technique Azure](https://azure.microsoft.com/support/). 
+* **Suppression d’un utilisateur** : Quand un utilisateur est supprimé dans Azure AD, ses données d’itinérance sont supprimées après 90 à 180 jours. 
+* **Suppression d’un annuaire** : La suppression de tout un annuaire dans Azure AD est une opération à effet immédiat. Toutes les données de paramètres associées à ce répertoire sont supprimées après 90 à 180 jours. 
+* **Suppression à la demande** : Si l’administrateur Azure AD veut supprimer manuellement les données d’un utilisateur spécifique ou des données de paramètres, il peut soumettre un ticket au [support technique Azure](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Suppression des données obsolètes
 Les données qui n’ont pas été utilisées depuis un an (« la période de rétention ») sont considérées comme obsolètes et peuvent être supprimées du cloud Microsoft. La période de rétention est susceptible de changer, mais ne sera pas inférieure à 90 jours. Il peut s’agir d’un ensemble spécifique de paramètres Windows/d’application ou de tous les paramètres d’un utilisateur. Par exemple : 

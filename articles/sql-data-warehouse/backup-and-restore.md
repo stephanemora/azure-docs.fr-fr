@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308471"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465171"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Sauvegarde et restauration dans Azure SQL Data Warehouse
 Découvrez comment la sauvegarde et la restauration fonctionnent dans Azure SQL Data Warehouse. Utilisez des captures instantanées d’entrepôts de données pour récupérer ou copier votre entrepôt de données dans un point de restauration précédent dans la région primaire. Utilisez des sauvegardes géoredondantes d’entrepôts de données pour effectuer une restauration dans une autre région géographique. 
@@ -86,7 +86,7 @@ Chaque capture instantanée crée un point de restauration qui représente son h
 
 Vous pouvez conserver les entrepôts de données restauré et actuel ou les supprimer tous les deux. Si vous souhaitez remplacer l’entrepôt de données actuel par l’entrepôt de données restauré, vous pouvez le renommer à l’aide d’[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) avec l’option MODIFIER LE NOM. 
 
-Pour restaurer un entrepôt de données, consultez [Restaurer un entrepôt de données à l’aide du portail Azure](sql-data-warehouse-restore-database-portal.md), [Restaurer un entrepôt de données à l’aide de PowerShell](sql-data-warehouse-restore-database-powershell.md), ou [Restaurer un entrepôt de données à l’aide de T-SQL](sql-data-warehouse-restore-database-rest-api.md).
+Pour restaurer un entrepôt de données, consultez [Restaurer un entrepôt de données à l’aide du portail Azure](sql-data-warehouse-restore-database-portal.md), [Restaurer un entrepôt de données à l’aide de PowerShell](sql-data-warehouse-restore-database-powershell.md) ou [Restaurer un entrepôt de données à l’aide d’API REST](sql-data-warehouse-restore-database-rest-api.md).
 
 Si vous devez restaurer un entrepôt de données supprimé ou suspendu, vous pouvez [créer un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md). 
 

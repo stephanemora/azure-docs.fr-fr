@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect : topologies prises en charge | Microsoft Docs'
+title: 'Azure AD Connect : Topologies prises en charge | Microsoft Docs'
 description: Cette rubrique détaille les topologies prises en charge et celles qui ne le sont pas pour Azure AD Connect
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 74b2cea8e3adfb6689d4ac7049e7892f8f0ecf4a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: be53e26d6277465836163b43fc5ab2529c67deef
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582630"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470186"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.

@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Weekdone | Microsoft Azure'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Weekdone | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Weekdone.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 34921f9a-5637-4420-ab4c-9beb34421909
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 7f7946ece91013696969dafda17b02c972f4b780
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 869deb1b68d30041b6780151a5712099982bd9b7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230401"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807947"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Didacticiel : Intégration d’Azure Active Directory à Weekdone
+# <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Tutoriel : Intégration d’Azure Active Directory à Weekdone
 
 Dans ce didacticiel, vous allez découvrir comment intégrer Weekdone à Azure Active Directory (Azure AD).
 
@@ -100,15 +100,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Weekdone**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/weekdone-tutorial/tutorial_weekdone_samlbase.png)
+    ![Configurer l'authentification unique](./media/weekdone-tutorial/tutorial_weekdone_samlbase.png)
 
 3. Dans la section **Domaine et URL Weekdone**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Configure Single Sign-On](./media/weekdone-tutorial/tutorial_weekdone_url1.png)
+    ![Configurer l'authentification unique](./media/weekdone-tutorial/tutorial_weekdone_url1.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://weekdone.com/a/<tenant>/metadata`
 
@@ -119,7 +119,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** :
 
-    ![Configure Single Sign-On](./media/weekdone-tutorial/tutorial_weekdone_url2.png)
+    ![Configurer l'authentification unique](./media/weekdone-tutorial/tutorial_weekdone_url2.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://weekdone.com/a/<tenantname>`
      
@@ -132,11 +132,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/weekdone-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/weekdone-tutorial/tutorial_general_400.png)
     
 7. Pour ouvrir la fenêtre **Configurer l’authentification**, dans la section **Configuration de Weekdone**, cliquez sur **Configurer Weekdone**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/weekdone-tutorial/tutorial_weekdone_configure.png) 
+    ![Configurer l'authentification unique](./media/weekdone-tutorial/tutorial_weekdone_configure.png) 
 
 8. Pour configurer l’authentification unique côté **Weekdone**, vous devez envoyer le **XML de métadonnées, l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** téléchargés à l’[équipe de support technique de Weekdone](mailto:hello@weekdone.com).
 
@@ -194,7 +194,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Weekdone**.
 
-    ![Configure Single Sign-On](./media/weekdone-tutorial/tutorial_weekdone_app.png) 
+    ![Configurer l'authentification unique](./media/weekdone-tutorial/tutorial_weekdone_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 695d5f1507f766cf0a2ad96d7dcd25f45f98c20e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994715"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429632"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnostiquer un problème de routage sur une machine virtuelle
 
@@ -49,12 +49,12 @@ Les étapes qui suivent supposent que vous disposez d’une machine virtuelle ex
     Dans l’exemple de l’image précédente, les itinéraires répertoriés sont les itinéraires par défaut qu’Azure crée pour chaque sous-réseau. Votre liste contient au moins ces itinéraires, mais elle peut s’enrichir d’itinéraires supplémentaires, selon les fonctionnalités que vous avez peut-être activées pour votre réseau virtuel, par exemple son appairage à un autre réseau virtuel ou sa connexion à votre réseau local par le biais d’une passerelle VPN Azure. Pour en savoir plus sur chacun de ces itinéraires, et sur les autres itinéraires pouvant s’afficher pour votre interface réseau, consultez [Routage de trafic de réseaux virtuels](virtual-networks-udr-overview.md). Si votre liste comporte un grand nombre d’itinéraires, il peut être plus facile de sélectionner **Télécharger** pour récupérer un fichier .csv contenant la liste des itinéraires.
 
 Même si dans les étapes précédentes, les itinéraires effectifs ont été affichés à l’aide de la machine virtuelle, vous pouvez également les voir avec une :
-- **Interface réseau individuelle** : découvrez comment [afficher une interface réseau](virtual-network-network-interface.md#view-network-interface-settings).
-- **Table de routage individuelle** : découvrez comment [afficher une table de routage](manage-route-table.md#view-details-of-a-route-table).
+- **Interface réseau individuelle** : découvrez comment [voir une interface réseau](virtual-network-network-interface.md#view-network-interface-settings).
+- **Table de routage individuelle** : Découvrez comment [voir une table de routage](manage-route-table.md#view-details-of-a-route-table).
 
 ## <a name="diagnose-using-powershell"></a>Diagnostiquer à l’aide de PowerShell
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous devez utiliser le module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Login-AzureRmAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous devez utiliser le module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Login-AzureRmAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
 Obtenez les itinéraires effectifs d’une interface réseau avec [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 

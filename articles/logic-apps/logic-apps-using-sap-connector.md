@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 1738f02d28a4eb9ff5cbb51c73bc50ddf3c9a68b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231336"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391276"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -23,9 +23,9 @@ Cet article explique comment accéder à vos ressources SAP locales à partir d�
 
 Le connecteur SAP ECC utilise la <a href="https://support.sap.com/en/product/connectors/msnet.html">bibliothèque NCo (.Net Connector) SAP</a>, et fournit ces opérations ou actions :
 
-- **Envoyer à SAP** : envoyer un IDoc ou appeler des fonctions BAPI sur tRFC dans des systèmes SAP.
-- **Recevoir de SAP** : recevoir des IDoc ou des appels de fonction BAPI sur tRFC depuis des systèmes SAP.
-- **Générer des schémas** : générer des schémas pour les artefacts SAP pour IDoc, BAPI ou RFC.
+- **Envoyer à SAP** : envoyer un IDoc ou appeler des fonctions BAPI sur tRFC dans des systèmes SAP.
+- **Recevoir de SAP** : recevoir des IDoc ou des appels de fonction BAPI sur tRFC à partir de systèmes SAP.
+- **Générer des schémas** : générer des schémas pour les artefacts SAP pour IDoc, BAPI ou RFC.
 
 Le connecteur SAP s’intègre aux systèmes SAP locaux via la [passerelle de données locale](https://www.microsoft.com/download/details.aspx?id=53127). Dans les scénarios d’envoi, par exemple lors de l’envoi d’un message depuis Logic Apps à un système SAP, la passerelle de données agit comme un client RFC et transfère les demandes reçues de Logic Apps à SAP.
 De même, dans les scénarios de réception, la passerelle de données agit en tant que serveur RFC qui reçoit des demandes de SAP et les transfère à l’application logique. 
@@ -38,7 +38,7 @@ Pour suivre cet article, vous avez besoin de ces éléments :
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
-* L’application logique à partir de laquelle vous souhaitez accéder à votre système SAP et un déclencheur qui démarre le flux de travail de votre application logique. Si vous ne connaissez pas les applications logiques, consultez les sections [Présentation d’Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* L’application logique à partir de laquelle vous souhaitez accéder à votre système SAP et un déclencheur qui démarre le flux de travail de votre application logique. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Votre <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">serveur d’applications SAP</a> ou <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">serveur de messagerie SAP</a>
 
@@ -71,7 +71,7 @@ Dans cet exemple, vous allez créer une application logique avec un point de ter
 
 1. Dans le [portail Azure](https://portal.azure.com), créez une application logique vide, ce qui ouvre le Concepteur d’application logique. 
 
-2. Dans la zone de recherche, saisissez le filtre « http request ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Requête - Lors de la réception d’une demande HTTP**
+2. Dans la zone de recherche, saisissez le filtre « http request ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Requête - Lors de la réception d’une requête HTTP**
 
    ![Ajouter un déclencheur de requête HTTP](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -92,7 +92,7 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
    ![Ajouter une action](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des actions, sélectionnez cette action : **Envoyer un message à SAP**
+2. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des actions, sélectionnez cette action : **Envoyer un message à SAP**
   
    ![Sélectionner une action d’envoi à SAP](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
@@ -159,7 +159,7 @@ Ajoutez maintenant une action de réponse au flux de travail de votre applicatio
 
 1. Dans le Concepteur d’application logique, sous l’action SAP, sélectionnez **Nouvelle étape** > **Ajouter une action**.
 
-2. Dans la zone de recherche, saisissez le filtre « response ». Dans la liste des actions, sélectionnez cette action : **Requête - réponse**
+2. Dans la zone de recherche, saisissez le filtre « response ». Dans la liste des actions, sélectionnez cette action : **Requête - réponse**
 
 3. Cliquez dans la zone **Corps** pour afficher la liste du contenu dynamique. Dans cette liste, sous **Envoyer à SAP**, sélectionnez le champ **Corps**. 
 
@@ -201,7 +201,7 @@ Cet exemple utilise une application logique qui se déclenche lors de la récept
 
 1. Dans le portail Azure, créez une application logique vide, qui ouvre le Concepteur d’application logique. 
 
-2. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des déclencheurs, sélectionnez **Quand un message est reçu de SAP**.
+2. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Quand un message est reçu de SAP**
 
    ![Ajouter un déclencheur SAP](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
 
@@ -269,7 +269,7 @@ Cet exemple utilise une application logique que vous pouvez déclencher à l’a
 
 1. Dans le portail Azure, créez une application logique vide, qui ouvre le Concepteur d’application logique. 
 
-2. Dans la zone de recherche, saisissez le filtre « http request ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Requête - Lors de la réception d’une demande HTTP**
+2. Dans la zone de recherche, saisissez le filtre « http request ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Requête - Lors de la réception d’une requête HTTP**
 
    ![Ajouter un déclencheur de requête HTTP](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -286,7 +286,7 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
    ![Ajouter une action](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des actions, sélectionnez cette action : **Générer des schémas**
+2. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des actions, sélectionnez cette action : **Générer les schémas**
   
    ![Sélectionner une action d’envoi à SAP](media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
 
@@ -343,7 +343,7 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
 Vous pouvez aussi télécharger ou stocker les schémas générés dans des référentiels, comme un objet blob, un stockage ou un compte d’intégration. Les comptes d’intégration offrent une expérience privilégiée avec d’autres actions XML : cet exemple montre donc comment charger des schémas dans un compte d’intégration pour la même application logique avec le connecteur Azure Resource Manager.
 
-1. Dans le Concepteur d’application logique, sous le déclencheur, choisissez **Nouvelle étape** > **Ajouter une action**. Dans la zone de recherche, entrez « resource manager » comme filtre. Sélectionnez cette action : **Créer ou mettre à jour une ressource**
+1. Dans le Concepteur d’application logique, sous le déclencheur, choisissez **Nouvelle étape** > **Ajouter une action**. Dans la zone de recherche, entrez « resource manager » comme filtre. Sélectionnez cette action : **Créer ou mettre à jour une ressource**
 
    ![Sélectionner une action Azure Resource Manager](media/logic-apps-using-sap-connector/select-arm-action.png) 
 

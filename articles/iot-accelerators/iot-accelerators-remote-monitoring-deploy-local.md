@@ -6,14 +6,14 @@ manager: hegate
 ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/25/2018
+ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a30311f8b171d80e036b4e554b2f1026b43c8a67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e4a48312dc516010b7a7fe1471ba7e555a2f92f2
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604769"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382255"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Déployer localement l’accélérateur de solution de surveillance à distance - Visual Studio
 
@@ -48,16 +48,9 @@ Pour terminer le déploiement local, vous devez avoir installé les outils suiva
 
 Dans cette section, vous exécutez les microservices de surveillance à distance. Vous exécutez l’interface utilisateur web en mode natif, le service Device Simulation dans Docker et les microservices dans Visual Studio.
 
-### <a name="run-the-web-ui"></a>Exécuter l’interface utilisateur web
-
-Dans cette étape, vous démarrez l’interface utilisateur web. Accédez au dossier **webui** de votre copie locale du référentiel et exécutez les commandes suivantes :
-
-```cmd
-npm install
-npm start
-```
-
 ### <a name="run-the-device-simulation-service"></a>Exécuter le service Device Simulation
+
+Ouvrez une nouvelle fenêtre d’invite de commandes pour vérifier que vous avez bien accès aux variables d’environnement définies par le script **start.cmd** dans la section précédente.
 
 Exécutez la commande suivante pour lancer le conteneur Docker pour le service Device Simulation. Le service simule des appareils pour la solution de surveillance à distance.
 
@@ -94,11 +87,22 @@ Suivez ces étapes pour démarrer la tâche Stream Analytics :
 1. Cliquez sur la **tâche Stream Analytics** dans la liste des ressources.
 1. Dans la **vue d’ensemble** de la tâche Stream Analytics, sélectionnez **Démarrer**. Cliquez ensuite sur **Démarrer** pour démarrer la tâche.
 
+### <a name="run-the-web-ui"></a>Exécuter l’interface utilisateur web
+
+Dans cette étape, vous démarrez l’interface utilisateur web. Ouvrez une nouvelle fenêtre d’invite de commandes pour vérifier que vous avez bien accès aux variables d’environnement définies par le script **start.cmd**. Accédez au dossier **webui** de votre copie locale du référentiel et exécutez les commandes suivantes :
+
+```cmd
+npm install
+npm start
+```
+
+Une fois le démarrage terminé, votre navigateur affiche la page **http://localhost:3000/dashboard**. Les erreurs présentes sur cette page sont attendues. Pour afficher l’application sans erreur, procédez comme suit.
+
 ### <a name="configure-and-run-nginx"></a>Configurer et exécuter NGINX
 
 Configurer un serveur proxy inverse pour lier l’application web et les microservices qui s’exécutent sur votre ordinateur local :
 
-* Copiez le fichier **nginx.conf** du dossier **webui\scripts\localhost** vers le répertoire d’installation **nginx\conf**.
+* Copiez le fichier **nginx.conf** à partir du dossier **webui\scripts\localhost** dans votre copie locale du dépôt vers le répertoire d’installation **nginx\conf**.
 * Exécutez **nginx**.
 
 Pour plus d’informations sur l’exécution de **nginx**, consultez [nginx pour Windows](https://nginx.org/en/docs/windows.html).

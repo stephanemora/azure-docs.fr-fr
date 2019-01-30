@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352578"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382558"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Présentation d'Azure Standard Load Balancer
 
@@ -213,7 +213,7 @@ Les Load Balancer Standard sont disponibles avec un Contrat de niveau de service
 
 L'utilisation de Standard Load Balancer est facturée.
 
-- Nombre de règles d'équilibrage de charge et de règles de trafic sortant configurées (les règles NAT de trafic entrant ne sont pas prises en compte dans le nombre total de règles)
+- Nombre de règles d’équilibrage de charge et de règles de trafic sortant configurées (les règles NAT de trafic entrant ne sont pas prises en compte dans le nombre total de règles)
 - Volume entrant et sortant de données traitées, quelle que soit la règle. 
 
 Pour plus d’informations sur la tarification de Load Balancer Standard, consultez la page [Tarification de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

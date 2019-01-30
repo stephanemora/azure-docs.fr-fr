@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 12/12/2018
-ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/18/2019
+ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789905"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411745"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
 
@@ -141,6 +141,14 @@ Pour voir la liste des systèmes d’exploitation et versions du noyau pris en c
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Les partitions / volumes de démarrage et système ne sont pas le même disque (ErrorID : 95309)
 
 Avant la version 9.20, les volumes/partitions de démarrage et système résidant sur des disques n’étaient pas pris en charge. À partir de la [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), cette configuration est prise en charge. Utilisez la dernière version de ce support.
+
+## <a name="boot-disk-not-found-errorid-95310"></a>Disque de démarrage introuvable (ErrorID : 95310)
+
+Une machine virtuelle sans disque de démarrage ne peut pas être protégée. L’objectif est de garantir une récupération fluide de la machine virtuelle durant une opération de basculement. L’absence de disque de démarrage occasionne l’échec du démarrage de la machine après le basculement. Vérifiez que la machine virtuelle contient un disque de démarrage et recommencez l’opération. Notez également que les machines comprenant plusieurs disques de démarrage ne sont pas prises en charge.
+
+## <a name="multiple-boot-disks-found-errorid-95311"></a>Plusieurs disques de démarrage trouvés (ErrorID : 95311)
+
+Une machine virtuelle dotée de plusieurs disques de démarrage ne constitue pas une [configuration prise en charge](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Partition système sur plusieurs disques (ErrorID : 95313)
 

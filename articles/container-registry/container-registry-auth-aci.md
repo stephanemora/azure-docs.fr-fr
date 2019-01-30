@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855831"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390666"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>S’authentifier avec Azure Container Registry à partir d’Azure Container Instances
 
@@ -24,7 +24,7 @@ Dans cet article, vous apprendrez à créer et à configurer un principal de ser
 
 Vous devez utiliser un principal de service pour l’authentification à partir d’ACI dans les **scénarios sans affichage**, par exemple dans les applications ou services qui créent des instances de conteneur de façon automatisée ou sans assistance.
 
-Par exemple, si vous disposez d’un script automatisé qui s’exécute la nuit et crée une [instance de conteneur basée sur les tâches](../container-instances/container-instances-restart-policy.md) pour traiter des données, il peut utiliser un principal de service avec une autorisation d’extraction uniquement (en lecture) pour s’authentifier auprès du registre. Vous pouvez ensuite faire tourner les informations d’identification du principal de service ou révoquer complètement son accès sans affecter les autres applications et services.
+Par exemple, si vous disposez d’un script automatisé qui s’exécute la nuit et crée une [instance de conteneur basée sur les tâches](../container-instances/container-instances-restart-policy.md) pour traiter des données, il peut utiliser un principal de service avec une autorisation d’extraction uniquement pour s’authentifier auprès du registre. Vous pouvez ensuite faire tourner les informations d’identification du principal de service ou révoquer complètement son accès sans affecter les autres applications et services.
 
 Les principaux de service doivent également être utilisés lorsque le registre [admin user](container-registry-authentication.md#admin-account) est désactivé.
 

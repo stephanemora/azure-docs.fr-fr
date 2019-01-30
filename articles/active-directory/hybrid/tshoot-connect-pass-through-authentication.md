@@ -1,11 +1,11 @@
 ---
-title: 'Azure AD Connect : résolution des problèmes d’authentification directe | Microsoft Docs'
+title: 'Azure AD Connect : Résoudre les problèmes de l’authentification directe | Microsoft Docs'
 description: Cet article décrit la résolution des problèmes d’authentification directe d’Azure Active Directory (Azure AD).
 services: active-directory
 keywords: Résolution des problèmes d’authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: db3dfc10d6936b063a225e48fd043b6208f10475
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686192"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472770"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
@@ -66,7 +66,7 @@ Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’adm
 | 80002 | La demande de validation du mot de passe de l’Agent d’authentification est arrivée à expiration. | Vérifiez que l’agent d’authentification peut accéder à Active Directory.
 | 80003 | Réponse non valide reçue par l’Agent d’authentification. | Si le problème se produit pour tous les utilisateurs, vérifiez votre configuration Active Directory.
 | 80004 | Nom d’utilisateur principal (UPN) incorrect utilisé dans la demande de connexion. | Demandez à l’utilisateur de se connecter avec le bon nom d’utilisateur.
-| 80005 | Agent d’authentification : une erreur s’est produite. | Erreur temporaire. Réessayez ultérieurement.
+| 80005 | Agent d’authentification : Une erreur s’est produite. | Erreur temporaire. Réessayez ultérieurement.
 | 80007 | L’Agent d’authentification ne peut pas se connecter à Active Directory. | Vérifiez que l’agent d’authentification peut accéder à Active Directory.
 | 80010 | L’Agent d’authentification ne peut pas déchiffrer le mot de passe. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel. 
 | 80011 | L’Agent d’authentification n’a pas pu récupérer la clé de déchiffrement. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel.
@@ -95,7 +95,7 @@ Veillez à utiliser un compte d’administrateur général cloud pour toutes les
 
 ### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Message d’avertissement lors de la désinstallation d’Azure AD Connect
 
-Si l’authentification directe est activée sur votre locataire et que vous tentez de désinstaller Azure AD Connect, le message d’avertissement suivant apparaît : « Users will not be able to sign-in to Azure AD unless you have other pass-through authentication agents installed on other servers » (Les utilisateurs ne seront pas en métrique de se connecter, sauf si d’autres agents d’authentification directe sont installés sur d’autres serveurs).
+Si l’authentification directe est activée sur votre locataire et que vous essayez de désinstaller Azure AD Connect, le message d’avertissement suivant s’affiche : « Les utilisateurs ne pourront pas se connecter à Azure AD, sauf si vous avez d’autres agents d’authentification directe installés sur d’autres serveurs. »
 
 Vous devez avoir configuré la [haute disponibilité](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) avant de désinstaller Azure AD Connect pour éviter d’interrompre la connexion utilisateur.
 
@@ -137,7 +137,7 @@ Pour résoudre les problèmes d’échec de connexion de l’utilisateur, consul
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-Vous pouvez obtenir une description détaillée de l’erreur (« 1328 » dans l’exemple ci-dessus) en ouvrant l’invite de commandes et en exécutant la commande suivante (Remarque : remplacez « 1328 » par le numéro d’erreur qui s’affiche dans vos journaux) :
+Vous pouvez obtenir une description détaillée de l’erreur (« 1328 » dans l’exemple précédent) en ouvrant l’invite de commandes et en exécutant la commande suivante (Remarque : vous devez remplacer « 1328 » par le numéro d’erreur réel apparaissant dans vos journaux) :
 
 `Net helpmsg 1328`
 

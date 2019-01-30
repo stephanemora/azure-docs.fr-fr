@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Activation de l’écriture différée des appareils | Microsoft Docs'
+title: 'Azure AD Connect : Activation de la réécriture d’appareil | Microsoft Docs'
 description: Ce document explique comment activer l’écriture différée des appareils à l’aide d’Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361066"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412816"
 ---
-# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect : Activation de l’écriture différée des appareils
+# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect : Activation de la réécriture d’appareil
 > [!NOTE]
 > L’écriture différée sur appareil nécessite un abonnement Azure AD Premium.
 > 
@@ -38,10 +38,10 @@ Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux 
 > <li>Les appareils doivent se trouver dans la même forêt que les utilisateurs. Étant donné que les appareils doivent être réécrits dans une seule forêt, cette fonctionnalité ne prend pas en charge un déploiement à plusieurs forêts d’utilisateurs pour l’instant.</li>
 > <li>Vous ne pouvez ajouter qu’un seul objet de configuration d’enregistrement d’appareil à la forêt Active Directory locale. Cette fonctionnalité n’est pas compatible avec une topologie dans laquelle le domaine Active Directory local est synchronisé à plusieurs annuaires Azure AD.</li>
 
-## <a name="part-1-install-azure-ad-connect"></a>1re partie : Installer Azure AD Connect
+## <a name="part-1-install-azure-ad-connect"></a>Partie 1 : Installer Azure AD Connect
 Installez Azure AD Connect à l’aide de paramètres personnalisés ou Express. Microsoft recommande de commencer par synchroniser correctement tous les utilisateurs et groupes avant d’activer l’écriture différée des appareils.
 
-## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>2nde partie : Activer la réécriture d’appareil dans Azure AD Connect
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Partie 2 : Activer la réécriture d’appareil dans Azure AD Connect
 1. Réexécutez l’Assistant d’installation. Sur la page Tâches supplémentaires, sélectionnez **Configurer les options de l’appareil**, puis cliquez sur **Suivant**. 
 
     ![Tâche Configurer les options de l’appareil](./media/how-to-connect-device-writeback/deviceoptions.png)
@@ -57,10 +57,10 @@ Installez Azure AD Connect à l’aide de paramètres personnalisés ou Express.
 
 4. La page **Conteneur d’appareil** offre la possibilité de préparer Active Directory à l’aide de l’une des deux options disponibles :
 
-    a. **Fourniture des informations d’identification de l’administrateur d’entreprise** : si les informations d’identification de l’administrateur d’entreprise sont fournies pour la forêt dans laquelle les appareils doivent être réécrits, Azure AD Connect prépare automatiquement la forêt lors de la configuration de la réécriture d’appareil.
+    a. **Fournir des informations d’identification d’administrateur d’entreprise** : Si les informations d’identification d’administrateur d’entreprise sont fournies pour la forêt dans laquelle les appareils doivent être réécrits, Azure AD Connect prépare automatiquement la forêt lors de la configuration de la réécriture d’appareil.
 
-    b. **Téléchargement d’un script PowerShell** : Azure AD Connect génère automatiquement un script PowerShell pouvant préparer Active Directory à la réécriture d’appareil. Si les informations d’identification de l’administrateur d’entreprise ne peuvent pas être fournies dans Azure AD Connect, il est recommandé de télécharger le script PowerShell. Fournissez le script PowerShell téléchargé **CreateDeviceContainer.psq** à l’administrateur d’entreprise de la forêt dans laquelle les appareils seront réécrits.
-    ![Préparation de la forêt Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
+    b. **Télécharger un script PowerShell** : Azure AD Connect génère automatiquement un script PowerShell qui peut préparer Active Directory à la réécriture d’appareil. Si les informations d’identification de l’administrateur d’entreprise ne peuvent pas être fournies dans Azure AD Connect, il est recommandé de télécharger le script PowerShell. Fournissez le script PowerShell téléchargé **CreateDeviceContainer.psq** à l’administrateur d’entreprise de la forêt dans laquelle les appareils seront réécrits.
+    ![Préparer la forêt Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     Les opérations effectuées dans le cadre de la préparation de la forêt Active Directory sont les suivantes :
     * Si elles n’existent pas, des conteneurs et des objets sont créés et configurés sous CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].

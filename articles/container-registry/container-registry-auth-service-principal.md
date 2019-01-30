@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3aa986efd4986eb1d96c0f013d997486e6e8ae2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754201"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390919"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Authentification Azure Container Registry avec des principaux de service
 
@@ -47,9 +47,7 @@ Vous trouverez les exemples de scripts précédents pour Azure CLI sur GitHub, a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous disposez d’un principal de service auquel vous avez accordé l’accès à votre registre de conteneurs, vous pouvez utiliser ses informations d’identification dans vos applications et services pour interagir avec le registre.
-
-Bien que la configuration des applications individuelles pour qu’elles utilisent les informations d’identification du principal de service ne soit pas abordée dans cet article, vous trouverez des instructions pour certains services et plateformes ici :
+Une fois que vous disposez d’un principal de service auquel vous avez accordé l’accès à votre registre de conteneurs, vous pouvez utiliser ses informations d’identification dans vos applications et services pour interagir avec le registre sans périphérique de contrôle. Vous pouvez utiliser les informations d’identification du principal de service à partir de n’importe quel service Azure capable de s’authentifier auprès d’un registre de conteneurs Azure. Voici quelques exemples :
 
 * [S’authentifier auprès d’Azure Container Registry à partir d’Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
 * [S’authentifier avec Azure Container Registry à partir d’Azure Container Instances (ACI)](container-registry-auth-aci.md)

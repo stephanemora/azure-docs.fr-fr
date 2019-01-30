@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788393"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382741"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Sauvegarder un client Windows ou un serveur Windows Server dans Azure et le modèle de déploiement Resource Manager
 Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server (ou d’un client Windows) sur Azure avec Azure Backup et le modèle de déploiement Resource Manager.
@@ -48,9 +48,9 @@ Un coffre Recovery Services est une entité qui stocke l’ensemble des sauvegar
 
 6. Dans la section **Groupe de ressources** :
 
-    * sélectionnez **Créer** si vous voulez créer un groupe de ressources.
+    * Cliquez sur le menu déroulant **Sélectionner un groupe existant**  pour voir la liste des groupes de ressources disponibles.
     Ou
-    * sélectionnez **Utiliser existant** et cliquez sur le menu déroulant pour afficher la liste des groupes de ressources disponibles.
+    * sélectionnez **Créer** si vous voulez créer un groupe de ressources.
 
   Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -70,21 +70,21 @@ Lorsque vous créez un archivage de Recovery Services pour la première fois, vo
 
 1. Dans le panneau **Coffres Recovery Services**, cliquez sur le nouveau coffre.
 
-    ![Sélectionnez le nouveau coffre dans la liste des coffres Recovery Services.](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Sélectionnez le nouveau coffre dans la liste des coffres Recovery Services.](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Lorsque vous sélectionnez le coffre, le panneau **Coffre Recovery Services** se réduit et le panneau Paramètres (*qui porte le nom du coffre en haut*) ainsi que le panneau des détails du coffre s’ouvrent.
+    Quand vous sélectionnez le coffre, le panneau Coffre Recovery Services se réduit et le panneau **Vue d’ensemble** (*qui mentionne le nom du coffre en haut*) ainsi que le panneau des détails du coffre s’ouvrent.
 
-    ![Afficher la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![Afficher la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 
-2. Dans le panneau Paramètres du nouveau coffre, utilisez le curseur vertical pour faire défiler l’écran jusqu'à la section Gestion, puis cliquez sur **Infrastructure de sauvegarde**.
+2. Dans le nouveau coffre, sous la section **Paramètres**, accédez à **Propriétés**.
 
-  Le panneau Infrastructure de sauvegarde s’ouvre.
+  Le panneau **Propriétés** s’ouvre.
 
-3. Dans le panneau Infrastructure de sauvegarde, cliquez sur **Configuration de la sauvegarde** pour ouvrir le panneau **Configuration de la sauvegarde**.
+3. Dans le panneau **Propriétés**, cliquez sur **Mise à jour** sous le panneau **Configuration de la sauvegarde**. Le panneau **Configuration de la sauvegarde** s’ouvre.
 
-  ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-4. Choisissez l’option de réplication de stockage à appliquer à votre archivage.
+4. Choisissez l’option de réplication de stockage à appliquer à votre coffre, puis cliquez sur **Enregistrer**.
 
   ![Options de configuration du stockage](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
@@ -183,7 +183,7 @@ La stratégie de sauvegarde couvre a planification d’exécution des points de 
 
 ### <a name="to-create-a-backup-schedule"></a>Pour créer une planification de sauvegarde
 
-Définissez la planification de sauvegarde sur la machine à sauvegarder. Notez que l’heure définie pour la sauvegarde peut différer de celle de l’ordinateur local, car Sauvegarde Azure ne tient pas compte de l’heure d’été. 
+Définissez la planification de sauvegarde sur la machine à sauvegarder. Notez que l’heure définie pour la sauvegarde peut différer de celle de l’ordinateur local, car Sauvegarde Azure ne tient pas compte de l’heure d’été.
 1. Ouvrez l’agent Microsoft Azure Backup. Vous pouvez le trouver en recherchant **Microsoft Azure Backup**sur votre ordinateur.
 
     ![Démarrer l’agent Azure Backup](./media/backup-configure-vault/snap-in-search.png)

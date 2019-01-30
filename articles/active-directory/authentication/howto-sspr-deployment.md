@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9c728ba4c77cd22782adc9916da62cc309a8150b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622318"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431654"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
 
@@ -24,7 +24,7 @@ Pour garantir le déploiement sans problèmes de la fonctionnalité de réinitia
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
 1. Effectuez un déploiement pilote avec un petit sous-ensemble de votre organisation.
-   * Vous trouverez des informations sur la façon de piloter dans le [Didacticiel : compléter un déploiement pilote de réinitialisation du mot de passe libre-service Azure AD](tutorial-sspr-pilot.md).
+   * Des informations sur la façon de mener cette opération sont disponibles dans le [Tutoriel : Effectuer un déploiement pilote de réinitialisation de mot de passe en libre-service pour Azure AD](tutorial-sspr-pilot.md).
 1. Formez votre support technique.
    * Comment vont-ils aider vos utilisateurs ?
    * Obligerez-vous les utilisateurs à utiliser SSPR et interdisez-vous à votre support technique d’aider les utilisateurs ?
@@ -41,12 +41,12 @@ Pour garantir le déploiement sans problèmes de la fonctionnalité de réinitia
 
 De nombreux clients estiment qu’une campagne par courrier électronique incluant des instructions simples d’utilisation constitue le moyen le plus simple pour que les utilisateurs aient recours à la réinitialisation du mot de passe libre-service. [Nous avons créé des e-mails simples et d’autres collatéraux que vous pouvez utiliser comme modèles pour vous aider dans votre lancement](https://www.microsoft.com/download/details.aspx?id=56768) :
 
-* **Bientôt disponible** : modèle de courrier électronique à utiliser dans les semaines ou les jours précédant le lancement pour informer les utilisateurs s’ils ont besoin d’effectuer une action.
-* **Disponible dès maintenant** : modèle de courrier électronique à utiliser le jour du lancement du programme pour inciter les utilisateurs à s’inscrire et à confirmer leurs données d’authentification. En s’inscrivant maintenant, les utilisateurs pourront utiliser la réinitialisation du mot de passe libre-service lorsqu’ils en auront besoin.
-* **Rappel d’inscription** : modèle de courrier électronique à utiliser dans les jours ou les semaines qui suivent le déploiement pour rappeler aux utilisateurs de s’inscrire et de confirmer leurs données d’authentification.
-* **Affiches SSPR** : les affiches que vous pouvez personnaliser et afficher autour de votre organisation dans les jours et semaines jusqu’à votre lancement et ceux qui suivent.
-* **Chevalets de table SSPR** : des cartes que vous pouvez placer dans la salle à manger, les salles de conférence, ou dans les bureaux pour encourager vos utilisateurs à terminer l’inscription.
-* **Autocollants SSPR** : modèles de vignette que vous pouvez personnaliser et imprimer pour les coller sur les ordinateurs portables, les moniteurs, les claviers ou les téléphones portables pour se rappeler comment accéder à SSPR.
+* **Bientôt disponible** : modèle d’e-mail à utiliser dans les semaines ou les jours précédant le lancement, pour informer les utilisateurs qu’ils doivent effectuer certaines actions.
+* **Disponible dès maintenant** : modèle d’e-mail à utiliser le jour du lancement du programme pour inciter les utilisateurs à s’inscrire et à confirmer leurs données d’authentification. En s’inscrivant maintenant, les utilisateurs pourront utiliser la réinitialisation du mot de passe libre-service lorsqu’ils en auront besoin.
+* **Rappel d’inscription** : modèle d’e-mail à utiliser dans les jours ou les semaines qui suivent le déploiement pour rappeler aux utilisateurs de s’inscrire et de confirmer leurs données d’authentification.
+* **Affiches SSPR** : affiches que vous pouvez personnaliser et montrer dans votre organisation dans les jours et semaines précédant votre lancement, et après celui-ci.
+* **Chevalets de table SSPR** : cartes que vous pouvez placer dans la salle à manger, les salles de conférence, ou dans les bureaux pour encourager vos utilisateurs à effectuer l’inscription.
+* **Autocollants SSPR** : modèles de vignette que vous pouvez personnaliser et imprimer pour les coller sur les ordinateurs portables, les écrans, les claviers ou les téléphones portables pour se rappeler comment accéder à SSPR.
 
 ![Exemples d’e-mails SSPR][Email]
 
@@ -81,7 +81,7 @@ Si votre organisation décide de désactiver la réinitialisation du mot de pass
 
 * [Réinitialiser ou modifier votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md)
 * [S’inscrire pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md)
-* [Activer l’inscription convergée pour l’authentification multifacteur Azure et la réinitialisation de mot de passe en libre-service Azure AD](concept-registration-mfa-sspr-converged.md)
+* [Activer l’inscription convergée pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service Azure AD](concept-registration-mfa-sspr-converged.md)
 * [Vous avez une question relative à la licence ?](concept-sspr-licensing.md)
 * [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
 * [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)

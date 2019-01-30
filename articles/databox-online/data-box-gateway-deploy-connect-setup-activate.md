@@ -8,14 +8,14 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260432"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450402"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutoriel : Se connecter à Azure Data Box Gateway, le configurer et l’activer (préversion) 
+# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Didacticiel : Se connecter à Azure Data Box Gateway, le configurer et l’activer (préversion) 
 
 ## <a name="introduction"></a>Introduction
 

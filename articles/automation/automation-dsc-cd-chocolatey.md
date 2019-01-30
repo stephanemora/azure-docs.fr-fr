@@ -3,20 +3,20 @@ title: Déploiement continu d’Azure Automation State Configuration avec Chocol
 description: Déploiement continu du DevOps à l’aide d’Azure Automation State Configuration, DSC, et du gestionnaire de packages Chocolatey.  Exemple avec modèle Resource Manager JSON complet et source PowerShell.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 53ecff7df849d19ff7fe1d4c1c8dbd472326b06e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284793"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424453"
 ---
-# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemple d’utilisation : déploiement continu sur des machines virtuelles à l’aide d’Automation State Configuration et Chocolatey
+# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemple d’utilisation : déploiement continu sur des machines virtuelles à l’aide d’Automation State Configuration et Chocolatey
 
 L’univers des opérations de développement offre de nombreux outils conçus pour aider les développeurs à franchir plus facilement différents stades dans le pipeline de l’intégration continue. Le nouveau service Azure Automation State Configuration vient aujourd’hui enrichir la liste des options disponibles pour les équipes DevOps. Cet article explique comment configurer le déploiement continu (CD) pour un ordinateur Windows. Vous pouvez facilement étendre la technique afin d’inclure autant d’ordinateurs Windows que vous le souhaitez dans le rôle (par exemple, un site Web), puis dans des rôles supplémentaires.
 
@@ -58,9 +58,9 @@ En fait, elle est stockée à deux reprises : une première fois en tant que tex
 
 Vraisemblablement, vous le faites déjà au départ, ou du moins la majeure partie. Créer un nuspec, le compiler et le stocker dans un serveur NuGet n’a rien de compliqué. Et vous gérez déjà des machines virtuelles. L’étape suivante du déploiement continu suppose de configurer le serveur d’extraction (une fois), d’y enregistrer vos nœuds (une fois) et d’y créer et stocker la configuration (au début). Au fur et à mesure que les packages sont mis à niveau et déployés dans le référentiel, vous devez actualiser la configuration et la configuration des nœuds dans le serveur d’extraction (et répéter l’opération si besoin).
 
-Si vous ne commencez pas par un modèle Resource Manager, il n’y a aucun problème. Il existe des applets de commande PowerShell conçues pour vous aider à enregistrer vos machines virtuelles auprès du serveur d’extraction et de tous les autres serveurs. Pour plus d’informations, consultez cet article : [Intégration des machines pour la gestion avec Azure Automation State Configuration](automation-dsc-onboarding.md).
+Si vous ne commencez pas par un modèle Resource Manager, il n’y a aucun problème. Il existe des applets de commande PowerShell conçues pour vous aider à enregistrer vos machines virtuelles auprès du serveur d’extraction et de tous les autres serveurs. Pour plus d’informations, consultez cet article : [Intégration des machines pour la gestion avec Azure Automation State Configuration](automation-dsc-onboarding.md).
 
-## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Étape 1 : configuration du serveur Pull et du compte Automation
+## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Étape 1 : Configuration du serveur Pull et du compte Automation
 
 Ouvrez une ligne de commande PowerShell (`Connect-AzureRmAccount`) authentifiée : (le processus peut prendre quelques minutes en attendant que le serveur d’extraction soit configuré)
 
@@ -69,14 +69,14 @@ New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-
 New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
 ```
 
-Vous pouvez installer votre compte Automation dans l’une des régions suivantes (également appelées « emplacements ») : USA Est 2, USA Centre Sud, US Gov Virginie, Europe Ouest, Asie Sud-Est, Japon Est, Inde Centre et Australie Sud-Est, Canada Centre, Europe Nord.
+Vous pouvez installer votre compte Automation dans l’une des régions suivantes (ou « emplacements ») : USA Est 2, USA Centre Sud, US Gov Virginie, Europe Ouest, Asie Sud-Est, Japon Est, Inde Centre et Australie Sud-Est, Canada Centre, Europe Nord.
 
-## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Étape 2 : ajustement de l’extension de machine virtuelle au modèle Resource Manager
+## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Étape 2 : Ajustement de l’extension de machine virtuelle au modèle Resource Manager
 
 Voir les détails de l’enregistrement d’une machine virtuelle (à l’aide de l’extension PowerShell DSC VM) fournis dans ce [modèle de démarrage rapide d’Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
 Cette étape consiste à inscrire votre nouvelle machine virtuelle auprès du serveur d’extraction dans la liste des nœuds State Configuration. Une partie de cette inscription consiste à spécifier la configuration du nœud à appliquer au nœud. Comme cette configuration de nœud n’a pas encore besoin d’exister déjà sur le serveur d’extraction, cette opération peut être effectuée pour la première fois à l’étape 4. Mais ici, à l'étape 2, vous devez avoir choisi le nom du nœud et celui de la configuration. Dans cet exemple d'utilisation, le nœud est ’isvbox’ et la configuration est ’ISVBoxConfig’. Le nom de la configuration de nœud (à préciser dans DeploymentTemplate.json) est donc ’ISVBoxConfig.isvbox’.
 
-## <a name="step-3-adding-required-dsc-resources-to-the-pull-server"></a>Étape 3 : ajout des ressources DSC requises au serveur Pull
+## <a name="step-3-adding-required-dsc-resources-to-the-pull-server"></a>Étape 3 : Ajout des ressources DSC nécessaires au serveur Pull
 
 La PowerShell Gallery est conçue pour installer les ressources DSC dans votre compte Azure Automation.
 Accédez à la ressource que vous souhaitez ajouter et cliquez sur le bouton « Deploy to Azure Automation » (Déployer vers Azure Automation).
@@ -86,7 +86,7 @@ Accédez à la ressource que vous souhaitez ajouter et cliquez sur le bouton «�
 Une autre technique récemment ajoutée au portail Azure vous permet d’extraire de nouveaux modules ou de mettre à jour des modules existants. Cliquez sur la ressource Compte Automation, sur la vignette Ressources et enfin sur la vignette Modules. L’icône Parcourir la galerie vous permet de consulter la liste des modules dans la galerie, d’étudier le tout plus en détail et enfin d’importer dans votre compte Automation. Il s’agit là d’un excellent moyen pour mettre à jour vos modules de temps à autre. De plus, la fonctionnalité d’importation vérifie les dépendances avec d’autres modules pour garantir que rien n’est désynchronisé.
 
 Il existe aussi une approche manuelle. La structure de dossier d’un module d’intégration PowerShell pour un ordinateur Windows est un peu différente de celle à laquelle s’attend Azure Automation.
-Cette différence nécessite une légère modification de votre part. Mais il n’y a là rien de compliqué, et vous n’avez à effectuer cette opération qu’une seule fois par ressource (sauf si vous souhaitez effectuer une mise à niveau ultérieurement). Pour plus d’informations sur la création de modules d’intégration PowerShell, consultez cet article : [Création de modules d’intégration pour Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
+Cette différence nécessite une légère modification de votre part. Mais il n’y a là rien de compliqué, et vous n’avez à effectuer cette opération qu’une seule fois par ressource (sauf si vous souhaitez effectuer une mise à niveau ultérieurement). Pour plus d’informations sur la création de modules d’intégration PowerShell, consultez cet article : [Création de modules d’intégration pour Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - Installez le module dont vous avez besoin sur votre station de travail, comme suit :
   - Installez [Windows Management Framework v5](https://aka.ms/wmf5latest) (inutile pour Windows 10)
@@ -105,7 +105,7 @@ Cette différence nécessite une légère modification de votre part. Mais il n�
 
 L’exemple fourni exécute ces étapes pour cChoco et xNetworking. Consultez les [notes](#notes) relatives au traitement spécial pour cChoco.
 
-## <a name="step-4-adding-the-node-configuration-to-the-pull-server"></a>Étape 4 : ajout de la configuration de nœud au serveur Pull
+## <a name="step-4-adding-the-node-configuration-to-the-pull-server"></a>Étape 4 : Ajout de la configuration de nœud au serveur Pull
 
 L’importation et la compilation initiales de votre configuration dans le serveur Pull ne présentent aucune difficulté particulière. Toutes les autres opérations d’importation/compilation de la même configuration auront exactement le même aspect. Chaque fois que vous mettez à jour votre package et que vous devez la mettre en production, vous devez effectuer cette étape après avoir vérifié que le fichier de configuration est correct et qu’il comporte la nouvelle version de votre package. Voici le fichier de configuration et la commande PowerShell :
 
@@ -176,7 +176,7 @@ Get-AzureRmAutomationDscCompilationJob `
 
 Ces étapes génèrent une nouvelle configuration de nœud nommée « ISVBoxConfig.isvbox » placée sur le serveur d’extraction. Le nom de la configuration de nœuds est créé en tant que « configurationName.nodeName ».
 
-## <a name="step-5-creating-and-maintaining-package-metadata"></a>Étape 5 : création et gestion des métadonnées de packages
+## <a name="step-5-creating-and-maintaining-package-metadata"></a>Étape 5 : Création et gestion des métadonnées de packages
 
 Pour chaque package que vous placez dans le référentiel de packages, vous avez besoin d’un nuspec descriptif.
 Ce nuspec doit être compilé et stocké sur votre serveur NuGet. Cette opération est décrite [ici](https://docs.nuget.org/create/creating-and-publishing-a-package). Vous pouvez utiliser MyGet.org comme serveur NuGet. Bien que ce service soit payant, ils proposent gratuitement une référence SKU pour débutants. Rendez-vous sur NuGet.org pour obtenir des instructions sur l’installation de votre propre serveur NuGet pour vos packages privés.

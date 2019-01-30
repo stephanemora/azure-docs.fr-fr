@@ -17,14 +17,14 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 11132426bb8adb6ede564e706e18f3eddd649bef
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424950"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401875"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
 Actuellement, Azure Active Directory (Azure AD) prend en charge l’authentification unique avec la plupart des applications d’entreprise, y compris les applications pré-intégrées dans la galerie d’applications Azure AD et les applications personnalisées. Quand un utilisateur s’authentifie auprès d’une application par l’intermédiaire d’Azure AD en utilisant le protocole SAML 2.0, Azure AD envoie un jeton à l’application (via HTTP POST). Après quoi, l’application valide et utilise ce jeton pour connecter l’utilisateur au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées « revendications ».
 
@@ -81,7 +81,7 @@ Vous pouvez également utiliser les fonctions spéciales de transformation de re
 
 ## <a name="adding-claims"></a>Ajout de revendications
 
-Au moment d’ajouter une revendication, vous pouvez spécifier le nom d’attribut (qui ne doit pas nécessairement correspondre de manière stricte à un modèle d’URI, conformément à la spécification SAML). Faites correspondre la valeur à n’importe quel attribut utilisateur stocké dans l’annuaire.
+Au moment d’ajouter une revendication, vous pouvez spécifier le nom d’attribut (qui ne doit pas nécessairement correspondre de manière stricte à un modèle d’URI, conformément à la spécification SAML). Définissez la valeur sur n’importe quel attribut utilisateur stocké dans l’annuaire ou utilisez une valeur de constante comme entrée statique pour tous les utilisateurs de votre organisation.
 
 ![Ajouter un attribut utilisateur][7]
 

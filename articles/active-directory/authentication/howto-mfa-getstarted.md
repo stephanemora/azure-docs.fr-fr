@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: bd2f796ab2feee4bb862d8de2c44efc742163f06
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1a5a5dc04f9ac663fe2e29fd81df5201435c1bc1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167526"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430160"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Déploiement basé sur le cloud Azure Multi-Factor Authentication
 
@@ -74,14 +74,14 @@ Avant d’activer l’authentification multifacteur Azure, votre organisation do
 1. Entrez un nom explicite pour votre stratégie.
 1. Sous **utilisateurs et groupes** :
    * Dans l’onglet **Inclure**, sélectionnez la case d’option **Tous les utilisateurs**
-   * RECOMMANDÉ : Dans l’onglet **Exclure**, cochez la case **Utilisateurs et groupes** et choisissez un groupe à utiliser pour les exclusions lorsque les utilisateurs n’ont pas accès à leurs méthodes d’authentification.
+   * RECOMMANDÉ : sous l’onglet **Exclure**, cochez la case **Utilisateurs et groupes** et choisissez un groupe à utiliser pour les exclusions lorsque les utilisateurs n’ont pas accès à leurs méthodes d’authentification.
    * Cliquez sur **Done**.
 1. Sous **Applications Cloud**, sélectionnez la case d’option **Toutes les applications cloud**.
-   * FACULTATIF : Dans l’onglet **Exclure**, choisissez les applications cloud pour lesquelles votre organisation ne nécessite pas d’authentification multifacteur.
+   * FACULTATIF : sous l’onglet **Exclure**, choisissez les applications cloud pour lesquelles votre organisation ne nécessite pas d’authentification multifacteur.
    * Cliquez sur **Done**.
 1. Sous la section **Conditions** :
-   * FACULTATIF : Si vous avez activé Azure Identity Protection, vous pouvez choisir d’évaluer le risque de connexion dans le cadre de la stratégie.
-   * FACULTATIF : Si vous avez configuré des emplacements approuvés ou des emplacements nommés, vous pouvez spécifier l’inclusion ou l’exclusion de ces emplacements à partir de la stratégie.
+   * FACULTATIF : si vous avez activé Azure Identity Protection, vous pouvez choisir d’évaluer le risque de connexion dans le cadre de la stratégie.
+   * FACULTATIF : si vous avez configuré des emplacements approuvés ou des emplacements nommés, vous pouvez spécifier l’inclusion ou l’exclusion de ces emplacements à partir de la stratégie.
 1. Sous **Accord**, assurez-vous que la case d’option **Accorder l’accès** est sélectionnée.
     * Cochez la case **Exiger une authentification multifacteur**.
     * Cliquez sur **Sélectionner**.

@@ -3,18 +3,18 @@ title: Vue d’ensemble du kit de développement logiciel (SDK) de runbook graph
 description: Cet article explique comment utiliser le kit de développement logiciel (SDK) de runbook graphique Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 702af8311887afc94e7127704d3377e944503324
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: bc9f1feff6d8d45e52c8621d1ec4b36e0a4a4a76
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39240382"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434255"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Utiliser le kit de développement logiciel (SDK) de runbook graphique Azure Automation
 
@@ -103,7 +103,7 @@ Les activités sont implémentées par les classes suivantes dans l’espace de 
 |WorkflowScriptActivity     | Exécute un bloc de code PowerShell ou PowerShell Workflow (selon le type de runbook) dans le contexte du runbook. Il s’agit d’un outil puissant, mais n’en abusez pas : l’interface utilisateur affiche ce bloc de script en tant que texte ; le moteur d’exécution traite le bloc fourni comme une boîte noire et n’essaie pas d’analyser son contenu, à l’exception d’une vérification basique de la syntaxe. Si vous devez seulement appeler une commande PowerShell, préférez CommandActivity.        |
 
 > [!NOTE]
-> Ne dérivez pas vos propres activités à partir des classes fournies : Azure Automation ne sera pas en mesure d’utiliser des runbooks avec les types d’activités personnalisés.
+> Ne dérivez pas vos propres activités des classes fournies : Azure Automation ne peut pas utiliser des runbooks avec des types d’activités personnalisées.
 
 Les paramètres CommandActivity et InvokeRunbookActivity doivent être fournis en tant que descripteurs de valeur, et pas directement comme valeurs. Les descripteurs de valeur spécifient la façon dont les valeurs de paramètre réelles doivent être produites. Les descripteurs de valeur suivants sont actuellement disponibles :
 
@@ -119,7 +119,7 @@ Les paramètres CommandActivity et InvokeRunbookActivity doivent être fournis e
 |PowerShellExpressionValueDescriptor     | Spécifie une expression PowerShell de forme libre qui sera évaluée juste avant l’appel de l’activité.  <br/>Il s’agit d’un outil puissant, mais n’en abusez pas : l’interface utilisateur affiche cette expression en tant que texte ; le moteur d’exécution traite le bloc fourni comme une boîte noire et n’essaie pas d’analyser son contenu, à l’exception d’une vérification basique de la syntaxe. Dans la mesure du possible, préférez les descripteurs de valeur plus spécifiques.      |
 
 > [!NOTE]
-> Ne dérivez pas vos propres descripteurs de valeur à partir des classes fournies : Azure Automation ne sera pas en mesure d’utiliser des runbooks avec les types de descripteurs de valeur personnalisés.
+> Ne dérivez pas vos propres descripteurs de valeur des classes fournies : Azure Automation ne peut pas utiliser des runbooks avec des types de descripteurs de valeur personnalisés.
 
 Instanciez les liens connectant les activités et ajoutez-les au runbook :
 
@@ -146,3 +146,4 @@ Le format sérialisé peut changer dans les prochaines versions de `Orchestrator
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les runbooks graphiques dans Azure Automation, consultez l’[introduction à la création de graphiques](automation-graphical-authoring-intro.md).
+

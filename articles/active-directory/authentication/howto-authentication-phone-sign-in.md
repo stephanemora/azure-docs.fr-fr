@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963945"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434187"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Connexion par téléphone sans mot de passe avec l’application Microsoft Authenticator (préversion publique)
 
@@ -37,16 +37,21 @@ Pour la préversion publique, un administrateur doit commencer par ajouter une s
 
 ### <a name="steps-to-enable"></a>Procédure d’activation
 
-Assurez-vous de disposer de la dernière version du module PowerShell d’Azure Active Directory V2 en préversion publique. Vous pouvez effectuer une désinstallation, puis une réinstallation pour le confirmer. À cette fin, exécutez les commandes suivantes :
+1. Assurez-vous de disposer de la dernière version du module PowerShell d’Azure Active Directory V2 en préversion publique. Vous pouvez effectuer une désinstallation, puis une réinstallation pour le confirmer. À cette fin, exécutez les commandes suivantes :
+    ```powershell
+    Uninstall-Module -Name AzureADPreview
+    Install-Module -Name AzureADPreview
+    ```
 
-1. `Uninstall-Module -Name AzureADPreview`
-2. `Install-Module -Name AzureADPreview`
+2. Authentifiez-vous auprès du locataire Azure AD pour utiliser le module Azure AD PowerShell V2. Vous devez utiliser un compte d’administrateur de la sécurité ou d’administrateur général.
+    ```powershell
+    Connect-AzureAD
+    ```
 
-Vous pouvez activer l’aperçu de connexion sans mot de passe téléphonique en utilisant les commandes PowerShell suivantes :
-
-1. `Connect-AzureAD`
-   1. Dans la boîte de dialogue d’authentification, connectez-vous à l’aide d’un compte dans le locataire. Vous devez utiliser un compte d’administrateur de la sécurité ou d’administrateur général.
-1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+3. Créez la stratégie de connexion de l’authentificateur :
+    ```powershell
+    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
+    ```
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Comment mes utilisateurs finals activent-ils la connexion par téléphone ?
 

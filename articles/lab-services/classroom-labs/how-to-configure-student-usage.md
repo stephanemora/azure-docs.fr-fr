@@ -11,28 +11,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 30c033b487fe58d017080b02c257502f82338164
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 371751f2eb643c3699e5462fe44380d7792243ef
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710038"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388299"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurer des paramètres et des stratégies d’utilisation
-Cet article explique comment configurer le nombre d’utilisateurs d’un labo, comment les inscrire au labo, comment contrôler le nombre d’heures qu’ils peuvent utiliser la machine virtuelle, et bien plus encore. 
+Cet article explique comment ajouter des utilisateurs au labo, comment les inscrire au labo, comment contrôler le nombre d’heures qu’ils peuvent utiliser la machine virtuelle, et bien plus encore. 
 
 
-## <a name="specify-the-number-of-users-allowed-into-the-lab"></a>Spécifier le nombre d’utilisateurs autorisés dans le labo
+## <a name="add-users-to-the-lab"></a>Ajouter des utilisateurs au laboratoire
+Si l’option **Restreindre l’accès** est activée, ajoutez des utilisateurs (adresses e-mail) à la liste.
 
-1. Sélectionnez **Politique d’utilisation**. 
-2. Dans **Politique d’utilisation**, puis dans les paramètres, entrez le **nombre d’utilisateurs** autorisés à utiliser le laboratoire.
-3. Sélectionnez **Enregistrer**. 
+1. Sélectionnez **Utilisateurs** dans le menu de gauche.
+2. Sélectionnez **Ajouter des utilisateurs** dans la barre d’outils. 
+3. Dans la page **Ajouter des utilisateurs**, entrez les adresses e-mail des utilisateurs sur des lignes distinctes, ou sur une seule ligne en les séparant par des points-virgules. 
 
-    ![Politique d’utilisation](../media/how-to-manage-classroom-labs/usage-policy-settings.png)
+    ![Ajouter les adresses e-mail des utilisateurs](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Sélectionnez **Enregistrer**. Dans la liste, vous voyez les adresses e-mail des utilisateurs et leur état (inscrits ou non). 
+
+    ![Liste des utilisateurs](../media/how-to-configure-student-usage/users-list-new.png)
 
 ## <a name="send-registration-link-to-students"></a>Envoyer un lien d’inscription aux étudiants
+La procédure suivante indique comment envoyer un lien d’inscription aux utilisateurs. Si l’option **Restreindre l’accès** est activée pour le labo, seuls les utilisateurs figurant dans la liste des utilisateurs peuvent utiliser le lien d’inscription pour s’inscrire au labo. 
 
 1. Basculez vers la vue **Utilisateurs** en sélectionnant **Utilisateurs** dans le menu de gauche. 
 2. Sélectionnez la vignette **Obtenir un lien d’inscription**.
@@ -52,9 +57,10 @@ Cet article explique comment configurer le nombre d’utilisateurs d’un labo, 
 
 Dans le menu de gauche, sélectionnez **Utilisateurs** pour afficher la liste des utilisateurs inscrits au labo. 
 
-![Liste des utilisateurs inscrits au labo](../media/how-to-configure-student-usage/users-list.png)
+![Liste des utilisateurs inscrits au labo](../media/how-to-configure-student-usage/users-list-new.png)
 
 ## <a name="set-quotas-per-user"></a>Définir des quotas par utilisateur
+Vous pouvez définir des quotas par utilisateur en effectuant les étapes suivantes : 
 
 1. Sélectionnez **Utilisateurs** dans le menu de gauche.
 2. Sélectionnez **Quota par utilisateur : illimité** dans la barre d’outils. 
@@ -65,18 +71,6 @@ Dans le menu de gauche, sélectionnez **Utilisateurs** pour afficher la liste de
 5. Le nombre d’heures s’affiche désormais dans la barre d’outils : **Quota par utilisateur : &lt;nombre d’heures&gt;**. 
 
     ![Quota par utilisateur](../media/how-to-configure-student-usage/quota-per-user.png)
-
-## <a name="add-users-to-the-lab"></a>Ajouter des utilisateurs au laboratoire
-Si l’option **Restreindre l’accès** est activée, ajoutez des utilisateurs (adresses e-mail) à la liste.
-
-1. Sélectionnez **Utilisateurs** dans le menu de gauche.
-2. Sélectionnez **Ajouter des utilisateurs** dans la barre d’outils. 
-3. Dans la page **Ajouter des utilisateurs**, entrez les adresses e-mail des utilisateurs sur des lignes distinctes, ou sur une seule ligne en les séparant par des points-virgules. 
-
-    ![Ajouter les adresses e-mail des utilisateurs](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Sélectionnez **Enregistrer**. Dans la liste, vous voyez les adresses e-mail des utilisateurs et leur état (inscrits ou non). 
-
-    ![Liste des utilisateurs](../media/how-to-configure-student-usage/users-list-new.png)
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Ajouter des utilisateurs en chargeant un fichier CSV
 Vous pouvez également ajouter des utilisateurs en chargeant un fichier CSV avec les adresses e-mail des utilisateurs.
@@ -96,6 +90,16 @@ Vous pouvez effectuer les tâches suivantes sur une machine virtuelle d’étudi
 - Connectez-vous à la machine virtuelle. 
 - Supprimez la machine virtuelle. 
 - Affichez le nombre d’heures durant lesquelles les utilisateurs ont utilisé la machine virtuelle. 
+
+## <a name="update-number-of-virtual-machines-in-lab"></a>Mettre à jour le nombre de machines virtuelles dans le labo
+Pour mettre à jour le nombre de machines virtuelles dans le labo, effectuez les étapes mentionnées dans la page **Machines virtuelles** :
+
+1. Sélectionnez **Machines virtuelles** dans le menu de gauche. 
+2. Sélectionnez **Capacité du labo : &lt;nombre&gt; machine(s)** dans la barre d’outils. 
+3. Entrez le **nombre** de machines virtuelles.
+4. Sélectionnez **Enregistrer**.
+
+    ![Machines virtuelles dans le labo](../media/how-to-configure-student-usage/number-virtual-machines.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

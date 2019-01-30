@@ -4,7 +4,7 @@ description: Cette rubrique décrit comment utiliser une base de données ADSync
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 36db41308678f3f1bd713561f9a844288f5db401
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a03e04b9ab249b5bb8ed43eecbc18d3a24374659
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306298"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473129"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installer Azure AD Connect à l’aide d’une base de données ADSync existante
 Azure AD Connect nécessite une base de données SQL Server pour stocker les données. Vous pouvez utiliser la Base de données locale (LocalDB) par défaut de SQL Server 2012 Express installée avec Azure AD Connect ou utiliser votre propre version complète de SQL. Auparavant, quand vous installiez Azure AD Connect, une nouvelle base de données nommée ADSync était toujours créée. Avec Azure AD Connect version 1.1.613.0 (ou ultérieure), vous pouvez installer Azure AD Connect en le pointant sur une base de données ADSync existante.
@@ -86,9 +86,20 @@ Remarques importantes avant de continuer :
  
 11. Une fois l’installation terminée, le serveur Azure AD Connect est automatiquement activé pour le Mode de préproduction. Nous vous recommandons de vérifier la présence de modifications inattendues dans la configuration du serveur et les exportations en attente avant de désactiver le Mode de préproduction. 
 
+## <a name="post-installation-tasks"></a>Tâches postérieures à l’installation
+Lorsque vous restaurez une sauvegarde de base de données créée par une version d’Azure AD Connect préalable à 1.2.65.0, le serveur de processus de site sélectionne automatiquement la méthode de connexion **sans configuration**. Les préférences en matière de synchronisation du hachage de mot de passe et de réécriture du mot de passe seront restaurées, mais vous devrez modifier la méthode de connexion pour faire correspondre les autres stratégies en vigueur pour votre serveur de synchronisation actif.  Si vous ne le faites pas, les utilisateurs ne pourront peut-être pas se connecter en cas d’activation de ce serveur.  
+
+Le tableau ci-dessous vous permet de vérifier les étapes supplémentaires éventuellement requises.
+
+|Fonctionnalité|Étapes|
+|-----|-----|
+|Synchronisation du hachage de mot de passe| La synchronisation du hachage de mot de passe et les paramètres de réécriture du mot de passe sont entièrement restaurés pour Azure AD Connect versions 1.2.65.0 et ultérieures.  Si vous restaurez le système depuis une version plus ancienne d’Azure AD Connect, parcourez les paramètres relatifs aux options de synchronisation associés à ces fonctions, afin de vous assurer qu’ils correspondent au serveur de synchronisation actif.  Aucune autre étape de configuration n’est nécessaire.|
+|Fédération avec AD FS|Les authentifications Azure continuent à utiliser la stratégie AD FS configurée pour votre serveur de synchronisation actif.  Si vous utilisez Azure AD Connect pour gérer votre batterie AD FS, vous pouvez modifier la méthode de connexion à la fédération AD FS, afin de préparer la conversion du serveur de secours en instance de synchronisation active.   Si les options de l’appareil sont activées sur le serveur de synchronisation actif, configurez ces options sur ce serveur en exécutant la tâche de configuration des options de l’appareil.|
+|Authentification de transmission directe et authentification unique de bureau|Mettez à jour la méthode de connexion afin qu’elle correspond à la configuration sur votre serveur de synchronisation actif.  Si vous ne le faites pas avant la promotion du serveur en tant que serveur principal, l’authentification de transmission directe ainsi que l’authentification unique transparente sont désactivées. Votre locataire risque d’être bloqué si la synchronisation du hachage de mot de passe n’est pas sélectionnée en tant qu’option de connexion de secours. Notez également que lorsque vous activez l’authentification directe en mode de processus de site, un nouvel agent d’authentification est installé et enregistré, et s’exécute comme un agent de haute disponibilité qui accepte les demandes de connexion.|
+|Fédération avec PingFederate|L’authentification Azure continue à utiliser la stratégie PingFederate configurée pour votre serveur de synchronisation actif.  Vous pouvez éventuellement modifier la méthode de connexion à PingFederate, afin de préparer la conversion du serveur de secours en instance de synchronisation active.  Cependant, cette étape peut attendre la nécessité de fédérer des domaines supplémentaires avec PingFederate.|
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Azure AD Connect étant installé, vous pouvez passer à [Vérification de l’installation et affectation des licences](how-to-connect-post-installation.md).
-- Pour en savoir plus sur ces fonctionnalités, activées lors de l’installation, consultez les pages [Azure AD Connect Sync : Prévention des suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md) et [Utilisation d’Azure AD Connect Health pour la synchronisation](how-to-connect-health-sync.md).
+- Pour plus d’informations sur ces fonctionnalités qui ont été activées lors de l’installation, consultez : [Prévenir les suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md) et [Azure AD Connect Health](how-to-connect-health-sync.md).
 - Pour en savoir plus sur ces sujets courants, consultez l’article [Planificateur Azure AD Connect Sync](how-to-connect-sync-feature-scheduler.md).
 - En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md).

@@ -1,6 +1,6 @@
 ---
 title: Préparation de la solution Dynamics 365 | Microsoft Docs
-description: Infrastructure de création de packages, d’installation et de désinstallation de composants
+description: Framework de création de packages, d’installation et de désinstallation de composants
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c1e9c831681867e6a6238159599af39cbab10b7e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 2ea62a826b9f99e264cb1b2242f8d8108453d8e7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806651"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448769"
 ---
 # <a name="dynamics-365-solution-preparation"></a>Préparation de la solution Dynamics 365
 
@@ -29,7 +29,7 @@ Si vous êtes un éditeur de logiciels Dynamics 365 (xRM), vous avez probablemen
 
 ![CRMScreenShot1](media/CRMScreenShot1.png)
 
-_**Remarque :** dans l’exemple de package suivant, nous supposons que le nom de la solution est « SampleSolution.zip »_
+_**Remarque :** Dans l’exemple de package suivant, nous supposons que le nom de la solution est « SampleSolution.zip »_
 
 Si vous êtes un nouvel éditeur de logiciels, vous pouvez obtenir plus d’informations sur la création d’une solution ici : [https://msdn.microsoft.com/library/gg334530.aspx](https://msdn.microsoft.com/library/gg334530.aspx)
 

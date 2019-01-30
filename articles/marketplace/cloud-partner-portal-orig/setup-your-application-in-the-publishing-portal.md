@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9386f0e0bf552789b027df96e9e54ebcf31d7d34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806093"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448481"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurer votre application dans le portail de publication
 
@@ -82,21 +82,21 @@ La plupart des éditeurs conservent les valeurs par défaut des champs Utilisate
 
 Voici une explication de ces champs :
 
-* Nom de fichier de votre package : nom de fichier que vous avez créé à l’étape précédente lors de la création du fichier zip qui correspond à votre package AppSource CRM. Dans l’exemple ci-dessus, il s’agit de « Microsoft\_SamplePackage.zip ».
-* URL de l’emplacement de votre package : il s’agit de l’URL du compte de Stockage Azure contenant le nom de fichier du package spécifié ci-dessus. Il s’agit de l’URL créée à l’étape 9 de la section ci-dessus.
-* Un ou plusieurs packages CRM dans votre fichier de package : sélectionnez Oui **uniquement** si vous prenez en charge plusieurs versions de CRM avec différents packages. Pour la plupart des partenaires, ce sera « Non ». Si vous sélectionnez Oui, vous devez créer des packages AppSource pour chaque version de votre solution. _Remarque : on ne vous demande pas si vous disposez de plusieurs fichiers **zip**. Si vous avez plusieurs fichiers solution.zip mais une seule version, vous devez toujours sélectionner « Non ». L’outil de création de package les regroupe automatiquement._
+* Nom de fichier de votre package : nom de fichier que vous avez créé à l’étape précédente lors de la création du fichier zip qui correspond à votre package AppSource CRM. Dans l’exemple ci-dessus, il s’agit de « Microsoft\_SamplePackage.zip ».
+* URL de l’emplacement de votre package : il s’agit de l’URL du compte de Stockage Azure contenant le nom de fichier du package spécifié ci-dessus. Il s’agit de l’URL créée à l’étape 9 de la section ci-dessus.
+* Un ou plusieurs packages CRM dans votre fichier de package : Sélectionnez Oui **UNIQUEMENT** si vous prenez en charge plusieurs versions de CRM avec différents packages. Pour la plupart des partenaires, ce sera « Non ». Si vous sélectionnez Oui, vous devez créer des packages AppSource pour chaque version de votre solution. _Remarque : On ne vous demande pas si vous disposez de plusieurs fichiers **zip**. Si vous avez plusieurs fichiers solution.zip mais une seule version, vous devez toujours sélectionner « Non ». L’outil de création de package les regroupe automatiquement._
 
 ### <a name="crm-package-availability"></a>Disponibilité du package CRM
 
 Dans cette section, sélectionnez les régions de CRM dans lesquelles votre package sera disponible. Pour plus d’informations sur quelles régions desservent quels pays, consultez le lien : [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
 
-Remarque : le déploiement de « Sovereign and US Gov Cloud » en Allemagne REQUIERT UNE AUTORISATION SPÉCIALE ET UNE VALIDATION LORS DE LA CERTIFICATION
+Remarque : Le déploiement de « Sovereign and US Gov Cloud » en Allemagne REQUIERT UNE AUTORISATION SPÉCIALE ET UNE VALIDATION LORS DE LA CERTIFICATION
 
 ## <a name="storefront-details"></a>Informations sur les vitrines
 
 ### <a name="offer-summary"></a>Résumé de l’offre
 
-Résumé de la proposition de valeur de votre offre. Il figurera sur la page de recherche de votre offre. Il ne peut pas comprendre plus de 100 caractères.
+Résumé de la proposition de valeur de votre offre. Il figurera sur la page de recherche de votre offre. Il ne peut pas comprendre plus de 100 caractères.
 
 ### <a name="offer-description"></a>Description de l’offre
 
@@ -104,11 +104,11 @@ Description qui figurera sur la page des détails de votre application. Le maxim
 
 ### <a name="industries"></a>Secteurs d’activité
 
-Sélectionnez le secteur d’activité le mieux adapté à votre application. Si votre application est apparentée à plusieurs secteurs d’activité, vous pouvez laisser ce champ vide.
+Sélectionnez le secteur d’activité auquel s’adresse essentiellement votre application. Si votre application est apparentée à plusieurs secteurs d’activité, vous pouvez laisser ce champ vide.
 
 ### <a name="categories"></a>Catégories
 
-Sélectionnez les catégories qui s’appliquent à votre application. Sélectionnez un maximum de 3.
+Sélectionnez les catégories qui se rapportent à votre application. Sélectionnez un maximum de 3.
 
 ### <a name="app-type"></a>Type d’application
 
@@ -176,7 +176,7 @@ Entrez l’URL de la politique de confidentialité de votre application
 
 ### <a name="terms-of-use"></a>Conditions d’utilisation
 
-Entrez les conditions d’utilisation de votre application. Les clients AppSource doivent accepter ces conditions avant de pouvoir essayer votre application
+Entrez les conditions d’utilisation de votre application. Les clients AppSource doivent accepter ces conditions pour pouvoir essayer votre application.
 
 ### <a name="support-url"></a>URL du support technique
 
@@ -184,7 +184,7 @@ Entrez l’URL de support de votre application.
 
 ### <a name="lead-destination"></a>Destination du prospect
 
-Sélectionnez un système CRM dans lequel vos prospects seront stockés. Sélectionnez ici « Table Azure » si vous disposez de l’un des systèmes CRM suivants : Salesforce, Marketo, Microsoft Dynamics CRM. Le système CRM que vous sélectionnez ici est celui dans lequel nous écrirons les détails des utilisateurs finaux qui essaient votre application sur AppSource (prospects). Selon le système CRM que vous sélectionnez, cliquez ci-dessous sur l’URL correspondante pour savoir comment compléter le jeu de champs suivant
+Sélectionnez un système CRM dans lequel vos prospects seront stockés. Sélectionnez « Table Azure » ici si vous disposez d’un des systèmes CRM suivants : Salesforce, Marketo, Microsoft Dynamics CRM. Le système CRM que vous sélectionnez ici est celui dans lequel nous écrirons les détails des utilisateurs finaux qui essaient votre application sur AppSource (prospects). Cliquez ci-dessous sur l’URL correspondant au système CRM que vous sélectionnez pour savoir comment compléter le jeu de champs suivant.
 
 * [Table Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
@@ -193,4 +193,4 @@ Sélectionnez un système CRM dans lequel vos prospects seront stockés. Sélect
 
 ## <a name="storefront-details"></a>Informations sur les vitrines
 
-Les coordonnées sont utilisées uniquement pour les communications internes entre le partenaire et Microsoft. Remarque : il est important d’utiliser une adresse e-mail qui est analysée dans ces champs. Nous allons utiliser cette adresse électronique pour vous communiquer votre progression dans la publication sur AppSource. Seule l’URL de support sera présentée aux clients.
+Les coordonnées sont utilisées uniquement pour les communications internes entre le partenaire et Microsoft. Remarque : Il est important d’utiliser une adresse e-mail qui est supervisée dans ces champs. Nous allons utiliser cette adresse électronique pour vous communiquer votre progression dans la publication sur AppSource. Seule l’URL de support sera présentée aux clients.

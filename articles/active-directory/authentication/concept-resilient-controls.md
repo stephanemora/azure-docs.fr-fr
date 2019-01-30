@@ -3,19 +3,19 @@ title: Créer une stratégie de gestion du contrôle d'accès résiliente avec A
 description: Ce document fournit des conseils sur les stratégies à adopter par une organisation pour faire preuve de résilience et réduire le risque de verrouillage en cas d'interruption de service imprévue.
 services: active-directory
 author: martincoetzer
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9e13b8872fab89bef6ec952fe2ee0b901a25092e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101919"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452545"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -119,30 +119,48 @@ Une stratégie d'accès conditionnel d'urgence est une **stratégie désactivée
 * Si un certain niveau d'authentification n'est pas atteint, utilisez des stratégies limitant l'accès au sein des applications plutôt que de revenir à un accès total. Par exemple : 
   * Configurez une stratégie de sauvegarde qui envoie la demande de session restreinte à Exchange et SharePoint.
   * Si votre organisation utilise Microsoft Cloud App Security, n'hésitez pas à avoir recours à une stratégie qui tire parti de MCAS. MCAS autorisera un accès en lecture seule, mais pas les chargements.
+* Nommez vos stratégies pour être certain qu’il soit facile de les trouver pendant une interruption. Incluez les éléments suivants dans le nom de la stratégie :
+  * Un *numéro de libellé* pour la stratégie.
+  * Un texte à afficher, cette stratégie n’étant prévue qu’en cas d’urgence. Par exemple :  **ACTIVER EN CAS D’URGENCE**
+  * L’*interruption* à laquelle elle s’applique. Par exemple :  **Pendant une interruption MFA**
+  * Un *numéro de séquence* pour montrer l’ordre dans lequel les stratégies doivent être activées.
+  * Les *applications* auxquelles elle s’applique.
+  * Les *contrôles* auxquels elle s’appliquera.
+  * Les *conditions* qui sont exigées.
+  
+Ce standard de nommage pour les stratégies d’urgence doit se présenter de cette façon : 
 
-L’exemple suivant permet : **Exemple A - Stratégie d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques** constitue une urgence d'entreprise typique. Dans ce scénario, l'organisation exige généralement l'authentification multifacteur pour tous les accès Exchange Online et SharePoint Online, et dans ce cas, l'interruption est due à une panne du fournisseur d'authentification multifacteur du client (il peut s'agir de l'authentification multifacteur Azure, d'un fournisseur d'authentification multifacteur local ou d'une authentification multifacteur tierce). Cette stratégie atténue cette panne en permettant aux utilisateurs ciblés d'accéder à ces applications à partir d'appareils Windows approuvés et de leur réseau d'entreprise approuvé. Elle exclut également les comptes d'urgence et les administrateurs principaux de ces restrictions. Cet exemple nécessite un emplacement réseau **CorpNetwork** et un groupe de sécurité **ContingencyAccess** pour les utilisateurs cibles, un groupe **CoreAdmins** pour les administrateurs principaux et un groupe **EmergencyAccess** pour les comptes d'accès d'urgence. Le plan d'urgence requiert quatre stratégies pour fournir l'accès souhaité.
+`
+EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
+`
+
+L’exemple suivant permet : **Exemple A - Stratégie d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques** constitue une urgence d'entreprise typique. Dans ce scénario, l'organisation exige généralement l'authentification multifacteur pour tous les accès Exchange Online et SharePoint Online, et dans ce cas, l'interruption est due à une panne du fournisseur d'authentification multifacteur du client (il peut s'agir de l'authentification multifacteur Azure, d'un fournisseur d'authentification multifacteur local ou d'une authentification multifacteur tierce). Cette stratégie atténue cette panne en permettant aux utilisateurs ciblés d'accéder à ces applications à partir d'appareils Windows approuvés et de leur réseau d'entreprise approuvé. Elle exclut également les comptes d'urgence et les administrateurs principaux de ces restrictions. Les utilisateurs ciblés accéderont alors à Exchange Online et SharePoint Online, tandis que les autres utilisateurs n’auront toujours pas accès aux applications en raison de la panne. Cet exemple nécessite un emplacement réseau **CorpNetwork** et un groupe de sécurité **ContingencyAccess** pour les utilisateurs cibles, un groupe **CoreAdmins** pour les administrateurs principaux et un groupe **EmergencyAccess** pour les comptes d'accès d'urgence. Le plan d'urgence requiert quatre stratégies pour fournir l'accès souhaité. 
 
 **Exemple A - Stratégies d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques :** 
 
 * Stratégie 1 : exiger des appareils joints au domaine pour Exchange et SharePoint
+  * Nom : EM001 - ACTIVER EN CAS D’URGENCE : Interruption MFA [1/4] - Exchange SharePoint - Exiger la jonction Azure AD Hybride
   * Utilisateurs et groupes : inclure ContingencyAccess. Exclure CoreAdmins et EmergencyAccess
   * Applications cloud : Exchange Online et SharePoint Online
   * Conditions : Quelconque
   * Contrôle d'octroi : exiger un appareil joint au domaine
   * État : Désactivé
 * Stratégie 2 : bloquer les plateformes autres que Windows
+  * Nom : EM002 - ACTIVER EN CAS D’URGENCE : Interruption MFA [2/4] - Exchange SharePoint - Bloquer l’accès à l’exception de Windows
   * Utilisateurs et groupes : inclure tous les utilisateurs. Exclure CoreAdmins et EmergencyAccess
   * Applications cloud : Exchange Online et SharePoint Online
   * Conditions : plateforme d'appareils - Inclure toutes les plateformes, exclure Windows
   * Contrôle d'octroi : Block
   * État : Désactivé
 * Stratégie 3 : bloquer les réseaux autres que CorpNetwork
+  * Nom : EM003 - ACTIVER EN CAS D’URGENCE : Interruption MFA [3/4] - Exchange SharePoint - Bloquer l’accès à l’exception du réseau d’entreprise
   * Utilisateurs et groupes : inclure tous les utilisateurs. Exclure CoreAdmins et EmergencyAccess
   * Applications cloud : Exchange Online et SharePoint Online
   * Conditions : emplacements - Inclure n'importe quel emplacement, exclure CorpNetwork
   * Contrôle d'octroi : Block
   * État : Désactivé
 * Stratégie 4 : bloquer explicitement EAS
+  * Nom : EM004 - ACTIVER EN CAS D’URGENCE : Interruption MFA [4/4] - Exchange - Bloquer EAS pour tous les utilisateurs
   * Utilisateurs et groupes : inclure tous les utilisateurs
   * Applications cloud : Inclure Exchange Online
   * Conditions : Applications clientes : Exchange Active Sync
@@ -163,12 +181,14 @@ Dans l'exemple suivant, **Exemple B - Stratégies d'accès conditionnel d'urgen
 **Exemple B - Stratégies d'accès conditionnel d'urgence :**
 
 * Stratégie 1 : bloquer tous les utilisateurs extérieurs à l'équipe SalesContingency
+  * Nom : EM001 - ACTIVER EN CAS D’URGENCE : Interruption pour conformité d’appareil [1/2] - Salesforce - Bloquer tous les utilisateurs à l’exception de SalesforceContingency
   * Utilisateurs et groupes : inclure tous les utilisateurs. Exclure SalesAdmins et SalesforceContingency
   * Applications cloud : Salesforce.
   * Conditions : Aucun
   * Contrôle d'octroi : Block
   * État : Désactivé
 * Stratégie 2 : bloquer l'équipe commerciale sur toutes les plateformes autres que la plateforme mobile (pour réduire la surface d'attaque)
+  * Nom : EM002 - ACTIVER EN CAS D’URGENCE : Interruption pour conformité d’appareil [2/2] - Salesforce - Bloquer toutes les plateformes à l’exception de iOS et Android
   * Utilisateurs et groupes : inclure SalesforceContingency. Exclure SalesAdmins
   * Applications cloud : Salesforce
   * Conditions : plateforme d'appareils - Inclure toutes les plateformes, exclure iOS et Android
@@ -179,7 +199,7 @@ Ordre d'activation :
 
 1. exclure SalesAdmins et SalesforceContingency de la stratégie de conformité des appareils existante pour Salesforce. Vérifier qu'un utilisateur du groupe SalesforceContingency a accès à Salesforce.
 2. Activer la stratégie 1 : vérifier que les utilisateurs extérieurs à SalesContingency n'ont pas accès à Salesforce. Vérifier que les utilisateurs des groupes SalesAdmins et SalesforceContingency ont accès à Salesforce.
-3. Activer la stratégie 2 : vérifier que les utilisateurs du groupe SalesContigency n'ont pas accès à Salesforce à partir de leurs ordinateurs portables Windows/Mac, mais qu'ils y ont toujours accès à partir de leurs appareils mobiles. Vérifier que SalesAdmin a toujours accès à Salesforce à partir de n'importe quel appareil.
+3. Activer la stratégie 2 : vérifier que les utilisateurs du groupe SalesContingency n’ont pas accès à Salesforce à partir de leurs ordinateurs portables Windows/Mac, mais qu’ils y ont toujours accès à partir de leurs appareils mobiles. Vérifier que SalesAdmin a toujours accès à Salesforce à partir de n'importe quel appareil.
 4. Désactiver la stratégie de conformité des appareils existante pour Salesforce.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Déployer la synchronisation du hachage de mot de passe même si vous êtes fédéré ou utilisez l'authentification directe
@@ -215,14 +235,14 @@ En fonction des mesures d'atténuation ou d'urgence prises lors d'une interrupti
 
 ## <a name="after-a-disruption"></a>Après une interruption
 
-Une fois le service responsable de l'interruption restauré, vous devez annuler les modifications que vous avez apportées pendant l'activation du plan d'urgence. 
+Une fois le service responsable de l’interruption restauré, annulez les modifications que vous avez apportées pendant l’activation du plan d’urgence. 
 
 1. Activez les stratégies standard.
 2. Désactivez vos stratégies d'urgence. 
 3. Le cas échéant, restaurez les autres modifications que vous avez apportées et documentées pendant l'interruption.
 4. Si vous avez utilisé un compte d'accès d'urgence, n'oubliez pas de régénérer les informations d'identification et de sécuriser physiquement les nouvelles informations d'identification dans le cadre des procédures liées aux comptes d'accès d'urgence.
 5. Continuez à [trier tous les événements à risque signalés](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) après l'interruption pour activité suspecte.
-6. Révoquez tous les jetons d'actualisation émis [à l'aide de PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) pour cibler un ensemble d'utilisateurs. La révocation de tous les jetons d'actualisation est particulièrement importante pour les comptes à privilèges utilisés lors de l'interruption, et elle les obligera à se réauthentifier et à se conformer au contrôle des stratégies restaurées.
+6. Révoquez tous les jetons d'actualisation émis [à l'aide de PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) pour cibler un ensemble d'utilisateurs. La révocation de tous les jetons d’actualisation est importante pour les comptes à privilèges utilisés lors de l’interruption, et elle les obligera à se réauthentifier et à se conformer au contrôle des stratégies restaurées.
 
 ## <a name="emergency-options"></a>Options d'urgence
 

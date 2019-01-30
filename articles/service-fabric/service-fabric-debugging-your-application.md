@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 30e432b34cc586e1671c9ffdf7b48c3997e9eb23
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 06db540600be323b3129d64d18739582f6d9f2d0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442384"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412648"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Débogage de votre application Service Fabric à l’aide de Visual Studio
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "42442384"
 
 
 ## <a name="debug-a-local-service-fabric-application"></a>Débogage d’une application Service Fabric locale
-Vous pouvez économiser du temps et de l’argent en déployant et déboguant votre application Azure Service Fabric dans un cluster de développement d’ordinateur local. Visual Studio 2017 et Visual Studio 2015 peuvent déployer l’application sur le cluster local et connecter automatiquement le débogueur à toutes les instances de votre application.
+Vous pouvez économiser du temps et de l’argent en déployant et déboguant votre application Azure Service Fabric dans un cluster de développement d’ordinateur local. Visual Studio 2017 ou Visual Studio 2015 peuvent déployer l’application sur le cluster local et connecter automatiquement le débogueur à toutes les instances de votre application. Visual Studio doit être exécuté en tant qu’administrateur pour connecter le débogueur.
 
 1. Démarrez un cluster de développement local en suivant les étapes de la section [Configuration de votre environnement de développement Service Fabric](service-fabric-get-started.md).
 2. Appuyez sur **F5** ou cliquez sur **Déboguer** > **Démarrer le débogage**.
@@ -68,7 +68,7 @@ Vous pouvez économiser du temps et de l’argent en déployant et déboguant vo
 Si vos applications Service Fabric sont exécutées sur un cluster Service Fabric dans Azure, vous êtes en mesure de les déboguer à distance, directement à partir de Visual Studio.
 
 > [!NOTE]
-> La fonctionnalité nécessite le [Kit de développement logiciel (SDK) Service Fabric 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) et le [Kit de développement logiciel (SDK) Azure pour .NET 2.9](https://azure.microsoft.com/downloads/).    
+> La fonctionnalité nécessite le [Kit de développement logiciel (SDK) Service Fabric 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) et le [Kit de développement logiciel (SDK) Azure pour .NET 2.9](https://azure.microsoft.com/downloads/).    
 > 
 > 
 
@@ -112,7 +112,7 @@ Si vos applications Service Fabric sont exécutées sur un cluster Service Fabri
 Vous pouvez également diffuser en continu des traces directement à partir d’un nœud de cluster à distance vers Visual Studio. Cette fonctionnalité vous permet de diffuser des événements de trace ETW, générés sur un nœud de cluster Service Fabric.
 
 > [!NOTE]
-> Cette fonctionnalité nécessite le [Kit de développement logiciel (SDK) Service Fabric 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) et le [Kit de développement logiciel (SDK) Azure pour .NET 2.9](https://azure.microsoft.com/downloads/).
+> Cette fonctionnalité nécessite le [Kit de développement logiciel (SDK) Service Fabric 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) et le [Kit de développement logiciel (SDK) Azure pour .NET 2.9](https://azure.microsoft.com/downloads/).
 > Cette fonctionnalité prend uniquement en charge les clusters exécutés dans Azure.
 > 
 > 

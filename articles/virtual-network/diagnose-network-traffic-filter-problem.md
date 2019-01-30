@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984226"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424640"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle
 
@@ -72,12 +72,12 @@ Les étapes qui suivent supposent que vous avez une machine virtuelle existante 
    Contrairement à l’interface réseau **myVMVMNic**, l’interface réseau **myVMVMNic2** ne dispose pas d’un groupe de sécurité réseau associé. Chaque interface réseau et sous-réseau peuvent avoir aucun ou un groupe de sécurité réseau associé. Le groupe de sécurité réseau associé à chaque interface réseau ou sous-réseau peut être le même ou ils peuvent être différents. Vous pouvez associer le même groupe de sécurité réseau à toutes les interfaces réseau individuelles et à tous les sous-réseaux que vous souhaitez.
 
 Bien que les règles de sécurité effectives aient été affichées au moyen de la machine virtuelle, vous pouvez aussi les consulter avec les éléments individuels suivants :
-- **Interface réseau** : découvrez comment [afficher une interface réseau](virtual-network-network-interface.md#view-network-interface-settings).
-- **Groupe de sécurité réseau** : découvrez comment [afficher un groupe de sécurité réseau](manage-network-security-group.md#view-details-of-a-network-security-group).
+- **Interface réseau** : découvrez comment [voir une interface réseau](virtual-network-network-interface.md#view-network-interface-settings).
+- **NSG** : découvrez comment [voir un NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>Diagnostiquer à l’aide de PowerShell
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous devez utiliser le module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Login-AzureRmAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous devez utiliser le module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Login-AzureRmAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
 Obtenez les règles de sécurité effectives pour une interface réseau avec [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup). L’exemple suivant obtient les règles de sécurité effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
@@ -154,9 +154,9 @@ Dans la sortie précédente, le nom de l’interface réseau est *interface myVM
 
 Indépendamment du fait d’avoir utilisé [PowerShell](#diagnose-using-powershell) ou [Azure CLI](#diagnose-using-azure-cli) pour diagnostiquer le problème, vous recevez une sortie contenant les informations suivantes :
 
-- **NetworkSecurityGroup** : l’ID du groupe de sécurité réseau.
-- **Association**: si le groupe de sécurité réseau est associé à une *interface réseau* ou à un *sous-réseau*. Si un groupe de sécurité réseau est associé aux deux, la sortie est retournée avec le **NetworkSecurityGroup**, **Association**, et les **EffectiveSecurityRules**, pour chaque groupe de sécurité réseau. Si le groupe de sécurité réseau est associé ou dissocié immédiatement avant l’exécution de cette commande pour afficher les règles de sécurité effectives, il se peut que vous deviez attendre quelques secondes pour que la modification apparaisse dans la sortie de la commande.
-- **EffectiveSecurityRules** : une explication de chaque propriété est détaillée dans [Créer une règle de sécurité](manage-network-security-group.md#create-a-security-rule). Les noms de règles commençant par *defaultSecurityRules/* sont des règles de sécurité par défaut qui existent dans chaque groupe de sécurité réseau. Les noms commençant par la règle *securityRules/* sont des règles que vous avez créées. Les règles qui spécifient une [balise de service](security-overview.md#service-tags), comme **Internet**, **VirtualNetwork**, et **AzureLoadBalancer** pour les propriétés  **destinationAddressPrefix** ou **sourceAddressPrefix**, ont également des valeurs pour la propriété **expandedDestinationAddressPrefix**. La propriété **expandedDestinationAddressPrefix** répertorie tous les préfixes d’adresse représentés par la balise de service.
+- **NetworkSecurityGroup** : ID du groupe de sécurité réseau.
+- **Association** : indique si le groupe de sécurité réseau est associé à *NetworkInterface* ou *Subnet*. Si un groupe de sécurité réseau est associé aux deux, la sortie est retournée avec le **NetworkSecurityGroup**, **Association**, et les **EffectiveSecurityRules**, pour chaque groupe de sécurité réseau. Si le groupe de sécurité réseau est associé ou dissocié immédiatement avant l’exécution de cette commande pour afficher les règles de sécurité effectives, il se peut que vous deviez attendre quelques secondes pour que la modification apparaisse dans la sortie de la commande.
+- **EffectiveSecurityRules** : une explication de chaque propriété est détaillée dans [Créer une règle de sécurité](manage-network-security-group.md#create-a-security-rule). Les noms de règles commençant par *defaultSecurityRules/* sont des règles de sécurité par défaut qui existent dans chaque groupe de sécurité réseau. Les noms commençant par la règle *securityRules/* sont des règles que vous avez créées. Les règles qui spécifient une [balise de service](security-overview.md#service-tags), comme **Internet**, **VirtualNetwork**, et **AzureLoadBalancer** pour les propriétés  **destinationAddressPrefix** ou **sourceAddressPrefix**, ont également des valeurs pour la propriété **expandedDestinationAddressPrefix**. La propriété **expandedDestinationAddressPrefix** répertorie tous les préfixes d’adresse représentés par la balise de service.
 
 Si vous voyez des règles en double répertoriées dans la sortie, cela est dû au fait qu’un groupe de sécurité réseau est associé à la fois à l’interface réseau et au sous-réseau. Les deux groupes de sécurité réseau ont les mêmes règles par défaut et peuvent avoir des règles supplémentaires en double, si vous avez créé vos propres règles identiques pour les deux groupes de sécurité réseau.
 

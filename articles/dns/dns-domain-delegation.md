@@ -1,24 +1,17 @@
 ---
-title: Aperçu de la délégation Azure DNS | Microsoft Docs
+title: Présentation de la délégation DNS Azure
 description: Découvrez comment modifier la délégation de domaine et les serveurs de noms Azure DNS pour fournir l’hébergement d’un domaine.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: a00cc00dee3a505f88abef3ecf99f49aa027c30b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170502"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461024"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Délégation de zones DNS dans Azure DNS
 
@@ -58,13 +51,16 @@ L’image suivante montre un exemple de requête DNS. contoso.net et partners.co
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
 1. Le client demande `www.partners.contoso.net` à partir du serveur DNS local.
-1. Le serveur DNS local ne dispose pas de l’enregistrement. Aussi, il effectue une demande auprès du serveur de noms racine.
-1. Le serveur de noms racine ne dispose pas de l’enregistrement, mais il connaît l’adresse du serveur de noms `.net` et la fournit au serveur DNS.
-1. Le serveur DNS envoie la demande au serveur de noms `.net`. Il ne possède pas l’enregistrement, mais il connaît l’adresse du serveur de noms contoso.net. Dans ce cas, il s’agit d’une zone DNS hébergée dans Azure DNS.
-1. La zone `contoso.net` ne possède pas d’enregistrement, mais elle connaît le serveur de noms `partners.contoso.net` et l’envoie en guise de réponse. Dans ce cas, il s’agit d’une zone DNS hébergée dans Azure DNS.
-1. Le serveur DNS demande l’adresse IP de `partners.contoso.net` à partir de la zone `partners.contoso.net`. Elle contient l’enregistrement A et peut alors envoyer comme réponse l’adresse IP.
-1. Le serveur DNS fournit l’adresse IP au client
-1. Le client se connecte au site web `www.partners.contoso.net`.
+2. Le serveur DNS local ne dispose pas de l’enregistrement. Aussi, il effectue une demande auprès du serveur de noms racine.
+3. Le serveur de noms racine ne dispose pas de l’enregistrement, mais il connaît l’adresse du serveur de noms `.net` et la fournit au serveur DNS.
+4. Le serveur DNS local envoie la demande au serveur de noms `.net`.
+5. Le serveur de noms `.net` n’a pas l’enregistrement, mais il connaît l’adresse du serveur de noms `contoso.net`. Dans ce cas, il répond avec l’adresse du serveur de noms pour la zone DNS hébergée dans Azure DNS.
+6. Le serveur DNS local envoie la demande au serveur de noms pour la zone `contoso.net` hébergée dans Azure DNS.
+7. La zone `contoso.net` n’a pas l’enregistrement, mais elle connaît le serveur de noms `partners.contoso.net` et envoie l’adresse comme réponse. Dans ce cas, il s’agit d’une zone DNS hébergée dans Azure DNS.
+8. Le serveur DNS local envoie la demande au serveur de noms pour la zone `partners.contoso.net`.
+9. La zone `partners.contoso.net` a l’enregistrement A et envoie l’adresse IP comme réponse.
+10. Le serveur DNS local fournit l’adresse IP au client.
+11. Le client se connecte au site web `www.partners.contoso.net`.
 
 Chaque délégation a en fait deux copies des enregistrements NS : une dans la zone parent qui pointe vers la zone enfant et l’autre dans la zone enfant elle-même. La zone « contoso.net » contient les enregistrements NS pour « contoso.net » (en plus des enregistrements NS dans « net »). Il s’agit d’enregistrements NS faisant autorité ; ils se trouvent au sommet de la zone enfant.
 

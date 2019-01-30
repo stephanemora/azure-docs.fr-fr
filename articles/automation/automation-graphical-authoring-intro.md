@@ -3,18 +3,18 @@ title: Création de graphiques dans Azure Automation
 description: La création de graphiques vous permet de créer des Runbooks pour Azure Automation sans utiliser de code. Cet article propose une introduction à la création de graphiques et tous les détails nécessaires pour commencer à créer Runbook graphique.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140058"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427234"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Création de graphiques dans Azure Automation
 
@@ -48,7 +48,7 @@ Le contrôle Bibliothèque est l'emplacement où vous sélectionnez les [activit
 |:--- |:--- |
 | Applets de commande |Inclut toutes les applets de commande qui peuvent être utilisées dans votre Runbook. Les applets de commande sont organisées par module. Tous les modules que vous avez installés dans votre compte Automation sont disponibles. |
 | Runbooks |Inclut les Runbooks de votre compte Automation. Ces Runbooks peuvent être ajoutés au canevas pour être utilisés en tant que Runbooks enfants. Seuls les Runbooks du même type de base que le Runbook en cours de modification sont affichés. Dans le cas des Runbooks graphiques, seuls les Runbooks basés sur PowerShell sont indiqués ; pour les Runbooks de workflow PowerShell graphique, seuls les Runbooks basés sur un workflow PowerShell s’affichent. |
-| Éléments multimédias |Inclut les [ressources Automation](http://msdn.microsoft.com/library/dn939988.aspx) de votre compte Automation qui peuvent être utilisées dans votre Runbook. Lorsque vous ajoutez une ressource à un Runbook, cela ajoute une activité de workflow qui obtient la ressource sélectionnée. Pour les ressources de type Variable, vous pouvez choisir d'ajouter une activité pour obtenir la variable ou de définir la variable. |
+| Éléments multimédias |Inclut les [ressources Automation](https://msdn.microsoft.com/library/dn939988.aspx) de votre compte Automation qui peuvent être utilisées dans votre Runbook. Lorsque vous ajoutez une ressource à un Runbook, cela ajoute une activité de workflow qui obtient la ressource sélectionnée. Pour les ressources de type Variable, vous pouvez choisir d'ajouter une activité pour obtenir la variable ou de définir la variable. |
 | Contrôle de Runbook |Inclut des activités de contrôle de Runbook qui peuvent être utilisées dans votre Runbook actuel. Une *jonction* prend plusieurs entrées et attend que tout soit terminé pour poursuivre le workflow. Une activité *Code* exécute une ou plusieurs lignes de code PowerShell ou de workflow PowerShell en fonction du type de Runbook graphique. Vous pouvez utiliser cette activité pour du code personnalisé ou pour une fonctionnalité difficile à obtenir avec d’autres activités. |
 
 ### <a name="configuration-control"></a>Contrôle Configuration
@@ -111,7 +111,7 @@ Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une so
 
 | source de données | Description |
 |:--- |:--- |
-| Valeur constante |Entrez une valeur pour le paramètre. Cette option est disponible uniquement pour les types de données suivants : Int32, Int64, String, Boolean, DateTime, Switch. |
+| Valeur constante |Entrez une valeur pour le paramètre. Cela est uniquement disponible pour les types de données suivants : Int32, Int64, String, Boolean, DateTime, Switch. |
 | Sortie d'activité |Sortie d'une activité qui précède l'activité actuelle dans le workflow. Toutes les activités valides sont répertoriées. Sélectionnez simplement l'activité pour utiliser sa sortie comme valeur de paramètre. Si l'activité génère un objet ayant plusieurs propriétés, vous pouvez taper le nom de la propriété après avoir sélectionné l'activité. |
 | Entrée de Runbook |Sélectionnez un paramètre d'entrée de Runbook en tant qu'entrée pour le paramètre de l'activité. |
 | Ressource de variable |Sélectionnez une variable Automation comme entrée. |
@@ -336,7 +336,7 @@ Les données créées par toute activité qui ne dispose pas d'un lien sortant s
 
 ## <a name="powershell-expressions"></a>Expressions PowerShell
 
-Un des avantages de la création de graphiques est qu'elle vous donne la possibilité de créer un Runbook avec une connaissance de PowerShell minimale. Pour le moment, vous devez avoir quelques connaissances de base sur PowerShell pour remplir certaines [valeurs de paramètres](#activities) et définir des [conditions de lien](#links-and-workflow). Cette section propose une brève introduction aux utilisateurs qui ne connaissent pas les expressions PowerShell. La totalité des informations sur PowerShell est disponible dans [Écriture de scripts avec Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx).
+Un des avantages de la création de graphiques est qu'elle vous donne la possibilité de créer un Runbook avec une connaissance de PowerShell minimale. Pour le moment, vous devez avoir quelques connaissances de base sur PowerShell pour remplir certaines [valeurs de paramètres](#activities) et définir des [conditions de lien](#links-and-workflow). Cette section propose une brève introduction aux utilisateurs qui ne connaissent pas les expressions PowerShell. La totalité des informations sur PowerShell est disponible dans [Écriture de scripts avec Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx).
 
 ### <a name="powershell-expression-data-source"></a>Source de données d’expressions PowerShell
 Vous pouvez utiliser une expression PowerShell comme source de données pour remplir la valeur d'un [paramètre d'activité](#activities) avec les résultats d'un code PowerShell. Il peut s'agir d'une seule ligne de code qui exécute une fonction simple ou de plusieurs lignes qui suivent une logique complexe. Toute sortie de commande non affectée à une variable correspond à la sortie de la valeur du paramètre.
@@ -414,7 +414,7 @@ Vous pouvez joindre plusieurs conditions en utilisant un [opérateur logique](ht
 
 ### <a name="hashtables"></a>Tables de hachage
 
-[Tables de hachage](http://technet.microsoft.com/library/hh847780.aspx) sont des paires nom/valeur servant à renvoyer un ensemble de valeurs. Les propriétés de certaines activités peuvent attendre une table de hachage plutôt qu'une valeur simple. Vous pouvez également voir une table de hachage appelée dictionnaire.
+[Tables de hachage](https://technet.microsoft.com/library/hh847780.aspx) sont des paires nom/valeur servant à renvoyer un ensemble de valeurs. Les propriétés de certaines activités peuvent attendre une table de hachage plutôt qu'une valeur simple. Vous pouvez également voir une table de hachage appelée dictionnaire.
 
 Une table de hachage se crée avec la syntaxe suivante. Une table de hachage peut contenir un nombre quelconque d'entrées, chacune étant définie par un nom et une valeur.
 

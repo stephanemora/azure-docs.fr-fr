@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 5e09401c37d40c99d3f8bbb643d104c0105812f4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 413473b856d76f9ebeff9669eb1facc54d89b509
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730007"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382519"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
@@ -260,7 +260,7 @@ Pour les applications et les fonctions .NET, la façon la plus simple pour utili
 
 1. Ajoutez des références aux packages [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) et aux autres packages NuGet nécessaires à votre application. L’exemple ci-dessous utilise également [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2.  Ajoutez le code suivant à votre application, modification pour cibler la bonne ressource. Cet exemple montre deux façons de travailler avec Azure Key Vault :
+2. Ajoutez le code suivant à votre application, modification pour cibler la bonne ressource. Cet exemple montre deux façons de travailler avec Azure Key Vault :
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -277,12 +277,12 @@ Pour en savoir plus sur Microsoft.Azure.Services.AppAuthentication et les opéra
 ### <a name="using-the-rest-protocol"></a>Utilisation du protocole REST
 
 Une application avec une identité managée a deux variables d’environnement définies :
+
 - MSI_ENDPOINT
 - MSI_SECRET
 
 **MSI_ENDPOINT** est une URL locale à partir de laquelle votre application peut demander des jetons. Pour obtenir un jeton pour une ressource, effectuez une requête HTTP GET à destination de ce point de terminaison, en indiquant notamment les paramètres suivants :
 
-> [!div class="mx-tdBreakAll"]
 > |Nom du paramètre|Dans|Description|
 > |-----|-----|-----|
 > |resource|Requête|URI de ressource AAD de la ressource pour laquelle un jeton doit être obtenu. Il peut s’agir d’un des [services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) ou toute autre ressource URI.|
@@ -290,10 +290,8 @@ Une application avec une identité managée a deux variables d’environnement d
 > |secret|En-tête|Valeur de la variable d’environnement MSI_SECRET.|
 > |clientid|Requête|(Facultatif) L’ID de l’identité attribuée par l’utilisateur à utiliser. Si elle est omise, l’identité attribuée par le système est utilisée.|
 
-
 Une réponse 200 OK correcte comprend un corps JSON avec les propriétés suivantes :
 
-> [!div class="mx-tdBreakAll"]
 > |Nom de la propriété|Description|
 > |-------------|----------|
 > |access_token|Le jeton d’accès demandé. Le service web appelant peut utiliser ce jeton pour s’authentifier auprès du service web de destination.|
@@ -301,24 +299,27 @@ Une réponse 200 OK correcte comprend un corps JSON avec les propriétés suivan
 > |resource|L’URI ID d’application du service web de destination.|
 > |token_type|Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. Pour plus d’informations sur les jetons du porteur, consultez [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
-
 Cette réponse est la même que la [réponse pour la demande de jeton d’accès de service à service AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
-> [!NOTE] 
+> [!NOTE]
 > Les variables d’environnement sont configurées au premier démarrage du processus ; ainsi, après l’activation d’une identité managée pour votre application, vous devrez peut-être redémarrer votre application, ou redéployer son code avant que `MSI_ENDPOINT` et `MSI_SECRET` soient disponibles pour votre code.
 
 ### <a name="rest-protocol-examples"></a>Exemples de protocole REST
+
 Voici un exemple de demande :
+
 ```
 GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
 Host: localhost:4141
 Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
+
 Et voici un exemple de réponse :
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
- 
+
 {
     "access_token": "eyJ0eXAi…",
     "expires_on": "09/14/2017 00:00:00 PM +00:00",
@@ -328,7 +329,9 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Exemples de code
+
 <a name="token-csharp"></a>Pour écrire cette requête en C# :
+
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -336,10 +339,12 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
     return await client.GetAsync(String.Format("{0}/?resource={1}&api-version={2}", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource, apiversion));
 }
 ```
+
 > [!TIP]
 > Dans le cas des langages .NET, vous pouvez également utiliser [Microsoft.Azure.Services.AppAuthentication](#asal) au lieu d’élaborer cette demande vous-même.
 
 <a name="token-js"></a>En Node.JS :
+
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -355,6 +360,7 @@ const getToken = function(resource, apiver, cb) {
 ```
 
 <a name="token-powershell"></a>Dans PowerShell :
+
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -370,12 +376,12 @@ Vous pouvez supprimer une identité attribuée par le système en désactivant l
 ```json
 "identity": {
     "type": "None"
-}    
+}
 ```
 
 Si vous supprimez une identité attribuée par le système de cette façon, vous la supprimez également d’AAD. Les identités attribuées par le système sont aussi automatiquement supprimées d’AAD lorsque la ressource d’application est supprimée.
 
-> [!NOTE] 
+> [!NOTE]
 > Vous pouvez également définir le paramètre d’application WEBSITE_DISABLE_MSI, qui désactive uniquement le service de jetons local. Toutefois, cela ne touche pas à l’identité, et les outils continueront d’afficher l’identité managée comme étant activée. Par conséquent, l’utilisation de ce paramètre n’est pas recommandée.
 
 ## <a name="next-steps"></a>Étapes suivantes

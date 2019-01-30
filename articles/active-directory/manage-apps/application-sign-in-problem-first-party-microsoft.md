@@ -4,7 +4,7 @@ description: Résoudre les problèmes courants liés à la connexion aux applica
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ab0face3c211a8ea1477f40167f80330f0423498
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379262"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468739"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problèmes de connexion à une application Microsoft
 
@@ -34,11 +34,11 @@ Il existe trois méthodes principales pour se connecter à une application publi
 
 -   Pour les applications publiées et fournies gratuitement par Microsoft ou par un tiers, les utilisateurs peuvent également obtenir un accès via le **consentement de l’administrateur**. Cela veut dire que l’administrateur a déterminé que l’application peut être utilisée par tous les membres de l’organisation. Dans ce cas, il se connecte à l’application avec un compte d’administrateur général et accorde l’accès à tous les membres de l’organisation.
 
-Pour résoudre votre problème, lisez [Problèmes d’ordre général à prendre en considération concernant l’accès aux applications](#general-problem-areas-with-application-access-to-consider), puis [Procédure pas à pas : Étapes pour résoudre les problèmes d’accès aux applications Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access) pour obtenir plus de détails.
+Pour résoudre votre problème, lisez [Problèmes d’ordre général à prendre en considération concernant l’accès aux applications](#general-problem-areas-with-application-access-to-consider), puis [Procédure pas à pas : Étapes de résolution des problèmes d’accès aux applications Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access) pour obtenir plus de détails.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Problèmes d’ordre général à prendre en considération concernant l’accès aux applications
 
-La liste ci-après répertorie les problèmes d’ordre général que vous pouvez étudier si vous savez par où commencer. Toutefois, nous vous conseillons de lire la procédure pas à pas pour être rapidement opérationnel : [Procédure pas à pas : Étapes de résolution des problèmes d’accès aux applications Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+La liste ci-après répertorie les problèmes d’ordre général que vous pouvez étudier si vous savez par où commencer. Toutefois, nous vous conseillons de lire ce guide de démarrage rapide : [Procédure pas à pas : Étapes de résolution des problèmes d’accès aux applications Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
 -   [Problèmes avec le compte de l’utilisateur](#problems-with-the-users-account)
 
@@ -204,7 +204,7 @@ Pour vérifier l’état d’authentification multifacteur d’un utilisateur, p
 
 9.  Sélectionnez l’utilisateur dans la liste des utilisateurs et **activez**, **désactivez** ou **appliquez** la Multi-Factor Authentication comme souhaité.
 
-  * **Remarque** : Si un utilisateur est dans un état **Appliqué**, vous pouvez le définir sur **Désactivé** de façon temporaire pour lui permettre de revenir à son compte. Une fois qu’il est revenu dans son compte, vous pouvez ensuite modifier son état en le redéfinissant sur **Activé** pour lui demander d’enregistrer à nouveau ses informations de contact à sa prochaine connexion. Sinon, vous pouvez suivre les étapes décrites dans [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info) pour vérifier ou définir ces données à sa place.
+  * **Remarque**: Si un utilisateur est dans un état **Appliqué**, vous pouvez définir le définir sur **Désactivé** de façon temporaire pour lui permettre de revenir à son compte. Une fois qu’il est revenu dans son compte, vous pouvez ensuite modifier son état en le redéfinissant sur **Activé** pour lui demander d’enregistrer à nouveau ses informations de contact à sa prochaine connexion. Sinon, vous pouvez suivre les étapes décrites dans [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info) pour vérifier ou définir ces données à sa place.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Vérifier les informations de contact de l’authentification d’un utilisateur
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 47d41884a50450399df6273502096e0e630dbcf3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8938f4bcf012eadb8d4b0ced92b9996bc58236a5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981760"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432045"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accès conditionnel pour les utilisateurs de B2B Collaboration
 
@@ -74,9 +74,9 @@ Dans la version actuelle, l’authentification MFA s’effectue toujours dans la
 
 Si Contoso utilise la stratégie d’authentification multifacteur sur App1 mais pas sur App2, et si nous examinons la revendication MFA Contoso dans le jeton, nous pourrions constater le problème suivant :
 
-* Jour 1 : un utilisateur dispose de l’authentification multifacteur dans Contoso et accède à App1, mais aucune invite MFA supplémentaire ne s’affiche dans Fabrikam.
+* Jour 1 : Un utilisateur dispose de l’authentification multifacteur dans Contoso et accède à App1, mais aucune invite MFA supplémentaire ne s’affiche dans Fabrikam.
 
-* Jour 2 : l’utilisateur a accédé à App2 dans Contoso, et à présent, lorsqu’il accède à Fabrikam, il doit s’inscrire pour l’authentification multifacteur ici.
+* Jour 2 : L’utilisateur a accédé à App2 dans Contoso, et à présent, lorsqu’il accède à Fabrikam, il doit s’inscrire à l’authentification multifacteur.
 
 Ce processus peut prêter à confusion et entraîner l’abandon de connexion.
 
@@ -84,7 +84,7 @@ En outre, même si Contoso dispose de la fonctionnalité MFA, il n’est pas tou
 
 Enfin, l’authentification MFA du locataire de la ressource fonctionne également pour les MSA et les ID sociaux ainsi que pour les organisations partenaires au sein desquelles l’authentification MFA n’est pas configurée.
 
-Par conséquent, la recommandation d’authentification MFA pour les utilisateurs B2B consiste à toujours demander l’authentification MFA dans le locataire à l’origine de l’invitation. Dans certains cas, cette condition requise peut entraîner une authentification MFA double, mais pour chaque accès au locataire à l’origine de l’invitation, l’expérience des utilisateurs est prévisible : Catherine doit réaliser l’authentification MFA avec le locataire à l’origine de l’invitation.
+Par conséquent, la recommandation d’authentification MFA pour les utilisateurs B2B consiste à toujours demander l’authentification MFA dans le locataire à l’origine de l’invitation. Cette exigence peut entraîner une double authentification multifacteur dans certains cas, mais à chaque accès au locataire à l’origine de l’invitation, l’expérience des utilisateurs finaux est prévisible : Catherine doit s’inscrire à MFA avec le locataire à l’origine de l’invitation.
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Accès conditionnel en fonction des appareils, des emplacements et des risques pour les utilisateurs B2B
 

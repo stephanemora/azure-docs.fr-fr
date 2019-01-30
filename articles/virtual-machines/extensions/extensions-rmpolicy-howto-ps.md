@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 15a6a7f4753d51118d23d2e3c021010218d2d2d7
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451831"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434987"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Utiliser Azure Policy pour restreindre l’installation d’extensions sur les machines virtuelles Windows
 
 Si vous souhaitez empêcher l’utilisation ou l’installation de certaines extensions sur vos machines virtuelles Windows, vous pouvez créer une stratégie Azure à l’aide de PowerShell afin de restreindre les extensions pour les machines virtuelles d’un groupe de ressources. 
 
-Ce didacticiel utilise Azure PowerShell dans Cloud Shell, qui est constamment mise à jour vers la dernière version. Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 3.6 ou version ultérieure pour les besoins de ce didacticiel. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Ce didacticiel utilise Azure PowerShell dans Cloud Shell, qui est constamment mise à jour vers la dernière version. Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 3.6 ou version ultérieure pour les besoins de ce didacticiel. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 ## <a name="create-a-rules-file"></a>Créer un fichier de règles
 
@@ -139,7 +139,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Tester la stratégie
 
-Pour tester la stratégie, essayez d’utiliser l’extension d’accès de la machine virtuelle. La suite doit échouer avec le message « Set-AzureRmVMAccessExtension : ressource 'myVMAccess' a été interdite par la stratégie. »
+Pour tester la stratégie, essayez d’utiliser l’extension d’accès de la machine virtuelle. Ce qui suit doit échouer avec le message « Set-AzureRmVMAccessExtension : La ressource 'myVMAccess' a été interdite par la stratégie. »
 
 ```azurepowershell-interactive
 Set-AzureRmVMAccessExtension `

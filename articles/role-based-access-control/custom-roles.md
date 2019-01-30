@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405612"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412046"
 ---
 # <a name="custom-roles-in-azure"></a>Rôles personnalisés dans Azure
 
@@ -84,7 +84,7 @@ Quand vous créez un rôle personnalisé, celui-ci s’affiche dans le portail A
 
     Une fois que vous avez votre rôle personnalisé, vous devez le tester pour vérifier qu’il fonctionne comme prévu. Si vous avez besoin d’effectuer des ajustements ultérieurement, vous pouvez mettre à jour le rôle personnalisé.
 
-Pour obtenir un tutoriel pas à pas sur la création d’un rôle personnalisé, consultez [Tutoriel : Créer un rôle personnalisé à l’aide d’Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutoriel : Créer un rôle personnalisé à l’aide d’Azure CLI](tutorial-custom-role-cli.md).
+Pour obtenir un tutoriel pas à pas sur la création d’un rôle personnalisé, consultez [Tutoriel : Créer un rôle personnalisé à l’aide d’Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutoriel : Créer un rôle personnalisé avec Azure CLI](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Propriétés du rôle personnalisé
 
@@ -116,3 +116,4 @@ Tout comme pour les rôles intégrés, la propriété `AssignableScopes` spécif
 - [Créer des rôles personnalisés à l’aide d’Azure PowerShell](custom-roles-powershell.md)
 - [Créer des rôles personnalisés à l’aide d’Azure CLI](custom-roles-cli.md)
 - [Comprendre les définitions de rôles](role-definitions.md)
+- [Résoudre des problèmes liés au contrôle d’accès en fonction du rôle dans Azure](troubleshooting.md)

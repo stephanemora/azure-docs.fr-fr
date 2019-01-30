@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 38ebde9179d79c091edb269c1be4c9c956f34006
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 415866bc4ef396a1b9397c4996d65cf10d78400b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626782"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854783"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -46,7 +46,7 @@ Les systèmes déployés sont accessibles via l’API de traduction de texte Tra
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Comment ignorer l’alignement et la rupture de phrase si mes données sont déjà alignées par phrase ?
 
-Custom Translator ignore l’alignement de phrase et la rupture de phrase pour les fichiers TMX et les fichiers texte avec l’extension `.align`. Les fichiers `.align` offrent aux utilisateurs la possibilité d’utiliser le processus d’alignement et de rupture de phrase de Custom Translator pour les fichiers qui sont parfaitement alignés et ne nécessitent aucun traitement supplémentaire. Nous vous recommandons d’utiliser l’extension `.align` uniquement pour les fichiers qui sont parfaitement alignés.
+Custom Translator ignore l’alignement de phrase et la rupture de phrase pour les fichiers TMX et les fichiers texte avec l’extension `.align`. Les fichiers `.align` offrent aux utilisateurs la possibilité d’utiliser le processus d’alignement et de découpage des phrases de Custom Translator pour les fichiers parfaitement alignés qui ne réclament aucun traitement supplémentaire. Nous vous recommandons d’utiliser l’extension `.align` uniquement pour les fichiers qui sont parfaitement alignés.
 
 Si le nombre de phrases extraites ne correspond pas aux deux fichiers portant le même nom de base, Custom Translator exécute quand même l’outil d’alignement de phrase sur les fichiers `.align`.
 

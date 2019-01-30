@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: abcf3100dc5252db9e3a5e7b446417333a9b37ca
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 27c732a2ddd21401ffbefa727cbb8001ec288293
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321889"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381946"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Propriétés standard dans les enregistrements Log Analytics
 Les données dans [Log Analytics](../log-query/log-query-overview.md) sont stockées sous la forme d’un jeu d’enregistrements, chacun ayant un type de données particulier comportant un ensemble de propriétés unique. De nombreux types de données comportent des propriétés standard qui sont communes à plusieurs types. Cet article décrit ces propriétés et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
@@ -92,7 +92,7 @@ La propriété **\_IsBillable** spécifie si les données ingérées sont factur
 Pour obtenir la liste des ordinateurs qui envoient des types de données facturés, utilisez la requête suivante :
 
 > [!NOTE]
-> Utilisez les requêtes accompagnées de `union withsource = tt *` avec parcimonie, car l'exécution d'analyses sur différents types de données est coûteuse. 
+> Utilisez les requêtes accompagnées de `union withsource = tt *` avec parcimonie, car l’exécution d’analyses sur différents types de données est coûteuse. 
 
 ```Kusto
 union withsource = tt * 

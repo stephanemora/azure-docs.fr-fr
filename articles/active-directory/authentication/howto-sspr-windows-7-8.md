@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 1b488e938cf314eef18117ffd33f582319260162
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427726"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438777"
 ---
-# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Activation de la réinitialisation de mot de passe à partir de Windows 7, 8 et 8.1
+# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Comment : Activer la réinitialisation de mot de passe à partir de Windows 7, 8 et 8.1
 
 En tant qu’administrateur, vous avez activé la réinitialisation de mot de passe en libre-service (SSPR), mais les utilisateurs continuent d’appeler le support technique pour réinitialiser leur mot de passe, car ils ne parviennent pas à obtenir une fenêtre de navigateur pour accéder au [portail SSPR](https://aka.ms/sspr). Pour les machines Windows 10, vous pouvez activer le lien « Réinitialiser le mot de passe » sur l’écran d’ouverture de session à l’aide du didacticiel [Réinitialisation du mot de passe Azure AD depuis l’écran de connexion](tutorial-sspr-windows.md). Les instructions ci-après vous indiquent comment permettre aux utilisateurs Windows 7, 8 et 8.1 de réinitialiser leur mot de passe à l’aide de la fonctionnalité SSPR au niveau de l’écran d’ouverture de session Windows.
 
@@ -74,7 +74,7 @@ Si une journalisation supplémentaire est requise, vous pouvez modifier une clé
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
 ```
 
-* Pour activer la journalisation détaillée, créez une entrée REG_DWORD « EnableLogging », puis définissez-la sur 1.
+* Pour activer la journalisation détaillée, créez une entrée REG_DWORD : « EnableLogging », puis définissez-la sur 1.
 * Pour désactiver la journalisation détaillée, redéfinissez l’entrée REG_DWORD « EnableLogging » sur 0.
 
 Si vos ordinateurs Windows 7, 8 et 8.1 se trouvent derrière un serveur proxy ou pare-feu, le trafic HTTPS (443) vers passwordreset.microsoftonline.com doit être autorisé.

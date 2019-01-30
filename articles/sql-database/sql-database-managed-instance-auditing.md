@@ -10,16 +10,16 @@ ms.topic: conceptual
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/12/2019
-ms.openlocfilehash: 716c4caa1b28cc40470d366e5fc6901de9462f9a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.date: 01/15/2019
+ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267264"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427914"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
 
@@ -28,102 +28,135 @@ L’audit [d’Azure SQL Database Managed Instance](sql-database-managed-instanc
 - peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données ainsi qu’à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité ;
 - permet et facilite le respect de normes de conformité, même s’il ne garantit pas cette conformité. Pour plus d’informations sur les programmes Azure prenant en charge la conformité aux normes, voir le [Centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
-## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurer l’audit de votre serveur sur Stockage Azure 
+## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurer l’audit de votre serveur sur Stockage Azure
 
 La section suivante décrit la configuration de l’audit à l’aide de votre instance Managed Instance.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
-2. Les étapes suivantes permettent de créer un **conteneur** Stockage Azure où sont stockés les journaux d’audit.
+1. Créez un **conteneur** Stockage Azure où sont stockés les journaux d’audit.
 
-   - Accédez au stockage Azure où vous souhaitez stocker vos journaux d’audit.
+   1. Accédez au stockage Azure où vous souhaitez stocker vos journaux d’audit.
 
-     > [!IMPORTANT]
-     > Utilisez un compte de stockage dans la même région que le serveur Managed Instance afin d’éviter des lectures/écritures entre régions.
+      > [!IMPORTANT]
+      > Utilisez un compte de stockage dans la même région que le serveur Managed Instance afin d’éviter des lectures/écritures entre régions.
 
-   - Dans le compte de stockage, accédez à **Vue d’ensemble**, puis cliquez sur **Objets blob**.
+   1. Dans le compte de stockage, accédez à **Vue d’ensemble**, puis cliquez sur **Objets blob**.
 
-     ![Volet de navigation][1]
+      ![Widget Objets Blob Azure](./media/sql-managed-instance-auditing/1_blobs_widget.png)
 
-   - Dans le menu supérieur, cliquez sur **+ Conteneur** pour créer un conteneur.
+   1. Dans le menu supérieur, cliquez sur **+ Conteneur** pour créer un conteneur.
 
-     ![Volet de navigation][2]
+      ![Icône de création d’un conteneur d’objets blob](./media/sql-managed-instance-auditing/2_create_container_button.png)
 
-   - Indiquez un **Nom** pour le conteneur, définissez le niveau d’accès Public sur **Privé**, puis cliquez sur **OK**.
+   1. Indiquez un **Nom** pour le conteneur, définissez le niveau d’accès Public sur **Privé**, puis cliquez sur **OK**.
 
-     ![Volet de navigation][3]
+     ![Créer une configuration de conteneur d’objets blob](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
-   - Dans la liste des conteneurs, cliquez sur le conteneur que vous venez de créer, puis sur **Propriétés du conteneur**.
+1. Après avoir créé le conteneur pour les journaux d’audit, vous pouvez le configurer comme cible pour ces journaux de deux façons : [à l’aide de T-SQL](#blobtsql) ou [à l’aide de l’interface utilisateur de SSMS (SQL Server Management Studio)](#blobssms).
 
-     ![Volet de navigation][4]
+   - <a id="blobtsql"></a>Configurer le stockage d’objets blob pour les journaux d’audit à l’aide de T-SQL :
 
-   - Copiez l’URL du conteneur en cliquant sur l’icône Copier, puis enregistrez-la (par exemple, dans le Bloc-notes) pour l’utiliser ultérieurement. L’URL du conteneur doit être au format `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. Dans la liste des conteneurs, cliquez sur le conteneur que vous venez de créer, puis sur **Propriétés du conteneur**.
 
-     ![Volet de navigation][5]
+        ![Bouton Propriétés d’un conteneur d’objets blob](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-3. Les étapes suivantes permettent de générer un **jeton SAP** Stockage Azure utilisé pour accorder au compte de stockage des droits d’accès sur l’audit de Managed Instance.
+     1. Copiez l’URL du conteneur en cliquant sur l’icône Copier, puis enregistrez-la (par exemple, dans le Bloc-notes) pour l’utiliser ultérieurement. L’URL du conteneur doit être au format `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
-   - Accédez au compte Stockage Azure dans lequel vous avez créé le conteneur à l’étape précédente.
+        ![URL du conteneur d’objets blob à copier](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-   - Dans le menu Paramètres de stockage, cliquez sur **Signature d’accès partagé**.
+     1. Générez un **jeton SAP** Stockage Azure pour accorder au compte de stockage des droits d’accès à l’audit de Managed Instance :
 
-     ![Volet de navigation][6]
+        - Accédez au compte Stockage Azure dans lequel vous avez créé le conteneur à l’étape précédente.
 
-   - Configurez la signature d’accès partagé comme suit :
-     - **Services autorisés** : Blob
-     - **Date de début** : pour éviter tout problème lié au fuseau horaire, il est recommandé d’utiliser la date de la veille.
-     - **Date de fin** : choisissez la date à laquelle ce jeton SAP arrive à expiration. 
+        - Dans le menu Paramètres de stockage, cliquez sur **Signature d’accès partagé**.
 
-       > [!NOTE]
-       > À l’expiration, renouvelez le jeton afin d’éviter les échecs d’audit.
+          ![Icône Signature d’accès partagé dans le menu des paramètres de stockage](./media/sql-managed-instance-auditing/6_storage_settings_menu.png)
 
-     - Cliquez sur **Générer une signature d’accès partagé**.
+        - Configurez la signature d’accès partagé comme suit :
 
-       ![Volet de navigation][7]
+          - **Services autorisés** : Blob
 
-   - Après que vous avez cliqué sur Générer une signature d’accès partagé, le jeton SAP s’affiche en bas de la fenêtre. Copiez le jeton en cliquant sur l’icône Copier, puis enregistrez-le (par exemple, dans le Bloc-notes) pour l’utiliser ultérieurement.
+          - **Date de début** : pour éviter tout problème lié au fuseau horaire, il est recommandé d’utiliser la date de la veille.
 
-     > [!IMPORTANT]
-     > Supprimez le point d’interrogation (« ? ») au début du jeton.
+          - **Date de fin** : choisissez la date à laquelle ce jeton SAP arrive à expiration.
 
-     ![Volet de navigation][8]
+            > [!NOTE]
+            > À l’expiration, renouvelez le jeton afin d’éviter les échecs d’audit.
 
-4. Connectez-vous à votre instance Managed Instance via SQL Server Management Studio (SSMS).
+          - Cliquez sur **Générer une signature d’accès partagé**.
+            
+            ![Configuration de SAP](./media/sql-managed-instance-auditing/7_sas_configure.png)
 
-5. Exécutez l’instruction T-SQL suivante pour **créer des informations d’identification** à l’aide de l’URL du conteneur et du jeton SAP que vous avez créés dans les étapes précédentes :
+        - Après que vous avez cliqué sur Générer une signature d’accès partagé, le jeton SAP s’affiche en bas de la fenêtre. Copiez le jeton en cliquant sur l’icône Copier, puis enregistrez-le (par exemple, dans le Bloc-notes) pour l’utiliser ultérieurement.
 
-    ```SQL
-    CREATE CREDENTIAL [<container_url>]
-    WITH IDENTITY='SHARED ACCESS SIGNATURE',
-    SECRET = '<SAS KEY>'
-    GO
-    ```
+          ![Copier le jeton SAP](./media/sql-managed-instance-auditing/8_sas_copy.png)
 
-6. Exécutez l’instruction T-SQL suivante pour créer un audit de serveur (choisissez votre propre nom d’audit et utilisez l’URL du conteneur que vous avez créée à l’étape précédente) :
+          > [!IMPORTANT]
+          > Supprimez le point d’interrogation (« ? ») au début du jeton.
 
-    ```SQL
-    CREATE SERVER AUDIT [<your_audit_name>]
-    TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
-    GO
-    ```
+     1. Connectez-vous à votre instance gérée à l’aide de SSMS (SQL Server Management Studio) ou de tout autre outil pris en charge.
 
-    Si aucune valeur n’est spécifiée, la valeur par défaut du paramètre `RETENTION_DAYS` est 0 (rétention illimitée).
+     1. Exécutez l’instruction T-SQL suivante pour **créer des informations d’identification** à l’aide de l’URL du conteneur et du jeton SAP que vous avez créés dans les étapes précédentes :
 
-    Pour toute information supplémentaire :
-    - [Audit des différences entre Managed Instance, Azure SQL DB et SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
-    - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
-    - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+        ```SQL
+        CREATE CREDENTIAL [<container_url>]
+        WITH IDENTITY='SHARED ACCESS SIGNATURE',
+        SECRET = '<SAS KEY>'
+        GO
+        ```
 
-7. Créez une spécification de l’audit du serveur ou une spécification de l’audit de la base de données comme vous le feriez pour SQL Server :
-    - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+     1. Exécutez l’instruction T-SQL suivante pour créer un audit de serveur (choisissez votre propre nom d’audit et utilisez l’URL du conteneur que vous avez créée au cours des étapes précédentes). Si aucune valeur n’est spécifiée, la valeur par défaut de `RETENTION_DAYS` est 0 (conservation illimitée) :
 
-8. Activez l’audit du serveur que vous avez créé à l’étape 6 :
+        ```SQL
+        CREATE SERVER AUDIT [<your_audit_name>]
+        TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
+        GO
+        ```
+
+      1. Continuez en [créant une spécification d’audit du serveur ou une spécification d’audit de la base de données](#createspec).
+
+   - <a id="blobssms"></a>Configurez le stockage d’objets blob pour les journaux d’audit à l’aide de SQL Server Management Studio (SSMS) 18 (préversion) :
+
+     1. Connectez-vous à l’instance gérée à l’aide de l’interface utilisateur de SSMS (SQL Server Management Studio).
+
+     1. Développez le nœud racine de l’Explorateur d’objets.
+
+     1. Développez le nœud **Sécurité**, cliquez avec le bouton droit sur le nœud **Audits**, puis cliquez sur Nouvel audit :
+
+        ![Développer les nœuds Sécurité et Audit](./media/sql-managed-instance-auditing/10_mi_SSMS_new_audit.png)
+
+     1. Veillez à sélectionner « URL » dans **Destination de l’audit**, puis cliquez sur **Parcourir** :
+
+        ![Parcourir le stockage Azure](./media/sql-managed-instance-auditing/11_mi_SSMS_audit_browse.png)
+
+     1. (Facultatif) Connectez-vous à votre compte Azure :
+
+        ![Connexion à Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+
+     1. Sélectionnez un abonnement, un compte de stockage et un conteneur d’objets blob dans les menus déroulants, ou cliquez sur **Créer** pour créer votre propre conteneur. Une fois terminé, cliquez sur **OK** :
+
+        ![Sélectionner un abonnement Azure, un compte de stockage et un conteneur d’objets blob](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+
+     1. Cliquez sur **OK** dans la boîte de dialogue Créer un audit.
+
+1. <a id="createspec"></a>Après avoir configuré le conteneur d’objets blob comme cible pour les journaux d’audit, créez une spécification d’audit du serveur ou une spécification d’audit de la base de données comme vous le feriez pour SQL Server :
+
+   - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+
+1. Activez l’audit du serveur que vous avez créé à l’étape 6 :
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
     WITH (STATE=ON);
     GO
     ```
+
+Pour toute information supplémentaire :
+
+- [Audit des différences entre Managed Instance, Azure SQL DB et SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
+- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 ## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Configurer l’audit de votre serveur sur Event Hub ou Log Analytics
 
@@ -141,7 +174,7 @@ Les journaux d’audit d’une Managed Instance peuvent être envoyés à Event 
 
 6. Cliquez sur **Enregistrer**.
 
-  ![Volet de navigation][9]
+    ![Configurer les paramètres de diagnostic](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
 7. Connectez-vous à l’instance gérée à l’aide **SQL Server Management Studio (SSMS)** ou de tout autre client pris en charge.
 
@@ -172,12 +205,12 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 
 - Utilisez la fonction système `sys.fn_get_audit_file` pour retourner les données du journal d’audit dans un format tabulaire. Pour plus d’informations sur l’utilisation de cette fonction, consultez la [documentation sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://azure.microsoft.com/en-us/features/storage-explorer/). Dans Stockage Azure, les journaux d’audit sont enregistrés sous la forme d’une collection de fichiers blob dans un conteneur nommé sqldbauditlogs. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
+- Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://azure.microsoft.com/features/storage-explorer/). Dans Stockage Azure, les journaux d’audit sont enregistrés sous la forme d’une collection de fichiers blob dans un conteneur défini pour stocker les journaux d’audit. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Pour obtenir la liste complète des méthodes de consommation du journal d’audit, reportez-vous à l’article [Bien démarrer avec l’audit de bases de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 
-> [!IMPORTANT]
-> L’affichage des enregistrements d’audit du portail Azure (volet « Enregistrements d’audit ») n’est pas actuellement disponible pour Managed Instance.
+  > [!IMPORTANT]
+  > L’affichage des enregistrements d’audit du portail Azure (volet « Enregistrements d’audit ») n’est pas actuellement disponible pour Managed Instance.
 
 ### <a name="consume-logs-stored-in-event-hub"></a>Utiliser les journaux stockés dans Event Hub
 
@@ -213,12 +246,12 @@ Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockag
 - Pour plus d’informations sur les programmes Azure prenant en charge la conformité aux normes, voir le [Centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
 <!--Image references-->
-[1]: ./media/sql-managed-instance-auditing/1_blobs_widget.png
-[2]: ./media/sql-managed-instance-auditing/2_create_container_button.png
-[3]: ./media/sql-managed-instance-auditing/3_create_container_config.png
-[4]: ./media/sql-managed-instance-auditing/4_container_properties_button.png
-[5]: ./media/sql-managed-instance-auditing/5_container_copy_name.png
-[6]: ./media/sql-managed-instance-auditing/6_storage_settings_menu.png
-[7]: ./media/sql-managed-instance-auditing/7_sas_configure.png
-[8]: ./media/sql-managed-instance-auditing/8_sas_copy.png
-[9]: ./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png
+
+
+
+
+
+
+
+
+

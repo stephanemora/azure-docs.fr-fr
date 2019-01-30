@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 62220104329e36fbb2e6f7d3b5b48bcaeaba3660
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081761"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445060"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Onglet Détails de la vitrine Dynamics 365 for Customer Engagement
 
@@ -77,9 +77,9 @@ Le tableau suivant décrit les champs de cet onglet :
 |  ---------------      |  ---------------               |
 | Logo de l’offre (format png, 48 x 48) | Chargez une image qui sera affichée dans la page de recherche de votre application. Elle doit être au format PNG et avoir une taille de 48 x 48 pixels. |
 | Logo de l’offre (format png, 216 x 216) | Chargez une image qui sera affichée dans la page de détails de votre application. Elle doit être au format PNG et avoir une taille de 216 x 216 pixels. |
-| Vidéos                | Chargez des vidéos promotionnelles ou d’instructions pour l’application (maximum quatre).  Pour chaque vidéo, renseignez le nom de la vidéo, l’URL (YouTube ou Vimeo uniquement) et une miniature associée au format PNG et de dimension 1 280 x 720 pixels.  | 
+| vidéos                | Chargez des vidéos promotionnelles ou d’instructions pour l’application (maximum quatre).  Pour chaque vidéo, renseignez le nom de la vidéo, l’URL (YouTube ou Vimeo uniquement) et une miniature associée au format PNG et de dimension 1 280 x 720 pixels.  | 
 | Documents             | Chargez des documents promotionnels ou d’instructions de produit au format PDF (maximum trois).  Spécifiez un nom pour chaque document.  |
-| Captures d’écran           | Chargez un maximum de cinq images d’interface utilisateur de l’application au format PNG et de dimension 1 280 x 720 pixels.  Ces captures d’écran apparaîtront dans la page détaillée AppSource de votre application. |
+| Captures d’écran.           | Chargez un maximum de cinq images d’interface utilisateur de l’application au format PNG et de dimension 1 280 x 720 pixels.  Ces captures d’écran apparaîtront dans la page détaillée AppSource de votre application. |
 |  |  |
 
 

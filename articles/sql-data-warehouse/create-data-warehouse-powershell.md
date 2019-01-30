@@ -10,20 +10,20 @@ ms.component: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 22ccc11d1eb74fd868fd740f02311baeb5ac5987
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852637"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433609"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Démarrage rapide : créer et interroger un entrepôt de données SQL Azure dans Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Démarrage rapide : créer et interroger un entrepôt de données SQL Azure avec Azure PowerShell
 
 Créez rapidement un entrepôt de données SQL Azure à l’aide d’Azure PowerShell.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Ce didacticiel nécessite le module Azure PowerShell version 5.1.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour connaître la version dont vous disposez. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Ce didacticiel nécessite le module Azure PowerShell version 5.1.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour connaître la version dont vous disposez. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 
 > [!NOTE]
@@ -123,15 +123,15 @@ New-AzureRmSqlDatabase `
 Les paramètres obligatoires sont :
 
 * **RequestedServiceObjectiveName** : quantité de valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md) que vous demandez. L’augmentation de cette quantité augmente les coûts de calcul. Pour obtenir la liste des valeurs prises en charge, consultez les [limites de mémoire et de concurrence](memory-and-concurrency-limits.md).
-* **DatabaseName**: nom de l’entrepôt SQL Data Warehouse que vous créez.
+* **DatabaseName** : nom de l’entrepôt de données SQL que vous créez.
 * **ServerName** : nom du serveur que vous utilisez pour la création.
-* **ResourceGroupName**: groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
-* **Edition**: l’édition doit être définie sur « DataWarehouse » pour créer un entrepôt SQL Data Warehouse.
+* **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
+* **Edition** : l’édition doit être « DataWarehouse » pour créer un entrepôt de données SQL.
 
 Les paramètres facultatifs sont :
 
-- **CollationName** : le classement par défaut est COLLATE SQL_Latin1_General_CP1_CI_AS. Le classement ne peut pas être modifié sur une base de données.
-- **MaxSizeBytes**: par défaut, la taille maximale d’une base de données est de 10 Go.
+- **CollationName** : s’il n’est pas spécifié, le classement par défaut est SQL_Latin1_General_CP1_CI_AS. Le classement ne peut pas être modifié sur une base de données.
+- **MaxSizeBytes** : par défaut, la taille maximale d’une base de données est de 10 Go.
 
 Pour plus d’informations sur les options de paramètre, consultez [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
 

@@ -4,7 +4,7 @@ description: Découvrez ce que sont les mappages d’attributs pour les applicat
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c54df9c4a01dbdb7713d03ff81108f28a60ec727
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ead99afaf0399c060424d310d8f4011b2a50aad2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355211"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473722"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 Microsoft Azure AD prend en charge l’approvisionnement d’utilisateurs pour les applications SaaS tierces telles que Salesforce, Google Apps et autres. Si vous avez activé l’attribution d’utilisateurs pour une application SaaS tierce, le portail Azure contrôle ses valeurs d’attributs sous forme de mappages d’attributs.
@@ -64,8 +64,8 @@ Outre ces quatre types de base, les mappages d’attributs personnalisés prenne
 La section précédente vous a présenté la propriété de type de mappage d’attributs.
 Outre cette propriété, les mappages d’attributs prennent en charge les attributs suivants :
 
-- **Attribut source** : attribut utilisateur du système source (exemple, Azure : Active Directory).
-- **Attribut cible** : attribut utilisateur dans le système cible (exemple : ServiceNow).
+- **Attribut source** : attribut utilisateur du système source (par exemple, Azure Active Directory).
+- **Attribut cible** : attribut utilisateur dans le système cible (par exemple, ServiceNow).
 - **Trouver les objets utilisant cet attribut** : indique si ce mappage doit être utilisé ou pas pour identifier les utilisateurs de manière unique entre les systèmes source et cible. Ce champ est généralement défini sur l’attribut userPrincipalName ou mail dans Azure AD, qui est généralement mappé à un champ de nom d’utilisateur dans une application cible.
 - **Priorité de correspondance** : vous pouvez définir plusieurs attributs de correspondance. S’il en existe plusieurs, ils sont évalués dans l’ordre défini par ce champ. Dès qu’une correspondance est trouvée, aucun autre attribut correspondant n’est évalué.
 - **Appliquer ce mappage**

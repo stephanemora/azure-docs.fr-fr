@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca29526ab8abbfffcf5e58939acbd1c9b4798a51
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140181"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451721"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale
 
@@ -174,7 +174,7 @@ Au cours des étapes suivantes, nous allons vous expliquer comment connecter le 
    * Une fois qu’**Azure SQL Database** apparaît en vert sur votre schéma de modèle de solution, cliquez dessus, puis cliquez sur **Ouvrir**.
    * La page du portail Azure s’affiche dans un nouvel onglet/fenêtre de navigateur. Cliquez sur **« Groupes de ressources »** dans le volet gauche.
    * Sélectionnez l’abonnement que vous utilisez pour le déploiement de la solution, puis sélectionnez **« NomVotreSolution\_GroupeRessources »**.
-   * Dans le nouveau panneau contextuel, cliquez sur ![l’icône SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) pour accéder à votre base de données. Le nom de votre base de données apparaît en regard de cette icône (par exemple, **pmaintenancedb**) et le **nom du serveur de base de données** est répertorié sous la propriété du nom de serveur et doit être du type **NomVotreSolution.database.windows.net**.
+   * Dans le nouveau panneau contextuel, cliquez sur ![l’icône SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) pour accéder à votre base de données. Le nom de votre base de données apparaît en regard de cette icône (par exemple, **pmaintenancedb**) et le **nom du serveur de base de données** est listé sous la propriété du nom de serveur et doit être du type **NomVotreSolution.database.windows.net**.
    * Les **nom d’utilisateur** et **mot de passe** de votre base de données sont identiques aux nom d’utilisateur et mot de passe précédemment enregistrés au moment du déploiement de la solution.
 2. Mettre à jour la source de données du fichier de rapport de chemin à froid avec Power BI Desktop.
    

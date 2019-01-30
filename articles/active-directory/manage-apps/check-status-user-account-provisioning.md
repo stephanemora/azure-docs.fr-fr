@@ -4,7 +4,7 @@ description: Découvrez comment vérifier l’état des tâches d’approvisionn
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: af5d7174a2726a6ff8a62477149606ec5d43e94e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: def3c6aea7b915e8665367d4da27c1314374000c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355069"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463063"
 ---
-# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Didacticiel : Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur
+# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutoriel : Créer des rapports sur le provisionnement automatique de comptes d’utilisateur
 
 
 Azure Active Directory comprend un [service d’approvisionnement de comptes d’utilisateur](user-provisioning.md) qui permet d’automatiser l’approvisionnement ou la suppression de comptes d’utilisateur dans des applications SaaS et d’autres systèmes, pour gérer le cycle de vie des identités de bout en bout. Azure AD prend en charge des connecteurs préintégrés d’approvisionnement d’utilisateur pour l’ensemble des applications et systèmes dans la section « Suggestions » de la [Galerie d’applications Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
@@ -40,9 +40,9 @@ Les connecteurs de provisionnement peuvent être configurés via le [portail Azu
 
 Cet article utilise les termes suivants, définis ci-dessous :
 
-* **Système source** : référentiel d’utilisateurs à partir duquel le service d’approvisionnement Azure AD se synchronise. Azure Active Directory est le système source pour la majorité des connecteurs d’approvisionnement pré-intégrés, mais il existe des exceptions (par exemple, la synchronisation entrante des jours de travail).
+* **Système source** : référentiel d’utilisateurs à partir duquel le service d’approvisionnement Azure AD se synchronise. Azure Active Directory est le système source pour la majorité des connecteurs de provisionnement pré-intégrés, mais il existe des exceptions (par exemple, la synchronisation entrante Workday).
 
-* **Système cible** : référentiel des utilisateurs avec lequel le service d’approvisionnement Azure AD se synchronise. Il s’agit généralement d’une application SaaS (par exemple, Salesforce, ServiceNow, Google Apps, Dropbox for Business) mais, dans certains cas, il peut s’agir d’un système local tel qu’Active Directory (par exemple, une synchronisation entrante des jours de travail sur Active Directory).
+* **Système cible** : référentiel des utilisateurs avec lequel le service d’approvisionnement Azure AD se synchronise. Il s’agit généralement d’une application SaaS (exemples : Salesforce, ServiceNow, Google Apps, Dropbox for Business), mais dans certains cas, cela peut être un système local comme Active Directory (par exemple, la synchronisation entrante Workday dans Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Obtention de rapports d’approvisionnement du portail de gestion Azure
@@ -68,7 +68,7 @@ Le rapport de synthèse sur l’approvisionnement est visible sous l’onglet **
 
 Le rapport de synthèse sur l’approvisionnement doit être le premier emplacement que les administrateurs consultent pour vérifier l’intégrité opérationnelle du travail d’approvisionnement.
 
- ![Rapport de synthèse](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![Rapport de synthèse](./media/check-status-user-account-provisioning/summary_report.PNG)
 
 ## <a name="provisioning-audit-logs"></a>Journaux d’audit de l’approvisionnement
 Toutes les activités effectuées par le service d’approvisionnement sont enregistrées dans les journaux d’audit d’Azure AD, qui peuvent être consultés sous l’onglet **Journaux d’audit**, dans la catégorie **Approvisionnement de comptes**. Les types d’événements d’activité journalisés sont les suivants :
@@ -83,13 +83,13 @@ Toutes les activités effectuées par le service d’approvisionnement sont enre
 
 Lors de l’examen d’événements d’approvisionnement pour un utilisateur, les événements se produisent généralement dans l’ordre suivant :
 
-1. Événement d’importation : l’utilisateur est extrait du système source.
+1. Événement d’importation : l’utilisateur est récupéré du système source.
 
-2. Événement d’importation : le système cible est interrogé afin de vérifier l’existence de l’utilisateur extrait.
+2. Événement d’importation : le système cible est interrogé afin de vérifier l’existence de l’utilisateur récupéré.
 
-3. Événement de règle de synchronisation : les données utilisateur des systèmes source et cible sont évaluées par rapport aux règles de mappage d’attribut et aux filtres d’étendue configurés afin de déterminer l’action éventuelle à effectuer.
+3. Événement de règle de synchronisation : les données utilisateur des systèmes source et cible sont évaluées par rapport aux règles de mappage d’attribut et aux filtres d’étendue configurés afin de déterminer l’action éventuelle à effectuer.
 
-4. Événement d’exportation : si l’événement de règle de synchronisation a dicté qu’une action doit être exécutée (Ajouter, Mettre à jour, Supprimer), les résultats de l’action sont enregistrés dans l’événement d’exportation.
+4. Événement d’exportation : si l’événement de règle de synchronisation détermine qu’une action doit être effectuée (Ajouter, Mettre à jour, Supprimer), les résultats de l’action sont enregistrés dans l’événement d’exportation.
 
 ![Création d’un utilisateur de test Azure AD](./media/check-status-user-account-provisioning/audit_logs.PNG)
 

@@ -14,34 +14,34 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 0c47600082a2c633116d1e85e9f31324544c2c57
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261749"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438080"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console série de machine virtuelle pour Linux
 
-La console série de machine virtuelle du portail Azure permet aux machines virtuelles Linux d’accéder à une console texte. Cette connexion série s’effectue par le biais du port série COM1 de la machine virtuelle. Elle fournit l’accès à la machine virtuelle et n’est pas liée au réseau de la machine virtuelle ni à l’état du système d’exploitation. Seul le portail Azure permet d’accéder à la console série pour une machine virtuelle. Cette opération est autorisée uniquement pour les utilisateurs disposant d’un rôle d’accès Contributeur de machine virtuelle ou d’un rôle supérieur vis-à-vis de la machine virtuelle. 
+La console série de machine virtuelle du portail Azure permet aux machines virtuelles Linux d’accéder à une console texte. Cette connexion série s’effectue par le biais du port série COM1 de la machine virtuelle. Elle fournit l’accès à la machine virtuelle et n’est pas liée au réseau de la machine virtuelle ni à l’état du système d’exploitation. Seul le portail Azure permet d’accéder à la console série pour une machine virtuelle. Cette opération est autorisée uniquement pour les utilisateurs disposant d’un rôle d’accès Contributeur de machine virtuelle ou d’un rôle supérieur vis-à-vis de la machine virtuelle.
 
 Pour en savoir plus sur la console série des machines virtuelles Windows, consultez [Console série de machine virtuelle](../windows/serial-console.md).
 
-> [!NOTE] 
+> [!NOTE]
 > La console série de machines virtuelles est généralement disponible dans les régions Azure globales. Elle n’est pas encore disponible dans les clouds Azure Government, ni dans les clouds Azure - Chine.
 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Prérequis
 
-- La machine virtuelle dans laquelle vous accédez à une console série doit utiliser le modèle de déploiement de gestion des ressources. Les déploiements classiques ne sont pas pris en charge. 
+- La machine virtuelle dans laquelle vous accédez à une console série doit utiliser le modèle de déploiement de gestion des ressources. Les déploiements classiques ne sont pas pris en charge.
 
-- Les [diagnostics de démarrage](boot-diagnostics.md) doivent être activés sur la machine virtuelle dans laquelle vous accédez à une console série. 
+- Les [diagnostics de démarrage](boot-diagnostics.md) doivent être activés sur la machine virtuelle dans laquelle vous accédez à une console série.
 
     ![Paramètres de l’option Diagnostics de démarrage](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-- Un compte qui utilise une console série doit disposer du [rôle Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour la machine virtuelle et du compte de stockage de [diagnostics de démarrage](boot-diagnostics.md) : 
+- Un compte qui utilise une console série doit disposer du [rôle Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour la machine virtuelle et du compte de stockage de [diagnostics de démarrage](boot-diagnostics.md) :
 
-    - La machine virtuelle dans laquelle vous accédez à une console série doit disposer d’un compte avec mot de passe. Vous pouvez en créer un avec la fonction [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**. 
+    - La machine virtuelle dans laquelle vous accédez à une console série doit disposer d’un compte avec mot de passe. Vous pouvez en créer un avec la fonction [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**.
 
     - Pour découvrir les paramètres spécifiques des distributions Linux, consultez [Disponibilité de distributions Linux pour la console série](#serial-console-linux-distribution-availability).
 
@@ -61,37 +61,40 @@ Pour les machines virtuelles, la console série est accessible uniquement sur le
      ![Fenêtre de console série Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
-> [!NOTE] 
+> [!NOTE]
 > La console série nécessite la configuration d’un utilisateur local avec mot de passe. Les machines virtuelles configurées uniquement avec une clé publique SSH ne peuvent pas se connecter à la console série. Pour créer un utilisateur local avec mot de passe, utilisez [Extension VMAccess](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), disponible dans le portail par le biais de l’option **Réinitialiser le mot de passe** du portail Azure, puis créez un utilisateur local avec mot de passe.
 > Vous pouvez également réinitialiser le mot de passe administrateur de votre compte en [utilisant le GRUB pour démarrer en mode mono-utilisateur](./serial-console-grub-single-user-mode.md).
 
 ## <a name="serial-console-linux-distribution-availability"></a>Disponibilité de distributions Linux pour la console série
-Afin de permettre le bon fonctionnement de la console série, le système d’exploitation invité doit être configuré pour la lecture et l’écriture des messages de console sur le port série. La plupart des [distributions Azure Linux approuvées](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) présentent la console série configurée par défaut. Sélectionnez **Console série** dans la section **Support + dépannage** du portail Azure pour accéder à la console série. 
+Afin de permettre le bon fonctionnement de la console série, le système d’exploitation invité doit être configuré pour la lecture et l’écriture des messages de console sur le port série. La plupart des [distributions Azure Linux approuvées](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) présentent la console série configurée par défaut. Sélectionnez **Console série** dans la section **Support + dépannage** du portail Azure pour accéder à la console série.
 
 Distribution      | Accès à la console série
 :-----------|:---------------------
-Red Hat Enterprise Linux    | Accès à la console série activé par défaut. 
-CentOS      | Accès à la console série activé par défaut. 
+Red Hat Enterprise Linux    | Accès à la console série activé par défaut.
+CentOS      | Accès à la console série activé par défaut.
 Ubuntu      | Accès à la console série activé par défaut.
 CoreOS      | Accès à la console série activé par défaut.
-SUSE        | Les images SLES les plus récentes disponibles sur Azure disposent de l’accès à la console série activé par défaut. Si vous utilisez des versions antérieures (version 10 ou antérieure) de SLES sur Azure, consultez les instructions de l’[article de la base de connaissances](https://www.novell.com/support/kb/doc.php?id=3456486) pour activer la console série. 
+SUSE        | Les images SLES les plus récentes disponibles sur Azure disposent de l’accès à la console série activé par défaut. Si vous utilisez des versions antérieures (version 10 ou antérieure) de SLES sur Azure, consultez les instructions de l’[article de la base de connaissances](https://www.novell.com/support/kb/doc.php?id=3456486) pour activer la console série.
 Oracle Linux        | Accès à la console série activé par défaut.
 Images Linux personnalisées     | Afin d’activer la console série pour votre image Linux personnalisée de machine virtuelle, activez l’accès à la console dans le fichier */etc/inittab* pour exécuter un terminal sur `ttyS0`. Par exemple : `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Pour plus d’informations sur la création d’images personnalisées, consultez [Création et téléchargement d’un disque dur virtuel Linux dans Azure](https://aka.ms/createuploadvhd). Si vous générez un noyau personnalisé, envisagez d’activer les indicateurs de noyau `CONFIG_SERIAL_8250=y` et `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Le fichier config se trouve généralement sous */boot/*.
 
-## <a name="common-scenarios-for-accessing-the-serial-console"></a>Scénarios courants d’accès à la console série 
-Scénario          | Actions à effectuer dans la console série                
+> [!NOTE]
+> Si vous ne voyez rien dans la console série, vérifiez que les diagnostics de démarrage sont activés sur votre machine virtuelle.
+
+## <a name="common-scenarios-for-accessing-the-serial-console"></a>Scénarios courants d’accès à la console série
+Scénario          | Actions à effectuer dans la console série
 :------------------|:-----------------------------------------
 Fichier *FSTAB* endommagé | Appuyez sur la touche **Entrée** pour continuer, puis utilisez un éditeur de texte pour réparer le fichier *FSTAB*. Vous devrez peut-être activer le mode mono-utilisateur pour ce faire. Pour en savoir plus, consultez [Résoudre les incidents fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) et [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md).
-Règles de pare-feu incorrectes | Accédez à la console série et corrigez les tables d’adresses IP. 
-Contrôle de la corruption du système de fichiers | Accédez à la console série et récupérez le système de fichiers. 
-Problèmes de configuration SSH/RDP | Accédez à la console série et modifiez les paramètres. 
-Système de verrouillage du réseau| Accédez à la console série à partir du portail Azure pour gérer le système. 
-Interaction avec le chargeur de démarrage | Accédez au GRUB au moyen de la console série. Pour en savoir plus, consultez [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md). 
+Règles de pare-feu incorrectes | Accédez à la console série et corrigez les tables d’adresses IP.
+Contrôle de la corruption du système de fichiers | Accédez à la console série et récupérez le système de fichiers.
+Problèmes de configuration SSH/RDP | Accédez à la console série et modifiez les paramètres.
+Système de verrouillage du réseau| Accédez à la console série à partir du portail Azure pour gérer le système.
+Interaction avec le chargeur de démarrage | Accédez au GRUB au moyen de la console série. Pour en savoir plus, consultez [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Désactiver la console série
 Par défaut, tous les abonnements ont accès à la console série pour toutes les machines virtuelles. Vous pouvez désactiver la console série au niveau de l’abonnement ou de la machine virtuelle.
 
-> [!NOTE] 
+> [!NOTE]
 > Afin d’activer ou de désactiver la console série pour un abonnement, vous devez disposer des autorisations en écriture sur l’abonnement. Ces autorisations incluent les rôles administrateur et propriétaire. Des rôles personnalisés peuvent aussi disposer d’autorisations en écriture.
 
 ### <a name="subscription-level-disable"></a>Désactiver au niveau de l’abonnement
@@ -99,11 +102,11 @@ La console série peut être désactivée pour un abonnement complet par le biai
 
 ![Essayez l’API REST](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-Vous pouvez également utiliser le jeu de commandes Bash ci-dessous dans Cloud Shell afin de désactiver, d’activer et d’afficher l’état désactivé de la console série pour un abonnement : 
+Vous pouvez également utiliser le jeu de commandes Bash ci-dessous dans Cloud Shell afin de désactiver, d’activer et d’afficher l’état désactivé de la console série pour un abonnement :
 
 * Afin d’obtenir l’état désactivé de la console série pour un abonnement :
     ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
 
@@ -111,7 +114,7 @@ Vous pouvez également utiliser le jeu de commandes Bash ci-dessous dans Cloud S
     ```
 * Afin de désactiver la console série pour un abonnement :
     ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
 
@@ -119,7 +122,7 @@ Vous pouvez également utiliser le jeu de commandes Bash ci-dessous dans Cloud S
     ```
 * Afin d’activer la console série pour un abonnement :
     ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
 
@@ -129,24 +132,24 @@ Vous pouvez également utiliser le jeu de commandes Bash ci-dessous dans Cloud S
 ### <a name="vm-level-disable"></a>Désactiver au niveau de la machine virtuelle
 La console série peut être désactivée pour une machine virtuelle spécifique au travers de la désactivation du paramètre de diagnostics de démarrage de cette machine virtuelle. Désactivez les diagnostics de démarrage à partir du portail Azure afin de désactiver la console série pour la machine virtuelle.
 
-## <a name="serial-console-security"></a>Sécurité de la console série 
+## <a name="serial-console-security"></a>Sécurité de la console série
 
-### <a name="access-security"></a>Sécurité des accès 
+### <a name="access-security"></a>Sécurité des accès
 L’accès à la console série est limité aux utilisateurs disposant d’un rôle d’accès [Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ou d’un rôle supérieur vis-à-vis de la machine virtuelle. Si votre tenant Azure Active Directory nécessite une authentification multifacteur (MFA), l’accès à la console série nécessite également l’authentification MFA, car l’accès de la console série s’effectue par le biais du [portail Azure](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Sécurité des canaux
 Toutes les données envoyées sur les canaux sont chiffrées.
 
 ### <a name="audit-logs"></a>Journaux d’audit
-Tous les accès à la console série sont journalisés dans les journaux [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de la machine virtuelle. L’accès à ces journaux est détenu et contrôlé par l’administrateur de la machine virtuelle Azure.  
+Tous les accès à la console série sont journalisés dans les journaux [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de la machine virtuelle. L’accès à ces journaux est détenu et contrôlé par l’administrateur de la machine virtuelle Azure.
 
->[!CAUTION] 
-Aucun mot de passe d’accès pour la console n’est journalisé. Toutefois, si des commandes exécutées dans la console contiennent ou affichent des mots de passe, des secrets, des noms d’utilisateur ou toute autre forme d’informations d’identification personnelle (PII), ces derniers sont écrits dans les journaux Diagnostics de démarrage de la machine virtuelle. Ils sont accompagnés de tout autre texte visible dans le cadre de l’implémentation de la fonctionnalité de scrollback de la console série. Ces journaux sont circulaires et seules les personnes disposant d’autorisations de lecture pour le compte de stockage de diagnostics peuvent y accéder. Toutefois, nous vous recommandons de suivre les bonnes pratiques concernant l’utilisation du Bureau à distance pour tout élément susceptible d’impliquer des secrets et/ou des informations d’identification personnelle. 
+>[!CAUTION]
+Aucun mot de passe d’accès pour la console n’est journalisé. Toutefois, si des commandes exécutées dans la console contiennent ou affichent des mots de passe, des secrets, des noms d’utilisateur ou toute autre forme d’informations d’identification personnelle (PII), ces derniers sont écrits dans les journaux Diagnostics de démarrage de la machine virtuelle. Ils sont accompagnés de tout autre texte visible dans le cadre de l’implémentation de la fonctionnalité de scrollback de la console série. Ces journaux sont circulaires et seules les personnes disposant d’autorisations de lecture pour le compte de stockage de diagnostics peuvent y accéder. Toutefois, nous vous recommandons de suivre les bonnes pratiques concernant l’utilisation du Bureau à distance pour tout élément susceptible d’impliquer des secrets et/ou des informations d’identification personnelle.
 
 ### <a name="concurrent-usage"></a>Utilisation simultanée
 Si un utilisateur est connecté à la console série alors qu’un autre utilisateur demande l’accès à la même machine virtuelle, le premier utilisateur est déconnecté pendant que le second utilisateur est connecté.
 
->[!CAUTION] 
+>[!CAUTION]
 Cet utilisateur n’est pas réellement déconnecté. La possibilité d’appliquer une déconnexion réelle (par le biais de SIGHUP ou d’un mécanisme similaire) est en cours d’étude. Pour Windows, un délai d’expiration automatique est activé dans la console SAC (Special Administrative Console). Mais pour Linux, vous pouvez configurer le délai d’expiration terminal. Pour ce faire, ajoutez `export TMOUT=600` dans votre fichier *.bash_profile* ou *.profile* pour l’utilisateur avec lequel vous vous connectez habituellement à la console. Ce paramètre met fin à la session au bout de 10 minutes.
 
 ## <a name="accessibility"></a>Accessibilité
@@ -161,26 +164,27 @@ La console série comprend une prise en charge intégrée des lecteurs d’écra
 ## <a name="errors"></a>Errors
 Étant donné que la plupart des erreurs sont temporaires, une nouvelle tentative de connexion peut souvent les corriger. Le tableau suivant présente une liste d’erreurs accompagnées de solutions d’atténuation.
 
-Error                            |   Atténuation 
+Error                            |   Atténuation
 :---------------------------------|:--------------------------------------------|
-Unable to retrieve boot diagnostics settings for *&lt;VMNAME&gt;*. To use the serial console, ensure that boot diagnostics is enabled for this VM (Impossible de récupérer les paramètres de diagnostic de démarrage. Pour utiliser la console série, vérifiez que les diagnostics de démarrage sont activés dans la machine virtuelle) | Vérifiez que l’option [diagnostics de démarrage](boot-diagnostics.md) est activée dans la machine virtuelle. 
+Unable to retrieve boot diagnostics settings for *&lt;VMNAME&gt;*. To use the serial console, ensure that boot diagnostics is enabled for this VM (Impossible de récupérer les paramètres de diagnostic de démarrage. Pour utiliser la console série, vérifiez que les diagnostics de démarrage sont activés dans la machine virtuelle) | Vérifiez que l’option [diagnostics de démarrage](boot-diagnostics.md) est activée dans la machine virtuelle.
 The VM is in a stopped deallocated state. Start the VM and retry the serial console connection (La machine virtuelle est arrêtée et à l’état Désalloué. Démarrez la machine virtuelle, puis retentez une connexion à la console série) | La machine virtuelle doit être à l’état Démarré pour accéder à la console série.
 You do not have the required permissions to use this VM with the serial console. Ensure you have at least Virtual Machine Contributor role permissions. (Vous ne disposez pas des autorisations nécessaires pour utiliser la console série sur cette machine virtuelle. Vous devez disposer des autorisations du rôle Contributeur de machine virtuelle au minimum.)| L’accès à la console série nécessite certaines autorisations. Pour plus d’informations, consultez [Prérequis](#prerequisites).
 Unable to determine the resource group for the boot diagnostics storage account *&lt;STORAGEACCOUNTNAME&gt;*. Verify that boot diagnostics is enabled for this VM and you have access to this storage account (Impossible de déterminer le groupe de ressources pour le compte de stockage de diagnostic de démarrage. Vérifiez que les diagnostics de démarrage sont activés sur la machine virtuelle et que vous avez accès au compte de stockage) | L’accès à la console série nécessite certaines autorisations. Pour plus d’informations, consultez [Prérequis](#prerequisites).
 WebSocket est fermé ou n’a pas pu être ouvert. | Vous devrez peut-être autoriser `*.console.azure.com`. Une approche plus détaillée, mais plus longue, consiste à autoriser les [plages IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui changent régulièrement.
 Une réponse « Interdit » s’est produite lors de l’accès au compte de stockage des diagnostics de démarrage de cette machine virtuelle. | Assurez-vous que les diagnostics de démarrage n’ont pas un pare-feu de compte. Un compte de stockage des diagnostics de démarrage accessible est nécessaire au fonctionnement de la console série.
 
-## <a name="known-issues"></a>Problèmes connus 
+## <a name="known-issues"></a>Problèmes connus
 Nous sommes conscients de certains problèmes avec la console série. Voici une liste de ces problèmes et la procédure d’atténuation associée.
 
-Problème                           |   Atténuation 
+Problème                           |   Atténuation
 :---------------------------------|:--------------------------------------------|
 L’utilisation de la touche **Entrée** après la bannière de connexion n’entraîne pas l’affichage d’une invite de connexion. | Pour plus d’informations, consultez [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Cela peut se produire si vous exécutez une machine virtuelle personnalisée, une appliance à sécurité renforcée ou une configuration de GRUB qui empêche Linux de se connecter correctement au port série.
 Le texte de la console série n’occupe l’écran que partiellement (souvent après l’utilisation d’un éditeur de texte). | Les consoles série ne gèrent pas la négociation sur la taille de fenêtre ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), ce qui signifie qu’aucun signal SIGWINCH ne sera envoyé pour mettre à jour la taille de l’écran et la machine virtuelle ne connaîtra pas la taille de votre terminal. Installez xterm ou un utilitaire similaire pour disposer de la commande `resize`, puis exécutez `resize`.
 Le collage de chaînes longues ne fonctionne pas. | La console série limite la longueur des chaînes collées dans le terminal à 2 048 caractères afin d’empêcher toute surcharge de la bande passante du port série.
+Serial console ne fonctionne pas avec un pare-feu de compte de stockage. | Serial console, de par sa conception, ne peut pas fonctionner avec des pare-feu de compte de stockage activés sur le compte de stockage des diagnostics de démarrage.
 
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ) 
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 **Q. Comment puis-je envoyer des commentaires ?**
 
@@ -203,7 +207,7 @@ R. Pour activer ou désactiver la console série au niveau d’un abonnement, vo
 
 **Q. Qui peut accéder à la console série pour ma machine virtuelle ?**
 
-R. Vous devez disposer du rôle Contributeur de machine virtuelle ou d’un rôle supérieur vis-à-vis d’une machine virtuelle pour accéder à la console série de la machine virtuelle. 
+R. Vous devez disposer du rôle Contributeur de machine virtuelle ou d’un rôle supérieur vis-à-vis d’une machine virtuelle pour accéder à la console série de la machine virtuelle.
 
 **Q. Ma console série n’affiche rien. Que dois-je faire ?**
 

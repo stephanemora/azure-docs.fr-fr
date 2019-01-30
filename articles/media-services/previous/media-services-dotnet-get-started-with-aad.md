@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: e36673c7baa03e1bcf36c149851e6455cea798fe
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 6e829d617aa978f94b99cc9d018b5ca863eaaef0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945567"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807318"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET
 
@@ -80,7 +80,7 @@ Pour vous connecter à l’API Azure Media Services avec l’option d’authenti
 
 Les valeurs de ces paramètres sont accessibles dans **AzureEnvironments.AzureCloudEnvironment**. La constante **AzureEnvironments.AzureCloudEnvironment** est une application auxiliaire du kit de développement logiciel (SDK) pour .NET qui permet d’obtenir les paramètres de variable d’environnement corrects pour un centre de données Azure public. 
 
-Elle contient des paramètres d’environnement prédéfinis pour accéder à Media Services dans les centres de données publics uniquement. Pour les régions de cloud souverain ou gouvernemental, vous pouvez utiliser **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment** ou **AzureGermanCloudEnvironment** respectivement.
+Elle contient des paramètres d’environnement prédéfinis pour accéder à Media Services dans les centres de données publics uniquement. Pour les régions de cloud souverain ou de cloud pour le secteur public, vous pouvez utiliser respectivement **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment** ou **AzureGermanCloudEnvironment**.
 
 L’exemple de code suivant permet de créer un jeton :
     
@@ -122,7 +122,7 @@ L’exemple suivant montre comment créer le jeton Azure AD et le contexte :
     }
 
 >[!NOTE]
->Si vous obtenez une exception indiquant que le serveur distant a renvoyé une erreur 401 « Non autorisé », consultez la section sur le [contrôle d’accès](media-services-use-aad-auth-to-access-ams-api.md#access-control) dans la vue d’ensemble de l’accès à l’API Azure Media Services avec l’authentification Azure AD.
+>En cas d’exception du type « Le serveur distant a retourné une erreur : (401) Non autorisé », voir la section [Contrôle d'accès](media-services-use-aad-auth-to-access-ams-api.md#access-control) de la vue d’ensemble Accéder à l’API Azure Media Services avec l’authentification Azure AD.
 
 ## <a name="use-service-principal-authentication"></a>Utiliser une authentification de principal de service
     

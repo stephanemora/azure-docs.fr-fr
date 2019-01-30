@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Softeon WMS | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Softeon WMS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Softeon WMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 07c5de0d-90aa-43b3-b24e-0cc334b2f9b0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 158879a78fca70bd46e56fcd369e0ac494f79652
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 89a84b3fbdb5a0d4d66bedc726ff06ce1c6079f1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422227"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827871"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>Didacticiel : intégration d’Azure Active Directory à Softeon WMS
+# <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>Tutoriel : Intégration d’Azure Active Directory à Softeon WMS
 
 Dans ce didacticiel, vous allez apprendre à intégrer Softeon WMS à Azure Active Directory (Azure AD).
 
@@ -134,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 1. Pour configurer l’authentification unique côté **Softeon WMS**, vous devez envoyer le **Certificat (Base64) téléchargé, l’URL d’entité SAML et l’URL du service d’authentification unique SAML** à [l’équipe du support technique Softeon WMS](mailto:contact@softeon.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

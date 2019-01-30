@@ -1,21 +1,21 @@
 ---
-title: 'Azure AD Connect : Référence PowerShell ADSyncTools | Microsoft Docs'
+title: 'Azure AD Connect : Informations de référence sur le module PowerShell ADConnectivityTools | Microsoft Docs'
 description: Ce document fournit des informations de référence sur le module ADConnectivityTools.psm1 PowerShell.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d63c35d82a98d816c18dd299a8e0e81baa5bc8d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e398814e9ce8b98d8b1079d6f6c429e829c99d21
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425222"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462095"
 ---
-# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect : Référence PowerShell ADSyncTools
+# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect :  Informations de référence sur le module PowerShell ADConnectivityTools
 La documentation suivante fournit des informations de référence sur le module ADConnectivityTools.psm1 PowerShell inclus avec Azure AD Connect.
 
 ## <a name="confirm-dnsconnectivity"></a>Confirm-DnsConnectivity
@@ -693,9 +693,9 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-autocreateconnectoraccount"></a>-AutoCreateConnectorAccount
-Pour les installations personnalisées : indicateur qui a la valeur $True si l’utilisateur a choisi « Créer un compte AD » dans la fenêtre Compte de forêt AD de l’Assistant AADConnect.
+Pour les installations personnalisées : Indicateur qui a la valeur $True si l’utilisateur a choisi « Créer un compte AD » dans la fenêtre Compte de forêt AD de l’Assistant AADConnect.
 $False si l’utilisateur a choisi « Utiliser un compte AD existant ».
-Pour les installations Express : la valeur de cette variable doit être $True pour les installations Express.
+Pour les installations Express : La valeur de cette variable doit être $True pour les installations Express.
 
 ```yaml
 Type: Boolean

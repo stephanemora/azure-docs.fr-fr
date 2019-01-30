@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 92c8de0961f64eea8eef830ad99c7baa268099d9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c19275f096191a2d55c939cbc9b76e7ffc6e1b8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007584"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424436"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Préversion : procédures opérationnelles de la protection par mot de passe Azure AD
+# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Aperçu : Procédures opérationnelles de la protection par mot de passe Azure AD
 
 |     |
 | --- |
-| La protection par mot de passe Azure AD est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| La protection par mot de passe Azure AD est une fonctionnalité de préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Une fois que vous avez terminé l’[installation de la protection de mot de passe Azure AD](howto-password-ban-bad-on-premises-deploy.md) locale, quelques éléments doivent être configurés dans le portail Azure.

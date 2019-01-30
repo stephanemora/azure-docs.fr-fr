@@ -72,7 +72,7 @@ Dans le [portail des services web Azure Machine Learning](https://services.azure
 1. Cliquez sur **SERVICES WEB** dans le menu du haut.
 2. Cliquez sur le service web pour lequel vous souhaitez récupérer la clé.
 
-Cliquez sur **Utiliser le service web** pour obtenir les URI des services requête-réponse et d’exécution par lots, ainsi que des exemples de code en C#, R et Python.
+Cliquez sur **Utiliser le service web** pour obtenir les URI des services requête-réponse et d’exécution par lots, ainsi que des exemples de code en C#, R et Python.
 
 Cliquez sur **API Swagger** pour obtenir une documentation basée sur Swagger pour les API appelées à partir de l’URI fourni.
 
@@ -167,7 +167,7 @@ namespace CallRequestResponseService
                 {
                     Console.WriteLine(string.Format("The request failed with status code: {0}", response.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp,
+                    // Print the headers - they include the request ID and the timestamp,
                     // which are useful for debugging the failure
                     Console.WriteLine(response.Headers.ToString());
 
@@ -228,7 +228,7 @@ try:
 except urllib2.HTTPError, error: 
     print("The request failed with status code: " + str(error.code))
 
-    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    # Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
     print(error.info())
     print(json.loads(error.read())) 
 ```
@@ -280,7 +280,7 @@ if (httpStatus >= 400)
 {
 print(paste("The request failed with status code:", httpStatus, sep=" "))
 
-# Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+# Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
 print(headers)
 }
 

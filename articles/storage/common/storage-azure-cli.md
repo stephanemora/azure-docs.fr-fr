@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: cd2399e25889cdc9c885b76e002e47415c0629e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 977d40ba6fdb00f47f4ff32e60642ee3ab102da2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984373"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413632"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage
 
@@ -30,8 +30,8 @@ Les exemples dans le guide partent du principe que vous utilisez le shell Bash s
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il suppose également que vous êtes en mesure de satisfaire les exigences de création de compte spécifiées ci-dessous pour Azure et le service Stockage.
 
 ### <a name="accounts"></a>Comptes
-* **Compte Azure** : si vous ne possédez pas encore d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/).
-* **Compte de stockage** : voir la section [Créer un compte de stockage](storage-quickstart-create-account.md) de l’article [À propos des comptes de stockage Azure](storage-create-storage-account.md).
+* **Compte Azure** : Si vous n’avez pas encore d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/).
+* **Compte de stockage** : Consultez [Créer un compte de stockage](storage-quickstart-create-account.md) dans [À propos des comptes de stockage Azure](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli"></a>Installer l’interface de ligne de commande Microsoft Azure
 
@@ -183,10 +183,10 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location` [Obligatoire] : emplacement. Par exemple, « USA Ouest ».
-* `--name` [Obligatoire] : nom du compte de stockage. Le nom doit comporter entre 3 et 24 caractères, lesquels ne peuvent être que des caractères alphanumériques minuscules.
-* `--resource-group` [Obligatoire] : nom du groupe de ressources.
-* `--sku` [Obligatoire] : référence du compte de stockage. Valeurs autorisées :
+* `--location` [obligatoire] : Lieu. Par exemple, « USA Ouest ».
+* `--name` [obligatoire] : nom du compte de stockage. Le nom doit comporter entre 3 et 24 caractères, lesquels ne peuvent être que des caractères alphanumériques minuscules.
+* `--resource-group` [obligatoire] : Nom du groupe de ressources.
+* `--sku` [obligatoire] : Référence SKU du compte de stockage. Valeurs autorisées :
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -197,7 +197,7 @@ az storage account create \
 
 Vous pouvez disposer de plusieurs comptes de stockage dans votre abonnement Azure. Pour en sélectionner un à utiliser pour toutes les commandes de stockage suivantes, vous pouvez définir ces variables d’environnement :
 
-Tout d’abord, affichez les clés de votre compte de stockage à l’aide de la commande [az storage account keys list](/cli/azure/storage/account/keys#list) :
+Tout d’abord, affichez les clés de votre compte de stockage à l’aide de la commande [az storage account keys list](/cli/azure/storage/account/keys) :
 
 ```azurecli-interactive
 az storage account keys list \
@@ -242,9 +242,9 @@ az storage container create --name <container_name>
 
 Vous pouvez définir l’un des trois niveaux d’accès en lecture pour un nouveau conteneur en spécifiant l’argument facultatif `--public-access` :
 
-* `off` (par défaut) : les données du conteneur sont privées et accessibles uniquement par le propriétaire du compte.
-* `blob` : accès en lecture public pour les objets blob.
-* `container` : accès en lecture et en création de listes public à l’intégralité du conteneur.
+* `off` (par défaut) : Les données du conteneur sont privées et accessibles uniquement par le propriétaire du compte.
+* `blob`: Accès en lecture public pour les objets blob.
+* `container`: Accès en lecture et en création de listes public sur l’intégralité du conteneur.
 
 Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/storage-manage-access-to-resources.md).
 

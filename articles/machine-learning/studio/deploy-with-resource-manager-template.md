@@ -3,6 +3,7 @@ titre : Déployer un espace de travail Studio avec Azure Resource Manager title
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 05/02/2018
 ---
+
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Déployer un espace de travail Azure Machine Learning Studio à l’aide d’Azure Resource Manager
 
 Les modèles de déploiement Azure Resource Manager vous font gagner du temps en vous offrant une méthode évolutive pour déployer des composants interconnectés avec un mécanisme de validation et de nouvelle tentative. Pour configurer des espaces de travail Azure Machine Learning, par exemple, vous devez d’abord configurer un compte de stockage Azure et ensuite déployer votre espace de travail. Imaginez effectuer cette opération manuellement pour des centaines d’espaces de travail. Une alternative plus simple consiste à utiliser un modèle Azure Resource Manager pour déployer un espace de travail Azure Machine Learning et toutes ses dépendances. Cet article vous accompagne tout au long de cette procédure pas à pas. Pour une intéressante présentation d’Azure Resource Manager, consultez [Présentation d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
@@ -83,7 +84,7 @@ Connect-AzureRmAccount
 ```
 Cette étape doit être répétée pour chaque session. Une fois que vous êtes authentifié, vos informations d’abonnement s’affichent.
 
-![Compte Azure.][1]
+![Compte Azure][1]
 
 Maintenant que nous avons accès à Azure, nous pouvons créer le groupe de ressources.
 
@@ -125,10 +126,8 @@ Après la configuration de l’espace de travail, vous pouvez également automat
 * Pour en savoir plus, consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
 * Parcourez le [Référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates). 
 * Regardez cette vidéo sur [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
-
-<!--Image references-->
-[1]: ./media/deploy-with-resource-manager-template/azuresubscription.png
-[2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
+* Consultez l’[aide relative à la référence du modèle Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions) 
+ <!--Image references--> [1] : ./media/deploy-with-resource-manager-template/azuresubscription.png [2] : ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
 
 
 <!--Link references-->

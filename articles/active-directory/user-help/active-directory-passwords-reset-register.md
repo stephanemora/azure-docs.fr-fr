@@ -3,7 +3,7 @@ title: Inscription pour la réinitialisation de mot de passe libre-service - Azu
 description: Inscrire les données d’authentification en vue de la réinitialisation de mot de passe en libre-service Azure AD
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
-ms.openlocfilehash: f8b4fb8861760d2b5b10f61b3ab6a8c718f849b6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2a9e65e36e31f4b2b382fac2bd9898580be18900
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106475"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821666"
 ---
 # <a name="register-for-self-service-password-reset"></a>S’inscrire à la réinitialisation de mot de passe en libre-service
 
@@ -33,8 +33,8 @@ En tant qu’utilisateur final, vous pouvez réinitialiser votre mot de passe ou
 3. Selon la façon dont votre service informatique a effectué la configuration, une ou plusieurs des options suivantes peuvent être configurées et vérifiées par vous. Si vous avez autorisé votre administrateur à utiliser vos informations, il peut remplir certaines informations pour vous.
     * **Téléphone de bureau** : seul votre administrateur peut définir cette option.
     * **Téléphone d’authentification** : définissez cette option sur un autre numéro de téléphone auquel vous avez accès. Par exemple, un téléphone cellulaire qui peut recevoir un texte ou un appel.
-    * **E-mail d’authentification** : définissez cette option sur une autre adresse e-mail à laquelle vous pouvez accéder sans utiliser le mot de passe que vous souhaitez réinitialiser.
-    * **Questions de sécurité** : votre administrateur a approuvé cette liste de questions auxquelles vous devez répondre. Vous ne pouvez pas utiliser la même question ou réponse plusieurs fois.
+    * **E-mail d’authentification** : définissez cette option sur une autre adresse e-mail à laquelle vous avez accès sans utiliser le mot de passe que vous souhaitez réinitialiser.
+    * **Question de sécurité** : votre administrateur a approuvé cette liste de questions auxquelles vous devez répondre. Vous ne pouvez pas utiliser la même question ou réponse plusieurs fois.
 4. Fournissez et vérifiez les informations que demande votre administrateur. Si plusieurs options sont disponibles, nous vous suggérons d’inscrire plusieurs méthodes. Cela vous donne une grande souplesse si une des méthodes n’est pas disponible. C’est par exemple le cas quand vous êtes en déplacement et que vous ne pouvez pas accéder à votre téléphone de bureau.
 
     ![Inscrire des méthodes d’authentification et sélectionne Terminer][Register]
@@ -58,7 +58,7 @@ Vos administrateurs peuvent vous demander de confirmer vos méthodes d’authent
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Changer votre mot de passe avec la réinitialisation de mot de passe en libre-service](active-directory-passwords-update-your-own-password.md)
-* [Page relative à l’inscription à la réinitialisation de mot de passe](https://aka.ms/ssprsetup)
+* [Page relative à l’inscription à la réinitialisation du mot de passe](https://aka.ms/ssprsetup)
 * [Portail de réinitialisation du mot de passe](https://passwordreset.microsoftonline.com/)
 * [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 

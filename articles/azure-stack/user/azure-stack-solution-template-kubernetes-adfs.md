@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: a161d2223dacb618f1e2eeb6443fffae18cc7259
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3ae0a67a8aa2d403a72b0e20471c2044dbf557bf
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354862"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389066"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Déployer Kubernetes sur Azure Stack à l’aide d’Active Directory Federation Services
 
@@ -48,7 +48,7 @@ Pour commencer, assurez-vous que vous disposez des autorisations appropriées et
 
 Vous devez travailler avec votre administrateur Azure Stack pour configurer votre principal du service si vous utilisez AD FS comme solution de gestion des identités. Le principal du service permet à votre application d’accéder aux ressources Azure Stack.
 
-1. Votre administrateur Azure Stack vous fournit un certificat et les informations pour le principal du service. Ces informations se présentent comme ceci :
+1. Votre administrateur Azure Stack vous fournit un certificat ainsi que les informations relatives au principal du service. Ces informations se présentent comme ceci :
 
     ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -59,7 +59,7 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
-2. Attribuez à votre nouveau principal du service un rôle de contributeur à votre abonnement. Pour obtenir des instructions, consultez [Attribuer un rôle](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
+2. Attribuez à votre nouveau principal de service un rôle de contributeur à votre abonnement. Pour obtenir des instructions, consultez [Attribuer un rôle](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
 
 3. Créez un coffre de clés destiné à stocker votre certificat pour le déploiement.
 

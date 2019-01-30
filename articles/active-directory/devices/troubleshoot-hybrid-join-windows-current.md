@@ -4,7 +4,7 @@ description: Résolution des problèmes des appareils hybrides Windows 10 et Win
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1d96c1e8adee55127a50b2d7c374418c22bfec4c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f9a32058bb9d9cb2f1fa2d04c8002f06fa80edeb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050563"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446100"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Résolution des problèmes des appareils hybrides Windows 10 et Windows Server 2016 joints à Azure Active Directory 
 
@@ -45,7 +45,7 @@ Ce document fournit des conseils sur la façon de résoudre les problèmes poten
 
 Pour Windows 10 et Windows Server 2016, la jonction Azure Active Directory hybride prend en charge la mise à jour Windows du 10 novembre 2015 et au-delà. Nous vous recommandons d’utiliser la mise à jour anniversaire.
 
-## <a name="step-1-retrieve-the-join-status"></a>Étape 1 : récupérer l’état de jonction 
+## <a name="step-1-retrieve-the-join-status"></a>Étape 1 : Récupérer l’état de jonction 
 
 **Pour récupérer l’état de jonction :**
 
@@ -69,15 +69,15 @@ Pour Windows 10 et Windows Server 2016, la jonction Azure Active Directory hybri
                NgcKeyId: {C7A9AEDC-780E-4FDA-B200-1AE15561A46B}
         WorkplaceJoined: NO
           WamDefaultSet: YES
-    WamDefaultAuthority: organizations         WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt: YES
+    WamDefaultAuthority: organizations         WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt: OUI
 
 
 
-## <a name="step-2-evaluate-the-join-status"></a>Étape 2 : Évaluer l’état de jonction 
+## <a name="step-2-evaluate-the-join-status"></a>Étape 2 : Évaluer l’état de jonction 
 
 Examinez les champs suivants et assurez-vous qu’ils disposent des valeurs attendues :
 
-### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
+### <a name="azureadjoined--yes"></a>AzureAdJoined : OUI  
 
 Ce champ indique si l’appareil est joint à Azure AD. Si la valeur est **Non**, la jonction à Azure AD n’est pas encore terminée. 
 
@@ -103,19 +103,19 @@ Ce champ indique si l’appareil est joint à Azure AD. Si la valeur est **Non**
 
 ---
 
-### <a name="domainjoined--yes"></a>DomainJoined : YES  
+### <a name="domainjoined--yes"></a>DomainJoined : OUI  
 
 Ce champ indique si l’appareil est joint à un répertoire Active Directory local ou non. Si la valeur est **NON**, l’appareil ne peut pas effectuer de jonction hybride Azure AD.  
 
 ---
 
-### <a name="workplacejoined--no"></a>WorkplaceJoined : NO  
+### <a name="workplacejoined--no"></a>WorkplaceJoined : NON  
 
 Ce champ indique si l’appareil est inscrit auprès d’Azure AD mais en tant qu’appareil personnel (avec la mention *Joint à l’espace de travail*). Cette valeur doit être **NON** pour un ordinateur appartenant à un domaine qui est également une jonction hybride Azure AD. Si la valeur est **OUI**, un compte professionnel ou scolaire a été ajouté avant l’achèvement d’une jonction hybride Azure AD. Dans ce cas, le compte est ignoré lors de l’utilisation de la version mise à jour anniversaire de Windows 10 (1607).
 
 ---
 
-### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet : YES et AzureADPrt : YES
+### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet : YES et AzureADPrt : OUI
   
 Ces champs indiquent que l’utilisateur s’est correctement authentifié auprès d’Azure AD lors de la connexion à l’appareil. Si les valeurs sont **NON**, il peut être dû :
 

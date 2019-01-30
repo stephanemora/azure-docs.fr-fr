@@ -9,17 +9,22 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b07c71a9365fca3a2e5d7c837acf689af980afdd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: dbbff7644d0c9375a4d2a145769d09a786b01c25
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075819"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412323"
 ---
 # <a name="ocr-cognitive-skill"></a>Compétence cognitive OCR
+
+La compétence de reconnaissance optique de caractères (OCR) reconnaît le texte imprimé et manuscrit dans des fichiers image. Cette compétence utilise les modèles d’apprentissage automatique fournis par [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) dans Cognitive Services. La compétence de **reconnaissance optique de caractères (OCR)** est mappée à la fonctionnalité suivante :
+
++ Lorsque textExtractionAlgorithm est définie sur « handwritten », la fonctionnalité [« RecognizeText »](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) est utilisée.
++ Lorsque textExtractionAlgorithm est définie sur « printed », la fonctionnalité [« OCR »](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) est utilisée pour les langues autres que l’anglais. Pour l’anglais, la nouvelle fonctionnalité [« Reconnaître le texte »](../cognitive-services/computer-vision/concept-recognizing-text.md) est utilisée pour le texte imprimé.
 
 La compétence **OCR** extrait le texte de fichiers d’image. Les formats de fichiers pris en charge sont les suivants :
 
@@ -30,12 +35,9 @@ La compétence **OCR** extrait le texte de fichiers d’image. Les formats de fi
 + .GIF
 
 > [!NOTE]
-> À compter du 21 décembre 2018, vous pourrez associer votre ressource Cognitive Services à un ensemble de compétences Recherche Azure. Cela nous permet de commencer la facturation pour l’exécution des ensembles de qualifications. Ce jour-là, nous commencerons également à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents continuera d’être offerte sans frais supplémentaires.
+> Depuis le 21 décembre 2018, vous pouvez [attacher une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) à un ensemble de compétences Recherche Azure. Cela nous permet de commencer à facturer l’exécution de l’ensemble de compétences. Ce jour-là, nous avons également commencé à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents est toujours offerte sans frais supplémentaires.
 >
-> L’exécution des compétences intégrées sera facturée au prix actuel du [paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les tarifs de l’extraction d’images sont ceux de la préversion. Ils sont décrits dans la page [Tarification de Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [En savoir plus](cognitive-search-attach-cognitive-services.md).
->
->  La compétence de reconnaissance optique des caractères (OCR) est mappée à la fonctionnalité Cognitive Services suivante : Lorsque textExtractionAlgorithm est définie sur « handwritten », la fonctionnalité [« RecognizeText »](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) est utilisée.
->  Lorsque textExtractionAlgorithm est définie sur « printed », la fonctionnalité [« OCR »](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) est utilisée pour les langues autres que l’anglais. Pour l’anglais, la nouvelle fonctionnalité [« Reconnaître le texte »](../cognitive-services/computer-vision/concept-recognizing-text.md) est utilisée pour le texte imprimé.
+> L’exécution de [compétences cognitives intégrées](cognitive-search-predefined-skills.md) est facturée au [tarif de paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services), qui est le même que si vous aviez exécuté la tâche directement. L’extraction d’image est une opération facturable de Recherche Azure, actuellement proposée au tarif de la préversion. Pour plus d’informations, consultez la [page des tarifs de Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400) ou [Comment la facturation fonctionne](search-sku-tier.md#how-billing-works).
 
 ## <a name="skill-parameters"></a>Paramètres de la compétence
 
@@ -58,7 +60,7 @@ Les paramètres respectent la casse.
 | Nom de sortie     | Description                   |
 |---------------|-------------------------------|
 | texte          | Texte brut extrait de l’image.   |
-| layoutText    | Type complexe qui décrit le texte extrait, ainsi que l’emplacement où le texte a été trouvé.|
+| layoutText    | Type complexe qui décrit le texte extrait ainsi que l’emplacement où le texte a été trouvé.|
 
 
 ## <a name="sample-definition"></a>Exemple de définition
@@ -136,7 +138,7 @@ Les paramètres respectent la casse.
 
 La fusion de texte permet notamment de fusionner la représentation textuelle d’images (texte issu d’une compétence OCR ou légende d’une image) dans le champ de contenu d’un document. 
 
-L’exemple d’ensemble de compétences suivant crée un champ *merged_text* destiné à accueillir le contenu textuel de votre document, ainsi que le texte extrait par traitement OCR de chacune des images incorporées dans le document. 
+L’exemple d’ensemble de compétences suivant crée un champ *merged_text*. Ce champ comprend le contenu textuel de votre document et le texte obtenu par reconnaissance optique de caractères de chacune des images incorporées dans ce document. 
 
 #### <a name="request-body-syntax"></a>Syntaxe du corps de la demande
 ```json

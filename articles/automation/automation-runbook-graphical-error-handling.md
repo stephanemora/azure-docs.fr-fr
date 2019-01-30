@@ -3,18 +3,18 @@ title: Gestion des erreurs dans les runbooks graphiques Azure Automation
 description: Cet article décrit comment implémenter une logique de gestion des erreurs dans les runbooks graphiques Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 14112a9a9f64f20540a8f7e1d37cd31017238e59
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192708"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436686"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Gestion des erreurs dans les runbooks graphiques Azure Automation
 
@@ -30,7 +30,7 @@ Les erreurs PowerShell qui peuvent survenir lors de l’exécution sont avec ou 
 
 * **Erreur sans fin d’exécution** : erreur sans gravité qui permet de continuer l’exécution malgré le dysfonctionnement. Il peut s’agit d’erreurs opérationnelles comme un fichier introuvable et de problèmes d’autorisation.
 
-Les runbooks graphiques Azure Automation ont été améliorés avec la possibilité d’inclure une gestion des erreurs. Vous pouvez maintenant convertir les exceptions en erreurs sans fin d’exécution et créer des liens d’erreur entre les activités. Cela permet à un auteur de runbook d’intercepter les erreurs et de gérer les conditions réalisées ou inattendues.  
+Les runbooks graphiques Azure Automation ont été améliorés avec la possibilité d’inclure une gestion des erreurs. Vous pouvez maintenant convertir les exceptions en erreurs sans fin d’exécution et créer des liens d’erreur entre les activités. Cela permet à un auteur de runbook d’intercepter les erreurs et de gérer les conditions réalisées ou inattendues.  
 
 ## <a name="when-to-use-error-handling"></a>Quand utiliser la gestion des erreurs
 
@@ -69,3 +69,4 @@ Les liens d’erreur transitent depuis ces activités vers une seule activité d
 * Pour plus d’informations sur les liens et les types de lien dans les runbooks graphiques, voir [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Pour plus d’informations sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et autres détails techniques, voir [Suivi d’une tâche de runbook](automation-runbook-execution.md).
+

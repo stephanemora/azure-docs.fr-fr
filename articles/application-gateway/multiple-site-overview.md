@@ -1,29 +1,21 @@
 ---
-title: Hébergement de plusieurs sites sur Azure Application Gateway | Microsoft Docs
-description: Cette page fournit une vue d’ensemble de la prise en charge de sites multiples pour la passerelle Application Gateway.
-documentationcenter: na
+title: Hébergement de plusieurs sites sur Azure Application Gateway
+description: Cet article fournit une vue d’ensemble de la prise en charge de sites multiples pour la passerelle Azure Application Gateway.
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: ''
-ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 1/17/2019
 ms.author: amsriva
-ms.openlocfilehash: df98559a9476190d683812bf9f63d8ad9c4d3f0e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5c3fd92b3aa21b749a0c8ff435a1e5c12da4f57d
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160509"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381979"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hébergement de plusieurs sites Application Gateway
 
-L’hébergement de plusieurs sites vous permet de configurer plusieurs applications web sur la même instance de passerelle Application Gateway. Cette fonctionnalité vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 20 sites web à une passerelle Application Gateway. Chaque site web peut être dirigé vers son propre pool principal. Dans l’exemple suivant, la passerelle Application Gateway gère le trafic pour contoso.com et fabrikam.com avec deux pools de serveurs principaux : ContosoServerPool et FabrikamServerPool.
+L’hébergement de plusieurs sites vous permet de configurer plusieurs applications web sur la même instance de passerelle Application Gateway. Cette fonctionnalité vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 100 sites web à une passerelle Application Gateway. Chaque site web peut être dirigé vers son propre pool principal. Dans l’exemple suivant, la passerelle Application Gateway gère le trafic pour contoso.com et fabrikam.com avec deux pools de serveurs principaux : ContosoServerPool et FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
@@ -32,7 +24,7 @@ L’hébergement de plusieurs sites vous permet de configurer plusieurs applicat
 
 Les requêtes adressées à http://contoso.com sont acheminées vers ContosoServerPool, tandis que les requêtes adressées à http://fabrikam.com sont acheminées vers FabrikamServerPool.
 
-De même, deux sous-domaines du même domaine parent peuvent également être hébergés sur le même déploiement de passerelle Application Gateway. Par exemple, les sous-domaines http://blog.contoso.com et http://app.contoso.com peuvent être hébergés sur un déploiement de passerelle Application Gateway unique.
+De même, deux sous-domaines du même domaine parent peuvent également être hébergés sur le même déploiement de passerelle Application Gateway. Par exemple, les sous-domaines http://blog.contoso.com et http://app.contoso.com peuvent être hébergés sur un déploiement de passerelle d’application unique.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>En-têtes d’hôte et Indication du nom du serveur (SNI)
 

@@ -9,19 +9,19 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: 9b952bd96828c4f2c140cb2d75cecb9379895a63
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: f8cd167d8de738674939180e0d81fc9282434155
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746641"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450450"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Vue d’ensemble de l’API .NET Standard des hubs d’événements
 
 Cet article passe en revue certaines des principales [API clientes .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) pour Azure Event Hubs. Il existe actuellement deux bibliothèques clientes .NET Standard pour Event Hubs :
 
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs) : fournit toutes les opérations runtime de base.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor) : ajoute des fonctionnalités supplémentaires pour suivre les événements traités et offre le moyen le plus simple pour lire à partir d’un concentrateur d’événements.
+* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs) : fournit toutes les opérations de runtime de base.
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor) : ajoute des fonctionnalités supplémentaires pour suivre les événements traités. Elle offre le moyen le plus simple pour lire à partir d’un hub d’événements.
 
 ## <a name="event-hubs-client"></a>Client de concentrateur d’événements
 
@@ -65,7 +65,7 @@ Pour recevoir des événements des Event Hubs, nous vous recommandons d’utilis
 
 #### <a name="create-a-receiver"></a>Créer un destinataire
 
-Les destinataires sont liés à des partitions spécifiques. Par conséquent, pour recevoir tous les événements dans un concentrateur d’événements, vous devez créer plusieurs instances. Il est recommandé d’obtenir les informations de partition par programmation, au lieu de coder en dur les ID de partition. Pour ce faire, vous pouvez utiliser la méthode [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync).
+Les destinataires sont liés à des partitions spécifiques. Par conséquent, pour recevoir tous les événements dans un concentrateur d’événements, vous devez créer plusieurs instances. Nous vous recommandons d’obtenir les informations de partition par programmation, plutôt que de coder en dur les ID de partitions. Pour ce faire, vous pouvez utiliser la méthode [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync).
 
 ```csharp
 // Create a list to keep track of the receivers

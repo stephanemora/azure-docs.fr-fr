@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1dd11e22361e25721effe2ed919f175d9cb1b9e4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e4fa42b6c32c3eb383eea4489ea109c0d496bdb9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249625"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54392735"
 ---
 Le tableau suivant décrit les limites par défaut du Stockage Azure. La limite *d’entrée* désigne toutes les données (demandes) envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données (réponses) reçues d’un compte de stockage.
 
@@ -29,7 +29,7 @@ Le tableau suivant décrit les limites par défaut du Stockage Azure. La limite 
 | Nombre maximal de sorties pour les comptes de stockage à usage général v1 (régions des États-Unis) | 20 Gbit/s si RA-GRS/GRS est activé, 30 Gbit/s pour LRS/ZRS <sup>2</sup> |
 | Nombre maximal de sorties pour les comptes de stockage à usage général v1 (régions hors États-Unis) | 10 Gbit/s si RA-GRS/GRS est activé, 15 Gbit/s pour LRS/ZRS <sup>2</sup> |
 
-<sup>1</sup> Les comptes de stockage Azure prennent en charge des limites plus élevées pour l'entrée et IOPS sur demande. Pour demander une augmentation des limites de compte, contactez le [support Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> Les comptes de stockage standard Azure prennent en charge la demande de limites supérieures pour les entrées. Pour demander une augmentation des limites de compte pour la sortie, contactez le [support Azure](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [Les options de réplication du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) sont notamment :
 * **RA-GRS** : Stockage géoredondant avec accès en lecture. Si RA-GRS est activé, les cibles de sortie pour l’emplacement secondaire sont identiques à celles de l’emplacement principal.

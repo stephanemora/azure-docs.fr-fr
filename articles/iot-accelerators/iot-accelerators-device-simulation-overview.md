@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 69e3708ef4c31e2dd91b5f50baecc46ea129cf33
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 173963470a77932186b3c51f17ccb406b32a13f3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345287"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452222"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Vue d’ensemble de l’accélérateur de solution Simulation d’appareil
 
@@ -28,7 +28,7 @@ Quand vous développez une solution IoT, l’expérimentation et le test sont de
 
 ![Exemple de simulation de drone](media/iot-accelerators-device-simulation-overview/dronesimulation.png)
 
-Avec la simulation d’appareil, vous pouvez définir des modèles d’appareils pour simuler vos appareils physiques. Ce modèle inclut les formats de message, les propriétés de jumeau et les méthodes. Vous pouvez également simuler des comportements d’appareils complexes avec JavaScript.
+Avec la simulation d’appareil, vous pouvez définir des modèles d’appareils pour simuler vos appareils réels. Ce modèle inclut les formats de message, les propriétés de jumeau et les méthodes. Vous pouvez également simuler des comportements d’appareils complexes avec JavaScript.
 
 Vous pouvez effectuer des simulations pour un à plusieurs milliers d’appareils se connectant à un hub IoT. Pour faciliter le test, vous pouvez si nécessaire déployer un hub IoT avec la simulation d’appareil pour un environnement autonome.
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d9fd7544c61b021bbb5db32087847cbeaddd3918
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628832"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431722"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapports dans Azure Multi-Factor Authentication
 
@@ -58,9 +58,9 @@ Ces données sont disponibles via le [portail Azure](https://portal.azure.com) e
 
 Les rapports d’activité de connexion pour l’authentification multifacteur vous permettent d’accéder aux informations suivantes :
 
-**Authentification multifacteur requise :** spécifie si la MFA est nécessaire pour la connexion ou non. L’authentification multifacteur peut être nécessaire en raison de l’authentification multifacteur par utilisateur, de l’accès conditionnel ou d’autres raisons. Les valeurs possibles sont **Oui** ou **Non**.
+**MFA obligatoire :** spécifie si l’authentification multifacteur est nécessaire pour la connexion ou non. L’authentification multifacteur peut être nécessaire en raison de l’authentification multifacteur par utilisateur, de l’accès conditionnel ou d’autres raisons. Les valeurs possibles sont **Oui** ou **Non**.
 
-**Résultat de l’authentification multifacteur :** plus d’informations indiquant si l’authentification multifacteur a été réussie ou refusée :
+**Résultat MFA :** plus d’informations indiquant si l’authentification multifacteur a été réussie ou refusée :
 
 - Si l’authentification multifacteur a été réussie, cette colonne fournit plus d’informations sur la façon dont l’authentification multifacteur a été satisfaite.
    - Azure Multi-Factor Authentication
@@ -103,7 +103,7 @@ Les rapports d’activité de connexion pour l’authentification multifacteur v
       - utilisateur non trouvé
       - code de vérification déjà utilisé une fois
 
-**Méthode d’authentification multifacteur :** la méthode d’authentification que l’utilisateur a utilisé pour effectuer l’authentification multifacteur. Les valeurs possibles incluent :
+**Méthode d’authentification MFA :** la méthode d’authentification que l’utilisateur a utilisé pour effectuer l’authentification multifacteur. Les valeurs possibles incluent :
 
 - SMS
 - Notification sur l’application mobile

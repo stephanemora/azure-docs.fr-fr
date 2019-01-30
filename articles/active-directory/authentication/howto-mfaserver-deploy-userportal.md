@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1bd9dd82fb72c3d6b0759139680647be764f273a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0c78974eb9775506f2ccbc6158eb03aa0c73be49
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161551"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431535"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portail de l’utilisateur pour le serveur Azure Multi-Factor Authentication
 
@@ -88,7 +88,7 @@ Si votre organisation utilise l’application Microsoft Authenticator comme mét
 
 Une installation du portail de l'utilisateur sur un serveur autre que le serveur Azure Multi-Factor Authentication nécessite les étapes suivantes :
 
-1. **Sur le serveur MFA**, recherchez le chemin d’installation (exemple : C:\Program Files\Multi-Factor Authentication Server) et copiez le fichier **MultiFactorAuthenticationUserPortalSetup64** dans un emplacement accessible au serveur accessible sur Internet sur lequel vous l’installerez.
+1. **Sur le serveur MFA**, parcourez le chemin d’installation (par exemple : C:\Program Files\Multi-Factor Authentication Server) et copiez le fichier **MultiFactorAuthenticationUserPortalSetup64** dans un emplacement accessible au serveur qui est accessible sur Internet et sur lequel vous l’installerez.
 2. **Sur le serveur web accessible sur Internet**, exécutez le fichier d’installation MultiFactorAuthenticationUserPortalSetup64 en tant qu’administrateur, modifiez le site ou modifiez le répertoire virtuel pour un nom court si vous le souhaitez.
 3. Lier un certificat SSL personnalisé à un site avec IIS.
 
@@ -138,7 +138,7 @@ Le serveur Azure Multi-Factor Authentication fournit plusieurs options pour le p
 | Utiliser les questions de sécurité de secours | Autorise les questions de sécurité en cas d’échec de la vérification en deux étapes. Vous pouvez spécifier le nombre de questions de sécurité qui doivent être traitées avec succès. |
 | Autoriser les utilisateurs à associer un jeton OATH tiers | Permet aux utilisateurs de spécifier un jeton OATH tiers. |
 | Utiliser le jeton OATH de secours | Permet d’utiliser un jeton OATH si la vérification en deux étapes échoue. Vous pouvez également spécifier le délai d'expiration de la session en minutes. |
-| Activation de la journalisation | Active la journalisation sur le portail de l’utilisateur. Les fichiers journaux sont situés sous : C:\Program Files\Multi-Factor Authentication Server\Logs. |
+| Activation de la journalisation | Active la journalisation sur le portail de l’utilisateur. Les fichiers journaux se trouvent à l’emplacement suivant : C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
 L’utilisateur peut voir ces paramètres dès qu’ils sont activés et connectés au portail de l’utilisateur.
 

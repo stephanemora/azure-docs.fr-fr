@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: b908589903d243b2d284e2a23b6111785229c16f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 718b6b38121981bdec1f677537f9cd1180dfdb08
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894127"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391228"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer votre application cloud dans l’environnement de production, passez en revue la liste des bonnes pratiques essentielles et recommandées pour l’implémentation de clusters sécurisés dans votre application.
 
-Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables. Service Fabric résout également les problèmes non négligeables du développement et de la gestion des applications cloud. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer. 
+Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables. Service Fabric résout également les problèmes non négligeables du développement et de la gestion des applications cloud. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer.
 
 Pour chaque bonne pratique, nous détaillons les éléments suivants :
 
@@ -64,13 +64,13 @@ Vos clusters doivent être sécurisés pour empêcher les utilisateurs non autor
 
 Il existe trois [scénarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) pour implémenter la sécurité du cluster à l’aide de différentes technologies :
 
--   Sécurité nœud à nœud : ce scénario sécurise les communications entre les machines virtuelles et les ordinateurs du cluster. Cette forme de sécurité garantit que seuls les ordinateurs qui sont autorisés à rejoindre le cluster peuvent héberger les applications et les services dans le cluster.
+-   Sécurité nœud à nœud : ce scénario sécurise les communications entre les machines virtuelles et les ordinateurs du cluster. Cette forme de sécurité garantit que seuls les ordinateurs qui sont autorisés à rejoindre le cluster peuvent héberger les applications et les services dans le cluster.
 Dans ce scénario, les clusters qui s’exécutent sur Azure, ou les clusters autonomes qui s’exécutent sur Windows, peuvent utiliser la [Sécurité par certificat](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) ou la [Sécurité Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) pour les machines Windows Server.
--   Sécurité client à nœud : ce scénario sécurise la communication entre un client Service Fabric et les nœuds individuels du cluster.
--   Contrôle d’accès en fonction du rôle (RBAC) : ce scénario utilise des identités distinctes (certificats, Azure AD, etc.) pour chaque rôle client utilisateur et administrateur qui accède au cluster. Vous spécifiez les identités de rôle quand vous créez le cluster.
+-   Sécurité client à nœud : ce scénario sécurise la communication entre un client Service Fabric et les nœuds individuels du cluster.
+-   Contrôle d’accès en fonction du rôle (RBAC) : ce scénario utilise des identités distinctes (certificats, Azure AD, etc.) pour chaque rôle client utilisateur et administrateur qui accède au cluster. Vous spécifiez les identités de rôle quand vous créez le cluster.
 
 >[!NOTE]
->**Recommandation de sécurité pour les clusters Azure :** utilisez la sécurité Azure AD pour authentifier les clients et les certificats pour la sécurité nœud à nœud.
+>**Recommandation de sécurité pour les clusters Azure :** utilisez la sécurité Azure AD pour authentifier les clients et les certificats pour la sécurité nœud à nœud.
 
 Pour configurer un cluster Windows autonome, consultez [Paramètres de configuration pour un cluster Windows autonome](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
 
@@ -104,9 +104,9 @@ Pour plus d’informations sur l’utilisation de certificats X.509, consultez [
 ## <a name="configure-security-policies"></a>Configurer des stratégies de sécurité
 De plus, Service Fabric sécurise les ressources utilisées par les applications. Les ressources telles que les fichiers, les répertoires et les certificats sont stockées sous les comptes d’utilisateur quand l’application est déployée. Cette fonctionnalité sécurise l’exécution d’une application à partir d’une autre, même dans un environnement hébergé partagé.
 
--   Utiliser un utilisateur ou un groupe de domaine Active Directory : exécutez le service sous les informations d’identification d’un compte d’utilisateur ou de groupe Active Directory. Veillez à utiliser Active Directory en local au sein de votre domaine et non Azure Active Directory. Accédez à d’autres ressources dans le domaine qui disposent d’autorisations en utilisant un groupe ou un utilisateur de domaine. Par exemple, les ressources telles que les partages de fichiers.
+-   Utiliser un utilisateur ou un groupe de domaine Active Directory : exécutez le service sous les informations d’identification d’un compte d’utilisateur ou de groupe Active Directory. Veillez à utiliser Active Directory en local au sein de votre domaine et non Azure Active Directory. Accédez à d’autres ressources dans le domaine qui disposent d’autorisations en utilisant un groupe ou un utilisateur de domaine. Par exemple, les ressources telles que les partages de fichiers.
 
--   Affecter une stratégie d’accès de sécurité pour des points de terminaison HTTP et HTTPS : spécifiez la propriété **SecurityAccessPolicy** pour appliquer une stratégie **RunAs** à un service quand le manifeste de service déclare des ressources de point de terminaison avec HTTP. Les ports alloués aux points de terminaison HTTP sont des listes de contrôle d’accès correctes pour le compte d’utilisateur d’identification sous lequel le service s’exécute. Quand la stratégie n’est pas définie, http.sys n’a pas accès au service et les appels en provenance du client échouent.
+-   Affecter une stratégie d’accès de sécurité pour des points de terminaison HTTP et HTTPS : spécifiez la propriété **SecurityAccessPolicy** pour appliquer une stratégie **RunAs** à un service quand le manifeste de service déclare des ressources de point de terminaison avec HTTP. Les ports alloués aux points de terminaison HTTP sont des listes de contrôle d’accès correctes pour le compte d’utilisateur d’identification sous lequel le service s’exécute. Quand la stratégie n’est pas définie, http.sys n’a pas accès au service et les appels en provenance du client échouent.
 
 Pour savoir comment utiliser des stratégies de sécurité dans un cluster Service Fabric, consultez [Configurer les stratégies de sécurité de votre application](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-runas-security).
 
@@ -143,7 +143,7 @@ Le certificat SSL doit répondre aux prérequis suivants dans Azure :
 
     >[!NOTE]
     >Vous ne pouvez pas obtenir de certificat SSL auprès d’une autorité de certification pour le domaine __cloudapp__**.net**.
-    
+
 -   Le certificat doit utiliser au minimum un chiffrement à 2 048 bits.
 
 Le protocole HTTP n’est pas sécurisé et peut faire l’objet d’écoutes clandestines. Les données qui sont transmises via HTTP sont envoyées en texte en clair à partir du navigateur web au serveur web ou entre d’autres points de terminaison. Des attaquants peuvent intercepter et afficher des données sensibles envoyées via HTTP, telles que les détails d’une carte de crédit et des informations de connexion de compte. Quand les données sont envoyées ou publiées par le biais d’un navigateur via HTTPS, SSL garantit que les informations sensibles sont chiffrées et protégées contre une interception.
@@ -184,5 +184,7 @@ Une fois que vous avez créé les applications pour représenter votre cluster, 
 Azure Service Fabric prend en charge deux types de contrôle d’accès pour les clients qui sont connectés à un [cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) : administrateur et utilisateur. L’administrateur du cluster peut utiliser le contrôle d’accès afin de limiter l’accès à certaines opérations de cluster pour différents groupes d’utilisateurs. Le contrôle d’accès rend le cluster plus sécurisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+- [Liste de contrôle pour la sécurité Service Fabric](azure-service-fabric-security-checklist.md)
 - Configurez votre [environnement de développement](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) Service Fabric.
 - Découvrez les [options de support de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).

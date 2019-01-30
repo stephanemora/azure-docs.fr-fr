@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3be7ad84cf0d45276c136465d7247ec43621aceb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354176"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810956"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -34,23 +34,32 @@ Cet article présente les principaux composants utilisés pour le streaming en d
 
 Voici les étapes d’un workflow de streaming en direct :
 
-1. Créez un **événement en temps réel**.
-2. Créez un objet **Asset**.
-3. Créez un objet **LiveOutput** et utilisez le nom de l’objet Asset que vous venez de créer.
-4. Créez une **stratégie de streaming** et une **clé de contenu** si vous avez l’intention de chiffrer votre contenu avec DRM.
-5. Si vous n’utilisez pas DRM, créez un **localisateur de streaming**  avec les types intégrés de la **stratégie de streaming**.
-6. Listez les chemins dans la **stratégie de streaming** pour obtenir les URL à utiliser (celles-ci sont déterministes).
-7. Obtenez le nom d’hôte pour le **point de terminaison de streaming** à partir duquel vous souhaitez effectuer le streaming (assurez vous que le point de terminaison de streaming fonctionne). 
-8. Combinez l’URL de l’étape 6 avec le nom d’hôte de l’étape 7 pour obtenir l’URL complète.
-9. Si vous ne souhaitez plus afficher votre **événement en temps réel**, vous devez arrêter le diffusion de l'événement en supprimant le **localisateur de streaming**.
+1. Vérifiez que le **Point de terminaison de streaming** est en cours d’exécution. 
+2. Créez un **Événement en direct**. 
+  
+    Lors de la création de l’événement, vous pouvez spécifier qu’il démarre automatiquement. Sinon, lancez-le dès que vous souhaitez commencer le streaming.<br/> Lorsque le démarrage automatique est défini sur true, l’événement en direct démarre juste après sa création. La facturation commence donc dès qu’il est en cours d’exécution. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en remps réel pour arrêter toute facturation supplémentaire. Pour plus d’informations, voir [États et facturation des événements en direct](live-event-states-billing.md).
+3. Récupérez la ou les URL de réception et configurez votre encodeur sur site de façon à ce qu’il utilise cette URL pour envoyer le flux de contribution.<br/>Voir [Encodeurs live recommandés](recommended-on-premises-live-encoders.md).
+4. Récupérez l’URL d’aperçu et utilisez-la pour vérifier que l’entrée de l’encodeur est bien reçue.
+5. Créez un objet **Asset**.
+6. Créez une **Sortie en direct** en utilisant le nom de la ressource que vous venez de créer.
 
-Pour plus d’informations, suivez un [tutoriel sur le streaming en direct](stream-live-tutorial-with-api.md) qui est basé sur l’exemple [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live).
+     La **Sortie en direct** archive le flux dans la **Ressource**.
+7. Créez un **Localisateur de streaming** avec les types de **Stratégies de streaming** prédéfinis.
+
+    Pour chiffrer le contenu, voir [Vue d’ensemble de la protection du contenu](content-protection-overview.md).
+8. Listez les chemins d’accès dans le **Localisateur de streaming** pour récupérer les URL à utiliser (elles sont déterministes).
+9. Récupérez le nom d’hôte du **Point de terminaison de streaming** à partir duquel vous souhaitez effectuer le streaming.
+10. Combinez l’URL de l’étape 8 avec le nom d’hôte de l’étape 9 pour obtenir l’URL complète.
+11. Si vous ne souhaitez plus afficher votre **Événement en direct**, arrêtez le streaming de l'événement et supprimez le **Localisateur de streaming**.
+
+Pour plus d’informations, voir le [tutoriel Streaming en direct](stream-live-tutorial-with-api.md).
 
 ## <a name="overview-of-main-components"></a>Présentation des principaux composants
 
 Pour transmettre des flux en direct ou à la demande avec Media Services, vous devez avoir au moins un point de terminaison de streaming ([StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)). Quand votre compte Media Services est créé, un StreamingEndpoint **par défaut**, avec l’état **Arrêté**, est ajouté à ce compte. Vous devez démarrer le StreamingEndpoint à partir duquel vous souhaitez transmettre votre contenu à vos clients. Vous pouvez utiliser le **StreamingEndpoint** par défaut, ou créer un autre **StreamingEndpoint** personnalisé avec les paramètres de CDN et de configuration souhaités. Vous pouvez choisir d’activer plusieurs StreamingEndpoint, chacun d’eux ciblant un CDN différent et spécifiant un nom d’hôte unique pour la distribution du contenu. 
 
-Dans Media Services, ce sont les objets [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) qui gèrent l’ingestion et le traitement des flux vidéo en direct. Quand vous créez un objet LiveEvent, un point de terminaison d’entrée est également créé. Vous pouvez utiliser ce point de terminaison pour envoyer un signal en direct à partir d’un encodeur à distance. L’encodeur live à distance envoie le flux de contribution à ce point de terminaison d’entrée par le biais du protocole [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmenté). Pour le protocole de réception de diffusion en continu lisse, les schémas d’URL pris en charge sont `http://` ou `https://`. Pour le protocole de réception RTMP, les schémas d’URL pris en charge sont `rtmp://` ou `rtmps://`. Pour plus d’informations, consultez [Encodeurs de vidéos en flux continu recommandés](recommended-on-premises-live-encoders.md).
+Dans Media Services, ce sont les objets [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) qui gèrent l’ingestion et le traitement des flux vidéo en direct. Quand vous créez un objet LiveEvent, un point de terminaison d’entrée est également créé. Vous pouvez utiliser ce point de terminaison pour envoyer un signal en direct à partir d’un encodeur à distance. L’encodeur live à distance envoie le flux de contribution à ce point de terminaison d’entrée par le biais du protocole [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmenté). Pour le protocole de réception de diffusion en continu lisse, les schémas d’URL pris en charge sont `http://` ou `https://`. Pour le protocole de réception RTMP, les schémas d’URL pris en charge sont `rtmp://` ou `rtmps://`. Pour plus d’informations, consultez [Encodeurs de vidéos en flux continu recommandés](recommended-on-premises-live-encoders.md).<br/>
+Quand vous créez un **Événement en direct**, vous pouvez spécifier des adresses IP autorisées aux formats suivants : adresses IPv4 à quatre chiffres, plage d’adresses CIDR.
 
 Une fois que le **LiveEvent** commence à recevoir le flux de contribution, vous pouvez utiliser son point de terminaison d’aperçu (URL d’aperçu) pour prévisualiser et valider le flux en direct que vous recevez avant de continuer la publication. Après avoir vérifié que le flux d’aperçu est correct, vous pouvez utiliser le LiveEvent pour rendre le flux en direct diffusable via un ou plusieurs **StreamingEndpoints** (créés au préalable). Pour cela, vous créez un objet [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) sur le **LiveEvent**. 
 
@@ -62,14 +71,7 @@ Media Services vous permet de transmettre votre contenu chiffré dynamiquement (
 
 Si vous le souhaitez, vous pouvez également appliquer un filtrage dynamique pour contrôler le nombre de pistes, les formats, les vitesses de transmission et les fenêtres de temps de présentation qui sont envoyés aux lecteurs. Pour plus d’informations, consultez [Filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
 
-### <a name="new-capabilities-for-live-streaming-in-v3"></a>Nouvelles fonctionnalités de streaming en direct dans les API v3
-
-Les API v3 de Media Services comportent les nouvelles fonctionnalités suivantes :
-
-- Nouveau mode de latence faible. Pour plus d’informations, consultez [latence](live-event-latency.md).
-- Prise en charge améliorée de RTMP (stabilité accrue et meilleure prise en charge de l’encodeur source).
-- Ingestion sécurisée RTMPS.<br/>Quand vous créez un événement en direct, vous obtenez 4 URL d’ingestion. Les 4 URL d’ingestion sont presque identiques, ont le même jeton de streaming (AppId) ; seule la partie du numéro de port est différente. Il existe deux URL principales et de secours pour RTMPS.   
-- Vous pouvez diffuser en continu des événements en direct d’une durée maximale de 24 heures lorsque vous utilisez Media Services pour transcoder un flux de contribution à débit binaire unique en un flux de sortie à débits binaires multiples. 
+Pour plus d’informations sur les nouvelles fonctionnalités de streaming en direct dans la v3, voir [Conseils de migration pour passer de la v2 à la v3 de Media Services](migrate-from-v2-to-v3.md).
 
 ## <a name="liveevent-types"></a>Types d’événements en temps réel
 
@@ -108,7 +110,7 @@ Avec une sortie [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutpu
 > [!NOTE]
 > Les sorties **LiveOutput** démarrent dès leur création et s’arrêtent à leur suppression. Lorsque vous supprimez une sortie **LiveOutput**, vous ne supprimez pas l’élément **Asset** sous-jacent, ni son contenu. 
 >
-> Si vous avez publié un **localisateur de streaming** sur l’élément multimédia pour **LiveOutput**, l’événement (jusqu’à la longueur de fenêtre DVR) continuera à être visible jusqu’à l’heure de fin du **localisateur de streaming** ou jusqu’à ce que vous supprimiez le localisateur, en fonction de ce qui survient en premier.   
+> Si vous avez publié la ressource **Sortie en direct** à l’aide d’un **Localisateur de streaming**, **l’Événement en direct** (jusqu’à la longueur de la fenêtre DVR) restera visible jusqu’à l’expiration ou la suppression du **Localisateur de streaming**, en fonction de ce qui survient en premier.
 
 Pour plus d’informations, consultez [Utilisation d’un magnétoscope numérique cloud](live-event-cloud-dvr.md).
 

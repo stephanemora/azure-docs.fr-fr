@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54242358"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54404666"
 ---
 Vous pouvez tirer parti de nombreuses possibilités d’analyser vos machines virtuelles en collectant, affichant et analysant les données de diagnostic et de journal. Pour [analyser](../articles/azure-monitor/overview.md) simplement votre machine virtuelle, vous pouvez utiliser l’écran Vue d’ensemble de la machine virtuelle sur le portail Azure. Vous pouvez utiliser des [extensions](../articles/virtual-machines/windows/extensions-features.md) pour configurer des diagnostics sur vos machines virtuelles afin de collecter des données de mesure supplémentaires. Vous pouvez également utiliser des options d’analyse plus avancées, telles que [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) et [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -60,13 +60,11 @@ Voici ce que vous pouvez faire avec les journaux de diagnostic :
 
 - [Enregistrez-les dans un compte de stockage](../articles/azure-monitor/platform/archive-diagnostic-logs.md) pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des paramètres de diagnostic des ressources.
 - [Diffusez-les en streaming sur Event Hubs](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (comme PowerBI) les ingère.
-- Analysez-les avec [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
+- Analysez-les avec [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Surveillance avancée
 
-- [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/) fournit des fonctionnalités de surveillance, d’alerte et de correction des alertes sur les ressources cloud et locales. Vous pouvez installer une extension sur une machine virtuelle [Linux](../articles/virtual-machines/linux/extensions-oms.md) ou [Windows](../articles/virtual-machines/windows/extensions-oms.md) qui installe l’agent OMS et inscrit la machine virtuelle dans un espace de travail OMS existant.
-
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) est un service d’OMS qui surveille vos environnements cloud et locaux et assure leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
+- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) est un service qui surveille vos environnements cloud et locaux, afin de préserver leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources. Vous pouvez installer une extension sur une [machine virtuelle Linux](../articles/virtual-machines/linux/extensions-oms.md) ou une [machine virtuelle Windows](../articles/virtual-machines/windows/extensions-oms.md), ce qui entraîne l’installation de l’agent Log Analytics et l’inscription de la machine virtuelle dans un espace de travail Log Analytics existant.
 
     Pour les machines virtuelles Windows et Linux, la méthode recommandée pour collecter des journaux et des mesures est d’installer l’agent Log Analytics. Le moyen le plus simple pour installer l’agent de Log Analytics sur une machine virtuelle consiste à utiliser l’[extension de machine virtuelle Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). L’utilisation de l’extension simplifie le processus d’installation et configure automatiquement l’agent pour qu’il envoie des données à l’espace de travail Log Analytics que vous spécifiez. L’agent est également mis à niveau automatiquement, de façon à ce que vous disposiez des fonctionnalités et correctifs les plus récents.
 

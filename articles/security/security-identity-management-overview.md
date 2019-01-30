@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
-ms.openlocfilehash: f15846f3de7162c61edce8aaf5c493bb1444df36
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: d1933e58cae522b03ced29183440e226d47dfdf9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498553"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435054"
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 
@@ -101,11 +101,11 @@ Vous pouvez protéger votre entreprise grâce à la surveillance de la sécurit�
 
 Dans le portail Azure, les rapports sont classés dans les catégories suivantes :
 
-* **Rapports d’anomalies**: contiennent des événements de connexion qui peuvent nous sembler anormaux. Notre objectif est de vous faire part de ces activités et de vous permettre de décider si un événement est suspect.
-* **Rapports d’application intégrée** : fournissent des indications sur l’utilisation des applications du cloud au sein de votre société. Azure AD permet d’intégrer des milliers d'applications du cloud.
-* **Rapports d’erreurs** : indiquent les erreurs qui peuvent survenir lorsque vous configurez des comptes sur des applications externes.
-* **Rapports spécifiques à l’utilisateur** : affichent les données d’activité relatives aux appareils/connexions d’un utilisateur spécifique.
-* **Journaux d’activité** : contiennent un enregistrement de tous les événements audités durant les dernières 24 heures, les derniers 7 jours ou les derniers 30 jours, des modifications d’activité de groupes, et des activités d’enregistrement et de réinitialisation de mot de passe.
+* **Rapports d’anomalies** : contiennent des événements de connexion qui peuvent nous sembler anormaux. Notre objectif est de vous faire part de ces activités et de vous permettre de décider si un événement est suspect.
+* **Rapports d’application intégrée** : fournissent des insights sur l’utilisation des applications cloud dans votre organisation. Azure AD permet d’intégrer des milliers d'applications du cloud.
+* **Rapports d’erreurs** : indiquent les erreurs qui peuvent survenir quand vous provisionnez des comptes sur des applications externes.
+* **Rapports spécifiques à l’utilisateur** : affichent les données d’activité relatives aux connexions de l’appareil d’un utilisateur spécifique.
+* **Journaux d’activité** : contiennent un enregistrement de tous les événements audités durant les dernières 24 heures, les derniers 7 jours ou les derniers 30 jours, des modifications d’activité de groupes, et des activités d’inscription et de réinitialisation de mot de passe.
 
 En savoir plus :
 
@@ -124,8 +124,8 @@ Lorsque vous utilisez Azure AD B2C, vos consommateurs peuvent s’inscrire aupr�
 En savoir plus :
 
 * [Qu’est-ce qu’Azure Active Directory B2C ?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C en version préliminaire : Inscription et connexion de consommateurs à vos applications](../active-directory-b2c/active-directory-b2c-overview.md)
-* [Version préliminaire d’Azure Active Directory B2C : types d’applications](../active-directory-b2c/active-directory-b2c-apps.md)
+* [Azure Active Directory B2C (préversion) : inscription et connexion de consommateurs à vos applications](../active-directory-b2c/active-directory-b2c-overview.md)
+* [Azure Active Directory B2C (préversion) : types d’applications](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>Enregistrement de l’appareil
 
@@ -154,9 +154,8 @@ Grâce à Azure AD Privileged Identity Management, vous pouvez :
 
 En savoir plus :
 
-* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-* [Rôles dans Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-roles.md)
-* [Azure AD Privileged Identity Management : comment ajouter ou supprimer un rôle d’utilisateur](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+* [Qu’est-ce qu’Azure AD Privileged Identity Management ?](../active-directory/privileged-identity-management/pim-configure.md)
+* [Attribuer des rôles d’annuaire Azure AD dans PIM](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>Identity Protection
 
@@ -165,7 +164,7 @@ Azure AD Identity Protection est un service de sécurité offrant une vue centra
 En savoir plus :
 
 * [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md)
-* [Channel 9 : Azure AD and Identity Show: Identity Protection Preview (Émission sur Azure AD et l’identité : présentation d’Identity Protection)](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Gestion des identités hybrides/Azure AD Connect
 
@@ -178,7 +177,7 @@ Les solutions d'identité de Microsoft regroupent des fonctionnalités, locales 
 
 En savoir plus :
 
-* [Livre blanc sur les identités hybrides](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
+* [Livre blanc sur les identités hybrides](https://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Blog de l’équipe Azure AD](https://blogs.technet.microsoft.com/ad/)
 

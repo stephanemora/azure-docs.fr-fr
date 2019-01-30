@@ -3,18 +3,18 @@ title: Compilation de configurations dans Azure Automation State Configuration
 description: Cet article explique comment compiler des configurations d’état souhaité (DSC) pour Azure Automation.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fae415d158a9fced0c63078cd09c0cc070c88372
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629999"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423406"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilation de configurations DSC dans Azure Automation State Configuration
 
@@ -130,7 +130,7 @@ Pour plus d’informations sur la transmission d’informations d’identificati
 
 ## <a name="composite-resources"></a>Ressources composites
 
-Les **ressources composites** vous permettent d’utiliser des configurations DSC en tant que ressources imbriquées à l’intérieur d’une configuration. Cela vous permet d’appliquer plusieurs configurations à une seule ressource. Consultez [Ressources composites : Utilisation d’une configuration DSC en tant que ressource](/powershell/dsc/authoringresourcecomposite) pour en savoir plus sur les **ressources composites**.
+Les **ressources composites** vous permettent d’utiliser des configurations DSC en tant que ressources imbriquées à l’intérieur d’une configuration. Cela vous permet d’appliquer plusieurs configurations à une seule ressource. Consultez [Ressources composites : Utilisation d’une configuration DSC en tant que ressource](/powershell/dsc/authoringresourcecomposite) pour en savoir plus sur les **ressources composites**.
 
 > [!NOTE]
 > Afin que la compilation réalisée par les **Ressources composites** se déroule normalement, vous devez en premier lieu vous assurer que toutes les ressources DSC sur lesquelles le composite s’appuie soient d’abord installées dans le dépôt Modules de compte Azure Automation, sinon l’importation est incorrecte.
@@ -171,7 +171,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 
 ## <a name="configurationdata"></a>ConfigurationData
 
-**ConfigurationData** vous permet de séparer la configuration structurelle de toute configuration spécifique de l’environnement lors de l’utilisation de la configuration de l’état souhaité PowerShell. Consultez [Distinguer « objet » et « emplacement » dans la configuration de l’état souhaité PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) pour en savoir plus sur **ConfigurationData**.
+**ConfigurationData** vous permet de séparer la configuration structurelle de toute configuration spécifique de l’environnement lors de l’utilisation de la configuration de l’état souhaité PowerShell. Consultez [Distinguer « objet » et « emplacement » dans la configuration de l’état souhaité PowerShell](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) pour en savoir plus sur **ConfigurationData**.
 
 > [!NOTE]
 > Vous pouvez utiliser **ConfigurationData** lors de la compilation dans Azure Automation State Configuration à l’aide d’Azure PowerShell, mais pas dans le portail Azure.
@@ -197,7 +197,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Vous pouvez compiler la configuration DSC précédente avec PowerShell. La commande PowerShell suivante ajoute deux configurations de nœud au serveur collecteur Azure Automation State Configuration : **ConfigurationDataSample.MyVM1** et **ConfigurationDataSample.MyVM3** :
+Vous pouvez compiler la configuration DSC précédente avec PowerShell. La commande PowerShell suivante ajoute deux configurations de nœud au serveur Pull Azure Automation State Configuration : **ConfigurationDataSample.MyVM1** et **ConfigurationDataSample.MyVM3** :
 
 ```powershell
 $ConfigData = @{
@@ -261,7 +261,7 @@ Configuration CredentialSample
 }
 ```
 
-Vous pouvez compiler la configuration DSC précédente avec PowerShell. La commande PowerShell suivante ajoute deux configurations de nœud au serveur collecteur Azure Automation State Configuration : **CredentialSample.MyVM1** et **CredentialSample.MyVM2**.
+Vous pouvez compiler la configuration DSC précédente avec PowerShell. La commande PowerShell suivante ajoute deux configurations de nœud au serveur Pull Azure Automation State Configuration : **CredentialSample.MyVM1** et **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{
@@ -283,7 +283,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ```
 
 > [!NOTE]
-> Lorsque la compilation est terminée, l’erreur suivante peut s’afficher : **Le module « Microsoft.PowerShell.Management » n’a pas été importé, car le composant logiciel enfichable « Microsoft.PowerShell.Management » avait déjà été importé.** Vous pouvez ignorer cet avertissement sans problème.
+> À la fin de la compilation, l’erreur suivante peut s’afficher : **Le module « Microsoft.PowerShell.Management » n’a pas été importé, car le composant logiciel enfichable « Microsoft.PowerShell.Management » avait déjà été importé.** Vous pouvez ignorer cet avertissement sans problème.
 
 ## <a name="importing-node-configurations"></a>Importation de configurations de nœuds
 

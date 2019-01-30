@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185016"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439100"
 ---
 # <a name="load-balancer-outbound-rules"></a>Règles de trafic sortant dans Load Balancer
 
@@ -208,6 +208,7 @@ Lorsque vous utilisez un équilibreur de charge standard interne, la NAT de traf
 - Le délai d’inactivité défini pour un flux sortant doit être compris entre 4 et 66 minutes (240 à 4 000 secondes).
 - L’équilibreur de charge ne prend pas en charge ICMP pour la NAT de trafic sortant.
 - Le portail ne permet pas de configurer ni d’afficher les règles de trafic sortant.  Utilisez plutôt des modèles, l’API REST, Az CLI 2.0 ou PowerShell.
+- Les règles de trafic sortant peuvent uniquement être appliquées à la configuration de la carte réseau principale et de l’adresse IP principale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

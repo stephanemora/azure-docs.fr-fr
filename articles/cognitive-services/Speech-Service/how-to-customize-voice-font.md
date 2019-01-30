@@ -10,18 +10,18 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 181797cd8ba193d7200e5ece8b599ffa40f7185b
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867578"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413700"
 ---
 # <a name="creating-custom-voice-fonts"></a>Création de polices de voix personnalisée
 
-La personnalisation de la voix de Synthèse vocale vous permet de créer une voix reconnaissable et propre à la marque. C’est ce que l’on appelle une *police de la voix*. 
+La personnalisation de la voix de Synthèse vocale vous permet de créer une voix reconnaissable et propre à la marque. C’est ce que l’on appelle une *police de la voix*.
 
-Pour créer votre police de la voix, effectuez un enregistrement en studio et chargez les scripts associés en tant que données d’apprentissage. Le service crée ensuite un modèle vocal unique adapté à votre enregistrement. Vous pouvez alors utiliser cette police de la voix pour synthétiser la parole. 
+Pour créer votre police de la voix, effectuez un enregistrement en studio et chargez les scripts associés en tant que données d’apprentissage. Le service crée ensuite un modèle vocal unique adapté à votre enregistrement. Vous pouvez alors utiliser cette police de la voix pour synthétiser la parole.
 
 Vous pouvez commencer avec un petit volume de données afin de procéder à une démonstration de faisabilité. Mais plus vous fournissez de données, plus votre voix semblera naturelle et professionnelle.
 
@@ -49,7 +49,7 @@ Un jeu de données d’apprentissage de la voix se compose d’un ensemble de fi
 
 Vous pouvez préparer ces fichiers de deux manières : soit en écrivant un script et en le faisant lire par une voix professionnelle, soit en utilisant un enregistrement audio disponible publiquement et en le transcrivant en texte. Dans ce dernier cas, éliminez les disfluences dans les fichiers audio telles que les « euh » et autres sons de remplissage, bégaiements, mots marmonnés ou erreurs de prononciation.
 
-Pour produire une police de voix de qualité satisfaisante, effectuez les enregistrements dans une pièce silencieuse avec un microphone de haute qualité. Pour concevoir une voix numérique de qualité, il est essentiel de faire attention à l’homogénéité du volume, au débit et à la tonalité, ainsi que de s’exprimer de manière expressive. 
+Pour produire une police de voix de qualité satisfaisante, effectuez les enregistrements dans une pièce silencieuse avec un microphone de haute qualité. Pour concevoir une voix numérique de qualité, il est essentiel de faire attention à l’homogénéité du volume, au débit et à la tonalité, ainsi que de s’exprimer de manière expressive.
 
 Pour créer une voix à des fins de production, nous vous recommandons de faire appel aux services d’un studio d’enregistrement et d’une voix professionnelle. Pour plus d’informations, consultez le [Guide pratique pour enregistrer des exemples de voix pour une voix personnalisée](record-custom-voice-samples.md).
 
@@ -102,30 +102,30 @@ Après avoir préparé votre archive de fichiers audio et les transcriptions, ch
 
     Le tableau **My Voice** (Ma voix) s’affiche. Si vous n’avez pas encore chargé de jeux de données vocales, ce tableau est vide.
 
-3. Pour ouvrir la page de chargement d’un nouveau jeu de données, cliquez sur **Import data** (Importer des données). 
+3. Pour ouvrir la page de chargement d’un nouveau jeu de données, cliquez sur **Import data** (Importer des données).
 
     ![Importer des données vocales](media/custom-voice/import-voice-data.png)
 
-4. Entrez un nom et une description dans les champs correspondants. 
+4. Entrez un nom et une description dans les champs correspondants.
 
-5. Sélectionnez les paramètres régionaux correspondant à vos polices vocales. Assurez-vous que les informations des paramètres régionaux correspondent à la langue des données d’enregistrement et des scripts. 
+5. Sélectionnez les paramètres régionaux correspondant à vos polices vocales. Assurez-vous que les informations des paramètres régionaux correspondent à la langue des données d’enregistrement et des scripts.
 
 6. Sélectionnez le sexe de la personne dont vous utilisez la voix.
 
-7. Sélectionnez le script et les fichiers audio à charger. 
+7. Sélectionnez le script et les fichiers audio à charger.
 
 8. Sélectionnez **Import** pour charger vos données. Pour les jeux de données plus volumineux, cette opération peut prendre plusieurs minutes.
 
 > [!NOTE]
 > Les utilisateurs d’abonnement gratuit peuvent charger deux jeux de données à la fois. Les utilisateurs d’abonnement standard peuvent, quant à eux, charger cinq jeux de données simultanément. Si vous atteignez la limite, attendez au moins la fin de l’importation de l’un de vos jeux de données, puis réessayez.
 
-Une fois le chargement terminé, le tableau **My Voice Data** (Mes données vocales) s’affiche à nouveau. Vous devez voir une entrée correspondant au jeu de données que vous venez de charger. 
+Une fois le chargement terminé, le tableau **My Voice Data** (Mes données vocales) s’affiche à nouveau. Vous devez voir une entrée correspondant au jeu de données que vous venez de charger.
 
 Les jeux de données sont automatiquement validés après le chargement. La validation des données inclut une série de vérifications sur les fichiers audio visant à contrôler le format, la taille et le taux d’échantillonnage. Les vérifications effectuées sur les fichiers de transcription contrôlent le format de fichier et effectuent quelques opérations de normalisation du texte. Les énoncés sont transcris à l’aide de la reconnaissance vocale. Le texte résultant est ensuite comparé à la transcription que vous avez fournie.
 
 ![Mes données vocales](media/custom-voice/my-voice-data.png)
 
-Le tableau suivant présente les états de traitement des jeux de données importés : 
+Le tableau suivant présente les états de traitement des jeux de données importés :
 
 | État | Signification
 | ----- | -------
@@ -143,19 +143,19 @@ N’hésitez pas à réenregistrer les énoncés affichant un faible score de pr
 
 ## <a name="build-your-voice-font"></a>Générer votre police vocale
 
-Une fois votre jeu de données validé, vous pouvez l’utiliser pour générer votre police de la voix personnalisée. 
+Une fois votre jeu de données validé, vous pouvez l’utiliser pour générer votre police de la voix personnalisée.
 
 1.  Dans le menu déroulant **Custom Voice**, choisissez **Models**.
- 
+
     Le tableau **My Voice Fonts** (Mes polices de la voix) apparaît. Il répertorie toutes les polices de la voix personnalisées que vous avez déjà créées.
 
-1. Sous le titre du tableau, cliquez sur **Create voices** (Créer des voix). 
+1. Sous le titre du tableau, cliquez sur **Create voices** (Créer des voix).
 
     La page de création d’une police vocale s’affiche. Les paramètres régionaux actuels figurent sur la première ligne du tableau. Modifiez les paramètres régionaux pour créer une voix dans une autre langue. Les paramètres régionaux doivent être identiques à ceux des jeux de données utilisés pour créer la voix.
 
-1. Comme lorsque vous avez chargé votre jeu de données, entrez un nom et une description pour vous aider à identifier ce modèle. 
+1. Comme lorsque vous avez chargé votre jeu de données, entrez un nom et une description pour vous aider à identifier ce modèle.
 
-    Choisissez un nom avec soin. Le nom que vous entrez ici est celui que vous utiliserez pour spécifier la voix dans votre requête de synthèse vocale dans le cadre de l’entrée SSML. Seuls les lettres, les chiffres et quelques caractères de ponctuation tels que « - », « _ », « ( » et « ) » sont autorisés.
+    Choisissez un nom avec soin. Le nom que vous entrez ici est celui que vous utiliserez pour spécifier la voix dans votre requête de synthèse vocale dans le cadre de l’entrée SSML. Seuls les lettres, les chiffres et quelques caractères de ponctuation tels que `-`, `_` et `(', ')` sont autorisés.
 
     Le champ **Description** sert souvent à enregistrer les noms des jeux de données qui ont été utilisés pour créer le modèle.
 
@@ -167,7 +167,7 @@ Une fois votre jeu de données validé, vous pouvez l’utiliser pour générer 
 
     ![Création de modèle](media/custom-voice/create-model.png)
 
-Votre nouveau modèle apparaît dans le tableau **My Voice Fonts** (Mes polices de la voix). 
+Votre nouveau modèle apparaît dans le tableau **My Voice Fonts** (Mes polices de la voix).
 
 ![Mes polices vocales](media/custom-voice/my-voice-fonts.png)
 
@@ -212,7 +212,7 @@ Quand l’état du déploiement affiche **Succeeded** (Réussite), le point de t
 
 Il est également possible d’effectuer un test en ligne du point de terminaison via le portail Custom Voice. Pour tester votre point de terminaison, choisissez **Endpoints testing** (Test des points de terminaison) dans le menu déroulant **Custom Voice**. La page de test des points de terminaison s’affiche. Choisissez une voix personnalisée déployée et saisissez le texte à lire (au format texte brut ou SSML) dans la zone de texte.
 
-> [!NOTE] 
+> [!NOTE]
 > Quand vous utilisez SSML, la balise `<voice>` doit spécifier le nom que vous avez donné à votre voix personnalisée lors de sa création. Si vous envoyez un texte brut, la voix personnalisée est toujours utilisée.
 
 Pour écouter le texte parlé dans votre police de la voix personnalisée, sélectionnez **Play** (Lecture).
@@ -223,10 +223,18 @@ D’un point de vue fonctionnel, le point de terminaison personnalisé est ident
 
 ## <a name="language-support"></a>Support multilingue
 
-La personnalisation vocale est disponible pour l’anglais américain (en-US), le chinois continental (zh-CN) et l’italien (it-IT).
+La personnalisation de la voix est disponible dans les langues suivantes :
+
+| Langage | Paramètres régionaux |
+|----------|--------|
+| Chinois (continent) | zh-CN |
+| Anglais (US) | en-US |
+| Anglais | fr-FR |
+| Allemand | de-DE |
+| Italien | it-IT |
 
 > [!NOTE]
-> L’apprentissage de la voix italienne commence par un jeu de données de plus de 2 000 énoncés. Les modèles bilingues chinois-anglais sont également pris en charge avec un jeu de données de plus de 2 000 énoncés.
+> L’entraînement de la voix française, allemande et italienne commence par un jeu de données de plus de 2 000 énoncés. Les modèles bilingues chinois-anglais sont également pris en charge avec un jeu de données de plus de 2 000 énoncés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

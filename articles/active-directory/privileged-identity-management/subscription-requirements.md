@@ -1,6 +1,6 @@
 ---
-title: Exigences relatives aux abonnements pour l’utilisation de PIM - Azure | Microsoft Docs
-description: Décrit les exigences relatives aux abonnements et aux licences pour l’utilisation d’Azure AD Privileged Identity Management (PIM).
+title: Licences requises pour utiliser PIM - Azure | Microsoft Docs
+description: Décrit les licences requises pour utiliser Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,53 +13,55 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 06/01/2017
+ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 1554895dcba0c09a3a2e19c284a1cd6f0416cfe1
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: dd4fa72b3e0b57ab227146eae6e2c7d20d0ce47a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190608"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424215"
 ---
-# <a name="subscription-requirements-to-use-pim"></a>Exigences relatives aux abonnements pour l’utilisation de PIM
+# <a name="license-requirements-to-use-pim"></a>Licences requises pour utiliser PIM
 
-Azure AD Privileged Identity Management est disponible avec l’édition Premium P2 d’Azure AD. Pour plus d’informations sur les autres fonctionnalités de P2 et le comparer à Premium P1, consultez [Éditions d’Azure Active Directory](../active-directory-editions.md).
+Pour utiliser Azure Active Directory (Azure AD) Privileged Identity Management (PIM), votre annuaire doit avoir une licence valide. De plus, les licences doivent être affectées aux administrateurs et aux utilisateurs concernés. Cet article décrit les licences requises pour utiliser PIM.
 
->[!NOTE]
-Dans la version préliminaire d’Azure Active Directory (Azure AD) Privileged Identity Management, aucune vérification de la licence ne permettait à un locataire de tester le service.  Maintenant qu’Azure AD Privileged Identity Management est disponible de manière générale, le locataire doit disposer d’un abonnement d’évaluation ou payant pour continuer à utiliser Privileged Identity Management après décembre 2016.
-  
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="confirm-your-trial-or-paid-subscription"></a>Confirmer votre abonnement d’évaluation ou payant
+Pour utiliser PIM, votre annuaire doit avoir l’une des licences payantes ou d’essai gratuit suivantes :
 
-Si vous ne savez pas si votre organisation dispose d’un abonnement d’évaluation ou payant, vous pouvez vérifier s’il existe un abonnement dans votre locataire à l’aide des commandes incluses dans le module Azure Active Directory pour Windows PowerShell V1. 
-1. Ouvrez une fenêtre PowerShell.
-2. Entrez `Connect-MsolService` pour vous authentifier en tant qu’utilisateur de votre locataire.
-3. Entrez `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
+- Azure AD Premium P2
+- Enterprise Mobility + Security (EMS) E5
 
-Cette commande récupère la liste des abonnements dans votre locataire. Si aucune ligne n’est renvoyée, vous devez obtenir une version d’évaluation d’Azure AD Premium P2, acheter un abonnement Azure AD Premium P2 ou un abonnement ESM E5 pour pouvoir utiliser Azure AD Privileged Identity Management.  Pour obtenir une version d’évaluation et commencer à utiliser Azure AD Privileged Identity Management, lisez [Prise en main d’Azure AD Privileged Identity Management](pim-getting-started.md).
+Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](../fundamentals/active-directory-whatis.md).
 
-Si cette commande renvoie une ligne dans laquelle le SkuPartNumber est « AAD_PREMIUM_P2 » ou « EMSPREMIUM » et IsTrial est « True », cela signifie qu’une version d’évaluation d’Azure AD Premium P2 est présente dans le locataire.  Si l’état de l’abonnement n’est pas activé et si vous n’avez pas acheté d’abonnement Azure AD Premium P2 ou EMS E5, vous devez acheter un abonnement Azure AD Premium P2 ou EMS E5 pour continuer à utiliser Azure AD Privileged Identity Management.
+## <a name="which-users-must-have-licenses"></a>Quels utilisateurs doivent avoir des licences ?
 
-Azure AD Premium P2 est disponible via un [Contrat Entreprise Microsoft](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), le [programme de licence en volume Open](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) et le programme [Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider). Les abonnés Azure et Office 365 peuvent également acheter Azure AD Premium P2 en ligne.  Vous trouverez plus d’informations sur la tarification d’Azure AD Premium et comment commander en ligne dans [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Chaque administrateur ou utilisateur qui utilise ou reçoit un avantage de PIM doit avoir une licence. Voici quelques exemples :
 
-## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management n’est pas disponible dans le locataire
+- Administrateurs ayant des rôles Azure AD gérés dans PIM
+- Administrateurs ayant des rôles de ressources Azure gérés dans PIM
+- Administrateurs affectés au rôle Administrateur de rôle privilégié
+- Utilisateurs désignés comme étant éligibles pour les rôles d’annuaire pouvant être gérés dans PIM
+- Utilisateurs en mesure d’approuver et de refuser des requêtes dans PIM
+- Utilisateurs affectés à un rôle de ressource Azure avec des attributions juste-à-temps ou directes (à durée définie)  
+- Utilisateurs affectés à une révision d’accès
+- Utilisateurs qui effectuent des révisions d’accès
 
-Azure AD Privileged Identity Management ne sera plus disponible dans votre locataire si :
-- Votre organisation utilisait la version préliminaire d’Azure AD Privileged Identity Management et n’a pas acheté d’abonnement Azure AD Premium P2 ou EMS E5.
-- Votre organisation disposait d’une version d’évaluation d’Azure AD Premium P2 ou EMS E5 qui a expiré.
-- Votre organisation a acheté un abonnement qui a expiré.
+Pour plus d’informations sur l’attribution de licences aux utilisateurs, consultez [Assigner ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
 
-Lorsqu’un abonnement Azure AD Premium P2 ou EMS E5 arrive à expiration, ou qu’une organisation qui utilisait la version préliminaire d’Azure AD Privileged Identity Management n’achète pas d’abonnement Azure AD Premium P2 ou EMS E5 :
+## <a name="what-happens-when-a-license-expires"></a>Que se passe-t-il quand une licence expire ?
+
+Quand une licence Azure AD Premium P2, une licence EMS E5 ou une licence d’essai expire, les fonctionnalités PIM ne sont plus disponibles dans votre annuaire :
 
 - Les affectations de rôle permanentes à des rôles Azure AD sont annulées.
-- L’extension Azure AD Privileged Identity Management dans le portail Azure, ainsi que les applets de commande API Graph et les interfaces PowerShell d’Azure AD Privileged Identity Management, ne sont plus disponibles pour les utilisateurs afin d’activer des rôles privilégiés, de gérer l’accès privilégié ou de procéder à des vérifications d’accès des rôles privilégiés.
+- Le service PIM dans le portail Azure ainsi que les applets de commande API Graph et les interfaces PowerShell de PIM ne peuvent plus être utilisés par les utilisateurs pour activer des rôles privilégiés, gérer l’accès privilégié ou effectuer des vérifications d’accès des rôles privilégiés.
 - Les affectations de rôle éligibles de rôles Azure AD sont supprimées, car les utilisateurs ne sont plus en mesure d’activer des rôles privilégiés.
-- Les vérifications d’accès en cours de rôles sont terminées, et les paramètres de configuration d’Azure AD Privileged Identity Management sont supprimés.
-- Azure AD Privileged Identity Management n’envoie plus de messages électroniques sur les modifications apportées aux affectations de rôle.
+- Les vérifications d’accès en cours des rôles Azure AD sont arrêtées, et les paramètres de configuration de PIM sont supprimés.
+- PIM n’envoie plus d’e-mails sur les changements d’attribution de rôle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Commencer à utiliser PIM](pim-getting-started.md)
-- [Rôles d’annuaire Azure AD pouvant être gérés dans PIM](pim-roles.md)
+- [Rôles que vous ne pouvez pas gérer dans PIM](pim-roles.md)
