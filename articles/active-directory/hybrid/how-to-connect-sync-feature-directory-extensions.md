@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect Sync : extensions d’annuaire | Microsoft Docs'
+title: 'Synchronisation d’Azure AD Connect : Extensions d’annuaire | Microsoft Docs'
 description: Cette rubrique décrit la fonctionnalité d’extensions d’annuaire dans Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288303"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476901"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync : extensions d’annuaire
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Synchronisation d’Azure AD Connect : Extensions d’annuaire
 Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être consommés par le biais des [extensions d’annuaire de l’API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou de [Microsoft Graph](https://developer.microsoft.com/graph/). Vous pouvez visualiser les attributs disponibles en utilisant [l’explorateur Azure AD Graph](https://graphexplorer.azurewebsites.net/) et [l’Explorateur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) respectivement.
 
 Actuellement, aucune charge de travail Office 365 ne consomme ces attributs.
@@ -34,11 +34,11 @@ Vous pouvez configurer les attributs supplémentaires à synchroniser dans le ch
 
 ![Assistant d’extension de schéma](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 
-L’installation affiche les attributs suivants, qui sont des candidats valides :
+ L’installation affiche les attributs suivants, qui sont des candidats valides :
 
 * Types d’utilisateur et d’objet de groupe
-* Attributs à valeur unique : chaîne, booléen, entier, binaire
-* Attributs à valeurs multiples : chaîne, binaire
+* Attributs à valeur unique : Chaîne, booléen, entier, binaire
+* Attributs à valeurs multiples : Chaîne, binaire
 
 
 >[!NOTE]
@@ -63,7 +63,7 @@ Vous avez également la possibilité d’interroger les attributs par le biais d
 >[!NOTE]
 > Vous devez demander que les attributs soient renvoyés. Sélectionnez explicitement les attributs comme suit : https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
-> Pour plus d’informations, consultez l’article [Microsoft Graph : Utilisation de paramètres de requête](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Pour plus d’informations, consultez [Microsoft Graph : Utiliser des paramètres de requête](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](how-to-connect-sync-whatis.md) .

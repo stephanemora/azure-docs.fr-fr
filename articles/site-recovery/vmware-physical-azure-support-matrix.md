@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/18/2019
 ms.author: raynew
-ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7c01c8ec8c4957900688fed7ca09830f792a7886
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107495"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413411"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -112,7 +112,8 @@ Dispositif de stockage paravirtualisé | Les appareils exportés par les pilotes
 Unités de bloc d’entrée et de sortie en file d’attente | Non pris en charge.
 Serveurs physiques avec le contrôleur de stockage HP CCISS | Non pris en charge.
 Convention de nommage pour les appareils/points de montage | Le nom de l’appareil ou le nom du point de montage doit être unique. Vérifiez que deux appareils/points de montage n’ont pas des noms identiques avec une différence de casse. </br> Exemple : Nommer deux appareils de la même machine virtuelle *appareil1* et *Appareil1* n’est pas autorisé.
-Répertoires | Avant la [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. Les répertoires suivants (s’ils sont configurés en tant que partitions/systèmes de fichiers séparés) doivent tous se trouver sur le même disque du système d’exploitation, sur le serveur source : /(root), /boot, /usr, /usr/local, /var, /etc.</br>2. /boot doit se trouver sur une partition de disque et ne doit pas être un volume LVM.<br/><br/> Depuis la [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), les restrictions ci-dessus ne sont pas applicables.
+Répertoires | Avant la [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. Les répertoires suivants (s’ils sont configurés en tant que partitions/systèmes de fichiers séparés) doivent tous se trouver sur le même disque du système d’exploitation, sur le serveur source : /(root), /boot, /usr, /usr/local, /var, /etc.</br>2. /boot doit se trouver sur une partition de disque et ne doit pas être un volume LVM.<br/><br/> Depuis la [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), les restrictions ci-dessus ne sont pas applicables. /boot sur un volume LVM sur plusieurs disques n’est pas pris en charge.
+Répertoire de démarrage | Les machines virtuelles comprenant plusieurs disques de démarrage ne sont pas prises en charge. <br/><br/> Une machine sans disque de démarrage ne peut pas être protégée.
 
 Exigences en matière d’espace libre | 2 Go sur la partition /root <br/><br/> 250 Mo sur le dossier d’installation XFSv5 | Les fonctionnalités XFSv5 sur des systèmes de fichiers XFS, comme les sommes de contrôle des métadonnées, sont prises en charge à partir du service Mobilité version 9.10 et ultérieure. Utilisez l’utilitaire xfs_info pour vérifier le superbloc XFS pour la partition. Si ftype est défini sur 1, les fonctionnalités XFSv5 sont utilisées.
 
@@ -157,6 +158,7 @@ Mise en réseau accélérée | Non
 ## <a name="storage"></a>Stockage
 **Composant** | **Pris en charge**
 --- | ---
+Disque dynamique | Le disque du système d’exploitation doit être un disque de base. <br/><br/>Les disques de données peuvent être des disques dynamiques
 Hôte NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques
 Hôte SAN (iSCSI/FC) | OUI
 vSAN hôte | Oui pour VMware<br/><br/> N/A pour les serveurs physiques

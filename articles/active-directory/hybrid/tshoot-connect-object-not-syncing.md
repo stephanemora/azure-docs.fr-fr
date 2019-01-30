@@ -4,7 +4,7 @@ description: Résolution des problèmes pour un objet qui ne se synchronise pas 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b66aeb0832058c56e63c56c0420c7793eb2a632a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306558"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478652"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Dépanner un objet qui bloque la synchronisation avec Azure AD
 
@@ -65,7 +65,7 @@ Vous pouvez cliquer avec le bouton droit dans la zone **Informations sur la pile
 
 * Si l’erreur provient de **SyncRulesEngine**, les informations sur la pile d’appels affichent d’abord une liste de tous les attributs sur l’objet. Faites défiler vers le bas jusqu’à l’en-tête **InnerException =>**.  
   ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)  
-  La ligne qui suit affiche l’erreur. Dans l’image ci-dessus, l’erreur provient d’une règle de synchronisation Fabrikam personnalisée créée.
+   La ligne qui suit affiche l’erreur. Dans l’image ci-dessus, l’erreur provient d’une règle de synchronisation Fabrikam personnalisée créée.
 
 Si l’erreur elle-même ne fournit pas suffisamment d’informations, il est temps d’examiner les données elles-mêmes. Vous pouvez cliquer sur le lien avec l’identificateur d’objet et poursuivre le dépannage de [l’objet importé d’espace de connecteur](#cs-import).
 
@@ -86,7 +86,7 @@ Une autre recherche utile consiste à sélectionner le connecteur Azure AD. Dans
 Ces objets ont été créés par un autre moteur de synchronisation ou un moteur de synchronisation avec une autre configuration de filtrage. Cette vue est une liste d’objets **orphelins** qui ne sont plus gérés. Vous devez examiner cette liste et envisager de supprimer ces objets à l’aide des applets de commande [Azure AD PowerShell](https://aka.ms/aadposh).
 
 ### <a name="cs-import"></a>Importation de CS
-Quand vous ouvrez un objet cs, plusieurs onglets sont affichés en haut. L’onglet **Importer** affiche les données mises en lot après une importation.  
+ Quand vous ouvrez un objet cs, plusieurs onglets sont affichés en haut. L’onglet **Importer** affiche les données mises en lot après une importation.  
 ![Objet CS](./media/tshoot-connect-object-not-syncing/csobject.png)    
 **L’ancienne valeur** montre ce qui est actuellement stocké dans Connect, et la **nouvelle valeur** ce qui a été reçu à partir du système source et n’a pas encore été appliqué. Si une erreur est présente sur l’objet, les modifications ne sont pas traitées.
 
@@ -95,7 +95,7 @@ Quand vous ouvrez un objet cs, plusieurs onglets sont affichés en haut. L’ong
 L’onglet **Erreur de synchronisation** est visible uniquement s’il existe un problème au niveau de l’objet. Pour plus d’informations, consultez [Résolution des problèmes de synchronisation](#troubleshoot-errors-in-operations-tab).
 
 ### <a name="cs-lineage"></a>Lignage CS
-: l’onglet Lignage montre de quelle manière l’objet espace connecteur est lié à l’objet métaverse. Vous pouvez voir à quel moment le connecteur a importé pour la dernière fois une modification dans le système connecté et connaître les règles appliquées pour remplir les données dans le métaverse.  
+ : l’onglet Lignage montre de quelle manière l’objet espace connecteur est lié à l’objet métaverse. Vous pouvez voir à quel moment le connecteur a importé pour la dernière fois une modification dans le système connecté et connaître les règles appliquées pour remplir les données dans le métaverse.  
 ![Lignage CS](./media/tshoot-connect-object-not-syncing/cslineage.png)  
 Dans la colonne **Action**, vous pouvez voir une règle de synchronisation **Entrante** avec l’action **Approvisionner**. Cela signifie que tant que cet objet espace connecteur est présent, l’objet métaverse est conservé. Si la liste des règles de synchronisation affiche à la place une règle de synchronisation avec la direction **Sortante** et **Approvisionner**, cela indique que cet objet est supprimé en même temps que l’objet métaverse.  
 ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/cslineageout.png)  
@@ -103,10 +103,10 @@ Vous pouvez également voir dans la colonne **PasswordSync** que l’espace conn
 
 Sous l’onglet Lignage, vous pouvez accéder au métaverse en cliquant sur [Propriétés de l’objet métaverse](#mv-attributes).
 
-Deux boutons apparaissent en bas de tous les onglets : **Aperçu** et **Journal**.
+Deux boutons se trouvent en bas de tous les onglets : **Aperçu** et **Journal**.
 
 ### <a name="preview"></a>VERSION PRÉLIMINAIRE
-: la page d’aperçu sert à synchroniser un seul objet. Elle est utile si vous résolvez des problèmes liés aux règles de synchronisation personnalisées et que vous souhaitez voir l’effet d’une modification sur un seul objet. Vous pouvez choisir entre **Synchronisation complète** et **Synchronisation delta**. Vous pouvez également choisir entre **Générer l’aperçu**, qui permet de conserver uniquement la modification en mémoire, et **Valider l’aperçu**, qui met à jour le métaverse et implémente toutes les modifications dans les espaces connecteur cibles.  
+ : la page d’aperçu sert à synchroniser un seul objet. Elle est utile si vous résolvez des problèmes liés aux règles de synchronisation personnalisées et que vous souhaitez voir l’effet d’une modification sur un seul objet. Vous pouvez choisir entre **Synchronisation complète** et **Synchronisation delta**. Vous pouvez également choisir entre **Générer l’aperçu**, qui permet de conserver uniquement la modification en mémoire, et **Valider l’aperçu**, qui met à jour le métaverse et implémente toutes les modifications dans les espaces connecteur cibles.  
 ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/preview.png)  
 Vous pouvez inspecter l’objet et la règle appliquée pour un flux d’attribut particulier.  
 ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/previewresult.png)
@@ -126,7 +126,7 @@ Dans la fenêtre **Résultats de la recherche**, cliquez sur l’objet.
 Si vous ne trouvez pas l’objet, il n’a pas encore atteint le métaverse. Continuez à rechercher l’objet dans [l’espace de connecteur](#connector-space-object-properties) Active Directory. Une erreur de synchronisation qui bloque l’arrivée de l’objet dans le métaverse peut s’être produite ou il peut y avoir un filtre appliqué.
 
 ### <a name="mv-attributes"></a>Attributs MV
-: sous l’onglet Attributs, vous pouvez voir les valeurs et le connecteur qui y a contribué.  
+ : sous l’onglet Attributs, vous pouvez voir les valeurs et le connecteur qui y a contribué.  
 ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/mvobject.png)  
 
 Si un objet n’est pas synchronisé, examinez les attributs suivants dans le métaverse :
@@ -134,7 +134,7 @@ Si un objet n’est pas synchronisé, examinez les attributs suivants dans le m�
 - L’attribut **sourceAnchor** est-il présent ? Si ce n’est pas le cas, utilisez-vous une topologie de forêt compte-ressource ? Si un objet est identifié comme une boîte aux lettres liée (l’attribut **msExchRecipientTypeDetails** a la valeur 2), l’attribut sourceAnchor est fourni par la forêt avec un compte Active Directory activé. Assurez-vous que le compte principal a été importé et synchronisé correctement. Le compte principal doit être répertorié dans les [connecteurs](#mv-connectors) pour l’objet.
 
 ### <a name="mv-connectors"></a>Connecteurs MV
-: l’onglet Connecteurs affiche tous les espaces connecteur qui ont une représentation de l’objet.  
+ : l’onglet Connecteurs affiche tous les espaces connecteur qui ont une représentation de l’objet.  
 ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/mvconnectors.png)  
 Vous devez disposer d’un connecteur pour :
 

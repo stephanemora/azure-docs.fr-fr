@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: concepts
 ms.date: 12/11/2018
 ms.author: barclayn
-ms.openlocfilehash: 44507e919b7ed827eb3c08101a04849faf92293c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ec814bf641dea6f47b907e9f9e2646dfcf84ade1
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310235"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451746"
 ---
 # <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
@@ -56,9 +56,9 @@ Pour le moment, le service HSM dédié Azure fournit uniquement des HSM avec une
 
 ### <a name="q-will-azure-dedicated-hsm-host-my-hsms-for-me"></a>Q : Le service HSM dédié Azure peut-il héberger mes HSM pour moi ?
 
-Microsoft propose uniquement le HSM de Gemalto SafeNet Luna Network via le service HSM dédié et ne peut pas héberger les appareils fournis par les clients.
+Microsoft propose uniquement le HSM de Gemalto SafeNet Luna Network par le biais du service HSM dédié, et ne peut pas héberger les appareils fournis par les clients.
 
-### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>Q : Le service HSM dédié Azure prend-il en charge les fonctionnalités code PIN/ETF ou répond-il aux exigences de certification PCI HSM v1 ou v2 ?
+### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>Q : Le service HSM dédié Azure prend-il en charge les fonctionnalités code PIN/ETF ou répond-il aux exigences de certification PCI HSM v1 ou v2 ?
 
 Le service HSM dédié Azure utilise des appareils SafeNet Luna Network HSM 7 (modèle A790). Ces appareils ne prennent pas en charge les fonctionnalités de paiement propres à HSM (par exemple, code PIN ou EFT) ni les certifications. Si vous voulez que le service HSM dédié Azure prenne en charge les HSM de paiement à l’avenir, indiquez-le nous en commentaire ci-dessous.
 

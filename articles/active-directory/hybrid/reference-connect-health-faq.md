@@ -4,7 +4,7 @@ description: Ce FAQ répond aux questions que vous pouvez vous poser au sujet d�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 83ff526eb0bd0c51822fc52c90b958d50022a834
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 101eeb89a44fbc28c831fefcdc6490495e0be7e8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497728"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470322"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -60,7 +60,7 @@ Exemple :
 | 4 | 76 | 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
 | 5. | 101 | 1 serveur Azure AD Connect, 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
 
-**Q : Azure AD Connect Health prend-il en charge Azure Germany Cloud ?**
+**Q : Azure AD Connect Health prend-il en charge Azure Cloud Germany ?**
 
 Azure AD Connect Health n’est pas pris en charge dans Germany Cloud à l’exception de la [fonctionnalité de rapport d’erreurs de synchronisation](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
 
@@ -82,7 +82,7 @@ L’incidence de l’installation de l’agent Microsoft Azure AD Connect Health
 Les données suivantes sont fournies uniquement à titre approximatif :
 
 * Consommation du processeur : environ 1-5 % d’augmentation.
-* Consommation de la mémoire : jusqu’à 10 % de la mémoire totale du système.
+* Consommation mémoire : Jusqu’à 10 % de la mémoire totale du système.
 
 > [!NOTE]
 > Si l’agent ne peut pas communiquer avec Azure, il stocke les données localement pour une limite maximale définie. L’agent remplace les données « mises en cache » sur la base « dernier événement traité ».
@@ -98,7 +98,7 @@ Les données suivantes sont fournies uniquement à titre approximatif :
 
 Par exemple, sur Windows Server 2008 R2, l’installation de .NET 4.5 Framework requiert un redémarrage du serveur.
 
-**Q : Le service Azure AD Connect Health fonctionne-t-il par le biais d’un proxy HTTP intermédiaire ?**
+**Q : Le service Azure AD Connect Health fonctionne-t-il via un proxy HTTP intermédiaire ?**
 
 Oui. Pour les opérations en cours, vous pouvez configurer l’agent Health pour transmettre les requêtes HTTP sortantes à l’aide d’un proxy HTTP.
 Pour plus d’informations sur la [configuration du proxy HTTP pour les agents Health, voir ](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
@@ -117,7 +117,7 @@ Si vous devez configurer un proxy lors de l’inscription de l’agent, il vous 
 
 Pour obtenir la liste des ports de pare-feu et les autres conditions à respecter en matière de connectivité, voir la [section sur les conditions requises](how-to-connect-health-agent-install.md#requirements).
 
-**Q : Pourquoi deux serveurs portant le même nom s’affichent dans le portail Azure AD Connect Health ?**
+**Q : Pourquoi deux serveurs avec le même nom s’affichent-ils dans le portail Azure AD Connect Health ?**
 
 Lorsque vous supprimez un agent à partir d’un serveur, ce serveur n’est pas automatiquement supprimé du portail Azure AD Connect Health. Si vous supprimez manuellement un agent d’un serveur ou le serveur lui-même, vous devez supprimer manuellement l’entrée de serveur à partir du portail Azure AD Connect Health.
 
@@ -148,13 +148,13 @@ Non. Il n’est pas nécessaire d’activer l’audit sur les serveurs proxy d�
 
 Les alertes Azure AD Connect Health sont résolues en cas de condition de réussite. Les agents Azure AD Connect Health détectent et signalent régulièrement au service les conditions de réussite. Pour certaines alertes, la suppression s’effectue en fonction d’un intervalle de temps. Concrètement, cela signifie que si la condition d’erreur n’est pas observée dans les 72 heures suivant la génération de l’alerte, cette dernière est automatiquement résolue.
 
-**Q : Le message suivant s’affiche « La demande d’authentification de test (transaction synthétique) n’est pas parvenue à obtenir un jeton ». Comment puis-je résoudre ce problème ?**
+**Q : L’alerte suivante s’affiche : « La demande d’authentification de test (transaction synthétique) n’est pas parvenue à obtenir un jeton ». Comment puis-je résoudre ce problème ?**
 
 Azure AD Connect Health pour AD FS génère cette alerte lorsque l’agent d’intégrité installé sur un serveur AD FS n’a pas pu obtenir de jeton dans le cadre d’une transaction synthétique démarrée par l’agent d’intégrité. L’agent d’intégrité utilise le contexte du système local et tente d’obtenir un jeton pour une partie de confiance interne. Il s’agit d’un test polyvalent permettant de vérifier que l’état des services AD FS leur permet d’émettre des jetons.
 
 Le plus souvent, ce test échoue lorsque l’agent d’intégrité ne parvient pas à résoudre le nom de la batterie de serveurs AD FS. Cela peut se produire si les serveurs AD FS se trouvent derrière un équilibreur de charge réseau et si la requête est lancée depuis un nœud qui se trouve également derrière l’équilibreur de charge (par opposition à un client normal qui est placé devant l’équilibreur). Pour corriger ce problème, mettez à jour le fichier « hosts » situé sous « C:\Windows\System32\drivers\etc » en incluant l’adresse IP du serveur AD FS ou une adresse IP de bouclage (127.0.0.1) pour le nom de la batterie de serveurs AD FS (par exemple, sts.contoso.com). L’ajout du fichier hôte a pour effet de court-circuiter l’appel réseau, ce qui permet à l’agent d’intégrité d’obtenir le jeton.
 
-**Q : J’ai reçu un e-mail m’informant que mes machines ne disposaient pas du correctif destiné à les protéger des dernières attaques de type ransomeware. Pourquoi ai-je reçu cet e-mail ?**
+**Q : J’ai reçu un e-mail m’informant que mes machines ne disposaient PAS du correctif destiné à les protéger des dernières attaques de type ransomeware. Pourquoi ai-je reçu cet e-mail ?**
 
 Le service Azure AD Connect Health a analysé toutes les machines qu’il surveille pour vérifier que les correctifs nécessaires y ont été installés. L’e-mail est envoyé à l’administrateur des locataires si au moins l’une des machines qu’il gère ne dispose pas des correctifs nécessaires. La logique suivante a été utilisée pour déterminer si les correctifs ont été installés sur les machines :
 1. Rechercher tous les correctifs logiciels installés sur la machine
@@ -184,11 +184,11 @@ CheckForMS17-010
 
 ```
 
-**Q : Pourquoi la cmdlet PowerShell <i>Get-MsolDirSyncProvisioningError</i> affiche moins d’erreurs de synchronisation dans le résultat ?**
+**Q : Pourquoi l’applet de commande PowerShell <i>Get-MsolDirSyncProvisioningError</i> affiche-t-elle moins d’erreurs de synchronisation dans le résultat ?**
 
 <i>Get-MsolDirSyncProvisioningError</i> renvoie uniquement les erreurs d’approvisionnement DirSync. En outre, le portail Connect Health affiche également d’autres types d’erreurs de synchronisation telles que des erreurs d’exportation. Cela est cohérent avec le résultat delta Azure AD Connect. En savoir plus sur les [erreurs de synchronisation Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
 
-**Q : pourquoi mes audits ADFS ne sont-ils pas générés ?**
+**Q : Pourquoi mes audits ADFS ne sont-ils pas générés ?**
 
 Utilisez l’applet de commande PowerShell <i>Get-AdfsProperties - AuditLevel</i> pour vérifier que les journaux d’audit ne sont pas désactivés. En savoir plus sur les [journaux d’audit ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notez que si des paramètres d’audit avancés sont transmis au serveur ADFS, les modifications apportés à auditpol.exe seront écrasées (même si l’application générée n’est pas configurée). Dans ce cas, définissez la stratégie de sécurité locale pour enregistrer les succès et échecs de l’application générée. 
 

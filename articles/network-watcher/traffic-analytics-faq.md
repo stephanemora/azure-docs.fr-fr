@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582494"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382997"
 ---
-# <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour l’analyse de trafic
+# <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
 Cet article regroupe les questions fréquemment posées sur l’analytique du trafic dans Azure Network Watcher.
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Quels sont les prérequis pour utiliser l’analytique du trafic ?
 
-L’analytique du trafic nécessite les prérequis suivants :
+Traffic Analytics nécessite les prérequis suivants :
 
 - Un abonnement actif à Network Watcher.
 - Des journaux de flux NSG (groupe de sécurité réseau) activés pour les groupes de sécurité réseau à surveiller.
@@ -35,7 +35,6 @@ L’analytique du trafic nécessite les prérequis suivants :
 
 Votre compte doit répondre à l’une des descriptions suivantes pour activer l’analytique du trafic :
 
-- Votre compte doit être affecté à l’un des rôles suivants au niveau de l’abonnement : administrateur de compte, administrateur de services fédérés ou coadministrateur.
 - Votre compte doit avoir l’un des rôles RBAC (contrôle d’accès en fonction du rôle) suivants au niveau de l’étendue de l’abonnement : propriétaire, contributeur, lecteur ou contributeur réseau.
 - Si votre compte n’a pas l’un des rôles précédemment répertoriés, il doit avoir un rôle personnalisé auquel sont affectées les actions suivantes au niveau de l’abonnement.
             
@@ -61,7 +60,7 @@ Pour vérifier les rôles attribués à un utilisateur pour un abonnement :
 Si vous ne voyez aucune sortie, contactez l’administrateur de l’abonnement pour qu’il vous donne les droits d’accès nécessaires pour exécuter les commandes. Pour plus d’informations, consultez [Gérer le contrôle d’accès en fonction du rôle avec Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
-## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Dans quelles régions l’analytique du trafic est-elle disponible ?
+## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Dans quelles régions Traffic Analytics est disponible ?
 
 Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge suivantes :
 - Centre du Canada
@@ -133,7 +132,7 @@ Pour que la journalisation du flux fonctionne correctement, le fournisseur Micro
 
 L’affichage du tableau de bord peut prendre jusqu’à 30 minutes la première fois. La solution doit d’abord agréger suffisamment de données pour en dériver des insights utiles. Ensuite, elle génère des rapports. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Que faire si je reçois le message « Impossible de trouver des données dans cet espace de travail pour l’intervalle de temps sélectionné. Essayez de changer l’intervalle de temps ou de sélectionner un autre espace de travail. » ?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Que faire si je reçois le message « Impossible de trouver des données dans cet espace de travail pour l’intervalle de temps sélectionné. Essayez de changer l’intervalle de temps ou de sélectionner un autre espace de travail. » ?
 
 Tentez les opérations suivantes :
 - Changez l’intervalle de temps dans la barre supérieure.
@@ -142,15 +141,15 @@ Tentez les opérations suivantes :
     
 Si les problèmes persistent, expliquez votre problème dans le [forum des utilisateurs](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Que faire si je reçois le message « Nous analysons peut-être vos journaux de flux NSG pour la première fois. Ce processus peut prendre de 20 à 30 minutes. Vérifiez ultérieurement. 2) Si l’étape ci-dessus ne fonctionne pas et que votre espace de travail se trouve sous la référence SKU libre, vérifiez l’utilisation de votre espace de travail pour valider le quota. Sinon, reportez-vous à la FAQ pour plus d’informations. » ?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Que faire si je reçois le message « Nous analysons peut-être vos journaux de flux NSG pour la première fois. Ce processus peut prendre de 20 à 30 minutes. Vérifiez ultérieurement. 2) Si l’étape ci-dessus ne fonctionne pas et que votre espace de travail se trouve sous la référence SKU libre, vérifiez l’utilisation de votre espace de travail pour valider le quota. Sinon, reportez-vous à la FAQ pour plus d’informations. » ?
 
 Ce message peut s’afficher pour les raisons suivantes :
-- L’analytique du trafic a été récemment activée et peut ne pas avoir agrégé suffisamment de données pour qu’en ressortent des insights significatifs.
+- Traffic Analytics a été récemment activé et peut ne pas avoir agrégé suffisamment de données pour qu’en ressortent des insights significatifs.
 - Vous utilisez la version gratuite de l’espace de travail Log Analytics, et les limites de quota ont été dépassées. Vous devrez peut-être utiliser un espace de travail d’une capacité supérieure.
     
 Si les problèmes persistent, expliquez votre problème dans le [forum des utilisateurs](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Que faire si je reçois le message « Il semble qu’il existe des données de ressources (topologie), mais aucune information de flux. Cliquez ici pour afficher les données de ressources et reportez-vous à la FAQ pour plus d’informations. » ?
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Que faire si je reçois le message « Il semble qu’il existe des données de ressources (topologie), mais aucune information de flux. Cliquez ici pour afficher les données de ressources et reportez-vous à la FAQ pour plus d’informations. » ?
 
 Vous voyez les informations de ressources sur le tableau de bord. Toutefois, aucune statistique de flux n’est présente. Les données sont peut-être manquantes en l’absence de flux de communication entre les ressources. Attendez 60 minutes et revérifiez l’état. Si le problème persiste et que vous êtes sûr que des flux de communication existent entre les ressources, expliquez votre problème dans le [forum des utilisateurs](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
@@ -223,18 +222,18 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 
 
-## <a name="how-is-traffic-analytics-priced"></a>Quel est le prix de l’analyse de trafic ?
+## <a name="how-is-traffic-analytics-priced"></a>Quel est le prix de Traffic Analytics ?
 
-L’analytique du trafic est mesurée. Les mesures sont basées sur le traitement des données de journal de flux par le service et sur le stockage des journaux améliorés résultants dans un espace de travail Log Analytics. 
+Traffic Analytics est mesuré. Les mesures sont basées sur le traitement des données de journal de flux par le service et sur le stockage des journaux améliorés résultants dans un espace de travail Log Analytics. 
 
-Par exemple, conformément au [plan de tarification](https://azure.microsoft.com/pricing/details/network-watcher/), concernant la région USA Centre-Ouest, si des données de journal de flux stockées dans un compte de stockage traité par Traffic Analytics ont un volume de 10 Go et que les journaux améliorés ingérés dans l’espace de travail Log Analytics ont un volume de 1 Go, les charges applicables sont les suivantes : 10 x 2.3$ + 1 x 2.76$ = 25.76$
+Par exemple, conformément au [plan tarifaire](https://azure.microsoft.com/pricing/details/network-watcher/), concernant la région USA Centre-Ouest, si des données de journal de flux stockées dans un compte de stockage traité par Traffic Analytics ont un volume de 10 Go et que les journaux améliorés ingérés dans l’espace de travail Log Analytics ont un volume de 1 Go, les charges applicables sont les suivantes : 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Comment faire pour naviguer dans la vue de la carte géographique à l’aide du clavier ?
 
 La page de la carte géographique contient deux sections principales :
     
-- **Bannière** : la bannière en haut de la carte géographique fournit des boutons pour sélectionner les filtres de distribution du trafic (Déploiement, Trafic en provenance de pays, Malveillant, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la carte. Par exemple, si vous sélectionnez le bouton Actif, la carte met en surbrillance les centres de données actifs dans votre déploiement.
-- **Carte** : sous la bannière, la section de la carte montre la distribution du trafic entre les pays et les centres de données Azure.
+- **Bannière** : la bannière en haut de la carte géographique fournit des boutons pour sélectionner les filtres de distribution du trafic (Déploiement, Trafic en provenance de pays, Malveillant, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la carte. Par exemple, si vous sélectionnez le bouton Actif, la carte met en surbrillance les centres de données actifs dans votre déploiement.
+- **Carte** : sous la bannière, la section de la carte montre la distribution du trafic entre les pays et les centres de données Azure.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigation au clavier sur la bannière
     
@@ -263,8 +262,8 @@ La page de la carte géographique contient deux sections principales :
 
 La page de la topologie des réseaux virtuels contient deux sections principales :
     
-- **Bannière** : la bannière en haut de la topologie des réseaux virtuels fournit des boutons pour sélectionner les filtres de distribution du trafic (réseaux virtuels connectés, réseaux virtuels déconnectés, adresses IP publiques, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la topologie. Par exemple, si vous sélectionnez le bouton Actif, la topologie met en surbrillance les réseaux virtuels actifs dans votre déploiement.
-- **Topologie** : sous la bannière, la section de la topologie montre la distribution du trafic entre les réseaux virtuels.
+- **Bannière** : la bannière en haut de la topologie des réseaux virtuels fournit des boutons pour sélectionner les filtres de distribution du trafic (réseaux virtuels connectés, réseaux virtuels déconnectés, adresses IP publiques, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la topologie. Par exemple, si vous sélectionnez le bouton Actif, la topologie met en surbrillance les réseaux virtuels actifs dans votre déploiement.
+- **Topologie** : sous la bannière, la section de la topologie montre la distribution du trafic entre les réseaux virtuels.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigation au clavier sur la bannière
     
@@ -285,8 +284,8 @@ La page de la topologie des réseaux virtuels contient deux sections principales
 
 La page de la topologie des sous-réseaux virtuels contient deux sections principales :
     
-- **Bannière** : la bannière en haut de la topologie des sous-réseaux virtuels fournit des boutons pour sélectionner les filtres de distribution du trafic (sous-réseaux actifs, moyens, de passerelle, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la topologie. Par exemple, si vous sélectionnez le bouton Actif, la topologie met en surbrillance le sous-réseau virtuel actif dans votre déploiement.
-- **Topologie** : sous la bannière, la section de la topologie montre la distribution du trafic entre les sous-réseaux virtuels.
+- **Bannière** : la bannière en haut de la topologie des sous-réseaux virtuels fournit des boutons pour sélectionner les filtres de distribution du trafic (sous-réseaux actifs, moyens, de passerelle, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la topologie. Par exemple, si vous sélectionnez le bouton Actif, la topologie met en surbrillance le sous-réseau virtuel actif dans votre déploiement.
+- **Topologie** : sous la bannière, la section de la topologie montre la distribution du trafic entre les sous-réseaux virtuels.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigation au clavier sur la bannière
     

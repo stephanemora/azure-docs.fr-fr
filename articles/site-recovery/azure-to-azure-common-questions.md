@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260462"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449552"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Questions courantes : Réplication Azure vers Azure
 
@@ -101,8 +101,8 @@ La capture d’écran suivante illustre cet exemple. Dans la capture d’écran�
 ### <a name="how-far-back-can-i-recover"></a>Jusqu’à quand peut remonter la récupération ?
 Le point de récupération le plus ancien que vous pouvez utiliser remonte à 72 heures.
 
-### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-pruned"></a>Que se passe-t-il si j’ai une stratégie de réplication de 24 heures et qu’un problème empêche la récupération Site Recovery de générer des points de récupération pendant plus de 24 heures ? Mes points de récupération antérieurs sont-ils écartés ?
-Non, dans ce cas, Site Recovery conserve tous vos points de récupération antérieurs. 
+### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Que se passe-t-il si j’ai une stratégie de réplication de 24 heures et qu’un problème empêche la récupération Site Recovery de générer des points de récupération pendant plus de 24 heures ? Mes points de récupération antérieurs sont-ils perdus ?
+Non, Site Recovery conserve tous vos points de récupération antérieurs. En fonction de la fenêtre de conservation des points de récupération, 24 heures dans ce cas, Site Recovery ne remplace le point le plus ancien que s’il existe une génération de nouveaux points. Dans ce cas, aucun nouveau point de récupération n’étant généré en raison d’un problème, tous les anciens points restent intacts une fois la fenêtre de conservation atteinte.
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Une fois la réplication activée sur une machine virtuelle, comment modifier la stratégie de réplication ? 
 Accédez à **Coffre Site Recovery** > **Infrastructure Site Recovery** > **Stratégies de réplication**. Sélectionnez la stratégie à modifier, modifiez-la, puis enregistrez les modifications. Toute modification s’applique également à toutes les réplications existantes. 
