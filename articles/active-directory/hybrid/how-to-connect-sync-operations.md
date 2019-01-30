@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect sync : tâches et examen opérationnels | Microsoft Docs'
+title: 'Synchronisation d’Azure AD Connect : Tâches opérationnelles et examen | Microsoft Docs'
 description: Cette rubrique décrit les tâches opérationnelles de la synchronisation d’Azure AD Connect et explique comment se préparer pour utiliser ce composant.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 11390f1ad777d20e31c263b4a694ae5cb31f3fd3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c4dc5ae107cc8babbd425edd6c5de428e130fc3a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305808"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467534"
 ---
-# <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure Connect AD sync : tâches opérationnelles et examen
+# <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Synchronisation d’Azure AD Connect : Considérations et tâches opérationnelles
 L’objectif de cette rubrique consiste à décrire les tâches opérationnelles de la synchronisation d’Azure AD Connect.
 
 ## <a name="staging-mode"></a>Mode intermédiaire
@@ -74,8 +74,8 @@ Vous avez maintenant effectué une exportation intermédiaire vers Azure AD et A
 
 #### <a name="verify"></a>Vérifier
 1. Démarrez une invite de commande et accédez à `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Exécution : `csexport "Name of Connector" %temp%\export.xml /f:x` le nom du connecteur se trouve dans le service de synchronisation. Le nom est similaire à « contoso.com – AAD » pour Azure AD.
-3. Exécution : `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` dans %temp%, vous disposez d’un fichier nommé export.csv qui peut être examiné dans Microsoft Excel. Ce fichier contient toutes les modifications sur le point d’être exportées.
+2. Exécutez : `csexport "Name of Connector" %temp%\export.xml /f:x` le nom du connecteur se trouve dans le service de synchronisation. Le nom est similaire à « contoso.com – AAD » pour Azure AD.
+3. Exécutez : `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Vous disposez d’un fichier dans %temp% nommé export.csv qui peut être examiné dans Microsoft Excel. Ce fichier contient toutes les modifications sur le point d’être exportées.
 4. Apportez les modifications nécessaires aux données ou à la configuration et réexécutez ces opérations (importer, synchroniser et vérifier) jusqu’à ce que les modifications sur le point d’être exportées soient attendues.
 
 **Comprendre le fichier export.csv** La majeure partie du fichier est explicite. Certaines abréviations permettant de comprendre le contenu :
@@ -152,9 +152,9 @@ write-host "Importing XML" -ForegroundColor Yellow
 $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariables($xmltoimport))
 
 #use an XmlReader to deal with even large files
-$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
+$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
-do 
+do 
 {
     #create the object placeholder
     #adding them up here means we can enforce consistency
@@ -271,5 +271,5 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 ## <a name="next-steps"></a>Étapes suivantes
 **Rubriques de présentation**  
 
-* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)  
+* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)  
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)  

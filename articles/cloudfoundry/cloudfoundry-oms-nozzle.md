@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
+ms.service: azure-monitor
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 198d6e596faf47528c508a9323ab22de563dfc62
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404900"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819031"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Deploy Azure Log Analytics for Cloud Foundry Monitoring (Déployer l’infrastructure Nozzle d’Azure Log Analytics pour surveiller le système Cloud Foundry)
 
@@ -63,11 +63,11 @@ Vous pouvez créer l’espace de travail Log Analytics manuellement ou à l’ai
 1. Dans le portail Azure, recherchez le logiciel Log Analytics dans la liste des services de la Place de marché Microsoft Azure, puis sélectionnez-le.
 2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
 
-   * **Espace de travail Log Analytics** : saisissez un nom pour votre espace de travail.
-   * **Abonnement** : si vous possédez plusieurs abonnements, choisissez celui sur lequel vous avez déployé Cloud Foundry.
-   * **Groupe de ressources** : vous pouvez créer un groupe de ressources, ou utiliser celui de l’environnement Cloud Foundry que vous avez déployé.
+   * **Espace de travail Log Analytics** : saisissez un nom pour votre espace de travail.
+   * **Abonnement**: si vous possédez plusieurs abonnements, choisissez celui sur lequel vous avez déployé Cloud Foundry.
+   * **Groupe de ressources** : vous pouvez créer un groupe de ressources, ou utiliser celui de l’environnement Cloud Foundry que vous avez déployé.
    * **Emplacement** : indiquez l’emplacement.
-   * **Niveau tarifaire** : cliquez sur **OK** pour terminer.
+   * **Niveau tarifaire** : sélectionnez **OK** pour terminer.
 
 Pour plus d’informations, consultez l’article [Prise en main de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
@@ -78,12 +78,12 @@ Pour plus d’informations, consultez l’article [Prise en main de Log Analytic
 3. Tapez « Cloud Foundry » dans la fenêtre Rechercher et sélectionnez « Cloud Foundry Monitoring Solution ».
 4. La page d’accueil du modèle de solution de surveillance Cloud Foundry se charge. Cliquez sur « Créer » pour lancer le panneau de modèle.
 5. Entrez les paramètres requis :
-    * **Abonnement** : sélectionnez un abonnement Azure pour l’espace de travail Log Analytics, généralement le même que pour le déploiement de Cloud Foundry.
-    * **Groupe de ressources :** sélectionnez un groupe de ressources existant ou créez-en un pour l’espace de travail Log Analytics.
+    * **Abonnement**: sélectionnez un abonnement Azure pour l’espace de travail Log Analytics, généralement le même que pour le déploiement de Cloud Foundry.
+    * **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez-en un pour l’espace de travail Log Analytics.
     * **Emplacement du groupe de ressources** : sélectionnez l’emplacement du groupe de ressources.
     * **nom_espace_de_travail_OMS** : entrez un nom d’espace de travail. S’il n’existe pas, le modèle en crée un nouveau.
-    * **région_espace_de_travail_OMS** : sélectionnez l’emplacement de l’espace de travail.
-    * **niveau_tarifaire_espace_de_travail_OMS** : sélectionnez la référence SKU de l’espace de travail Log Analytics. Pour plus d’informations, consultez le [Guide de tarification](https://azure.microsoft.com/pricing/details/log-analytics/).
+    * **région_espace_de_travail_OMS** : sélectionnez l'emplacement de l'espace de travail.
+    * **niveau_tarifaire_espace_de_travail_OMS** : sélectionnez la référence (SKU) de l’espace de travail Log Analytics. Pour plus d’informations, consultez le [Guide de tarification](https://azure.microsoft.com/pricing/details/log-analytics/).
     * **Conditions juridiques** : cliquez sur Conditions juridiques, puis sur « Créer » pour accepter les conditions juridiques.
 - Après avoir spécifié tous les paramètres, cliquez sur « Créer » pour déployer le modèle. Une fois le déploiement terminé, l’état s’affiche sous l’onglet de notification.
 

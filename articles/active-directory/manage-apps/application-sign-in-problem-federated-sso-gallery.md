@@ -4,7 +4,7 @@ description: Instructions sur la manière de résoudre les problèmes rencontré
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8d910ffcf966e98def33a42a6452baea9f4b3998
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8a21f1ac0839a37455fe06537242edc6e43731a4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355199"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477298"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problèmes de connexion à une application de la galerie configurée pour l’authentification unique fédérée
 
@@ -34,7 +34,7 @@ Pour résoudre votre problème, vous devez vérifier la configuration de l’app
 
 ## <a name="application-not-found-in-directory"></a>Application introuvable dans le répertoire
 
-*Erreur AADSTS70001 : L’application avec l’identificateur « https://contoso.com » est introuvable dans l’annuaire*.
+*Erreur AADSTS70001 : L’application associée à l’identificateur « https://contoso.com » est introuvable dans le répertoire*.
 
 **Cause possible**
 
@@ -66,7 +66,7 @@ Une fois que vous avez mis à jour la valeur d’identificateur pour qu’elle c
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L’adresse de réponse ne correspond pas aux adresses de réponse configurées pour l’application.
 
-*Erreur AADSTS50011 : L’adresse de réponse « https://contoso.com » ne correspond pas aux adresses de réponse configurées pour l’application*.
+*Erreur AADSTS50011 : L’adresse de réponse « https://contoso.com » ne correspond pas aux adresses de réponse configurées pour l’application*
 
 **Cause possible**
 
@@ -99,7 +99,7 @@ Une fois que vous avez mis à jour la valeur de l’URL de réponse dans Azure A
 
 ## <a name="user-not-assigned-a-role"></a>Utilisateur non affecté à un rôle
 
-*Erreur AADSTS50105 : L’utilisateur connecté « brian@contoso.com » n’est pas affecté à un rôle pour l’application*.
+*Erreur AADSTS50105 : L’utilisateur connecté « brian@contoso.com » n’est pas affecté à un rôle pour l’application*.
 
 **Cause possible**
 
@@ -133,7 +133,7 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 11. Pointez sur **l’utilisateur** dans la liste pour afficher une **case à cocher**. Cliquez sur la case à cocher en regard de la photo de profil ou du logo de l’utilisateur pour ajouter ce dernier à la liste **Sélectionné**.
 
-12. **Facultatif :** si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cliquez sur la case à cocher pour ajouter cet utilisateur à la liste **Sélectionné**.
+12. **Facultatif** : Si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter cet utilisateur à la liste **Sélectionné**.
 
 13. Après avoir sélectionné les utilisateurs, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
 
@@ -145,7 +145,7 @@ Après quelques instants, les utilisateurs que vous avez sélectionnés seront e
 
 ## <a name="not-a-valid-saml-request"></a>Demande SAML non valide
 
-*Erreur AADSTS75005 : La demande n’est pas un message de protocole Saml2 valide.*
+*Erreur AADSTS75005 : La requête n’est pas un message de protocole Saml2 valide.*
 
 **Cause possible**
 
@@ -228,7 +228,7 @@ Si l’option 1 ci-dessus n’a pas fonctionné pour vous, essayez de supprimer 
 
 ## <a name="certificate-or-key-not-configured"></a>Certificat ou clé non configuré(e)
 
-*Erreur AADSTS50003 : Aucune clé de signature configurée.*
+*Erreur AADSTS50003 : Aucune clé de signature configurée.*
 
 **Cause possible**
 
@@ -261,6 +261,19 @@ Pour supprimer et créer un nouveau certificat, effectuez les étapes suivantes 
 10. Cochez la case **Activer le nouveau certificat** pour substituer le certificat actif. Ensuite, cliquez sur **Enregistrer** en haut du volet, puis acceptez d’activer le certificat de substitution.
 
 11. Dans la section **Certificat de signature SAML**, cliquez sur **Supprimer** pour supprimer le certificat **Inutilisé**.
+
+## <a name="saml-request-not-present-in-the-request"></a>Requête SAML absente de la requête
+
+*Erreur AADSTS750054 : SAMLRequest ou SAMLResponse doit être présent en tant que paramètres de la chaîne de requête dans la requête HTTP pour la liaison de redirection SAML.*
+
+**Cause possible**
+
+Azure AD n'a pas pu identifier la requête SAML dans les paramètres URL de la requête HTTP. Cela peut se produire si l'application n'utilise pas la liaison de redirection HTTP pour l'envoi de la requête SAML vers Azure AD.
+
+**Résolution :**
+
+L'application doit envoyer la requête SAML encodée dans l'en-tête d'emplacement à l'aide de la liaison de redirection HTTP. Pour plus d'informations sur la mise en œuvre, lisez la section Liaison de redirection HTTP dans le [document de spécification du protocole SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problème lors de la personnalisation des revendications SAML envoyées à une application
 

@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SmartRecruiters | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à SmartRecruiters | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SmartRecruiters.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: e96aeecd-e113-454e-89c3-58c9f44cfd4c
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: jeedes
-ms.openlocfilehash: b248cd7d5d45e4f91bc97a5a29476f9bfa03089d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6624368e0438b8f41a0f90c5da3f7f00f4cbc86c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426983"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813557"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Didacticiel : Intégration d’Azure Active Directory à SmartRecruiters
+# <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Tutoriel : Intégration d’Azure Active Directory à SmartRecruiters
 
 Dans ce didacticiel, vous apprenez à intégrer SmartRecruiters à Azure Active Directory (Azure AD).
 
@@ -160,7 +160,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 1. Cliquez sur **Enregistrer la configuration de l’authentification unique web**.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -196,7 +196,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-smartrecruiters-test-user"></a>Créer un utilisateur de test SmartRecruiters
 
-Dans cette section, vous créez un utilisateur appelé Britta Simon dans SmartRecruiters. Contactez [l’équipe de support technique de SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/) pour ajouter les utilisateurs sur la plateforme SmartRecruiters. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous créez un utilisateur appelé Britta Simon dans SmartRecruiters. Contactez  [l’équipe de support technique de SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/)  pour ajouter les utilisateurs sur la plateforme SmartRecruiters. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

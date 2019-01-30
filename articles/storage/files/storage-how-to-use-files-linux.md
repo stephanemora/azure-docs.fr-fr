@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 4b844fe50623782f23c1819c14eb7626eb9506cf
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: df701c6b3131686d5b3b4c093b23de2f6d22bdbc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614942"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827463"
 ---
 # <a name="use-azure-files-with-linux"></a>Utiliser Azure Files avec Linux
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans des distributions Linux à l’aide du [client SMB en mode noyau](https://wiki.samba.org/index.php/LinuxCIFS). Cet article présente deux méthodes de montage d’un partage de fichiers Azure : à la demande avec la commande `mount` et au démarrage en créant une entrée dans `/etc/fstab`.
@@ -24,7 +24,7 @@ ms.locfileid: "51614942"
 ## <a name="prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Conditions préalables au montage d’un partage de fichiers Azure avec Linux et le package cifs-utils
 <a id="smb-client-reqs"></a>
 * **Choisissez une distribution Linux adaptée à vos besoins de montage.**  
-      Azure Files peut être monté via SMB 2.1 et SMB 3.0. Pour les connexions provenant de clients en local ou dans d’autres régions Azure, Azure Files refuse SMB 2.1 (ou SMB 3.0 sans chiffrement). Si le *transfert sécurisé exigé* est activé pour un compte de stockage, Azure Files autorise uniquement les connexions utilisant SMB 3.0 avec chiffrement.
+      Azure Files peut être monté via SMB 2.1 et SMB 3.0. Pour les connexions provenant de clients en local ou dans d’autres régions Azure, vous devez utiliser SMB 3.0 ; Azure Files refuse SMB 2.1 (ou SMB 3.0 sans chiffrement). Si vous accédez au partage de fichiers Azure à partir d’une machine virtuelle au sein de la même région Azure, vous pouvez accéder à votre partage de fichiers à l’aide de SMB 2.1 si, et seulement si, le *transfert sécurisé requis* est désactivé pour le compte de stockage qui héberge le partage de fichiers Azure. Nous conseillons systématiquement de demander un transfert sécurisé et d'utiliser SMB 3.0 avec chiffrement uniquement.
     
     La prise en charge du chiffrement SMB 3.0 a été introduite dans Linux Kernel version 4.11 et a été rétroportée sur des versions antérieures du noyau pour les distributions Linux populaires. Au moment de publier ce document, les distributions suivantes de la galerie Azure prennent en charge l’option de montage spécifiée dans les en-têtes du tableau. 
 
@@ -69,24 +69,24 @@ ms.locfileid: "51614942"
 
     Sur les autres distributions, utilisez le gestionnaire de package approprié ou effectuez une [compilation à partir de la source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
     
-* **Déterminer les autorisations de fichier/répertoire du partage monté** : dans les exemples ci-dessous, l’autorisation `0777` permet d’accorder des autorisations de lecture, d’écriture et d’exécution à tous les utilisateurs. Vous pouvez les remplacer par d’autres [autorisations chmod](https://en.wikipedia.org/wiki/Chmod) comme vous le souhaitez. 
+* **Déterminer les autorisations de fichier/répertoire du partage monté** : dans les exemples ci-dessous, l’autorisation `0777` permet d’accorder des autorisations de lecture, d’écriture et d’exécution à tous les utilisateurs. Vous pouvez les remplacer par d’autres [autorisations chmod](https://en.wikipedia.org/wiki/Chmod) comme vous le souhaitez. 
 
-* **Nom de compte de stockage** : pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
+* **Nom du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
 
-* **Clé du compte de stockage** : pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
+* **Clé du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
 
-* **Vérifiez que le port 445 est ouvert** : SMB communique via le port TCP 445. Assurez-vous que votre pare-feu ne bloque pas les ports TCP 445 de la machine cliente.
+* **Vérifiez que le port 445 est ouvert** : SMB communique via le port TCP 445. Assurez-vous que votre pare-feu ne bloque pas les ports TCP 445 à partir de la machine cliente.
 
 ## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montage du partage de fichiers Azure à la demande avec `mount`
 1. **[Installez le package cifs-utils pour votre distribution Linux](#install-cifs-utils)**.
 
-2. **Créez un dossier pour le point de montage** : un dossier pour un point de montage peut être créé n’importe où sur le système de fichiers, mais il est d’usage courant de le créer sous le dossier `/mnt`. Par exemple : 
+2. **Créez un dossier pour le point de montage** : Vous pouvez créer un dossier pour un point de montage n’importe où sur le système de fichiers, mais il est d’usage courant de le créer sous le dossier `/mnt`. Par exemple : 
 
     ```bash
     mkdir /mnt/MyAzureFileShare
     ```
 
-3. **Utilisez la commande de montage pour monter le partage de fichiers Azure** : n’oubliez pas de remplacer `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>` et `<mount-point>` par les informations appropriées à votre environnement. Si votre distribution Linux prend en charge SMB 3.0 avec chiffrement (pour plus d’informations, consultez [Comprendre les besoins du client SMB](#smb-client-reqs)), utilisez `3.0` pour `<smb-version>`. Pour les distributions Linux qui ne prennent pas en charge SMB 3.0 avec chiffrement, utilisez `2.1` pour `<smb-version>`. Notez qu’un partage de fichiers Azure peut uniquement être monté en dehors d’une région Azure (notamment en local ou dans une région Azure différente) avec SMB 3.0. 
+3. **utilisez la commande de montagne pour monter le partage de fichiers Azure** : N’oubliez pas de remplacer `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>` et `<mount-point>` par les informations correspondant à votre environnement. Si votre distribution Linux prend en charge SMB 3.0 avec chiffrement (pour plus d’informations, consultez [Comprendre les besoins du client SMB](#smb-client-reqs)), utilisez `3.0` pour `<smb-version>`. Pour les distributions Linux qui ne prennent pas en charge SMB 3.0 avec chiffrement, utilisez `2.1` pour `<smb-version>`. Notez qu’un partage de fichiers Azure peut uniquement être monté en dehors d’une région Azure (notamment en local ou dans une région Azure différente) avec SMB 3.0. 
 
     ```bash
     sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -98,7 +98,7 @@ ms.locfileid: "51614942"
 ## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Création d’un point de montage persistant pour le partage de fichiers Azure avec `/etc/fstab`
 1. **[Installez le package cifs-utils pour votre distribution Linux](#install-cifs-utils)**.
 
-2. **Créez un dossier pour le point de montage** : un dossier pour un point de montage peut être créé n’importe où sur le système de fichiers, mais il est d’usage courant de le créer sous le dossier `/mnt`. Lors de chaque création, notez le chemin absolu du dossier. Par exemple, la commande suivante crée un dossier sous `/mnt` (le chemin est un chemin absolu).
+2. **Créez un dossier pour le point de montage** : Vous pouvez créer un dossier pour un point de montage n’importe où sur le système de fichiers, mais il est d’usage courant de le créer sous le dossier `/mnt`. Lors de chaque création, notez le chemin absolu du dossier. Par exemple, la commande suivante crée un dossier sous `/mnt` (le chemin est un chemin absolu).
 
     ```bash
     sudo mkdir /mnt/MyAzureFileShare
@@ -123,7 +123,7 @@ ms.locfileid: "51614942"
     sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred
     ```
 
-5. **Utilisez la commande ci-après pour ajouter la ligne suivante à `/etc/fstab`** : n’oubliez pas de remplacer `<storage-account-name>`, `<share-name>`, `<smb-version>` et `<mount-point>` par les informations correspondant à votre environnement. Si votre distribution Linux prend en charge SMB 3.0 avec chiffrement (pour plus d’informations, consultez [Comprendre les besoins du client SMB](#smb-client-reqs)), utilisez `3.0` pour `<smb-version>`. Pour les distributions Linux qui ne prennent pas en charge SMB 3.0 avec chiffrement, utilisez `2.1` pour `<smb-version>`. Notez qu’un partage de fichiers Azure peut uniquement être monté en dehors d’une région Azure (notamment en local ou dans une région Azure différente) avec SMB 3.0. 
+5. **Utilisez la commande suivante pour ajouter la ligne suivante à `/etc/fstab`**  : N’oubliez pas de remplacer `<storage-account-name>`, `<share-name>`, `<smb-version>` et `<mount-point>` par les informations correspondant à votre environnement. Si votre distribution Linux prend en charge SMB 3.0 avec chiffrement (pour plus d’informations, consultez [Comprendre les besoins du client SMB](#smb-client-reqs)), utilisez `3.0` pour `<smb-version>`. Pour les distributions Linux qui ne prennent pas en charge SMB 3.0 avec chiffrement, utilisez `2.1` pour `<smb-version>`. Notez qu’un partage de fichiers Azure peut uniquement être monté en dehors d’une région Azure (notamment en local ou dans une région Azure différente) avec SMB 3.0. 
 
     ```bash
     sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,credentials=/etc/smbcredentials/<storage-account-name>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'

@@ -4,7 +4,7 @@ description: Comment résoudre les problèmes courants rencontrés lors de la co
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: fe96ecc0ba6904819f0262a2f470e37203a7952e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4d8e5cb577eb7b3eecc800e7a74b1ddcbbc2c76c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354968"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813370"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration de l’approvisionnement des utilisateurs pour une application de galerie Azure Active Directory | Microsoft Docs 
 
@@ -30,7 +30,7 @@ Lorsque vous utilisez le portail Azure pour configurer [l’approvisionnement au
 
 Si l’authentification unique basée sur SAML est également configurée pour la même application, la cause la plus probable de l’erreur est que la limite de stockage par application interne d’Azure AD pour les certificats et les informations d’identification a été dépassée.
 
-Actuellement, Azure AD a une capacité de stockage maximale d’un kilo-octet pour tous les certificats, les jetons secrets, les informations d’identification et les données de configuration connexes associées à une seule instance d’une application (également appelée enregistrement du principal de service dans Azure AD).
+Actuellement, Azure AD a une capacité de stockage maximale de 1024 octets pour tous les certificats, les jetons secrets, les informations d’identification et les données de configuration connexes associées à une seule instance d’une application (également appelée enregistrement du principal de service dans Azure AD).
 
 Lorsque l’authentification unique basée sur SAML est configurée, le certificat utilisé pour signer les jetons SAML est stocké ici et consomme généralement plus de 50 % de l’espace.
 

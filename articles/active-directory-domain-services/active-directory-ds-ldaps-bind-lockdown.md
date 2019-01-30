@@ -4,7 +4,7 @@ description: Créer une liaison à un domaine managé Azure AD Domain Services �
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: e421d3219f50c0dbb635dfe5b9cb3e9a24d4fa61
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b1266a464e315dfb5b381cc1925591c80aed7f74
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158532"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856857"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Créer une liaison à un domaine managé Azure AD Domain Services à l’aide du protocole LDAP sécurisé (LDAPS)
 
@@ -28,7 +28,7 @@ ms.locfileid: "50158532"
 Accomplissez la [Tâche 4 : Configurer DNS pour accéder au domaine managé à partir d’Internet](active-directory-ds-ldaps-configure-dns.md).
 
 
-## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Tâche 5 : Créer une liaison au domaine managé sur LDAP à l’aide de LDP.exe
+## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Tâche 5 : Créer une liaison avec le domaine managé via LDAP à l’aide de LDP.exe
 Vous pouvez utiliser l’outil LDP.exe inclus dans le package d’outils d’administration de serveur distant pour créer une liaison et effectuer des recherches via LDAP.
 
 Tout d’abord, ouvrez LDP, puis connectez-vous au domaine managé. Cliquez sur **Connexion**, puis cliquez sur **Se connecter…** dans le menu. Spécifiez le nom de domaine DNS du domaine managé. Spécifiez le port à utiliser pour les connexions. Pour les connexions LDAP, utilisez le port 389. Pour les connexions LDAPS, utilisez le port 636. Cliquez sur le bouton **OK** pour vous connecter au domaine managé.
@@ -46,7 +46,7 @@ Sélectionnez **Afficher**, puis sélectionnez **Arborescence** dans le menu. La
 Pour plus d’informations : [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx) (Concepts de base sur les requêtes LDAP)
 
 
-## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Tâche 6 : Verrouiller l’accès LDAP sécurisé à votre domaine managé via Internet
+## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Tâche 6 : Verrouiller l’accès LDAP sécurisé à votre domaine managé via Internet
 > [!NOTE]
 > Si vous n’avez pas activé l’accès LDAP sécurisé au domaine managé via Internet, ignorez cette étape de configuration.
 >

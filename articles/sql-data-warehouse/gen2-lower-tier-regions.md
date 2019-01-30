@@ -9,12 +9,12 @@ ms.component: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: d3c42c13e58156013167b8570a8845ce9de08b3b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2aa513617f24201dfb341f9ab72ab9e3a221450d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884887"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819354"
 ---
 # <a name="azure-sql-data-warehouse-gen2-support-for-lower-compute-tiers"></a>Prise en charge des niveaux inférieurs de calcul par Azure SQL Data Warehouse Gen2
 
@@ -29,16 +29,16 @@ Actuellement, le portail ne prend pas en charge le déploiement ou la mise à l�
 Les clients peuvent choisir de déployer une nouvelle instance Gen2 ou de mettre à niveau une instance d’entrepôt de données Gen1 existante afin de profiter de la flexibilité et des performances offertes par l’entreposage de données de nouvelle génération. 
 
 Essayez le [Niveau optimisé pour le calcul Gen2 Azure SQL Data Warehouse.](https://azure.microsoft.com/services/sql-data-warehouse/?v=17.44)
-Mettez à niveau [Azure SQL Warehouse optimisé pour le calcul Gen1 vers Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation) Observez Azure SQL Data Warehouse Gen2 en action dans cette [vidéo Microsoft Mechanics.](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
+Mettez à niveau [Azure SQL Data Warehouse optimisé pour le calcul Gen1 vers Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation) Observez Azure SQL Data Warehouse Gen2 en action dans cette [vidéo Microsoft Mechanics.](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
 
 
 ## <a name="supported-regions-for-lower-compute-tiers"></a>Régions prises en charge pour les niveaux inférieurs de calcul
 
 - USA Est 1 
-- USA Est 2
+- Est des États-Unis 2
 - Europe Ouest
 - Europe Nord
-- USA Ouest 2
+- Ouest des États-Unis 2
 - Asie Sud-Est
 - USA Centre Sud
 - USA Centre 
@@ -52,4 +52,4 @@ Mettez à niveau [Azure SQL Warehouse optimisé pour le calcul Gen1 vers Gen2](h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Apprenez-en davantage](upgrade-to-latest-generation.md) sur l’optimisation des performances en mettant à niveau SQL Data Warehouse. 
+- [Apprenez-en davantage](upgrade-to-latest-generation.md) sur les performances optimisées pour le calcul en mettant à niveau SQL Data Warehouse. 

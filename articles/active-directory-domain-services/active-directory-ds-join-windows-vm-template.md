@@ -4,7 +4,7 @@ description: Joindre une machine virtuelle Windows Server à un domaine géré �
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: a083bd2fe730f9723330abf9bce03d760b7442d8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157256"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856636"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Joindre une machine virtuelle Windows Server à un domaine géré à l’aide d’un modèle Resource Manager
 Cet article explique comment joindre une machine virtuelle Windows Server à un domaine géré Azure AD Domain Services à l’aide de modèles Resource Manager.
@@ -38,12 +38,12 @@ Pour exécuter les tâches indiquées dans cet article, vous avez besoin des él
 
 ## <a name="install-and-configure-required-tools"></a>Installer et configurer les outils requis
 Vous pouvez utiliser l’une des options suivantes pour effectuer les étapes décrites dans ce document :
-* **Azure PowerShell** : [Installer et configurer](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
+* **Azure PowerShell**: [Installer et configurer](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
 * **Azure CLI** : [Installer et configurer](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
-## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Option 1 : Approvisionner une nouvelle machine virtuelle Windows Server et la joindre à un domaine géré
-**Nom du modèle de démarrage rapide** : [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Option 1 : Approvisionner une nouvelle machine virtuelle Windows Server et la joindre à un domaine géré
+**Nom du modèle de démarrage rapide** : [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 
 Pour déployer une machine virtuelle Windows Server et la joindre à un domaine, procédez comme suit :
 1. Accédez au [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/201-vm-domain-join/).
@@ -59,7 +59,7 @@ Pour déployer une machine virtuelle Windows Server et la joindre à un domaine,
 11. Dans **Domaine à joindre**, indiquez le nom de domaine DNS de votre domaine géré.
 12. Dans **Nom d’utilisateur de domaine**, spécifiez le nom du compte d’utilisateur de votre domaine géré qui doit être utilisé pour joindre la machine virtuelle au domaine géré.
 13. Dans **Mot de passe du domaine**, spécifiez le mot de passe du compte d’utilisateur de domaine référencé par le paramètre « domainUsername ».
-14. Facultatif : Vous pouvez spécifier le **chemin d’accès d’unité organisationnelle** à une unité organisationnelle personnalisée, où ajouter la machine virtuelle. Si vous ne spécifiez pas de valeur pour ce paramètre, la machine virtuelle est ajoutée à l’unité organisationnelle **AAD DC Computers** par défaut dans le domaine géré.
+14. Facultatif : vous pouvez spécifier le **chemin d’accès d’unité organisationnelle** à une unité organisationnelle personnalisée, où ajouter la machine virtuelle. Si vous ne spécifiez pas de valeur pour ce paramètre, la machine virtuelle est ajoutée à l’unité organisationnelle **AAD DC Computers** par défaut dans le domaine géré.
 15. Dans le champ **Nom d’utilisateur administrateur de la machine virtuelle**, spécifiez un nom de compte administrateur local pour la machine virtuelle.
 16. Dans le champ **Mot de passe d’administrateur de la machine virtuelle**, spécifiez un mot de passe d’administrateur local pour la machine virtuelle. Entrez un mot de passe d’administrateur local fort pour la machine virtuelle afin de la protéger contre les attaques de mot de passe par force brute.
 17. Cliquez sur **J’accepte les termes et conditions mentionnés ci-dessus**.
@@ -74,7 +74,7 @@ Une fois le déploiement terminé, votre machine virtuelle Windows nouvellement 
 
 
 ## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>Option 2 : Joindre une machine virtuelle Windows Server existante à un domaine géré
-**Modèle de démarrage rapide** : [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+**Modèle de démarrage rapide** : [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 
 Pour joindre une machine virtuelle Windows Server existante à un domaine géré, procédez comme suit :
 1. Accédez au [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
@@ -87,7 +87,7 @@ Pour joindre une machine virtuelle Windows Server existante à un domaine géré
 8. Dans **Nom d’utilisateur de jonction de domaine**, spécifiez le nom du compte d’utilisateur de votre domaine géré qui doit être utilisé pour joindre la machine virtuelle au domaine géré.
 9. Dans **Mot de passe utilisateur de jonction de domaine**, spécifiez le mot de passe du compte d’utilisateur de domaine référencé par le paramètre « domainUsername ».
 10. Dans **Nom complet du domaine**, indiquez le nom de domaine DNS de votre domaine géré.
-11. Facultatif : Vous pouvez spécifier le **chemin d’accès d’unité organisationnelle** à une unité organisationnelle personnalisée, où ajouter la machine virtuelle. Si vous ne spécifiez pas de valeur pour ce paramètre, la machine virtuelle est ajoutée à l’unité organisationnelle **AAD DC Computers** par défaut dans le domaine géré.
+11. Facultatif : vous pouvez spécifier le **chemin d’accès d’unité organisationnelle** à une unité organisationnelle personnalisée, où ajouter la machine virtuelle. Si vous ne spécifiez pas de valeur pour ce paramètre, la machine virtuelle est ajoutée à l’unité organisationnelle **AAD DC Computers** par défaut dans le domaine géré.
 12. Cliquez sur **J’accepte les termes et conditions mentionnés ci-dessus**.
 13. Cliquez sur **Acheter** pour approvisionner la machine virtuelle.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 750ab99df1d241cf4252c49a5a9ced08a82b1c92
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630323"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809188"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -205,6 +205,9 @@ Si vous utilisez une solution de sauvegarde sur site, les sauvegardes doivent ê
 
 > [!Note]  
 > La restauration complète peut engendrer des résultats inattendus et n’est pas prise en charge actuellement.
+
+> [!Note]  
+> Actuellement, les captures instantanées VSS (y compris l’onglet Versions précédentes) ne sont pas prises en charge sur les volumes avec hiérarchisation cloud activée. Si la hiérarchisation cloud est activée, utilisez les captures instantanées de partage de fichiers Azure pour restaurer un fichier à partir d'une sauvegarde.
 
 ### <a name="encryption-solutions"></a>Solutions de chiffrement
 La prise en charge des solutions de chiffrement dépend de la façon dont elles sont implémentées. Azure File Sync est connu pour fonctionner avec les solutions suivantes :

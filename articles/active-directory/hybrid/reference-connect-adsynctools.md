@@ -2,18 +2,18 @@
 title: 'Azure AD Connect : Documentation de référence concernant ADSyncTools PowerShell | Microsoft Docs'
 description: Ce document fournit des informations de référence sur le module ADSyncTools.psm1 PowerShell.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3b98686730a0fbd65cd5fd64fe91d8c6fa06286e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054960"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478210"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect :  Documentation de référence concernant ADSyncTools PowerShell
 La documentation suivante fournit des informations de référence sur le module ADSyncTools.psm1 PowerShell inclus avec Azure AD Connect.
@@ -526,7 +526,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>Description
-Cette fonction interroge l’historique des exécutions de AAD Connect et exporte tous les utilisateurs qui signalent l’erreur : « l’attribut SourceAnchor a été modifié ».
+Cette fonction interroge l’historique des exécutions de AAD Connect et exporte tous les utilisateurs qui signalent l’erreur : « l’attribut SourceAnchor a été modifié ».
 
 ### <a name="examples"></a>EXEMPLES
 
@@ -593,7 +593,7 @@ Import-ADSyncToolsImmutableIdMigration [-Output] <String> [-IncludeSyncUsersFrom
 ```
 
 ### <a name="description"></a>Description
-Génère un fichier avec tous les utilisateurs Azure AD synchronisés contenant la valeur ImmutableID au format GUID. Exigences : Module MSOnline PowerShell
+Génère un fichier avec tous les utilisateurs Azure AD synchronisés contenant la valeur ImmutableID au format GUID. Exigences : Module MSOnline PowerShell
 
 ### <a name="examples"></a>EXEMPLES
 
@@ -719,7 +719,7 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 Ce script prend tous les objets d’une unité d’organisation cible dans votre domaine Active Directory, filtrés selon la classe d’objet (utilisateur/ordinateur), et supprime tous les certificats arrivés à expiration présents dans l’attribut UserCertificate.
 Par défaut (en mode BackupOnly), il sauvegarde uniquement les certificats arrivés à expiration dans un fichier et n’apporte aucune modification dans Active Directory.
 Si vous utilisez la valeur $false BackupOnly, alors tous les certificats expirés présents dans l’attribut UserCertificate de ces objets seront retirés de AD après avoir été copiés dans le fichier.
-Chaque certificat est sauvegardé sous un nom de fichier distinct : ObjectClass_ObjectGUID_CertThumprint.cer. Le script crée également un fichier journal au format CSV affichant tous les utilisateurs avec des certificats valides ou expirés, ainsi que l’action réelle effectuée (Ignoré/Exporté/Supprimé).
+Chaque certificat est sauvegardé sous un nom de fichier distinct : ObjectClass_ObjectGUID_CertThumprint.cer. Le script crée également un fichier journal au format CSV affichant tous les utilisateurs avec des certificats valides ou expirés, ainsi que l’action réelle effectuée (Ignoré/Exporté/Supprimé).
 
 ### <a name="examples"></a>EXEMPLES
 
@@ -1227,7 +1227,7 @@ Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-Imm
 ```
 
 ### <a name="description"></a>Description
-Met à jour des utilisateurs avec la nouvelle valeur ConsistencyGuid (ImmutableId) provenant du rapport ConsistencyGuid. Cette fonction prend en charge le commutateur WhatIf. Remarque : le rapport ConsistencyGuid doit être importé avec Tab Demiliter
+Met à jour des utilisateurs avec la nouvelle valeur ConsistencyGuid (ImmutableId) provenant du rapport ConsistencyGuid. Cette fonction prend en charge le commutateur WhatIf. Remarque : le rapport ConsistencyGuid doit être importé avec Tab Demiliter
 
 ### <a name="examples"></a>EXEMPLES
 

@@ -1,10 +1,10 @@
 ---
-title: 'Version préliminaire des services de domaine Azure Active Directory : synchronisation sur des domaines gérés | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Synchronisation dans les domaines gérés | Microsoft Docs'
 description: Synchronisation pour un domaine géré par les services de domaine Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: e0fc1b64514adb710ebcbdd417f65e9e3b3b3d66
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 40b66b85f88cde28cc6a1c52cb456157d8acd68c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155556"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846935"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synchronisation sur un domaine géré par les services de domaine Azure Active Directory
 Le diagramme suivant illustre le fonctionnement de la synchronisation sur les domaines gérés par les services de domaine Azure AD.
@@ -50,9 +50,9 @@ En revanche, votre client Azure AD est un espace de noms beaucoup plus simple et
 ## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Exclusions - ce qui n’est pas synchronisé avec votre domaine géré
 Les objets et attributs suivants ne sont pas synchronisés avec votre client Azure AD ou votre domaine géré :
 
-* **Exclure les attributs :** vous pouvez choisir d’exclure certains attributs de la synchronisation avec votre client Azure AD à partir de votre domaine local à l’aide d’Azure AD Connect. Ces attributs exclus ne sont pas disponibles dans votre domaine géré.
+* **Exlure les attributs :** vous pouvez choisir d’exclure certains attributs de la synchronisation avec votre client Azure AD à partir de votre domaine local à l’aide d’Azure AD Connect. Ces attributs exclus ne sont pas disponibles dans votre domaine géré.
 * **Stratégies de groupe :** les stratégies de groupe configurées dans votre domaine local ne sont pas synchronisées sur votre domaine géré.
-* **Partage Sysvol :** de la même façon, le contenu du partage Sysvol sur le domaine local n’est pas synchronisé avec votre domaine managé.
+* **Partage Sysvol :** de la même façon, le contenu du partage Sysvol sur le domaine local n’est pas synchronisé avec votre domaine managé.
 * **Objets ordinateur :** les objets ordinateurs pour les ordinateurs joints à votre domaine local ne sont pas synchronisés avec votre domaine géré. Ces ordinateurs n’ont pas une relation d’approbation avec votre domaine géré et appartiennent à votre domaine local uniquement. Dans votre domaine géré, vous recherchez des objets ordinateurs uniquement pour les ordinateurs que vous avez explicitement joints au domaine géré.
 * **Attributs SidHistory des utilisateurs et groupes :** les SID de l’utilisateur principal et du groupe principal de votre domaine local sont synchronisés avec votre domaine géré. Toutefois, les attributs SidHistory existants pour les utilisateurs et les groupes ne sont pas synchronisés de votre domaine local vers votre domaine géré.
 * **Structures d’unités d’organisation (OU) :** les unités d’organisation définies dans votre domaine local ne sont pas synchronisées avec votre domaine géré. Il existe deux unités d’organisation intégrées dans votre domaine géré. Par défaut, votre domaine géré a une structure d’unité d’organisation plate. Vous pouvez toutefois choisir de [créer une unité d’organisation personnalisée dans votre domaine géré](active-directory-ds-admin-guide-create-ou.md).

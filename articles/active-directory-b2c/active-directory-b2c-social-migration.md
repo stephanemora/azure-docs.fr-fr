@@ -3,22 +3,22 @@ title: Migrer des utilisateurs avec des identités sociales dans Azure Active Di
 description: Traite des concepts fondamentaux sur la migration des utilisateurs avec des identités sociales dans Azure AD B2C à l’aide de l’API Graph.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b9378face28b4d053dcd5f01b8f87126457cf339
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0ca73b8bfaca481d3e0404d068a74e1a6b0e4dcb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445141"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846555"
 ---
-# <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C : Migrer des utilisateurs avec des identités sociales
-Quand vous envisagez de migrer votre fournisseur d’identité vers Azure AD B2C, vous devrez peut-être également migrer les utilisateurs avec des identités sociales. Cet article explique comment migrer les comptes d’identités sociales existants, tels que les comptes Google, Microsoft, Facebook et LinkedIn, à Azure AD B2C. Cet article s’applique également aux identités fédérées, quoique ces migrations soient moins courantes.
+# <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C : Migrer des utilisateurs avec des identités de réseaux sociaux
+Quand vous envisagez de migrer votre fournisseur d’identité vers Azure AD B2C, vous devrez peut-être également migrer les utilisateurs avec des identités sociales. Cet article explique comment migrer des comptes d’identités sociales existants, tels que : comptes Facebook, LinkedIn, Microsoft et Google vers Azure AD B2C. Cet article s’applique également aux identités fédérées, quoique ces migrations soient moins courantes.
 
 ## <a name="prerequisites"></a>Prérequis
 Cet article est la suite de celui sur la migration des utilisateurs. Il est axé sur la migration des identités sociales. Avant de commencer, lisez [Migration utilisateur](active-directory-b2c-user-migration.md).
@@ -63,7 +63,7 @@ La liste suivante présente les propriétés qui sont requises quand vous créez
 * **userIdentities** : un ou plusieurs enregistrements UserIdentity qui spécifient le type de compte social et l’identificateur d’utilisateur unique du fournisseur d’identité sociale.
 * [facultatif] **otherMails** : pour les comptes sociaux uniquement, il s’agit des adresses e-mail de l’utilisateur. 
 
-Pour plus d’informations, consultez la [référence de l’API Graph](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser).
+Pour plus d'informations, consultez les pages suivantes : [Informations de référence sur l'API Graph](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Migrer un compte social (uniquement)
 Pour créer uniquement un compte social, sans informations d’identification de compte local, envoyez une requête POST HTTPS à l’API Graph. Le corps de la requête contient les propriétés de l’utilisateur du compte social à créer. Au minimum, vous devez spécifier les propriétés requises. 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: f073637810e9ed1acdf37b0e541ca3f1d518de2a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8491acfd28524ee3bbbd06c788afb668c40c98b9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346623"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450566"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Déployer un nouvel appareil simulé
 
@@ -31,13 +31,13 @@ Les étapes décrites dans ce guide montrent comment :
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pour effectuer les étapes décrites dans ce guide, vous devez disposer d’un abonnement Azure actif.
+Pour effectuer les étapes décrites dans ce guide pratique, vous avez besoin d’un abonnement Azure actif.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce guide, vous devez disposer des éléments suivants :
+Pour effectuer les procédures de ce guide, vous avez besoin des éléments suivants :
 
 - Une instance déployée de l’[accélérateur de solution Surveillance à distance](https://www.azureiotsolutions.com/Accelerators#solutions/types/RM2).
 - Un interpréteur de commandes **bash** local pour exécuter les commandes `ssh` et `scp`. Sur Windows, une manière simple d’installer **bash** consiste à installer [git](https://git-scm.com/download/win).
@@ -139,12 +139,12 @@ Vous pouvez désormais utiliser vos modèles d’appareils personnalisés dans l
 
 1. Vous pouvez utiliser le tableau de bord pour afficher la télémétrie de l’appareil et appeler des méthodes de l’appareil.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez d’explorer davantage, laissez l’accélérateur de solution Surveillance à distance déployé.
 
-Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le de la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) en le sélectionnant, puis en cliquant sur **Supprimer la solution**.
+Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le de la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) en le sélectionnant et en cliquant sur **Supprimer la solution**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce guide vous a montré comment déployer des modèles d’appareils personnalisés sur l’accélérateur de solution Surveillance à distance. Nous vous suggérons à présent de découvrir comment [connecter un appareil physique à votre solution de surveillance à distance](iot-accelerators-connecting-devices-node.md).
+Ce guide vous a montré comment déployer des modèles d’appareils personnalisés sur l’accélérateur de solution Surveillance à distance. Nous vous suggérons à présent de découvrir comment [connecter un appareil réel à votre solution de surveillance à distance](iot-accelerators-connecting-devices-node.md).

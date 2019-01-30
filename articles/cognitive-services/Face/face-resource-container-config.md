@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359440"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476918"
 ---
 # <a name="configure-containers"></a>Configurer des conteneurs
 
@@ -33,6 +33,7 @@ Les paramètres de configuration du conteneur Visage sont hiérarchiques, et tou
 * [CloudAI](#cloudai-configuration-settings)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Paramètres des informations d'identification du proxy HTTP](#http-proxy-credentials-settings)
 * [Journalisation](#logging-configuration-settings)
 * [Mounts](#mounts-configuration-settings)
 
@@ -162,6 +163,11 @@ Le tableau suivant décrit les paramètres de configuration pris en charge sous 
 | `TlsConnectionEstablishmentTimeoutMs` | Entier  | Délai d’attente, en millisecondes, pour établir une connexion SSL/TLS avec le serveur Fluentd. La valeur par défaut est de 10 000 millisecondes (10 secondes).<br/> Si `UseTLS` est défini sur false, cette valeur est ignorée. |
 | `UseTLS` | Booléen | Indique si le conteneur doit utiliser SSL/TLS pour communiquer avec le serveur Fluentd. La valeur par défaut est false. |
 
+
+## <a name="http-proxy-credentials-settings"></a>Paramètres des informations d'identification du proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Paramètres de configuration Logging
 
 Les paramètres de configuration `Logging` gèrent la prise en charge de la journalisation ASP.NET Core pour votre conteneur. Vous pouvez utiliser pour votre conteneur les mêmes paramètres et valeurs de configuration que ceux d’une application ASP.NET Core. Le conteneur Visage prend en charge les fournisseurs de journalisation suivants :
@@ -212,3 +218,7 @@ Par exemple, la commande suivante définit un montage de liaison Docker sur le d
   ```
 
 Le conteneur Visage n’utilise pas de montages d’entrée ou sortie pour stocker des données d’entraînement ou de base de données. Au lieu de cela, le conteneur Visage fournit des scénarios de stockage pour gérer les données d’entraînement et de base de données. Pour plus d’informations sur l’utilisation de scénarios de stockage, consultez [Paramètres de scénario de stockage](#storage-scenario-settings).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* Utiliser plus de [conteneurs Cognitive Services](../cognitive-services-container-support.md)

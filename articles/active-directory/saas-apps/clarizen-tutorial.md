@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Clarizen | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Clarizen | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Clarizen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8c66d8eec6d3967026c17db9ce8d616b97d25931
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158669"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807726"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Didacticiel : Intégration d’Azure Active Directory à Clarizen
+# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutoriel : Intégration d’Azure Active Directory à Clarizen
 
 Dans ce didacticiel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) à Clarizen. Cette intégration vous offre les avantages suivants :
 
@@ -98,7 +98,7 @@ Activez l’authentification unique Azure AD dans le Portail Azure et configurez
 
     ![Zones d’identificateur et d’URL de réponse](./media/clarizen-tutorial/tutorial_clarizen_02.png)
 
-    a. Dans la zone **Identificateur**, tapez la valeur **Clarizen**.
+    a. Dans la zone **Identificateur**, entrez la valeur : **Clarizen**
 
     b. Dans la zone **URL de réponse**, tapez une URL en utilisant le modèle suivant : **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 

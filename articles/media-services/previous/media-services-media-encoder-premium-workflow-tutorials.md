@@ -1,5 +1,5 @@
 ---
-title: Didacticiels de workflow avancés Media Encoder Premium
+title: Didacticiels de workflows avancés Media Encoder Premium
 description: Ce document contient des procédures pas à pas décrivant la manière d’effectuer des tâches avancées avec Media Encoder Premium Workflow et de créer des workflows complexes avec Workflow Designer.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 79b2aa22307e4742d00d9422535d52c80485e2db
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249032"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811962"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Didacticiels de workflows avancés Media Encoder Premium
 ## <a name="overview"></a>Vue d’ensemble
@@ -693,7 +693,7 @@ Avant de pouvoir réécrire le fichier XML de liste de séquences généré au 
 Nous devons tout d’abord trouver un moyen de déterminer les points de début et de fin à utiliser pour le découpage de la vidéo. Pour rendre cette procédure plus accessibles aux utilisateurs moins techniques, publiez deux propriétés à la racine du graphique. Pour ce faire, cliquez avec le bouton droit sur la surface du concepteur et sélectionnez « Ajouter une propriété » :
 
 * Première propriété : « ClippingTimeStart » de type : « TIMECODE »
-* Deuxième propriété : « ClippingTimeEND » de type : « TIMECODE »
+* Deuxième propriété : « ClippingTimeEnd » de type : « TIMECODE »
 
 ![Boîte de dialogue Ajouter une propriété pour l’heure de début du découpage](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 
@@ -939,9 +939,9 @@ Avec la simple clause de garde ci-dessus, nous pouvons vérifier si le découpag
 ```
 
 ## <a name="also-see"></a>Voir aussi
-[Présentation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[Présentation de l’encodage Premium dans Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
-[Utilisation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+[Utilisation de l’encodage Premium dans Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 [Encodage de contenu à la demande avec Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
 
@@ -949,7 +949,7 @@ Avec la simple clause de garde ci-dessus, nous pouvons vérifier si le découpag
 
 [Exemples de fichiers de workflow](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
-[Outil Azure Media Services Explorer](http://aka.ms/amse)
+[Outil Azure Media Services Explorer](https://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 310311c22be25960b15f20d573624f50b0f618b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536540"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474810"
 ---
 # <a name="install-and-run-containers"></a>Install and run containers
 
@@ -53,7 +53,7 @@ Si votre demande est approuvée, vous recevez un e-mail contenant des instructio
 
 ## <a name="create-a-face-resource-on-azure"></a>Créer une ressource Visage sur Azure
 
-Si vous souhaitez utiliser le conteneur Visage, vous devez créer une ressource Visage sur Azure. Après avoir créé la ressource, vous utilisez la clé de l’abonnement et l’URL de point de terminaison de la ressource pour instancier le conteneur. Pour plus d’informations sur l’instanciation d’un conteneur, consultez [Instancier un conteneur à partir d’une image de conteneur téléchargée](#instantiate-a-container-from-a-downloaded-container-image).
+Si vous souhaitez utiliser le conteneur Visage, vous devez créer une ressource Visage sur Azure. Après avoir créé la ressource, vous utilisez la clé de l’abonnement et l’URL de point de terminaison de la ressource pour instancier le conteneur. Pour plus d’informations sur l’instanciation d’un conteneur, consultez [Instancier un conteneur à partir d’une image conteneur téléchargée](#instantiate-a-container-from-a-downloaded-container-image).
 
 Procédez comme suit pour créer et récupérer des informations à partir d’une ressource Visage :
 
@@ -178,3 +178,4 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
 * Consulter [Vue d’ensemble de Visage](Overview.md) pour en savoir plus sur la détection et l’identification de visages  
 * Reportez-vous à l’ [API Visage](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) pour plus d’informations sur les méthodes prises en charge par le conteneur.
 * Reportez-vous à [Forum aux questions (FAQ)](FAQ.md) pour résoudre les problèmes liés à la fonctionnalité de Visage.
+* Utiliser plus de [conteneurs Cognitive Services](../cognitive-services-container-support.md)
