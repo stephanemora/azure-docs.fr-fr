@@ -4,7 +4,7 @@ description: Destiné aux professionnels de l’informatique, cet article fourni
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: barbkess
 ms.custom: seohack1
-ms.openlocfilehash: 844f569b7c425f6a67acabe491508aa8d5fb00f5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d717b9a89b2c22712821d96014e2f60ee4c0e4d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669716"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463641"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Développer des applications métier pour Azure Active Directory
 Ce guide fournit une vue d’ensemble du développement d’applications métier pour Azure Active Directory. Il s’adresse aux administrateurs généraux de systèmes Active Directory/Office 365.
@@ -41,8 +41,8 @@ En inscrivant une application, tout utilisateur peut effectuer les opérations s
   * Azure Active Directory en tant que serveur d’autorisation oAuth (sécuriser une API exposée par l’application)
 * Déclarer les autorisations requises nécessaires au bon fonctionnement de l’application, notamment :
 
-     - Autorisations de l’application (administrateurs généraux uniquement). Par exemple : Appartenance au rôle dans une autre application Azure AD ou appartenance au rôle par rapport à une ressource, un groupe de ressources ou un abonnement Azure
-     - Autorisations déléguées (tout utilisateur). Par exemple : Azure AD, connexion et lecture de profil
+     - Autorisations de l’application (administrateurs généraux uniquement). Par exemple :  Appartenance à un rôle dans une autre application Azure AD ou appartenance à un rôle par rapport à une ressource, un groupe de ressources ou un abonnement Azure
+     - Autorisations déléguées (tout utilisateur). Par exemple :  Azure AD, connexion et lecture de profil
 
 > [!NOTE]
 > Par défaut, tout membre peut inscrire une application. Pour savoir comment limiter les autorisations d’inscription d’applications à des membres spécifiques, reportez-vous au document [Comment les applications sont ajoutées à Azure AD](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).

@@ -1,25 +1,25 @@
 ---
-title: 'Azure AD Connect : Résolution des erreurs lors de la synchronisation | Microsoft Docs'
+title: 'Azure AD Connect : Résolution des erreurs lors de la synchronisation | Microsoft Docs'
 description: Explique comment résoudre les erreurs rencontrées lors de la synchronisation avec Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb2b4bdee445587b32516c8db869170ab067b8d3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 34a719c8fb62a2b993320d1bd9f97f9d47abf494
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406855"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463306"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Résolution des erreurs lors de la synchronisation
 Des erreurs peuvent se produire lorsque les données d’identité sont synchronisées à partir de Windows Server Active Directory (AD DS) vers Azure Active Directory (Azure AD). Cet article fournit une vue d’ensemble des différents types d’erreurs de synchronisation, certains des scénarios qui provoquent ces erreurs et les méthodes possibles pour les résoudre. Cet article inclut les types d’erreur courants et peut ne pas couvrir toutes les erreurs possibles.
@@ -30,7 +30,7 @@ Avec la version la plus récente d’Azure AD Connect (\(août 2016 ou une versi
 
 À compter du 1er septembre 2016, la fonctionnalité [Résilience d’attribut en double Azure Active Directory](how-to-connect-syncservice-duplicate-attribute-resiliency.md) sera activée par défaut pour tous les *nouveaux* clients Azure Active Directory. Cette fonctionnalité sera automatiquement activée pour les clients existants dans les mois à venir.
 
-Azure AD Connect effectue 3 types d’opérations à partir des répertoires dont il assure la synchronisation : importation, exportation et synchronisation. Les erreurs peuvent se produire dans toutes les opérations. Cet article se concentre principalement sur les erreurs lors de l’exportation vers Azure AD.
+Azure AD Connect effectue trois types d'opérations à partir des répertoires dont il assure la synchronisation : importation, synchronisation et exportation. Les erreurs peuvent se produire dans toutes les opérations. Cet article se concentre principalement sur les erreurs lors de l’exportation vers Azure AD.
 
 ## <a name="errors-during-export-to-azure-ad"></a>Erreurs lors de l’exportation vers Azure AD
 La section suivante décrit les différents types d’erreurs de synchronisation pouvant se produire lors de l’opération d’exportation vers Azure AD avec le connecteur Azure AD. Ce connecteur peut être identifié par le format de nom « contoso.*onmicrosoft.com*».
@@ -219,6 +219,29 @@ Lorsqu’un attribut dépasse la limite de taille autorisée, la longueur maxima
 
 ### <a name="how-to-fix"></a>Procédure de résolution
 1. Assurez-vous que l’attribut à l’origine de l’erreur est dans la limite autorisée.
+
+## <a name="existing-admin-role-conflict"></a>Conflit de rôle Administrateur existant
+
+### <a name="description"></a>Description
+Un **conflit de rôle Administrateur existant** se produit sur un objet utilisateur pendant la synchronisation lorsque cet objet utilisateur a :
+
+- des autorisations administratives et
+- le même UserPrincipalName qu’un objet Azure AD existant
+
+Azure AD Connect n’est pas autorisé à établir une correspondance souple à partir d’AD local avec un objet utilisateur dans Azure AD qui possède un rôle administratif qui lui est assigné.  Pour plus d’informations, consultez [Remplissage de UserPrincipalName dans Azure AD](plan-connect-userprincipalname.md)
+
+![Administrateur existant](media/tshoot-connect-sync-errors/existingadmin.png)
+
+
+### <a name="how-to-fix"></a>Procédure de résolution
+Pour corriger ce problème, effectuez l’une des opérations suivantes :
+
+
+- changez le UserPrincipalName en spécifiant une valeur qui ne correspond pas à celle d’un utilisateur administrateur dans Azure AD, ce qui créera un nouvel utilisateur dans Azure AD avec le UserPrincipalName correspondant
+- supprimez le rôle administratif de l’utilisateur administrateur dans Azure AD, ce qui permettra la correspondance souple entre l’objet utilisateur local et l’objet utilisateur Azure AD existant.
+
+>[!NOTE]
+>Vous pouvez réaffecter le rôle administratif à l’objet utilisateur existant une fois la correspondance souple entre l’objet utilisateur local et l’objet utilisateur Azure AD effectuée.
 
 ## <a name="related-links"></a>Liens connexes
 * [Recherche d’objets Active Directory dans le centre d’administration Active Directory](https://technet.microsoft.com/library/dd560661.aspx)

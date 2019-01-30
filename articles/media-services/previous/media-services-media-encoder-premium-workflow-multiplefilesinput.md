@@ -4,7 +4,7 @@ description: Cette rubrique explique comment utiliser setRuntimeProperties pour 
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
 ms.service: media-services
@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 66aec76e5af399e1909446b8ddf7a79aa1384d52
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e2a856dbc3bdf72ad03601618a9d48bb54665f7b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783758"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812061"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilisation de plusieurs fichiers d’entrée et propriétés du composant avec Premium Encoder
-## <a name="overview"></a>Vue d'ensemble
-Il existe des scénarios dans lesquels vous devrez peut-être personnaliser les propriétés du composant, spécifier le contenu du fichier XML de liste de séquences ou envoyer plusieurs fichiers d’entrée lorsque vous soumettez une tâche avec le processeur multimédia **Media Encoder Premium Workflow** . Voici quelques exemples :
+## <a name="overview"></a>Vue d’ensemble
+Il existe des scénarios dans lesquels vous devrez peut-être personnaliser les propriétés du composant, spécifier le contenu du fichier XML de liste de séquences ou envoyer plusieurs fichiers d’entrée lorsque vous soumettez une tâche avec le processeur multimédia **Media Encoder Premium Workflow** . Voici quelques exemples :
 
 * Superposition de texte sur la vidéo et définition de la valeur du texte (par exemple, la date actuelle) au moment de l’exécution pour chaque vidéo d’entrée.
 * Personnalisation du fichier XML de liste de séquences (pour spécifier un ou plusieurs fichiers source, avec ou sans découpage, etc.).
@@ -268,13 +268,13 @@ Avec découpage précis de la trame supplémentaire :
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exemple 1 : Superposition d’une image sur la vidéo
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exemple 1 : Superposition d'une image sur la vidéo
 
 ### <a name="presentation"></a>Présentation
 Prenons un exemple dans lequel vous voulez superposer une image de logo sur la vidéo d’entrée pendant l’encodage de la vidéo. Dans cet exemple, la vidéo d’entrée est nommée « Microsoft_HoloLens_Possibilities_816p24.mp4 » et le logo est nommé « logo.png ». Vous devez effectuer les étapes suivantes :
 
 * Créez une ressource de flux de travail avec le fichier de flux de travail (voir l’exemple suivant).
-* Créez un élément multimédia contenant deux fichiers : MyInputVideo.mp4 en tant que fichier principal et MyLogo.png.
+* Créez un élément multimédia qui contient deux fichiers : MyInputVideo.mp4 en tant que fichier principal et MyLogo.png.
 * Envoyez une tâche au processeur multimédia Media Encoder Premium Workflow avec les ressources d’entrée ci-dessus et spécifiez la chaîne de configuration suivante.
 
 Configuration :
@@ -351,7 +351,7 @@ Si vous souhaitez modifier la position du logo sur la vidéo (vous voulez par ex
 *Position de superposition*
 
 Pour encoder le flux vidéo en H.264, ajoutez les composants AVC Video Encoder et AAC encoder à l’aire du concepteur. Connectez les broches.
-Configurez le composant AAC encoder et sélectionnez Conversion du format audio/Présélection : 2.0 (G, D).
+Configurez le composant AAC encoder et sélectionnez Conversion du format audio/Présélection : 2.0 (G, D).
 
 ![Encodeurs audio et vidéo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -428,13 +428,13 @@ Une fois la tâche effectuée, le fichier MP4 dans l’élément de sortie affic
 
 Vous pouvez télécharger l’exemple de flux de travail sur [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-## <a name="example-2--multiple-audio-language-encoding"></a>Exemple 2 : Encodage de plusieurs langues audio
+## <a name="example-2--multiple-audio-language-encoding"></a>Exemple 2 : Encodage de plusieurs langues audio
 
-Vous trouverez un exemple de workflow d’encodage de plusieurs langues audio dans [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
+Vous trouverez un exemple de workflow d'encodage de plusieurs langues audio dans [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
 Ce dossier contient un exemple de workflow qui peut être utilisé pour encoder un fichier MXF en une ressource contenant plusieurs fichiers MP4 avec plusieurs pistes audio.
 
-Ce workflow suppose que le fichier MXF contient une piste audio. Les pistes audio supplémentaires doivent être transmises en tant que fichiers audio distincts (WAV ou MP4...).
+Ce workflow suppose que le fichier MXF contient une piste audio. Les pistes audio supplémentaires doivent être transmises en tant que fichiers audio distincts (WAV ou MP4).
 
 Pour effectuer l’encodage, procédez comme suit :
 
@@ -466,12 +466,12 @@ Pour effectuer l’encodage, procédez comme suit :
 * La ressource encodée contiendra des pistes audio en plusieurs langues, qui doivent être sélectionnables dans Azure Media Player.
 
 ## <a name="see-also"></a>Voir aussi
-* [Présentation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [Utilisation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Présentation de l’encodage Premium dans Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+* [Utilisation de l’encodage Premium dans Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Encodage de contenu à la demande avec Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Codecs et formats de Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md)
 * [Exemples de fichiers de workflow](https://github.com/Azure/azure-media-services-samples)
-* [Outil Azure Media Services Explorer](http://aka.ms/amse)
+* [Outil Azure Media Services Explorer](https://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

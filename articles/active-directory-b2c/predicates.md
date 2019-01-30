@@ -3,19 +3,19 @@ title: Predicates et PredicateValidations - Azure Active Directory B2C | Microso
 description: Exemples de transformations de revendications de comptes sociaux pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d00bbddc6523f75b3208a41296b5b94f9f06a5ed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 24aa6bf67b3b841b950e047a5c2509f04a3546b7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432169"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850856"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates et PredicateValidations
 
@@ -25,9 +25,9 @@ Les éléments **Predicates** et **PredicateValidations** vous permettent d’ef
 
 Le diagramme suivant illustre la relation entre les éléments :  
 
-![Predicates](./media/predicates/predicates.png)
+![Prédicats](./media/predicates/predicates.png)
 
-## <a name="predicates"></a>Predicates  
+## <a name="predicates"></a>Prédicats  
 
 L’élément **Predicate** définit une validation de base pour vérifier la valeur d’un type de revendication et retourne `true` ou `false`. La validation est effectuée en utilisant un élément **Method** et un ensemble d’éléments **Parameter** pertinents à la méthode. Par exemple, un prédicat peut vérifier si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés, ou si une valeur de revendication de chaîne contient un jeu de caractères. L’élément **UserHelpText** fournit un message d’erreur présenté aux utilisateurs si la vérification échoue. La valeur de l’élément **UserHelpText** peut être localisée à l’aide de la [personnalisation de la langue](localization.md).
 
@@ -41,27 +41,27 @@ L’élément **Predicate** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Id | Oui | Identificateur utilisé pour le prédicat. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
-| Method | Oui | Type de la méthode à utiliser pour la validation. Valeurs possibles : **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** ou **IsDateRange**. La valeur **IsLengthRange** vérifie si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés. La valeur **MatchesRegex** vérifie si une valeur de revendication de chaîne correspond à une expression régulière. La valeur **IncludesCharacters** vérifie si une valeur de revendication de chaîne contient un jeu de caractères. La valeur **IsDateRange** vérifie si une valeur de revendication de date est dans la plage des paramètres minimaux et maximaux spécifiés. |
+| ID | Oui | Identificateur utilisé pour le prédicat. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
+| Méthode | Oui | Type de la méthode à utiliser pour la validation. Valeurs possibles : **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** ou **IsDateRange**. La valeur **IsLengthRange** vérifie si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés. La valeur **MatchesRegex** vérifie si une valeur de revendication de chaîne correspond à une expression régulière. La valeur **IncludesCharacters** vérifie si une valeur de revendication de chaîne contient un jeu de caractères. La valeur **IsDateRange** vérifie si une valeur de revendication de date est dans la plage des paramètres minimaux et maximaux spécifiés. |
 
 L’élément **Predicate** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Message d’erreur présenté aux utilisateurs si la vérification échoue. Vous pouvez localiser cette chaîne à l’aide de la [personnalisation de la langue](localization.md). |
-| Parameters | 1:1 | Paramètres pour le type de méthode de la validation de chaîne. | 
+| parameters | 1:1 | Paramètres pour le type de méthode de la validation de chaîne. | 
 
 L’élément **Parameters** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Parameter | 1:n | Paramètres pour le type de méthode de la validation de chaîne. | 
+| Paramètre | 1:n | Paramètres pour le type de méthode de la validation de chaîne. | 
 
 L’élément **Parameter** contient les attributs suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Id | 1:1 | Identificateur du paramètre. |
+| ID | 1:1 | Identificateur du paramètre. |
 
 L’exemple suivant montre une méthode `IsLengthRange` avec les paramètres `Minimum` et `Maximum` qui spécifient la plage de la longueur de la chaîne :
 
@@ -140,7 +140,7 @@ L’élément **PredicateValidation** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Id | Oui | Identificateur utilisé pour la validation de prédicat. L’élément **ClaimType** peut utiliser cet identificateur dans la stratégie. |
+| ID | Oui | Identificateur utilisé pour la validation de prédicat. L’élément **ClaimType** peut utiliser cet identificateur dans la stratégie. |
 
 L’élément **PredicateValidation** contient l’élément suivant :
 
@@ -158,7 +158,7 @@ L’élément **PredicateGroup** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Id | Oui | Identificateur utilisé pour le groupe de prédicats.  |
+| ID | Oui | Identificateur utilisé pour le groupe de prédicats.  |
 
 L’élément **PredicateGroup** contient les éléments suivants :
 
@@ -183,7 +183,7 @@ L’élément **PredicateReference** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Id | Oui | Identificateur utilisé pour la validation de prédicat.  |
+| ID | Oui | Identificateur utilisé pour la validation de prédicat.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurer la complexité du mot de passe
@@ -262,7 +262,7 @@ Avec **Predicates** et **PredicateValidationsInput**, vous pouvez contrôler les
 Après avoir défini les validations de base, vous pouvez les combiner et créer un ensemble de stratégies de mot de passe utilisable dans votre stratégie :
 
 - **SimplePassword** valide DisallowedWhitespace, AllowedAADCharacters et IsLengthBetween8And64
-- **StrongPassword** valide DisallowedWhitespace, AllowedAADCharacters et IsLengthBetween8And64. Le dernier groupe `CharacterClasses` exécute un jeu supplémentaire de prédicats avec `MatchAtLeast` défini sur 3. Le mot de passe de l’utilisateur doit comprendre entre 8 et 16 caractères et trois des caractères suivants : minuscule, majuscule, nombre ou symbole.
+- **StrongPassword** valide DisallowedWhitespace, AllowedAADCharacters et IsLengthBetween8And64. Le dernier groupe `CharacterClasses` exécute un jeu supplémentaire de prédicats avec `MatchAtLeast` défini sur 3. Le mot de passe de l'utilisateur doit comprendre 8 à 16 caractères, et trois des caractères suivants : minuscule, majuscule, chiffre ou symbole.
 - **CustomPassword** valide uniquement DisallowedWhitespace, AllowedAADCharacters. Ainsi, l’utilisateur peut fournir n’importe quel mot de passe de n’importe quelle longueur, tant que les caractères sont valides.
 
 ```XML

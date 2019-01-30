@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: e83b634c11d0349f4917c063cde54e03fa1cac40
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554654"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810701"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examiner la sortie de Video Indexer générée par l’API v2
 
@@ -166,7 +166,7 @@ Un visage peut être doté d’un ID, d’un nom, d’une miniature, d’autres 
 |audioEffects|Dimension [audioEffects](#audioEffects).|
 |sentiments|Dimension [sentiments](#sentiments).|
 |visualContentModeration|Dimension [visualContentModeration](#visualcontentmoderation).|
-|textualContentModeration|Dimension [textualContentModeration](#textualconentmoderation).|
+|textualContentModeration|Dimension [textualContentModeration](#textualcontentmoderation).|
 |émotions| La dimension [émotions](#emotions).|
 |topics|La dimension [rubriques](#topics).|
 
@@ -187,7 +187,7 @@ Exemple :
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -334,7 +334,7 @@ Exemple :
 |Nom|Nom du visage. Il peut s'agir de la valeur « Unknown #0 », d’une célébrité identifiée ou d'une personne formée par le client.|
 |confidence|Degré de confiance de l’identification du visage.|
 |description|Description de la célébrité. |
-|thumbnalId|ID de la miniature de ce visage.|
+|thumbnailId|ID de la miniature de ce visage.|
 |knownPersonId|S’il s’agit d’une personne connue, c’est son ID interne.|
 |referenceId|Dans le cas d’une célébrité Bing, il s’agit de son ID Bing.|
 |referenceType|Bing uniquement (pour le moment).|
@@ -662,7 +662,7 @@ Les vidéos trouvées qui contiennent des éléments pour adultes ou choquants p
 ] 
 ```
 
-#### <a name="textualconentmoderation"></a>textualContentModeration 
+#### <a name="textualcontentmoderation"></a>textualContentModeration 
 
 |NOM|Description|
 |---|---|

@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec LogicMonitor | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à LogicMonitor | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LogicMonitor.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 496156c3-0e22-4492-b36f-2c29c055e087
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a6bc220d15e720662eaa9605421e21ccb99892ab
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5aa11c15e038c0af8447debba0cd385c944c0bce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502343"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812418"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Didacticiel : Intégration d’Azure Active Directory à LogicMonitor
+# <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Tutoriel : Intégration d'Azure Active Directory à LogicMonitor
 
 Dans ce didacticiel, vous allez apprendre à intégrer LogicMonitor à Azure Active Directory (Azure AD).
 
@@ -33,7 +33,7 @@ L’intégration de LogicMonitor à Azure AD vous offre les avantages suivants�
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à LogicMonitor, vous avez besoin des éléments suivants :
 
@@ -242,7 +242,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
- 
+ 
 Lorsque vous cliquez sur la vignette LogicMonitor dans le volet d’accès, vous devez être connecté automatiquement à votre application LogicMonitor.
 Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
 

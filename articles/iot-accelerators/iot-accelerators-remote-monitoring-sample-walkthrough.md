@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2b6cb711bf0cd2f0ec7f5633bbb36ebaeb203690
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6e21b1d8905dc0f0eda5b6282e345ef52006a75a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605532"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468027"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Vue d’ensemble des accélérateurs de solution de surveillance à distance
 
@@ -47,11 +47,11 @@ L’architecture cloud a évolué depuis que Microsoft a publié les premiers ac
 
 La solution inclut les composants suivants dans la partie de la connectivité des appareils de l’architecture logique :
 
-### <a name="physical-devices"></a>Appareils physiques
+### <a name="real-devices"></a>Appareils réels
 
-Vous pouvez connecter des appareils physiques à la solution. Vous pouvez implémenter le comportement de vos appareils simulés à l’aide des kits Azure IoT device SDK.
+Vous pouvez connecter des appareils réels à la solution. Vous pouvez implémenter le comportement de vos appareils simulés à l’aide des kits Azure IoT device SDK.
 
-Vous pouvez provisionner les appareils physiques à partir du tableau de bord dans le portail des solutions.
+Vous pouvez approvisionner des appareils réels à partir du tableau de bord du portail des solutions.
 
 ### <a name="device-simulation-microservice"></a>Microservice de simulation d’appareil
 
@@ -66,7 +66,7 @@ Vous pouvez provisionner les appareils simulés à partir du tableau de bord dan
 
 ### <a name="iot-hub"></a>IoT Hub
 
-Le [hub IoT](../iot-hub/index.yml) ingère les données de télémétrie envoyées par les appareils physiques et simulés dans le cloud. Le hub IoT met les données de télémétrie à disposition des services dans le serveur principal de la solution IoT pour le traitement.
+Le [hub IoT](../iot-hub/index.yml) ingère les données de télémétrie envoyées par les appareils réels et simulés dans le cloud. Le hub IoT met les données de télémétrie à disposition des services dans le serveur principal de la solution IoT pour le traitement.
 
 L’instance IoT Hub de la solution effectue également ce qui suit :
 
@@ -106,7 +106,7 @@ Le service fournit un point de terminaison RESTful pour les opérations CRUD sur
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Les déploiements d’accélérateurs de solution utilisent [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) pour stocker des règles, des alarmes, des paramètres de configuration et tous les autres stockages à froid.
+Les déploiements d'accélérateurs de solution utilisent [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) pour stocker les règles, les alertes, les paramètres de configuration et tous les autres stockages froids.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Microservice de gestion d’Azure Stream Analytics
 

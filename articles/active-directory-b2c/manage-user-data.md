@@ -3,19 +3,19 @@ title: Gérer les données utilisateur dans Azure Active Directory B2C | Microso
 description: Découvrez comment supprimer ou exporter des données utilisateur dans Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49e9efa537ad1f2a1d7f06dd7f8a68a409c7d4e0
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fc49191fe6141470ddd5304bdd12cec1d40bd1ee
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139870"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854018"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gérer les données utilisateur dans Azure Active Directory B2C
 
@@ -46,8 +46,8 @@ Le processus d’exportation de données client à partir d’Azure AD B2C est
 
 Les données d’utilisateur d’Azure AD B2C sont limitées à ce qui suit :
 
-- **Données stockées dans Azure Active Directory** : vous pouvez récupérer les données dans un parcours utilisateur d’authentification Azure AD B2C à l’aide de l’ID objet ou de tout nom de connexion, tel qu’une adresse e-mail ou un nom d’utilisateur. 
-- **Rapport d’événements d’audit spécifiques de l’utilisateur** : vous pouvez indexer les données à l’aide de l’ID objet.
+- **Données stockées dans Azure Active Directory** : vous pouvez récupérer les données d'un parcours utilisateur d'authentification Azure AD B2C à l'aide de l'ID d'objet ou d'un nom de connexion, comme une adresse e-mail ou un nom d'utilisateur. 
+- **Rapport sur les événements d'audit spécifiques à l'utilisateur** : vous pouvez indexer des données à l'aide de l'ID d'objet.
 
 Dans l’exemple suivant de flux de données d’exportation, les étapes décrites comme étant effectuées par l’application peuvent également être réalisées par un processus principal ou par un utilisateur avec un rôle d’administrateur dans l’annuaire :
 

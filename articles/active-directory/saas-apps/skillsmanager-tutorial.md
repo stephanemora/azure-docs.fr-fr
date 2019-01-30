@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Skills Manager | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à Skills Manager | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Skills Manager.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: dab8debd-3b7b-4656-9bf0-1963ad8fce05
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: ee112cef53eec92ec449c66e0c927a78a087a32c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bdb053d1f9f85c446e4ac48b836c4b24bb40f93f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448055"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821826"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Didacticiel : Intégration d’Azure Active Directory à Skills Manager
+# <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Didacticiel : Intégration d'Azure Active Directory à Skills Manager
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer Skills Manager à Azure Active Directory (Azure AD).
 
@@ -132,7 +132,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 1. Pour configurer l’authentification unique côté **Skills Manager**, vous devez envoyer le **certificat (Base64)** téléchargé, l’**URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à [l’équipe de support Skills Manager](https://www.ibm.com/support/uk/?lnk=msu_uk). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -168,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   
 ### <a name="create-a-skills-manager-test-user"></a>Créer un utilisateur de test pour Skills Manager
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Skills Manager. Collaborez avec [l’équipe de support technique Skills Manager](https://www.ibm.com/support/uk/?lnk=msu_uk) pour ajouter les utilisateurs dans la plateforme Skills Manager. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Skills Manager. Collaborez avec l' [équipe du support technique de Skills Manager](https://www.ibm.com/support/uk/?lnk=msu_uk)  pour ajouter des utilisateurs sur la plateforme Skills Manager. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
