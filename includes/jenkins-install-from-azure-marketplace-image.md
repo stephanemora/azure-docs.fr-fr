@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: d5a832909f060ad8c8b3f0e7c7ea4504e5e5aadb
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4025dcc5824991baa9a52dbb912a5c07f4273d58
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943468"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383289"
 ---
 1. Dans votre navigateur, ouvrez [l’image de Place de marché Azure pour Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
@@ -38,7 +38,7 @@ ms.locfileid: "36943468"
     - **SSH public key** (Clé publique SSH) : Copiez-collez une clé publique RSA au format ligne unique (commençant par `ssh-rsa`) ou au format PEM multiligne. Vous pouvez générer des clés SSH à l’aide de ssh-keygen sur Linux et macOS, ou à l’aide de PuTTYGen sur Windows. Pour plus d’informations sur les clés SSH et sur Azure, consultez l’article [Utilisation de clés SSH avec Windows sur Azure](/azure/virtual-machines/linux/ssh-from-windows).
     - **Subscription (Abonnement)** : sélectionnez l’abonnement Azure dans lequel installer Jenkins.
     - **Resource group (Groupe de ressources)** : sélectionnez **Create new (Nouveau)** et entrez le nom du groupe de ressources servant de conteneur logique à la collection de ressources qui composent l’installation Jenkins.
-    - **Location (Emplacement)** : sélectionnez **East US (États-Unis de l’Est)**.
+    - **Location (Emplacement)** : sélectionnez **USA Est**.
 
     ![Entrez les informations d’authentification et de groupe de ressources de Jenkins dans l’onglet Basics (De base).](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-basic.png)
 
@@ -53,6 +53,7 @@ ms.locfileid: "36943468"
     - **Public IP Address (Adresse IP publique)** : le nom de l’adresse IP est par défaut le nom Jenkins spécifié dans la page précédente suivi du suffixe -IP. Vous pouvez sélectionner l’option pour modifier cette valeur par défaut.
     - **Domain name label (Étiquette du nom de domaine)** : spécifiez la valeur de l’URL complète d’accès à la machine virtuelle Jenkins.
     - **Jenkins release type** (Type de version Jenkins) : Sélectionnez le type de version souhaité parmi les options `LTS`, `Weekly build` et `Azure Verified`. Les options `LTS` et `Weekly build` sont expliquées dans l’article [Jenkins LTS Release Line](https://jenkins.io/download/lts/). L’option `Azure Verified` fait référence à une [version LTS de Jenkins](https://jenkins.io/download/lts/) qui a été vérifiée en vue de son exécution dans Azure. 
+    - **Type de JDK** : JDK à installer. Il s’agit par défaut de builds Zulu testées et certifiées de OpenJDK.
 
     ![Entrez les paramètres de la machine virtuelle pour Jenkins dans l’onglet Settings (Paramètres).](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-settings.png)
 

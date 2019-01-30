@@ -1,5 +1,5 @@
 # Azure Dev Spaces
-## [Vue d’ensemble](index.yml)
+## [Vue d'ensemble](index.yml)
 
 ## Démarrages rapides
 ### [Java (VS Code & CLI)](quickstart-java.md)
@@ -28,8 +28,9 @@
 ### [Utiliser un flux NuGet personnalisé](how-to/use-custom-nuget-feed.md)
 ### [Utiliser kubectl avec Azure Dev Spaces](how-to/use-kubectl-with-azure-dev-spaces.md)
 ### [Mettre à niveau les outils Azure Dev Spaces](how-to/upgrade-tools.md)
+### [Continuité des activités et reprise d’activité pour Azure Dev Spaces](how-to/dev-spaces-business-continuity.md)
 
-## [Résolution des problèmes](troubleshooting.md)
+## [Dépannage](troubleshooting.md)
 
 
 

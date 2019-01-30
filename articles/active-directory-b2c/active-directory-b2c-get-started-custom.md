@@ -3,19 +3,19 @@ title: Prise en main des stratégies personnalisées dans Azure Active Directory
 description: Découvrez comment prendre en main les stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b4ff8b607f9fded02a519b5f2a3abdfeedf93d88
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181774"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852301"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Si vous n’en avez pas, vous devez [créer un locataire Azure AD B2C](tutorial-
 ## <a name="add-signing-and-encryption-keys"></a>Ajouter des clés de signature et de chiffrement
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
-2. Vérifiez que vous utilisez l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire. 
+2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire. 
 
     ![Basculez vers votre client Azure AD B2C.](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
 
@@ -68,7 +68,7 @@ Si vous disposez déjà d’un [secret pour l’application Facebook](active-dir
 
 ## <a name="register-applications"></a>Inscrire des applications
 
-Azure AD B2C exige que vous inscriviez deux applications permettant de se connecter à l’aide de comptes locaux : IdentityExperienceFramework (une application web) et ProxyIdentityExperienceFramework (une application native) avec des autorisations déléguées de l’application IdentityExperienceFramework. Les comptes locaux existent uniquement dans votre client. Vos utilisateurs se connectent avec une combinaison unique adresse e-mail/mot de passe pour accéder à vos applications inscrites auprès du locataire.
+Azure AD B2C exige que vous inscriviez deux applications utilisées pour inscrire et connecter les utilisateurs : IdentityExperienceFramework (application web) et ProxyIdentityExperienceFramework (application native) avec autorisation déléguée de l'application IdentityExperienceFramework. Les comptes locaux existent uniquement dans votre client. Vos utilisateurs se connectent avec une combinaison unique adresse e-mail/mot de passe pour accéder à vos applications inscrites auprès du locataire.
 
 ### <a name="register-the-identityexperienceframework-application"></a>Inscrire l’application IdentityExperienceFramework
 
@@ -117,7 +117,7 @@ Chaque pack de démarrage contient :
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. Dans le dossier SocialAndLocalAccounts, modifiez tous les fichiers en remplaçant `yourtenant.onmicrosoft.com` par le nom de votre locataire. Par exemple : `contosoTenant.onmicrosoft.com`. Si vous avez besoin d’un éditeur XML, [essayez Visual Studio Code](https://code.visualstudio.com/download), un éditeur multiplateforme léger.
+2. Dans le dossier SocialAndLocalAccounts, modifiez tous les fichiers en remplaçant `yourtenant.onmicrosoft.com` par le nom de votre locataire. Par exemple : `contosoTenant.onmicrosoft.com`. Si vous avez besoin d’un éditeur XML, [essayez Visual Studio Code](https://code.visualstudio.com/download), un éditeur multiplateforme léger.
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Ajouter des ID d’applications à la stratégie personnalisée
 

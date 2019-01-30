@@ -1,10 +1,10 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Firstbird | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Firstbird | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Firstbird.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: acab1200-32d3-4f4b-953f-f2a7e812b6a3
 ms.service: Azure-Active-Directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4de6323d3cf6c642ea7714eabf45200e1be0c269
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d11674632599afa190237b2a4a516d7cce6e2150
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883774"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810242"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Tutoriel : Intégration d’Azure Active Directory à Firstbird
+# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Tutoriel : Intégration d’Azure Active Directory à Firstbird
 
 Dans ce tutoriel, vous allez apprendre à intégrer Firstbird à Azure Active Directory (Azure AD).
 L’intégration de Firstbird à Azure AD vous offre les avantages suivants :
@@ -79,8 +79,8 @@ Pour configurer et tester l’authentification unique Azure AD avec [Nom de l�
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique Firstbird](#configure-firstbird-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Créer un utilisateur de test Firstbird](#create-firstbird-test-user)** pour avoir dans Firstbird un équivalent de Britta Simon lié à la représentation Azure AD associée.
-5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Firstbird](#create-firstbird-test-user)** pour avoir dans Firstbird un équivalent de Britta Simon lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -105,18 +105,18 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
     ![Informations d’authentification unique dans Domaine et URL Firstbird](common/idp_intiated.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company-domain>.auth.1brd.com/saml/sp`.
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company-domain>.auth.1brd.com/saml/sp`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<company-domain>.auth.1brd.com/saml/callback`.
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<company-domain>.auth.1brd.com/saml/callback`
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Firstbird](common/metadata_upload_additional_signon.png)
 
-    Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<company-domain>.1brd.com/login`.
-    
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company-domain>.1brd.com/login`
+
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL d’authentification réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique Firstbird](mailto:support@firstbird.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique Firstbird](mailto:support@firstbird.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 6. L’application Firstbird attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 

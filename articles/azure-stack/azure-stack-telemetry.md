@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 471232fee5245426afce89993d9faebccc6a8ea8
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265615"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389392"
 ---
 # <a name="azure-stack-telemetry"></a>Télémétrie Azure Stack
 
@@ -40,7 +40,7 @@ Les données de télémétrie Azure Stack reposent sur le composant Expérience
 
 ## <a name="privacy-considerations"></a>Considérations relatives à la confidentialité
 
-Le service ETW réachemine les données de télémétrie vers le stockage cloud protégé. Le principe du tout dernier privilège guides l’accès aux données de télémétrie. Seul le personnel Microsoft dont les besoins métiers sont valides sont autorisés à accéder aux données de télémétrie. Microsoft ne partage pas les données personnelles des clients avec des tiers, excepté à la discrétion du client ou à des fins limitées décrites dans la [Déclaration de confidentialité Microsoft](https://privacy.microsoft.com/PrivacyStatement). Les rapports d’entreprise partagés avec les fabricants OEM et les partenaires incluent des données anonymes et agrégées. Les décisions relatives au partage des données sont effectuées par une équipe Microsoft interne composée de parties prenantes des domaines de la confidentialité, des questions juridiques et de la gestion des données.
+Le service ETW réachemine les données de télémétrie vers le stockage cloud protégé. Le principe des privilèges minimum détermine l’accès aux données de télémétrie. Seul le personnel Microsoft dont les besoins métiers sont valides sont autorisés à accéder aux données de télémétrie. Microsoft ne partage pas les données personnelles des clients avec des tiers, excepté à la discrétion du client ou à des fins limitées décrites dans la [Déclaration de confidentialité Microsoft](https://privacy.microsoft.com/PrivacyStatement). Les rapports d’entreprise partagés avec les fabricants OEM et les partenaires incluent des données anonymes et agrégées. Les décisions relatives au partage des données sont effectuées par une équipe Microsoft interne composée de parties prenantes des domaines de la confidentialité, des questions juridiques et de la gestion des données.
 
 Microsoft croit en la réduction des informations et la met en pratique. Nous nous efforçons de recueillir uniquement les informations nécessaires et nous les stockons seulement pour la durée pendant laquelle elles sont nécessaires pour fournir un service ou une analyse. La plupart des informations concernant le fonctionnement du système Azure Stack et des services Azure sont supprimées dans les six mois. Les données résumées ou agrégées seront conservées plus longtemps.
 

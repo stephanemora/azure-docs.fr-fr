@@ -3,21 +3,21 @@ title: Didacticiel - Accorder l’accès à une API web ASP.NET Core depuis une 
 description: Didacticiel sur l’utilisation d’Active Directory B2C pour protéger une API web .NET Core et l’appeler depuis une application monopage.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4a1787f0a6d222f91eefd6f96e265ba825ca9e82
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605757"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848089"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Didacticiel : Accorder l’accès à une API web ASP.NET Core depuis une application monopage à l’aide d’Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Tutoriel : Accorder l’accès à une API web ASP.NET Core depuis une application monopage à l’aide d’Azure Active Directory B2C
 
 Ce didacticiel vous montre comment appeler une ressource d’API web ASP.NET Core protégée par Azure Active Directory (Azure AD) B2C à partir d’une application monopage.
 
@@ -56,7 +56,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
     
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | API Core Hello | Entrez un **nom** qui décrit votre API web pour les développeurs. |
+    | **Nom** | API Core Hello | Entrez un **nom** qui décrit votre API web pour les développeurs. |
     | **Inclure une application/API web** | Oui | Sélectionnez **Oui** pour une API web. |
     | **Autoriser le flux implicite** | Oui | Sélectionnez **Oui** puisque l’API utilise la [connexion OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de réponse** | `http://localhost:5000` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C retourne les jetons demandés par votre API. Dans ce tutoriel, l’exemple d’API web s’exécute localement (localhost) et écoute sur le port 5000 (une fois qu’il est configuré pour cela, plus loin dans ce tutoriel). |

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 77d21a9db54a34d3f9981929bb90dfd3b54e23dd
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 45a0c179677a0a2c144ea33dbfb031c88257e1cb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190593"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382512"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -58,7 +58,8 @@ Les points de terminaison de service fournissent les avantages suivants :
 
 - La fonctionnalité est disponible uniquement pour les réseaux virtuels déployés à l’aide du modèle de déploiement Azure Resource Manager.
 - Les points de terminaison sont activés sur les sous-réseaux configurés dans les réseaux virtuels Azure. Les points de terminaison ne peuvent pas être utilisés pour le trafic à partir de votre réseau local vers les services Azure. Pour plus d’informations, consultez la section relative à la [sécurisation de l’accès au service en local](#securing-azure-services-to-virtual-networks)
-- Pour Azure SQL, un point de terminaison de service concerne uniquement le trafic de service Azure dans la région d’un réseau virtuel. Pour prendre en charge les trafics RA-GRS et GRS pour le stockage Azure et ADLS Gen 1, les points de terminaison incluent également les régions appariées dans lesquelles le réseau virtuel est déployé. En savoir plus sur les [régions appariées Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Pour Azure SQL, un point de terminaison de service concerne uniquement le trafic de service Azure dans la région d’un réseau virtuel. Pour prendre en charge les trafics RA-GRS et GRS pour le stockage Azure, les points de terminaison incluent également les régions appariées dans lesquelles le réseau virtuel est déployé. En savoir plus sur les [régions appariées Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Avec ADLS Gen 1, la fonctionnalité d’intégration au réseau virtuel est uniquement disponible pour les réseaux virtuels situés dans une même région.
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Sécurisation des services Azure pour des réseaux virtuels
 

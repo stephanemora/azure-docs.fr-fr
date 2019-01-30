@@ -3,7 +3,7 @@ title: 'Azure AD Connect : Bien démarrer avec les paramètres express | Microso
 description: Découvrez comment télécharger, installer et exécuter l’Assistant d’installation d’Azure AD Connect.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1af54e3b0237d1d62ae7fb47939e7786fa1219b8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b3b90950ea0ade8064680e813958b0575d11aab6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434668"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467993"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Prise en main d’Azure AD Connect à l’aide de paramètres express
 La **configuration rapide** d’Azure AD Connect est utilisée lorsque vous disposez d’une topologie à une forêt unique et quand la [synchronisation de hachage du mot de passe](how-to-connect-password-hash-synchronization.md) est utilisée pour l’authentification. **configuration rapide** est l’option par défaut et s’applique à la plupart des scénarios de déploiement. L’extension de votre répertoire local dans le cloud n’est plus qu’à quelques clics.
 
-Avant de commencer l’installation d’Azure AD Connect, veillez à [télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) et effectuer les étapes préalables décrites dans [Azure AD Connect : matériel et conditions préalables](how-to-connect-install-prerequisites.md).
+Avant de commencer l’installation d’Azure AD Connect, veillez à [télécharger Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) et effectuer les étapes préalables décrites dans [Azure AD Connect : matériel et prérequis](how-to-connect-install-prerequisites.md).
 
 Si la configuration rapide ne correspond pas à votre topologie, consultez la [documentation connexe](#related-documentation) pour d’autres scénarios.
 
@@ -62,7 +62,7 @@ Pour une vidéo sur l’utilisation de l’installation rapide, voir :
 ## <a name="next-steps"></a>Étapes suivantes
 Azure AD Connect étant installé, vous pouvez passer à [Vérification de l’installation et affectation des licences](how-to-connect-post-installation.md).
 
-Pour en savoir plus sur ces fonctionnalités, activées lors de l’installation, consultez les pages [Azure AD Connect : Mise à niveau automatique](how-to-connect-install-automatic-upgrade.md), [Azure AD Connect Sync : Prévention des suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md) et [Utilisation d’Azure AD Connect Health pour la synchronisation](how-to-connect-health-sync.md).
+Pour en savoir plus sur ces fonctionnalités, activées lors de l’installation, consultez les pages : [Mise à niveau automatique](how-to-connect-install-automatic-upgrade.md), [Prévention des suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md) et [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Pour en savoir plus sur ces sujets courants, consultez l’article [Planificateur Azure AD Connect Sync](how-to-connect-sync-feature-scheduler.md).
 

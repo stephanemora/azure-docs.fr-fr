@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 11/27/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: c0901f22e4941fdfaa21138153a06e97c2d6095f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c52c311f1e1cd1335ea5797eadacd0bc89e1b36c
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630374"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402113"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Tutoriel : Transformer des données avec Azure Data Box Edge (préversion)
+# <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Didacticiel : Transformer des données avec Azure Data Box Edge (préversion)
 
 Ce tutoriel explique comment configurer un rôle de calcul sur votre appareil Azure Data Box Edge. Une fois que vous avez configuré le rôle de calcul, Data Box Edge peut transformer des données avant de les envoyer à Azure.
 
@@ -153,7 +153,7 @@ La procédure suivante utilise un exemple dans lequel le module personnalisé pl
 1. Sous **Ajouter des modules**, effectuez les étapes suivantes :
 
     a. Entrez le nom, l’adresse, le nom d’utilisateur et le mot de passe dans les paramètres du registre de conteneurs du module personnalisé.  
-    Le nom, l’adresse et les informations d’identification indiquées sont utilisées pour récupérer des modules avec une URL correspondante. Pour déployer ce module, sous **Modules de déploiement**, sélectionnez **Module IoT Edge**. Ce module IoT Edge est un conteneur Docker que vous pouvez déployer sur un appareil IoT Edge associé à votre appareil Data Box Edge.
+    Le nom, l’adresse et les informations d’identification indiquées sont utilisées pour récupérer des modules avec une URL correspondante. Pour déployer ce module, sous **Deployment modules** (Modules de déploiement), sélectionnez **IoT Edge module** (Module IoT Edge). Ce module IoT Edge est un conteneur Docker que vous pouvez déployer sur un appareil IoT Edge associé à votre appareil Data Box Edge.
 
     ![Page Définir des modules](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
  

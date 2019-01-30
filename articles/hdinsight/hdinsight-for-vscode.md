@@ -4,18 +4,18 @@ description: Découvrez comment utiliser Azure HDInsight Tools pour Visual Studi
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: ''
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.date: 12/15/2018
+ms.openlocfilehash: cd7c4014752fb5fa014fd8b5204206cd4efbfdce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076788"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818521"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utiliser les Azure HDInsight Tools pour Visual Studio Code
 
@@ -50,11 +50,11 @@ Une fois que vous avez tous les éléments prérequis, installez Azure HDInsight
 
    ![installation de Python avec HDInsight pour Visual Studio Code](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-## <a name="open-hdinsight-workspace"></a>Ouvrir un espace de travail HDInsight
+## <a name="open-hdinsight-work-folder"></a>Ouvrir le dossier de travail HDInsight
 
-Vous devez créer un espace de travail dans VS Code avant de pouvoir vous connecter à Azure.
+Avant de pouvoir vous connecter à Azure, vous devez créer un dossier de travail dans VS Code.
 
-### <a name="to-open-a-workspace"></a>Pour ouvrir un espace de travail
+### <a name="to-open-a-work-folder"></a>Pour ouvrir un dossier de travail
 
 1. Dans le menu **Fichier**, sélectionnez **Ouvrir le dossier**. Ensuite, désignez un dossier existant en tant que dossier de travail, ou créez-en un nouveau. Le dossier s’affiche dans le volet gauche.
 
@@ -77,7 +77,7 @@ Avant de pouvoir envoyer des scripts à des clusters HDInsight à partir de Visu
     ![Connexion à HDInsight Tools pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 3. Connectez-vous en suivant les instructions de connexion affichées dans le volet **OUTPUT**.
-    + Pour un environnement global, la connexion à HDInsight déclenche le processus de connexion à Azure.
+    + Pour l'environnement global Azure, la commande **HDInsight: Login** déclenchera l'action **Se connecter à Azure** dans l'explorateur HDInsight, et vice versa.
 
         ![Instructions de connexion pour Azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
@@ -140,16 +140,16 @@ Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apach
 Pour tester la connexion, vous pouvez afficher la liste de vos clusters HDInsight :
 
 ### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>Pour afficher la liste des clusters HDInsight dans votre abonnement Azure
-1. Ouvrez un espace de travail, puis connectez-vous à Azure. Pour en savoir plus, consultez les sections [Ouvrir un espace de travail HDInsight](#open-hdinsight-workspace) et [Connexion à Azure](#connect-to-hdinsight-cluster).
+1. Ouvrez un dossier de travail, puis connectez-vous à Azure. Pour en savoir plus, consultez les sections [Ouvrir un dossier de travail HDInsight](#open-hdinsight-work-folder) et [Connexion à Azure](#connect-to-hdinsight-cluster).
 
-2. Cliquez avec le bouton droit sur l’éditeur de script, puis cliquez sur **HDInsight : Lister les clusters** dans le menu contextuel. 
+2. Cliquez avec le bouton droit sur l’éditeur de script, puis cliquez sur **HDInsight : Lister les clusters** dans le menu contextuel. 
 
 3. Les clusters HDInsight s’affichent dans le volet **Output**.
 
     ![Définir la configuration du cluster par défaut](./media/hdinsight-for-vscode/list-cluster-result.png)
 
 ## <a name="set-a-default-cluster"></a>Définir un cluster par défaut
-1. Ouvrez un espace de travail et connectez-vous à Azure. Consultez [Ouvrir un espace de travail HDInsight](#open-hdinsight-workspace) et [Connexion à Azure](#connect-to-hdinsight-cluster).
+1. Ouvrez un dossier de travail et connectez-vous à Azure. Consultez [Ouvrir un dossier de travail HDInsight](#open-hdinsight-work-folder) et [Connexion à Azure](#connect-to-hdinsight-cluster).
 
 2. Cliquez avec le bouton droit sur l’éditeur de script, puis cliquez sur **HDInsight : Définir le cluster par défaut**. 
 
@@ -183,7 +183,7 @@ HDInsight Tools pour VS Code vous permet d’envoyer des requêtes, scripts de c
     ```
 4. Cliquez avec le bouton droit sur l’éditeur de script, puis cliquez sur **HDInsight : Hive Interactive** pour envoyer la requête, ou utilisez le raccourci **Ctrl+Alt+I**. Sélectionnez **HDInsight : Hive Batch** pour envoyer le script, ou utilisez le raccourci clavier **Ctrl+Alt+H**. 
 
-5. Sélectionnez un cluster autre que le cluster par défaut. HDInsight Tools vous permet également d’envoyer un bloc de code au lieu du fichier de script entier à partir du menu contextuel. Peu après, le résultat de la requête s’affiche dans un nouvel onglet.
+5. Sélectionnez un cluster autre que le cluster par défaut. HDInsight Tools vous permet également d’envoyer un bloc de code au lieu du fichier de script entier à partir du menu contextuel. Peu après, les résultats de la requête s'affichent dans un nouvel onglet.
 
    ![Résultat de la requête Hive interactive](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -195,7 +195,12 @@ HDInsight Tools pour VS Code vous permet d’envoyer des requêtes, scripts de c
 
 ### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>Pour envoyer des requêtes PySpark interactives à des clusters HDInsight Spark.
 
-1. Créez un dossier de travail et un fichier de script avec l’extension .py si vous n’en avez pas.
+1. Créez un dossier de travail et un fichier .py si vous n'en avez pas encore.
+
+    > [!NOTE]
+    > VSCode vous recommande d'installer l'extension Python pour le fichier .py. Vous pouvez installer l'extension ou fermer la boîte de dialogue.
+    > 
+    >![installation de Python avec HDInsight pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 2. Connectez-vous à votre compte Azure, si ce n’est déjà fait.
 
@@ -213,36 +218,19 @@ HDInsight Tools pour VS Code vous permet d’envoyer des requêtes, scripts de c
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Mettez en surbrillance ce script. Cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez **HDInsight : PySpark Interactive**, ou utilisez le raccourci **Ctrl+Alt+I**.
+4. Si ce n'est déjà fait, installez l'environnement Python. Voir [Configurer l'environnement interactif PySpark pour Visual Studio Code](set-up-pyspark-interactive-environment.md).
 
-5. Si vous n’avez pas encore installé l’extension **Python** dans VS Code, sélectionnez le bouton **Install** (Installer) tel qu’indiqué dans l’illustration suivante :
+5. Mettez en surbrillance ce script. Cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez **HDInsight : PySpark Interactive**, ou utilisez le raccourci **Ctrl+Alt+I**.
 
-    ![installation de Python avec HDInsight pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
-
-6. Installez l’environnement Python dans votre système, si ce n’est déjà fait. 
-   - Pour Windows, téléchargez et installez [Python](https://www.python.org/downloads/). Vérifiez ensuite la présence de `Python` et `pip` dans votre chemin système.
-
-   - Pour les instructions relatives à MacOS et Linux, consultez [Définir l’environnement interactif PySpark pour Visual Studio Code](set-up-pyspark-interactive-environment.md).
-
-7. Sélectionnez un cluster auquel envoyer la requête PySpark. Peu après, le résultat de la requête s’affiche sous le nouvel onglet à droite :
+6. Sélectionnez un cluster auquel envoyer la requête PySpark. Peu après, le résultat de la requête s’affiche sous le nouvel onglet à droite :
 
    ![Résultat de l’envoi du travail Python](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
-8. L’outil prend également en charge la requêtes avec **Clause SQL**.
+7. L’outil prend également en charge la requêtes avec **Clause SQL**.
 
    ![Résultat de l’envoi du travail Python](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) L’état de l’envoi s’affiche en bas à gauche dans la barre d’état lors de l’exécution des requêtes. N’envoyez pas d’autres requêtes lorsque l’état est **PySpark Kernel (busy)**. 
 
 >[!NOTE]  
 >Les clusters peuvent mettre à jour les informations de session. La variable et la fonction définies, ainsi que les valeurs correspondantes sont conservées dans la session, ce qui permet de les référencer dans plusieurs appels de service pour le même cluster. 
-
-### <a name="to-disable-environment-check"></a>Pour désactiver la vérification de l’environnement
-
-Par défaut, les outils HDInsight vérifient l’environnement et installent des packages dépendants lors de l’envoi de requêtes PySpark interactives. Pour désactiver la vérification de l’environnement, définissez **hdinsight.disablePysparkEnvironmentValidation** sur **yes** (Oui) sous **USER SETTINGS** (PARAMÈTRES UTILISATEUR).
-
-   ![Définir la vérification de l’environnement à partir des paramètres](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check.png)
-
-Vous pouvez également cliquer sur le bouton **Désactiver la validation** lorsque la boîte de dialogue s’affiche.
-
-   ![Définir la vérification de l’environnement à partir de la boîte de dialogue](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check-dialog.png)
 
 ### <a name="pyspark3-is-not-supported-with-spark2223"></a>PySpark3 n’est pas pris en charge avec Spark2.2/2.3
 

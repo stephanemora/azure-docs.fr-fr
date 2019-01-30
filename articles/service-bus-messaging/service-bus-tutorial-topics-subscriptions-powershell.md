@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fdf97234e840de5fdd2811f3cdae8dd4cdc76a22
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 135f5e2500ab86d418085a5061f517176b9a4dad
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229150"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430005"
 ---
-# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutoriel : mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements
+# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Didacticiel : Mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements
 
 Microsoft Azure Service Bus est un service de messagerie cloud multi-locataire qui envoie des informations entre les applications et les services. Le fonctionnement asynchrone vous offre un service de messagerie répartie flexible, avec messagerie premier entré, premier sorti (FIFO) et fonctionnalités de publication/abonnement. 
 
@@ -286,4 +286,4 @@ Passez au prochain tutoriel pour en savoir plus sur les fonctionnalités de publ
 > [Mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Installation et configuration d’Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Installation et configuration d’Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

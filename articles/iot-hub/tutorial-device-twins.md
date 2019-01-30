@@ -11,19 +11,19 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2018
+ms.date: 01/18/2019
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 808cfd1f4d47f49be60c3f45278d2334ba720c49
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865180"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421910"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
-# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Didacticiel : Configurer vos appareils à partir d’un service back-end
+# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Didacticiel : Configurer vos appareils à partir d’un service backend
 
 Outre la réception de données de télémétrie à partir de vos appareils, vous devrez peut-être configurer vos appareils à partir de votre service back-end. Lorsque vous envoyez une configuration souhaitée à vos appareils, vous pouvez choisir de recevoir des mises à jour d’état et de conformité de ces appareils. Par exemple, vous pouvez définir une plage de température de fonctionnement cible pour un appareil ou collecter des informations sur la version du microprogramme auprès de vos appareils.
 
@@ -73,7 +73,7 @@ az extension add --name azure-cli-iot-ext
 az group create --name tutorial-iot-hub-rg --location $location
 
 # Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription:
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
 az iot hub show-connection-string --hub-name $hubname -o table
@@ -245,7 +245,7 @@ La capture d’écran suivante montre le résultat de l’application back-end e
 
 ![Application back-end](./media/tutorial-device-twins/BackEnd2.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez d’effectuer le didacticiel suivant, conservez le groupe de ressources et l’IoT Hub afin de les réutiliser ultérieurement.
 

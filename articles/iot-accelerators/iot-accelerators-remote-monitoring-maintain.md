@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8ea4a615cff02cad1030f10b408fe047f1208a60
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819218"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451713"
 ---
-# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Didacticiel : Résoudre et corriger les problèmes liés aux appareils
+# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Tutoriel : Résoudre et corriger les problèmes liés aux appareils
 
 Dans ce tutoriel, vous utilisez l’accélérateur de solution Monitoring à distance pour identifier et résoudre les problèmes avec vos appareils IoT connectés. Vous utilisez des alertes dans le tableau de bord de l’accélérateur de solution pour identifier les problèmes, puis vous exécutez des tâches à distance pour résoudre ces problèmes.
 
@@ -84,6 +84,6 @@ Vous pouvez vérifier que la température de l’appareil a diminué en consulta
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce tutoriel vous a montré comment utiliser des alertes pour identifier des problèmes avec vos appareils et comment intervenir sur ces appareils pour résoudre les problèmes. Pour savoir comment connecter un appareil physique à votre accélérateur de solution, continuez avec les articles de guide pratique.
+Ce tutoriel vous a montré comment utiliser des alertes pour identifier des problèmes avec vos appareils et comment intervenir sur ces appareils pour résoudre les problèmes. Pour savoir comment connecter un appareil réel à votre accélérateur de solution, continuez avec les articles de guide pratique.
 
 Maintenant que vous savez comment gérer les problèmes des appareils, l’étape suivante que nous vous suggérons est d’apprendre à [connecter votre appareil à l’accélérateur de solution Monitoring à distance](iot-accelerators-connecting-devices.md).

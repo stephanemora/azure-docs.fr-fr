@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 201ba431a4382741815536db2bb4d08f0068be80
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a4e829f8ae89815c68d80a9f85dfbfd58a03b6a0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329539"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452188"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Créer une instance Azure SQL Database Managed Instance
 
@@ -47,7 +47,7 @@ La procédure suivante explique comment créer une instance Managed Instance.
    |**Nom de l’instance managée**|Nom valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Connexion administrateur de l’instance managée**|Nom d’utilisateur non valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). N’utilisez pas « serveradmin », car il s’agit d’un rôle réservé au niveau du serveur.|
    |**Mot de passe**|Mot de passe valide|Le mot de passe doit contenir au moins 16 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Classement**|Classement à utiliser pour votre instance Managed Instance|Pour plus d’informations sur les classements, consultez [Classements](https://docs.microsoft.com/sql/t-sql/statements/collations).|
+   |**Classement**|Classement à utiliser pour votre instance Managed Instance|Si vous migrez des bases de données depuis SQL Server, vérifiez le classement de la source avec `SELECT SERVERPROPERTY(N'Collation')` et utilisez cette valeur. Pour plus d’informations sur les classements, consultez [Classements au niveau du serveur](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Lieu**|Emplacement dans lequel vous souhaitez créer l’instance Managed Instance.|Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).|
    |**Réseau virtuel**|Sélectionnez **Créer un réseau virtuel** ou un réseau virtuel et un sous-réseau valides.| Si un réseau/sous-réseau est grisé, il doit être [modifié pour respecter la configuration réseau requise](sql-database-managed-instance-configure-vnet-subnet.md) avant de pouvoir le sélectionner en tant que cible de la nouvelle instance Managed Instance. Pour obtenir des informations sur les exigences liées à la configuration de l’environnement réseau pour une instance Managed Instance, consultez [Configurer un réseau virtuel pour Azure SQL Database Managed Instance](sql-database-managed-instance-connectivity-architecture.md). |
    |**Groupe de ressources**|Nouveau groupe de ressources ou groupe de ressources existant.|Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom).|

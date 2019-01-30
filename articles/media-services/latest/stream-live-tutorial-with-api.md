@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/28/2018
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969333"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811211"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Didacticiel : Diffuser en temps réel avec Media Services v3 à l’aide d’API
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutoriel : Diffuser en temps réel avec Media Services v3 à l’aide d’API
 
 Dans Azure Media Services, les [événements en temps réel](https://docs.microsoft.com/rest/api/media/liveevents) sont responsables du traitement du contenu vidéo en flux continu. Un LiveEvent (événement en temps réel) fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un encodeur live. Il reçoit des flux de données entrants en continu d’un encodeur live et les rend disponibles en diffusion via un ou plusieurs [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) (point de terminaison de streaming). Ces événements fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour obtenir un aperçu et valider votre flux avant tout traitement et remise supplémentaires. Ce didacticiel explique comment utiliser .NET Core pour créer un type de **canal direct** d’un événement en temps réel. 
 
@@ -89,7 +89,7 @@ Pour commencer à utiliser les API Media Services avec .NET, vous devez créer u
 
 ### <a name="create-a-live-event"></a>Créer un événement en temps réel
 
-Cette section montre comment créer un type de **canal direct** d’événement en temps réel (LiveEventEncodingType défini sur Aucun). Si vous voulez créer un événement en temps réel dont l’encodage en temps réel est activé, définissez LiveEventEncodingType sur Standard. 
+Cette section montre comment créer un type de **canal direct** d’événement en temps réel (LiveEventEncodingType défini sur Aucun). Si vous voulez créer un événement en direct dont l’encodage live est activé, définissez LiveEventEncodingType sur **Standard**. 
 
 Voici quelques éléments que vous voudrez probablement spécifier lors de la création de l’événement en temps réel :
 
@@ -100,8 +100,12 @@ Voici quelques éléments que vous voudrez probablement spécifier lors de la cr
 * Restictions IP sur l’ingestion et la préversion. Vous pouvez définir les adresses IP autorisées à ingérer du contenu vidéo sur cet événement en temps réel. Les adresses IP autorisées peuvent être définies sous forme d’adresse IP unique (par exemple, « 10.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, « 10.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, « 10.0.0.1(255.255.252.0) »).
     
     Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP ne sera autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.
+    
+    Les adresses IP doivent utiliser un des formats suivants : adresses IpV4 avec 4 nombres, plage d’adresses CIDR.
 
-Lors de la création de l’événement, vous pouvez préciser que vous voulez que le démarrage soit automatique. 
+* Lors de la création de l’événement, vous pouvez préciser que vous voulez que le démarrage soit automatique. 
+
+    Lorsque le démarrage automatique est défini sur true, l’événement en direct démarre après sa création. Cela signifie que la facturation commence dès que l’événement en direct est en cours d’exécution. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en remps réel pour arrêter toute facturation supplémentaire. Pour plus d’informations, consultez la section [États et facturation d’événements en temps réel](live-event-states-billing.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

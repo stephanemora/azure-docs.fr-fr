@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2016
+ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6463759dbd217cd054f838c09c7cfcf99a06aa2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271350"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390813"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Paramètres de configuration personnalisés pour les environnements App Service
 ## <a name="overview"></a>Vue d’ensemble
-Les environnements App Service étant isolés pour chaque client, certains paramètres de configuration peuvent être appliqués exclusivement à des environnements App Service. Cet article décrit les différentes personnalisations pour les environnements App Service disponibles.
+Les environnements App Service (ASE) étant isolés pour chaque client, certains paramètres de configuration peuvent être appliqués exclusivement à des environnements App Service. Cet article décrit les différentes personnalisations pour les environnements App Service disponibles.
 
 Si vous ne possédez pas d’environnement App Service, voir [Comment créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md).
 
@@ -65,10 +65,11 @@ Vous pouvez également mettre à jour l’environnement App Service à l’aide 
 Quelle que soit la manière dont vous soumettez les modifications, environ 30 minutes (multipliées par le nombre de serveurs frontaux présents dans l’environnement App Service) pour qu’elles prennent effet.
 Par exemple, si un environnement App Service a quatre serveurs frontaux, la mise à jour de la configuration prendra environ deux heures. Tant que la modification de la configuration n’est pas déployée, aucune autre opération de mise à l’échelle ou de modification de configuration n’est possible dans l’environnement App Service.
 
-## <a name="disable-tls-10"></a>Désactivation de TLS 1.0
-Il est fréquent que des clients, en particulier ceux faisant l’objet d’audits de conformité PCI, demandent à ce qu’il soit possible de désactiver explicitement TLS 1.0 pour leurs applications.
+## <a name="disable-tls-10-and-tls-11"></a>Désactiver TLS 1.0 et TLS 1.1
 
-TLS 1.0 peut être désactivé par le biais de l’entrée **clusterSettings** suivante :
+Si vous souhaitez gérer les paramètres TLS application par application, vous pouvez utiliser les instructions fournies dans la documentation [Appliquer des versions TLS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions). 
+
+Si vous souhaitez désactiver tout le trafic TLS 1.0 et TLS 1.1 entrant pour toutes les applications dans un environnement ASE, vous pouvez définir l’entrée **clusterSettings** suivante :
 
         "clusterSettings": [
             {
@@ -76,6 +77,8 @@ TLS 1.0 peut être désactivé par le biais de l’entrée **clusterSettings** 
                 "value": "1"
             }
         ],
+
+Le nom du paramètre indique 1.0, mais quand il est configuré, il désactive TLS 1.0 et TLS 1.1.
 
 ## <a name="change-tls-cipher-suite-order"></a>Modifier l’ordre des suites de chiffrement TLS
 Les clients demandent également s’ils peuvent modifier la liste des chiffrements négociés par leur serveur. Ils peuvent le faire en modifiant l’attribut **clusterSettings** comme indiqué ci-dessous. Vous trouverez la liste des suites de chiffrement disponibles dans [cet article MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).

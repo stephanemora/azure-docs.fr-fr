@@ -3,7 +3,7 @@ title: Rapport sur la sécurité des utilisateurs avec indicateur de risque dans
 description: En savoir plus sur le rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
@@ -11,15 +11,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/17/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9a7a3877970d5ecf3b86471b94fbb1bf6e5efbb4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: de9cf73ba7ad68d84e43a7774617959f9c3789ee
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621069"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810752"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Rapport sur les utilisateurs associés à un indicateur de risque dans le portail Azure
 
@@ -44,7 +44,7 @@ Toutes les éditions d’Azure Active Directory vous indiquent les rapports d�
 
 - Dans les **éditions Azure Active Directory Free et Basic**, vous obtenez la liste des utilisateurs associés à un indicateur de risque. 
 
-- L’édition **Azure Active Directory Premium 1** vous permet également d’examiner certains événements à risque sous-jacent, qui ont été détectés pour chaque rapport. 
+- L’édition **Azure Active Directory Premium 1** vous permet également d’examiner certains événements à risque sous-jacent, qui ont été détectés pour chaque rapport. 
 
 - L’édition **Azure Active Directory Premium 2** vous fournit les informations les plus détaillées sur tous les événements à risque sous-jacent. Elle vous permet également de configurer des stratégies de sécurité répondant automatiquement aux niveaux de risque configurés.
 
@@ -55,19 +55,16 @@ Le rapport sur les utilisateurs associés à un indicateur de risque dans les é
 
 ![les connexions risquées.](./media/concept-user-at-risk/03.png)
 
-La sélection d’un utilisateur ouvre le panneau des données utilisateur correspondant. Vous pouvez vérifier l’historique des connexions d’un utilisateur à risque et réinitialiser son mot de passe, le cas échéant.
-
-![les connexions risquées.](./media/concept-user-at-risk/46.png)
-
+La sélection d’un utilisateur fournit des informations de connexion. Vous pouvez vérifier l’historique des connexions d’un utilisateur à risque et réinitialiser son mot de passe, le cas échéant.
 
 Cette boîte de dialogue fournit une option permettant de :
 
 - Télécharger le rapport
-
 - Rechercher des utilisateurs
 
-![les connexions risquées.](./media/concept-user-at-risk/16.png)
+    ![les connexions risquées.](./media/concept-user-at-risk/16.png)
 
+Pour obtenir des informations plus détaillées, vous avez besoin d’une licence Premium.
 
 ## <a name="users-at-risk-report-for-azure-ad-premium-editions"></a>Rapport sur les utilisateurs courant un risque pour les éditions Azure AD Premium
 
@@ -102,7 +99,7 @@ Pour analyser un événement à risque, sélectionnez-en un depuis la liste pour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide pratique pour configurer la stratégie sur les risques liés à l’utilisateur](../identity-protection/howto-user-risk-policy.md)
+- [Guide pratique pour configurer la stratégie d'utilisateur à risque](../identity-protection/howto-user-risk-policy.md)
 - [Guide pratique pour configurer la stratégie de remédiation des risques](../identity-protection/howto-user-risk-policy.md)
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

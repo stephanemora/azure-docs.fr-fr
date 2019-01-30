@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 34ca5667b5bf47bec8c48a7e5836b7d51ad08724
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 88225ee7aeefd9030e754f2b1abc66e4c05e5c6b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986815"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431171"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutoriel : Appliquer l’authentification multifacteur pour les utilisateurs invités B2B
 
@@ -30,7 +30,7 @@ Exemple :
 3.  L’utilisateur est invité à effectuer une demande d’authentification multifacteur. 
 4.  L’utilisateur configure l’authentification multifacteur avec la société A et choisit son option d’authentification multifacteur. L’utilisateur est autorisé à accéder à l’application.
 
-Dans ce tutoriel, vous allez :
+Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
 > * Tester l’expérience de connexion avant la configuration de l’authentification multifacteur.
@@ -62,7 +62,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
     ![Sélectionnez Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
 6.  Sélectionnez **Inviter** pour envoyer automatiquement l’invitation à l’utilisateur invité. Un message **Utilisateur invité avec succès** apparaît. 
-7.  Après avoir envoyé l’invitation, le compte d’utilisateur est automatiquement ajouté à l’annuaire en tant qu’invité.
+7.  Après avoir envoyé l’invitation, le compte d’utilisateur est automatiquement ajouté au répertoire en tant qu’invité.
 
 ## <a name="test-the-sign-in-experience-before-mfa-setup"></a>Tester l’expérience de connexion avant la configuration de l’authentification multifacteur
 1.  Utilisez votre nom d’utilisateur de test et votre mot de passe pour vous connecter à votre [portail Azure](https://portal.azure.com/).
@@ -129,7 +129,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
  
 3.  Déconnectez-vous.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Quand vous n’en avez plus besoin, supprimez l’utilisateur de test et la stratégie d’accès conditionnel de test.
 1.  Connectez-vous au [Portail Azure](https://portal.azure.com/) en tant qu’administrateur Azure AD.
 2.  Sélectionnez **Azure Active Directory** dans le volet de gauche.

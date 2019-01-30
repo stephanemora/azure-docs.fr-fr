@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Fieldglass | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à Fieldglass | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Fieldglass.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2510195f-d5b1-4684-b3da-283fb8619df2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: a14aeb55d9e5756660708e9e63a867a66a54a7b6
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0d8c1dc6d0044992692151465aa2b37f6a23445b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443950"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822227"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Didacticiel : Intégration d’Azure Active Directory à Fieldglass
+# <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Tutoriel : Intégration d'Azure Active Directory à Fieldglass
 
 Dans ce didacticiel, vous allez apprendre à intégrer Fieldglass à Azure Active Directory (Azure AD).
 
@@ -138,7 +138,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 1. Pour configurer l’authentification unique du côté **Fieldglass**, vous devez envoyer le **certificat (Base64)** téléchargé et **l’URL de déconnexion et l’ID d’entité SAML** à [l’équipe de support technique Fieldglass](https://www.fieldglass.com/customer-support). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.

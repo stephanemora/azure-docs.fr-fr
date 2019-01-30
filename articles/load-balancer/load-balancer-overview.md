@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: e66acd6a94b891ac3f727fddb7a88a9c56f465d3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246566"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382682"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -154,10 +154,10 @@ Un équilibreur de charge interne permet d’effectuer les types d’équilibrag
 
 ## <a name="pricing"></a>Tarifs
 
-L’utilisation de Standard Load Balancer est facturée.
+L'utilisation de Standard Load Balancer est facturée.
 
 - Nombre de règles d’équilibrage de charge et de règles de trafic sortant configurées (les règles NAT de trafic entrant ne sont pas prises en compte dans le nombre total de règles)
-- Quantité de données traitées entrantes et sortantes, quelle que soit la règle. 
+- Volume entrant et sortant de données traitées, quelle que soit la règle. 
 
 Pour plus d’informations sur la tarification de Load Balancer Standard, consultez la page [Tarification de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 

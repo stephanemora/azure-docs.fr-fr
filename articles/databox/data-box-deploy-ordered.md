@@ -8,14 +8,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ce8217629cff702ecd3ec274d77918e54efacc6
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 43dc9edf715e20c84515d6acf4884e97c3b28184
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359117"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451882"
 ---
-# <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
+# <a name="tutorial-order-azure-data-box"></a>Didacticiel : Commander Azure Data Box
 
 Azure Data Box est une solution hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers un périphérique de stockage de 80 To (capacité utilisable) fourni par Microsoft, puis renvoyez l’appareil. Ces données sont ensuite chargées dans Azure.
 

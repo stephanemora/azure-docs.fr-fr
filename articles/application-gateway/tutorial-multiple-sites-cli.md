@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 27db76087165e37db936e802a01ddc4ecd269f4c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b1f1bb268223eb55270ff5dab5dbb346f6299d09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874428"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856245"
 ---
-# <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Tutoriel : créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure CLI
+# <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Tutoriel : Créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure CLI
 
 Vous pouvez utiliser Azure CLI pour [configurer l’hébergement de plusieurs sites web](multiple-site-overview.md) quand vous créez une [passerelle d’application](overview.md). Dans ce tutoriel, vous définissez des pools d’adresses principaux à l’aide de groupes de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce didacticiel, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.fabrikam.com* en guise d’exemples.
 
@@ -122,7 +122,7 @@ az network application-gateway address-pool create \
 
 ### <a name="add-backend-listeners"></a>Ajouter des écouteurs backend
 
-Ajoutez les écouteurs backend nécessaires pour acheminer le trafic à l’aide de la commande [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
+Ajoutez les écouteurs backend nécessaires pour acheminer le trafic à l’aide de la commande [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 Les règles sont traitées dans l’ordre dans lequel elles sont répertoriées, et le trafic est dirigé selon la première règle correspondante, quelle que soit sa spécificité. Par exemple, si une règle utilise un écouteur de base et qu’une autre utilise un écouteur multisite sur le même port, la règle avec l’écouteur multisite doit être répertoriée avant la règle avec l’écouteur de base pour que la règle multisite fonctionne comme prévu. 
 
-Dans cet exemple, vous créez deux règles et supprimez la règle par défaut qui a été créée au moment de la création de la passerelle d’application. Vous pouvez ajouter la règle à l’aide de la commande [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
+Dans cet exemple, vous créez deux règles et supprimez la règle par défaut qui a été créée au moment de la création de la passerelle d’application. Vous pouvez ajouter la règle à l’aide de la commande [az network application-gateway rule create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway rule create \

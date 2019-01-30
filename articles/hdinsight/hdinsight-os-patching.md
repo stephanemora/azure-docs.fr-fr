@@ -8,15 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0f8d6290e779872d73b0cf7a9d0d820d2ea5e007
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741587"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848153"
 ---
 # <a name="os-patching-for-hdinsight"></a>Mise à jour corrective du système d’exploitation pour HDInsight 
-En tant que service Apache Hadoop managé, HDInsight assure la mise à jour corrective du système d’exploitation des machines virtuelles sous-jacentes utilisées par les clusters HDInsight. Depuis le 1er août 2016, nous avons modifié la stratégie de gestion des mises à jour correctives du système d’exploitation invité pour les clusters HDInsight sous Linux (version 3.4 ou supérieure). L’objectif de la nouvelle stratégie est de réduire considérablement le nombre de redémarrages dus à la mise à jour corrective. La nouvelle stratégie exécutera les correctifs sur des machines virtuelles dans des clusters Linux chaque lundi ou un jeudi à partir de minuit (UTC) de manière échelonnée sur les nœuds dans tout cluster donné. Toutefois, toute machine virtuelle donnée ne redémarrera qu’une fois tous les 30 jours au maximum en raison de la mise à jour corrective du système d’exploitation invité. En outre, le premier redémarrage d’un cluster nouvellement créé aura lieu au plus tôt 30 jours après la date de création du cluster. Les correctifs seront appliqués une fois les machines virtuelles redémarrées.
+
+> [!IMPORTANT]
+> Les images Ubuntu sont accessibles pour la création d'un nouveau cluster HDInsight dans les 3 mois qui suivent leur publication. Depuis janvier 2019, **plus aucun** correctif automatique n'est disponible pour les clusters en cours d'exécution. Les clients doivent utiliser des actions de script ou d'autres mécanismes pour corriger un cluster en cours d'exécution.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Comment configurer la planification de la mise à jour corrective du système d’exploitation pour les clusters HDInsight sous Linux
 Les machines virtuelles d’un cluster HDInsight doivent être occasionnellement redémarrées pour assurer l’installation des correctifs de sécurité importants. Depuis le 1er août 2016, les nouveaux clusters HDInsight sous Linux (version 3.4 ou supérieure) sont redémarrés suivant la planification suivante :

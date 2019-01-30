@@ -4,7 +4,7 @@ description: Ce didacticiel vous guide tout au long de l’utilisation d’une i
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ea3868b66ec44057f9e84292d30b1aaf6affdf1c
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: d9683c95c050826143e3e30931c808a5b464d7e5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888050"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431994"
 ---
-# <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Didacticiel : utiliser une identité managée affectée par l’utilisateur sur une machine virtuelle Linux pour accéder à Azure Resource Manager
+# <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutoriel : Utiliser une identité managée affectée par l’utilisateur sur une machine virtuelle Linux pour accéder à Azure Resource Manager
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 

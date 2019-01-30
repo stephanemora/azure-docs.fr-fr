@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: a6833e2a492a9fb0a6a73a24c9f9d17638958dca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: cfbbe9a5297627dec69683b819aabd721b3c33d7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975727"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470781"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -181,7 +181,7 @@ Pour activer la réplication, vous pouvez effectuer les étapes suivantes :
 6. Dans **Cible**, sélectionnez l’abonnement et le groupe de ressources dans lesquels vous voulez créer les machines virtuelles basculées. Nous utilisons le modèle de déploiement Resource Manager. 
 7. Sélectionnez le compte de stockage Azure que vous voulez utiliser pour répliquer les données, ainsi que le sous-réseau et le réseau Azure auxquels les machines virtuelles Azure se connectent lorsqu’elles sont créées après le basculement.
 8. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer les paramètres réseau à l’ensemble des machines virtuelles pour lesquelles vous activez la réplication. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine.
-9. Dans **Machines virtuelles** > **Sélectionner les machines virtuelles**, sélectionnez chaque machine à répliquer. Vous pouvez uniquement sélectionner les machines pour lesquelles la réplication peut être activée. Sélectionnez ensuite **OK**.
+9. Dans **Machines virtuelles** > **Sélectionner les machines virtuelles**, sélectionnez chaque machine à répliquer. Vous pouvez uniquement sélectionner les machines pour lesquelles la réplication peut être activée. Sélectionnez ensuite **OK**. Si vous ne pouvez pas afficher ou sélectionner l’une des machines virtuelles, cliquez [ici](https://aka.ms/doc-plugin-VM-not-showing) pour résoudre le problème.
 10. Dans **Propriétés** > **Configurer les propriétés**, sélectionnez le compte que le serveur de processus doit utiliser pour installer automatiquement le service Mobilité sur la machine.
 11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée.
 12. Sélectionnez **Activer la réplication**. Site Recovery installe automatiquement le service Mobilité quand la réplication est activée pour une machine virtuelle.

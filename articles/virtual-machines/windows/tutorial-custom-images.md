@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 415652739c4987deafe820c31499132ec3829c8b
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: f2372382f36ba5a4ad801b4781bc7e04fa38694b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263313"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437604"
 ---
-# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Didacticiel : créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Didacticiel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell
 
 Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des configurations comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. Ce didacticiel explique comment créer votre propre image personnalisée d’une machine virtuelle Azure. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -42,7 +42,7 @@ Pour exécuter l’exemple dans ce didacticiel, vous devez disposer d’une mach
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous aurez besoin de la version 5.7.0 du module AzureRM ou d’une version ultérieure pour suivre ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous aurez besoin de la version 5.7.0 du module AzureRM ou d’une version ultérieure pour suivre ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="prepare-vm"></a>Préparer la machine virtuelle
 
@@ -50,7 +50,7 @@ Pour créer une image de machine virtuelle, vous devez préparer la machine virt
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>Généraliser la machine virtuelle Windows à l’aide de Sysprep
 
-Sysprep supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Pour plus d’informations sur Sysprep, voir [Introduction à l’utilisation de Sysprep](https://technet.microsoft.com/library/bb457073.aspx).
+Sysprep supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Pour plus d’informations sur Sysprep, consultez [Utilisation de Sysprep : de Sysprep](https://technet.microsoft.com/library/bb457073.aspx).
 
 
 1. Connectez-vous à la machine virtuelle.

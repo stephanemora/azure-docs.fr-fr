@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c8aa7050163c2b58ca68adcf9a9b4d0bc96bb126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263200"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808355"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -57,7 +57,7 @@ Les paramètres d’évaluation peuvent être personnalisés selon vos besoins. 
 
 **Propriété** | **Détails**
 --- | ---
-**Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer.<br/><br/>Azure Migrate prend actuellement en charge 33 régions comme emplacements cibles de migration. [Vérifier les régions](https://azure.microsoft.com/global-infrastructure/services/). USA Ouest 2 est la région cible par défaut.
+**Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer.<br/><br/>Azure Migrate prend actuellement en charge 33 régions comme emplacements cibles de migration. [Vérifier les régions](https://azure.microsoft.com/global-infrastructure/services/). Par défaut, la région cible est définie sur USA Est.
 **Type de stockage** | Type de disques managés que vous souhaitez allouer pour toutes les machines virtuelles qui font partie de l’évaluation. Si le critère de dimensionnement est *Dimensionnement local*, vous pouvez spécifier Disques premium (valeur par défaut), Disques SSD standard ou Disques HDD standard comme type de disque cible. Pour le *dimensionnement en fonction des performances*, en plus des options ci-dessus, vous pouvez aussi sélectionner Automatique afin de vous assurer que la recommandation de taille de disque est appliquée automatiquement en fonction des données de performances des machines virtuelles. Par exemple, si vous voulez obtenir une [ instance unique de contrat SLA de 99,9 %](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), vous pouvez spécifier le type de stockage en tant que disques managés Premium afin de vous assurer que tous les disques de l’évaluation seront recommandés comme disques managés Premium. Notez qu’Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
 **Instances réservées** |  Si vous disposez d’[instances réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/) dans Azure. Azure Migrate estime le coût en conséquence.
 **Critère de dimensionnement** | Le dimensionnement peut être basé sur l’**historique des performances** des machines virtuelles locales (par défaut), ou **localement** sans tenir compte de l’historique des performances.

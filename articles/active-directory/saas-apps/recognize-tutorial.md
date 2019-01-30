@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Recognize | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Recognize | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Recognize.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cfad939e-c8f4-45a0-bd25-c4eb9701acaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b2d5acfcb722845d7f346668597c073319f273f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d501a07f2efa6e9c6e20dfe2a026badf13f624
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448782"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824148"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Didacticiel : Intégration d’Azure Active Directory à Recognize
+# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Didacticiel : Intégration d'Azure Active Directory à Recognize
 
 Dans ce didacticiel, vous allez apprendre à intégrer Recognize avec Azure Active Directory (Azure AD).
 
@@ -46,7 +46,7 @@ Pour configurer l’intégration d’Azure AD à Recognize, vous avez besoin de
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous ne disposez pas d’un environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [Offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -117,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://recognizeapp.com/<your-domain>`
 
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez l’[équipe de support technique Recognize](mailto:support@recognizeapp.com) pour obtenir l’URL de connexion. Vous pouvez obtenir la valeur de l’identificateur en ouvrant l’URL des métadonnées du fournisseur de service dans la section Paramètres d’authentification unique décrite plus loin dans le didacticiel. . 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez l'[équipe du support technique de Recognize](mailto:support@recognizeapp.com)  pour obtenir l'URL de connexion. Vous pouvez également obtenir la valeur de l'identificateur en ouvrant l'URL des métadonnées du fournisseur de service dans la section Paramètres d'authentification unique décrite plus loin dans le didacticiel. . 
  
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
@@ -161,12 +161,12 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     ![Configurer l’authentification unique côté application](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-1. Ouvrez le **lien URL de métadonnées** dans un navigateur vide pour télécharger le document de métadonnées. Copiez la valeur EntityDescriptor value(entityID) à partir du fichier, puis collez-la vers la zone de texte **Identificateur** dans la section **Domaine et URL Recognize** sur le portail Azure.
+1. Ouvrez le **lien URL de métadonnées** dans un navigateur vide pour télécharger le document de métadonnées. Copiez la valeur EntityDescriptor value(entityID) à partir du fichier, puis collez-la dans la zone de texte  **Identificateur**  de la section **Domaine et URL Recognize** sur le portail Azure.
     
     ![Configurer l’authentification unique côté application](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

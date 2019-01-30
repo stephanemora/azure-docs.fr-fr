@@ -1,5 +1,5 @@
 ---
-title: 'Connecter un réseau virtuel Azure à un autre réseau virtuel à l’aide d’une connexion de réseau virtuel à réseau virtuel : Azure CLI | Microsoft Docs'
+title: 'Connecter un réseau virtuel Azure à un autre réseau virtuel à l’aide d’une connexion de réseau virtuel à réseau virtuel : Azure CLI | Microsoft Docs'
 description: Connectez des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel et Azure CLI.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2fc25235325db8a403c2b258dd5e4b3effc46ace
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dda4f68046b81d96cfe92d5e8b09eab23df0003b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971958"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846305"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide d’Azure CLI
 
@@ -31,7 +31,7 @@ Les étapes mentionnées dans cet article s’appliquent au modèle de déploiem
 > [!div class="op_single_selector"]
 > * [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portail Azure (classique)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connexions entre différents modèles de déploiement - Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connexions entre différents modèles de déploiement - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -74,11 +74,11 @@ Cet article inclut deux ensembles distincts d’étapes de connexion de réseau 
 
 Pour cet exercice, vous pouvez combiner des configurations ou choisir simplement celle que vous voulez utiliser. Toutes les configurations utilisent la connexion de réseau virtuel à réseau virtuel. Le trafic circule entre les réseaux virtuels connectés directement entre eux. Dans cet exercice, le trafic du réseau TestVNet4 n’est pas acheminé jusqu’au réseau TestVNet5.
 
-* [Réseaux virtuels qui se trouvent dans le même abonnement](#samesub) : les étapes de cette configuration utilisent les réseaux TestVNet1 et TestVNet4.
+* [Réseaux virtuels situés dans le même abonnement :](#samesub) Les étapes à suivre pour cette configuration utilisent les réseaux virtuels TestVNet1 et TestVNet4.
 
   ![Diagramme v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-* [Réseaux virtuels qui se trouvent dans des abonnements différents](#difsub) : les étapes de cette configuration utilisent les réseaux TestVNet1 et TestVNet5.
+* [Réseaux virtuels situés dans des abonnements différents :](#difsub) Les étapes à suivre pour cette configuration utilisent les réseaux virtuels TestVNet1 et TestVNet5.
 
   ![Diagramme v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
@@ -99,29 +99,29 @@ Nous utilisons les valeurs suivantes dans les exemples :
 
 * Nom du réseau virtuel : TestVNet1
 * Groupe de ressources : TestRG1
-* Emplacement : USA Est
+* Localisation : USA Est
 * TestVNet1 : 10.11.0.0/16 et 10.12.0.0/16
-* FrontEnd : 10.11.0.0/24
+* Front-end : 10.11.0.0/24
 * BackEnd : 10.12.0.0/24
 * GatewaySubnet : 10.12.255.0/27
 * GatewayName : VNet1GW
-* Adresse IP publique : VNet1GWIP
-* Type de VPN : RouteBased
+* Adresse IP publique : VNet1GWIP
+* VPNType : RouteBased
 * Connection(1to4) : VNet1toVNet4
-* Connection(1to5) : VNet1toVNet5 (pour les réseaux virtuels se trouvant dans des abonnements différents)
+* Connection(1to5) : VNet1toVNet5 (pour les réseaux virtuels se trouvant dans des abonnements différents)
 
 **Valeurs pour TestVNet4 :**
 
 * Nom du réseau virtuel : TestVNet4
 * TestVNet2 : 10.41.0.0/16 et 10.42.0.0/16
-* Serveur frontal : 10.41.0.0/24
-* Serveur principal : 10.42.0.0/24
-* Sous-réseau de passerelle : 10.42.255.0/27
+* Front-end : 10.41.0.0/24
+* BackEnd : 10.42.0.0/24
+* GatewaySubnet : 10.42.255.0/27
 * Groupe de ressources : TestRG4
-* Emplacement : USA Ouest
-* Nom de la passerelle : VNet4GW
-* Adresse IP publique : VNet4GWIP
-* Type de VPN : RouteBased
+* Localisation : USA Ouest
+* GatewayName : VNet4GW
+* Adresse IP publique : VNet4GWIP
+* VPNType : RouteBased
 * Connexion : VNet4toVNet1
 
 ### <a name="Connect"></a>Étape 1 : connectez-vous à votre abonnement
@@ -133,7 +133,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
 1. Créez un groupe de ressources.
 
   ```azurecli
-  az group create -n TestRG1  -l eastus
+  az group create -n TestRG1  -l eastus
   ```
 2. Créez TestVNet1 et les sous-réseaux de TestVNet1. L’exemple suivant permet de créer un réseau virtuel nommé TestVNet1 et un sous-réseau nommé FrontEnd.
 
@@ -148,11 +148,11 @@ Nous utilisons les valeurs suivantes dans les exemples :
 4. Créez le sous-réseau principal.
   
   ```azurecli
-  az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
+  az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
   ```
 5. Créez le sous-réseau de passerelle. Notez que le sous-réseau de passerelle est nommé GatewaySubnet. Ce nom est obligatoire. Dans cet exemple, le sous-réseau de passerelle utilise /27. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau plus vaste qui inclut un plus grand nombre d’adresses en sélectionnant au moins /28 ou /27. Cela permettra à un nombre suffisant d’adresses de s’adapter à de possibles configurations supplémentaires possibles que vous êtes susceptible de souhaiter par la suite.
 
-  ```azurecli 
+  ```azurecli 
   az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestRG1 --address-prefix 10.12.255.0/27
   ```
 6. Demandez l’allocation d’une adresse IP publique à la passerelle que vous allez créer pour votre réseau virtuel. Notez que la valeur AllocationMethod est dynamique. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle de façon dynamique.
@@ -171,7 +171,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
 1. Créez un groupe de ressources.
 
   ```azurecli
-  az group create -n TestRG4  -l westus
+  az group create -n TestRG4  -l westus
   ```
 2. Créez TestVNet4.
 
@@ -182,13 +182,13 @@ Nous utilisons les valeurs suivantes dans les exemples :
 3. Créez des sous-réseaux supplémentaires pour TestVNet4.
 
   ```azurecli
-  az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
-  az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
+  az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
+  az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
   ```
 4. Créez le sous-réseau de passerelle.
 
   ```azurecli
-   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
+   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
   ```
 5. Demandez une adresse IP publique.
 
@@ -218,18 +218,18 @@ Vous avez maintenant deux réseaux virtuels avec des passerelles VPN. L’étape
   Exemple de sortie :
 
   ```
-  "activeActive": false, 
-  "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
-  "enableBgp": false, 
-  "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
-  "gatewayDefaultSite": null, 
-  "gatewayType": "Vpn", 
-  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
-  "ipConfigurations":
+  "activeActive": false, 
+  "bgpSettings": { 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
+  "enableBgp": false, 
+  "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
+  "gatewayDefaultSite": null, 
+  "gatewayType": "Vpn", 
+  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
+  "ipConfigurations":
   ```
 
   Copiez les valeurs situées après **« id » :** entre les guillemets.
@@ -247,7 +247,7 @@ Vous avez maintenant deux réseaux virtuels avec des passerelles VPN. L’étape
 3. Créez la connexion de TestVNet1 à TestVNet4. Lors de cette étape, vous créez la connexion de TestVNet1 à TestVNet4. Une clé partagée est référencée dans les exemples. Vous pouvez utiliser vos propres valeurs pour cette clé partagée. Il est important que la clé partagée corresponde aux deux connexions. La création d’une connexion prend quelques instants.
 
   ```azurecli
-  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
+  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
   ```
 4. Créez la connexion de TestVNet4 à TestVNet1. Cette étape est similaire à celle présentée ci-dessus, sauf que vous créez la connexion de TestVNet4 à TestVNet1. Vérifiez que les clés partagées correspondent. L’établissement de la connexion prend quelques minutes.
 
@@ -286,16 +286,16 @@ Lors de la création de connexions supplémentaires, il est important de s’ass
 
 * Nom du réseau virtuel : TestVNet5
 * Groupe de ressources : TestRG5
-* Emplacement : Japon Est
+* Localisation : Japon Est
 * TestVNet5 : 10.51.0.0/16 et 10.52.0.0/16
-* Serveur frontal : 10.51.0.0/24
-* Serveur principal : 10.52.0.0/24
-* Sous-réseau de passerelle : 10.52.255.0.0/27
-* Nom de la passerelle : VNet5GW
-* Adresse IP publique : VNet5GWIP
-* Type de VPN : RouteBased
+* Front-end : 10.51.0.0/24
+* BackEnd : 10.52.0.0/24
+* GatewaySubnet : 10.52.255.0.0/27
+* GatewayName : VNet5GW
+* Adresse IP publique : VNet5GWIP
+* VPNType : RouteBased
 * Connexion : VNet5toVNet1
-* Type de connexion : VNet2VNet
+* ConnectionType : VNet2VNet
 
 ### <a name="TestVNet5"></a>Étape 7 : créez et configurez TestVNet5
 
@@ -304,7 +304,7 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
 1. Assurez-vous d’être connecté à Abonnement 5, puis créez un groupe de ressources.
 
   ```azurecli
-  az group create -n TestRG5  -l japaneast
+  az group create -n TestRG5  -l japaneast
   ```
 2. Créez TestVNet5.
 
@@ -362,7 +362,7 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
 
   Copiez la sortie pour « id: ». Envoyez l’ID et le nom de la passerelle de réseau virtuel (VNet5GW) à l’administrateur de Abonnement 1 via e-mail ou une autre méthode.
 
-3. **[Abonnement 1]** Dans cette étape, vous créez la connexion de TestVNet1 à TestVNet5. Vous pouvez utiliser vos propres valeurs pour la clé partagée, toutefois, cette dernière doit correspondre aux deux connexions. La création d’une connexion peut prendre quelques instants. Veillez à vous connecter à Abonnement 1.
+3. **[Abonnement 1]** Dans cette étape, vous créez la connexion de TestVNet1 à TestVNet5. Vous pouvez utiliser vos propres valeurs pour la clé partagée, toutefois, cette dernière doit correspondre aux deux connexions. La création d’une connexion peut prendre quelques instants. Veillez à vous connecter à Abonnement 1.
 
   ```azurecli
   az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW

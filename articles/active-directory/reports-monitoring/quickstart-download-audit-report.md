@@ -4,7 +4,7 @@ description: Découvrez comment télécharger un rapport d’audit avec le porta
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4de121ea-f4aa-4c8a-aae4-700c2c5e97a2
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3f4090f1724850b0263905a0593fc77cc6dbfd16
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: afa92c40bd3cebea1024cf783a746450d3430a8d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620732"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821816"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Démarrage rapide : Télécharger un rapport d’audit avec le portail Azure
 
-Dans ce guide de démarrage rapide, vous apprenez à télécharger les journaux d’audit des dernières 24 heures pour votre locataire.
+Dans ce guide de démarrage rapide, vous apprenez à télécharger les journaux d’audit des dernières 24 heures pour votre locataire. Vous pouvez télécharger jusqu’à 5 000 enregistrements à partir du portail Azure. Les enregistrements sont triés par date. Par défaut, les 5 000 enregistrements les plus récents s’affichent. 
 
 ## <a name="prerequisites"></a>Prérequis
 

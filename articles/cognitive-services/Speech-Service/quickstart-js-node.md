@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : reconnaissance vocale en JavaScript dans Node.js avec le SDK du service Speech'
+title: 'Démarrage rapide : Reconnaissance vocale, Node.js - Services de reconnaissance vocale'
 titleSuffix: Azure Cognitive Services
-description: Découvrir la reconnaissance vocale en JavaScript dans Node.js avec le SDK du service Speech
+description: Utilisez ce guide pour créer une application console de reconnaissance vocale à l’aide du SDK Speech pour Node.js. Lorsque vous avez terminé, vous pouvez utiliser le microphone de l’ordinateur pour une retranscription vocale en temps réel.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: 35652b169067bc545fa0d1fcc977bbaee79ec3aa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e0ae916687ca32835dd8daf6e5059b8f6eea0ff6
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724424"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382166"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-nodejs-using-the-speech-service-sdk"></a>Démarrage rapide : reconnaissance vocale en JavaScript dans Node.js avec le SDK du service Speech
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Démarrage rapide : Reconnaissance vocale à l’aide du SDK Speech pour Node.js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -29,9 +29,9 @@ L’application est basée sur le [SDK Speech de Microsoft Cognitive Services](h
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 * Version actuelle de [Node.js](https://nodejs.org).
 
-## <a name="create-a-new-project-folder"></a>Créer un dossier de projet
+## <a name="create-a-new-project"></a>Création d'un projet
 
-Créez un dossier vide et initialisez-le en tant que nouveau projet JavaScript et Node.js.
+Créez un dossier et initialisez le projet.
 
 ```sh
 npm init -f
@@ -39,13 +39,17 @@ npm init -f
 
 Le fichier package.json est alors initialisé avec les valeurs par défaut. Vous serez probablement amené à modifier ce fichier par la suite.
 
-## <a name="install-the-speech-sdk-for-javascript-into-that-folder"></a>Installer le SDK Speech pour JavaScript dans ce dossier
+## <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 
-Ajoutez le SDK Speech à l’aide de la commande `npm install microsoft-cognitiveservices-speech-sdk` à votre projet Node.js.
+Ajoutez le SDK Speech à votre projet Node.js.
 
-La dernière version du SDK Speech et tous les prérequis sont téléchargés à partir de npmjs et installés. Le SDK est installé dans le répertoire `node_modules` à l’intérieur de votre dossier de projet.
+```
+npm install microsoft-cognitiveservices-speech-sdk
+```
 
-## <a name="using-the-speech-sdk"></a>Utilisation du SDK Speech
+La dernière version du SDK Speech et tous les prérequis seront téléchargés à partir de npmjs, puis installés. Le SDK est installé dans le répertoire `node_modules` à l’intérieur de votre dossier de projet.
+
+## <a name="use-the-speech-sdk"></a>Utiliser le SDK Speech
 
 Créez un fichier nommé `index.js` dans le dossier, puis ouvrez-le dans un éditeur de texte.
 
@@ -58,7 +62,7 @@ Ajoutez le code JavaScript suivant :
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
-## <a name="running-the-sample-from-command-line"></a>Exécution de l’exemple à partir de la ligne de commande
+## <a name="run-the-sample"></a>Exécution de l'exemple
 
 Pour lancer l’application, adaptez `YourSubscriptionKey`, `YourServiceRegion`, et `YourAudioFile.wav` à votre configuration. Vous pouvez ensuite l’exécuter en appelant la commande suivante :
 
@@ -88,7 +92,7 @@ SpeechRecognitionResult {
 }
 ```
 
-## <a name="running-the-sample-from-visual-studio-code"></a>Exécution de l’exemple à partir de Visual Studio Code
+## <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installer et utiliser le SDK Speech avec Visual Studio Code
 
 Vous pouvez également exécuter l’exemple à partir de Visual Studio Code. Suivez ces étapes pour installer, ouvrir et exécuter le guide de démarrage rapide :
 

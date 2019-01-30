@@ -35,7 +35,10 @@
 #### [Faire la promotion de votre entreprise avec Microsoft](./gtm-promote-your-business.md)
 #### [Solutions recommandées](./preferred-solutions.md) 
 
-### [Support pour la Place de marché Microsoft Azure et Microsoft AppSource](./support-azure-marketplace.md)  
+### [Support pour la Place de marché Microsoft Azure et Microsoft AppSource](./support-azure-marketplace.md)
+#### [Questions fréquentes (FAQ) sur la Place de marché](./marketplace-faq-publisher-guide.md)
+#### [Conditions d’utilisation de la Place de marché](./marketplace-terms.md)
+#### [Politique de participation à la Place de marché](./marketplace-participation-policy.md)
 
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
@@ -151,7 +154,6 @@
 #### [Publier l’offre](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 #### [Mettre à jour l’offre existante](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 #### [API SaaS](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
-#### [Client d’auto-test SaaS](./cloud-partner-portal/saas-app/cpp-selftest-client.md)
 
 ### [Offre de machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 #### [Composants requis](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
@@ -176,6 +178,7 @@
 ###### [Modèle de déploiement de disque dur virtuel](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
 ###### [Déployer une machine virtuelle à partir de la Place de marché](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md)
 ##### [Certifier l’image de machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
+##### [Client d’auto-test de machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-selftest-client.md)
 ##### [Obtenir une URI SAP](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 ##### [Problèmes courants relatifs aux URL SAP](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
 #### [Publier l’offre de machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)

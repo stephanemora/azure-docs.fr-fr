@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3d3559f789d928f546042d5b2ee4f18edcedc052
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a881b8b91c906de381eba55e01ead214edb6cfee
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227380"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431110"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à niveau le runtime d’un cluster Service Fabric dans Azure
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutoriel : Mettre à niveau le runtime d’un cluster Service Fabric dans Azure
 
 Ce didacticiel est la troisième partie d’une série de didacticiels et vous montre comment mettre à niveau le runtime Service Fabric sur un cluster Azure Service Fabric. Cette partie du didacticiel concerne les clusters Service Fabric s’exécutant sur Azure ; elle ne s’applique pas aux clusters Service Fabric autonomes.
 
@@ -49,7 +49,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installez le [module Azure PowerShell 4.1 ou version ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
+* Installez le [module Azure PowerShell 4.1 ou version ultérieure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
 * Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure
 * Si vous déployez un cluster Windows, configurez un environnement de développement Windows. Installez les charges de travail [Visual Studio 2017](https://www.visualstudio.com) et le **développement Azure**, **ASP.NET et le développement web**, ainsi que **Développement multiplateforme .NET Core**.  Ensuite, configurez un [environnement de développement .NET](service-fabric-get-started.md).
 * Si vous déployez un cluster Linux, configurez un environnement de développement Java sur [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md).

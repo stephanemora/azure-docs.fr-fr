@@ -4,7 +4,7 @@ description: Découvrez comment configurer une jonction Azure Active Directory h
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f904690187f6f2b020cb9cc32f9a20712d8bb53
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: af1495af69255c7daa7de94da6ce0321c13d7599
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107563"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448209"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutoriel : Configurer la jointure hybride Azure Active Directory pour des domaines fédérés
 
@@ -73,11 +73,11 @@ Les étapes de configuration décrites dans cet article sont basées sur cet Ass
 
 L’accès des appareils aux ressources Microsoft suivantes depuis le réseau de votre organisation est indispensable à la jonction Azure AD hybride :  
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
+- https\://enterpriseregistration.windows.net
+- https\://login.microsoftonline.com
+- https\://device.login.microsoftonline.com
 - STS de votre organisation (domaines fédérés)
-- https://autologon.microsoftazuread-sso.com (Si vous utilisez ou prévoyez d’utiliser l’authentification unique fluide)
+- https\://autologon.microsoftazuread-sso.com (si vous utilisez ou prévoyez d’utiliser l’authentification unique fluide)
 
 À compter de Windows 10 1803, si la jonction Azure AD hybride instantanée d’un domaine fédéré tel qu’AD FS tombe en panne, nous nous appuyons sur Azure AD Connect pour synchroniser l’objet ordinateur dans Azure AD, qui sera ensuite utilisé pour terminer l’inscription de l’appareil à une jointure Azure AD hybride.
 

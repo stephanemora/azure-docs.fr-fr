@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 89827cdc7d29a817c83fd16ec2a4340f06c8343c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272728"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389285"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurer votre environnement App Service avec le tunneling forcé
 
-L’environnement ASE (App Service Environment) est un déploiement d’Azure App Service dans le réseau virtuel Azure d’un client. De nombreux clients configurent leurs réseaux virtuels Azure en tant qu’extensions de leurs réseaux locaux avec des réseaux privés virtuels ou des connexions Azure ExpressRoute. Le tunneling forcé consiste à rediriger le trafic Internet sortant vers votre réseau privé virtuel ou vers une appliance virtuelle. Cette méthode est souvent utilisée pour répondre à des exigences de sécurité visant à inspecter et auditer tout le trafic sortant. 
+L’environnement ASE (App Service Environment) est un déploiement d’Azure App Service dans le réseau virtuel Azure d’un client. De nombreux clients configurent leurs réseaux virtuels Azure en tant qu’extensions de leurs réseaux locaux avec des réseaux privés virtuels ou des connexions Azure ExpressRoute. Le tunneling forcé consiste à rediriger le trafic Internet sortant vers votre réseau privé virtuel ou vers une appliance virtuelle. Les appliances virtuelles servent souvent à inspecter et à auditer le trafic réseau sortant. 
 
 L’environnement ASE a de nombreuses dépendances externes, décrites dans ce document sur [l’architecture réseau de l’environnement App Service][network]. Normalement, tout le trafic de dépendance sortant de l’ASE doit passer par l’adresse IP virtuelle qui est configurée avec l’ASE. Si vous modifiez le routage du trafic vers ou depuis l’ASE sans tenir compte des informations ci-dessous, votre ASE cessera de fonctionner.
 
@@ -62,28 +62,25 @@ Si le réseau achemine déjà du trafic en local, vous devez alors créer le sou
 
 ## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>Configurer votre sous-réseau ASE de manière à ignorer les itinéraires BGP ## 
 
-Vous pouvez configurer votre sous-réseau ASE de manière à ignorer les itinéraires BGP.  Lorsque cela est configuré, l’ASE sera en mesure d’accéder à ses dépendances sans problème.  Toutefois, vous devrez créer des UDR pour permettre à vos applications d’accéder aux ressources locales.
+Vous pouvez configurer votre sous-réseau ASE de manière à ignorer les itinéraires BGP.  Lorsqu’il est configuré pour ignorer les routes BGP, l’ASE peut accéder à ses dépendances sans problème.  Toutefois, vous devrez créer des UDR pour permettre à vos applications d’accéder aux ressources locales.
 
 Pour configurer votre sous-réseau ASE de manière à ignorer les itinéraires BGP :
 
 * créez un UDR et affectez-le à votre sous-réseau ASE si vous n’en n’avez pas encore.
 * Dans le portail Azure, ouvrez l’interface utilisateur pour la table de routage affectée à votre sous-réseau ASE.  Sélectionnez une configuration.  Désactivez la propagation des itinéraires BGP.  Cliquez sur Enregistrer. La documentation sur la mise hors tension se trouve dans le document [Créer une table de routage][routetable].
 
-Après cela, il se peut qu’il ne soit plus possible d’accéder à vos applications en local. Pour résoudre ce problème, modifiez l’UDR affecté à votre sous-réseau ASE et ajoutez des itinéraires pour vos plages d’adresses locales. Le type de tronçon suivant doit être défini sur Passerelle de réseau virtuel. 
+Une fois que vous avez configuré le sous-réseau ASE de façon à ignorer toutes les routes BGP, vos applications ne peuvent plus accéder aux ressources locales. Pour permettre aux applications d’accéder aux ressources locales, modifiez l’UDR affecté à votre sous-réseau ASE, puis ajoutez des routes pour vos plages d’adresses locales. Le type de tronçon suivant doit être défini sur Passerelle de réseau virtuel. 
 
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Configurer votre ASE avec des points de terminaison de service ##
 
- > [!NOTE]
-   > Les points de terminaison de service avec SQL ne fonctionnent pas avec ASE dans les régions du gouvernement des États-Unis.  Les informations suivantes sont uniquement valides dans les régions publiques Azure.  
-
 Pour acheminer tout le trafic sortant à partir de votre ASE, à l’exception de celui qui est acheminé vers Azure SQL et Stockage Azure, procédez comme suit :
 
-1. Créez une table de routage et affectez-la à votre sous-réseau ASE. Pour retrouver les adresses qui correspondent à votre région, consultez [Adresses de gestion de l’environnement Azure App Service][management]. Créez des itinéraires pour ces adresses avec un tronçon Internet suivant. Cela est nécessaire car le trafic de gestion entrant de l’environnement App Service doit répondre à partir de la même adresse que celle à laquelle il a été envoyé.   
+1. Créez une table de routage et affectez-la à votre sous-réseau ASE. Pour retrouver les adresses qui correspondent à votre région, consultez [Adresses de gestion de l’environnement Azure App Service][management]. Créez des itinéraires pour ces adresses avec un tronçon Internet suivant. Ces routes sont nécessaires, car le trafic de gestion entrant de l’environnement ASE doit répondre à partir de la même adresse que celle à laquelle il a été envoyé.   
 
 2. Activez des points de terminaison de service avec Azure SQL et Stockage Azure pour votre sous-réseau ASE.  Une fois cette étape terminée, vous pouvez ensuite configurer votre réseau virtuel avec le tunneling forcé.
 
-Pour créer votre ASE dans un réseau virtuel déjà configuré pour acheminer tout le trafic sur le site, vous devez créer votre ASE à l’aide d’un modèle de gestionnaire de ressources.  Il n’est pas possible de créer un ASE avec le portail dans un sous-réseau existant.  Lorsque vous déployez votre ASE dans un réseau virtuel qui est déjà configuré pour acheminer le trafic sortant sur le site, vous devez créer votre ASE à l’aide d’un modèle de gestionnaire de ressources vous permettant de spécifier un sous-réseau existant. Pour plus d’informations sur le déploiement d’un ASE à l’aide d’un modèle, consultez [Création d’un environnement App Service à l’aide d’un modèle][template].
+Pour créer votre ASE dans un réseau virtuel déjà configuré pour acheminer tout le trafic sur le site, vous devez créer votre ASE à l’aide d’un modèle de gestionnaire de ressources.  Il n’est pas possible de créer un ASE avec le portail dans un sous-réseau existant.  Lorsque vous déployez votre ASE dans un réseau virtuel qui est déjà configuré pour acheminer le trafic sortant sur le site, vous devez créer votre ASE à l’aide d’un modèle de gestionnaire de ressources vous permettant de spécifier un sous-réseau existant. Pour plus d’informations sur le déploiement d’un ASE à l’aide d’un modèle, consultez [Créer un environnement ASE à l’aide d’un modèle][template].
 
 Les points de terminaison de service vous permettent de restreindre l’accès aux services multilocataires à un ensemble de sous-réseaux et de réseaux virtuels Azure. Pour en savoir plus sur les points de terminaison de service, consultez la documentation [Points de terminaison de service de réseau virtuel][serviceendpoints]. 
 
@@ -91,7 +88,7 @@ Lorsque vous activez les points de terminaison de service sur une ressource, cer
 
 Lorsque les points de terminaison de service sont activés sur un sous-réseau avec une instance Azure SQL, toutes les instances Azure SQL connectées à partir de ce sous-réseau doivent avoir des points de terminaison de service activés. Si vous souhaitez accéder à plusieurs instances Azure SQL à partir du même sous-réseau, vous ne pouvez pas activer les points de terminaison de service sur une instance Azure SQL et pas sur une autre.  Stockage Azure ne se comporte pas de la même manière qu’Azure SQL.  Lorsque vous activez les points de terminaison de service avec Stockage Azure, vous verrouillez l’accès à cette ressource à partir de votre sous-réseau, mais pourrez toujours accéder aux autres comptes Stockage Azure même si les points de terminaison de service ne sont pas activés.  
 
-Si vous configurez le tunneling forcé avec une appliance de filtre de réseau, n’oubliez pas que l’ASE possède des dépendances en plus d’Azure SQL et de Stockage Azure. Vous devez autoriser le trafic vers ces dépendances ou l’ASE ne fonctionnera pas correctement.
+Si vous configurez le tunneling forcé avec une appliance de filtre de réseau, n’oubliez pas que l’ASE possède des dépendances en plus d’Azure SQL et de Stockage Azure. Si le trafic vers ces dépendances est bloqué, l’environnement ASE ne fonctionnera pas correctement.
 
 ![Tunneling forcé avec points de terminaison de service][2]
 
@@ -99,7 +96,7 @@ Si vous configurez le tunneling forcé avec une appliance de filtre de réseau, 
 
 Pour tunneliser tout le trafic sortant à partir de votre ASE, à l’exception de celui qui est acheminé vers Stockage Azure, procédez comme suit :
 
-1. Créez une table de routage et affectez-la à votre sous-réseau ASE. Pour retrouver les adresses qui correspondent à votre région, consultez [Adresses de gestion de l’environnement Azure App Service][management]. Créez des itinéraires pour ces adresses avec un tronçon Internet suivant. Cela est nécessaire car le trafic de gestion entrant de l’environnement App Service doit répondre à partir de la même adresse que celle à laquelle il a été envoyé. 
+1. Créez une table de routage et affectez-la à votre sous-réseau ASE. Pour retrouver les adresses qui correspondent à votre région, consultez [Adresses de gestion de l’environnement Azure App Service][management]. Créez des itinéraires pour ces adresses avec un tronçon Internet suivant. Ces routes sont nécessaires, car le trafic de gestion entrant de l’environnement ASE doit répondre à partir de la même adresse que celle à laquelle il a été envoyé. 
 
 2. Activer des points de terminaison de service avec Stockage Azure pour votre sous-réseau ASE
 

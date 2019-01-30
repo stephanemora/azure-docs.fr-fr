@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f311f951e09e064b8eac779b1082c666fe029479
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a89768a5cf02cc8d4cdce670bdfb5b90f504bdf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977234"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447460"
 ---
-# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Démarrage rapide : Mettre à jour une application dans Azure Active Directory
+# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Démarrage rapide : Mettre à jour une application dans Azure Active Directory
 
 Les développeurs en entreprise et les fournisseurs de services SaaS (software-as-a-service) qui ont inscrit des applications auprès d’Azure Active Directory (Azure AD) peuvent avoir besoin de configurer vos applications de sorte qu’elles accèdent à d’autres ressources telles que des API web, pour les rendre disponibles à d’autres organisations, etc.
 
@@ -44,8 +44,8 @@ Une application cliente web/confidentielle doit établir des informations d’id
 
 Avant qu’un client puisse accéder à une API web exposée par une application de ressources (comme l’API Microsoft Graph), l’infrastructure de consentement permet au client d’obtenir l’autorisation nécessaire en fonction des autorisations demandées. Par défaut, toutes les applications peuvent choisir des autorisations à partir **d’Azure Active Directory** (API Graph) et du modèle de déploiement Azure Classic. L’[autorisation « Connexion et lecture du profil utilisateur » de API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) est également sélectionnée par défaut. Si votre client est en cours d’enregistrement dans un locataire possédant des comptes inscrits à Office 365, vous aurez également la possibilité de sélectionner les API web et les autorisations pour Exchange Online et SharePoint. Vous pouvez choisir à partir de deux types d’autorisations pour chaque API web souhaitée :
 
-- Permissions d’application : votre application cliente doit accéder à l’API web directement en tant que telle (aucun contexte utilisateur). Ce type d'autorisation requiert le consentement de l'administrateur et n'est également pas disponible pour les applications clientes natives.
-- Permissions déléguées : votre application cliente doit accéder à l’API web en tant qu’utilisateur connecté, mais avec un accès limité par l’autorisation sélectionnée. Ce type d'autorisation peut être accordé par un utilisateur, à moins que l'autorisation nécessite le consentement de l'administrateur.
+- Autorisations pour les applications : votre application cliente doit accéder à l’API web directement en tant que telle (aucun contexte utilisateur). Ce type d'autorisation requiert le consentement de l'administrateur et n'est également pas disponible pour les applications clientes natives.
+- Autorisations déléguées : votre application cliente doit accéder à l’API web en tant qu’utilisateur connecté, mais avec un accès limité par l’autorisation sélectionnée. Ce type d'autorisation peut être accordé par un utilisateur, à moins que l'autorisation nécessite le consentement de l'administrateur.
 
   > [!NOTE]
   > L’ajout d’une autorisation déléguée à une application n’accorde pas automatiquement un consentement aux utilisateurs du client. Les utilisateurs doivent donner manuellement leur consentement pour les autorisations déléguées ajoutées lors de l’exécution, à moins que l’administrateur ne donne son consentement au nom de tous les utilisateurs.
@@ -53,7 +53,7 @@ Avant qu’un client puisse accéder à une API web exposée par une application
 ### <a name="add-application-credentials-or-permissions-to-access-web-apis"></a>Ajouter des informations d’identification d’application ou des autorisations pour accéder aux API web
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Si votre compte vous propose plusieurs accès, sélectionnez votre compte en haut à droite et définissez votre session de portail pour le locataire Azure AD souhaité.
+2. Si votre compte vous propose plusieurs accès, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
 3. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, sélectionnez **Inscriptions des applications**, puis recherchez/sélectionnez l’application que vous souhaitez configurer.
 
    ![Mettre à jour l’inscription d’une application](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
@@ -89,7 +89,7 @@ La section suivante indique comment exposer les étendues d’accès en modifian
 ### <a name="add-access-scopes-to-your-resource-application"></a>Ajouter des étendues d’accès à votre ressource d’application
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Si votre compte vous propose plusieurs accès, sélectionnez votre compte en haut à droite et définissez votre session de portail pour le locataire Azure AD souhaité.
+2. Si votre compte vous propose plusieurs accès, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
 3. Dans le volet de navigation gauche, sélectionnez **Azure Active Directory > Inscriptions des applications**, puis recherchez/sélectionnez l’application que vous souhaitez configurer.
 
    ![Mettre à jour l’inscription d’une application](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
@@ -111,7 +111,7 @@ La section suivante indique comment exposer les étendues d’accès en modifian
   ```
 
   > [!NOTE]
-  > La valeur `id` doit être générée par programme ou à l’aide d’un outil de génération de GUID comme [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). La valeur `id` représente un identificateur unique pour l’étendue comme exposée par l’API web. Une fois qu’un client est correctement configuré avec les autorisations pour accéder à votre API web, Azure AD émet un jeton d’accès OAuth2.0. Lorsque le client appelle l’API web, il présente le jeton d’accès dont la revendication de l’étendue (scp) a été configurée sur les autorisations demandées dans son inscription d’application.
+  > La valeur `id` doit être générée par programmation ou à l’aide d’un outil de génération de GUID comme [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). La valeur `id` représente un identificateur unique pour l’étendue comme exposée par l’API web. Une fois qu’un client est correctement configuré avec les autorisations pour accéder à votre API web, Azure AD émet un jeton d’accès OAuth2.0. Lorsque le client appelle l’API web, il présente le jeton d’accès dont la revendication de l’étendue (scp) a été configurée sur les autorisations demandées dans son inscription d’application.
   >
   > Vous pouvez exposer des étendues supplémentaires ultérieurement si nécessaire. Considérez que votre API web peut exposer plusieurs étendues associées à un éventail de fonctions différentes. Votre ressource peut contrôler l’accès à l’API web lors de l’exécution, en évaluant la/les revendication(s) de l’étendue (`scp`) dans le jeton d’accès OAuth 2.0 reçu.
 
@@ -190,7 +190,7 @@ Pour plus d’informations sur les modifications d’application requises pour p
 
 - [Comment connecter un utilisateur Azure Active Directory (AD) à l’aide du modèle d’application mutualisée](howto-convert-app-to-be-multi-tenant.md)
 - La liste des [exemples de code de l’architecture multilocataire](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant).
-- [Démarrage rapide : Ajouter la marque de votre société à votre page de connexion dans Azure AD](../fundamentals/customize-branding.md)
+- [Démarrage rapide : Ajouter la marque de votre société à votre page de connexion dans Azure AD](../fundamentals/customize-branding.md)
 
 ## <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Activation de l’octroi implicite OAuth 2.0 pour les applications monopages
 

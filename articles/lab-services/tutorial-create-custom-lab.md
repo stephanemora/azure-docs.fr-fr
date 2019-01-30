@@ -1,5 +1,5 @@
 ---
-title: Créer un laboratoire à l’aide de Azure DevTest Labs | Microsoft Docs
+title: Créer un laboratoire avec Azure DevTest Labs | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous créez un laboratoire à l’aide de Azure DevTest Labs.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: ee2def6287a845cd0fd0260254efb20f9638ab2c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 84a6cdb5e91128bbade43ee9212cfa9658228964
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839039"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423290"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Didacticiel : configurer un laboratoire à l’aide de Azure DevTest Labs
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutoriel : Configurer un laboratoire avec Azure DevTest Labs
 Dans ce didacticiel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
@@ -49,24 +49,31 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
     6. Sélectionnez **Épingler au tableau de bord**. Après avoir créé le laboratoire, il s’affiche dans le tableau de bord. 
 
         ![Création d’un laboratoire de DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
+2. Vérifiez que le laboratoire est correctement créé en examinant les notifications. Sélectionnez **Accéder à la ressource**.  
+
+    ![Notification](./media/tutorial-create-custom-lab/creation-notification.png)
+3. Vérifiez que vous voyez la page **DevTest Lab** de votre laboratoire. 
+
+    ![Page d’accueil de votre laboratoire](./media/tutorial-create-custom-lab/lab-home-page.png)
 
 ## <a name="add-a-vm-to-the-lab"></a>Ajouter une machine virtuelle au laboratoire
 
 1. Sur la page **DevTest Lab**, sélectionnez **+ Ajouter** sur la barre d’outils. 
 
     ![Bouton Ajouter](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. Sur la page **Choisir une base**, recherchez avec un mot-clé (par exemple : Windows, Ubuntu) puis sélectionnez l’une des images de base dans la liste. 
+1. Dans la page **Choisir une base**, effectuez une recherche avec un mot clé (par exemple : Windows, Ubuntu) et sélectionnez une des images de base dans la liste. 
 1. Sur la page **Machine virtuelle**, effectuez les actions suivantes : 
     1. Pour **Nom de la machine virtuelle**, saisissez le nom de la machine virtuelle. 
     2. Pour **Nom d’utilisateur**, entrez un nom pour l’utilisateur qui a accès à la machine virtuelle. 
-    3. Dans **Entrer une valeur**, entrez le mot de passe de l’utilisateur. 
-    4. Sélectionnez **Paramètres avancés**.
-    5. Pour **Rendre cette machine exigible**, sélectionnez **Oui**.
-    6. Vérifiez que le **nombre d’instances** est défini sur **1**. Si vous le définissez sur **2**, 2 machines virtuelles sont créées avec les noms : `<base image name>00' and <base image name>01`. Par exemple : `win10vm00` et `win10vm01`. 
-    7. Pour fermer la page **Avancé**, cliquez sur **OK**. 
-    8. Sélectionnez **Créer**. 
+    3. Dans le champ **Mot de passe**, entrez le mot de passe de l’utilisateur. 
 
         ![Choisir une base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+1. Sélectionnez l’onglet **Paramètres avancés**.
+    1. Pour **Rendre cette machine exigible**, sélectionnez **Oui**.
+    2. Vérifiez que le **nombre d’instances** est défini sur **1**. Si vous le définissez sur **2**, 2 machines virtuelles sont créées avec les noms : `<base image name>00' and <base image name>01`. Par exemple : `win10vm00` et `win10vm01`.     
+    3. Sélectionnez **Envoyer**. 
+
+        ![Choisir une base](./media/tutorial-create-custom-lab/new-vm-advanced-settings.png)
     9. Vous voyez l’état de la machine virtuelle dans la liste des **machines virtuelles exigibles**. La création de la machine virtuelle peut prendre environ 25 minutes. La machine virtuelle est créée dans un groupe de ressources Azure distinct, dont le nom commence par le nom du groupe de ressources actuel qui possède le laboratoire. Par exemple, si le laboratoire est dans `labrg`, la machine virtuelle peut être créée dans le groupe de ressources `labrg3988722144002`. 
 
         ![État de la création de la machine virtuelle](./media/tutorial-create-custom-lab/vm-creation-status.png)
@@ -81,23 +88,30 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
 
     ![Configuration et stratégies](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
 1. Sélectionnez **Contrôle d’accès (IAM)** dans le menu, puis sélectionnez **+ Ajouter une attribution de rôle** dans la barre d’outils. 
+
+    ![Bouton Ajouter une attribution de rôle](./media/tutorial-create-custom-lab/add-role-assignment-button.png)
 1. Dans la page **Ajouter des autorisations**, effectuez les actions suivantes :
     1. Pour **Rôle**, sélectionnez **Utilisateurs de DevTest Labs**. 
     2. Sélectionnez l’**utilisateur** que vous souhaitez ajouter. 
     3. Sélectionnez **Enregistrer**.
-4. Pour fermer **Configuration et Stratégies - Contrôle d’accès (IAM)**, sélectionnez **X** dans le coin droit. 
 
-## <a name="cleanup-resources"></a>Nettoyer les ressources
+        ![Ajouter un utilisateur](./media/tutorial-create-custom-lab/add-user.png)
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Le didacticiel suivant montre comment un utilisateur de laboratoire peut revendiquer et se connecter à une machine virtuelle dans le laboratoire. Si vous ne souhaitez pas suivre ce didacticiel, et pour nettoyer les ressources créées dans le cadre de ce didacticiel, procédez comme suit : 
 
 1. Dans le portail Azure, sélectionnez **Groupes de ressources** dans le menu. 
-2. Sélectionnez le groupe de ressources dans lequel vous avez créé le laboratoire. 
-3. Sélectionnez **Supprimer le groupe de ressources** dans la barre d’outils. Supprimer un groupe de ressources supprime toutes les ressources dans le groupe, notamment le laboratoire. 
-4. Répétez ces étapes pour supprimer le groupe de ressources supplémentaire créé pour vous, avec le nom `<your resource group name><random numbers>`. Par exemple : `splab3988722144001`. Les machines virtuelles sont créées dans ce groupe de ressources plutôt que dans le groupe de ressources au sein duquel se trouve le laboratoire. 
+
+    ![Groupes de ressources](./media/tutorial-create-custom-lab/resource-groups.png)
+1. Sélectionnez le groupe de ressources dans lequel vous avez créé le laboratoire. 
+1. Sélectionnez **Supprimer le groupe de ressources** dans la barre d’outils. Supprimer un groupe de ressources supprime toutes les ressources dans le groupe, notamment le laboratoire. 
+
+    ![Groupe de ressources de laboratoire](./media/tutorial-create-custom-lab/lab-resource-group.png)
+1. Répétez ces étapes pour supprimer le groupe de ressources supplémentaire créé pour vous, avec le nom `<your resource group name><random numbers>`. Par exemple : `splab3988722144001`. Les machines virtuelles sont créées dans ce groupe de ressources plutôt que dans le groupe de ressources au sein duquel se trouve le laboratoire. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez créé un laboratoire avec une machine virtuelle et vous avez donné un accès utilisateur au laboratoire. Pour savoir comment accéder au laboratoire en tant qu’un utilisateur du laboratoire, passer au didacticiel suivant :
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Accéder au laboratoire](tutorial-use-custom-lab.md)
+> [Tutoriel : Accéder au laboratoire](tutorial-use-custom-lab.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle - démarrage rapide - Azure PowerShell | Microsoft Docs
-description: Dans ce démarrage rapide, vous apprenez à diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle à l’aide de la capacité de vérification de flux IP de Azure Network Watcher.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle à l’aide de la fonctionnalité de vérification de flux IP d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: jimdial
@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: d98a804961defc80bebe3e3a838dd229c23044bc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 99010ba7e679a6911c3b8f16cbbbfca30ed6a46e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704185"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424162"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle avec Azure PowerShell
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Démarrage rapide : Diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle - Azure PowerShell
 
 Dans ce guide de démarrage rapide, vous déployez une machine virtuelle, puis vous vérifiez les communications vers une adresse IP et une URL et à partir d’une adresse IP. Vous déterminez la cause d’un échec de communication et la façon de le résoudre.
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module AzureRM PowerShell version 5.4.1 ou version ultérieure pour les besoins de ce démarrage rapide. Pour trouver la version installée, exécutez ` Get-Module -ListAvailable AzureRM`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module AzureRM PowerShell version 5.4.1 ou version ultérieure pour les besoins de ce démarrage rapide. Pour trouver la version installée, exécutez ` Get-Module -ListAvailable AzureRM`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -59,7 +59,7 @@ Pour tester une communication réseau avec Network Watcher, commencez par active
 
 ### <a name="enable-network-watcher"></a>Activer l’observateur réseau
 
-Si vous avez déjà un observateur réseau activé dans la région de l’est des États-Unis, utilisez [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) pour le récupérer. L’exemple suivant récupère un observateur réseau existant nommé *NetworkWatcher_eastus* se trouvant dans le groupe de ressources *NetworkWatcherRG* :
+Si vous avez déjà un observateur réseau activé dans la région USA Est, utilisez [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) pour le récupérer. L’exemple suivant récupère un observateur réseau existant nommé *NetworkWatcher_eastus* se trouvant dans le groupe de ressources *NetworkWatcherRG* :
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzureRmNetworkWatcher `
@@ -67,7 +67,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Si vous n’avez pas encore d’observateur réseau activé dans la région de l’est des États-Unis, utilisez [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) pour créer un observateur réseau dans cette région :
+Si vous n’avez pas encore d’observateur réseau activé dans la région USA Est, utilisez [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) pour créer un observateur réseau dans cette région :
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzureRmNetworkWatcher `
@@ -233,7 +233,7 @@ La règle **DenyAllInBound** est appliquée, car comme indiqué dans la sortie, 
 
 Les vérifications de ce guide de démarrage rapide ont permis de tester la configuration Azure. Si les vérifications effectuées retournent les résultats attendus alors que vous rencontrez toujours des problèmes réseau, vérifiez qu’il n’y a aucun pare-feu entre votre machine virtuelle et le point de terminaison avec lequel vous communiquez, et que le système d’exploitation dans votre machine virtuelle n’a pas de pare-feu qui autorise ou refuse les communications.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour le supprimer et toutes les ressources qu’il contient :
 

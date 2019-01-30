@@ -1,10 +1,10 @@
 ---
-title: Notifications push vers des utilisateurs spécifiques d’une application Android à l’aide de Azure Notification Hubs | Microsoft Docs
-description: Apprenez comment envoyer des notifications Push à des utilisateurs spécifiques à l’aide de Azure Notification Hubs.
+title: Notifications push vers des utilisateurs spécifiques d’une application Android à l’aide d’Azure Notification Hubs | Microsoft Docs
+description: Découvrez comment envoyer des notifications Push à des utilisateurs spécifiques à l’aide de Azure Notification Hubs.
 documentationcenter: android
 services: notification-hubs
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
 ms.service: notification-hubs
@@ -13,40 +13,42 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/07/2018
-ms.author: dimazaid
-ms.openlocfilehash: b944aa84a3962e16a153bc1840e43a7f405f8437
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 6e0b8e9977b2cb16dd0b123ab581d14f17b63ba3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776285"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446152"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des utilisateurs spécifiques d’une application Android à l’aide de Azure Notification Hubs
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Tutoriel : Notifications Push vers des utilisateurs spécifiques d’une application Android à l’aide d’Azure Notification Hubs
+
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un code WebAPI principal ASP.NET est utilisé pour authentifier les clients et pour générer les notifications, comme le présente l’article [Inscription auprès du serveur principal de votre application](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Ce didacticiel s’appuie sur le hub de notification que vous avez créé dans le [didacticiel : notifications Push vers des appareils Android à l’aide de Azure Notification Hubs et de Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
+Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un code WebAPI principal ASP.NET est utilisé pour authentifier les clients et pour générer les notifications, comme le présente l’article [Inscription auprès du serveur principal de votre application](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Ce tutoriel s’appuie sur le hub de notification que vous avez créé dans le [Tutoriel : Notifications Push vers des appareils Android avec Azure Notification Hubs et Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
 
-Dans ce didacticiel, vous effectuez les étapes suivantes : 
+Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer le projet d’API Web principale qui authentifie les utilisateurs.  
-> * Mettre à jour une application Android. 
+> * Mettre à jour une application Android.
 > * Test de l'application
 
 ## <a name="prerequisites"></a>Prérequis
 
-Terminez le [didacticiel : notifications Push vers des appareils Android à l’aide de Azure Notification Hubs et de Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) avant d’effectuer ce didacticiel. 
+Suivre le [Tutoriel : Notifications Push vers des appareils Android avec Azure Notification Hubs et Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) avant de passer à ce tutoriel.
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="create-the-android-project"></a>Création du projet Android
-La prochaine étape est de mettre à jour l’application Android créée dans le [didacticiel : notifications Push vers des appareils Android à l’aide de Azure Notification Hubs et de Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md). 
 
-1. Ouvrez votre fichier **res/layout/activity_main.xml** et remplacez le contenu par les définitions de contenu suivantes :
-   
+L’étape suivante consiste à mettre à jour l’application Android créée dans le [Tutoriel : Notifications Push vers des appareils Android avec Azure Notification Hubs et Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
+
+1. Ouvrez votre fichier `res/layout/activity_main.xml`, remplacez les définitions de contenu suivantes :
+
     Cette opération ajoute de nouveaux contrôles EditText pour la connexion en tant qu'utilisateur. Un champ est également ajouté pour une balise de nom d'utilisateur qui fera partie des notifications que vous enverrez :
-   
+
     ```xml
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
@@ -134,8 +136,8 @@ La prochaine étape est de mettre à jour l’application Android créée dans l
     />  
     </RelativeLayout>
     ```
-3. Ouvrez votre fichier **res/values/strings.xml** et remplacez la définition `send_button` par les lignes suivantes, qui redéfinissent la chaîne du `send_button` et ajoutent des chaînes pour les autres contrôles :
-   
+2. Ouvrez votre fichier `res/values/strings.xml` et remplacez la définition `send_button` par les lignes suivantes qui redéfinissent la chaîne du `send_button` et ajoutent des chaînes pour les autres contrôles :
+
     ```xml
     <string name="usernameHint">Username</string>
     <string name="passwordHint">Password</string>
@@ -145,12 +147,12 @@ La prochaine étape est de mettre à jour l’application Android créée dans l
     <string name="notification_message_tag_hint">Recipient username</string>
     ```
 
-    La présentation graphique de votre fichier main_activity.xml doit ressembler à l’image suivante :
-   
-    ![][A1]
-4. Créez une classe nommée **RegisterClient** dans le même package que votre classe `MainActivity`. Utilisez le code ci-dessous pour le nouveau fichier de classe.
+    La présentation graphique de votre fichier `main_activity.xml` doit maintenant ressembler à l’image suivante :
 
-    ```java   
+    ![][A1]
+3. Créez une classe nommée `RegisterClient` dans le même package que votre classe `MainActivity`. Utilisez le code ci-dessous pour le nouveau fichier de classe.
+
+    ```java
     import java.io.IOException;
     import java.io.UnsupportedEncodingException;
     import java.util.Set;
@@ -254,9 +256,9 @@ La prochaine étape est de mettre à jour l’application Android créée dans l
         }
     }
     ```
-       
+
     Ce composant met en œuvre les appels REST nécessaires pour contacter le service principal de l'application et inscrire cette dernière pour les notifications Push. Il enregistre également en local les informations *registrationIds* créées par le hub de notification, comme expliqué dans la rubrique [Inscription auprès du serveur principal de votre application](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Il utilise un jeton d'autorisation qui se trouve dans le stockage local quand vous cliquez sur le bouton **Log in**.
-5. Dans votre classe, supprimez ou commentez votre champ privé pour `NotificationHub`, puis ajoutez un champ pour la classe `RegisterClient` et une chaîne pour le point de terminaison de votre serveur principal ASP.NET. Remplacez bien `<Enter Your Backend Endpoint>` par le point de terminaison réel de votre serveur principal, obtenu précédemment. Par exemple : `http://mybackend.azurewebsites.net`.
+4. Dans votre classe, supprimez ou commentez votre champ privé pour `NotificationHub`, puis ajoutez un champ pour la classe `RegisterClient` et une chaîne pour le point de terminaison de votre serveur principal ASP.NET. Remplacez bien `<Enter Your Backend Endpoint>` par le point de terminaison réel de votre serveur principal, obtenu précédemment. Par exemple : `http://mybackend.azurewebsites.net`.
 
     ```java
     //private NotificationHub hub;
@@ -264,8 +266,8 @@ La prochaine étape est de mettre à jour l’application Android créée dans l
     private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
 
-1. Dans votre classe `MainActivity`, dans la méthode `onCreate`, supprimez ou commentez l'initialisation du champ `hub` et l'appel à la méthode `registerWithNotificationHubs`. Ensuite, ajoutez du code pour initialiser une instance de la classe `RegisterClient` . La méthode doit contenir les lignes qui suivent :
-   
+5. Dans votre classe `MainActivity`, dans la méthode `onCreate`, supprimez ou commentez l'initialisation du champ `hub` et l'appel à la méthode `registerWithNotificationHubs`. Ensuite, ajoutez du code pour initialiser une instance de la classe `RegisterClient` . La méthode doit contenir les lignes qui suivent :
+
     ```java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -283,14 +285,14 @@ La prochaine étape est de mettre à jour l’application Android créée dans l
         setContentView(R.layout.activity_main);
     }
     ```
-2. Dans votre classe `MainActivity`, supprimez ou commentez l'intégralité de la méthode `registerWithNotificationHubs`. Celle-ci n'est pas utilisée dans ce didacticiel.
-3. Ajoutez les instructions `import` suivantes à votre fichier **MainActivity.java** .
-   
+6. Dans votre classe `MainActivity`, supprimez ou commentez l'intégralité de la méthode `registerWithNotificationHubs`. Celle-ci n'est pas utilisée dans ce didacticiel.
+7. Ajoutez les instructions `import` suivantes à votre fichier `MainActivity.java`.
+
     ```java
     import android.util.Base64;
     import android.view.View;
     import android.widget.EditText;
-    
+
     import android.widget.Button;
     import android.widget.ToggleButton;
     import java.io.UnsupportedEncodingException;
@@ -300,172 +302,173 @@ La prochaine étape est de mettre à jour l’application Android créée dans l
     import org.apache.http.client.ClientProtocolException;
     import java.io.IOException;
     import org.apache.http.HttpStatus;
-    
+
     import android.os.AsyncTask;
     import org.apache.http.HttpResponse;
     import org.apache.http.client.methods.HttpPost;
     import org.apache.http.entity.StringEntity;
     import org.apache.http.impl.client.DefaultHttpClient;
-    
+
     import android.app.AlertDialog;
     import android.content.DialogInterface;
-    ```            
-4. Remplacez le code dans la méthode onStart par le code suivant : 
+    ```
+8. Remplacez le code dans la méthode onStart par le code suivant :
 
     ```java
-        super.onStart();
-        Button sendPush = (Button) findViewById(R.id.sendbutton);
-        sendPush.setEnabled(false);
-    ```       
-1. Ensuite, ajoutez les méthodes suivantes pour gérer l'événement de clic sur le bouton **Log in** et l'envoi de notifications Push.
-   
+    super.onStart();
+    Button sendPush = (Button) findViewById(R.id.sendbutton);
+    sendPush.setEnabled(false);
+    ```
+9. Ensuite, ajoutez les méthodes suivantes pour gérer l'événement de clic sur le bouton **Log in** et l'envoi de notifications Push.
+
     ```java
-        public void login(View view) throws UnsupportedEncodingException {
-            this.registerClient.setAuthorizationHeader(getAuthorizationHeader());
-   
-            final Context context = this;
-            new AsyncTask<Object, Object, Object>() {
-                @Override
-                protected Object doInBackground(Object... params) {
-                    try {
-                        String regid = gcm.register(NotificationSettings.SenderId);
-                        registerClient.register(regid, new HashSet<String>());
-                    } catch (Exception e) {
-                        DialogNotify("MainActivity - Failed to register", e.getMessage());
-                        return e;
+    public void login(View view) throws UnsupportedEncodingException {
+        this.registerClient.setAuthorizationHeader(getAuthorizationHeader());
+
+        final Context context = this;
+        new AsyncTask<Object, Object, Object>() {
+            @Override
+            protected Object doInBackground(Object... params) {
+                try {
+                    String regid = gcm.register(NotificationSettings.SenderId);
+                    registerClient.register(regid, new HashSet<String>());
+                } catch (Exception e) {
+                    DialogNotify("MainActivity - Failed to register", e.getMessage());
+                    return e;
+                }
+                return null;
+            }
+
+            protected void onPostExecute(Object result) {
+                Button sendPush = (Button) findViewById(R.id.sendbutton);
+                sendPush.setEnabled(true);
+                Toast.makeText(context, "Logged in and registered.",
+                        Toast.LENGTH_LONG).show();
+            }
+        }.execute(null, null, null);
+    }
+
+    private String getAuthorizationHeader() throws UnsupportedEncodingException {
+        EditText username = (EditText) findViewById(R.id.usernameText);
+        EditText password = (EditText) findViewById(R.id.passwordText);
+        String basicAuthHeader = username.getText().toString()+":"+password.getText().toString();
+        basicAuthHeader = Base64.encodeToString(basicAuthHeader.getBytes("UTF-8"), Base64.NO_WRAP);
+        return basicAuthHeader;
+    }
+
+    /**
+        * This method calls the ASP.NET WebAPI backend to send the notification message
+        * to the platform notification service based on the pns parameter.
+        *
+        * @param pns     The platform notification service to send the notification message to. Must
+        *                be one of the following ("wns", "gcm", "apns").
+        * @param userTag The tag for the user who will receive the notification message. This string
+        *                must not contain spaces or special characters.
+        * @param message The notification message string. This string must include the double quotes
+        *                to be used as JSON content.
+        */
+    public void sendPush(final String pns, final String userTag, final String message)
+            throws ClientProtocolException, IOException {
+        new AsyncTask<Object, Object, Object>() {
+            @Override
+            protected Object doInBackground(Object... params) {
+                try {
+
+                    String uri = BACKEND_ENDPOINT + "/api/notifications";
+                    uri += "?pns=" + pns;
+                    uri += "&to_tag=" + userTag;
+
+                    HttpPost request = new HttpPost(uri);
+                    request.addHeader("Authorization", "Basic "+ getAuthorizationHeader());
+                    request.setEntity(new StringEntity(message));
+                    request.addHeader("Content-Type", "application/json");
+
+                    HttpResponse response = new DefaultHttpClient().execute(request);
+
+                    if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+                        DialogNotify("MainActivity - Error sending " + pns + " notification",
+                            response.getStatusLine().toString());
+                        throw new RuntimeException("Error sending notification");
                     }
-                    return null;
+                } catch (Exception e) {
+                    DialogNotify("MainActivity - Failed to send " + pns + " notification ", e.getMessage());
+                    return e;
                 }
-   
-                protected void onPostExecute(Object result) {
-                    Button sendPush = (Button) findViewById(R.id.sendbutton);
-                    sendPush.setEnabled(true);
-                    Toast.makeText(context, "Logged in and registered.",
-                            Toast.LENGTH_LONG).show();
-                }
-            }.execute(null, null, null);
-        }
-   
-        private String getAuthorizationHeader() throws UnsupportedEncodingException {
-            EditText username = (EditText) findViewById(R.id.usernameText);
-            EditText password = (EditText) findViewById(R.id.passwordText);
-            String basicAuthHeader = username.getText().toString()+":"+password.getText().toString();
-            basicAuthHeader = Base64.encodeToString(basicAuthHeader.getBytes("UTF-8"), Base64.NO_WRAP);
-            return basicAuthHeader;
-        }
-   
-        /**
-         * This method calls the ASP.NET WebAPI backend to send the notification message
-         * to the platform notification service based on the pns parameter.
-         *
-         * @param pns     The platform notification service to send the notification message to. Must
-         *                be one of the following ("wns", "gcm", "apns").
-         * @param userTag The tag for the user who will receive the notification message. This string
-         *                must not contain spaces or special characters.
-         * @param message The notification message string. This string must include the double quotes
-         *                to be used as JSON content.
-         */
-        public void sendPush(final String pns, final String userTag, final String message)
-                throws ClientProtocolException, IOException {
-            new AsyncTask<Object, Object, Object>() {
-                @Override
-                protected Object doInBackground(Object... params) {
-                    try {
-   
-                        String uri = BACKEND_ENDPOINT + "/api/notifications";
-                        uri += "?pns=" + pns;
-                        uri += "&to_tag=" + userTag;
-   
-                        HttpPost request = new HttpPost(uri);
-                        request.addHeader("Authorization", "Basic "+ getAuthorizationHeader());
-                        request.setEntity(new StringEntity(message));
-                        request.addHeader("Content-Type", "application/json");
-   
-                        HttpResponse response = new DefaultHttpClient().execute(request);
-   
-                        if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
-                            DialogNotify("MainActivity - Error sending " + pns + " notification",
-                                response.getStatusLine().toString());
-                            throw new RuntimeException("Error sending notification");
-                        }
-                    } catch (Exception e) {
-                        DialogNotify("MainActivity - Failed to send " + pns + " notification ", e.getMessage());
-                        return e;
-                    }
-   
-                    return null;
-                }
-            }.execute(null, null, null);
-        }
+
+                return null;
+            }
+        }.execute(null, null, null);
+    }
     ```
 
     Le gestionnaire `login` pour le bouton **Log in** génère un jeton d’authentification de base, à partir du nom d’utilisateur et du mot de passe entrés (cela représente n’importe quel jeton utilisé par votre système d’authentification), puis utilise `RegisterClient` pour appeler le serveur principal en vue de l’inscription.
 
     La méthode `sendPush` appelle le serveur principal pour déclencher une notification sécurisée pour l'utilisateur basée sur la balise d'utilisateur. Le service de notification de la plateforme ciblé par `sendPush` varie selon la chaîne `pns` passée.
 
-5. Ajoutez la méthode `DialogNotify` suivante à la classe `MainActivity`. 
+10. Ajoutez la méthode `DialogNotify` suivante à la classe `MainActivity`.
 
     ```java
-        protected void DialogNotify(String title, String message)
-        {
-            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-            alertDialog.setTitle(title);
-            alertDialog.setMessage(message);
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
-        }
+    protected void DialogNotify(String title, String message)
+    {
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle(title);
+        alertDialog.setMessage(message);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+    }
     ```
-1. Dans votre classe `MainActivity`, mettez à jour la méthode `sendNotificationButtonOnClick` pour appeler la méthode `sendPush` avec les services de notification de plateforme sélectionnés par l'utilisateur, comme suit.
-   
+11. Dans votre classe `MainActivity`, mettez à jour la méthode `sendNotificationButtonOnClick` pour appeler la méthode `sendPush` avec les services de notification de plateforme sélectionnés par l'utilisateur, comme suit.
+
     ```java
-       /**
-        * Send Notification button click handler. This method sends the push notification
-        * message to each platform selected.
-        *
-        * @param v The view
-        */
-       public void sendNotificationButtonOnClick(View v)
-               throws ClientProtocolException, IOException {
-   
-           String nhMessageTag = ((EditText) findViewById(R.id.editTextNotificationMessageTag))
-                   .getText().toString();
-           String nhMessage = ((EditText) findViewById(R.id.editTextNotificationMessage))
-                   .getText().toString();
-   
-           // JSON String
-           nhMessage = "\"" + nhMessage + "\"";
-   
-           if (((ToggleButton)findViewById(R.id.toggleButtonWNS)).isChecked())
-           {
-               sendPush("wns", nhMessageTag, nhMessage);
-           }
-           if (((ToggleButton)findViewById(R.id.toggleButtonGCM)).isChecked())
-           {
-               sendPush("gcm", nhMessageTag, nhMessage);
-           }
-           if (((ToggleButton)findViewById(R.id.toggleButtonAPNS)).isChecked())
-           {
-               sendPush("apns", nhMessageTag, nhMessage);
-           }
-       }
+    /**
+    * Send Notification button click handler. This method sends the push notification
+    * message to each platform selected.
+    *
+    * @param v The view
+    */
+    public void sendNotificationButtonOnClick(View v)
+            throws ClientProtocolException, IOException {
+
+        String nhMessageTag = ((EditText) findViewById(R.id.editTextNotificationMessageTag))
+                .getText().toString();
+        String nhMessage = ((EditText) findViewById(R.id.editTextNotificationMessage))
+                .getText().toString();
+
+        // JSON String
+        nhMessage = "\"" + nhMessage + "\"";
+
+        if (((ToggleButton)findViewById(R.id.toggleButtonWNS)).isChecked())
+        {
+            sendPush("wns", nhMessageTag, nhMessage);
+        }
+        if (((ToggleButton)findViewById(R.id.toggleButtonGCM)).isChecked())
+        {
+            sendPush("gcm", nhMessageTag, nhMessage);
+        }
+        if (((ToggleButton)findViewById(R.id.toggleButtonAPNS)).isChecked())
+        {
+            sendPush("apns", nhMessageTag, nhMessage);
+        }
+    }
     ```
-7. Dans le fichier **build.gradle**, ajoutez la ligne suivante à la section `android` après la section `buildTypes`. 
+12. Dans le fichier `build.gradle`, ajoutez la ligne suivante à la section `android` après la section `buildTypes`.
 
     ```java
     useLibrary 'org.apache.http.legacy'
     ```
-8. Créez le projet. 
+13. Créez le projet.
 
 ## <a name="test-the-app"></a>Test de l'application
+
 1. Exécutez l'application sur un appareil ou un émulateur à l'aide d'Android Studio.
 2. Dans l'application Android, entrez un nom d'utilisateur et un mot de passe. Ils doivent représenter la même valeur de chaîne et ne pas contenir d'espaces ou de caractères spéciaux.
 3. Dans l'application Android, cliquez sur **Log in**. Attendez que s'affiche un message indiquant **Logged in and registered**. Le bouton **Send Notification** est alors activé.
-   
+
     ![][A2]
 4. Cliquez sur les boutons bascule pour activer toutes les plateformes où vous avez exécuté l'application et inscrit un utilisateur.
 5. Entrez le nom de l'utilisateur qui reçoit le message de notification. Cet utilisateur doit être inscrit pour les notifications sur les appareils cibles.
@@ -473,12 +476,11 @@ La prochaine étape est de mettre à jour l’application Android créée dans l
 7. Cliquez sur **Send Notification**.  Chaque appareil doté d'une inscription avec la balise de nom d'utilisateur correspondante reçoit la notification Push.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à envoyer des notifications Push à des utilisateurs spécifiques ayant des balises associées à leurs enregistrements. Pour savoir comment envoyer des notifications basées sur l’emplacement, passez au didacticiel suivant : 
+
+Dans ce tutoriel, vous avez appris à envoyer des notifications Push à des utilisateurs spécifiques ayant des balises associées à leurs enregistrements. Pour savoir comment envoyer des notifications basées sur l’emplacement, passez au tutoriel suivant :
 
 > [!div class="nextstepaction"]
->[Envoyer des notifications basées sur l’emplacement](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-
+>[Notifications Push en fonction de la localisation](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
-
