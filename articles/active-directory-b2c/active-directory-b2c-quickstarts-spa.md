@@ -3,101 +3,88 @@ title: Démarrage rapide - Configurer la connexion pour une application monopage
 description: Exécutez un exemple d’application monopage qui utilise Azure Active Directory B2C pour fournir une connexion à un compte.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 7/13/2018
+ms.date: 10/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 155cdaf51ac5725a315259a0d809ba644f64110c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 39e89a5a4ddcce9df480eefa07d81436a56111f2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048914"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847847"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Démarrage rapide : configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Démarrage rapide : Configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C assure la gestion des identités de cloud pour protéger votre application, votre entreprise et vos clients. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes des réseaux sociaux et de comptes d’entreprise à l’aide de protocoles standard ouverts.
-
-Dans ce démarrage rapide, vous utilisez un exemple d’application monopage activée pour Azure AD B2C pour vous connecter à l’aide d’un fournisseur d’identité sociale et appeler une API web protégée par Azure AD B2C.
+Azure Active Directory (Azure AD) B2C assure la gestion des identités de cloud pour protéger votre application, votre entreprise et vos clients. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes des réseaux sociaux et de comptes d’entreprise à l’aide de protocoles standard ouverts. Dans ce démarrage rapide, vous utilisez un exemple d’application monopage pour vous connecter à l’aide d’un fournisseur d’identité sociale et appeler une API web protégée par Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
-* Installez [Node.js](https://nodejs.org/en/download/)
-* Un compte Facebook.
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
+- Installez [Node.js](https://nodejs.org/en/download/)
+- Un compte de réseau social Facebook, Google, Microsoft ou Twitter.
+- [Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonez l’exemple d’application web à partir de GitHub.
 
-## <a name="download-the-sample"></a>Télécharger l’exemple
+    ```
+    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    ```
 
-[Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonez l’exemple d’application web à partir de GitHub.
+## <a name="run-the-application"></a>Exécution de l'application
 
-```
-git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
-```
+1. Démarrez le serveur en exécutant les commandes suivantes à partir de l’invite de commandes Node.js : 
 
-## <a name="run-the-sample-application"></a>Exécuter l’exemple d’application
+    ```
+    cd active-directory-b2c-javascript-msal-singlepageapp
+    npm install && npm update
+    node server.js
+    ```
 
-Pour exécuter cet exemple à partir de l’invite de commandes Node.js : 
+    Server.js génère le numéro de port qu’il écoute sur localhost.
 
-```
-cd active-directory-b2c-javascript-msal-singlepageapp
-npm install && npm update
-node server.js
-```
+    ```
+    Listening on port 6420...
+    ```
 
-L’application Node.js génère le numéro de port qu’il écoute sur localhost.
+2. Accédez à l’URL de l’application. Par exemple : `http://localhost:6420`.
 
-```
-Listening on port 6420...
-```
+## <a name="sign-in-using-your-account"></a>Connectez-vous à l’aide de votre compte
 
-Accédez à l’URL de l’application `http://localhost:6420` dans un navigateur web.
+1. Cliquez sur **Se connecter** pour démarrer le flux de travail.
 
-![Exemple d’application dans un navigateur](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![Exemple d’application dans un navigateur](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-## <a name="create-an-account"></a>Créer un compte
+    L’exemple prend en charge plusieurs options d’inscription, notamment l’utilisation d’un fournisseur d’identité sociale ou la création d’un compte local à l’aide d’une adresse e-mail. Pour ce démarrage rapide, utilisez un compte de fournisseur d’identité sociale provenant de Facebook, Google, Microsoft ou Twitter. 
 
-Cliquez sur le bouton **Connexion** pour démarrer le flux de travail **Inscription ou Connexion** d’Azure AD B2C basé sur une stratégie Azure AD B2C. 
+2. Azure AD B2C présente une page de connexion personnalisée d’une marque fictive appelée Wingtip Toys pour l’exemple d’application web. Pour vous inscrire au moyen d’un fournisseur d’identité sociale, cliquez sur le bouton en regard du fournisseur d’identité que vous souhaitez utiliser.
 
-L’exemple assure la prise en charge plusieurs options d’inscription, notamment la création d’un compte local à l’aide d’une adresse e-mail. Pour ce démarrage rapide, utilisez un compte Facebook. 
-
-### <a name="sign-up-using-a-social-identity-provider"></a>S’inscrire au moyen d’un fournisseur d’identité sociale
-
-Azure AD B2C présente une page de connexion personnalisée d’une marque fictive appelée Wingtip Toys pour l’exemple d’application web. 
-
-1. Pour vous inscrire au moyen d’un fournisseur d’identité sociale, cliquez sur le bouton en regard du fournisseur d’identité Facebook.
+    ![Fournisseur pour se connecter ou s’inscrire](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
     Vous vous authentifiez (vous connectez) avec les informations d’identification de votre compte de réseau social et autoriser l’application à lire les informations de votre compte de réseau social. En accordant l’accès, l’application peut extraire des informations de profil du compte de réseau social, telles que votre nom et votre ville. 
 
-2. Terminez le processus de connexion pour le fournisseur d’identité en entrant vos informations d’identification.
+3. Terminez le processus de connexion pour le fournisseur d’identité.
 
-    Les détails du profil de votre nouveau compte sont préremplis avec les informations de votre compte de réseau social. 
+## <a name="access-a-protected-api-resource"></a>Accéder à une ressource d’API protégée
 
-3. Mettez à jour les champs Nom d’affichage, Poste et Ville, puis cliquez sur **Continuer**.  Les valeurs que vous entrez sont utilisées pour le profil de votre compte d’utilisateur Azure AD B2C.
-
-    Vous avez créé un compte d’utilisateur Azure AD B2C qui utilise un fournisseur d’identité. 
-
-## <a name="access-a-protected-web-api-resource"></a>Accéder à une ressource de l’API web protégée
-
-Cliquez sur le bouton **Call Web API** (Appeler une API web) pour que votre nom d’affichage soit retourné par l’appel de l’API web sous forme d’un objet JSON. 
+Cliquez sur **Call Web API** (Appeler une API web) pour que votre nom d’affichage soit retourné par l’appel de l’API web sous forme d’un objet JSON. 
 
 ![Réponse de l’API web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
-L’exemple d’application monopage inclut un jeton d’accès Azure AD dans la requête envoyée à la ressource de l’API web protégée pour effectuer l’opération permettant de retourner l’objet JSON.
+L’exemple d’application monopage inclut un jeton d’accès dans la requête envoyée à la ressource de l’API web protégée.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous pouvez utiliser votre locataire Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels ou démarrages rapides Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez utilisé un exemple d’application ASP.NET activée pour Azure AD B2C pour vous connecter avec une page de connexion personnalisée, vous connecter avec un fournisseur d’identité sociale, créer un compte Azure AD B2C et appeler une API web protégée par Azure AD B2C. 
+Dans ce démarrage rapide, vous avez utilisé un exemple d’application monopage pour vous connecter avec une page de connexion personnalisée, vous connecter avec un fournisseur d’identité sociale, créer un compte Azure AD B2C et appeler une API web protégée par Azure AD B2C. 
 
-L’étape suivante consiste à créer votre propre locataire Azure AD B2C et à configurer l’exemple pour qu’il s’exécute avec votre locataire. 
+Passez maintenant à la création de votre propre locataire Azure AD B2C.
 
 > [!div class="nextstepaction"]
 > [Créer un locataire Azure Active Directory B2C dans le portail Azure](tutorial-create-tenant.md)

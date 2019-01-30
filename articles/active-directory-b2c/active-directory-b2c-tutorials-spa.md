@@ -3,43 +3,43 @@ title: Didacticiel - Activer l’authentification d’application à page unique
 description: Didacticiel sur l’utilisation d’Azure Active Directory B2C pour fournir une connexion utilisateur pour une application à page unique (JavaScript).
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: cce76a0e97e039ec6e6c3a976d1fc7caca7fde73
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 08372700e9740ca69ba73dfba49f9d120dfabc6d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834432"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850329"
 ---
-# <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Didacticiel - Activer l’authentification d’application à page unique avec des comptes à l’aide d’Azure Active Directory B2C
+# <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Didacticiel : Activer l’authentification d’application monopage avec des comptes à l’aide d’Azure Active Directory B2C
 
 Ce didacticiel vous montre comment utiliser Azure Active Directory (Azure AD) B2C pour connecter et inscrire des utilisateurs dans une application à page unique (SPA). Azure AD B2C permet à vos applications de s’authentifier auprès de comptes des réseaux sociaux, de comptes d’entreprise et de comptes Azure Active Directory à l’aide de protocoles standards ouverts.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Inscrire un exemple d’application à page unique dans votre annuaire Azure AD B2C.
+> * Inscrire un exemple d’application à page unique dans votre répertoire Azure AD B2C.
 > * Créer des flux d’utilisateurs pour l’inscription et la connexion des utilisateurs, la modification d’un profil et la réinitialisation d’un mot de passe.
-> * Configurer l’exemple d’application pour utiliser votre annuaire Azure AD B2C.
+> * Configurer l’exemple d’application pour utiliser votre répertoire Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Créer votre propre [annuaire Azure AD B2C](active-directory-b2c-get-started.md)
+* Créer votre propre [répertoire Azure AD B2C](active-directory-b2c-get-started.md)
 * Installer [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
 * [Kit de développement logiciel (SDK) .NET Core 2.0.0](https://www.microsoft.com/net/core) ou version ultérieure
 * Installez [Node.js](https://nodejs.org/en/download/)
 
-## <a name="register-single-page-app"></a>Inscrire une application monopage
+## <a name="register-single-page-app"></a>Inscrire une application à page unique
 
-Les applications doivent être [inscrites](../active-directory/develop/developer-glossary.md#application-registration) dans votre annuaire avant qu’elles ne puissent recevoir des [jetons d’accès](../active-directory/develop/developer-glossary.md#access-token) de la part de Azure Active Directory. L’inscription d’une application crée un [id d’application](../active-directory/develop/developer-glossary.md#application-id-client-id) pour celle-ci dans votre annuaire. 
+Les applications doivent être [inscrites](../active-directory/develop/developer-glossary.md#application-registration) dans votre répertoire avant qu’elles ne puissent recevoir des [jetons d’accès](../active-directory/develop/developer-glossary.md#access-token) de la part de Azure Active Directory. L’inscription d’une application crée un [id d’application](../active-directory/develop/developer-glossary.md#application-id-client-id) pour celle-ci dans votre répertoire. 
 
 Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre annuaire Azure AD B2C.
 
@@ -49,7 +49,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
 
 2. Dans les paramètres B2C, cliquez sur **Applications**, puis sur **Ajouter**. 
 
-    Pour inscrire l’exemple d’application web dans votre annuaire, utilisez les paramètres suivants :
+    Pour inscrire l’exemple d’application web dans votre répertoire, utilisez les paramètres suivants :
     
     ![Ajouter une nouvelle application](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
@@ -63,21 +63,21 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
     
 3. Cliquez sur **Créer** pour inscrire votre application.
 
-Les applications inscrites sont indiquées dans la liste des applications de l’annuaire Azure AD B2C. Sélectionnez votre application à page unique dans la liste. Le volet de propriétés de l’application à page unique inscrite s’affiche.
+Les applications inscrites sont indiquées dans la liste des applications du répertoire Azure AD B2C. Sélectionnez votre application à page unique dans la liste. Le volet de propriétés de l’application à page unique inscrite s’affiche.
 
-![Propriétés de l’application monopage](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
+![Propriétés de l’application à page unique](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
 Notez **l’ID du client d’application**. Cet ID identifie l’application de manière unique. Il est nécessaire pour configurer l’application ultérieurement dans le didacticiel.
 
-## <a name="create-user-flows"></a>Créer des flux d’utilisateurs
+## <a name="create-user-flows"></a>Créer des flux d’utilisateur
 
-Un flux d’utilisateur Azure AD B2C définit l’expérience utilisateur pour une tâche d’identité. Par exemple, la connexion, l’inscription, le changement de mot de passe et la modification de profil sont des flux d’utilisateurs courants.
+Un flux d’utilisateur Azure AD B2C définit l’expérience utilisateur pour une tâche d’identité. Par exemple, la connexion, l’inscription, le changement de mot de passe et la modification de profil sont des flux d’utilisateur courants.
 
-### <a name="create-a-sign-up-or-sign-in-user-flow"></a>Création d’un flux d’utilisateur d’inscription ou de connexion
+### <a name="create-a-sign-up-or-sign-in-user-flow"></a>Créer un flux d’utilisateur d’inscription ou de connexion
 
 Pour inscrire des utilisateurs, puis les connecter à l’application web, créez un **flux d’utilisateur d’inscription ou de connexion**.
 
-1. Dans la page du portail Azure AD B2C, sélectionnez **Flux d’utilisateurs** et cliquez sur **Nouveau flux d’utilisateur**.
+1. Dans la page du portail Azure AD B2C, sélectionnez **flux d’utilisateur** et cliquez sur **Nouveau flux d’utilisateur**.
 2. Sous l’onglet **Recommandé**, cliquez sur **Inscription et connexion**.
 
     Pour configurer votre flux d’utilisateur, utilisez les paramètres suivants :
@@ -105,7 +105,7 @@ Pour inscrire des utilisateurs, puis les connecter à l’application web, crée
 
 Pour permettre aux utilisateurs de réinitialiser eux-mêmes les informations de leur profil utilisateur, créez un **flux d’utilisateur de modification de profil**.
 
-1. Dans la page du portail Azure AD B2C, sélectionnez **Flux d’utilisateurs** et cliquez sur **Nouveau flux d’utilisateur**.
+1. Dans la page du portail Azure AD B2C, sélectionnez **flux d’utilisateur** et cliquez sur **Nouveau flux d’utilisateur**.
 2. Sous l’onglet **Recommandé**, cliquez sur **Modification de profil**.
 
     Pour configurer votre flux d’utilisateur, utilisez les paramètres suivants :
@@ -157,12 +157,12 @@ Maintenant que vous disposez d’une application inscrite et de flux d’utilisa
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-L’exemple d’application montre comment une application monopage peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs, et appeler une API web protégée. Vous devez modifier l’application pour utiliser l’inscription de l’application dans votre annuaire et configurer les flux d’utilisateur que vous avez créés. 
+L’exemple d’application montre comment une application à page unique peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs, et appeler une API web protégée. Vous devez modifier l’application pour utiliser l’inscription de l’application dans votre annuaire et configurer les flux d’utilisateur que vous avez créés. 
 
 Pour modifier les paramètres d’application :
 
 1. Ouvrez le fichier `index.html` dans l’exemple d’application monopage Node.js.
-2. Configurez l’exemple avec les informations d’inscription des annuaires Azure AD B2C. Modifiez les lignes de code suivantes (veillez à remplacer les valeurs par les noms de votre annuaire et de vos API) :
+2. Configurez l’exemple avec les informations d’inscription des répertoires Azure AD B2C. Modifiez les lignes de code suivantes (veillez à remplacer les valeurs par les noms de votre répertoire et de vos API) :
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C directory.
@@ -202,22 +202,22 @@ L’exemple d’application prend en charge l’inscription et la connexion des 
 
 2. Azure AD B2C présente une page de connexion avec un lien pour l’abonnement. Si vous ne possédez pas encore de compte, cliquez sur le lien **Inscrivez-vous maintenant**. 
 
-3. Le flux de travail d’abonnement présente une page pour collecter et vérifier l’identité de l’utilisateur à l’aide d’une adresse e-mail. Le flux de travail d’abonnement collecte également le mot de passe et les attributs demandés, définis dans le flux d’utilisateur.
+3. Le flux de travail d’abonnement présente une page pour collecter et vérifier l’identité de l’utilisateur à l’aide d’une adresse e-mail. Le flux de travail d’inscription collecte également le mot de passe et les attributs demandés, qui sont définis dans le flux d’utilisateur.
 
     Utilisez une adresse e-mail valide et validez à l’aide d’un code de vérification. Définissez un mot de passe. Entrez des valeurs pour les attributs requis. 
 
     ![Flux de travail d’abonnement](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Cliquez sur **Créer** pour créer un compte local dans l’annuaire Azure AD B2C.
+4. Cliquez sur **Créer** pour créer un compte local dans le répertoire Azure AD B2C.
 
 Maintenant l’utilisateur peut utiliser son adresse e-mail pour se connecter et utiliser l’application SPA.
 
 > [!NOTE]
-> Une fois connecté, l’application affiche une erreur d’autorisations insuffisantes. Vous recevez cette erreur car vous tentez d’accéder à une ressource de l’annuaire de démonstration. Étant donné que votre jeton d’accès est valide uniquement pour votre annuaire Azure AD, l’appel d’API n’est pas autorisé. Passez au didacticiel suivant pour créer une API web protégée pour votre annuaire. 
+> Une fois connecté, l’application affiche une erreur d’autorisations insuffisantes. Vous recevez cette erreur car vous tentez d’accéder à une ressource du répertoire de démonstration. Étant donné que votre jeton d’accès est valide uniquement pour votre répertoire Azure AD, l’appel d’API n’est pas autorisé. Passez au didacticiel suivant pour créer une API web protégée pour votre répertoire. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Vous pouvez utiliser votre annuaire Azure AD B2C si vous envisagez de suivre d’autres tutoriels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre annuaire Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Vous pouvez utiliser votre répertoire Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre répertoire Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

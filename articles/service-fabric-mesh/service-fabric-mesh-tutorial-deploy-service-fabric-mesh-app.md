@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e1f2991b2e006c97087c6288d3ed3c20d2927e8c
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788614"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413479"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutoriel : Déployer une application Service Fabric Mesh
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Didacticiel : Déployer une application Service Fabric Mesh
 
 Ce tutoriel est la troisième partie d’une série et vous montre comment publier une application web Azure Service Fabric Mesh directement depuis Visual Studio.
 
@@ -106,7 +106,8 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Ouvrez un navigateur web et accédez à l’URL pour voir le site web en cours d’exécution dans Azure.
 
-## <a name="set-up-service-fabric-mesh-cli"></a>Configurer l’interface de ligne de commande Service Fabric Mesh 
+## <a name="set-up-service-fabric-mesh-cli"></a>Configurer l’interface de ligne de commande Service Fabric Mesh
+
 Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de l’interface Azure CLI pour les étapes restantes. Installez le module d’extension CLI de Service Fabric mesh en suivant les [instructions](service-fabric-mesh-howto-setup-cli.md) ci-après.
 
 ## <a name="check-application-deployment-status"></a>Vérifier l’état du déploiement de l’application
@@ -117,6 +118,14 @@ Le nom de l’application pour l’application du tutoriel est `todolistapp`. Co
 
 ```azurecli-interactive
 az mesh app show --resource-group $rg --name todolistapp
+```
+
+## <a name="get-the-ip-address-of-your-deployment"></a>Obtenir l’adresse IP de votre déploiement
+
+Si vous souhaitez obtenir l’adresse IP de votre application, utilisez la commande suivante :
+  
+```azurecli-interactive
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>Voir toutes les applications actuellement déployées dans votre abonnement

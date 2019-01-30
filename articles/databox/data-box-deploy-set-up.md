@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/17/2019
 ms.author: alkohli
-ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791317"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391158"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutoriel : Branchement des câbles et connexion à une Azure Data Box
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutoriel : Branchement des câbles et connexion à une Azure Data Box
 
 Ce didacticiel explique le raccordement, la connexion et le démarrage d’une Azure Data Box.
 
@@ -40,7 +40,7 @@ Avant de commencer, assurez-vous que :
     - Être connecté à un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie. 
 6. Vous devez avoir accès à une surface plane sur laquelle placer la Data Box. Si vous souhaitez placer l’appareil sur un rack standard, vous avez besoin d’un emplacement 7U dans le rack de votre centre de données. Vous pouvez placer l’appareil à plat ou en position verticale dans le rack.
 7. Vous disposez des câbles suivants pour connecter votre Data Box à l’ordinateur hôte.
-    - Deux câbles en cuivre Twinax SFP+ 10 GbE (à utiliser avec les interfaces réseau DATA 1 et DATA 2)
+    - Deux câbles en cuivre Twinax SFP+ 10 GbE (à utiliser avec les interfaces réseau DATA 1 et DATA 2). Étant donné que Data Box est équipé de cartes Mellanox ConnectX®-3 Pro EN 10GBASE-T Double port avec l’interface réseau PCI Express 3.0, les câbles qui sont compatibles avec cette interface doivent fonctionner. Par exemple, un câble CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M a été utilisé pour les tests internes.
     - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
     - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
 
@@ -54,7 +54,7 @@ Procédez comme suit pour brancher les câbles de l’appareil.
     
     ![Vue arrière d’une Data Box raccordée](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
-    1. Branchez le câble d’alimentation à l’emplacement d’entrée étiqueté. L’autre extrémité du câble d’alimentation doit être branchée sur une unité de distribution d’alimentation.
+    1. Branchez le câble d’alimentation à l’emplacement d’entrée étiqueté. L’autre extrémité du câble d’alimentation doit être branché sur une unité de distribution d’alimentation.
     2. Utilisez le câble RJ-45 CAT 6pour raccorder le port MGNT à un ordinateur portable.            
     3. Utilisez le câble réseau RJ-45 CAT 6A pour brancher le port DATA 3 à une extrémité. DATA 3 est configuré en tant que 10 GbE si vous utilisez un câble RJ-45 CAT 6A a et en tant que 1 GbE si vous utilisez un câble RJ-45 CAT 6.
     4. Utilisez les câbles en cuivre Twinax SFP+ 10 GbE 10 GbE pour raccorder respectivement les ports DATA 1 et DATA 2. 

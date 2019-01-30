@@ -6,14 +6,14 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 12/12/2018
+ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: aa67133b9f95715d84e9680e1ea45019d722609e
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 18111e752a77c74cb1f634e0a800fabb79b468b2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386551"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848697"
 ---
 # <a name="allowed-locations"></a>Emplacements autorisés
 
@@ -86,16 +86,16 @@ Dans cet exemple de paramètre, seuls les emplacements _eastus2_ ou _westus_ ser
 
 ```azurepowershell-interactive
 # Create the Policy Definition (Subscription scope)
-$definition = New-AzureRmPolicyDefinition -Name "allowed-locations" -DisplayName "Allowed locations" -description "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.parameters.json' -Mode Indexed
+$definition = New-AzPolicyDefinition -Name "allowed-locations" -DisplayName "Allowed locations" -description "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.parameters.json' -Mode Indexed
 
 # Set the scope to a resource group; may also be a subscription or management group
-$scope = Get-AzureRmResourceGroup -Name 'YourResourceGroup'
+$scope = Get-AzResourceGroup -Name 'YourResourceGroup'
 
 # Set the Policy Parameter (JSON format)
 $policyparam = '{ "listOfAllowedLocations": { "value": [ "eastus2", "westus" ] } }'
 
 # Create the Policy Assignment
-$assignment = New-AzureRmPolicyAssignment -Name 'allowed-locations-assignment' -DisplayName 'Allowed locations Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
+$assignment = New-AzPolicyAssignment -Name 'allowed-locations-assignment' -DisplayName 'Allowed locations Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
 ```
 
 ### <a name="remove-with-azure-powershell"></a>Supprimer avec Azure PowerShell
@@ -104,10 +104,10 @@ Exécutez les commandes suivantes pour supprimer l’affectation et la définiti
 
 ```azurepowershell-interactive
 # Remove the Policy Assignment
-Remove-AzureRmPolicyAssignment -Id $assignment.ResourceId
+Remove-AzPolicyAssignment -Id $assignment.ResourceId
 
 # Remove the Policy Definition
-Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
+Remove-AzPolicyDefinition -Id $definition.ResourceId
 ```
 
 ### <a name="azure-powershell-explanation"></a>Explication Azure PowerShell
@@ -116,11 +116,11 @@ Les scripts de déploiement et de suppression utilisent les commandes suivantes.
 
 | Commande | Notes |
 |---|---|
-| [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) | Crée une définition Azure Policy. |
-| [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/get-azurermresourcegroup) | Obtient un groupe de ressources unique. |
-| [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) | Crée une affectation Azure Policy. Dans cet exemple, nous lui fournissons une définition, mais elle peut également en prendre l’initiative. |
-| [Remove-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/remove-azurermpolicyassignment) | Supprime une affectation Azure Policy existante. |
-| [Remove-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/remove-azurermpolicydefinition) | Supprime une définition Azure Policy existante. |
+| [New-AzPolicyDefinition](/powershell/module/az.resources/New-Azpolicydefinition) | Crée une définition Azure Policy. |
+| [Get-AzResourceGroup](/powershell/module/az.resources/Get-Azresourcegroup) | Obtient un groupe de ressources unique. |
+| [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) | Crée une affectation Azure Policy. Dans cet exemple, nous lui fournissons une définition, mais elle peut également en prendre l’initiative. |
+| [Remove-AzPolicyAssignment](/powershell/module/az.resources/Remove-Azpolicyassignment) | Supprime une affectation Azure Policy existante. |
+| [Remove-AzPolicyDefinition](/powershell/module/az.resources/Remove-Azpolicydefinition) | Supprime une définition Azure Policy existante. |
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -219,10 +219,10 @@ Il existe plusieurs outils permettant d’interagir avec l’API REST Resource M
 
 | de diffusion en continu | Groupe | Opération | Notes |
 |---|---|---|---|
-| Gestion des ressources | Définitions de stratégies | [Créer](/rest/api/resources/policydefinitions/createorupdate) | Crée une définition Azure Policy au niveau d’un abonnement. Alternative : [Créer un groupe d’administration](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Gestion des ressources | Définitions de stratégies | [Créer](/rest/api/resources/policydefinitions/createorupdate) | Crée une définition Azure Policy au niveau d’un abonnement. Alternative : [Créer au niveau du groupe d’administration](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Gestion des ressources | Affectations de stratégies | [Créer](/rest/api/resources/policyassignments/create) | Crée une affectation Azure Policy. Dans cet exemple, nous lui fournissons une définition, mais elle peut également en prendre l’initiative. |
 | Gestion des ressources | Affectations de stratégies | [Supprimer](/rest/api/resources/policyassignments/delete) | Supprime une affectation Azure Policy existante. |
-| Gestion des ressources | Définitions de stratégies | [Supprimer](/rest/api/resources/policydefinitions/delete) | Supprime une définition Azure Policy existante. Alternative : [Supprimer un groupe d’administration](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| Gestion des ressources | Définitions de stratégies | [Supprimer](/rest/api/resources/policydefinitions/delete) | Supprime une définition Azure Policy existante. Alternative : [Supprimer au niveau du groupe d’administration](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

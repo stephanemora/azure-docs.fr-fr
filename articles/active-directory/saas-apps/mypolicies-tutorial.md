@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec myPolicies | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à myPolicies | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et myPolicies.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bf79e858-1dfb-4ab3-a6df-74b2d5a878d2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: jeedes
-ms.openlocfilehash: f4c34d224c65a6e339f12def01079a87247d2d60
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8d6db758f01e3ef46a8c770477e1231ee8a8c08
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429112"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809273"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Didacticiel : Intégration d’Azure Active Directory avec myPolicies
+# <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Didacticiel : Intégration d'Azure Active Directory à myPolicies
 
 Dans ce didacticiel, vous allez apprendre à intégrer myPolicies avec Azure Active Directory (Azure AD).
 
@@ -155,7 +155,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 1. Pour configurer l’authentification unique côté **myPolicies**, vous devez envoyer le **Certificat (Base64)** téléchargé et **l’URL du service d’authentification unique SAML** à [l’équipe de support technique myPolicies](mailto:support@mypolicies.com). 
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -191,7 +191,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="creating-a-mypolicies-test-user"></a>Création d’un utilisateur de test myPolicies
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans myPolicies. Collaborez avec l’[équipe de support technique myPolicies](mailto:support@mypolicies.com) pour ajouter des utilisateurs à la plateforme myPolicies. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans myPolicies. Collaborez avec l' [équipe du support technique de myPolicies](mailto:support@mypolicies.com)  pour ajouter des utilisateurs sur la plateforme myPolicies. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
@@ -228,7 +228,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette myPolicies dans le Panneau d'accès, vous êtes connecté automatiquement à votre application myPolicies.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

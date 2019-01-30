@@ -4,7 +4,7 @@ description: Découvrez comment configurer Azure Diagnostics pour envoyer des jo
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 941e914e6ce99082abdd920bd7171644f3575a38
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0560f4a4a815373f86592126b30edcc4ca10ba24
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849392"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825321"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Didacticiel : Diffuser en continu des journaux Azure Active Directory sur un hub d’événements Azure (aperçu)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Tutoriel : Diffuser en continu des journaux Azure Active Directory sur un hub d’événements Azure (préversion)
 
 Dans ce didacticiel, vous découvrez comment configurer les paramètres de diagnostic Azure Monitor pour diffuser en continu des journaux Azure Active Directory (Azure AD) sur un hub d’événements Azure. Ce mécanisme permet d’intégrer vos journaux Security Information and Event Management (SIEM) tiers, tels que Splunk et QRadar.
 
@@ -75,11 +75,11 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 Une fois que les données apparaissent dans le hub d’événements, vous pouvez y accéder et les lire de deux manières :
 
 * **Configurez un outil SIEM pris en charge**. Pour lire les données du hub d’événements, la plupart des outils nécessitent la chaîne de connexion du hub d’événements, ainsi que certaines autorisations de votre abonnement Azure. Voici une liste non exhaustive des outils tiers avec intégration Azure Monitor :
-    * **Splunk** : pour plus d’informations sur l’intégration des journaux Azure AD à Splunk, consultez [Comment intégrer les journaux Azure AD à Splunk à l’aide d’Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
+    * **Splunk** : pour plus d’informations sur l’intégration des journaux Azure AD à Splunk, consultez [Comment intégrer les journaux Azure AD à Splunk à l’aide d’Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
     
-    * **IBM QRadar** : vous pouvez télécharger le module DSM et le protocole Azure Event Hub depuis l’adresse du [service d’assistance d’IBM](https://www.ibm.com/support). Pour plus d’informations sur l’intégration avec Azure, accédez au site [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+    * **IBM QRadar** : vous pouvez télécharger le module DSM et le protocole Azure Event Hub depuis l’adresse du [service d’assistance d’IBM](https://www.ibm.com/support). Pour plus d’informations sur l’intégration avec Azure, accédez au site [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
     
-    * **Sumo Logic** : pour configurer l’outil Sumo Logic pour qu’il consomme les données provenant d’un Event Hub, consultez l’article [Install the Azure Active Directory App and View the Dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) (Installer l’application Azure Active Directory et visualiser les tableaux de bord). 
+    * **Sumo Logic** : pour configurer l’outil Sumo Logic afin qu’il consomme les données provenant d’un Event Hub, consultez l’article [Install the Azure Active Directory App and View the Dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) (Installer l’application Azure Active Directory et visualiser les tableaux de bord). 
 
 * **Configurer des outils personnalisés** Si votre SIEM actuel n’est pas encore pris en charge dans les diagnostics d’Azure Monitor, vous pouvez configurer des outils personnalisés à l’aide des API Event Hubs. Pour plus d’informations, consultez la section [Prise en main de la réception des messages à partir d’un hub d’événements](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
 

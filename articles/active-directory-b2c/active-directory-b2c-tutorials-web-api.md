@@ -3,38 +3,38 @@ title: Didacticiel - Accorder l’accès à une API web ASP.NET depuis une appli
 description: Didacticiel sur l’utilisation d’Active Directory B2C pour protéger une API Web ASP.NET et l’appeler à partir d’une application web ASP.NET.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4051c0438cfb7c33f36cf49542e422e54e723cfc
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726404"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856058"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Didacticiel - Accorder l’accès à une API web ASP.NET depuis une application web à l’aide d’Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Tutoriel : Accorder l’accès à une API web ASP.NET depuis une application web à l’aide d’Azure Active Directory B2C
 
 Ce didacticiel vous montre comment appeler une ressource d’API web protégée par Azure Active Directory (Azure AD) B2C à partir d’une application web ASP.NET.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Inscrire une API web dans votre locataire Azure AD B2C
-> * Définir et configurer les étendues d’une API web
-> * Accorder à une application des autorisations d’accès à l’API web
-> * Mettre à jour l’exemple de code pour utiliser Azure AD B2C afin de protéger une API web
+> * inscrire une API web dans votre client Azure AD B2C ;
+> * définir et configurer les étendues d’une API web ;
+> * accorder à une application des autorisations d’accès à l’API web ;
+> * mettre à jour l’exemple de code pour utiliser Azure AD B2C afin de protéger une API web.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Suivez le [Tutoriel sur l’utilisation d’Azure Active Directory B2C pour l’authentification utilisateur dans une application web ASP.NET](active-directory-b2c-tutorials-web-app.md).
-* Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
+* Suivre [Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial](active-directory-b2c-tutorials-web-app.md) (Didacticiel d’utilisation d’Azure Active Directory B2C pour l’authentification utilisateur dans une application web ASP.NET).
+* Installer [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
 
 ## <a name="register-web-api"></a>Inscrire une API web
 
@@ -116,13 +116,13 @@ L’application **Mon exemple d’application web** est inscrite pour appeler **
 
 Maintenant que l’API web est inscrite et que les étendues sont définies, vous devez configurer le code de l’API web pour utiliser votre client Azure AD B2C. Dans ce didacticiel, vous allez configurer un exemple d’API web. 
 
-L’exemple d’API web est inclus dans le projet que vous avez téléchargé dans le didacticiel préalable : [Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial](active-directory-b2c-tutorials-web-app.md) (Didacticiel d’utilisation d’Azure Active Directory B2C pour l’authentification utilisateur dans une application web ASP.NET). Le cas échéant, terminez ce didacticiel préalable avant de poursuivre.
+L’exemple d’API web est inclus dans le projet que vous avez téléchargé dans le tutoriel préalable : [Utiliser Azure Active Directory B2C pour l’authentification utilisateur dans une application web ASP.NET](active-directory-b2c-tutorials-web-app.md). Le cas échéant, terminez ce didacticiel préalable avant de poursuivre.
 
 L’exemple de solution contient deux projets :
 
-**Exemple d’application web (TaskWebApp) :** application web permettant de créer et de modifier une liste des tâches. L’application web utilise le flux d’utilisateur d’**inscription ou de connexion** pour inscrire ou connecter des utilisateurs avec une adresse e-mail.
+**Exemple d’application web (TaskWebApp) :** application web permettant de créer et de modifier une liste des tâches. L’application web utilise le flux d’utilisateur d’**inscription ou de connexion** pour inscrire ou connecter des utilisateurs avec une adresse e-mail.
 
-**Exemple d’application d’API web (TaskService) :** API web qui prend en charge les fonctionnalités de la liste des tâches de création, de lecture, de mise à jour et de suppression. L’API web est sécurisée par Azure AD B2C et appelée par l’application web.
+**Exemple d’application d’API web (TaskService) :** API web qui prend en charge les fonctionnalités de création, de lecture, de mise à jour et de suppression des listes de tâches. L’API web est sécurisée par Azure AD B2C et appelée par l’application web.
 
 L’exemple d’application web et d’API web définit les valeurs de configuration en tant que paramètres d’application dans le fichier Web.config de chaque projet.
 

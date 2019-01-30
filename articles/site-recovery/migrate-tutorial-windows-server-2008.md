@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 2497793ce5d24ed2516636e76b8b947417dd9f74
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039943"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382891"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrer des serveurs exécutant Windows Server2008 vers Azure
 
@@ -119,7 +119,7 @@ Sélectionnez et vérifiez les ressources cibles.
 1. Pour créer une nouvelle stratégie de réplication, cliquez sur **Infrastructure de Site Recovery** > **Stratégies de réplication** > **+Stratégie de réplication**.
 2. Dans **Créer une stratégie de réplication**, indiquez le nom de la stratégie.
 3. Dans **Seuil d’objectif de point de récupération**, spécifiez la limite de l’objectif de point de récupération (RPO). Une alerte est générée si l’objectif de point de récupération dépasse cette limite.
-4. Dans **Rétention des points de récupération**, spécifiez la durée de la fenêtre de rétention pour chaque point de récupération (en heures). Les machines virtuelles répliquées peuvent être récupérées à n’importe quel point dans une fenêtre. Les machines virtuelles répliquées vers Premium Storage peuvent prendre en charge jusqu’à 24 heures de rétention et 72 heures en cas de stockage standard.
+4. Dans **Rétention des points de récupération**, spécifiez la durée de la fenêtre de rétention pour chaque point de récupération (en heures). Les serveurs répliqués peuvent être récupérés à n’importe quel moment dans cette fenêtre. Les machines virtuelles répliquées vers Premium Storage peuvent prendre en charge jusqu’à 24 heures de rétention et 72 heures en cas de stockage standard.
 5. Dans **Fréquence de capture instantanée de cohérence des applications**, spécifiez **Désactivé**. Cliquez sur **OK** pour créer la stratégie.
 
 La stratégie est automatiquement associée au serveur de configuration.
@@ -154,13 +154,13 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Sélectionnez le dernier point de récupération.
 3. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter le serveur avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 4. Vérifiez que la machine virtuelle Azure s’affiche dans Azure comme prévu.
-5. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Terminer la migration**. Cette opération effectue les actions suivantes :
+5. Dans **Éléments répliqués**, cliquez avec le bouton droit sur le serveur > **Terminer la migration**. Cette opération effectue les actions suivantes :
 
-    - Termine le processus de migration, arrête la réplication pour la machine virtuelle AWS et arrête la facturation Site Recovery pour la machine virtuelle.
+    - Termine le processus de migration, arrête la réplication pour le serveur et arrête la facturation Site Recovery pour le serveur.
     - Cette étape nettoie les données de réplication. Elle ne supprime pas les machines virtuelles migrées.
 
    ![Terminer la migration](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
-> **N’annulez pas un basculement en cours** : la réplication de la machine virtuelle est arrêtée avant le démarrage du basculement. Si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
+> **N’annulez pas un basculement en cours** : la réplication du serveur est arrêtée avant le début du basculement. Si vous annulez un basculement en cours, le basculement s’arrête, mais le serveur n’est plus répliqué.

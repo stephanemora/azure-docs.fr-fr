@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: b37f8c53e9528919da3aaf0acf66376876bd64b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 47e3f449ef3ef0b732dfcef2af595ce5ccd24f16
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470878"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856415"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutoriel : Équilibrer la charge des machines virtuelles Linux dans Azure pour créer une application hautement disponible avec Azure CLI
+# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutoriel : Équilibrer la charge des machines virtuelles Linux dans Azure pour créer une application hautement disponible avec Azure CLI
 
 L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce didacticiel, vous allez découvrir les différents composants de l’équilibreur de charge Azure qui répartissent le trafic et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -53,7 +53,7 @@ Si vous avez suivi le didacticiel précédent pour [créer un groupe de machines
 
 
 ## <a name="create-azure-load-balancer"></a>Créer un équilibreur de charge Azure
-Cette section explique en détail comment vous pouvez créer et configurer chaque composant de l’équilibreur de charge. Pour pouvoir créer votre équilibreur de charge, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupLoadBalancer* dans l’emplacement *westus*:
+Cette section explique en détail comment vous pouvez créer et configurer chaque composant de l’équilibreur de charge. Pour pouvoir créer votre équilibreur de charge, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupLoadBalancer* dans l’emplacement *westus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
@@ -226,7 +226,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-À présent, créez les machines virtuelles avec la commande [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée trois machines virtuelles et génère des clés SSH si elles n’existent pas déjà :
+À présent, créez les machines virtuelles avec la commande [az vm create](/cli/azure/vm). L’exemple suivant crée trois machines virtuelles et génère des clés SSH si elles n’existent pas déjà :
 
 ```bash
 for i in `seq 1 3`; do

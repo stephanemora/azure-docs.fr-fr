@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour créer un objet blob dans le stockage d’objets avec Azure Data Lake Storage Gen2 activé'
+title: 'Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour gérer les données dans Azure Data Lake Storage Gen2 '
 description: Dans ce démarrage rapide, vous allez apprendre à utiliser l’Explorateur Stockage Azure pour créer un système de fichiers dans un compte Azure Data Lake Storage Gen2, ainsi qu’un répertoire et un fichier. Vous apprenez ensuite à télécharger le fichier sur votre ordinateur local, et à afficher tout le fichier dans un répertoire.
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: e556dbe377f5bba6cbd727ac69c3d4fb9127a2c9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5b46d5644536123a9ef3dfc7be87e34d03ee4c4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385616"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423594"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour créer un objet blob dans le stockage d’objets
+# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour gérer les données dans un compte Azure Data Lake Storage Gen2
 
 Dans le cadre de ce démarrage rapide, vous apprenez à utiliser l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour créer un répertoire et un objet blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local, et à afficher tous les objets blob dans un répertoire. Vous découvrez également comment créer une capture instantanée d’objet blob, gérer les stratégies d’accès de répertoire et créer une signature d’accès partagé.
 

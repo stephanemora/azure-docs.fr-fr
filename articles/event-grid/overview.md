@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 466f7614026866bb038f3c73b23e28e34d9f2e30
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 01c88b9bc64bc1541e97aff26e41c360acfaf6bd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321014"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809970"
 ---
 # <a name="what-is-azure-event-grid"></a>Qu'est-ce qu'Azure Event Grid ?
 
@@ -65,7 +65,7 @@ Il existe cinq concepts dans Azure Event Grid qui vous permettent de démarrer 
 * **Événements** : ce qu’il s’est passé.
 * **Sources d’événements** : où l’événement a eu lieu.
 * **Rubriques** : le point de terminaison où les éditeurs envoient des événements.
-* **Abonnements aux événements** : point de terminaison ou mécanisme intégré permettant d'acheminer les événements, parfois vers plusieurs gestionnaires. Les abonnements sont également utilisés par des gestionnaires pour filtrer intelligemment les événements entrants.
+* **Abonnements aux événements** : point de terminaison ou mécanisme intégré permettant de router les événements, parfois vers plusieurs gestionnaires. Les abonnements sont également utilisés par des gestionnaires pour filtrer intelligemment les événements entrants.
 * **Gestionnaires d’événements** : l’application ou le service réagissant à l’événement.
 
 Pour plus d’informations sur ces concepts, consultez [Concepts dans Azure Event Grid](concepts.md).

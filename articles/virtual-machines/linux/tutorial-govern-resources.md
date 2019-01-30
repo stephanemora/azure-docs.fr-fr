@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309857"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464253"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutoriel : Découvrir la gouvernance de machines virtuelles Linux avec Azure CLI
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Didacticiel : En savoir plus sur la gouvernance des machines virtuelles Linux avec Azure CLI
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -177,7 +177,7 @@ Vous allez appliquer des [balises](../../azure-resource-manager/resource-group-u
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-Pour appliquer des balises à une machine virtuelle, utilisez la commande [az resource tag](/cli/azure/resource#az_resource_tag). Les balises existantes de la ressource ne sont pas conservées.
+Pour appliquer des balises à une machine virtuelle, utilisez la commande [az resource tag](/cli/azure/resource). Les balises existantes de la ressource ne sont pas conservées.
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -188,7 +188,7 @@ az resource tag -n myVM \
 
 ### <a name="find-resources-by-tag"></a>Rechercher des ressources à l’aide de leurs balises
 
-Pour rechercher des ressources avec le nom et la valeur d’une balise, utilisez la commande [az resource list](/cli/azure/resource#az_resource_list) :
+Pour rechercher des ressources avec le nom et la valeur d’une balise, utilisez la commande [az resource list](/cli/azure/resource) :
 
 ```azurecli-interactive
 az resource list --tag Environment=Test --query [].name

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Ajouter des utilisateurs invités dans le portail Azure'
+title: 'Démarrage rapide : Ajouter des utilisateurs invités dans le portail Microsoft AzureAzure'
 description: Utilisez ce guide de démarrage rapide pour savoir comment les administrateurs Azure AD peuvent ajouter des utilisateurs invités B2B dans le portail Azure, et pour connaître les étapes du workflow d’une invitation B2B.
 services: active-directory
 ms.service: active-directory
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ed49eed6dbfce9a71f13770e3ddcaec6557cf875
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 5e62d8679a76c024b0dcada5cfaad50659fcd4c8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986543"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431688"
 ---
-# <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Démarrage rapide : Ajouter des utilisateurs invités à votre annuaire dans le portail Azure
+# <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Démarrage rapide : Ajouter des utilisateurs invités à votre annuaire dans le portail Azure
 
 Vous pouvez inviter n’importe quelle personne à collaborer avec votre organisation en l’ajoutant à votre annuaire en tant qu’utilisateur invité. Vous pouvez envoyer un e-mail d’invitation contenant un lien d’échange, ou envoyer un lien direct vers l’application que vous souhaitez partager. L’utilisateur invité peut se connecter avec sa propre identité professionnelle, scolaire ou sociale.
 

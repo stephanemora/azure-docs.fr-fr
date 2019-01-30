@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: c3392c3fd169ceed84368ed9e8b8d81cab7baea4
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 5591e8174f15d552bf7295d1c3fe9cb5257c0f2e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212927"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438896"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure PowerShell
 
@@ -25,7 +25,7 @@ Cet exemple de travail lit les données de streaming à partir d’un appareil I
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/).  
 
-* Ce démarrage rapide requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée sur votre ordinateur local. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* Ce démarrage rapide requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée sur votre ordinateur local. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 * Certaines actions IoT Hub ne sont pas prises en charge par Azure PowerShell et doivent être effectuées à l’aide d’Azure CLI version 2.0.24 ou ultérieure et de l’extension IoT pour Azure CLI. [Installez Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et utilisez `az extension add --name azure-cli-iot-ext` pour installer l’extension IoT.
 

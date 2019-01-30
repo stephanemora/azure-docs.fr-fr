@@ -3,20 +3,20 @@ title: 'Démarrage rapide d’Azure : Configurer une machine virtuelle avec DSC 
 description: Configurer une pile LAMP sur une machine virtuelle Linux avec le service de configuration d’état souhaité
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 keywords: dsc, configuration, automatisation
 author: KrisBash
 ms.author: krbash
-ms.date: 12/17/2017
+ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053713"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431586"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurer une machine virtuelle Linux avec le service de configuration d’état souhaité
 
@@ -24,27 +24,26 @@ En activant le service de configuration d’état souhaité (DSC), vous gérez e
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/).
 * Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Authentifier des Runbooks avec un compte d’identification Azure](automation-sec-configure-azure-runas-account.md).
 * Une machine virtuelle Azure Resource Manager (autre que classique) exécutant Red Hat Enterprise Linux, CentOS ou Oracle Linux. Pour obtenir des instructions sur la création d’une machine virtuelle, consultez [Créer votre première machine virtuelle Linux dans le portail Azure](../virtual-machines/linux/quick-create-portal.md).
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
-Connectez-vous à Azure à l’adresse https://portal.azure.com.
+## <a name="sign-in-to-azure"></a>Connexion à Azure
+Se connecter à Azure à https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Intégrer une machine virtuelle
 Il existe plusieurs méthodes pour intégrer une machine et activer le service de configuration d’état souhaité. Ce démarrage rapide aborde l’intégration via un compte Automation. Pour en savoir plus sur différentes méthodes d’intégration de vos machines au service de configuration d’état souhaité, lisez l’article sur [l’intégration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
 
 1. Dans le volet de gauche du portail Azure, sélectionnez **Comptes Automation**. Si cette option n’est pas visible dans le volet de gauche, cliquez sur **Tous les services**, puis recherchez-la dans la vue correspondante.
 1. Dans la liste, sélectionnez un compte Automation.
-1. Dans le volet de gauche du compte Automation, sélectionnez **DSC Nodes** (Nœuds DSC).
-1. Cliquez sur l’option de menu pour **ajouter la machine virtuelle Azure**.
-1. Trouvez la machine virtuelle pour laquelle vous souhaitez activer DSC. Vous pouvez utiliser le champ de recherche et les options de filtre pour rechercher une machine virtuelle en particulier.
-1. Cliquez sur la machine virtuelle, puis sélectionnez **Connexion**.
-1. Sélectionnez les paramètres DSC adaptés à la machine virtuelle. Si vous avez déjà préparé une configuration, vous pouvez la spécifier en tant que *Node Configuration Name* (Nom de configuration du nœud). Vous pouvez définir le [mode de configuration](https://docs.microsoft.com/powershell/dsc/metaconfig) pour contrôler le comportement de la configuration de la machine.
-1. Cliquez sur **OK**
+1. Dans le volet de gauche du compte Automation, sélectionnez **Configuration d’état (DSC)**.
+2. Cliquez sur **Ajouter** pour ouvrir la page Sélection de machine virtuelle.
+3. Trouvez la machine virtuelle pour laquelle vous souhaitez activer DSC. Vous pouvez utiliser le champ de recherche et les options de filtre pour rechercher une machine virtuelle en particulier.
+4. Cliquez sur la machine virtuelle, puis sélectionnez **Connexion**.
+5. Sélectionnez les paramètres DSC adaptés à la machine virtuelle. Si vous avez déjà préparé une configuration, vous pouvez la spécifier en tant que *Node Configuration Name* (Nom de configuration du nœud). Vous pouvez définir le [mode de configuration](https://docs.microsoft.com/powershell/dsc/metaconfig) pour contrôler le comportement de la configuration de la machine.
+6. Cliquez sur **OK**
 
 ![Intégrer une machine virtuelle Azure à DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
@@ -102,29 +101,27 @@ configuration LAMPServer {
 
 Pour importer la configuration :
 
-1. Dans le volet de gauche du compte Automation, sélectionnez **DSC Configurations** (Configurations DSC).
-1. Cliquez sur l’option de menu pour **ajouter une configuration**.
-1. Sélectionnez le *fichier de configuration* que vous avez enregistré à l’étape précédente.
-1. Cliquez sur **OK**
+1. Dans le volet de gauche du compte Automation, sélectionnez **Configuration d’état (DSC)** puis cliquez sur l’onglet **Configurations**.
+2. Cliquez sur **+ Ajouter**
+3. Sélectionnez le *fichier de configuration* que vous avez enregistré à l’étape précédente.
+4. Cliquez sur **OK**
 
 ## <a name="compile-a-configuration"></a>Compiler une configuration
 
-Les configurations DSC doivent être compilées dans une configuration de nœud (document MOF) avant de pouvoir être affectées à un nœud. La compilation valide la configuration et permet la saisie des valeurs de paramètre. Pour plus d’informations sur la compilation d’une configuration, consultez [Compiler des configurations dans Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+Les configurations DSC doivent être compilées dans une configuration de nœud (document MOF) avant de pouvoir être affectées à un nœud. La compilation valide la configuration et permet la saisie des valeurs de paramètre. Pour plus d’informations sur la compilation d’une configuration, consultez : [Compilation de configurations dans Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
 
 Pour compiler la configuration :
 
-1. Dans le volet de gauche du compte Automation, sélectionnez **DSC Configurations** (Configurations DSC).
+1. Dans le volet de gauche du compte Automation, sélectionnez **Configuration d’état (DSC)** puis cliquez sur l’onglet **Configurations**.
 1. Sélectionnez la configuration que vous avez importée dans une étape précédente (LAMPServer).
 1. Parmi les options de menu, cliquez sur **Compiler**, puis sur **Oui**.
 1. Dans la vue de la configuration,une nouvelle *tâche de compilation* apparaît en file d’attente. Lorsque cette tâche est terminée, vous êtes prêt à passer à l’étape suivante. En cas de problème, vous pouvez cliquer sur cette tâche de compilation pour plus d’informations.
-
-![État de la tâche de compilation](./media/automation-quickstart-dsc-configuration/dsc-compilationjob.png)
 
 ## <a name="assign-a-node-configuration"></a>Affecter une configuration de nœud
 
 Une *configuration de nœud* compilée peut être affectée aux nœuds DSC. Cette affectation applique la configuration à la machine et surveille (ou corrige automatiquement) tout écart.
 
-1. Dans le volet de gauche du compte Automation, sélectionnez **DSC Nodes** (Nœuds DSC).
+1. Dans le volet de gauche du compte Automation, sélectionnez **Configuration d’état (DSC) puis cliquez sur l’onglet **Nœuds**.
 1. Sélectionnez le nœud auquel vous souhaitez affecter une configuration.
 1. Cliquez sur **Assign Node Configuration** (Affecter une configuration de nœud).
 1. Sélectionnez la *configuration de nœud* - **LAMPServer.localhost** à affecter, puis cliquez sur **OK**
@@ -134,7 +131,7 @@ Une *configuration de nœud* compilée peut être affectée aux nœuds DSC. Cett
 
 ## <a name="viewing-node-status"></a>Obtenir l’état du nœud
 
-L’état de tous les nœuds gérés se trouvent dans la vue **DSC Nodes** (Nœuds DSC) du compte Automation. Vous pouvez filtrer cette vue par état et configuration de nœud ou recherchez son nom. 
+L’état de tous les nœuds gérés se trouve dans la **Configuration d’état (DSC)** et sous l’onglet **Nœuds** dans le compte Automation. Vous pouvez filtrer cette vue par état et configuration de nœud ou recherchez son nom.
 
 ![État du nœud DSC](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 
@@ -148,3 +145,4 @@ Dans ce démarrage rapide, vous avez intégré une machine virtuelle Linux à DS
 * Pour en savoir plus sur le service de configuration d’état souhaité PowerShell, consultez [Vue d’ensemble de la configuration d’état souhaité PowerShell](https://docs.microsoft.com/powershell/dsc/overview).
 * Pour en savoir plus sur la gestion d’Automation DSC à partir de PowerShell, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
 * Pour savoir comment transférer des rapports DSC à Log Analytics pour générer des rapports et alertes, consultez [Transférer des rapports DSC à Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
+

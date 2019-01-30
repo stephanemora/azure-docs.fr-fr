@@ -4,17 +4,17 @@ description: Utilisez Azure CLI pour créer une affectation Azure Policy afin d�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 99e8b782f3f52ed89b5188de19d70cb276a0eb84
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3b4f71e420c0d80594193f27739fd120881247d4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315835"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856228"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Créer une affectation de stratégie pour identifier les ressources non conformes avec Azure CLI
 
@@ -65,11 +65,11 @@ La commande précédente utilise les informations suivantes :
 Pour afficher les ressources qui ne sont pas conformes à cette nouvelle attribution, obtenez l’ID d’attribution de stratégie en exécutant les commandes suivantes :
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
+$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
-Pour plus d’informations sur les ID d’attribution de stratégie, voir [Get-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/get-azurermpolicyassignment).
+Pour plus d’informations sur les ID d’affectation de stratégie, consultez [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
 
 Exécutez ensuite la commande suivante pour obtenir les ID des ressources non conformes, intégrés dans un fichier JSON :
 
@@ -107,7 +107,7 @@ Les résultats sont comparables à ce que vous devriez généralement voir sous 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Utiliser la commande suivante pour supprimer l’attribution créée :
+Utilisez la commande suivante pour supprimer l’affectation créée :
 
 ```azurecli-interactive
 az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
@@ -117,7 +117,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 Dans ce démarrage rapide, vous avez affecté une définition de stratégie pour identifier les ressources non conformes de votre environnement Azure.
 
-Pour plus d’informations sur l’affectation de stratégies pour vérifier que les nouvelles ressources sont conformes, suivez le didacticiel :
+Pour en savoir plus sur l’affectation de stratégies pour vérifier que les nouvelles ressources sont conformes, suivez le didacticiel :
 
 > [!div class="nextstepaction"]
 > [Création et gestion des stratégies](./tutorials/create-and-manage.md)

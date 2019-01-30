@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093605"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849972"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -93,15 +93,23 @@ Azure Cost Management fournit également des recommandations économiques pour l
 
 ## <a name="create-alerts-for-unusual-spending"></a>Créer des alertes pour dépenses inhabituelles
 
-Vous pouvez alerter automatiquement d’autres parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives. Vous pouvez créer rapidement et facilement des alertes à l’aide de rapports prenant en charge les alertes basées sur des seuils budgétaires et des seuils de coût.
+Les alertes vous permettent d’avertir automatiquement des parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives. Vous pouvez créer des alertes à l’aide de rapports prenant en charge les alertes basées sur des seuils budgétaires et des seuils de coût.
 
-Vous pouvez créer une alerte pour une dépense quelconque avec tout rapport de coût. Dans cet exemple, utilisez le rapport des coûts réels dans le temps pour vous avertir quand les dépenses de la machine virtuelle Azure s’approchent de votre budget total. Toutes les étapes suivantes sont nécessaires pour créer l’alerte. Dans le menu en haut du portail, cliquez sur **Coûts** > **Analyse des coûts** > **Actual Cost Over Time** (Rapport des coûts réels dans le temps). Définissez **Groups (Groupes)** sur **Service** et **filtrez le service** sur **Azure/VM**. Dans le coin supérieur droit du rapport, cliquez sur **Actions**, puis sélectionnez **Schedule report (Planifier le rapport)**.
+Cet exemple utilise le rapport des **coûts réels dans le temps** pour envoyer une notification quand vos dépenses sur une machine virtuelle Azure s’approchent de votre budget total. Dans ce scénario, vous disposez d’un budget total de 20 000 $, et souhaitez recevoir une notification quand les coûts sont proches de la moitié de votre budget, 9 000 $, et une alerte supplémentaire quand ils atteignent 10 000 $.
 
-Dans la zone Enregistrer ou planifier ce rapport, utilisez l’onglet **Planification** pour recevoir un e-mail du rapport à la fréquence de votre choix. Veillez à sélectionner **Envoyer par e-mail**. Tous les regroupements, filtrages et balises que vous avez utilisés sont inclus dans le rapport envoyé par e-mail. Cliquez sur l’onglet **Threshold (Seuil)** et sélectionnez **Actual Cost vs. Threshold** (Coût réel vs seuil). Si vous avez un budget total de 20 000 $ et souhaitez recevoir une notification dès que les coûts s’approchent de la moitié environ, créez une **alerte rouge** sur 10 000 $ et une **alerte jaune** sur 9 000 $. N’incluez pas de virgules dans les valeurs que vous entrez. Sélectionnez ensuite le nombre d’alertes consécutives. Quand vous aurez reçu le nombre total d’alertes que vous avez spécifié, vous ne recevrez plus d’autres alertes. Enregistrez le rapport planifié.
+1. Dans le menu en haut du portail Cloudyn, sélectionnez **Costs**(Coûts) > **Cost Analysis** (Analyse des coûts) > **Actual Cost Over Time** (Rapport des coûts réels dans le temps). 
+2. Définissez **Groups (Groupes)** sur **Service** et **filtrez le service** sur **Azure/VM**. 
+3. Dans le coin supérieur droit du rapport, sélectionnez **Actions**, puis sélectionnez **Schedule report** (Planifier le rapport).
+4. Pour recevoir un e-mail du rapport à intervalle planifié, sélectionnez l’onglet **Scheduling** (Planification) dans la boîte de dialogue **Save or Schedule this report** (Enregistrer ou planifier ce rapport). Veillez à sélectionner **Envoyer par e-mail**. Tous les regroupements, filtrages et balises que vous utilisez sont inclus dans le rapport envoyé par e-mail. 
+5. Sélectionnez l’onglet **Threshold** (Seuil), puis **Actual Cost vs. Threshold** (Coût réel vs seuil). 
+   1. Dans le seuil **Red alert** (Alerte rouge), entrez 10000. 
+   2. Dans le seuil **Yellow alert** (Alerte jaune), entrez 9000. 
+   3. Dans la zone **Number of consecutive alerts** (Nombre d’alertes consécutives), entrez le nombre d’alertes consécutives à recevoir. Quand vous aurez reçu le nombre total d’alertes que vous avez spécifié, vous ne recevrez plus d’autres alertes. 
+6. Sélectionnez **Enregistrer**.
 
 ![Exemple illustrant les alertes rouges et jaunes basées sur les seuils de dépenses](./media/tutorial-review-usage/schedule-alert01.png)
 
-Vous pouvez également sélectionner la métrique de seuil Cost Percentage vs. Budget (Pourcentage du coût vs budget) pour créer des alertes. Cette métrique vous permet d’utiliser des pourcentages budgétaires au lieu de valeurs de devise.
+Vous pouvez également sélectionner la métrique de seuil **Cost Percentage vs. Budget** (Pourcentage du coût vs budget) pour créer des alertes. Vous pouvez ainsi spécifier les seuils sous forme de pourcentages de votre budget, plutôt que sous forme de valeurs de devise.
 
 ## <a name="export-data"></a>Exporter des données
 

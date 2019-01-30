@@ -14,14 +14,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: abe98cb809c47b6803d638b8e3f042189d2cc2b4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe5dbfa368de400b4aad476c4aefbb70628d1145
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999271"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852151"
 ---
-# <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Exemple CLI : créer un compte Batch en mode abonnement utilisateur
+# <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Exemple CLI : Créer un compte Batch en mode abonnement utilisateur
 
 Ce script crée un compte Azure Batch en mode abonnement utilisateur. Un compte qui alloue des nœuds de calcul dans votre abonnement doit être authentifié via un jeton Azure Active Directory. Les nœuds de calcul alloués sont pris en compte dans le quota de processeurs virtuels (cœur) de votre abonnement. 
 
@@ -47,7 +47,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [az role assignment create](/cli/azure/role#az-role-assignment-create) | Crée une nouvelle attribution de rôle pour un utilisateur, un groupe ou un principal de service. |
+| [az role assignment create](/cli/azure/role) | Crée une nouvelle attribution de rôle pour un utilisateur, un groupe ou un principal de service. |
 | [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-create) | Crée un coffre de clés. |
 | [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) | Met à jour la stratégie de sécurité du coffre de clés spécifié. |

@@ -3,19 +3,19 @@ title: Qu’est-ce qu’Azure Active Directory B2C ? | Microsoft Docs
 description: Découvrez comment vous pouvez créer et gérer l’expérience de connexion à vos applications à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b667934fefe0b9afb5aeca786839f5e105be2c4d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724024"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844991"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Qu’est-ce qu’Azure Active Directory B2C ?
 
@@ -102,17 +102,17 @@ Dans Azure AD B2C, un locataire représente votre organisation et constitue un r
 
 Liez votre locataire Azure AD B2C à votre abonnement Azure pour activer l’ensemble des fonctionnalités et payer les frais d’utilisation. Pour permettre à vos clients de se connecter à votre application, vous devez l’inscrire dans un locataire Azure AD B2C.
 
-Avant de configurer votre application pour l’utilisation d’Azure AD B2C, vous devez commencer par créer un locataire Azure AD B2C et inscrire votre application. Pour inscrire votre application, suivez la procédure décrite dans [Didacticiel : enregistrer une application pour activer l’inscription et la connexion à l’aide d’Azure Active Directory B2C](tutorial-register-applications.md).
+Avant de configurer votre application pour l’utilisation d’Azure AD B2C, vous devez commencer par créer un locataire Azure AD B2C et inscrire votre application. Pour inscrire votre application, suivez les étapes du [Tutoriel : Inscrire une application pour activer l’abonnement et la connexion à l’aide d’Azure AD B2C](tutorial-register-applications.md).
   
-Si vous êtes un développeur d’applications web ASP.NET, configurez votre application pour l’authentification des comptes en suivant la procédure décrite dans [Didacticiel : authentifier les utilisateurs avec Azure Active Directory B2C dans une application web ASP.NET](active-directory-b2c-tutorials-web-app.md).
+Si vous êtes développeur d’applications web ASP.NET, configurez votre application pour l’authentification des comptes en suivant la procédure décrite dans [Tutoriel : Autoriser une application web à effectuer l’authentification avec des comptes à l’aide d’Azure Active Directory B2C](active-directory-b2c-tutorials-web-app.md).
 
-Si vous êtes un développeur d’applications de bureau, configurez votre application pour l’authentification des comptes en suivant la procédure décrite dans [Tutorial: Enable a desktop application to authenticate with accounts using Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md) (Didacticiel : authentifier les utilisateurs avec Azure Active Directory B2C dans une application de bureau).
+Si vous êtes développeur d’applications de bureau, configurez votre application pour l’authentification des comptes en suivant la procédure décrite dans [Tutoriel : Autoriser une application de bureau à effectuer l’authentification avec des comptes à l’aide d’Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app.md).
 
-Si vous êtes un développeur d’applications monopage à l’aide de Node.js, configurez votre application pour l’authentification des comptes en suivant la procédure décrite dans [Tutorial: Enable a single-page application to authenticate with accounts using Azure AD B2C](active-directory-b2c-tutorials-spa.md) (Didacticiel : authentifier les utilisateurs avec Azure Active Directory B2C dans une application monopage).
+Si vous êtes développeur d’applications monopages Node.js, configurez votre application pour l’authentification des comptes en suivant la procédure décrite dans [Tutoriel : Autoriser une application monopage à effectuer l’authentification avec des comptes à l’aide d’Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Commencez à configurer votre application pour les expériences d’inscription et de connexion en poursuivant le didacticiel.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md)
+> [Tutoriel : Créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md)

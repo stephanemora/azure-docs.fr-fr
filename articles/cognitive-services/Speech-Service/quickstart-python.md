@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale dans Python avec le Kit de développement logiciel (SDK) du service Speech'
+title: 'Démarrage rapide : Reconnaissance vocale, Python - Services de reconnaissance vocale'
 titleSuffix: Azure Cognitive Services
-description: Découvrir comment effectuer une reconnaissance vocale dans Python avec le Kit de développement logiciel (SDK) du service Speech
+description: Utilisez ce guide pour créer une application console de reconnaissance vocale à l’aide du SDK Speech pour Python. Lorsque vous avez terminé, vous pouvez utiliser le microphone de l’ordinateur pour une retranscription vocale en temps réel.
 services: cognitive-services
 author: chlandsi
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7610b12b351b2652df7ade603711d4d92e587292
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 40869457ce933368e17a2054dfca50fc4505fa22
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723907"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381569"
 ---
-# <a name="quickstart-using-the-speech-service-from-python"></a>Démarrage rapide : Utilisation du service Speech dans Python
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Démarrage rapide : Reconnaissance vocale à l’aide du SDK Speech pour Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -39,7 +39,7 @@ Avant de commencer, voici une liste de prérequis :
 
 * Sur Windows, vous avez également besoin de [Microsoft Redistributable Visual C++ pour Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) pour votre plateforme.
 
-## <a name="get-the-speech-sdk-python-package"></a>Obtenir le package de Kit de développement logiciel (SDK) Speech Python
+## <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -61,7 +61,7 @@ Si vous avez un problème ou si une fonctionnalité est manquante, consultez not
 
 ## <a name="create-a-python-application-using-the-speech-sdk"></a>Créer une application Python à l’aide du Kit de développement logiciel (SDK) Speech
 
-### <a name="running-the-sample-in-a-terminal"></a>Exécution de l’exemple dans un terminal
+### <a name="run-the-sample"></a>Exécution de l'exemple
 
 Vous pouvez copier le [code](#quickstart-code) de ce démarrage rapide sur un fichier source `quickstart.py` et l’exécuter dans votre IDE ou dans la console
 
@@ -71,11 +71,11 @@ python quickstart.py
 
 Vous pouvez également télécharger ce didacticiel de démarrage rapide en tant que notebook [Jupyter](https://jupyter.org) dans le [référentiel d’exemples Speech Cognitive Services](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) et l’exécuter en tant que notebook.
 
-### <a name="quickstart-code"></a>Code de démarrage rapide
+### <a name="sample-code"></a>Exemple de code
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
 
-### <a name="installing-the-speech-sdk-python-package-and-running-the-sample-in-visual-studio-code"></a>Installation du package de Kit de développement logiciel (SDK) Speech Python et exécution de l’exemple dans Visual Studio Code
+### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installer et utiliser le SDK Speech avec Visual Studio Code
 
 1. [Téléchargez](https://www.python.org/downloads/) et installez une version 64 bits (3.5 ou version ultérieure) de Python sur votre ordinateur.
 1. [Téléchargez](https://code.visualstudio.com/Download) et installez Visual Studio Code.

@@ -13,19 +13,19 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7cd38329be77dadc13b8e6372622be70609cedee
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: fc2feff700220f57f82e8ac0a310843dd9b0cae6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018670"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436601"
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Créer une fabrique de données Azure à l’aide de PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version actuelle](quickstart-create-data-factory-powershell.md)
 
-Ce guide de démarrage rapide explique comment utiliser PowerShell pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un tutoriel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Tutoriel : transformation des données à l’aide de Spark](transform-data-using-spark.md). 
+Ce guide de démarrage rapide explique comment utiliser PowerShell pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un tutoriel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Tutoriel : Transformer des données à l’aide de Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Cet article ne fournit pas de présentation détaillée du service Data Factory. Pour une présentation du service Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
@@ -33,7 +33,7 @@ Ce guide de démarrage rapide explique comment utiliser PowerShell pour créer u
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 #### <a name="log-in-to-powershell"></a>Se connecter à PowerShell
 
@@ -91,13 +91,13 @@ Notez les points suivants :
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Pour créer des instances de fabrique de données, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être un membre des rôles **contributeur** ou **propriétaire**, ou un **administrateur** de l’abonnement Azure.
-* Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+* Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
 ## <a name="create-a-linked-service"></a>Créer un service lié
 
 Créez des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans ce guide de démarrage rapide, vous allez créer un service lié Stockage Azure qui sera utilisé à la fois comme banque de données source et réceptrice. Le service lié comporte les informations de connexion utilisées par le service Data Factory lors de l’exécution pour s’y connecter.
 
-1. Créez un fichier JSON nommé **AzureStorageLinkedService.json** dans le dossier **C:\ADFv2QuickStartPSH** avec le contenu suivant : (créez le dossier ADFv2QuickStartPSH s’il n’existe pas déjà). 
+1. Créez un fichier JSON nommé **AzureStorageLinkedService.json** dans le dossier **C:\ADFv2QuickStartPSH** avec le contenu suivant : (S’il n’existe pas déjà, créez le dossier ADFv2QuickStartPSH.) 
 
     > [!IMPORTANT]
     > Remplacez &lt;accountName&gt; et &lt;accountKey&gt; par le nom et la clé de votre compte de stockage Azure avant d’enregistrer le fichier.
@@ -122,13 +122,13 @@ Créez des services liés dans une fabrique de données pour lier vos magasins d
     ```powershell
     Set-Location 'C:\ADFv2QuickStartPSH'
     ```
-3. Exécutez l’applet de commande **Set-AzureRmDataFactoryV2LinkedService** pour créer le service lié **AzureStorageLinkedService**. 
+3. Exécutez l’applet de commande **Set-AzureRmDataFactoryV2LinkedService** pour créer le service lié : **AzureStorageLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
     ```
 
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
 
     ```
     LinkedServiceName : AzureStorageLinkedService
@@ -163,13 +163,13 @@ Dans cette étape, vous allez définir un jeu de données qui représente les do
     }
     ```
 
-2. Pour créer le jeu de données **BlobDataset**, exécutez l’applet de commande **Set-AzureRmDataFactoryV2Dataset**.
+2. Pour créer le jeu de données : **BlobDataset**, exécutez la cmdlet **Set-AzureRmDataFactoryV2Dataset**.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
     ```
 
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
 
     ```
     DatasetName       : BlobDataset
@@ -233,7 +233,7 @@ Dans ce guide de démarrage rapide, vous allez créer un pipeline avec une activ
     }
     ```
 
-2. Pour créer le pipeline **Adfv2QuickStartPipeline**, exécutez l’applet de commande **Set-AzureRmDataFactoryV2Pipeline**.
+2. Pour créer le pipeline : **Adfv2QuickStartPipeline**, exécutez la cmdlet **Set-AzureRmDataFactoryV2Pipeline**.
 
     ```powershell
     $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"

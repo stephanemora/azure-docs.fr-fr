@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a86547ad3eddb57328a2a0358ac453c979b84d37
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 21f2081f5aae0bb93cb9066407140f5fd35dc06d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163360"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424029"
 ---
-# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Didacticiel : Effectuer un déploiement pilote de réinitialisation de mot de passe en libre-service pour Azure AD
+# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Didacticiel : Effectuer un déploiement pilote de réinitialisation de mot de passe en libre-service pour Azure AD
 
 Dans ce didacticiel, vous activez un déploiement pilote de réinitialisation de mot de passe en libre-service (SSPR) pour Azure AD dans votre organisation et le testez à l’aide d’un compte non-administrateurs.
 
@@ -66,7 +66,7 @@ Tester la réinitialisation de mot de passe en libre-service à l’aide d’un 
 1. À l’aide du même utilisateur de test, parcourez le portail de réinitialisation de mot de passe en libre-service [https://aka.ms/sspr](https://aka.ms/sspr) et tentez de réinitialiser votre mot de passe avec les informations que vous avez fournies à l’étape précédente.
 1. Vous devriez pouvoir réinitialiser votre mot de passe.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous décidez de ne plus utiliser la fonctionnalité que vous avez configurée dans le cadre de ce didacticiel, apportez la modification suivante.
 

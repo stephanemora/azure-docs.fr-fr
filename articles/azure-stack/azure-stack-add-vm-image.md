@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/14/2019
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 3bd86fe8708d2cbb8cbddac4ca35d5afdc68d2e3
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306078"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474368"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Mettre une image de machine virtuelle à la disposition des utilisateurs dans Azure Stack
 
@@ -40,23 +39,23 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
    - Azure Stack prend seulement en charge les machines virtuelles de génération un (1) dans le format VHD de disque dur fixe. Le format fixe structure linéairement le disque logique dans le fichier de façon que l’offset du disque X soit stocké à l’offset de l’objet blob X. Un petit pied de page à la fin de l’objet blob décrit les propriétés du disque dur virtuel. Pour vérifier si votre disque est fixe, utilisez la commande PowerShell [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps).  
 
     > [!IMPORTANT]  
-    >  Azure Stack ne prend pas en charge les disques durs virtuels de disque dynamique. Le redimensionnement d’un disque dynamique attaché à une machine virtuelle laissera la machine virtuelle dans un état d’échec. Pour résoudre ce problème, supprimez la machine virtuelle sans supprimer le disque de la machine virtuelle, un objet blob VHD dans un compte de stockage. Ensuite, convertissez le disque dur virtuel d’un disque dynamique en un disque fixe et recréez la machine virtuelle.
+    >  Azure Stack ne prend pas en charge les disques durs virtuels de disque dynamique. Le redimensionnement d’un disque dynamique attaché à une machine virtuelle laissera la machine virtuelle dans un état d’échec. Pour résoudre ce problème, supprimez la machine virtuelle sans supprimer son disque (un objet blob VHD dans un compte de stockage). Ensuite, convertissez le disque dur virtuel d’un disque dynamique en un disque fixe et recréez la machine virtuelle.
 
-   * Il est préférable de charger une image dans le stockage d’objets blob Azure Stack plutôt que dans le stockage d’objets blob Azure, car l’envoi (push) d’une image dans le référentiel d’images Azure Stack est plus rapide.
+   - Il est préférable de charger une image dans le stockage d’objets blob Azure Stack plutôt que dans le stockage d’objets blob Azure, car l’envoi (push) d’une image dans le référentiel d’images Azure Stack est plus rapide.
 
-   * Quand vous chargez [l’image de machine virtuelle Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), pensez à substituer l’étape **Se connecter à Azure** par l’étape [Configurer l’environnement PowerShell de l’opérateur Azure Stack](azure-stack-powershell-configure-admin.md).  
+   - Quand vous chargez [l’image de machine virtuelle Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), pensez à substituer l’étape **Se connecter à Azure** par l’étape [Configurer l’environnement PowerShell de l’opérateur Azure Stack](azure-stack-powershell-configure-admin.md).  
 
-   * Prenez note de l’URI de stockage d’objets blob dans lequel vous chargez l’image. L’URI de stockage d’objets blob est au format suivant : *&lt;compte_stockage&gt;/&lt;conteneur_objets_blob&gt;/&lt;nom_disque_dur_virtuel_cible&gt;*.vhd.
+   - Prenez note de l’URI de stockage d’objets blob dans lequel vous chargez l’image. L’URI de stockage d’objets blob est au format suivant : *&lt;compte_stockage&gt;/&lt;conteneur_objets_blob&gt;/&lt;nom_disque_dur_virtuel_cible&gt;*.vhd.
 
-   * Pour rendre le stockage Blob accessible de manière anonyme, accédez au conteneur d’objets blob du compte de stockage dans lequel l’image de machine virtuelle VHD a été chargée. Sélectionnez **Blob** puis choisissez **Stratégie d’accès**. Si vous le souhaitez, vous pouvez générer une signature d’accès partagé pour le conteneur et l’inclure dans l’URI de l’objet blob. Cette étape permet de s’assurer que l’objet blob est utilisable pour l’ajouter en tant qu’image. Si l’objet blob n’est pas accessible de manière anonyme, l’image de machine virtuelle sera créée dans un état d’échec.
+   - Pour rendre le stockage Blob accessible de manière anonyme, accédez au conteneur d’objets blob du compte de stockage dans lequel l’image de machine virtuelle VHD a été chargée. Sélectionnez **Blob**, puis choisissez **Stratégie d’accès**. Si vous le souhaitez, vous pouvez générer une signature d’accès partagé pour le conteneur et l’inclure dans l’URI de l’objet blob. Cette étape permet de s’assurer que l’objet blob est utilisable pour l’ajouter en tant qu’image. Si l’objet blob n’est pas accessible de manière anonyme, l’image de machine virtuelle sera créée dans un état d’échec.
 
-   ![Accéder aux objets blob du compte de stockage](./media/azure-stack-add-vm-image/image1.png)
+    ![Accéder aux objets blob du compte de stockage](./media/azure-stack-add-vm-image/image1.png)
 
-   ![Définir un accès public pour les objets blob](./media/azure-stack-add-vm-image/image2.png)
+    ![Définir un accès public pour les objets blob](./media/azure-stack-add-vm-image/image2.png)
 
-2. Connectez-vous au Azure Stack en tant qu’opérateur. Dans le menu, sélectionnez **Tous les services**. Ensuite, sous la catégorie **ADMINISTRATION**, sélectionnez **Calcul** > **Images de machine virtuelle** > **Ajouter**.
+2. Connectez-vous au Azure Stack en tant qu’opérateur. Dans le menu, sélectionnez **Tous les services** > **Images** sous **Calcul** > **Ajouter**.
 
-3. Dans le panneau **Ajouter une image de machine virtuelle**, saisissez l’éditeur, l’offre, la référence SKU et la version de l’image de machine virtuelle. Ces segments de nom référencent l’image de machine virtuelle dans les modèles Resource Manager. Sélectionnez la valeur **type de système d’exploitation** approprié. Pour **URI de l’objet blob OS Disk**, saisissez l’URI de l’objet Blob où l’image a été téléchargée. Cliquez ensuite sur **Créer** pour commencer la création d’une image de machine virtuelle.
+3. Sous **Créer une image**, entrez le nom, l’abonnement, le groupe de ressources, l’emplacement, le disque du système d’exploitation, le type du système d’exploitation, l’URI de l’objet blob de stockage, le type de compte et la mise en cache de l’hôte. Cliquez ensuite sur **Créer** pour commencer la création d’une image de machine virtuelle.
 
    ![Démarrer la création de l’image](./media/azure-stack-add-vm-image/image4.png)
 

@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à StatusPage | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à StatusPage | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et StatusPage.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f6ee8bb3-df43-4c0d-bf84-89f18deac4b9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: e79eb2473760fd1eb7ccc3816ac73cce7c801f3e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0ea399ee510c235eca915416d77cabc1388044f9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445362"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809953"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Didacticiel : Intégration d’Azure Active Directory à StatusPage
+# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutoriel : Intégration d'Azure Active Directory à StatusPage
 
 Dans ce didacticiel, vous allez apprendre à intégrer StatusPage à Azure Active Directory (Azure AD).
 
@@ -166,7 +166,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     c. Cliquez sur **ENREGISTRER LA CONFIGURATION**.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -204,7 +204,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans StatusPage.
 
-StatusPage prend en charge l’approvisionnement juste-à-temps. Vous l'avez déjà activé dans [Configuration de l'authentification unique Azure AD](#configuring-azure-ad-single-sign-on).
+StatusPage prend en charge l’approvisionnement juste-à-temps. Vous l’avez déjà activé dans [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on).
 
 **Pour créer un utilisateur appelé Britta Simon dans StatusPage, procédez comme suit :**
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0aef8c5e055eb43576ea0ecc7ef8bf09d22d6ed3
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199967"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412901"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutoriel : Définir un nouveau type d’appareil dans votre application Azure IoT Central
 
@@ -75,7 +75,7 @@ Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Ce
 
 ## <a name="create-a-new-custom-device-template"></a>Créer un modèle d’appareil personnalisé
 
-En tant que générateur, vous pouvez créer et modifier les modèles d’appareil dans votre application. Lorsque vous créez un modèle d’appareil, Azure IoT Central génère un appareil simulé à partir du modèle. L’appareil simulé génère la télémétrie qui vous permet de tester le comportement de votre application avant de connecter un appareil physique.
+En tant que générateur, vous pouvez créer et modifier les modèles d’appareil dans votre application. Lorsque vous créez un modèle d’appareil, Azure IoT Central génère un appareil simulé à partir du modèle. L’appareil simulé génère la télémétrie qui vous permet de tester le comportement de votre application avant de connecter un appareil réel.
 
 Pour ajouter un nouveau modèle d’appareil à votre application, vous devez accéder à la page **Application Builder** (Générateur d’applications). Pour ce faire, choisissez **Application Builder** (Générateur d’applications) dans le menu de navigation gauche.
 
@@ -155,7 +155,7 @@ La procédure ci-après vous explique comment créer un modèle d’appareil **C
 
 ## <a name="define-event-measurement"></a>Définir une mesure d’événement
 
-La mesure de type Event (Événement) vous permet de définir des données ponctuelles qui sont envoyées par l’appareil pour signaler une situation significative, telle qu’une erreur ou une défaillance de composant. De même que les mesures de télémétrie, Azure IoT Central peut simuler des événements d’appareil pour vous permettre de tester le comportement de votre application avant de connecter un appareil physique. Vous définissez des mesures d’événement pour votre type d’appareil dans la vue **Measurements** (Mesures).
+La mesure de type Event (Événement) vous permet de définir des données ponctuelles qui sont envoyées par l’appareil pour signaler une situation significative, telle qu’une erreur ou une défaillance de composant. Comme les mesures de télémétrie, Azure IoT Central peut simuler des événements d’appareil pour vous permettre de tester le comportement de votre application avant de connecter un appareil réel. Vous définissez des mesures d’événement pour votre type d’appareil dans la vue **Measurements** (Mesures).
 
 1. Pour ajouter la mesure d’événement **Erreur du moteur du ventilateur**, choisissez **New Measurement** (Nouvelle mesure). Puis choisissez **Event** (Événement) comme type de mesure :
 
@@ -191,7 +191,7 @@ La mesure de type Event (Événement) vous permet de définir des données ponct
 
 ## <a name="define-state-measurement"></a>Définir une mesure d’état
 
-Vous pouvez utiliser la mesure État pour définir et visualiser l’état de l’appareil ou de son composant sur une période spécifique. De même que les mesures de télémétrie, Azure IoT Central peut simuler un état d’appareil pour vous permettre de tester le comportement de votre application avant de connecter un appareil physique. Vous définissez des mesures d’état pour votre type d’appareil dans la vue **Measurements** (Mesures).
+Vous pouvez utiliser la mesure État pour définir et visualiser l’état de l’appareil ou de son composant sur une période spécifique. Comme les mesures de télémétrie, Azure IoT Central peut simuler des états d’appareil pour vous permettre de tester le comportement de votre application avant de connecter un appareil réel. Vous définissez des mesures d’état pour votre type d’appareil dans la vue **Measurements** (Mesures).
 
 1. Pour ajouter la mesure **Mode du ventilateur**, choisissez **New Measurement** (Nouvelle mesure). Puis choisissez **État** comme type de mesure :
 

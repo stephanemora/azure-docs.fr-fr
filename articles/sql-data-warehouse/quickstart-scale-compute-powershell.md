@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Monter en puissance le calcul dans Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
+title: 'Démarrage rapide : Effectuer un scale-out du calcul dans Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
 description: Mettez à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell. Montez en charge le calcul pour améliorer les performances, ou réduisez-le pour diminuer les coûts.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,20 +10,20 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: cb6153d2859968a02345cfbcfa66bd9a4177d864
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8603f0f445d668c3c04b555a83ee5edcf3839e6b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427411"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434068"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Démarrage rapide : Mettre à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Démarrage rapide : Mettre à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell
 
 Mettez à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell. [Augmentez le calcul](sql-data-warehouse-manage-compute-overview.md) pour améliorer les performances, ou réduisez-le pour diminuer les coûts.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Ce didacticiel nécessite le module Azure PowerShell version 5.1.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour connaître la version dont vous disposez. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Ce didacticiel nécessite le module Azure PowerShell version 5.1.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour connaître la version dont vous disposez. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

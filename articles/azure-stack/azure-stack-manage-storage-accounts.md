@@ -11,36 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8eed0b4f2d14d22bdd9eddac9dbb4c0e02404975
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 149da2c186ae1e0c3fa5af14a630a0edef7deb25
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302712"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470271"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gérer les comptes de stockage dans Azure Stack
+
 Découvrez comment gérer les comptes de stockage dans Azure Stack pour rechercher, restaurer et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
 
-## <a name="find"></a>Rechercher un compte de stockage
+## <a name="find-a-storage-account"></a>Rechercher un compte de stockage
 La liste des comptes de stockage de la région peut être affichée dans Azure Stack comme suit :
 
 1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
 
-2. Sélectionnez **Tous les services** > **Gestion des régions** sous **Administration**.
+2. Sélectionnez **Tous les services** > **Comptes de stockage**.
 
-3. Sélectionnez **Stockage** dans la liste **Fournisseurs de ressources**.
-   
-   ![Fournisseur de ressources de stockage](media/azure-stack-manage-storage-accounts/image1.png)
-
-5. Sélectionnez **Comptes de stockage** dans **Stockage**.
-   
-   ![](media/azure-stack-manage-storage-accounts/image2.png)
-   
-   Le panneau affiche la liste des comptes de stockage dans cette région.
-   
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
 Par défaut, les 10 premiers comptes sont affichés. Vous pouvez choisir d’en afficher plus en cliquant sur le lien **Charger plus** en bas de la liste.
@@ -84,7 +75,7 @@ Dans Azure Stack, il existe un moyen simple de le faire :
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. La récupération est maintenant *en cours... Attendez* un message indiquant que la récupération est effective.
-   Vous pouvez aussi sélectionner l’icône « cloche » en haut du portail pour voir des indications sur la progression.
+   Vous pouvez aussi sélectionner l’icône représentant une cloche en haut du portail, afin d’afficher les indications sur la progression.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
    
@@ -99,7 +90,7 @@ Dans Azure Stack, il existe un moyen simple de le faire :
   Il se peut que votre compte ne s’affiche pas dans la liste des comptes lorsque les comptes supprimés ont déjà été effacés. Dans ce cas, il ne peut pas être récupéré. Consultez [Récupérer de la capacité](#reclaim) dans cet article.
 
 ## <a name="set-the-retention-period"></a>Définir la période de conservation
-Le paramètre de période de conservation permet à un opérateur cloud de spécifier une période de temps en jours (entre 0 et 9 999 jours) pendant laquelle un compte supprimé peut être récupéré. La période de rétention par défaut est définie sur 0 jour. La valeur « 0 » pour ce paramètre signifie qu’un compte supprimé est immédiatement hors conservation et est marqué pour faire l’objet d’un nettoyage périodique de la mémoire.
+Le paramètre de période de conservation permet à un opérateur cloud de spécifier une période de temps en jours (entre 0 et 9 999 jours) pendant laquelle un compte supprimé peut être récupéré. La période de rétention par défaut est définie sur 0 jour. Pour ce paramètre, la valeur « 0 » signifie qu’un compte supprimé n’est plus conservé et qu’il est marqué comme devant faire l’objet d’un nettoyage périodique de la mémoire.
 
 **Pour changer la période de conservation :**
 

@@ -9,20 +9,20 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5505ceaa88f1ad792df57f9728f5e4809404942c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599499"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448072"
 ---
-# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Didacticiel : Configurer les appareils connectés à votre solution de supervision
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutoriel : Configurer les appareils connectés à votre solution de supervision
 
 Dans ce didacticiel, vous utilisez l’accélérateur de solution de surveillance à distance pour configurer et gérer vos appareils IoT connectés. Vous ajoutez un nouvel appareil à l’accélérateur de solution et vous le configurez.
 
-Contoso a commandé de nouvelles machines visant à développer l’une de ses usines. En attendant la livraison des nouvelles machines, vous souhaitez exécuter une simulation pour tester le comportement de votre solution. Pour exécuter la simulation, vous ajoutez un nouvel appareil de moteur simulé à l’accélérateur de solution de supervision à distance, puis vous vérifiez si cet appareil simulé répond correctement aux mises à jour de configuration. Bien que ce didacticiel se serve d’appareils simulés, un développeur d’appareil peut implémenter des méthodes directes dans un [appareil physique connecté à l’accélérateur de solution de surveillance à distance](iot-accelerators-connecting-devices.md).
+Contoso a commandé de nouvelles machines visant à développer l’une de ses usines. En attendant la livraison des nouvelles machines, vous souhaitez exécuter une simulation pour tester le comportement de votre solution. Pour exécuter la simulation, vous ajoutez un nouvel appareil de moteur simulé à l’accélérateur de solution de supervision à distance, puis vous vérifiez si cet appareil simulé répond correctement aux mises à jour de configuration. Bien que ce tutoriel se serve d’appareils simulés, un développeur d’appareil peut implémenter des méthodes directes dans un [appareil réel connecté à l’accélérateur de solution de supervision à distance](iot-accelerators-connecting-devices.md).
 
-Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez :
 
 >[!div class="checklist"]
 > * Provisionner un appareil simulé.

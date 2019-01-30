@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042136"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452953"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Exemples de requête SQL pour interroger des données à partir d’Azure Cosmos DB
 
@@ -506,7 +506,7 @@ Vous pouvez également imbriquer les appels à l'opérateur, comme dans la requ�
 
 Comme avec les autres opérateurs de requête, si les propriétés référencées dans l’expression conditionnelle sont manquantes dans un élément, ou si les types comparés sont différents, ces éléments sont exclus dans les résultats de requête.
 
-Vous pouvez utiliser l’opérateur Coalesce (?) pour vérifier la présence d’une propriété (c’est-à-dire vérifier si elle est définie) dans un élément. Cet opérateur est utile quand il s’agit d’interroger des données semi-structurées ou de types différents. Par exemple, cette requête retourne « lastName » s'il est présent ou « surname » dans le cas contraire.
+Vous pouvez utiliser l’opérateur Coalesce (??) pour vérifier la présence d’une propriété dans un élément. Cet opérateur est utile quand il s’agit d’interroger des données semi-structurées ou de types différents. Par exemple, cette requête retourne « lastName » s'il est présent ou « surname » dans le cas contraire.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

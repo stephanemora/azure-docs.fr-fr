@@ -1,10 +1,10 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Folloze | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Folloze | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Folloze.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b6265bbf-8216-4229-bda7-8dd1023a5f80
 ms.service: Azure-Active-Directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 121e5ec57dd8ec87c0b7156dc761e0d9bd7b76eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78752c7a3c47c8a61b179998533dbe9081c0a5ff
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883844"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810310"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Tutoriel : Intégration d’Azure Active Directory à Folloze
+# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Tutoriel : Intégration d’Azure Active Directory à Folloze
 
 Dans ce tutoriel, vous allez apprendre à intégrer Folloze dans Azure Active Directory (Azure AD).
 L’intégration de Folloze dans Azure AD vous offre les avantages suivants :
@@ -79,8 +79,8 @@ Pour configurer et tester l’authentification unique Azure AD avec Folloze, vo
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique Folloze](#configure-folloze-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Créer un utilisateur de test Folloze](#create-folloze-test-user)** pour avoir dans Folloze un équivalent de Britta Simon lié à la représentation Azure AD associée.
-5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Folloze](#create-folloze-test-user)** pour avoir dans Folloze un équivalent de Britta Simon lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD

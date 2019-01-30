@@ -11,14 +11,14 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5bd6649b063521853864d4da423372ae181cf977
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 97910241cb4f903deeeb9ff6971839530903efe2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580516"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823009"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutoriel : Utiliser le Machine Learning automatisé pour générer votre modèle de régression
+# <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Didacticiel : Utiliser le Machine Learning automatisé pour générer votre modèle de régression
 
 Ce tutoriel est le **deuxième d’une série de deux**. Dans le tutoriel précédent, vous [avez préparé des données concernant les taxis new-yorkais en vue d’une modélisation de régression](tutorial-data-prep.md).
 
@@ -44,11 +44,11 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 ## <a name="prerequisites"></a>Prérequis
 
 > * [Avoir suivi le tutoriel sur la préparation des données](tutorial-data-prep.md)
-> * Un environnement configuré pour le machine learning automatisé. Par exemple Azure Notebooks, un environnement Python local ou une Data Science Virtual Machine. [Configurez le machine learning automatisé](samples-notebooks.md)
+> * Un environnement configuré pour le machine learning automatisé. Par exemple [Azure Notebooks](https://notebooks.azure.com/), un environnement Python local ou une image Data Science Virtual Machine. [Configurez le machine learning automatisé](samples-notebooks.md)
 
 ## <a name="get-the-notebook"></a>Obtenir le bloc-notes
 
-Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Exécutez le notebook `regression-part2-automated-ml.ipynb` dans Azure Notebooks ou sur votre propre serveur Jupyter Notebook.
+Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Exécutez le notebook `regression-part2-automated-ml.ipynb` dans [Azure Notebooks](https://notebooks.azure.com/) ou sur votre propre serveur Jupyter Notebook.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -66,9 +66,15 @@ import logging
 import os
 ```
 
+Si vous suivez le tutoriel dans votre propre environnement Python, utilisez le code suivant pour installer les packages nécessaires.
+
+```shell
+pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
+```
+
 ## <a name="configure-workspace"></a>Configurer l’espace de travail
 
-Créez un objet d’espace de travail à partir de l’espace de travail existant. Un `Workspace` est une classe qui accepte vos informations d’abonnement et de ressources Azure. Il crée également une ressource cloud pour superviser et suivre les exécutions de votre modèle. 
+Créez un objet d’espace de travail à partir de l’espace de travail existant. Un `Workspace` est une classe qui accepte vos informations d’abonnement et de ressources Azure. Il crée également une ressource cloud pour superviser et suivre les exécutions de votre modèle.
 
 `Workspace.from_config()` lit le fichier **aml_config/config.json** et charge les détails dans un objet nommé `ws`.  `ws` est utilisé dans tout le reste du code de ce didacticiel.
 
@@ -95,7 +101,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>Explorer les données
 
-Utilisez l’objet de dataflow créé dans le tutoriel précédent. Ouvrez et exécutez le dataflow, puis regardez les résultats :
+Utilisez l’objet de dataflow créé dans le tutoriel précédent. En résumé, la première partie de ce tutoriel a nettoyé les données NYC Taxi afin qu’il puisse être utilisé dans un modèle Machine Learning. À présent, vous utilisez diverses caractéristiques du jeu de données et permettez à un modèle automatisé de créer des relations entre les caractéristiques et le prix d’un trajet en taxi. Ouvrez et exécutez le dataflow, puis regardez les résultats :
 
 
 ```python
@@ -605,27 +611,27 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 y_train.values.flatten()
 ```
 
-Vous disposez maintenant des packages et données nécessaires pour l’entraînement automatique de votre modèle.
+L’objectif de cette étape est d’obtenir des points de données qui n’ont pas été utilisés pour entraîner le modèle, afin de mesurer la véritable précision en testant le modèle terminé. En d’autres termes, un modèle bien entraîné doit être en mesure d’établir avec précision des prédictions à partir de données qu’il n’a pas encore vues. Vous disposez maintenant des packages et données nécessaires pour l’entraînement automatique de votre modèle.
 
 ## <a name="automatically-train-a-model"></a>Entraîner automatiquement un modèle
 
 Pour entraîner automatiquement un modèle, effectuez les étapes suivantes :
-1. Définissez des paramètres pour l’exécution de l’expérience.
-1. Soumettez l’expérience pour l’optimisation du modèle.
+1. Définissez des paramètres pour l’exécution de l’expérience. Attachez vos données d’entraînement à la configuration et modifiez les paramètres qui contrôlent le processus d’entraînement.
+1. Soumettez l’expérience pour l’optimisation du modèle. Une fois l’expérience envoyée, le processus itère dans différents algorithmes et paramètres hyperparamètres de Machine Learning tout en respectant vos contraintes définies. Il choisit le modèle le mieux adapté en optimisant une métrique de précision.
 
 ### <a name="define-settings-for-autogeneration-and-tuning"></a>Définir des paramètres pour la génération automatique et l’optimisation
 
-Définissez les paramètres du modèle et de l’expérience pour la génération automatique et l’optimisation. Affichez la liste complète des [paramètres](how-to-configure-auto-train.md).
+Définissez les paramètres du modèle et de l’expérience pour la génération automatique et l’optimisation. Affichez la liste complète des [paramètres](how-to-configure-auto-train.md). La soumission de l’expérience avec ces paramètres par défaut peut prendre entre 10 et 15 min, mais si vous souhaitez raccourcir la durée d’exécution, diminuez `iterations` ou `iteration_timeout_minutes`.
 
 
 |Propriété| Valeur dans ce didacticiel |Description|
 |----|----|---|
-|**iteration_timeout_minutes**|10|Limite de temps (en minutes) pour chaque itération.|
-|**iterations**|30|Nombre d’itérations. Dans chaque itération, le modèle effectue l’entraînement avec les données d’un pipeline spécifique.|
-|**primary_metric**| spearman_correlation | Métrique que vous souhaitez optimiser.|
-|**preprocess**| True | Si vous utilisez **True**, l’expérience peut prétraiter l’entrée.|
+|**iteration_timeout_minutes**|10|Limite de temps (en minutes) pour chaque itération. Diminuez cette valeur afin de réduire le runtime total.|
+|**iterations**|30|Nombre d’itérations. Dans chaque itération, un nouveau modèle Machine Learning est entraîné avec vos données. Il s’agit de la valeur principale qui influe sur le runtime total.|
+|**primary_metric**| spearman_correlation | Métrique que vous souhaitez optimiser. Le modèle le mieux adapté est choisi en fonction de cette métrique.|
+|**preprocess**| True | En utilisant **True**, l’expérience peut traiter les données d’entrée au préalable (gestion des données manquantes, conversion du texte en caractères numériques, etc.)|
 |**verbosity**| logging.INFO | Contrôle le niveau de journalisation.|
-|**n_cross_validationss**|5.|Nombre de divisions pour la validation croisée.|
+|**n_cross_validations**|5.|Nombre de divisions de validation croisée à effectuer lorsque les données de validation ne sont pas spécifiées.|
 
 
 
@@ -640,6 +646,7 @@ automl_settings = {
 }
 ```
 
+Utilisez vos paramètres d’entraînement définis en tant que paramètre sur un objet `AutoMLConfig`. De plus, spécifiez vos données d’entraînement et le type de modèle, c’est-à-dire `regression` dans ce cas.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -664,6 +671,8 @@ experiment=Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
+La sortie illustrée se met à jour en temps réel à mesure que l’expérience s’exécute. Pour chaque itération, vous voyez le type de modèle, la durée d’exécution et la précision de l’entraînement. Le champ `BEST` effectue un suivi du meilleur score d’entraînement en cours d’exécution, en fonction de votre type de métrique.
+
     Parent Run ID: AutoML_02778de3-3696-46e9-a71b-521c8fca0651
     *******************************************************************************************
     ITERATION: The iteration being evaluated.
@@ -672,7 +681,7 @@ local_run = experiment.submit(automated_ml_config, show_output=True)
     METRIC: The result of computing score on the fitted pipeline.
     BEST: The best observed score thus far.
     *******************************************************************************************
-    
+
      ITERATION   PIPELINE                                       DURATION      METRIC      BEST
              0   MaxAbsScaler ExtremeRandomTrees                0:00:08       0.9447    0.9447
              1   StandardScalerWrapper GradientBoosting         0:00:09       0.9536    0.9536
@@ -724,7 +733,7 @@ RunDetails(local_run).show()
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Option 2 : Obtenir et examiner toutes les itérations d’exécution dans Python
 
-Vous pouvez également récupérer l’historique de chaque expérience et explorer les métriques associées à chaque exécution d’itération :
+Vous pouvez également récupérer l’historique de chaque expérience et explorer les métriques associées à chaque exécution d’itération. En examinant RMSE (root_mean_squared_error) pour chaque exécution de modèle, vous constatez que la plupart des itérations prédisent le prix correct du taxi à l’intérieur d’une marge raisonnable (3 à 4 dollars US).
 
 ```python
 children = list(local_run.get_children())
@@ -1081,28 +1090,16 @@ print(best_run)
 print(fitted_model)
 ```
 
-## <a name="register-the-model"></a>Inscrire le modèle
-
-Inscrivez le modèle dans votre espace de travail Azure Machine Learning service :
-
-
-```python
-description = 'Automated Machine Learning Model'
-tags = None
-local_run.register_model(description=description, tags=tags)
-local_run.model_id # Use this id to deploy the model as a web service in Azure
-```
-
 ## <a name="test-the-best-model-accuracy"></a>Tester la précision du meilleur modèle
 
-Utilisez le meilleur modèle pour exécuter des prédictions sur le jeu de données de test. La fonction `predict` utilise le meilleur modèle et prédit les valeurs de y **coût du trajet** à partir du jeu de données `x_test`. Affichez les 10 premières valeurs de coût à partir de `y_predict` :
+Utilisez le meilleur modèle pour exécuter des prédictions sur le jeu de données de test et prédire des tarifs de taxi. La fonction `predict` utilise le meilleur modèle et prédit les valeurs de y **coût du trajet** à partir du jeu de données `x_test`. Affichez les 10 premières valeurs de coût à partir de `y_predict` :
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Créer un tracé de points pour visualiser les valeurs de coût prédites par rapport aux valeurs de coût réelles. Le code suivant utilise la caractéristique `distance` comme axe X et le trajet `cost` comme axe Y. Pour comparer l’écart de coût prédit à chaque valeur de distance de trajet, les 100 premières valeurs de coût prédites et réelles sont créées en tant que séries distinctes. Un examen du tracé montre que la relation distance/coût est quasiment linéaire. Et les valeurs de coûts prédits sont dans la plupart des cas très proches des valeurs de coûts réels pour la même distance de trajet.
+Créer un tracé de points pour visualiser les valeurs de coût prédites par rapport aux valeurs de coût réelles. Le code suivant utilise la caractéristique `distance` comme axe X et le trajet `cost` comme axe Y. Pour comparer l’écart de coût prédit à chaque valeur de distance de trajet, les 100 premières valeurs de coût prédites et réelles sont créées en tant que séries distinctes. Le tracé montre que la relation de distance/coût est quasi linéaire, et les valeurs de coût prédites sont dans la plupart des cas très proches des valeurs de coût réelles pour la même distance de trajet.
 
 ```python
 import matplotlib.pyplot as plt
@@ -1127,7 +1124,7 @@ plt.show()
 
 ![Tracé de points de prédiction](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-Calculez le(la) `root mean squared error` des résultats. Utilisez le dataframe `y_test`. Convertissez-le en liste à comparer aux valeurs prédites. La fonction `mean_squared_error` accepte deux tableaux de valeurs et calcule l’erreur au carré moyenne entre ces tableaux. En prenant la racine carrée du résultat, vous obtenez une erreur dans les mêmes unités que la variable y, **cost**. Cela indique à peu près l’écart entre vos prédictions et la valeur réelle :
+Calculez le(la) `root mean squared error` des résultats. Utilisez le dataframe `y_test`. Convertissez-le en liste à comparer aux valeurs prédites. La fonction `mean_squared_error` accepte deux tableaux de valeurs et calcule l’erreur au carré moyenne entre ces tableaux. En prenant la racine carrée du résultat, vous obtenez une erreur dans les mêmes unités que la variable y, **cost**. Cela indique à peu près l’écart existant entre les prédictions de tarifs de taxi et les tarifs réels :
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1165,6 +1162,8 @@ print(1 - mean_abs_percent_error)
 
     Model Accuracy:
     0.8945484613043041
+
+Dans les métriques de précision de la prédiction finale, vous voyez que le modèle est assez bon dans la prédiction de tarifs de taxi à partir des caractéristiques du jeu de données, en général à ± 3,00 dollars US. Le processus traditionnel de développement des modèles d’entraînement est très gourmand en ressources, et nécessite des investissements importants en temps et en connaissances pour exécuter et comparer les résultats de dizaines de modèles. Le machine learning automatisé se révèle un excellent moyen de tester rapidement de nombreux modèles pour votre scénario.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

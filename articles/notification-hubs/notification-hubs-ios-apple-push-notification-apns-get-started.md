@@ -4,8 +4,8 @@ description: Dans ce didacticiel, vous découvrirez comment utiliser Azure Notif
 services: notification-hubs
 documentationcenter: ios
 keywords: notification push,notifications push,notifications push ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: b7fcd916-8db8-41a6-ae88-fc02d57cb914
 ms.service: notification-hubs
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 27172696a1b94c1571bdade27d80de6b9a82d911
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 63fb04e6b31fe4026b93cef09d88601d6182101a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353966"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448307"
 ---
-# <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des applications iOS à l’aide d’Azure Notification Hubs
+# <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutoriel : Notifications Push vers des applications iOS avec Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Dans ce didacticiel, vous utilisez Azure Notification Hubs pour envoyer des notifications Push à une application iOS. Vous créez une application iOS vide qui reçoit des notifications Push à l’aide du [service de notification Push Apple (APN)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1). 
+Dans ce didacticiel, vous utilisez Azure Notification Hubs pour envoyer des notifications Push à une application iOS. Vous créez une application iOS vide qui reçoit des notifications Push à l’aide du [service de notification Push Apple (APN)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
 
 Dans ce didacticiel, vous effectuez les étapes suivantes :
 
@@ -44,27 +44,28 @@ Le code complet de ce didacticiel est disponible [sur GitHub](https://github.com
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte d'évaluation gratuit](https://azure.microsoft.com/free) en quelques minutes. 
-- [Infrastructure de messagerie Azure Windows]
-- Version la plus récente de [Xcode]
-- Un appareil compatible avec iOS 10 (ou version ultérieure)
-- [programme pour développeurs Apple](https://developer.apple.com/programs/)
+* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez [créer un compte Azure gratuit](https://azure.microsoft.com/free) en quelques minutes.
+* [Infrastructure de messagerie Azure Windows]
+* Version la plus récente de [Xcode]
+* Un appareil compatible avec iOS 10 (ou version ultérieure)
+* [programme pour développeurs Apple](https://developer.apple.com/programs/)
   
-  > [!NOTE]
-  > En raison des exigences de configuration requise pour les notifications Push, vous devez déployer et tester les notifications Push sur un appareil iOS physique (iPhone ou iPad) au lieu du simulateur iOS.
+ > [!NOTE]
+ > En raison des exigences de configuration requise pour les notifications Push, vous devez déployer et tester les notifications Push sur un appareil iOS physique (iPhone ou iPad) au lieu du simulateur iOS.
   
 Vous devez terminer ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications iOS.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 ## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Configurer votre hub de notification pour les notifications Push iOS
+
 Dans cette section, vous créez un hub de notification et configurez l’authentification avec APNS à l’aide du certificat Push **.p12** que vous venez de créer. Si vous souhaitez utiliser un hub de notification que vous avez déjà créé, vous pouvez passer directement à l’étape 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 ### <a name="configure-your-notification-hub-with-apns-information"></a>Configurer votre hub de notification avec des informations APNS
 
-1. Sous **Services de notification**, sélectionnez **Apple (APNS)**. 
+1. Sous **Services de notification**, sélectionnez **Apple (APNS)**.
 2. Sélectionnez **Certificate**.
 3. Sélectionnez **l’icône du fichier**.
 4. Sélectionnez le fichier **.p12** exporté précédemment.
@@ -99,7 +100,7 @@ Vous avez maintenant configuré votre hub de notification avec APNS et vous disp
 
     ![Décompresser le SDK Azure][10]
 
-6. Ajoutez un nouveau fichier d’en-tête au projet appelé **HubInfo.h**. Ce fichier contient les constantes de votre hub de notification. Ajoutez les définitions suivantes et remplacez les espaces réservés des littéraux de chaîne par le *nom de votre hub* et la chaîne *DefaultListenSharedAccessSignature* notée précédemment.
+6. Ajoutez un nouveau fichier d’en-tête à votre projet nommé `HubInfo.h`. Ce fichier contient les constantes de votre hub de notification. Ajoutez les définitions suivantes et remplacez les espaces réservés des littéraux de chaîne par le *nom de votre hub* et la chaîne *DefaultListenSharedAccessSignature* notée précédemment.
 
     ```objc
     #ifndef HubInfo_h
@@ -111,14 +112,14 @@ Vous avez maintenant configuré votre hub de notification avec APNS et vous disp
     #endif /* HubInfo_h */
     ```
 
-7. Ouvrez le fichier **AppDelegate.h** et ajoutez les instructions d’importation suivantes :
+7. Ouvrez le fichier `AppDelegate.h` et ajoutez l’instruction d’importation suivante :
 
     ```objc
     #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
-    #import <UserNotifications/UserNotifications.h> 
+    #import <UserNotifications/UserNotifications.h>
     #import "HubInfo.h"
     ```
-8. Dans le **fichier AppDelegate.m**, ajoutez le code suivant dans la méthode **didFinishLaunchingWithOptions** en fonction de votre version d’iOS. Ce code enregistre le handle de votre appareil avec APNs :
+8. Dans le fichier `AppDelegate.m`, ajoutez le code suivant dans la méthode `didFinishLaunchingWithOptions` basée sur votre version d’iOS. Ce code enregistre le handle de votre appareil avec APNs :
 
     ```objc
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
@@ -191,14 +192,12 @@ Pour tester les notifications Push sur iOS, vous devez déployer l’application
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos appareils iOS inscrits. Pour savoir comment envoyer des notifications à des appareils iOS spécifiques, passez au didacticiel suivant : 
+Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos appareils iOS inscrits. Pour savoir comment envoyer des notifications à des appareils iOS spécifiques, passez au didacticiel suivant :
 
 > [!div class="nextstepaction"]
 >[Notifications Push vers des appareils spécifiques](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
 
-
 <!-- Images. -->
-
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png
 [8]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app.png
@@ -206,15 +205,11 @@ Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos ap
 [10]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app3.png
 [11]: ./media/notification-hubs-ios-get-started/notification-hubs-xcode-product-name.png
 [12]: ./media/notification-hubs-ios-get-started/notification-hubs-enable-push.png
-
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
-
 [31]: ./media/notification-hubs-ios-get-started/notification-hubs-ios-ui.png
 [32]: ./media/notification-hubs-ios-get-started/notification-hubs-storyboard-view.png
 [33]: ./media/notification-hubs-ios-get-started/notification-hubs-test1.png
 [35]: ./media/notification-hubs-ios-get-started/notification-hubs-test3.png
-
-
 
 <!-- URLs. -->
 [Infrastructure de messagerie Azure Windows]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
@@ -222,15 +217,12 @@ Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos ap
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Portail Azure]: https://portal.azure.com

@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f7bf5e233307703dca522974d52a86bc193186b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9391db9bf270511f734a31a621985f5b6ad31ec0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465829"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848731"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutoriel : Créer et déployer des machines virtuelles hautement disponibles avec Azure CLI
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutoriel : Créer et déployer des machines virtuelles hautement disponibles avec Azure CLI
 
 Ce didacticiel explique comment améliorer la disponibilité et la fiabilité de vos solutions de machine virtuelle sur Azure en utilisant une fonctionnalité appelée Groupes à haute disponibilité. Les groupes à haute disponibilité veillent à ce que les machines virtuelles que vous déployez sur Azure soient distribuées sur plusieurs clusters matériels isolés. Leur utilisation garantit qu’en cas de défaillance matérielle ou logicielle dans Azure, seul un sous-ensemble de vos machines virtuelles est affecté et que votre solution globale reste disponible et opérationnelle.
 
@@ -70,7 +70,7 @@ Les groupes à haute disponibilité vous permettent d’isoler des ressources da
 
 Vous devez créer des machines virtuelles au sein du groupe à haute disponibilité pour vous assurer qu’elles sont correctement réparties dans le matériel. Il est impossible d’ajouter une machine virtuelle existante à un groupe à haute disponibilité après sa création.
 
-Quand une machine virtuelle est créée à l’aide de la commande [az vm create](/cli/azure/vm#az_vm_create), utilisez le paramètre `--availability-set` pour spécifier le nom du groupe à haute disponibilité.
+Quand une machine virtuelle est créée à l’aide de la commande [az vm create](/cli/azure/vm), utilisez le paramètre `--availability-set` pour spécifier le nom du groupe à haute disponibilité.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

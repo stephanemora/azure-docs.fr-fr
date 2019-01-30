@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a720bb906192731b8b636939e22b13a8e52bbe76
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 76281113c0d1e7b3943e137accf7aa93c2863fe6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632889"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435377"
 ---
-# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Didacticiel : déployer un cluster Windows Service Fabric dans un réseau virtuel Azure
+# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutoriel : Déployer un cluster Windows Service Fabric dans un réseau virtuel Azure
 
 Ce tutoriel est la première partie d’une série d’étapes. Vous allez apprendre à déployer un cluster Service Fabric exécutant Windows dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) et un [groupe de sécurité réseau virtuel](../virtual-network/virtual-networks-nsg.md) à l’aide de PowerShell et d’un modèle. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications.  Pour créer un cluster Linux à l’aide de l’interface de ligne de commande Azure, consultez la page [Créer un cluster Linux sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -51,7 +51,7 @@ Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installez le [Kit de développement logiciel (SDK) Service Fabric et le module PowerShell](service-fabric-get-started.md).
-* Installez le [module Azure PowerShell, version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* Installez le [module Azure PowerShell, version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 Les procédures suivantes créent un cluster Service Fabric à cinq nœuds. Pour calculer le coût lié à l’exécution d’un cluster Service Fabric dans Azure, utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/).
 
@@ -92,24 +92,24 @@ Dans la ressource **Microsoft.servicefabric/clusters**, un cluster Windows est c
 
 * un type de nœud unique
 * cinq nœuds dans le type de nœud principal (configurable dans les paramètres du modèle)
-* Système d’exploitation : Windows Server 2016 Datacenter avec Containers (configurables dans les paramètres du modèle)
+* Système d’exploitation : Windows Server 2016 Datacenter avec Containers (configurables dans les paramètres du modèle)
 * certificat sécurisé (configurable dans les paramètres du modèle)
 * [proxy inverse](service-fabric-reverseproxy.md) activé
 * [service DNS](service-fabric-dnsservice.md) activé
 * [niveau de durabilité](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronze (configurable dans les paramètres du modèle)
 * [niveau de fiabilité](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (configurable dans les paramètres du modèle)
-* point de terminaison de connexion client : 19000 (configurable dans les paramètres du modèle)
-* point de terminaison de passerelle HTTP : 19080 (configurable dans les paramètres du modèle)
+* point de terminaison de connexion client : 19000 (configurable dans les paramètres du modèle)
+* point de terminaison de passerelle HTTP : 19080 (configurable dans les paramètres du modèle)
 
 ### <a name="azure-load-balancer"></a>Équilibrage de charge Azure
 
 Dans la ressource **Microsoft.Network/loadBalancers**, un équilibreur de charge est configuré et des sondes et règles sont configurées pour les ports suivants :
 
-* point de terminaison de connexion client : 19000
-* point de terminaison de passerelle HTTP : 19080
-* port de l’application : 80
-* port de l’application : 443
-* proxy inverse de Service Fabric : 19081
+* point de terminaison de connexion client : 19000
+* point de terminaison de passerelle HTTP : 19080
+* port de l’application : 80
+* port de l’application : 443
+* proxy inverse de Service Fabric : 19081
 
 Si d’autres ports de l’application sont nécessaires, vous devez ajuster les ressources **Microsoft.Network/loadBalancers** et **Microsoft.Network/networkSecurityGroups** pour autoriser le trafic entrant.
 
@@ -117,17 +117,17 @@ Si d’autres ports de l’application sont nécessaires, vous devez ajuster les
 
 Les noms du réseau virtuel, du sous-réseau et du groupe de sécurité réseau sont déclarés dans les paramètres du modèle.  Les espaces d’adressage du réseau virtuel et du sous-réseau sont également déclarés dans les paramètres de modèle et configurés dans la ressource **Microsoft.Network/virtualNetworks** :
 
-* espace d’adressage du réseau virtuel : 172.16.0.0/20
-* espace d’adressage de sous-réseau Service Fabric : 172.16.2.0/23
+* Espace d’adressage du réseau virtuel : 172.16.0.0/20
+* Espace d’adressage du sous-réseau Service Fabric : 172.16.2.0/23
 
 Les règles de trafic entrant suivantes sont activées dans la ressource **Microsoft.Network/networkSecurityGroups**. Vous pouvez modifier les valeurs de port en modifiant les variables de modèle.
 
-* ClientConnectionEndpoint (TCP) : 19000
-* HttpGatewayEndpoint (HTTP/TCP) : 19080
-* SMB : 445
+* ClientConnectionEndpoint (TCP) : 19000
+* HttpGatewayEndpoint (HTTP/TCP) : 19080
+* SMB : 445
 * Internodecommunication : 1025, 1026, 1027
 * Plage de ports éphémères : 49152 à 65534 (256 ports min. nécessaires)
-* Ports pour l’utilisation de l’application : 80 et 443
+* Ports pour l’utilisation de l’application : 80 et 443
 * Plage de ports de l’application : 49152 à 65534 (utilisés pour les communications entre les services ; ne sont pas ouverts sur l’équilibreur de charge)
 * Bloquer tous les autres ports
 

@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 380a7be6a42109f90da5dbd39ea557c06be4be6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2d6926b9d6a9b5bc4f3744fbd6fe8864a925ff17
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253701"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819745"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Développer pour Azure Files avec .NET
 
@@ -35,7 +35,7 @@ Pour en savoir plus sur Azure Files, consultez [Présentation d’Azure Files](s
 
 ## <a name="understanding-the-net-apis"></a>Compréhension des API .NET
 
-Azure Files fournit deux grandes approches pour les applications clientes : Server Message Block (SMB) et REST. Dans .NET, ces approches sont extraites par les API `System.IO` et `WindowsAzure.Storage`.
+Azure Files fournit deux approches globales pour les applications clientes : SMB et REST. Dans .NET, ces approches sont extraites par les API `System.IO` et `WindowsAzure.Storage`.
 
 API | Quand utiliser | Notes
 ----|-------------|------
@@ -58,8 +58,8 @@ Vous pouvez utiliser la bibliothèque cliente d’Azure Storage dans n’importe
 ## <a name="use-nuget-to-install-the-required-packages"></a>Utiliser NuGet pour installer les packages requis
 Vous devez référencer deux packages dans votre projet pour terminer ce didacticiel :
 
-* [Bibliothèque cliente Microsoft Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): ce package fournit un accès par programme aux ressources de données dans votre compte de stockage.
-* [Bibliothèque Microsoft Azure Configuration Manager pour .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) : ce package fournit une classe pour l’analyse d’une chaîne de connexion à partir d’un fichier de configuration, quel que soit l’emplacement d’exécution de votre application.
+* [Bibliothèque cliente du stockage Microsoft Azure pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) : ce package fournit un accès programmatique aux ressources de données de votre compte de stockage.
+* [Bibliothèque Microsoft Azure Configuration Manager pour .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) : ce package fournit une classe pour l’analyse d’une chaîne de connexion à partir d’un fichier config, quel que soit l’emplacement d’exécution de votre application.
 
 Vous pouvez utiliser NuGet pour obtenir ces deux packages. Procédez comme suit :
 
@@ -324,8 +324,8 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Vous pouvez copier un objet blob dans un fichier de la même façon. Si l’objet source est un objet blob, créez une SAP pour authentifier l’accès à cet objet blob pendant l’opération de copie.
 
-## <a name="share-snapshots-preview"></a>Instantanés de partage (préversion)
-Depuis la version 8.5 de la bibliothèque cliente de stockage Azure, vous pouvez créer un instantané de partage (préversion). Vous pouvez également répertorier ou parcourir des instantanés de partage et les supprimer. Les instantanés de partage sont en lecture seule. Aucune opération d’écriture n’est autorisée sur ceux-ci.
+## <a name="share-snapshots"></a>Instantanés de partage
+À compter de la version 8.5 de la bibliothèque cliente du Stockage Azure, vous pouvez créer un instantané de partage. Vous pouvez également répertorier ou parcourir des instantanés de partage et les supprimer. Les instantanés de partage sont en lecture seule. Aucune opération d’écriture n’est autorisée sur ceux-ci.
 
 **Créer des instantanés de partage**
 

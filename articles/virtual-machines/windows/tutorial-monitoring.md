@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ce90ea447f7dcf4df1451294acf9f7fd093ad6ee
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 1bee08800eb5b480024001f742e8965cbd609a73
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408640"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428883"
 ---
-# <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Didacticiel : surveiller et mettre à jour une machine virtuelle Windows dans Azure
+# <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Tutoriel : Superviser et mettre à jour une machine virtuelle Windows dans Azure
 
 Surveillance Azure utilise des agents pour collecter des données de performances et de démarrage à partir des machines virtuelles Azure, stocker ces données dans le stockage Azure et les rendre accessibles via le portail, le module Azure PowerShell et l’interface CLI Azure. La gestion des mises à jour vous permet de gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure.
 
@@ -40,7 +40,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Surveiller les modifications et l’inventaire
 > * Configurer la surveillance avancée
 
-Ce tutoriel exige la version 5.7.0 ou une version ultérieure du module Azure PowerShell. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Ce tutoriel exige la version 5.7.0 ou une version ultérieure du module Azure PowerShell. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 

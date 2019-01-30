@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: d89c5a3f2545edd7c02b67fa9d2e2b78937a9791
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c8d1f659078a36bc57e92b01e6e32502be7a0ea9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779542"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434748"
 ---
-# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Didacticiel : diagnostiquer un problème de communication existant entre des réseaux à l’aide du portail Azure
+# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutoriel : Diagnostiquer un problème de communication existant entre des réseaux à l’aide du portail Azure
 
 Une passerelle de réseau virtuel connecte un réseau virtuel Azure à un réseau local ou à un autre réseau virtuel. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -35,10 +35,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour utiliser la fonctionnalité de diagnostics VPN, vous devez disposer d’une passerelle VPN existante en cours d’exécution. Si ce n’est pas le cas, vous pouvez en déployer une à l’aide d’un [script PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Vous pouvez exécuter le script PowerShell à partir :
-    - **D’une installation PowerShell locale** : vous devez exécuter le module AzureRM PowerShell version 5.7.0 ou ultérieure pour les besoins de ce script. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
-    - **D’Azure Cloud Shell** : le service [Azure Cloud Shell](https://shell.azure.com/powershell) dispose de la dernière version de PowerShell installée et configurée et vous connecte à Azure.
+Pour utiliser la fonctionnalité de diagnostics VPN, vous devez disposer d’une passerelle VPN existante en cours d’exécution. Si ce n’est pas le cas, vous pouvez en déployer une à l’aide d’un [script PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Vous pouvez exécuter le script PowerShell depuis :
+    - **Une installation PowerShell locale**. Ce script exige la version 5.7.0 ou une version ultérieure du module AzureRM PowerShell. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+    - **Azure Cloud Shell**. [Azure Cloud Shell](https://shell.azure.com/powershell), qui dispose de la dernière version de PowerShell installée et configurée, vous connecte à Azure.
 
 La création d’une passerelle VPN par le script prend environ une heure. Pour les étapes restantes, il est supposé que la passerelle que vous diagnostiquez est celle qui est déployée par ce script. Si vous préférez diagnostiquer votre passerelle existante, les résultats varient.
 
@@ -48,10 +47,10 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Activer Network Watcher
 
-Si vous avez déjà un observateur réseau activé dans la région États-Unis de l’Est, passez à l’étape [Diagnostiquer une passerelle](#diagnose-a-gateway).
+Si vous avez déjà un observateur réseau activé dans la région USA Est, passez à l’étape [Diagnostiquer une passerelle](#diagnose-a-gateway).
 
 1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats, sélectionnez-la.
-2. Sélectionnez la zone **Régions** pour la développer, puis sélectionnez **...** à droite de la région **Est des États-Unis**, comme illustré dans l’image suivante :
+2. Sélectionnez la zone **Régions** pour la développer, puis sélectionnez **...** à droite de la région **USA Est**, comme illustré dans l’image suivante :
 
     ![Activer Network Watcher](./media/diagnose-communication-problem-between-networks/enable-network-watcher.png)
 

@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: cb646eb67e0e0627a3c9ccbc6b4d25a97b157970
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: b2d3d5bb0081c51d3f89bc4cb8d2c0f23d40f4a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711682"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473994"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Azure CLI
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Démarrage rapide : Charger, télécharger et lister des objets blob avec Azure CLI
 
 L’interface de ligne de commande Azure (Azure CLI) est l’expérience de ligne de commande d’Azure pour gérer les ressources Azure. Vous pouvez l’utiliser dans votre navigateur avec Azure Cloud Shell. Vous pouvez également l’installer sur Windows, Linux ou MacOS, et l’exécuter à partir de la ligne de commande. Dans ce guide de démarrage rapide, vous apprenez à utiliser Azure CLI pour charger et télécharger des données vers et à partir du stockage Blob Azure.
 
@@ -33,7 +33,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 Les objets blob sont toujours chargés dans un conteneur. Vous pouvez organiser des groupes d’objets blob de la même façon que vous organisez vos fichiers dans les dossiers de l’ordinateur.
 
-Créez un conteneur pour stocker des objets blob avec la commande [az storage container create](/cli/azure/storage/container#az_storage_container_create).
+Créez un conteneur pour stocker des objets blob avec la commande [az storage container create](/cli/azure/storage/container).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -116,4 +116,4 @@ az group delete --name myResourceGroup
 Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et un conteneur du stockage Blob Azure. Pour en savoir plus sur l’utilisation des objets blob dans le stockage Azure, consultez le didacticiel sur l’utilisation du stockage Blob Azure.
 
 > [!div class="nextstepaction"]
-> [Guide pratique des opérations de stockage Blob avec Azure CLI](storage-how-to-use-blobs-cli.md)
+> [Guide pratique pour des opérations de stockage Blob avec Azure CLI](storage-how-to-use-blobs-cli.md)

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: b1435773f8d05f9cc730e5745c1a916d9b74321f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8e3cdd99c99a300d7f1198826ae881373e179414
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340591"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433694"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Créer et gérer une passerelle VPN avec le module Azure PowerShell
 
@@ -40,7 +40,7 @@ Le diagramme suivant illustre le réseau virtuel et la passerelle VPN créés da
 
 [!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.3 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure. 
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.3 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure. 
 
 ## <a name="common-network-parameter-values"></a>Valeurs des paramètres réseau communs
 
@@ -74,7 +74,7 @@ New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Une passerelle VPN Azure fournit une connectivité entre différents locaux et des fonctionnalités de serveur VPN P2S pour votre réseau virtuel. Ajoutez la passerelle VPN à un réseau virtuel existant ou créez un réseau virtuel et la passerelle. Cet exemple crée un réseau virtuel avec trois sous-réseaux (Frontend, Backend et GatewaySubnet) à l’aide des applets de commande [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) et [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) :
+Une passerelle VPN Azure fournit une connectivité entre différents locaux et des fonctionnalités de serveur VPN P2S pour votre réseau virtuel. Ajoutez la passerelle VPN à un réseau virtuel existant ou créez un réseau virtuel et la passerelle. Cet exemple crée un réseau virtuel comprenant les trois sous-réseaux Frontend, Backend et GatewaySubnet, à l’aide de [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) et de [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) :
 
 ```azurepowershell-interactive
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
@@ -115,9 +115,9 @@ New-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 ```
 
 Valeurs des paramètres clés :
-* GatewayType : Utilisez **Vpn** pour les connexions de site à site et de réseau virtuel à réseau virtuel.
-* VpnType : Utilisez **RouteBased** pour interagir avec une plus grande gamme de périphériques VPN et bénéficier d’autres fonctionnalités de routage.
-* GatewaySku : **VpnGw1** est la valeur par défaut. Remplacez-la par VpnGw2 ou VpnGw3 si vous avez besoin de débits plus élevés ou de connexions supplémentaires. Pour plus d’informations, consultez l’article [Références (SKU) de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+* GatewayType : utilisez **Vpn** pour les connexions de site à site, et de réseau virtuel à réseau virtuel.
+* VpnType : utilisez **RouteBased** pour interagir avec une plus grande gamme de périphériques VPN et bénéficier d’autres fonctionnalités de routage.
+* GatewaySku : **VpnGw1** est la valeur par défaut. Remplacez-la par VpnGw2 ou VpnGw3 si vous avez besoin de débits plus élevés ou de connexions supplémentaires. Pour plus d’informations, consultez l’article [Références (SKU) de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Une fois la passerelle créée, vous pouvez créer une connexion entre votre réseau virtuel et un autre réseau virtuel, ou entre votre réseau virtuel et un emplacement local. Vous pouvez également configurer une connexion P2S à votre réseau virtuel à partir d’un ordinateur client.
 

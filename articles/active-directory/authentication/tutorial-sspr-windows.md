@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437144"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430669"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Didacticiel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
@@ -32,6 +32,7 @@ Dans ce tutoriel, vous allez autoriser les utilisateurs à réinitialiser leurs 
    * [machine jointe à Azure AD](../device-management-azure-portal.md) ou
    * [machine jointe à Azure AD Hybride](../device-management-hybrid-azuread-joined-devices-setup.md), avec une connectivité réseau à un contrôleur de domaine.
 * activer la réinitialisation du mot de passe libre-service Azure AD.
+* Si vos machines Windows 10 se trouvent derrière un serveur proxy ou pare-feu, le trafic HTTPS (443) vers `passwordreset.microsoftonline.com` et `ajax.aspnetcdn.com` doit être autorisé.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurer le lien de réinitialisation du mot de passe à l’aide d’Intune
 
@@ -126,8 +127,6 @@ Les paramètres de stratégie suivants sont connus pour interférer avec la poss
    * Explorer.exe est remplacé par un interpréteur de commandes personnalisé
 
 Cette fonctionnalité ne fonctionne pas pour les réseaux avec l’authentification de réseau 802.1x déployée et l’option « Immédiatement avant l’ouverture de session de l’utilisateur ». Pour les réseaux avec l’authentification de réseau 802.1x déployée, il est recommandé d’utiliser l’authentification de la machine pour activer cette fonctionnalité.
-
-Si vos ordinateurs Windows 10 sont placés derrière un serveur proxy ou pare-feu, le trafic HTTPS (443) vers passwordreset.microsoftonline.com et ajax.aspnetcdn.com devrait être autorisé.
 
 Pour les scénarios Joint au domaine hybride, il existe un scénario dans lequel le flux de travail SSPR se termine sans contrôleur de domaine Active Directory. Une connectivité à un contrôleur de domaine est requise pour utiliser le nouveau mot de passe pour la première fois.
 

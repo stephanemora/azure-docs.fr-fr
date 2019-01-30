@@ -1,20 +1,20 @@
 ---
 title: Créer un service Recherche Azure dans le portail - Recherche Azure
-description: Approvisionnez un service Recherche Azure dans le Portail Azure. Choisissez les groupes de ressources, régions et références SKU ou niveaux tarifaires.
+description: Provisionnez un service Recherche Azure dans le Portail Azure. Choisissez les groupes de ressources, régions et références SKU ou niveaux tarifaires.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/02/2019
+ms.date: 01/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6d71ad9bdc7744898480fb2cc6743e59131ec588
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230524"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423440"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Création d'un service Azure Search dans le portail
 
@@ -22,7 +22,7 @@ La Recherche Azure est une ressource autonome utilisée pour ajouter une expéri
 
 Dans cet article, découvrez comment créer une ressource de Recherche Azure dans le [portail Microsoft Azure](https://portal.azure.com/). 
 
-![Ressources de Recherche Azure dans le portail](media/search-create-service-portal/azure-search-resource-label.png)
+[ ![GIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif) ](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Vous préférez PowerShell ? Utilisez le [modèle de service](https://azure.microsoft.com/resources/templates/101-azure-search-create/) Azure Resource Manager. Pour obtenir de l’aide et bien démarrer, consultez [Gérer votre service Recherche Azure avec PowerShell](search-manage-powershell.md).
 
@@ -34,10 +34,10 @@ Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure
 
 ## <a name="find-azure-search"></a>Localiser Recherche Azure
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Cliquez sur le signe plus (« + Créer une ressource ») dans le coin supérieur gauche.
+2. Cliquez sur le signe plus (« + Créer une ressource ») en haut à gauche.
 3. Utilisez la barre de recherche pour rechercher « Recherche Azure », ou accédez à la ressource via **Web** > **Recherche Azure**.
 
-![](./media/search-create-service-portal/find-search3.png)
+![Accéder à une ressource Recherche Azure](./media/search-create-service-portal/find-search3.png "Chemin de navigation vers Recherche Azure")
 
 ## <a name="name-the-service-and-url-endpoint"></a>Nommer le service et le point de terminaison URL
 
@@ -53,7 +53,7 @@ Configuration requise du nom du service :
    * pas de tirets consécutifs (« -- »).
 
 ## <a name="select-a-subscription"></a>Sélectionner un abonnement
-Si vous avez plusieurs abonnements, choisissez celui qui a également des services de stockage de données ou de fichiers. Recherche Azure peut détecter automatiquement Table Azure, Stockage Blob, SQL Database et Azure Cosmos DB pour l’indexation à l’aide [*d’indexeurs*](search-indexer-overview.md), mais uniquement pour les services dans le même abonnement.
+Si vous avez plusieurs abonnements, choisissez celui qui a également des services de stockage de données ou de fichiers. Recherche Azure peut détecter automatiquement Table Azure, Stockage Blob, SQL Database et Azure Cosmos DB pour l’indexation via des [*indexeurs*](search-indexer-overview.md), mais seulement pour des services dans le même abonnement.
 
 ## <a name="select-a-resource-group"></a>Sélectionner un groupe de ressources
 Un groupe de ressources correspond à une collection de services et de ressources Azure utilisés ensemble. Par exemple, si vous utilisez Recherche Azure pour indexer une base de données SQL, ces deux services doivent faire partie du même groupe de ressources.
@@ -64,7 +64,9 @@ Si vous ne combinez pas des ressources dans un même groupe, ou si les groupes d
 > La suppression d’un groupe de ressources supprime également les services qu’il contient. Pour les projets de prototype utilisant plusieurs services, le fait de les placer tous dans le même groupe de ressources facilite le nettoyage une fois le projet terminé. 
 
 ## <a name="select-a-hosting-location"></a>Sélectionner un emplacement d’hébergement 
-En sa qualité de service Azure, Recherche Azure peut être hébergé dans les centres de données du monde entier. Veuillez noter que les [prix peuvent varier](https://azure.microsoft.com/pricing/details/search/) selon la zone géographique.
+En sa qualité de service Azure, Recherche Azure peut être hébergé dans les centres de données du monde entier. [Les prix peuvent varier](https://azure.microsoft.com/pricing/details/search/) selon la zone géographique.
+
+Si vous envisagez d’utiliser Recherche cognitive, choisissez une [région où la fonctionnalité est disponible](cognitive-search-quickstart-blob.md#supported-regions).
 
 ## <a name="select-a-pricing-tier-sku"></a>Sélectionner un niveau de tarification (SKU)
 [Recherche Azure est actuellement disponible dans différents niveaux tarifaires](https://azure.microsoft.com/pricing/details/search/) : Gratuit, De base ou Standard. Chaque niveau a ses propres [capacité et limites](search-limits-quotas-capacity.md). Pour obtenir de l’aide, voir [Choisir un niveau tarifaire ou une référence (SKU)](search-sku-tier.md) .
@@ -77,7 +79,21 @@ Vous ne pouvez pas changer de niveau tarifaire une fois le service créé. Si vo
 
 N’oubliez pas d’épingler votre service au tableau de bord pour y accéder facilement à chaque fois que vous vous connectez.
 
-![](./media/search-create-service-portal/new-service3.png)
+![Épingler au tableau de bord](./media/search-create-service-portal/new-service3.png "Épinglez la ressource à votre tableau de bord pour en faciliter l’accès")
+
+## <a name="get-a-key-and-url-endpoint"></a>Obtenir une clé et un point de terminaison d’URL
+
+À quelques exceptions près, l’utilisation de votre nouveau service nécessite de spécifier le point de terminaison d’URL et une clé d’API d’autorisation. Les démarrages rapides, les tutoriels comme [Explorer les API REST de Recherche Azure (Postman)](search-fiddler.md) et [Guide pratique pour utiliser Recherche Azure à partir de .NET](search-howto-dotnet-sdk.md), les exemples et le code personnalisé ont tous besoin d’un point de terminaison et d’une clé pour s’exécuter sur votre ressource particulière.
+
+1. Dans la page Vue d’ensemble du service, recherchez et copiez le point de terminaison d’URL sur le côté gauche de la page. 
+
+   ![Page Vue d’ensemble du service avec le point de terminaison d’URL](./media/search-create-service-portal/url-endpoint.png "Point de terminaison d’URL et autres détails du service")
+
+2. Dans le volet de navigation gauche, sélectionnez **Clés**, puis copiez une des clés d’administrateur (elles sont équivalentes). Les clés d’API d’administrateur sont nécessaires pour la création, la mise à jour et la suppression d’objets sur votre service.
+
+   ![Page Clés montrant la clé principale et la clé secondaire](./media/search-create-service-portal/admin-api-keys.png "Clés d’API d’administrateur pour l’autorisation")
+
+Un point de terminaison et une clé ne sont pas nécessaires pour les tâches effectuées via le portail. Le portail est déjà lié à votre ressource Recherche Azure avec des droits d’administrateur. Pour un tutoriel sur le portail, commencez par [Tutoriel : Importer, indexer et interroger dans Recherche Azure](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Mettre à l’échelle le service
 La création d’un service peut prendre plusieurs minutes (15 minutes ou plus selon le niveau). Une fois votre service approvisionné, vous pouvez le mettre à l’échelle en fonction de vos besoins. Comme vous avez choisi le niveau Standard pour votre service Azure Search, vous pouvez le mettre à l’échelle dans deux dimensions : réplicas et partitions. Si vous choisissez le niveau De base, vous pouvez uniquement ajouter des réplicas. Si vous configurez le service gratuit, la mise à l’échelle n’est pas disponible.
@@ -95,14 +111,14 @@ L’ajout de ressources augmente votre facture mensuelle. Le [calculatrice de pr
 2. Dans le volet de navigation de gauche, sélectionnez **Paramètres** > **Mise à l’échelle**.
 3. Utilisez le curseur pour ajouter des ressources de chaque type.
 
-![](./media/search-create-service-portal/settings-scale.png)
+![Ajouter de la capacité](./media/search-create-service-portal/settings-scale.png "Ajouter de la capacité via des réplicas et des partitions")
 
 > [!Note] 
 > Chaque niveau a des [limites](search-limits-quotas-capacity.md) différentes quant au nombre total d’unités de recherche autorisées dans un même service (replicas * partitions = nombre total d’unités de recherche).
 
 ## <a name="when-to-add-a-second-service"></a>Quand ajouter un deuxième service
 
-La grande majorité des clients n’utilise qu’un seul service, approvisionné à un niveau qui fournit le [bon équilibre de ressources](search-sku-tier.md). Un service peut héberger plusieurs index, soumis aux [limites maximales du niveau sélectionné](search-capacity-planning.md), chaque index étant isolé des autres. Dans la Recherche Azure, les requêtes ne peuvent être dirigées que vers un seul index, ce qui réduit les risques de récupération des données accidentelle ou intentionnelle à partir d’autres index du même service.
+La plupart des clients n’utilisent qu’un seul service provisionné à un niveau qui fournit le [bon équilibre des ressources](search-sku-tier.md). Un service peut héberger plusieurs index, soumis aux [limites maximales du niveau sélectionné](search-capacity-planning.md), chaque index étant isolé des autres. Dans la Recherche Azure, les requêtes ne peuvent être dirigées que vers un seul index, ce qui réduit les risques de récupération des données accidentelle ou intentionnelle à partir d’autres index du même service.
 
 Bien que la plupart des clients utilisent un seul service, une redondance des services peut être nécessaire en cas d’exigences opérationnelles particulières, notamment :
 

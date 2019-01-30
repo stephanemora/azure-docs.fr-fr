@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/09/2018
+ms.date: 01/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3af8f57cab6e420a7c7515bdf32b7ef382441cf9
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f23aa49d44e8f29f860174ebde2447fad79c8c52
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633145"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843376"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Créer une application Python dans Azure App Service sur Linux (préversion)
 
@@ -47,6 +47,8 @@ Dans une fenêtre de terminal, exécutez les commandes suivantes pour cloner l�
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
 ```
+
+Le référentiel contient un fichier *application.py*, qui indique à App Service que le référentiel contient une application Flask. Pour plus d’informations, consultez [Processus de démarrage et personnalisations du conteneur](how-to-configure-python.md).
 
 ## <a name="run-the-app-locally"></a>Exécutez l’application localement.
 

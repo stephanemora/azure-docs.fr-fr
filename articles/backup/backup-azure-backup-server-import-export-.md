@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34606475"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818555"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. La sauvegarde Azure compresse les sauvegardes initiales. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde initiale compressées hors connexion dans Azure.
@@ -59,7 +59,7 @@ Assurez-vous que les prérequis suivants sont disponibles avant de lancer le flu
 
 * Un emplacement intermédiaire est créé. Il peut s’agir d’un partage réseau ou de tout lecteur supplémentaire, interne ou externe, sur l’ordinateur offrant suffisamment d’espace disque pour conserver votre copie initiale. Par exemple, si vous tentez de sauvegarder un serveur de fichiers de 500 Go, assurez-vous que la zone intermédiaire dispose d’au moins 500 Go (bien qu’une quantité inférieure soit utilisée en raison de la compression).
 * En ce qui concerne les disques qui seront envoyés à Azure, assurez-vous que seuls des disques durs internes SSD de 2,5 pouces ou SATA II/III de 2,5 ou 3,5 pouces sont utilisés. La capacité maximale par disque dur est de 10 To. Consultez la [documentation sur le service Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) pour connaître la dernière série de disques pris en charge par le service.
-* Les disques SATA doivent être connectés à un ordinateur (appelé *ordinateur de copie*) à partir duquel est effectuée la copie des données de sauvegarde de l’*emplacement intermédiaire* vers les disques SATA. Vérifiez que Bitlocker est activé sur l’*ordinateur de copie* 
+* Les disques SATA doivent être connectés à un ordinateur (appelé *ordinateur de copie*) à partir duquel est effectuée la copie des données de sauvegarde de l’*emplacement intermédiaire* vers les disques SATA. Vérifiez que BitLocker est activé sur l'*ordinateur de copie* 
 
 ## <a name="workflow"></a>Workflow
 Les informations de cette section vous permettent d’effectuer le flux de travail de sauvegarde hors connexion, afin que vos données puissent être remises à un centre de données Azure et chargées dans le stockage Azure. Si vous avez des questions sur le service Import ou sur un aspect du processus, consultez la documentation sur la [vue d’ensemble du service Import](../storage/common/storage-import-export-service.md) susmentionnée.
@@ -74,12 +74,12 @@ Les informations de cette section vous permettent d’effectuer le flux de trava
 
     Les champs sont décrits ci-dessous :
 
-    * **Emplacement intermédiaire**: l’emplacement de stockage temporaire dans lequel la copie de sauvegarde initiale est écrite. L’emplacement intermédiaire peut être sur un partage réseau ou un ordinateur local. Si l’ordinateur de copie et l’ordinateur source sont différents, nous vous recommandons de spécifier le chemin d’accès réseau complet de l’emplacement intermédiaire.
-    * **Nom de la tâche d’importation Azure**: le nom unique utilisé par le service Azure Import et la sauvegarde Azure pour effectuer le suivi du transfert des données envoyées dans Azure à l’aide de disques.
-    * **Paramètres de publication Azure** : fournissez le chemin d’accès local au fichier des paramètres de publication.
-    * **ID d’abonnement Azure** : ID d’abonnement Azure de l’abonnement à partir duquel vous avez téléchargé le fichier des paramètres de publication Azure. 
-    * **Compte de stockage Azure** : nom du compte de stockage dans l’abonnement Azure associé au fichier des paramètres de publication Azure.
-    * **Conteneur de stockage Azure** : nom de l’objet blob de stockage cible dans le compte de stockage Azure où les données de ce travail sont importées.
+    * **Emplacement intermédiaire** : Emplacement de stockage temporaire dans lequel la copie de sauvegarde initiale est écrite. L’emplacement intermédiaire peut être sur un partage réseau ou un ordinateur local. Si l’ordinateur de copie et l’ordinateur source sont différents, nous vous recommandons de spécifier le chemin d’accès réseau complet de l’emplacement intermédiaire.
+    * **Nom de la tâche d’importation Azure** : Nom unique utilisé par le service Azure Import et Sauvegarde Azure pour effectuer le suivi du transfert des données envoyées dans Azure à l’aide de disques.
+    * **Paramètres de publication Azure** : Fournissez le chemin d’accès local au fichier de paramètres de publication.
+    * **ID d’abonnement Azure** : ID de l'abonnement Azure à partir duquel vous avez téléchargé le fichier des paramètres de publication Azure. 
+    * **Compte de stockage Azure** : nom du compte de stockage de l'abonnement Azure associé au fichier des paramètres de publication Azure.
+    * **Conteneur de stockage Azure** : nom de l'objet blob de stockage cible dans le compte de stockage Azure où les données de sauvegarde sont importées.
 
      Enregistrez l’*emplacement intermédiaire* et le *Nom de la tâche d’importation Azure* que vous avez fournis. Ces informations sont nécessaires pour la préparation des disques.  
      

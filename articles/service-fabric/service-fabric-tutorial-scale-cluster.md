@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 010/01/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1af4cdb361c1db378991201fc42f17dcbf67fe67
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: abc60d11a2e6b1f830822e93a8fef40be1181f07
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238763"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426027"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : mettre à l’échelle un cluster Service Fabric dans Azure
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : Mettre à l’échelle un cluster Service Fabric dans Azure
 
 Ce tutoriel constitue la deuxième partie d’une série et montre comment diminuer ou augmenter la taille de votre cluster existant. À la fin de ce tutoriel, vous saurez comment mettre à l’échelle votre cluster et comment nettoyer les ressources restantes.
 
@@ -45,9 +45,9 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installez le [module Azure PowerShell 4.1 ou version ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
+* Installez le [module Azure PowerShell 4.1 ou version ultérieure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
 * Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure
-* Si vous déployez un cluster Windows, configurez un environnement de développement Windows. Installez les charges de travail [Visual Studio 2017](http://www.visualstudio.com) et le **développement Azure**, **ASP.NET et le développement web**, ainsi que **Développement multiplateforme .NET Core**.  Ensuite, configurez un [environnement de développement .NET](service-fabric-get-started.md).
+* Si vous déployez un cluster Windows, configurez un environnement de développement Windows. Installez les charges de travail [Visual Studio 2017](https://www.visualstudio.com) et le **développement Azure**, **ASP.NET et le développement web**, ainsi que **Développement multiplateforme .NET Core**.  Ensuite, configurez un [environnement de développement .NET](service-fabric-get-started.md).
 * Si vous déployez un cluster Linux, configurez un environnement de développement Java sur [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure

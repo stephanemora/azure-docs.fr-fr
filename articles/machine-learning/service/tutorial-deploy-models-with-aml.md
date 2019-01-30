@@ -11,14 +11,14 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5f13bfa4d0e9962622565cc5ac9c80372b50123
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cf83c99f562029fae932bc294cfc87750c908c99
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107682"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828211"
 ---
-# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutoriel : Déployer un modèle de classification d’images dans Azure Container Instances
+# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Didacticiel : Déployer un modèle de classification d’images dans Azure Container Instances
 
 Ce tutoriel est le **deuxième d’une série de deux**. Dans le [tutoriel précédent](tutorial-train-models-with-aml.md), vous avez entraîné des modèles Machine Learning, puis vous avez inscrit un modèle dans votre espace de travail sur le cloud.  
 
@@ -37,7 +37,7 @@ Azure Container Instances n’est pas idéal pour les déploiements de productio
 
 ## <a name="get-the-notebook"></a>Obtenir le bloc-notes
 
-Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Exécutez le notebook `tutorials/img-classification-part2-deploy.ipynb` dans Azure Notebooks ou sur votre propre serveur de notebooks Jupyter.
+Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Exécutez le notebook *tutorials/img-classification-part2-deploy.ipynb* dans [Azure Notebooks](https://notebooks.azure.com/) ou dans votre propre serveur de notebooks Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

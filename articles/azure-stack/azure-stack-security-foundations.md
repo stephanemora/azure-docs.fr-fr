@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: fba4020c5e947c135d9e17cfb1d0b2a79ad8a502
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306452"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819337"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Situation de sécurité de l’infrastructure Azure Stack
 
@@ -41,7 +41,7 @@ En partant de l’hypothèse que le système a déjà été enfreint, concentrez
 Étant donné qu’Azure Stack est fourni sous la forme d’un système intégré, la situation de sécurité de l’infrastructure Azure Stack est définie par Microsoft. Tout comme dans Azure, il appartient aux locataires de définir la situation de sécurité de leurs charges de travail de locataire. Ce document fournit des connaissances fondamentales sur la situation de sécurité de l’infrastructure Azure Stack.
 
 ## <a name="data-at-rest-encryption"></a>Chiffrement des données au repos
-L’infrastructure Azure Stack et les données de locataire sont en totalité chiffrées au repos à l’aide de BitLocker. Ce chiffrement protège contre la perte physique ou le vol de composants de stockage d’Azure Stack. Pour plus d’informations, consultez le [chiffrement des données au repos dans Azure Stack](azure-stack-security-bitlocker.md).
+Toutes les données de l'infrastructure Azure Stack et des locataires sont chiffrées au repos à l'aide de BitLocker. Ce chiffrement protège contre la perte physique ou le vol de composants de stockage d’Azure Stack. Pour plus d’informations, consultez le [chiffrement des données au repos dans Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Chiffrement des données en transit
 Les composants de l’infrastructure Azure Stack communiquent à l’aide de canaux chiffrés avec TLS 1.2. L’infrastructure gère automatiquement les certificats de chiffrement. 

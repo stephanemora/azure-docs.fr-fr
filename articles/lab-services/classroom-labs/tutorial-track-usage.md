@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 49d5761e3e37e1265938d1f1b27324de667a13ca
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 93d7a6e884cf02fa41838d4a07644c122a43823b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707093"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823825"
 ---
-# <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Didacticiel : suivre l’utilisation d’un labo dans Azure Lab Service
+# <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutoriel : Suivre l’utilisation d’un laboratoire dans Azure Lab Service
 Ce didacticiel vous montre comment un créateur ou propriétaire de laboratoire peut suivre l’utilisation d’un laboratoire.
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
@@ -37,14 +37,14 @@ Dans ce tutoriel, vous allez effectuer les actions suivantes :
 1. Accédez au [site web Azure Lab Services](https://labs.azure.com). 
 2. Sélectionnez **Se connecter** et entrez vos informations d’identification. Azure Lab Services prend en charge les comptes professionnels et les comptes Microsoft.
 3. Sur la page **Mes laboratoires**, sélectionnez le laboratoire pour lequel vous souhaitez suivre l’utilisation. 
-4. Sélectionnez l’onglet **Utilisateurs**. Vous visualisez les étudiants inscrits à votre laboratoire. Sélectionnez le **lien d’inscription**, copiez-le, puis envoyez-le à tout nouvel étudiant qui ne s’est pas encore inscrit auprès de votre laboratoire. 
+4. Sélectionnez **Utilisateurs** dans le menu de gauche ou la vignette **Utilisateurs**. Vous visualisez les étudiants inscrits à votre laboratoire. Sélectionnez le **lien d’inscription**, copiez-le, puis envoyez-le à tout nouvel étudiant qui ne s’est pas encore inscrit auprès de votre laboratoire. 
 
     ![Utilisateurs inscrits](../media/tutorial-track-usage/registered-users.png)
 
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Afficher l’utilisation des machines virtuelles dans le laboratoire 
 
 1. Dans le menu de gauche, sélectionnez **Machines virtuelles**. 
-2. Confirmez que vous visualisez bien l’état des machines virtuelles ainsi que le nombre d’heures d’exécution de celles-ci. Le temps passé sur la machine virtuelle d’un étudiant n’est pas comptabilisé dans le temps d’utilisation indiqué dans la dernière colonne. 
+2. Confirmez que vous visualisez bien l’état des machines virtuelles ainsi que le nombre d’heures d’exécution de celles-ci. Le temps qu’un propriétaire de laboratoire passe sur la machine virtuelle d’un étudiant n’est pas comptabilisé dans le temps d’utilisation indiqué dans la dernière colonne. 
 
     ![Utilisation de machines virtuelles](../media/tutorial-track-usage/vm-usage.png)
 
@@ -55,6 +55,8 @@ Le fait de pointer la souris sur une ligne dans la liste des machines virtuelles
 - Démarrer une machine virtuelle
 - Arrêter une machine virtuelle
 - Supprimer une machine virtuelle
+
+Vous pouvez également utiliser les boutons de la barre d’outils pour démarrer, arrêter ou supprimer une machine virtuelle. 
 
 
 

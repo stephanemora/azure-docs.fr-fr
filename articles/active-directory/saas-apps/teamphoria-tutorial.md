@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Teamphoria | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à Teamphoria | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Teamphoria.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d569c705-6f0f-4ec1-b485-ba82526b5d32
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 554930b18a271a677aeb5e82c3e62a94965a8e7f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8232af95cf8414df67343f5004975b11df4488a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439607"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826715"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Didacticiel : Intégration d’Azure Active Directory à Teamphoria
+# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Didacticiel : Intégration d'Azure Active Directory à Teamphoria
 
 Dans ce didacticiel, vous allez apprendre à intégrer Teamphoria à Azure Active Directory (Azure AD).
 
@@ -142,13 +142,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
-    a. **DISPLAY NAME** (Nom d’affichage) : entrez le nom d’affichage du plug-in sur la page d’administration.
+    a. **NOM D'AFFICHAGE** : entrez le nom d'affichage du plug-in sur la page d'administration.
 
-    b. **BUTTON NAME** (Nom du bouton) : nom de l’onglet qui s’affiche sur la page de connexion via l’authentification unique.
+    b. **NOM DU BOUTON** : nom de l'onglet qui apparaîtra sur la page de connexion via l'authentification unique.
 
-    c. **CERTIFICATE** (Certificat) : ouvrez le certificat téléchargé précédemment à partir du portail Azure dans le Bloc-notes, copiez le contenu puis collez-le dans ce champ.
+    c. **CERTIFICAT** : dans le Bloc-notes, ouvrez le certificat téléchargé précédemment à partir du portail Azure, copiez le contenu de celui-ci, puis collez-le dans ce champ.
 
-    d. **ENTRY POINT** (Point d’entrée) : collez l **’URL du service d’authentification unique SAML** copiée précédemment à partir du portail Azure.
+    d. **POINT D'ENTRÉE** : collez l'**URL du service d'authentification unique SAML** copiée précédemment à partir du portail Azure.
 
     e. Définissez l’option sur **ON** , puis cliquez sur **SAVE** (Enregistrer).
 

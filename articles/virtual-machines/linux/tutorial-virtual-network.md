@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: daee5a2073e78ca5bb9e0eb0386617d7638ab930
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a0eb3ed26b0e8641cf4e1004c2c162c799dd8999
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988514"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463760"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutoriel : Créer et gérer des réseaux virtuels Azure pour des machines virtuelles Linux avec Azure CLI
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutoriel : Créer et gérer des réseaux virtuels Azure pour des machines virtuelles Linux avec Azure CLI
 
 Les machines virtuelles Azure utilisent la gestion réseau Azure pour la communication réseau interne et externe. Ce didacticiel vous guide dans le déploiement de deux machines virtuelles et la configuration de la gestion réseau Azure pour celles-ci. Les exemples de ce didacticiel supposent que les machines virtuelles hébergent une application web avec un back-end de base de données. Le didacticiel ne comprend cependant pas le déploiement d’une application. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -208,7 +208,7 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-La machine virtuelle frontale est accessible seulement sur le port *22* et sur le port *80*. Tout le trafic entrant est bloqué au niveau du groupe de sécurité réseau. Il peut être utile de visualiser les configurations des règles du groupe de sécurité réseau. Vous pouvez obtenir la configuration des règles de groupe de sécurité réseau avec la commande [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
+La machine virtuelle frontale est accessible seulement sur le port *22* et sur le port *80*. Tout le trafic entrant est bloqué au niveau du groupe de sécurité réseau. Il peut être utile de visualiser les configurations des règles du groupe de sécurité réseau. Vous pouvez obtenir la configuration des règles de groupe de sécurité réseau avec la commande [az network rule list](/cli/azure/network/nsg/rule). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
@@ -285,7 +285,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-La machine virtuelle principale est accessible seulement sur le port *22* et sur le port *3306* à partir du sous-réseau frontal. Tout le trafic entrant est bloqué au niveau du groupe de sécurité réseau. Il peut être utile de visualiser les configurations des règles du groupe de sécurité réseau. Vous pouvez obtenir la configuration des règles de groupe de sécurité réseau avec la commande [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
+La machine virtuelle principale est accessible seulement sur le port *22* et sur le port *3306* à partir du sous-réseau frontal. Tout le trafic entrant est bloqué au niveau du groupe de sécurité réseau. Il peut être utile de visualiser les configurations des règles du groupe de sécurité réseau. Vous pouvez obtenir la configuration des règles de groupe de sécurité réseau avec la commande [az network rule list](/cli/azure/network/nsg/rule). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table

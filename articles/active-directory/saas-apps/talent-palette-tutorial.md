@@ -1,10 +1,10 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Talent Palette | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Talent Palette | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Talent Palette.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 839dbf54-b636-477b-9cf8-157374c78e7a
 ms.service: Azure-Active-Directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/30/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 7362b3279afc365db2a303de1b450c4e35e48874
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7438480d046be6242829060ce8ee936dd1cfb588
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883823"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818844"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Tutoriel : Intégration d’Azure Active Directory à Talent Palette
+# <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Tutoriel : Intégration d’Azure Active Directory à Talent Palette
 
 Dans ce didacticiel, vous allez apprendre à intégrer Talent Palette à Azure Active Directory (Azure AD).
 L’intégration de Talent Palette dans Azure AD vous offre les avantages suivants :
@@ -79,8 +79,8 @@ Pour configurer et tester l’authentification unique Azure AD avec Talent Pale
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique Talent Palette](#configure-talent-palette-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Créer un utilisateur de test Talent Palette](#create-talent-palette-test-user)** pour avoir dans Talent Palette un équivalent de Britta Simon lié à la représentation Azure AD associée.
-5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Talent Palette](#create-talent-palette-test-user)** pour avoir dans Talent Palette un équivalent de Britta Simon lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -105,16 +105,16 @@ Pour configurer l’authentification unique Azure AD avec Talent Palette, proc�
 
     ![Informations d’authentification unique dans Domaine et URL Talent Palette](common/both_replyurl.png)
 
-    Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://talent-p.net/saml/acs/<tenantID>`.
+    Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://talent-p.net/saml/acs/<tenantID>`
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Talent Palette](common/both_signonurl.png)
-   
-    Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://talent-p.net/saml/sso/<tenantID>`.
+
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://talent-p.net/saml/sso/<tenantID>`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL d’authentification réelles. Pour obtenir ces valeurs, contactez l’[équipe du support technique Talent Palette](mailto:talent-support@pa-consul.co.jp). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe du support technique Talent Palette](mailto:talent-support@pa-consul.co.jp). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 6. Dans la page **Configurer l’authentification unique avec SAML**, à la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Raw)** en fonction des options définies, puis enregistrez-le sur votre ordinateur.
 

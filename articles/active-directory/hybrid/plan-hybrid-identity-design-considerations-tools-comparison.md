@@ -4,7 +4,7 @@ description: Cette page contient un tableau comparatif complet des différents o
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 08/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c7050076f80f69929b3d12f2a55b4d4a720f9896
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 446cb0a930f5a949e690ae49e0ad5baa7ff9d841
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301868"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477581"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Identité hybride : Comparaison des outils d’intégration d’annuaire
 Au fil des années, les outils d’intégration de répertoire ont évolué et se sont améliorés.  Ce document procure une vue d’ensemble consolidée de ces outils et compare les fonctions disponibles dans chacun d’entre eux.

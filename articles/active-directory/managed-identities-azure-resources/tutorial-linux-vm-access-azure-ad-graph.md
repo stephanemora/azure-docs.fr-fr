@@ -4,7 +4,7 @@ description: Ce didacticiel vous guide tout au long du processus consistant à u
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: b58bfc5345e06f82b2550ea2a1a53443946f2096
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 25aca9ebe0e5bb618960f8526c4ca3e413ecf6bf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427452"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432640"
 ---
-# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux affectée par le système pour accéder à l’API Azure AD Graph
+# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Linux affectée par le système pour accéder à l’API Azure AD Graph
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
@@ -64,9 +64,9 @@ Lorsque vous avez activé l’identité managée affectée par le système sur l
 Dans le cadre de ce didacticiel, vous allez accorder à l’identité de votre machine virtuelle l’autorisation d’effectuer une requête sur les appartenances à des groupes à l’aide de la permission d’application `Directory.Read.All`. Pour que vous puissiez accorder cette autorisation, le rôle Administrateur général doit être assigné à votre compte d’utilisateur dans Azure AD. La méthode la plus courante pour accorder une permission d’application consiste à accéder à l’inscription de votre application dans le Portail Azure et à ajouter l’autorisation. Toutefois, les identités managées pour les ressources Azure n’inscrivent pas les objets d’application dans Azure AD. Elles inscrivent uniquement les principaux de service. Pour inscrire la permission d’application, vous allez utiliser l’outil de ligne de commande Azure AD PowerShell. 
 
 Azure AD Graph :
-- AppID du principal de service (utilisé lorsque vous accordez la permission d’application) : 00000002-0000-0000-c000-000000000000
+- AppID du principal de service (utilisé quand vous accordez la permission d’application) : 00000002-0000-0000-c000-000000000000
 - ID de ressource (utilisé lors d’une demande de jeton d’accès à partir des identités managées pour les ressources Azure) : https://graph.windows.net
-- Référence de l’étendue d’autorisation : [Référence pour les autorisations pour Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- Référence de l’étendue d’autorisation : [Référence des autorisations pour Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 ### <a name="grant-application-permissions-using-curl"></a>Accorder des permissions d’application à l’aide de CURL
 

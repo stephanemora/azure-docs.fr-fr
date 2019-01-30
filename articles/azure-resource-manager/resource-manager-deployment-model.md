@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 704bbe5cc566833ef1279e84f0fab9f363dfaa11
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841624"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382800"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Déploiement Azure Resource Manager et déploiement Classic : comprendre les modèles de déploiement et l’état de vos ressources
 
 > [!NOTE]
 > Les informations fournies dans cet article sont uniquement utilisées lorsque vous effectuez une migration d’un déploiement classique à un déploiement Azure Resource Manager.
@@ -153,6 +153,7 @@ Toutes les automatisations et tous les scripts que vous avez créés continueron
 Vous trouverez un ensemble complet de modèles de démarrage sur [Modèles de démarrage rapide Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour connaître la procédure pas à pas de création d’un modèle qui définit une machine virtuelle, un compte de stockage et un réseau virtuel, consultez [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md).
 * Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ffceeeeb5a55b0fab1dd1cf91aebfcd4cfd852ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246209"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848595"
 ---
 # <a name="overview-of-azure-notebooks"></a>Vue d’ensemble d’Azure Notebooks
 
 Azure Notebooks est un service hébergé gratuit à l’aide duquel vous pouvez développer et exécuter des notebooks Jupyter dans le cloud sans aucune installation. [Jupyter](https://jupyter.org/) (anciennement IPython) est un projet open source qui vous permet de combiner facilement du texte Markdown, du code exécutable, des données persistantes, des graphiques et des visualisations dans un canevas partageable appelé *notebook* (image tirée de jupyter.org) :
 
-[![](https://jupyter.org/assets/jupyterpreview.png "Notebooks Jupyter")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Exemples de notebooks Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Fort de cette solide combinaison de code, de graphiques et de texte explicatif, Jupyter est devenu populaire dans de nombreuses utilisations, notamment les instructions de science des données, le nettoyage et la transformation des données, la simulation numérique, la modélisation statistique et le développement de modèles Machine Learning.
 
@@ -57,7 +57,7 @@ En bref, Azure Notebooks vous aide à accomplir votre travail plus efficacement.
 
 Azure Notebooks est un service gratuit, mais chaque projet est limité à 4 Go de mémoire et 1 Go de données afin d’éviter tout abus. Les utilisateurs légitimes qui dépassent ces limites doivent passer un test Captcha pour continuer à exécuter des notebooks.
 
-Pour lever toutes les limites, connectez-vous à Azure Notebooks avec un compte Azure Active Directory (par exemple un compte d’entreprise). Si ce compte est associé à un abonnement Azure, vous pouvez utiliser les niveaux de calcul d’Azure Data Science Virtual Machine.
+Pour lever toutes les limites, connectez-vous à Azure Notebooks avec un compte Azure Active Directory (par exemple un compte d’entreprise). Si ce compte est associé à un abonnement Azure, vous pouvez vous connecter à n’importe quelle instance d’Azure Data Science Virtual Machine au sein de cet abonnement. Pour plus d’informations, consultez [Gérer et configurer des projets - Niveau Calcul](configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="available-kernels-and-environments"></a>Environnements et noyaux disponibles
 

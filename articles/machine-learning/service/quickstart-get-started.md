@@ -9,25 +9,23 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 12/04/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14c500d77cc0e67aaade5e6be490f599f39bfad5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e3569f560224ab8c9a64ababb2fcea7e96e87367
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807718"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812452"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utiliser le Portail Azure pour prendre en main Azure Machine Learning
 
-Dans ce démarrage rapide, vous utilisez le Portail Azure pour créer un espace de travail Azure Machine Learning. Dans le cloud, cet espace de travail est le socle que vous utilisez pour expérimenter, effectuer l’apprentissage et déployer des modèles Machine Learning avec Machine Learning. Ce démarrage rapide utilise des ressources cloud et ne requiert aucune installation. Pour configurer votre propre serveur Jupyter Notebook à la place, consultez [Démarrage rapide : Utilisation de Python pour démarrer avec Azure Machine Learning](quickstart-create-workspace-with-python.md).  
+Utilisez le Portail Azure pour créer un espace de travail Azure Machine Learning. Dans le cloud, cet espace de travail est le socle que vous utilisez pour expérimenter, effectuer l’apprentissage et déployer des modèles Machine Learning avec Machine Learning. Ce démarrage rapide utilise des ressources cloud et ne requiert aucune installation. Pour configurer votre propre serveur Jupyter Notebook à la place, consultez [Démarrage rapide : Utilisation de Python pour démarrer avec Azure Machine Learning](quickstart-create-workspace-with-python.md).  
  
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
-
 Ce démarrage rapide décrit les actions suivantes :
 
 * Créer un espace de travail dans votre abonnement Azure.
-* Essayer cet espace de travail avec Python dans un bloc-notes Azure et journaliser les valeurs sur plusieurs itérations.
+* Essayez-le avec Python dans un notebook Jupyter et journalisez les valeurs sur plusieurs itérations.
 * Afficher les valeurs journalisées dans votre espace de travail.
 
 Les ressources Azure suivantes sont automatiquement ajoutées à votre espace de travail lorsqu’elles sont disponibles au niveau régional :
@@ -46,14 +44,14 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Sur la page de l’espace de travail, sélectionnez `Explore your Azure Machine Learning service Workspace`.
-
- ![Explorer l’espace de travail](./media/quickstart-get-started/explore_aml.png)
-
 
 ## <a name="use-the-workspace"></a>Utiliser l'espace de travail
 
-Voyons maintenant comme un espace de travail vous permet de gérer vos scripts d’apprentissage automatique. Dans cette section, vous allez exécuter les étapes suivantes :
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
+
+
+
+Voyons maintenant comme un espace de travail vous permet de gérer vos scripts de machine learning. Dans cette section, vous allez exécuter les étapes suivantes :
 
 * Ouvrir un bloc-notes dans Azure Notebooks.
 * Exécuter le code qui crée certaines valeurs journalisées.
@@ -63,46 +61,57 @@ Cet exemple montre comment l’espace de travail peut vous aider à suivre les i
 
 ### <a name="open-a-notebook"></a>Ouvrir un bloc-notes 
 
-Azure Notebooks offre une plateforme cloud gratuite pour les blocs-notes Jupyter, préconfigurée avec tout ce dont vous avez besoin pour exécuter Machine Learning.  
+[Azure Notebooks](https://notebooks.azure.com) offre une plateforme cloud gratuite pour les notebooks Jupyter, préconfigurée avec tout ce dont vous avez besoin pour exécuter Machine Learning. À partir de votre espace de travail, vous pouvez lancer cette plateforme pour commencer à utiliser votre espace de travail du service Azure Machine Learning.
 
-Sélectionnez `Open Azure Notebooks` pour tester votre première expérience.
+1. Dans la page de l’espace de travail, sélectionnez **Explorer votre espace de travail de service Azure Machine Learning**.
+
+ ![Explorer l’espace de travail](./media/quickstart-get-started/explore_aml.png)
+
+1. Sélectionnez **Ouvrir Azure Notebooks** pour essayer votre première expérience dans Azure Notebooks.  Azure Notebooks est un service distinct qui vous permet d’exécuter des notebooks Jupyter gratuitement dans le cloud.  Quand vous utilisez ce lien vers le service, des informations sur la façon de se connecter à votre espace de travail sont ajoutées à la bibliothèque que vous créez dans Azure Notebooks.
 
  ![Ouvrir Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
 
-Votre organisation peut exiger le [consentement de l’administrateur](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) avant que vous puissiez vous connecter.
+1. Connectez-vous à Azure Notebooks.  Veillez à vous connecter avec le même compte que celui que vous avez utilisé pour vous connecter au portail Azure. Votre organisation peut exiger le [consentement de l’administrateur](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) avant que vous puissiez vous connecter.
 
-Connectez-vous à Azure Notebooks avec le même compte que celui que vous avez utilisé pour vous connecter au Portail Azure.  Une fois que vous êtes connecté, un nouvel onglet s’ouvre et une invite `Clone Library` s’affiche. Sélectionnez `Clone`.
+1. Une fois que vous êtes connecté, un nouvel onglet s’ouvre et une invite `Clone Library` s’affiche. Le clonage de cette bibliothèque charge un ensemble de notebooks et d’autres fichiers dans votre compte Azure Notebooks.  Ces fichiers vous aident à explorer les fonctionnalités d’Azure Machine Learning.
 
+1. Décochez la case **Public**, afin de ne pas partager les informations de votre espace de travail avec d’autres utilisateurs.
+
+1. Sélectionnez **Cloner**.
+
+ ![Cloner une bibliothèque](./media/quickstart-get-started/clone.png)
+
+1. Si vous voyez que l’état du projet est « arrêté », cliquez sur **Exécuter sur la ressource de calcul gratuite** pour utiliser le serveur de notebooks gratuit.
+
+    ![Exécuter un projet sur la ressource de calcul gratuite](./media/quickstart-get-started/run-project.png)
 
 ### <a name="run-the-notebook"></a>Exécuter le bloc-notes
 
-En plus des deux blocs-notes, vous voyez un fichier `config.json`. Ce fichier config contient des informations sur l’espace de travail que vous venez de créer.  
+Dans la liste des fichiers de ce projet, vous voyez un fichier `config.json`. Ce fichier config contient des informations sur l’espace de travail que vous avez créé dans le portail Azure.  Ce fichier permet à votre code de se connecter à votre espace de travail et d’y ajouter des informations.
 
-Sélectionnez `01.run-experiment.ipynb` pour ouvrir le bloc-notes.
+1. Sélectionnez **01.run-experiment.ipynb** pour ouvrir le notebook.
 
-Exécutez les cellules une par une (Maj + Entrée). Ou sélectionnez `Cells` > `Run All` pour exécuter tout le bloc-notes. Lorsque vous voyez un astérisque, __*__, en regard d’une cellule, cela signifie qu’elle est en cours d’exécution. À la fin de l’exécution du code de cette cellule, un numéro s’affiche. 
+1. La zone d’état vous indique d’attendre le démarrage du noyau.  Le message disparaît une fois que le noyau est prêt.
+
+    ![Attendre que le noyau démarre](./media/quickstart-get-started/wait-for-kernel.png)
+
+1. Une fois que le noyau a démarré, exécutez les cellules une à la fois en utilisant **Maj+Entrée**. Vous pouvez aussi sélectionner **Cellules** > **Exécuter tout** pour exécuter tout le notebook. Quand vous voyez un astérisque, __*__ à côté d’une cellule, cela signifie qu’elle est en cours d’exécution. À la fin de l’exécution du code de cette cellule, un numéro s’affiche. 
+
+1. Suivez les instructions dans le notebook pour authentifier votre abonnement Azure.
 
 Une fois que vous avez fini d’exécuter toutes les cellules dans le notebook, vous pouvez afficher les valeurs enregistrées dans votre espace de travail.
 
 ## <a name="view-logged-values"></a>Afficher les valeurs journalisées
 
-Une fois toutes les cellules du bloc-notes exécutées, revenez à la page du portail.  
+1. La sortie de la cellule `run` contient un lien qui ramène au portail Azure pour voir les résultats de l’expérience dans votre espace de travail. 
 
-Sélectionnez `View Experiments`.
+    ![Afficher les expériences](./media/quickstart-get-started/view_exp.png)
 
-![Afficher les expériences](./media/quickstart-get-started/view_exp.png)
+1. Cliquez sur le **lien vers le portail Azure** pour voir des informations sur l’exécution dans votre espace de travail.  Le lien ouvre votre espace de travail dans le portail Azure.
 
-Fermez la fenêtre contextuelle `Reports`.
+1. Les tracés des valeurs consignées que vous voyez ont été créés automatiquement dans l’espace de travail. Chaque fois que vous consignez plusieurs valeurs avec le même paramètre de nom, un tracé est généré automatiquement pour vous.
 
-Sélectionnez `my-first-experiment`.
-
-Consultez des informations sur l’exécution que vous venez de réaliser. Faites défiler la page vers le bas pour trouver la table des exécutions. Sélectionnez le lien du numéro de l’exécution.
-
- ![Lien Historique des exécutions](./media/quickstart-get-started/report.png)
-
-Vous voyez les tracés qui ont été créés automatiquement à partir des valeurs journalisées. Chaque fois que vous consignez plusieurs valeurs avec le même paramètre de nom, un tracé est généré automatiquement pour vous.
-
-   ![Afficher l’historique](./media/quickstart-get-started/plots.png)
+   ![Afficher l’historique](./media/quickstart-get-started/web-results.png)
 
 Étant donné que le code pour se rapprocher de pi utilise des valeurs aléatoires, vos tracés affichent des valeurs différentes.  
 

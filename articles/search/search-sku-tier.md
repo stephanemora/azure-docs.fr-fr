@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354550"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471818"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
 
 Dans Recherche Azure, une [ressource est créée](search-create-service-portal.md) à un niveau tarifaire ou une référence SKU qui est fixe pour la durée de vie du service. Les niveaux suivants existent : **Gratuit**, **De base** ou **Standard**, sachant que **Standard** est disponible dans plusieurs configurations et capacités. La plupart des clients commencent par le niveau **Gratuit** à des fins d’évaluation, puis passent au niveau **Standard** pour des déploiements de développement et de production. Au niveau **Gratuit**, vous pouvez effectuer tous les démarrages rapides et suivre tous les tutoriels, notamment ceux qui concernent la recherche cognitive nécessitant de nombreuses ressources. 
 
-Les niveaux déterminent la capacité, pas les fonctionnalités, et se distinguent par les caractéristiques suivantes :
+Les niveaux reflètent les caractéristiques du matériel qui héberge le service (plutôt que les fonctionnalités) et se distinguent en fonction de ce qui suit :
 
 + Nombre d’index que vous pouvez créer
 + Taille et la vitesse des partitions (stockage physique)
@@ -63,7 +63,7 @@ La plupart des clients mettent seulement une partie de la capacité totale en li
 
 ### <a name="billing-for-image-extraction-in-cognitive-search"></a>Facturation de l’extraction d’image dans la recherche cognitive
 
-Si vous extrayez des images à partir de fichiers dans un pipeline d’indexation de recherche cognitive, vous êtes facturé pour cette opération dans votre facture Recherche Azure. Le paramètre qui déclenche l’extraction d’image est **imageAction** dans une [configuration d’indexeur](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). Si **imageAction** est défini sur « none » (aucune, la valeur par défaut), aucuns frais ne sont imputés pour l’extraction d’image.
+Si vous extrayez des images à partir de fichiers dans un pipeline d’indexation de recherche cognitive, vous êtes facturé pour cette opération dans votre facture Recherche Azure. Le paramètre qui déclenche l’extraction d’image est **imageAction** dans une [configuration d’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters). Si **imageAction** est défini sur « none » (aucune, la valeur par défaut), aucuns frais ne sont imputés pour l’extraction d’image.
 
 Les tarifs sont susceptibles de changer, mais sont toujours dans la page [Détails des tarifs](https://azure.microsoft.com/pricing/details/search/) de Recherche Azure. 
 
