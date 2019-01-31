@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2363dde7dc2462adde730fa9a4883ffb6c558f3f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 8544d63f38f88a0e623dff343bf8b5133931b70b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796474"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228302"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Utiliser des entités à valeurs multiples avec un modèle d’Apprenant de conversation
 Ce tutoriel présente la propriété « À valeur multiple » des entités.
@@ -42,9 +42,9 @@ Pour une entité marquée comme « à valeurs multiples », chaque instance re
 2. Dans le champ « Nom », entrez « Entités à valeurs multiples » et appuyez sur Entrée.
 3. Cliquez sur le bouton « Créer ».
 
-### <a name="entity-creation"></a>Création d'entités
+### <a name="entity-creation"></a>Création d’entités
 
-1. Dans le volet gauche, cliquez sur « Entités », puis sur le bouton « Nouvelle entité ».
+1. Dans le panneau gauche, cliquez sur « Entités », puis sur le bouton « Nouvelle entité ».
 2. Sous « Type d'entité », sélectionnez « Apprentissage personnalisé ».
 3. Sous « Nom de l'entité », entrez « Garnitures ».
 4. Cochez la case « À valeurs multiples ».
@@ -73,9 +73,9 @@ Vous avez maintenant deux actions.
 
 ![](../media/tutorial6_actions.PNG)
 
-### <a name="train-the-model"></a>Effectuer l'apprentissage du modèle
+### <a name="train-the-model"></a>Effectuer la formation du modèle
 
-1. Dans le volet gauche, cliquez sur « Boîtes de dialogue d'apprentissage », puis le bouton « Nouvelle boîte de dialogue d'apprentissage ».
+1. Dans le volet gauche, cliquez sur « Train Dialogs » (Dialogues d’apprentissage), puis sur le bouton « New Train Dialog » (Nouveau dialogue d’apprentissage).
 2. Dans le panneau de conversation, sous « Entrez votre message... », tapez « Bonjour ».
 3. Cliquez sur le bouton « Noter les actions ».
 4. Sélectionnez la réponse « Quelles garnitures vous feraient-elles plaisir ? ».

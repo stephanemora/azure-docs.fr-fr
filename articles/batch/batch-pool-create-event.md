@@ -2,7 +2,7 @@
 title: Événement de création de pool Azure Batch | Microsoft Docs
 description: Référence pour l’événement de création de pool Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 794b3c83ff58967ef8169bed98f7b369335029ae
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: lahugh
+ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259838"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470589"
 ---
 # <a name="pool-create-event"></a>Événement de création de pool
 
@@ -65,14 +65,14 @@ ms.locfileid: "54259838"
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Nom de l'élément|type|Notes|
+|Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
 |osFamily|Chaîne|Famille de systèmes d’exploitation invités d’Azure à installer sur les machines virtuelles au sein du pool.<br /><br /> Les valeurs possibles sont les suivantes :<br /><br /> **2**: famille de systèmes d’exploitation 2, équivalent à Windows Server 2008 R2 SP1.<br /><br /> **3**: famille de systèmes d’exploitation 3, équivalent à Windows Server 2012.<br /><br /> **4**: famille de systèmes d’exploitation 4, équivalent à Windows Server 2012 R2.<br /><br /> Pour plus d’informations, voir [Publications de système d’exploitation invité d’Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 |targetOSVersion|Chaîne|Version du système d’exploitation invité d’Azure à installer sur les machines virtuelles du pool.<br /><br /> La valeur par défaut est **\***  qui spécifie la dernière version du système d’exploitation pour la famille spécifiée.<br /><br /> Pour les autres valeurs autorisées, voir [Publications de système d’exploitation invité d’Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Nom de l'élément|type|Notes|
+|Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|Type complexe|Spécifie des informations sur la plateforme ou l’image de la Place de marché à utiliser.|
 |nodeAgentSKUId|Chaîne|Référence (SKU) de l’agent du nœud Batch configuré sur le nœud de calcul.|
@@ -80,7 +80,7 @@ ms.locfileid: "54259838"
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|Nom de l'élément|type|Notes|
+|Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
 |publisher|Chaîne|Éditeur de l’image.|
 |offer|Chaîne|Offre de l’image.|
@@ -89,12 +89,12 @@ ms.locfileid: "54259838"
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|Nom de l'élément|type|Notes|
+|Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
 |enableAutomaticUpdates|Booléen|Indique si la machine virtuelle est activée pour les mises à jour automatiques. Si cette propriété n’est pas spécifiée, la valeur par défaut est true.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Nom de l'élément|type|Notes|
+|Nom de l'élément|Type|Notes|
 |------------------|--------------|----------|
 |subnetId|Chaîne|Spécifie l’identificateur de ressource du sous-réseau dans lequel les nœuds de calcul du pool sont créés.|

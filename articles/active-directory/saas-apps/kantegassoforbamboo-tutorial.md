@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: e238b574-9e9b-43b7-ab98-d2a87ff89d48
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: b4cf9e8b907bfa2d7ff47b40c4fca8927a9e9335
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2376f801628a6ee39eb6e32426da1d32b7517cb2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151394"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour Bamboo
+# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Tutoriel : Intégration d’Azure Active Directory avec Kantega SSO pour Bamboo
 
 Dans ce didacticiel, vous allez apprendre à intégrer Kantega SSO pour Bamboo avec Azure Active Directory (Azure AD).
 

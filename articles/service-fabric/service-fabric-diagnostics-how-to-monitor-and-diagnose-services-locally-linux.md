@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309159"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185463"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
 
@@ -51,7 +51,7 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-Le dossier vers lequel pointe le fichier `app.properties` doit exister. Une fois le fichier `app.properties` créé, vous devez également modifier votre script de point d’entrée, `entrypoint.sh`, dans le dossier `<applicationfolder>/<servicePkg>/Code/` afin de définir la propriété `java.util.logging.config.file` sur le fichier `app.propertes`. L’entrée doit se présenter comme l’extrait de code suivant :
+Le dossier vers lequel pointe le fichier `app.properties` doit exister. Une fois le fichier `app.properties` créé, vous devez également modifier votre script de point d’entrée, `entrypoint.sh`, dans le dossier `<applicationfolder>/<servicePkg>/Code/` afin de définir la propriété `java.util.logging.config.file` sur le fichier `app.properties`. L’entrée doit se présenter comme l’extrait de code suivant :
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
@@ -74,7 +74,7 @@ Plusieurs infrastructures sont disponibles pour le suivi des applications CoreCL
 
 La première étape consiste à inclure System.Diagnostics.Tracing afin que vous puissiez écrire vos journaux dans une mémoire, des flux de sortie ou des fichiers de console.  Pour la journalisation à l’aide d’EventSource, ajoutez le projet suivant à votre project.json :
 
-```
+```json
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 

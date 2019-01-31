@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139637"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465263"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Tâches pour responsable d’équipe dans Team Data Science Process
 
@@ -285,7 +285,7 @@ Sélectionnez l’abonnement Azure à utiliser :
 
 ![23](./media/team-lead-tasks/team-leads-23-file-create-s2.png)
 
-Sélectionnez le compte de stockage à utiliser ou créez-en un sous l’abonnement sélectionné :
+Sélectionnez le compte de stockage à utiliser ou créez en un sous l’abonnement sélectionné :
 
 ![24](./media/team-lead-tasks/team-leads-24-file-create-s3.png)
 
@@ -315,7 +315,7 @@ Sélectionnez l’abonnement Azure à utiliser :
 
 ![28](./media/team-lead-tasks/team-leads-28-file-create-linux-s2.png)
 
-Sélectionnez le compte de stockage à utiliser ou créez-en un sous l’abonnement sélectionné :
+Sélectionnez le compte de stockage à utiliser ou créez en un sous l’abonnement sélectionné :
 
 ![29](./media/team-lead-tasks/team-leads-29-file-create-linux-s3.png)
 

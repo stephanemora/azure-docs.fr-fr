@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546712"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884779"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -37,10 +37,10 @@ Azure SQL Analytics est une solution de monitoring entièrement dans le cloud qu
 
 | Source connectée | Pris en charge | Description |
 | --- | --- | --- |
-| [Azure Diagnostics](../../azure-monitor/platform/collect-azure-metrics-logs.md) | **Oui** | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
-| [Compte Azure Storage](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Non  | Log Analytics ne lit pas les données d’un compte de stockage. |
-| [Agents Windows](../../azure-monitor/platform/agent-windows.md) | Non  | Les agents directs Windows ne sont pas utilisés par la solution. |
-| [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non  | Les agents directs Linux ne sont pas utilisés par la solution. |
+| [Azure Diagnostics](../platform/collect-azure-metrics-logs.md) | **Oui** | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
+| [Compte Azure Storage](../platform/collect-azure-metrics-logs.md) | Non  | Log Analytics ne lit pas les données d’un compte de stockage. |
+| [Agents Windows](../platform/agent-windows.md) | Non  | Les agents directs Windows ne sont pas utilisés par la solution. |
+| [Agents Linux](../learn/quick-collect-linux-computer.md) | Non  | Les agents directs Linux ne sont pas utilisés par la solution. |
 | [Groupe d’administration de Microsoft System Center Operations Manager](../platform/om-agents.md) | Non  | La solution n’utilise pas de connexion directe entre l’Agent Operations Manager et Log Analytics. |
 
 ## <a name="configuration"></a>Configuration
@@ -185,7 +185,7 @@ Dans la solution, les alertes automatisées nécessitent d’écrire une requêt
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Création d’alertes pour Azure SQL Database
 
-Vous pouvez facilement [créer des alertes](../../azure-monitor/platform/alerts-metric.md) avec les données provenant de ressources Azure SQL Database. Voici quelques [requêtes dans les journaux](../../azure-monitor/log-query/log-query-overview.md) qui vous seront utiles pour créer des alertes :
+Vous pouvez facilement [créer des alertes](../platform/alerts-metric.md) avec les données provenant de ressources Azure SQL Database. Voici quelques [requêtes dans les journaux](../log-query/log-query-overview.md) qui vous seront utiles pour créer des alertes :
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Processeur élevé sur Azure SQL Database
 
@@ -297,6 +297,6 @@ La solution est gratuite, mais la consommation de la télémétrie de diagnostic
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Utilisez les [Recherches de journal](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics pour afficher les données détaillées sur Azure SQL.
-- [Créer un tableau de bord personnalisé](../../azure-monitor/platform/dashboards.md) comportant les données Azure SQL.
-- [Create and manage alert rules in Log Analytics with the OMS portal](../../azure-monitor/platform/alerts-overview.md) (Créer et gérer des règles d’alerte dans Log Analytics dans Log Analytics à l’aide du portail OMS).
+- Utilisez les [Recherches de journal](../log-query/log-query-overview.md) dans Log Analytics pour afficher les données détaillées sur Azure SQL.
+- [Créer un tableau de bord personnalisé](../learn/tutorial-logs-dashboards.md) comportant les données Azure SQL.
+- [Create and manage alert rules in Log Analytics with the OMS portal](../platform/alerts-overview.md) (Créer et gérer des règles d’alerte dans Log Analytics dans Log Analytics à l’aide du portail OMS).

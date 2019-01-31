@@ -3,19 +3,19 @@ title: Audit et création de rapports relatifs à un utilisateur Azure Active Di
 description: Les propriétés de l’utilisateur invité sont configurables dans Azure Active Directory B2B Collaboration
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: a31f9a5a0f613d6c70e8c95e584d8caca87e93be
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 06622c093ca90b3873365e6c93c40fc7221a6398
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434153"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075191"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Audit et création de rapports relatifs à un utilisateur B2B Collaboration
 Avec les utilisateurs invités, vous disposez de fonctionnalités d’audit identiques à celles des utilisateurs membres. 

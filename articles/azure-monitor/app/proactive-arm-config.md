@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853593"
+ms.locfileid: "54881594"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gérer les règles de détection intelligente d’Application Insights à l’aide de modèles Azure Resource Manager
 
@@ -157,7 +157,7 @@ Voici un tableau des noms de règle de détection intelligente tels qu’ils app
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Qui reçoit les notifications d'alerte (classiques) ?
 
-Cette section ne s'applique qu'aux alertes de détection intelligente classiques et vous aidera à optimiser vos notifications d'alerte afin que seuls les destinataires de votre choix les reçoivent. Pour mieux comprendre la différence entre les [alertes classiques](../platform/alerts-classic.overview.md et les nouvelles alertes, reportez-vous à l’[article de présentation des alertes](../platform/alerts-overview.md). Actuellement, les alertes de détection intelligente prennent uniquement en charge les alertes classiques. Les [alertes de détection intelligente sur Azure Cloud Services](./proactive-cloud-services.md) en sont la seule exception. Pour contrôler la notification des alertes de détection intelligente sur Azure Cloud Services, utilisez les [groupes d’actions](../platform/action-groups.md).
+Cette section ne s'applique qu'aux alertes de détection intelligente classiques et vous aidera à optimiser vos notifications d'alerte afin que seuls les destinataires de votre choix les reçoivent. Pour mieux comprendre la différence entre les [alertes classiques](../platform/alerts-classic.overview.md) et les nouvelles alertes, reportez-vous à l’[article de présentation des alertes](../platform/alerts-overview.md). Actuellement, les alertes de détection intelligente prennent uniquement en charge les alertes classiques. Les [alertes de détection intelligente sur Azure Cloud Services](./proactive-cloud-services.md) en sont la seule exception. Pour contrôler la notification des alertes de détection intelligente sur Azure Cloud Services, utilisez les [groupes d’actions](../platform/action-groups.md).
 
 * Nous recommandons l'utilisation de destinataires spécifiques pour les notifications d'alertes de détection intelligente/classiques.
 

@@ -5,22 +5,22 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: panosper
-ms.openlocfilehash: d06dbc399a3610982c99a548373482fc5ec21f4d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 63d2c15c14340b0d7407b0144a8b8c75a2634e6a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852866"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220240"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Créer un point de terminaison de reconnaissance vocale personnalisé
 
 Une fois que vous avez créé des modèles acoustiques ou des modèles de langage personnalisés, vous pouvez déployer ces derniers dans un point de terminaison de reconnaissance vocale personnalisé. 
 
-## <a name="create-an-endpoint"></a>Créer un point de terminaison
+## <a name="create-an-endpoint"></a>Création d’un point de terminaison
 Pour créer un point de terminaison personnalisé, sélectionnez **Points de terminaison** dans le menu **Custom Speech** en haut de la page. Cette action vous fait accéder à la page **Points de terminaison** qui contient un tableau répertoriant les points de terminaison personnalisés actuels. Si vous n’avez pas encore créé de point de terminaison, le tableau est vide. Les paramètres régionaux actuels sont indiqués dans le titre du tableau. 
 
 Pour créer un déploiement dans une autre langue, sélectionnez **Modifier les paramètres régionaux**. Pour plus d’informations sur les langues prises en charge.

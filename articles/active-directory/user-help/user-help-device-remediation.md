@@ -6,18 +6,18 @@ author: eross-msft
 manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: eb924a612188d905eb6c7127067fed2fd4b0f218
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 97d35eb3442b63736b40d51dda57b872813293ad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825525"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164059"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Raisons potentielles du message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
 Lorsque vous accédez aux applications ou services web internes de votre organisation, le message d’erreur **Vous ne pouvez pas y accéder à partir d’ici** peut s’afficher. Ce message signifie que votre organisation a mis en place une stratégie qui empêche votre appareil d’accéder à ses ressources. Avant de contacter votre service d’assistance pour résoudre le problème, voici un certain nombre de choses que vous pouvez essayer préalablement.

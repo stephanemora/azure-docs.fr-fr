@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 36496dd80111689b510bbbd27edc35a454d230a3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.lastreviewed: 01/19/2019
+ms.openlocfilehash: 9b66a7a176862fce687b7cc0b1ff3c14bda118d7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448290"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243887"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Utilisez des profils de version des API avec Go dans Azure Stack
 
@@ -33,9 +34,9 @@ Un profil est une combinaison de différents types de ressources dans différent
 
 Dans le kit SDK Go, les profils sont disponibles sous le chemin des profils. Leur version est au format **AAAA-MM-JJ**. Pour le moment, la dernière version du profil d’API Azure Stack est la version **2017-03-09**. Pour importer un service donné à partir d’un profil, importez son module correspondant à partir du profil. Par exemple, pour importer le service **Compute** à partir du profil **2017-03-09**, utilisez le code suivant :
 
-````go
+```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
-````
+```
 
 ## <a name="install-azure-sdk-for-go"></a>Installer le Kit de développement logiciel Microsoft Azure SDK pour Go
 
@@ -51,7 +52,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compu
 
 Pour plus d’informations sur le kit SDK Azure GO, cliquez sur les liens suivants :
 
-- Le Kit de développement logiciel (SDK) sur la page [Installation du Kit de développement logiciel Microsoft Azure SDK pour Go](/azure/azure-sdk-go-install).
+- Le Kit de développement logiciel (SDK) sur la page [Installation du Kit de développement logiciel Microsoft Azure SDK pour Go](/go/azure/azure-sdk-go-install).
 - Le kit SDK Azure Go public est disponible sur GitHub dans le dépôt [azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go).
 
 ### <a name="go-autorest-dependencies"></a>Dépendances de Go-AutoRest

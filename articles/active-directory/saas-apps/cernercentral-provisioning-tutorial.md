@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Configurer Cerner Central pour l'approvisionnement automatique d'utilisateurs avec Azure Active Directory | Microsoft Docs"
+title: "Didacticiel : Configurer Cerner Central pour l'approvisionnement automatique d'utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: Découvrez comment configurer Azure Active Directory pour approvisionner automatiquement des utilisateurs dans une liste de Cerner Central.
 services: active-directory
 documentationcenter: ''
@@ -8,19 +8,19 @@ writer: asmalser-msft
 manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: eb34a6e7ded4c31c623031104aabbee16b5c4f1c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 032773acf512354bb22623dee147ce8dfdd4f364
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54819473"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190619"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutoriel : Configurer Cerner Central pour l'approvisionnement automatique d'utilisateurs
 

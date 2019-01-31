@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 45751af66b1b050d4d36d1b8aee52dc6a5d8cc7b
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: bd3711a88b14d7a24df7c20c72b49fca5953b568
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382406"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886459"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -105,8 +105,6 @@ Application Gateway insère également l’en-tête X-Original-Host qui contient
 La configuration des déploiements de nouvelles références SKU v1 d’Application Gateway peut prendre jusqu’à 20 minutes. Les modifications apportées à la taille et au nombre des instances n’entraînent pas d’interruption, et la passerelle reste active pendant ce temps.
 
 L’approvisionnement des déploiements de références SKU V2 peut quant à lui prendre de cinq à six minutes environ.
-
-Application Gateway prend-il en charge les en-têtes x-forwarded-for ?
 
 ## <a name="configuration"></a>Configuration
 

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849088"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167068"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ L’élément **Protocol** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| NOM | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
+| Name | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
 | PartnerClaimType | Oui | Nom du type de revendication à utiliser. |
 
 Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité interagit avec un fournisseur d’identité SAML2 ou une application de confiance, la revendication **surname** est mappée à `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Avec OpenIdConnect et OAuth2, la revendication est mappée à `family_name`.
@@ -106,7 +106,7 @@ L’élément **Mask** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| type | Oui | Type du masque de revendication. Valeurs possibles : `Simple` ou `Regex`. La valeur `Simple` indique qu’un masque de texte simple est appliqué à la partie gauche d’une revendication de chaîne. La valeur `Regex` indique qu’une expression régulière est appliquée à la revendication de chaîne dans son ensemble.  Si la valeur `Regex` est spécifiée, un attribut facultatif doit également être défini avec l’expression régulière à utiliser. |
+| Type | Oui | Type du masque de revendication. Valeurs possibles : `Simple` ou `Regex`. La valeur `Simple` indique qu’un masque de texte simple est appliqué à la partie gauche d’une revendication de chaîne. La valeur `Regex` indique qu’une expression régulière est appliquée à la revendication de chaîne dans son ensemble.  Si la valeur `Regex` est spécifiée, un attribut facultatif doit également être défini avec l’expression régulière à utiliser. |
 | Expression régulière | Non  | Si **Type** a la valeur `Regex`, spécifiez l’expression régulière à utiliser.
 
 L’exemple suivant configure une revendication **PhoneNumber** avec le masque `Simple` :

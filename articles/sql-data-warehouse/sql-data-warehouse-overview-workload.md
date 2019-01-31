@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c26dfc6f3fd8be28e56c18f0af379130c31aa859
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302164"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463614"
 ---
 # <a name="data-warehouse-workload"></a>Charge de travail de l’entrepôt de données
 Le concept de « charge de travail d’entrepôt de données » fait référence à l’ensemble des opérations se produisant dans un entrepôt de données. La charge de travail de l’entrepôt de données comprend l’ensemble du processus de chargement des données dans l’entrepôt, d’exécution de l’analyse et de génération des rapports sur l’entrepôt de données, de gestion des données dans l’entrepôt de données et d’exportation des données de l’entrepôt de données. La complexité et l’étendue de ces composants sont bien souvent proportionnées par rapport au niveau de maturité de l’entrepôt de données.

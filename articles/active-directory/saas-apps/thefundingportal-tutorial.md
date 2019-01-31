@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: 4663cc8a-976a-4c6c-b3b4-1e5df9b66744
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: ada7a35f36dbac74fa67111c8fa2571dce70069d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c3e094fedae0a395df6862feceec0e60c66ee042
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54822125"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196223"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Didacticiel : Intégration d'Azure Active Directory au Portail du financement
+# <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Tutoriel : Intégration d'Azure Active Directory au Portail du financement
 
 Dans ce didacticiel, vous allez apprendre à intégrer le Portail du financement à Azure Active Directory (Azure AD).
 
