@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 808ee8bb34aa4bb81ce1bcdd50193efa05f5692d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427010"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103762"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -39,7 +39,7 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Inscrire et télécharger
 > ### <a name="register-and-configure-your-application-and-code-sample"></a>Inscrire et configurer votre application et exemple de code
-> #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrire votre application
+> #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 > Pour inscrire votre application et ajouter les informations d’inscription de l’application à votre solution, procédez comme suit :
 > 1. Accédez au [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app) pour inscrire une application.
 > 1. Dans la zone **Nom de l’application**, attribuez un nom à votre application.
@@ -47,7 +47,7 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 > 1. Sélectionnez **Ajouter une plateforme**, puis **Application native**, et cliquez sur **Enregistrer**.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> #### <a name="step-1-configure-your-application"></a>Étape 1 : Configurer votre application
+> #### <a name="step-1-configure-your-application"></a>Étape 1 : Configuration de votre application
 > Pour que l’exemple de code de ce démarrage rapide fonctionne, vous devez ajouter une URL de réponse telle que **msal{AppId}://auth** (où {AppId} correspond à l’ID de votre application).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter cette modification pour moi]()
@@ -55,7 +55,7 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-android/green-check.png) Votre application est configurée avec ces attributs
 
-#### <a name="step-2-download-the-project"></a>Étape 2 : Télécharger le projet
+#### <a name="step-2-download-the-project"></a>Étape 2 : Téléchargez le projet
 
 * [Télécharger le projet Android Studio](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 

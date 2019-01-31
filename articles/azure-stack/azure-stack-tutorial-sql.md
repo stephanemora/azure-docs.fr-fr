@@ -15,14 +15,15 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b123caebfdba94b8b5e1c7bcf1c8a998d5199fda
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 10/23/2018
+ms.openlocfilehash: 27a1f385468c2fac59bdb2a5365e798e975b7c87
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259748"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251996"
 ---
-# <a name="tutorial-offer-highly-available-sql-databases"></a>Tutoriel : Offrir des bases de données SQL hautement disponibles
+# <a name="tutorial-offer-highly-available-sql-databases"></a>Didacticiel : Offrir des bases de données SQL hautement disponibles
 
 En tant qu’opérateur Azure Stack, vous pouvez configurer des machines virtuelles serveurs pour héberger des bases de données SQL Server. Une fois qu’un serveur d’hébergement SQL est correctement créé et géré par Azure Stack, les utilisateurs qui se sont abonnés aux services SQL peuvent facilement créer des bases de données SQL.
 

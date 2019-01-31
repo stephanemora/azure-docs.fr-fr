@@ -3,19 +3,19 @@ title: Activation du pilote Azure Multi-Factor Authentication
 description: Dans ce didacticiel, vous allez activer Azure Multi-Factor Authentication pour un groupe pilote d’utilisateurs.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 5bd27ed71e93edc10fd86395121c524cb54c98e7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6a8ccc79267dcc01b0d11ba176a64d125a2caad4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427608"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080767"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutoriel : Déploiement du pilote Azure Multi-Factor Authentication
 

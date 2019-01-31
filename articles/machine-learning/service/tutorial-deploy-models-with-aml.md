@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour déployer un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python. Ce tutoriel est le deuxième d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: cf83c99f562029fae932bc294cfc87750c908c99
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 887be89060a6d02eea74cd127cfbc93e48c0b3ff
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828211"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240860"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Didacticiel : Déployer un modèle de classification d’images dans Azure Container Instances
 

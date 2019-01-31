@@ -3,7 +3,7 @@ title: Exemples Azure PowerShell | Microsoft Docs
 description: Exemples Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6ced4cf2270b0c818357cc0eaf1a4d4537031b07
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c907af8e91a7463c74e0bb14b0d8e0862c4e0fa3
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469586"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887255"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Exemples Azure PowerShell Azure pour les groupes de machines virtuelles identiques
 
@@ -39,5 +39,5 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 |**Gérer la mise à l’échelle et la redondance**||
 | [Activer la mise à l’échelle automatique basée sur l’hôte](scripts/powershell-sample-enable-autoscale.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crée une mise à l’échelle de machine virtuelle qui est configurée pour se mettre automatiquement à l’échelle en fonction de l’utilisation de l’UC. |
 | [Créer un groupe identique sur une zone unique](scripts/powershell-sample-single-availability-zone-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crée un groupe de machines virtuelles identiques qui utilise une zone de disponibilité unique. |
-| [Créer un groupe identique redondant dans une zone](scripts/powershell-sample-zone-redundant-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crée un groupe de machines virtuelles identiques sur plusieurs zones de disponibilité. |
+| [Créer un groupe identique redondant interzone](scripts/powershell-sample-zone-redundant-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crée un groupe de machines virtuelles identiques sur plusieurs zones de disponibilité. |
 | | |

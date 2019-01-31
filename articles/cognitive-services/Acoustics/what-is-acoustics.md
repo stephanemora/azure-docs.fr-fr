@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 6a3c97ead40cfb24604edac0624e38a9b0713fc0
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 175203269f524f5c680345602e6382f5c26f1bd1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901022"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178900"
 ---
 # <a name="what-is-project-acoustics"></a>Qu’est-ce que Project Acoustics ?
 Le plug-in Project Acoustics Unity fournit une occlusion, une réverbération et une spatialisation pour les projets ciblant la réalité virtuelle et les écrans traditionnels. Il fournit un moyen de concevoir des acoustiques de jeux qui calquent des intentions de concepteur de couches via une simulation d’ondes basée sur le moteur physique.

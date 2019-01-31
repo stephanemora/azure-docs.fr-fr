@@ -3,19 +3,19 @@ title: Réinitialisation de mot de passe en libre-service et authentification mu
 description: Dans ce didacticiel, vous allez activer les intégrations Azure Identity Protection, pour l’authentification multifacteur et la Réinitialisation de mot de passe en libre-service, afin de réduire les comportements à risques.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: fea87a711bf43ea73d3e09efeb42f5133d8f4e9f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 504e314151409732cba23af97224683eb35a7c81
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434918"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075480"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutoriel : Utiliser des événements à risque pour déclencher l’authentification multifacteur et le changement du mot de passe
 

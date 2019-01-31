@@ -3,7 +3,7 @@ title: Exemples de script Azure PowerShell - Créer une machine virtuelle à par
 description: Exemples de script Azure PowerShell - Créer une machine virtuelle à partir d’une capture instantanée
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 63d108bbfd0f58f8a40bf1c7c8649e3a1f7ed288
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1a3edf282c20d2aec49a0ffb324ee0f9c62421c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23116717"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244434"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>Créer une machine virtuelle à partir d’une capture instantanée avec PowerShell
 
@@ -47,7 +47,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Ce script utilise les commandes suivantes pour obtenir des propriétés de capture instantanée, créer un disque géré à partir de la capture instantanée et créer une machine virtuelle. Chaque élément du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [Get-AzureRmSnapshot](/powershell/module/azurerm.compute/get-azurermsnapshot) | Obtient une capture instantanée à l’aide du nom de celle-ci. |
 | [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) | Crée une configuration de disque. Cette configuration est utilisée dans le processus de création de disque. |

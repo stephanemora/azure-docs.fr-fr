@@ -6,16 +6,16 @@ services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 575ec01037c49499dcdef3f915065a38de0bbba1
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 948565bc3266b2835a8948c391442c132d93471b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729542"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227673"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Démarrage rapide : traduire une entrée vocale à l’aide du SDK Speech pour .NET Framework
 
@@ -148,7 +148,7 @@ Ce démarrage rapide nécessite :
 
     ![Capture d’écran de l’application Visual Studio, avec l’option Démarrer le débogage mise en surbrillance](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Démarrer l’application en débogage")
 
-1. Une fenêtre de console s’affiche vous invitant à dire quelque chose. Prononcez une phrase ou quelques mots en anglais. Votre entrée orale est transmise au service Speech, traduite et transcrite en texte qui apparaît dans la même fenêtre.
+1. Une fenêtre de console s’affiche vous invitant à dire quelque chose. Prononcez une phrase ou quelques mots en anglais. Vos paroles sont transmises au service Speech, traduites et retranscrites en texte qui apparaît dans la même fenêtre.
 
     ![Capture d’écran de la sortie de la console après la réussite de la traduction](media/sdk/qs-translate-csharp-dotnetcore-windows-output.png "Sortie de la console après la réussite de la traduction")
 

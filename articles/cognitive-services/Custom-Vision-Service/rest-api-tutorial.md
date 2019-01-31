@@ -1,23 +1,23 @@
 ---
-title: 'Tutoriel : Utiliser l’API REST du service Vision personnalisée'
+title: 'Didacticiel : Utiliser l’API REST du service Vision personnalisée'
 titlesuffix: Azure Cognitive Services
 description: Utiliser l’API REST pour créer, former, tester et exporter un modèle de vision personnalisée.
 services: cognitive-services
 author: blackmist
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e5cf04bb631585c14d2ec7403bf0332f41dc626
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2f28af14c0579a7a6b514d66d2b66a540adb8fac
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054207"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226517"
 ---
-# <a name="tutorial-use-the-custom-vision-rest-api"></a>Tutoriel : Utiliser l’API REST Vision personnalisée
+# <a name="tutorial-use-the-custom-vision-rest-api"></a>Didacticiel : Utiliser l’API REST Vision personnalisée
 
 Découvrez comment utiliser l’API REST Vision personnalisée pour créer, former, tester et exporter un modèle.
 

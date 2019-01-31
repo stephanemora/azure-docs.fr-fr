@@ -7,18 +7,18 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 58fa0c36f8c3f630ae7f349bd0f54a497a38f19d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7ce8ba5d35d4c8f8def7b87e96f102c45d39a5d7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976781"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228081"
 ---
-# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutoriel : Obtenir des données au format approprié à partir de l’énoncé
+# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutoriel : Obtenir des données au format approprié à partir de l’énoncé
 Dans ce tutoriel, vous créez une application pour extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.
 
 **Dans ce tutoriel, vous allez découvrir comment :**
@@ -91,7 +91,7 @@ L’entité d’expression régulière correspondant au numéro du formulaire es
 
 HRF signifie `human resources form`.
 
-LUIS segmente l’énoncé en unités lexicales quand il est ajouté à une intention. La segmentation du texte de ces énoncés en unités lexicales ajoute des espaces avant et après le trait d’union, `Where is HRF - 123456?` L’expression régulière est appliquée à l’énoncé à l’état brut, avant que ce dernier soit segmenté en unités lexicales. Comme elle est appliquée à l’état _brut_, l’expression régulière n’a pas besoin de tenir compte des limites de mot. 
+LUIS segmente l’énoncé en unités lexicales quand il est ajouté à une intention. La segmentation du texte de ces énoncés en unités lexicales ajoute des espaces avant et après le trait d’union, `Where is HRF - 123456?` L’expression régulière est appliquée à l’énoncé à l’état brut, avant que ce dernier soit segmenté en unité lexicales. Comme elle est appliquée à l’état _brut_, l’expression régulière n’a pas besoin de tenir compte des limites de mot. 
 
 Créez une entité d’expression régulière pour indiquer à LUIS ce qu’est un format de numéro HRF en effectuant les étapes suivantes :
 
@@ -113,7 +113,7 @@ Créez une entité d’expression régulière pour indiquer à LUIS ce qu’est 
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-before-testing-or-publishing"></a>Effectuer l’apprentissage de l’application avant un test ou une publication
+## <a name="train-the-app-before-testing-or-publishing"></a>Entraîner l’application avant un test ou la publication
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -173,7 +173,7 @@ Créez une entité d’expression régulière pour indiquer à LUIS ce qu’est 
 * Concepts d’entité [d’expression régulière](luis-concept-entity-types.md#regular-expression-entity)
 * [Comment effectuer l’apprentissage](luis-how-to-train.md)
 * [Comment publier](luis-how-to-publish-app.md)
-* [Comment tester dans le portail LUIS](luis-interactive-test.md)
+* [Guide pratique pour tester dans le portail LUIS](luis-interactive-test.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce tutoriel, vous avez créé une intention, ajouté des exemples d’énoncés, puis créé une entité d’expression régulière pour extraire des données bien formées à partir des énoncés. Une fois l’application entraînée et publiée, une requête au point de terminaison a identifié l’intention et retourné les données extraites.

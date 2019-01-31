@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: 2b3adf07a8522322434a6596475fa06c0df978e8
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 98d624b51835f88d34ec7ffd9658e40985482498
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813598"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181824"
 ---
 # <a name="what-is-bing-entity-search"></a>Qu’est-ce que la Recherche d’entités Bing ?
 
@@ -48,7 +48,7 @@ La réponse contient un objet [SearchResponse](https://docs.microsoft.com/rest/a
 > [!NOTE]
 > Les réponses d’entité prennent en charge plusieurs marchés, mais la réponse Lieux prend en charge uniquement les adresses professionnelles aux États-Unis. 
 
-Le champ `entities` est un objet [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) qui contient une liste d’objets [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) (voir le champ `value`). La liste peut contenir une seule entité dominante, plusieurs entités de levée de l’ambiguïté ou les deux. 
+Le champ `entities` est un objet [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) qui contient une liste d’objets [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) (voir le champ `value`). La liste peut contenir une seule entité dominante, plusieurs entités de levée de l’ambiguïté ou les deux. 
 
 Une entité dominante est une entité que Bing pense être la seule entité satisfaisant à la demande (il n’existe aucune ambiguïté quant à l’entité qui satisfait la requête). Si plusieurs entités sont susceptibles de satisfaire la requête, la liste contient plusieurs entités de levée d’ambiguïté. Par exemple, si la requête utilise un titre générique de franchise cinématographique, la liste contiendra des entités de levée d’ambiguïté. Toutefois, si la requête spécifie un titre spécifique de la franchise, la liste contiendra une seule entité dominante.
 

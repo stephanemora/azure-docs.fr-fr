@@ -7,23 +7,23 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 1d21a5ad906299ff05110d676490fc587e85cac4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 95ce737e46a23086d336b1972988a2581a869f38
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826681"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165742"
 ---
 # <a name="reset-password-overview"></a>Aperçu de la réinitialisation d’un mot de passe
 
+Si vous avez oublié votre mot de passe, que vous n’en avez jamais reçu de la part du support de votre entreprise, ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour réinitialiser votre mot de passe.
+
 >[!Important]
 >Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-Si vous avez oublié votre mot de passe, que vous n’en avez jamais reçu de la part du support de votre entreprise, ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour réinitialiser votre mot de passe.
 
 |Article |Description |
 |------|------------|
