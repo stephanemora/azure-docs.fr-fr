@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 9502c0b5c3ea4b25b7a49448b75fdd43ff28762a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5fd5d551290c113e9001328562fd99282548ce3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186986"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464294"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Comment créer des graphiques de performances avec Azure Monitor pour machines virtuelles (préversion)
 Azure Monitor pour les machines virtuelles comprend un ensemble de graphiques de performances qui ciblent divers indicateurs de performance clés (KPI) pour vous aider à déterminer l’intégrité du fonctionnement d’une machine virtuelle. Les graphiques illustrent l’utilisation des ressources sur une période de temps pour que vous puissiez identifier les goulots d’étranglement ou les anomalies. Vous pouvez également basculer sur une perspective répertoriant toutes les machines virtuelles pour afficher l’utilisation des ressources en fonction de la métrique sélectionnée. Bien qu’il existe de nombreux éléments à prendre en compte pour le traitement des performances, Azure Monitor pour les machines virtuelles se concentre sur le système d’exploitation, représenté par le processeur, la mémoire, les cartes réseau et les disques. La fonctionnalité Performances vient compléter celle de supervision de l’intégrité et permet d’exposer les problèmes indiquant une panne éventuelle d’un composant système, de prendre en charge les réglages et l’optimisation pour améliorer l’efficacité ou de prendre en charge la planification de la capacité.  
@@ -102,8 +102,8 @@ Les graphiques d’utilisation de la capacité suivants sont fournis :
 
 ![Performances - Insights de machine virtuelle directement depuis l’affichage de la machine virtuelle](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
-## <a name="alerting-and-alert-management"></a>Alertes et gestion des alertes 
-Les métriques de performances activées dans le cadre d’Azure Monitor pour les machines virtuelles n’incluent pas les règles d’alerte préconfigurées. Bien qu’il existe des [alertes d’intégrité](vminsights-health.md#alerting-and-alert-management) correspondant à des problèmes de performances détectés sur votre machine virtuelle Azure, comme une utilisation élevée de l’UC, peu de mémoire encore disponible, les E/S de disque, un espace disque faible, etc., ces alertes d’intégrité sont appliquées seulement à toutes les machines virtuelles connectées au même espace de travail Log Analytics activé pour Azure Monitor pour les machines virtuelles. 
+## <a name="alerts"></a>Alertes 
+Les métriques de performances activées dans le cadre d’Azure Monitor pour les machines virtuelles n’incluent pas les règles d’alerte préconfigurées. Bien qu’il existe des [alertes d’intégrité](vminsights-health.md#alerts) correspondant à des problèmes de performances détectés sur votre machine virtuelle Azure, comme une utilisation élevée de l’UC, peu de mémoire encore disponible, les E/S de disque, un espace disque faible, etc., ces alertes d’intégrité sont appliquées seulement à toutes les machines virtuelles connectées au même espace de travail Log Analytics activé pour Azure Monitor pour les machines virtuelles. 
 
 Toutefois, nous pouvons uniquement collecter et stocker un sous-ensemble de mesures de performances dont vous avez besoin dans l’espace de travail Log Analytics. Si votre stratégie de surveillance nécessite une analyse ou la génération d’alertes qui incluent d’autres mesures de performances afin d’évaluer efficacement la capacité ou l’intégrité de la machine virtuelle, ou si vous avez besoin de flexibilité pour spécifier vos propres critères ou votre propre logique d’alerte, vous pouvez configurer la [collecte de ces compteurs de performances](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) dans Log Analytics et définir des [alertes de journal](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json). Si Log Analytics vous permet d’effectuer une analyse complexe avec d’autres types de données et de fournir une durée de rétention plus longue pour prendre en charge l’analyse des tendances, les métriques quant à elles sont légères et en mesure de prendre en charge des scénarios en quasi temps réel. Elles sont collectées par [l’agent Azure Diagnostic](../../virtual-machines/windows/monitor.md) et stockées dans le magasin de métriques Azure Monitor, ce qui vous permet de créer des alertes avec une latence plus faible et à moindre coût.
 

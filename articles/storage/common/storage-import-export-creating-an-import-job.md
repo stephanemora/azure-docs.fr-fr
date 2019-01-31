@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.subservice: common
+ms.openlocfilehash: efe7b6722a9cfa24ea86130a13a0599115e89821
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021844"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451663"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Création d’un travail d’importation pour le service Azure Import/Export
 
@@ -35,7 +35,7 @@ La création d’un travail d’importation pour le service Microsoft Azure Impo
 
 Les étapes de préparation des disques pour un travail d’importation sont identiques si vous créez un travail à l’aide du portail ou de l’API REST.
 
-Voici une brève présentation de la préparation du disque. Consultez la [référence sur l’outil Azure Import/Export](storage-import-export-tool-how-to-v1.md) pour obtenir des instructions complètes. Vous pouvez télécharger l’outil Azure Import/Export [ici](http://go.microsoft.com/fwlink/?LinkID=301900).
+Voici une brève présentation de la préparation du disque. Consultez la [référence sur l’outil Azure Import/Export](storage-import-export-tool-how-to-v1.md) pour obtenir des instructions complètes. Vous pouvez télécharger l’outil Azure Import/Export [ici](https://go.microsoft.com/fwlink/?LinkID=301900).
 
 La préparation de votre disque implique :
 

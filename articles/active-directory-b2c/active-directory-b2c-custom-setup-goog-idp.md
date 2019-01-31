@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 6f621b831ae6025e5c214a9f63c76b226e20e828
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: a958650a80df9eba27b99e11cce72a1ad62db14c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851298"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153060"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Google à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
