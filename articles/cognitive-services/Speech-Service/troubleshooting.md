@@ -6,29 +6,29 @@ services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 04a1f3222b17d91889eb580d9d4e8206d8156d37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c906a45443bcba8c84a0624c74255f19a492a4e9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095481"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217153"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Résoudre les problèmes rencontrés avec le kit de développement logiciel du service Speech
 
 Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du kit de développement logiciel (SDK) du service Speech.
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Erreur : Échec de la mise à niveau de WebSocket avec une erreur d’authentification (403)
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Error: Échec de la mise à niveau de WebSocket avec une erreur d’authentification (403)
 
 Le point de terminaison pour votre service ou région est peut-être incorrect. Vérifiez l’URI pour vous assurer qu’il est correct.
 
 Il y a peut-être également un problème avec votre clé d’abonnement ou jeton d’autorisation. Pour en savoir plus, consultez la section suivante.
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Erreur : HTTP 403 Refusé ou HTTP 401 Non autorisé
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Error: HTTP 403 Refusé ou HTTP 401 Non autorisé
 
 Cette erreur est souvent due à des problèmes d’authentification. Les demandes de connexion sans en-tête `Ocp-Apim-Subscription-Key` ou `Authorization` valide sont rejetées. Elles renvoient un code d’état 403 ou 401.
 
@@ -108,7 +108,7 @@ Si vous utilisez un jeton d’autorisation pour l’authentification, exécutez 
 
 Cette erreur est généralement due au fait que le corps de la requête contient des données audio non valides. Seul le format WAV est pris en charge. De même, vérifiez les en-têtes de la requête pour vous assurer que vous spécifiez des valeurs appropriées pour `Content-Type` et `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Erreur : HTTP 408 Délai d’expiration de la demande
+## <a name="error-http-408-request-timeout"></a>Error: HTTP 408 Délai d’expiration de la demande
 
 L’erreur est très probablement due au fait qu’aucune donnée audio n’est envoyée au service. Cette erreur peut également résulter de problèmes de réseau.
 

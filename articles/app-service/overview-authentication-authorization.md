@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7fbf86a24ca6b2ba55ca33b20e67dea6a6e0c994
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b66b293e5d6e422c994e2b7cef13fd4100144cbf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730229"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297002"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
 
@@ -64,7 +64,7 @@ App Service fournit un magasin de jetons intégré : il s’agit d’un référe
 - publier sur le fil d’actualité Facebook de l’utilisateur authentifié ;
 - lire les données d’entreprise de l’utilisateur à partir de l’API Graph Azure Active Directory ou même de Microsoft Graph.
 
-Il est en général nécessaire d’écrire du code pour recueillir, stocker et actualiser ces jetons dans votre application. Avec le magasin de jetons, il suffit de [récupérer les jetons](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) en temps utile et de [demander à App Service de les actualiser](app-service-authentication-how-to.md#refresh-access-tokens) lorsqu’ils ne sont plus valides. 
+Il est en général nécessaire d’écrire du code pour recueillir, stocker et actualiser ces jetons dans votre application. Avec le magasin de jetons, il suffit de [récupérer les jetons](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) en temps utile et de [demander à App Service de les actualiser](app-service-authentication-how-to.md#refresh-identity-provider-tokens) lorsqu’ils ne sont plus valides. 
 
 Les jetons d’ID, jetons d’accès et jetons d’actualisation mis en cache pour la session authentifiée ne sont accessibles qu’à l’utilisateur associé.  
 

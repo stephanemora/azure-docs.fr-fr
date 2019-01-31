@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828092"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177030"
 ---
 # <a name="publish-azure-application-offer"></a>Publier une offre d’application Azure
 
@@ -28,6 +28,7 @@ Une fois que vous avez créé une offre en fournissant les informations correspo
 Le schéma ci-après illustre les principales étapes du processus de publication d’une offre.
 
 ![Étapes de publication d’offre](./media/offer-publishing-steps.png)
+
 
 ## <a name="detailed-description-of-publishing-steps"></a>Description détaillée des étapes de publication
 
@@ -44,12 +45,14 @@ Le tableau ci-après liste et décrit chacune des étapes de publication, et fou
 | Révision Microsoft                | 7 à 14 jours | Microsoft examine votre application Azure de manière holistique et vous avertit par e-mail en cas de problèmes.  La durée de cette étape varie selon la complexité de l’application, les problèmes détectés et la rapidité avec laquelle vous les traitez.  |
 | En direct                           | < 1 jour | L’offre est publiée, répliquée dans les régions spécifiées et mise à la disposition du public. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
+
  
 Vous pouvez superviser le processus de publication sous l’onglet **Status** de votre offre dans le Portail Cloud Partner.
 
 ![Onglet Status d’une offre d’application Azure](./media/offer-status-tab.png)
 
 Une fois que vous avez terminé le processus de publication, votre offre est listée dans la [catégorie d’applications Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/).
+
 
 
 ## <a name="errors-and-review-feedback"></a>Erreurs et commentaires de révision

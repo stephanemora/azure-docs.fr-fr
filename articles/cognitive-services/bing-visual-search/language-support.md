@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1dd434bbf71e482f5d0a52b3c84e46382079b43a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0f7d3f8a7a9c7bdd67dc80a98744e1cd6a2433a1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886397"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180821"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Langages et régions pris en charge par l’API Recherche visuelle Bing
 
@@ -81,41 +81,41 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Pays/région|Langage|Code du marché|
 |-------|--------|-----------|
 |Argentine|Espagnol|es-AR|
-|Australie|Français|en-AU|
+|Australie|Anglais|en-AU|
 |Autriche|Allemand|de-AT|
 |Belgique|Néerlandais|nl-BE|
-|Belgique|Français|fr-BE|
+|Belgique|Anglais|fr-BE|
 |Brésil|Portugais|pt-br|
-|Canada|Français|en-CA|
-|Canada|Français|fr-CA|
+|Canada|Anglais|en-CA|
+|Canada|Anglais|fr-CA|
 |Chili|Espagnol|es-CL|
 |Danemark|Danois|da-DK|
 |Finlande|Finnois|fi-FI|
-|France|Français|fr-FR|
+|France|Anglais|fr-FR|
 |Allemagne|Allemand|de-DE|
 |Hong Kong (R.A.S.)|Chinois traditionnel|zh-HK|
-|Inde|Français|en-IN|
-|Indonésie|Français|en-ID|
+|Inde|Anglais|en-IN|
+|Indonésie|Anglais|en-ID|
 |Italie|Italien|it-IT|
 |Japon|Japonais|ja-JP|
 |Corée du Sud|Coréen|ko-KR|
-|Malaisie|Français|en-MY|
+|Malaisie|Anglais|en-MY|
 |Mexique|Espagnol|es-MX|
 |Pays-bas|Néerlandais|nl-NL|
-|Nouvelle-Zélande|Français|en-NZ|
+|Nouvelle-Zélande|Anglais|en-NZ|
 |Chine|Chinois|zh-CN|
 |Pologne|Polonais|pl-PL|
 |Portugal|Portugais|pt-PT|
-|Philippines|Français|en-PH|
+|Philippines|Anglais|en-PH|
 |Russie|Russe|ru-RU|
 |Arabie Saoudite|Arabe|ar-SA|
-|Afrique du Sud|Français|en-ZA|
+|Afrique du Sud|Anglais|en-ZA|
 |Espagne|Espagnol|es-ES|
 |Suède|Suédois|sv-SE|
-|Suisse|Français|fr-CH|
+|Suisse|Anglais|fr-CH|
 |Suisse|Allemand|de-CH|
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|
-|Royaume-Uni|Français|en-GB|
-|États-Unis|Français|fr-FR|
+|Royaume-Uni|Anglais|en-GB|
+|États-Unis|Anglais|en-US|
 |États-Unis|Espagnol|es-US|

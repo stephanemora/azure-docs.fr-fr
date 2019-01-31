@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 21f8d8ad63e8ea7c134477a6171155c40a2b4dc8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2a0a4aeded3667b7c8f4a31821adb2fc40339137
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792014"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104097"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -317,7 +317,7 @@ Le paramètre `maxAutoRenewDuration` peut être configuré dans *host.json*, qui
 
 Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ce sont les propriétés de la classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
 
-|Propriété|type|Description|
+|Propriété|Type|Description|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|Le nombre de remises.|
 |`DeadLetterSource`|`string`|La source de lettre morte.|
@@ -629,7 +629,7 @@ Cette section décrit les paramètres de configuration globale disponibles pour 
 |Propriété  |Default | Description |
 |---------|---------|---------| 
 |maxAutoRenewDuration|00:05:00|Durée maximale pendant laquelle le verrouillage de message doit être renouvelé automatiquement.| 
-|autoComplete|false|Indique si le déclencheur doit immédiatement signaler la complétion (autocomplétion) ou attendre que le traitement appelle la complétion.| 
+|autoComplete|true|Indique si le déclencheur doit immédiatement signaler la complétion (autocomplétion) ou attendre que le traitement appelle la complétion.| 
 |maxConcurrentCalls|16|Nombre maximal d’appels simultanés pour le rappel que la pompe de messages doit initier. Par défaut, le runtime Functions traite plusieurs messages simultanément. Pour que le runtime ne traite qu’un message de file d’attente ou de rubrique à la fois, définissez `maxConcurrentCalls` sur 1. | 
 |prefetchCount|n/a|Valeur PrefetchCount par défaut qui est utilisée par l’instance MessageReceiver sous-jacente.| 
 

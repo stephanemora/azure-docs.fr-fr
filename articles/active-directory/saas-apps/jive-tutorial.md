@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Jive | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Jive | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jive.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: 9fc5659a-c116-4a1b-a601-333325a26b46
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: fa802e137f9fb76c531814f6128cabfc11a44f0f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1f2b9d59e85593047feb8d243c7c874786864b4d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812333"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191633"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jive"></a>Didacticiel : Intégration d’Azure Active Directory avec Jive
+# <a name="tutorial-azure-active-directory-integration-with-jive"></a>Tutoriel : Intégration d’Azure Active Directory avec Jive
 
 Dans ce didacticiel, vous allez apprendre à intégrer Jive à Azure Active Directory (Azure AD).
 

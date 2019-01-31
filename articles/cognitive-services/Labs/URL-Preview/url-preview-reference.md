@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 12e91a07d09929ba59873d0d56f4e19b20077f53
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999745"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222913"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informations de référence sur l’aperçu d’URL du projet v7
 
@@ -31,10 +31,10 @@ Vous devez utiliser les données de l’aperçu d’URL uniquement pour afficher
 Pour demander les résultats de l’aperçu d’URL, envoyez une requête au point de terminaison suivant. Utilisez les en-têtes et les paramètres d’URL pour définir d’autres spécifications.
 
 Point de terminaison GET :
-````
+```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 
-````
+```
 
 La requête doit utiliser le protocole HTTPS et inclure le paramètre de requête suivant :
 
@@ -73,7 +73,7 @@ Voici les en-têtes possibles d’une demande et d’une réponse.
 ## <a name="query-parameters"></a>Paramètres de requête
 La demande peut comporter les paramètres de requête suivants. Consultez la colonne Requis pour savoir lesquels sont obligatoires. Vous devez coder au format URL les paramètres de la requête. La requête doit être une URL absolue avec un schéma de type http ou https. Nous ne prenons pas en charge les URL relatives ou autres schémas du type ftp://.
 
-|NOM|Valeur|type|Obligatoire|
+|NOM|Valeur|Type|Obligatoire|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir [Codes de marché](#market-codes).<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|Chaîne|Oui|
 |<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|Oui|
@@ -90,7 +90,7 @@ Le schéma de réponse est soit [WebPage] soit ErrorResponse, comme dans l’API
 ### <a name="error"></a>Error
 Définit l’erreur qui s’est produite.
 
-|Élément|Description|type|
+|Élément|Description|Type|
 |-------------|-----------------|----------|
 |<a name="error-code" />code|Code d’erreur identifiant la catégorie de l’erreur. Pour connaître la liste des codes possibles, voir [Codes d’erreur](#error-codes).|Chaîne|
 |<a name="error-message" />message|Description de l’erreur.|Chaîne|
@@ -102,7 +102,7 @@ Définit l’erreur qui s’est produite.
 ### <a name="errorresponse"></a>ErrorResponse
 Objet de niveau supérieur figurant dans la réponse en cas d’échec de la demande.
 
-|NOM|Valeur|type|
+|NOM|Valeur|Type|
 |----------|-----------|----------|
 |_type|Indicateur de type.|Chaîne|
 |<a name="errors" />errors|Liste des erreurs qui décrivent les raisons pour lesquelles la demande a échoué.|[Error](#error)[]|
@@ -110,7 +110,7 @@ Objet de niveau supérieur figurant dans la réponse en cas d’échec de la dem
 ### <a name="webpage"></a>WebPage
 Définit les informations concernant la page web dans l’aperçu.
 
-|NOM|Valeur|type|
+|NOM|Valeur|Type|
 |----------|-----------|----------|
 |Nom|Titre de la page (pas nécessairement le titre HTML).|Chaîne|
 |url|URL réellement analysée (potentiellement avec redirections de la demande).|Chaîne|
@@ -119,7 +119,7 @@ Définit les informations concernant la page web dans l’aperçu.
 |primaryImageOfPage/contentUrl|URL d’une image représentative à inclure dans l’aperçu.|Chaîne|
 
 ### <a name="identifiable"></a>Identifiable
-|NOM|Valeur|type|
+|NOM|Valeur|Type|
 |-------------|-----------------|----------|
 |id|Identificateur de ressource.|Chaîne|
 

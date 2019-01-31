@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 205ba822b1221de34f3ee1ae25974a406f2013cb
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7897c677df38bb9b71222730a8b6a9ea11fb40bc
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438096"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912661"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
@@ -138,3 +138,4 @@ Une fois qu’il existe des données dans l’emplacement choisi, vous devez les
 
 * [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hdinsight-use-pig.md)
 * [Utiliser Apache Hive comme outil ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

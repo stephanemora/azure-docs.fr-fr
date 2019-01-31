@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413666"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228795"
 ---
 # <a name="azure-advanced-threat-detection"></a>Détection avancée des menaces Azure
 
@@ -115,7 +115,7 @@ Les sources de données et les solutions créent chacune différents types d'enr
 
 La plupart de vos interactions avec Log Analytics s’effectuent via le portail Azure qui s’exécute dans un navigateur et vous fournit un accès aux paramètres de configuration et à plusieurs outils pour analyser et agir sur les données collectées. À partir du portail, vous pouvez utiliser :
 * [Recherche dans les journaux](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) où vous avez élaboré des requêtes pour analyser des données collectées.
-* [Tableaux de bord](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), que vous pouvez personnaliser avec des vues graphiques de vos recherches les plus précieuses.
+* [Tableaux de bord](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), que vous pouvez personnaliser avec des vues graphiques de vos recherches les plus précieuses.
 * [Solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), qui fournissent des outils d’analyse et des fonctionnalités supplémentaires.
 
 ![Outils d’analyse](./media/azure-threat-detection/azure-threat-detection-fig6.png)
@@ -174,7 +174,7 @@ Les chercheurs reçoivent également les informations sur les menaces partagées
 
 L’analyse comportementale est une technique qui analyse et compare les données à une collection de modèles connus. Toutefois, ces modèles ne sont pas de simples signatures. Ils sont déterminés par le biais d’algorithmes d’apprentissage automatique appliqués aux ensembles de données massifs.
 
-![Découvertes sur l’analyse comportementale](./media/azure-threat-detection/azure-threat-detection-fig11.jpg)
+![Découvrtes sur l’analyse comportementale](./media/azure-threat-detection/azure-threat-detection-fig11.jpg)
 
 Ils sont également déterminés à travers une analyse minutieuse des comportements malveillants par des experts. Azure Security Center peut utiliser l’analyse comportementale pour identifier les ressources compromises en se basant sur l’analyse des journaux de la machine virtuelle, des journaux du périphérique réseau virtuel, des journaux Service Fabric, des vidages sur incident et d’autres sources.
 

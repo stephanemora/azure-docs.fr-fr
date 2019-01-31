@@ -2,19 +2,18 @@
 title: Modèle de données Log Analytics pour la sauvegarde Azure
 description: Cet article présente des informations détaillées sur le modèle de données Log Analytics pour les données de sauvegarde Azure.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5921ca696076a16e39252a6cb3bfae98854b5a85
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877579"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299570"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 Utilisez le modèle de données Log Analytics pour créer des rapports. Avec le modèle de données, vous pouvez créer des tableaux de bord et des requêtes personnalisés, ou personnaliser les données de sauvegarde Azure, comme vous le souhaitez.
@@ -281,4 +280,4 @@ Ce tableau fournit plus d’informations sur les champs liés aux coffres.
 | ResourceType |Texte |Type de ressource pour lequel les données sont collectées. Par exemple, Coffres |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez examiné le modèle de données de création de rapports de la Sauvegarde Azure, vous pouvez commencer à [créer des tableaux de bord](../azure-monitor/platform/dashboards.md) dans Log Analytics.
+Maintenant que vous avez examiné le modèle de données de création de rapports de la Sauvegarde Azure, vous pouvez commencer à [créer des tableaux de bord](../azure-monitor/learn/tutorial-logs-dashboards.md) dans Log Analytics.

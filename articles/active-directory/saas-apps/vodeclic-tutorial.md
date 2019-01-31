@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Vodeclic | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Vodeclic | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Vodeclic.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: daveba
 ms.reviewer: joflore
 ms.assetid: d77a0f53-e3a3-445e-ab3e-119cef6e2e1d
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 8f53082a2f6a33e934c2e3138d08725ffdf4fa2b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 14dc205857a6a067421fbb51dbbbf0c35c556e0e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815410"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150595"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Didacticiel : Intégration d’Azure Active Directory à Vodeclic
+# <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutoriel : Intégration d’Azure Active Directory à Vodeclic
 
 Dans ce didacticiel, vous allez apprendre à intégrer Vodeclic à Azure Active Directory (Azure AD).
 

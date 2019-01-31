@@ -1,24 +1,24 @@
 ---
-title: 'Tutoriel : Créer une application de traitement d’image – C#'
+title: 'Didacticiel : Créer une application de traitement d’image – C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Explorez une application Windows de base qui utilise l’API Vision par ordinateur dans Microsoft Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b944325287593a028d28545731370dc9ea6a5ac2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232751"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224919"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>Tutoriel : Créer une application de traitement d’image – C&#35;
+# <a name="tutorial-build-an-image-processing-app---c35"></a>Didacticiel : Créer une application de traitement d’image – C&#35;
 
 Explorez une application Windows de base qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent, mais aussi détecter, classer, baliser et décrire des caractéristiques visuelles, y compris les visages, dans une image. L’exemple ci-dessous vous permet d’envoyer une URL d’image ou un fichier stocké localement. Vous pouvez utiliser cet exemple open source comme modèle afin de générer votre propre application pour Windows avec l’API Vision par ordinateur et Windows Presentation Foundation (WPF), qui fait partie du .NET Framework.
 

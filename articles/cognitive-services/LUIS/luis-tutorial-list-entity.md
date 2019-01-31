@@ -6,16 +6,16 @@ author: diberry
 titleSuffix: Azure
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 4cac20cb44c2400e44ff2ca0939b1537f0b20734
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fe9276cb0af96baa8d818b1f2e965c83cb6b26c2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727180"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211489"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Utiliser une entité de liste pour améliorer la détection d’entité 
 Ce didacticiel détaille l’utilisation d’une [entité de liste](luis-concept-entity-types.md) afin d’améliorer la détection d’entité. Les entités de liste n’ont pas besoin d’être étiquetées car elles correspondent parfaitement aux termes.  

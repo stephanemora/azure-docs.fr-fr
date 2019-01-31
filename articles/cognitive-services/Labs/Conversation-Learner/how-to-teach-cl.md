@@ -1,25 +1,25 @@
 ---
-title: Formation avec l’Apprenant de conversation - Microsoft Cognitive Services | Microsoft Docs
+title: Formation avec Conversation Learner - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Apprenez à former avec l’Apprenant de conversation.
+description: Apprenez à former avec Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 41fe350fd712f6c521a9020af9a540e554abe94b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 8c55bb27ce5a413c5ceae22371ad61a5acf47281
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170597"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220261"
 ---
-# <a name="how-to-teach-with-conversation-learner"></a>Formation avec l’Apprenant de conversation 
+# <a name="how-to-teach-with-conversation-learner"></a>Formation avec Conversation Learner 
 
-Ce document explique de quels signaux l’Apprenant de conversation tient compte et décrit comment il apprend.  
+Ce document explique de quels signaux Conversation Learner tient compte et décrit comment il apprend.  
 
 La formation peut être divisée en deux étapes distinctes : extraction d’entité et sélection d’action.
 
@@ -27,7 +27,7 @@ La formation peut être divisée en deux étapes distinctes : extraction d’en
 
 En coulisses, l’Apprenant de conversation utilise [LUIS](https://www.luis.ai) pour l’extraction d’entité.  Si vous êtes familiarisé avec LUIS, cette expérience s’applique à l’extraction d’entité dans l’Apprenant de conversation.
 
-Les modèles d’extraction d’entité tiennent compte du *contenu* et du *contexte* dans l’énoncé d’un utilisateur.  Par exemple, si le mot « Seattle » a été étiqueté comme une ville dans un énoncé tel que « Quel temps fait-il à Seattle », l’extraction d’entité est capable de reconnaître ce même contenu (« Seattle ») en tant que ville dans un autre énoncé tel que « Population de Seattle », même si les énoncés sont très différents.  À l’inverse, si « Francis » a été reconnu en tant que nom dans « Planification d’une réunion avec Francis », un nouveau nom peut être reconnu dans un contexte similaires, tel qu’« Organiser une réunion avec Robin ».  Machine Learning déduit le moment auquel s’occuper du contenu, du contexte ou des deux, sur la base d’exemples d’apprentissage.
+Les modèles d’extraction d’entité tiennent compte du *contenu* et du *contexte* dans l’énoncé d’un utilisateur.  Par exemple, si le mot « Seattle » a été étiqueté comme une ville dans un énoncé tel que « Quel temps fait-il à Seattle », l’extraction d’entité est capable de reconnaître ce même contenu (« Seattle ») en tant que ville dans un autre énoncé tel que « Population de Seattle », même si les énoncés sont très différents.  À l’inverse, si « Francis » a été reconnu en tant que nom dans « Planification d’une réunion avec Francis », un nouveau nom peut être reconnu dans un contexte similaires, tel qu’« Organiser une réunion avec Robin ».  Le Machine Learning déduit le moment auquel s’occuper du contenu, du contexte ou des deux, sur la base d’exemples d’apprentissage.
 
 À l’heure actuelle, l’extraction d’entité tient uniquement compte du contenu de l’énoncé actuel.  Contrairement à la sélection d’une action (ci-dessous), elle ne tient pas compte de l’historique de la boîte de dialogue, par exemple les fois précédentes du système, les fois précédentes des utilisateurs, ou les entités reconnues précédemment.  Par conséquent, le comportement d’extraction d’entité est « partagé » entre tous les énoncés.  Par exemple, si l’énoncé d’utilisateur « I want Apple » (Je veux une pomme) a étiqueté « Apple » (pomme) en tant que type d’entité « Fruit » dans un énoncé d’utilisateur, le modèle d’extraction d’entité s’attendra à ce que cet énoncé (« I want Apple ») étiquette toujours « Apple » comme un « Fruit ».
 
@@ -43,7 +43,7 @@ La sélection d’action utilise un réseau neuronal récurrent, qui part de l�
 
 Certains signaux sont naturellement préférés par le processus d’apprentissage.  En d’autres termes, si l’Apprenant de Conversation peut expliquer une décision de sélection d’action avec des signaux « préférés », il le fera ; dans le cas contraire, il utilisera des signaux « moins préférés ».
 
-Voici un tableau indiquant tous les signaux de l’Apprenant de conversation et ceux utilisés par la sélection d’action.  Notez que l’ordre des mots dans les énoncés de l’utilisateur est ignoré.
+Voici un tableau indiquant tous les signaux de Conversation Learner et ceux utilisés par la sélection d’action.  Notez que l’ordre des mots dans les énoncés de l’utilisateur est ignoré.
 
 Signal | Préférence (1 = préféré) | Notes
 --- | --- | --- 

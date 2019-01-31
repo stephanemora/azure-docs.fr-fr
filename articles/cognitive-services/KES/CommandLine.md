@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 52d001e32e1bdb0d0046853f18649bafa49b1f14
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127135"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228523"
 ---
 # <a name="command-line-interface"></a>Interface de ligne de commande
 
@@ -80,7 +80,7 @@ La commande **host_service** héberge une instance du service KES sur l’ordina
 |-----------------|----------------------------|
 | `<grammarFile>` | Chemin du fichier de grammaire binaire d’entrée         |
 | `<indexFile>`   | Chemin du fichier d’index binaire d’entrée           |
-| `--port <port>` | Numéro de port local.  Par défaut : 8000 |
+| `--port <port>` | Numéro de port local.  Valeur par défaut : 8000 |
 
 Ces fichiers peuvent être spécifiés par des chemins de fichiers locaux ou des chemins URL vers des objets blob Azure.  Un service web est hébergé dans http://localhost:&lt;port&gt;/.  Consultez [API Web](WebAPI.md) pour une liste des opérations prises en charge.
 

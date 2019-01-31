@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 661df6039948539d6b50b4c8caf8ca7bd9b58730
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.subservice: files
+ms.openlocfilehash: 0372f34d5e58361d460465a9ddf4b6eed79a49f0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321490"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474817"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutoriel : Étendre les serveurs de fichiers Windows avec Azure File Sync
 
@@ -45,7 +45,7 @@ Pour ce tutoriel, vous devez effectuer les opérations suivantes avant de déplo
 
 Sur votre ordinateur local, créez un dossier nommé _FilesToSync_ et ajoutez un fichier texte nommé _mytestdoc.txt_. Vous chargerez ce fichier dans le partage de fichiers plus tard dans ce tutoriel.
 
-### <a name="create-a-storage-account"></a>Créer un compte de stockage
+### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -220,7 +220,7 @@ Pour déployer Azure File Sync, vous commencez par créer une ressource **Servic
    | ----- | ----- |
    | **Nom** | Nom unique (par abonnement) du service de synchronisation de stockage.<br><br>Utilisez le nom _afssyncservice02_ dans ce tutoriel. |
    | **Abonnement** | L’abonnement Azure que vous utilisez pour ce tutoriel. |
-   | **Groupe de ressources** | Groupe de ressources qui contient le service de synchronisation de stockage.<br><br>Utilisez le groupe _afsresgroup101918_ dans ce tutoriel. |
+   | **Groupe de ressources** | groupe de ressources qui contient le service de synchronisation de stockage.<br><br>Utilisez le groupe _afsresgroup101918_ dans ce tutoriel. |
    | **Lieu** | USA Est |
 
 1. Quand vous avez terminé, sélectionnez **Créer** pour déployer le **service de synchronisation de stockage**.

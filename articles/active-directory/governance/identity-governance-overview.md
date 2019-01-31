@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 20b1c8673bfdb3b2207ed63749f79539c396642c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 887c0bd4246c7c4215cb4d97dfd96db5d2aba6cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167651"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170016"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Qu’est-ce qu’Azure AD Identity Governance ?
 
@@ -67,7 +67,7 @@ Azure AD Privileged Identity Management (PIM) offre des contrôles supplémentai
 
 Il n’existe pas de solution ou recommandation parfaite pour chaque client. Cependant, vous pouvez vous appuyer sur les configurations suivantes afin d’appréhender les stratégies de base recommandées par Microsoft pour renforcer la sécurité et la productivité de la force de travail.
 
-- [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations) (Configurations des identités et de l’accès aux appareils)
+- [Configurations des identités et de l’accès aux appareils](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Sécurisation de l’accès privilégié](../users-groups-roles/directory-admin-roles-secure.md)
 
 

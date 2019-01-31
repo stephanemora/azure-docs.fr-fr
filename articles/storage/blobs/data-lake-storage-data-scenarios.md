@@ -3,21 +3,21 @@ title: Scénarios de données impliquant Azure Data Lake Storage Gen2 | Microsof
 description: Comprendre les différents scénarios et outils à l’aide desquels les données peuvent être ingérées, traitées, téléchargées et affichées dans Data Lake Storage Gen2 (anciennement Azure Data Lake Store)
 services: storage
 author: normesta
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.openlocfilehash: 978f86141d72cc7be43f24909f9780ab9570605d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dfc47c40ce82eb8e9d414cb49c22bee033d000a6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976315"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239026"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Storage Gen2 pour le Big Data
 
-Il existe quatre étapes principales dans le traitement des données Big Data :
+Il existe quatre étapes principales dans traitement des données Big Data :
 
 * Réception de grandes quantités de données dans un magasin de données, en temps réel ou par lots
 * Traitement des données

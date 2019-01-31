@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 2cec9e9b9724ca401778d4493d03def2aefc4ee9
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f3d6205635284c2ff2b0d4ab9cdab1e8a5844a94
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304480"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099796"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -525,7 +525,7 @@ Utilisez le contenu suivant pour le fichier d’entrée. Vous devez adapter le c
 
 Affectez au principal de service le rôle personnalisé Linux Fence Agent Role (Rôle d’agent d’isolation Linux) créé dans la section précédente. N’utilisez plus le rôle Propriétaire !
 
-1. Accédez à https\://portal.azure.com
+1. Accédez à [https://portal.azure.com](https://portal.azure.com)
 1. Ouvrez le panneau Toutes les ressources
 1. Sélectionnez la machine virtuelle du premier nœud de cluster.
 1. Cliquez sur Contrôle d’accès (IAM)

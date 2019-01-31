@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 261d42a6c21681ee8015edfe73ad78b4458eb0ee
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 08373449b2e61da503ab785eda7d6df80d6d1c16
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078807"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227928"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrer une base de connaissances à l’aide des fonctions d’exportation-importation
 QnA Maker a annoncé la disponibilité générale le 7 mai 2018 à la conférence \\\build\. QnA Maker GA dispose d’une nouvelle architecture qui repose sur Azure. Les bases de connaissances créées avec QnA Maker Free Preview doivent être migrées vers QnA Maker GA. QnA Maker Preview sera déconseillé à partir de janvier 2019. Pour plus d’informations sur les modifications apportées dans QnA Maker GA, consultez le [billet de blog](https://aka.ms/qnamakerga-blog) de QnA Maker.

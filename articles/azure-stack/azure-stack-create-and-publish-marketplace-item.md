@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: b2520864589558a530f4f9dbfed83a9f3b8c727a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104095"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243638"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Créer et publier un article de la Place de marché
 
@@ -128,7 +129,7 @@ ms.locfileid: "54104095"
 
 ### <a name="identity-information"></a>Informations d’identité
 
-| NOM | Obligatoire | type | Contraintes | Description |
+| NOM | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | NOM |X |Chaîne |[A-Za-z0-9]+ | |
 | Publisher |X |Chaîne |[A-Za-z0-9]+ | |
@@ -136,7 +137,7 @@ ms.locfileid: "54104095"
 
 ### <a name="metadata"></a>Métadonnées
 
-| NOM | Obligatoire | type | Contraintes | Description |
+| NOM | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Chaîne |Recommandation : 80 caractères |Le portail risque de ne pas afficher correctement le nom de votre élément s’il comporte plus de 80 caractères. |
 | PublisherDisplayName |X |Chaîne |Recommandation : 30 caractères |Le portail risque de ne pas afficher correctement le nom de votre éditeur s’il comporte plus de 30 caractères. |
@@ -165,7 +166,7 @@ Chaque article de Marketplace doit être étiqueté avec une catégorie qui iden
 
 Chaque article de Marketplace peut comporter différents liens vers du contenu supplémentaire. Les liens sont spécifiés comme une liste de noms et d’URI :
 
-| NOM | Obligatoire | type | Contraintes | Description |
+| NOM | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Chaîne |64 caractères maximum | |
 | Uri |X |URI | | |
@@ -174,7 +175,7 @@ Chaque article de Marketplace peut comporter différents liens vers du contenu s
 
 En plus des métadonnées précédentes, les auteurs de la Marketplace peuvent fournir des données de paire clé-valeur personnalisées sous la forme suivante :
 
-| NOM | Obligatoire | type | Contraintes | Description |
+| NOM | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Chaîne |25 caractères maximum | |
 | Valeur |X |Chaîne |30 caractères maximum | |

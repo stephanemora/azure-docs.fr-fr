@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 236a4e4f79e6da89154e1e52bb9f45daf3a54d59
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: files
+ms.openlocfilehash: 82d1a83dfd96dd6d4c2b37567c745998a6f0cbdb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632041"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473508"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Démarrage rapide : Créer et gérer des partages de fichiers Azure à l’aide d’Azure CLI
 Ce guide vous explique les bases de l’utilisation des [partages de fichiers Azure](storage-files-introduction.md) avec Azure CLI. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Il prend en charge le protocole SMB de norme industrielle et permet le partage de fichiers entre plusieurs machines, applications et instances. 

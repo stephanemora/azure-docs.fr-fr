@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902329"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187292"
 ---
 # <a name="evaluate-method"></a>Méthode Evaluate
 
@@ -32,9 +32,9 @@ NOM     | Valeur | Requis ?  | Description
 -----------|-----------|---------|--------
 **expr**       | Chaîne de texte | Oui | Expression de requête qui spécifie les entités à renvoyer.
 **model**      | Chaîne de texte | Non   | Nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).        
-**attributes** | Chaîne de texte | Non <br>par défaut : Id | Liste délimitée par des virgules qui spécifie les valeurs d’attribut qui sont incluses dans la réponse. Les noms d’attribut sont sensibles à la casse.
+**attributes** | Chaîne de texte | Non <br>par défaut : ID | Liste délimitée par des virgules qui spécifie les valeurs d’attribut qui sont incluses dans la réponse. Les noms d’attribut sont sensibles à la casse.
 **count**        | Number | Non <br>Valeur par défaut : 10 | Nombre de résultats à renvoyer.
-**offset**     | Number |   Non <br>Par défaut : 0    | Index du premier résultat à renvoyer.
+**offset**     | Number |   Non <br>Valeur par défaut : 0    | Index du premier résultat à renvoyer.
 **orderby** |   Chaîne de texte | Non <br>Par défaut : probabilité décroissante | Nom d’un attribut utilisé pour trier les entités. Si vous le souhaitez, vous pouvez indiquer un ordre croissant ou décroissant. Le format est : *name:asc* ou *name:desc*.
   
  <br>

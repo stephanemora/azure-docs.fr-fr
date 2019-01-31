@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Kantega SSO pour JIRA | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour JIRA | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kantega SSO pour JIRA.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: e2af4891-e3c8-43b3-bdcb-0500c493e9b4
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c9e372ed46b9cabb51ade06862f01c11b3db3f1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bdd7f3c1ba5b65eb959bdeb95b1ec68cdf7f164f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816719"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180158"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour JIRA
+# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Tutoriel : Intégration d’Azure Active Directory avec Kantega SSO pour JIRA
 
 Dans ce didacticiel, vous allez apprendre à intégrer Kantega SSO pour JIRA avec Azure Active Directory (Azure AD).
 

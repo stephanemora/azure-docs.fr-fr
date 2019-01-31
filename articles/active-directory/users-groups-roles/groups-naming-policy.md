@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 1118be1c335d8f88171b359c9cd273cdd2923021
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 08009324ea44b9c31602ebddd19e50588a0dbc65
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321719"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296849"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)
 
@@ -81,14 +81,14 @@ Veillez à désinstaller toute version ancienne du module Azure Active Directory
 1. Ouvrez l’application Windows PowerShell en tant qu’administrateur.
 2. Désinstallez toute version précédente d’AzureADPreview.
   
-  ````
+  ```
   Uninstall-Module AzureADPreview
-  ````
+  ```
 3. Installez la dernière version d’AzureADPreview.
   
-  ````
+  ```
   Install-Module AzureADPreview
-  ````
+  ```
 Si vous êtes invité à accéder à un référentiel non approuvé, tapez **Y**. L’installation du nouveau module peut prendre quelques minutes.
 
 ## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Configurer la stratégie de nommage de groupes pour un locataire à l’aide d’Azure AD PowerShell
@@ -97,10 +97,10 @@ Si vous êtes invité à accéder à un référentiel non approuvé, tapez **Y**
 
 2. Exécutez les commandes suivantes pour préparer l’exécution des applets de commande.
   
-  ````
+  ```
   Import-Module AzureADPreview
   Connect-AzureAD
-  ````
+  ```
   Dans l’écran **Connectez-vous à votre compte** qui s’ouvre, entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter**.
 
 3. Suivez les étapes de [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](groups-settings-cmdlets.md) pour créer des paramètres de groupe pour ce locataire.
@@ -109,35 +109,35 @@ Si vous êtes invité à accéder à un référentiel non approuvé, tapez **Y**
 
 1. Récupérez la stratégie de nommage active pour afficher les paramètres actuels.
   
-  ````
+  ```
   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-  ````
+  ```
   
 2. Affichez les paramètres de groupe actuels.
   
-  ````
+  ```
   $Setting.Values
-  ````
+  ```
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Définir la stratégie de nommage et les mots bloqués personnalisés
 
 1. Définissez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell. Pour que la fonctionnalité fonctionne correctement, [GroupName] doit être inclus dans le paramètre.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-  ````
+  ```
   
 2. Définissez les mots bloqués personnalisés sur lesquels vous voulez imposer des restrictions. L’exemple suivant illustre la façon dont vous pouvez ajouter vos propres mots personnalisés.
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-  ````
+  ```
   
 3. Enregistrez les paramètres de la nouvelle stratégie pour qu’elle prenne effet, comme dans l’exemple suivant.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
   
 Vous avez terminé. Vous avez défini votre stratégie de nommage et ajouté vos mots bloqués.
 
@@ -147,14 +147,14 @@ Pour plus d’informations, consultez l’article [Configuration des paramètres
 
 Voici un exemple de script PowerShell permettant d’exporter plusieurs mots bloqués :
 
-````
+```
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
-````
+```
 
 Voici un exemple de script PowerShell permettant d’importer plusieurs mots bloqués :
 
-````
+```
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -166,27 +166,27 @@ if ($Settings.Count -eq 0)
 $Settings["CustomBlockedWordsList"] = $BadWords
 $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
-````
+```
 
 ## <a name="remove-the-naming-policy"></a>Supprimer la stratégie de noms de groupes
 
 1. Supprimez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =""
-  ````
+  ```
   
 2. Supprimez les mots bloqués personnalisés. 
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=""
-  ````
+  ```
   
 3. Enregistrez les paramètres.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
 
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Expériences de stratégie de nommage dans les applications Office 365

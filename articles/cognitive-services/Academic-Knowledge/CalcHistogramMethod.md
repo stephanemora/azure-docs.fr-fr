@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: cb47b3933ecb6e38aa7945ac7f81f7602a0c8034
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321289"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192534"
 ---
 # <a name="calchistogram-method"></a>Méthode CalcHistogram
 
@@ -36,8 +36,8 @@ NOM  |Valeur | Requis ?  |Description
 **model** |Chaîne de texte | Non  |Sélectionnez le nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).
 **attributes** | Chaîne de texte | Non <br>par défaut : | Liste délimitée par des virgules qui spécifie les valeurs d’attribut qui sont incluses dans la réponse. Les noms d’attribut sont sensibles à la casse.
 **count** |Number | Non <br>Valeur par défaut : 10 |Nombre de résultats à renvoyer.
-**offset**  |Number | Non <br>Par défaut : 0 |Index du premier résultat à renvoyer.
-**timeout**  |Number | Non <br>Valeur par défaut : 1000 |Délai d’expiration en millisecondes. Seules les interprétations récupérées avant la fin du délai d’expiration sont renvoyées.
+**offset**  |Number | Non <br>Valeur par défaut : 0 |Index du premier résultat à renvoyer.
+**timeout**  |Number | Non <br>Valeur par défaut : 1 000 |Délai d’expiration en millisecondes. Seules les interprétations récupérées avant la fin du délai d’expiration sont renvoyées.
 
 ## <a name="response-json"></a>Réponse (JSON)
 

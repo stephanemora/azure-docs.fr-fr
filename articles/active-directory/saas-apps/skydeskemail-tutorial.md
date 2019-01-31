@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: a9d0bbcb-ddb5-473f-a4aa-028ae88ced1a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 29e1fd9999c70ed4a599cbc65d43402088d876e2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 71274bd49a2e1950e5b171f964630d399c8992c6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818878"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151573"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Didacticiel : Intégration d’Azure Active Directory à SkyDesk Email
+# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutoriel : Intégration d’Azure Active Directory à SkyDesk Email
 
 Dans ce didacticiel, vous allez apprendre à intégrer SkyDesk Email à Azure Active Directory (Azure AD).
 

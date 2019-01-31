@@ -4,14 +4,14 @@ description: Indique les types de ressources Azure qui prennent en charge les é
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/11/2019
+ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4899409b225298c521935f2eeaf5e8e59a6833b3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267451"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884943"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md).
@@ -50,14 +50,14 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | ------------- | ----------- |
 | configurations | Non  | 
 | generateRecommendations | Non  | 
-| recommendations | Non  | 
+| de films | Non  | 
 | suppressions | Non  | 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | actionRules | Non  | 
-| alerts | Non  | 
+| alertes | Non  | 
 | alertsList | Non  | 
 | alertsSummary | Non  | 
 | alertsSummaryList | Non  | 
@@ -244,7 +244,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | edgenodes | Non  | 
-| profils | Oui | 
+| profiles | Oui | 
 | profiles/endpoints | Oui | 
 | profiles/endpoints/customdomains | Non  | 
 | profiles/endpoints/origins | Non  | 
@@ -407,7 +407,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| web | Oui | 
+| applications | Oui | 
 | updateCommunicationPreference | Non  | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
@@ -918,7 +918,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | managementassociations | Non  | 
 | managementconfigurations | Oui | 
 | solutions | Oui | 
-| vues | Oui | 
+| views | Oui | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Type de ressource | Prend en charge les étiquettes |
@@ -1004,7 +1004,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| web | Oui | 
+| applications | Oui | 
 | saasresources | Non  | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
@@ -1084,7 +1084,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| web | Oui | 
+| applications | Oui | 
 | gateways | Oui | 
 | networks | Oui | 
 | secrets | Oui | 
@@ -1101,12 +1101,22 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | applianceDefinitions | Oui | 
 | appliances | Oui | 
 | applicationDefinitions | Oui | 
-| web | Oui | 
+| applications | Oui | 
 | jitRequests | Oui | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
+| managedInstances | Oui |
+| managedInstances/databases | Oui |
+| managedInstances/databases/backupShortTermRetentionPolicies | Non  |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | Non  |
+| managedInstances/databases/vulnerabilityAssessments | Non  |
+| managedInstances/databases/vulnerabilityAssessments/rules/baselines | Non  |
+| managedInstances/encryptionProtector | Non  |
+| managedInstances/keys | Non  |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Non  |
+| managedInstances/vulnerabilityAssessments | Non  |
 | servers | Oui | 
 | servers/administrators | Non  | 
 | servers/communicationLinks | Non  | 
@@ -1185,7 +1195,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| compte | Oui | 
+| account | Oui | 
 | account/extension | Oui | 
 | account/project | Oui | 
 

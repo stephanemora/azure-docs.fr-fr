@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.custom: it-pro
-ms.openlocfilehash: 44fe3b54e2dfedb71b50a75befce96121ecebe05
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 9cef490d22a013b952d6692d0ac0e932a35c9ba3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320240"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297631"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 Cet article décrit deux façons de prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré dans Azure Active Directory. Quand un utilisateur en libre-service s’inscrit à un service cloud qui utilise Azure AD, il est ajouté à un annuaire Azure AD non géré en fonction de son domaine de messagerie. Pour plus d’informations sur l’inscription en libre-service ou « virale » pour un service, consultez [Présentation de l’inscription en libre-service pour Azure Active Directory](directory-self-service-signup.md)
@@ -131,42 +131,42 @@ Applet de commande | Usage
 ### <a name="powershell-example"></a>Exemple PowerShell
 
 1. connectez-vous à Azure AD en utilisant les informations d’identification qui ont été utilisées pour répondre à l’offre en libre-service :
-  ````
+  ```
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred
-  ````
+  ```
 2. Obtenez une liste de domaines :
   
-  ````
+  ```
     Get-MsolDomain
-  ````
+  ```
 3. Exécutez l’applet de commande Get-MsolDomainVerificationDns pour créer un test :
-  ````
+  ```
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
   
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
-  ````
+  ```
 
 4. Copiez la valeur (le test) qui est renvoyée depuis cette commande. Par exemple : 
-  ````
+  ```
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
-  ````
+  ```
 5. Dans votre espace de noms DNS public, créez un enregistrement DNS txt qui contient la valeur que vous avez copiée lors de l'étape précédente. Le nom de cet enregistrement est le nom du domaine parent : ainsi, si vous créez cet enregistrement de ressource en utilisant le rôle DNS de Windows Server, laissez vide le nom de l’enregistrement et collez simplement la valeur dans la zone de texte.
 6. Exécutez l'applet de commande Confirm-MsolDomain pour vérifier le test :
   
-  ````
+  ```
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
-  ````
+  ```
   
   Par exemple : 
   
-  ````
+  ```
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
-  ````
+  ```
 
 Un test réalisé avec succès vous renvoie à l'invite sans erreur.
 

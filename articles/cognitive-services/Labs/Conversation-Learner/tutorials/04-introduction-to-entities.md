@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4239cbfe369060516653145b04a2bcfa0882f20d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a42a2ec36d9ce4fb9c139dfddcde0fe0c188c888
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796522"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210350"
 ---
 # <a name="introduction-to-entities"></a>Présentation des entités
 
@@ -48,11 +48,11 @@ Ce didacticiel se concentre sur les entités personnalisées. Les entités préf
 2. Dans le champ « Name » (Nom), tapez « IntroToEntities », puis appuyez sur ENTRÉE.
 3. Cliquez sur le bouton « Create » (Créer).
 
-### <a name="entity-creation"></a>Création d’entité
+### <a name="entity-creation"></a>Création d’entités
 
-1. Dans le volet gauche, cliquez sur « Entities » (Entités), puis sur le bouton « New Entity » (Nouvelle entité).
-2. Sous « Entity Type » (Type d’entité), sélectionnez « Custom Trained » (Formée personnalisée).
-3. Sous « Entity Name » (Nom d’entité), entrez « City » (Ville).
+1. Dans le panneau gauche, cliquez sur « Entités », puis sur le bouton « Nouvelle entité ».
+2. Sous « Type d'entité », sélectionnez « Apprentissage personnalisé ».
+3. Sous « Nom de l’entité », entrez « Ville ».
 4. Cliquez sur le bouton « Create » (Créer).
 
 > [!NOTE]
@@ -81,7 +81,7 @@ Ce didacticiel se concentre sur les entités personnalisées. Les entités préf
 
 ### <a name="train-the-model"></a>Former le modèle
 
-1. Dans le volet gauche, cliquez sur Train Dialogs (Dialogues d’apprentissage), puis sur le bouton New Train Dialog (Nouveau dialogue d’apprentissage).
+1. Dans le volet gauche, cliquez sur « Dialogues de formation », puis sur le bouton « Nouveau dialogue de formation ».
 2. Dans le panneau de chat, sous « Type your message... » (Tapez votre message...), entrez « hello ».
     - Cela simule le côté utilisateur de la conversation.
 3. Cliquez sur le bouton « Sore actions » (Noter les actions).

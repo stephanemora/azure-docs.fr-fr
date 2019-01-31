@@ -2,7 +2,7 @@
 title: Événement de fin de redimensionnement de pool Azure Batch | Microsoft Docs
 description: Référence pour l’événement de fin de redimensionnement de pool Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: e91ba664a69d28cae1f82710d427bd2a391305a2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: 87c98b89a49adbad88841dccbd4ba47d370b2be7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315659"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474307"
 ---
 # <a name="pool-resize-complete-event"></a>Événement de fin de redimensionnement de pool
 
@@ -48,7 +48,7 @@ ms.locfileid: "30315659"
 |targetDedicated|Int32|Nombre de nœuds de calcul demandés pour le pool.|
 |enableAutoScale|Bool|Spécifie si la taille du pool s’ajuste automatiquement au fil du temps.|
 |isAutoPool|Bool|Spécifie si le pool a été créé via un mécanisme AutoPool du travail.|
-|startTime|Datetime|Heure de début du redimensionnement du pool.|
-|endTime|Datetime|Heure de fin du redimensionnement du pool.|
+|startTime|DateTime|Heure de début du redimensionnement du pool.|
+|endTime|DateTime|Heure de fin du redimensionnement du pool.|
 |resultCode|Chaîne|Résultat du redimensionnement.|
 |resultMessage|Chaîne|L’erreur de redimensionnement inclut les détails du résultat.<br /><br /> Si le redimensionnement s’est terminé correctement, indique que l’opération a réussi.|

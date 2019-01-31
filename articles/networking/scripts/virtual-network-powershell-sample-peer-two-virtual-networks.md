@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 6c475311f8b0299908dfc26aa590c1990e00bc4a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8a892f109b368d7ff0d4ec2ad9174bb99114fd7c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598504"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100153"
 ---
 # <a name="peer-two-virtual-networks"></a>Homologuer deux réseaux virtuels
 
-Ce script crée et connecte deux réseaux virtuels dans la même région via le réseau Azure. Après l’exécution du script, vous créerez une homologation entre deux réseaux virtuels.
+Ce script crée et connecte deux réseaux virtuels situés dans la même région via le réseau Azure. Après l’exécution du script, vous créerez une homologation entre deux réseaux virtuels.
 
 Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), puis exécutez `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 

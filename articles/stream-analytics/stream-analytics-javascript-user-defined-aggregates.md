@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702372"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097969"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Agrégats JavaScript définis par l’utilisateur Azure Stream Analytics (version préliminaire)
  
@@ -28,7 +28,7 @@ Un agrégat défini par l’utilisateur est employé en plus d’une spécificat
 
 Les agrégats AccumulateOnly ne peuvent accumuler que les nouveaux événements à leur état ; l’algorithme n’autorise pas désaccumulation de valeurs. Choisissez ce type d’agrégation lorsque la désaccumulation des informations d’événement à partir de la valeur d’état est impossible à mettre en œuvre. Voici le modèle JavaScript pour les agrégats AccumulateOnly :
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can only be accumulated.
 function main() {
     this.init = function () {
@@ -43,13 +43,13 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ### <a name="accumulatedeaccumulate-aggregates"></a>Agrégats AccumulateDeaccumulate
 
 Les agrégats AccumulateDeaccumulate permettent la désaccumulation d’une valeur cumulée précédemment à partir de l’état (par exemple, supprimer une paire clé-valeur dans la liste des valeurs d’événement ou soustraire une valeur d’un état de somme d’agrégation). Voici le modèle JavaScript pour les agrégats AccumulateDeaccumulate :
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
 function main() {
     this.init = function () {
@@ -72,7 +72,7 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ## <a name="uda---javascript-function-declaration"></a>UDA - Déclaration de fonction JavaScript
 
@@ -129,7 +129,7 @@ Maintenant, nous allons créer un UDA JavaScript sous un travail ASA existant en
 1. Dans la vue Nouvelle fonction, sélectionnez le type de fonction **UDA JavaScript**. Vous verrez alors un modèle d’UDA par défaut apparaître dans l’éditeur.
 1. Indiquez l’alias d’UDA « TWA » et modifiez l’implémentation de la fonction de la façon suivante :
 
-    ````JavaScript
+    ```JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
     function main() {
         this.init = function () {
@@ -167,7 +167,7 @@ Maintenant, nous allons créer un UDA JavaScript sous un travail ASA existant en
             return result;
         }
     }
-    ````
+    ```
 
 1. Une fois que vous avez cliqué sur le bouton « Enregistrer », votre UDA s’affiche dans la liste des fonctions.
 
@@ -177,7 +177,7 @@ Maintenant, nous allons créer un UDA JavaScript sous un travail ASA existant en
 
 Dans le portail Azure, ouvrez votre projet, modifiez la requête, puis appelez la fonction TWA() avec un préfixe de mandat « uda. ». Par exemple : 
 
-````SQL
+```SQL
 WITH value AS
 (
     SELECT
@@ -191,13 +191,13 @@ SELECT
     uda.TWA(value) as NoseDoseTWA
 FROM value
 GROUP BY TumblingWindow(minute, 5)
-````
+```
 
 ## <a name="testing-query-with-uda"></a>Test de requête avec UDA
 
 Créez un fichier JSON local avec le contenu ci-dessous, téléchargez le fichier dans le travail Stream Analytics et testez la requête ci-dessus.
 
-````JSON
+```JSON
 [
   {"EntryTime": "2017-06-10T05:01:00-07:00", "NoiseLevelDB": 80, "DurationSecond": 22.0},
   {"EntryTime": "2017-06-10T05:02:00-07:00", "NoiseLevelDB": 81, "DurationSecond": 37.8},
@@ -223,7 +223,7 @@ Créez un fichier JSON local avec le contenu ci-dessous, téléchargez le fichie
   {"EntryTime": "2017-06-10T05:20:00-07:00", "NoiseLevelDB": 113, "DurationSecond": 25.1},
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
-````
+```
 
 ## <a name="get-help"></a>Obtenir de l’aide
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Peoplecart | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Peoplecart | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Peoplecart.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: daveba
 ms.reviewer: joflore
 ms.assetid: c83b5d9d-2638-4689-b9f0-f56a9159e7a0
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b6934334f5982c14cd040c3ccb6b15f6b2ae6bb5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 166253e515604b1ad530ab3ba99ca506bf697109
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826103"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188896"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-peoplecart"></a>Didacticiel : Intégration d’Azure Active Directory à Peoplecart
+# <a name="tutorial-azure-active-directory-integration-with-peoplecart"></a>Tutoriel : Intégration d’Azure Active Directory à Peoplecart
 
 Ce didacticiel explique comment intégrer Peoplecart avec Azure Active Directory (Azure AD).
 

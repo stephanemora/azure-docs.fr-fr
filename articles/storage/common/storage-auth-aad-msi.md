@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.subservice: common
+ms.openlocfilehash: 15c37be3f3b1b3f72c32865e095091fa10ee9750
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427414"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251688"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Authentifier l’accès aux objets blob et aux files d’attente avec des identités managées pour ressources Azure (préversion)
 
@@ -37,13 +37,13 @@ Avant de pouvoir utiliser les identités managées pour ressources Azure pour au
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Attribuer un rôle RBAC à une identité managée Azure AD
 
-Pour authentifier une identité managée à partir de votre application de Stockage Azure, commencez par configurer les paramètres du contrôle d’accès basé sur un rôle (RBAC) pour cette identité managée. Le Stockage Azure définit des rôles RBAC qui englobent les autorisations pour les conteneurs et les files d’attente. Lorsque le rôle RBAC est attribué à une identité managée, cette dernière est autorisée à accéder à cette ressource. Pour plus d’informations, consultez [Gérer les droits d’accès aux données d’objet blob Azure et de file d’attente avec RBAC (préversion)](storage-auth-aad-rbac.md).
+Pour authentifier une identité managée à partir de votre application de Stockage Azure, commencez par configurer les paramètres du contrôle d’accès basé sur un rôle (RBAC) pour cette identité managée. Le Stockage Azure définit des rôles RBAC qui englobent les autorisations pour les conteneurs et les files d’attente. Lorsque le rôle RBAC est attribué à une identité managée, cette dernière est autorisée à accéder à cette ressource. Pour plus d’informations, consultez l’article [Gérer les droits d’accès aux données d’objet blob et de file d’attente Azure avec RBAC (préversion)](storage-auth-aad-rbac.md).
 
 ## <a name="get-a-managed-identity-access-token"></a>Obtenir un jeton d’accès d’identité managée
 
 Pour s’authentifier avec une identité managée, votre application ou script doit acquérir un jeton d’accès d’identité managée. Pour savoir comment acquérir un jeton d'accès d’identité managée, voir [Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-## <a name="net-code-example-create-a-block-blob"></a>Exemple de code .NET : créer un objet blob de blocs
+## <a name="net-code-example-create-a-block-blob"></a>Exemple de code .NET : Créer un objet blob de blocs
 
 Pour l’exemple de code, vous êtes supposé avoir un jeton d’accès d’identité managée. Le jeton d’accès permet d’autoriser l’identité managée à créer un objet blob de blocs.
 

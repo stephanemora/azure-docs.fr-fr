@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Dow Jones Factiva | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Dow Jones Factiva | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Dow Jones Factiva.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: b36e97e8-37a6-4096-a894-530427ee1331
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 3f7d0f4fdde3e3ce46e4398500505085639ac33a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 81ab83464fe76afc55c1b9f0b32a8c56732f5b92
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807437"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175415"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Tutoriel : Intégration d’Azure Active Directory à Dow Jones Factiva
+# <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Didacticiel : Intégration d’Azure Active Directory à Dow Jones Factiva
 
 Dans ce didacticiel, vous allez apprendre à intégrer Dow Jones Factiva à Azure Active Directory (Azure AD).
 

@@ -3,17 +3,17 @@ title: Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2 | Micro
 description: Découvrez les bonnes pratiques pour l’ingestion des données, la sécurité des données et les performances liées à l’utilisation d’Azure Data Lake Storage Gen2 (anciennement Azure Data Lake Store).
 services: storage
 author: sachinsbigdata
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: sachins
-ms.openlocfilehash: b62abe668ec086982683a29706dcf6ca36d3f682
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ad77204f0c5d916b4006ffa68a9608429f93f87a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976401"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246056"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2
 
@@ -47,9 +47,9 @@ L’ajout de clusters Azure Databricks à un réseau virtuel susceptible de se v
 
 Lors de la conception de l’architecture d’un système avec Data Lake Storage Gen2 ou n’importe quel service cloud, vous devez prendre en compte les exigences de disponibilité et la façon de répondre à des interruptions potentielles du service. Un problème peut être localisé dans une instance spécifique ou même dans la région. Être préparé pour ces deux éventualités est important. En fonction des contrats SLA d’objectif de temps de récupération et d’objectif de point de récupération de votre charge de travail, vous choisirez une stratégie plus ou moins agressive pour la haute disponibilité et la reprise d’activité après sinistre.
 
-### <a name="high-availability-and-disaster-recovery"></a>Haute disponibilité et reprise d’activité
+### <a name="high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence
 
-La haute disponibilité et la reprise d’activité peuvent parfois être combinées, bien qu’elles aient chacune une stratégie légèrement différente, surtout lorsqu’il s’agit de données. Data Lake Storage Gen2 gère déjà trois réplications en arrière-plan pour se protéger contre des défaillances matérielles localisées. De plus, d’autres options de réplication, comme le stockage ZRS, améliorent la haute disponibilité, tandis que GRS & RA-GRS améliorent la reprise d’activité. Lorsque vous élaborez un plan pour la haute disponibilité, en cas d’interruption du service, la charge de travail doit accéder aux dernières données aussi vite que possible en passant à une instance répliquée séparément en local ou dans une nouvelle région.
+La haute disponibilité et la récupération d’urgence peuvent parfois être combinées, bien qu’elles aient chacune une stratégie légèrement différente, surtout lorsqu’il s’agit de données. Data Lake Storage Gen2 gère déjà trois réplications en arrière-plan pour se protéger contre des défaillances matérielles localisées. De plus, d’autres options de réplication, comme le stockage ZRS, améliorent la haute disponibilité, tandis que GRS & RA-GRS améliorent la reprise d’activité. Lorsque vous élaborez un plan pour la haute disponibilité, en cas d’interruption du service, la charge de travail doit accéder aux dernières données aussi vite que possible en passant à une instance répliquée séparément en local ou dans une nouvelle région.
 
 Dans une stratégie de reprise d’activité, pour se préparer à une improbable défaillance catastrophique d’une région, il est aussi important de disposer de données répliquées dans une autre région à l’aide de la réplication GRS ou RA-GRS. Vous devez aussi tenir compte de vos exigences pour des cas extrêmes comme l’altération des données, où vous voudrez peut-être créer régulièrement des instantanés sur lesquels vous replier. En fonction de l’importance et de la taille des données, pensez à prendre des instantanés delta à intervalles de 1, 6 et 24 heures, en fonction des tolérances au risque.
 
@@ -65,7 +65,7 @@ Les tâches de copie peuvent être déclenchées par des workflows Apache Oozie 
 
 Vous pouvez aussi utiliser Azure Data Factory pour planifier des tâches de copie à l’aide d’une Activité de copie, et même le configurer pour une exécution selon une fréquence spécifique par le biais de l’Assistant de copie. N’oubliez pas qu’Azure Data Factory dispose d’une limite d’unités de déplacement de données cloud (DMU), et finit par atteindre la limite de débit/calcul pour des charges de travail de données volumineuses. Azure Data Factory n’offre pas non plus de mises à jour des valeurs delta entre les comptes Data Lake Storage Gen2 pour l’instant. Les répertoires comme les tableaux Hive nécessitent donc une copie complète pour être répliqués. Pour plus d’informations sur la copie avec Data Factory, consultez l’[article sur la fabrique de données](../../data-factory/load-azure-data-lake-storage-gen2.md).
 
-## <a name="monitoring-considerations"></a>Supervision - Éléments à prendre en compte
+## <a name="monitoring-considerations"></a>Surveillance - Éléments à prendre en compte
 
 Data Lake Storage Gen2 fournit des métriques dans le portail Azure sous le compte Data Lake Storage Gen2 et dans Azure Monitor. La disponibilité de Data Lake Storage Gen2 est affichée dans le portail Azure. Pour obtenir la disponibilité la plus à jour d’un compte Data Lake Storage Gen2, vous devez exécuter vos propres tests synthétiques afin de valider la disponibilité. D’autres métriques telles que l’utilisation totale du stockage, les requêtes de lecture/écriture et les entrées/sorties peuvent être exploitées grâce à la supervision des applications, et peuvent également déclencher des alertes quand des seuils (par exemple la latence moyenne ou le nombre d’erreurs par minute) sont dépassés.
 

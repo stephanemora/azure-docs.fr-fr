@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 347092fd7d5865379911265b19477ac16e3bcd69
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 25a0867d9a2060989ce7206279b4acabe39b4ff3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261381"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478268"
 ---
-#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Didacticiel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Tutoriel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy
 
 AzCopy est un outil en ligne de commande qui vous permet de copier des données vers ou depuis le Stockage Blob Azure, Azure Files ou le Stockage Table Azure, à l’aide de commandes simples. Les commandes sont conçues pour offrir des performances optimales. Grâce à AzCopy, vous pouvez copier des données entre un système de fichiers et un compte de stockage, ou entre comptes de stockage. AzCopy peut être utilisé pour copier des données à partir de données locales vers un compte de stockage.
 

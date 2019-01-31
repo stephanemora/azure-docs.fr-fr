@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Découvrez comment utiliser des magasins de données pour accéder au stockage de données durant l’entraînement avec le service Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a4960f3e29011948ec30fbc24222d8a6dccf6b8a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187141"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252113"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>Accéder aux données durant l’entraînement à partir de vos banques de données
 Utiliser une banque de données pour accéder à vos données et interagir avec elles dans des flux de travail Azure Machine Learning.
