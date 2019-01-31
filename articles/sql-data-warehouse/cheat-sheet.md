@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 4ef64b9d4e4e5c7f5a628359a8512dcb61b9c941
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: cede105f0bff9a65f88e06467e4d13419d389f04
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245891"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461557"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Aide-mémoire pour Azure SQL Data Warehouse
 Cet aide-mémoire vous procure des conseils et des bonnes pratiques à suivre pour créer vos solutions Azure SQL Data Warehouse. Avant de démarrer, découvrez chaque étape en détail dans la section [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Modèles et anti-modèles de charges de travail Azure SQL Data Warehouse), qui définit sans ambiguïté SQL Data Warehouse.
@@ -50,7 +50,7 @@ En savoir plus sur la [migration des données], le [chargement des données] et 
 
 Appliquez les stratégies suivantes, en fonction des caractéristiques de vos tables :
 
-| type | Usage recommandé| À utiliser avec précaution dans ces cas|
+| Type | Usage recommandé| À utiliser avec précaution dans ces cas|
 |:--- |:--- |:--- |
 | Répliquée | • Tables de dimension de petite taille dans un schéma en étoile, avec moins de 2 Go de stockage après compression (compression par 5 environ) |• Table faisant l’objet de nombreuses transactions d’écriture (par exemple, insertion, upsert, suppression, mise à jour)<br></br>• Changement fréquent du provisionnement d’unités DWU (Data Warehouse Units)<br></br>• Table contenant de nombreuses colonnes, dont seulement deux ou trois sont utilisées<br></br>• Index utilisé sur une table répliquée |
 | Tourniquet (par défaut) | • Table temporaire/de mise en lots<br></br> • Absence de clé de jointure évidente ou de colonne candidate appropriée |• Lenteur d’exécution due au déplacement des données |
@@ -70,7 +70,7 @@ Découvrez plus en détail les [tables répliquées] et les [tables distribuées
 
 L’indexation sert à accélérer la lecture des tables. Selon vos besoins, vous pouvez utiliser un ensemble unique de technologies :
 
-| type | Usage recommandé | À utiliser avec précaution dans ces cas|
+| Type | Usage recommandé | À utiliser avec précaution dans ces cas|
 |:--- |:--- |:--- |
 | Segment de mémoire | • Table de mise en lots/temporaire<br></br>• Tables de petite taille avec des recherches réduites |• Analyse complète de la table à chaque recherche |
 | Index cluster | • Tables comportant jusqu’à 100 millions de lignes<br></br>• Tables volumineuses (plus de 100 millions de lignes) où seulement une ou deux colonnes sont souvent utilisées |• Index utilisé sur une table répliquée<br></br>• Requêtes complexes avec plusieurs opérations de jointure et de regroupement<br></br>• Consommation de mémoire à cause des mises à jour sur les colonnes indexées |

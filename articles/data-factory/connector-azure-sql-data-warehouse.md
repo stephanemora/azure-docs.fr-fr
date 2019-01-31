@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 48f33dcf66c282ee75fe665531e1c9a4eb0d5382
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: c429945d4832710125a419b4e9a9b9165869ca97
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305942"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888683"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -554,29 +554,29 @@ Quand vous copiez des données vers ou à partir d’Azure SQL Data Warehouse, l
 | binaire | Byte[] |
 | bit | Booléen |
 | char | String, Char[] |
-| date | Datetime |
-| DateTime | Datetime |
-| datetime2 | Datetime |
-| Datetimeoffset | DatetimeOffset |
-| Décimal | Décimal |
+| date | DateTime |
+| DateTime | DateTime |
+| datetime2 | DateTime |
+| Datetimeoffset | DateTimeOffset |
+| Decimal | Decimal |
 | Attribut FILESTREAM (varbinary(max)) | Byte[] |
 | Float | Double |
 | image | Byte[] |
 | int | Int32 |
-| money | Décimal |
+| money | Decimal |
 | nchar | String, Char[] |
 | ntext | String, Char[] |
-| numérique | Décimal |
+| numérique | Decimal |
 | nvarchar | String, Char[] |
 | real | Single |
 | rowversion | Byte[] |
-| smalldatetime | Datetime |
+| smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | Décimal |
-| sql_variant | Objet * |
+| smallmoney | Decimal |
+| sql_variant | Object |
 | texte | String, Char[] |
-| time | intervalle de temps |
-|  timestamp | Byte[] |
+| time | TimeSpan |
+| timestamp | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
 | varbinary | Byte[] |

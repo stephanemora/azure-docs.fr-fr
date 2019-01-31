@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 07dbc96e94c736b4e4c80dd212f0674bfeffce45
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 4c533921b0c88a4f61cd96896b72306adb9a23cf
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850414"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175704"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 Cet article explique comment activer Azure Active Directory Domain Services (Azure AD DS) au moyen du portail Azure.
@@ -64,7 +64,7 @@ Dans la page **Fonctions de base** de l’Assistant, spécifiez le nom de domain
    > * **Nom de domaine intégré :** par défaut, l'Assistant spécifie pour vous le nom de domaine par défaut/intégré du répertoire (avec un suffixe **.onmicrosoft.com**). Si vous choisissez d’activer l’accès LDAP sécurisé au domaine géré sur Internet, vous risquez de rencontrer des problèmes pour créer un enregistrement DNS public ou obtenir un certificat LDAP sécurisé d’une autorité de certification publique pour ce nom de domaine. Microsoft possède le domaine *.onmicrosoft.com* et les autorités de certification n’émettront pas de certificats pour ce domaine.
    * **Noms de domaine personnalisés :** Vous pouvez également entrer un nom de domaine personnalisé. Dans cet exemple, le nom de domaine personnalisé est *contoso100.com*.
    * **Suffixes de domaine non routables :** nous déconseillons généralement l'utilisation d'un suffixe de nom de domaine non routable. Par exemple, il est préférable d’éviter de créer un domaine avec le nom de domaine DNS 'contoso.local'. Le suffixe DNS '.local' n’est pas routable et peut entraîner des problèmes de résolution DNS.
-   * **Restrictions de préfixe de domaine :** Le préfixe du nom de domaine spécifié (par exemple, *contoso100* dans le nom de domaine *contoso100.com*) doit contenir au maximum 15 caractères. Vous ne pouvez pas créer de domaine managé avec un préfixe de plus de 15 caractères.
+   * **Restrictions de préfixe de domaine :** Le préfixe du nom de domaine spécifié (par exemple, contoso100 dans le nom de domaine *contoso100.com*) doit contenir au maximum 15 caractères. Vous ne pouvez pas créer de domaine managé avec un préfixe de plus de 15 caractères.
    * **Conflits de noms de réseau :** Vérifiez que le nom de domaine DNS choisi pour le domaine géré n’existe pas au sein du réseau virtuel. Plus spécifiquement, vérifiez les poins suivants :
        * Vous disposez d’un domaine Active Directory présentant le nom de domaine DNS au sein du réseau virtuel.
        * Le réseau virtuel dans lequel vous envisagez d’activer le domaine managé a une connexion VPN avec votre réseau local. Dans ce scénario, veillez à ne pas avoir de domaine portant le même nom de domaine DNS sur votre réseau local.

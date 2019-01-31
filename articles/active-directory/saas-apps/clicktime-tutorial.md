@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à ClickTime | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à ClickTime | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ClickTime.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: daveba
 ms.reviewer: joflore
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: jeedes
-ms.openlocfilehash: f1c7c3cf850ed48412c8a232e364f927248ed9bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9cce73712bd3122916d18c3ed7f7744e30d5fa1a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811118"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176520"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutoriel : Intégration d'Azure Active Directory à ClickTime
+# <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Didacticiel : Intégration d'Azure Active Directory à ClickTime
 
 Dans ce didacticiel, vous allez apprendre à intégrer ClickTime à Azure Active Directory (Azure AD).
 

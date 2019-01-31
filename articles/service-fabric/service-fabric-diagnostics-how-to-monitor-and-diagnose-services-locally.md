@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 740864276b8d4d7a40a263a0d6d2e09c3534dbd6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054167"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190902"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
 > [!div class="op_single_selector"]
@@ -33,13 +33,13 @@ L’analyse, la détection, le diagnostic et la résolution des problèmes perme
 ## <a name="event-tracing-for-windows"></a>Suivi d’événements pour Windows
 [Suivi d'événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) est la technologie recommandée pour le suivi des messages dans Service Fabric. Voici quelques avantages liés à l’utilisation d’ETW :
 
-* **ETW est rapide.** Il a été créé en tant que technologie de suivi avec un impact minimal sur le temps d’exécution du code.
+* **ETW est rapide.**  Il a été créé en tant que technologie de suivi avec un impact minimal sur le temps d’exécution du code.
 * **Le suivi ETW fonctionne parfaitement dans des environnements de développement local ainsi que dans les configurations de cluster réel.** Cela signifie que vous n’êtes pas obligé de réécrire votre code de suivi quand vous êtes prêt à déployer votre code dans un cluster réel.
-* **Le code système de Service Fabric utilise également ETW pour le suivi interne.** Vous pouvez ainsi afficher les traces de votre application entrelacées avec celles du système Service Fabric. Vous pouvez également comprendre plus facilement les séquences et les relations entre votre code d’application et les événements du système sous-jacent.
+* **Le code système de Service Fabric utilise également ETW pour le suivi interne.**  Vous pouvez ainsi afficher les traces de votre application entrelacées avec celles du système Service Fabric. Vous pouvez également comprendre plus facilement les séquences et les relations entre votre code d’application et les événements du système sous-jacent.
 * **Les outils Visual Studio de Service Fabric prennent en charge l'affichage des événements ETW.** Les événements ETW apparaissent dans l’affichage des événements de diagnostic de Visual Studio une fois que Visual Studio est correctement configuré avec Service Fabric. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Afficher les événements système de Service Fabric dans Visual Studio
-Service Fabric émet des événements ETW pour aider les développeurs d’applications à comprendre ce qui se passe dans la plateforme. Si ce n’est pas déjà fait, continuez en suivant les étapes décrites dans [Création de votre première application dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). Ces informations vous permettront de créer une application opérationnelle tout en observant les messages de trace dans la visionneuse d’événements de diagnostic.
+Service Fabric émet des événements ETW pour aider les développeurs d’applications à comprendre ce qui se passe dans la plateforme. Si ce n’est pas déjà fait, continuez en suivant les étapes décrites dans [Création de votre première application dans Visual Studio](service-fabric-tutorial-create-dotnet-app.md). Ces informations vous permettront de créer une application opérationnelle tout en observant les messages de trace dans la visionneuse d’événements de diagnostic.
 
 1. Si la fenêtre des événements de diagnostics ne s’affiche pas automatiquement, accédez à l’onglet **Affichage** dans Visual Studio, puis choisissez **Autres fenêtres** et **Visionneuse d’événements de diagnostics**.
 2. Chaque événement comporte des informations de métadonnées standard qui vous indiquent le nœud, l’application et le service d’où il provient. Vous pouvez également filtrer la liste des événements à l’aide de la zone **Filtrer les événements** située en haut de la fenêtre Événements. Par exemple, vous pouvez filtrer sur **Nom du nœud** ou **Nom du service**. Lorsque vous examinez les détails d’un événement, vous pouvez également mettre en pause à l’aide du bouton **Pause** en haut de la fenêtre Événements et reprendre plus tard sans perte d’événements.

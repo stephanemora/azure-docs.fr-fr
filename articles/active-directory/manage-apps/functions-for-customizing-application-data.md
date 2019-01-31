@@ -6,19 +6,19 @@ documentationcenter: ''
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 05be48817334dacac803eeccf2dc08e5a4bbd407
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7b69929b210f0f30db28b18073893505d2977051
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823674"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179036"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -47,7 +47,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source |
 | **suffix** |Obligatoire |Chaîne |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
@@ -60,7 +60,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
 | **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -76,7 +76,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **separator** |Obligatoire |Chaîne |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
 | **source1  … sourceN** |Requis, nombre de fois variable |Chaîne |Valeurs de chaîne à joindre ensemble. |
@@ -89,7 +89,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut. |
 | **start** |Obligatoire |integer |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
@@ -103,7 +103,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne | Généralement un attribut de nom ou de prénom |
 
@@ -115,7 +115,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
 
@@ -142,7 +142,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
 | **oldValue** |Facultatif |Chaîne |Valeur à remplacer dans **source** ou **template**. |
@@ -165,7 +165,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |Chaîne | Liste des règles de génération de valeur unique à évaluer |
 
@@ -178,7 +178,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obligatoire |Chaîne |Objet **[appRoleAssignments]**. |
 
@@ -190,7 +190,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
 
@@ -202,7 +202,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |**Source** à mettre à jour. |
 | **defaultValue** |Facultatif |Chaîne |Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
@@ -217,7 +217,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source |
 | **culture** |Facultatif |Chaîne |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
@@ -230,7 +230,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| NOM | Requis / Répétition | type | Notes |
+| NOM | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source |
 | **culture** |Facultatif |Chaîne |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|

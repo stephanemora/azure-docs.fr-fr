@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: ab2361eae7dac58adb2739437d0616bcd05f870f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850380"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175091"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de validation dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -65,7 +65,7 @@ L’élément **Precondition** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| type | Oui | Le type de vérification ou de requête à exécuter pour la condition préalable. Soit vous spécifiez `ClaimsExist` pour vous assurer que les actions seront effectuées si les revendications spécifiées existent dans l’ensemble de revendications actuel de l’utilisateur, soit vous spécifiez `ClaimEquals` pour que les actions soient exécutées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
+| Type | Oui | Le type de vérification ou de requête à exécuter pour la condition préalable. Soit vous spécifiez `ClaimsExist` pour vous assurer que les actions seront effectuées si les revendications spécifiées existent dans l’ensemble de revendications actuel de l’utilisateur, soit vous spécifiez `ClaimEquals` pour que les actions soient exécutées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
 | ExecuteActionsIf | Oui | Indique si les actions de la condition préalable doivent être effectuées si le test est true ou false. |
 
 L’élément **Precondition** contient les éléments suivants :

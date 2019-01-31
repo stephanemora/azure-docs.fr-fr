@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: b8c4fdc942af291e912a4c1e74d1292279cf9f8c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b16c67990099291381b6f11d9bd804bf4bef84e8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132327"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078489"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Suppression d’un groupe de ressources par Azure Resource Manager
 
@@ -69,4 +69,4 @@ Pour les autres codes d’erreur, Resource Manager ne parvient pas à supprimer 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour comprendre les concepts de Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](resource-group-overview.md).
-* Pour les commandes de suppression, consultez [PowerShell](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete) et l’[API REST](/rest/api/resources/resourcegroups/delete).
+* Pour les commandes de suppression, consultez [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete) et l’[API REST](/rest/api/resources/resourcegroups/delete).

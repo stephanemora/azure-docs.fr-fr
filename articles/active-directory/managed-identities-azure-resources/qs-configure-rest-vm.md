@@ -3,23 +3,23 @@ title: Guide pratique de configuration d’identités managées affectées par l
 description: Instructions pas à pas pour la configuration d’identités affectées par le système et l’utilisateur sur une machine virtuelle Azure, en utilisant CURL pour effectuer des appels d’API REST.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
-ms.author: daveba
-ms.openlocfilehash: 5240d46c1d754ec09f9d83a86424fdbd3cfaadb7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 7b44d58f14da06bdcbd7e9d9ada4976049969c81
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433303"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158976"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant des appels d’API REST
 

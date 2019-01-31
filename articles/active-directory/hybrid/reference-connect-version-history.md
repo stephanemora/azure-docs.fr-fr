@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/18/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: e5d98b1d10051fee6ee5299fcdd8376434109603
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c42abf043c528f86db7af164c21c45b21e7bf1ac
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469761"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196274"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -333,7 +333,7 @@ Verrouillez l’accès au compte AD DS en implémentant les changements d’auto
 *   Supprimez toutes les entrées de contrôle d'accès sur l’objet spécifique, à l’exception de celles propres à SELF. Il faut conserver les autorisations par défaut intactes quand il s’agit de SELF.
 *   Attribuez ces autorisations spécifiques :
 
-type     | NOM                          | Access               | S'applique à
+Type     | NOM                          | Access               | S'applique à
 ---------|-------------------------------|----------------------|--------------|
 AUTORISER    | SYSTEM                        | Contrôle total         | Cet objet  |
 AUTORISER    | Administrateurs de l’entreprise             | Contrôle total         | Cet objet  |

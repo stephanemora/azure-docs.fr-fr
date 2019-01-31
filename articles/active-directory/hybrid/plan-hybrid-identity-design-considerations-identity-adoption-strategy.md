@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 50f2d3f3ad934668c4a243b387b56db48c3e7d35
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d58f789461b761431bd86dce60b2cd059ca8df53
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471801"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164330"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
 Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans les articles suivants :

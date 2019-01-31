@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à SpaceIQ | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à SpaceIQ | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SpaceIQ.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: daveba
 ms.reviewer: joflore
 ms.assetid: 5b55ae29-491f-401f-9299-d3a6b64a1b99
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: f9516cafc09b560b8c111d822aae8a26a04e4dc2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e0f52a33f0213af7d361af77f4b2dcd1ab0fcd3c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826916"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154199"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Tutoriel : Intégration d’Azure Active Directory à SpaceIQ
 
