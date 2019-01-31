@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à PerformanceCentre | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à PerformanceCentre | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PerformanceCentre.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: 65288c32-f7e6-4eb3-a6dc-523c3d748d1c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 01a8d36e0994ff222636660a022316e66db146e5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d363f47301517e7d4f8d8f8fdf45ffd8c146279e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818487"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165164"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Tutoriel : Intégration d’Azure Active Directory à PerformanceCentre
+# <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Didacticiel : Intégration d’Azure Active Directory à PerformanceCentre
 
 Dans ce didacticiel, vous apprenez à intégrer PerformanceCentre à Azure Active Directory (Azure AD).
 

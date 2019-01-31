@@ -7,13 +7,13 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.component: blobs
-ms.openlocfilehash: 0f726769b9e4266e310f9f50b1a7ef768c0c1d55
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.subservice: blobs
+ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735882"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247746"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -41,7 +41,7 @@ Event Grid utilise les [abonnements aux événements](../../event-grid/concepts.
 ## <a name="event-schema"></a>Schéma d’événement
 Les événements de stockage d’objets Blob contiennent toutes les informations dont vous avez besoin pour répondre aux modifications de vos données.  Vous pouvez identifier un événement de stockage d’objets Blob, car la propriété eventType commence par « Microsoft.Storage ». Plus d’informations sur l’utilisation des propriétés d’événement Event Grid sont documentées dans [schéma d’événement Event Grid](../../event-grid/event-schema.md).  
 
-> |Propriété|type|Description|
+> |Propriété|Type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |rubrique|chaîne|ID Azure Resource Manager complet du compte de stockage qui émet l’événement.|
 > |subject|chaîne|Le chemin d’accès de la ressource relative à l’objet qui est le sujet de l’événement, avec le même format Azure Resource Manager étendu que nous utilisons pour décrire les comptes de stockage, les services et mes conteneurs pour Azure RBAC.  Ce format comprend un nom d’objet blob en conservant la casse.|

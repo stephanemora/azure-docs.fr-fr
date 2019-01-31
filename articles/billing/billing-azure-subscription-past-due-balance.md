@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: cwatson
-ms.openlocfilehash: 19fd83f19a8eb8c24beeade650544fbe03ca5b6a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 51334f7b99b4e60334e6334f5a79ce5933167257
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580943"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900118"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Résoudre un solde impayé pour votre abonnement Azure après avoir un reçu un e-mail de la part d’Azure
 
@@ -48,6 +48,6 @@ Si vous êtes administrateur de compte, [vérifiez quelle adresse e-mail est uti
 
 Le service est annulé et vos ressources ne sont plus disponibles. Vos données Azure sont supprimées 90 jours après l’arrêt du service. Pour en savoir plus, consultez [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centre de gestion de la confidentialité de Microsoft - Comment nous gérons vos données).
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter.
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
