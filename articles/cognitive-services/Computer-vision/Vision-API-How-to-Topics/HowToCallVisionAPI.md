@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4cca3db778347e9bd8c8b881d85f0882f6b90f72
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581706"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216249"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exemple : Appeler l’API Vision par ordinateur
 
@@ -150,7 +150,7 @@ Voici un exemple :
     }
   }
 ```
-Champ   | type  | Contenu
+Champ   | Type  | Contenu
 ------|------|------|
 Balises    | objet    | Objet de premier niveau pour le tableau d’étiquettes
 tags[].Name | chaîne    | Mot clé d’un classifieur d’étiquettes
@@ -210,7 +210,7 @@ Pour les modèles spécifiques au domaine qui utilisent l’option 2 (Analyse é
 
 Le champ « categories » est une liste d’une ou plusieurs catégories parmi les [86 catégories](../Category-Taxonomy.md) de la taxonomie d’origine. Notez également que chaque catégorie qui se termine par un trait de soulignement correspond à cette catégorie et à ses enfants (par exemple, people_ et people_group pour le modèle celebrities).
 
-Champ   | type  | Contenu
+Champ   | Type  | Contenu
 ------|------|------|
 Catégories | objet | Objet de premier niveau
 categories[].name    | chaîne   | Nom issu de la taxonomie des 86 catégories

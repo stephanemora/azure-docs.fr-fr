@@ -7,18 +7,18 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 18c02babe401ed995062e792fab6920a88379729
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753113"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212119"
 ---
-# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutoriel : Extraire des modèles relatifs au contexte à l’aide rôles
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutoriel : Extraire des modèles relatifs au contexte à l’aide rôles
 
 Dans ce tutoriel, vous allez utiliser un modèle pour extraire des données à partir d’un énoncé de modèle au format approprié. L’énoncé de modèle utilise une entité simple et des rôles pour extraire des données associées telles que l’emplacement d’origine et l’emplacement de destination.  Lorsque vous utilisez des modèles, l’intention nécessite moins d’exemples d’énoncés.
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: erhopf
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 71b88afeb941e6b635548468e634e07597318116
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5f4a4a4518eb973dc9d2c7cbcb34683fe0b3db08
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994110"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226840"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Démarrage rapide : Utiliser l'API de traduction de texte Translator Text et Go pour déterminer la longueur de phrase
 
@@ -32,7 +32,7 @@ Ce démarrage rapide nécessite :
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis
 
-Créez un nouveau projet Go dans votre IDE ou éditeur favori. Copiez cet extrait de code dans votre projet, dans un fichier nommé `sentence-length.go`.
+Créez un projet Go dans votre IDE ou éditeur favori. Copiez cet extrait de code dans votre projet, dans un fichier nommé `sentence-length.go`.
 
 ```go
 package main
@@ -88,7 +88,7 @@ func breakSentence(subscriptionKey string) {
 }
 ```
 
-Passons ensuite à la génération de l'URL. L'URL est générée à l'aide des méthodes `Parse()` et `Query()`. Vous remarquerez qu'avec la méthode `Add()`, des paramètres sont ajoutés.
+Passons ensuite à la génération de l’URL. L’URL est générée à l’aide des méthodes `Parse()` et `Query()`. Vous remarquerez qu'avec la méthode `Add()`, des paramètres sont ajoutés.
 
 Copiez ce code dans la fonction `breakSentence`.
 
@@ -105,7 +105,7 @@ u.RawQuery = q.Encode()
 
 ## <a name="create-a-struct-for-your-request-body"></a>Créer une structure pour le corps de votre demande
 
-Créez ensuite une structure anonyme pour le corps de la demande et codez-la au format JSON avec `json.Marshal()`. Ajouter ce code à la fonction `breakSentence`.
+Créez ensuite une structure anonyme pour le corps de la demande et codez-la au format JSON avec `json.Marshal()`. Ajoutez ce code à la fonction `breakSentence`.
 
 ```go
 // Create an anonymous struct for your request body and encode it to JSON
@@ -119,7 +119,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Générer la demande
 
-Maintenant que vous avez codé le corps de la demande au format JSON, vous pouvez créer votre demande POST et appeler l'API de traduction de texte Translator Text.
+Maintenant que vous avez codé le corps de la demande au format JSON, vous pouvez créer votre requête POST et appeler l’API de traduction de texte Translator Text.
 
 ```go
 // Build the HTTP POST request
@@ -140,7 +140,7 @@ if err != nil {
 
 ## <a name="handle-and-print-the-response"></a>Gérer et imprimer la réponse
 
-Ajoutez ce code à la fonction `breakSentence` pour décoder la réponse JSON, puis formatez et imprimez le résultat.
+Ajoutez ce code à la fonction `breakSentence` pour décoder la réponse JSON, puis mettez en forme et imprimez le résultat.
 
 ```go
 // Decode the JSON response
@@ -190,7 +190,7 @@ Explorez des packages Go pour les API Cognitive Services à partir de [Azure SDK
 
 ## <a name="see-also"></a>Voir aussi
 
-Apprenez à utiliser l'API de traduction de texte Translator Text pour :
+Apprenez à utiliser l’API de traduction de texte Translator Text pour :
 
 * [Traduire le texte](quickstart-go-translate.md)
 * [Translittérer du texte](quickstart-go-transliterate.md)

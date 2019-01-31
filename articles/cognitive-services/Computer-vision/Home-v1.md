@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: acd6d41e8b6d1fb834697ec3d026419ee6b69ec9
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582352"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198144"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Qu’est-ce que l’API Vision par ordinateur Version 1.0 ?
 
@@ -251,7 +251,7 @@ La précision de la reconnaissance du texte dépend de la qualité de l’image.
 - Lettres majuscules trop grandes ou manquantes au début des mots.
 - Texte barré, exposant ou indice.
 
- Limites : Sur les photos où le texte est dominant, de faux positifs peuvent provenir de mots partiellement reconnus. Sur certaines photos, en particulier les photos sans texte, la précision peut beaucoup varier selon le type d’image.
+Limites : Sur les photos où le texte est dominant, de faux positifs peuvent provenir de mots partiellement reconnus. Sur certaines photos, en particulier les photos sans texte, la précision peut beaucoup varier selon le type d’image.
 
 ## <a name="recognize-handwritten-text"></a>Reconnaître le texte manuscrit
 Cette technologie vous permet de détecter et d’extraire du texte écrit à la main sur des notes, des lettres, des dissertations, des tableaux blancs, des formulaires, etc. Elle fonctionne avec différents surfaces et fonds, comme du papier blanc, des notes autocollantes jaunes et des tableaux blancs.

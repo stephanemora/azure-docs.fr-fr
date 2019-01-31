@@ -12,12 +12,12 @@ ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 12/07/2018
-ms.openlocfilehash: 6f86312ee1d11e5ac4c7626f5fd4c8223dac8b52
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e6b24e89297b875d0c4547ffe3200b1d5e2e58c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744698"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161527"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Démarrage rapide : Utiliser Golang pour interroger une base de données SQL Azure
 
@@ -28,8 +28,6 @@ Dans ce guide de démarrage rapide, vous allez utiliser le langage de programmat
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md) configurée pour l’adresse IP publique de votre ordinateur.
 
 - Golang et les logiciels associés installés pour votre système d’exploitation :
 

@@ -3,7 +3,7 @@ title: 'Didacticiel : Créer et utiliser des disques pour les groupes identiques
 description: Découvrez comment utiliser Azure PowerShell pour créer et utiliser des disques managés avec des groupes identiques de machines virtuelles, notamment comment ajouter, préparer, répertorier et détacher des disques.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebe4d877063f47cefcc5fd842fe2a096256a1702
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9abfd410e9137a897753fcf04ee113bd04749a7a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429461"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881679"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques à l’aide d’Azure PowerShell
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutoriel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques à l’aide d’Azure PowerShell
 Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -48,7 +48,7 @@ Lorsqu’un groupe identique est créé ou mis à l’échelle, deux disques son
 **Disque temporaire** : les disques temporaires utilisent un disque SSD qui se trouve sur le même hôte Azure que l’instance de machine virtuelle. Ce sont des disques extrêmement performants qui peuvent être utilisés pour diverses opérations telles que le traitement de données temporaires. Toutefois, si l’instance de machine virtuelle est déplacée vers un nouvel hôte, toutes les données stockées sur le disque temporaire concerné sont supprimées. La taille du disque temporaire est déterminée par la taille de l’instance de machine virtuelle. Les disques temporaires sont nommés */dev/sdb* et ont un point de montage */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tailles du disque temporaire
-| type | Tailles courantes | Taille maximale du disque temporaire (Gio) |
+| Type | Tailles courantes | Taille maximale du disque temporaire (Gio) |
 |----|----|----|
 | [Usage général](../virtual-machines/windows/sizes-general.md) | Séries A, B et D | 1 600 |
 | [Optimisé pour le calcul](../virtual-machines/windows/sizes-compute.md) | Série F | 576 |
@@ -62,7 +62,7 @@ Lorsqu’un groupe identique est créé ou mis à l’échelle, deux disques son
 Des disques de données supplémentaires peuvent être ajoutés si vous avez besoin d’installer des applications et de stocker des données. Les disques de données doivent être utilisés dans les cas où un stockage des données durable et réactif est souhaité. Chaque disque de données offre une capacité maximale de 4 To. La taille de l’instance de machine virtuelle détermine le nombre de disques de données pouvant être attachés. Pour chaque processeur virtuel de la machine virtuelle, deux disques de données peuvent être attachés.
 
 ### <a name="max-data-disks-per-vm"></a>Disques de données max. par machine virtuelle
-| type | Tailles courantes | Disques de données max. par machine virtuelle |
+| Type | Tailles courantes | Disques de données max. par machine virtuelle |
 |----|----|----|
 | [Usage général](../virtual-machines/windows/sizes-general.md) | Séries A, B et D | 64 |
 | [Optimisé pour le calcul](../virtual-machines/windows/sizes-compute.md) | Série F | 64 |

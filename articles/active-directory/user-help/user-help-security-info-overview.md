@@ -7,25 +7,25 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 1e55ad5c056bf76f8332ea84fa960b4482825bfe
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 918f711002530735b9b4e09273fac3021a97a091
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826154"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189134"
 ---
 # <a name="security-info-preview-overview"></a>Vue d’ensemble des informations de sécurité (préversion)
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
+Configurez votre vérification en deux étapes et les informations de réinitialisation de mot de passe dans **Informations de sécurité**. Une fois la configuration initiale des informations de sécurité effectuée, vous n’aurez pas à le faire à nouveau. Toutefois, vous pouvez modifier vos informations et la méthode par défaut à tout moment.
+
 >[!Important]
 >Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-Configurez votre vérification en deux étapes et les informations de réinitialisation de mot de passe dans **Informations de sécurité**. Une fois la configuration initiale des informations de sécurité effectuée, vous n’aurez pas à le faire à nouveau. Toutefois, vous pouvez modifier vos informations et la méthode par défaut à tout moment.
 
 Vous pouvez ajouter l’une des méthodes suivantes, y compris :
 

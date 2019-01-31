@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ed056bf28881f391ed1ba16a875259e8e420b39d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715237"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296081"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service sous Linux
 
@@ -317,7 +317,7 @@ Enregistrez vos paramètres en cliquant sur **PUT**.
 
 Vos applications sont désormais configurées. Le serveur frontal est maintenant prêt à accéder au serveur principal avec un jeton d’accès approprié.
 
-Pour plus d’informations sur la façon de configurer cela pour les autres fournisseurs, consultez [Refresh access tokens](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-access-tokens) (Actualiser des jetons d’accès).
+Pour plus d’informations sur la façon de configurer cela pour les autres fournisseurs, consultez [Refresh access tokens](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens) (Actualiser des jetons d’accès).
 
 ## <a name="call-api-securely-from-server-code"></a>Appeler une API de façon sécurisée à partir du code du serveur
 

@@ -7,25 +7,25 @@ author: diberry
 ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: e5aadfc8319ff67e471123d457fddf468af4842a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754405"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225769"
 ---
-# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Didacticiel : Ajouter des formats d’énoncés de modèles courants
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutoriel : Ajouter des formats d’énoncés de modèles courants
 
 Dans ce tutoriel, vous allez utiliser des modèles pour augmenter la prédiction des intentions et des entités tout en fournissant moins d’exemples d’énoncés. Le modèle est fourni par le biais d’un exemple d’énoncé de modèle, qui inclut la syntaxe pour identifier les entités et le texte pouvant être ignoré. Un modèle est une combinaison de correspondance par expression et de machine learning.  Les exemples de modèles d’énoncés, ainsi que les énoncés de l’intention, permettent à LUIS de mieux comprendre quels énoncés correspondent à l’intention. 
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
 > [!div class="checklist"]
-> * Importer un exemple d’application 
+> * Importer l’exemple d’application 
 > * Créer une intention
 > * Former
 > * Publish

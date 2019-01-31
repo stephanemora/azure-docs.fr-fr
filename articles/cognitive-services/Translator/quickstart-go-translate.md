@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 21794d0a728e7baed7ec392fa448c98eb519576c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bc46fbda191ba13d5fb770ac4128ee2b56eb81c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000405"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218357"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour traduire une chaîne à l’aide de Go
 
@@ -141,7 +141,7 @@ if err != nil {
 
 ## <a name="handle-and-print-the-response"></a>Gérer et imprimer la réponse
 
-Ajoutez ce code à la fonction `translate` pour décoder la réponse JSON, puis formatez et imprimez le résultat.
+Ajoutez ce code à la fonction `translate` pour décoder la réponse JSON, puis mettez en forme et imprimez le résultat.
 
 ```go
 // Decode the JSON response

@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 6aace9301050877d452b69bd7d1c741f50dae558
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7952ea9a83e6a2a7689bfdf34e39c7862a6daf73
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264090"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217915"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Démarrage rapide : Analyser le contenu d’un texte pour trouver des éléments répréhensibles dans Python
 
@@ -61,7 +61,7 @@ Par souci de simplicité, vous allez analyser le texte directement à partir du 
 
 ## <a name="query-the-moderator-service"></a>Interroger le service Moderator
 
-Créez une instance **ContentModeratorClient** à l’aide de l’URL de point de terminaison et la clé de votre abonnement. Utilisez ensuite son instance membre **TextModerationOperations** pour appeler l’API de modération. Consultez la documentation de référence **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** pour plus d’informations sur la manière de l’appeler.
+Créez une instance **ContentModeratorClient** à l’aide de l’URL de point de terminaison et la clé de votre abonnement. Utilisez ensuite son instance membre **TextModerationOperations** pour appeler l’API de modération. Consultez la documentation de référence **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** pour plus d’informations sur la manière de l’appeler.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
 

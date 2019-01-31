@@ -1,24 +1,24 @@
 ---
-title: 'Tutoriel : Effectuer des opérations sur les images - Python'
+title: 'Didacticiel : Effectuer des opérations sur les images - Python'
 titlesuffix: Azure Cognitive Services
 description: Découvrez comment utiliser l’API Vision par ordinateur avec Python à l’aide de bloc-notes Jupyter. Visualisez vos résultats à l’aide de bibliothèques populaires.
 services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 55e5168c36eb16944142c2deaae9bc94d60d2fe4
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3d3cc6138e6823fad11db5b6bd8edbb2d7398d00
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582012"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225685"
 ---
-# <a name="tutorial-computer-vision-api-python"></a>Didacticiel : API Vision par ordinateur avec Python
+# <a name="tutorial-computer-vision-api-python"></a>Tutoriel : API Vision par ordinateur avec Python
 
 Ce didacticiel vous montre comment utiliser l’API Vision par ordinateur dans Python et comment visualiser vos résultats à l’aide de bibliothèques populaires. Vous allez utiliser Jupyter pour exécuter le didacticiel. Pour savoir comment prendre en main les blocs-notes Jupyter interactifs, consultez la [documentation Jupyter](https://jupyter.readthedocs.io/en/latest/index.html).
 

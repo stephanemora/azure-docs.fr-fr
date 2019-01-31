@@ -7,25 +7,25 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 047c2af2626c9efca05dc3d3e554d57b4d559add
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 3a52610365c4e18333084e81a0f69e302fb5c191
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809103"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192041"
 ---
 # <a name="two-step-verification-overview"></a>Aperçu de la vérification en deux étapes
-
->[!Important]
->Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Vous avez reçu un e-mail d’une personne du service informatique ou de votre patron, qui vous indique qu’une vérification de sécurité supplémentaire a été ajoutée à votre compte. Qu’est-ce que cela signifie ? Cela signifie que votre organisation effectue des étapes supplémentaires pour s’assurer que vous êtes bien celui que vous prétendez être lorsque vous vous connectez. Cette vérification supplémentaire, également appelée vérification en deux étapes, s’effectue via une combinaison de votre nom d’utilisateur, de votre mot de passe et d’un appareil mobile ou d’un téléphone.
 
 Elle est plus sécurisée qu’un simple mot de passe, car elle s’appuie sur deux formes d’authentification : quelque chose que vous connaissez et quelque chose que vous avez avec vous. L’élément que vous connaissez est votre mot de passe. L’élément que vous avez sur vous est un téléphone ou un appareil que vous avez généralement avec vous. La vérification en deux étapes contribue à empêcher les pirates de se faire passer pour vous, car même s’ils ont votre mot de passe, le fait est qu’ils n’ont pas votre appareil.
+
+>[!Important]
+>Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 |Article |Description |
 |------|------------|

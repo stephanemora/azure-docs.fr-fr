@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Signagelive | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Signagelive | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Signagelive.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a8b45850ef609f908450fbcf35aad6b5c87540b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c2e67adb93c34cc4421145964ee809e4423b4843
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818504"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutoriel : Intégration d’Azure Active Directory à Signagelive
 
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD auprès de Signagelive, eff
 
     ![Informations d’authentification unique dans Domaine et URL Signagelive](common/sp-signonurl.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://login.signagelive.com/sso/<ORGANISATIONALUNITNAME>`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique Signagelive](mailto:support@signagelive.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

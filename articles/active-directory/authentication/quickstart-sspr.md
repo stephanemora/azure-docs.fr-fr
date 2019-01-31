@@ -3,19 +3,19 @@ title: Démarrage rapide de la réinitialisation de mot de passe libre-service A
 description: Dans ce guide de démarrage rapide, vous allez rapidement configurer la réinitialisation de mot de passe en libre-service Azure AD pour permettre aux utilisateurs de réinitialiser leurs mots de passe
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f91178b1db3d35ae99e694f626e04bb54b9e10de
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 84d781bc0a42d75090f7c48480b4025269b9242e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426367"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079883"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Démarrage rapide : Réinitialisation de mot de passe libre-service
 

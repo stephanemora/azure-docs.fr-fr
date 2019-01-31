@@ -6,16 +6,16 @@ services: cognitive-services
 author: DavidLiCIG
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: entity-linking-intelligence
+ms.subservice: entity-linking-intelligence
 ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: b0f839e8f33e9ff48d2ad526621167a89e3b9be8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: fa2e480cd2c46e6092f4b0421adca63542e54d1b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366180"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224630"
 ---
 # <a name="what-is-the-entity-linking-intelligence-service-api"></a>Présentation de l’API Entity Linking Intelligence Service
 
@@ -32,6 +32,6 @@ L’illustration suivante montre un exemple de liaison d’entités. Plus préci
 ## <a name="get-started"></a>Prise en main
  
 Pour parcourir rapidement les fonctionnalités de base des liaisons d'entités, ainsi que le processus d’inscription, reportez-vous à notre didacticiel de prise en main.
-[Bien démarrer avec l’API de liaison d’entités dans C#](GettingStarted.md)
+[Get Started with Entity Linking API in C#](GettingStarted.md) (Prise en main de l’API de liaison d'entités en C#)
 
 

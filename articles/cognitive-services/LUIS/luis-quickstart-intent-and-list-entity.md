@@ -7,18 +7,18 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: bf4fd5d2a3a9bb06882dcd1b4674ccdf8ad894ee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0dd08fa85ea443a11f14769b63502978eaa8a378
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971407"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221145"
 ---
-# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutoriel : Obtenir des données exactes correspondant au texte d’un énoncé
+# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutoriel : Obtenir des données exactes correspondant au texte d’un énoncé
 
 Ce tutoriel explique comment obtenir des données d’entité correspondant à une liste de termes prédéfinie. 
 
@@ -67,7 +67,7 @@ Une entité de type liste est un choix approprié pour ce type de données lorsq
 
     |Exemples d’énoncés|
     |--|
-    |Déplacer John W. Smith vers le service de comptabilité|
+    |Affecter John W. Smith au service de comptabilité|
     |Transférer Jill Jones à partir de R&D|
     |Le service 1234 a un nouveau membre nommé Bill Bradstreet|
     |Placer John Jackson en ingénierie |
