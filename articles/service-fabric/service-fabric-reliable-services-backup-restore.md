@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727713"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095768"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Sauvegarder et restaurer Reliable Services et Reliable Actors
 Azure Service Fabric est une plateforme haute disponibilité qui réplique l’état sur plusieurs nœuds afin de conserver cette haute disponibilité.  Ainsi, même si un nœud du cluster échoue, les services continuent à être disponibles. Bien que cette redondance intégrée fournie par la plateforme suffise pour certains, dans d’autres cas, il est souhaitable que le service sauvegarde les données (dans un magasin externe).
@@ -227,7 +227,7 @@ Une fois la sauvegarde incrémentielle activée, elle peut échouer avec l’err
   - Le réplica n’a jamais fait l’objet d’une sauvegarde complète depuis qu’il est devenu le principal.
   - Certains enregistrements de journal ont été tronqués depuis la dernière sauvegarde.
 
-Lorsque la sauvegarde incrémentielle est activée, `KvsActorStateProvider` n’utilise pas de mémoire tampon circulaire pour gérer ses enregistrements et les tronque de temps en temps. Si aucune sauvegarde n’est effectuée par l’utilisateur pendant une période de 45 minutes, le système tronque automatiquement les enregistrements du journal. Vous pouvez configurer cet intervalle en spécifiant `logTrunctationIntervalInMinutes` dans le constructeur `KvsActorStateProvider` (comme pour activer la sauvegarde incrémentielle). Les enregistrements de journal peuvent également être tronqués si le réplica principal doit créer un autre réplica en envoyant toutes ses données.
+Lorsque la sauvegarde incrémentielle est activée, `KvsActorStateProvider` n’utilise pas de mémoire tampon circulaire pour gérer ses enregistrements et les tronque de temps en temps. Si aucune sauvegarde n’est effectuée par l’utilisateur pendant une période de 45 minutes, le système tronque automatiquement les enregistrements du journal. Vous pouvez configurer cet intervalle en spécifiant `logTruncationIntervalInMinutes` dans le constructeur `KvsActorStateProvider` (comme pour activer la sauvegarde incrémentielle). Les enregistrements de journal peuvent également être tronqués si le réplica principal doit créer un autre réplica en envoyant toutes ses données.
 
 Lors de la restauration à partir d’une chaîne de sauvegarde, comme pour Reliable Services, BackupFolderPath doit contenir des sous-répertoires avec un seul sous-répertoire contenant la sauvegarde complète et les autres sous-répertoires contenant les sauvegardes incrémentielles. Si la validation de la chaîne de sauvegarde échoue, l’API de restauration lance une exception FabricException avec le message d’erreur correspondant. 
 

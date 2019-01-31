@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 21c0fd9b258100e769172332713769024fb12969
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 53ab1e28c5864b403d52bf5e73f0c5c41b8f18a8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520569"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454740"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Aperçu de l’utilisation des lecteurs pour un travail d’exportation
 Avant de créer un travail d’exportation, vous devez choisir un ensemble d’objets blob à exporter. Le service Microsoft Azure Import/Export vous permet d’utiliser une liste de chemins d’accès ou de préfixes d’objets blob pour représenter les objets blob que vous avez sélectionnés.  
@@ -30,7 +30,7 @@ Vous pouvez utiliser les paramètres suivants lorsque vous utilisez la commande 
 |**/sn:**&lt;StorageAccountName\>|Requis. Nom du compte de stockage du travail d’exportation.|  
 |**/sk:**&lt;StorageAccountKey\>|Obligatoire si et seulement si aucune SAP de conteneur n’est spécifiée. Clé du compte de stockage du travail d’exportation.|  
 |**/csas:**&lt;ContainerSas\>|Obligatoire si et seulement si aucune clé du compte de stockage n’est spécifiée. SAP du conteneur pour lister les objets blob à exporter dans le travail d’exportation.|  
-|**/ExportBlobListFile:**&lt;ExportBlobListFile\>|Requis. Chemin d’accès au fichier XML contenant la liste des chemins d’accès ou des préfixes de chemin d’accès aux objets blob à exporter. Format du fichier utilisé dans l’élément `BlobListBlobPath` dans l’opération [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) de l’API REST du service Import/Export.|  
+|**/ExportBlobListFile:**&lt;ExportBlobListFile\>|Requis. Chemin d’accès au fichier XML contenant la liste des chemins d’accès ou des préfixes de chemin d’accès aux objets blob à exporter. Format du fichier utilisé dans l’élément `BlobListBlobPath` dans l’opération [Put Job](/rest/api/storageimportexport/jobs) de l’API REST du service Import/Export.|  
 |**/DriveSize:**&lt;DriveSize\>|Requis. Taille des disques à utiliser pour un travail d’exportation, *par exemple* 500 Go ou 1,5 To.|  
 
 ## <a name="command-line-example"></a>Exemple de ligne de commande

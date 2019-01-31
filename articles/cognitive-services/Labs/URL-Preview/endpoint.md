@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: f75fc73bc1268db7b6f9f8a1f4fd602ee57281e8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 985e08a9622e08d2a4b52dae996952cd6a7e7ad4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464946"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207446"
 ---
 # <a name="project-url-preview-endpoint"></a>Point de terminaison d’aperçu de l’URL du projet
 
@@ -25,22 +25,22 @@ L’API d’aperçu de l’URL inclut un point de terminaison.
 Pour obtenir un aperçu de l’URL, envoyez une requête au point de terminaison suivant. Utilisez les en-têtes et les paramètres d’URL pour définir d’autres spécifications.
 
 GET :
-````
+```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftkey.com
 
-````
+```
 
 ### <a name="query-parameters"></a>Paramètres de requête
-|NOM|Valeur|type|Obligatoire|  
+|NOM|Valeur|Type|Obligatoire|  
 |----------|-----------|----------|--------------|  
 |q|URL servant à afficher l’aperçu|Chaîne |Oui|
-|safeSearch|Le contenu pour adultes jugé non conforme, ou le contenu piraté, est bloqué avec pour code d’erreur 400 et aucun indicateur *isFamilyFriendly* n’est renvoyé. <p>Voici par contre le comportement concernant le contenu pour adultes considéré comme légal. Le système renvoie le code d’état 200 et l’indicateur *isFamilyFriendly* est défini sur false.<ul><li>safeSearch=strict : le titre, la description, l’URL et l’image ne seront pas renvoyés.</li><li>safeSearch=moderate : vous obtenez le titre, l’URL et la description, mais pas l’image descriptive.</li><li>safeSearch=off : vous obtenez tous les objets/éléments de la réponse (titre, URL, description et image).</li></ul> |Chaîne|Non requis. </br> La valeur par défaut est safeSearch=strict.| 
+|safeSearch|Le contenu pour adultes jugé non conforme, ou le contenu piraté, est bloqué avec pour code d’erreur 400 et aucun indicateur *isFamilyFriendly* n’est renvoyé. <p>Voici par contre le comportement concernant le contenu pour adultes considéré comme légal. Le système renvoie le code d’état 200 et l’indicateur *isFamilyFriendly* est défini sur false.<ul><li>safeSearch=strict : Le titre, la description, l’URL et l’image ne seront pas renvoyés.</li><li>safeSearch=moderate : vous obtenez le titre, l’URL et la description, mais pas l’image descriptive.</li><li>safeSearch=off : vous obtenez tous les objets/éléments de la réponse (titre, URL, description et image).</li></ul> |Chaîne|Non requis. </br> La valeur par défaut est safeSearch=strict.| 
 
 ## <a name="response-object"></a>Objet Réponse
 
 La réponse inclut les en-têtes HTTP et l’objet WebPage avec des attributs, comme indiqué dans l’exemple suivant : `name`, `url`, `description`, `isFamilyFriendly` et `primaryImageOfPage`.
 
-````
+```
 BingAPIs-TraceId: 15AFE52A97AA422F960433A94803F6CE
 BingAPIs-SessionId: 40587764F42142D3A8BA99F66B2B3BB6
 X-MSEdge-ClientID: 0389E3EDED106B5E1424E82FEC436A56
@@ -57,7 +57,7 @@ X-MSEdge-Ref: Ref A: 15AFE52A97AA422F960433A94803F6CE Ref B: PAOEDGE0418 Ref C: 
   }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide C#](csharp.md)

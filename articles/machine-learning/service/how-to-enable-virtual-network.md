@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning service
 description: Exécutez de manière sécurisée des expériences et une inférence de machine learning à l’intérieur d’un réseau virtuel Azure. Découvrez comment créer des cibles de calcul pour l'entraînement des modèles et exécuter une inférence dans un réseau virtuel Azure. Il aborde également les exigences liées aux réseaux virtuels sécurisés, telles que les ports entrants et sortants nécessaires.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 21c4a9042a64a58f67f1f94c300b6438895eea5d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fb67821d883317901617bda101ae91a9a92018c2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856279"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246396"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Exécuter de manière sécurisée des expériences et une inférence à l’intérieur d’un réseau virtuel Azure
 

@@ -3,34 +3,36 @@ title: Guide pratique de l’utilisation d’identités managées pour ressource
 description: Instructions et exemples détaillés concernant l’utilisation d’un principal du service d’identités managées pour ressources Azure pour la connexion client par script et l’accès aux ressources.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: daveba
-ms.openlocfilehash: ce25c05d2b3de3fcf6b7318b90590b84f3ee9c52
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: d5f07fefc18e87f1ffb760defe0d5c256c6b338e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423185"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186788"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure pour se connecter 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Cet article fournit des exemples de script PowerShell et CLI pour la connexion à l’aide du principal du service d’identités managées pour ressources Azure, et des conseils sur des sujets importants tels que la gestion des erreurs.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Si vous envisagez d’utiliser les exemples de Azure PowerShell ou Azure CLI dans cet article, veillez à installer la dernière version de [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) ou bien [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Si vous envisagez d’utiliser les exemples de Azure PowerShell ou Azure CLI dans cet article, veillez à installer la dernière version de [Azure PowerShell](/powershell/azure/install-az-ps) ou bien [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - L’exemple de script présenté dans cet article part du principe que le client de ligne de commande s’exécute sur une machine virtuelle avec des identités managées pour ressources Azure activées. Utilisez la fonctionnalité « Se connecter » de machine virtuelle dans le portail Azure, pour vous connecter à distance à votre machine virtuelle. Pour plus d’informations sur l’activation d’identités managées pour ressources Azure sur une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md), ou l’une des variantes de cet article (en utilisant PowerShell, CLI, un modèle ou un Kit de développement logiciel (SDK) Azure). 
@@ -67,10 +69,10 @@ Le script suivant montre comment :
 2. Appelez une applet de commande de Azure Resource Manager pour obtenir des informations sur la machine virtuelle. PowerShell prend en charge la gestion de l’utilisation de jeton automatiquement pour vous.  
 
    ```azurepowershell
-   Add-AzureRmAccount -identity
+   Add-AzAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's managed identity for Azure resources. 
-   $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
+   $vmInfoPs = Get-AzVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
    $spID = $vmInfoPs.Identity.PrincipalId
    echo "The managed identity for Azure resources service principal ID is $spID"
    ```

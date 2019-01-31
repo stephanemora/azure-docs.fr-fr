@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 88f586fac4392e880efc3ef611a7c03177582bff
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cf06be778fb1bd251b55adcc503db63a2adf3f8b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856704"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197923"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -216,7 +216,7 @@ Les propriétés que l’application doit définir doivent être mappées au map
 | priority |- |- |
 | ttl |Durée de vie de ce message |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
 | first-acquirer |- |- |
-| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
+| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="properties"></a>properties
 
@@ -364,7 +364,7 @@ Le message de demande possède les propriétés d’application suivantes :
 | operation |Non  |chaîne |**put-token** |
 | Type |Non  |chaîne |Type du jeton placé. |
 | Nom |Non  |chaîne |« Audience » à laquelle le jeton s’applique. |
-| expiration |Oui | timestamp |Délai d’expiration du jeton. |
+| expiration |Oui |timestamp |Délai d’expiration du jeton. |
 
 La propriété *name* identifie l’entité avec laquelle le jeton doit être associé. Dans Service Bus, il s’agit du chemin d’accès à la file d’attente ou à la rubrique/l’abonnement. La propriété *type* identifie le type de jeton :
 

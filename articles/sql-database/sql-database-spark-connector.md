@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2018
-ms.openlocfilehash: 09035b19ee48602fde70736ab918fccae71108a5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 864cf49634e4f9452829a30ce4b260179bdeb8db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166234"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476211"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Accélérer l’analytique du Big Data en temps réel avec le connecteur Spark pour Azure SQL Database et SQL Server
 
@@ -161,7 +161,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Configuration requise
 Si vous utilisez le mode d’authentification par jeton d’accès, vous devez télécharger [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) et ses dépendances, puis les inclure dans le chemin de la build Java.
 
-Consultez [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) pour savoir comment obtenir un jeton d’accès à votre base de données SQL Azure.
+Consultez [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database](sql-database-aad-authentication.md) pour savoir comment obtenir un jeton d’accès à votre base de données SQL Azure.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config

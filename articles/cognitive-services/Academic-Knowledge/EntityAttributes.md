@@ -6,23 +6,23 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a203fdf6562dabb1b9d6e8ab5bb8f46ff6d5dc27
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f227cc03578adcfbf73fec3ae8941045e8352513
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902788"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182997"
 ---
 # <a name="entity-attributes"></a>Attributs d’entité
 
 Le graphique académique est composé de 7 types d’entité. Toutes les entités se verront attribuer un ID d’entité et un type d'entité.
 
 ## <a name="common-entity-attributes"></a>Attributs d’entité courants
-NOM    |Description                |type       | Opérations
+NOM    |Description                |Type       | Opérations
 ------- | ------------------------- | --------- | ----------------------------
 ID      |L’ID d’entité                  |Int64      |Égal à
 Ty      |Type d’entité                |enum   |Égal à

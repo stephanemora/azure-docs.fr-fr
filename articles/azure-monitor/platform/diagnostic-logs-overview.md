@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467466"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885845"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Collecter et utiliser des données de journaux à partir de vos ressources Azure
 
@@ -31,7 +31,7 @@ Ces journaux sont différents du [journal d’activité](activity-logs-overview.
 
 Ces journaux diffèrent également des journaux de diagnostic de système d’exploitation invité. Les journaux de diagnostic de système d’exploitation invité sont collectés par un agent exécuté sur une machine virtuelle ou un autre type de ressource pris en charge. Les journaux de diagnostic des ressources ne nécessitent aucun agent et capturent les données relatives à la ressource à partir de la plateforme Azure, alors que les journaux de diagnostic du système d’exploitation invité capturent les données provenant du système d’exploitation et des applications exécutées sur la machine virtuelle.
 
-Toutes les services ne prennent pas en charge les journaux de diagnostic décrits ici. [Cet article contient une section répertoriant les services prenant en charge les journaux de diagnostic](./../../azure-monitor/platform/tutorial-dashboards.md).
+Toutes les services ne prennent pas en charge les journaux de diagnostic décrits ici. [Cet article contient une section répertoriant les services prenant en charge les journaux de diagnostic](./../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Ce que vous pouvez faire avec les journaux de diagnostic
 Voici ce que vous pouvez faire avec les journaux de diagnostic :
@@ -229,7 +229,7 @@ L’ajout d’un paramètre de diagnostic permet d’afficher le panneau Paramè
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Services, catégories et schémas pris en charge pour les journaux de diagnostic
 
-[Consultez cet article](../../azure-monitor/platform/tutorial-dashboards.md) pour obtenir la liste complète des services pris en charge et des catégories de journaux et des schémas utilisés par ces services.
+[Consultez cet article](../../azure-monitor/platform/diagnostic-logs-schema.md) pour obtenir la liste complète des services pris en charge et des catégories de journaux et des schémas utilisés par ces services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

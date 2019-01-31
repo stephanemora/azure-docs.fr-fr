@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 4fd78d3c3c1d6076c9266bbb90bf47053dcf55ad
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: c207fb866cdd17e4db1796e415c159eb887eef08
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354863"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243553"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Déployer Kubernetes sur Azure Stack à l’aide d’Azure Active Directory
 
@@ -46,7 +47,7 @@ Pour commencer, assurez-vous que vous disposez des autorisations appropriées et
 
     Vous ne pouvez pas déployer le cluster sur un abonnement **Administrateur** Azure Stack. Vous devez utiliser un abonnement **Utilisateur**. 
 
-1. Si votre marketplace ne comporte pas de cluster Kubernetes, contactez votre administrateur Azure Stack.
+1. Si Cluster Kubernetes ne figure pas dans votre Place de marché, contactez votre administrateur Azure Stack.
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
@@ -165,4 +166,4 @@ Accordez l’accès à votre abonnement au principal de service afin qu’il pui
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Connecter votre cluster](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+[Se connecter à votre cluster](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Infor Retail – Information Management | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Infor Retail – Information Management | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Infor Retail – Information Management.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: daveba
 ms.reviewer: joflore
 ms.assetid: 5ff49168-ef81-4169-8e5e-dc86e24dd5e5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 7342dff066d8ddbcf0a59c958dd40082bd988524
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ca5dc17391dd86444a43331c0b161bb375a1ab58
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815087"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178560"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Tutoriel : Intégration d’Azure Active Directory à Infor Retail – Information Management
 

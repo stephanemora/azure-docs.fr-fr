@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à MaxxPoint | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à MaxxPoint | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et MaxxPoint.
 services: active-directory
 documentationCenter: na
@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: 15ba026e-96fc-4ae8-b135-0169da810e99
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: b4cf7c8388b0a5a278298fff274ba49d542bae36
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bc83c67a2f5cbe0f0ccaaabb0c5fafd60828fd45
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54806961"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192857"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Tutoriel : Intégration d’Azure Active Directory à MaxxPoint
 

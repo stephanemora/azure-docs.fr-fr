@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 833d8e7960bfb7ee3c135df57e6d4dfec97af037
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: 3a80e3a95252b60dd39ad4ce20878922aeee5730
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364659"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246880"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources MySQL
 
@@ -74,16 +75,16 @@ Les informations suivantes s’appliquent au fournisseur de ressources et aux se
 
 ## <a name="increase-backend-database-capacity"></a>Augmenter la capacité de base de données principale
 
-Vous pouvez augmenter la capacité de base de données principale en déployant plus de serveurs MySQL dans le portail Azure Stack. Ajoutez ces serveurs à une référence SKU nouvelle ou existante. Si vous ajoutez un serveur à une référence SKU existante, assurez-vous que les caractéristiques du serveur sont les mêmes que pour les autres serveurs de la référence (SKU).
+Vous pouvez augmenter la capacité de base de données principale en déployant plus de serveurs MySQL dans le portail Azure Stack. Ajoutez ces serveurs à une référence (SKU) nouvelle ou existante. Si vous ajoutez un serveur à une référence (SKU) existante, assurez-vous que les caractéristiques du serveur sont les mêmes que pour les autres serveurs dans la référence (SKU).
 
-## <a name="sku-notes"></a>Remarques relatives aux références SKU
-Utilisez un nom de référence SKU qui décrit les fonctionnalités des serveurs de la référence, comme la capacité et les performances. Le nom aide les utilisateurs à déployer leurs bases de données dans la référence SKU appropriée. Par exemple, vous pouvez utiliser des noms de référence SKU pour différencier les offres de service avec les caractéristiques suivantes :
+## <a name="sku-notes"></a>Remarques relatives aux références (SKU)
+Utilisez un nom de référence SKU qui décrit les fonctionnalités des serveurs de la référence, comme la capacité et les performances. Le nom aide les utilisateurs à déployer leurs bases de données dans la référence (SKU) appropriée. Par exemple, vous pouvez utiliser des noms de référence SKU pour différencier les offres de service avec les caractéristiques suivantes :
   
 * haute capacité
 * hautes performances
 * haute disponibilité
 
-Il est considéré comme une bonne pratique que tous les serveurs d’hébergement d’une référence SKU aient les mêmes caractéristiques de performances et de ressources.
+Il est considéré comme une bonne pratique que tous les serveurs d’hébergement d’une référence (SKU) aient les mêmes caractéristiques de performances et de ressources.
 
 Vous ne pouvez pas attribuer de références SKU à des utilisateurs ou groupes.
 

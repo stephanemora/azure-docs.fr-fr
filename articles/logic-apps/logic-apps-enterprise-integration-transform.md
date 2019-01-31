@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4ebd96613378bbd907beb5109343a2427b1300b0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125293"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095666"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Créer des mappages qui convertissent des données XML entre les différents formats dans Azure Logic Apps à l’aide d’Enterprise Integration Pack
 
@@ -88,7 +88,7 @@ L’action de transformation prend également en charge les mappages et les tran
 
   Cet exemple montre un mappage qui fait référence à un assembly nommé « XslUtilitiesLib » et appelle la méthode `circumreference` à partir de celui-ci.
 
-  ````xml
+  ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
   <msxsl:script language="C#" implements-prefix="user">
@@ -109,13 +109,13 @@ L’action de transformation prend également en charge les mappages et les tran
      </circles>
     </xsl:template>
     </xsl:stylesheet>
-  ````
+  ```
 
 
 ### <a name="byte-order-mark"></a>Marque d’ordre d’octet
 Par défaut, la réponse de la transformation commence par la marque d’ordre d’octet. Cette fonctionnalité n’est disponible que dans l’éditeur en mode Code. Pour désactiver cette fonctionnalité, spécifiez `disableByteOrderMark` pour la propriété `transformOptions` :
 
-````json
+```json
 "Transform_XML": {
     "inputs": {
         "content": "@{triggerBody()}",
@@ -129,13 +129,13 @@ Par défaut, la réponse de la transformation commence par la marque d’ordre d
     "runAfter": {},
     "type": "Xslt"
 }
-````
+```
 
 
 
 
 
 ## <a name="learn-more"></a>En savoir plus
-* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")  
+* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
 * [En savoir plus sur les mappages](../logic-apps/logic-apps-enterprise-integration-maps.md "Découvrez les mappages d’intégration d’entreprise")  
 

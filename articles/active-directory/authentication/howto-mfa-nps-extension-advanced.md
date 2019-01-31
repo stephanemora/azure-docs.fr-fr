@@ -3,19 +3,19 @@ title: Configurer l’extension de serveur NPS MFA Azure | Microsoft Docs
 description: Après avoir installé l’extension de serveur NPS, procédez comme suit pour la configuration avancée (liste verte des adresses IP approuvées ou encore remplacement de l’UPN).
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 81f6d6607f2fcc86e2499a537f3ddeff470d35f9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5d7b14825b8b34c2ab742febe463ea518209a82f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429104"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075616"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur
 
@@ -29,7 +29,7 @@ Dans l’extension de serveur NPS, vous pouvez désigner un attribut Active Dir
 
 Pour configurer un ID de connexion de substitution, accédez à `HKLM\SOFTWARE\Microsoft\AzureMfa` et modifiez les valeurs de registre suivantes :
 
-| NOM | type | Valeur par défaut | Description |
+| NOM | Type | Valeur par défaut | Description |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | chaîne | Vide | Spécifiez le nom de l’attribut Active Directory que vous souhaitez utiliser au lieu de l’UPN. Cet attribut est utilisé en tant qu’attribut AlternateLoginId. Si cette valeur de registre est définie sur un [attribut Active Directory valide](https://msdn.microsoft.com/library/ms675090.aspx) (par exemple, mail ou displayName), la valeur de l’attribut est utilisée à la place de l’UPN de l’utilisateur pour l’authentification. Si cette valeur de registre est vide ou n’est pas configurée, AlternateLoginId est désactivé et l’UPN de l’utilisateur est utilisé pour l’authentification. |
 | LDAP_FORCE_GLOBAL_CATALOG | booléenne | False | Utilisez cet indicateur pour forcer l’utilisation du catalogue global dans le cadre des recherches LDAP d’AlternateLoginId. Configurez un contrôleur de domaine en tant que catalogue global, ajoutez l’attribut AlternateLoginId dans le catalogue global, puis activez cet indicateur. <br><br> Si LDAP_LOOKUP_FORESTS est configuré (n’est pas vide), **cet indicateur est appliqué comme true**, quelle que soit la valeur du paramètre du registre. Dans ce cas, l’extension de serveur NPS nécessite la configuration du catalogue global avec l’attribut AlternateLoginId pour chaque forêt. |
@@ -43,7 +43,7 @@ Si vous devez surveiller la disponibilité du serveur, par exemple si les équil
 
 Pour configurer une liste verte d’adresses IP, accédez à `HKLM\SOFTWARE\Microsoft\AzureMfa` et configurez la valeur de registre suivante : 
 
-| NOM | type | Valeur par défaut | Description |
+| NOM | Type | Valeur par défaut | Description |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | chaîne | Vide | Fournissez une liste séparée par des points-virgules pour les adresses IP. Incluez les adresses IP des machines d’origine des requêtes de service, telles que le serveur NAS/VPN. Les plages d’adresses IP et les sous-réseaux ne sont pas pris en charge. <br><br> Par exemple, *10.0.0.1;10.0.0.2;10.0.0.3*.
 

@@ -3,19 +3,19 @@ title: Exigences en matière de données Azure AD SSPR | Microsoft Docs
 description: Exigences en matière de données pour la réinitialisation du mot de passe en libre-service Azure AD et comment les satisfaire
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f30a0d80b40626530ecebdb129daff4a0c5215fc
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7eff2ba229d939e4fa59dc56bce8c72da62983ed
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426197"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080308"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Déployer la réinitialisation du mot de passe sans demander l’inscription de l’utilisateur final
 

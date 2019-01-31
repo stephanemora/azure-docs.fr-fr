@@ -14,14 +14,14 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4ecac47de08b458eac375f8f5e774c396aeb2f5d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 23c532f6c344f8be37c3bf3d77f30effa4ec17e8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448106"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227707"
 ---
-# <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des utilisateurs spécifiques à l’aide d’Azure Notification Hubs
+# <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutoriel : notifications Push vers des utilisateurs spécifiques à l’aide d’Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -86,7 +86,7 @@ Si vous souhaitez utiliser Mobile Apps comme service principal, voir l’article
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. Dans `ViewController.h`, ajoutez le code `#define` suivant après vos instructions d’importation. Remplacez l’espace réservé `<Enter Your Backend Endpoint>` par l’URL de destination que vous avez utilisée pour déployer votre serveur principal d’application dans la section précédente. Par exemple : *http://your_backend.azurewebsites.net*.
+4. Dans `ViewController.h`, ajoutez le code `#define` suivant après vos instructions d’importation. Remplacez l’espace réservé `<Enter Your Backend Endpoint>` par l’URL de destination que vous avez utilisée pour déployer votre serveur principal d’application dans la section précédente. Par exemple : `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

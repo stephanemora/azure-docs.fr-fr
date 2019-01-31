@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 861b3302e065689a4ea9c0df0879f9c0df12e619
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526944"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454672"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Préparation des disques durs pour un travail d’importation
 Pour préparer un ou plusieurs disques durs pour un travail d’importation, procédez comme suit :
@@ -129,8 +129,10 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 |----------------------------|-----------------|
 |**/srcdir:**&lt;SourceDirectory\>|`Required.` Répertoire source qui contient les fichiers à copier sur le disque cible. Le chemin d’accès du répertoire doit être un chemin d’accès absolu (et non relatif).|
 |**/dstdir:**&lt;DestinationBlobVirtualDirectory\>|`Required.` Chemin d’accès au répertoire virtuel de destination dans votre compte de stockage Azure. Le répertoire virtuel peut déjà exister ou non.<br /><br /> Vous pouvez spécifier un conteneur ou un préfixe de blob comme `music/70s/`. Le répertoire de destination doit commencer par le nom du conteneur, suivi d’une barre oblique « / » et peut inclure un répertoire virtuel de blob se terminant par « / ».<br /><br /> Lorsque le conteneur de destination est le conteneur racine, vous devez spécifier explicitement le conteneur racine, y compris la barre oblique tel que `$root/`. Comme les blobs du conteneur racine ne peuvent pas inclure « / » dans leur nom, les sous-répertoires du répertoire source ne sont pas copiés si le répertoire de destination est le conteneur racine.<br /><br /> Veillez à utiliser des noms de conteneur valides quand vous spécifiez des répertoires virtuels de destination ou des objets blob. N’oubliez pas que les noms de conteneur doivent être en minuscules. Pour connaître les règles d’affectation de noms aux conteneurs, consultez [Naming and Referencing Containers, Blobs, and Metadata (Affectation de noms et références aux conteneurs, blobs et métadonnées)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).|
-|**/Disposition:**&lt;rename&amp;#124;no-overwrite&amp;#124;overwrite&gt;|`Optional.` Spécifie le comportement lorsqu’un blob avec l’adresse spécifiée existe déjà. Les valeurs valides pour ce paramètre sont : `rename`, `no-overwrite` et `overwrite`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `rename`.<br /><br /> La valeur spécifiée pour ce paramètre affecte tous les fichiers dans le répertoire spécifié par le paramètre `/srcdir`.|
-|**/BlobType:**&lt;BlockBlob&amp;#124;PageBlob&gt;|`Optional.` Spécifie le type de blob pour les blobs de destination. Les valeurs autorisées sont : `BlockBlob` et `PageBlob`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `BlockBlob`.<br /><br /> Dans la plupart des cas, `BlockBlob` est recommandé. Si vous spécifiez `PageBlob`, la longueur de chaque fichier dans le répertoire doit être un multiple de 512, la taille d’une page pour les blobs de pages.|
+|
+  **/Disposition:**&amp;lt;rename&#124;no-overwrite&#124;overwrite&amp;gt;|`Optional.` Spécifie le comportement lorsqu’un blob avec l’adresse spécifiée existe déjà. Les valeurs valides pour ce paramètre sont : `rename`, `no-overwrite` et `overwrite`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `rename`.<br /><br /> La valeur spécifiée pour ce paramètre affecte tous les fichiers dans le répertoire spécifié par le paramètre `/srcdir`.|
+|
+  **/BlobType:**&amp;lt;BlockBlob&#124;PageBlob&amp;gt;|`Optional.` Spécifie le type de blob pour les blobs de destination. Les valeurs autorisées sont : `BlockBlob` et `PageBlob`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `BlockBlob`.<br /><br /> Dans la plupart des cas, `BlockBlob` est recommandé. Si vous spécifiez `PageBlob`, la longueur de chaque fichier dans le répertoire doit être un multiple de 512, la taille d’une page pour les blobs de pages.|
 |**/PropertyFile:**&lt;PropertyFile\>|`Optional.` Chemin d’accès au fichier des propriétés des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](../storage-import-export-file-format-metadata-and-properties.md).|
 |**/MetadataFile:**&lt;MetadataFile\>|`Optional.` Chemin d’accès au fichier des métadonnées des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](../storage-import-export-file-format-metadata-and-properties.md).|
 
@@ -141,8 +143,10 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 |----------------------------|-----------------|
 |**/srcfile:**&lt;SourceFile\>|`Required.` Chemin d’accès complet au fichier à copier. Le chemin d’accès du répertoire doit être un chemin d’accès absolu (et non relatif).|
 |**/dstblob:**&lt;DestinationBlobPath\>|`Required.` Chemin d’accès au blob de destination dans votre compte de stockage Azure. Le blob peut déjà exister ou non.<br /><br /> Spécifiez le nom du blob commençant par le nom du conteneur. Le nom du blob ne peut pas commencer par « / » ni le nom du compte de stockage. Pour connaître les règles d’affectation de noms aux blobs, consultez [Naming and Referencing Containers, Blobs, and Metadata (Affectation de noms et références aux conteneurs, blobs et métadonnées)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> Lorsque le conteneur de destination est le conteneur racine, vous devez spécifier explicitement `$root` comme conteneur, tel que `$root/sample.txt`. Notez que les blobs sous le conteneur racine ne peuvent pas inclure « / » dans leur nom.|
-|**/Disposition:**&lt;rename&amp;#124;no-overwrite&amp;#124;overwrite&gt;|`Optional.` Spécifie le comportement lorsqu’un blob avec l’adresse spécifiée existe déjà. Les valeurs valides pour ce paramètre sont : `rename`, `no-overwrite` et `overwrite`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `rename`.|
-|**/BlobType:**&lt;BlockBlob&amp;#124;PageBlob&gt;|`Optional.` Spécifie le type de blob pour les blobs de destination. Les valeurs autorisées sont : `BlockBlob` et `PageBlob`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `BlockBlob`.<br /><br /> Dans la plupart des cas, `BlockBlob` est recommandé. Si vous spécifiez `PageBlob`, la longueur de chaque fichier dans le répertoire doit être un multiple de 512, la taille d’une page pour les blobs de pages.|
+|
+  **/Disposition:**&amp;lt;rename&#124;no-overwrite&#124;overwrite&amp;gt;|`Optional.` Spécifie le comportement lorsqu’un blob avec l’adresse spécifiée existe déjà. Les valeurs valides pour ce paramètre sont : `rename`, `no-overwrite` et `overwrite`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `rename`.|
+|
+  **/BlobType:**&amp;lt;BlockBlob&#124;PageBlob&amp;gt;|`Optional.` Spécifie le type de blob pour les blobs de destination. Les valeurs autorisées sont : `BlockBlob` et `PageBlob`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `BlockBlob`.<br /><br /> Dans la plupart des cas, `BlockBlob` est recommandé. Si vous spécifiez `PageBlob`, la longueur de chaque fichier dans le répertoire doit être un multiple de 512, la taille d’une page pour les blobs de pages.|
 |**/PropertyFile:**&lt;PropertyFile\>|`Optional.` Chemin d’accès au fichier des propriétés des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](../storage-import-export-file-format-metadata-and-properties.md).|
 |**/MetadataFile:**&lt;MetadataFile\>|`Optional.` Chemin d’accès au fichier des métadonnées des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](../storage-import-export-file-format-metadata-and-properties.md).|
 
@@ -172,7 +176,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 * [Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)
 * [Définition des propriétés et métadonnées pendant le processus d’importation](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 * [Exemple de workflow pour préparer des disques durs à un travail d’importation](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
-* [Référence rapide pour les commandes fréquemment utilisées](storage-import-export-tool-quick-reference-v1.md) 
+* [Référence rapide pour les commandes fréquemment utilisées](storage-import-export-tool-quick-reference-v1.md) 
 * [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Réparation d’un travail d’exportation](storage-import-export-tool-repairing-an-export-job-v1.md)

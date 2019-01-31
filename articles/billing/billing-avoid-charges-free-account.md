@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: cwatson
-ms.openlocfilehash: 0615a7fe9ba9661bc35da6488434636b71809bd5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: banders
+ms.openlocfilehash: 5cf828b270d97ae39b58990a2480cd4ca1cc853e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315568"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902446"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Éviter les frais pour votre compte gratuit Azure
 
@@ -35,11 +35,11 @@ Examinons quelques-unes des raisons qui peuvent occasionner des frais sur votre 
 
 ### <a name="your-usage-exceeds-the-limits-of-free-services-included-with-your-azure-free-account"></a>Votre utilisation dépasse les limites de services gratuits incluses avec votre compte gratuit Azure
 
-Vous obtenez une quantité limitée de services gratuits chaque mois avec votre compte gratuit Azure. La quantité gratuite expire à la fin du mois et n’est pas reportée au mois suivant. Par exemple, vous obtenez 5 Go de stockage de fichiers chaque mois. Si durant un mois vous utilisez seulement 2 Go, les 3 Go restants ne sont pas reportés au mois suivant. Pour éviter toute facturation, maintenez votre utilisation dans les limites. Pour en savoir plus sur les limites de services gratuits, consultez [Qu’est-ce qu’un compte gratuit Azure ?](https://azure.microsoft.com/free/free-account-faq/). Pour vérifier votre utilisation des services gratuits, consultez [Vérifier l’utilisation des services gratuits inclus avec le compte gratuit Azure](billing-check-free-service-usage.md).
+Vous obtenez une quantité limitée de services gratuits chaque mois avec votre compte gratuit Azure. La quantité gratuite expire à la fin du mois et n’est pas reportée au mois suivant. Par exemple, vous obtenez 5 Go de stockage de fichiers chaque mois. Si durant un mois vous utilisez seulement 2 Go, les 3 Go restants ne sont pas reportés au mois suivant. Pour éviter toute facturation, maintenez votre utilisation dans les limites. Pour en savoir plus sur les limites de services gratuits, consultez [What is Azure free account (Qu’est-ce qu’un compte gratuit Azure ?)](https://azure.microsoft.com/free/free-account-faq/). Pour vérifier votre utilisation des services gratuits, consultez [Vérifier l’utilisation des services gratuits inclus avec le compte gratuit Azure](billing-check-free-service-usage.md).
 
 ### <a name="youre-using-services-not-included-for-free-with-your-azure-free-account"></a>Vous utilisez des services non inclus gratuitement avec votre compte gratuit Azure
 
-Des frais de paiement à l’utilisation vous sont facturés pour l’utilisation des services qui ne sont pas inclus gratuitement avec votre compte gratuit Azure. Pour en savoir plus sur les services inclus avec un compte gratuit, consultez [Qu’est-ce qu’un compte gratuit Azure ?](https://azure.microsoft.com/free/free-account-faq/). Vous pouvez vérifier l’utilisation des services dans le portail Azure ou par le biais du fichier d’utilisation Azure. Pour plus d’informations, consultez [Vérifiez régulièrement la répartition des coûts et le taux d’avancement dans le portail](billing-getting-started.md#costs) et [Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md). 
+Des frais de paiement à l’utilisation vous sont facturés pour l’utilisation des services qui ne sont pas inclus gratuitement avec votre compte gratuit Azure. Pour en savoir plus sur les services inclus avec un compte gratuit, consultez [What is Azure free account (Qu’est-ce qu’un compte gratuit Azure ?)](https://azure.microsoft.com/free/free-account-faq/). Vous pouvez vérifier l’utilisation des services dans le portail Azure ou par le biais du fichier d’utilisation Azure. Pour plus d’informations, consultez [Vérifiez régulièrement la répartition des coûts et le taux d’avancement dans le portail](billing-getting-started.md#costs) et [Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md). 
 
 ### <a name="youve-reached-the-end-of-your-12-months-free-services"></a>Vous avez atteint la fin de vos 12 mois de services gratuits
 

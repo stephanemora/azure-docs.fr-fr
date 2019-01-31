@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 609e164209bb2c920a36f293cee146cfece15fb5
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 540c4132789d0d1ab666d452b5d6fb220025d5dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742607"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157378"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Résultats et jeton ImageInsightsToken du kit SDK Recherche visuelle Bing
 
@@ -145,4 +145,4 @@ Comme indiqué ci-dessus, les types `TopicResults` et `ImageResults` contiennent
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer une application web à page unique](tutorial-bing-visual-search-single-page-app.md)
+> [Créer une application web monopage](tutorial-bing-visual-search-single-page-app.md)

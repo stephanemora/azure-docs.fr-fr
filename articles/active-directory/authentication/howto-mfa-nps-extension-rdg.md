@@ -3,19 +3,19 @@ title: Intégration de la passerelle des services Bureau à distance avec l’ex
 description: Intégration de votre infrastructure de passerelle des services Bureau à distance avec Azure MFA à l’aide de l’extension de serveur NPS pour Microsoft Azure
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 853f8a499bfed461f75a79ff18f878f37d109e81
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a6ede4447ff6ab11ed8b51f18d4ae6f04c7d191
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425354"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077520"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Intégrez votre infrastructure de passerelle des services Bureau à distance à l’aide de l’extension du serveur NPS (Network Policy Server) et Azure AD
 

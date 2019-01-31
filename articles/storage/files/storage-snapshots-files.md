@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.component: files
-ms.openlocfilehash: 7f03af0fc338299da9b989d46e7bbfb83f3babeb
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.subservice: files
+ms.openlocfilehash: b39b6cf5936820d6e26ad5a17638a00c86fbf68a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945703"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457137"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Vue d’ensemble des instantanés de partage pour Azure Files 
 Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.

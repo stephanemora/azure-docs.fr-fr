@@ -3,7 +3,7 @@ title: Prise en main des commandes Batch de la CLI Azure | Microsoft Docs
 description: Obtenez une brève introduction aux commandes Batch dans l’interface de ligne de commande Azure pour la gestion des ressources du service Azure Batch.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b5c1df8776b63fc8ceecfa0377e74c757ba503c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0d51052f4e04a1497ccf2e91427e3465bdc5bf2f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950146"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476823"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
@@ -62,7 +62,7 @@ Pour utiliser Azure CLI avec Batch, vous devez vous connecter et vous authentifi
 
 Il existe différentes façons de se connecter à Azure, décrites en détail dans [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli) :
 
-1. [Connexion interactive](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). Connectez-vous de manière interactive lorsque vous exécutez des commandes Azure CLI vous-même à partir de la ligne de commande.
+1. [Connexion interactive](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Connectez-vous de manière interactive lorsque vous exécutez des commandes Azure CLI vous-même à partir de la ligne de commande.
 2. [Connexion avec un principal de service](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Connectez-vous avec un principal de service lorsque vous exécutez des commandes Azure CLI à partir d’un script ou d’une application.
 
 Dans le cadre de cet article, nous montrons comment se connecter à Azure de manière interactive. Entrez [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) dans la ligne de commande :

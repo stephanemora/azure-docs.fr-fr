@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SCC LifeCycle | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à SCC LifeCycle | Microsoft Docs'
 description: Découvrez comment configurer l'authentification unique entre Azure Active Directory et SCC LifeCycle.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: 9748bf38-ffc3-4d51-a1ae-207ce57104fa
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 1f92840a18422785661b486b1ee95958bd90d030
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: cbeec5a62129b71b8a8ec5739e09cab5c126463e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809902"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194030"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Tutoriel : Intégration d’Azure Active Directory à SCC LifeCycle
+# <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Didacticiel : Intégration d’Azure Active Directory à SCC LifeCycle
 
 Dans ce didacticiel, vous allez apprendre à intégrer SCC LifeCycle avec Azure Active Directory (Azure AD).
 

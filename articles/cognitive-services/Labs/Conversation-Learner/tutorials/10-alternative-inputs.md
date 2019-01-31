@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b6ea1ee4eb8b55d2da4069ef19a268ec68f49cb4
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c60dc2ca93547b93ce2ee457393570479069c899
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796490"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216266"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Guide pratique pour utiliser les entrées de remplacement
 
@@ -41,7 +41,7 @@ Les entrées alternatives sont des énoncés de remplacement sémantiquement éq
 2. Dans le champ « Nom », tapez « AlternativeInputs » et appuyez sur Entrée.
 3. Cliquez sur le bouton « Créer ».
 
-### <a name="entity-creation"></a>Création d'entités
+### <a name="entity-creation"></a>Création d’entités
 
 1. Dans le panneau gauche, cliquez sur « Entités », puis sur le bouton « Nouvelle entité ».
 2. Sous « Type d'entité », sélectionnez « Apprentissage personnalisé ».

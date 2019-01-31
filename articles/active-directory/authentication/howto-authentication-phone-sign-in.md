@@ -3,19 +3,19 @@ title: Connexion Azure AD sans mot de passe avec l’application Microsoft Authe
 description: Connexion à Azure AD à l’aide de l’application Microsoft Authenticator sans utiliser votre mot de passe (préversion publique)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e237d736a939c3136faa4f6df74ed4e9db9665d3
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434187"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077622"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Connexion par téléphone sans mot de passe avec l’application Microsoft Authenticator (préversion publique)
 

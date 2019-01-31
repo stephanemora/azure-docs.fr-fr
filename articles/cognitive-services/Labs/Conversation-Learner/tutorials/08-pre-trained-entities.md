@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c198dfc19a350188f500af86c531be9a9ac424ce
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: afa927009e684fa7f8c6217c91dcb589b331b5f5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796478"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224171"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Comment ajouter des entités préentraînées
 Ce didacticiel explique comment ajouter des entités préentraînées à votre modèle Conversation Learner.
@@ -41,7 +41,7 @@ Les entités préentraînées reconnaissent les types classiques d’entités, t
 2. Dans le champ « Nom », tapez « PretrainedEntities », puis appuyez sur Entrée.
 3. Cliquez sur le bouton « Créer ».
 
-### <a name="entity-creation"></a>Création d'entités
+### <a name="entity-creation"></a>Création d’entités
 
 1. Dans le panneau gauche, cliquez sur « Entités », puis sur le bouton « Nouvelle entité ».
 2. Sélectionnez le « Type d’entité » « Pré-Trained/datetimeV2 ».
@@ -72,7 +72,7 @@ Les entités préentraînées reconnaissent les types classiques d’entités, t
 
 ### <a name="train-the-model"></a>Former le modèle
 
-1. Dans le panneau gauche, cliquez sur « Boîtes de dialogue d'apprentissage », puis sur le bouton « Nouveau dialogue d'apprentissage ».
+1. Dans le volet gauche, cliquez sur « Dialogues de formation », puis sur le bouton « Nouveau dialogue de formation ».
 2. Dans le panneau de conversation, sous « Entrez votre message... », tapez « Bonjour ».
 3. Cliquez sur le bouton « Noter les actions ».
 4. Sélectionnez la réponse « Quelle est la date ? ».

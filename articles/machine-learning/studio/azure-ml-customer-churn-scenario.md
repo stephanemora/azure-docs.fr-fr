@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning Studio
 description: Étude de cas de développement d’un modèle intégré pour l’analyse et la notation de l’attrition des clients à l’aide d’Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 153ddcc1ba0da6171963ec91511fafe84023ecf8
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 47d267a2c4c122d8acbb2d3bf40e6858b4d6b77c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401965"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244179"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analyse de l’attrition des clients à l’aide d’Azure Machine Learning Studio
 ## <a name="overview"></a>Vue d’ensemble

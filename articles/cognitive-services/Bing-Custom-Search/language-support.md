@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: 8fa70705d1dff5c3150fa5868938a3c50ef863fe
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 24b14c4f0ca185a7916aeb19671a22ff46a23ee2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815561"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194846"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Langues et régions prises en charge par l’API Recherche personnalisée Bing
 
@@ -74,42 +74,42 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Pays/région|Langage|Code du marché|
 |-------|--------|-----------|
 |Argentine|Espagnol|es-AR|
-|Australie|Français|en-AU|
+|Australie|Anglais|en-AU|
 |Autriche|Allemand|de-AT|
 |Belgique|Néerlandais|nl-BE|
-|Belgique|Français|fr-BE|
+|Belgique|Anglais|fr-BE|
 |Brésil|Portugais|pt-br|
-|Canada|Français|en-CA|
-|Canada|Français|fr-CA|
+|Canada|Anglais|en-CA|
+|Canada|Anglais|fr-CA|
 |Chili|Espagnol|es-CL|
 |Danemark|Danois|da-DK|
 |Finlande|Finnois|fi-FI|
-|France|Français|fr-FR|
+|France|Anglais|fr-FR|
 |Allemagne|Allemand|de-DE|
 |Hong Kong (R.A.S.)|Chinois traditionnel|zh-HK|
-|Inde|Français|en-IN|
-|Indonésie|Français|en-ID|
+|Inde|Anglais|en-IN|
+|Indonésie|Anglais|en-ID|
 |Italie|Italien|it-IT|
 |Japon|Japonais|ja-JP|
 |Corée du Sud|Coréen|ko-KR|
-|Malaisie|Français|en-MY|
+|Malaisie|Anglais|en-MY|
 |Mexique|Espagnol|es-MX|
 |Pays-bas|Néerlandais|nl-NL|
-|Nouvelle-Zélande|Français|en-NZ|
+|Nouvelle-Zélande|Anglais|en-NZ|
 |Norvège|Norvégien|no-NO|
 |Chine|Chinois|zh-CN|
 |Pologne|Polonais|pl-PL|
 |Portugal|Portugais|pt-PT|
-|Philippines|Français|en-PH|
+|Philippines|Anglais|en-PH|
 |Russie|Russe|ru-RU|
 |Arabie Saoudite|Arabe|ar-SA|
-|Afrique du Sud|Français|en-ZA|
+|Afrique du Sud|Anglais|en-ZA|
 |Espagne|Espagnol|es-ES|
 |Suède|Suédois|sv-SE|
-|Suisse|Français|fr-CH|
+|Suisse|Anglais|fr-CH|
 |Suisse|Allemand|de-CH|
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|
-|Royaume-Uni|Français|en-GB|
-|États-Unis|Français|fr-FR|
+|Royaume-Uni|Anglais|en-GB|
+|États-Unis|Anglais|en-US|
 |États-Unis|Espagnol|es-US|

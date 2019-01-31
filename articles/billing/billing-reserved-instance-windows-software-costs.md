@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
-ms.author: cwatson
-ms.openlocfilehash: 0328f90eb1cb9c316eea76a0f36c123fd556d25e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: de2aee36f20bd5142f398de7edb301e53ab42cae
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584415"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902659"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Coûts des logiciels Windows non inclus dans Azure Reserved VM Instances
 
@@ -64,7 +64,7 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (Support request).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 
 
