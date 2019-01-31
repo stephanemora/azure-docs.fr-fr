@@ -167,27 +167,27 @@ Lors de la copie de données de SAP BW, les mappages suivants sont utilisés ent
 | Type de données SAP BW | Type de données intermédiaires de Data Factory |
 |:--- |:--- |
 | ACCP | Int |
-| CHAR | Chaîne |
-| CLNT | Chaîne |
-| CURR | Décimal |
-| CUKY | Chaîne |
-| DEC | Décimal |
+| CHAR | String |
+| CLNT | String |
+| CURR | Decimal |
+| CUKY | String |
+| DEC | Decimal |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | Chaîne |
-| LCHR | Chaîne |
+| LANG | String |
+| LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | Décimal |
+| QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | Chaîne |
-| UNITÉ | Chaîne |
-| DATS | Chaîne |
-| NUMC | Chaîne |
-| TIMS | Chaîne |
+| STRING | String |
+| UNIT | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
