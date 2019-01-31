@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b1fa723863e6485e977e075986c3779efed1e689
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: cb3a60995a4edfe5eb00f1a5e88812146816806a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360629"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883702"
 ---
 # <a name="azure-backup-support-matrix"></a>Tableau de prise en charge de Sauvegarde Azure
 
@@ -30,13 +30,13 @@ Nombre de coffres | Jusqu’à 500 coffres Recovery Services dans un même abon
 Machines dans un coffre | Jusqu’à 1 000 machines virtuelles Azure dans un même coffre.<br/><br/> Jusqu’à 50 machines locales exécutant l’agent Sauvegarde Azure (agent Microsoft Azure Recovery Services (MARS)) peuvent être inscrites dans un même coffre.
 Source de données dans le stockage de l’archivage | Au maximum 54 400 Go. Le nombre des sauvegardes de machines virtuelles Azure n’est pas limité.
 Sauvegardes dans le coffre | Machines virtuelles Azure : une fois par jour ; machines protégées par DPM/MABS : deux fois par jour ; machines sauvegardées directement à l’aide de l’agent MARS : trois fois par jour.  
-Déplacer le coffre | Vous pouvez déplacer des coffres Recovery Services entre des abonnements et des groupes de ressources. [Plus d’informations](backup-azure-move-recovery-services-vault.md)
+Déplacer le coffre | Pour déplacer un coffre Recovery Services, vous devez être inscrit dans une préversion privée. Pour l’essayer, contactez AskAzureBackupTeam@microsoft.com.
 Déplacer des données entre des coffres | Le déplacement de données sauvegardées entre des coffres n’est pas pris en charge.
 Type de réplication de stockage | Vous pouvez modifier le type de réplication de stockage (GRS/LRS) pour un coffre avant que les sauvegardes soient stockées. Une fois que les sauvegardes commencent dans le coffre, le type de réplication ne peut pas être modifié.
 
 
 
-## <a name="on-premises-backup-support"></a>Prise en charge des sauvegardes locales 
+## <a name="on-premises-backup-support"></a>Prise en charge des sauvegardes locales
 
 Voici ce qui est pris en charge si vous voulez sauvegarder des machines locales.
 
@@ -77,8 +77,8 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines virtuell
 Voici ce qui est pris en charge si vous voulez sauvegarder des machines Linux.
 
 **Sauvegarde** | **Linux (approuvé par Azure)**
---- | --- 
-**Machine Linux locale (sans DPM ou MABS)**. |  Non. L’agent MARS ne peut être installé que sur des machines Windows. 
+--- | ---
+**Machine Linux locale (sans DPM ou MABS)**. |  Non. L’agent MARS ne peut être installé que sur des machines Windows.
 **Machine virtuelle Azure (sans DPM ou MABS)** | Sauvegarde cohérente au niveau application à l’aide de [scripts personnalisés](backup-azure-linux-app-consistent.md).<br/><br/> Récupération au niveau fichier.<br/><br/> Restaurer en créant une machine virtuelle à partir d’un point de récupération ou d’un disque.
 **Machine locale/machine virtuelle Azure avec DPM** | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure
 **Machine locale/machine virtuelle Azure avec MABS** | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure.
@@ -110,7 +110,7 @@ Sécurité des données :
 **Machine** | **En transit** | **Au repos**
 --- | --- | ---
 Machines Windows locales sans DPM/MAB | ![Oui][green] | ![Oui][green]
-Machines virtuelles Azure | ![Oui][green] | ![Oui][green] 
+Machines virtuelles Azure | ![Oui][green] | ![Oui][green]
 Machines virtuelles locales/Azure avec DPM | ![Oui][green] | ![Oui][green]
 Machines virtuelles locales/Azure avec MABS | ![Oui][green] | ![Oui][green]
 
@@ -121,7 +121,7 @@ Machines virtuelles locales/Azure avec MABS | ![Oui][green] | ![Oui][green]
 Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, comme décrit dans le tableau ci-dessous. Notez les points suivants :
 
 - Pour les machines virtuelles Azure, l’extension de machine virtuelle lit directement les données à partir du compte de stockage Azure via le réseau de stockage. Il n’est donc pas nécessaire de compresser ce trafic.
-- Si vous utilisez DPM ou MABS, vous pouvez compresser les données avant qu’elles soient sauvegardées dans DPM/MABS, afin d’économiser la bande passante. 
+- Si vous utilisez DPM ou MABS, vous pouvez compresser les données avant qu’elles soient sauvegardées dans DPM/MABS, afin d’économiser la bande passante.
 
 **Machine** | **Compresser dans MABS/DPM (TCP)** | **Compresser (HTTPS) dans le coffre**
 --- | --- | ---
@@ -134,8 +134,8 @@ Machines virtuelles locales/Azure avec MABS | ![Oui][green] | ![Oui][green]
 
 ## <a name="retention-limits"></a>Limites de rétention
 
-**Paramètre** | **Limites** 
---- | --- 
+**Paramètre** | **Limites**
+--- | ---
 Nombre maximal de points de récupération par instance protégée (machine/charge de travail) | 9 999
 Temps d’expiration maximal pour un point de récupération | Aucune limite
 Fréquence de sauvegarde maximale dans DPM/MABS | Toutes les 15 minutes pour SQL Server<br/><br/> Une fois par heure pour les autres charges de travail.

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/04/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 394f61f9fca06f5471edc62e99be8fa6bb415e40
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 49f1b953784aca0776357cc4071efbbff6064660
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471631"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155334"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installation personnalisée d’Azure AD Connect
 Les **paramètres personnalisés** Azure AD Connect sont utilisés lorsque vous souhaitez davantage d’options d’installation. Ils sont utiles si vous disposez de plusieurs forêts ou si vous voulez configurer des fonctionnalités facultatives que l’installation rapide ne propose pas. Ils sont utilisés dans tous les cas où l’option d’[**installation rapide**](how-to-connect-install-express.md) ne convient pas à votre déploiement ou à votre topologie.
@@ -416,7 +416,7 @@ Une fois l’installation terminée, déconnectez-vous puis reconnectez-vous à 
 
 Azure AD Connect étant installé, vous pouvez passer à [Vérification de l’installation et affectation des licences](how-to-connect-post-installation.md).
 
-Pour en savoir plus sur ces fonctionnalités activées lors de l’installation, consultez les pages : [Prévention des suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md) et [Azure AD Connect Health](how-to-connect-health-sync.md).
+Pour en savoir plus sur ces fonctionnalités activées lors de l’installation, consultez les pages : [Prévenir les suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md) et [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Pour en savoir plus sur ces sujets courants, consultez l’article [Planificateur Azure AD Connect Sync](how-to-connect-sync-feature-scheduler.md).
 

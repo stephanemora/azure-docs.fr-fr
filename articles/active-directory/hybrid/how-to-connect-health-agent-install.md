@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: bf86a1d50b8c63b90a05d0b05bc6a1a037d300d5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7a15b04e9e0fbd2cedf07c2833df30e4f0ca3db7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468707"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167935"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l'agent Azure AD Connect Health
 Ce document vous guide à travers l’installation et la configuration des agents Azure AD Connect Health. Vous pouvez télécharger les agents [ici](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent):
@@ -171,10 +171,6 @@ Notez que le niveau d’audit « de base » est activé par défaut. En savoir p
 
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-sync"></a>Installation de l'agent Azure AD Connect Health pour la synchronisation
-> [!NOTE]
-> Le serveur de synchronisation doit être différent de votre serveur AD FS. N’installez pas d’agent de synchronisation sur votre serveur AD FS.
->
-
 L'agent Azure AD Connect Health pour la synchronisation est installé automatiquement dans la dernière version d'Azure AD Connect. Pour utiliser Azure AD Connect pour la synchronisation, vous devez télécharger la dernière version d’Azure AD Connect et l’installer. Vous pouvez télécharger la dernière version [ici](https://www.microsoft.com/download/details.aspx?id=47594).
 
 Pour vérifier que l’agent a été installé, recherchez les services suivants sur le serveur. Si vous avez terminé la configuration, ils doivent déjà être en cours d’exécution. Dans le cas contraire, ils sont arrêtés tant que la configuration n’est pas terminée.
