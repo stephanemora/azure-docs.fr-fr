@@ -3,17 +3,17 @@ title: Copier des données dans la préversion d’Azure Data Lake Storage Gen2 
 description: Utiliser l’outil DistCp pour copier des données vers et à partir de la préversion de Data Lake Storage Gen2
 services: storage
 author: seguler
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 6c231de0a37eda4f5593c9fbbfa5e611a97996a0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9c12f96399de218241c8aa7ed686113c17a7410c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976553"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244145"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>Utiliser DistCp pour copier des données entre des objets blob Stockage Azure et la préversion d’Azure Data Lake Storage Gen2
 

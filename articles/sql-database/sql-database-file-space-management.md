@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605957"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468629"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gérer l’espace du fichier de la base de données SQL Azure
 Cet article décrit les différents types d’espace de stockage dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré explicitement.
@@ -27,6 +27,7 @@ Cet article décrit les différents types d’espace de stockage dans Azure SQL 
 Dans Azure SQL Database, il existe des modèles de charge de travail dans lesquels l’allocation des fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées. Ce scénario peut se produire quand l’espace utilisé augmente et que des données sont ensuite supprimées. La raison en est que l’espace de fichiers alloué n’est pas récupéré automatiquement quand des données sont supprimées.
 
 La surveillance de l’utilisation de l’espace de fichiers et la réduction des fichiers de données peuvent être nécessaires dans les scénarios suivants :
+
 - Autoriser la croissance des données dans un pool élastique quand l’espace de fichiers alloué pour ses bases de données atteint la taille maximale du pool.
 - Autoriser la réduction de la taille maximale d’une base de données unique ou d’un pool élastique.
 - Autoriser la modification d’une base de données unique ou d’un pool élastique pour les faire passer à un niveau de service ou à un niveau de performance avec une taille maximale inférieure.
@@ -118,6 +119,7 @@ Il est essentiel d’appréhender les quantités d’espace de stockage suivante
 Les requêtes suivantes peuvent être utilisées pour déterminer les quantités d’espace de stockage d’un pool élastique.  
 
 ### <a name="elastic-pool-data-space-used"></a>Espace de données du pool élastique utilisé
+
 Modifiez la requête suivante pour retourner la quantité d’espace de données du pool élastique utilisée.  Le résultat de la requête est exprimé en Mo.
 
 ```sql
@@ -234,9 +236,9 @@ Une fois les fichiers de données d’une base de données sont réduits, les in
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les tailles maximales de base de données, consultez :
-  - [Limites du modèle d’achat par vCore d’Azure SQL Database pour une base de données unique](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases)
-  - [Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)
-  - [Limites du modèle d’achat par vCore d’Azure SQL Database pour les pools élastiques](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)
-  - [Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools)
+  - [Limites du modèle d’achat par vCore d’Azure SQL Database pour une base de données unique](sql-database-vcore-resource-limits-single-databases.md)
+  - [Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-single-databases.md)
+  - [Limites du modèle d’achat par vCore d’Azure SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Pour plus d’informations sur la commande `SHRINKDATABASE`, consultez [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Pour plus d’informations sur la fragmentation et la reconstruction d’index, consultez [Réorganiser et reconstruire des index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

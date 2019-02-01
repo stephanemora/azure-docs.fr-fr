@@ -10,19 +10,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4cb8ffe218ef1cd64b93201eddbbd09bb16026db
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 607356bb59550626c9fe5f71d4609b9c3e2b2fe0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087387"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251297"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Sauvegarde et récupération de données pour Azure Stack avec le service Infrastructure Backup
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez sauvegarder et restaurer la configuration et les données du service en utilisant le service Infrastructure Backup. Chaque installation Azure Stack contient une instance du service. Vous pouvez utiliser des sauvegardes créées par le service pour le redéploiement du cloud Azure Stack visant à restaurer les données d’identité, de sécurité et d’Azure Resource Manager.
 

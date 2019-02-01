@@ -10,19 +10,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086503"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252045"
 ---
 # <a name="use-the-azure-stack-portal"></a>Utiliser le portail Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez utiliser le portail Azure Stack pour vous abonner à des offres publiques et utiliser les services proposés par le biais de ces offres. Si vous avez déjà utilisé le portail Azure global, le fonctionnement du site vous semblera familier.
 
@@ -60,7 +61,7 @@ Si vous avez besoin d’aide pour savoir comment utiliser les services disponibl
 
     Nous vous suggérons en particulier de consulter les articles suivants pour commencer :
 
-    - [Considérations importantes : utilisation de services ou création d’applications pour Azure Stack](azure-stack-considerations.md)
+    - [Principales considérations relatives à l’utilisation de services ou à la création d’applications pour Azure Stack](azure-stack-considerations.md)
     - La section **Utiliser les services** de la documentation comporte un article sur les considérations pour chaque service. La page relative aux considérations décrit les différences entre le service proposé dans Azure et le service équivalent dans Azure Stack. Pour obtenir un exemple, voir [Considérations relatives aux machines virtuelles](azure-stack-vm-considerations.md). D’autres informations propres à Azure Stack peuvent figurer dans la section **Utiliser les services**.
 
       Vous pouvez utiliser la documentation Azure en tant que référence générale pour un service, mais devez avoir conscience de ces différences. Comprenez que les liens de documentation dans la vignette **Tutoriels de prise en main** pointent sur la documentation Azure.
@@ -73,4 +74,4 @@ Si vous utilisez le Kit de développement Azure Stack, le [Forum Azure Stack](ht
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Considérations importantes : utilisation de services ou création d’applications pour Azure Stack](azure-stack-considerations.md)
+[Principales considérations relatives à l’utilisation de services ou à la création d’applications pour Azure Stack](azure-stack-considerations.md)
