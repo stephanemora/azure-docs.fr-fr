@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9ead8d485a12a6c21b653bc6e1f8536781f762d1
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: daf575f60739c58ba0380880ade2de865ae1d6ad
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54380962"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510868"
 documentType: LandingData
 title: Documentation de Resource Manager sur Azure
 metadata:
@@ -78,7 +78,7 @@ sections:
     - title: Modèles
       html: <p><a href="/azure/templates/">Référence de modèle</a></p><p><a href="/azure/resource-group-template-functions">Fonctions des modèles de gestionnaire des ressources Azure</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Fonctions de définition de l’interface utilisateur</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Éléments de définition de l’interface utilisateur</a></p>
     - title: Ligne de commande
-      html: <p><a href="/cli/azure/resource">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
+      html: <p><a href="/cli/azure/resource">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
     - title: Langues
       html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/azure/">Python</a></p>
     - title: REST
