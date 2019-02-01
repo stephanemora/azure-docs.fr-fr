@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1d6808f17116df033c2b001eff05bd83bc5f1d3d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468606"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196529"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronisation d’Azure AD Connect : Attributs synchronisés avec Azure Active Directory
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.  
@@ -45,6 +45,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | displayName |X | |
 | objectSID |X |propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory. |
 | pwdLastSet |X |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
+|samAccountName|X| |
 | sourceAnchor |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
 | usageLocation |X |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |

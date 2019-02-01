@@ -184,7 +184,7 @@ Lors de la copie de données de SAP BW, les mappages suivants sont utilisés ent
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| UNIT | String |
+| UNITÉ | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |
