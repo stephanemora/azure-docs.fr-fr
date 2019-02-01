@@ -11,21 +11,21 @@ items:
   items:
   - name: Guide de démarrage rapide sur les bases de données uniques
     href: sql-database-quickstart-guide.md
-  - name: Guide de démarrage rapide sur Managed Instance
+  - name: Guide de démarrage rapide sur les instances managées
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Créer
     items:
     - name: Base de données unique
       href: sql-database-get-started-portal.md
-    - name: Instance gérée
+    - name: Instance managée
       href: sql-database-managed-instance-get-started.md
   - name: Configuration
     items:
-    - name: Règles de pare-feu du serveur SQL Database
+    - name: Règles de pare-feu du serveur de base de données
       href: sql-database-get-started-portal-firewall.md
-    - name: Connexion de machine virtuelle cliente à une instance Managed Instance
+    - name: Connexion de machine virtuelle cliente à une instance managée
       href: sql-database-managed-instance-configure-vm.md
-    - name: Connexion point à site à une instance Managed Instance
+    - name: Connexion point à site à une instance managée
       href: sql-database-managed-instance-configure-p2s.md
   - name: Charger des données
     items:
@@ -127,12 +127,20 @@ items:
     items:
     - name: Vue d’ensemble des bases de données uniques
       href: sql-database-single-index.yml
-    - name: Serveurs SQL Database
+    - name: Fonctionnalités d’une base de données unique
+      href: sql-database-single-database.md
+    - name: Informations de référence sur l’API de gestion
+      href: sql-database-single-databases-manage.md
+    - name: Différences de T-SQL
+      href: sql-database-transact-sql-information.md
+    - name: Ressources et serveurs de base de données
       items:
       - name: Vue d’ensemble du serveur de base de données
         href: sql-database-servers.md
       - name: Limites de ressources du serveur de base de données
         href: sql-database-resource-limits-database-server.md
+      - name: Architecture de connectivité
+        href: sql-database-connectivity-architecture.md
     - name: Ressources d’une base de données unique
       items:
       - name: Limites de ressources basées sur des vCore
@@ -141,12 +149,6 @@ items:
         href: sql-database-dtu-resource-limits-single-databases.md
       - name: Mettre les ressources à l’échelle
         href: sql-database-single-database-scale.md
-    - name: Créer et gérer des serveurs et des bases de données
-      href: sql-database-single-databases-manage.md
-    - name: Architecture de connectivité
-      href: sql-database-connectivity-architecture.md
-    - name: Différences de T-SQL
-      href: sql-database-transact-sql-information.md
   - name: Pools élastiques
     items:
     - name: Pools élastiques
@@ -223,7 +225,7 @@ items:
         href: sql-vulnerability-assessment.md
       - name: Détection de menaces
         href: sql-database-threat-detection-overview.md
-    - name: Règles de pare-feu
+    - name: Règles de pare-feu IP du serveur de base de données
       items:
       - name: Créer et gérer
         href: sql-database-firewall-configure.md
@@ -241,7 +243,7 @@ items:
       href: sql-database-aad-authentication.md
     - name: Audit
       items:
-      - name: Audit - Serveurs, pools et bases de données
+      - name: Audit - Bases de données uniques et pools élastiques
         href: sql-database-auditing.md
       - name: Audit - Instance managée
         href: sql-database-managed-instance-auditing.md
@@ -421,19 +423,19 @@ items:
         href: elastic-jobs-tsql.md
       - name: Migrer (à partir d’anciens travaux élastiques)
         href: elastic-jobs-migrate.md
-  - name: Instance gérée
+  - name: Instance managée
     items:
     - name: Vue d’ensemble
       href: sql-database-howto-managed-instance.md
-    - name: Migrer vers une instance gérée
+    - name: Migrer vers une instance managée
       href: sql-database-managed-instance-migrate.md
-    - name: Migrer un certificat TDE vers une instance gérée
+    - name: Migrer un certificat TDE vers une instance managée
       href: sql-database-managed-instance-migrate-tde-certificate.md
-    - name: Déterminer la taille du sous-réseau Managed Instance
+    - name: Déterminer la taille du sous-réseau d’instances managées
       href: sql-database-managed-instance-determine-size-vnet-subnet.md
-    - name: Créer un réseau virtuel et un sous-réseau pour Managed Instance
+    - name: Créer un réseau virtuel et un sous-réseau pour une instance managée
       href: sql-database-managed-instance-create-vnet-subnet.md
-    - name: Configurer un réseau virtuel et un sous-réseau existants pour Managed Instance
+    - name: Configurer un réseau virtuel et un sous-réseau existants pour une instance managée
       href: sql-database-managed-instance-configure-vnet-subnet.md
     - name: Configurer un système DNS personnalisé
       href: sql-database-managed-instance-custom-dns.md
@@ -662,6 +664,8 @@ items:
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Ressources
   items:
+  - name: Glossaire
+    href: sql-database-glossary-terms.md
   - name: Développer vos compétences avec Microsoft Learn
     href: /learn/browse/?products=azure-sql-database
   - name: Feuille de route Azure
@@ -700,9 +704,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Désinstaller une tâche élastique (déconseillé)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 0c34894ea3a09a4cd630938a045e0ab78681c10f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7530d0926cca2b89e532407d32e394e0b3018a60
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471026"
+ms.locfileid: "55512412"
