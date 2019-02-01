@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7392459f0b80558aac22bd585c0d30bf4105d76f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339931"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224443"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Prise en main du service Discours personnalisé
 
@@ -36,7 +36,7 @@ Vous pouvez télécharger une bibliothèque de client et un exemple via [SDK](ht
 ## <a name="creating-a-custom-acoustic-model"></a>Création d’un modèle acoustique personnalisé
 Pour personnaliser un modèle acoustique pour un domaine particulier, une collection de données vocales est nécessaire. Cette collection se compose d’un ensemble de fichiers audio de données vocales et d’un fichier texte de transcriptions pour chaque fichier audio. Les données audio doivent être représentatives du scénario où vous voulez utiliser le module de reconnaissance.
 
-Par exemple : si vous voulez mieux reconnaître la parole dans un environnement bruyant comme une usine, les fichiers audio doivent être constitués d’enregistrements de personnes parlant dans une usine bruyante.
+Par exemple :  Si vous voulez mieux reconnaître la parole dans un environnement bruyant comme une usine, les fichiers audio doivent être constitués d’enregistrements de personnes parlant dans une usine bruyante.
 Si vous vous intéressez à l’optimisation des performances pour un seul locuteur, vous pouvez par exemple transcrire tous les Fireside Chats de Franklin D. Roosevelt. Les fichiers audio doivent dans ce cas être constitués de nombreux exemples exclusivement de ce locuteur.
 
 Vous pouvez trouver une description détaillée de la marche à suivre pour créer un modèle acoustique personnalisé à [cette adresse](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md).

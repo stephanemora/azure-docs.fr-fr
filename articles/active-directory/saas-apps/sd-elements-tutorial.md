@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à SD Elements | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à SD Elements | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SD Elements.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: f0386307-bb3b-4810-8d4b-d0bfebda04f4
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 93f838ac846415de0f3caf14b36f4bdf36b241ee
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0081946ff62e42e1fb601b135c7102dd83e84fe3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814798"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158908"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Didacticiel : Intégration d'Azure Active Directory à SD Elements
+# <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Tutoriel : Intégration d'Azure Active Directory à SD Elements
 
 Dans ce didacticiel, vous allez apprendre à intégrer SD Elements avec Azure Active Directory (Azure AD).
 

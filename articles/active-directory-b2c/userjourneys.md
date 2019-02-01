@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: c6933a3d50807f38c0704f41dff7c9bcb3351949
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 5c63a838d6cffce5ca45dbf0dde50bb9bd01892c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850637"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171641"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -64,7 +64,7 @@ L’élément **OrchestrationSteps** contient les attributs suivants :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | Ordre | Oui | Ordre des étapes d’orchestration. | 
-| type | Oui | Type de l’étape d’orchestration. Valeurs possibles : <ul><li>**ClaimsProviderSelection** : indique que l’étape d’orchestration présente divers fournisseurs de revendications à l’utilisateur afin qu’il en sélectionne un.</li><li>**CombinedSignInAndSignUp** : indique que l’étape d’orchestration présente une page combinée d’inscription de compte local et de connexion au fournisseur d’identité sociale.</li><li>**ClaimsExchange** : indique que l’étape d’orchestration échange des revendications avec un fournisseur de revendications.</li><li>**SendClaims** : indique que l’étape d’orchestration envoie les revendications à la partie de confiance avec un jeton émis par un émetteur de revendications.</li></ul> | 
+| Type | Oui | Type de l’étape d’orchestration. Valeurs possibles : <ul><li>**ClaimsProviderSelection** : indique que l’étape d’orchestration présente divers fournisseurs de revendications à l’utilisateur afin qu’il en sélectionne un.</li><li>**CombinedSignInAndSignUp** : indique que l’étape d’orchestration présente une page combinée d’inscription de compte local et de connexion au fournisseur d’identité sociale.</li><li>**ClaimsExchange** : indique que l’étape d’orchestration échange des revendications avec un fournisseur de revendications.</li><li>**SendClaims** : indique que l’étape d’orchestration envoie les revendications à la partie de confiance avec un jeton émis par un émetteur de revendications.</li></ul> | 
 | ContentDefinitionReferenceId | Non  | Identificateur de la [définition de contenu](contentdefinitions.md) associée à cette étape d’orchestration. L’identificateur de référence de définition de contenu est généralement défini dans le profil technique autodéclaré, mais il existe certains cas où Azure AD B2C doit afficher quelque chose sans profil technique, par exemple si le type de l’étape d’orchestration est `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`. Azure AD B2C doit afficher la sélection du fournisseur d’identité sans avoir de profil technique. | 
 | CpimIssuerTechnicalProfileReferenceId | Non  | Le type de l’étape d’orchestration est `SendClaims`. Cette propriété définit l’identificateur de profil technique du fournisseur de revendications qui émet le jeton pour la partie de confiance.  Si elle est absente, aucun jeton de partie de confiance n’est créé. |
 
@@ -92,7 +92,7 @@ L’élément **Precondition** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| type | Oui | Type de vérification ou de requête à exécuter pour cette condition préalable. La valeur peut être **ClaimsExist**, qui indique que les actions doivent être effectuées si les revendications spécifiées existent dans le jeu de revendications actuel de l’utilisateur, ou **ClaimEquals**, qui indique que les actions doivent être effectuées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
+| Type | Oui | Type de vérification ou de requête à exécuter pour cette condition préalable. La valeur peut être **ClaimsExist**, qui indique que les actions doivent être effectuées si les revendications spécifiées existent dans le jeu de revendications actuel de l’utilisateur, ou **ClaimEquals**, qui indique que les actions doivent être effectuées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
 | ExecuteActionsIf | Oui | Utilisez un test true ou false pour décider si les actions mentionnées dans la condition préalable doivent être effectuées. | 
 
 L’élément **Precondition** contient les éléments suivants :

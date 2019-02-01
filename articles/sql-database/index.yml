@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0049468330a9fcb26f023de2a8adb5dfd1544321
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0f5c60b25ad305b9e76eebcc72639a596b407801
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436804"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457545"
 documentType: LandingData
 title: Documentation Azure SQL Database
 metadata:
@@ -15,10 +15,11 @@ metadata:
   author: CarlRabeler
   manager: craigg
   ms.service: sql-database
+  ms.subservice: service
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 07/07/2018
+  ms.date: 01/25/2019
   ms.author: carlrab
 abstract:
   description: Azure SQL Database est une base de données relationnelle en tant que service reposant sur la dernière version stable du moteur de base de données Microsoft SQL Server. SQL Database est une base de données hautes performances, fiable et sécurisée, que vous pouvez utiliser pour créer des applications et des sites web axés sur les données dans le langage de programmation de votre choix, sans avoir à gérer l’infrastructure. Découvrez comment utiliser SQL Database avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
@@ -54,7 +55,7 @@ sections:
         src: media/index/i_scale.svg
       title: Extensibilité
     - href: /azure/sql-database/sql-database-single-index
-      html: <p>Utilisez la base de données unique hébergée dans des serveurs logiques pour vos applications SaaS et microservices qui nécessitent une base de données unique avec des performances prévisibles.</p>
+      html: <p>Utilisez la base de données unique gérée par un serveur SQL Database pour vos applications SaaS et microservices qui nécessitent une base de données unique avec des performances prévisibles.</p>
       image:
         src: media/index/i_db.svg
       title: Base de données unique
@@ -82,7 +83,7 @@ sections:
       html: <p>Le réglage intelligent et la supervision intégrés permettent de réduire considérablement les coûts d’exécution et de gestion des bases de données et d’optimiser les performances de votre application.</p>
       image:
         src: media/index/i_intelligence.svg
-      title: Supervision et réglage
+      title: Analyse et réglage
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
@@ -103,36 +104,36 @@ sections:
         src: media/index/logo_arm.svg
       title: Modèle Azure Resource Manager
     rows:
-    - title: Créer une instance SQL Database unique
+    - title: Créer une base de données unique
       values:
       - href: /azure/sql-database/sql-database-get-started-portal
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: 
-    - title: Créer une instance SQL Database Managed Instance
+    - title: Créer une instance gérée
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
       - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
-    - title: Créer un pool élastique SQL
+    - title: Créer un pool élastique
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-    - title: Mettre à l’échelle une instance SQL Database unique
+    - title: Mettre à l’échelle une base de données unique
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
       - href: 
-    - title: Mettre à l’échelle un pool élastique SQL
+    - title: Mettre à l’échelle un pool élastique
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-    - title: Mettre à l’échelle une instance SQL Database Managed Instance
+    - title: Mettre à l’échelle une instance managée
       values:
       - href: 
       - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
@@ -144,14 +145,14 @@ sections:
       - href: 
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
-- title: Tutoriels pas à pas
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
-    text: Apprenez à créer, gérer et migrer des bases de données à l’aide de SQL DB
+    text: Découvrir comment créer, gérer et migrer des bases de données avec SQL Database
   - type: list
     style: ordered
     items:
-    - html: Créer et concevoir le schéma pour une nouvelle base de données SQL à l’aide de <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> ou de <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
+    - html: Créer et concevoir le schéma pour une nouvelle base de données unique à l’aide de <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> ou de <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Migrer une base de données existante vers Azure avec <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>, l’<a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Assistant Migration de base de données</a> ou <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Sécuriser votre base de données SQL</a>
     - html: Distribuer vos données à l’échelle mondiale avec la <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">base de données géodistribuée</a>
@@ -197,7 +198,7 @@ sections:
     items:
     - title: Ligne de commande
       html: <p><a href="/powershell/module/azurerm.sql/#sql">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (base de données élastique)</a></p><p><a href="/cli/azure/sql">Interface de ligne de commande Azure</a></p>
-    - title: Langues
+    - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.JS</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
     - title: REST
       html: <p><a href="/rest/api/sql/">Référence d’API REST</a></p>

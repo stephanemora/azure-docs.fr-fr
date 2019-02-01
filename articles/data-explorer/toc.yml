@@ -11,8 +11,10 @@ items:
     href: create-cluster-database-portal.md
   - name: Réception de données
     items:
-    - name: 'Diffusion en continu de données : Event Hub'
+    - name: 'Streaming des données : Event Hub'
       href: ingest-data-event-hub.md
+    - name: 'Streaming des données : Event Grid'
+      href: ingest-data-event-grid.md
     - name: 'Données de diffusion en continu : Kafka'
       href: ingest-data-kafka.md
     - name: 'Traitement par lots de données : Python'
@@ -118,9 +120,9 @@ items:
     href: http://aka.ms/adecostestimator
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 4d17e1bd16cbf14d377e40b042a1d28d53c193ed
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a3ebd0582761ed9f0ee69cb8eaed637e46049d4d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467245"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295455"

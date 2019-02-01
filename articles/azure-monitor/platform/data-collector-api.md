@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 01/28/2019
 ms.author: bwren
-ms.openlocfilehash: 674a26b9c8eb5fe8f44b416b5296b61c6678d2cd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186172"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211098"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Transmettre des données à Log Analytics avec l’API Collecteur de données HTTP (préversion publique)
 Cet article vous montre comment utiliser l’API Collecte de données HTTP pour transmettre des données à Log Analytics à partir d’un client API REST.  Il explique comment mettre en forme les données collectées par le script ou l’application, les inclure dans une requête et faire en sorte que Log Analytics autorise cette requête.  Il est illustré par des exemples pour PowerShell, C# et Python.
@@ -57,7 +57,7 @@ Pour utiliser l’API Collecte de données HTTP, il vous suffit de créer une re
 | En-tête | Description |
 |:--- |:--- |
 | Authorization |Signature de l’autorisation. Plus loin dans cet article, vous pouvez lire comment créer un en-tête HMAC-SHA256. |
-| Log-Type |Spécifiez le type d’enregistrement des données envoyées. Actuellement, le type de journal prend en charge uniquement des caractères alphabétiques. Il ne prend pas en charge les caractères numériques ou spéciaux. La taille limite pour ce paramètre est de 100 caractères. |
+| Log-Type |Spécifiez le type d’enregistrement des données envoyées. La taille limite pour ce paramètre est de 100 caractères. |
 | x-ms-date |Date à laquelle la requête a été traitée, au format RFC 1123. |
 | time-generated-field |Nom d’un champ de données qui contient l’horodateur de l’élément de données. Si vous spécifiez un champ, son contenu est utilisé pour **TimeGenerated**. Si ce champ n’est pas spécifié, la valeur par défaut de **TimeGenerated** est l’heure d’ingestion du message. Le contenu du champ de message doit suivre le format ISO 8601 AAAA-MM-JJThh:mm:ssZ. |
 

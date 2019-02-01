@@ -80,13 +80,13 @@ items:
       href: consistency-levels.md
     - name: Choisir le bon niveau de cohérence
       href: consistency-levels-choosing.md
-    - name: Niveaux de cohérence et API Cosmos DB
+    - name: Niveaux de cohérence et API Azure Cosmos DB
       href: consistency-levels-across-apis.md
     - name: Cohérence, disponibilité et compromis sur les performances
       href: consistency-levels-tradeoffs.md
     - name: Haute disponibilité
       href: high-availability.md
-    - name: Mise à l’échelle du débit provisionné au niveau global
+    - name: Mettre à l’échelle le débit provisionné au niveau global
       href: scaling-throughput.md
     - name: Types de conflits et stratégies de résolution
       href: conflict-resolution-policies.md
@@ -98,9 +98,9 @@ items:
     items:
     - name: Vue d’ensemble
       href: partitioning-overview.md
-    - name: Partitions logiques
+    - name: Partitionnement et mise à l’échelle horizontale
       href: partition-data.md
-    - name: Création d’une clé de partition synthétique
+    - name: Créer une clé de partition synthétique
       href: synthetic-partition-keys.md
   - name: Débit approvisionné
     items:
@@ -108,11 +108,11 @@ items:
       href: request-units.md
     - name: Approvisionner le débit sur les conteneurs et les bases de données
       href: set-throughput.md
-  - name: Utilisation d’un compte Azure Cosmos
+  - name: Utiliser un compte Azure Cosmos
     href: account-overview.md
   - name: Conteneurs et éléments
     items:
-    - name: Utilisation de bases de données, de conteneurs et d’éléments
+    - name: Utiliser des bases de données, des conteneurs et des éléments
       href: databases-containers-items.md
     - name: Référence sur le langage SQL
       href: sql-api-query-reference.md
@@ -122,7 +122,7 @@ items:
       items:
       - name: Vue d’ensemble
         href: index-overview.md
-      - name: Stratégie d’indexation
+      - name: Stratégie d’index
         href: index-policy.md
       - name: Types d’index
         href: index-types.md
@@ -136,17 +136,17 @@ items:
         href: read-change-feed.md
       - name: Processeur de flux de modification
         href: change-feed-processor.md
-      - name: Flux de modification avec Azure Functions
+      - name: Déclencher Azure Functions
         href: change-feed-functions.md
     - name: Durée de vie
       href: time-to-live.md
     - name: Contraintes de clés uniques
       href: unique-keys.md
-    - name: Transactions et accès concurrentiel optimiste
+    - name: Transactions et contrôle d’accès concurrentiel optimiste
       href: database-transactions-optimistic-concurrency.md
   - name: Programmation côté serveur
     items:
-    - name: Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
+    - name: procédures stockées, déclencheurs et fonctions définies par l'utilisateur
       href: stored-procedures-triggers-udfs.md
     - name: API de requête JavaScript
       href: javascript-query-api.md
@@ -166,11 +166,11 @@ items:
       href: optimize-cost-storage.md
     - name: Optimiser le coût des lectures et des écritures
       href: optimize-cost-reads-writes.md
-    - name: Optimiser le coût multi-région
+    - name: Optimiser le coût multirégion
       href: optimize-cost-regions.md
-    - name: Optimiser vos charges de travail de développement/test
+    - name: Optimiser le coût de développement/test
       href: optimize-dev-test.md
-    - name: Optimiser avec la capacité réservée
+    - name: Optimiser le coût avec une capacité réservée
       href: cosmos-db-reserved-capacity.md
   - name: Sécurité
     items:
@@ -186,7 +186,7 @@ items:
       href: vnet-service-endpoint.md
   - name: Préparation pour l’entreprise
     items:
-    - name: Sauvegarde et restauration en ligne
+    - name: Sauvegarde en ligne et restauration à la demande
       href: online-backup-and-restore.md
     - name: Conformité
       href: compliance.md
@@ -254,17 +254,9 @@ items:
       items:
       - name: Régler les performances des requêtes
         href: sql-api-query-metrics.md
-      - name: Programmation côté serveur
-        items:
-        - name: Écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur
-          href: how-to-write-stored-procedures-triggers-udfs.md
-        - name: Écrire des procédures stockées et des déclencheurs avec l’API de requête JavaScript
-          href: how-to-write-javascript-query-api.md
-        - name: Utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur
-          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: Types de données
         items:
-        - name: Datetime
+        - name: DateTime
           href: working-with-dates.md
         - name: Géospatial
           href: geospatial.md
@@ -337,7 +329,7 @@ items:
         - name: Node.js et application React
           href: tutorial-develop-mongodb-react.md
       - name: 2 - Migrer les données
-        href: mongodb-migrate.md
+        href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 - Interroger les données
         href: tutorial-query-mongodb.md
       - name: 4 - Distribuer les données globalement
@@ -467,19 +459,19 @@ items:
   expanded: true
 - name: Procédures
   items:
-  - name: Gérer un compte de base de données
+  - name: Gérer un compte Azure Cosmos
     href: how-to-manage-database-account.md
   - name: Diffusion mondiale
     items:
-    - name: Gérer la cohérence
+    - name: Gérer des niveaux de cohérence
       href: how-to-manage-consistency.md
-    - name: Gérer les conflits
+    - name: Configurer des stratégies de résolution de conflits
       href: how-to-manage-conflicts.md
   - name: Débit approvisionné
     items:
-    - name: Approvisionner le débit d’un conteneur
+    - name: Provisionner le débit sur un conteneur
       href: how-to-provision-container-throughput.md
-    - name: Approvisionner le débit d’une base de données
+    - name: Provisionner le débit sur une base de données
       href: how-to-provision-database-throughput.md
   - name: Utilisation des conteneurs et des éléments
     items:
@@ -489,10 +481,22 @@ items:
       href: how-to-query-container.md
     - name: Configurer la durée de vie
       href: how-to-time-to-live.md
+    - name: Utiliser des données à l’aide de l’Explorateur Stockage Azure
+      href: storage-explorer.md
+    - name: Utiliser des données à l’aide d’Azure Cosmos Explorer
+      href: data-explorer.md
     - name: Indexation
       items:
-      - name: Configurer l’indexation
+      - name: Gérer l’indexation
         href: how-to-manage-indexing-policy.md
+  - name: Programmation côté serveur
+    items:
+    - name: Écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur
+      href: how-to-write-stored-procedures-triggers-udfs.md
+    - name: Écrire des procédures stockées et des déclencheurs avec l’API de requête JavaScript
+      href: how-to-write-javascript-query-api.md
+    - name: Utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur
+      href: how-to-use-stored-procedures-triggers-udfs.md
   - name: Sécurité
     items:
     - name: Configurer le pare-feu IP
@@ -501,22 +505,18 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: Configurer le partage de ressources cross-origin (CORS)
       href: how-to-configure-cross-origin-resource-sharing.md
-    - name: Sécuriser avec Key Vault
+    - name: Sécuriser les clés Azure Cosmos à l’aide de Key Vault
       href: access-secrets-from-keyvault.md
   - name: Préparation pour l’entreprise
     items:
     - name: Restauration des données à partir d’une sauvegarde
       href: how-to-backup-and-restore.md
-  - name: gérer
+  - name: Gérer les ressources Azure Cosmos DB
     items:
     - name: Gérer à l’aide de PowerShell
       href: manage-account-with-powershell.md
     - name: Gérer à l’aide d’Azure CLI
       href: manage-with-cli.md
-    - name: Gérer l’utilisation de l’Explorateur Stockage
-      href: storage-explorer.md
-    - name: Gérer l’utilisation de l’explorateur de données
-      href: data-explorer.md
   - name: Journalisation
     items:
     - name: Journalisation de diagnostic
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: Applications de réseaux sociaux
       href: social-media-apps.md
-ms.openlocfilehash: 72d6169090749f81025dabed2b919e6c0a1dc70f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2fdf08837bc239ba10da85fad7b81c819b9f26fc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094476"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511919"
