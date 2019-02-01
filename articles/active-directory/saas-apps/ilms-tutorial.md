@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à iLMS | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à iLMS | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iLMS.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: d6e11639-6cea-48c9-b008-246cf686e726
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 7a533c4428169a219b131247a044632e614868e9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0a1de782b3b4502107c14282bdd4ce5ef2caa871
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814883"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165912"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Tutoriel : Intégration d'Azure Active Directory à iLMS
+# <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Didacticiel : Intégration d'Azure Active Directory à iLMS
 
 Dans ce didacticiel, vous allez apprendre à intégrer iLMS dans Azure Active Directory (Azure AD).
 

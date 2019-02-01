@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08335f676437a32aa2240298be4680633eff16ba
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.lastreviewed: 09/05/2018
+ms.openlocfilehash: 0fed6751d326c5da4431e953f7ded9c12688871f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432968"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250042"
 ---
 # <a name="back-up-azure-stack"></a>Sauvegarde d’Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Effectuez une sauvegarde à la demande sur Azure Stack avec la sauvegarde en place. Pour obtenir des instructions sur la configuration de l’environnement PowerShell, consultez [Installer PowerShell pour Azure Stack](azure-stack-powershell-install.md). Pour vous connecter à Azure Stack, consultez [Utilisation du portail administrateur dans Azure Stack](azure-stack-manage-portals.md).
 

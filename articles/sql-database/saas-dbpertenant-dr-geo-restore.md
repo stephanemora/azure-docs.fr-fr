@@ -12,16 +12,16 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d430a9f1ddec785d236f2501178bd3c7d493f716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264748"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470590"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utiliser la géorestauration pour récupérer une application SaaS multilocataire à partir de sauvegardes de bases de données
 
-Ce e didacticiel examine un scénario complet de récupération d’urgence pour une application SaaS multilocataire implémentée avec le modèle de base de données par locataire. Vous utilisez la [géorestauration](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups) pour récupérer les bases de données de catalogue et de locataire à partir de sauvegardes géoredondantes automatiquement conservées dans une autre région de récupération. Une fois la panne résolue, vous utilisez la [géoréplication](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) pour rapatrier les bases de données modifiées dans leur région d’origine.
+Ce e didacticiel examine un scénario complet de récupération d’urgence pour une application SaaS multilocataire implémentée avec le modèle de base de données par locataire. Vous utilisez la [géorestauration](sql-database-recovery-using-backups.md) pour récupérer les bases de données de catalogue et de locataire à partir de sauvegardes géoredondantes automatiquement conservées dans une autre région de récupération. Une fois la panne résolue, vous utilisez la [géoréplication](sql-database-geo-replication-overview.md) pour rapatrier les bases de données modifiées dans leur région d’origine.
 
 ![Architecture de géorestauration](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -63,12 +63,12 @@ La récupération d’urgence est un élément important à prendre en compte po
 Ce didacticiel utilise les fonctionnalités d’Azure SQL Database et la plateforme Azure pour effectuer ces tâches :
 
 * [Modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) pour réserver toute la capacité nécessaire aussi rapidement que possible. Les modèles Azure Resource Manager sont utilisés pour provisionner une image miroir des serveurs et pools élastiques d’origine dans la région de récupération. Un serveur et un pool distincts sont également créés pour le provisionnement de nouveaux locataires.
-* [Bibliothèque cliente de base de données élastique](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL) pour créer et tenir à jour un catalogue de bases de données de locataire. Le catalogue augmenté inclut des informations de configuration de pool et de base de données régulièrement actualisées.
-* [Fonctionnalités de récupération de gestion de partition](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) de l’EDCL pour tenir à jour les entrées d’emplacement de base de données dans le catalogue pendant la récupération et le rapatriement.  
-* [Géorestauration](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery) pour récupérer les bases de données de catalogue et de locataire à partir de sauvegardes géoredondantes automatiquement conservées. 
+* [Bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md) (EDCL) pour créer et tenir à jour un catalogue de bases de données de locataire. Le catalogue augmenté inclut des informations de configuration de pool et de base de données régulièrement actualisées.
+* [Fonctionnalités de récupération de gestion de partition](sql-database-elastic-database-recovery-manager.md) de l’EDCL pour tenir à jour les entrées d’emplacement de base de données dans le catalogue pendant la récupération et le rapatriement.  
+* [Géorestauration](sql-database-disaster-recovery.md) pour récupérer les bases de données de catalogue et de locataire à partir de sauvegardes géoredondantes automatiquement conservées. 
 * [Opérations de restauration asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) envoyées dans l’ordre de priorité des locataires, lesquels sont mis en file d’attente pour chaque pool par le système et traités par lots pour que le pool ne soit pas surchargé. Ces opérations peuvent être annulées avant ou pendant l’exécution si nécessaire.   
-* [Géoréplication](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) pour rapatrier les bases de données dans leur région d’origine après la panne. L’utilisation de la géoréplication garantit l’absence de perte de données et un impact minimal sur le locataire.
-* [Alias DNS du serveur SQL](https://docs.microsoft.com/azure/sql-database/dns-alias-overview) pour permettre au processus de synchronisation de catalogue de se connecter au catalogue actif, quel que soit son emplacement.  
+* [Géoréplication](sql-database-geo-replication-overview.md) pour rapatrier les bases de données dans leur région d’origine après la panne. L’utilisation de la géoréplication garantit l’absence de perte de données et un impact minimal sur le locataire.
+* [Alias DNS du serveur SQL](dns-alias-overview.md) pour permettre au processus de synchronisation de catalogue de se connecter au catalogue actif, quel que soit son emplacement.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obtenir des scripts de récupération d’urgence
 
@@ -378,4 +378,4 @@ Intéressez-vous au didacticiel [Reprise d’activité pour une application SaaS
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-[Autres didacticiels reposant sur l’application SaaS Wingtip](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+[Autres didacticiels reposant sur l’application SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

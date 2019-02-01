@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ed4bed77267790b10b44486f0e9c8242fe952cd8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601965"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207409"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Tester votre application LUIS dans le portail LUIS
 <a name="train-your-app"></a>
@@ -26,6 +26,7 @@ ms.locfileid: "53601965"
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
 ## <a name="test-an-utterance"></a>Tester un énoncé
 
 1. Accédez à votre application en sélectionnant son nom dans la page **My Apps** (Mes applications). 
@@ -40,13 +41,8 @@ ms.locfileid: "53601965"
 
     ![Le test interactif identifie l’intention incorrecte](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="clear-test-panel"></a>Effacer le panneau Test
-Pour effacer tous les énoncés de test entrés et leurs résultats de la console de test, sélectionnez **Recommencer** dans l’angle supérieur gauche du **panneau Test**. 
-
-## <a name="close-test-panel"></a>Fermer le panneau Test
-Pour fermer le panneau **Test**, sélectionnez le bouton **Test** à nouveau.
-
 ## <a name="inspect-score"></a>Inspecter le score
+
 Vous inspectez les détails du résultat du test dans le panneau **Inspecter**. 
  
 1. Avec le panneau déroulant **Test** ouvert, sélectionnez **Inspecter** pour consulter un énoncé à comparer. 
@@ -72,9 +68,11 @@ Si **Analyse des sentiments** est configurée sur la page **[Publier](luis-how-t
 ![Image du panneau Test avec l’analyse des sentiments](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Corriger l’intention du modèle mis en correspondance
+
 Si vous utilisez [Modèles](luis-concept-patterns.md) et si l’énoncé a été mis en correspondance avec un modèle, mais que l’intention prédite est incorrecte, sélectionnez le lien **Modifier** en regard du modèle, puis sélectionnez l’intention correcte.
 
 ## <a name="compare-with-published-version"></a>Comparer avec la version publiée
+
 Vous pouvez tester la version active de votre application avec la version de [point de terminaison](luis-glossary.md#endpoint) publiée. Dans le panneau **Inspecter**, sélectionnez **Comparer avec la version publiée**. Tout test exécuté sur le modèle publié est déduit du solde de votre quota d’abonnement Azure. 
 
 ![Comparer avec la version publiée](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
@@ -88,12 +86,14 @@ Vous pouvez afficher le JSON de point de terminaison retourné pour la comparais
 ## <a name="additional-settings-in-test-panel"></a>Paramètres supplémentaires dans le panneau de test
 
 ### <a name="luis-endpoint"></a>Point de terminaison LUIS
+
 Si vous avez plusieurs points de terminaison LUIS, utilisez le lien **Paramètres supplémentaires** dans le panneau Test publié pour modifier le point de terminaison utilisé pour le test. Si vous ne savez pas quel point de terminaison utiliser, sélectionnez la valeur par défaut **Starter_Key**. 
 
 ![Panneau de test avec le lien Paramètres supplémentaires mis en surbrillance](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Afficher les corrections de la Vérification orthographique Bing dans le panneau de test
+
 Configuration requise pour afficher les corrections orthographiques : 
 
 * Application publiée
@@ -124,6 +124,7 @@ Utilisez la procédure suivante pour inclure le service [Vérification orthograp
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="batch-testing"></a>Test par lot
 Consultez les [concepts](luis-concept-batch-test.md) du test par lot et apprenez [comment](luis-how-to-batch-test.md) tester un lot d’énoncés.
 

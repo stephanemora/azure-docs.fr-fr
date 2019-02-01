@@ -8,20 +8,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a0c351df535a1f2463c14a4719eac0e4c4896c2b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 42a32562eccc86d2516af14a529967a08108c94c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464202"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155287"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Expériences de connexion avec Azure AD Identity Protection
 Avec Azure Active Directory Identity Protection, vous pouvez :
@@ -57,18 +57,13 @@ Les administrateurs peuvent définir une stratégie qui impose aux utilisateurs 
 
 1. Dans la première étape, l’utilisateur reçoit une notification concernant la nécessité d’inscrire le compte à l’authentification multifacteur. 
    
-    ![Correction](./media/flows/301.png "Correction")
-
+    ![Correction](./media/flows/140.png "Correction")
 2. Pour configurer l’authentification multifacteur, vous devez indiquer au système comment vous souhaitez être contacté.
    
-    ![Correction](./media/flows/302.png "Correction")
-
-3. Fournissez au système votre numéro de téléphone et la façon dont vous voulez être contacté.
-
-    ![Correction](./media/flows/303.png "Correction")
-
-Pour terminer l’inscription, vous devez répondre à un appel téléphonique ou entrer un code. 
-
+    ![Correction](./media/flows/141.png "Correction")
+3. Le système vous envoie un défi et vous devez y répondre.
+   
+    ![Correction](./media/flows/142.png "Correction")
 
 ## <a name="risky-sign-in-recovery"></a>Récupération de connexion à risque
 Lorsqu’un administrateur a configuré une stratégie pour les risques à la connexion, les utilisateurs affectés sont avertis quand ils tentent de se connecter. 

@@ -6,20 +6,20 @@ author: swhite-msft
 manager: ehansen
 ms.assetid: BE2B2F8C-20B5-4E0B-AEC8-EAD505BA4C85
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 5742efb2dca02565735cf308d9ede9316ce6d12e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 76df0b44392a01fb83dfa6cf8075858c5aa560b8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314862"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193078"
 ---
 # <a name="your-first-images-search-query"></a>Votre première requête de recherche d’images
 
-Avant de passer votre premier appel d’API, vous devez obtenir une clé d’abonnement Recherche Bing Cognitive Services. Pour obtenir une clé, consultez [Essayer Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Avant de passer votre premier appel d’API, vous devez obtenir une clé d’abonnement Recherche Bing Cognitive Services. Pour obtenir une clé, consultez [Essayer Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Pour obtenir les résultats de la recherche d’images, vous devez envoyer une requête GET au point de terminaison suivant :  
   

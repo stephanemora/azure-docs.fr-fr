@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Yonyx Interactive Guides | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Yonyx Interactive Guides | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Yonyx Interactive Guides.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: daveba
 ms.reviewer: joflore
 ms.assetid: 07db4e01-319b-4cb6-9b93-4577bffd3cbc
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 3a5ac71b04c3984499638d2032a065f768b7fe95
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7585950da518072abc7202e0139d2d36b6695a83
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815019"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutoriel : Intégration d'Azure Active Directory à Yonyx Interactive Guides
 

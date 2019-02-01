@@ -6,16 +6,16 @@ services: cognitive-services
 author: wsturman
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: fdd22e14e0b7636dbc337a20dd69bf93696bb924
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b862975cda4a73d087d9aa0d5816fdcb9e0149dc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416278"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218004"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrer de la Reconnaissance vocale Bing vers le Service Speech
 
@@ -90,7 +90,7 @@ Pour la prise en charge du Service Speech, du Kit de développement logiciel (SD
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Essayer gratuitement le Service Speech](get-started.md)
-* [Démarrage rapide : reconnaissance vocale dans une application UWP à l’aide du Kit de développement logiciel (SDK) Speech](quickstart-csharp-uwp.md)
+* [Démarrage rapide : Reconnaissance vocale dans une application UWP à l’aide du kit SDK Speech](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Voir aussi
 * [Notes de publication du Service Speech](releasenotes.md)

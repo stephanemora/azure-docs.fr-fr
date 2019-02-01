@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2b10de83e00b3668f70461f76634c560bcbea1a4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b40ab6bcc2f718eda85ff64d69a6689e12d60ab8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133789"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094833"
 ---
 # <a name="scaling-media-processing"></a>Mise à l’échelle du traitement multimédia
 
@@ -32,13 +32,13 @@ Cet article explique comment utiliser [l’interface CLI Media Services v3](ht
 
 ## <a name="prerequisites"></a>Prérequis 
 
-- Installez et utilisez l’interface CLI localement. Vous devez disposer d’Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+[Créer un compte Media Services](create-account-cli-how-to.md).
 
-    Actuellement, les commandes [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) ne fonctionnent pas toutes dans Azure Cloud Shell. Il est recommandé d’utiliser l’interface CLI localement.
-
-- [Créer un compte Media Services](create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="scale-media-reserved-units-with-cli"></a>Mettre à l’échelle les unités réservées au multimédia avec l’interface CLI
+
+Exécutez la commande `mru`.
 
 La commande [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) suivante définit les unités réservées au multimédia sur le compte « amsaccount » à l’aide des paramètres **count** et **type**.
 

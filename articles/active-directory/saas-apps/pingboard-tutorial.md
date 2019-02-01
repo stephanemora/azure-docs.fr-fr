@@ -8,21 +8,21 @@ manager: daveba
 ms.reviewer: joflore
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 02aabb9260cb0140b61091a8002f70d464091ddd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2011458183944d9e645ec0f08327a38b545df343
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818113"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170281"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Didacticiel : Intégration d'Azure Active Directory à Pingboard
+# <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutoriel : Intégration d'Azure Active Directory à Pingboard
 
 Ce didacticiel explique comment intégrer Pingboard avec Azure Active Directory (Azure AD).
 

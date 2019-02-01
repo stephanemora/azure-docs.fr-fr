@@ -3,17 +3,17 @@ title: Recommandations en matière de réglage des performances d’Azure Data L
 description: Recommandations en matière de réglage des performances d’Azure Data Lake Storage Gen2 Storm
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 845bb739408cb38d823ae662e261d6955726d28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b242fca5a5a8490cc51222a6dd8b1ff1bb724417
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976402"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247906"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Recommandations en matière de réglage des performances pour Storm sur HDInsight et Azure Data Lake Storage Gen2
 

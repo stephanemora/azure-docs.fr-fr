@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 253934d450619ca67e429fbf396a5fed5b71a267
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b5f2bee7ab0277b94da699be486594a602b94a29
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081861"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241693"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Provisionner une instance Data Science Virtual Machine Linux CentOS dans Azure
 
@@ -154,7 +154,7 @@ Python 3.5 est installé dans */anaconda/envs/py35/bin*.
 
 Pour appeler la session interactive Python, tapez **python** dans l’interpréteur de commandes. Si vous travaillez sur une interface graphique ou que vous avez le programme d’installation du transfert X11, vous pouvez taper **pycharm** pour lancer l’IDE Python PyCharm.
 
-Pour installer des bibliothèques Python supplémentaires, vous devez exécuter la commande ```conda``` ou ````pip```` sous sudo et fournir le chemin d’accès complet du Gestionnaire de package Python (conda ou pip) pour installer l’environnement Python correct. Par exemple : 
+Pour installer des bibliothèques Python supplémentaires, vous devez exécuter la commande ```conda``` ou ```pip``` sous sudo et fournir le chemin d’accès complet du Gestionnaire de package Python (conda ou pip) pour installer l’environnement Python correct. Par exemple : 
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
@@ -198,7 +198,7 @@ Avant toute exécution dans le contexte Spark (dans Microsoft R Server), vous de
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Vous pouvez arrêter les services liés à Hadoop lorsque vous n’en avez pas besoin en exécutant ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````. Vous trouverez dans le répertoire `/dsvm/samples/MRS` un exemple montrant comment développer et tester MRS dans un contexte Spark distant (l’instance Spark autonome sur la DSVM). 
+Vous pouvez arrêter les services liés à Hadoop lorsque vous n’en avez pas besoin en exécutant ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```. Vous trouverez dans le répertoire `/dsvm/samples/MRS` un exemple montrant comment développer et tester MRS dans un contexte Spark distant (l’instance Spark autonome sur la DSVM). 
 
 ### <a name="ides-and-editors"></a>IDE et éditeurs
 Vous avez le choix entre plusieurs éditeurs de code, notamment vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse et IntelliJ. gEdit, Eclipse, IntelliJ, RStudio et PyCharm sont des éditeurs graphiques dont l’utilisation nécessite que vous soyez connecté à un bureau graphique. Des raccourcis de menu d’applications et bureau pour permettent de lancer ces éditeurs.

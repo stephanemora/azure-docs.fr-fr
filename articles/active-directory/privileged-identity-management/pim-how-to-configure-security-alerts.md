@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 0231eaad26fbc3e7157999c0023c5001f37d70d5
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 7b419be7327403d3ee0f6fad38da58fab72ddc10
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063283"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156392"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurer des alertes de sécurité pour les rôles d’annuaire Azure AD dans PIM
 
@@ -31,7 +31,7 @@ Azure AD Privileged Identity Management (PIM) génère des alertes en cas d’ac
 Cette section répertorie toutes les alertes de sécurité pour les rôles d’annuaire, et explique comment les corriger et les éviter. Le terme Gravité revêt les significations suivantes :
 
 * **Haute** : nécessite une action immédiate, car il s’agit d’une violation de stratégie.
-* **Moyen** : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
+* **Moyenne** : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
 * **Faible** : ne nécessite pas d’action immédiate, mais suggère de préférence une modification de la stratégie.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Les administrateurs n’utilisent pas leurs rôles privilégiés

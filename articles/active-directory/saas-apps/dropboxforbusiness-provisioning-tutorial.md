@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer Dropbox pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Dropbox pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Dropbox for Business.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: 0f3a42e4-6897-4234-af84-b47c148ec3e1
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ae85b31e85ecc0f0df6500bc7cfda1719537f02
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 31b7d64e98c67cab8fea92a709a1452c1798a749
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814187"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203740"
 ---
-# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutoriel : Configurer Dropbox for Business pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Didacticiel : Configurer Dropbox for Business pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Dropbox for Business et Azure AD permettant d’approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Dropbox for Business.
 

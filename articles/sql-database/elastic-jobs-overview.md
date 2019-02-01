@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/22/2018
-ms.openlocfilehash: d8af5e3919b731677b40726c37462832adc06677
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ee9e9389962cd454f9861e561dd76c96d019a1f0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449093"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469331"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Créer, configurer et gérer des travaux élastiques
 
@@ -34,7 +34,7 @@ Dans cet article, vous allez apprendre à créer, configurer et gérer des trava
 
 1. Créez des informations d’identification pour l’exécution de travaux dans la *base de données des travaux* à l’aide de [PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets) ou de [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
 2. Définissez le groupe cible (bases de données sur lesquelles exécuter le travail) à l’aide de [PowerShell](elastic-jobs-powershell.md#define-the-target-databases-you-want-to-run-the-job-against) ou de [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
-3. Créez des informations d’identification d’agent de travail dans chaque base de données sur laquelle le travail sera exécuté [(ajoutez l’utilisateur, ou le rôle, à chaque base de données dans le groupe)](https://docs.microsoft.com/azure/sql-database/sql-database-control-access). Pour obtenir un exemple, consultez le [tutoriel PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets).
+3. Créez des informations d’identification d’agent de travail dans chaque base de données sur laquelle le travail sera exécuté [(ajoutez l’utilisateur, ou le rôle, à chaque base de données dans le groupe)](sql-database-control-access.md). Pour obtenir un exemple, consultez le [tutoriel PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets).
 4. Créez un travail à l’aide de [PowerShell](elastic-jobs-powershell.md#create-a-job) ou de [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Ajoutez des étapes de travail à l’aide de [PowerShell](elastic-jobs-powershell.md#create-a-job-step) ou de [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 6. Exécutez un travail à l’aide de [PowerShell](elastic-jobs-powershell.md#run-the-job) ou de [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).

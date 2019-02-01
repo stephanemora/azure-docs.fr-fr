@@ -3,17 +3,17 @@ title: Configuration du cluster pour Hadoop, Spark, Kafka, HBase ou R Server - A
 description: Configurez Hadoop, Kafka, Spark, HBase, R Server ou les clusters Storm pour HDInsight à partir d’un navigateur, le CLI d’Azure, Azure PowerShell, REST ou le kit de développement logiciel.
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: 791598da593c25a135c05d72b6846053af3ff344
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a3c6474c6b1c27c3b413d98d86cdadbcb61e2040
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353853"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247287"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Démarrage rapide : Configurer des clusters dans HDInsight
 
@@ -142,7 +142,7 @@ Vous êtes facturé pour l’utilisation du nœud tant que le cluster existe. La
 
 Chaque type de cluster possède son propre nombre de nœuds, sa terminologie pour les nœuds et la taille de machine virtuelle par défaut. Dans le tableau suivant, les chiffres entre parenthèses correspondent au nombre de nœuds de chaque type.
 
-| type | Nœuds | Diagramme |
+| Type | Nœuds | Diagramme |
 | --- | --- | --- |
 | Hadoop |Nœud principal (2), nœud de données (1+) |![Nœuds de cluster Hadoop HDInsight](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-hadoop-cluster-type-nodes.png) |
 | hbase |Serveur principal (2), serveur de région (1+), nœud principal/ZooKeeper (3) |![Nœuds de cluster HDInsight HBase](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-hbase-cluster-type-setup.png) |

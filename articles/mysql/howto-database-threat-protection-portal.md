@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: 12497f6a5173e2e4ea9c919fb6500c34f85749fa
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: 76f6c15fc1e186e254c4edbb53a2a0ccf7050b3e
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534738"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912746"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Protection avancée contre les menaces d’Azure Database pour MySQL
 
@@ -22,6 +22,9 @@ La protection avancée contre les menaces fait partie de l’offre Advanced Data
 > [!NOTE]
 > La fonctionnalité Advanced Threat Protection **n’est pas** disponible dans les régions administratives et souveraines suivantes du cloud Azure : US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginie, US DoD Est, US DoD Central, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.
 >
+
+> [!NOTE]
+> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL est déployé, pour les serveurs à usage général et à mémoire optimisée.
 
 ## <a name="set-up-threat-detection"></a>Configurer la détection des menaces
 1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).

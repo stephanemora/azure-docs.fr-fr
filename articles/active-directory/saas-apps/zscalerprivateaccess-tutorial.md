@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Zscaler Private Access (ZPA) | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Zscaler Private Access (ZPA) | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler Private Access (ZPA).
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: 83711115-1c4f-4dd7-907b-3da24b37c89e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 5610316fdadb9a169c90e7e7761d9ddd2a74dcbe
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8d150a91a00652d5af74253dfdf60eb728db97b5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54819116"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192826"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutoriel : Intégration d'Azure Active Directory à Zscaler Private Access (ZPA)
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Didacticiel : Intégration d'Azure Active Directory à Zscaler Private Access (ZPA)
 
 Dans ce didacticiel, vous allez apprendre à intégrer Zscaler Private Access (ZPA) à Azure Active Directory (Azure AD).
 

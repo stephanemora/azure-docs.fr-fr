@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471818"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467439"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
 
@@ -108,7 +108,7 @@ Quant aux niveaux Standard plus courants, **S1-S3** offrent des niveaux de capac
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| Taille de partition|  25 Go | 100 Go | 250 Go |  |  |  |  |
+| Taille de partition|  25 Go | 100 Go | 200 Go |  |  |  |  |
 | Limites d’index et d’indexeur| 50 | 200 | 200 |  |  |  |  |
 
 **S1** est un choix courant quand les ressources dédiées et les partitions multiples deviennent une nécessité. Avec des partitions de 25 Go pour 12 partitions maximum, la limite par service avec **S1** est de 300 Go au total si vous optimisez les partitions sur les réplicas (pour obtenir des compositions plus équilibrées, consultez [Allouer des partitions et des réplicas](search-capacity-planning.md#chart)).

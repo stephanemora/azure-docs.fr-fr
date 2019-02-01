@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 1fd8a940-7320-47e0-a176-2dd4eeca6db2
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e954d8535b5ac78da2066af5c97afac12c09319
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 37c2374738cbebceb11dbaeb973c6713c87ff4b0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789413"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150646"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutoriel : Intégration d'Azure Active Directory à Zscaler Two
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutoriel : Intégration d'Azure Active Directory à Zscaler Two
 
 L’objectif de ce didacticiel est de montrer comment intégrer Zscaler Two à Azure Active Directory (Azure AD).
 
@@ -168,7 +168,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Cliquez sur **Configure SAML**.
 
-11. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit et cliquez sur Enregistrer.  
+11. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit, puis cliquez sur Enregistrer.  
             
     ![Gérer les utilisateurs et l’authentification](./media/zscaler-two-tutorial/ic800208.png "Gérer les utilisateurs et l’authentification")
     
@@ -274,15 +274,15 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][202]
 
-4. Cliquez sur le bouton **Ajouter**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+4. Cliquez sur le bouton **Ajouter**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez un utilisateur tel que **Britta Simon** dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l'écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez l’utilisateur tel que **Britta Simon** dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
     ![image](./media/zscaler-two-tutorial/tutorial_zscalertwo_users.png)
 
-6. Dans la boîte de dialogue **Sélectionner un rôle**, choisissez le rôle d'utilisateur approprié dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l'écran.
+6. Dans la boîte de dialogue **Sélectionner un rôle**, choisissez le rôle d’utilisateur approprié dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
     ![image](./media/zscaler-two-tutorial/tutorial_zscalertwo_roles.png)
 

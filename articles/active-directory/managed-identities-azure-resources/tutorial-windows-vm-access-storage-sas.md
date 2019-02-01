@@ -3,23 +3,23 @@ title: Utiliser une identité managée affectée par le système de machine virt
 description: Tutoriel montrant comment utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure en utilisant des informations d’identification SAP au lieu d’une clé d’accès au compte de stockage.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
-ms.author: daveba
-ms.openlocfilehash: 6997812565e5e797e65d8e833a7f0f83db593923
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.date: 01/24/2019
+ms.author: priyamo
+ms.openlocfilehash: dc5d7b6d1047a3da2977f1d80c99e12d559a152d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423882"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184034"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutoriel : Utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure avec des informations d’identification SAP
 
@@ -37,6 +37,8 @@ Une SAP de service offre la possibilité d’accorder un accès limité à des o
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage. 
 
@@ -150,17 +152,17 @@ PS C:\> $sasCred
 sv=2015-04-05&sr=c&spr=https&se=2017-09-23T00%3A00%3A00Z&sp=rcw&sig=JVhIWG48nmxqhTIuN0uiFBppdzhwHdehdYan1W%2F4O0E%3D
 ```
 
-Nous créons ensuite un fichier appelé « test.txt ». Ensuite, utilisez les informations d’identification SAP pour vous authentifier à l’aide de l’applet de commande `New-AzureStorageContent`, charger le fichier dans notre conteneur d’objets blob, puis télécharger le fichier.
+Nous créons ensuite un fichier appelé « test.txt ». Ensuite, utilisez les informations d’identification SAP pour vous authentifier à l’aide de l’applet de commande `New-AzStorageContent`, charger le fichier dans notre conteneur d’objets blob, puis télécharger le fichier.
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-Veillez à installer au préalable les applets de commande de Stockage Azure à l’aide de la commande `Install-Module Azure.Storage`. Vous pouvez charger l’objet blob que vous venez de créer à l’aide de l’applet de commande PowerShell `Set-AzureStorageBlobContent`:
+Veillez à installer au préalable les applets de commande de Stockage Azure à l’aide de la commande `Install-Module Azure.Storage`. Vous pouvez charger l’objet blob que vous venez de créer à l’aide de l’applet de commande PowerShell `Set-AzStorageBlobContent`:
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
-Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
+$ctx = New-AzStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
+Set-AzStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
 ```
 
 Réponse :
@@ -177,10 +179,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-Vous pouvez également télécharger l’objet blob que vous venez de charger, à l’aide de l’applet de commande PowerShell `Get-AzureStorageBlobContent` :
+Vous pouvez également télécharger l’objet blob que vous venez de charger, à l’aide de l’applet de commande PowerShell `Get-AzStorageBlobContent` :
 
 ```powershell
-Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
+Get-AzStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
 Réponse :

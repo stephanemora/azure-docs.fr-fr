@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2fde653c6520b743990ae837f1553004793fefa2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 50210ebeed30bdb58698d0e878667b92dcc73609
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470696"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167085"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Office 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les fonctionnalités multigéographiques dans Office 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Office 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
@@ -31,7 +31,7 @@ Par défaut, les ressources Office 365 des utilisateurs se trouvent dans la mêm
 L’attribut **preferredDataLocation** vous permet de définir la zone géographique d’un utilisateur. Il est possible de mettre les ressources Office 365 de l’utilisateur, par exemple la boîte aux lettres et OneDrive, dans la même zone géographique que l’utilisateur, tout en conservant un seul locataire pour l’organisation.
 
 > [!IMPORTANT]
-> La fonctionnalité Zones géographiques multiples est actuellement disponible pour les clients avec au moins 5 000 abonnements aux services Office 365. Pour plus d’informations, adressez-vous à votre représentant Microsoft.
+> La fonctionnalité Zones géographiques multiples est actuellement disponible pour les clients avec au moins 2 500 abonnements aux services Office 365. Pour plus d’informations, adressez-vous à votre représentant Microsoft.
 >
 >
 
@@ -53,7 +53,7 @@ Voici les zones géographiques Office 365 disponibles pour les fonctionnalités 
 | États-Unis | NAM |
 
 * Si une zone géographique, par exemple l’Amérique du Sud, n’apparaît pas dans ce tableau, c’est qu’elle n’est pas utilisable pour les fonctionnalités multigéographiques.
-* La zone géographique Inde n’est accessible qu’aux clients dont l’adresse de facturation et la licence achetée correspondent à cette zone géographique.
+
 * Toutes les charges de travail Office 365 ne prennent pas en charge l’utilisation du paramètre de zone géographique des utilisateurs.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Prise en charge d’Azure AD Connect pour la synchronisation

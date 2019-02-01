@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: ac5ba80740c47dd71a30bb20aab4a54829eac822
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 58830e3391cb6f794cfd8911e97b0c6dbb3cd2c1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53597798"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193639"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurer votre expérience de Recherche personnalisée Bing
 
@@ -94,10 +94,10 @@ Le portail vous permet d’ajuster le classement de contenu de la recherche à p
 
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Block (Bloquer)      | Déplace le domaine, la sous-page ou la page Web dans la liste des éléments bloqués. Bing exclut le contenu du site sélectionné de l’affichage dans les résultats de recherche.                    |
+| Block      | Déplace le domaine, la sous-page ou la page Web dans la liste des éléments bloqués. Bing exclut le contenu du site sélectionné de l’affichage dans les résultats de recherche.                    |
 | Boost (Promouvoir)      | Promeut le contenu du domaine ou de la sous-page à un niveau supérieur dans les résultats de recherche.                                                                                        |
-| Demote (Rétrograder)     | Rétrograde le contenu du domaine ou de la sous-page à un niveau inférieur dans les résultats de recherche. Vous choisissez s’il faut rétrograder le contenu issu de la sous-page ou du domaine auquel la page Web appartient. |
-| Pin to top (Épingler en haut) | Déplace le domaine, la sous-page ou la page web vers la liste des éléments **épinglés**. Cela force l’affichage de la page web en tant que premier résultat de recherche pour une requête de recherche donnée.                   |
+| Demote (Rétrograder)     | Rétrograde le contenu du domaine ou de la page secondaire à un niveau inférieur dans les résultats de recherche. Vous choisissez s’il faut rétrograder le contenu issu de la sous-page ou du domaine auquel la page Web appartient. |
+| Épingler en haut | Déplace le domaine, la sous-page ou la page web vers la liste des éléments **épinglés**. Cela force l’affichage de la page web en tant que premier résultat de recherche pour une requête de recherche donnée.                   |
 
 L’ajustement du classement n’est pas disponible pour les recherches d’images ou de vidéos.
 
@@ -133,7 +133,7 @@ Par défaut, des pages web ne sont épinglées en tête des résultats de recher
 |---------------|----------------------------------------------------------------------------------|
 | Starts With (Commence par) | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur commence par la chaîne de requête de l’épingle. |
 | Ends with (Se termine par)   | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur se termine par la chaîne de requête de l’épingle.  |
-| Contains (Contient)    | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur contient la chaîne de requête de l’épingle.   |
+| Contains    | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur contient la chaîne de requête de l’épingle.   |
 
 
 Pour modifier la condition de correspondance de l’épingle, cliquez sur l’icône de modification de l’épingle. Dans la colonne **Query match condition** (Condition de correspondance de la requête), cliquez sur la liste déroulante, puis sélectionnez la nouvelle condition à utiliser. Ensuite, cliquez sur l’icône d’enregistrement pour enregistrer les modifications.

@@ -3,19 +3,19 @@ title: Inscription convergée pour la SSPR et la MFA Azure AD (préversion publi
 description: Authentification multifacteur et inscription à la réinitialisation de mot de passe en libre-service Azure AD (préversion publique)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 192b88623d2f85efd619e26d51f35b4797706761
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4080fe07f6624c96f6385492268042f6401f3694
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433745"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472675"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Inscription convergée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure (préversion publique)
 
@@ -74,8 +74,6 @@ Sur cette page, les utilisateurs peuvent voir les méthodes d’authentification
 Les journaux d’audit de cette nouvelle expérience existent sous la catégorie Méthodes d’authentification du journal d’audit.  
 
 ## <a name="known-issues"></a>Problèmes connus
-
-Nous avons identifié un bogue avec l’inscription convergée. Les utilisateurs invités B2B qui sont activés pour l’inscription convergée ne peuvent pas s’enregistrer pour l’authentification multifacteur. Quand ils sont dirigés vers la page d’inscription, la page rencontre une erreur. Nos développeurs sont conscients de ce problème et travaillent à sa résolution. Pour l’instant, nous vous recommandons de créer un groupe et d’exclure tous les utilisateurs B2B de ce groupe.
 
 **La méthode MFA par défaut est définie sur « Appel téléphonique » lorsqu’un utilisateur a inscrit un numéro de téléphone à l’aide d’un SMS**
 

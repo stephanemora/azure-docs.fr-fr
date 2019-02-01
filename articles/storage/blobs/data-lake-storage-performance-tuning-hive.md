@@ -3,17 +3,17 @@ title: Recommandations en matière de réglage des performances Hive d’Azure D
 description: Recommandations en matière de réglage des performances Hive d’Azure Data Lake Storage Gen2
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 90982491ecd64ff707bc47d71f374668ed74eb38
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07be781c917a466b67580a99490eca4f6ff29985
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976437"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239789"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Recommandations en matière de réglage des performances pour Hive sur HDInsight et Azure Data Lake Storage Gen2
 
@@ -25,7 +25,7 @@ Les paramètres par défaut ont été définis de manière à offrir de bonnes p
 * **Un compte Data Lake Storage Gen2**. Pour obtenir des instructions afin d’en créer un, consultez [Démarrage rapide : Créer un compte de stockage Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
 * **Cluster Azure HDInsight** avec accès à un compte Data Lake Storage Gen2.
 * **Exécution de Hive sur HDInsight**.  Pour en savoir plus sur l’exécution de travaux Hive sur HDInsight, voir [Utiliser Hive dans HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Recommandations en matière de réglage des performances sur Data Lake Storage Gen2**.  Pour en savoir plus sur les concepts généraux relatifs aux performances, consultez [Recommandations en matière de réglage des performances de Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md)
+* **Recommandations en matière de réglage des performances sur Data Lake Storage Gen2**.  Pour en savoir plus sur les concepts de performance d’ordre général, consultez [Conseils de réglage des performances de Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>parameters
 

@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 436bb3c235c76f04e0f3d0fec1beeec3872f1dfb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 159f902326d76900e955c6488eb36e58f4b8f3dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475813"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167476"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planifier le cycle de vie des identités hybrides
 L'identité est un des fondements de la stratégie de mobilité et d'accès aux applications de votre entreprise. Que vous vous connectiez à votre appareil mobile ou à une application SaaS, votre identité est la clé d'accès à tous les éléments. À son niveau le plus élevé, une solution de gestion des identités englobe l'unification et la synchronisation entre vos référentiels d'identités, ce qui inclut l'automatisation et la centralisation du processus de provisionnement des ressources. La solution d'identité doit être une identité centralisée en local et dans le cloud et, également, utiliser une forme de fédération d'identité, afin de gérer une authentification centralisée et partager ainsi que collaborer de manière sécurisée avec des utilisateurs et entreprises externes. Les ressources vont de systèmes d'exploitation et d’applications à des personnes dans ou affiliés à une organisation. La structure organisationnelle peut être modifiée pour prendre en compte les stratégies et les procédures d’approvisionnement.

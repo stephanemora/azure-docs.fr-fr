@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 316e10d56e5c235c4d64dde0fde4dcb9429629c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: c850d2b01e098a10aacf383f0ed4340cb9e64e10
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527785"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476874"
 ---
 # <a name="introduction-to-table-storage-in-azure"></a>Introduction au Stockage Table dans Azure
 
@@ -34,6 +34,6 @@ Vous pouvez utiliser le Stockage Table pour stocker des jeux de données flexibl
 
 * Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de Table :
 
-    * [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Référence de la bibliothèque cliente de stockage pour .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-    * [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
+    * [Référence d’API REST](https://msdn.microsoft.com/library/azure/dd179355)

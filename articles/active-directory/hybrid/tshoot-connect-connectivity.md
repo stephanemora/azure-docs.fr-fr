@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 85c60cf25cd00826df6b48ed6714a646fa44a962
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5b17cf1bfae884e1fbdf47dabd78a1c6c3e1c7a0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474878"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151598"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Résoudre les problèmes de connectivité liés à Azure AD Connect
 Cet article décrit le fonctionnement de la connectivité entre Azure AD Connect et Azure AD ainsi que la résolution des problèmes de connectivité. Ces problèmes sont susceptibles de se produire dans un environnement doté d’un serveur proxy.
@@ -167,17 +167,52 @@ L’autorisation d’effectuer une action dans Azure AD n’a pas pu être accor
 ### <a name="authentication-cancelled"></a>Authentification annulée
 Le test d’authentification multifacteur (MFA) a été annulé.
 
+<div id="connect-msolservice-failed">
+<!--
+  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="connect-to-ms-online-failed"></a>Connect To MS Online Failed (Échec de la connexion à MS Online)
 L’authentification a réussi, mais Azure AD PowerShell a un problème d’authentification.
+
+<div id="get-msoluserrole-failed">
+<!--
+  Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>(Azure AD Global Admin Role Needed) Rôle d’administrateur général Azure AD nécessaire
 L’utilisateur s’est authentifié correctement. Toutefois, le rôle d’administrateur général n’est pas attribué à l’utilisateur. Voici [comment vous pouvez attribuer le rôle d’administrateur général](../users-groups-roles/directory-assign-admin-roles.md) à l’utilisateur. 
 
+<div id="privileged-identity-management">
+<!--
+  Empty div just to act as an alias for the "Privileged Identity Management Enabled" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management Enabled (Technologie Privileged Identity Management activée)
 L’authentification a réussi. Privileged Identity Management a été activé et vous n’êtes actuellement pas administrateur global. Pour plus d’informations, consultez [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
+<div id="get-msolcompanyinformation-failed">
+<!--
+  Empty div just to act as an alias for the "Company Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="company-information-unavailable"></a>Company Information Unavailable (Informations sur la société non disponibles)
 L’authentification a réussi. Impossible de récupérer les informations de société à partir d’Azure AD.
+
+<div id="get-msoldomain-failed">
+<!--
+  Empty div just to act as an alias for the "Domain Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="domain-information-unavailable"></a>Domain Information Unavailable (Informations de domaine non disponibles)
 L’authentification a réussi. Impossible de récupérer les informations de domaine à partir d’Azure AD.

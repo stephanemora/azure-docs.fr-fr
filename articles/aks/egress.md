@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 175fa625a94626cde4d782abd1e9629530cab8b4
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: aeffe172fd422f18e2828c5274e9a2ed13cc546a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408503"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103358"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utiliser une adresse IP publique statique pour le trafic de sortie dans Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Cet article vous montre comment créer et utiliser une adresse IP publique stati
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
 
-Vous devez également avoir installé et configuré Azure CLI version 2.0.46 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
+Vous devez également avoir installé et configuré Azure CLI version 2.0.46 ou ultérieure. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
 ## <a name="egress-traffic-overview"></a>Vue d’ensemble du trafic de sortie
 
@@ -63,7 +63,7 @@ L’adresse IP apparaît, comme illustré dans l’exemple de sortie condensée 
     "ipAddress": "40.121.183.52",
     [..]
   }
-````
+```
 
 Vous pouvez obtenir ultérieurement l’adresse IP publique avec la commande [az network public-ip list][az-network-public-ip-list]. Spécifiez le nom du groupe de ressources du nœud, puis recherchez *ipAddress* comme indiqué dans l’exemple suivant :
 

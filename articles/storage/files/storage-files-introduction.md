@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: overview
 ms.date: 07/19/2018
 ms.author: renash
-ms.component: files
-ms.openlocfilehash: d42c3e665b4ed3057d340dce33145f8c08e69888
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.subservice: files
+ms.openlocfilehash: 647b1723136edd23f3e58f1c225c9226714d4d97
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945771"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466888"
 ---
 # <a name="what-is-azure-files"></a>Qu’est-ce qu’Azure Files ?
 Azure Files offre des partages de fichiers managés dans le cloud qui sont accessibles via le protocole [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Les partages de fichiers Azure peuvent être montés simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. En outre, les partages de fichiers Azure peuvent être mis en cache sur les serveurs Windows avec Azure File Sync pour un accès rapide à proximité de l’endroit où les données sont utilisées.
@@ -30,7 +30,7 @@ Les partages de fichiers Azure peuvent être utilisés pour :
     Azure Files peut être utilisé pour remplacer complètement ou compléter les serveurs de fichiers locaux traditionnels ou les périphériques NAS. Les systèmes d’exploitation courants tels que Windows, Mac OS et Linux peuvent monter directement des partages Azure Files, n’importe où dans le monde. Les partages de fichiers Azure peuvent également être répliqués avec Azure File Sync vers des serveurs Windows, localement ou dans le cloud, pour une mise en cache performante et distribuée des données là où elles sont utilisées.
 
 * **Migration « lift-and-shift » des applications** :  
-    Azure Files facilite le passage dans le cloud des applications qui exigent un partage de fichiers pour stocker les données utilisateur ou l’application de fichier. Azure Files permet une transition classique, où l’application et ses données sont déplacées vers Azure, ainsi qu’une transition hybride, où les données d’application sont déplacées vers Azure Files et l’application s’exécute toujours en local. 
+    Azure Files facilite le passage dans le cloud des applications qui exigent un partage de fichiers pour stocker les données utilisateur ou l’application de fichier. Azure Files permet une transition classique, où l’application et ses données sont déplacées vers Azure, ainsi qu’une transition hybride, où les données d’application sont déplacées vers Azure Files et l’application s’exécute toujours en local. 
 
 * **Simplifier le développement cloud** :  
     Azure Files permet aussi de simplifier de plusieurs façons les nouveaux projets de développement cloud. Par exemple : 

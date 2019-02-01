@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: fc70089517bbc1aa90f95f1e0231f2c67f930090
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43b482324f0244baf52edbb8989a56dd12833331
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242192"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104390"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Utiliser le service Azure Import/Export pour copier les données dans Azure Data Lake Storage Gen1 hors connexion
 Dans cet article, vous allez découvrir comment copier de grands jeux de données (> 200 Go) dans Azure Data Lake Storage Gen1 à l’aide de méthodes de copie hors connexion, comme le [service Azure Import/Export](../storage/common/storage-import-export-service.md). Plus précisément, la taille du fichier utilisé comme exemple dans cet article est de 339 420 860 416 octets ou environ 319 Go sur disque. Appelons ce fichier 319GB.tsv.
@@ -54,9 +54,9 @@ Suivez les instructions relatives à [l’utilisation du Service Azure Import/Ex
 2. Identifiez un compte de stockage Azure où les données seront copiées une fois le disque expédié vers le centre de données Azure.
 3. Utilisez [l’outil Azure Import/Export](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), qui est un utilitaire de ligne de commande. Voici un exemple d’extrait de code illustrant l’utilisation de l’outil.
 
-    ````
+    ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
-    ````
+    ```
     Pour obtenir d’autres exemples d’extraits, consultez [Using the Azure Import/Export service](../storage/common/storage-import-export-service.md) (Utilisation du service Azure Import/Export).
 4. La commande précédente crée un fichier journal à l’emplacement spécifié. Utilisez ce fichier journal pour créer un travail d’importation à partir du [portail Azure](https://portal.azure.com).
 
@@ -72,7 +72,7 @@ Une fois que l’état du travail d’importation indique que celui-ci est termi
 Dans cette section, nous vous fournissons les définitions JSON grâce auxquelles vous pouvez créer un pipeline Azure Data Factory en vue de copier les données. Vous pouvez utiliser ces définitions JSON à partir du [portail Azure](../data-factory/tutorial-copy-data-portal.md) ou [Visual Studio](../data-factory/tutorial-copy-data-dot-net.md).
 
 ### <a name="source-linked-service-azure-storage-blob"></a>Service lié source (objet blob Stockage Azure)
-````
+```
 {
     "name": "AzureStorageLinkedService",
     "properties": {
@@ -83,10 +83,10 @@ Dans cette section, nous vous fournissons les définitions JSON grâce auxquelle
         }
     }
 }
-````
+```
 
 ### <a name="target-linked-service-azure-data-lake-storage-gen1"></a>Service lié cible (Azure Data Lake Storage Gen1)
-````
+```
 {
     "name": "AzureDataLakeStorageGen1LinkedService",
     "properties": {
@@ -99,9 +99,9 @@ Dans cette section, nous vous fournissons les définitions JSON grâce auxquelle
         }
     }
 }
-````
+```
 ### <a name="input-data-set"></a>Jeu de données d’entrée
-````
+```
 {
     "name": "InputDataSet",
     "properties": {
@@ -119,9 +119,9 @@ Dans cette section, nous vous fournissons les définitions JSON grâce auxquelle
         "policy": {}
     }
 }
-````
+```
 ### <a name="output-data-set"></a>Jeu de données de sortie
-````
+```
 {
 "name": "OutputDataSet",
 "properties": {
@@ -137,9 +137,9 @@ Dans cette section, nous vous fournissons les définitions JSON grâce auxquelle
     }
   }
 }
-````
+```
 ### <a name="pipeline-copy-activity"></a>Pipeline (activité de copie)
-````
+```
 {
     "name": "CopyImportedData",
     "properties": {
@@ -186,7 +186,7 @@ Dans cette section, nous vous fournissons les définitions JSON grâce auxquelle
         "pipelineMode": "Scheduled"
     }
 }
-````
+```
 Pour plus d’informations, consultez [Move data from Azure Storage blob to Azure Data Lake Storage Gen1 using Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) (Déplacer des données à partir d’un objet blob Stockage Azure vers Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-storage-gen1"></a>Reconstruire les fichiers de données dans Azure Data Lake Storage Gen1
@@ -205,7 +205,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
 Join-AzureRmDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
-````
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)

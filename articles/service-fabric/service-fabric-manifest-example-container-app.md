@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: 010fd442419f57f8b53705be8d3f49fdb84e28fd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bdff930e00bfebe1d702e397a9dfc7de15aa3225
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262450"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156222"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exemples de manifestes d’application pour plusieurs conteneurs et de service
 Le document suivant fournit des exemples de manifestes d’applications et de services pour une application Service Fabric multiconteneur. Ces exemples ont pour but de vous montrer les paramètres disponibles et leur utilisation. Ces manifestes d’applications et de services sont basés sur les manifestes de l’[exemple de conteneur Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows).
@@ -195,7 +195,7 @@ Pour en savoir plus sur les éléments XML spécifiques, consultez les articles 
     </EnvironmentVariables>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
   
@@ -246,7 +246,7 @@ Pour en savoir plus sur les éléments XML spécifiques, consultez les articles 
     </EnvironmentVariables>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 51cf04509608435117e0368b25952a58f7fc3557
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9a394c0dff74ec5f926356a3d700c5bbba4c0e4f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53609507"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478285"
 ---
 # <a name="in-memory-sample"></a>Exemple en mémoire
 
@@ -55,7 +55,7 @@ Pour une démonstration plus simple mais intéressante des performances de l’O
 4. Collez le script T-SQL dans SSMS, puis exécutez-le. Les instructions CREATE TABLE de la clause `MEMORY_OPTIMIZED = ON` sont essentielles. Par exemple : 
 
 
-```
+```sql
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
     [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
     ...
@@ -69,7 +69,7 @@ CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
 Si vous obtenez une erreur 40536 lorsque vous exécutez le script T-SQL, exécutez le script T-SQL suivant pour vérifier que la base de données prend en charge In-Memory :
 
 
-```
+```sql
 SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
@@ -94,7 +94,7 @@ Vous pouvez inspecter les tables à mémoire optimisée via **l’Explorateur d�
 Vous pouvez aussi interroger les vues de catalogue, telles que :
 
 
-```
+```sql
 SELECT is_memory_optimized, name, type_desc, durability_desc
     FROM sys.tables
     WHERE is_memory_optimized = 1;
@@ -104,7 +104,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 **Procédure stockée compilée en mode natif** : Vous pouvez inspecter SalesLT.usp_InsertSalesOrder_inmem via une requête de vue de catalogue :
 
 
-```
+```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
     FROM sys.sql_modules
     WHERE uses_native_compilation = 1;
@@ -145,7 +145,7 @@ Le script suivant insère un exemple de commande client avec cinq lignes dans le
 - SalesLT.SalesOrderDetail_inmem
 
 
-```
+```sql
 DECLARE
     @i int = 0,
     @od SalesLT.SalesOrderDetailType_inmem,
@@ -244,7 +244,7 @@ Une fois le résultat de l’exécution de *_inmem* obtenu, effectuez les opéra
 
 
 1. Réinitialisez la base de données en exécutant la commande suivante dans SSMS pour supprimer toutes les données insérées lors de l’exécution précédente :
-```
+```sql
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -315,7 +315,7 @@ Un index columnstore en cluster se trouve dans la table FactResellerSalesXL\_CCI
 L’extrait de script T-SQL suivant imprime des statistiques d’E/S et d’heure pour la requête de chaque table.
 
 
-```
+```sql
 /*********************************************************************
 Step 2 -- Overview
 -- Page Compressed BTree table v/s Columnstore table performance differences
@@ -383,7 +383,7 @@ Dans une base de données ayant le niveau tarifaire P2, vous pouvez attendre une
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide 1 : Technologies OLTP en mémoire pour des performances T-SQL plus rapides](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Démarrage rapide 1 : Technologies OLTP en mémoire pour des performances T-SQL plus rapides](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [Utiliser OLTP en mémoire dans une application SQL Azure existante](sql-database-in-memory-oltp-migration.md)
 

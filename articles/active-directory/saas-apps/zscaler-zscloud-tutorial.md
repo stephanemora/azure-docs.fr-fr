@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Zscaler ZSCloud | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Zscaler ZSCloud | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler ZSCloud.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 411d5684-a780-410a-9383-59f92cf569b5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 311cf4ad22f8e7fdcee976e0cb4b26b9dd2a13a5
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c3eb96c15991c3b470164bf504c68fbc266e69a8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794265"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler ZSCloud
 
@@ -168,7 +168,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     b. Cliquez sur **Configure SAML**.
 
-11. Dans la fenêtre **Modifier les paramètres SAML**, effectuez les étapes suivantes et cliquez sur Enregistrer.  
+11. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit, puis cliquez sur Enregistrer.  
             
     ![Gérer les utilisateurs et l’authentification](./media/zscaler-zscloud-tutorial/ic800208.png "Gérer les utilisateurs et l’authentification")
     

@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5b70a16d1da8f939a23bf7a96a03098463cfc529
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856636"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203332"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Joindre une machine virtuelle Windows Server à un domaine géré à l’aide d’un modèle Resource Manager
 Cet article explique comment joindre une machine virtuelle Windows Server à un domaine géré Azure AD Domain Services à l’aide de modèles Resource Manager.
@@ -100,7 +100,7 @@ Une fois le déploiement terminé, les machines virtuelles Windows spécifiées 
 
 
 ## <a name="related-content"></a>Contenu connexe
-* [Vue d’ensemble d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)
+* [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview)
 * [Modèle de démarrage rapide Azure - Jonction de domaine d’une nouvelle machine virtuelle](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Modèle de démarrage rapide Azure - Jonction de domaine de machines virtuelles existantes](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)

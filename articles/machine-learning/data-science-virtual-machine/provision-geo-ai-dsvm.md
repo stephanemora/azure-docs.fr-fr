@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103946"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240469"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Configuration d’une machine virtuelle Geo Artificial Intelligence sur Azure 
 
@@ -53,11 +53,11 @@ Voici la procédure permettant de créer une instance de la machine virtuelle de
 
       2. **Nom d’utilisateur** : ID de connexion du compte Administrateur.
 
-      3. **Mot de passe** : Mot de passe du compte administrateur.
+      3. **Mot de passe** : mot de passe du compte Administrateur.
 
       4. **Abonnement**: Si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine.
 
-      5. **Groupe de ressources** : vous pouvez en créer un nouveau ou utiliser un groupe de ressources Azure **vide** de votre abonnement.
+      5. **Groupe de ressources** : vous pouvez en créer un nouveau ou utiliser un groupe de ressources Azure **vide** dans votre abonnement.
 
       6. **Emplacement** : sélectionnez le centre de données le plus adapté. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau Si vous souhaitez effectuer un Deep Learning sur un GPU, vous devez choisir un emplacement dans Azure qui contient des instances de machines virtuelles GPU de la série NC. Actuellement, les emplacements qui ont des machines virtuelles GPU sont : **USA Est, USA Centre Nord, USA Centre Sud, USA Ouest 2, Europe Nord, Europe Ouest**. Pour obtenir la dernière liste en date, accédez à la [page Disponibilité des produits par région](https://azure.microsoft.com/regions/services/), puis recherchez **NC-Series** sous **Compute**. 
 

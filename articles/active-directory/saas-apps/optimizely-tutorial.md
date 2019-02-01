@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Optimizely | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Optimizely | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Optimizely.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: 28ef03e1-9aad-4301-af97-d94e853edc74
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 72e0f19a665b1e8cc91939ae24cc71341b5f1674
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 19be60a7a2767b8ea2185e1336b3155143260fb6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54819014"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180753"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Didacticiel : Intégration d'Azure Active Directory à Optimizely
+# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutoriel : Intégration d'Azure Active Directory à Optimizely
 
 Dans ce didacticiel, vous allez apprendre à intégrer Optimizely avec Azure Active Directory (Azure AD).
 

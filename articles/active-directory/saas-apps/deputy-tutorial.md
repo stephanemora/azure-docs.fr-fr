@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Deputy | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Deputy | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Deputy.
 services: active-directory
 documentationCenter: na
@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 7e444e37685d862839569f676375fca64fcd4793
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2504d39fd296d2ae0aa444e69c97db9f7d7b346c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826409"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194966"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Didacticiel : Intégration d'Azure Active Directory à Deputy
 

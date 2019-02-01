@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 09/12/2018
+ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962679"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251875"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considérations relatives à l’intégration au centre de données pour les systèmes intégrés Azure Stack
 Si vous êtes intéressé par un système intégré Azure Stack, vous devez comprendre certaines considérations principales sur la planification traitant du déploiement et la façon dont le système s’adapte à votre centre de données. Cet article fournit une vue d’ensemble de ces considérations pour vous aider à prendre des décisions d’infrastructure importantes pour votre système Azure Stack à plusieurs nœuds. Comprendre ces considérations est utile pour collaborer avec votre fournisseur de matériel OEM lorsqu’il déploie Azure Stack vers votre centre de données.  

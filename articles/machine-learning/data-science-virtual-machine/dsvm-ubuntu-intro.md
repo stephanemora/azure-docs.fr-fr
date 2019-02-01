@@ -10,18 +10,18 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: e3f17dd3717a57d184be7c9b8c73855c3fd2a768
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f0c9c06e953df16199acda5f821fdac35b86f07f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106768"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477554"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)
 
@@ -220,7 +220,7 @@ Pour réactiver l’environnement py35 :
 
 Pour appeler la session interactive Python, tapez **python** dans l’interpréteur de commandes. 
 
-Installez des bibliothèques Python supplémentaires avec ```conda``` ou ````pip````. Pour pip, activez d’abord l’environnement approprié si vous ne voulez pas utiliser l’environnement par défaut :
+Installez des bibliothèques Python supplémentaires avec ```conda``` ou ```pip```. Pour pip, activez d’abord l’environnement approprié si vous ne voulez pas utiliser l’environnement par défaut :
 
     source activate root
     pip install <package>
@@ -271,7 +271,7 @@ Avant toute exécution dans le contexte Spark (dans Microsoft R Server), vous de
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Vous pouvez arrêter les services liés à Hadoop lorsque vous n’en avez pas besoin en exécutant ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````. Vous trouverez dans le répertoire `/dsvm/samples/MRS` un exemple montrant comment développer et tester MRS dans un contexte Spark distant (l’instance Spark autonome sur la DSVM). 
+Vous pouvez arrêter les services liés à Hadoop lorsque vous n’en avez pas besoin en exécutant ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```. Vous trouverez dans le répertoire `/dsvm/samples/MRS` un exemple montrant comment développer et tester MRS dans un contexte Spark distant (l’instance Spark autonome sur la DSVM). 
 
 ### <a name="ides-and-editors"></a>IDE et éditeurs
 Vous avez le choix entre plusieurs éditeurs de code, notamment vi/VIM, Emacs, PyCharm, RStudio et IntelliJ. IntelliJ, RStudio et PyCharm sont des éditeurs graphiques dont l’utilisation nécessite que vous soyez connecté à un bureau graphique. Des raccourcis de menu d’applications et bureau pour permettent de lancer ces éditeurs.

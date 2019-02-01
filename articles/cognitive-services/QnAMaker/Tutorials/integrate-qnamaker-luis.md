@@ -6,17 +6,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/24/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: f2d6f956564f01c14edb213f0bc5ae709892c542
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 1d7130e841ce48ead4fca1d76bf5e3e051263efd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163309"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216793"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Utiliser le bot avec QnA Maker et LUIS pour distribuer votre base de connaissances
 Au fur et à mesure que la taille de votre base de connaissances QnA Maker augmente, il devient difficile de la gérer comme un ensemble monolithique unique et il est nécessaire de fractionner la base de connaissances en parties logiques plus petites.

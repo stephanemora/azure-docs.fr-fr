@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à xMatters OnDemand | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à xMatters OnDemand | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et xMatters OnDemand.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: ca0633db-4f95-432e-b3db-0168193b5ce9
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 1086343f165ad61b2e4fe91b5d52996722a33646
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 5eab595c12fda25768a3bf8a04650870e1c4f57e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820986"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153538"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutoriel : Intégration d’Azure Active Directory à xMatters OnDemand
+# <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Didacticiel : Intégration d’Azure Active Directory à xMatters OnDemand
 
 Dans ce didacticiel, vous allez découvrir comment intégrer xMatters OnDemand à Azure Active Directory (Azure AD).
 

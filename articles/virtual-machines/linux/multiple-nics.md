@@ -3,7 +3,7 @@ title: Créer une machine virtuelle Linux dans Azure avec plusieurs cartes rése
 description: Découvrez comment créer une machine virtuelle Linux dotée de plusieurs cartes réseau à l’aide de l’interface de ligne de commande Azure ou de modèles Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
-ms.author: zarhoads
-ms.openlocfilehash: 300391d9a5079eefc90ba06ba819fc6d8a91ca05
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.author: cynthn
+ms.openlocfilehash: aaeec216e2a89cfd230208d0c674e15153224b5a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851689"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157497"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Guide de création d’une machine virtuelle Linux dans Azure avec plusieurs cartes d’interface réseau
 
@@ -31,7 +31,7 @@ Installez la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et co
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *mystorageaccount* et *myVM*.
 
-Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
+Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -58,7 +58,7 @@ az network vnet subnet create \
     --address-prefix 10.0.2.0/24
 ```
 
-Créez un groupe de sécurité réseau avec la commande [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). L’exemple suivant crée un groupe de sécurité réseau nommé *myNetworkSecurityGroup* :
+Créez un groupe de sécurité réseau avec la commande [az network nsg create](/cli/azure/network/nsg). L’exemple suivant crée un groupe de sécurité réseau nommé *myNetworkSecurityGroup* :
 
 ```azurecli
 az network nsg create \

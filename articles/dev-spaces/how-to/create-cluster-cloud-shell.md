@@ -3,19 +3,19 @@ title: Comment créer un cluster Kubernetes activé pour Azure Dev Spaces à l�
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 10/04/2018
 ms.topic: article
 description: Découvrez comment créer rapidement un cluster Kubernetes activé pour Azure Dev Spaces directement depuis votre navigateur, sans rien installer.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 531781ec48617d2038698665696fdc61b3c52cd9
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: d806607eb3e46d0bd04deb18756021adec59601d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413529"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466572"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Créer un cluster Kubernetes à l’aide d’Azure Cloud Shell
 

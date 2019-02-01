@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198523"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103426"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Réécrire des en-têtes HTTP dans Azure Application Gateway (préversion publique)
 
@@ -94,8 +94,6 @@ Cette fonctionnalité prend en charge la réécriture d’en-têtes dans les var
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | retourne la liste de chiffrements pris en charge par le client          |
 | ciphers_used               | retourne la chaîne de chiffrements utilisés pour une connexion SSL établie |
-| client_latitude            | pour déterminer le pays, région et la ville en fonction de l’adresse IP du client |
-| client_longitude           | pour déterminer le pays, région et la ville en fonction de l’adresse IP du client |
 | client_port                | port client                                                  |
 | client_tcp_rtt             | informations sur la connexion TCP client ; disponibles sur les systèmes qui prennent en charge l’option de socket TCP_INFO |
 | client_user                | lorsque vous utilisez une authentification HTTP, nom d’utilisateur fourni pour l’authentification |

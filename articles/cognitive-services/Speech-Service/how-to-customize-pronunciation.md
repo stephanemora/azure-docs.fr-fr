@@ -6,17 +6,17 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 6d57bdd8444f5bd6d763400c4df4395bb33a7bdd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 11680176ea8f9d89adfd0981c13712e73f110352
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100002"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209908"
 ---
 # <a name="enable-custom-pronunciation"></a>Activer la prononciation personnalisée
 
@@ -48,7 +48,7 @@ La forme orale est la séquence phonétique de la forme écrite. Elle est compos
 ## <a name="supported-pronunciation-characters"></a>Caractères de prononciation pris en charge
 Pour l’heure, la prononciation personnalisée prend uniquement en charge l’anglais (en-US) et l’allemand (de-DE). Les jeux de caractères dont vous pouvez vous servir pour exprimer la forme orale d’un terme (dans le fichier de prononciation personnalisée) sont présentés dans le tableau suivant :
 
-| Langue | Caractères |
+| Langage | Caractères |
 |---------- |----------|
 | Anglais (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 | Allemand (de-de) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |

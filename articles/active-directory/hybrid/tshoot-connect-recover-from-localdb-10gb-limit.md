@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 445137d268650f71bdc4d64342bc23d2b6da6daa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 08e1beb199287db1d030d5ad9357cbd20f1eb859
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474662"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168633"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect : Comment récupérer depuis la limite de 10 Go de base de données locale
 Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Vous pouvez utiliser la base de données locale par défaut de SQL Server 2012 installée avec Azure AD Connect ou utiliser votre propre base de données SQL complète. SQL Server Express impose une limite de taille de 10 Go. Lorsque vous utilisez la base de données locale et que cette limite est atteinte, le service de synchronisation Azure AD Connect ne peut plus démarrer ou se synchroniser correctement. Cet article indique les étapes de récupération.

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: yushwang
-ms.openlocfilehash: 0110b6daa34d0bb24ad0abb7128ee6409bc4ff25
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 308cc163a305359a60ad1774d814416ed8a51edf
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215454"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175347"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 
@@ -48,20 +48,20 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall série X |Pare-feu Barracuda 6.5 |[Guide de configuration](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Non compatible |
 | Brocade            |Routeur virtuel Vyatta 5400   |Routeur virtuel 6.6R3 GA|[Guide de configuration](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Non compatible |
 | Check Point |Passerelle de sécurité |R77.30 |[Guide de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guide de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Guide de configuration*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
-| Cisco |ASR |PolicyBased : IOS 15.1<br>RouteBased : IOS 15.2 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |PolicyBased : IOS 15.0<br>RouteBased* : IOS 15.1 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Exemples de configuration\*\*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Pris en charge |[Guide de configuration*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
+| Cisco |ASR |PolicyBased : IOS 15.1<br>RouteBased : IOS 15.2 |Pris en charge |Pris en charge |
+| Cisco |ISR |PolicyBased : IOS 15.0<br>RouteBased* : IOS 15.1 |Pris en charge |Pris en charge |
 | Cisco |Meraki |N/A |Non compatible |Non compatible |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 et versions ultérieures |[Guide de configuration](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Non compatible |
 | F5 |Série BIG-IP |12.0 |[Guide de configuration](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guide de configuration](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[Guide de configuration](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
 | Internet Initiative Japan (IIJ) |Série SEIL |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Guide de configuration](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Non compatible |
-| Juniper |SRX |PolicyBased : JunOS 10.2<br>Routebased : JunOS 11.4 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |Série J |PolicyBased : JunOS 10.4r9<br>RouteBased : JunOS 11.4 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |ISG |ScreenOS 6.3 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |SSG |ScreenOS 6.2 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |MX |JunOS 12.x|[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |
-| Microsoft |Service de routage et d’accès à distance |Windows Server 2012 |Non compatible |[Exemples de configuration](https://go.microsoft.com/fwlink/p/?LinkId=717761) |
+| Juniper |SRX |PolicyBased : JunOS 10.2<br>Routebased : JunOS 11.4 |Pris en charge |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |Série J |PolicyBased : JunOS 10.4r9<br>RouteBased : JunOS 11.4 |Pris en charge |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |ISG |ScreenOS 6.3 |Pris en charge |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |SSG |ScreenOS 6.2 |Pris en charge |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |MX |JunOS 12.x|Pris en charge |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |
+| Microsoft |Service de routage et d’accès à distance |Windows Server 2012 |Non compatible |Pris en charge |
 | Open Systems AG |Passerelle Mission Control Security |N/A |[Guide de configuration](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Non compatible |
 | Palo Alto Networks |Tous les périphériques exécutant PAN-OS |PAN-OS<br>PolicyBased : 6.1.5 ou version ultérieure<br>RouteBased : 7.1.4 |[Guide de configuration](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Guide de configuration](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | ShareTech | UTM nouvelle génération (série NU) | 9.0.1.3 | Non compatible | [Guide de configuration](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |

@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427914"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456032"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
 
@@ -207,7 +207,7 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 
 - Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://azure.microsoft.com/features/storage-explorer/). Dans Stockage Azure, les journaux d’audit sont enregistrés sous la forme d’une collection de fichiers blob dans un conteneur défini pour stocker les journaux d’audit. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Pour obtenir la liste complète des méthodes de consommation du journal d’audit, reportez-vous à l’article [Bien démarrer avec l’audit de bases de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- Pour obtenir la liste complète des méthodes de consommation du journal d’audit, reportez-vous à l’article [Bien démarrer avec l’audit de bases de données SQL](sql-database-auditing.md).
 
   > [!IMPORTANT]
   > L’affichage des enregistrements d’audit du portail Azure (volet « Enregistrements d’audit ») n’est pas actuellement disponible pour Managed Instance.
@@ -242,7 +242,7 @@ Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockag
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir la liste complète des méthodes de consommation du journal d’audit, reportez-vous à l’article [Bien démarrer avec l’audit de bases de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- Pour obtenir la liste complète des méthodes de consommation du journal d’audit, reportez-vous à l’article [Bien démarrer avec l’audit de bases de données SQL](sql-database-auditing.md).
 - Pour plus d’informations sur les programmes Azure prenant en charge la conformité aux normes, voir le [Centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
 <!--Image references-->

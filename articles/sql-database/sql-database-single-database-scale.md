@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: a3a4e2c109541effdac01e0c9c03ee91cfdb30bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.date: 01/25/2019
+ms.openlocfilehash: b3ee256072e5c0b5b92daac07eae5b41b194ae8a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812248"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475956"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mise à l'échelle de ressources de singletons Azure SQL Database unique
 
@@ -35,7 +35,7 @@ Cet article décrit comment faire évoluer les ressources de calcul et de stocka
 
 ## <a name="vcore-based-purchasing-model-change-compute-resources"></a>Modèle d’achat vCore : Modifier les ressources de calcul
 
-Après la sélection initiale du nombre de vCore, vous pouvez mettre à l’échelle une base de données unique de façon dynamique en fonction de l’expérience réelle à l’aide du [portail Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-server), de [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az-sql-db-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+Après la sélection initiale du nombre de vCore, vous pouvez mettre à l’échelle une base de données unique de façon dynamique en fonction de l’expérience réelle à l’aide du [portail Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), de [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az-sql-db-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 La modification du niveau de service et/ou de la taille de calcul d’une base de données crée un réplica de la base de données d’origine à la nouvelle taille de calcul, puis bascule les connexions vers ce réplica. Aucune donnée n’est perdue lors de ce processus, mais pendant le bref instant où nous basculons vers le réplica, les connexions à la base de données sont désactivées, de sorte que certaines transactions en cours sont susceptibles d’être restaurées. Le délai de basculement peut varier, mais il est généralement inférieur à 30 secondes dans 99 % des cas. Ce délai peut se révéler supérieur, en particulier s’il existe un très grand nombre de transactions en cours au moment où les connexions sont désactivées.
 

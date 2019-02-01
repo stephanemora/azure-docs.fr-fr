@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: d768367b8e35c30b1e8cb1646e6cbfceb6151dec
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 770b2e5dfef1a414da3cc8ec691c6d6ce20183fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348291"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102496"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portail Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [interface de ligne de commande Azure](network-watcher-packet-capture-manage-cli.md)
+> - [Interface de ligne de commande Azure](network-watcher-packet-capture-manage-cli.md)
 > - [API REST Azure](network-watcher-packet-capture-manage-rest.md)
 
 La fonctionnalité de capture des paquets Network Watcher vous permet de créer des sessions de capture afin d’effectuer le suivi du trafic en direction et en provenance d’une machine virtuelle. Les filtres sont fournis pour la session de capture afin de vous garantir que vous capturez uniquement le trafic souhaité. La capture des paquets permet de diagnostiquer les anomalies réseau de manière proactive et réactive. Elle permet aussi de collecter des statistiques réseau, d’obtenir des informations sur les intrusions, de déboguer des communications client-serveur, etc. En déclenchant à distance des captures de paquets, cette fonctionnalité simplifie l’exécution manuelle de la capture de paquets sur l’ordinateur souhaité, ce qui permet d’économiser un temps précieux.
@@ -78,7 +78,7 @@ Pour les machines virtuelles Linux :
 $AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentLinux -Version 1.4.13.0
 $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
-````
+```
 
 L’exemple suivant est une réponse correcte après l’exécution d’applet de commande `Set-AzureRmVMExtension`.
 

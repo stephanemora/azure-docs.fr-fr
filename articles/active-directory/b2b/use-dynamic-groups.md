@@ -3,19 +3,19 @@ title: Groupes dynamiques et Azure Active Directory B2B Collaboration | Microsof
 description: Cet article montre comme utiliser des groupes dynamiques Azure AD avec Azure Active Directory B2B Collaboration.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: d4264a114afc04f162ae7c711b78fce506aa39d1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 206737049a446476b4b188a72effdc231cb5dc3b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432329"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55082008"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Groupes dynamiques et Azure Active Directory B2B Collaboration
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4836ffc8c6ab013ef5ad7a661db0df3254b6d4e1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: be6c5ccea6bf923b408319baf4bc1743978169c7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468741"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203808"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Synchronisation d’Azure AD Connect : Activer la Corbeille Active Directory
 Il est recommandé d’activer la fonctionnalité Corbeille d’AD pour vos annuaires Active Directory locaux, qui sont synchronisés avec Azure AD. 
@@ -39,9 +39,6 @@ Cette fonctionnalité vous aide à restaurer des objets utilisateur Azure AD en 
 
 > [!NOTE]
 > Par défaut, AD Azure conserve les objets d’utilisateur Azure AD dans un état supprimé temporairement pendant 30 jours avant suppression définitive. Toutefois, les administrateurs peuvent accélérer la suppression de ces objets. Une fois que les objets sont définitivement supprimés, ils ne peuvent plus être restaurés, même si la fonctionnalité Corbeille AD locale est activée.
-
->[!NOTE]
->Précédemment quand un utilisateur était retiré de l’étendue de synchronisation locale et supprimé dans le cloud, l’état DirSyncEnabled du compte était erronément défini sur « False ». Si, par la suite, cet utilisateur était restauré manuellement à partir de la Corbeille Azure AD, il présentait un état incorrect de compte « Cloud uniquement ». Ce problème est désormais résolu et la valeur de l’état DirSyncEnabled est toujours « True » quand un utilisateur est retiré de l’étendue de synchronisation, puis supprimé de manière réversible et restauré manuellement à partir de la Corbeille Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 **Rubriques de présentation**

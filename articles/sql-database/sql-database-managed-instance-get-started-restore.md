@@ -12,32 +12,32 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 40d07827cbd856fe3be3d797dde793b1a7f50207
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: f75ea7bd728b16c91122119c3e14da2a1e123d45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653236"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452309"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Démarrage rapide : Restaurer une base de données sur une instance managée 
 
-Dans ce guide de démarrage rapide, vous utilisez SQL Server Management Studio (SSMS) pour restaurer une base de données (le fichier de sauvegarde standard Wide World Importers) à partir du stockage blob Azure dans une [instance managée](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) Azure SQL Database. 
+Dans ce guide de démarrage rapide, vous utilisez SQL Server Management Studio (SSMS) pour restaurer une base de données (le fichier de sauvegarde standard Wide World Importers) à partir du stockage blob Azure dans une [instance managée](sql-database-managed-instance.md) Azure SQL Database. 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> * Pour plus d’informations sur la migration à l’aide d’Azure Database Migration Service (DMS), consultez [Migration d’instances managées à l’aide de DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
-> * Pour plus d’informations sur les diverses méthodes de migration, consultez [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
+> - Pour plus d’informations sur la migration à l’aide d’Azure Database Migration Service (DMS), consultez [Migration d’instances managées à l’aide de DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
+> - Pour plus d’informations sur les diverses méthodes de migration, consultez [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Dans ce guide de démarrage rapide :
+
 - Utilise des ressources du guide de démarrage rapide [Créer une instance managée](sql-database-managed-instance-get-started.md).
 - Votre ordinateur doit avoir la dernière version de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) installée.
 - Nécessite l’utilisation de SSMS pour se connecter à votre instance managée. Consultez ces guides de démarrage rapide sur la façon de se connecter :
-  * [Se connecter à une instance Azure SQL Database Managed Instance à partir d’une machine virtuelle Azure](sql-database-managed-instance-configure-vm.md)
-  * [Configurer une connexion point à site à une instance managée Azure SQL Database à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
-
+  - [Se connecter à une instance Azure SQL Database Managed Instance à partir d’une machine virtuelle Azure](sql-database-managed-instance-configure-vm.md)
+  - [Configurer une connexion point à site à une instance managée Azure SQL Database à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
 
 > [!NOTE]
 > Pour plus d’informations sur la sauvegarde et la restauration d’une base de données SQL Server à l’aide du Stockage Blob Azure et d’une [clé de signature d’accès partagé](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consultez [Sauvegarde SQL Server vers une URL](sql-database-managed-instance-get-started-restore.md).
@@ -47,9 +47,7 @@ Dans ce guide de démarrage rapide :
 Avec SSMS, suivez ces étapes pour restaurer la base de données Wide World Importers vers votre instance managée. Le fichier de sauvegarde de base de données est stocké dans un compte de stockage blob Azure préconfiguré.
 
 1. Ouvrez SMSS et connectez-vous à votre instance managée.
-
 2. Dans le menu de gauche, cliquez avec le bouton droit sur votre instance managée et sélectionnez **Nouvelle requête** pour ouvrir une nouvelle fenêtre de requête.
-
 3. Exécutez le script SQL suivant, qui crée un compte de stockage préconfiguré et une clé SAS pour [créer des informations d’identification](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) dans votre instance managée.
 
    ```sql
@@ -60,8 +58,7 @@ Avec SSMS, suivez ces étapes pour restaurer la base de données Wide World Impo
 
     ![créer des informations d’identification](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
-  
-3. Pour vérifier vos informations d’identification, exécutez le script suivant, qui utilise une URL de [conteneur](https://azure.microsoft.com/services/container-instances/) permettant d’obtenir une liste de fichiers de sauvegarde.
+4. Pour vérifier vos informations d’identification, exécutez le script suivant, qui utilise une URL de [conteneur](https://azure.microsoft.com/services/container-instances/) permettant d’obtenir une liste de fichiers de sauvegarde.
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
@@ -70,7 +67,7 @@ Avec SSMS, suivez ces étapes pour restaurer la base de données Wide World Impo
 
     ![liste de fichiers](./media/sql-database-managed-instance-get-started-restore/file-list.png)
 
-4. Exécutez le script suivant pour restaurer la base de données Wide World Importers.
+5. Exécutez le script suivant pour restaurer la base de données Wide World Importers.
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =
@@ -79,7 +76,7 @@ Avec SSMS, suivez ces étapes pour restaurer la base de données Wide World Impo
 
     ![restauration](./media/sql-database-managed-instance-get-started-restore/restore.png)
 
-5. Exécutez le script suivant pour suivre l’état de la restauration.
+6. Exécutez le script suivant pour suivre l’état de la restauration.
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
@@ -89,7 +86,7 @@ Avec SSMS, suivez ces étapes pour restaurer la base de données Wide World Impo
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-6. Une fois la restauration terminée, affichez-la dans l’Explorateur d’objets. 
+7. Une fois la restauration terminée, affichez-la dans l’Explorateur d’objets. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

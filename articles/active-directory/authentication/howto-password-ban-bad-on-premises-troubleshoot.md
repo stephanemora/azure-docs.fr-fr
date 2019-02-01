@@ -3,19 +3,19 @@ title: Résolution des problèmes et journalisation dans la protection de mot de
 description: Comprendre la journalisation et la résolution des problèmes courants dans la protection de mot de passe Azure AD (préversion)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 008fba2fd6052ac9043de6ec217cb71d17f3ecce
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 55139d7270d602d73605c484eeace7012ff3c1b8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427098"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076075"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Aperçu : Surveillance, rapports et résolution des problèmes dans la protection de mot de passe Azure AD
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 74efc23cd5f0f840e5b2c1e597059295765f45ea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6154262d7b412a0a4049c2d9456d7ae53ef01ca8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468656"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183320"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Déterminer les exigences de gestion de contenu pour votre solution d'identité hybride
 La compréhension des exigences de gestion de contenu pour votre entreprise peut affecter directement votre décision quant à la solution identité hybride à utiliser. Avec la prolifération des appareils multiples et la possibilité pour les utilisateurs d'apporter leurs appareils ([BYOD](https://aka.ms/byodcg)), la société doit protéger ses données, mais elle doit également préserver la confidentialité de l'utilisateur. Généralement, lorsqu'un utilisateur a son propre appareil, il a peut-être également plusieurs informations d'identification qu’il utilisera en alternance en fonction de l'application utilisée. Il est important de faire la différence entre le contenu créé avec des informations d'identification personnelles et celui créé avec des informations d'identification d’entreprise. Votre solution d'identité doit être en mesure d'interagir avec les services du cloud pour fournir une expérience transparente à l'utilisateur final, tout en garantissant sa confidentialité et en augmentant la protection contre les fuites de données. 

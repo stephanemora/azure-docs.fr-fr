@@ -3,21 +3,21 @@ title: Réinitialisation de mot de passe en libre-service Azure AD dans Windows 
 description: Procédure d’activation de la réinitialisation de mot de passe en libre-service à l’aide du lien « Vous avez oublié votre mot de passe ? » sur l’écran d’ouverture de session de Windows 7 ou 8.1
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 1b488e938cf314eef18117ffd33f582319260162
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 33bacb5d399e41e04a6c00225e7411cef0c20308
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438777"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075298"
 ---
-# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Comment : Activer la réinitialisation de mot de passe à partir de Windows 7, 8 et 8.1
+# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Activation Activer la réinitialisation de mot de passe à partir de Windows 7, 8 et 8.1
 
 En tant qu’administrateur, vous avez activé la réinitialisation de mot de passe en libre-service (SSPR), mais les utilisateurs continuent d’appeler le support technique pour réinitialiser leur mot de passe, car ils ne parviennent pas à obtenir une fenêtre de navigateur pour accéder au [portail SSPR](https://aka.ms/sspr). Pour les machines Windows 10, vous pouvez activer le lien « Réinitialiser le mot de passe » sur l’écran d’ouverture de session à l’aide du didacticiel [Réinitialisation du mot de passe Azure AD depuis l’écran de connexion](tutorial-sspr-windows.md). Les instructions ci-après vous indiquent comment permettre aux utilisateurs Windows 7, 8 et 8.1 de réinitialiser leur mot de passe à l’aide de la fonctionnalité SSPR au niveau de l’écran d’ouverture de session Windows.
 

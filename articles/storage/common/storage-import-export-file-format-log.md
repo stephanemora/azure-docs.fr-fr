@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316578"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454842"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Format de fichier journal du service Azure Import/Export
 Lorsque le service Microsoft Azure Import/Export exécute une action sur un lecteur dans le cadre d’un travail d’importation ou d’exportation, les journaux sont écrits pour bloquer des objets blob dans le compte de stockage associé à ce travail.  
@@ -101,7 +101,7 @@ properties-status ::=
 
 Le tableau suivant décrit les éléments du fichier journal.  
   
-|Élément XML|type|Description|  
+|Élément XML|Type|Description|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|Élément XML|Représente un journal de lecteur.|  
 |`Version`|Attribut, Chaîne|Version du format du journal.|  
@@ -110,9 +110,9 @@ Le tableau suivant décrit les éléments du fichier journal.
 |`Blob`|Élément XML imbriqué|Représente un objet blob.|  
 |`Blob/BlobPath`|Chaîne|URI de l’objet blob.|  
 |`Blob/FilePath`|Chaîne|Chemin relatif d’accès au fichier sur le lecteur.|  
-|`Blob/Snapshot`|Datetime|Version de l’instantané de l’objet blob, pour un travail d’exportation.|  
+|`Blob/Snapshot`|DateTime|Version de l’instantané de l’objet blob, pour un travail d’exportation.|  
 |`Blob/Length`|Entier |Longueur totale de l’objet blob en octets.|  
-|`Blob/LastModified`|Datetime|Date/heure de dernière modification de l’objet blob, pour un travail d’exportation.|  
+|`Blob/LastModified`|DateTime|Date/heure de dernière modification de l’objet blob, pour un travail d’exportation.|  
 |`Blob/ImportDisposition`|Chaîne|Disposition d’importation de l’objet blob, pour un travail d’exportation uniquement.|  
 |`Blob/ImportDisposition/@Status`|Attribut, Chaîne|État de la disposition d’importation.|  
 |`PageRangeList`|Élément XML imbriqué|Représente une liste de plages de pages pour un objet blob de pages.|  

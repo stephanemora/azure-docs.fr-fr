@@ -4,18 +4,18 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 52cca29392f226aa0f33081b9303a8c5d1f41036
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: ccd4334961ff6e5e687d2f57be0291bd389f43b4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413334"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463801"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Démarrage rapide : Créer un espace de développement Kubernetes avec Azure Dev Spaces (Node.js)
 
@@ -42,7 +42,7 @@ Dans ce guide, vous allez apprendre à :
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurer Azure Dev Spaces
 
-Il est possible d’installer l’interface de ligne de commande Azure et l’extension Azure Dev Spaces puis de les exécuter sur des ordinateurs Windows, Mac ou Linux. Pour Linux, les distributions prises en charge sont les suivantes : Ubuntu (18.04 16.04 et 14.04), Debian 8 et 9, RHEL 7, Fedora 26 +, CentOS 7, openSUSE 42.2 et SLES 12.
+Il est possible d’installer l’interface de ligne de commande Azure et l’extension Azure Dev Spaces puis de les exécuter sur des ordinateurs Windows, Mac ou Linux. Pour Linux, les distributions prises en charge sont les suivantes : Ubuntu (18.04, 16.04 et 14.04), Debian 8 et 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 et SLES 12.
 
 Pour configurer Azure Dev Spaces, procédez comme suit :
 

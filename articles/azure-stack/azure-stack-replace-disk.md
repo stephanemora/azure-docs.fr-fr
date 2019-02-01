@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: d0b455261649fad95a92f7ad75f7af26d633cf5a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.lastreviewed: 01/22/2019s
+ms.openlocfilehash: 091ede57dbbc069f20b5ece2fc5b39b6d49a9009
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476884"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247780"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Remplacer un disque physique dans Azure Stack
 
@@ -54,27 +55,27 @@ Une fois le disque remplacé, Azure Stack détecte automatiquement le nouveau di
  Après avoir remplacé le disque, vous pouvez surveiller l’état d’intégrité du disque virtuel et la progression du travail de réparation à l’aide du point de terminaison privilégié. Suivez ces étapes à partir de n’importe quel ordinateur qui dispose d’une connectivité réseau au point de terminaison privilégié.
 
 1. Ouvrez une session Windows PowerShell et connectez-vous au point de terminaison privilégié.
-    ````PowerShell
+    ```PowerShell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-    ```` 
+    ``` 
   
 2. Exécutez la commande suivante pour afficher l’intégrité du disque virtuel :
-    ````PowerShell
+    ```PowerShell
         Get-VirtualDisk -CimSession s-cluster
-    ````
+    ```
    ![Sortie PowerShell de la commande Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. Exécutez la commande suivante pour afficher l’état actuel du travail de stockage :
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
-    ````
+    ```
       ![Sortie PowerShell de la commande Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 ## <a name="troubleshoot-virtual-disk-repair"></a>Résoudre les problèmes de réparation de disque virtuel
 
 Si le travail de réparation de disque virtuel semble bloqué, exécutez la commande suivante pour le redémarrer :
-  ````PowerShell
+  ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
-  ```` 
+  ``` 

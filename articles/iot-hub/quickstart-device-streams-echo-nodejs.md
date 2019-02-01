@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: a90357e0075856049616a026fee7a49606ea4d90
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 590faaf727345dcfe8ab61a1860ca46d78256b22
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830511"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219003"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil dans Node.js par le biais de flux d’appareil IoT Hub (préversion)
 
@@ -40,7 +40,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour exécuter l’application côté service dans le cadre du présent guide de démarrage rapide, vous avez besoin de Node.js v4.x.x ou d’une version ultérieure sur votre ordinateur de développement.
 
-Vous pouvez télécharger Node.js pour plusieurs plateformes à partir de [Nodejs.org](https://Node.js.org).
+Vous pouvez télécharger Node.js pour plusieurs plateformes à partir de [Nodejs.org](https://nodejs.org).
 
 Vous pouvez vérifier la version actuelle de Node.js sur votre machine de développement à l’aide de la commande suivante :
 
@@ -48,7 +48,7 @@ Vous pouvez vérifier la version actuelle de Node.js sur votre machine de dével
 node --version
 ```
 
-Si ce n’est déjà fait, téléchargez l’exemple de projet Node.js à partir de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip et extrayez l’archive ZIP.
+Si ce n’est déjà fait, téléchargez l’exemple de projet Node.js à partir de https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip et extrayez l’archive ZIP.
 
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT

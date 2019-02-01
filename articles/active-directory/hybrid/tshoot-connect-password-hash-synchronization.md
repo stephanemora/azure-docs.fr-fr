@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 23787c777f20025d9310fac2efe0f429d66c4586
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c87b6791ea2d90ed302d796f17727a0338104beb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470441"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174990"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation du hachage de mot de passe avec Azure AD Connect Sync
 Cette rubrique explique comment résoudre les problèmes de synchronisation du hachage de mot de passe. Si les mots de passe ne se synchronisent pas comme prévu, il peut s’agir d’un sous-ensemble d’utilisateurs ou de tous les utilisateurs.

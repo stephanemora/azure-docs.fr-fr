@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Birst Agile Business Analytics | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Birst Agile Business Analytics | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Birst Agile Business Analytics.
 services: active-directory
 documentationCenter: na
@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: 677183b1-5348-4302-88cc-5c8ab63a3c6c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 761db64856f0ea6068512e4ba6f9ddcff403244c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 61c95d17493dff493787be00fb56ec2f799b5d19
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821088"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Didacticiel : Intégration d’Azure Active Directory à Birst Agile Business Analytics
 

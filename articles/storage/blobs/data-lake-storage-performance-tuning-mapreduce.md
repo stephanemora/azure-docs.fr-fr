@@ -3,17 +3,17 @@ title: Conseils de réglage des performances d’Azure Data Lake Storage Gen2 Ma
 description: Conseils de réglage des performances d’Azure Data Lake Storage Gen2 MapReduce
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 4ba683bc75ed841fc92eb2c9fcc908e419b716d6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0cd7ecdc6ee7b6ccd66c9d0d88ebef0a1220a40a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976449"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249110"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Conseils de réglage des performances pour MapReduce sur HDInsight et Azure Data Lake Storage Gen2
 
@@ -22,12 +22,12 @@ Découvrez les facteurs à prendre en compte quand vous réglez les performances
 ## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un compte Azure Data Lake Storage Gen2**. Pour obtenir des instructions afin d’en créer un, consultez [Démarrage rapide : Créer un compte de stockage Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+* **Un compte Azure Data Lake Storage Gen2**. Pour obtenir les instructions de création de compte, consultez [Démarrage rapide : Créer un compte de stockage Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 * Un **cluster Azure HDInsight** avec un accès à un compte Data Lake Storage Gen2. Veillez à activer le Bureau à distance pour le cluster.
 * **Utilisation de MapReduce sur HDInsight**.  Pour plus d’informations, consultez [Utilisation de MapReduce sur Hadoop sur HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
 * **Conseils de réglage des performances sur Data Lake Storage Gen2**.  Pour en savoir plus sur les concepts de performance d’ordre général, consultez [Conseils de réglage des performances de Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md)
 
-## <a name="parameters"></a>Paramètres
+## <a name="parameters"></a>parameters
 
 Lors de l’exécution des travaux MapReduce, voici les paramètres que vous pouvez configurer pour améliorer les performances sur Data Lake Storage Gen2 :
 

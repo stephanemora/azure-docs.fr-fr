@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9029676df6a878a6d3d5796928cbad9c20cd685
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020130"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889057"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Sources de données dans Azure Monitor
 Cet article décrit les sources de données collectées par Azure Monitor pour surveiller l’intégrité et les performances de vos ressources et des applications s’exécutant sur celles-ci. Ces ressources peuvent être dans Azure, dans un autre cloud ou disponibles en local.  Consultez [Monitoring data collected by Azure Monitor](data-collection.md) (Données de supervision collectées par Azure Monitor) pour plus d’informations sur le stockage et l’affichage des données.
@@ -61,7 +61,7 @@ La plupart des services Azure génèrent des [métriques de plateforme](data-col
 
 
 ### <a name="resource-diagnostic-logs"></a>Journaux de diagnostic des ressources
-Tandis que le journal d’activité fournit des informations sur les opérations effectuées sur une ressource Azure, les [journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md) au niveau ressource fournissent des informations sur le fonctionnement de la ressource proprement dite.   La configuration requise et le contenu de ces journaux [varie selon le type de ressource](../../azure-monitor/platform/tutorial-dashboards.md).
+Tandis que le journal d’activité fournit des informations sur les opérations effectuées sur une ressource Azure, les [journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md) au niveau ressource fournissent des informations sur le fonctionnement de la ressource proprement dite.   La configuration requise et le contenu de ces journaux [varie selon le type de ressource](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 Vous ne pouvez pas afficher directement les journaux de diagnostic dans le portail Azure, mais vous pouvez les [envoyer au Stockage Azure à des fins d’archivage](../../azure-monitor/platform/archive-diagnostic-logs.md), et les exporter vers [Event Hub](../../event-hubs/event-hubs-about.md) en vue de leur redirection vers d’autres services, ou vers [Log Analytics](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) à des fins d’analyse. Certaines ressources peuvent écrire directement dans Log Analytics, tandis que d’autres écrivent dans un compte de stockage avant d’être [importées dans Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 

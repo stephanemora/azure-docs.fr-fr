@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: a2df26ef-d441-44ac-a9f3-b37bf9709bcb
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 8475cccdac5c864171ac0bad0ad16ed6d6849ecc
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 93203e82e71b66243818cac52f9ec431e85ba18f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823162"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169244"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Didacticiel : Intégration d’Azure Active Directory à Mixpanel
+# <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Tutoriel : Intégration d’Azure Active Directory à Mixpanel
 
 Dans ce didacticiel, vous allez apprendre à intégrer Mixpanel à Azure Active Directory (Azure AD).
 

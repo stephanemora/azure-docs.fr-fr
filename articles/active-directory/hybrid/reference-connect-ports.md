@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38a344fb6e67beae6310480646d84a1fe7730f84
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b5c7a1c56d9df28b8132f240dc3872314f029f78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461034"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155321"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Ports et protocoles nécessaires à l’identité hybride
 Le document suivant est une référence technique sur les ports et les protocoles nécessaires à l’implémentation d’une solution d’identité hybride. Consultez la figure ci-dessous et reportez-vous au tableau correspondant.
@@ -36,7 +36,7 @@ Ce tableau décrit les ports et les protocoles nécessaires à la communication 
 | Kerberos |88 (TCP/UDP) |Authentification Kerberos auprès de la forêt AD. |
 | MS-RPC |135 (TCP/UDP) |Utilisé pendant la configuration initiale de l’Assistant Azure AD au moment d’établir une liaison avec la forêt AD, ainsi que pendant la synchronisation du mot de passe. |
 | LDAP |389 (TCP/UDP) |Utilisé pour l’importation de données à partir d’AD. Les données sont chiffrées à l’aide de Kerberos Sign & Seal. |
-| RPC | 445 (TCP/UDP) |Utilisé par l’authentification unique transparente pour créer un compte d’ordinateur dans la forêt AD. |
+| SMB | 445 (TCP/UDP) |Utilisé par l’authentification unique transparente pour créer un compte d’ordinateur dans la forêt AD. |
 | LDAP/SSL |636 (TCP/UDP) |Utilisé pour l’importation de données à partir d’AD. Le transfert de données est signé et chiffré. Utilisé uniquement si vous utilisez SSL. |
 | RPC |49152- 65535 (port RPC aléatoire élevé)(TCP/UDP) |Utilisé pendant la configuration initiale d’Azure AD Connect au moment d’établir une liaison avec les forêts AD, ainsi que pendant la synchronisation du mot de passe. Pour plus d’informations, consultez les sections [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) et [KB224196](https://support.microsoft.com/kb/224196). |
 

@@ -5,18 +5,18 @@ services: active-directory
 author: eross-msft
 manager: daveba
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6ca6d0ab9f18665f6e271bedba63ce98996ba7db
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: dc231fc17a864401873c2f5acefbac6aa4816215
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445981"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102666"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plans de déploiement Azure Active Directory
 Vous souhaitez des conseils de bout en bout sur la façon de déployer certaines fonctionnalités Azure Active Directory (Azure AD) ? Les plans de déploiement suivants aborderont les notions de base (valeur commerciale, planification, conception et procédures opérationnelles) nécessaires pour réussir le lancement de quelques-unes des fonctionnalités Azure AD les plus courantes. 

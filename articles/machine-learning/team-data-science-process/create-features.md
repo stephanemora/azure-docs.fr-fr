@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5767399189e4ed5168fbcc083ef9b4830cac1421
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b7c10884682b6537bbfcbb1b1f8b89b38751d05b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138955"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478047"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingénierie des caractéristiques dans la science des données
 Cet article explique les finalités de l’ingénierie de caractéristiques et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Les exemples utilisés pour illustrer ce processus sont tirés d’Azure Machine Learning Studio. 
@@ -26,7 +26,7 @@ Cette tâche est une étape du [processus TDSP (Team Data Science Process)](http
 La conception de fonctionnalités tente d'augmenter la puissance prédictive des algorithmes d'apprentissage en créant des fonctionnalités à partir de données brutes qui facilitent le processus d'apprentissage. L’ingénierie et la sélection de caractéristiques constituent une partie du processus TDSP présenté dans [Qu’est ce que le cycle de vie du processus TDSP (Team Data Science Process) ?](overview.md). La conception et la sélection de fonctionnalités sont des parties de l’étape de **développement de fonctionnalités** du processus TDSP. 
 
 * **Ingénierie des caractéristiques** : ce processus tente de créer des caractéristiques supplémentaires pertinentes à partir de caractéristiques brutes existantes dans les données et d’augmenter la performance de prédiction de l’algorithme d’apprentissage.
-* **Sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d’origine afin de réduire la dimensionnalité du problème de formation.
+* **Sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d’origine afin de réduire la dimensionnalité du problème d’apprentissage.
 
 En général, l’**ingénierie de caractéristiques** s’applique d’abord à la génération de caractéristiques supplémentaires. L’étape de **sélection de caractéristiques** est alors effectuée pour éliminer les caractéristiques inutiles, redondantes ou fortement corrélées.
 

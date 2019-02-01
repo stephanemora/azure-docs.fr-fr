@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 3e88e0a3337eafdd25c9c0cc655912a4cdbd3b68
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.lastreviewed: 08/20/2018
+ms.openlocfilehash: a7e8b1471e056fd789cda5258dd088e623c3cebd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079529"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248501"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 3
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Ces notes de publication décrivent les améliorations et les correctifs apportés à Azure App Service sur Azure Stack Update 3, ainsi que les problèmes connus. Les problèmes connus ont été répartis selon qu’ils concernent le déploiement, le processus de mise à jour ou la build (après l’installation).
 
@@ -184,14 +185,14 @@ Valider
 - Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé.  Cela est aussi évoqué dans la documentation de déploiement d’Azure App Service sur Azure Stack.
 
 Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
- * Source : Toutes
+ * Source : Quelconque
  * Plage de ports source : : *
- * Destination : adresses IP
- * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
- * Plage de ports de destination : 445
- * Protocole : TCP
- * Action : Autoriser
- * Priorité : 700
+ * Destination : Adresses IP
+ * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+ * Plage de ports de destination : 445
+ * Protocole : TCP
+ * Action : AUTORISER
+ * Priorité : 700
  * Nom : Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problèmes connus des administrateurs cloud utilisant Azure App Service sur Azure Stack

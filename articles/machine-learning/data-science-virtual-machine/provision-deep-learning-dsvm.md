@@ -9,18 +9,18 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 6963515958cd55314562e37ffc6ab1d8e0af5bee
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078754"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250804"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DLVM dans Azure 
 
@@ -41,10 +41,10 @@ Voici les étapes de création d’une instance Deep Learning Virtual Machine :
       1. **Nom** : nom du serveur de science des données que vous créez.
       2. **Sélectionner le type de système d’exploitation de la machine virtuelle Deep Learning** : choisissez Windows ou Linux (pour une machine virtuelle DSVM ayant une base Windows 2016 ou Ubuntu Linux).
       2. **Nom d’utilisateur** : ID de connexion du compte Administrateur.
-      3. **Mot de passe** : mot de passe du compte Administrateur.
+      3. **Mot de passe** : mot de passe du compte Administrateur.
       4. **Abonnement**: Si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine.
-      5. **Groupe de ressources** : vous pouvez en créer un nouveau ou utiliser un groupe de ressources Azure **vide** dans votre abonnement.
-      6. **Lieu** : sélectionnez le centre de données le plus adapté. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau 
+      5. **Groupe de ressources** : vous pouvez en créer un nouveau ou utiliser un groupe de ressources Azure **vide** dans votre abonnement.
+      6. **Emplacement** : sélectionnez le centre de données le plus adapté. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau 
       
 > [!NOTE]
 > La machine virtuelle DLVM prend en charge toutes les instances de machine virtuelle GPU de série NC et ND. Lorsque vous approvisionnez la machine virtuelle DLVM, vous devez choisir l’un des emplacements d’Azure qui dispose de processeurs GPU. Dans la page [Azure Products by Region](https://azure.microsoft.com/regions/services/) (Produits Azure par région), consultez les emplacements disponibles et recherchez **Série NC**, **Série NCv2**, **Série NCv3** ou **Série ND** sous **Compute**. 
@@ -79,12 +79,12 @@ La machine virtuelle DLVM Linux est déjà provisionnée avec le serveur X2Go et
 1. Téléchargez et installez le client X2Go pour votre plateforme cliente sur [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Exécutez le client X2Go et sélectionnez **New Session**(Nouvelle session). Une fenêtre de configuration avec plusieurs onglets s’ouvre. Entrez les paramètres de configuration suivants :
    * **Onglet Session**:
-     * **Hôte** : nom d’hôte ou adresse IP de votre machine virtuelle Data Science VM Linux.
-     * **Connexion** : nom d’utilisateur sur la machine virtuelle Linux.
-     * **Port SSH** : conservez la valeur par défaut (22).
+     * **Hôte** : nom d’hôte ou adresse IP de votre machine virtuelle DSVM Linux.
+     * **Connexion** : nom d’utilisateur sur la machine virtuelle Linux.
+     * **Port SSH** : conservez la valeur par défaut (22).
      * **Type de session** : remplacez la valeur par **XFCE**. Les instances Linux de DSVM prennent uniquement en charge XFCE Desktop.
    * **Onglet Multimédia** : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
-   * **Dossiers partagés** : si vous souhaitez que des répertoires de vos ordinateurs clients soient montés sur la machine virtuelle Linux, ajoutez ceux que vous souhaitez partager avec la machine virtuelle sous cet onglet.
+   * **Dossiers partagés** : si vous voulez que des répertoires de vos ordinateurs clients soient montés sur la machine virtuelle Linux, ajoutez ceux que vous souhaitez partager avec la machine virtuelle sous cet onglet.
 
 Une fois connecté à la machine virtuelle à l’aide du client SSH ou du bureau graphique XFCE par le biais du client X2Go, vous pouvez commencer à utiliser les outils installés et configurés sur la machine virtuelle. Sur XFCE, vous pouvez voir les icônes de bureau et raccourcis du menu d’applications de la plupart des outils.
 

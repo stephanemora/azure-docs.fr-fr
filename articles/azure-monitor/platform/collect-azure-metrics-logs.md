@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6b5fc02e763b66f1d7d01643d1c9d6c971d6db84
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d01755ae62843ad1f2f1728df046b767fe123ca
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434203"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886575"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics
 
@@ -76,7 +76,7 @@ Mes ressources Azure qui prennent en charge [Azure Monitor](../../azure-monitor/
 >
 
 * Pour plus d’informations sur les métriques disponibles, voir [Mesures prises en charge avec Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
-* Pour plus d’informations sur les journaux disponibles, voir [Schéma et services pris en charge pour les journaux de diagnostic](../../azure-monitor/platform/tutorial-dashboards.md).
+* Pour plus d’informations sur les journaux disponibles, voir [Schéma et services pris en charge pour les journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Activer les diagnostics avec PowerShell
 Vous devez disposer de la version de novembre 2016 (v2.3.0) ou d’une version ultérieure d’[Azure PowerShell](/powershell/azure/overview).

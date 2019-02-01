@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: f5610f03cb613c7da2f89da1a38b6bf058a4e0cc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: db2c55ec30e766496b98ef66b584df26f2dfe116
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714404"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239279"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Activer la sauvegarde d’Azure Stack à partir du portail d’administration
 Activez le service de sauvegarde d’infrastructure via le portail d’administration afin qu’Azure Stack puisse générer des sauvegardes. Vous pouvez utiliser ces sauvegardes pour restaurer votre environnement avec la récupération cloud en cas [d’erreur irrécupérable](./azure-stack-backup-recover-data.md). L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois la récupération terminée. Les utilisateurs ont leurs abonnements restaurés, avec notamment les autorisations d’accès en fonction du rôle et les rôles, les plans d’origine, les offres, le calcul défini précédemment, le stockage et les quotas réseau.

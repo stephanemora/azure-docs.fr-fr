@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 1/14/2019
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 245314f0b7460cce270c97307e0719beebee472a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: files
+ms.openlocfilehash: 8f6eff1c2bd1490471256873339665ef1be92c6c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478635"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475037"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.

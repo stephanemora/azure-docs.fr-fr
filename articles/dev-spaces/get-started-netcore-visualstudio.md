@@ -5,19 +5,19 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: aeaa56d192899ef12b698ebbc5f19305f79f4ff1
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e81073850ebb45e82f2f702bec976eed4725f62e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706260"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462560"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Prise en main sur Azure Dev Spaces avec .NET Core et Visual Studio
 
@@ -47,7 +47,7 @@ Dans ce guide, vous allez apprendre à :
 
    ![Paramètres de configuration Kubernetes](media/common/Kubernetes-Create-Cluster-2.PNG)
 
-   Sélectionnez **Suivant : authentification** lorsque vous avez terminé.
+   Sélectionnez **Suivant : Authentification** lorsque vous avez terminé.
 
 1. Choisissez votre paramètre souhaité pour le contrôle d’accès en fonction du rôle (RBAC). Azure Dev Spaces prend en charge les clusters avec le paramètre RBAC activé ou désactivé.
 

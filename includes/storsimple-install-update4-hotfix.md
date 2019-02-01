@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: f0c631c765ba95602fb2ac3ab1fd72732793a199
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a775a38d15876850b8a821f9e827e0dd0c3772b6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264361"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147941"
 ---
 <!--author=alkohli last changed: 01/23/18-->
 
@@ -54,7 +54,7 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
    
     Vous trouverez ci-dessous un exemple de sortie pour l’installation des mises à jour prioritaires. Pour la première mise à jour de commande, vous devez pointer vers le fichier spécifique.
    
-        ````
+        ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
@@ -65,7 +65,7 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
-        ````
+        ```
 4. Tapez **Y** lorsque vous êtes invité à confirmer l’installation du correctif.
 5. Contrôlez la mise à jour à l'aide de l'applet de commande `Get-HcsUpdateStatus` . La mise à jour se termine d’abord sur le contrôleur passif. Une fois le contrôleur passif mis à jour, un basculement se produit et la mise à jour est ensuite appliquée à l’autre contrôleur. La mise à jour est terminée lorsque les deux contrôleurs sont mis à jour.
    

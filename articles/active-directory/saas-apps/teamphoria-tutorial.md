@@ -7,21 +7,21 @@ author: jeevansd
 manager: daveba
 ms.assetid: d569c705-6f0f-4ec1-b485-ba82526b5d32
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 8232af95cf8414df67343f5004975b11df4488a0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d7a0523a1e436a086be90896da4d16fab55ce9ab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826715"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174446"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Didacticiel : Intégration d'Azure Active Directory à Teamphoria
+# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutoriel : Intégration d'Azure Active Directory à Teamphoria
 
 Dans ce didacticiel, vous allez apprendre à intégrer Teamphoria à Azure Active Directory (Azure AD).
 
