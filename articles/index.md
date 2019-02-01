@@ -1873,7 +1873,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>Planifier les tâches et la gestion des calculs à l’échelle du cloud</p>
+                                                    <p>Planifiez les tâches et la gestion des calculs à l’échelle du cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2025,7 +2025,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CycleCloud</h3>
-                                                    <p>Créer, gérer, exploiter et optimiser les clusters HPC et Big Compute, quelle que soit leur échelle</p>
+                                                    <p>Créez, gérez, exploitez et optimisez les clusters HPC et Big Compute, quelle que soit leur échelle</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2905,7 +2905,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
-                                                    <p>Exécuter facilement des conteneurs avec une seule commande</p>
+                                                    <p>Exécutez facilement des conteneurs avec une seule commande</p>
                                                 </div>
                                             </div>
                                         </div>
