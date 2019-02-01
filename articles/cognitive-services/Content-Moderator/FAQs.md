@@ -6,18 +6,18 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: faq
 ms.date: 11/21/2016
 ms.author: sajagtap
-ms.openlocfilehash: ce61a89069caf90695a2cb6c54f61de8fa8cb112
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1c55ef6fdfefbd50442da63637ba98bc43865d27
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226930"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206100"
 ---
-# <a name="frequently-asked-questions-faq"></a>Questions fréquentes (FAQ)
+# <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
 #### <a name="what-does-my-content-moderator-subscription-include"></a>Quels sont les éléments inclus dans mon abonnement Content Moderator ?
 Votre abonnement Content Moderator inclut l’accès à l’outil de révision et aux API. Selon les besoins de votre entreprise, vous pouvez choisir d’utiliser ces deux accès ou l’un ou l’autre.
@@ -32,7 +32,7 @@ L’API de texte retourne un code d’erreur qui indique que la longueur du text
 Votre contenu vous appartient et ne peut pas être conservé par Microsoft sans votre consentement. Microsoft utilise des mesures de sécurité de pointe pour vous aider à protéger votre contenu.
 
 #### <a name="can-i-use-content-moderator-to-screen-for-illegal-child-exploitation-images"></a>Puis-je utiliser Content Moderator pour détecter des images illégales d’exploitation d’enfants ?
-Non. Toutefois, les organisations qualifiées peuvent utiliser le [service cloud PhotoDNA](https://www.microsoft.com/photodna "service cloud PhotoDNA de Microsoft") pour détecter ce type de contenu.
+ Non. Toutefois, les organisations qualifiées peuvent utiliser le [service cloud PhotoDNA](https://www.microsoft.com/photodna "service cloud PhotoDNA de Microsoft") pour détecter ce type de contenu.
 
 #### <a name="up-to-how-many-review-teams-can-a-user-join-can-the-user-switch-between-teams"></a>Combien d’équipes de révision au maximum un utilisateur peut-il rejoindre ? L’utilisateur peut-il changer d’équipe ?
 Un utilisateur peut joindre une équipe à la fois.

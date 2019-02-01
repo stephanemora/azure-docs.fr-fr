@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: fryu
-ms.component: common
-ms.openlocfilehash: 3f2ebb82f5affa3c41f237edcc039eb6214c7a4c
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.subservice: common
+ms.openlocfilehash: f8a73bb6e86a187a504c2d36098001cfd90015f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649293"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454922"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migration des métriques de Stockage Azure
 
@@ -112,7 +112,7 @@ Si vous avez créé des règles d’alerte classiques basées sur des anciennes 
 
 ### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>Les nouvelles données de métrique sont-elles stockées dans le même compte de stockage par défaut ?
 
-Non. Pour archiver les données de métrique dans un compte de stockage, utilisez [L’API Paramètre de diagnostic Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
+ Non. Pour archiver les données de métrique dans un compte de stockage, utilisez [L’API Paramètre de diagnostic Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

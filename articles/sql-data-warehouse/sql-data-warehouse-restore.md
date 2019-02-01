@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 112b9bac5d99556201b2038cf150293c9f2ed86d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5de9c674ceeab6d45211b46e2f03d91b943751ac
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005799"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246209"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Restauration d’un entrepôt de données Azure SQL 
 Dans cet article, vous allez découvrir comment effectuer les opérations suivantes dans le portail Azure et PowerShell :
@@ -27,7 +27,7 @@ Dans cet article, vous allez découvrir comment effectuer les opérations suivan
 - Créer une copie de votre entrepôt de données à partir d’un point de restauration défini par l’utilisateur
 
 ## <a name="before-you-begin"></a>Avant de commencer
-**Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut.  Avant de pouvoir restaurer un entrepôt de données SQL, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez la rubrique [Demander une modification du quota DTU][Request a DTU quota change].
+**Vérifiez votre capacité de DTU.**  Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut.  Avant de pouvoir restaurer un entrepôt de données SQL, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez la rubrique [Demander une modification du quota DTU][Request a DTU quota change].
 
 ## <a name="restore-through-powershell"></a>Effectuer une restauration par le biais de PowerShell
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: b9a98cea8ee19846afc30b322c3fdacb21f2bf44
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: files
+ms.openlocfilehash: d17389af1129c63d2c0eadfac04c034669200620
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242447"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462730"
 ---
 # <a name="how-to-deploy-azure-files"></a>Comment déployer Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article explique comment déployer pratiquement Azure Files au sein de votre organisation.
@@ -129,7 +129,7 @@ Pour remplacer un partage de fichiers local, il est utile de pré-monter les par
 > [!Note]  
 > Le montage d’un partage de fichiers Azure nécessitant l’utilisation de la clé du compte de stockage en guise de mot de passe, nous recommandons d’effectuer le montage uniquement dans un environnements approuvé. 
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 PowerShell peut être utilisé pour exécuter la commande de montage sur plusieurs ordinateurs. Dans l’exemple suivant, `$computers` est entré manuellement, mais vous pouvez générer la liste des ordinateurs à monter automatiquement. Par exemple, vous pouvez entrer cette variable avec des résultats d’Active Directory.
 
 ```PowerShell

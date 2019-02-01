@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e4131bc8f038957e52b914937b2d45e670be8f5f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.lastreviewed: 12/18/2018
+ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157273"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251348"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Faire pivoter les clés secrètes dans Azure Stack
 
@@ -203,7 +204,7 @@ Pour effectuer une rotation des secrets externes :
 
 5. Patientez pendant la rotation de vos secrets. En général, la rotation des secrets externes prend environ une heure.
 
-    Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success** (état global de l’action : réussite).
+    Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success (état global de l’action : réussite).
 
     > [!Note]
     > En cas d’échec de la rotation des secrets, suivez les instructions figurant dans le message d’erreur, puis réexécutez **start-secretrotation** avec le paramètre **-Rerun**.
@@ -251,7 +252,7 @@ Remove-PSSession -Session $PEPSession
 
 3. Patientez pendant la rotation de vos secrets.
 
-Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success** (état global de l’action : réussite).
+Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success (état global de l’action : réussite).
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
@@ -297,7 +298,7 @@ L’applet de commande **Start-SecretRotation** effectue la rotation des secrets
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | type | Obligatoire | Position | Default | Description |
+| Paramètre | Type | Obligatoire | Position | Default | Description |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | Chaîne  | False  | named  | Aucun  | Le chemin d’accès au partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets externes. Le répertoire de fin doit être **\Certificates**. |
 | CertificatePassword | SecureString | False  | named  | Aucun  | Le mot de passe pour tous les certificats fournis dans le -PfXFilesPath. Valeur requise si PfxFilesPath est fourni lors de la rotation des secrets externes. |

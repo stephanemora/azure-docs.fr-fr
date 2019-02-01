@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 53a801a367e6948c3070224b7ff36a013a1faab3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 47be738a4e5dcec144d482c28e39cbe950bba3e7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300848"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460384"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gérer les ressources de calcul dans Azure SQL Data Warehouse
 Découvrez comment gérer les ressources de calcul dans Azure SQL Data Warehouse. Vous pouvez alléger les coûts en suspendant l’entrepôt de données, ou mettre à l’échelle ce dernier afin de répondre aux exigences en matière de niveau de performance. 
@@ -97,7 +97,7 @@ Pour plus d’informations sur les procédures de suspension et de reprise, cons
 ## <a name="drain-transactions-before-pausing-or-scaling"></a>Vider les transactions avant la suspension ou la mise à l’échelle
 Nous vous recommandons d’autoriser l’achèvement des transactions existantes avant d’initialiser une opération de suspension ou de mise à l’échelle.
 
-Lorsque vous suspendez ou mettez à l’échelle de votre SQL Data Warehouse, en arrière-plan, vos requêtes sont annulées lorsque vous lancez la requête de suspension de mise à l’échelle.  L’annulation d’une simple requête SELECT est une opération rapide et n’a quasiment aucun impact sur le temps nécessaire à la suspension ou à la mise à l’échelle de votre instance.  Toutefois, les requêtes transactionnelles, qui modifient vos données ou la structure des données, ne pourront peut-être pas s’arrêter rapidement.  **Par définition, les requêtes transactionnelles doivent être terminées dans leur intégralité ou annuler leurs modifications.**  L’annulation du travail effectué par une requête transactionnelle peut être aussi longue, voire plus, que la modification originale appliquée par la requête.  Par exemple, si vous annulez une requête qui supprimait des lignes et était en cours d’exécution depuis une heure, le système mettra peut-être une heure à insérer à nouveau les lignes supprimées.  Si vous exécutez une suspension ou une mise à l’échelle pendant que les transactions sont en cours, votre suspension ou mise à l’échelle peut sembler très longue, car la suspension et la mise à l’échelle doivent attendre la fin de la restauration avant de se lancer.
+Lorsque vous suspendez ou mettez à l’échelle de votre SQL Data Warehouse, en arrière-plan, vos requêtes sont annulées lorsque vous lancez la requête de suspension de mise à l’échelle.  L’annulation d’une simple requête SELECT est une opération rapide et n’a quasiment aucun impact sur le temps nécessaire à la suspension ou à la mise à l’échelle de votre instance.  Toutefois, les requêtes transactionnelles, qui modifient vos données ou la structure des données, ne pourront peut-être pas s’arrêter rapidement.  **Par définition, les requêtes transactionnelles doivent être terminées dans leur intégralité ou annuler leurs modifications.**   L’annulation du travail effectué par une requête transactionnelle peut être aussi longue, voire plus, que la modification originale appliquée par la requête.  Par exemple, si vous annulez une requête qui supprimait des lignes et était en cours d’exécution depuis une heure, le système mettra peut-être une heure à insérer à nouveau les lignes supprimées.  Si vous exécutez une suspension ou une mise à l’échelle pendant que les transactions sont en cours, votre suspension ou mise à l’échelle peut sembler très longue, car la suspension et la mise à l’échelle doivent attendre la fin de la restauration avant de se lancer.
 
 Consultez aussi [Transactions](sql-data-warehouse-develop-transactions.md) et [Optimisation des transactions](sql-data-warehouse-develop-best-practices-transactions.md).
 
