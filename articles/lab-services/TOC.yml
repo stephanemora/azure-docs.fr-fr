@@ -62,6 +62,8 @@ items:
       href: classroom-labs/how-to-configure-student-usage.md
     - name: Accéder aux laboratoires de salle de classe
       href: classroom-labs/how-to-use-classroom-lab.md
+    - name: Créer et gérer des planifications
+      href: classroom-labs/how-to-create-schedules.md
   - name: Laboratoires DevTest
     items:
     - name: Création d’un laboratoire
@@ -215,15 +217,15 @@ items:
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs
   - name: Blog de l’équipe
     href: https://blogs.msdn.microsoft.com/devtestlab/
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-devtest-labs
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-ms.openlocfilehash: 58617af180ba908568377b7572449701e1e0df30
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1fc989f61f5c11e06e2651326e0e7e7f51092253
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118453"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496718"

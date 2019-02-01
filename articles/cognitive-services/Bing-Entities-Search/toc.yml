@@ -5,6 +5,9 @@ items:
   items:
   - name: Qu’est-ce que la Recherche d’entités Bing ?
     href: search-the-web.md
+  - name: Comparer les API Recherche Bing
+    href: ../Bing-Web-Search/bing-api-comparison.md
+    maintainContext: true
 - name: Démarrages rapides de l’API REST
   items:
   - name: C#
@@ -44,12 +47,13 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search
 - name: Procédures
   items:
-  - name: Conditions d’utilisation et d’affichage
-    href: use-display-requirements.md
   - name: Redimensionner et rogner les miniatures
     href: resize-and-crop-thumbnails.md
 - name: Informations de référence
   items:
+  - name: Conditions d’utilisation et d’affichage de l’API Recherche Bing
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
   - name: API Recherche d’entités Bing v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
   - name: Kits de développement logiciel (SDK)
@@ -70,7 +74,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/601036-bing-entity-search-api
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+entity+search
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/global-infrastructure/services/
@@ -86,9 +90,9 @@ items:
     href: entity-search-endpoint.md
   - name: Analytique pour l’API Recherche d’entités Bing
     href: bing-entity-stats.md
-ms.openlocfilehash: a0f92f5b3ef8f0ea24393da1199422b032a57f06
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 919d44bbf41397cf58c06cfe2eff56867546b61e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789541"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509930"
