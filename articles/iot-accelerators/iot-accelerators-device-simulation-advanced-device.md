@@ -34,7 +34,7 @@ Pour exécuter la Simulation d’appareil dans votre navigateur, accédez d’ab
 
 Vous pouvez être invité à vous connecter les informations d’identification de votre abonnement Azure.
 
-Puis cliquez sur **Lancer** sur la mosaïque de la Simulation d’appareil que vous avez déployée dans le guide de démarrage rapide [Déployer et exécuter une simulation d’appareil IoT dans Azure](quickstart-device-simulation-deploy.md).
+Ensuite, cliquez sur **Lancer** sur la mosaïque de la Simulation d’appareil que vous avez déployée dans le guide de démarrage rapide [Déployer et exécuter une simulation d’appareil IoT dans Azure](quickstart-device-simulation-deploy.md).
 
 ## <a name="device-models"></a>Modèles d’appareils
 
