@@ -67,7 +67,7 @@
 
 ### [Gérer les offres](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Créer l’offre](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
-<!-- #### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)   -->
+#### [Publier l’offre](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [Afficher l’état de l’offre](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Mettre à jour l’offre](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Supprimer l’offre](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
@@ -140,6 +140,17 @@
 #### [Créer des ressources techniques pour le module IoT Edge](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
 #### [Publier une offre de module IoT Edge](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
 #### [Mettre à jour l’offre existante](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
+
+### [Offre d’application Power BI](./cloud-partner-portal/power-bi/cpp-power-bi-offer.md)
+#### [Composants requis](./cloud-partner-portal/power-bi/cpp-prerequisites.md)
+#### [Créer une offre d’application Power BI](./cloud-partner-portal/power-bi/cpp-create-offer.md)
+##### [Onglet des paramètres de l’offre](./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md)
+##### [Onglet des informations techniques](./cloud-partner-portal/power-bi/cpp-technical-info-tab.md)
+##### [Onglet des informations sur les vitrines](./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md)
+##### [Onglet Contacts](./cloud-partner-portal/power-bi/cpp-contacts-tab.md)
+#### [Créer des ressources techniques d’application Power BI](./cloud-partner-portal/power-bi/cpp-create-technical-assets.md)
+#### [Publier une offre d’application Power BI](./cloud-partner-portal/power-bi/cpp-publish-offer.md)
+#### [Mettre à jour l’offre existante](./cloud-partner-portal/power-bi/cpp-update-existing-offer.md)
 
 ### [Offre d’application SaaS](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 #### [Composants requis](./cloud-partner-portal/saas-app/cpp-prerequisites.md)

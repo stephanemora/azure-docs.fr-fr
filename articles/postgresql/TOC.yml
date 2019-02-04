@@ -104,6 +104,12 @@ items:
       href: concepts-connectivity.md
     - name: Développer avec Azure Kubernetes Service (AKS)
       href: concepts-aks.md
+    - name: Java
+      items:
+      - name: Configurer Spring Data JDBC
+        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+      - name: Configurer Spring Data JPA
+        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
   - name: Réplication
     items:
     - name: Réplicas en lecture
@@ -200,7 +206,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: Forum MSDN
     href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
-  - name: Stack Overflow
+  - name: Dépassement de capacité de la pile
     href: https://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: vidéos
     items:
@@ -230,9 +236,9 @@ items:
     href: partners-migration-postgresql.md
   - name: Guide pour la migration de base de données
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 61b78ac5b542e130fd7182b0c30810ff9c98ee78
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: e391ae71e7b840fc372f9b6116bab486845f92e6
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383043"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567228"

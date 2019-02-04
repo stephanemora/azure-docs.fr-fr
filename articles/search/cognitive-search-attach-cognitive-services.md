@@ -94,7 +94,7 @@ Si vous avez un ensemble de qualifications existant, vous pouvez l’attacher à
 
 1. Dans la page **Vue d’ensemble du service**, cliquez sur **Ensemble de qualifications**.
 
-   (./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Onglet Ensemble de qualifications")(./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Onglet Ensemble de qualifications")
+   ![Onglet Ensemble de qualifications](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Onglet Ensemble de qualifications")
 
 1. Cliquez sur le nom de l’ensemble de qualifications, puis sélectionnez une ressource existante ou créez-en une. Cliquez sur **OK** pour confirmer vos modifications. 
 

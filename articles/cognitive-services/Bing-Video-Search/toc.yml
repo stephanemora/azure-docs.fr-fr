@@ -1,48 +1,45 @@
 items:
-- name: Documentation Recherche de vidéos Bing
+- name: Documentation de l’API Recherche de vidéos Bing
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Qu’est-ce que la Recherche de vidéos Bing ?
-    href: search-the-web.md
+  - name: Qu’est-ce que l’API Recherche de vidéos Bing ?
+    href: overview.md
   - name: Comparer les API Recherche Bing
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
+  expanded: true
 - name: Démarrages rapides de l’API REST
   items:
-  - name: Prise en main
-    href: quick-start.md
-  - name: C#
-    href: csharp.md
-  - name: Java
-    href: java.md
-  - name: Node.js
-    href: nodejs.md
-  - name: PHP
-    href: php.md
-  - name: Python
-    href: python.md
-  - name: Ruby
-    href: ruby.md
+  - name: API REST
+    items:
+    - name: Utilisation de C#
+      href: quickstarts/csharp.md
+    - name: Utilisation de Java
+      href: quickstarts/java.md
+    - name: Utilisation de Node.js
+      href: quickstarts/nodejs.md
+    - name: Utilisation de PHP
+      href: quickstarts/php.md
+    - name: Utilisation de Python
+      href: quickstarts/python.md
+    - name: Utilisation de Ruby
+      href: quickstarts/ruby.md
+  - name: Foundation
+    items:
+    - name: Utilisation de C#
+      href: quickstarts/sdk-csharp-quickstart.md
+    - name: Utilisation de Node.js
+      href: quickstarts/sdk-node-quickstart.md
+    - name: Utilisation de Python
+      href: quickstarts/sdk-python-quickstart.md
+    - name: Utilisation de Java
+      href: quickstarts/sdk-java-quickstart.md
   expanded: true
-- name: Démarrages rapides du kit de développement logiciel (SDK)
-  items:
-  - name: Vue d’ensemble des exemples de kit de développement logiciel (SDK)
-    href: sdk.md
-  - name: Démarrage rapide C# du SDK Recherche de vidéos
-    href: video-search-sdk-quickstart.md
-  - name: Démarrage rapide Node du SDK Recherche de vidéos
-    href: video-search-sdk-node-quickstart.md
-  - name: Démarrage rapide Python du SDK Recherche de vidéos
-    href: video-sdk-python-quickstart.md
-  - name: Démarrage rapide Java du SDK Recherche de vidéos
-    href: video-sdk-java-quickstart.md
 - name: Didacticiels
   items:
   - name: Application web à page unique
     href: tutorial-bing-video-search-single-page-app.md
-  - name: Application web à page unique (code source)
-    href: tutorial-bing-video-search-single-page-app-source.md
 - name: Exemples
   items:
   - name: Exemples de code
@@ -59,6 +56,12 @@ items:
     href: resize-and-crop-thumbnails.md
   - name: Mettre à niveau de v5 vers v7
     href: bing-video-upgrade-guide-v5-to-v7.md
+- name: Concepts
+  items:
+  - name: Obtention de vidéos à partir du web
+    href: concepts/get-videos.md
+  - name: Envoi de requêtes de recherche
+    href: concepts/sending-requests.md
 - name: Informations de référence
   items:
   - name: API Recherche de vidéos Bing v7
@@ -86,7 +89,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/video/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/911452-bing-video-search-api
-  - name: Stack Overflow
+  - name: Dépassement de capacité de la pile
     href: https://stackoverflow.com/search?q=bing+video+search
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/global-infrastructure/services/
@@ -98,13 +101,11 @@ items:
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api
   - name: Essayez !
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
-  - name: Points de terminaison Recherche de vidéos Bing
-    href: video-search-endpoints.md
   - name: Analytique pour l’API Recherche de vidéos Bing
     href: bing-video-stats.md
-ms.openlocfilehash: e8f0e84b405232ff7145f0a8fed4ab42d03a4c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9192f6aaa94d2aff310e8d12a66ac8ab75f772e2
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509697"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568033"

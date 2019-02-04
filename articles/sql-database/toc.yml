@@ -17,7 +17,7 @@ items:
     items:
     - name: Base de données unique
       href: sql-database-get-started-portal.md
-    - name: Instance managée
+    - name: Instance gérée
       href: sql-database-managed-instance-get-started.md
   - name: Configuration
     items:
@@ -423,13 +423,13 @@ items:
         href: elastic-jobs-tsql.md
       - name: Migrer (à partir d’anciens travaux élastiques)
         href: elastic-jobs-migrate.md
-  - name: Instance managée
+  - name: Instance gérée
     items:
     - name: Vue d’ensemble
       href: sql-database-howto-managed-instance.md
-    - name: Migrer vers une instance managée
+    - name: Migrer vers une instance gérée
       href: sql-database-managed-instance-migrate.md
-    - name: Migrer un certificat TDE vers une instance managée
+    - name: Migrer un certificat TDE vers une instance gérée
       href: sql-database-managed-instance-migrate-tde-certificate.md
     - name: Déterminer la taille du sous-réseau d’instances managées
       href: sql-database-managed-instance-determine-size-vnet-subnet.md
@@ -545,6 +545,12 @@ items:
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
+    - name: Java
+      items:
+      - name: Utiliser Spring Data JDBC
+        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
+      - name: Utiliser Spring Data JPA
+        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server
   - name: Concevoir des applications
     items:
     - name: Conception de systèmes de récupération d’urgence
@@ -704,9 +710,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Désinstaller une tâche élastique (déconseillé)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 7530d0926cca2b89e532407d32e394e0b3018a60
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 1e0f7cb461441c500e3fd1b9b78ae6e829d9d578
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512412"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561448"
