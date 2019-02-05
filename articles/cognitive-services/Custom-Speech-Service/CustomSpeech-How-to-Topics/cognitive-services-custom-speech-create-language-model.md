@@ -5,18 +5,18 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 6af2da9ffc7678a58fcf1c647ba89c586066d2ad
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0798fb16954d2d0b5e0d614d619cd772670d30c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339094"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218085"
 ---
-# <a name="tutorial-create-a-custom-language-model"></a>Didacticiel : Créer un modèle de langage personnalisé
+# <a name="tutorial-create-a-custom-language-model"></a>Tutoriel : Créer un modèle linguistique personnalisé
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
@@ -55,7 +55,7 @@ Les principales conditions requises pour les données de langage sont résumées
 
 | Propriété | Valeur |
 |----------|-------|
-| Encodage de texte | en-US : US-ASCII ou UTF-8 ou zh-CN : UTF-8|
+| Encodage de texte | en-US : US-ACSII ou UTF-8 ou zh-CN : UTF-8|
 | Nb d’énoncés par ligne | 1 |
 | Taille maximale du fichier | 200 Mo |
 | Remarques | éviter de répéter des caractères plus de 4 fois, par exemple « aaaaa »|

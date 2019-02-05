@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 91b346c9a04cab1c5fcdb00ffd5f3fa811416036
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9ee01885d9c292a7f9513ebc1f5121ca8c010f68
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041668"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095819"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutoriel : Générer une application console Node.js avec le SDK JavaScript pour gérer des données de l’API SQL Azure Cosmos DB
 
@@ -204,6 +204,15 @@ Maintenant que votre application existe, vous devez vous assurer qu’elle peut 
 
    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
    ```
+   
+> [!Note]
+> Si vous vous connectez à l’**émulateur Cosmos DB**, désactivez la vérification SSL en créant une stratégie de connexion personnalisée.
+>   ```
+>   const connectionPolicy = new cosmos.ConnectionPolicy ()
+>   connectionPolicy.DisableSSLVerification = true
+>
+>   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey }, connectionPolicy });
+>   ```
 
 Maintenant que vous avez le code permettant d’initialiser le client Azure Cosmos DB, voyons comment utiliser les ressources Azure Cosmos DB.
 

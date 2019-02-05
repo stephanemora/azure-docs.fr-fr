@@ -1,23 +1,23 @@
 ---
-title: 'Tutoriel : Personnalisation des articles - Service Décision personnalisée'
+title: 'Didacticiel : Personnalisation des articles - Service Décision personnalisée'
 titlesuffix: Azure Cognitive Services
 description: Tutoriel sur la personnalisation des articles pour une prise de décision contextuelle.
 services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 1589ef94946a6396ee51b8fecfe2ed3e80db08e5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366333"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212220"
 ---
-# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Tutoriel : Personnalisation des articles pour une prise de décision contextuelle
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Tutoriel : Personnalisation des articles pour la prise de décision contextuelle
 
 Ce didacticiel est axé sur la personnalisation de la sélection d’articles sur la première page d’un site web. Le Service Décision personnalisée affecte *plusieurs* listes d’articles sur la première page par exemple. La page peut être un site web d’actualités qui traite uniquement de politique et de sport. Elle afficherait trois listes classées d’articles : politique, sports et nouveautés.
 

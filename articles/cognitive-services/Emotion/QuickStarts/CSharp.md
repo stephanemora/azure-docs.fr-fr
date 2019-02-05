@@ -1,27 +1,27 @@
 ---
-title: 'Démarrage rapide : reconnaître les émotions sur des visages dans une image - API Émotion, C#'
+title: 'Démarrage rapide : Reconnaître les émotions sur des visages dans une image - API Émotion, C#'
 titlesuffix: Azure Cognitive Services
 description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Émotion avec C#.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 530d05887e585884b184635e01031c1332fad3fb
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 45282c4ad534930fa72a8d8fb71105dca4af23de
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239368"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218238"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Démarrage rapide : générer une application permettant de reconnaître des émotions sur des visages dans une image.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Démarrage rapide : Générer une application permettant de reconnaître les émotions des visages dans une image.
 
 > [!IMPORTANT]
-> L'API Émotion sera déconseillée à partir du 15 février 2019. La fonction de reconnaissance des émotions est maintenant disponible de façon générale dans le cadre de l’[API Visage](https://docs.microsoft.com/azure/cognitive-services/face/).
+> L’API Émotion sera déconseillée à partir du 15 février 2019. La fonction de reconnaissance des émotions est maintenant accessible de façon générale dans le cadre de l’[API Visage](https://docs.microsoft.com/azure/cognitive-services/face/).
 
 Cet article fournit des informations et un exemple de code pour une prise en main rapide à l’aide de la [méthode Recognize de l’API Émotion](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) avec C#. Vous pouvez l’utiliser pour reconnaître les émotions exprimées par une ou plusieurs personnes sur une image.
 
@@ -123,10 +123,10 @@ namespace CSHttpClientSample
 ```
 
 ## <a name="recognize-emotions-sample-response"></a>Reconnaître les exemples de réponse des émotions
-Un appel réussi retourne un tableau comprenant les entrées de visages et les résultats d’émotion associés. Ils sont classés selon les dimensions des visages par ordre décroissant. Une réponse vide indique qu’aucun visage n’a été détecté. Une entrée de visage contient les champs suivants :
+Un appel réussi retourne un tableau comprenant les entrées de visages et les résultats d’émotion associés. Ils sont classés selon les dimensions des visages par ordre décroissant. Une réponse vide indique qu’aucun visage n’a été détecté. Une entrée d’émotion contient les champs suivants :
 
-* faceRectangle : emplacement du rectangle du visage sur l’image
-* scores : résultats d’émotion pour chaque visage sur l’image
+* faceRectangle : emplacement du rectangle du visage sur l’image
+* scores : résultats d’émotion pour chaque visage sur l’image
 
 ```json
 application/json

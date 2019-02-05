@@ -1,23 +1,23 @@
 ---
-title: 'Didacticiel : détection des anomalies avec JavaScript'
+title: 'Didacticiel : Détection d’anomalie avec JavaScript'
 titlesuffix: Azure Cognitive Services
 description: Explorez une application web JavaScript qui utilise l’API Détection d’anomalies. Envoyez des points de données d’origine à l’API et obtenez la valeur attendue et des points d’anomalies.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.component: anomaly-detection
+ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: cd65a5275fac651968197c9000b2d4cd3962693b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9e66b24987b2318f3022404d951fbb911e7b592d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883701"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227826"
 ---
-# <a name="tutorial-anomaly-detection-with-javascript-application"></a>Didacticiel : détection des anomalies avec une application JavaScript
+# <a name="tutorial-anomaly-detection-with-javascript-application"></a>Tutoriel : Détection d’anomalie avec une application JavaScript
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 

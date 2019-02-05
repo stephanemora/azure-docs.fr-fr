@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 71c8b9cc05d15a4c4eadb6321de580ed9768a438
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2d10dcde0a0e35a3e717cde34048437b6119fbf6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988703"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101226"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application-preview"></a>Démarrage rapide : modifier les comptes pris en charge par une application (préversion)
+# <a name="quickstart-modify-the-accounts-supported-by-an-application-preview"></a>Démarrage rapide : Modifier les comptes pris en charge par une application (préversion)
 
 Lorsque vous inscrivez une application dans la plateforme d’identité Microsoft, vous pouvez choisir de rendre votre application accessible uniquement aux utilisateurs de votre organisation. Vous pouvez également souhaiter que votre application soit accessible aux utilisateurs des organisations externes, ou aux utilisateurs des organisations externes ainsi qu’aux utilisateurs qui ne font pas nécessairement partie d’une organisation (comptes personnels).
 

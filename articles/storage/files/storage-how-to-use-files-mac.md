@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.component: files
-ms.openlocfilehash: ace77b8a15ace71b5b372564bc10c6f4845e1482
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: files
+ms.openlocfilehash: c393942112f42dc0d56388b8beac44b4287bca23
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527216"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475702"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montage du partage de fichiers Azure via SMB avec MacOS
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés avec le protocole standard SMB 3 par macOS El Capitan 10.11 et version supérieure. Cet article expose deux méthodes de montage d’un partage de fichiers Azure sur macOS : l’une avec l’interface utilisateur Finder et l’autre avec Terminal.
@@ -28,32 +28,32 @@ ms.locfileid: "39527216"
 >    ```
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Conditions préalables pour le montage d’un partage de fichiers Azure sous MacOS
-* **Nom de compte de stockage** : pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
+* **Nom du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
 
-* **Clé du compte de stockage** : pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
+* **Clé du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
 
-* **Assurez-vous que le port 445 est ouvert** : SMB communique via le port TCP 445. Sur votre machine client (Mac), vérifiez que votre pare-feu ne bloque pas le port TCP 445.
+* **Vérifiez que le port 445 est ouvert** : SMB communique via le port TCP 445. Sur votre machine client (Mac), vérifiez que votre pare-feu ne bloque pas le port TCP 445.
 
 ## <a name="mount-an-azure-file-share-via-finder"></a>Montage d’un partage de fichiers Azure via Finder
-1. **Ouvrez Finder** : Finder est ouvert par défaut sous MacOS, mais vous pouvez vérifier qu’il s’agit bien de l’application par défaut en cliquant sur l’icône MacOS (illustrée par un visage), dans la barre :  
+1. **Ouvrez Finder** : Finder est ouvert par défaut sur macOS, mais vous pouvez vérifier qu’il s’agit bien de l’application actuellement sélectionnée en cliquant sur l’icône de visage macOS dans la barre :  
     ![L’icône MacOS (visage)](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Sélectionnez « Se connecter au serveur » dans le Menu « Aller »**  : à l’aide du chemin d’accès UNC requis dans les [conditions préalables](#preq), remplacez la double barre oblique inverse (`\\`) par `smb://` et toutes les autres barres obliques inverses (`\`) par des barres obliques normales (`/`). Votre lien doit se présenter comme suit : ![la boîte de dialogue « Se connecter au serveur »](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Sélectionnez « Se connecter au serveur » dans le menu « Aller »**  : En utilisant le chemin UNC des [prérequis](#preq), remplacez la double barre oblique inverse (`\\`) par `smb://` et toutes les autres barres obliques inverses (`\`) par des barres obliques normales (`/`). Votre lien doit se présenter comme suit : ![Boîte de dialogue « Se connecter au serveur »](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
-3. **Lorsque vous y êtes invité, utilisez le nom et la clé du compte de stockage comme nom d’utilisateur et comme mot de passe** : lorsque vous cliquez sur « Connexion » dans la boîte de dialogue « Se connecter au serveur », vous êtes invité à entrer le nom d’utilisateur et le mot de passe (votre nom d’utilisateur MacOS est automatiquement prérempli). Vous avez la possibilité de placer le nom/la clé du compte de stockage dans votre trousseau MacOS.
+3. **Utilisez le nom du compte de stockage et la clé du compte de stockage quand un nom d’utilisateur et un mot de passe vous sont demandés** : Quand vous cliquez sur « Connexion », dans la boîte de dialogue « Se connecter au serveur », vous êtes invité à entrer le nom d’utilisateur et le mot de passe (votre nom d’utilisateur macOS est automatiquement prérempli). Vous avez la possibilité de placer le nom/la clé du compte de stockage dans votre trousseau MacOS.
 
-4. **Utilisez le partage de fichiers Azure à votre guise** : après avoir remplacé le nom de partage et la clé du compte de stockage par le nom d’utilisateur et le mot de passe, vous pouvez monter le partage. Vous pouvez l’utiliser comme un partage de fichiers / un dossier local normal. Vous pouvez notamment faire glisser et déposer des fichiers dans le partage :
+4. **Utilisez le partage de fichiers Azure à votre guise** : Après avoir remplacé le nom d’utilisateur et le mot de passe par le nom du partage et par la clé du compte de stockage, vous pouvez monter le partage. Vous pouvez l’utiliser comme un partage de fichiers / un dossier local normal. Vous pouvez notamment faire glisser et déposer des fichiers dans le partage :
 
     ![Une capture instantanée d’un partage de fichiers Azure monté](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>Montage d’un partage de fichiers Azure via Terminal
-1. Remplacez `<storage-account-name>` par le nom de votre compte de stockage. Lorsque vous y êtes invité, entrez la clé du compte de stockage comme mot de passe. 
+1. Remplacez  `<storage-account-name>`  par le nom de votre compte de stockage. Lorsque vous y êtes invité, entrez la clé du compte de stockage comme mot de passe. 
 
     ```
     mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>
     ```
 
-2. **Utilisez le partage de fichiers Azure à votre guise** : le partage de fichiers Azure est monté sur le point de montage spécifié par la commande précédente.  
+2. **Utilisez le partage de fichiers Azure à votre guise** : Le partage de fichiers Azure est monté sur le point de montage spécifié par la commande précédente.  
 
     ![Une capture instantanée du partage de fichiers Azure monté](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 

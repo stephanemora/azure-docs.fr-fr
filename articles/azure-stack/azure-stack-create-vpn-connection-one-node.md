@@ -15,13 +15,14 @@ ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: scottnap
+ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 65bf3d7eb84f4a4e6fe6d74bd08c41ba4d9dd637
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078900"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247219"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Créer une connexion VPN de site à site entre deux réseaux virtuels dans des environnements différents du Kit de développement Azure Stack
 ## <a name="overview"></a>Vue d’ensemble
@@ -35,7 +36,7 @@ Le diagramme ci-après illustre à quoi la configuration d’une connexion devra
 ### <a name="before-you-begin"></a>Avant de commencer
 Avant de commencer la configuration de la connexion, vérifiez que vous disposez des éléments suivants :
 
-* Deux serveurs et autres prérequis conformes aux exigences matérielles du Kit de développement Azure Stack, comme décrit dans [Démarrage rapide : préparer le Kit de développement Azure Stack](azure-stack-deploy-overview.md). 
+* Deux serveurs et d’autres prérequis conformes aux exigences matérielles du Kit de développement Azure Stack, comme décrit dans [Démarrage rapide : Évaluer le Kit de développement Azure Stack](azure-stack-deploy-overview.md). 
 * Le package de déploiement du [Kit de développement Azure Stack](https://azure.microsoft.com/overview/azure-stack/try/).
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Déployer les environnements du Kit de développement Azure Stack

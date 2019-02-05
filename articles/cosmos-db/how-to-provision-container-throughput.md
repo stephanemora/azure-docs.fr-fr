@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: eb34385087118614f8d7057c2229bc3c9e8d1ae4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 550201e692bb79197d50c2f44017c43ab9ea2016
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039484"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477323"
 ---
-# <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Approvisionner le débit d’un conteneur Azure Cosmos DB
+# <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionner du débit sur un conteneur Azure Cosmos
 
 Cet article explique comment approvisionner le débit d’un conteneur (collection, graphique, table) dans Azure Cosmos DB. Vous pouvez approvisionner le débit d’un seul conteneur ou [d’une base de données](how-to-provision-database-throughput.md) et le partager entre les conteneurs au sein de la base de données. Vous pouvez approvisionner le débit d’un conteneur à l’aide du portail Azure, d’Azure CLI ou des kits de développement logiciel (SDK) CosmosDB.
 

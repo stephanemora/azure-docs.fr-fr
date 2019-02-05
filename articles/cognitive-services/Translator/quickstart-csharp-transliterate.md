@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Convertir un script de texte, C# - Traduction de texte Translator Text'
+title: 'Démarrage rapide : Convertir un script de texte, C# - Traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez apprendre à translittérer (convertir) le texte d’un script dans un autre à l’aide de .NET Core et de l’API REST de traduction de texte Translator Text. Dans cet exemple, le japonais est translittéré pour utiliser l’alphabet latin.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: d67fbdad32612f23b1de31f7d2a1d7b4dee3b68e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 7beddd7f7f21466ee404303b2727370d0cfc86f6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889138"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220151"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour translittérer du texte à l’aide de C#
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et C# pour translittérer du texte
 
 Dans ce guide de démarrage rapide, vous allez apprendre à translittérer (convertir) le texte d’un script dans un autre à l’aide de .NET Core (C#) et de l’API REST de traduction de texte Translator Text. Dans l’exemple fourni, le japonais est translittéré pour utiliser l’alphabet latin.
 
@@ -49,7 +49,7 @@ dotnet add package Newtonsoft.Json --version 11.0.2
 
 ## <a name="add-required-namespaces-to-your-project"></a>Ajouter des espaces de noms requis à votre projet
 
-La commande `dotnet new console` que vous avez exécutée précédemment a créé un projet, y compris `Program.cs`. C’est dans ce fichier que vous placerez votre code d’application. Ouvrez `Program.cs` et remplacez les instructions using existantes. Ces instructions garantissent que vous avez accès à tous les types nécessaires pour générer et exécuter l’exemple d’application.
+La commande `dotnet new console` que vous avez exécutée précédemment a créé un projet, notamment `Program.cs`. C’est dans ce fichier que vous placerez votre code d’application. Ouvrez `Program.cs` et remplacez les instructions using existantes. Ces instructions garantissent que vous avez accès à tous les types nécessaires pour générer et exécuter l’exemple d’application.
 
 ```csharp
 using System;
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Exécution de l'exemple d'application
 
-Voilà, vous êtes prêt à exécuter votre exemple d’application. À partir de la ligne de commande (ou d’une session Terminal Server), accédez au répertoire de votre projet et exécutez :
+Voilà, vous êtes prêt à exécuter votre exemple d’application. À partir de la ligne de commande (ou d’une session terminal), accédez au répertoire de votre projet, puis exécutez :
 
 ```console
 dotnet run

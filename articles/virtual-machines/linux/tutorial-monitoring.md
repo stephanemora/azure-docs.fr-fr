@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2018
+ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868546"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092768"
 ---
-# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Didacticiel : surveiller et mettre à jour une machine virtuelle Linux dans Azure
+# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutoriel : Superviser et mettre à jour une machine virtuelle Linux dans Azure
 
 Pour vérifier que vos machines virtuelles dans Azure fonctionnent correctement, vous pouvez consulter les diagnostics de démarrage et les métriques de performances, et gérer les mises à jour de package. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -153,7 +153,7 @@ L’exemple suivant crée une alerte pour l’utilisation moyenne de l’UC.
 5. Si vous le souhaitez, cochez la case *Envoyer un e-mail aux propriétaires, aux contributeurs et aux lecteurs* pour envoyer la notification par e-mail. L’action par défaut est de présenter une notification dans le portail.
 6. Cliquez sur le bouton **OK**.
 
-## <a name="manage-package-updates"></a>Gérer les mises à jour de package
+## <a name="manage-software-updates"></a>Gérer les mises à jour logicielles
 
 La gestion des mises à jour vous permet de gérer les mises à jour et les correctifs pour vos machines virtuelles Linux Azure.
 Directement à partir de votre machine virtuelle, vous pouvez rapidement évaluer l’état des mises à jour disponibles, planifier l’installation des mises à jour nécessaires et passer en revue les résultats des déploiements pour vérifier que les mises à jour ont été appliquées correctement à la machine virtuelle.
@@ -175,15 +175,14 @@ Un espace de travail [Log Analytics](../../log-analytics/log-analytics-overview.
 L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 Pour effectuer une action supplémentaire sur les machines virtuelles qui nécessitent des mises à jour, Azure Automation vous permet d’exécuter des runbooks sur les machines virtuelles, par exemple télécharger et appliquer des mises à jour.
 
-Le processus de validation vérifie également que la machine virtuelle est configurée avec le Microsoft Monitoring Agent (MMA) et un runbook Worker hybride Automation.
-Cet agent est utilisé pour communiquer avec la machine virtuelle et pour obtenir des informations sur l’état des mises à jour.
+Le processus de validation vérifie également que la machine virtuelle est provisionnée avec l’agent Log Analytics et un Runbook Worker hybride Automation. Cet agent est utilisé pour communiquer avec la machine virtuelle et pour obtenir des informations sur l’état des mises à jour.
 
 Choisissez l’espace de travail Log Analytics et le compte Automation, puis cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
 
 Si l’intégration n’identifie pas l’un des prérequis suivants, il est automatiquement ajouté :
 
 * Espace de travail [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automation](../../automation/automation-offering-get-started.md)
+* [Compte Automation](../../automation/automation-offering-get-started.md)
 * Un [worker runbook hybride](../../automation/automation-hybrid-runbook-worker.md) est activé sur la machine virtuelle
 
 L’écran **Gestion des mises à jour** s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et le compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
@@ -249,7 +248,7 @@ Pour afficher les informations détaillées sur les erreurs du déploiement, sé
 
 ## <a name="monitor-changes-and-inventory"></a>Surveiller les modifications et l’inventaire
 
-Vous pouvez collecter et afficher l’inventaire des logiciels, fichiers, démons Linux, services Windows et des clés de registre Windows présents sur vos ordinateurs. Le suivi des configurations de vos machines peut vous aider à identifier les problèmes opérationnels au sein de votre environnement et à mieux comprendre l’état de vos machines.
+Vous pouvez collecter et afficher l’inventaire des logiciels, fichiers, démons Linux, services Windows et clés de Registre Windows présents sur vos ordinateurs. Le suivi des configurations de vos machines peut vous aider à identifier les problèmes opérationnels au sein de votre environnement et à mieux comprendre l’état de vos machines.
 
 ### <a name="enable-change-and-inventory-management"></a>Activer la gestion des modifications et de l’inventaire
 
@@ -291,22 +290,9 @@ Le graphique affiche les modifications qui se sont produites au fil du temps. Ap
 
 ## <a name="advanced-monitoring"></a>Surveillance avancée
 
-Vous pouvez effectuer un suivi plus avancé de votre machine virtuelle à l’aide de solutions telles que Update Management et Change and Inventory fournies par [Azure Automation](../../automation/automation-intro.md).
+Vous pouvez effectuée une supervision plus avancée de votre machine virtuelle en utilisant une solution comme [Azure Monitor pour machines virtuelles](../../azure-monitor/insights/vminsights-overview.md), qui supervise vos machines virtuelles Azure à grande échelle en analysant les performances et l’intégrité de vos machines virtuelles Windows et Linux, notamment leurs différents processus et les dépendances interconnectées par rapport à d’autres ressources et processus externes. La gestion de la configuration de vos machines virtuelles Azure est fournie avec la solution Change Tracking et Inventory d’[Azure Automation](../../automation/automation-intro.md) pour facilement identifier les changements dans votre environnement. La gestion de la conformité des mises à jour est fournie avec la solution Update Management d’Azure Automation.   
 
-Lorsque vous avez accès à l’espace de travail Log Analytics, vous pouvez trouver la clé de l’espace de travail et l’identificateur de l’espace de travail en sélectionnant **Paramètres avancés** sous **PARAMÈTRES**. Remplacez \<workspace-key\> et \<workspace-id\> par les valeurs correspondant à votre espace de travail Log Analytics et utilisez ensuite **az vm extension set** pour ajouter l’extension à la machine virtuelle :
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroupMonitor \
-  --vm-name myVM \
-  --name OmsAgentForLinux \
-  --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.3 \
-  --protected-settings '{"workspaceKey": "<workspace-key>"}' \
-  --settings '{"workspaceId": "<workspace-id>"}'
-```
-
-Après quelques minutes, la nouvelle machine virtuelle s’affiche dans l’espace de travail Log Analytics.
+À partir de l’espace de travail Log Analytics auquel la machine virtuelle est connectée, vous pouvez également récupérer, consolider et analyser des données collectées avec le [langage de requête complet](../../azure-monitor/log-query/log-query-overview.md). 
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

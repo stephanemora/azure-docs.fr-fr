@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a71635abd036bb89546dd3421af97cd9b88f4327
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9d271642a432d8a149fbe468087a0598c91e7c36
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439944"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902377"
 ---
 # <a name="tutorial-use-data-copy-service-to-directly-ingest-data-into-azure-data-box-preview"></a>Didacticiel : Utiliser le service de copie de données pour ingérer directement des données dans Azure Data Box (préversion)
 
@@ -24,11 +24,12 @@ Utilisez le service de copie de données :
 - Dans les environnements NAS (Network-Attached Storage) où les hôtes intermédiaires ne sont pas disponibles.
 - Avec de petits fichiers dont l’ingestion et le chargement de données prend des semaines. Ce service améliore considérablement le temps d’ingestion et de chargement.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous fournira des informations sur :
 
 > [!div class="checklist"]
+> * Prérequis
 > * Copier des données sur Data Box
-> * Préparer l’expédition de Data Box
+
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -60,13 +61,13 @@ Pour copier des données par l’intermédiaire du service de copie de données,
     |-------------------------------|---------|
     |Nom du travail                       |Nom unique contenant moins de 230 caractères pour le travail. Ces caractères ne sont pas autorisés dans le nom d’un travail - \<, \>, \|, \?, \*, \\, \:, \/ et \\\.         |
     |Emplacement source                |Indiquez le chemin SMB vers la source de données au format : `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>`.        |
-    |Nom d’utilisateur                       |Nom d’utilisateur pour accéder à la source de données.        |
+    |Nom d’utilisateur                       |Nom d’utilisateur au format `\\<DomainName><UserName>` pour accéder à la source de données.        |
     |Mot de passe                       |Mot de passe pour accéder à la source de données.           |
     |Compte de stockage de destination    |Sélectionnez le compte de stockage cible sur lequel charger les données à partir de la liste déroulante.         |
     |Type de stockage de destination       |Sélectionnez le type de stockage cible à partir d’un objet blob de blocs, d’un objet blob de pages ou d’Azure Files.        |
     |Conteneur/partage de destination    |Entrez le nom du conteneur ou du partage afin de charger les données dans votre compte de stockage de destination. Le nom peut être un nom de partage ou un nom de conteneur. Par exemple, `myshare` ou `mycontainer`. Vous pouvez également indiquer ces informations au format `sharename\directory_name` ou `containername\virtual_directory_name` dans le cloud.        |
     |Copier les fichiers correspondant à un modèle    | Entrez le modèle de correspondance de nom de fichier des deux manières suivantes.<ul><li>**Utiliser des expressions génériques**. Seuls `*` et `?` sont pris en charge dans les expressions génériques. Par exemple, cette expression `*.vhd` correspond à tous les fichiers dotés de l’extension .vhd. De la même façon, `*.dl?` correspond à tous les fichiers dont l’extension est soit `.dl`, soit `.dll`. Quant à `*foo`, il correspond à tous les fichiers dont les noms se terminent par `foo`.<br>Vous pouvez entrer l’expression générique directement dans le champ. Par défaut, la valeur entrée dans le champ est traitée comme expression générique.</li><li>**Utiliser des expressions régulières**. Les expressions régulières POSIX sont prises en charge. Par exemple, une expression régulière `.*\.vhd` correspond à tous les fichiers dotés de l’extension `.vhd`. Pour une expression régulière, fournissez l’élément `<pattern>` directement en tant que `regex(<pattern>)`. <li>Pour plus d’informations concernant les expressions régulières, consultez [Langage des expressions régulières - Aide-mémoire](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
-    |Optimisation de fichier              |Lorsque cette option est activée, les fichiers sont compressés à l’ingestion. La copie des petits fichiers est ainsi accélérée.        |
+    |Optimisation de fichier              |Quand cette option est activée, les fichiers de moins de 1 Mo sont compressés à l’ingestion. La copie des petits fichiers est ainsi accélérée. Des gains de temps significatifs sont constatés quand le nombre de fichiers dépasse largement le nombre de répertoires.        |
  
 4. Cliquez sur **Start**. Les entrées sont validées, et si la validation aboutit, une tâche démarre. Le démarrage de la tâche peut prendre quelques minutes.
 
@@ -106,9 +107,7 @@ Pour copier des données par l’intermédiaire du service de copie de données,
     - Dans cette version, vous ne pouvez pas supprimer de tâche.
     
     - Vous pouvez créer un nombre illimité de tâches, mais exécuter un maximum de 10 tâches en parallèle à la fois.
-    - Si l’optimisation des fichiers est activée, les fichiers de petite taille sont compressés à l’ingestion pour améliorer les performances de copie. Dans ce cas, vous voyez un fichier compressé (GUID en tant que nom), comme illustré dans la capture d’écran suivante.
-
-        ![Exemple d’un fichier compressé](media/data-box-deploy-copy-data-via-copy-service/packed-file-on-ingest.png)
+    - Si l’optimisation des fichiers est activée, les fichiers de petite taille sont compressés à l’ingestion pour améliorer les performances de copie. Dans ce cas, vous voyez un fichier compressé (GUID en tant que nom). Ne supprimez pas ce fichier car il sera décompressé pendant le chargement.
 
 6. Pendant que la tâche est en cours d’exécution, dans la page **Copier des données** :
 
@@ -139,18 +138,14 @@ Une fois la tâche de copie terminée, vous pouvez accéder à **Préparer l’e
 >[!NOTE]
 > La préparation de l’expédition ne peut pas s’effectuer pendant que les tâches de copie s’exécutent.
 
-## <a name="prepare-to-ship"></a>Préparer l’expédition
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
+> * Prérequis
 > * Copier des données sur Data Box
-> * Préparer l’expédition de Data Box
+
 
 Passez au tutoriel suivant pour découvrir comment renvoyer votre Data Box à Microsoft.
 

@@ -1,26 +1,26 @@
 ---
-title: 'Démarrage rapide : Reconnaître des émotions sur des visages dans une image - API Émotion, Java'
+title: 'Démarrage rapide : Reconnaître les émotions sur des visages dans une image - API Émotion, Java'
 description: Obtenez des informations et un exemple de code pour une prise en main rapide de l’API Émotion avec Java pour Android.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5c845c07eff2d4627dd756a49f4b3fee2fca6a7a
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a3250771c51495890c54060dc46b8bd88a8f54af
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237618"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228676"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Démarrage rapide : Créer une application permettant de reconnaître des émotions sur des visages dans une image.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Démarrage rapide : Générer une application permettant de reconnaître les émotions des visages dans une image.
 
 > [!IMPORTANT]
-> L’API Émotion sera déconseillée à partir du 15 février 2019. La fonction de reconnaissance des émotions est maintenant disponible de façon générale dans le cadre de [l’API Visage](https://docs.microsoft.com/azure/cognitive-services/face/). 
+> L’API Émotion sera déconseillée à partir du 15 février 2019. La fonction de reconnaissance des émotions est maintenant accessible de façon générale dans le cadre de l’[API Visage](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
 Cet article fournit des informations et un exemple de code pour une prise en main rapide de la [méthode Recognize de l’API Émotion](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) dans la bibliothèque de client Android pour l’API Émotion. Cet exemple vous indique comment utiliser Java pour reconnaître les émotions exprimées par les personnes.
 

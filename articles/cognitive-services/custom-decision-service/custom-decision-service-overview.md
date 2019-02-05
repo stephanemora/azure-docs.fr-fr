@@ -6,16 +6,16 @@ services: cognitive-services
 author: alekh
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: overview
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 273f2965a0fcaaa729175c5232da1aba69589eec
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 1792e279283608c81c0d4a08b77f9822816ed76d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364205"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221349"
 ---
 # <a name="what-is-custom-decision-service"></a>Présentation du service Décision personnalisée
 
@@ -44,10 +44,10 @@ Le service Décision personnalisée s’applique aussi bien à des pages web qu�
 
 Plusieurs termes sont souvent employés dans cette documentation :
 
-* **Ensemble d’actions** : ensemble d’éléments de contenu à classer par le service Décision personnalisée. Cet ensemble peut être spécifié comme point de terminaison *RSS* ou *Atom*.
-* **Classement** : chaque requête envoyée au service Décision personnalisée spécifie un ou plusieurs ensembles d’actions. Le système répond en extrayant toutes les options de contenu à partir de ces ensembles et les retourne dans l’ordre de classement.
-* **Fonction de rappel** : cette fonction, que vous spécifiez, affiche le contenu dans votre interface utilisateur. Le contenu est trié selon l’ordre de classement retourné par le service Décision personnalisée.
-* **Récompense** : mesure pour savoir comment l’utilisateur a répondu au contenu affiché. Le service Décision personnalisée mesure la réponse de l’utilisateur à l’aide de clics. Les clics sont signalés au système à l’aide de code personnalisé ajouté à votre application.
+* **Ensemble d’actions** : ensemble d’éléments de contenu à classer par le service Décision personnalisée. Cet ensemble peut être spécifié comme point de terminaison *RSS* ou *Atom*.
+* **Classement** : chaque requête envoyée au service Décision personnalisée spécifie un ou plusieurs ensembles d’actions. Le système répond en extrayant toutes les options de contenu à partir de ces ensembles et les retourne dans l’ordre de classement.
+* **Fonction de rappel** : cette fonction, que vous spécifiez, affiche le contenu dans votre IU. Le contenu est trié selon l’ordre de classement retourné par le service Décision personnalisée.
+* **Récompense** : mesure de la réaction de l’utilisateur au contenu affiché. Le service Décision personnalisée mesure la réponse de l’utilisateur à l’aide de clics. Les clics sont signalés au système à l’aide de code personnalisé ajouté à votre application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,21 +1,21 @@
 ---
-title: 'Exemple : Bien démarrer avec l’API Service d’exploration des connaissances'
+title: 'Exemple : Bien démarrer avec l’API Service d’exploration des connaissances'
 titlesuffix: Azure Cognitive Services
 description: Utilisez l’API Service d’exploration des connaissances (KES) pour créer un moteur permettant d’effectuer des recherches interactives parmi les publications académiques.
 services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 6cee339793269af0e8060cce56f94fa81db6a6c5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124012"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208140"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Prendre en main la fonctionnalité Service d’exploration des connaissances
 
@@ -41,7 +41,7 @@ Le schéma décrit la structure d’attribut des objets dans le domaine. Il spé
 }
 ```
 
-Ici, vous définissez *Titre*, *Année* et *Mot clé* sous forme de chaîne, d’entier et de chaîne d’attribut, respectivement. Étant donné que les auteurs sont représentés par ID, nom et affiliation, vous définissez *Auteur* en tant qu’attribut composite avec trois sous-attributs : *Author.Id*, *Author.Name* et *Author.Affiliation*.
+Ici, vous définissez *Titre*, *Année* et *Mot clé* sous forme de chaîne, d’entier et de chaîne d’attribut, respectivement. Comme les auteurs sont représentés par ID, nom et affiliation, vous définissez *Auteur* en tant qu’attribut composite avec trois sous-attributs : *Author.Id*, *Author.Name* et *Author.Affiliation*.
 
 Par défaut, les attributs prennent en charge toutes les opérations disponibles pour leur type de données, y compris *est égal à*, *starts_with* et *is_between*. Étant donné que l’ID d’auteur est utilisé uniquement en interne en tant qu’identificateur, remplacez la valeur par défaut et spécifiez *est égal à* en tant que seule opération indexée.
 
@@ -110,7 +110,7 @@ La grammaire spécifie le jeu de requêtes en langage naturel que le service peu
 <grammar root="GetPapers">
 
   <!-- Import academic data schema-->
-  <import schema="Academic.schema" name="academic"/>
+  <import schema="Academic.schema" name="academic"/>
 
   <!-- Define root rule-->
   <rule id="GetPapers">

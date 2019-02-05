@@ -6,16 +6,16 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: bd859183a13e0f8a21cdd2eabb464b718e949464
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1295d071fa3ad99aabd2649f7b7e0b7fe1f86584
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212214"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226857"
 ---
 # <a name="what-is-qna-maker"></a>Qu’est-ce que QnA Maker ?
 
@@ -31,9 +31,9 @@ Le [portail Web](https://qnamaker.ai) facile à utiliser vous permet de créer, 
 
 QnA Maker fournit deux services essentiels pour vos données :
 
-* **Extraction** : les données de question-réponse structurées sont extraites de [sources de données](../Concepts/data-sources-supported.md) structurées et semi-structurées comme des FAQ et des guides d’utilisation de produits. Cette extraction peut se faire lors de la [création](https://aka.ms/qnamaker-docs-createkb) de la base de connaissance ou ultérieurement, lors du processus de modification.
+* **Extraction** : les données de question-réponse structurées sont extraites de [sources de données](../Concepts/data-sources-supported.md) structurées et semi-structurées comme des FAQ et des guides d’utilisation de produits. Cette extraction peut se faire lors de la [création](https://aka.ms/qnamaker-docs-createkb) de la base de connaissance ou ultérieurement, lors du processus de modification.
 
-* **Mise en correspondance** : une fois que votre base de connaissances est passée par l’étape [d’apprentissage et de test](https://aka.ms/qnamaker-docs-trainkb), vous la [publiez](https://aka.ms/qnamaker-docs-publishkb). Cela active un point de terminaison vers votre base de connaissances QnA Maker, que vous pouvez ensuite utiliser dans votre robot ou application client. Ce point de terminaison accepte une question utilisateur et répond avec la meilleure réponse dans la base de connaissances, ainsi qu’avec un score de confiance pour la correspondance.
+* **Mise en correspondance** : une fois votre base de connaissances [entraînée et testée](https://aka.ms/qnamaker-docs-trainkb), vous la [publiez](https://aka.ms/qnamaker-docs-publishkb). Cela active un point de terminaison vers votre base de connaissances QnA Maker, que vous pouvez ensuite utiliser dans votre robot ou application client. Ce point de terminaison accepte une question utilisateur et répond avec la meilleure réponse dans la base de connaissances, ainsi qu’avec un score de confiance pour la correspondance.
 
 ```JSON
 {
@@ -57,9 +57,9 @@ QnA Maker fournit deux services essentiels pour vos données :
 
 L’architecture de QnA Maker est constituée des deux composants suivants :
 
-1. **Services de gestion QnA Maker** : l’expérience de gestion d’une base de connaissances QnA Maker, qui inclut la création initiale, la mise à jour, l’apprentissage et la publication. Ces activités peuvent être effectuées via le [portail](https://qnamaker.ai) ou les [API de gestion](https://aka.ms/qnamaker-v4-apis). 
+1. **Services de gestion QnA Maker** : expérience de gestion d’une base de connaissances QnA Maker, qui inclut la création initiale, la mise à jour, l’entraînement et la publication. Ces activités peuvent être effectuées via le [portail](https://qnamaker.ai) ou les [API de gestion](https://aka.ms/qnamaker-v4-apis). 
 
-2. **QnA Maker données et runtime** : ce service est déployé dans le cadre de votre abonnement Azure dans la région spécifiée. Le contenu de votre base de connaissances client est stocké dans [Recherche Azure](https://azure.microsoft.com/services/search/), et le point de terminaison est déployé en tant que [service d’application](https://azure.microsoft.com/services/app-service/). Vous pouvez également choisir de déployer une ressource [Application Insights](https://azure.microsoft.com/services/application-insights/) à des fins d’analyse.
+2. **Données et runtime QnA Maker** : ce composant est déployé dans le cadre de votre abonnement Azure dans la région spécifiée. Le contenu de votre base de connaissances client est stocké dans [Recherche Azure](https://azure.microsoft.com/services/search/), et le point de terminaison est déployé en tant que [service d’application](https://azure.microsoft.com/services/app-service/). Vous pouvez également choisir de déployer une ressource [Application Insights](https://azure.microsoft.com/services/application-insights/) à des fins d’analyse.
 
 ![Architecture](../media/qnamaker-overview-learnabout/architecture.png)
 

@@ -3,7 +3,7 @@ title: 'Tutoriel : Créer et utiliser des disques pour les groupes identiques a
 description: Découvrez comment utiliser Azure CLI pour créer et utiliser Managed Disks avec un groupe de machines virtuelles identiques, notamment comment ajouter, préparer, répertorier et détacher les disques.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35256a22265ca544975b2fead40b1a2be0d73ff1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469382"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163056"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et utilisez des disques avec un groupe de machines virtuelles identiques au moyen d’Azure CLI
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques avec Azure CLI
 Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -48,7 +48,7 @@ Lorsqu’un groupe identique est créé ou mis à l’échelle, deux disques son
 **Disque temporaire** : les disques temporaires utilisent un disque SSD qui se trouve sur le même hôte Azure que l’instance de machine virtuelle. Ce sont des disques extrêmement performants qui peuvent être utilisés pour diverses opérations telles que le traitement de données temporaires. Toutefois, si l’instance de machine virtuelle est déplacée vers un nouvel hôte, toutes les données stockées sur le disque temporaire concerné sont supprimées. La taille du disque temporaire est déterminée par la taille de l’instance de machine virtuelle. Les disques temporaires sont nommés */dev/sdb* et ont un point de montage */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tailles du disque temporaire
-| type | Tailles courantes | Taille maximale du disque temporaire (Gio) |
+| Type | Tailles courantes | Taille maximale du disque temporaire (Gio) |
 |----|----|----|
 | [Usage général](../virtual-machines/linux/sizes-general.md) | Séries A, B et D | 1 600 |
 | [Optimisé pour le calcul](../virtual-machines/linux/sizes-compute.md) | Série F | 576 |
@@ -62,7 +62,7 @@ Lorsqu’un groupe identique est créé ou mis à l’échelle, deux disques son
 Des disques de données supplémentaires peuvent être ajoutés si vous avez besoin d’installer des applications et de stocker des données. Les disques de données doivent être utilisés dans les cas où un stockage des données durable et réactif est souhaité. Chaque disque de données offre une capacité maximale de 4 To. La taille de l’instance de machine virtuelle détermine le nombre de disques de données pouvant être attachés. Pour chaque processeur virtuel de la machine virtuelle, deux disques de données peuvent être attachés.
 
 ### <a name="max-data-disks-per-vm"></a>Disques de données max. par machine virtuelle
-| type | Tailles courantes | Disques de données max. par machine virtuelle |
+| Type | Tailles courantes | Disques de données max. par machine virtuelle |
 |----|----|----|
 | [Usage général](../virtual-machines/linux/sizes-general.md) | Séries A, B et D | 64 |
 | [Optimisé pour le calcul](../virtual-machines/linux/sizes-compute.md) | Série F | 64 |
@@ -132,7 +132,7 @@ Les disques créés et attachés aux instances de machine virtuelle de votre gro
 
 Pour automatiser le processus sur plusieurs instances de machine virtuelle dans un groupe identique, vous pouvez utiliser l’extension de script personnalisé Azure. Cette extension peut exécuter des scripts localement sur chaque instance de machine virtuelle, par exemple pour préparer les disques de données attachés. Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/linux/extensions-customscript.md).
 
-L’exemple suivant montre l’exécution d’un script à partir d’un exemple de référentiel GitHub sur chaque instance de machine virtuelle avec la commande [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) qui prépare tous les disques de données attachés bruts :
+L’exemple suivant montre l’exécution d’un script à partir d’un exemple de référentiel GitHub sur chaque instance de machine virtuelle avec la commande [az vmss extension set](/cli/azure/vmss/extension) qui prépare tous les disques de données attachés bruts :
 
 ```azurecli-interactive
 az vmss extension set \
@@ -279,7 +279,7 @@ Les informations sur la taille du disque, le niveau de stockage et le numéro d�
 
 
 ## <a name="detach-a-disk"></a>Détacher un disque
-Lorsque vous n’avez plus besoin d’un disque donné, vous pouvez le détacher du groupe identique. Le disque est supprimé de toutes les instances de machine virtuelle dans le groupe identique. Pour détacher un disque à partir d’un groupe identique, utilisez la commande [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) et spécifiez le numéro d’unité logique du disque. Les numéros d’unité logique sont affichés en sortie à partir de la commande [az vmss show](/cli/azure/vmss#az_vmss_show) indiquée dans la section précédente. L’exemple ci-après montre comment détacher le numéro d’unité logique *2* du groupe identique :
+Lorsque vous n’avez plus besoin d’un disque donné, vous pouvez le détacher du groupe identique. Le disque est supprimé de toutes les instances de machine virtuelle dans le groupe identique. Pour détacher un disque à partir d’un groupe identique, utilisez la commande [az vmss disk detach](/cli/azure/vmss/disk) et spécifiez le numéro d’unité logique du disque. Les numéros d’unité logique sont affichés en sortie à partir de la commande [az vmss show](/cli/azure/vmss#az_vmss_show) indiquée dans la section précédente. L’exemple ci-après montre comment détacher le numéro d’unité logique *2* du groupe identique :
 
 ```azurecli-interactive
 az vmss disk detach \

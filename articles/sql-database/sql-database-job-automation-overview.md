@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 63a6daa7c409aeb77b07e98cc0108b727f263d4c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453273"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457205"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatiser des tâches de gestion avec des travaux de base de données
 
@@ -26,6 +26,7 @@ Vous pouvez définir une base de données ou des groupes de bases de données SQ
 Un travail gère la tâche de connexion à chaque base de données cible. Vous pouvez également définir, gérer et conserver des scripts Transact-SQL à exécuter sur un groupe de bases de données SQL Azure.
 
 Vous pouvez utiliser l’automatisation des travaux dans plusieurs scénarios :
+
 - Automatiser des tâches de gestion et les planifier pour qu’elles s’exécutent tous les jours ouvrés, en dehors des heures d’ouverture, etc.
   - Déployer des changements de schéma, la gestion des informations d’identification, la collecte des données de performances ou la collecte des données de télémétrie du locataire (client).
   - Mettre à jour des données de référence (des informations communes à toutes les bases de données), charger des données depuis Stockage Blob Azure.
@@ -39,14 +40,15 @@ Vous pouvez utiliser l’automatisation des travaux dans plusieurs scénarios :
  - Créez des travaux qui chargent des données depuis ou vers vos bases de données avec SQL Server Integration Services (SSIS).
 
 Les technologies de planification de travaux suivantes sont disponibles dans Azure SQL Database :
-- **Travaux SQL Agent** est le composant classique et éprouvé de planification de travaux de SQL Server disponible dans Managed Instance. Les travaux SQL Agent ne sont pas disponibles dans les bases de données singleton.
+
+- **Travaux SQL Agent** est le composant classique et éprouvé de planification de travaux de SQL Server disponible dans Managed Instance. Les travaux de l’Agent SQL ne sont pas disponibles dans les bases de données uniques.
 - **Travaux de base de données élastiques** est le service de planification de travaux qui exécute des travaux personnalisés sur une ou plusieurs bases de données SQL.
 
-Il convient de noter quelques différences importantes entre SQL Agent (disponible localement et dans le cadre de SQL Database Managed Instance) et l’agent de travail élastique de base de données (disponible pour SQL Database singleton et SQL Data Warehouse).
+Il convient de noter quelques différences importantes entre SQL Agent (disponible localement et dans le cadre de SQL Database Managed Instance) et l’agent de travail élastique de base de données (disponible pour les bases de données uniques dans Azure SQL Database et les bases de données dans SQL Data Warehouse).
 
 |  |Travaux élastiques  |SQL Agent |
 |---------|---------|---------|
-|Étendue     |  N’importe quel nombre de bases de données et/ou d’entrepôts de données SQL Azure dans le même cloud Azure que l’agent de travail. Les cibles peuvent se trouver dans des serveurs logiques, régions et/ou abonnements différents. <br><br>Les groupes cibles peuvent être composés de bases de données ou d’entrepôts de données individuels, ou bien de toutes les bases de données d’un serveur, d’un pool ou d’une carte de partitions (énumérées dynamiquement au moment de l’exécution du travail). | N’importe quelle base de données unique dans la même instance SQL Server que l’agent SQL. |
+|Étendue     |  N’importe quel nombre de bases de données et/ou d’entrepôts de données SQL Azure dans le même cloud Azure que l’agent de travail. Les cibles peuvent se trouver dans des serveurs SQL Database, des régions et/ou des abonnements différents. <br><br>Les groupes cibles peuvent être composés de bases de données ou d’entrepôts de données individuels, ou bien de toutes les bases de données d’un serveur, d’un pool ou d’une carte de partitions (énumérées dynamiquement au moment de l’exécution du travail). | N’importe quelle base de données individuelle dans la même instance SQL Server que l’agent SQL. |
 |API et outils pris en charge     |  Portail, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SSMS (SQL Server Management Studio)     |
 
 ## <a name="sql-agent-jobs"></a>Travaux SQL Agent
@@ -54,6 +56,7 @@ Il convient de noter quelques différences importantes entre SQL Agent (disponib
 Les travaux SQL Agent sont constitués de séries spécifiées de scripts T-SQL sur votre base de données. Utilisez des travaux pour définir une tâche d’administration qui peut être exécutée une ou plusieurs fois, et dont la réussite ou l’échec sont surveillés.
 Un travail peut s’exécuter sur un serveur local ou sur plusieurs serveurs distants. Travaux SQL Agent est un composant du moteur de base de données interne qui est exécuté au sein du service Managed Instance.
 Il existe plusieurs concepts clés dans les travaux SQL Agent :
+
 - **Étapes de travail** : ensemble d’une ou plusieurs étapes qui doivent être exécutées au sein du travail. Pour chaque étape de travail, vous pouvez définir une stratégie de nouvelle tentative et l’action qui doit se produire si l’étape de travail réussit ou échoue.
 - Les **planifications** définissent quand le travail doit être exécuté.
 - Les **notifications** vous permettent de définir des règles qui sont utilisées pour notifier les opérateurs via des e-mails une fois le travail terminé.
@@ -64,11 +67,13 @@ Les étapes de travail SQL Agent sont des séquences d’actions que SQL Agent d
 SQL Agent vous permet de créer différents types d’étapes de travail, comme une étape de travail Transact-SQL qui exécute un lot Transact-SQL sur la base de données, ou des étapes de commande/PowerShell du système d’exploitation qui peuvent exécuter un script personnalisé du système d’exploitation, des étapes de travail SSIS qui vous permettent de charger des données avec le runtime SSIS, ou des étapes de [réplication](sql-database-managed-instance-transactional-replication.md) qui peuvent publier les modifications de votre base de données auprès d’autres bases de données.
 
 La [réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) est une fonctionnalité du moteur de base de données qui vous permet de publier les modifications apportées à une ou plusieurs tables d’une base de données, et de les publier/distribuer à un ensemble de bases de données abonnées. La publication des modifications est implémentée avec les types d’étape de travail SQL Agent suivants :
+
 - Lecteur de journaux de transactions
 - Instantané
 - Serveur de distribution
 
 Les autres types d’étapes de travail ne sont pas actuellement pris en charge, notamment :
+
 - L’étape de travail de réplication de fusion n’est pas prise en charge.
 - L’agent de lecture de la file d’attente n’est pas pris en charge.
 - Analysis Services n’est pas pris en charge
@@ -77,6 +82,7 @@ Les autres types d’étapes de travail ne sont pas actuellement pris en charge,
 
 Une planification spécifie quand un travail s’exécute. Plusieurs travaux peuvent s’exécuter sur la même planification, et plusieurs planifications peuvent appliquer le même travail.
 Une planification peut définir les conditions suivantes pour l’heure d’exécution d’un travail :
+
 - À chaque redémarrage de l’instance (ou au démarrage de SQL Server Agent). Le travail est activé après chaque basculement.
 - Une seule fois, à une date et heure spécifiques, ce qui est pratique pour l’exécution différée d’un travail.
 - Selon une planification récurrente.
@@ -215,7 +221,7 @@ Durant la création de l’agent de travail, un schéma, des tables et un rôle 
 
 Un *groupe cible* définit l’ensemble de bases de données sur lequel une étape de travail s’exécute. Un groupe cible peut contenir les éléments suivants, dont le nombre et la combinaison peuvent varier :
 
-- **Serveur SQL Azure** : si un serveur est spécifié, toutes les bases de données présentes dans le serveur au moment de l’exécution du travail font partie du groupe. Les informations d’identification de la base de données master doivent être fournies pour que le groupe puisse être énuméré et mis à jour avant l’exécution du travail.
+- **Serveur SQL Database** : si un serveur est spécifié, toutes les bases de données présentes dans le serveur au moment de l’exécution du travail font partie du groupe. Les informations d’identification de la base de données master doivent être fournies pour que le groupe puisse être énuméré et mis à jour avant l’exécution du travail.
 - **Pool élastique** : si un pool élastique est spécifié, toutes les bases de données qui se trouvent dans ce pool au moment de l’exécution du travail font partie du groupe. Au même titre qu’un serveur, les informations d’identification de la base de données master doivent être fournies pour que le groupe puisse être mis à jour avant l’exécution du travail.
 - **Base de données unique** : spécifiez une ou plusieurs bases de données individuelles à inclure dans le groupe.
 - **Carte de partitions** : bases de données d’une carte de partitions.
@@ -258,6 +264,7 @@ Les résultats des étapes d’un travail sur chaque base de données sont enreg
 #### <a name="job-history"></a>Historique des travaux
 
 L’historique d’exécution des travaux est stocké dans la *base de données de travaux*. Un travail de nettoyage système vide les éléments de l’historique d’exécution qui datent de plus de 45 jours. Pour supprimer ceux de moins de 45 jours, appelez la procédure stockée **sp_purge_history** dans la *base de données des travaux*.
+
 ### <a name="agent-performance-capacity-and-limitations"></a>Performances, capacité et limitations de l’agent
 
 Les travaux élastiques utilisent des ressources de calcul minimales dans l’attente de la finalisation des travaux de longue durée.

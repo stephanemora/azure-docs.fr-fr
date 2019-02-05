@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 23912f9d004d051c422f93e8b10f1aa6cb8b2626
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a39fc2d0e1a57322f3cce63fa298657c1f938e55
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959493"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100731"
 ---
-# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Démarrage rapide : générer une application monopage AngularJS pour la connexion à et la déconnexion d’Azure Active Directory
+# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Démarrage rapide : Générer une application monopage AngularJS pour la connexion à et la déconnexion avec Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -50,9 +50,9 @@ Pour générer l’application fonctionnelle complète, vous devez :
 Pour commencer, configurez les prérequis suivants :
 
 * Téléchargez [la structure de l’application](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
-* Vous disposez d’un locataire Azure AD dans lequel vous pouvez créer des utilisateurs et inscrire une application. Si vous ne disposez pas encore d’un client, [découvrez comment en obtenir un](quickstart-create-new-tenant.md).
+* Procurez-vous un locataire Azure AD dans lequel vous pouvez créer des utilisateurs et inscrire une application. Si vous ne disposez pas encore d’un client, [découvrez comment en obtenir un](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-the-directorysearcher-application"></a>Étape 1 : Inscrire l’application DirectorySearcher
+## <a name="step-1-register-the-directorysearcher-application"></a>Étape 1 : Inscrire l’application DirectorySearcher
 
 Pour autoriser votre application à authentifier les utilisateurs et à obtenir des jetons, vous devez tout d’abord l’inscrire dans votre client Azure AD :
 
@@ -75,7 +75,7 @@ Pour autoriser votre application à authentifier les utilisateurs et à obtenir 
 1. Accordez les autorisations à votre locataire sur votre application. Accédez à **Paramètres > Autorisations requises**, puis sélectionnez le bouton **Accorder des autorisations** dans la barre supérieure.
 1. Sélectionnez **Oui** pour confirmer.
 
-## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Étape 2 : Installer la bibliothèque ADAL et configurer l’application à page unique
+## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Étape 2 : Installer la bibliothèque ADAL et configurer l’application monopage
 
 Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer adal.js et écrire votre code lié à l’identité.
 
@@ -101,7 +101,7 @@ Pour que l’API de liste des tâches de serveur principal de l’application à
    * `ida:Tenant` est le domaine de votre client Azure AD, par exemple, contoso.onmicrosoft.com.
    * `ida:Audience` est l’ID client de votre application, copié à partir du portail.
 
-## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Étape 3 : Utiliser la bibliothèque ADAL pour sécuriser les pages dans l’application à page unique
+## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Étape 3 : Utiliser la bibliothèque ADAL pour sécuriser les pages dans l’application à monopage
 
 Adal.js s’intègre avec l’itinéraire AngularJS t les fournisseurs HTTP afin de permettre de sécuriser les vues individuelles dans votre application à page unique.
 
@@ -142,7 +142,7 @@ Adal.js s’intègre avec l’itinéraire AngularJS t les fournisseurs HTTP afin
 
 Vous disposez maintenant d’une application à page unique sécurisée qui peut connecter les utilisateurs et émettre un jeton porteur vers son API de serveur principal. Lorsqu’un utilisateur clique sur le lien **TodoList**, adal.js redirige automatiquement vers Azure AD pour la connexion, si nécessaire. En outre, adal.js joint automatiquement un jeton d’accès à toutes les demandes Ajax envoyées au serveur principal de l’application.
 
-Les étapes ci-dessus sont le minimum requis pour générer une application à page unique à l’aide d’adal.js. Mais certaines autres fonctionnalités sont utiles dans une application à page unique :
+Les étapes ci-dessus sont le minimum requis pour générer une application à page unique à l’aide d’adal.js. Mais certaines autres fonctionnalités sont utiles dans application à page unique :
 
 * Pour émettre explicitement des demandes de connexion et de déconnexion, vous pouvez définir des fonctions dans vos contrôleurs qui appellent adal.js. Dans `App/Scripts/homeCtrl.js` :
 

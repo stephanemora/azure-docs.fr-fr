@@ -10,15 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2018
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: d1bddc8331fc1a9ded37949a8065636947074852
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386772"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246727"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou abonnement Azure Stack
 
@@ -37,7 +38,10 @@ Une fois que vous êtes connecté à votre compte de stockage ou abonnement Azur
 
 Vous avez besoin d’un accès direct à Azure Stack ou à une connexion VPN pour que l’Explorateur de stockage puisse accéder à l’abonnement Azure Stack. Pour savoir comment configurer une connexion VPN à Azure Stack, consultez [Connect to Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) (Se connecter à Azure Stack).
 
-Pour le Kit de développement Azure Stack, vous devez exporter le certificat racine d’autorité Azure Stack.
+Pour le Kit de développement Azure Stack (ASDK), vous devez exporter le certificat d’autorité racine Azure Stack.
+
+> [!Note]  
+> Pour l’ASDK, si vous vous connectez à votre ASDK via un VPN, n’utilisez le certificat racine (CA.cer) qui a été créé pendant le processus de configuration du VPN.  Il s’agit d’un certificat codé DER qui n’autorise pas l’Explorateur Stockage à récupérer vos abonnements Azure Stack. Suivez les étapes ci-dessous pour exporter un certificat codé en base 64 à utiliser avec l’Explorateur Stockage.
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exporter et importer le certificat Azure Stack
 

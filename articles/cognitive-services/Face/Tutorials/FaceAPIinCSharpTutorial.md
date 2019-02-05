@@ -1,23 +1,23 @@
 ---
-title: 'Tutoriel : Détecter et afficher des données de visage dans une image à l’aide du SDK .NET'
+title: 'Didacticiel : Détecter et afficher les données relatives au visage dans une image à l’aide du kit SDK .NET'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application Windows qui utilise l’API Visage pour détecter et encadrer des visages dans une image.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 79b467e55ec381d851d064d5f78cbdb91c9cf837
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852671"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221179"
 ---
-# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Tutoriel : Créer une application WPF pour afficher des données de visage dans une image
+# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Didacticiel : Créer une application WPF pour afficher les données relatives au visage dans une image
 
 Dans ce tutoriel, vous allez apprendre à utiliser l’API Visage Azure par le biais du SDK client .NET pour détecter des visages dans une image et présenter les données dans l’interface utilisateur. Vous allez créer une application WPF (Windows Presentation Framework) simple qui détecte les visages, trace un cadre autour de chaque visage et affiche une description du visage dans la barre d’état. 
 

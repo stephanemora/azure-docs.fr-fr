@@ -6,18 +6,18 @@ services: cognitive-services
 author: luiscabrer
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: luisca
-ms.openlocfilehash: fe6bc384e4190cd17df00ddf285701db8c4199a6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0bda38db089218e0d5f6f8ff15c9eac888900e95
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733327"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209092"
 ---
-# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutoriel : Intégrer Power BI au service cognitif Analyse de texte
+# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutoriel : Intégrer Power BI au service cognitif Analyse de texte
 
 Microsoft Power BI Desktop est une application gratuite qui vous permet de vous connecter à vos données, de les transformer et de les visualiser. Le service Analyse de texte, qui fait partie de l’offre Microsoft Azure Cognitive Services, fournit des fonctionnalités de traitement en langage naturel. Dans un texte brut non structuré, il est capable d’extraire les phrases les plus importantes, d’analyser les sentiments et d’identifier les entités bien connues, telles que les marques. Utilisés conjointement, ces outils peuvent vous aider à identifier rapidement ce dont parlent vos clients, ainsi que leurs sentiments à ce sujet.
 

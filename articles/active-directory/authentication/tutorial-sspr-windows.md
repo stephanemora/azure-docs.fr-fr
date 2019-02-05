@@ -3,19 +3,19 @@ title: Réinitialisation du mot de passe libre-service (SSPR) d’Azure AD à pa
 description: Dans ce tutoriel, vous allez activer la réinitialisation de mot de passe au niveau de l’écran de connexion Windows 10 afin de réduire les appels au support technique.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430669"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474868"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Didacticiel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
@@ -28,11 +28,11 @@ Dans ce tutoriel, vous allez autoriser les utilisateurs à réinitialiser leurs 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Mise à jour d’avril 2018 de Windows 10, ou client plus récent :
-   * [machine jointe à Azure AD](../device-management-azure-portal.md) ou
-   * [machine jointe à Azure AD Hybride](../device-management-hybrid-azuread-joined-devices-setup.md), avec une connectivité réseau à un contrôleur de domaine.
-* activer la réinitialisation du mot de passe libre-service Azure AD.
-* Si vos machines Windows 10 se trouvent derrière un serveur proxy ou pare-feu, le trafic HTTPS (443) vers `passwordreset.microsoftonline.com` et `ajax.aspnetcdn.com` doit être autorisé.
+* Vous devez exécuter au moins Windows 10, avec la mise à jour d’avril 2018 et les appareils doivent être :
+   * [joints à Azure AD](../device-management-azure-portal.md) ou
+   * [joints à Azure AD Hybride](../device-management-hybrid-azuread-joined-devices-setup.md), avec une connexion réseau à un contrôleur de domaine.
+* Vous devez activer la réinitialisation de mot de passe en libre-service Azure AD.
+* Si vos appareils Windows 10 se trouvent derrière un pare-feu ou un serveur proxy, vous devez ajouter les URL `passwordreset.microsoftonline.com` et `ajax.aspnetcdn.com` à votre liste d’URL autorisées pour le trafic HTTPS (port 443).
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurer le lien de réinitialisation du mot de passe à l’aide d’Intune
 

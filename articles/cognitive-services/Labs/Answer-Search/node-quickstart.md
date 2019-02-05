@@ -1,22 +1,22 @@
 ---
-title: 'Démarrage rapide : Project Answer Search, Node'
+title: 'Démarrage rapide : Project Answer Search, Node'
 description: Commencez à vous servir de Project Answer Search avec Node.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 1afd029803fc7d2709a9a9abe840db6d7f52498d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2e79a2d248a81298cb1dd19415a0d9eb75a275c4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465744"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224494"
 ---
-# <a name="quickstart-project-answer-search-with-node"></a>Démarrage rapide : Project Answer Search avec Node
+# <a name="quickstart-project-answer-search-with-node"></a>Démarrage rapide : Project Answer Search avec Node
 
 L’exemple Node suivant crée une demande d’informations sur la baie du Mont Saint-Michel.
 
@@ -38,7 +38,7 @@ Il est implémenté lors des étapes suivantes :
 
 Voici le code complet pour cette démonstration :
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -85,7 +85,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Exemple de code C#](c-sharp-quickstart.md)

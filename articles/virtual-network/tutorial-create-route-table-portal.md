@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 3422219e33c04d7cb130e064790896f5da28649a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025043"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095955"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Didacticiel : Acheminer le trafic réseau avec une table de routage à l’aide du portail Azure
 
@@ -281,7 +281,7 @@ Vous pouvez créer la machine virtuelle *myVmPrivate* pendant qu’Azure crée l
 
 1. Sélectionnez **Oui** pour vous connecter à la machine virtuelle.
 
-### <a name="enable-icpm-through-the-windows-firewall"></a>Activer le protocole ICMP (Internet Control Message Protocol) via le pare-feu Windows
+### <a name="enable-icmp-through-the-windows-firewall"></a>Activer le protocole ICMP via le pare-feu Windows
 
 Dans une étape ultérieure, vous utiliserez l’outil de traçage d’itinéraire pour tester le routage. L’outil de traçage d’itinéraire utilise le protocole ICMP (Internet Control Message Protocol), que le pare-feu Windows refuse par défaut. Activez le protocole ICMP (Internet Control Message Protocol) via le pare-feu Windows.
 

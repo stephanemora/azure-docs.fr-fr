@@ -6,16 +6,16 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c15af0dcebdfcbe984d47b5c06f213e516ae3914
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345706"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149769"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Qu’est-ce que l’API Vérification orthographique Bing ?
 
@@ -39,7 +39,7 @@ Il est capable de gérer n’importe quel scénario de traitement de texte :
 L’API prend en charge deux modes de vérification, `Proof` et `Spell`.  Consultez les exemples [ici](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 ### <a name="proof---for-documents-scenario"></a>Vérifier - pour les documents
 Le mode par défaut est `Proof`. Le mode de vérification `Proof` fournit des contrôles plus complets et ajoute des fonctionnalités de mise en majuscules, de ponctuation, etc., pour faciliter la création d’un document. Malheureusement, il est uniquement disponible pour les segments en-US (Anglais-États-Unis), es-ES (Espagnol), pt-BR (Portugais) (Remarque : uniquement en version bêta pour l’espagnol et le portugais). Pour tous les autres marchés, définissez le paramètre de requête « mode » sur Corriger l’orthographe. 
-<br /><br/>**REMARQUE :** si le texte de la requête contient plus de 4 096 caractères, il sera tronqué à 4 096 caractères, puis traité. 
+<br /><br/>**REMARQUE :**   Si le texte de la requête contient plus de 4 096 caractères, il est tronqué à 4 096 caractères avant d’être traité. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Corriger l’orthographe - pour les requêtes/recherches web
 La fonction `Spell` est plus agressive et renvoie de meilleurs résultats de recherche. Le mode `Spell` détecte la plupart des fautes d’orthographe, mais passe à côté de certaines erreurs grammaticales repérées par le mode `Proof`, par exemple, la mise en majuscules et les répétitions de mots.
 

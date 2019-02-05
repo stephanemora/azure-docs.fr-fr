@@ -1,6 +1,6 @@
 ---
 title: Script Azure CLI - Mettre un pool élastique SQL à l’échelle dans Azure SQL Database | Microsoft Docs
-description: Exemple de script Azure CLI pour mettre un pool élastique SQL à l’échelle dans Azure SQL Database
+description: Exemple de script Azure CLI pour mettre à l’échelle un pool élastique SQL dans Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: af7af24497054f7868e373150eefae9141239ec6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 444c93ea8c25e9f1ca9d906fd6d8fc69169163ae
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605024"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452020"
 ---
-# <a name="use-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Utiliser l’interface de ligne de commande pour mettre un pool élastique SQL à l’échelle dans Azure SQL Database
+# <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Utiliser l’interface CLI pour mettre à l’échelle un pool élastique dans Azure SQL Database
 
-Cet exemple de script Azure CLI crée des pools élastiques SQL, déplace des bases de données regroupées et modifie les tailles de calcul d’un pool élastique. 
+Cet exemple de script Azure CLI crée des pools élastiques, déplace des bases de données en pool et modifie les tailles de calcul d’un pool élastique. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,15 +43,15 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes pour créer un groupe de ressources, un serveur logique, une instance SQL Database et des règles de pare-feu. Chaque commande du tableau renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes pour créer un groupe de ressources, un serveur SQL Database, une instance de base de données et des règles de pare-feu SQL Database. Chaque commande du tableau renvoie à une documentation spécifique.
 
 | Commande | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Crée un serveur logique qui héberge l’instance SQL Database. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Crée un pool de bases de données élastique au sein du serveur logique. |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Crée une instance SQL Database au sein du serveur logique. |
-| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | Met à jour un pool de base de données élastique : dans cet exemple, modifie l’eDTU attribué. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Crée un serveur SQL Database qui héberge des bases de données uniques et des pools élastiques. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Crée un pool élastique. |
+| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Crée une base de données autonome ou en pool. |
+| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | Met à jour un pool élastique : dans cet exemple, modifie l’eDTU affecté. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 49ced3277a659ddacef239c7a1394cbe5ce06ac9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2f91cfc6c391bb22ca5f75a7a72123b695380aff
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973607"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094306"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application native iOS
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application native iOS
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -33,8 +33,8 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Inscrire et télécharger
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Inscrire et configurer votre exemple de code et d’application
-> #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
+> ### <a name="register-and-configure-your-application-and-code-sample"></a>Inscrire et configurer votre application et exemple de code
+> #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 > Pour inscrire votre application et ajouter les informations d’inscription de l’application à votre solution, procédez comme suit :
 > 1. Accédez au [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app) pour inscrire une application.
 > 1. Dans la zone **Nom de l’application**, attribuez un nom à votre application.
@@ -42,19 +42,19 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 > 1. Sélectionnez **Ajouter une plateforme**, puis **Application native**, et cliquez sur **Enregistrer**.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> #### <a name="step-1-configure-your-application"></a>Étape 1 : Configurez votre application
+> #### <a name="step-1-configure-your-application"></a>Étape 1 : Configuration de votre application
 > Pour que l’exemple de code de ce démarrage rapide fonctionne, vous devez ajouter une URL de réponse telle que `msal<AppId>://auth` (où msal<AppId> correspond à l’ID d’application).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter cette modification pour moi]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Déjà configuré](media/quickstart-v2-ios/green-check.png) Votre application est configurée avec cet attribut
+> > ![Déjà configuré](media/quickstart-v2-ios/green-check.png) Votre application est configurée avec cet attribut.
 
-#### <a name="step-2-download-your-web-server-or-project"></a>Étape 2 : Téléchargez votre serveur web ou projet
+#### <a name="step-2-download-your-web-server-or-project"></a>Étape 2 : Télécharger votre projet ou serveur web
 
 - [Télécharger le projet XCode](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
-#### <a name="step-3-configure-your-project"></a>Étape 3 : Configurez votre projet
+#### <a name="step-3-configure-your-project"></a>Étape 3 : Configurer votre projet
 
 1. Extrayez le fichier zip et ouvrez le projet dans XCode.
 1. Modifiez **ViewController.swift** et remplacez la ligne commençant par « let kClientID » avec l’extrait de code suivant :
@@ -106,7 +106,7 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
     > ```
     
 > [!div renderon="docs"]
-> <span>5.</span> Remplacez `<ENTER_THE_APPLICATION_ID_HERE>` par *l’ID d’application* de votre application. Si vous ne connaissez pas *l’ID d’application*, accédez à la page *Vue d’ensemble*.
+> <span>5.</span> Remplacez `<ENTER_THE_APPLICATION_ID_HERE>` par l’*ID d’application* de votre application. Si vous ne connaissez pas l’*ID d’application*, accédez à la page *Vue d’ensemble*.
 
 ## <a name="more-information"></a>Informations complémentaires
 
@@ -158,8 +158,8 @@ Certaines situations exigent de forcer les utilisateurs à interagir avec le poi
 
 * La première connexion des utilisateurs à l’application
 * Quand les utilisateurs doivent de nouveau entrer leurs informations d’identification, car le mot de passe a expiré
-* Quand votre application demande l’accès à une ressource pour laquelle l’utilisateur doit donner son consentement
-* Quand une authentification à 2 facteurs est requise
+* Lorsque votre application demande l’accès à une ressource pour laquelle l’utilisateur doit donner son consentement
+* Lorsqu’une authentification à 2 facteurs est requise
 
 ```swift
 applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /* Add your handling logic */}

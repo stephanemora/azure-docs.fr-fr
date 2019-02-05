@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7d8ba2f25bd53b407ab6860bc57163a79b7d228a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901156"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174259"
 ---
 # <a name="unity-sample-walkthrough"></a>Procédure pas à pas pour l’exemple Unity
 Il s’agit d’une procédure pas à pas de l’exemple Project Acoustics. Pour plus d’informations sur Project Acoustics, consultez l’[Introduction à Project Acoustics](what-is-acoustics.md). Pour vous aider à ajouter le package Project Acoustics à un projet Unity existant, utilisez le guide [Bien démarrer](getting-started.md).
@@ -36,7 +36,7 @@ L’exemple inclut une scène de démonstration, **Assets/AcousticsDemo/ProjectA
 
 La scène a déjà subi un baking et contient un fichier ACE associé à la préfabrication **MicrosoftAcoustics** dans la **Hiérarchie**. 
 
-Écoutez la scène en cliquant sur le bouton de lecture dans l’éditeur Unity. Sur le Bureau, utilisez W, A, S, D et la souris pour vous déplacer. Pour comparer l’audio de la scène avec et sans acoustique, appuyez sur le bouton **R** jusqu’à ce que le texte en superposition s’affiche en rouge et indique « Acoustics: Disabled » (Acoustique : désactivé). Pour afficher les raccourcis clavier des autres contrôles, appuyez sur **F1**. Tous les contrôles sont également utilisables à l’aide de la souris : cliquez avec le bouton droit sur l’action à effectuer pour la sélectionner, puis cliquez avec le bouton gauche pour lancer l’action.
+Écoutez la scène en cliquant sur le bouton de lecture dans l’éditeur Unity. Sur le Bureau, utilisez W, A, S, D et la souris pour vous déplacer. Pour comparer l’audio de la scène avec et sans acoustique, appuyez sur le bouton **R** jusqu’à ce que le texte en superposition s’affiche en rouge et indique « Acoustics: Disabled » (Acoustique : désactivé). Pour afficher les raccourcis clavier des autres contrôles, appuyez sur **F1**. Tous les contrôles sont également utilisables à l’aide de la souris : cliquez avec le bouton droit sur l’action à effectuer pour la sélectionner, puis cliquez avec le bouton gauche pour lancer l’action.
 
 ## <a name="targeting-other-platforms"></a>Ciblage d’autres plateformes
 L’exemple contient des paramètres pour s’exécuter sur Windows Desktop, UWP, Windows Mixed Reality, Android et Oculus Go. Par défaut, le projet est configuré pour Windows Desktop. Pour cibler une plateforme de réalité virtuelle, accédez aux paramètres de lecteur (**Edit > Project Settings > Player**), recherchez **XR Settings** et cochez la case **Virtual Reality Supported**.

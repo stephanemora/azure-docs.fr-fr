@@ -1,23 +1,23 @@
 ---
-title: 'Didacticiel : obtention de résultats de suggestion automatique à l’aide de l’API Suggestion automatique Bing'
+title: 'Didacticiel : Obtention de résultats de suggestion automatique à l’aide de l’API Suggestion automatique Bing'
 titlesuffix: Azure Cognitive Services
 description: Code source du tutoriel expliquant comment utiliser l’API Suggestion automatique Bing dans une application web monopage.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: a3eafe1c2ad6bb7a141b6c40c85f804d0f9b7395
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6fdb72b92a444b889ddfafd0ceecbb4fab6570c8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345621"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171250"
 ---
-# <a name="tutorial-single-page-web-app"></a>Didacticiel : Application web à page unique
+# <a name="tutorial-single-page-web-app"></a>Tutoriel : Application web à page unique
 
 Voici le code source complet indiqué dans le [didacticiel de l’application à page unique](autosuggest.md) pour l’API Suggestion automatique Bing. Pour exécuter l’application, copiez le code source dans un éditeur de texte et enregistrez le fichier sous `autosuggest.html`. Ensuite, ouvrez le fichier enregistré dans votre navigateur web.
 

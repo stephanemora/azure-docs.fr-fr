@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e7cc11fd35049bf55c848293fa5aaafbdd7b7370
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 704f854d7be9930923cb6e1955c3670f296035ed
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452766"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299824"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>En quoi consiste la gestion des appareils dans Azure Active Directory ?
 
@@ -45,7 +45,7 @@ Pour donner le contrôle d’un appareil à Azure AD, vous avez deux options :
 
 **L’inscription** d’un appareil sur Azure AD vous permet de gérer son identité. Lors de l’inscription d’un appareil, Azure AD Device Registration fournit une identité à l’appareil qui sera utilisée pour authentifier l’appareil lors de la connexion de l’utilisateur à Azure AD. Vous pouvez utiliser cette identité pour activer ou désactiver un appareil.
 
-Quand ils sont associés à une solution de gestion des périphériques mobiles (GPM) comme Microsoft Intune, les attributs de l’appareil dans Azure AD sont mis à jour avec des informations supplémentaires sur l’appareil. Cela vous permet de créer des règles d’accès conditionnel qui imposent que l’accès à partir des appareils réponde à vos critères de sécurité et de conformité. Pour plus d’informations sur l’inscription d’appareils dans Microsoft Intune, consultez la rubrique [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms).
+Quand ils sont associés à une solution de gestion des périphériques mobiles (GPM) comme Microsoft Intune, les attributs de l’appareil dans Azure AD sont mis à jour avec des informations supplémentaires sur l’appareil. Cela vous permet de créer des règles d’accès conditionnel qui imposent que l’accès à partir des appareils réponde à vos critères de sécurité et de conformité. Pour plus d’informations sur l’inscription d’appareils dans Microsoft Intune, consultez [Qu’est-ce que l’inscription d’appareils ?](https://docs.microsoft.com/intune/device-enrollment)
 
 **La jonction** d’un appareil est une extension de l’inscription d’un appareil. En d’autres termes, cela vous offre tous les avantages de l’inscription d’un appareil et modifie également l’état local de celui-ci. Modifier l’état local permet à vos utilisateurs de se connecter à un appareil à l’aide d’un compte professionnel ou scolaire d’une organisation au lieu d’un compte personnel.
 

@@ -6,17 +6,17 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f8a98133d68cb73958664dd04bb2d959c97195cf
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 71f0ece2ff06ef000092485b8e7e11c5eedb38dd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263847"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174497"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Démarrage rapide : Effectuer une recherche d’actualités à l'aide de Java et l’API REST Recherche d'actualités Bing
 
@@ -64,7 +64,7 @@ Consultez également [Tarification Cognitive Services - API Recherche Bing](http
     }
     ```
 
-## <a name="construct-the-search-request-and-recieve-a-json-response"></a>Construire la requête de recherche et recevoir une réponse JSON
+## <a name="construct-the-search-request-and-receive-a-json-response"></a>Construire la requête de recherche et recevoir une réponse JSON
 
 1. Utilisez les variables de la dernière étape pour mettre en forme une URL de recherche pour la requête d’API. Notez que votre terme de recherche doit être encodé sous forme d’URL avant d’être ajouté à la requête.
 

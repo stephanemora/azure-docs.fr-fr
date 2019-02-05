@@ -8,41 +8,43 @@ manager: mtillman
 editor: ''
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: b2dea11b6573be8f574bd18fa69ee76658d6d698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 20e19664963f66954f9d46a1b596a34b7d744f48
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975808"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093221"
 ---
-# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Démarrage rapide : inscrire une application auprès du point de terminaison Azure Active Directory v2.0
+# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Démarrage rapide : Inscrire une application auprès du point de terminaison Azure Active Directory v2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 Pour générer une application prenant en charge à la fois les connexions aux comptes Microsoft personnels (MSA) et aux comptes professionnels ou scolaires (Azure AD), vous devez d’abord l’inscrire auprès du point de terminaison Azure Active Directory (Azure AD) v2.0. Pour le moment, vous ne pouvez pas utiliser les applications existantes avec Azure AD ou MSA. Vous devez en créer une.
 
-> [!NOTE]
-> Les scénarios et les fonctionnalités d’Azure AD ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
+Les scénarios et les fonctionnalités d’Azure AD ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
 
-## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>Étape 1 : Se connecter au portail d’inscription des applications de Microsoft
+> [!NOTE]
+> Inscription d’une nouvelle application ? Essayez la nouvelle expérience **Inscriptions d’applications (préversion)** dans le portail Azure. Consultez [Inscrire une application (préversion)](quickstart-register-app.md) pour commencer.
+
+## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>Étape 1 : Se connecter au portail d’inscription des applications de Microsoft
 
 1. Accédez au portail d’inscription des applications Microsoft à l’adresse [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
 1. Connectez-vous à l’aide d’un compte Microsoft personnel, professionnel ou scolaire. Si vous en êtes dépourvu, inscrivez-vous pour obtenir un nouveau compte personnel.
 1. Vous avez terminé ? À présent, consultez votre liste d’applications Microsoft, qui est probablement vide. Nous allons y remédier.
 
-## <a name="step-2-register-an-app"></a>Étape 2 : Inscrire une application
+## <a name="step-2-register-an-app"></a>Étape 2 : Inscription d’une application
 
 1. Sélectionnez **Ajouter une application**, et donnez-lui un nom.
-    Le portail attribue à votre application un ID d’application global unique que vous utiliserez ultérieurement dans votre code. Si votre application inclut un composant côté serveur, qui nécessite des jetons d’accès pour appeler des API (à savoir Office, Azure ou votre propre API Web), créez également ici un **secret d’application** .
+    Le portail attribue à votre application un ID d’application global unique que vous utiliserez ultérieurement dans votre code. Si votre application inclut un composant côté serveur qui nécessite des jetons d’accès pour appeler des API (comme Office, Azure ou votre propre API web), vous devrez également créer ici un **secret d’application**.
 1. Ensuite, ajoutez les **plateformes** que votre application utilisera.
     * Pour les applications web, fournissez une **URI de redirection** où les messages de connexion peuvent être envoyés.
     * Pour les applications mobiles, copiez la valeur par défaut de l’URI de redirection créée automatiquement pour vous.

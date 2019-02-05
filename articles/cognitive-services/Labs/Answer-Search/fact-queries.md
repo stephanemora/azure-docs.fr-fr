@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Requête relative à des faits Project Answer Search'
+title: 'Démarrage rapide : Requête relative à des faits Project Answer Search'
 titlesuffix: Azure Cognitive Services
 description: Requêtes relatives à des faits à l’aide de la Recherche des réponses de projet
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7e8a793362e51a05a73c0b42346e2e8fafb3f44d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469399"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210945"
 ---
-# <a name="quickstart-query-for-facts"></a>Démarrage rapide : Requête relative à des faits
+# <a name="quickstart-query-for-facts"></a>Démarrage rapide : Requête relative à des faits
 
 Si la requête concerne un fait comme une date ou une connaissances identifiable, la réponse peut contenir `facts` réponses. Les réponses relatives aux faits contiennent des résultats pertinents extraits des paragraphes dans les documents web.  Ces requêtes retournent toujours des pages web, et les [faits](fact-queries.md) et/ou [entités](entity-queries.md) dépendent de la requête.
 
@@ -26,14 +26,14 @@ Les requêtes comme Saint-Valentin+2016 ou quand+est+ramadan sont considérées 
 L’exemple suivant est une `facts` réponse liée à une date. 
 
 **Requête :**
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
-````
+```
 
-**Réponse :** le champ `subjectName` contient une version de l’affichage de la requête de l’utilisateur que vous pouvez utiliser comme étiquette lors de l’affichage du fait. Si la chaîne de requêtes est Saint-Valentin+2016, Bing peut la transformer en Jour de la Saint-Valentin 2016. Le champ de description contient le fait.
+**Réponse :** Le champ `subjectName` contient une version d’affichage de la requête de l’utilisateur que vous pouvez utiliser comme étiquette lors de l’affichage du fait. Si la chaîne de requêtes est Saint-Valentin+2016, Bing peut la transformer en Jour de la Saint-Valentin 2016. Le champ de description contient le fait.
 
-````
+```
 {   
     "_type" : "SearchResponse",   
     "queryContext" : {   
@@ -57,20 +57,20 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
     }   
 }   
 
-````
+```
 
 La requête « Pourquoi le ciel est bleu ? » retourne un exemple de réponse liée à des connaissances.
 
 **Requête :**
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+sky+blue
 
-````
+```
 
-**Réponse :** le champ `value/description` contient la connaissances ou l’information demandée par la requête.
+**Réponse :** Le champ `value/description` contient les connaissances ou l’information demandées par la requête.
 
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -112,17 +112,17 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
     ]
   },
 
-````
+```
 
 ## <a name="tabular-data"></a>Données tabulaires
 Dans certains cas, les faits peuvent être retournées en tant que `_type: StructuredValue/TabularData`. La requête suivante obtient des données tabulaires avec des informations contrastées sur le café et le thé.
 
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
-````
+```
 Les résultats `facts` incluent les cellules et les lignes suivantes :
-````
+```
     "value": [
       {
         "subjectName": "Coffee vs. Tea",
@@ -196,7 +196,7 @@ Les résultats `facts` incluent les cellules et les lignes suivantes :
     ]
   },
 
-````
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide C#](c-sharp-quickstart.md)

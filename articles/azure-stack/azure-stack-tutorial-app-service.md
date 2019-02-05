@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
-ms.reviewer: ''
+ms.reviewer: anwestg
 ms.custom: mvc
-ms.openlocfilehash: 0a9b87ccfd49ba04a8dff8ef48bea023ff94b222
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: e3ac94c91742f4a90f9ddd8c975d946bb918ac64
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340716"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244740"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>Tutoriel : Mettre des applications web et API à la disposition des utilisateurs Azure Stack
 
@@ -73,7 +74,7 @@ Pour cet exemple, nous allons créer un système de gestion de contenu de platef
     - **Nom de la base de données** : DNNdb
     - **Taille maximale (en Mo)**  : 100
     - **Abonnement**: TestAppServiceOffer
-    - **Groupe de ressources** : DNN-RG
+    - **Groupe de ressources** : DNN-RG
 
 3. Sélectionnez **Paramètres de connexion**, entrez les informations d’identification pour la base de données, puis sélectionnez **OK**. Vous allez utiliser ces informations d’identification plus tard dans ce tutoriel.
 4. Sous **Référence SKU** > sélectionnez le SKU SQL que vous avez créé pour le serveur d’hébergement SQL > puis sélectionnez **OK**.

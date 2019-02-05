@@ -1,6 +1,6 @@
 ---
-title: Charger, encoder et diffuser en continu à l’aide d’Azure Media Services | Microsoft Docs
-description: Suivez les étapes décrites dans ce didacticiel pour charger un fichier et encoder la vidéo, puis diffuser en continu votre contenu avec Azure Media Services.
+title: Charger, encoder et diffuser en streaming avec Azure Media Services v3 à l’aide de .NET | Microsoft Docs
+description: Suivez les étapes décrites dans ce tutoriel pour charger un fichier et encoder la vidéo, puis diffuser en streaming votre contenu avec Media Services v3 à l’aide de .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: a8d2cf577a6b637e910c283ba8c70d9ea4eedfbb
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c3671df61eea5c826227706106cbb48dc70ad55f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334123"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157753"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Didacticiel : Charger, encoder et diffuser en continu des vidéos à l’aide d’API
+# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Didacticiel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET
 
 Azure Media Services vous permet d’encoder vos fichiers multimédias dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Avant la diffusion en continu, vous devez encoder votre fichier multimédia numérique haute qualité. Pour obtenir des instructions d’encodage, consultez [Encoding concept](encoding-concept.md) (Concept d’encodage). Ce didacticiel charge un fichier vidéo local et encode le fichier chargé. Vous pouvez également encoder du contenu que vous mettez à disposition via une URL HTTPS. Pour plus d’informations, consultez [Créer une entrée de travail à partir d’une URL HTTP(s)](job-input-from-http-how-to.md).
 
@@ -28,8 +28,7 @@ Azure Media Services vous permet d’encoder vos fichiers multimédias dans des 
 Ce didacticiel vous explique les procédures suivantes :    
 
 > [!div class="checklist"]
-> * Accéder à l’API Media Services
-> * Configurer l’exemple d’application
+> * Télécharger l’exemple d’application décrit dans la rubrique
 > * Examiner le code qui charge, encode et diffuse en continu
 > * Exécution de l'application
 > * Tester l’URL de diffusion en continu
@@ -40,15 +39,10 @@ Ce didacticiel vous explique les procédures suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas Visual Studio, vous pouvez obtenir [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Installez et utilisez l’interface CLI localement. Vous devez disposer d’Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+- [Créer un compte Media Services](create-account-cli-how-to.md).<br/>Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
+- Suivez les étapes mentionnées dans l’article [Accéder à l’API Azure Media Services avec Azure CLI](access-api-cli-how-to.md) et enregistrez les informations d’identification. Vous en aurez besoin pour accéder à l’API.
 
-    Actuellement, les commandes [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) ne fonctionnent pas toutes dans Azure Cloud Shell. Il est recommandé d’utiliser l’interface CLI localement.
-
-- [Créer un compte Media Services](create-account-cli-how-to.md).
-
-    Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services
-
-## <a name="download-the-sample"></a>Télécharger l’exemple
+## <a name="download-and-configure-the-sample"></a>Télécharger et configurer l’exemple
 
 Clonez un référentiel GitHub qui contient l’exemple .NET de diffusion en continu sur votre machine à l’aide de la commande suivante :  
 
@@ -58,7 +52,7 @@ Clonez un référentiel GitHub qui contient l’exemple .NET de diffusion en con
 
 L’exemple se trouve dans le dossier [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles).
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+Ouvrez [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) dans votre projet téléchargé. Remplacez les valeurs par les informations d’identification que vous avez obtenues en [accédant aux API](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>Examiner le code qui charge, encode et diffuse en continu
 
@@ -66,12 +60,12 @@ Cette section examine les fonctions définies dans le fichier [Program.cs](https
 
 L’exemple effectue les actions suivantes :
 
-1. Crée une nouvelle transformation (vérifie d’abord si la transformation spécifiée existe). 
-2. Crée une ressource de sortie qui est utilisée en tant que sortie du travail d’encodage.
-3. Crée une ressource d’entrée et charge le fichier vidéo local spécifié dans celle-ci. La ressource est utilisée en tant qu’entrée du travail. 
+1. Crée une **transformation** (vérifie d’abord si la transformation spécifiée existe). 
+2. Crée un **actif multimédia** de sortie qui est utilisé comme sortie du **travail** d’encodage.
+3. Crée un **actif multimédia** d’entrée et charge le fichier vidéo local spécifié dans celui-ci. La ressource d’entrée est utilisée en tant qu’entrée du travail. 
 4. Soumet le travail d’encodage à l’aide de l’entrée et de la sortie qui ont été créées.
-5. Vérifie l’état du travail.
-6. Crée un StreamingLocator.
+5. Vérifier l’état du travail.
+6. Crée un **localisateur de streaming**.
 7. Crée des URL de diffusion en continu.
 
 ### <a name="a-idstartusingdotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Commencer à utiliser les API Media Services avec le SDK .NET
@@ -82,15 +76,15 @@ Pour commencer à utiliser les API Media Services avec .NET, vous devez créer u
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Créer une ressource d’entrée et charger un fichier local dans celle-ci 
 
-La fonction **CreateInputAsset** crée une nouvelle [ressource](https://docs.microsoft.com/rest/api/media/assets) d’entrée et charge le fichier vidéo local spécifié dans celle-ci. Cette ressource est utilisée en tant qu’entrée de votre travail d’encodage. Dans Media Services v3, l’entrée d’un travail peut être une ressource ou bien le contenu que vous mettez à la disposition de votre compte Media Services via des URL HTTPS. Si vous souhaitez savoir comment encoder à partir d’une URL HTTPS, consultez [cet](job-input-from-http-how-to.md) article.  
+La fonction **CreateInputAsset** crée une nouvelle [ressource](https://docs.microsoft.com/rest/api/media/assets) d’entrée et charge le fichier vidéo local spécifié dans celle-ci. Cet **actif multimédia** est utilisé comme entrée de votre travail d’encodage. Dans Media Services v3, l’entrée d’un **travail** peut être un **actif multimédia** ou du contenu que vous mettez à la disposition de votre compte Media Services par le biais d’URL HTTPS. Si vous souhaitez savoir comment encoder à partir d’une URL HTTPS, consultez [cet](job-input-from-http-how-to.md) article.  
 
 Dans Media Services v3, vous utilisez des API Stockage Azure pour charger des fichiers. L’extrait de code .NET suivant vous explique comment faire.
 
 La fonction suivante effectue les actions ci-après :
 
-* Elle crée une ressource 
-* Elle récupère une [URL SAP](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) accessible en écriture vers le [conteneur de stockage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) de la ressource
-* Elle charge le fichier dans le conteneur de stockage à l’aide de l’URL SAP
+* Crée un **actif multimédia** 
+* Obtient une [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) accessible en écriture vers le [conteneur de stockage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) de l’actif multimédia
+* Elle charge le fichier dans le conteneur de stockage à l’aide de l’URL SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
@@ -101,7 +95,8 @@ La [ressource](https://docs.microsoft.com/rest/api/media/assets) de sortie stock
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Créer une transformation et un travail qui encode le fichier chargé
-Lors de l’encodage ou du traitement de contenus dans Media Services, il est courant de configurer les paramètres d’encodage en tant que formule. Vous envoyez ensuite un **travail** pour appliquer cette formule à une vidéo. En envoyant de nouveaux travaux pour chaque nouvelle vidéo, vous appliquez cette formule à toutes les vidéos de votre bibliothèque. Une formule dans Media Services est référencée comme une **transformation**. Pour plus d’informations, consultez [Transforms and jobs](transform-concept.md) (Transformations et travaux). L’exemple décrit dans ce didacticiel définit une formule qui encode la vidéo, afin de la diffuser en continu sur divers appareils iOS et Android. 
+
+Lors de l’encodage ou du traitement de contenus dans Media Services, il est courant de configurer les paramètres d’encodage en tant que formule. Vous envoyez ensuite un **travail** pour appliquer cette formule à une vidéo. En envoyant de nouveaux travaux pour chaque nouvelle vidéo, vous appliquez cette formule à toutes les vidéos de votre bibliothèque. Une formule dans Media Services est référencée comme une **transformation**. Pour plus d’informations, consultez [Transformations et travaux](transform-concept.md). L’exemple décrit dans ce didacticiel définit une formule qui encode la vidéo, afin de la diffuser en continu sur divers appareils iOS et Android. 
 
 #### <a name="transform"></a>Transformer
 
@@ -127,33 +122,33 @@ Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c
 
 Event Grid est conçu pour une haute disponibilité, des performances cohérentes et une mise à l’échelle dynamique. Avec Event Grid, vos applications peuvent écouter les événements de presque tous les services Azure ou de toute source personnalisée, et y réagir. La gestion simple et réactive des événements basée sur HTTP vous aide à générer des solutions efficaces grâce au filtrage et au routage intelligents des événements.  Consultez [Acheminer des événements Azure Media Services vers un point de terminaison personnalisé à l’aide de CLI](job-state-events-cli-how-to.md).
 
-Le **travail** passe généralement par les états suivants : **Planifié**, **En attente**,  **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez l’état **Annulation en cours** et l’état **Annulé** une fois l’opération terminée.
+Le **travail** passe généralement par les états suivants : **Planifié**, **En attente**,  **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez **Annulation en cours** et **Annulé** une fois l’opération terminée.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
-### <a name="get-a-streaminglocator"></a>Obtenir un élément StreamingLocator
+### <a name="get-a-streaming-locator"></a>Obtenir un localisateur de streaming
 
-Une fois l’encodage terminé, l’étape suivante consiste à mettre à la disposition des clients la vidéo dans la ressource de sortie pour qu’ils puissent la lire. Vous pouvez le faire en deux étapes : d’abord, créez un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puis générez les URL de diffusion en continu que les clients peuvent utiliser. 
+Une fois l’encodage terminé, l’étape suivante consiste à mettre à la disposition des clients la vidéo dans la ressource de sortie pour qu’ils puissent la lire. Vous pouvez le faire en deux étapes : d’abord, créez un [localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), puis générez les URL de streaming que les clients peuvent utiliser. 
 
-Le processus de création d’un élément **StreamingLocator** est appelée publication. Par défaut, l’élément **StreamingLocator** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
+Le processus de création d’un **localisateur de streaming** est appelée « publication ». Par défaut, le **localisateur de streaming** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
 
 Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier le **StreamingPolicyName** souhaité. Dans cet exemple, vous allez diffuser en continu du contenu en clair ou non chiffré ; la stratégie de diffusion en continu en clair prédéfinie (**PredefinedStreamingPolicy.ClearStreamingOnly**) est donc utilisée.
 
 > [!IMPORTANT]
-> Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie StreamingPolicy. Vous ne devez pas créer une stratégie StreamingPolicy pour chaque élément StreamingLocator.
+> Quand vous utilisez une [stratégie de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie de streaming. Vous ne devez pas créer une stratégie de diffusion en continu pour chaque localisateur de diffusion en continu.
 
 Le code suivant suppose que vous appelez la fonction avec un locatorName unique.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateStreamingLocator)]
 
-Tandis que l’exemple de cette rubrique traite de la diffusion en continu, vous pouvez utiliser le même appel pour créer un élément StreamingLocator pour la diffusion vidéo via le téléchargement progressif.
+Tandis que l’exemple de cette rubrique traite de streaming, vous pouvez utiliser le même appel pour créer un localisateur de streaming pour la diffusion de contenu vidéo par le biais d’un téléchargement progressif.
 
 ### <a name="get-streaming-urls"></a>Obtenir des URL de diffusion en continu
 
-Maintenant qu’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) a été créé, vous pouvez obtenir les URL de diffusion en continu, comme indiqué dans **GetStreamingURLs**. Pour générer une URL, vous devez concaténer le nom d’hôte [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) et le chemin d’accès **StreamingLocator**. Dans cet exemple, la *valeur par défaut* **StreamingEndpoint** est utilisée. Lorsque vous créez pour la première fois un compte Media Services, cette *valeur par défaut* **StreamingEndpoint** est à l’état Arrêté. Vous devez donc appeler **Démarrer**.
+Maintenant que le [localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) a été créé, vous pouvez obtenir les URL de streaming, comme indiqué dans **GetStreamingURLs**. Pour générer une URL, vous devez concaténer le nom d’hôte du [point de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) et le chemin du **localisateur de streaming**. Dans cet exemple, le **point de terminaison de streaming** *par défaut* est utilisé. Quand vous créez pour la première fois un compte Media Services, ce **point de terminaison de streaming** *par défaut* est dans l’état Arrêté. Vous devez donc appeler **Start**.
 
 > [!NOTE]
-> Dans cette méthode, vous avez besoin du locatorName qui a été utilisé lors de la création de l’élément **StreamingLocator** pour la ressource de sortie.
+> Dans cette méthode, vous avez besoin de la valeur locatorName qui a été utilisé lors de la création du **localisateur de streaming** pour l’actif multimédia de sortie.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#GetStreamingURLs)]
 

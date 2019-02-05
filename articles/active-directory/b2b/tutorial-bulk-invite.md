@@ -3,20 +3,20 @@ title: 'Tutoriel : Inviter en bloc des utilisateurs B2B Collaboration - Azure Ac
 description: Dans ce tutoriel, vous découvrez comment utiliser PowerShell et un fichier CSV pour envoyer des invitations en bloc à des utilisateurs Azure AD B2B Collaboration externes.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: c24a82d5765fef01eab9ae24f637c215c62e822d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: e40eb5c1727317b375d45da83cd712cf0b7f963c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986900"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099728"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutoriel : Inviter en bloc des utilisateurs Azure AD B2B Collaboration
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Didacticiel : Inviter en bloc des utilisateurs Azure AD B2B Collaboration
 
 Si vous utilisez Azure Active Directory (Azure AD) B2B Collaboration pour travailler avec des partenaires externes, vous pouvez inviter en même temps plusieurs utilisateurs invités pour votre organisation. Dans ce tutoriel, vous découvrez comment utiliser PowerShell pour envoyer des invitations en bloc à des utilisateurs externes. Vous effectuez les étapes suivantes :
 
@@ -34,29 +34,29 @@ Vérifiez que vous installez la dernière version du module Azure AD PowerShell 
 
 Vérifiez d’abord les modules que vous avez installés. Ouvrez Windows PowerShell en tant qu’utilisateur avec privilèges élevés (Exécuter en tant qu’administrateur) et exécutez la commande suivante :
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 En fonction de la sortie, effectuez une des actions suivantes :
 
 - Si aucun résultat n’est retourné, exécutez la commande suivante pour installer le module AzureADPreview :
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Si seul le module AzureAD apparaît dans les résultats, exécutez les commandes suivantes pour installer le module AzureADPreview : 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Si seul le module AzureADPreview apparaît dans les résultats mais que vous recevez un message indiquant qu’il existe une version plus récente, exécutez les commandes suivantes pour mettre à jour le module : 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 Vous pouvez recevoir une invite indiquant que vous installez le module à partir d’un dépôt non approuvé. Ce cas se produit si vous n’aviez pas configuré le dépôt PSGallery comme dépôt fiable. Appuyez sur **O** pour installer le module.
 
@@ -84,7 +84,7 @@ Exécutez la commande suivante pour vous connecter au domaine du locataire :
 ```powershell
 Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 ```
-Par exemple : `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
+Par exemple : `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
 
 À l’invite, entrez vos informations d’identification.
 

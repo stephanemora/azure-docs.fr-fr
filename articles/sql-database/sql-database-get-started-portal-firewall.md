@@ -1,5 +1,5 @@
 ---
-title: 'Portail Azure : Créer une règle de pare-feu SQL Database | Microsoft Docs'
+title: 'Portail Azure : Créer une règle de pare-feu SQL Database | Microsoft Docs'
 description: Créer une règle de pare-feu au niveau du serveur SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/01/2018
-ms.openlocfilehash: cab92539b5019d4807ddefb2b84279c844f53016
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/25/2019
+ms.openlocfilehash: 589d3fa8c0ee8c8f374cd4f34f17401caa46d265
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721899"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462254"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Guide de démarrage rapide : Créer une règle de pare-feu au niveau du serveur pour votre base de données SQL à l’aide du portail Azure
+# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Démarrage rapide : Créer une règle de pare-feu au niveau du serveur pour votre base de données SQL à l’aide du portail Azure
 
 Ce guide de démarrage rapide vous montre comment créer une règle de pare-feu au niveau du serveur pour une base de données SQL Azure à laquelle vous pourrez vous connecter à partir d’une ressource locale.
 
@@ -57,7 +57,7 @@ Suivez ces étapes pour créer une règle de pare-feu au niveau du serveur pour 
    > Par défaut, l’accès via le pare-feu SQL Database est activé pour tous les services Azure. Choisissez **ÉTEINT** dans cette page pour le désactiver pour tous les services Azure.
    >
 
-5. Sélectionnez **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
+5. Sélectionnez **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
 
 6. Fermez la page **Paramètres de pare-feu**.
 
@@ -66,7 +66,6 @@ Suivez ces étapes pour créer une règle de pare-feu au niveau du serveur pour 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Enregistrez les ressources si vous souhaitez passer aux [Étapes suivantes](#next-steps) et découvrir comment vous connecter à votre base de données et les différentes méthodes à votre disposition pour l’interroger. Toutefois, si vous souhaitez supprimer les ressources créées dans ce guide de démarrage rapide, effectuez les étapes suivantes.
-
 
 1. Dans le menu gauche du portail Azure, sélectionnez **Groupes de ressources**, puis **myResourceGroup**.
 2. Dans la page de votre groupe de ressources, sélectionnez **Supprimer**, tapez **myResourceGroup** dans la zone de texte, puis sélectionnez **Supprimer**.

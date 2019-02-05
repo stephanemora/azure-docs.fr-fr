@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 7e2225a173562be28840cb0a66913b9f8c9657ff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1411d9b4a199685315587cb642842286da575c63
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962043"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098525"
 ---
-# <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Démarrage rapide : inscrire une application auprès du point de terminaison Azure Active Directory v1.0
+# <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Démarrage rapide : Inscrire une application auprès du point de terminaison Azure Active Directory v1.0
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -31,7 +31,10 @@ Les développeurs et les fournisseurs de logiciels en tant que service (SaaS) pe
 
 Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d’abord être enregistrée dans un locataire Azure AD. Le processus d'enregistrement implique de fournir à Azure AD des informations sur votre application, notamment l'URL où elle est située, l'URL à laquelle envoyer une réponse après avoir authentifié un utilisateur, l'URI qui identifie l'application, et ainsi de suite.
 
-Ce démarrage rapide vous montre comment ajouter et inscrire une application dans Azure AD.
+Ce guide de démarrage rapide vous montre comment ajouter et inscrire une application dans Azure AD à l’aide de l’expérience **Inscriptions d’applications** dans le portail Azure.
+
+> [!NOTE]
+> Inscription d’une nouvelle application ? Essayez la nouvelle expérience **Inscriptions d’applications (préversion)** dans le portail Azure. Consultez [Inscrire une application (préversion)](quickstart-register-app.md) pour commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,12 +51,12 @@ Pour commencer, assurez-vous d’avoir un locataire Azure AD auprès duquel insc
 
 1. Lorsque la page **Créer** s’affiche, saisissez les informations d’inscription de votre application : 
 
-    - **Nom :** Saisissez un nom d’application explicite
+    - **Nom :** saisissez un nom d’application explicite
     - **Type d’application :**
       - Sélectionnez **Native** pour les [applications clientes](developer-glossary.md#client-application) installées localement sur un appareil. Ce paramètre est utilisé pour les [clients natifs](developer-glossary.md#native-client) publics OAuth.
       - Sélectionnez **Application Web / API** pour les [applications clientes](developer-glossary.md#client-application) et les [ressources/applications API](developer-glossary.md#resource-server) installées sur un serveur sécurisé. Ce paramètre est utilisé pour les [clients web](developer-glossary.md#web-client) confidentiels OAuth et les [clients basés sur un agent utilisateur](developer-glossary.md#user-agent-based-client) publics. La même application peut également exposer un client et une ressource/API.
-    - **URL de connexion :** Pour les applications de type « Application Web / API », indiquez l’URL de base de votre application. Par exemple, `http://localhost:31544` peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent utiliser cette URL pour se connecter à une application web cliente. 
-    - **URI de redirection :** Pour les applications « natives », indiquez un URI de redirection utilisé par Azure AD pour retourner les réponses de jeton. Saisissez une valeur spécifique à votre application, par exemple `http://MyFirstAADApp`
+    - **URL de connexion** : pour les applications de type « Application web / API », indiquez l’URL de base de votre application. Par exemple, `http://localhost:31544` peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent utiliser cette URL pour se connecter à une application web cliente. 
+    - **URI de redirection :** pour les applications « natives », indiquez un URI de redirection utilisé par Azure AD pour retourner les réponses de jeton. Saisissez une valeur spécifique à votre application, par exemple `http://MyFirstAADApp`
 
       ![Inscrire une nouvelle application - créer](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 

@@ -1,23 +1,23 @@
 ---
-title: 'Guide de démarrage rapide : Convertir un script de texte, Ruby - API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Convertir un script de texte, Ruby - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez convertir le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Ruby.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: d78586243b47563440f629689800ad618cb411d8
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 10f74e04349984885f9c69ac17ac1aa9b41e710f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647083"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461183"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>Guide de démarrage rapide : Translittérer du texte à l’aide de l’API REST de traduction de texte Translator Text (Ruby)
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>Démarrage rapide : Translittérer du texte à l’aide de l’API REST de traduction de texte Translator Text (Ruby)
 
 Dans ce démarrage rapide, vous convertissez du texte dans la langue d’un script vers une autre à l’aide de l’API de traduction de texte Translator Text.
 

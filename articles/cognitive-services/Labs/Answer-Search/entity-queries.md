@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : requête d’entité Project Answer Search'
+title: 'Démarrage rapide : Requête d’entité Project Answer Search'
 titlesuffix: Azure Cognitive Services
 description: Requêtes relatives à des entités à l’aide de Project Answer Search
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 09af064a1c072996171e6afa4f043e84f18612b4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2ec11412b5b0e713742029f05c91a6ecbe78c344
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467410"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210690"
 ---
-# <a name="quickstart-query-for-entities"></a>Démarrage rapide : Requête relative à des entités
+# <a name="quickstart-query-for-entities"></a>Démarrage rapide : Requête relative à des entités
 
 Si la requête demande des informations sur une personne, un lieu ou une chose, la réponse peut contenir une réponse `entities`.  Les requêtes retournent toujours des pages web, les [faits](fact-queries.md) et/ou les [entités](entity-queries.md) dépendent de la requête.
 
@@ -33,7 +33,7 @@ Pour déterminer le scénario de requête, utilisez le champ `queryScenario` de 
 -   Attraction 
  
 Pour déterminer le type d’entité contenu par la réponse, utilisez le champ `entityTypeHints`, comme illustré dans la requête pour Bill Gates.
-````
+```
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
         "entityPresentationInfo": {
@@ -44,13 +44,13 @@ Pour déterminer le type d’entité contenu par la réponse, utilisez le champ 
         },
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
-````
+```
 Voici une requête pour Space Needle :
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
-````
+```
 La réponse inclut la réponse `entities`. Notez les champs `entityScenario` et `entityTypeHints`. 
-````
+```
   "entities": {
     "value": [
       {
@@ -108,19 +108,19 @@ La réponse inclut la réponse `entities`. Notez les champs `entityScenario` et 
       }
     ]
   },
-````
+```
 
 Une requête peut retourner une liste si elle est appropriée.
 
-**Requête :** la requête suivante recherche une liste d’espèces menacées :
+**Requête :** la requête suivante recherche une liste d’espèces menacées :
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
-````
+```
 
-**Réponse :** la réponse inclut une liste formatée pour l’affichage sous forme de données tabulaires :
-````
+**Réponse :** la réponse inclut une liste affichée au format de données tabulaires :
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -217,7 +217,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
     ]
   },
 
-````
+```
 
 
 ## <a name="next-steps"></a>Étapes suivantes

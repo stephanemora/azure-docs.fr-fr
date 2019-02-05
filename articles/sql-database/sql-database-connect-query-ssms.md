@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 23f2d32b2323821155467bd1ad12e9baf8c33074
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 01/25/2019
+ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150748"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461744"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Démarrage rapide : Utilisez SQL Server Management Studio pour se connecter et interroger une base de données Azure SQL
 
@@ -30,7 +30,9 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-#### <a name="install-the-latest-ssms"></a>Installer la dernière version de SSMS
+* règle de pare-feu au niveau du serveur. Pour plus d’informations, consultez [Créer une règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md).
+
+## <a name="install-the-latest-ssms"></a>Installer la dernière version de SSMS
 
 Avant de commencer, assurez-vous d'avoir installé la dernière version de [SSMS][ssms-install-latest-84g]. 
 
@@ -43,7 +45,7 @@ Avant de commencer, assurez-vous d'avoir installé la dernière version de [SSMS
 Dans SMSS, connectez-vous à votre serveur Azure SQL Database. 
 
 > [!IMPORTANT]
-> Un serveur logique Azure SQL Database écoute sur le port 1433. Pour vous connecter à un serveur logique derrière un pare-feu d’entreprise, le port de ce dernier doit être ouvert.
+> Un serveur Azure SQL Database écoute sur le port 1433. Pour vous connecter à un serveur SQL Database derrière un pare-feu d’entreprise, le port de ce dernier doit être ouvert.
 >
 
 1. Ouvrez SSMS. La boîte de dialogue **Se connecter au serveur** s’affiche.

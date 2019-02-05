@@ -6,16 +6,16 @@ services: cognitive-services
 author: ghogen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 00b1d3ed636bb1690e9d5026c558ca989de95375
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129520"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209432"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Se connecter à l’API Visage Cognitive Services avec les Services connectés dans Visual Studio
 
@@ -235,7 +235,7 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
  
    ![Image de l’API Visage et résultats mis en forme](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le service cognitif et les ressources qui lui sont associées. Pour supprimer le groupe de ressources à l’aide du portail :
 

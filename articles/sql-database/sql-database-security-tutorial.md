@@ -1,6 +1,6 @@
 ---
-title: Sécuriser une base de données unique dans Azure SQL Database | Microsoft Docs
-description: Découvrez les techniques et fonctionnalités à utiliser pour sécuriser une base de données unique dans Azure SQL Database.
+title: Sécuriser une base de données autonome ou en pool dans Azure SQL Database | Microsoft Docs
+description: Découvrez les techniques et les fonctionnalités à utiliser pour sécuriser une base de données autonome ou en pool dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/18/2018
-ms.openlocfilehash: e0311174303fc91767d3f99e6db05927b25aea05
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/30/2019
+ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051660"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461200"
 ---
-# <a name="tutorial-secure-a-single-database"></a>Tutoriel : Sécuriser une base de données unique
+# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Tutoriel : Sécuriser une base de données autonome ou en pool
 
-Azure SQL Database sécurise les données dans une base de données SQL unique, ce qui vous permet d’effectuer ce qui suit :
+Azure SQL Database sécurise les données dans une base de données autonome ou en pool en vous permettant de :
 
 - Limiter l’accès à l’aide de règles de pare-feu
 - Utiliser des mécanismes d’authentification qui nécessitent une identité
@@ -35,7 +35,7 @@ Vous pouvez renforcer la sécurité de votre base de données en quelques étape
 > - Créer des règles de pare-feu au niveau du serveur et de la base de données
 > - Configurer un administrateur Azure Active Directory (AD)
 > - Gérer l’accès utilisateur avec l’authentification SQL, l’authentification Azure AD et des chaînes de connexion sécurisées
-> - Activer des fonctionnalités de sécurité, comme la protection contre les menaces, l’audit, le masquage des données et le chiffrement
+> - Activer des fonctionnalités de sécurité, comme Advanced Data Security, l’audit, le masquage des données et le chiffrement
 
 Pour plus d’informations, consultez les articles [Vue d’ensemble de la sécurité dans Azure SQL Database](/azure/sql-database/sql-database-security-index) et [Capacités](sql-database-security-overview.md).
 
@@ -45,7 +45,7 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Un serveur et une base de données SQL Azure
-    - Créez-les à l’aide du [portail Azure](sql-database-get-started-portal.md), de [CLI](sql-database-cli-samples.md) ou de [PowerShell](sql-database-powershell-samples.md).
+  - Créez-les à l’aide du [portail Azure](sql-database-get-started-portal.md), de [CLI](sql-database-cli-samples.md) ou de [PowerShell](sql-database-powershell-samples.md).
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -62,9 +62,9 @@ Affectez au paramètre **Autoriser l’accès aux services Azure** la valeur **D
 > [!NOTE]
 > SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter au serveur Azure SQL Database, à moins que votre administrateur n’ouvre le port 1433.
 
-### <a name="set-up-server-level-firewall-rules"></a>Configurer des règles de pare-feu au niveau du serveur
+### <a name="set-up-sql-database-server-firewall-rules"></a>Configurer des règles de pare-feu du serveur SQL Database
 
-Les règles de pare-feu au niveau du serveur s’appliquent à toutes les bases de données au sein du même serveur logique.
+Les règles de pare-feu au niveau du serveur s’appliquent à toutes les bases de données au sein du même serveur SQL Database.
 
 Pour configurer une règle de pare-feu au niveau du serveur :
 
@@ -88,7 +88,7 @@ Vous pouvez maintenant vous connecter à n’importe quelle base de données du 
 > [!IMPORTANT]
 > Par défaut, l’accès à travers le pare-feu Azure SQL Database est activé pour tous les services Azure, sous **Autoriser l’accès aux services Azure**. Choisissez **DÉSACTIVER** pour désactiver l’accès pour tous les services Azure.
 
-### <a name="setup-database-level-firewall-rules"></a>Configurer des règles de pare-feu au niveau de la base de données
+### <a name="setup-database-firewall-rules"></a>Configurer des règles de pare-feu de base de données
 
 Les règles de pare-feu au niveau de la base de données s’appliquent uniquement à des bases de données individuelles. Ces règles sont portables et suivent la base de données lors d’un basculement de serveur. Vous pouvez uniquement configurer des règles de pare-feu au niveau de la base de données à l’aide d’instructions Transact-SQL et uniquement après avoir configuré une règle de pare-feu au niveau du serveur.
 
@@ -231,30 +231,30 @@ Pour copier une chaîne de connexion sécurisée :
 
 ## <a name="enable-security-features"></a>Activer les fonctionnalités de sécurité
 
-Azure SQL Database fournit des fonctionnalités de sécurité accessibles à l’aide du portail Azure. Ces fonctionnalités sont disponibles à la fois pour la base de données et le serveur, à l’exception du masquage des données, qui est uniquement disponible sur la base de données. Pour plus d’informations, consultez [Détection avancée des menaces](sql-advanced-threat-protection.md), [Audit](sql-database-auditing.md), [Masquage dynamique des données](sql-database-dynamic-data-masking-get-started.md) et [Chiffrement transparent des données](transparent-data-encryption-azure-sql.md).
+Azure SQL Database fournit des fonctionnalités de sécurité accessibles à l’aide du portail Azure. Ces fonctionnalités sont disponibles à la fois pour la base de données et le serveur, à l’exception du masquage des données, qui est uniquement disponible sur la base de données. Pour plus d’informations, consultez [Advanced Data Security](sql-advanced-threat-protection.md), [Audit](sql-database-auditing.md), [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) et [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).
 
-### <a name="advanced-threat-protection"></a>Détection avancée des menaces
+### <a name="advanced-data-security"></a>Advanced Data Security
 
-La fonctionnalité de protection avancée contre les menaces détecte les menaces potentielles quand elles se produisent et fournit des alertes de sécurité en cas d’activités anormales. Les utilisateurs peuvent analyser ces événements suspects à l’aide de la fonctionnalité d’audit, afin d’en déterminer le but (accès, violation ou exploitation de données de la base de données). Les utilisateurs disposent également d’une vue d’ensemble de la sécurité qui inclut une évaluation des vulnérabilités et un outil de découverte et de classification des données.
+La fonctionnalité Advanced Data Security détecte les menaces potentielles quand elles se produisent et fournit des alertes de sécurité en cas d’activités anormales. Les utilisateurs peuvent analyser ces événements suspects à l’aide de la fonctionnalité d’audit, afin d’en déterminer le but (accès, violation ou exploitation de données de la base de données). Les utilisateurs disposent également d’une vue d’ensemble de la sécurité qui inclut une évaluation des vulnérabilités et un outil de découverte et de classification des données.
 
 > [!NOTE]
 > Une injection de code SQL est un exemple de menace. Il s’agit d’un processus qui permet à des attaquants d’injecter du code SQL malveillant dans des entrées d’application. Une application peut alors exécuter à son insu le code SQL malveillant et permettre à des attaquants de violer ou modifier des données incluses dans la base de données.
 
-Pour activer la protection contre les menaces :
+Pour activer Advanced Data Security :
 
 1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
 1. Dans la page **Vue d’ensemble**, sélectionnez le lien **Nom du serveur**. La page du serveur de base de données s’ouvre.
 
-1. Dans la page **Serveur SQL**, recherchez la section **Sécurité** et sélectionnez **Advanced Threat Protection**.
+1. Dans la page **Serveur SQL**, recherchez la section **Sécurité** et sélectionnez **Advanced Data Security**.
 
-    1. Sélectionnez **ACTIVÉ** sous **Advanced Threat Protection** pour activer la fonctionnalité. Ensuite, sélectionnez **Enregistrer**.
+    1. Sélectionnez **ACTIVÉ** sous **Advanced Data Security** pour activer la fonctionnalité. Choisissez un compte de stockage pour l’enregistrement des résultats de l’évaluation de la vulnérabilité. Ensuite, sélectionnez **Enregistrer**.
 
     ![Volet de navigation](./media/sql-database-security-tutorial/threat-settings.png)
 
     Vous pouvez également configurer des e-mails pour recevoir des alertes de sécurité, des détails de stockage et des types de détection des menaces.
 
-1. Revenez à la page **Bases de données SQL** de votre base de données, puis sélectionnez **Advanced Threat Protection** dans la section **Sécurité**. Vous y trouverez divers indicateurs de sécurité disponibles pour la base de données.
+1. Revenez à la page **Bases de données SQL** de votre base de données, puis sélectionnez **Advanced Data Security** dans la section **Sécurité**. Vous y trouverez divers indicateurs de sécurité disponibles pour la base de données.
 
     ![État de la menace](./media/sql-database-security-tutorial/threat-status.png)
 
@@ -344,7 +344,7 @@ Dans ce tutoriel, vous avez appris à renforcer la sécurité de votre base de d
 > - Créer des règles de pare-feu au niveau du serveur et de la base de données
 > - Configurer un administrateur Azure Active Directory (AD)
 > - Gérer l’accès utilisateur avec l’authentification SQL, l’authentification Azure AD et des chaînes de connexion sécurisées
-> - Activer des fonctionnalités de sécurité, comme la protection contre les menaces, l’audit, le masquage des données et le chiffrement
+> - Activer des fonctionnalités de sécurité, comme Advanced Data Security, l’audit, le masquage des données et le chiffrement
 
 Passez au tutoriel suivant pour apprendre à implémenter la géodistribution.
 

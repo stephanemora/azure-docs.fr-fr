@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
-ms.reviewer: ''
+ms.reviewer: quying
+ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 35f4d2adfe3ca64496139cdd708fb5f52f8721ee
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 983e8b279261d3ff8e5d24c8e3a6f61c5a787e5b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023475"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240809"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Didacticiel : mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack
 
@@ -68,8 +69,8 @@ Maintenant que vous avez déployé le fournisseur de ressources SQL Server et c
 2. Conservez les valeurs par défaut ou utilisez ces exemples pour les champs suivants :
     - **Nom de la base de données** : SQLdb
     - **Taille maximale (en Mo)**  : 100
-    - **Abonnement** : TestSQLOffer
-    - **Groupe de ressources** : SQL-RG
+    - **Abonnement**: TestSQLOffer
+    - **Groupe de ressources** : SQL-RG
 3. Sélectionnez **Paramètres de connexion**, entrez les informations d’identification pour la base de données, puis sélectionnez **OK**.
 4. Sélectionnez **Référence** > sélectionnez le SKU SQL que vous avez créé pour le serveur d’hébergement SQL > puis sélectionnez **OK**.
 5. Sélectionnez **Créer**.

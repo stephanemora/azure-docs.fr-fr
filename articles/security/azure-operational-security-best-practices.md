@@ -102,7 +102,7 @@ Voici les bonnes pratiques relatives à la création de services résistants aux
 Il est extrêmement important que vous conceviez une application suffisamment résiliente pour surmonter une attaque ciblée par déni de service. La plateforme Azure intègre des fonctionnalités de sécurité et de confidentialité, à commencer par [SDL (Security Development Lifecycle)](https://www.microsoft.com/en-us/sdl). SDL tient compte de la sécurité à chaque phase de développement et vérifie qu’Azure est continuellement mis à jour pour le rendre encore plus sécurisé.
 
 **Bonne pratique** : Concevez vos applications de sorte qu’elles puissent être [mises à l’échelle horizontalement](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) pour répondre à la demande d’une charge amplifiée, en particulier dans le cadre d’une attaque DDoS. Si votre application repose sur une seule instance unique d’un service, cela crée un point de défaillance unique. L’approvisionnement de plusieurs instances rend votre système plus résilient et plus évolutif.  
-**Détail** : Pour Azure App Service, sélectionnez un [plan App Service](../app-service/overview-hosting-plans.md) qui offre plusieurs instances.
+**Détail** : Pour [Azure App Service](../app-service/app-service-value-prop-what-is.md), sélectionnez un [plan App Service](../app-service/overview-hosting-plans.md) qui offre plusieurs instances.
 
 Pour les Azure Cloud Services, configurez chacun de vos rôles de manière à utiliser [plusieurs instances](../cloud-services/cloud-services-choose-me.md).
 

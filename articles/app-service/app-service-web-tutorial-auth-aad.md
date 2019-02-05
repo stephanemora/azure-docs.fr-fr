@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716410"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297087"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Didacticiel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
 
@@ -293,7 +293,7 @@ Enregistrez vos paramètres en cliquant sur **PUT**.
 
 Vos applications sont désormais configurées. Le serveur frontal est maintenant prêt à accéder au serveur principal avec un jeton d’accès approprié.
 
-Pour plus d’informations sur la façon de configurer cela pour les autres fournisseurs, consultez [Refresh access tokens](app-service-authentication-how-to.md#refresh-access-tokens) (Actualiser des jetons d’accès).
+Pour connaître la configuration nécessaire pour les autres fournisseurs, consultez [Actualiser les jetons de fournisseur d’identité](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
 ## <a name="call-api-securely-from-server-code"></a>Appeler une API de façon sécurisée à partir du code du serveur
 
@@ -417,7 +417,7 @@ Félicitations ! Votre code du client accède maintenant aux données de serveu
 
 ## <a name="when-access-tokens-expire"></a>Date d’expiration des jetons d’accès
 
-Votre jeton d’accès expire après un certain laps de temps. Pour plus d’informations sur la façon d’actualiser vos jetons d’accès sans obliger les utilisateurs à se réauthentifier avec votre application, consultez [Actualiser les jetons d’accès](app-service-authentication-how-to.md#refresh-access-tokens).
+Votre jeton d’accès expire après un certain laps de temps. Pour plus d’informations sur la façon d’actualiser vos jetons d’accès sans obliger les utilisateurs à se réauthentifier auprès de votre application, consultez [Actualiser les jetons de fournisseur d’identité](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

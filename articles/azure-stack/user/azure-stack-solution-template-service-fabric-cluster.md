@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: a8897288e19a7628dbd1cc2c022de4db2a111393
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351847"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248042"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Déployer un cluster Service Fabric dans Azure Stack
 
@@ -27,7 +28,7 @@ Pour déployer un cluster Service Fabric sécurisé dans Azure Stack, utilisez l
 
 Pour plus d’informations sur l’utilisation de l’infrastructure de Service Fabric, consultez les articles [Vue d’ensemble d’Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) et [Scénarios de sécurité d’un cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) dans la documentation Azure.
 
-Le cluster Service Fabric dans Azure Stack n’utilise pas le fournisseur de ressources Microsoft.ServiceFabric. Au lieu de cela, dans Azure Stack, le cluster Service Fabric est un groupe de machines virtuelles identiques avec un ensemble de logiciels préinstallés à l’aide de la configuration de l’état souhaité.
+Le cluster Service Fabric dans Azure Stack n’utilise pas le fournisseur de ressources Microsoft.ServiceFabric. Au lieu de cela, dans Azure Stack, le cluster Service Fabric est un groupe de machines virtuelles identiques avec un ensemble de logiciels préinstallés à l’aide de DSC (Desired State Configuration).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -210,7 +211,7 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 
 1. Après avoir modifié l’ordre des variables d’environnement, redémarrez PowerShell, puis exécutez le script PowerShell ci-après pour accéder au cluster Service Fabric :
 
-   ````PowerShell  
+   ```PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 
@@ -221,8 +222,11 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
     0272251171BA32CEC7938A65B8A6A553AA2D3283 \`
 
     -StoreLocation CurrentUser -StoreName My -Verbose
-   ````
+   ```
    
    > [!NOTE]  
    > Le nom du cluster dans le script n’est pas précédé de *https://*. Le port 19000 est requis.
- 
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Déployer Kubernetes sur Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)

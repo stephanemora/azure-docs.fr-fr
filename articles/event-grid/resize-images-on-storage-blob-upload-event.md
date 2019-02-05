@@ -9,15 +9,15 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/19/2019
+ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 4a7e6189914728fac24e51f3b2dee66cc0bd8a05
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463709"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301456"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutoriel : Automatiser le redimensionnement des images chargées à l’aide d’Event Grid
 
@@ -68,11 +68,21 @@ Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, u
 
 Dans la commande suivante, indiquez le nom global unique de votre compte de stockage général dans l’espace réservé `<general_storage_account>`. 
 
-```azurecli-interactive
-az storage account create --name <general_storage_account> \
---location westcentralus --resource-group myResourceGroup \
---sku Standard_LRS --kind storage
-```
+1. Définissez une variable pour contenir le nom du groupe de ressources que vous avez créé dans le tutoriel précédent. 
+
+    ```azurecli-interactive
+    resourceGroupName=<Name of the resource group that you created in the previous tutorial>
+    ```
+2. Définissez une variable pour le nom du compte de stockage exigé par la fonction Azure. 
+
+    ```azurecli-interactive
+    functionstorage=<name of the storage account to be used by function>
+    ```
+3. Créez le compte de stockage pour la fonction Azure. Ce compte est différent du stockage qui contient les images. 
+
+    ```azurecli-interactive
+    az storage account create --name $functionstorage --location eastus --resource-group $resourceGroupName --sku Standard_LRS --kind storage
+    ```
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction  
 
@@ -80,10 +90,16 @@ Vous devez disposer d’une application de fonction pour héberger l’exécutio
 
 Dans la commande suivante, indiquez le nom unique de votre application de fonction dans l’espace réservé `<function_app>`. Le nom de l’application de fonction est utilisé en tant que domaine DNS par défaut pour la Function App. Pour cette raison, ce nom doit être unique sur l’ensemble des applications dans Azure. Pour `<general_storage_account>`, indiquez nom du compte de stockage général que vous avez créé.
 
-```azurecli-interactive
-az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
---resource-group myResourceGroup --consumption-plan-location westcentralus
-```
+1. Spécifiez un nom pour l’application de fonction qui doit être créée. 
+
+    ```azurecli-interactive
+    functionapp=<name of the function app>
+    ```
+2. Créez la fonction Azure. 
+
+    ```azurecli-interactive
+    az functionapp create --name $functionapp --storage-account  $functionstorage --resource-group $resourceGroupName --consumption-plan-location eastus
+    ```
 
 Maintenant, vous devez configurer l’application de fonction pour vous connecter au compte de stockage d’objets blob que vous avez créé dans le [didacticiel précédent][previous-tutorial].
 
@@ -93,18 +109,18 @@ La fonction nécessite que la chaîne de connexion se connecte au compte de stoc
 
 Dans les commandes CLI suivantes, `<blob_storage_account>` est le nom du compte de stockage Blob que vous avez créé dans le didacticiel précédent.
 
-```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \
---resource-group myResourceGroup --name <blob_storage_account> \
---query connectionString --output tsv)
+1. Obtenez la chaîne de connexion pour le compte de stockage qui contient les images. 
 
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup \
---settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
-```
+    ```azurecli-interactive
+    storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
+    ```
+2. Configurez l’application de fonction. 
 
-Le paramètre `FUNCTIONS_EXTENSION_VERSION=~2` exécute l’application de fonction sur la version 2.x du runtime Azure Functions.
+    ```azurecli-interactive
+    az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+    ```
+
+    Le paramètre `FUNCTIONS_EXTENSION_VERSION=~2` exécute l’application de fonction sur la version 2.x du runtime Azure Functions.
 
 Vous pouvez désormais déployer un projet de code de fonction dans cette application de fonction.
 
@@ -117,9 +133,7 @@ Le redimensionnement du script d’exemple C# (.csx) est disponible sur [GitHub]
 Dans la commande suivante, `<function_app>` est le nom de l’application de fonction que vous avez créée précédemment.
 
 ```azurecli-interactive
-az functionapp deployment source config --name <function_app> \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/function-image-upload-resize
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
@@ -148,11 +162,11 @@ Le code de projet de fonction est déployé directement à partir du dépôt d�
 
 Un abonnement d’événement indique les événements générés par le fournisseur que vous souhaitez envoyer vers un point de terminaison spécifique. Dans ce cas, le point de terminaison est exposé par votre fonction. Pour créer un abonnement d’événement qui envoie des notifications à votre fonction dans le portail Azure, effectuez les étapes suivantes : 
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur la flèche située en bas à gauche de l’écran pour développer tous les services, tapez *fonctions* dans le champ **Filtre**, puis sélectionnez **Applications de fonctions**. 
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services** dans le menu de gauche, puis sélectionnez **Applications de fonctions**. 
 
     ![Accéder aux applications de fonctions dans le portail Azure](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
-2. Développez votre application de fonction, choisissez la fonction **imageresizerfunc**, puis sélectionnez **Ajouter un abonnement Event Grid**.
+2. Développez votre application de fonction, choisissez la fonction **Thumbnail**, puis sélectionnez **Ajouter un abonnement Event Grid**.
 
     ![Accéder aux applications de fonctions dans le portail Azure](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
@@ -162,6 +176,7 @@ Un abonnement d’événement indique les événements générés par le fournis
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
+    | **Nom** | imageresizersub | Nom du nouvel abonnement d’événement. | 
     | **Type de rubrique** |  Comptes de stockage | Choisissez le fournisseur d’événements de compte de stockage. | 
     | **Abonnement** | Votre abonnement Azure | Par défaut, votre abonnement Azure actuel est sélectionné.   |
     | **Groupe de ressources** | myResourceGroup | Sélectionnez **Utiliser l’existant**, puis choisissez le groupe de ressources que vous avez utilisé dans ce didacticiel.  |
@@ -169,9 +184,8 @@ Un abonnement d’événement indique les événements générés par le fournis
     | **Types d’événements** | BlobCreated | Décochez tous les types autres que **BlobCreated**. Seuls les types d’événements de `Microsoft.Storage.BlobCreated` sont passés à la fonction.| 
     | **Type d’abonné** |  autogenerated |  Prédéfini comme webhook. |
     | **Point de terminaison de l’abonné** | autogenerated | Utilisez l’URL de point de terminaison qui est générée automatiquement. | 
-    | **Nom** | imageresizersub | Nom du nouvel abonnement d’événement. | 
 4. *Facultatif :* Si, plus tard, vous avez besoin de recréer des conteneurs dans le même stockage blob à d’autres fins, vous pouvez utiliser les fonctionnalités de **filtrage d’objet** sous l’onglet **Filtres** pour cibler plus précisément les événements blob afin de veiller à ce que votre application de fonction soit appelée uniquement quand des objets blob sont ajoutés au conteneur **images** spécifiquement. 
-5. Cliquez sur **Créer** pour ajouter l’abonnement d’événement. Cela crée un abonnement d’événement qui déclenche `imageresizerfunc` lorsqu’un objet blob est ajouté au conteneur *images*. La fonction redimensionne les images et les ajoute au conteneur *thumbnails*.
+5. Cliquez sur **Créer** pour ajouter l’abonnement d’événement. Cela crée un abonnement d’événement qui déclenche la fonction `Thumbnail` quand un objet blob est ajouté au conteneur *images*. La fonction redimensionne les images et les ajoute au conteneur *thumbnails*.
 
 Maintenant que les services backend sont configurés, testez la fonctionnalité de redimensionnement d’images dans l’exemple d’application web. 
 

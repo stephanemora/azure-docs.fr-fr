@@ -8,19 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 3b3b15db171dc00519c532a229205df96ef29e31
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44427183b6cc785af33daf92bda050336eec5284
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316886"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245284"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Présentation d'Azure Data Science Virtual Machine pour Linux et Windows
 
@@ -88,7 +88,7 @@ De nombreux outils de science des données et d’apprentissage approfondi popul
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | O | O |
 | &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | O | N |
 | PowerBI Desktop | O | N |
-| Kits SDK pour accéder à Azure et à la suite de services Cortana Intelligence | O | O |
+| Kits de développement logiciel (SDK) pour accéder à Azure et à la suite de services Cortana Intelligence | O | O |
 | **Outils de gestion et de déplacement de données** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Explorateur de stockage Microsoft Azure | O | O |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure) | O | O |
@@ -97,7 +97,7 @@ De nombreux outils de science des données et d’apprentissage approfondi popul
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Pilote Blob FUSE](https://github.com/Azure/azure-storage-fuse) | N | O |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Adlcopy (Azure Data Lake Storage)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | O | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Outil de migration de données DocDB](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | O | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Passerelle de gestion des données Microsoft](https://msdn.microsoft.com/library/dn879362.aspx) : déplace les données entre OnPrem et le cloud | O | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Passerelle de gestion des données de Microsoft](https://msdn.microsoft.com/library/dn879362.aspx) : Déplacer des données entre un emplacement local et le cloud | O | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Utilitaires en ligne de commande Unix/Linux | O | O |
 | [Apache Drill](http://drill.apache.org) pour l’exploration des données | O | O |
 | **Outils Machine Learning** |||

@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article
-ms.date: 11/28/2018
 ms.component: hybrid
+ms.date: 01/30/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1c18200bb36b75a07d7b26e3ea0016ec35efdd87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cb1ba63a0f32d026d51507fe66432a520a6f6e71
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460497"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298965"
 ---
 # <a name="what-is-azure-ad-connect"></a>Qu’est-ce qu’Azure AD Connect ?
 
@@ -49,6 +50,20 @@ L’intégration de vos annuaires locaux avec Azure AD améliore la productivit�
 
 ## <a name="why-use-azure-ad-connect-health"></a>Pourquoi utiliser Azure AD Connect Health ?
 Avec Azure AD, vos utilisateurs gagnent en productivité car ils disposent d’une identité commune pour accéder aux ressources cloud et locales. Garantir la fiabilité de l’environnement afin que les utilisateurs puissent accéder à ces ressources devient un défi.  Azure AD Connect Health vous aide à superviser et à obtenir des insights concernant votre infrastructure d’identité locale, garantissant ainsi la fiabilité de cet environnement. Son installation est aussi simple que celle d’un agent sur chacun de vos serveurs d’identité local.
+
+Azure AD Connect Health pour AD FS prend en charge AD FS 2.0 sur Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016. Cette prise en charge inclut également la surveillance de tous les serveurs proxy AD FS ou serveurs proxy d’application web qui prennent en charge l’authentification pour l’accès extranet. Avec une installation simple et rapide du programme Health Agent, Azure AD Connect Health pour AD FS vous offre un ensemble de fonctionnalités clés.
+
+Avantages clés et bonnes pratiques :
+
+|Principaux avantages|Bonnes pratiques|
+|-----|-----|
+|Sécurité améliorée|[Tendances de verrouillage extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport sur les échecs de connexions](how-to-connect-health-adfs.md#risky-ip-report-public-preview)</br>[Conformité aux réglementations relatives à la confidentialité](reference-connect-health-user-privacy.md)|
+|Obtention d’alertes pour tous les [problèmes critiques liés au système ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Configuration et disponibilité de serveur</br>[Performances et connectivité](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Maintenance régulière|
+|Facilité de déploiement et de gestion|[Installation d’agent rapide](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Mise à niveau automatique d’agent vers la dernière version</br>Données disponibles dans le portail en quelques minutes|
+[Métriques d’utilisation](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs) enrichies|Utilisation des principales applications</br>Emplacements réseau et connexion TCP</br>Demandes de jetons par serveur|
+|Meilleure expérience utilisateur|Présentation sous forme de tableaux de bord du Portail Azure</br>[Alertes par e-mail](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

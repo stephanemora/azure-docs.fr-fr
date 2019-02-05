@@ -1,24 +1,24 @@
 ---
-title: 'Démarrage rapide : Reconnaissance des émotions sur les visages dans une image - API Émotion, Ruby'
+title: 'Démarrage rapide : Reconnaître les émotions sur des visages dans une image - API Émotion, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Obtenez des informations et des exemples de code pour une prise en main rapide de l’API Émotion avec Ruby.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: bcab24334c1ee4e47061ce6ea28bd60039e17b3f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 9ab0f4128e163ca887cf8f03425e33f3fbb6f01a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239027"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221978"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Démarrage rapide : Création d’une application permettant de reconnaître les émotions sur les visages dans une image.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Démarrage rapide : Générer une application permettant de reconnaître les émotions des visages dans une image.
 
 > [!IMPORTANT]
 > L’API Émotion sera déconseillée à partir du 15 février 2019. La fonction de reconnaissance des émotions est maintenant accessible de façon générale dans le cadre de l’[API Visage](https://docs.microsoft.com/azure/cognitive-services/face/). 

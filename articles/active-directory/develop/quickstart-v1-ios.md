@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
-ms.openlocfilehash: 89f2a4058006687fbe64ec64d98659e38f93f618
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 801da78de493b55655819ac16a9184d04a356786
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980574"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095972"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -43,7 +43,7 @@ Pour générer l’application fonctionnelle complète, vous devez :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour commencer, veillez à respecter les prérequis suivants :
+Pour commencer, configurez les prérequis suivants :
 
 * Téléchargez [la structure de l’application](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
 * Procurez-vous un locataire Azure AD dans lequel vous pouvez créer des utilisateurs et inscrire une application. Si vous ne disposez pas encore d’un client, [découvrez comment en obtenir un](quickstart-create-new-tenant.md).
@@ -51,7 +51,7 @@ Pour commencer, veillez à respecter les prérequis suivants :
 > [!TIP]
 > Essayez le [portail des développeurs](https://identity.microsoft.com/Docs/iOS), qui vous permet de devenir opérationnel avec Azure AD en quelques minutes. Le portail des développeurs vous guide tout au long du processus d’inscription d’une application et d’intégration d’Azure AD à votre code. Une fois que vous aurez terminé, vous disposerez d’une application simple capable d’authentifier les utilisateurs dans votre locataire et d’un serveur principal qui peut accepter des jetons et effectuer une validation.
 
-## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Étape 1 : Déterminer votre URI de redirection pour iOS
+## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Étape 1 : Déterminer votre URI de redirection pour iOS
 
 Pour démarrer vos applications en toute sécurité dans certains scénarios d’authentification unique (SSO), vous devez créer un *URI de redirection* dans un format particulier. Un URI de redirection permet de garantir que les jetons sont retournés vers l’application qui les a appelés.
 
@@ -115,7 +115,7 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
     * `clientId` est l’ID client de votre application, copié à partir du portail.
     * `redirectUri` est l’URL de redirection que vous avez inscrite dans le portail.
 
-## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Étape 4 : Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
+## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Étape 4 : Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
 
 Le principe de base de la bibliothèque ADAL consiste simplement à appeler un completionBlock `+(void) getToken : ` chaque fois que votre application a besoin d’un jeton d’accès, et la bibliothèque ADAL s’occupe du reste.
 
@@ -240,7 +240,7 @@ Le principe de base de la bibliothèque ADAL consiste simplement à appeler un c
 > [!NOTE]
 > L’objet `AuthenticationResult` contient un objet `tokenCacheStoreItem` que vous pouvez utiliser pour collecter les informations dont votre application peut avoir besoin. Dans le démarrage rapide, `tokenCacheStoreItem` est utilisé pour déterminer si l’authentification a déjà été effectuée.
 
-## <a name="step-5-build-and-run-the-application"></a>Étape 5 : Générer et exécuter l’application
+## <a name="step-5-build-and-run-the-application"></a>Étape 5 : Génération et exécution de l’application
 
 Félicitations ! Vous disposez désormais d’une application iOS fonctionnelle pouvant authentifier les utilisateurs, appeler en toute sécurité les API web à l’aide d’OAuth 2.0 et obtenir des informations de base concernant l’utilisateur.
 

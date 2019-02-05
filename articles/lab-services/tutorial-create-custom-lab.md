@@ -1,5 +1,5 @@
 ---
-title: Créer un laboratoire avec Azure DevTest Labs | Microsoft Docs
+title: Créer un laboratoire à l’aide de Azure DevTest Labs | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous créez un laboratoire à l’aide de Azure DevTest Labs.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 84a6cdb5e91128bbade43ee9212cfa9658228964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0530dbac88fcfbfb05ab29d1c5934a468f263034
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423290"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096634"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutoriel : Configurer un laboratoire avec Azure DevTest Labs
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Didacticiel : Configurer un laboratoire avec Azure DevTest Labs
 Dans ce didacticiel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
@@ -49,7 +49,7 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
     6. Sélectionnez **Épingler au tableau de bord**. Après avoir créé le laboratoire, il s’affiche dans le tableau de bord. 
 
         ![Création d’un laboratoire de DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
-2. Vérifiez que le laboratoire est correctement créé en examinant les notifications. Sélectionnez **Accéder à la ressource**.  
+2. Vérifiez que le labo est correctement créé en examinant les notifications. Sélectionnez **Accéder à la ressource**.  
 
     ![Notification](./media/tutorial-create-custom-lab/creation-notification.png)
 3. Vérifiez que vous voyez la page **DevTest Lab** de votre laboratoire. 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e73b4724dbe578e6cd46753c85a4f3dce62f1e3a
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 8fea062e2c72410b13fa70cc5cad22b7e677086b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402062"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211846"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurer la récupération d’urgence vers une région Azure secondaire pour une machine virtuelle Azure        
 
@@ -54,7 +54,7 @@ Une fois le travail de réplication terminé, vous pouvez vérifier l’état de
 
 La réplication de la machine virtuelle dans la région principale cesse quand vous désactivez la réplication pour cette machine :
 
-- Les paramètres de réplication source sont automatiquement nettoyés. Notez que l’extension Site Recovery installée lors de la réplication n’est pas supprimée et doit être supprimée manuellement. 
+- Les paramètres de réplication source sont automatiquement nettoyés. Notez que l’extension Site Recovery installée dans le cadre de la réplication n’est pas supprimée et doit être supprimée manuellement. 
 - La facturation Site Recovery pour la machine virtuelle cesse également.
 
 Arrêtez la réplication comme suit :

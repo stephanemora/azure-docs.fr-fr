@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Concevez votre première solution Azure SQL Database à l’aide de SSMS | Microsoft Docs'
+title: 'Tutoriel : Concevoir votre première base de données unique dans Azure SQL Database avec SSMS | Microsoft Docs'
 description: Apprenez à concevoir votre première base de données SQL Azure avec SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,13 +9,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 9fa36b9b87a8e9591b0c863826cd2278a29ba28e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/25/2019
+ms.openlocfilehash: e7229a0816cf74fed08397a68dd34e305bf8c0ea
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956055"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459534"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Tutoriel : Concevoir votre première base de données SQL Azure à l’aide de SSMS
 
@@ -47,7 +47,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-database"></a>Créer une base de données vide
 
-Une base de données SQL Azure est créée avec un ensemble défini de [ressources de calcul et de stockage](sql-database-service-tiers-dtu.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et sur un [serveur logique Azure SQL Database](sql-database-features.md).
+Une base de données SQL Azure est créée avec un ensemble défini de [ressources de calcul et de stockage](sql-database-service-tiers-dtu.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et sur un [serveur Azure SQL Database](sql-database-features.md).
 
 Pour créer une base de données SQL vide, suivez la procédure suivante.
 
@@ -96,7 +96,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 ## <a name="create-a-firewall-rule"></a>Créer une règle de pare-feu
 
-Le service de base de données SQL crée un pare-feu au niveau du serveur. Le pare-feu empêche les outils et les applications externes de se connecter au serveur et aux bases de données sur le serveur. Pour activer la connectivité externe à votre base de données, vous devez d’abord ajouter une règle pour votre adresse IP au pare-feu. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur de base de données SQL](sql-database-firewall-configure.md).
+Le service de base de données SQL crée un pare-feu au niveau du serveur. Le pare-feu empêche les outils et les applications externes de se connecter au serveur et aux bases de données sur le serveur. Pour activer la connectivité externe à votre base de données, vous devez d’abord ajouter une règle pour votre adresse IP au pare-feu. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur SQL Database](sql-database-firewall-configure.md).
 
 > [!NOTE]
 > La base de données SQL communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre administrateur ouvre le port 1433.
@@ -113,18 +113,18 @@ Le service de base de données SQL crée un pare-feu au niveau du serveur. Le p
 
    1. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-   1. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
+   1. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
 
    1. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 
-Votre adresse IP peut désormais traverser le pare-feu. Vous pouvez maintenant vous connecter au serveur de base de données et à ses bases de données à l’aide de SQL Server Management Studio ou tout autre outil de votre choix. Veillez à utiliser le compte d’administrateur de serveur que vous avez créé précédemment.
+Votre adresse IP peut désormais traverser le pare-feu. Vous pouvez maintenant vous connecter au serveur SQL Database et à ses bases de données avec SQL Server Management Studio ou un autre outil de votre choix. Veillez à utiliser le compte d’administrateur de serveur que vous avez créé précédemment.
 
 > [!IMPORTANT]
 > Par défaut, l’accès par le biais du pare-feu de base de données SQL est activé pour tous les services Azure. Cliquez sur **ÉTEINT** sur cette page pour le désactiver pour tous les services Azure.
 
 ## <a name="connect-to-the-database"></a>Se connecter à la base de données
 
-Utilisez [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) pour établir une connexion à votre serveur de base de données Azure SQL.
+Utilisez [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) pour établir une connexion à votre serveur Azure SQL Database.
 
 1. Ouvrez SQL Server Management Studio.
 

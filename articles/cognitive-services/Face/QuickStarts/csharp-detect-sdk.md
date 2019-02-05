@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Détecter des visages dans une image avec le SDK .NET Visage Azure'
+title: 'Démarrage rapide : Détecter des visages dans une image avec le kit SDK .NET Visage d’Azure'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez utiliser le SDK Visage Azure avec C# pour détecter des visages dans une image.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: pafarley
-ms.openlocfilehash: 4fbbde167a8c895a71ab3614e8c3ecbce26604a9
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: caaef0f7fdbfc3ad639deddb328c98334ad3e99d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578149"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213306"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Démarrage rapide : Détecter des visages dans une image à l’aide du SDK .NET Visage
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Démarrage rapide : Détecter des visages dans une image à l’aide du kit SDK .NET Visage
 
 Dans ce guide de démarrage rapide, vous allez utiliser le SDK du service Visage avec C# pour détecter des visages humains dans une image. Pour obtenir un exemple opérationnel du code dans ce guide de démarrage rapide, consultez le projet Face dans le dépôt [Cognitive Services Vision csharp quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) sur GitHub.
 
@@ -97,4 +97,4 @@ Male 37   Female 56
 Dans ce guide de démarrage rapide, vous avez créé une application console .NET simple qui utilise le service d’API Visage pour détecter des visages dans des images locales et distantes. Suivez à présent un tutoriel plus approfondi pour voir comment présenter de manière intuitive les informations sur les visages à l’utilisateur.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer une application WPF pour détecter et analyser les visages dans une image](../Tutorials/FaceAPIinCSharpTutorial.md)
+> [Tutoriel : Créer une application WPF pour détecter et analyser les visages dans une image](../Tutorials/FaceAPIinCSharpTutorial.md)

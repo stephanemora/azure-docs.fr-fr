@@ -1,25 +1,25 @@
 ---
-title: 'Didacticiel : Analyser des événements à partir d’une configuration Azure Digital Twins | Microsoft Docs'
+title: 'Tutoriel : Analyser des événements à partir d’une configuration Azure Digital Twins | Microsoft Docs'
 description: Découvrez comment visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide d’Azure Time Series Insights, en suivant les étapes de ce tutoriel.
 services: digital-twins
 author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: f233efc93fa07cc7fc7c904336f01348f4da3f82
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 488b97074d74650ecf5602d25e2a90a1998e5585
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554518"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883872"
 ---
-# <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Didacticiel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights
+# <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutoriel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights
 
-Après avoir déployé votre instance Azure Digital Twins, puis provisionné vos espaces et implémenté une fonction personnalisée visant à surveiller des conditions spécifiques, vous pouvez visualiser les événements et les données provenant de vos espaces pour rechercher des tendances et des anomalies. 
+Après avoir déployé votre instance Azure Digital Twins, puis provisionné vos espaces et implémenté une fonction personnalisée visant à surveiller des conditions spécifiques, vous pouvez visualiser les événements et les données provenant de vos espaces pour rechercher des tendances et des anomalies.
 
-Dans [le premier tutoriel](tutorial-facilities-setup.md), vous avez configuré le graphe spatial d’un bâtiment imaginaire, avec une salle contenant des capteurs de dioxyde de carbone, de température et de détection de mouvement. Dans [le deuxième didacticiel](tutorial-facilities-udf.md), vous avez approvisionné votre graphique et une fonction définie par l’utilisateur. La fonction surveille ces valeurs de capteur et déclenche des notifications pour les conditions appropriées. Autrement dit, la salle est vide, et les niveaux de température et de dioxyde de carbone sont normaux. 
+Dans [le premier tutoriel](tutorial-facilities-setup.md), vous avez configuré le graphe spatial d’un bâtiment imaginaire, avec une salle contenant des capteurs de dioxyde de carbone, de température et de détection de mouvement. Dans [le deuxième didacticiel](tutorial-facilities-udf.md), vous avez approvisionné votre graphique et une fonction définie par l’utilisateur. La fonction surveille ces valeurs de capteur et déclenche des notifications pour les conditions appropriées. Autrement dit, la salle est vide, et les niveaux de température et de dioxyde de carbone sont normaux.
 
 Ce tutoriel vous montre comment intégrer les notifications et les données provenant de votre configuration Azure Digital Twins avec Azure Time Series Insights. Vous pouvez ainsi visualiser vos valeurs de capteur dans le temps. Vous pouvez rechercher des tendances, par exemple la salle qui est la plus utilisée, et les moments de la journée où elle est la plus occupée. Vous pouvez également détecter des anomalies, comme le fait que certaines salles soient moins bien aérées ou plus chaudes, ou encore qu’une partie de votre bâtiment envoie constamment des valeurs de température élevées indiquant un climatiseur défectueux.
 
@@ -32,43 +32,44 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 Ce didacticiel suppose que vous avez [configuré](tutorial-facilities-setup.md) et [approvisionné](tutorial-facilities-udf.md) votre configuration Azure Digital Twins. Avant de poursuivre, assurez-vous que vous avez les éléments suivants :
+
 - Un [compte Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Une instance de Digital Twins en cours d’exécution.
 - Les [exemples Digital Twins C#](https://github.com/Azure-Samples/digital-twins-samples-csharp) téléchargés et extraits sur votre machine de travail.
-- [Le kit SDK .NET Core version 2.1.403 ou ultérieure](https://www.microsoft.com/net/download) sur votre machine de développement pour exécuter l’exemple. Exécutez `dotnet --version` pour vérifier que la version appropriée est installée. 
-
+- [Le kit SDK .NET Core version 2.1.403 ou ultérieure](https://www.microsoft.com/net/download) sur votre machine de développement pour exécuter l’exemple. Exécutez `dotnet --version` pour vérifier que la version appropriée est installée.
 
 ## <a name="stream-data-by-using-event-hubs"></a>Envoyer des données en utilisant Azure Event Hubs
+
 Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) pour créer un pipeline et envoyer vos données. Cette section vous montre comment créer votre hub d’événements en tant que connecteur entre vos instances Azure Digital Twins et Azure Time Series Insights.
 
 ### <a name="create-an-event-hub"></a>Créer un hub d’événements
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-1. Dans le volet de gauche, sélectionnez **Créer une ressource**. 
+1. Dans le volet de gauche, sélectionnez **Créer une ressource**.
 
 1. Recherchez et sélectionnez **Event Hubs**. Sélectionnez **Créer**.
 
-1. Entrez un **Nom** pour votre espace de noms Event Hubs. Choisissez **Standard** comme **Niveau tarifaire**, votre **Abonnement**, le **Groupe de ressources** que vous avez utilisé pour votre instance Digital Twins et l’**Emplacement**. Sélectionnez **Créer**. 
+1. Entrez un **Nom** pour votre espace de noms Event Hubs. Choisissez **Standard** comme **Niveau tarifaire**, votre **Abonnement**, le **Groupe de ressources** que vous avez utilisé pour votre instance Digital Twins et l’**Emplacement**. Sélectionnez **Créer**.
 
 1. Dans le déploiement des espaces de noms Event Hubs, sélectionnez l’espace de noms sous **RESSOURCE**.
 
     ![Espace de noms Event Hubs après le déploiement](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
-
-1. Dans le volet **Vue d’ensemble** de l’espace de noms Event Hubs, sélectionnez le bouton **Hub d’événements** en haut. 
+1. Dans le volet **Vue d’ensemble** de l’espace de noms Event Hubs, sélectionnez le bouton **Hub d’événements** en haut.
     ![Bouton Hub d’événements](./media/tutorial-facilities-analyze/create-event-hub.png)
 
-1. Entrez un **Nom** pour votre hub d’événements et sélectionnez **Créer**. 
+1. Entrez un **Nom** pour votre hub d’événements et sélectionnez **Créer**.
 
    Une fois déployé, le hub d’événements apparaît dans le volet **Event Hubs** de l’espace de noms Event Hubs avec un état **Actif**. Sélectionnez ce hub d’événements pour ouvrir son volet **Vue d’ensemble**.
 
 1. Sélectionnez le bouton **Groupe de consommateurs** en haut et entrez un nom tel que **tsievents** pour le groupe de consommateurs. Sélectionnez **Créer**.
-    ![Groupe de consommateurs du concentrateur d’événements](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
-   Une fois créé, le groupe de consommateurs apparaît dans la liste en bas du volet **Vue d’ensemble** du hub d’événements. 
+    ![Groupe de consommateurs du hub d’événements](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
-1. Ouvrez le volet **Stratégies d’accès partagé** pour votre hub d’événements et sélectionnez le bouton **Ajouter**. Entrez **ManageSend** comme nom de stratégie, assurez-vous que toutes les cases sont cochées, puis sélectionnez **Créer**. 
+   Une fois créé, le groupe de consommateurs apparaît dans la liste en bas du volet **Vue d’ensemble** du hub d’événements.
+
+1. Ouvrez le volet **Stratégies d’accès partagé** pour votre hub d’événements et sélectionnez le bouton **Ajouter**. Entrez **ManageSend** comme nom de stratégie, assurez-vous que toutes les cases sont cochées, puis sélectionnez **Créer**.
 
     ![Chaînes de connexion du concentrateur d’événements](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
 
@@ -100,13 +101,13 @@ Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) 
 
 1. Remplacez les espaces réservés `Primary_connection_string_for_your_event_hub` par la valeur de la **Chaîne de connexion--clé primaire** pour le hub d’événements. Assurez-vous que le format de cette chaîne de connexion est le suivant :
 
-   ```
+   ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. Remplacez les espaces réservés `Secondary_connection_string_for_your_event_hub` par la valeur de la **Chaîne de connexion--clé secondaire** pour le hub d’événements. Assurez-vous que le format de cette chaîne de connexion est le suivant : 
 
-   ```
+   ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
@@ -115,13 +116,12 @@ Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) 
     > [!IMPORTANT]
     > Entrez toutes les valeurs sans les guillemets. Veillez à laisser au moins un espace après les deux-points dans le fichier YAML. Vous pouvez également valider le contenu de votre fichier YAML par le biais d’un validateur YAML en ligne, comme [cet outil](https://onlineyamltools.com/validate-yaml).
 
-
 1. Enregistrez et fermez le fichier. Exécutez la commande suivante dans la fenêtre de commande, et connectez-vous avec votre compte Azure lorsque vous y êtes invité.
 
     ```cmd/sh
     dotnet run CreateEndpoints
     ```
-   
+
    Il crée deux points de terminaison pour votre hub d’événements.
 
    ![Points de terminaison pour Event Hubs](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
@@ -165,12 +165,11 @@ Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous p
     > [!TIP]
     > Si vous avez rencontré des difficultés pour supprimer votre instance de Digital Twins, une mise à jour du service a été déployée avec le correctif. Réessayez de supprimer votre instance.
 
-2. Si nécessaire, supprimez les exemples d’applications de votre machine de travail. 
-
+2. Si nécessaire, supprimez les exemples d’applications de votre machine de travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez à l’article suivant pour parfaire vos connaissances sur les graphes d’intelligence spatiale et les modèles objet dans Azure Digital Twins. 
+Passez à l’article suivant pour parfaire vos connaissances sur les graphes d’intelligence spatiale et les modèles objet dans Azure Digital Twins.
+
 > [!div class="nextstepaction"]
 > [Comprendre le graphique d’intelligence spatiale et les modèles objets Digital Twins](concepts-objectmodel-spatialgraph.md)
-

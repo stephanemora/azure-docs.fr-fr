@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : utilisation de Python pour appeler l’API Analyse de texte'
+title: 'Démarrage rapide : Utilisation de Python pour appeler l’API Analyse de texte'
 titleSuffix: Azure Cognitive Services
 description: Cet article contient des informations et des exemples de code pour une prise en main rapide de l’API Analyse de texte dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 5169f6c7ff3d34d90f3f2e4b37b01733384966ff
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: cd8a895bef1580b10f50f1c5d31c35f36b6806ce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283585"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214583"
 ---
-# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : utilisation de Python pour appeler le service cognitif Analyse de texte 
+# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : Utilisation de Python pour appeler le service cognitif Analyse de texte 
 <a name="HOLTop"></a>
 
 Cette procédure pas à pas vous montre comment [détecter la langue](#Detect), [analyser les sentiments](#SentimentAnalysis) et [extraire les expressions clés](#KeyPhraseExtraction) à l’aide des [API Analyse de texte ](//go.microsoft.com/fwlink/?LinkID=759711) avec Python.

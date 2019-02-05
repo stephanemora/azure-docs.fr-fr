@@ -6,16 +6,16 @@ services: cognitive-services
 author: dwlin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speaker-recognition
+ms.subservice: speaker-recognition
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: dwlin
-ms.openlocfilehash: c9193a51c677b327e7d799412e389467ac5cc1c0
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7267663bae71b793923bc10a3b52ab54c12168af
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48016855"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216759"
 ---
 # <a name="speaker-recognition-api"></a>API Reconnaissance de l’orateur
 
@@ -38,7 +38,7 @@ Lors de l’inscription, la voix de l’orateur est enregistrée lorsqu’il ré
 
 La vérification consiste à comparer une voix et une expression d’entrée à l’expression et à la signature vocale de l’inscription afin de vérifier si elles appartiennent à la même personne et si l’expression prononcée est correcte.
 
-Pour plus d’informations sur la vérification de l’orateur, reportez-vous à l’API de [vérification de l’orateur](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
+Pour plus d’informations sur la vérification de l’orateur, reportez-vous à l’API de  [Vérification de l’orateur](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
 ## <a name="speaker-identification"></a>Identification de l’orateur
 
@@ -56,4 +56,4 @@ L’inscription à l’identification de l’orateur est basée sur le texte, ce
 
 Le contenu audio de l’orateur inconnu, conjointement avec le groupe d’orateurs potentiels, est fourni lors de la reconnaissance. La voix d’entrée est comparée à tous les orateurs afin de déterminer à qui appartient la voix et, en cas de correspondance, l’identité de l’orateur est retournée.
 
-Pour plus d’informations sur l’identification de l’orateur, reportez-vous à l’API [d’identification de l’orateur](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).
+Pour plus d’informations sur l’identification de l’orateur, reportez-vous à l’API  [Identification de l’orateur](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).

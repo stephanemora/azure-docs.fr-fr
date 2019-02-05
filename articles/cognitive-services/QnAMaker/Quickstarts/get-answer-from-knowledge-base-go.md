@@ -1,25 +1,25 @@
 ---
-title: 'Démarrage rapide : Obtenir des réponses à partir de la base de connaissances - REST, Go - QnA Maker'
+title: 'Démarrage rapide : Obtenir des réponses d’une base de connaissances - REST, Go - QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: Ce guide de démarrage rapide basé sur REST Go vous aide à obtenir par programmation une réponse à partir d’une base de connaissances.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 54c2133e35de09cae411f3bcec9f4421e4586f18
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a9c3a689aed2a94d51d590bbf7b396b8a1095e99
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977783"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209874"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Obtenir des réponses à une question à partir d’une base de connaissance avec Go
 
-Ce guide de démarrage rapide vous aide à obtenir par programmation une réponse à partir d’une base de connaissances QnA Maker publiée. QnA Maker extrait automatiquement les questions et les réponses à partir du contenu semi-structuré, telles que les FAQ, de [sources de données](../Concepts/data-sources-supported.md). La question, au format JSON, est envoyée dans le corps de la requête d’API. 
+Ce guide de démarrage rapide vous aide à obtenir programmatiquement une réponse à partir d’une base de connaissances QnA Maker publiée. QnA Maker extrait automatiquement les questions et les réponses à partir du contenu semi-structuré, telles que les FAQ, de [sources de données](../Concepts/data-sources-supported.md). La question, au format JSON, est envoyée dans le corps de la requête d’API. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,7 +32,7 @@ Ce guide de démarrage rapide vous aide à obtenir par programmation une répons
 
     ![Paramètres de publication](../media/qnamaker-quickstart-get-answer/publish-settings.png)
 
-Le code associé à ce démarrage rapide est disponible dans le dépôt [https://github.com/Azure-Samples/cognitive-services-qnamaker-Go](https://github.com/Azure-Samples/cognitive-services-qnamaker-Go/tree/master/documentation-samples/quickstarts/get-answer). 
+Le code associé à ce guide de démarrage rapide est disponible dans le dépôt [https://github.com/Azure-Samples/cognitive-services-qnamaker-Go](https://github.com/Azure-Samples/cognitive-services-qnamaker-Go/tree/master/documentation-samples/quickstarts/get-answer). 
 
 ## <a name="create-a-go-file"></a>Créer un fichier Go
 
@@ -68,7 +68,7 @@ La valeur de l’en-tête `Authorization` inclut la chaîne `EndpointKey `.
 
 ## <a name="build-and-run-the-program"></a>Créez et exécutez le projet.
 
-Générez et exécutez le programme à partir de la ligne de commande. Il envoie automatiquement la requête à l’API QnA Maker, puis il affiche la réponse dans la fenêtre de console.
+Générez et exécutez le programme à partir de la ligne de commande. Il envoie automatiquement la requête à l’API QnA Maker, puis affiche la réponse dans la fenêtre de console.
 
 1. Générez le fichier :
 

@@ -1,21 +1,21 @@
 ---
-title: 'Didacticiel : Créer un modèle acoustique avec le Service Speech'
+title: 'Tutoriel : Créer un modèle acoustique avec Speech Service'
 titlesuffix: Azure Cognitive Services
 description: Découvrez comment créer un modèle acoustique avec le service Speech dans Azure Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8bee93c4bb932730000a06cc2bc3fe5a3e330a1f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215240"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217626"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutoriel : Créer un modèle acoustique personnalisé
 
@@ -46,7 +46,7 @@ Par exemple :
 * Si vous voulez mieux reconnaître la parole dans un environnement bruyant comme une usine, les fichiers audio doivent être constitués d’enregistrements de personnes parlant dans une usine bruyante.
 * Si vous vous intéressez à l’optimisation des performances pour un seul locuteur (vous voulez par exemple transcrire tous les Fireside Chats de Franklin D. Roosevelt), les fichiers audio doivent être constitués de nombreux exemples exclusivement de ce locuteur.
 
-Un jeu de données acoustiques pour personnaliser le modèle acoustique se compose de deux parties : (1) un ensemble de fichiers audio contenant les données vocales et (2) un fichier contenant les transcriptions de tous les fichiers audio.
+Un jeu de données acoustiques pour personnaliser le modèle acoustique se compose de deux parties : (1) un ensemble de fichiers audio contenant les données vocales et (2) un fichier contenant les transcriptions de tous les fichiers audio.
 
 ### <a name="audio-data-recommendations"></a>Recommandations pour les données audio
 
@@ -112,7 +112,7 @@ Dans les champs **Name** (Nom) et **Description**, entrez les informations appro
 
 Dans les cases **Transcriptions files (.txt)** (Fichiers transcriptions) et **Audio Files (.zip)** (fichiers audio), sélectionnez **Browse** (Parcourir), puis sélectionnez votre fichier de transcription en texte brut et l’archive zip des fichiers WAV. Quand la préparation est terminée, cliquez sur **Import** (Importer) pour charger vos données. Vos données sont alors chargées. Pour les jeux de données volumineux, le processus d’importation peut prendre plusieurs minutes.
 
-Lorsque le chargement est terminé, revenez au tableau **Acoustic Datasets** (jeux de données acoustiques). Une entrée s’affiche, qui correspond à votre jeu de données acoustiques. Notez qu’un ID unique (GUID) lui a été affecté. Les données sont à l’état  : *NotStarted* (Non Démarré) tant qu’elles sont en file d’attente avant traitement, *Running* (En cours d’exécution) pendant la phase de validation et *Complete* (Terminé) quand les données sont prêtes à être utilisées.
+Lorsque le chargement est terminé, revenez au tableau **Acoustic Datasets** (jeux de données acoustiques). Une entrée s’affiche, qui correspond à votre jeu de données acoustiques. Notez qu’un ID unique (GUID) lui a été affecté. Les données sont à l’état : *NotStarted* (Non Démarré) tant qu’elles sont en file d’attente avant traitement, *Running* (En cours d’exécution) pendant la phase de validation et *Complete* (Terminé) quand les données sont prêtes à être utilisées.
 
 La validation des données inclut une série de vérifications sur les fichiers audio quant au format, à la longueur et au taux d’échantillonnage des fichiers, et sur les fichiers de transcription pour vérifier le format et effectuer une normalisation du texte.
 
@@ -141,13 +141,13 @@ Ensuite, dans la liste déroulante **Acoustic Data** (données acoustiques), sé
 
 ![Page Créer un modèle acoustique](media/stt/speech-acoustic-models-create2.png)
 
-Vous pouvez choisir d’effectuer des tests de précision de votre nouveau modèle une fois le traitement terminé. Ceci effectue une évaluation de la conversion parole-texte sur un jeu de données acoustiques spécifié avec le modèle acoustique personnalisé et produit un rapport des résultats. Pour effectuer ce test, cochez la case **Accuracy Testing** (Tests de précision). Sélectionnez ensuite un modèle de langage dans le menu déroulant. Si vous n’avez pas créé de modèle de langage personnalisé, seuls les modèles de langage de base s’affichent dans la liste déroulante. Pour sélectionner le modèle de langage plus approprié, consultez [Tutoriel : Créer un modèle de langage personnalisé](how-to-customize-language-model.md).
+Vous pouvez choisir d’effectuer des tests de précision de votre nouveau modèle une fois le traitement terminé. Ceci effectue une évaluation de la conversion parole-texte sur un jeu de données acoustiques spécifié avec le modèle acoustique personnalisé et produit un rapport des résultats. Pour effectuer ce test, cochez la case **Accuracy Testing** (Tests de précision). Sélectionnez ensuite un modèle de langage dans le menu déroulant. Si vous n’avez pas créé de modèle de langage personnalisé, seuls les modèles de langage de base s’affichent dans la liste déroulante. Pour sélectionner le modèle de langage le mieux adapté, consultez [Tutoriel : Créer un modèle de langage personnalisé](how-to-customize-language-model.md).
 
 Enfin, sélectionnez le jeu de données acoustiques que vous voulez utiliser pour évaluer le modèle personnalisé. Si vous effectuez des tests de précision, il est important de sélectionner des données acoustiques qui sont différentes de celles utilisées pour la création du modèle, de façon à vous faire une idée réaliste des performances du modèle. Des tests de précision sur les données d’apprentissage ne vous permettent pas d’évaluer comment le modèle adapté fonctionne dans des conditions réelles. Le résultat sera trop optimiste. Notez également que les tests de précision sont limités à 1 000 énoncés. Si le jeu de données acoustiques pour le test est plus grand, seuls les 1 000 premiers énoncés sont évalués.
 
 Quand vous êtes prêt à commencer le processus de personnalisation, cliquez sur **Create** (Créer).
 
-La table des modèles acoustiques affiche une nouvelle entrée qui correspond à ce nouveau modèle. La table affiche également l’état du processus : *Waiting* (en attente), *Processing* (en cours de traitement), ou *Complete* (terminé).
+La table des modèles acoustiques affiche une nouvelle entrée qui correspond à ce nouveau modèle. La table affiche également l’état du processus : *Waiting* (en attente), *Processing* (en cours de traitement) ou *Complete* (terminé).
 
 ![Page des modèles acoustiques](media/stt/speech-acoustic-models-creating.png)
 

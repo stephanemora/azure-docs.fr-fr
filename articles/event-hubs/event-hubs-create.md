@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide Azure : créer un Event Hub avec le portail Azure | Microsoft Docs'
-description: Dans ce démarrage rapide, vous allez apprendre à créer un Event Hub Azure à l’aide du portail Azure et à envoyer et recevoir des événements à l’aide du Kit de développement .NET Standard.
+title: 'Démarrage rapide Azure : créer un hub d’événements avec le portail Azure | Microsoft Docs'
+description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un hub d’événements Azure à l’aide du portail Azure et à envoyer et recevoir des événements à l’aide du kit SDK .NET Standard.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/16/2018
+ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 3a1054b0c753b3e5dca4cd66ac42e6bc8bdd16ae
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 073d1b54b1c6da2b1178f482d17b4de7abcc8a51
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960700"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888921"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Démarrage rapide : Créer un hub d’événements avec le portail Azure
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
@@ -32,63 +32,61 @@ Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est une collection logique de ressources Azure. Toutes les ressources sont déployées et gérées dans un groupe de ressources. Procédez comme suit pour créer un groupe de ressources :
+Un groupe de ressources est une collection logique de ressources Azure. Toutes les ressources sont déployées et gérées dans un groupe de ressources. Pour créer un groupe de ressources :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans le volet de navigation de gauche, cliquez sur **Groupes de ressources**. Cliquez ensuite sur **Ajouter**.
 
    ![Groupes de ressources - Ajouter un bouton](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
-2. Tapez un nom unique pour le groupe de ressources. Le système vérifie immédiatement si le nom est disponible dans l’abonnement Azure actuellement sélectionné.
-
-3. Dans **Abonnement**, cliquez sur le nom de l’abonnement Azure dans lequel vous souhaitez créer le groupe de ressources.
-
-4. Sélectionnez un emplacement géographique pour le groupe de ressources.
-
-5. Cliquez sur **Créer**.
+2. Sous **Abonnement**, sélectionnez le nom de l’abonnement Azure dans lequel vous souhaitez créer le groupe de ressources.
+3. Tapez un **nom unique pour le groupe de ressources**. Le système vérifie immédiatement si le nom est disponible dans l’abonnement Azure actuellement sélectionné.
+4. Sélectionnez une **région** pour le groupe de ressources.
+5. Sélectionnez **Vérifier + créer**.
 
    ![Groupe de ressources - Créer](./media/event-hubs-quickstart-portal/resource-groups2.png)
+6. Dans la page **Vérifier + créer**, sélectionnez **Créer**. 
 
 ## <a name="create-an-event-hubs-namespace"></a>Créer un espace de noms Event Hubs
 
 Un espace de noms Event Hubs fournit un conteneur d’étendue unique, référencé par son nom de domaine complet, dans lequel vous créez un ou plusieurs hubs d’événements. Pour créer un espace de noms dans votre groupe de ressources à l’aide du portail, effectuez les actions suivantes :
 
 1. Dans le portail Azure, cliquez sur **Créer une ressource** en haut à gauche de l’écran.
-
-2. Cliquez sur **Internet des objets**, puis sur **Event Hubs**.
-
-3. Dans **Créer un espace de noms**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
-
-   ![Créer un espace de noms Event Hub](./media/event-hubs-create/create-event-hub1.png)
-
-4. Lorsque vous avez vérifié la disponibilité de l’espace de noms, sélectionnez le niveau tarifaire (Basique ou Standard). Choisissez également un abonnement Azure, un groupe de ressources et un emplacement où créer la ressource.
- 
-5. Cliquez sur **Créer** pour créer l’espace de noms. Vous devrez peut-être attendre quelques minutes pour que le système approvisionne entièrement les ressources.
-6. Sélectionnez **Alertes**, puis sélectionnez le **déploiement** avec le même nom que le nom de l’espace de noms Event Hub. 
-
-   ![Groupe de ressources - Alerte à partir de la création](./media/event-hubs-quickstart-portal/create-alert.png)
-6. Sélectionnez votre espace de noms Event Hub à partir de la liste des ressources créées pendant le déploiement. 
-
-   ![Sélectionner l’espace de noms dans le déploiement](./media/event-hubs-quickstart-portal/deployment-namespace.png)
-7. Cliquez sur la page **Espace de noms Event Hubs**, cliquez sur **Stratégies d’accès partagé**, puis sur **RootManageSharedAccessKey**.
+2. Sélectionnez **Tous les services** dans le menu de gauche, puis l’**étoile (`*`)** à côté d’**Event Hubs** dans la catégorie **Analytique**. Confirmez l’ajout d’**Event Hubs** dans **FAVORIS** dans le menu de navigation de gauche. 
     
-8. Cliquez sur le bouton Copier pour copier la chaîne de connexion **RootManageSharedAccessKey** dans le Presse-papiers. Enregistrez cette chaîne de connexion dans un emplacement temporaire, tel que le Bloc-notes, pour une utilisation ultérieure.
+   ![Rechercher Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
+3. Sélectionnez **Event Hubs** sous **FAVORIS** dans le menu de navigation de gauche, puis **Ajouter** dans la barre d’outils.
+
+   ![Bouton de barre d’outils Ajouter](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+4. Dans la page **Créer un espace de noms**, effectuez les étapes suivantes :
+    1. Entrez le nom de l'espace de noms. Le système vérifie immédiatement si le nom est disponible.
+    2. Choisissez le niveau tarifaire (De base ou Standard).
+    3. Sélectionnez l’**abonnement** dans lequel vous souhaitez créer l’espace de noms.
+    4. Sélectionnez un **emplacement** pour l’espace de noms.
+    5. Sélectionnez **Créer**. Vous devrez peut-être attendre quelques minutes pour que le système approvisionne entièrement les ressources.
+
+       ![Créer un espace de noms Event Hub](./media/event-hubs-quickstart-portal/create-event-hub1.png)
+5. Actualisez la page **Event Hubs** pour voir l’espace de noms Event Hubs. Vous pouvez examiner l’état de la création du hub d’événements dans les alertes. 
+
+    ![Créer un espace de noms Event Hub](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
+6. Sélectionnez l’espace de noms. La page d’accueil de votre **espace de noms Event Hubs** apparaît dans le portail. 
+
+   ![Page d’accueil de l’espace de noms](./media/event-hubs-quickstart-portal/namespace-home-page.png)
     
 ## <a name="create-an-event-hub"></a>Créer un hub d’événements
 
 Pour créer un Event Hub dans l’espace de noms, effectuez les actions suivantes :
 
-1. Sur la page Espaces de noms Event Hubs, cliquez sur **Event Hubs**.
-   
-    ![Sélectionner Event Hubs à partir du menu de gauche](./media/event-hubs-quickstart-portal/create-event-hub3.png)
-
+1. Dans la page Espace de noms Event Hubs, sélectionnez **Event Hubs** dans le menu de gauche.
 1. Cliquez sur **+ Event Hub** en haut de la fenêtre.
    
     ![Ajouter Event Hub - bouton](./media/event-hubs-quickstart-portal/create-event-hub4.png)
 1. Tapez un nom pour votre hub d’événements, puis cliquez sur **Créer**.
    
-    ![Créer un event hub](./media/event-hubs-quickstart-portal/create-event-hub5.png)
+    ![Créer un hub d’événement](./media/event-hubs-quickstart-portal/create-event-hub5.png)
+4. Vous pouvez examiner l’état de la création du hub d’événements dans les alertes. Une fois créé, il apparaît dans la liste des hubs d’événements, comme indiqué dans l’image suivante :
 
+    ![Hub d’événements créé](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
 Félicitations ! Vous avez utilisé le portail pour créer un espace de noms Event Hubs, ainsi qu’un hub d’événements dans cet espace de noms. 
 

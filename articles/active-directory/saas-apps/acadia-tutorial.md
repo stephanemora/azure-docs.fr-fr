@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Acadia | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Acadia | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Acadia.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a43db3eba5bec9bef0aacc51d246414d54d222bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: dc36e66e9dae62fdfede3a82146cd218ca5eb489
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813438"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Tutoriel : Intégration d’Azure Active Directory à Acadia
 
@@ -71,10 +71,10 @@ Pour configurer l’intégration d’Acadia à Azure AD, vous devez ajouter Aca
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec [Nom de l’application] sur un utilisateur de test nommé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur [Nom de l’application] associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès d’Acadia sur un utilisateur de test nommé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Acadia associé doit être établie.
 
-Pour configurer et tester l’authentification unique Azure AD avec [Nom de l’application], vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD auprès d’Acadia, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique Acadia](#configure-acadia-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
@@ -87,7 +87,7 @@ Pour configurer et tester l’authentification unique Azure AD avec [Nom de l�
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-Pour configurer l’authentification unique Azure AD avec [Nom de l’application], procédez comme suit :
+Pour configurer l’authentification unique Azure AD auprès d’Acadia, effectuez les étapes suivantes :
 
 1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **Acadia**, sélectionnez **Authentification unique**.
 
@@ -116,9 +116,9 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique d’Acadia](https://www.systemsalliance.com/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Les valeurs utilisées pour les étapes 4 et 5 sont fournies dans un fichier de métadonnées par l’équipe Acadia. Pour l’importer, vous pouvez cliquer sur **Charger le fichier de métadonnées** dans la section **Configuration SAML de base**. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Vous pouvez également vous reporter aux modèles figurant dans la section **Configuration SAML de base** du portail Azure pour vous assurer que les valeurs des métadonnées sont correctes. Contactez l’[équipe du support technique Acadia](mailto:support@systemsalliance.com) si les valeurs fournies sont incorrectes.
 
-6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -134,7 +134,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
 ### <a name="configure-acadia-single-sign-on"></a>Configurer l’authentification unique Acadia
 
-Pour configurer l’authentification unique côté **Acadia**, vous devez envoyer le **XML des métadonnées** téléchargé et les URL copiées correspondantes depuis le portail Azure à l’[équipe du support technique Acadia](https://www.systemsalliance.com/contact-us/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Acadia**, vous devez envoyer le **XML des métadonnées** téléchargé, l’**URL des métadonnées de fédération de l’application** et les URL copiées correspondantes depuis le portail Azure à l’[équipe du support technique Acadia](mailto:support@systemsalliance.com). Celle-ci configure ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

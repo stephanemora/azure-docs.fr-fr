@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Convertir un script de texte, Java - API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Convertir un script de texte, Java - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez apprendre à translittérer (convertir) le texte d’un script dans un autre à l’aide de Java et de l’API REST de traduction de texte Translator Text. Dans cet exemple, le japonais est translittéré pour utiliser l’alphabet latin.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 1679445f73cd6b90423e05f985b83b818e32997e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: e42aa7ec796b3be912614ced5f3a4db47f67c124
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888866"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210053"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour translittérer du texte à l’aide de Java
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et Java pour translittérer du texte
 
 Dans ce guide de démarrage rapide, vous allez apprendre à translittérer (convertir) le texte d’un script dans un autre à l’aide de Java et de l’API REST de traduction de texte Translator Text. Dans l’exemple fourni, le japonais est translittéré pour utiliser l’alphabet latin.
 
@@ -67,7 +67,7 @@ dependencies {
 }
 ```
 
-Notez que cet exemple présente des dépendances sur OkHttp pour les requêtes HTTP, et sur Gson pour gérer et analyser JSON. Pour en savoir plus sur les configurations de build, consultez [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/) (Création de builds Gradle).
+Notez que cet exemple présente des dépendances sur OkHttp pour les requêtes HTTP, et sur Gson pour gérer et analyser JSON. Pour en savoir plus sur les configurations de build, consultez [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/).
 
 ## <a name="create-a-java-file"></a>Créer un fichier Java
 

@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Traduire du texte, Java - API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Traduire du texte, Java - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez apprendre à traduire une chaîne de texte de l’anglais vers l’italien et l’allemand à l’aide de Java et de l’API REST traduction de texte Translator Text.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 537132a5d77927f130f2737e0ba597b9e74ace6e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: a757b766537cc4f1105d77478f4a1d7543c27e40
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890243"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227911"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour traduire une chaîne à l’aide de Java
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et Java pour traduire une chaîne
 
 Dans ce guide de démarrage rapide, vous allez apprendre à traduire une chaîne de texte de l’anglais vers l’italien et l’allemand à l’aide de Java et de l’API REST traduction de texte Translator Text.
 

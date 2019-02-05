@@ -10,18 +10,18 @@ ms.custom: seodec18
 ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: bb01db14cec73b8c5668915a9eaab5e7728724df
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264358"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469112"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio - De quoi s'agit-il ?
 Microsoft Azure Machine Learning Studio est un outil collaboratif fonctionnant par glisser-déplacer qui vous permet de générer, tester et déployer des solutions d'analyse prédictive à partir de vos données. Machine Learning Studio publie des modèles en tant que services web pouvant facilement être consommés par des applications personnalisées ou des outils décisionnels tels qu'Excel.
@@ -39,10 +39,10 @@ Aucune programmation n'est nécessaire : il suffit de visualiser la connexion d
 
 > [!TIP]
 > Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](studio-overview-diagram.md).
-> 
-> 
+>
+>
 
-![Diagramme d’Azure ML Studio : créez des expériences, lisez les données de nombreuses sources, écrivez des données évaluées, écrivez des modèles.][ml-studio-overview]
+![Diagramme d’Azure Machine Learning Studio : créez des expériences, lisez les données de nombreuses sources, écrivez des données évaluées, écrivez des modèles.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Prise en main de Machine Learning Studio
 Quand vous ouvrez [Machine Learning Studio](https://studio.azureml.net) pour la première fois, la page **Accueil** apparaît. À partir de là, vous pouvez afficher la documentation, des vidéos, des webinaires et rechercher d’autres ressources précieuses.
@@ -104,7 +104,7 @@ Un module est un algorithme que vous appliquez à vos données. Machine Learning
 * [Régression linéaire][linear-regression] : crée un modèle de régression linéaire à gradient décroissant en ligne.
 * [Noter le modèle][score-model] : note un modèle de classification ou de régression formé.
 
-Lorsque vous créez une expérience, vous pouvez utiliser la liste des modules à gauche du canevas.  
+Lorsque vous créez une expérience, vous pouvez utiliser la liste des modules à gauche du canevas.
 
 Un module peut comporter un ensemble de paramètres utilisables pour configurer les algorithmes internes du module. Quand vous sélectionnez un module dans le canevas, ses paramètres sont affichés dans le volet **Propriétés** à droite du canevas. Vous pouvez modifier les paramètres figurant dans ce volet pour affiner votre modèle.
 
@@ -162,7 +162,7 @@ Une fois que votre modèle est formé, évaluez-le en utilisant les autres donn�
 * **Échantillon** : partie d’un jeu de données destinée à être représentative de l’ensemble. Les échantillons peuvent être sélectionnés de manière aléatoire ou sur la base de fonctionnalités spécifiques du jeu de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez apprendre les principes fondamentaux de l’analyse prédictive et de l’apprentissage automatique à l’aide d’un [didacticiel](create-experiment.md) et avec la [génération à partir d’exemples](sample-experiments.md).  
+Vous pouvez apprendre les principes fondamentaux de l’analyse prédictive et de l’apprentissage automatique à l’aide d’un [didacticiel](create-experiment.md) et avec la [génération à partir d’exemples](sample-experiments.md).
 
 
 <!-- Module References -->

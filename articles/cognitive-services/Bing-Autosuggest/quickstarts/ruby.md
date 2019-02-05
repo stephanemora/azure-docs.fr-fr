@@ -1,25 +1,25 @@
 ---
-title: 'Démarrage rapide : API Suggestion automatique Bing, Ruby'
+title: 'Démarrage rapide : API Suggestion automatique Bing, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Suggestion automatique Bing.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 643b9173b57b9f8e8596fe6a8b49358d34297b97
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 463ad901edeec3790586f9494a7411b678c4ecf8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831175"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183609"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-ruby"></a>Démarrage rapide pour l’API Suggestion automatique Bing avec Ruby 
 
-Cet article vous explique comment utiliser [l’API Suggestion automatique Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) avec Ruby. L’API Suggestion automatique Bing renvoie une liste de requêtes suggérées en fonction d’une chaîne de requête partielle saisie par l’utilisateur dans la zone de recherche. En règle générale, vous appelez cette API chaque fois que l’utilisateur saisit un nouveau caractère dans la zone de recherche, puis vous affichez les suggestions dans la liste déroulante de la zone de recherche. Cet article explique comment envoyer une requête qui renvoie les chaînes de requête suggérées pour *sail* (voile).
+Cet article vous explique comment utiliser l’[API Suggestion automatique Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) avec Ruby. L’API Suggestion automatique Bing renvoie une liste de requêtes suggérées en fonction d’une chaîne de requête partielle saisie par l’utilisateur dans la zone de recherche. En règle générale, vous appelez cette API chaque fois que l’utilisateur saisit un nouveau caractère dans la zone de recherche, puis vous affichez les suggestions dans la liste déroulante de la zone de recherche. Cet article explique comment envoyer une requête qui renvoie les chaînes de requête suggérées pour *sail* (voile).
 
 ## <a name="prerequisites"></a>Prérequis
 

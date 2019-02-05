@@ -1,23 +1,23 @@
 ---
-title: 'Didacticiel : Détecter et encadrer des visages sur une image à l’aide d’Android SDK'
+title: 'Tutoriel : Détecter et encadrer des visages sur une image à l’aide du kit Android SDK'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application Android simple qui utilise l’API Visage pour détecter et encadrer des visages dans une image.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 92344943d2ec19f6730387221974a001e6a2045a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2c28aa58e64253d5a25dbdfc8f1473e0e462af57
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852892"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220006"
 ---
-# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Didacticiel : créer une application Android pour détecter et encadrer des visages humains dans une image
+# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutoriel : Créer une application Android pour détecter et encadrer des visages dans une image
 
 Dans ce tutoriel, vous allez créer une application Android simple qui utilise l’API Visage Azure par le biais du SDK Java pour détecter des visages humains dans une image. L’application affiche une image sélectionnée et trace un cadre autour de chaque visage détecté.
 

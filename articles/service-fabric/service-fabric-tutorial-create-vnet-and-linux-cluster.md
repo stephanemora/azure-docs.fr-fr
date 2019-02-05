@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831481"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101803"
 ---
-# <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Didacticiel : Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
+# <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Tutoriel : Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
 
 Ce tutoriel est la première partie d’une série d’étapes. Vous découvrirez comment déployer un cluster Service Fabric Linux dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) à l’aide de l’interface Azure CLI et d’un modèle. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications. Pour créer un cluster Windows à l’aide de PowerShell, consultez la section relative à la [création d’un cluster Windows sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
@@ -89,29 +89,29 @@ Dans la ressource **Microsoft.ServiceFabric/clusters**, un cluster Linux est dé
 
 * un type de nœud unique
 * cinq nœuds dans le type de nœud principal (configurable dans les paramètres du modèle)
-* système d’exploitation : Ubuntu 16.04 LTS (configurable dans les paramètres du modèle)
+* Système d’exploitation : Ubuntu 16.04 LTS (configurable dans les paramètres du modèle)
 * certificat sécurisé (configurable dans les paramètres du modèle)
 * [service DNS](service-fabric-dnsservice.md) activé
 * [niveau de durabilité](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronze (configurable dans les paramètres du modèle)
 * [niveau de fiabilité](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (configurable dans les paramètres du modèle)
-* point de terminaison de connexion client : 19000 (configurable dans les paramètres du modèle)
-* point de terminaison de passerelle HTTP : 19080 (configurable dans les paramètres du modèle)
+* point de terminaison de connexion client : 19000 (configurable dans les paramètres du modèle)
+* point de terminaison de passerelle HTTP : 19080 (configurable dans les paramètres du modèle)
 
 ### <a name="azure-load-balancer"></a>Équilibrage de charge Azure
 
 Dans la ressource **Microsoft.Network/loadBalancers**, un équilibreur de charge est configuré et des sondes et règles sont configurées pour les ports suivants :
 
-* point de terminaison de connexion client : 19000
-* point de terminaison de passerelle HTTP : 19080
-* port de l’application : 80
-* port de l’application : 443
+* point de terminaison de connexion client : 19000
+* point de terminaison de passerelle HTTP : 19080
+* port de l’application : 80
+* port de l’application : 443
 
 ### <a name="virtual-network-and-subnet"></a>Réseau virtuel et sous-réseau
 
 Les noms du réseau virtuel et du sous-réseau sont déclarés dans les paramètres du modèle.  Les espaces d’adressage du réseau virtuel et du sous-réseau sont également déclarés dans les paramètres de modèle et configurés dans la ressource **Microsoft.Network/virtualNetworks** :
 
-* espace d’adressage du réseau virtuel : 10.0.0.0/16
-* espace d’adressage de sous-réseau Service Fabric : 10.0.2.0/24
+* Espace d’adressage du réseau virtuel : 10.0.0.0/16
+* Espace d’adressage du sous-réseau Service Fabric : 10.0.2.0/24
 
 Si d’autres ports de l’application sont nécessaires, vous devez ajuster les ressources Microsoft.Network/loadBalancers pour autoriser le trafic entrant.
 
@@ -163,7 +163,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Créer un cluster à l’aide d’un nouveau certificat auto-signé
 
-Le script suivant utilise la commande [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) et un modèle pour déployer un nouveau cluster dans Azure. La commande crée aussi un coffre de clés dans Azure, ajoute un certificat autosigné dans le coffre de clés, puis télécharge le fichier de certificat localement.
+Le script suivant utilise la commande [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) et un modèle pour déployer un nouveau cluster dans Azure. La commande crée aussi un coffre de clés dans Azure, ajoute un nouveau certificat autosigné dans le coffre de clés, puis télécharge le fichier de certificat localement.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

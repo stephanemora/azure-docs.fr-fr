@@ -1,23 +1,23 @@
 ---
-title: 'Guide de démarrage rapide : Détecter des visages dans image à l’aide de l’API REST et Go'
+title: 'Démarrage rapide : Détecter des visages sur une image avec l’API REST et Go'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide de l’API Visage avec Go.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: pafarley
-ms.openlocfilehash: a66d50ac6984ea50eef1e34cc53db4d7e5bbdcad
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7b01acecb8ccf48ae9ba196671c156edfa688b3d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956202"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215093"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Guide de démarrage rapide : Détecter des visages dans image à l’aide de l’API REST et Go
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et Go
 
 Dans ce démarrage rapide, vous allez détecter des visages humains dans une image à l’aide de l’API Visage.
 
@@ -29,9 +29,9 @@ Vous avez besoin d’une clé d’abonnement pour exécuter l’exemple. Vous po
 
 Utilisez la méthode [Visage - Détecter](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) pour détecter les visages dans une image et retourner les attributs du visage, notamment :
 
-* ID du visage : ID unique utilisé dans plusieurs scénarios d’API Visage.
-* Rectangle du visage : valeurs gauche, haut, largeur et hauteur indiquant l’emplacement du visage dans l’image.
-* Points de repère : tableau des 27 points de repère du visage pointant vers les positions importantes des composants du visage.
+* ID de visage : ID unique utilisé dans plusieurs scénarios d’API Visage.
+* Rectangle du visage : valeurs gauche, haut, largeur et hauteur indiquant l’emplacement du visage dans l’image.
+* Repères : groupe de 27 points de repère du visage pointant vers les positions importantes des composants du visage.
 * Les attributs du visage, notamment l’âge, le sexe, l’intensité du sourire, la posture de la tête et la pilosité faciale.
 
 Pour exécuter l’exemple, effectuez les étapes suivantes :

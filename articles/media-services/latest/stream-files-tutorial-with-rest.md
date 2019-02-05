@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/19/2018
+ms.date: 01/23/2019
 ms.author: juliako
-ms.openlocfilehash: fcce16ed3cf7009c596f30ebc33f58de02f018a0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0bd882ffd5048d0b33afc9ecf00c0ed6356b6e98
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811636"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883515"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutoriel : Encoder un fichier distant basé sur une URL et streamer la vidéo - REST
 
@@ -101,10 +101,10 @@ Dans cette section, nous enverrons des requêtes qui sont pertinentes pour le co
 
 1. Obtenir un jeton Azure AD pour l’authentification du principal du service
 2. Créer une ressource de sortie
-3. Créer une transformation
-4. Création d’un travail 
-5. Créer un localisateur de diffusion en continu
-6. Répertorier les chemins d’accès du localisateur de diffusion en continu
+3. Créer une **transformation**
+4. Créer un **travail**
+5. Créer un **localisateur de streaming**
+6. Lister les chemins du **localisateur de streaming**
 
 > [!Note]
 >  Ce tutoriel suppose que vous créez toutes les ressources avec des noms uniques.  
@@ -151,7 +151,7 @@ La [ressource](https://docs.microsoft.com/rest/api/media/assets) de sortie stock
 
 ### <a name="create-a-transform"></a>Créer une transformation
 
-Lors de l’encodage ou du traitement de contenus dans Media Services, il est courant de configurer les paramètres de codage en tant que formule. Vous envoyez ensuite un **travail** pour appliquer cette formule à une vidéo. En envoyant de nouveaux travaux pour chaque nouvelle vidéo, vous appliquez cette formule à toutes les vidéos de votre bibliothèque. Une formule dans Media Services est référencée comme une **transformation**. Pour plus d’informations, consultez [Transforms and jobs](transform-concept.md) (Transformations et travaux). L’exemple décrit dans ce didacticiel définit une formule qui encode la vidéo, afin de la diffuser en continu sur divers appareils iOS et Android. 
+Lors de l’encodage ou du traitement de contenus dans Media Services, il est courant de configurer les paramètres de codage en tant que formule. Vous envoyez ensuite un **travail** pour appliquer cette formule à une vidéo. En envoyant de nouveaux travaux pour chaque nouvelle vidéo, vous appliquez cette formule à toutes les vidéos de votre bibliothèque. Une formule dans Media Services est référencée comme une **transformation**. Pour plus d’informations, consultez [Transformations et travaux](transform-concept.md). L’exemple décrit dans ce didacticiel définit une formule qui encode la vidéo, afin de la diffuser en continu sur divers appareils iOS et Android. 
 
 Lorsque vous créez une instance de [transformation](https://docs.microsoft.com/rest/api/media/transforms), vous devez spécifier ce qu’elle doit produire comme sortie. Le paramètre requis est un objet **TransformOutput**. Chaque objet **TransformOutput** contient un **préréglage**. Le **préréglage** décrit les instructions détaillées concernant les opérations de traitement vidéo et/ou audio qui doivent être utilisées pour générer l’objet **TransformOutput** souhaité. L’exemple décrit dans cet article utilise un préréglage appelé **AdaptiveStreaming**. Le préréglage encode la vidéo d’entrée dans une échelle des vitesses de transmission générée automatiquement (paires vitesse de transmission-résolution) basée sur la vitesse de transmission et la résolution de la sortie, et crée des fichiers MP4 ISO avec des fichiers audio AAC et des fichiers vidéo H.264 qui correspondent à chaque paire vitesse de transmission-résolution. Pour plus d’informations sur ce préréglage, consultez [Encode with an auto-generated bitrate ladder](autogen-bitrate-ladder.md) (Encoder avec une échelle des vitesses de transmission générée automatiquement).
 
@@ -232,16 +232,16 @@ Le **travail** passe généralement par les états suivants : **Planifié**, **
 
 ### <a name="create-a-streaming-locator"></a>Créer un localisateur de diffusion en continu
 
-Une fois le travail d’encodage terminé, l’étape suivante consiste à mettre à la disposition des clients la vidéo dans la ressource de sortie pour qu’ils puissent la lire. Vous pouvez le faire en deux étapes : d’abord, créez un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puis générez les URL de diffusion en continu que les clients peuvent utiliser. 
+Une fois le travail d’encodage terminé, l’étape suivante consiste à mettre à la disposition des clients la vidéo dans l’**actif multimédia** de sortie pour qu’ils puissent la lire. Vous pouvez le faire en deux étapes : d’abord, créez un [localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), puis générez les URL de streaming que les clients peuvent utiliser. 
 
-Le processus de création d’un élément **StreamingLocator** est appelée publication. Par défaut, l’élément **StreamingLocator** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
+Le processus de création d’un **localisateur de streaming** est appelée « publication ». Par défaut, le **localisateur de streaming** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
 
-Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier le **StreamingPolicyName** souhaité. Dans cet exemple, vous allez diffuser en continu du contenu en clair (ou non chiffré), la stratégie de diffusion en continu en clair prédéfinie (**PredefinedStreamingPolicy.ClearStreamingOnly**) est donc utilisée.
+Lors de la création d’un [localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier la valeur **StreamingPolicyName** souhaitée. Dans cet exemple, vous allez diffuser en continu du contenu en clair (ou non chiffré), la stratégie de diffusion en continu en clair prédéfinie (**PredefinedStreamingPolicy.ClearStreamingOnly**) est donc utilisée.
 
 > [!IMPORTANT]
 > Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. 
 
-Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie StreamingPolicy. Vous ne devez pas créer une stratégie StreamingPolicy pour chaque élément StreamingLocator.
+Votre compte Media Services a un quota en matière de nombre d’entrées de **stratégie de streaming**. Vous ne devez pas créer une **stratégie de streaming** pour chaque **localisateur de streaming**.
 
 1. Dans la fenêtre de gauche de Postman, sélectionnez « Stratégies de diffusion en continu ».
 2. Ensuite, sélectionnez « Créer un localisateur de diffusion en continu ».
@@ -267,7 +267,7 @@ Votre compte Media Services a un quota en matière de nombre d’entrées de str
 
 #### <a name="list-paths"></a>Répertorier les chemins d’accès
 
-Maintenant qu’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) a été créé, vous pouvez obtenir les URL de diffusion en continu
+Maintenant que le [localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) a été créé, vous pouvez obtenir les URL de streaming.
 
 1. Dans la fenêtre de gauche de Postman, sélectionnez « Stratégies de diffusion en continu ».
 2. Ensuite, sélectionnez « Répertorier les chemin d’accès ».
@@ -338,7 +338,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> Assurez-vous que le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu est en cours d’exécution.
+> Vérifiez que le **point de terminaison de streaming** à partir duquel vous voulez diffuser du contenu est en cours d’exécution.
 
 Pour tester la diffusion en continu, cet article utilise le lecteur multimédia Azure. 
 
@@ -350,7 +350,7 @@ Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais 
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Supprimer les ressources de votre compte Media Services
 
-En règle générale, vous devez supprimer tous les éléments à l’exception des objets que vous envisagez de réutiliser (habituellement, vous allez réutiliser les transformations et conserver les éléments StreamingLocators, etc.). Si vous souhaitez que votre compte soit propre après avoir effectué vos expériences, vous devez supprimer les ressources que vous n’envisagez pas de réutiliser.  
+En général, vous devez nettoyer tous les éléments à l’exception des objets que vous envisagez de réutiliser (habituellement, vous allez réutiliser les **transformations** et conserver les **localisateurs de streaming**, etc.). Si vous souhaitez que votre compte soit propre après avoir effectué vos expériences, vous devez supprimer les ressources que vous n’envisagez pas de réutiliser.  
 
 Pour supprimer une ressource, sélectionnez l’opération « Supprimer... » sous la ressource que vous souhaitez supprimer.
 

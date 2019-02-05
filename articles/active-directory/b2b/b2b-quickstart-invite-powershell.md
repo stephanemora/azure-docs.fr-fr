@@ -3,20 +3,20 @@ title: Démarrage rapide pour ajouter un utilisateur invité avec PowerShell pou
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser PowerShell pour envoyer une invitation à un utilisateur externe d’Azure AD B2B Collaboration.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: f0dc63d84ec7583e721b116b450c890d46524622
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 28a2177089fb3c93670d61da62815ff67bfd544d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986560"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094799"
 ---
-# <a name="quickstart-add-a-guest-user-with-powershell"></a>Démarrage rapide : Ajouter un utilisateur invité avec PowerShell
+# <a name="quickstart-add-a-guest-user-with-powershell"></a>Démarrage rapide : Ajouter un utilisateur invité avec PowerShell
 
 Avec Azure Active Directory B2B Collaboration, vous disposez de plusieurs méthodes pour inviter des partenaires externes à utiliser vos applications et vos services. Dans le guide de démarrage rapide précédent, vous avez vu comment ajouter des utilisateurs invités directement dans le portail d’administration Azure Active Directory. Vous pouvez également utiliser PowerShell pour ajouter des utilisateurs invités, un par un, ou en bloc. Dans ce guide de démarrage rapide, vous allez utiliser la commande New-AzureADMSInvitation pour ajouter un utilisateur invité à votre locataire Azure.
 
@@ -29,29 +29,29 @@ Vérifiez que vous installez la dernière version du module Azure AD PowerShell 
 
 Vérifiez d’abord les modules que vous avez installés. Ouvrez Windows PowerShell en tant qu’utilisateur avec privilèges élevés (Exécuter en tant qu’administrateur) et exécutez la commande suivante :
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 Si le module AzureADPreview s’affiche sans un message indiquant qu’une version plus récente existe, tout est prêt. Sinon, en fonction de la sortie, effectuez l’une des actions suivantes :
 
 - Si aucun résultat n’est retourné, exécutez la commande suivante pour installer le module AzureADPreview :
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Si seul le module AzureAD apparaît dans les résultats, exécutez les commandes suivantes pour installer le module AzureADPreview : 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Si seul le module AzureADPreview apparaît dans les résultats, mais que vous recevez un message indiquant qu’il existe une version plus récente, exécutez les commandes suivantes pour mettre à jour le module : 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 Vous pouvez recevoir une invite indiquant que vous installez le module à partir d’un dépôt non approuvé. Ce cas se produit si vous n’aviez pas configuré le dépôt PSGallery comme dépôt fiable. Appuyez sur **O** pour installer le module.
 
@@ -66,7 +66,7 @@ Exécutez la commande suivante pour vous connecter au domaine du locataire :
 ```powershell
 Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 ```
-Par exemple : `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
+Par exemple : `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
 
 À l’invite, entrez vos informations d’identification.
 

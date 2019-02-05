@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 01/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6d71ad9bdc7744898480fb2cc6743e59131ec588
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8d3bc70b467cabfc5d45c51b79b43d2942d558ae
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423440"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885725"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Création d'un service Azure Search dans le portail
 
-La Recherche Azure est une ressource autonome utilisée pour ajouter une expérience de recherche à des applications personnalisées. Bien que la Recherche Azure s’intègre facilement à de nombreux autres services Azure, vous pouvez également l’utiliser de manière autonome, avec des applications situées sur des serveurs réseau ou avec des logiciels s’exécutant sur d’autres plateformes cloud. 
+La Recherche Azure est une ressource autonome utilisée pour ajouter une expérience de recherche à des applications personnalisées. Bien que la Recherche Azure s’intègre facilement à de nombreux autres services Azure, vous pouvez également l’utiliser de manière autonome, avec des applications situées sur des serveurs réseau ou avec des logiciels s’exécutant sur d’autres plateformes cloud.
 
-Dans cet article, découvrez comment créer une ressource de Recherche Azure dans le [portail Microsoft Azure](https://portal.azure.com/). 
+Dans cet article, découvrez comment créer une ressource de Recherche Azure dans le [portail Microsoft Azure](https://portal.azure.com/).
 
-[ ![GIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif) ](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![GIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Vous préférez PowerShell ? Utilisez le [modèle de service](https://azure.microsoft.com/resources/templates/101-azure-search-create/) Azure Resource Manager. Pour obtenir de l’aide et bien démarrer, consultez [Gérer votre service Recherche Azure avec PowerShell](search-manage-powershell.md).
 
@@ -33,6 +33,7 @@ Vous préférez PowerShell ? Utilisez le [modèle de service](https://azure.micr
 Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Un abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants. 
 
 ## <a name="find-azure-search"></a>Localiser Recherche Azure
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Cliquez sur le signe plus (« + Créer une ressource ») en haut à gauche.
 3. Utilisez la barre de recherche pour rechercher « Recherche Azure », ou accédez à la ressource via **Web** > **Recherche Azure**.
@@ -46,29 +47,34 @@ Un nom de service fait partie du point de terminaison URL par le biais duquel le
 Par exemple, si vous souhaitez que le point de terminaison soit `https://my-app-name-01.search.windows.net`, vous devez entrer `my-app-name-01`.
 
 Configuration requise du nom du service :
-   * il doit être unique dans l’espace de noms search.windows.net ;
-   * entre 2 et 60 caractères ;
-   * contenir des lettres minuscules, des chiffres ou des tirets (« - ») ;
-   * éviter les tirets (« - ») pour les 2 premiers caractères ou le dernier ;
-   * pas de tirets consécutifs (« -- »).
+
+* il doit être unique dans l’espace de noms search.windows.net ;
+* entre 2 et 60 caractères ;
+* contenir des lettres minuscules, des chiffres ou des tirets (« - ») ;
+* éviter les tirets (« - ») pour les 2 premiers caractères ou le dernier ;
+* pas de tirets consécutifs (« -- »).
 
 ## <a name="select-a-subscription"></a>Sélectionner un abonnement
+
 Si vous avez plusieurs abonnements, choisissez celui qui a également des services de stockage de données ou de fichiers. Recherche Azure peut détecter automatiquement Table Azure, Stockage Blob, SQL Database et Azure Cosmos DB pour l’indexation via des [*indexeurs*](search-indexer-overview.md), mais seulement pour des services dans le même abonnement.
 
 ## <a name="select-a-resource-group"></a>Sélectionner un groupe de ressources
+
 Un groupe de ressources correspond à une collection de services et de ressources Azure utilisés ensemble. Par exemple, si vous utilisez Recherche Azure pour indexer une base de données SQL, ces deux services doivent faire partie du même groupe de ressources.
 
 Si vous ne combinez pas des ressources dans un même groupe, ou si les groupes de ressources existants sont remplis de ressources utilisées dans des solutions non liées, créez un autre groupe de ressources spécialement pour votre ressource de Recherche Azure.
 
 > [!TIP]
-> La suppression d’un groupe de ressources supprime également les services qu’il contient. Pour les projets de prototype utilisant plusieurs services, le fait de les placer tous dans le même groupe de ressources facilite le nettoyage une fois le projet terminé. 
+> La suppression d’un groupe de ressources supprime également les services qu’il contient. Pour les projets de prototype utilisant plusieurs services, le fait de les placer tous dans le même groupe de ressources facilite le nettoyage une fois le projet terminé.
 
-## <a name="select-a-hosting-location"></a>Sélectionner un emplacement d’hébergement 
+## <a name="select-a-hosting-location"></a>Sélectionner un emplacement d’hébergement
+
 En sa qualité de service Azure, Recherche Azure peut être hébergé dans les centres de données du monde entier. [Les prix peuvent varier](https://azure.microsoft.com/pricing/details/search/) selon la zone géographique.
 
 Si vous envisagez d’utiliser Recherche cognitive, choisissez une [région où la fonctionnalité est disponible](cognitive-search-quickstart-blob.md#supported-regions).
 
 ## <a name="select-a-pricing-tier-sku"></a>Sélectionner un niveau de tarification (SKU)
+
 [Recherche Azure est actuellement disponible dans différents niveaux tarifaires](https://azure.microsoft.com/pricing/details/search/) : Gratuit, De base ou Standard. Chaque niveau a ses propres [capacité et limites](search-limits-quotas-capacity.md). Pour obtenir de l’aide, voir [Choisir un niveau tarifaire ou une référence (SKU)](search-sku-tier.md) .
 
 Standard est généralement choisi pour les charges de production, mais la plupart des clients démarrent avec le service gratuit.
@@ -85,7 +91,7 @@ N’oubliez pas d’épingler votre service au tableau de bord pour y accéder f
 
 À quelques exceptions près, l’utilisation de votre nouveau service nécessite de spécifier le point de terminaison d’URL et une clé d’API d’autorisation. Les démarrages rapides, les tutoriels comme [Explorer les API REST de Recherche Azure (Postman)](search-fiddler.md) et [Guide pratique pour utiliser Recherche Azure à partir de .NET](search-howto-dotnet-sdk.md), les exemples et le code personnalisé ont tous besoin d’un point de terminaison et d’une clé pour s’exécuter sur votre ressource particulière.
 
-1. Dans la page Vue d’ensemble du service, recherchez et copiez le point de terminaison d’URL sur le côté gauche de la page. 
+1. Dans la page Vue d’ensemble du service, recherchez et copiez le point de terminaison d’URL sur le côté droit de la page.
 
    ![Page Vue d’ensemble du service avec le point de terminaison d’URL](./media/search-create-service-portal/url-endpoint.png "Point de terminaison d’URL et autres détails du service")
 
@@ -96,6 +102,7 @@ N’oubliez pas d’épingler votre service au tableau de bord pour y accéder f
 Un point de terminaison et une clé ne sont pas nécessaires pour les tâches effectuées via le portail. Le portail est déjà lié à votre ressource Recherche Azure avec des droits d’administrateur. Pour un tutoriel sur le portail, commencez par [Tutoriel : Importer, indexer et interroger dans Recherche Azure](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Mettre à l’échelle le service
+
 La création d’un service peut prendre plusieurs minutes (15 minutes ou plus selon le niveau). Une fois votre service approvisionné, vous pouvez le mettre à l’échelle en fonction de vos besoins. Comme vous avez choisi le niveau Standard pour votre service Azure Search, vous pouvez le mettre à l’échelle dans deux dimensions : réplicas et partitions. Si vous choisissez le niveau De base, vous pouvez uniquement ajouter des réplicas. Si vous configurez le service gratuit, la mise à l’échelle n’est pas disponible.
 
 Les ***partitions*** permettent à votre service de stocker plus de documents et d’effectuer des recherches dans un plus grand nombre de documents.
@@ -113,7 +120,7 @@ L’ajout de ressources augmente votre facture mensuelle. Le [calculatrice de pr
 
 ![Ajouter de la capacité](./media/search-create-service-portal/settings-scale.png "Ajouter de la capacité via des réplicas et des partitions")
 
-> [!Note] 
+> [!Note]
 > Chaque niveau a des [limites](search-limits-quotas-capacity.md) différentes quant au nombre total d’unités de recherche autorisées dans un même service (replicas * partitions = nombre total d’unités de recherche).
 
 ## <a name="when-to-add-a-second-service"></a>Quand ajouter un deuxième service
@@ -122,17 +129,17 @@ La plupart des clients n’utilisent qu’un seul service provisionné à un niv
 
 Bien que la plupart des clients utilisent un seul service, une redondance des services peut être nécessaire en cas d’exigences opérationnelles particulières, notamment :
 
-+ Récupération d’urgence (panne du centre de données). La Recherche Azure ne fournit pas de basculement instantané en cas de panne. Pour obtenir de l’aide et des recommandations, consultez la page [Administration des services](search-manage.md).
-+ Vos recherches sur la modélisation d’une architecture mutualisée ont déterminé que des services supplémentaires représentent la conception optimale. Pour plus d’informations, consultez la page [Conception pour une architecture mutualisée](search-modeling-multitenant-saas-applications.md).
-+ Dans le cas d’applications déployées dans le monde entier, vous pouvez avoir besoin de disposer d’une instance de la Recherche Azure dans plusieurs régions afin de réduire la latence du trafic international de votre application.
+* Récupération d’urgence (panne du centre de données). La Recherche Azure ne fournit pas de basculement instantané en cas de panne. Pour obtenir de l’aide et des recommandations, consultez la page [Administration des services](search-manage.md).
+* Vos recherches sur la modélisation d’une architecture mutualisée ont déterminé que des services supplémentaires représentent la conception optimale. Pour plus d’informations, consultez la page [Conception pour une architecture mutualisée](search-modeling-multitenant-saas-applications.md).
+* Dans le cas d’applications déployées dans le monde entier, vous pouvez avoir besoin de disposer d’une instance de la Recherche Azure dans plusieurs régions afin de réduire la latence du trafic international de votre application.
 
 > [!NOTE]
 > Dans la Recherche Azure, vous ne pouvez pas séparer les charges de travail d’indexation et de requête ; par conséquent, il n’est jamais question de créer plusieurs services pour des charges de travail séparées. Un index est toujours interrogé sur le service dans lequel il a été créé (vous ne pouvez pas créer un index dans un service et le copier dans un autre).
->
 
 Il n’est pas nécessaire de disposer d’un second service pour la haute disponibilité. La haute disponibilité des requêtes est atteinte si vous utilisez au moins deux réplicas dans le même service. Les mises à jour des réplicas sont séquentielles, ce qui signifie qu’au moins l’un d’eux est opérationnel lors du déploiement d’une mise à jour de service. Pour plus d’informations sur la disponibilité, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Après avoir approvisionné un service Recherche Azure, vous pouvez rester dans le portail et créer votre premier index.
 
 > [!div class="nextstepaction"]

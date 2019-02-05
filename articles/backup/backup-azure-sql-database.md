@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790163"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224239"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Sauvegarder des bases de données SQL Server sur Azure
 
@@ -129,7 +129,7 @@ Les compromis entre les options sont les suivants : facilité de gestion, contr�
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Définir des autorisations pour les machines virtuelles SQL autres que celles de la Place de marché
 
-Pour sauvegarder une machine virtuelle, Sauvegarde Azure nécessite l’installation de l’extension **AzureBackupWindowsWorkload**. Si vous utilisez des machines virtuelles de la Place de marché Azure, continuez avec [Détecter les bases de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Si la machine virtuelle hébergeant vos bases de données SQL n’a pas été créée à partir de la Place de marché Azure, complétez la section suivante pour installer l’extension et définir les autorisations appropriées. Outre l’extension **AzureBackupWindowsWorkload**, Sauvegarde Azure nécessite des privilèges d’administrateur système SQL pour protéger les bases de données SQL. Lors de la détection des bases de données sur la machine virtuelle, Sauvegarde Azure crée le compte **NT SERVICE\AzureWLBackupPluginSvc**. Ce compte est utilisé pour la sauvegarde et la restauration, et il doit disposer de l’autorisation sysadmin SQL. En outre, Sauvegarde Azure utilise le compte **NT AUTHORITY\SYSTEM** pour la détection/l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL.
+Pour sauvegarder une machine virtuelle, Sauvegarde Azure nécessite l’installation de l’extension **AzureBackupWindowsWorkload**. Si vous utilisez des machines virtuelles de la Place de marché Azure, continuez avec [Détecter les bases de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Si la machine virtuelle hébergeant vos bases de données SQL n’a pas été créée à partir de la Place de marché Azure, complétez la section suivante pour installer l’extension et définir les autorisations appropriées. Outre l’extension **AzureBackupWindowsWorkload**, Sauvegarde Azure nécessite des privilèges d’administrateur système SQL pour protéger les bases de données SQL. Lors de la découverte des bases de données sur la machine virtuelle, la Sauvegarde Azure crée le compte **NT SERVICE\AzureWLBackupPluginSvc**. Ce compte est utilisé pour la sauvegarde et la restauration, et il doit disposer de l’autorisation sysadmin SQL. En outre, Sauvegarde Azure utilise le compte **NT AUTHORITY\SYSTEM** pour la détection/l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL.
 
 Pour configurer des autorisations :
 
@@ -483,7 +483,14 @@ Cette procédure décrit la restauration des données à un autre emplacement. P
 > Vous pouvez restaurer la base de données vers une instance SQL Server dans la même région Azure. Le serveur de destination doit être enregistré auprès du coffre Recovery Services.
 >
 
-Dans le menu **Configuration de restauration**, la liste déroulante **Serveur** affiche uniquement les instances SQL Server enregistrées auprès du coffre Recovery Services. Si le serveur souhaité ne figure pas dans la liste, consultez la section [Détecter les bases de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases) pour rechercher le serveur. Pendant le processus de détection, les nouveaux serveurs sont inscrits auprès du coffre Recovery Services.
+Dans le menu **Configuration de restauration**, la liste déroulante **Serveur** affiche uniquement les instances SQL Server enregistrées auprès du coffre Recovery Services. Si le serveur souhaité ne figure pas dans la liste, consultez la section [Détecter les bases de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases) pour rechercher le serveur. Pendant le processus de détection, les nouveaux serveurs sont inscrits auprès du coffre Recovery Services.<br>
+Pour restaurer une base de données SQL, vous avez besoin des autorisations suivantes :
+
+* Les autorisations **Opérateur de sauvegarde** pour le **coffre** Recovery Services dans lequel vous effectuez la restauration
+* Un accès **Contributeur (écriture)** à la **machine virtuelle SQL source** (la machine virtuelle sauvegardée à partir de laquelle vous souhaitez effectuer une restauration)
+* Un accès **Contributeur (écriture)** à la machine virtuelle SQL cible (la machine virtuelle vers laquelle vous souhaitez effectuer la restauration ; dans le cas d’une récupération OLR (Original Location Recovery), il s’agira de la machine virtuelle source)
+
+Pour restaurer vers un autre emplacement :
 
 1. Dans le menu **Configuration de la restauration** :
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 875548b8277e50ccb813cf6b36541a053abdbb70
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382891"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222063"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrer des serveurs exécutant Windows Server2008 vers Azure
 
@@ -125,7 +125,7 @@ Sélectionnez et vérifiez les ressources cibles.
 La stratégie est automatiquement associée au serveur de configuration.
 
 > [!WARNING]
-> Veillez à spécifier **Désactivé** pour le paramètre de fréquence de capture instantanée de cohérence des applications de la stratégie de réplication. Seuls les points de récupération cohérents d’incident sont pris en charge lors de la réplication de serveurs exécutant Windows Server 2008. La spécification de toute autre valeur pour la fréquence de capture instantanée de cohérence des applications entraîne de fausses alertes en rendant le contrôle d’intégrité de la réplication du serveur critique à défaut de point de récupération cohérent d’application.
+> Veillez à spécifier **Désactivé** pour le paramètre de fréquence de capture instantanée de cohérence des applications de la stratégie de réplication. Seuls les points de récupération cohérents d’incident sont pris en charge lors de la réplication de serveurs exécutant Windows Server 2008. La spécification de toute autre valeur pour la fréquence des captures instantanées de cohérence des applications entraîne de fausses alertes en rendant critique l’intégrité de réplication du serveur en raison d’un manque points de récupération de cohérence d’application.
 
    ![Créer une stratégie de réplication](media/migrate-tutorial-windows-server-2008/create-policy.png)
 

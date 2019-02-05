@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391158"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902158"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutoriel : Branchement des câbles et connexion à une Azure Data Box
 
@@ -50,7 +50,7 @@ Procédez comme suit pour brancher les câbles de l’appareil.
 
 1. Vérifiez que l’appareil n’a pas été endommagé. Si l’appareil est altéré ou gravement endommagé, ne continuez pas. Contactez immédiatement le Support Microsoft pour savoir si vous pouvez utiliser l’appareil ou si Microsoft doit vous envoyer un appareil de remplacement.
 2. Transportez l’appareil à l’emplacement où vous souhaitez le mettre sous tension. Placez l’appareil sur une surface plane. L’appareil peut également être placé sur une étagère de rack standard.
-3. Branchez les câbles d’alimentation et réseau. La vue arrière d’un appareil connecté avec une configuration commune est présentée ci-dessous. 
+3. Branchez les câbles d’alimentation et réseau. La vue arrière d’un appareil connecté avec une configuration commune est présentée ci-dessous. En fonction de votre environnement, vous pouvez choisir d’autres [options de câblage](data-box-cable-options.md).
     
     ![Vue arrière d’une Data Box raccordée](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 

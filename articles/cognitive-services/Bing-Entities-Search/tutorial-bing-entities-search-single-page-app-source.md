@@ -1,23 +1,23 @@
 ---
-title: 'Didacticiel : Recherche d’entités Bing dans une application web à page unique (code source)'
+title: 'Tutoriel : Recherche d’entités Bing dans une application web monopage (code source)'
 titlesuffix: Azure Cognitive Services
 description: Code source du didacticiel expliquant comment utiliser l’API Recherche d’entités Bing dans une application web à page unique.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: 774c61f3a089b2ee54f60d654bb1ef7c251cbdb7
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 6165bca1eff248f15cfce4638a6f9817db550c04
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165031"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156256"
 ---
-# <a name="tutorial-single-page-web-app-source"></a>Tutoriel : Source d’application web à page unique
+# <a name="tutorial-single-page-web-app-source"></a>Tutoriel : Source d’application web monopage
 
 Voici le code source complet indiqué dans le [didacticiel de l’application à page unique](tutorial-bing-entities-search-single-page-app.md) pour Recherche d’entités Bing. Pour exécuter l’application, copiez le code source dans le Bloc-notes ou dans un autre éditeur de texte et enregistrez-le sous `bing.html`. Ouvrez ensuite le fichier enregistré dans Microsoft Edge ou dans un autre navigateur courant.
 

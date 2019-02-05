@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 97b1efbcb02277028782764ca1018b195ab21277
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246362"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158840"
 ---
-# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutoriel : Déployer une application sur Service Fabric Mesh à l’aide d’un modèle
+# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Didacticiel : Déployer une application sur Service Fabric Mesh à l’aide d’un modèle
 
 Ce tutoriel est la première partie d’une série d’étapes. Vous allez apprendre à déployer une application Azure Service Fabric Mesh à l’aide d’un modèle.  L’application est composée d’un service frontal web ASP.NET et d’un service backend d’API web ASP.NET Core, qui se trouvent dans Docker Hub.  Vous tirez (pull) les deux images conteneur de Docker Hub et vous les envoyez (push) vers votre propre registre privé. Ensuite, vous créez un modèle Azure RM pour l’application, puis déployez celle-ci à partir de votre registre de conteneurs sur Service Fabric Mesh. Quand vous avez terminé, vous disposez d’une application simple de liste de tâches qui s’exécute dans Service Fabric Mesh.
 
@@ -109,7 +109,7 @@ Une fois le registre créé, vous voyez une sortie semblable à ce qui suit :
 
 ## <a name="push-the-images-to-azure-container-registry"></a>Envoyer les images vers Azure Container Registry
 
-Ce tutoriel utilise l’exemple d’application de liste de tâches.  Les images conteneur pour les services [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) et [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) se trouvent sur Docker Hub. Pour plus d’informations sur la création de l’application dans Visual Studio, consultez [Créer une application web Servic Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md). Service Fabric Mesh peut exécuter des conteneurs Docker Linux ou Windows.  Si vous utilisez des conteneurs Linux, sélectionnez **Switch to Linux containers** (Basculer vers les conteneurs Linux) dans Docker.  Si vous utilisez des conteneurs Windows, sélectionnez **Switch to Windows containers** (Basculer vers les conteneurs Windows) dans Docker.
+Ce tutoriel utilise l’exemple d’application de liste de tâches.  Les images conteneur pour les services [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) et [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) se trouvent sur Docker Hub. Pour plus d’informations sur la génération de l’application dans Visual Studio, consultez [Générer une application web Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md). Service Fabric Mesh peut exécuter des conteneurs Docker Linux ou Windows.  Si vous utilisez des conteneurs Linux, sélectionnez **Switch to Linux containers** (Basculer vers les conteneurs Linux) dans Docker.  Si vous utilisez des conteneurs Windows, sélectionnez **Switch to Windows containers** (Basculer vers les conteneurs Windows) dans Docker.
 
 Pour envoyer une image vers une instance ACR, vous devez tout d’abord disposer d’une image conteneur. Si vous n’avez pas encore d’images conteneur locales, utilisez la commande [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) pour tirer les images [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) et [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) de Docker Hub.
 

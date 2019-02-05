@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a0b4301177fa1307244a784031ec890b9a20f01a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316180"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099106"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Didacticiel : Ajouter la saisie automatique à votre zone de recherche avec Recherche Azure
 
@@ -60,7 +60,7 @@ Suivez les étapes dans cette section si vous souhaitez importer les données de
 
 ### <a name="running-the-sample"></a>Exécution de l’exemple
 
-Vous êtes maintenant prêt à exécuter l’exemple d'application du didacticiel.  Ouvrez le fichier de solution AutocompleteTutorial.sln dans Visual Studio pour exécuter le didacticiel.  La solution contient un projet ASP.NET MVC.  Appuyez sur F5 pour exécuter le projet et charger la page dans le navigateur de votre choix.  En haut, vous verrez une option qui vous donne le choix entre C# ou JavaScript.  L’option C# effectue un appel dans HomeController à partir du navigateur et utilise le kit de développement logiciel (SDK) .NET Recherche Azure pour récupérer les résultats.  L’option JavaScript appelle l’API REST Recherche Azure directement depuis le navigateur.  Cette option offrira généralement de bien meilleures performances car elle extrait le contrôleur du flux.  Vous pouvez choisir l’option qui répond à vos besoins et à vos préférences de langue.  Il y a plusieurs exemples de saisie semi-automatique sur la page, avec des conseils pour chacun.  Chaque exemple comprend des exemples de texte recommandés que vous pouvez essayer.  Essayez de saisir quelques lettres dans chaque zone de recherche pour voir ce qu’il se passe.
+Vous êtes maintenant prêt à exécuter l’exemple d'application du didacticiel.  Ouvrez le fichier de solution AutocompleteTutorial.sln dans Visual Studio pour exécuter le didacticiel.  La solution contient un projet ASP.NET MVC.  Appuyez sur F5 pour exécuter le projet et charger la page dans le navigateur de votre choix.  En haut, vous verrez une option qui vous donne le choix entre C# ou JavaScript.  L’option C# effectue un appel dans HomeController à partir du navigateur et utilise le kit de développement logiciel (SDK) .NET Recherche Azure pour récupérer les résultats.  L’option JavaScript appelle l’API REST Recherche Azure directement depuis le navigateur.  Cette option offre généralement de bien meilleures performances car elle extrait le contrôleur du flux.  Vous pouvez choisir l’option qui répond à vos besoins et à vos préférences de langue.  Il y a plusieurs exemples de saisie semi-automatique sur la page, avec des conseils pour chacun.  Chaque exemple comprend des exemples de texte recommandés que vous pouvez essayer.  Essayez de saisir quelques lettres dans chaque zone de recherche pour voir ce qu’il se passe.
 
 ## <a name="how-this-works-in-code"></a>Fonctionnement du code
 

@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : URL Preview de projet, JavaScript'
+title: 'Démarrage rapide : Project URL Preview, JavaScript'
 titlesuffix: Azure Cognitive Services
 description: Exemple de script pour la prise en main rapide à l’aide de l’API URL Preview Bing avec JavaScript.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: f36609448819ed197cb92c0bc4d9cc0237fe6df8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 941cdd25eb6f16b580900fed6e41aa4bf8df15f7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466934"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224879"
 ---
-# <a name="quickstart-url-preview-in-javascript"></a>Démarrage rapide : URL Preview dans JavaScript 
+# <a name="quickstart-url-preview-in-javascript"></a>Démarrage rapide : Aperçu d’URL en JavaScript 
 
 L’application suivante sur une seule page utilise JavaScript pour créer un aperçu d’URL pour le site SwiftKey : https://swiftkey.com/en. 
 
@@ -34,7 +34,7 @@ Si la réponse est retournée avec succès, le gestionnaire affecte le texte JSO
 
 **Réponse brute JSON**
 
-````
+```
 {
   "_type": "WebPage",
   "name": "SwiftKey - Smart prediction technology for easier mobile typing",
@@ -46,7 +46,7 @@ Si la réponse est retournée avec succès, le gestionnaire affecte le texte JSO
   }
 }
 
-````
+```
 
 **La démonstration en cours d’exécution**
 

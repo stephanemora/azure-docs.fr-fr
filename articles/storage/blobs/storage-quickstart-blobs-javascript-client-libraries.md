@@ -9,17 +9,17 @@ ms.service: storage
 ms.author: tamram
 ms.date: 11/14/2018
 ms.topic: quickstart
-ms.component: blobs
-ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.subservice: blobs
+ms.openlocfilehash: a5433284d9722ce907b962be7ba437ef32ad819c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711480"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245370"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Démarrage rapide : Télécharger, répertorier et supprimer des objets blob à l’aide de JavaScript/HTML dans le navigateur
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Démarrage rapide : Charger, lister et supprimer des objets blob à l’aide de JavaScript/HTML dans le navigateur
 
 Ce guide de démarrage rapide explique comment gérer des objets blob à partir d’un code s’exécutant entièrement dans le navigateur. L’approche utilisée ici montre comment utiliser des mesures de sécurité requises pour sécuriser l’accès à votre compte de stockage Blob. Pour suivre ce guide de démarrage rapide, vous devez disposer d’un [abonnement Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -80,7 +80,7 @@ Vous trouverez peut-être la série de valeurs après chaque paramètre un peu d
 
 | Paramètre        | Valeur   | Description  |
 |------------------|---------|---------|
-| *permissions*    | racwdl  | Cette SAP permet de *lire*, d’*ajouter*, de *créer*, d’*écrire*, de *supprimer* et de *répertorier* les fonctionnalités. |
+| *autorisations*    | racwdl  | Cette SAP permet de *lire*, d’*ajouter*, de *créer*, d’*écrire*, de *supprimer* et de *répertorier* les fonctionnalités. |
 | *resource-types* | sco     | Les ressources affectées par la SAP sont *service*, *conteneur* et *objet*. |
 | *services*       | b       | Le service affecté par la SAP est le service d’*objets BLOB*. |
 
@@ -251,7 +251,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > Pour que cet exemple de code fonctionne, vous devez fournir une valeur de chaîne pour *blobName*.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Pour supprimer les ressources créées au cours de ce démarrage rapide, revenez au [portail Azure](https://portal.azure.com) et sélectionnez votre compte de stockage. Une fois sélectionné, vous pouvez supprimer le compte de stockage en accédant à : **Vue d’ensemble > Supprimer le compte de stockage**.
+Pour supprimer les ressources créées au cours de ce démarrage rapide, revenez au [portail Azure](https://portal.azure.com) et sélectionnez votre compte de stockage. Une fois sélectionné, vous pouvez supprimer le compte de stockage en accédant à **Vue d’ensemble > Supprimer le compte de stockage**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Explorez les exemples pour savoir comment télécharger des objets BLOB et suivre la progression lors du téléchargement des fichiers.

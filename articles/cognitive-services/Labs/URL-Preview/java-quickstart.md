@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : URL Preview de projet, Java'
+title: 'Démarrage rapide : Project URL Preview, Java'
 titlesuffix: Azure Cognitive Services
 description: Exemple de script pour la prise en main en utilisant URL Preview Project avec Java.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: cdbed473af04b7a0ba0fd2bba56219d43bf72537
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cfc0cd690c040ed912281be081daffd26566bd4d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465710"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209122"
 ---
-# <a name="quickstart-url-preview-with-java"></a>Démarrage rapide : URL Preview avec Java
+# <a name="quickstart-url-preview-with-java"></a>Démarrage rapide : URL Preview avec Java
 
 L’exemple Java suivant crée un aperçu d’Url pour le site web de SwiftKey : https://swiftkey.com/en.
 
@@ -29,7 +29,7 @@ Obtenir une clé d’accès pour l’essai gratuit [Cognitive Services Labs](htt
 
 Le code suivant crée un `WebRequest`, définit l’en-tête de clé d’accès et ajoute une chaîne de requête pour « https://swiftkey.com/en ».  Ensuite, il envoie la requête et affecte la réponse à une chaîne devant contenir le texte JSON.
 
-````
+```
     // construct URL of search request (endpoint + query string)
 
     static String host = "https://api.labs.cognitive.microsoft.com";
@@ -47,7 +47,7 @@ Le code suivant crée un `WebRequest`, définit l’en-tête de clé d’accès 
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>Code complet
 
@@ -58,7 +58,7 @@ L’API Bing Answer Search retourne des résultats à partir du moteur de recher
 4. Remplacez la valeur subscriptionKey par une clé d’accès valide pour votre abonnement.
 5. Exécutez le programme.
 
-````
+```
 package UrlPreviewpkg;
 
 import java.net.*;
@@ -165,7 +165,7 @@ class SearchResults{
  }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide C#](csharp.md)

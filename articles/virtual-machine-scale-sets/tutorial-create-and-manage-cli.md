@@ -3,7 +3,7 @@ title: 'Didacticiel : créer et gérer un groupe de machines virtuelles identiqu
 description: Découvrez comment utiliser Azure CLI pour créer un groupe de machines virtuelles identiques, et effectuer certaines tâches de gestion courantes comme le démarrage et l’arrêt d’une instance, ou la modification de la capacité du groupe identique.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 263a2ddd1cf42348678488a02ed0b97a7ed1304c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466135"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179478"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et gérer un groupe de machines virtuelles identiques avec Azure CLI
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et gérer un groupe de machines virtuelles identiques avec Azure CLI
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -51,7 +51,7 @@ Le nom du groupe de ressources est spécifié lorsque vous créez ou modifiez un
 
 
 ## <a name="create-a-scale-set"></a>Créer un groupe identique
-Vous créez un groupe de machines virtuelles identiques avec la commande [az vmss create](/cli/azure/vmss#az_vmss_create). L’exemple suivant crée un groupe identique nommé *myScaleSet*, et génère des clés SSH si elles n’existent pas :
+Vous créez un groupe de machines virtuelles identiques avec la commande [az vmss create](/cli/azure/vmss). L’exemple suivant crée un groupe identique nommé *myScaleSet*, et génère des clés SSH si elles n’existent pas :
 
 ```azurecli-interactive
 az vmss create \
@@ -98,7 +98,7 @@ az vmss get-instance-view \
 ## <a name="list-connection-information"></a>Obtenir les informations de connexion
 Une adresse IP publique est assignée à l’équilibreur de charge qui achemine le trafic vers les instances de machine virtuelle individuelles. Par défaut, des règles de traduction d’adresses réseau (NAT) sont ajoutées à l’équilibreur de charge Azure qui transfère le trafic de connexion distant vers chaque machine virtuelle sur un port donné. Pour vous connecter aux instances de machine virtuelle d’un groupe identique, vous devez créer une connexion distante vers une adresse IP publique et un numéro de port assignés.
 
-Pour obtenir l’adresse et les ports à connecter aux instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) :
+Pour obtenir l’adresse et les ports à connecter aux instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss list-instance-connection-info](/cli/azure/vmss) :
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -192,7 +192,7 @@ Une taille d’instance de machine virtuelle, ou *référence SKU*, détermine l
 ### <a name="vm-instance-sizes"></a>Taille des instances de machine virtuelle
 Le tableau suivant classe les tailles courantes de machine virtuelle en fonction des cas d’usage.
 
-| type                     | Tailles courantes           |    Description       |
+| Type                     | Tailles courantes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Usage général](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Ratio processeur/mémoire équilibré. Idéale pour le développement/test et pour les petites et moyennes applications et solutions de données.  |
 | [Optimisé pour le calcul](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | Ratio processeur/mémoire élevé. Convient pour les applications au trafic moyen, les appliances réseau et les processus de traitement par lots.        |
@@ -202,7 +202,7 @@ Le tableau suivant classe les tailles courantes de machine virtuelle en fonction
 | [Hautes performances](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | Nos machines virtuelles dotées des processeurs les plus puissants avec interfaces réseau haut débit en option (RDMA). 
 
 ### <a name="find-available-vm-instance-sizes"></a>Rechercher des tailles d’instance de machine virtuelle disponibles
-Pour afficher la liste des tailles d’instance de machine virtuelle disponibles dans une région particulière, utilisez la commande [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes).
+Pour afficher la liste des tailles d’instance de machine virtuelle disponibles dans une région particulière, utilisez la commande [az vm list-sizes](/cli/azure/vm).
 
 ```azurecli-interactive
 az vm list-sizes --location eastus --output table
@@ -227,7 +227,7 @@ La sortie est semblable à l’exemple condensé suivant qui présente les resso
 ```
 
 ### <a name="create-a-scale-set-with-a-specific-vm-instance-size"></a>Créer un groupe identique avec une taille d’instance de machine virtuelle spécifique
-Lorsque vous avez créé un groupe identique au début de ce didacticiel, une valeur de référence SKU de la machine virtuelle par défaut *Standard_D1_v2* a été fournie pour les instances de machine virtuelle. Vous pouvez spécifier une taille d’instance de machine virtuelle différente en fonction de la sortie de la commande [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). L’exemple suivant crée un groupe identique avec le paramètre `--vm-sku` afin de spécifier une taille d’instance de machine virtuelle *Standard_F1*. Comme la création et la configuration de toutes les ressources et les instances de machine virtuelle du groupe identique prennent quelques minutes, il est inutile de déployer le groupe identique suivant :
+Lorsque vous avez créé un groupe identique au début de ce didacticiel, une valeur de référence SKU de la machine virtuelle par défaut *Standard_D1_v2* a été fournie pour les instances de machine virtuelle. Vous pouvez spécifier une taille d’instance de machine virtuelle différente en fonction de la sortie de la commande [az vm list-sizes](/cli/azure/vm). L’exemple suivant crée un groupe identique avec le paramètre `--vm-sku` afin de spécifier une taille d’instance de machine virtuelle *Standard_F1*. Comme la création et la configuration de toutes les ressources et les instances de machine virtuelle du groupe identique prennent quelques minutes, il est inutile de déployer le groupe identique suivant :
 
 ```azurecli-interactive
 az vmss create \
@@ -241,7 +241,7 @@ az vmss create \
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Modifier la capacité d’un groupe identique
-Lorsque vous avez créé un groupe identique au début de ce didacticiel, deux instances de machine virtuelle ont été déployées par défaut. Vous pouvez spécifier le paramètre `--instance-count` avec la commande [az vmss create](/cli/azure/vmss#az_vmss_create) pour modifier le nombre d’instances créées avec un groupe identique. Pour augmenter ou diminuer le nombre d’instances de machine virtuelle dans votre groupe identique existant, vous pouvez modifier manuellement la capacité. Le groupe identique crée ou supprime le nombre requis d’instances de machine virtuelle, puis configure l’équilibreur de charge pour distribuer le trafic.
+Lorsque vous avez créé un groupe identique au début de ce didacticiel, deux instances de machine virtuelle ont été déployées par défaut. Vous pouvez spécifier le paramètre `--instance-count` avec la commande [az vmss create](/cli/azure/vmss) pour modifier le nombre d’instances créées avec un groupe identique. Pour augmenter ou diminuer le nombre d’instances de machine virtuelle dans votre groupe identique existant, vous pouvez modifier manuellement la capacité. Le groupe identique crée ou supprime le nombre requis d’instances de machine virtuelle, puis configure l’équilibreur de charge pour distribuer le trafic.
 
 Pour augmenter ou diminuer manuellement le nombre d’instances de machine virtuelle dans le groupe identique, utilisez la commande [az vmss scale](/cli/azure/vmss#az_vmss_scale). L’exemple suivant fixe le nombre d’instances de machine virtuelle présentes dans votre groupe identique à *3* :
 

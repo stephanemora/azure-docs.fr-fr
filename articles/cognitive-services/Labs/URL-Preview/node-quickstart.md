@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : URL Preview de projet, Node.js'
+title: 'Démarrage rapide : Project URL Preview, Node.js'
 titlesuffix: Azure Cognitive Services
 description: Prise en main avec l’aperçu d’URL dans Microsoft Cognitive Services.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 3367b39333c9d7334bc56b3acdf00453cc9705c0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 33bc6cd74dc0dd61f727a7ebcbbfc1d0bb85506f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465047"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209075"
 ---
-# <a name="quickstart-url-preview-with-nodejs"></a>Démarrage rapide : URL Preview avec Node.js 
+# <a name="quickstart-url-preview-with-nodejs"></a>Démarrage rapide : URL Preview avec Node.js 
 
 L’exemple Node suivant crée un aperçu d’Url pour le site web de SwiftKey : https://swiftkey.com/en.
 
@@ -37,7 +37,7 @@ Il est implémenté lors des étapes suivantes :
 
 Voici le code complet pour cette démonstration :
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -83,7 +83,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Exemple de code C#](csharp.md)

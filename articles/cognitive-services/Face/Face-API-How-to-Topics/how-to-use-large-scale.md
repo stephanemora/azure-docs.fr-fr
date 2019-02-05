@@ -1,23 +1,23 @@
 ---
-title: 'Exemple : Utiliser la fonctionnalité de grande échelle - API Visage'
+title: 'Exemple : Utiliser la fonctionnalité de grande échelle - API Visage'
 titleSuffix: Azure Cognitive Services
 description: Utilisez la fonctionnalité de grande échelle dans l’API Visage.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e8bbf78da84ddb77ce956e37f91be46e96144991
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9289f7178a6e285b447041937f191d283fc2f2f0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123077"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222896"
 ---
-# <a name="example-how-to-use-the-large-scale-feature"></a>Exemple : Comment utiliser la fonctionnalité de grande échelle
+# <a name="example-how-to-use-the-large-scale-feature"></a>Exemple : Guide pratique pour utiliser la fonctionnalité de grande échelle
 
 Ce guide est un article avancé sur la migration du code en vue d’une mise à l’échelle de PersonGroup et FaceList vers LargePersonGroup et LargeFaceList, respectivement.
 Il explique le processus de migration en partant du principe que vous savez comment utiliser PersonGroup et FaceList.
@@ -39,13 +39,13 @@ Toutefois, l’inconvénient est que les nouvelles personnes et les nouveaux vis
 
 Si vous ne connaissez pas bien les concepts suivants utilisés dans ce guide, les définitions sont accessibles dans le [glossaire](../Glossary.md) :
 
-- LargePersonGroup : Collection de personnes avec une capacité allant jusqu’à 1 000 000.
-- LargeFaceList : Collection de visages avec une capacité allant jusqu’à 1 000 000.
-- Entraîner : Processus préliminaire destiné à garantir les performances d’Identification/FindSimilar.
-- Identification : Identifier un ou plusieurs visages d’un PersonGroup ou LargePersonGroup.
-- FindSimilar : Rechercher des visages similaires à partir d’une FaceList ou LargeFaceList.
+- LargePersonGroup : collection de personnes allant jusqu’à 1 000 000.
+- LargeFaceList : collection de visages allant jusqu’à 1 000 000.
+- Entraînement : processus préliminaire destiné à garantir les performances pour Identification/FindSimilar.
+- Identification : identifiez un ou plusieurs visages d’un PersonGroup ou LargePersonGroup.
+- FindSimilar : recherchez des visages similaires à partir d’un FaceList ou LargeFaceList.
 
-## <a name="step-1-authorize-the-api-call"></a>Étape 1 : Autoriser l’appel d’API
+## <a name="step-1-authorize-the-api-call"></a>Étape 1 : Autoriser l’appel d’API
 
 Quand vous utilisez la bibliothèque cliente de l’API Visage, la clé d’abonnement et le point de terminaison d’abonnement sont transmis par le biais du constructeur de la classe FaceServiceClient. Par exemple : 
 
@@ -59,14 +59,14 @@ FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, Sub
 La clé d’abonnement avec le point de terminaison correspondant peut être obtenue à partir de la page Place de Marché du portail Azure.
 Consultez la page sur les [abonnements](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
-## <a name="step-2-code-migration-in-action"></a>Étape 2 : Migration du code
+## <a name="step-2-code-migration-in-action"></a>Étape 2 : Migration de code en action
 
 Cette section est axée uniquement sur la migration de l’implémentation de PersonGroup/FaceList vers LargePersonGroup/LargeFaceList.
 Bien que LargePersonGroup/LargeFaceList diffèrent de PersonGroup/FaceList en termes de conception et d’implémentation interne, les interfaces d’API sont similaires pour des raisons de compatibilité descendante.
 
 La migration des données n’étant pas prise en charge, vous devez recréer le LargePersonGroup/LargeFaceList.
 
-## <a name="step-21-migrate-persongroup-to-largepersongroup"></a>Étape 2.1 : Migrer PersonGroup vers LargePersonGroup
+## <a name="step-21-migrate-persongroup-to-largepersongroup"></a>Étape 2.1 : Migrer PersonGroup vers LargePersonGroup
 
 La migration de PersonGroup vers LargePersonGroup est fluide car ils partagent exactement les mêmes opérations au niveau du groupe.
 
@@ -74,7 +74,7 @@ Pour l’implémentation liée à PersonGroup/Person, il est uniquement nécessa
 
 Pour obtenir des informations de référence en termes de migration des données, consultez [Guide pratique pour ajouter des visages](how-to-add-faces.md).
 
-## <a name="step-22-migrate-facelist-to-largefacelist"></a>Étape 2.2 : Migrer FaceList vers LargeFaceList
+## <a name="step-22-migrate-facelist-to-largefacelist"></a>Étape 2.2 : Migrer FaceList vers LargeFaceList
 
 | API FaceList | API LargeFaceList |
 |:---:|:---:|
@@ -226,7 +226,7 @@ Le tableau suivant fournit une estimation du temps d’entraînement à différe
 
 Pour mieux utiliser la fonctionnalité de grande échelle, nous vous recommandons d’appliquer certaines stratégies.
 
-## <a name="step-31-customize-time-interval"></a>Étape 3.1 : Personnaliser l’intervalle de temps
+## <a name="step-31-customize-time-interval"></a>Étape 3.1 : Personnaliser l’intervalle de temps
 
 Comme indiqué dans `TrainLargeFaceList()`, il existe un `timeIntervalInMilliseconds` afin de retarder le processus de vérification d’état d’entraînement infini.
 Pour LargeFaceList avec davantage de visages, l’utilisation d’un intervalle plus élevé permet de réduire le nombre et le coût des appels.

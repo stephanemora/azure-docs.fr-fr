@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Utiliser le kit de développement logiciel de l’API Recherche Web Bing pour Java'
+title: 'Démarrage rapide : Utiliser le kit SDK Recherche Web Bing pour Java'
 titleSuffix: Azure Cognitive Services
 description: Le kit de développement logiciel de l’API Recherche Web Bing simplifie l’intégration de l’API dans votre application Java. Dans ce démarrage rapide, vous allez apprendre à envoyer une requête, recevoir une réponse JSON et filtrer et analyser les résultats.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: aahi
-ms.openlocfilehash: 8883a312bf6da4167936e844e75047ae40cac9f3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f73856d77c2d3c6d8d4006d4654d2aa836c6c4cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309301"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158211"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Démarrage rapide : Utiliser le kit de développement logiciel de l’API Recherche Web Bing pour Java
+# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Démarrage rapide : Utiliser le kit SDK Recherche Web Bing pour Java
 
 Le kit de développement logiciel de l’API Recherche Web Bing simplifie l’intégration de l’API dans votre application Java. Dans ce démarrage rapide, vous allez apprendre à envoyer une requête, recevoir une réponse JSON et filtrer et analyser les résultats.
 

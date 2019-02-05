@@ -5,18 +5,18 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0e4c21a064cdb0a60aef49482eee4b768112b899
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344572"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216419"
 ---
-# <a name="tutorial-create-a-custom-acoustic-model"></a>Tutoriel : Créer un modèle acoustique personnalisé
+# <a name="tutorial-create-a-custom-acoustic-model"></a>Didacticiel : Créer un modèle acoustique personnalisé
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
@@ -48,7 +48,7 @@ Par exemple :
 <a name="Preparing data to customize the acoustic model"></a>
 *   Si vous vous intéressez à l’optimisation des performances pour un seul locuteur, vous pouvez par exemple transcrire tous les Fireside Chats de Franklin D. Roosevelt. Les fichiers audio doivent dans ce cas être constitués de nombreux exemples exclusivement de ce locuteur.
 
-Un jeu de données acoustiques pour personnaliser le modèle acoustique se compose de deux parties : (1) un ensemble de fichiers audio contenant les données vocales et (2) un fichier contenant les transcriptions de tous les fichiers audio.
+Un jeu de données acoustiques permettant de personnaliser le modèle acoustique se compose de deux parties : (1) un ensemble de fichiers audio contenant les données vocales et (2) un fichier contenant les transcriptions de tous les fichiers audio.
 
 ### <a name="audio-data-recommendations"></a>Recommandations pour les données audio
 

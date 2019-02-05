@@ -3,7 +3,7 @@ title: 'Didacticiel : créer un pipeline de développement dans Azure avec Jenki
 description: 'Didacticiel : avec ce didacticiel, vous allez apprendre à créer une machine virtuelle Jenkins dans Azure, qui fait des extractions à partir de GitHub à chaque validation de code et génère un nouveau conteneur Docker pour exécuter votre application.'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1a29d58ca96793c44878a6755cc74edeab6a7c4b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 694448f6e3c788c0c9d336e75d5df579b90137df
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470844"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189865"
 ---
-# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Didacticiel : créer une infrastructure de développement sur une machine virtuelle Linux dans Azure avec Jenkins, GitHub et Docker
+# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutoriel : Créer une infrastructure de développement sur une machine virtuelle Linux dans Azure avec Jenkins, GitHub et Docker
 
 Pour automatiser les phases de création et de test du développement de l’application, vous pouvez utiliser un pipeline d’intégration et de déploiement continus (CI/CD). Dans ce didacticiel, vous créez un pipeline CI/CD sur une machine virtuelle Azure et apprenez notamment comment :
 
@@ -75,7 +75,7 @@ Pour pouvoir créer une machine virtuelle, vous devez créer un groupe de ressou
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Créez maintenant une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). Utilisez le paramètre `--custom-data` à transmettre dans votre fichier de configuration cloud-init. Indiquez le chemin complet vers *cloud-init-jenkins.txt* si vous avez enregistré le fichier en dehors de votre répertoire de travail actuel.
+Créez maintenant une machine virtuelle avec la commande [az vm create](/cli/azure/vm). Utilisez le paramètre `--custom-data` à transmettre dans votre fichier de configuration cloud-init. Indiquez le chemin complet vers *cloud-init-jenkins.txt* si vous avez enregistré le fichier en dehors de votre répertoire de travail actuel.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \

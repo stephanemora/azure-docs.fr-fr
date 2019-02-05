@@ -1,23 +1,23 @@
 ---
-title: 'Exemple : Détecter les visages dans une image - API Visage'
+title: 'Exemple : Détecter les visages dans une image - API Visage'
 titleSuffix: Azure Cognitive Services
 description: Utilisez l’API Visage pour détecter les visages d’une image.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a4c74ff70a4426abf97562bf997479a91afbf17a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8c89a43910a5e98286a82de8626870d3aec55b94
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124046"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214209"
 ---
-# <a name="example-how-to-detect-faces-in-image"></a>Exemple : Comment détecter des visages dans une image
+# <a name="example-how-to-detect-faces-in-image"></a>Exemple : Comment détecter des visages dans une image
 
 Ce guide va vous montrer comment détecter des visages sur une image, grâce à l’extraction d’attributs tels que le sexe, l’âge ou la posture. Les exemples sont écrits en C# à l’aide de la bibliothèque de client de l’API Visage. 
 
@@ -40,7 +40,7 @@ Dans cet exemple, nous illustrons les fonctionnalités suivantes :
 
 Pour exécuter ces fonctionnalités, vous devez préparer une image avec au moins un visage net. 
 
-## <a name="step-1-authorize-the-api-call"></a>Étape 1 : Autoriser l’appel d’API
+## <a name="step-1-authorize-the-api-call"></a>Étape 1 : Autoriser l’appel d’API
 
 Chaque appel de l’API Visage nécessite une clé d’abonnement. Cette clé doit être transmise par le biais d’un paramètre de chaîne de requête ou spécifiée dans l’en-tête de requête. Pour transmettre la clé d’abonnement dans une chaîne de requête, reportez-vous à l’URL de demande pour [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) en guise d’exemple :
 
@@ -49,7 +49,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription Key>
 ```
 
-Une alternative consiste à spécifier la clé d’abonnement dans l’en-tête de demande HTTP : **ocp-apim-subscription-key: &lt;clé d’abonnement&gt;**. En cas d’utilisation d’une bibliothèque cliente, la clé d’abonnement est transmise dans le constructeur de la classe FaceServiceClient. Par exemple : 
+Vous pouvez également spécifier la clé d’abonnement dans l’en-tête de requête HTTP : **ocp-apim-subscription-key: &lt;Clé d’abonnement&gt;** Quand vous utilisez une bibliothèque de client, la clé d’abonnement est passée via le constructeur de la classe FaceServiceClient. Par exemple : 
 ```CSharp
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
@@ -145,7 +145,7 @@ Vector faceDirection = new Vector(
 
 En connaissant la direction du visage, vous pouvez ainsi faire pivoter le cadre rectangulaire pour l’aligner avec le visage. Il apparaît clairement que les points de repère du visage peuvent apporter davantage de détails et avoir plusieurs utilités.
 
-## <a name="step-4-using-other-face-attributes"></a>Étape 4 : Utiliser d’autres attributs du visage
+## <a name="step-4-using-other-face-attributes"></a>Étape 4 : Utilisation d’autres attributs du visage
 
 En plus des points de repère de visage, l’API Visage- Détecter peut également analyser plusieurs autres attributs d’un visage. Ces attributs incluent :
 
@@ -193,4 +193,4 @@ Pour plus d’informations sur les API, veuillez consulter le guide de référen
 
 ## <a name="related-topics"></a>Rubriques connexes
 
-[How to identify faces in images](HowtoIdentifyFacesinImage.md) (Comment identifier les visages dans l’image)
+[Guide pratique pour identifier des visages dans une image](HowtoIdentifyFacesinImage.md)

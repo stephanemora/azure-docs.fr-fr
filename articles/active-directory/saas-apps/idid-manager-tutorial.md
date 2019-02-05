@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/11/2019
+ms.date: 1/25/2019
 ms.author: jeedes
-ms.openlocfilehash: baf78fc0bc0941c9466f77a77ef922f3fe3d62b3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a12a0b383db63cc80aea045ca5afe6c75b0b83a9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823026"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100017"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Tutoriel : Intégration d’Azure Active Directory à iDiD Manager
+# <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Didacticiel : Intégration d’Azure Active Directory à iDiD Manager
 
 L’objectif de ce tutoriel est de vous apprendre à intégrer iDiD Manager à Azure Active Directory (Azure AD).
 L’intégration d’iDiD Manager à Azure AD vous offre les avantages suivants :
@@ -70,10 +70,10 @@ Pour configurer l’intégration d’iDiD Manager à Azure AD, vous devez ajoute
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec [Nom de l’application] sur un utilisateur de test nommé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur [Nom de l’application] associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec iDiD Manager, à l’aide d’un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, l’utilisateur Azure AD et l’utilisateur iDiD Manager, doivent être associés.
 
-Pour configurer et tester l’authentification unique Azure AD avec [Nom de l’application], vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique d’Azure AD avec iDiD Manager, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique iDiD Manager](#configure-idid-manager-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
@@ -86,7 +86,7 @@ Pour configurer et tester l’authentification unique Azure AD avec [Nom de l�
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-Pour configurer l’authentification unique Azure AD avec [Nom de l’application], procédez comme suit :
+Pour configurer l’authentification unique Azure AD avec iDiD Manager, effectuez les étapes suivantes :
 
 1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **iDiD Manager**, sélectionnez **Authentification unique**.
 
@@ -100,18 +100,20 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode démarré par le **fournisseur de services** :
+4. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.
 
-    ![Informations d’authentification unique dans Domaine et URL iDiD Manager](common/both-preintegrated-signon.png)
+    ![Informations d’authentification unique dans Domaine et URL iDiD Manager](common/preintegrated.png)
 
-    a. Cliquez sur **Définir des URL supplémentaires**.
+5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    b. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://idid2.fi/saml/login/<domain>`.
+    ![Informations d’authentification unique dans Domaine et URL iDiD Manager](common/metadata-upload-additional-signon.png)
+
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://idid2.fi/saml/login/<domain>`
 
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique iDiD Manager](mailto:support@idid.fi). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
+6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
@@ -187,3 +189,4 @@ Le fait de cliquer sur la vignette iDiD Manager dans le panneau d’accès doit 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

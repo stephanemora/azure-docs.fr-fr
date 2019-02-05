@@ -6,44 +6,53 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 158c2a8919bccea03f5c7b67aef23cd07022c259
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358556"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900508"
 ---
-# <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutoriel : Retourner l’appareil Azure Data Box et vérifier le chargement des données dans Azure
+# <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Didacticiel : Retourner l’appareil Azure Data Box et vérifier le chargement des données dans Azure
 
 Ce didacticiel vous explique comment retourner l’appareil Azure Data Box et vérifier le chargement des données dans Azure.
 
 Ce didacticiel fournit des informations sur les sujets suivants :
 
 > [!div class="checklist"]
+> * Prérequis
+> * Préparer l’expédition
 > * Expédier la Data Box à Microsoft
 > * Vérifier le chargement des données dans Azure
 > * Effacer les données de la Data Box
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, vérifiez que vous avez suivi le [tutoriel : Copier des données sur Azure Data Box et procéder à une vérification](data-box-deploy-copy-data.md).
+Avant de commencer, vérifiez les points suivants :
+
+- Vous avez suivi le [Tutoriel : Copier des données sur Azure Data Box et procéder à une vérification](data-box-deploy-copy-data.md). 
+- Les tâches de copie sont terminées. La préparation de l’expédition ne peut pas s’effectuer si les tâches de copie sont en cours d’exécution.
+
+## <a name="prepare-to-ship"></a>Préparer l’expédition
+
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
 ## <a name="ship-data-box-back"></a>Renvoyer la Data Box
 
 1. Assurez-vous que l’appareil est hors tension et que les câbles sont débranchés. Enroulez le cordon d’alimentation fourni avec la Data Box et fixez-le à l’arrière de l’appareil.
-2. Si l’appareil est expédié aux États-Unis, assurez-vous que l’étiquette d’expédition est affichée sur l’écran E-ink et planifiez l’enlèvement avec votre transporteur. Si l’étiquette a été endommagée, perdue, ou qu’elle n’est pas affichée sur l’écran E-ink, téléchargez l’étiquette d’expédition à partir du Portail Azure et collez-la sur l’appareil. Accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition**. 
+2. Si l’appareil est expédié aux États-Unis, assurez-vous que l’étiquette d’expédition est affichée sur l’écran E-ink et planifiez l’enlèvement avec votre transporteur. Si l’étiquette est endommagée, perdue ou qu’elle n’est pas affichée sur l’écran E-ink, accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition** dans le portail Azure. Téléchargez l’étiquette d’expédition et collez-la sur l’appareil.
 
     Si l’appareil est prévu pour fonctionner en Europe, l’écran E-ink n’affiche pas l’étiquette d’expédition. Au lieu de cela, l’étiquette d’expédition de retour est incluse dans la pochette transparente sous l’étiquette d’expédition. Supprimez l’ancienne étiquette d’expédition et vérifiez que l’étiquette d’expédition de retour est clairement visible.
     
-3. Planifiez une date d’enlèvement avec UPS en cas de renvoi de l’appareil. Pour planifier une date d’enlèvement, appelez le service UPS local (numéro vert propre au pays) ou déposez l’appareil Data Box au dépôt le plus proche.
+3. Planifiez une date d’enlèvement avec UPS en cas de renvoi de l’appareil. Pour planifier une date d’enlèvement, appelez le service UPS local (numéro vert propre au pays) ou déposez l’appareil Data Box à l’emplacement de dépôt le plus proche.
 
 4. Une fois que la Data Box a été scannée et récupérée par le transporteur, l’état de la commande dans le portail affiche **Récupérée**. Un ID de suivi s’affiche également.
 
 ## <a name="verify-data-upload-to-azure"></a>Vérifier le chargement des données dans Azure
 
-Lorsque Microsoft reçoit et analyse l’appareil, l’état de la commande est mis à jour sur **Reçue**. L’appareil subit une vérification physique afin de détecter des dommages ou des signes d’altération potentiels. 
+Lorsque Microsoft reçoit et analyse l’appareil, l’état de la commande est mis à jour sur **Reçue**. L’appareil subit une vérification physique afin de détecter des dommages ou des signes d’altération potentiels.
 
 Une fois la vérification terminée, la Data Box est connectée au réseau du centre de données Azure. La copie des données démarre automatiquement. Selon la taille des données, l’opération de copie peut prendre de quelques heures à quelques jours. Vous pouvez suivre la progression du travail de copie dans le portail.
 
@@ -65,6 +74,8 @@ Une fois que le chargement des données vers Azure est terminé, la Data Box eff
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
+> * Prérequis
+> * Préparer l’expédition
 > * Expédier la Data Box à Microsoft
 > * Vérifier le chargement des données dans Azure
 > * Effacer les données de la Data Box

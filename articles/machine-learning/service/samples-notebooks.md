@@ -4,93 +4,56 @@ titleSuffix: Azure Machine Learning service
 description: Recherchez des exemples de notebooks Jupyter pour explorer Azure Machine Learning service en Python.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6befe3a3fee80dd65fd3ac5be241c558707224e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 5ba555ad31545e1ae1aa822ec58b0bd22ef486ac
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811092"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295149"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Utiliser des notebooks Jupyter pour explorer Azure Machine Learning service
-
 
 Par souci pratique, nous avons développé une série de notebooks Jupyter Python que vous pouvez utiliser pour explorer Azure Machine Learning service. 
 
 Découvrez comment utiliser le service en suivant la documentation de ce site et personnaliser les notebooks en fonction de vos besoins. 
 
-## <a name="prerequisite"></a>Configuration requise
+Utilisez l’un des chemins ci-dessous pour exécuter un serveur de notebooks avec ces exemples de notebooks.  Une fois que le serveur est en cours d’exécution, recherchez des notebooks de tutoriels dans le dossier des **tutoriels** ou explorez les différentes fonctionnalités dans le dossier **how-to-utilisation-azureml**.
 
-Suivez le [guide de démarrage rapide Azure Machine Learning Python](quickstart-get-started.md) pour créer un espace de travail et lancer Azure Notebooks.
 
 ## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Essayez Azure Notebooks : Notebooks Jupyter gratuits dans le cloud
 
 La prise en main d’Azure Notebooks est simple. Le [kit SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) est déjà installé et configuré dans [Azure Notebooks](https://notebooks.azure.com/). L’installation et les futures mises à jour sont gérées automatiquement par le biais des services Azure.
   
-+ Pour exécuter les **principaux notebooks du tutoriel** :
-  1. Accédez à [Azure Notebooks](https://notebooks.azure.com/).
-    
-  1. Recherchez le dossier **Tutoriels** dans la bibliothèque **Bien démarrer** que vous avez créée comme l’un des prérequis dans le guide de démarrage rapide.
-    
-  1. Ouvrez le notebook que vous souhaitez exécuter.
-    
-+ Pour exécuter d’**autres notebooks** :
-
-  1. [Importez des exemples de notebooks](https://aka.ms/aml-clone-azure-notebooks) dans Azure Notebooks.
-
-  1. Ajoutez un fichier de configuration d’espace de travail à la bibliothèque à l’aide de l’une des méthodes suivantes :
-     + Copiez le fichier **config.json** de la bibliothèque **Bien démarrer** dans la nouvelle bibliothèque clonée.
-
-     + Créez un espace de travail à l’aide du code de [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
-    
-  1. Ouvrez le notebook que vous souhaitez exécuter.     
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
 ## <a name="use-a-data-science-virtual-machine-dsvm"></a>Utiliser Data Science Virtual Machine (DSVM)
 
-Le [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) et le serveur de notebooks sont déjà installés et configurés dans une machine DSVM. Utilisez ces étapes pour exécuter les notebooks.
+Le [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) et le serveur de notebooks sont déjà installés et configurés dans une machine DSVM. 
 
-1. [Créez une machine DSVM](how-to-configure-environment.md#dsvm).
+Après avoir [créé une machine DSVM](how-to-configure-environment.md#dsvm), effectuez les étapes suivantes sur la machine DSVM pour exécuter les notebooks.
 
-1. Clonez le [référentiel GitHub](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-1. Ajoutez un fichier de configuration d’espace de travail à la bibliothèque à l’aide de l’une des méthodes suivantes :
-    * Copiez le fichier **aml_config\config.json** (que vous avez créé comme prérequis dans le guide de démarrage rapide) dans le répertoire cloné.
-
-    * Créez un espace de travail à l’aide du code de [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
-
-1. Démarrez le serveur de blocs-notes de votre répertoire cloné.
 
 ## <a name="use-your-own-jupyter-notebook-server"></a>Utiliser votre propre serveur de notebooks Jupyter
 
 Utilisez ces étapes pour créer une instance locale de serveur de notebooks Jupyter sur votre ordinateur.
 
-1. Suivez l’intégralité du guide de démarrage rapide durant lequel vous avez installé les kits SDK Azure Machine Learning.
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-1. Clonez le [référentiel GitHub](https://aka.ms/aml-notebooks).
+<a name="automated-ml-setup"></a>
 
-1. Ajoutez un fichier de configuration d’espace de travail à la bibliothèque à l’aide de l’une des méthodes suivantes :
-    * Copiez le fichier **aml_config\config.json** (que vous avez créé comme prérequis dans le guide de démarrage rapide) dans le répertoire cloné.
-    
-    * Créez un espace de travail à l’aide du code de [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
+## <a name="automated-machine-learning-setup"></a>Configuration de Machine Learning automatisé 
 
-1. Démarrez le serveur de blocs-notes de votre répertoire cloné.
-
-1. Accédez au dossier qui contient le notebook.
-
-1. Ouvrez le bloc-notes.
-
-<a name="auto"></a>
-
-## <a name="automated-ml-setup"></a>Installation du machine learning automatisé 
-
-**Ces étapes s’appliquent uniquement aux notebooks présents dans le dossier `automated-machine-learning`.**
+_Les étapes suivantes s’appliquent uniquement aux notebooks du dossier **how-to-use-azureml/automated-machine-learning**._
 
 Vous pouvez utiliser l’une des options ci-dessus, ou bien installer l’environnement et créer un espace de travail simultanément, en suivant les instructions ci-dessous. 
 
@@ -106,7 +69,7 @@ Vous pouvez utiliser l’une des options ci-dessus, ou bien installer l’enviro
    
    1. Accédez aux fichiers que vous avez extraits sur votre ordinateur local.
    
-   1. Ouvrez le dossier `automated-machine-learning`.
+   1. Ouvrez le dossier **automated-machine-learning**.
    
    1. Exécutez `automl_setup.cmd` dans l’invite Conda pour Windows, ou le fichier `.sh` pour votre système d’exploitation. L’exécution dure environ 10 minutes.
 
@@ -123,7 +86,7 @@ Vous pouvez utiliser l’une des options ci-dessus, ou bien installer l’enviro
 
 1. Accédez à l’emplacement où vous avez enregistré les notebooks. 
 
-1. Ouvrez le dossier automated-machine-learning, puis ouvrez le notebook `configuration.ipynb`. 
+1. Ouvrez le dossier automated-machine-learning, puis ouvrez le notebook **configuration.ipynb**. 
 
 1. Exécutez les cellules du notebook pour inscrire le fournisseur de ressources Machine Learning Services et créer un espace de travail.
 

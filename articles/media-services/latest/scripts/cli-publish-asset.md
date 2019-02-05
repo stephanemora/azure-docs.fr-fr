@@ -12,26 +12,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 1ce85c18b93f22e9078e551deda74c6e6ff0b28b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: d841c0b62092cb58142a52eed52dc0c32d04c500
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614920"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095489"
 ---
-# <a name="cli-example-publish-an-asset"></a>Exemple CLI : Publier un élément multimédia
+# <a name="cli-example-publish-an-asset"></a>Exemple CLI : Publier un actif multimédia
 
 Le script Azure CLI de cet article montre comment créer un localisateur de diffusion en continu et récupérer les URL de diffusion en continu. 
 
 ## <a name="prerequisites"></a>Prérequis 
 
-- Installez et utilisez l’interface CLI localement. Vous devez avoir Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+[Créer un compte Media Services](../create-account-cli-how-to.md).
 
-    Actuellement, les commandes [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) ne fonctionnent pas toutes dans Azure Cloud Shell. Il est recommandé d’utiliser l’interface CLI localement.
-
-- [Créer un compte Media Services](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Exemple de script
 

@@ -3,18 +3,18 @@ title: Gérer des secrets d’application Azure Service Fabric Mesh | Microsoft 
 description: Gérez les secrets d’application afin de pouvoir créer et déployer une application Service Fabric Mesh de manière sécurisée.
 services: service-fabric-mesh
 keywords: secrets
-author: aljo
+author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: d92726ebc2cd4c6c44afdb2d2a9f53ab5441ac32
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 06d8519836129a557ec69d59d15eb12129e8099b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891869"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236749"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gérer les secrets d’application Service Fabric Mesh
 Service Fabric Mesh prend en charge les secrets comme des ressources Azure. Un secret Service Fabric Mesh peut correspondre à n’importe quel type de texte sensible, comme des chaînes de connexion de stockage, des mots de passe ou d’autres valeurs devant être stockées et transmises de manière sécurisée. Cet article explique comment utiliser le service Banque d’informations sécurisé de Service Fabric pour déployer et gérer des secrets.
@@ -183,7 +183,7 @@ Voici un exemple montrant comment déclarer des ressources Secrets/Valeurs Mesh 
 
 ## <a name="modify-mesh-application-to-reference-mesh-secret-values"></a>Modifier l’application Mesh pour référencer les valeurs de secret Mesh
 Les applications Service Fabric Mesh doivent connaître les deux chaînes suivantes afin de consommer les valeurs de secret du service Banque d’informations sécurisé :
-1. Micrsoft.ServiceFabricMesh/Secrets.name contient le nom du fichier ainsi que la valeur de secret en texte clair.
+1. Microsoft.ServiceFabricMesh/Secrets.name contient le nom du fichier ainsi que la valeur de secret en texte clair.
 2. La variable d’environnement « Fabric_SettingPath » Windows ou Linux contient le chemin du répertoire où les fichiers contenant les valeurs de secret du service Banque d’informations sécurisé seront accessibles. Il s’agit de « C:\Settings » pour les applications Mesh hébergées dans Windows, et de « /var/settings » pour les applications Mesh hébergées dans Linux.
 
 ## <a name="deploy-or-use-a-rolling-upgrade-for-mesh-application-to-consume-secret-values"></a>Déployer ou effectuer une mise à niveau propagée de l’application Mesh pour consommer les valeurs de secret

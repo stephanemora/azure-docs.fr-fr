@@ -1,5 +1,5 @@
 ---
-title: Analyser des vidéos avec Azure Media Services | Microsoft Docs
+title: Analyser des vidéos avec Media Services à l’aide de .NET - Azure | Microsoft Docs
 description: Suivez les étapes de ce didacticiel pour analyser des vidéos à l’aide d’Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,26 +9,24 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 12/08/2018
+ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 191a6c9dc1cc5a24c1a46af21c5b63e3ff27a290
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133891"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150391"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Tutoriel : Analyser des vidéos avec Media Services v3 à l’aide d’API
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Tutoriel : Analyser des vidéos avec Media Services v3 à l’aide de .NET
 
 Ce didacticiel vous montre comment analyser des vidéos avec Azure Media Services. Il existe plusieurs scénarios dans lesquels vous pouvez souhaiter obtenir des informations détaillées sur vos vidéos enregistrées ou vos contenus audio. Par exemple, pour obtenir une satisfaction plus élevée des clients, les organisations peuvent exécuter un traitement de reconnaissance vocale pour convertir les enregistrements du support client en un catalogue pouvant faire l’objet de recherches, avec des index et des tableaux de bord. Ensuite, elles peuvent obtenir des informations sur leur entreprise, comme la liste des réclamations courantes avec leurs sources, et d’autres informations utiles.
 
 Ce didacticiel vous explique les procédures suivantes :    
 
 > [!div class="checklist"]
-> * Créer un compte Media Services
-> * Accéder à l’API Media Services
-> * Configurer l’exemple d’application
+> * Télécharger l’exemple d’application décrit dans la rubrique
 > * Examiner le code qui analyse la vidéo spécifiée
 > * Exécution de l'application
 > * Analyser la sortie
@@ -39,15 +37,10 @@ Ce didacticiel vous explique les procédures suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas Visual Studio, vous pouvez obtenir [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Installez et utilisez l’interface CLI localement. Vous devez disposer d’Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+- [Créer un compte Media Services](create-account-cli-how-to.md).<br/>Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
+- Suivez les étapes mentionnées dans l’article [Accéder à l’API Azure Media Services avec Azure CLI](access-api-cli-how-to.md) et enregistrez les informations d’identification. Vous en aurez besoin pour accéder à l’API.
 
-    Actuellement, les commandes [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) ne fonctionnent pas toutes dans Azure Cloud Shell. Il est recommandé d’utiliser l’interface CLI localement.
-
-- [Créer un compte Media Services](create-account-cli-how-to.md).
-
-    Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
-
-## <a name="download-the-sample"></a>Télécharger l’exemple
+## <a name="download-and-configure-the-sample"></a>Télécharger et configurer l’exemple
 
 Clonez un référentiel GitHub qui contient l’exemple .NET sur votre machine à l’aide de la commande suivante :  
 
@@ -57,7 +50,7 @@ Clonez un référentiel GitHub qui contient l’exemple .NET sur votre machine �
 
 L’exemple se trouve dans le dossier [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+Ouvrez [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) dans votre projet téléchargé. Remplacez les valeurs par les informations d’identification que vous avez obtenues en [accédant aux API](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Examiner le code qui analyse la vidéo spécifiée
 
@@ -65,8 +58,8 @@ Cette section examine les fonctions définies dans le fichier [Program.cs](https
 
 L’exemple effectue les actions suivantes :
 
-1. Créer une transformation et un travail qui analyse votre vidéo.
-2. Créer une ressource d’entrée et charger la vidéo dans celle-ci. La ressource d’entrée est utilisée en tant qu’entrée du travail.
+1. Crée une **transformation** et un **travail** qui analyse votre vidéo.
+2. Crée une **actif multimédia** d’entrée et charge la vidéo dans celui-ci. La ressource d’entrée est utilisée en tant qu’entrée du travail.
 3. Créer une ressource de sortie qui stocke la sortie du travail. 
 4. Soumettre le travail.
 5. Vérifier l’état du travail.

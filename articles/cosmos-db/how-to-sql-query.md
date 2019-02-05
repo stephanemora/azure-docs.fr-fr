@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452953"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459024"
 ---
-# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Exemples de requête SQL pour interroger des données à partir d’Azure Cosmos DB
+# <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemples de requêtes SQL pour Azure Cosmos DB
 
 Azure Cosmos DB prend en charge l’interrogation d’éléments en utilisant le langage SQL (Structured Query Language) comme langage de requête JSON sur les comptes d’API SQL. Lors de la conception du langage de requête pour Azure Cosmos DB, les deux objectifs suivants sont pris en compte :
 
@@ -21,7 +21,7 @@ Azure Cosmos DB prend en charge l’interrogation d’éléments en utilisant le
 
 * Azure Cosmos DB utilise le modèle de programmation de JavaScript comme base pour le langage de requête. L’API SQL est incluse dans le système de type, l’évaluation d’expression et l’appel de fonction de JavaScript. Ce qui donne un modèle de programmation naturel pour les projections relationnelles, la navigation hiérarchique entre les éléments JSON, les jointures réflexives, les requêtes spatiales et l’appel de fonctions définies par l’utilisateur écrites entièrement en JavaScript, entre autres fonctionnalités.
 
-Cet article vous guide tout au long des exemples de requêtes SQL en utilisant des éléments JSON simples. Pour en savoir plus sur la syntaxe du langage SQL d’Azure Cosmos DB, consultez l’article [Informations de référence sur la syntaxe SQL](sql-api-query-reference.md).
+Cet article vous explique des exemples de requêtes SQL en utilisant des éléments JSON simples. Pour en savoir plus sur la syntaxe du langage SQL d’Azure Cosmos DB, consultez l’article [Informations de référence sur la syntaxe SQL](sql-api-query-reference.md).
 
 ## <a id="GettingStarted"></a>Bien démarrer avec les commandes SQL
 

@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/10/2018
+ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 0fcdb2324868528e62e69fa0ce24ab2334052ced
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: 8c699f8b3241694f36b73ae75b25754e551c91f6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245410"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470703"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
@@ -167,7 +168,13 @@ Ce scénario comporte deux parties :
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
    ```
+
+   Le paramètre `-origin` spécifie le dossier de plus haut niveau qui contient tous les produits téléchargés ; par exemple, `"D:\downloadfolder"`.
+
    Le paramètre `-AzsCredential` est facultatif. Il est utilisé pour renouveler le jeton d’accès, s’il a expiré. Si le paramètre `-AzsCredential` n’est pas spécifié et que le jeton expire, vous êtes invité à entrer les informations d’identification de l’opérateur.
+
+    > [!Note]  
+    > AD FS prend en charge uniquement l’authentification interactive avec des identités d’utilisateurs. Si un objet d’identification est nécessaire, vous devez utiliser un SPN (nom de principal du service). Pour plus d’informations sur la configuration d’un principal de service avec Azure Stack et AD FS en tant que service de gestion des identités, consultez [Gérer le principal de service pour AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 4. Une fois l’exécution du script terminée correctement, l’élément doit être disponible dans la Place de marché Azure Stack.
 
@@ -233,9 +240,9 @@ Ce scénario comporte deux parties :
 
 Avec la version 1.3.0 de Azure Stack PowerShell, vous pouvez maintenant ajouter des extensions de machine virtuelle. Par exemple : 
 
-````PowerShell
+```PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
-````
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

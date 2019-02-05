@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: d0d02f491f14cc6e0664d79bcfd2cda44d433b5b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 3b425af972b0983db076ab103a33c57f7a127210
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389959"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095751"
 ---
-# <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de salle de classe 
+# <a name="tutorial-set-up-a-classroom-lab"></a>Didacticiel : Configurer un laboratoire de salle de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
@@ -32,7 +32,9 @@ Dans ce tutoriel, vous allez effectuer les actions suivantes :
 > * Envoyer un lien d’inscription aux étudiants
 
 ## <a name="prerequisites"></a>Prérequis
-Pour configurer un laboratoire de classe dans un compte de laboratoire, vous devez être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Le compte utilisé pour créer un compte de laboratoire est ajouté automatiquement à ce rôle. Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle Créateur de laboratoire à l’aide des étapes fournies dans l’article suivant : [Ajouter un utilisateur au rôle Créateur de laboratoire](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Pour configurer un laboratoire de classe dans un compte lab, vous devez être membre de l’un des rôles suivants dans le compte lab : Propriétaire, Créateur de laboratoire ou Contributeur. Le compte que vous avez utilisé pour créer un compte lab est automatiquement ajouté au rôle Propriétaire.
+
+Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **Créateur de laboratoire**. Par exemple, un propriétaire de laboratoire ajoute des professeurs au rôle Créateur de laboratoire. Ensuite, les professeurs créent des laboratoires avec des machines virtuelles pour leurs classes. Les étudiants utilisent le lien d’inscription qu’ils reçoivent des professeurs pour s’inscrire au laboratoire. Une fois inscrits, ils peuvent utiliser des machines virtuelles dans les laboratoires pour faire le travail en classe et leurs devoirs. Pour obtenir des instructions détaillées sur l’ajout d’utilisateurs au rôle Créateur de laboratoire, consultez [Ajouter un utilisateur au rôle Créateur de laboratoire](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## <a name="create-a-classroom-lab"></a>Créer un laboratoire de classe

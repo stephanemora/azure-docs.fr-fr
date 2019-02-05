@@ -12,26 +12,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: a3cff649001adf569f1454d16a2a97b32972ef00
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2fcacd559db0ab143ffa7ed49bbd546785765154
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612615"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098903"
 ---
-# <a name="cli-example-create-an-azure-event-grid-subscription"></a>Exemple d’interface de ligne de commande : Créer un abonnement Azure Event Grid 
+# <a name="cli-example-create-an-azure-event-grid-subscription"></a>Exemple CLI : Créer un abonnement Azure Event Grid 
 
 Le script Azure CLI de cet article montre comment créer un abonnement Event Grid au niveau du compte pour tout changement d’état du travail.
 
 ## <a name="prerequisites"></a>Prérequis 
 
-- Installez et utilisez l’interface CLI localement. Vous devez avoir Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+[Créer un compte Media Services](../create-account-cli-how-to.md).
 
-    Actuellement, les commandes [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) ne fonctionnent pas toutes dans Azure Cloud Shell. Il est recommandé d’utiliser l’interface CLI localement.
-
-- [Créer un compte Media Services](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Exemple de script
 

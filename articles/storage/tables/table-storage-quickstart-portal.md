@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 77aba022b3e4e8a41fa83e24b5694542fd2ae259
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: 052a462da5349b0886d6d99cd59d1a4ce816220f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526527"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462713"
 ---
-# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Démarrage rapide : créer une table de stockage Azure dans le portail Azure 
+# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Démarrage rapide : Créer une table Stockage Azure dans le portail Azure 
 
 Ce guide de démarrage rapide explique comment créer des tables et des entités dans le portail web Azure. Il vous montre également comment créer un compte de stockage Azure.
 

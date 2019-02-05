@@ -1,23 +1,23 @@
 ---
-title: 'Didacticiel : obtention de résultats de vérification orthographique à l’aide de l’API Vérification orthographique Bing'
+title: 'Tutoriel : Obtention de résultats de vérification orthographique à l’aide de l’API Vérification orthographique Bing'
 titlesuffix: Azure Cognitive Services
 description: Montre comment utiliser la vérification orthographique Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: d0cfc952511ac0d8e1328f7b01fe5eeb2b4f7e48
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 4bb558c05a2bade3a9e3dd01976d4cd9bf24cb98
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160544"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160761"
 ---
-# <a name="tutorial-build-a-web-page-spell-check-client"></a>Didacticiel : générer un client Vérification orthographique de page web
+# <a name="tutorial-build-a-web-page-spell-check-client"></a>Didacticiel : Générer une page web pour le client de vérification orthographique
 
 Dans ce tutoriel, nous allons générer une page web qui permet aux utilisateurs d’interroger l’API Vérification orthographique Bing.
 

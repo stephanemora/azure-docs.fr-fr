@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 589ad189a3a157d0116e3991f8df3d6b43afc167
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988708"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095692"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Démarrage rapide : Configurer une application pour exposer des API web (préversion)
+# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Démarrage rapide : Configurer une application pour exposer les API web (préversion)
 
 Vous pouvez développer une API web et la mettre à disposition des applications clientes en exposant l’[autorisation/étendue](developer-glossary.md#scopes) et les [rôles](developer-glossary.md#roles). Une API web correctement configurée peut être mise à disposition tout comme les autres API web Microsoft, notamment l'API Graph et les API Office 365.
 
@@ -44,7 +44,7 @@ Avant de pouvoir configurer l’application, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, sélectionnez ensuite **inscriptions d'applications (préversion)**.
+1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, sélectionnez ensuite **Inscriptions d’applications (préversion)**.
 1. Recherchez et sélectionnez l’application que vous souhaitez configurer. Une fois l’application sélectionnée, vous pourrez voir sa **présentation** ou sa page d’inscription principale.
 1. Pour exposer une nouvelle étendue,choisissez la méthode que vous souhaitez utiliser, l’interface utilisateur ou le manifeste de l'application :
     * [Exposer une nouvelle étendue via l’interface utilisateur](#expose-a-new-scope-through-the-ui)

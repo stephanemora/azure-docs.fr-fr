@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: fc8fc1af51332df032e864c84791791a38bc8601
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612218"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162716"
 ---
-# <a name="quickstart-stream-video-files---net"></a>Démarrage rapide : Diffuser en continu des fichiers vidéo - .NET
+# <a name="quickstart-stream-video-files---net"></a>Démarrage rapide : Diffuser des fichiers vidéo en streaming - .NET
 
 Ce démarrage rapide vous montre combien il est facile de coder et de lancer la diffusion en continu de vidéos sur une grande variété de navigateurs et d’appareils à l’aide d’Azure Media Services. Un contenu d’entrée peut être spécifié à l’aide d’URL HTTPS, d’URL SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure.
 Dans cette rubrique, l’exemple encode du contenu que vous mettez à disposition via une URL HTTPS. Notez qu’AMS v3 ne prend pas en charge l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
@@ -34,13 +34,10 @@ Dans cette rubrique, l’exemple encode du contenu que vous mettez à dispositio
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas Visual Studio, vous pouvez obtenir [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Installez et utilisez l’interface CLI localement. Vous devez avoir Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+- [Créer un compte Media Services](create-account-cli-how-to.md).<br/>Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
+- Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](access-api-cli-how-to.md) et enregistrez les informations d’identification. Vous en aurez besoin pour accéder à l’API.
 
-    Actuellement, les commandes [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) ne fonctionnent pas toutes dans Azure Cloud Shell. Il est recommandé d’utiliser l’interface CLI localement.
-
-- [Créer un compte Media Services](create-account-cli-how-to.md).
-
-## <a name="download-the-sample"></a>Télécharger l’exemple
+## <a name="download-and-configure-the-sample"></a>Télécharger et configurer l’exemple
 
 Clonez un référentiel GitHub qui contient l’exemple .NET de diffusion en continu sur votre machine à l’aide de la commande suivante :  
 
@@ -50,19 +47,19 @@ Clonez un référentiel GitHub qui contient l’exemple .NET de diffusion en con
 
 L’exemple se trouve dans le dossier [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
 
+Ouvrez [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) dans votre projet téléchargé. Remplacez les valeurs par les informations d’identification que vous avez obtenues en [accédant aux API](access-api-cli-how-to.md).
+
 L’exemple effectue les actions suivantes :
 
-1. Crée une transformation (vérifie d’abord si la transformation spécifiée existe). 
-2. Crée une ressource de sortie qui est utilisée en tant que sortie du travail d’encodage.
-3. Crée l’entrée du travail qui est basée sur une URL HTTPS.
-4. Soumet le travail d’encodage à l’aide de l’entrée et de la sortie qui ont été créées précédemment.
+1. Crée une **transformation** (vérifie d’abord si la transformation spécifiée existe). 
+2. Crée une **ressource** de sortie qui est utilisée en tant que sortie du **travail** d’encodage.
+3. Crée l’entrée du **travail** qui est basée sur une URL HTTPS.
+4. Soumet le **travail** d’encodage à l’aide de l’entrée et de la sortie créées précédemment.
 5. Vérifie l’état du travail.
-6. Crée un StreamingLocator.
+6. Crée un **localisateur de streaming**.
 7. Crée des URL de diffusion en continu.
 
 Pour obtenir des explications sur chaque fonction dans l’exemple, examinez le code et lisez les commentaires dans [ce fichier source](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
-
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## <a name="run-the-sample-app"></a>Exécution de l'exemple d'application
 

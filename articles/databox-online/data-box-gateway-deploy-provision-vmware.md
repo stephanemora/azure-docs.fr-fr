@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/01/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: ea4203c45f482b990122a966fc2ec13b3fb41c84
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167152"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099156"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Didacticiel : configurer Azure Data Box Gateway dans VMware (préversion)
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Didacticiel : Provisionner Azure Data Box Gateway dans VMware (préversion)
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Ce didacticiel explique comment configurer Data Box Gateway sur un système hôte exécutant VMware ESXi 6.0 ou 6.5. 
+Ce tutoriel explique comment provisionner une instance Data Box Gateway sur un système hôte exécutant VMware ESXi 6.0, 6.5 ou 6.7. 
 
 Vous aurez besoin de privilèges d’administrateur pour configurer un appareil virtuel et vous y connecter. La configuration initiale peut prendre environ 10 minutes.
 
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous trouverez ici les conditions requises pour configurer un appareil virtuel sur un système hôte exécutant VMware ESXi 6.0 ou 6.5.
+Vous trouverez ici les prérequis pour provisionner un appareil virtuel sur un système hôte exécutant VMware ESXi 6.0, 6.5 ou 6.7.
 
 ### <a name="for-the-data-box-gateway-resource"></a>Pour la ressource Data Box Gateway
 
@@ -53,7 +53,7 @@ Avant de commencer, assurez-vous que :
 
 Avant de déployer un appareil virtuel, assurez-vous que :
 
-* Vous avez accès à un système hôte exécutant VMware (ESXi 6.0 ou 6.5) permettant de configurer un appareil.
+* Vous avez accès à un système hôte exécutant VMware (ESXi 6.0, 6.5 ou 6.7) permettant de configurer un appareil.
 * Le système hôte est en mesure de dédier les ressources suivantes pour configurer votre appareil virtuel :
 
   * Un minimum de 4 cœurs.
@@ -73,7 +73,7 @@ Avant de commencer :
 
 Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 
-* Un accès à un système hôte exécutant VMware ESXi Server 6.0 ou 6.5. Le système hôte est en mesure de dédier les ressources suivantes pour votre appareil virtuel :
+* Un accès à un système hôte exécutant VMware ESXi Server 6.0, 6.5 ou 6.7. Le système hôte est en mesure de dédier les ressources suivantes pour votre appareil virtuel :
  
   * Un minimum de 4 cœurs.
   * Au moins 8 Go de RAM. 
@@ -192,7 +192,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. Les étapes 5 à 7 s’appliquent uniquement lors de l’amorçage dans un environnement non DHCP. Si vous êtes dans un environnement DHCP, ignorez ces étapes et passez à l'étape 8. Si vous avez démarré votre appareil dans un environnement non DHCP, vous voyez un message indiquant : **Utilisez l’applet de commande Set-HcsIPAddress pour configurer le réseau**. 
+6. Les étapes 5 à 7 s’appliquent uniquement lors de l’amorçage dans un environnement non DHCP. Si vous êtes dans un environnement DHCP, ignorez ces étapes et passez à l'étape 8. Si vous avez démarré votre appareil dans un environnement non DHCP, un message s’affiche : **Utilisez l’applet de commande Set-HcsIPAddress pour configurer le réseau**. 
    
 7. Pour configurer le réseau, dans l’invite de commandes, utilisez la commande `Get-HcsIpAddress` pour répertorier les interfaces réseau activées sur votre appareil virtuel. Si votre appareil possède une seule interface réseau activée, le nom par défaut affecté à cette interface est `Ethernet`.
 
