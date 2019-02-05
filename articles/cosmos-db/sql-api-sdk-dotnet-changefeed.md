@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2018
+ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351644"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300606"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -40,6 +40,12 @@ ms.locfileid: "54351644"
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="v2-builds"></a>Builds V2
+
+### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
+* Gestion améliorée des exceptions de l’Observateur.
+* Informations plus détaillées sur les erreurs de l’Observateur :
+ * Lorsqu’un Observateur est fermé en raison d'une exception levée par ProcessChangesAsync, CloseAsync reçoit alors le paramètre du motif qui est défini sur ChangeFeedObserverCloseReason.ObserverError.
+ * Ajout de traces pour identifier les erreurs dans le code utilisateur d’un Observateur.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Ajout de la prise en charge de la gestion des collections fractionnées qui utilisent un débit de base de données partagé.
@@ -157,6 +163,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.2.6](#2.2.6) |29 janvier 2019 |--- |
 | [2.2.5](#2.2.5) |13 décembre 2018 |--- |
 | [2.2.4](#2.2.4) |29 novembre 2018 |--- |
 | [2.2.3](#2.2.3) |19 novembre 2018 |--- |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 70305468ca20c48bdc26e7e000a0e5edb63508cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261568"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198212"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionnement des services fiables Service Fabric
 Cet article présente les concepts de base pour le partitionnement des services fiables d’Azure Service Fabric. Le code source utilisé dans cet article est également disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -129,11 +129,7 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
 1. Ouvrez **Visual Studio** > **Fichier** > **Nouveau** > **Projet**.
 2. Dans la boîte de dialogue **Nouveau projet** , sélectionnez l’application Service Fabric.
 3. Appelez le projet AlphabetPartitions.
-4. Dans la boîte de dialogue **Créer un service**, choisissez Service **avec état** et appelez-le « Alphabet.Processing » comme indiqué dans l’image ci-dessous.
-       ![Boîte de dialogue Nouveau service dans Visual Studio][1]
-
-  <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
-
+4. Dans la boîte de dialogue **Créer un service**, choisissez Service **avec état** et appelez-le « Alphabet.Processing ».
 5. Définissez le nombre de partitions. Ouvrez le fichier ApplicationManifest.xml situé dans le dossier ApplicationPackageRoot du projet AlphabetPartitions, puis mettez à jour le paramètre Processing_PartitionCount sur 26, comme illustré ci-dessous.
    
     ```xml
@@ -167,7 +163,7 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
    
     Plusieurs réplicas de ce service peuvent être hébergés sur le même ordinateur, ce qui signifie que cette adresse doit être unique pour le réplica. C’est pourquoi l’ID de partition + l’ID de réplica sont dans l’URL. HttpListener peut écouter plusieurs adresses sur le même port tant que le préfixe d’URL est unique.
    
-    Le GUID supplémentaire est fourni dans les cas où des réplicas secondaires écouteraient également les demandes en lecture seule. Dans ce cas de figure, vous voudrez vous assurer qu’une nouvelle adresse unique est utilisée lors de la transition du réplica principal vers le réplica secondaire afin de forcer les clients à résoudre l’adresse. « + » est utilisé ici comme adresse afin de permettre au réplica d’écouter tous les hôtes disponibles (IP, FQDM, localhost, etc.). Le code ci-dessous en montre un exemple.
+    Le GUID supplémentaire est fourni dans les cas où des réplicas secondaires écouteraient également les demandes en lecture seule. Dans ce cas de figure, vous voudrez vous assurer qu’une nouvelle adresse unique est utilisée lors de la transition du réplica principal vers le réplica secondaire afin de forcer les clients à résoudre l’adresse. « + » est utilisé ici comme adresse afin de permettre au réplica d’écouter tous les hôtes disponibles (IP, FQDN, localhost, etc.). Le code ci-dessous en montre un exemple.
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()

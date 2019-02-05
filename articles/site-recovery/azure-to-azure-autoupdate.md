@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f31fccd2bf6d0daae03b025b53a41a0fad4ce2ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957689"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210129"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service Mobilité dans la réplication Azure à Azure
 
@@ -53,7 +53,7 @@ Lorsque vous activez la réplication pour une machine virtuelle [à partir de la
 1. Dans le coffre, accédez à **Gérer**-> **Infrastructure Site Recovery**.
 2. Sous **For Azure virtual Machines (Pour des machines virtuelles Azure)**-> **Paramètres de mise à jour de l’extension**, cliquez sur le bouton bascule pour choisir si vous souhaitez autoriser *ASR à gérer les mises à jour* ou si vous souhaitez *les gérer manuellement*. Cliquez sur **Enregistrer**.
 
-![vault-toggle-autuo-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![vault-toggle-auto-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
 > Lorsque vous choisissez *Autoriser ASR à gérer*, le paramètre est appliqué à toutes les machines virtuelles dans le coffre correspondant.

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463029"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251977"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -57,6 +57,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Explorateur de données Azure
+* Azure Database for MariaDB
 * Azure Database pour MySQL
 * Azure Database pour PostgreSQL
 * Azure DevOps : les organisations Azure DevOps ayant acheté des extensions non-Microsoft doivent [annuler leurs achats](https://go.microsoft.com/fwlink/?linkid=871160) avant de pouvoir déplacer le compte entre des abonnements.
@@ -99,7 +100,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Tableaux de bord du portail
 * Power BI : Power BI Embedded et Collection d’espaces de travail Power BI
 * IP publique : l’IP publique de la référence SKU de base peut être déplacée. L’IP publique de la référence SKU standard ne peut pas être déplacée.
-* Coffre Recovery Services : inscrire votre abonnement pour la [préversion publique limitée](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Coffre Recovery Services : inscrivez-vous dans une [préversion privée](#recovery-services-limitations).
 * Cache Azure pour Redis : si l’instance du Cache Azure pour Redis est configurée avec un réseau virtuel, l’instance ne peut pas être déplacée vers un autre abonnement. Consultez [Limitations des réseaux virtuels](#virtual-networks-limitations).
 * Scheduler
 * Recherche : vous ne pouvez pas déplacer simultanément plusieurs ressources de recherche dans des régions différentes. Déplacez-les plutôt dans des opérations distinctes.
@@ -176,7 +177,7 @@ Pour déplacer des machines virtuelles configurées avec Sauvegarde Azure, utili
 * Recherchez l’emplacement de votre machine virtuelle.
 * Recherchez un groupe de ressources dont le modèle de nommage est le suivant : `AzureBackupRG_<location of your VM>_1`, par exemple, AzureBackupRG_westus2_1
 * Si vous utilisez le portail Azure, cochez « Afficher les types masqués »
-* Si vous utilisez PowerShell, utilisez l’applet de commande `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
+* Si vous utilisez PowerShell, utilisez l’applet de commande `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
 * Si vous utilisez l’interface CLI, utilisez `az resource list -g AzureBackupRG_<location of your VM>_1`
 * Recherchez la ressource du type `Microsoft.Compute/restorePointCollections` avec le modèle de nommage `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
@@ -307,7 +308,7 @@ Cette opération peut prendre plusieurs minutes.
 
 ### <a name="recovery-services-limitations"></a>Limitations de Recovery Services
 
- Pour déplacer un coffre Recovery Services, inscrivez votre abonnement pour la [préversion publique limitée](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Pour déplacer un coffre Recovery Services, vous devez être inscrit dans une préversion privée. Pour l’essayer, contactez AskAzureBackupTeam@microsoft.com.
 
 Actuellement, vous pouvez déplacer un coffre Recovery Services par région à la fois. Vous ne pouvez pas déplacer les coffres qui sauvegardent les données Azure Files, Azure File Sync ou SQL dans des machines virtuelles IaaS.
 
@@ -336,13 +337,15 @@ Lorsque vous déplacez un cluster HDInsight vers un nouvel abonnement, déplacez
 
 Plusieurs étapes importantes doivent être effectuées avant de déplacer une ressource. Vérifiez ces conditions pour prévenir d'éventuelles erreurs.
 
+1. Les abonnements source et de destination doivent être actifs. Si vous rencontrez des problèmes lors de l’activation d’un compte qui a été désactivé, [créez une demande de support Azure](../azure-supportability/how-to-create-azure-support-request.md). Sélectionnez **Gestion des abonnements** comme type de problème.
+
 1. Les abonnements source et de destination doivent exister dans le même [client Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md). Pour vérifier que les deux abonnements ont le même ID client, utilisez Azure PowerShell ou Azure CLI.
 
   Pour Azure PowerShell, utilisez :
 
   ```azurepowershell-interactive
-  (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
 
   Pour l’interface de ligne de commande Azure, consultez :
@@ -362,14 +365,14 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
   Pour PowerShell, utilisez les commandes suivantes pour obtenir l’état de l’inscription :
 
   ```azurepowershell-interactive
-  Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
-  Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+  Set-AzContext -Subscription <destination-subscription-name-or-id>
+  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Pour inscrire un fournisseur de ressources, utilisez :
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
   Pour l’interface CLI d’Azure, utilisez les commandes suivantes pour obtenir l’état de l’inscription :
@@ -473,12 +476,12 @@ Lorsque l’opération est terminée, vous êtes informé du résultat.
 
 ### <a name="by-using-azure-powershell"></a>En utilisant Azure PowerShell
 
-Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, utilisez la commande [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) . L’exemple suivant vous indique comment déplacer plusieurs ressources vers un nouveau groupe de ressources.
+Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, utilisez la commande [Move-AzResource](/powershell/module/az.resources/move-azresource). L’exemple suivant vous indique comment déplacer plusieurs ressources vers un nouveau groupe de ressources.
 
 ```azurepowershell-interactive
-$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
 Pour déplacer des ressources vers un nouvel abonnement, renseignez une valeur pour le paramètre `DestinationSubscriptionId`.
