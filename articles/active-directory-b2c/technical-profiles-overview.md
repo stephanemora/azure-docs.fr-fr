@@ -61,7 +61,7 @@ Tous les types de profils techniques partagent le même concept. Vous pouvez env
 
 Un profil technique peut hériter d’un autre profil technique pour modifier des paramètres ou ajouter de nouvelles fonctionnalités.  L’élément **IncludeTechnicalProfile** est une référence au profil technique de base dont découle un profil technique.  
 
-Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoError** inclut le profil **AAD-UserReadUsingAlternativeSecurityId**. Ce profil technique définit l’élément de métadonnées **RaiseErrorIfClaimsPrincipalDoesNotExist** sur `true`, et génère une erreur si aucun compte de réseau social ne figure dans le répertoire. **AAD-UserReadUsingAlternativeSecurityId-NoError** remplace ce comportement et désactive le message d’erreur si l’utilisateur n’a pas existé.
+Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoError** inclut le profil **AAD-UserReadUsingAlternativeSecurityId**. Ce profil technique définit l’élément de métadonnées **RaiseErrorIfClaimsPrincipalDoesNotExist** sur `true`, et génère une erreur si aucun compte de réseau social ne figure dans le répertoire. **AAD-UserReadUsingAlternativeSecurityId-NoError** remplace ce comportement et désactive le message d’erreur si l’utilisateur n’existe pas.
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
