@@ -3,25 +3,25 @@ title: Ajouter Google comme fournisseur d'identité pour Azure Active Directory 
 description: Fédérer avec Google pour permettre à des utilisateurs invités de se connecter à vos applications Azure AD avec leur propre compte Gmail
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: 329c12f76862addb6d14271f219b48089c615395
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: bc0a4d4ce13c4013d634748503f98451e5fae9be
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428730"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216147"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Ajouter Google comme fournisseur d’identité pour les utilisateurs invités B2B
 
 En configurant la fédération avec Google, vous pouvez autoriser des utilisateurs invités à se connecter à vos applications et ressources partagées avec leurs propres comptes Google, sans devoir créer de comptes Microsoft (MSA) ou Azure AD.  
 > [!NOTE]
-> Vos utilisateurs invités de Google doivent se connecter à l’aide d’un lien vers le contexte client, par exemple `https://myapps.microsoft.com/<tenant id>`. Liens directs aux applications et ressources fonctionnent également tant qu’ils incluent le contexte client. Les utilisateurs invités ne peuvent actuellement pas se connecter à l’aide de points de terminaison qui n’ont aucun contexte locataire. Par exemple, l’utilisation de `https://myapps.microsoft.com`, de `https://portal.azure.com` ou du point de terminaison commun des équipes entraînera une erreur.
+> Vos utilisateurs Google invités doivent se connecter à l'aide d'un lien incluant le contexte du locataire (par exemple, `https://myapps.microsoft.com/?tenantid=<tenant id>` ou `https://portal.azure.com/<tenant id>`, ou dans le cas d'un domaine par défaut vérifié, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Liens directs aux applications et ressources fonctionnent également tant qu’ils incluent le contexte client. Les utilisateurs invités ne peuvent actuellement pas se connecter à l’aide de points de terminaison qui n’ont aucun contexte locataire. Par exemple, l’utilisation de `https://myapps.microsoft.com`, de `https://portal.azure.com` ou du point de terminaison commun des équipes entraînera une erreur.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>Quelle est l’expérience de l’utilisateur Google ?
 Lorsque vous envoyez une invitation à un utilisateur de Google Gmail, l’utilisateur invité doit accéder à vos applications ou ressources partagées à l’aide d’un lien qui inclut le contexte locataire. Son expérience varie selon qu’il est ou non déjà connecté à Google :

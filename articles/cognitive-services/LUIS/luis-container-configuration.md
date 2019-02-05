@@ -7,20 +7,20 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468333"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294721"
 ---
-# <a name="configure-language-understanding-docker-containers"></a>Configurer les conteneurs docker Language Understanding 
+# <a name="configure-language-understanding-docker-containers"></a>Configurer les conteneurs Docker Language Understanding 
 
-L’environnement d’exécution de conteneur LUIS (Language Understanding) est configuré à l’aide des arguments de la commande `docker run`. LUIS a plusieurs paramètres obligatoires et quelques paramètres facultatifs. Plusieurs [exemples](#example-docker-run-commands) de commande sont disponibles. Les paramètres propres aux conteneurs sont les [paramètres de montage](#mount-settings) d’entrée et les paramètres de facturation. 
+L'environnement d'exécution de conteneur **Language Understanding** (LUIS) est configuré à l'aide des arguments de la commande `docker run`. LUIS a plusieurs paramètres obligatoires et quelques paramètres facultatifs. Plusieurs [exemples](#example-docker-run-commands) de commande sont disponibles. Les paramètres propres aux conteneurs sont les [paramètres de montage](#mount-settings) d’entrée et les paramètres de facturation. 
 
 Les paramètres de conteneur sont [hiérarchiques](#hierarchical-settings) et peuvent être définis avec des [variables d’environnement](#environment-variable-settings) ou des [arguments de ligne de commande](#command-line-argument-settings) docker.
 
@@ -194,4 +194,4 @@ ApiKey={APPLICATION_ID} \
 
 * Consultez [Guide pratique pour installer et exécuter des conteneurs](luis-container-howto.md).
 * Consultez les [Questions fréquentes (FAQ)](luis-resources-faq.md) pour résoudre les problèmes liés à la fonctionnalité LUIS.
-* Utiliser plus de [conteneurs Cognitive Services](../cognitive-services-container-support.md)
+* Utiliser davantage de [conteneurs Cognitive Services](../cognitive-services-container-support.md)

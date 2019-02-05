@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653542"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465621"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifestes des services et applications Service Fabric
 Cet article explique comment les services et les applications Service Fabric sont définis et créés dans différentes versions à l’aide des fichiers ApplicationManifest.xml et ServiceManifest.xml.  Pour plus d’exemples, consultez les [exemples de manifeste de service et d’application](service-fabric-manifest-examples.md).  Le schéma XML pour ces fichiers manifestes est détaillé dans [Documentation relative au schéma ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -53,7 +53,7 @@ Le manifeste de service définit de manière déclarative le type de service et 
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -96,7 +96,7 @@ Pour plus d’informations sur la configuration de SetupEntryPoint, consultez [C
 </Settings>
 ```
 
-Les éléments **Resources**, par exemple les points de terminaison, qui sont mis à la disposition du service à déclarer/modifier sans changer le code compilé.  L’accès aux ressources spécifiées dans le manifeste de service peut être contrôlé par le biais de **SecurityGroup** dans le manifeste de l’application.  Lorsqu’une ressource **Endpoint** est définie dans le manifeste de service, Service Fabric alloue les ports de la plage des ports réservés de l’application lorsqu’un port n’est pas spécifié de manière explicite.  En savoir plus sur la [spécification ou la substitution des ressources de point de terminaison](service-fabric-service-manifest-resources.md).
+Un **point de terminaison** de service Service Fabric est un exemple de ressource Service Fabric ; une ressource Service Fabric peut être déclarée/modifiée sans modifier le code compilé. L'accès aux ressources Service Fabric spécifiées dans le manifeste de service peut être contrôlé par le biais de **SecurityGroup** dans le manifeste de l'application. Lorsqu'une ressource Endpoint est définie dans le manifeste de service, Service Fabric alloue des ports de la plage de ports réservés de l'application si aucun port n'est spécifié de manière explicite. En savoir plus sur la [spécification ou la substitution des ressources de point de terminaison](service-fabric-service-manifest-resources.md).
 
 
 <!--

@@ -2,18 +2,18 @@
 title: Sauvegarder des fichiers dans des machines virtuelles Azure Stack
 description: Utilisez Sauvegarde Azure pour sauvegarder et restaurer des fichiers et applications Azure Stack dans votre environnement Azure Stack.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579183"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301473"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Sauvegarder des fichiers sur Azure Stack
 Vous pouvez utiliser Sauvegarde Azure pour protéger (ou sauvegarder) des fichiers et applications sur Azure Stack. Pour sauvegarder des fichiers et applications, installez un serveur Sauvegarde Microsoft Azure en tant que machine virtuelle s’exécutant sur Azure Stack. Vous pouvez protéger les fichiers sur n’importe quel serveur Azure Stack du même réseau virtuel. Après avoir installé un serveur de sauvegarde Azure, ajoutez des disques Azure pour augmenter le stockage local disponible pour les données de sauvegarde à court terme. Un serveur de sauvegarde Azure utilise un stockage Azure pour la rétention à long terme.
@@ -55,7 +55,7 @@ Pour configurer le serveur de sauvegarde Azure afin de protéger les fichiers da
 
     ![L’assistant Création d’un nouveau groupe de protection s’ouvre](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    Pour sélectionner **I want online protection** (Je souhaite une protection en ligne), vous devez d’abord sélectionner **I want short-term protection using:** (Je souhaite une protection à court terme avec :) disque. Le serveur de sauvegarde Azure ne protège pas sur bande. Le disque est donc le seul choix possible pour la protection à court terme.
+    Pour sélectionner **I want online protection** (Je souhaite une protection en ligne), vous devez d'abord sélectionner **I want short-term protection using:** (Je souhaite une protection à court terme avec :) disque. Le serveur de sauvegarde Azure ne protège pas sur bande. Le disque est donc le seul choix possible pour la protection à court terme.
 
 5. Sur l’écran **Spécifier les objectifs à court terme**, choisissez la durée pendant laquelle conserver les points de récupération enregistrés sur le disque et quand enregistrer les sauvegardes incrémentielles. Cliquez sur **Suivant**.
 

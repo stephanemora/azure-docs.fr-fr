@@ -1,17 +1,17 @@
 ---
 title: Activer la réplication des machines virtuelles VMware pour la récupération d’urgence VMware sur Azure à l’aide d’Azure Site Recovery | Microsoft Docs
 description: Cet article décrit la procédure d’activation de la réplication de machines virtuelles VMware pour la récupération d’urgence dans Azure à l’aide d’Azure Site Recovery.
-author: asgang
+author: mayurigupta13
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: mayg
+ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424151"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226331"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
 
@@ -86,18 +86,20 @@ Vérifiez ensuite les propriétés de la machine source. N’oubliez pas que le 
 
 1. Cliquez sur **Paramètres** > **Éléments répliqués** > et sélectionnez la machine. La page **Bases** affiche des informations sur les paramètres et l’état de la machine.
 2. Dans **Propriétés**, vous pouvez afficher les informations sur la réplication et le basculement de la machine virtuelle.
-3. Dans **Calcul et réseau** > **Propriétés de calcul**, vous pouvez spécifier la taille de la cible et le nom de la machine virtuelle Azure. Si besoin, modifiez ce nom afin de respecter les exigences d’Azure.
+3. Dans **Calcul et réseau** > **Propriétés de calcul**, vous pouvez modifier plusieurs propriétés de la machine virtuelle :
+* Nom de la machine virtuelle Azure : si besoin, modifiez ce nom afin de respecter les exigences d'Azure.
+* Taille ou type de la machine virtuelle cible : la taille de machine virtuelle par défaut est choisie en fonction de la taille de la machine virtuelle source. Si besoin, vous pouvez à tout moment sélectionner une autre taille avant le basculement. Notez que la taille du disque de la machine virtuelle dépend également de la taille du disque source et qu'elle ne peut être modifiée qu'après le basculement. En savoir plus sur les IOPS et sur les tailles de disque [Standard](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) et [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
 
     ![Propriétés Calcul et réseau](./media/vmware-azure-enable-replication/vmproperties.png)
 
-4.  Vous pouvez sélectionner un [groupe de ressources](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) dont l’ordinateur fera partie pendant le post-basculement. Vous pouvez changer ce paramètre avant le basculement. Après le basculement, si vous migrez l’ordinateur vers un autre groupe de ressources, les paramètres de protection de l’ordinateur ne sont plus adaptés.
-5. Vous pouvez sélectionner un basculement de [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si votre machine doit faire partie d’un post-basculement. Quand vous sélectionnez un groupe à haute disponibilité, prenez note de ce qui suit :
+*  Groupe de ressources : vous pouvez sélectionner un [groupe de ressources](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) dont une machine fera partie pendant le post-basculement. Vous pouvez changer ce paramètre avant le basculement. Après le basculement, si vous migrez l’ordinateur vers un autre groupe de ressources, les paramètres de protection de l’ordinateur ne sont plus adaptés.
+* Groupe à haute disponibilité : vous pouvez sélectionner un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si votre machine doit faire partie d'un post-basculement. Quand vous sélectionnez un groupe à haute disponibilité, prenez note de ce qui suit :
 
     * Seuls les groupes à haute disponibilité appartenant au groupe de ressources spécifié sont répertoriés.  
     * Les machines avec différents réseaux virtuels ne peuvent pas faire partie du même groupe à haute disponibilité.
     * Seules les machines virtuelles de même taille peuvent faire partie d’un groupe à haute disponibilité.
-5. Vous pouvez également afficher et ajouter des informations sur le réseau cible, le sous-réseau et l’adresse IP affectés à la machine virtuelle Azure.
-6. Les disques de données et du système d’exploitation de la machine virtuelle à répliquer s’affichent dans **Disques**.
+4. Vous pouvez également afficher et ajouter des informations sur le réseau cible, le sous-réseau et l’adresse IP affectés à la machine virtuelle Azure.
+5. Les disques de données et du système d’exploitation de la machine virtuelle à répliquer s’affichent dans **Disques**.
 
 ### <a name="configure-networks-and-ip-addresses"></a>Configurer les réseaux et les adresses IP
 
@@ -120,7 +122,7 @@ En savoir plus sur [Azure Hybrid Benefit](https://aka.ms/azure-hybrid-benefit-pr
 
 ## <a name="common-issues"></a>Problèmes courants
 
-* La taille de chaque disque doit être inférieure à 1 To.
+* La taille de chaque disque doit être inférieure à 4 To.
 * Le disque du système d’exploitation doit être un disque de base, et non un disque dynamique.
 * Pour les machines virtuelles de génération 2/activées UEFI, le système d’exploitation doit être de la famille Windows, et la taille du disque de démarrage doit être inférieure à 300 Go.
 
@@ -128,4 +130,5 @@ En savoir plus sur [Azure Hybrid Benefit](https://aka.ms/azure-hybrid-benefit-pr
 
 Une fois que la protection est effectuée et que la machine a atteint un état protégé, vous pouvez essayer un [basculement](site-recovery-failover.md) pour vérifier si votre application s’affiche dans Azure ou non.
 
-Si vous souhaitez désactiver la protection, consultez [Nettoyer les paramètres d’inscription et de protection](site-recovery-manage-registration-and-protection.md).
+* Apprenez à [nettoyer les paramètres d'inscription et de protection](site-recovery-manage-registration-and-protection.md) pour désactiver la réplication.
+* Apprenez à [automatiser la réplication de vos machines virtuelles à l'aide de Powershell](vmware-azure-disaster-recovery-powershell.md)

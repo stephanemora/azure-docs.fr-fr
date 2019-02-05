@@ -6,17 +6,17 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c1c4b8e5c2701f3c419a58bc3fdc33f7e629bbd
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: ded91c6de498b130cc26109a70e89955dd70d862
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238517"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208983"
 ---
 # <a name="emotion-api-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur l’API Émotion
 
@@ -27,15 +27,15 @@ ms.locfileid: "48238517"
 
 -----
 
-**Question** : *quels types d’images obtiennent les meilleurs résultats avec l’API Émotion ?*
+**Question** : *quels types d'images obtiennent les meilleurs résultats avec l'API Émotion ?*
 
-**Réponse** : utilisez des images avec des visages de face, dégagés et entiers, pour de meilleurs résultats. La fiabilité diminue avec des visages de face partiels et l’API Émotion peut ne pas reconnaître des émotions dans des images où le visage est tourné de plus de 45 degrés.
+**Réponse** : pour de meilleurs résultats, utilisez des images avec des visages de face, dégagés et entiers. La fiabilité diminue avec des visages de face partiels et l’API Émotion peut ne pas reconnaître des émotions dans des images où le visage est tourné de plus de 45 degrés.
 
 -----
 
-**Question** : *combien d’émotions l’API Émotion peut-elle identifier ?*
+**Question** : *combien d'émotions l'API Émotion peut-elle identifier ?*
 
-**Réponse** : l’API Émotion reconnaît huit émotions différentes universellement acceptées :
+**Réponse** : l'API Émotion reconnaît huit émotions différentes universellement acceptées :
 * Joie
 * Tristesse
 * Surprise
@@ -47,15 +47,15 @@ ms.locfileid: "48238517"
 
 -----
 
-**Question** : *existe-t-il un moyen de transmettre un flux vidéo en direct à l’API et d’obtenir le résultat simultanément ?*
+**Question** : *existe-t-il un moyen de transmettre un flux vidéo en direct à l'API et d'obtenir le résultat simultanément ?*
 
-**Réponse** : utilisez l’API Émotion basée sur les images et appelez-la sur chaque image ou passez des images pour améliorer les performances.  Des exemples d’analyse image par image des vidéos sont disponibles.
+**Réponse** : utilisez l'API Émotion basée sur les images et appelez-la sur chaque image ou passez des images pour améliorer les performances.  Des exemples d’analyse image par image des vidéos sont disponibles.
 
 -----
 
-**Question** : *je transmets les données d’images binaires mais je reçois le message : « Image de visage non valide.**
+**Question** : *je transmets les données d'images binaires mais je reçois le message : « Image de visage non valide.**
 
-**Réponse** : ce message que l’algorithme a rencontré des problèmes lors de l’analyse de l’image.  
+**Réponse** : ce message indique que l'algorithme a rencontré des problèmes lors de l'analyse de l'image.  
 * Les formats d’image d’entrée pris en charge incluent JPEG, PNG, GIF (la première image) et BMP.
 * La taille du fichier image ne doit pas dépasser 4 Mo.
 * La plage des tailles de visages détectables s’étend de 36 x 36 à 4096 x 4096 pixels. Les visages en dehors de cette plage ne sont pas détectés.

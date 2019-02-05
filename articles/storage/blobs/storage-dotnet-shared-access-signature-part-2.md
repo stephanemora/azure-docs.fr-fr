@@ -8,15 +8,15 @@ ms.topic: article
 ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 6e33f700e9f453f419bf431d772d3db27e806ac0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: blobs
+ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240696"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244910"
 ---
-# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Blob Storage
+# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Signatures d'accès partagé, partie 2 : Créer et utiliser une signature d'accès partagé avec le service Stockage Blob
 
 [partie 1](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) de ce didacticiel traitait des signatures d'accès partagé et indiquait les meilleures pratiques les concernant. La partie 2 indique comment générer et utiliser les signatures d’accès partagé avec Blob Storage. Les exemples ont été écrits en C# et utilisent la bibliothèque du client Azure Storage pour .NET. Le didacticiel traite des points suivants :
 
@@ -28,11 +28,11 @@ ms.locfileid: "51240696"
 ## <a name="about-this-tutorial"></a>À propos de ce didacticiel
 Au cours de ce didacticiel, nous allons créer deux consoles d’application qui présentent la création et l’utilisation des signatures d’accès partagé pour les conteneurs et les blobs :
 
-**Application n°1** : l’application de gestion. Elle génère une signature d’accès partagé pour un conteneur et un blob. Elle inclut la clé d’accès au compte de stockage dans le code source.
+**Application n°1** : l'application de gestion. Elle génère une signature d’accès partagé pour un conteneur et un blob. Elle inclut la clé d’accès au compte de stockage dans le code source.
 
-**Application n°2** : l’application cliente. Elle accède aux ressources du conteneur et du blob à l’aide des signatures d’accès partagé, créées grâce à la première application. Elle utilise uniquement les signatures d’accès partagé pour accéder aux ressources du conteneur et du blob. La clé d’accès au compte de stockage *n’est pas* incluse.
+**Application n°2** : l'application cliente. Elle accède aux ressources du conteneur et du blob à l’aide des signatures d’accès partagé, créées grâce à la première application. Elle utilise uniquement les signatures d’accès partagé pour accéder aux ressources du conteneur et du blob. La clé d’accès au compte de stockage *n’est pas* incluse.
 
-## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Première partie : créer une application console pour générer des signatures d’accès partagé
+## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Partie 1 : Créer une application console pour générer des signatures d'accès partagé
 Commencez par vérifier que la bibliothèque cliente Azure Storage pour .NET est installée. Vous pouvez installer le [package NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "package NuGet") qui contient les assemblies les plus récentes pour la bibliothèque cliente. Il s’agit de la méthode recommandée pour vérifier que vous disposez des correctifs les plus récents. Vous pouvez également télécharger la bibliothèque cliente avec la version la plus récente du [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/).
 
 Dans Visual Studio, créez une application console Windows et nommez-la **GenerateSharedAccessSignatures**. Ajoutez des références à [Microsoft.WindowsAzure.Configuration.dll](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) et [Microsoft.WindowsAzure.Storage.dll](https://www.nuget.org/packages/WindowsAzure.Storage/) en utilisant l’une des méthodes suivantes :
@@ -337,7 +337,7 @@ Container SAS URI using stored access policy: https://storagesample.blob.core.wi
 Blob SAS URI using stored access policy: https://storagesample.blob.core.windows.net/sascontainer/sasblobpolicy.txt?sv=2016-05-31&sr=b&si=tutorialpolicy&sig=%2FkTWkT23SS45%2FoF4bK2mqXkN%2BPKs%2FyHuzkfQ4GFoZVU%3D
 ```
 
-## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>Deuxième partie : créer une application console afin de tester les signatures d’accès partagé
+## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>Partie 2 : Créer une application console afin de tester les signatures d'accès partagé
 Afin de tester les signatures d’accès partagé créées dans les exemples précédents, nous allons créer une deuxième application console qui utilise les signatures pour exécuter les opérations sur le conteneur et sur un blob.
 
 > [!NOTE]
@@ -589,7 +589,7 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Signatures d'accès partagé, partie 1 : présentation du modèle SAP](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Signatures d’accès partagé, partie 1 : Présentation du modèle SAS](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md)
 * [Délégation de l’accès avec une signature d’accès partagé (API REST)](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Présentation des signatures d’accès partagé de table et de file d’attente](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875397"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228285"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Intégrer Azure ExpressRoute à la reprise d’activité pour des machines virtuelles Azure
 
@@ -146,7 +146,7 @@ Après avoir basculé des machines virtuelles Azure vers la région Azure cible 
 
 #### <a name="two-circuits-with-two-peering-locations"></a>Deux circuits avec deux emplacements d’appairage
 
-Cette configuration protège les circuits ExpressRoute contre les sinistres régionaux. Si votre emplacement d’appairage principal tombe en panne, les connexions peuvent continuer depuis l’autre emplacement.
+Cette configuration protège les circuits ExpressRoute contre les sinistres régionaux. Si votre emplacement de peering principal tombe en panne, les connexions peuvent être maintenues à partir de l'autre emplacement.
 
 - Le circuit connecté à l’environnement de production est généralement le circuit principal. Le circuit secondaire a généralement une bande passante inférieure, qui peut être augmentée si un sinistre se produit.
 - Après le basculement, vous pouvez établir des connexions du circuit ExpressRoute secondaire vers le réseau virtuel cible. Vous pouvez aussi avoir des connexions configurées et prêtes en cas de sinistre, de façon à réduire le temps de récupération global.

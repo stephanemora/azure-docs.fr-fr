@@ -1,6 +1,6 @@
 ---
-titre : Copier des exemples de sciences des données titleSuffix : Description d’Azure Machine Learning Studio : Une pierre d’angle de la science des données : amener d’autres personnes à faire votre travail. Obtenez des exemples d’apprentissage automatique à partir d’Azure AI Gallery.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Copier des exemples de sciences des données titleSuffix : Description d’Azure Machine Learning Studio : Une pierre d’angle de la science des données : amener d’autres personnes à faire votre travail. Obtenez des exemples d’apprentissage automatique à partir d’Azure AI Gallery.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 05/01/2018
 ---

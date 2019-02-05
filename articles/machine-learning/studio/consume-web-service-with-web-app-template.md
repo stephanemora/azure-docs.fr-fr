@@ -1,14 +1,27 @@
 ---
-titre : Utiliser un service web Studio à l’aide d’un modèle d’application web - titleSuffix : Description d'Azure Machine Learning Studio : Utilisez un modèle d’application Web dans Azure Marketplace pour exploiter un service Web prédictif dans Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 20/03/2017
+title: Utiliser un service web Studio à l'aide d'un modèle d'application web
+titleSuffix: Azure Machine Learning Studio
+description: Utilisez un modèle d’application Web dans Azure Marketplace pour exploiter un service Web prédictif dans Azure Machine Learning.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: 164aae7c6a4df18b8a28e1ff152e9c61c60f06b9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299059"
 ---
 # <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>Utiliser un service web Azure Machine Learning Studio à l’aide d’un modèle d’application web
 
 Vous pouvez développer un modèle prédictif et le déployer en tant que service web Azure avec :
 - Azure Machine Learning Studio
-- Des langages du type R ou Python 
+- Des langages du type R ou Python
 
 Après cela, vous pouvez accéder au modèle opérationnalisé à l’aide d’une API REST.
 
@@ -23,10 +36,10 @@ Les modèles d’applications Web disponibles dans Azure Marketplace peuvent gé
 
 Il existe deux modèles :
 
-* [Modèle d’application Web Azure ML Request-Response Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
-* [Modèle d’application Web Azure ML Batch Execution Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
+* [Modèle d'application web RRS (Request-Response Service) Azure Machine Learning Studio](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
+* [Modèle d'application web BES (Batch Execution Service) Azure Machine Learning Studio](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
-Chaque modèle crée un exemple d’application ASP.NET en utilisant l’URI et la clé de l’API correspondant à votre service web. Le modèle déploie ensuite l’application en tant que site web sur Azure. 
+Chaque modèle crée un exemple d’application ASP.NET en utilisant l’URI et la clé de l’API correspondant à votre service web. Le modèle déploie ensuite l’application en tant que site web sur Azure.
 
 Le modèle RRS (Request-Response Service) crée une application web qui vous permet d’envoyer une seule ligne de données au service web afin d’obtenir un résultat unique. Le modèle BES (Batch Execution Service) crée une application web qui vous permet d’envoyer un grand nombre de lignes de données de manière à obtenir plusieurs résultats.
 
@@ -51,33 +64,33 @@ Procédez comme suit pour utiliser le modèle d’application web RRS (voir sch�
 <!--    ![API Key][image3] -->
 
 <!-- This value will look like this:
-   
+
         https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
-   
+
     ![Request URI][image4] -->
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Sélectionnez **Nouveau**, puis sélectionnez **Azure ML Request-Response Service Web App** et **Créer**. 
+2. Sélectionnez **Nouveau**, puis sélectionnez **Azure ML Request-Response Service Web App** et **Créer**.
 3. Dans le volet **Créer** :
-   
+
    * Donnez un nom unique à votre application Web. L’URL de l’application web sera constituée de ce nom, suivi de **.azurewebsites.net**. Par exemple, **http://carprediction.azurewebsites.net**.
    * Sélectionnez l’abonnement Azure et les services sous lesquels est exécuté votre service Web.
    * Sélectionnez **Créer**.
-     
+
    ![Créer une application web][image5]
 
 4. Une fois le déploiement de l’application web terminé, sélectionnez **l’URL** dans la page des paramètres de l’application web d’Azure, ou entrez l’URL dans un navigateur web. Par exemple, entrez **http://carprediction.azurewebsites.net**.
 5. À la première exécution de l’application web, vous êtes invité à fournir l’URL de publication de l’API sous **API Post URL**, ainsi que la clé API sous **API Key**. Entrez les valeurs que vous avez enregistrées précédemment (l’URI de la requête et la clé API, respectivement). Sélectionnez **Envoyer**.
-     
+
    ![Entrer l’URI de publication et la clé API][image6]
 
 6. L’application web affiche la page **Configuration de l’application web** avec les paramètres du service web actif. Vous pouvez ici modifier les paramètres utilisés par l’application web.
-   
+
    > [!NOTE]
    > Une modification des paramètres à ce stade n’affecte que l’application Web concernée. Les paramètres par défaut de votre service Web ne seront pas modifiés. Par exemple, si vous modifiez ici le texte de la **Description**, l’opération n’aura aucun effet sur la description affichée sur le tableau de bord du service web dans Machine Learning Studio.
-   > 
-   > 
-   
+   >
+   >
+
     Quand vous avez terminé, sélectionnez **Enregistrer les modifications**, puis sélectionnez **Atteindre la page de démarrage**.
 
 7. Vous pouvez entrer les valeurs à envoyer à votre service web dans la page d’accueil. Sélectionnez **Envoyer** lorsque vous avez terminé. Le résultat est alors renvoyé.
@@ -93,11 +106,11 @@ Les valeurs d’entrée d’un service web d’exécution de lot peuvent proveni
 
 ![Procédure d’utilisation du modèle Web BES][image2]
 
-1. Pour créer l’application web BES, suivez la même procédure que celle utilisée pour le modèle RRS. Toutefois, dans ce cas, vous devez accéder à [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) pour ouvrir le modèle BES dans la Place de marché Microsoft Azure. Sélectionnez **Créer une application web**.
+1. Pour créer l’application web BES, suivez la même procédure que celle utilisée pour le modèle RRS. Toutefois, dans ce cas, vous devez accéder au [modèle d'application web BES (Batch Execution Service) Azure Machine Learning Studio](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) pour ouvrir le modèle BES sur la Place de marché Microsoft Azure. Sélectionnez **Créer une application web**.
 
 2. Pour spécifier l’emplacement de stockage des résultats, indiquez les informations du conteneur de destination dans la page d’accueil de l’application web. Indiquez également l’emplacement à partir duquel l’application web peut obtenir les valeurs d’entrée, à savoir dans un fichier local ou dans un conteneur de stockage Azure.
    Sélectionnez **Envoyer**.
-   
+
    ![Informations sur le stockage][image7]
 
 L’application web affiche une page avec l’état de la tâche. Une fois la tâche terminée, vous obtenez l’emplacement des résultats dans le Stockage Blob Azure. Vous avez également la possibilité de télécharger les résultats dans un fichier local.

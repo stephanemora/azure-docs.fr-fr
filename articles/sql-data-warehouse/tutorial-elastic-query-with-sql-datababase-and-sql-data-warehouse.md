@@ -1,23 +1,23 @@
 ---
-title: 'Tutoriel : Requête élastique avec Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Tutoriel : Requête élastique avec Azure SQL Data Warehouse | Microsoft Docs'
 description: Ce tutoriel utilise la fonctionnalité de requête élastique pour exécuter une requête dans Azure SQL Data Warehouse depuis Azure SQL Database.
 services: sql-data-warehouse
 author: hirokib
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/14/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: 355ae1c27d0af8f77c2c9bda61c3581562050fc4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b1ac2edd39ac2e5a765eaf6223ba01c9f9e5df91
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307090"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238333"
 ---
-# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Tutoriel : Utiliser la requête élastique pour accéder à des données dans Azure SQL Data Warehouse Azure à partir d’Azure SQL Database
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Tutoriel : Utiliser la requête élastique pour accéder à des données dans Azure SQL Data Warehouse à partir d'Azure SQL Database
 
 Ce tutoriel utilise la fonctionnalité de requête élastique pour exécuter une requête dans Azure SQL Data Warehouse depuis Azure SQL Database. 
 

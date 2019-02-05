@@ -4,22 +4,40 @@ description: Découvrez comment résoudre les erreurs d’intégration des solut
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879636"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228778"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Résolution des erreurs d’intégration des solutions
 
 Vous pouvez rencontrer des erreurs lors de l’intégration d’une solution telle que Update Management, Change Tracking ou Inventory. Cet article décrit les erreurs qui peuvent se produire et explique comment les résoudre.
 
 ## <a name="general-errors"></a>Erreurs générales
+
+### <a name="missing-write-permissions"></a>Scénario : L'intégration échoue avec le message : La solution ne peut pas être activée
+
+#### <a name="issue"></a>Problème
+
+Le message suivant s'affiche lorsque vous essayez d'intégrer une machine virtuelle à une solution :
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur est due à des autorisations incorrectes ou manquantes sur la machine virtuelle ou pour l'utilisateur.
+
+#### <a name="resolution"></a>Résolution :
+
+Vérifiez que vous disposez des autorisations appropriées pour intégrer la machine virtuelle. Passez en revue les [autorisations nécessaires pour intégrer des machines](../automation-role-based-access-control.md#onboarding), puis essayez à nouveau d'intégrer la solution.
 
 ### <a name="computer-group-query-format-error"></a>Scénario : ComputerGroupQueryFormatError
 

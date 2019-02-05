@@ -7,48 +7,48 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4bd1ceb03ddce572e0571afb87ec2f0c36a49443
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 983bf77a157de539264a6437ffbebb291d310840
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810412"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181416"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Se connecter à l’aide de la vérification en deux étapes ou des informations de sécurité
 
-Une fois que vous aurez configuré la vérification en deux étapes ou les informations de sécurité, vous serez en mesure de vous connecter à votre compte professionnel ou scolaire à l’aide de la méthode d’authentification que vous avez spécifiée.
+Une fois que vous aurez configuré la vérification en deux étapes ou les informations de sécurité, vous pourrez vous connecter à votre compte à l'aide de la méthode d'authentification que vous avez spécifiée.
 
 >[!Note]
 >Si vous utilisez toujours la vérification en deux étapes, vous devrez configurer vos méthodes d’authentification en suivant les instructions données dans l’article [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md). Si votre administrateur a activé les informations de sécurité, vous devrez définir vos méthodes d’authentification en suivant ces étapes pas à pas :<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md) (Configurer les informations de sécurité pour utiliser une application d’authentification)</li><li>[Configurer les informations de sécurité pour utiliser la messagerie texte](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md) (Configurer les informations de sécurité pour utiliser un appel téléphonique)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Se connecter à partir d’une notification de l’application d’authentification sur votre appareil mobile
 
-1. Connectez-vous à votre compte professionnel ou scolaire à l’aide de vos nom d’utilisateur et mot de passe.
+1. Connectez-vous à votre compte à l'aide de votre nom d'utilisateur et de votre mot de passe.
 
 2. Sélectionnez **Approuver** à partir de la notification d’approbation envoyée sur votre appareil mobile.
 
 
 ## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>Se connecter à partir d’un code de l’application d’authentification sur votre appareil mobile
 
-1. Connectez-vous à votre compte professionnel ou scolaire à l’aide de vos nom d’utilisateur et mot de passe.
+1. Connectez-vous à votre compte à l'aide de votre nom d'utilisateur et de votre mot de passe.
 
 2. Ouvrez votre application d’authentification et tapez le code généré de manière aléatoire pour votre compte dans la zone **Entrez un code**.
 
 
 ## <a name="sign-in-using-your-phone-number"></a>Se connecter à l’aide de votre numéro de téléphone
 
-1. Connectez-vous à votre compte professionnel ou scolaire à l’aide de vos nom d’utilisateur et mot de passe.
+1. Connectez-vous à votre compte à l'aide de votre nom d'utilisateur et de votre mot de passe.
 
 2. Décrochez votre téléphone et suivez les instructions.
 
 
 ## <a name="sign-in-using-a-text-message"></a>Se connecter à l’aide d’un SMS
 
-1. Connectez-vous à votre compte professionnel ou scolaire à l’aide de vos nom d’utilisateur et mot de passe.
+1. Connectez-vous à votre compte à l'aide de votre nom d'utilisateur et de votre mot de passe.
 
 2. Ouvrez le SMS et tapez le code indiqué dans la zone **Entrez un code**.
 

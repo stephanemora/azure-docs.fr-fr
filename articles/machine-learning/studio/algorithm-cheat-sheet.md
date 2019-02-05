@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning Studio
 description: Un aide-mémoire imprimable d'algorithme d'apprentissage automatique vous permet de choisir l'algorithme adapté à votre modèle prédictif dans Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 69b085faf10b9e22618fa248460d269bd2efdb73
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f445f13d3c2d63e8942864458064658d237aa763
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264306"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245943"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Aide-mémoire d’algorithme d’apprentissage automatique pour Azure Machine Learning Studio
 
@@ -48,7 +48,7 @@ Téléchargez et imprimez l’Aide-mémoire d’algorithme Machine Learning Stud
 
   * Dans l’**apprentissage non supervisé**, les points de données n’ont aucune étiquette associée. En effet, l’objectif d’un algorithme d’apprentissage non supervisé est d’organiser les données d’une certaine façon ou de décrire sa structure. Cela peut signifier un regroupement en clusters, comme le fait l’algorithme des k-moyennes ou la recherche de différentes manières de visualiser des données complexes afin d’en simplifier l’affichage.
 
-  * Dans l’**apprentissage par renforcement**, l’algorithme choisit une action en réponse à chaque point de données. Il s’agit d’une approche courante en robotique, où le jeu des lectures des capteurs à un moment donné est un point de données et où l’algorithme doit choisir l’action suivante du robot. Il est également adapté aux applications d’Internet des objets. L’algorithme d’apprentissage reçoit également un signal de récompense quelques instants plus tard, qui indique la qualité de la décision. En fonction de ce signal, l’algorithme modifie sa stratégie pour atteindre la récompense la plus élevée. Il n’existe actuellement aucun module d’apprentissage de renforcement dans Azure ML.
+  * Dans l’**apprentissage par renforcement**, l’algorithme choisit une action en réponse à chaque point de données. Il s’agit d’une approche courante en robotique, où le jeu des lectures des capteurs à un moment donné est un point de données et où l’algorithme doit choisir l’action suivante du robot. Il est également adapté aux applications d’Internet des objets. L’algorithme d’apprentissage reçoit également un signal de récompense quelques instants plus tard, qui indique la qualité de la décision. En fonction de ce signal, l’algorithme modifie sa stratégie pour atteindre la récompense la plus élevée. Il n'existe actuellement aucun module d'apprentissage de renforcement dans Azure Machine Learning Studio.
 
 * **Les méthodes bayésiennes** effectuent des hypothèses de points de données statistiquement indépendants. Cela signifie que la variabilité sans modèle dans un point de données n’est pas corrélée avec d’autres : autrement dit, elle n’est pas prévisible. Par exemple, si les données enregistrées sont le nombre de minutes jusqu’à l’arrivée du métro suivant, deux mesures effectuées deux jours différents sont statistiquement indépendantes. Toutefois, deux mesures avec une différence d’une minute ne sont pas statistiquement indépendantes : la valeur de l’une est hautement prédictive de la valeur de l’autre.
 

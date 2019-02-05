@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 7afbdaba46674b69aa601355e80160e7c72ff373
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240968"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455505"
 ---
 # <a name="azure-storage-replication"></a>Réplication Azure Storage
 
@@ -48,7 +48,7 @@ Pour obtenir des informations sur les prix des différentes options de redondanc
 Pour obtenir des informations sur les garanties de Stockage Azure en matière de durabilité et de disponibilité, consultez le [contrat de niveau de service de Stockage Azure](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Stockage Premium prend en charge uniquement un stockage localement redondant (LRS). Pour plus d’informations sur Stockage Premium, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../../virtual-machines/windows/premium-storage.md).
+> Stockage Premium prend en charge uniquement un stockage localement redondant (LRS). Pour plus d'informations sur le stockage Premium, consultez [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure](../../virtual-machines/windows/premium-storage.md).
 
 ## <a name="changing-replication-strategy"></a>Modification de la stratégie de réplication
 Vous pouvez modifier la stratégie de réplication de votre compte de stockage à l’aide du [portail Azure](https://portal.azure.com/), [d’Azure PowerShell](storage-powershell-guide-full.md), [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou de l’une des nombreuses [bibliothèques clientes Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). La modification du type de réplication de votre compte de stockage n’entraîne pas de temps d’arrêt.
@@ -63,10 +63,10 @@ Si vous remplacez un stockage GRS par un stockage LRS, il n’existe aucun coût
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure](storage-redundancy-lrs.md)
-- [Stockage redondant interzone (ZRS) : applications de stockage Azure hautement disponibles](storage-redundancy-zrs.md)
-- [Stockage géoredondant (GRS) : réplication interrégion pour le stockage Azure](storage-redundancy-grs.md)
+- [Stockage localement redondant (LRS) : redondance des données à faible coût pour Stockage Azure](storage-redundancy-lrs.md)
+- [Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles](storage-redundancy-zrs.md)
+- [Stockage géo-redondant (GRS) : réplication interrégion pour Stockage Azure](storage-redundancy-grs.md)
 - [Objectifs de performance et d’extensibilité du Stockage Azure](storage-scalability-targets.md)
 - [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
 - [Options de redondance et stockage géo-redondant avec accès en lecture de Stockage Microsoft Azure ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [Document SOSP - Stockage Azure : service de stockage cloud à haute disponibilité et à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [Document SOSP - Stockage Azure : service de stockage cloud hautement disponible à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

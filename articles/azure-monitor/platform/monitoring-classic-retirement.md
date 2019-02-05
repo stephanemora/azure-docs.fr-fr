@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: a910b0537234d1653be93eb406fe3b2261305ee5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3c1896dc756675b838b97d978cec40b4650760fe
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461975"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298960"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>La gestion des alertes et la supervision unifiées dans Azure Monitor remplace la gestion des alertes et la supervision classiques
 
@@ -36,9 +36,9 @@ Les nouvelles supervision et gestion des alertes unifiées pour Application Insi
 - **Métriques personnalisées Application Insights** : vous permet de définir et d’émettre vos propres métriques pour la supervision et les alertes. Pour plus d’informations, consultez cet article relatif à l’utilisation d’une [métrique personnalisée pour Application Insights sur la nouvelle instance Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 - **Anomalies des échecs Application Insights (partie de la Détection intelligente)**  : vous avertit automatiquement en quasi temps réel si une augmentation anormale du taux des requêtes HTTP en échec ou des appels de dépendance est détectée dans votre application web. La fonctionnalité Anomalies des échecs Application Insights (partie de la Détection intelligente) sera bientôt disponible comme partie de la nouvelle instance Azure Monitor. Nous mettrons alors à jour ce document dans les prochains mois avec des liens sur la prochaine itération quand elle est sera développée.
 
-## <a name="unified-metrics--alerts-for-other-azure-resources"></a>Métriques et alertes unifiées sur d’autres ressources Azure
+## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>Métriques et alertes unifiées pour d'autres ressources Azure
 
-La nouvelle génération de gestion des alertes et la supervision multidimensionnelle pour les ressources Azure sont disponibles depuis mars 2018. La nouvelle plateforme de métrique et la nouvelle gestion des alertes sont maintenant plus rapides avec des fonctionnalités en temps quasi réel. Plus important encore, les alertes de la nouvelle plateforme de métrique fournissent plus de granularité, car cette dernière inclut l’option des dimensions, qui vous permettent de segmenter et de filtrer une combinaison de valeurs, une condition ou une opération spécifique. Comme toutes les alertes dans la nouvelle instance Azure Monitor, les alertes de métrique plus récentes sont plus extensibles avec l’utilisation d’ActionGroups, ce qui permet d’étendre les notifications au-delà des e-mails ou des webhooks en utilisant des SMS, des appels vocaux, Azure Functions, des runbooks Automation, et bien plus encore.
+La nouvelle génération de gestion des alertes et la supervision multidimensionnelle pour les ressources Azure sont disponibles depuis mars 2018. La nouvelle plateforme de métrique et la nouvelle gestion des alertes sont maintenant plus rapides avec des fonctionnalités en temps quasi réel. Plus important encore, les alertes de la nouvelle plateforme de métrique fournissent plus de granularité, car cette dernière inclut l’option des dimensions, qui vous permettent de segmenter et de filtrer une combinaison de valeurs, une condition ou une opération spécifique. Comme toutes les alertes dans la nouvelle instance Azure Monitor, les alertes de métrique plus récentes sont plus extensibles avec l’utilisation d’ActionGroups, ce qui permet d’étendre les notifications au-delà des e-mails ou des webhooks en utilisant des SMS, des appels vocaux, Azure Functions, des runbooks Automation, et bien plus encore. Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 Les métriques plus récentes pour les ressources Azure sont disponibles sous les formes suivantes :
 
 - **Métriques standard de la plateforme Azure Monitor**, ce qui fournit des métriques préremplies populaires à partir de divers produits et services Azure. Pour plus d’informations, consultez cet article relatif aux [Métriques prises en charge sur Azure Monitor](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported) et aux [Alertes pour les métriques prises en charge sur Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md#supported-resource-types-for-metric-alerts).
@@ -60,6 +60,10 @@ Fin 2019 juin, dans Azure Monitor :
 - Le service de supervision et gestion des alertes classiques sera supprimé et ne sera plus disponible pour la création de nouvelles règles d’alerte.
 - Les règles d’alerte qui existeront toujours dans les alertes (classiques) au-delà de juin 2019 continueront de s’exécuter et de déclencher des notifications, mais ne pourront plus être modifiées.
 - À partir de juillet 2019, toutes les règles d’alerte restant dans la plateforme de supervision et de gestion des alertes classiques seront automatiquement migrées par Microsoft vers leur équivalent dans la nouvelle plateforme Azure Monitor. Le processus sera transparent et sans interruption de service, et les clients ne subiront aucune perte de couverture de la supervision.
+- Les règles d'alerte migrées vers la nouvelle plateforme d'alertes fourniront la même supervision qu'auparavant, mais déclencheront une notification avec de nouvelles charges utiles. Toute adresse e-mail, tout point de terminaison webhook ou tout lien d'application logique associé à une règle d'alerte classique sera reporté lors de la migration, mais avec un risque de comportement incorrect car la charge utile de l'alerte sera différente sur la nouvelle plateforme.
+
+> [!IMPORTANT]
+> Microsoft Azure Monitor permettra aux clients de migrer automatiquement leurs règles d'alerte classiques vers la nouvelle plateforme. Et à partir de juillet 2019, il sera possible de forcer son exécution pour toutes les règles d'alerte classiques qui subsisteront. Les clients devront veiller à ce que la charge utile des règles d'alerte classiques qui ont recours à l'automatisation soit adaptée à la gestion de la nouvelle charge utile à partir de [Métriques et alertes unifiées dans Application Insights](#unified-metrics-and-alerts-in-application-insights) ou [Métriques et alertes unifiées pour d'autres ressources Azure](#unified-metrics-and-alerts-for-other-azure-resources), après la migration des règles d'alerte classiques. 
 
 Nous vous fournirons bientôt les outils vous permettant de migrer délibérément vos alertes de la [section Alertes (classiques)](../../azure-monitor/platform/alerts-classic.overview.md) du portail Azure vers les nouvelles alertes Azure. Toutes les règles configurées dans Alertes (classiques) qui sont migrées vers la nouvelle instance Azure Monitor resteront gratuites et ne seront pas facturées. Les règles d’alerte classique migrées ne seront soumises à aucun frais pour l’envoi (push) des notifications par e-mail, webhook ou LogicApp. Toutefois, l’utilisation de nouveaux types de notification ou d’action (par exemple, les SMS, les appels vocaux, l’intégration ITSM, etc.) sera soumise à facturation, qu’ils soient ajoutés à une alerte migrée ou nouvelle. Pour plus d’informations, consultez [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -70,7 +74,7 @@ De plus, les éléments suivants seront facturables conformément aux [tarifs Az
 - Tous les tests web multiples exécutés par Application Insights
 - Toutes les métriques personnalisées stockées au-delà des unités gratuites incluses dans Azure Monitor
 
-Cet article sera continuellement mis à jour avec des liens et des informations détaillées concernant la nouvelle fonctionnalité de supervision et de gestion des alertes Azure, ainsi que la disponibilité des outils permettant d’aider les utilisateurs à adopter la nouvelle plateforme Azure Monitor.
+Cet article sera continuellement mis à jour avec des liens et des informations détaillées sur la nouvelle fonctionnalité de supervision et de gestion des alertes Azure, ainsi que sur la disponibilité des outils permettant aux utilisateurs d'adopter la nouvelle plateforme Azure Monitor.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

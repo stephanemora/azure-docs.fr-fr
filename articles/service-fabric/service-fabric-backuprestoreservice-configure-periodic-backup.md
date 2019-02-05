@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 14d7ae7cc347b771dfdb1209bc8d55c484d00db0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322093"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193724"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compréhension de la configuration de la sauvegarde périodique dans Azure Service Fabric
 
@@ -219,9 +219,9 @@ Une fois la nécessité de suspension passée, la sauvegarde périodique des don
 * Si une suspension a été appliquée au niveau d’une _partition_, elle doit être reprise à l’aide l’API [Reprendre la sauvegarde de la partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Différence entre la suspension et la désactivation des sauvegardes
-Vous ne devriez désactiver les sauvegardes que lorsqu’elles ne sont plus nécessaires pour une application, un service ou une partition spécifiques. Il est en fait possible de demander une désactivation de sauvegarde avec le paramètre de nettoyage des sauvegardes, ce qui a pour effet de supprimer également toutes les sauvegardes existantes. Il convient cependant de recourir à une suspension quand on souhaite désactiver temporairement les sauvegardes, par exemple, quand le disque local est saturé ou lorsque le chargement de la sauvegarde échoue en raison d’un problème réseau connu. 
+Vous ne devriez désactiver les sauvegardes que lorsqu’elles ne sont plus nécessaires pour une application, un service ou une partition spécifiques. Il est en fait possible de demander la désactivation de la sauvegarde avec le paramètre de nettoyage des sauvegardes, ce qui a pour effet de supprimer également toutes les sauvegardes existantes. Il convient cependant de recourir à une suspension quand on souhaite désactiver temporairement les sauvegardes, par exemple, quand le disque local est saturé ou lorsque le chargement de la sauvegarde échoue en raison d’un problème réseau connu. 
 
-Si une désactivation peut être demandée uniquement à un niveau précédemment activé explicitement pour la sauvegarde, une suspension peut être appliquée à tout niveau actuellement activé pour la sauvegarde, directement ou par voie d’héritage ou de hiérarchie. Par exemple, si la sauvegarde est activée au niveau d’une application, il est possible de demander la désactivation uniquement au niveau de l’application. En revanche, la suspension peut être demandée au niveau d’une application, d’un service ou d’une partition sous cette application. 
+Si une désactivation peut être demandée uniquement à un niveau précédemment activé explicitement pour la sauvegarde, une suspension peut être appliquée à tout niveau actuellement activé pour la sauvegarde, directement ou par voie d'héritage ou de hiérarchie. Par exemple, si la sauvegarde est activée au niveau d’une application, il est possible de demander la désactivation uniquement au niveau de l’application. En revanche, la suspension peut être demandée au niveau d’une application, d’un service ou d’une partition sous cette application. 
 
 ## <a name="auto-restore-on-data-loss"></a>Restauration automatique en cas de perte de données
 Une partition de service peut perdre des données en raison de défaillances inattendues. Par exemple, le disque de deux réplicas sur trois pour une partition (y compris le réplica principal) est endommagé ou effacé.

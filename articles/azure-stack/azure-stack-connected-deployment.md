@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d64b834f1c6794976461c93d4ad1d05f8647e986
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414587"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243179"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement connecté à Azure pour les systèmes intégrés Azure Stack
 Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
@@ -30,7 +31,7 @@ Un déploiement connecté de Azure Stack à Azure signifie que vous pouvez séle
 ## <a name="choose-an-identity-store"></a>Choisir un magasin d’identités
 Dans le cas d’un déploiement connecté, vous pouvez choisir Azure AD ou AD FS comme magasin d’identités. Dans le cas d’un déploiement déconnecté, sans connexion Internet, vous ne pouvez utiliser que AD FS.
 
-Le choix du magasin d’identités n’a aucune incidence sur les machines virtuelles de locataire. Les machines virtuelles de locataire peuvent choisir le magasin d’identités auquel elles seront connectées en fonction de leur configuration : Azure AD, Windows Server Active Directory joint à un domaine, groupe de travail, etc. Cela n’a aucun lien avec le choix du fournisseur d’identités Azure Stack. 
+Le choix du magasin d’identités n’a aucune incidence sur les machines virtuelles de locataire. Les machines virtuelles de locataire peuvent choisir le magasin d'identités auquel elles seront connectées en fonction de leur configuration : Azure AD, magasin joint à un domaine Windows Server Active Directory, groupe de travail, etc. Cela n’a aucun lien avec le choix du fournisseur d’identités Azure Stack. 
 
 Par exemple, vous pourrez toujours déployer des machines virtuelles de locataire IaaS en plus de Azure Stack et les joindre à un domaine Active Directory d’entreprise afin d’accéder aux comptes associés. Vous n’êtes pas obligé d’utiliser le magasin d’identités Azure AD que vous sélectionnez ici pour ces comptes.
 
@@ -68,7 +69,7 @@ La facturation selon la capacité nécessite un abonnement Azure EA (Enterprise 
 
 ## <a name="learn-more"></a>En savoir plus
 - Pour plus d’informations sur les cas d’usage, l’achat, les partenaires et les fabricants de matériel OEM, consultez la page produit [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
-- Pour plus d’informations sur la feuille de route et la disponibilité géographique des systèmes intégrés Azure Stack, consultez le livre blanc : [Azure Stack : une extension de Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Pour plus d’informations sur la feuille de route et la disponibilité géographique des systèmes intégrés Azure Stack, consultez le livre blanc : [Azure Stack : An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Pour en savoir plus sur l’empaquetage et la tarification de Microsoft Azure Stack, [téléchargez le fichier PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Étapes suivantes

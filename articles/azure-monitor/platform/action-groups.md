@@ -5,19 +5,19 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 38cccf17980f5a6a2cf162cdecdc6aad40d4f38e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5717074d53e267018b7697aeed21ea00d246592e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432555"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252215"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 ## <a name="overview"></a>Vue d’ensemble ##
-Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur.
+Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. Vous pouvez configurer jusqu'à 2 000 groupes d'actions au sein d'un abonnement.
 
 Quand une action est configurée pour notifier une personne par courrier électronique ou SMS, cette personne reçoit une confirmation indiquant qu’elle a été ajoutée au groupe d’actions.
 
@@ -88,15 +88,18 @@ Vous pouvez avoir jusqu’à 1 000 actions d’e-mail par groupe d’actions. C
 **Voix** : vous pouvez avoir jusqu’à 10 actions Voice par groupe d’actions.</dd>
 Consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md)</dd>
 
-**Webhook** : vous pouvez avoir jusqu’à 10 actions Webhook par groupe d’actions. Logique de nouvelle tentative : le délai d’expiration d’une réponse est de 10 secondes. L’appel de webhook sera retenté 2 fois au maximum lorsque les codes d’état HTTP suivants sont retournés : 408, 429, 503, 504 ou que le point de terminaison HTTP ne répond pas. La première nouvelle tentative se produit après 10 secondes. La deuxième et la dernière nouvelles tentatives se produisent après 100 secondes.
+**Webhook** : vous pouvez avoir jusqu’à 10 actions Webhook par groupe d’actions.
+Logique de nouvelle tentative : le délai d’expiration d’une réponse est de 10 secondes. L’appel de webhook sera retenté 2 fois au maximum lorsque les codes d’état HTTP suivants sont retournés : 408, 429, 503, 504 ou que le point de terminaison HTTP ne répond pas. La première nouvelle tentative se produit après 10 secondes. La deuxième nouvelle tentative se produit après 100 secondes. Après deux échecs, aucun groupe d'actions n'appellera le point de terminaison pendant 30 minutes.
 
 Plage d’adresses IP sources
+    - 13.72.19.232
     - 13.106.57.181
     - 13.106.54.3
     - 13.106.54.19
     - 13.106.38.142
     - 13.106.38.148
     - 13.106.57.196
+    - 52.244.68.117
 
 Pour recevoir des mises à jour sur les modifications apportées à ces adresses IP, nous vous recommandons de configurer une [alerte Service Health](./../../azure-monitor/platform/service-notifications.md) qui surveille les notifications d’information relatives au service Groupes d’actions.
 

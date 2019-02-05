@@ -1,6 +1,6 @@
 ---
 title: Connexion à une machine virtuelle Windows Server | Microsoft Docs
-description: Découvrez comment vous connecter à une machine virtuelle Windows à l’aide du portail Azure et du modèle de déploiement Resource Manager.
+description: Apprenez à vous connecter à une machine virtuelle Windows à l'aide du portail Azure et du modèle de déploiement Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: fdd0c82f64b55c801ef04f1d533ed91683a07f9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4bfb17a7c50e97ae71908f052f7f38110cf376df
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867067"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296883"
 ---
-# <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Connexion à une machine virtuelle Azure exécutant Windows
-Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une session Bureau à distance (RDP) depuis un bureau Windows. Tout d’abord, connectez-vous à la machine virtuelle, puis ouvrez une session.
+# <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Connexion à une machine virtuelle Azure exécutant Windows
+Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une session Bureau à distance (RDP) depuis un bureau Windows. Tout d'abord, connectez-vous à la machine virtuelle, puis ouvrez une session.
 
 Pour vous connecter à une machine virtuelle Windows à partir d’un Mac, vous devez installer un client RDP pour Mac tel que [Bureau à distance Microsoft](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
 
@@ -32,9 +32,9 @@ Pour vous connecter à une machine virtuelle Windows à partir d’un Mac, vous 
 2. Dans le menu de gauche, sélectionnez **Machines virtuelles**.
 3. Sélectionnez la machine virtuelle dans la liste.
 4. Dans la partie supérieure de la page de la machine virtuelle, sélectionnez **Connecter**.
-2. Dans la page **Connexion à la machine virtuelle**, sélectionnez les options appropriées, puis **Télécharger le fichier RDP**.
+2. Sur la page **Connexion à la machine virtuelle**, sélectionnez l'adresse IP et le port appropriés. Dans la plupart des cas, l'adresse IP et le port par défaut doivent être utilisés. Sélectionnez **Télécharger le fichier RDP**Télécharger le fichier RDP**. Si la machine virtuelle dispose d'un ensemble de stratégies juste-à-temps, vous devez d'abord sélectionner le bouton **Demander l'accès** avant de pouvoir télécharger le fichier RDP. Pour plus d'informations sur la stratégie juste-à-temps, consultez [Gérer l'accès à la machine virtuelle à l'aide de la stratégie juste-à-temps](../../security-center/security-center-just-in-time.md).
 2. Ouvrez le fichier RDP téléchargé et, à l’invite, sélectionnez **Connecter**. 
-2. Un message vous avertit que le fichier .rdp provient d’un éditeur inconnu. Ceci est normal. Sélectionnez **Connecter** dans la fenêtre **Connexion Bureau à distance** pour continuer.
+2. Un message vous avertit que le fichier `.rdp` provient d'un éditeur inconnu. Ceci est normal. Sélectionnez **Connecter** dans la fenêtre **Connexion Bureau à distance** pour continuer.
    
     ![Capture d’écran d’avertissement relatif à un éditeur inconnu.](./media/connect-logon/rdp-warn.png)
 3. Dans la fenêtre **Sécurité Windows**, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. Entrez les informations d’identification d’un compte sur la machine virtuelle, puis cliquez sur **OK**.

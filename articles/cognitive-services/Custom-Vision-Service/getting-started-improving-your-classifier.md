@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 2bee7f0af98bf03a13e376dea9dbf083b3f61815
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 72ba363201b27a8ca31c73af1d0cceb436de468d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340288"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209389"
 ---
 # <a name="how-to-improve-your-classifier"></a>Comment améliorer votre classifieur
 
@@ -41,7 +41,7 @@ Autre considération importante, veillez à ce que vos données soient équilibr
 
 Fournissez des images représentatives de ce qui va être soumis au classifieur en utilisation normale. Supposons, par exemple, que vous effectuez l’apprentissage d’un classifieur « pommes » : il ne sera peut-être pas très précis s’il a été exclusivement entraîné avec des photos de pommes dans des assiettes et qu’il doit établir des prédictions sur des photos de pommes dans des arbres. La variété des images permet d’éviter les biais dans le classifieur et lui permet de généraliser correctement. Voici quelques moyens de rendre un jeu d’apprentissage plus varié :
 
-__Arrière-plan :__ fournissez des images de votre objet devant différents arrière-plans (autrement dit, à la fois des fruits sur une assiette et des fruits dans un sac d’épicerie). Les photos en contexte sont plus performantes que celles dont l’arrière-plan est neutre, car elles apportent davantage d’informations au classifieur.
+__Contexte__ : fournissez des images de votre objet devant différents arrière-plans (autrement dit, à la fois des fruits sur une assiette et des fruits dans un sac d'épicerie). Les photos en contexte sont plus performantes que celles dont l’arrière-plan est neutre, car elles apportent davantage d’informations au classifieur.
 
 ![Exemples d’images (arrière-plan)](./media/getting-started-improving-your-classifier/background.png)
 
@@ -49,7 +49,7 @@ __Éclairage :__ fournissez des images présentant des éclairages variés (aut
 
 ![Exemples d’images (éclairage)](./media/getting-started-improving-your-classifier/lighting.png)
 
-__Taille de l’objet :__ fournissez des images dans lesquelles les objets sont de tailles variées et qui capturent différentes parties de l’objet. Par exemple, prenez une photo de grappes de bananes et un gros plan sur une seule banane. Les différences de taille permettent au classifieur de mieux généraliser.
+__Taille de l'objet :__ fournissez des images dans lesquelles les objets sont de tailles variées et qui capturent différentes parties de l'objet. Par exemple, prenez une photo de grappes de bananes et un gros plan sur une seule banane. Les différences de taille permettent au classifieur de mieux généraliser.
 
 ![Exemples d’images (taille)](./media/getting-started-improving-your-classifier/size.png)
 
@@ -57,7 +57,7 @@ __Angle de vue :__ fournissez des images prises avec différents angles de vue.
 
 ![Exemples d’images (angle)](./media/getting-started-improving-your-classifier/angle.png)
 
-__Style :__ fournissez des images de différents styles de la même classe (autrement dit, différents types d’agrumes). Toutefois, si vous avez des images d’objets de styles radicalement différents (par exemple, Mickey Mouse et un vrai rat), il est recommandé de les étiqueter comme classes distinctes pour mieux représenter leurs traits propres.
+__Style :__ fournissez des images de différents styles de la même classe (autrement dit, différents types d'agrumes). Toutefois, si vous avez des images d’objets de styles radicalement différents (par exemple, Mickey Mouse et un vrai rat), il est recommandé de les étiqueter comme classes distinctes pour mieux représenter leurs traits propres.
 
 ![Exemples d’images (style)](./media/getting-started-improving-your-classifier/style.png)
 

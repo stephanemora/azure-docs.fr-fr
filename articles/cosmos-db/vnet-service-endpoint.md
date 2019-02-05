@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 199e1dda3e4629c0298d4aae1cb5d09e20e4b3b8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358726"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452038"
 ---
-# <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Accéder aux ressources Azure Cosmos DB à partir de réseaux virtuels
+# <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accéder à Azure Cosmos DB à partir de réseaux virtuels (VNet)
 
-Vous pouvez configurer les comptes Azure Cosmos DB pour autoriser l’accès uniquement à partir d’un sous-réseau spécifique de réseau virtuel Azure (VNET). En activant l’option [Point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) pour accéder à Azure Cosmos DB sur le sous-réseau au sein d’un réseau virtuel, le trafic à partir de ce sous-réseau est envoyé à Azure Cosmos DB avec l’identité du sous-réseau et du réseau virtuel. Une fois le point de terminaison de service Azure Cosmos DB activé, vous pouvez limiter l’accès au sous-réseau en l’ajoutant à votre compte Azure Cosmos.
+Vous pouvez configurer le compte Azure Cosmos pour n'autoriser l'accès qu'à partir d'un sous-réseau spécifique de réseau virtuel (VNet). En activant l’option [Point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) pour accéder à Azure Cosmos DB sur le sous-réseau au sein d’un réseau virtuel, le trafic à partir de ce sous-réseau est envoyé à Azure Cosmos DB avec l’identité du sous-réseau et du réseau virtuel. Une fois le point de terminaison de service Azure Cosmos DB activé, vous pouvez limiter l’accès au sous-réseau en l’ajoutant à votre compte Azure Cosmos.
 
 Par défaut, un compte Azure Cosmos est accessible depuis n’importe quelle source tant que la demande est accompagnée d’un jeton d’autorisation valide. Lorsque vous ajoutez un ou plusieurs sous-réseaux au sein de réseaux virtuels, seules les requêtes provenant de ces sous-réseaux obtiendront une réponse valide. Les requêtes provenant de toute autre source recevront une réponse 403 (Interdit). 
 
@@ -41,7 +41,7 @@ Quand un pare-feu IP ou des règles d’accès à un réseau virtuel sont ajout�
 Une fois que le point de terminaison de service pour Azure Cosmos DB est activé sur un sous-réseau, la source du trafic qui atteint le compte bascule de l’adresse IP publique vers le réseau virtuel et le sous-réseau. Si votre compte Azure Cosmos est uniquement protégé par un pare-feu basé sur IP, le trafic provenant du sous-réseau avec service ne respecte plus les règles du pare-feu IP et, par conséquent, il sera rejeté. Passez en revue les étapes pour migrer en toute transparence d’un pare-feu basé sur IP à un contrôle d’accès basé sur un réseau virtuel.
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>Les réseaux virtuels homologués ont-ils également accès au compte Azure Cosmos ? 
-Seuls le réseau virtuel et ses sous-réseaux ajoutés au compte Azure Cosmos y ont accès. Leurs réseaux virtuels homologués ne peuvent pas accéder au compte tant que les sous-réseaux au sein des réseaux virtuels homologués n’ont pas été ajoutés au compte.
+Seuls le réseau virtuel et ses sous-réseaux ajoutés au compte Azure Cosmos y ont accès. Leurs réseaux virtuels homologués ne peuvent pas accéder au compte tant que les sous-réseaux des réseaux virtuels homologués ne sont pas ajoutés au compte.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>Quel est le nombre maximal de sous-réseaux autorisés à accéder à un seul compte Cosmos ? 
 Actuellement, vous pouvez avoir au maximum 64 sous-réseaux autorisés pour un compte Azure Cosmos.

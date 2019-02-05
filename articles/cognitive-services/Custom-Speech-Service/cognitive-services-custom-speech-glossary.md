@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 02f6c3f81cbaa26eed8de8b7785b519ecbc3bf26
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 889eabf38f25923d9bd84ea6ceaa5567c74216df
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344249"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223814"
 ---
 # <a name="glossary"></a>Glossaire
 
@@ -70,7 +70,7 @@ Le modèle de langage est une distribution de probabilités sur des séquences d
 
 ### <a name="normalization"></a>Normalisation
 
-Normalisation (texte) : transformation du texte résultant (c'est-à-dire transcription) dans un format standard et non ambigu pouvant être lu par le système.
+Normalisation (texte) : transformation du texte obtenu (transcription) dans un format standard et non ambigu lisible par le système.
 
 ## <a name="o"></a>O
 
@@ -94,7 +94,7 @@ La clé d’abonnement est une chaîne que vous devez spécifier comme paramètr
 
 ### <a name="transcription"></a>Transcription
 
-Transcription : l’élément de texte qui résulte du traitement d’une partie du fichier audio .wav
+Transcription : texte résultant du traitement d'une partie du fichier audio .wav
 
 ## <a name="u"></a>U
 

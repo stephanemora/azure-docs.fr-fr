@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/29/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 12c8b80b76c721962ca6180e531578b037997553
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854913"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294163"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 
@@ -86,14 +86,14 @@ Une erreur est renvoyée quand :
 
 ### <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-**Q : Pourquoi la suppression du domaine échoue avec une erreur indiquant que j’ai des groupes Exchange contrôlés sur ce nom de domaine ?** <br>
-**R :** Aujourd’hui, certains groupes tels que les listes distribuées et les groupes de sécurité à extension messagerie sont approvisionnés par Exchange et doivent être nettoyés manuellement dans le [Centre d’administration Exchange](https://outlook.office365.com/ecp/). Des éléments ProxyAddresses, qui reposent sur le nom de domaine personnalisé, peuvent être en attente et devront être mis à jour manuellement vers un autre nom de domaine. 
+**Q : Pourquoi la suppression du domaine échoue-t-elle avec une erreur indiquant que je dispose de groupes Exchange contrôlés sur ce nom de domaine ?** <br>
+**R :** Aujourd'hui, certains groupes tels que les groupes de sécurité à extension messagerie et les listes distribuées sont approvisionnés par Exchange et doivent être nettoyés manuellement dans le [Centre d'administration Exchange](https://outlook.office365.com/ecp/). Des éléments ProxyAddresses, qui reposent sur le nom de domaine personnalisé, peuvent être en attente et devront être mis à jour manuellement vers un autre nom de domaine. 
 
-**Q : Je suis connecté en tant que admin@contoso.com, mais je ne peux pas supprimer le nom de domaine « contoso.com ?**<br>
-**R :** Vous ne pouvez pas référencer le nom de domaine personnalisé que vous cherchez à supprimer dans votre nom de compte d’utilisateur. Assurez-vous que le compte d’administrateur général utilise le nom de domaine par défaut initial (.onmicrosoft.com) comme admin@contoso.onmicrosoft.com. Connectez-vous avec un compte d’administrateur général différent comme admin@contoso.onmicrosoft.com ou un autre nom de domaine personnalisé comme « fabrikam.com » où le compte est admin@fabrikam.com.
+**Q : Je suis connecté en tant que admin@contoso.com mais je ne peux pas supprimer le nom de domaine « contoso.com » ?**<br>
+**R :** Vous ne pouvez pas référencer le nom de domaine personnalisé que vous cherchez à supprimer dans votre nom de compte d'utilisateur. Assurez-vous que le compte d’administrateur général utilise le nom de domaine par défaut initial (.onmicrosoft.com) comme admin@contoso.onmicrosoft.com. Connectez-vous avec un compte d’administrateur général différent comme admin@contoso.onmicrosoft.com ou un autre nom de domaine personnalisé comme « fabrikam.com » où le compte est admin@fabrikam.com.
 
-**Q : J’ai cliqué sur le bouton Supprimer un domaine et je peux voir l’état `In Progress` pour l’opération de suppression. Combien de temps cela prend-il ? Que se passe-t-il en cas d’échec ?**<br>
-**R :** L’opération de suppression de domaine est une tâche asynchrone en arrière-plan qui renomme toutes les références au nom de domaine. Cette opération dure normalement une à deux minutes. En cas d’échec de suppression du domaine, vérifiez que vous n’avez pas :
+**Q : J'ai cliqué sur le bouton Supprimer un domaine et je vois l'état `In Progress` pour l'opération de suppression. Combien de temps cela prend-il ? Que se passe-t-il en cas d’échec ?**<br>
+**R :** L'opération de suppression de domaine est une tâche d'arrière-plan asynchrone qui renomme toutes les références au nom de domaine. Cette opération dure normalement une à deux minutes. En cas d’échec de suppression du domaine, vérifiez que vous n’avez pas :
 
 * Des applications configurées sur le nom de domaine avec l’appIdentifierURI
 * Des groupes à extension de messagerie référençant le nom de domaine personnalisé
@@ -112,5 +112,4 @@ La plupart des tâches de gestion des noms de domaine dans Azure Active Director
 
 * [Ajouter des noms de domaines personnalisés](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Supprimer les groupes de sécurité à extension messagerie](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [Update your applications reference to another domain in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad#updating-an-application) (Mettre à jour vos références d’application sur un autre domaine dans Azure AD)
 * [ForceDelete a custom domain name with Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete) (Appliquer une opération ForceDelete sur un nom de domaine personnalisé avec l’API Microsoft Graph)

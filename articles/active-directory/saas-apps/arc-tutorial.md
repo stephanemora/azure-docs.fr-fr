@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Arc Publishing - Authentification unique | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Arc Publishing - Authentification unique | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Arc Publishing - Authentification unique.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: ae609583-f875-4cb8-b68e-1b0b7938e9a7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: eafd7998e5bc21a539b6709794fe3cd70d9e3179
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8c4922c817d9667b1a25846df53f9366e2018342
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054316"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187111"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Tutoriel : Intégration d’Azure Active Directory à Arc Publishing - Authentification unique
+# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Tutoriel : Intégration d'Azure Active Directory à Arc Publishing - Authentification unique
 
 Dans ce tutoriel, vous allez apprendre à intégrer Arc Publishing - Authentification unique à Azure Active Directory (Azure AD).
 
@@ -123,7 +123,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. L’application Arc Publishing - Authentification unique attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
-    ![Configurer l'authentification unique](./media/arc-tutorial/tutorial_arc_attribute.png)
+    ![Configure Single Sign-On](./media/arc-tutorial/tutorial_arc_attribute.png)
 
 1. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
@@ -136,7 +136,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     1. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-     ![Configurer l'authentification unique](./media/arc-tutorial/tutorial_attribute_04.png)
+     ![Configure Single Sign-On](./media/arc-tutorial/tutorial_attribute_04.png)
 
      ![Configurer l'authentification unique](./media/arc-tutorial/tutorial_attribute_05.png)
     
@@ -202,7 +202,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Arc Publishing - Authentification unique. Arc Publishing - Authentification unique prend en charge le provisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas déjà, un nouvel utilisateur est créé durant une tentative d’accès à Arc Publishing - Authentification unique.
 
 >[!Note]
->Si vous avez besoin créer un utilisateur manuellement, contactez [l’équipe de support technique Arc Publishing - Authentification unique](mailto:inf@washpost.com).
+>Si vous devez créer un utilisateur manuellement, contactez l' [équipe du support technique d'Arc Publishing - Authentification unique](mailto:inf@washpost.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

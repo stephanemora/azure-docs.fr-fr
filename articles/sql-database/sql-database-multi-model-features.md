@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 0c46ba3d2fcd59f43df2383c3e0471fa36217536
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550883"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300249"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Fonctionnalités multimodèles d’Azure SQL Database
 
@@ -50,7 +50,7 @@ Le [traitement de graphe](https://docs.microsoft.com/sql/relational-databases/gr
 
 Il n’est rien qu’une base de données de graphe puisse accomplir qui ne puisse être accompli à l’aide d’une base de données relationnelle. Toutefois, une base de données de graphe peut faciliter l’expression de certaines requêtes. Votre décision de choisir l’une plutôt que l’autre peut dépendre des facteurs suivants :
 
-- Vous devez modéliser des données hiérarchiques dans lesquelles un nœud peut avoir plusieurs parents, de sorte que HieararchyId ne peut pas être utilisé.
+- Vous devez modéliser des données hiérarchiques dans lesquelles un nœud peut avoir plusieurs parents, de sorte que HierarchyId ne peut pas être utilisé.
 - Votre application a des relations de plusieurs à plusieurs complexes et, à mesure qu’elle évolue, de nouvelles relations sont ajoutées.
 - Vous devez analyser des données et relations interconnectées.
 
@@ -96,7 +96,7 @@ La [prise en charge spatiale](https://docs.microsoft.com/sql/relational-database
 SQL Server offre une plateforme puissante pour développer des applications riches pour la gestion de données semi-structurées. La prise en charge de XML est intégrée dans tous les composants de SQL Server et inclut ce qui suit :
 
 - Le type de données XML. Les valeurs XML peuvent être stockées en mode natif dans une colonne de type de données XML qui peut être typée en fonction d’une collection de schémas XML, ou laissée non-typée. Vous pouvez indexer la colonne XML.
-- La possibilité de spécifier une requête XQuery sur des données XML stockées dans des colonnes et des variables du type XML. Vous pouvez utiliser dans toute requête Transact-SQL des fonctionnalités XQUery qui accèdent à un modèle quelconque de données que vous utilisez dans votre base de données.
+- La possibilité de spécifier une requête XQuery sur des données XML stockées dans des colonnes et des variables du type XML. Les fonctionnalités XQuery peuvent être utilisées dans n'importe quelle requête Transact-SQL pour accéder à un modèle de données que vous utilisez dans votre base de données.
 - Possibilité d’indexer automatiquement tous les éléments figurant dans des documents XML à l’aide d’un [index XML primaire](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index), ou de spécifier les chemins d’accès exacts à indexer à l’aide d’un [index XML secondaire](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
 - OPENROWSET qui permet le chargement par lots de données XML.
 - Possibilité de convertir des données relationnelles au format XML.

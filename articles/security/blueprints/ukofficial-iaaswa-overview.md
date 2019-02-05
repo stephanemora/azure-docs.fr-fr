@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413394"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239913"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure Blueprint Sécurité et conformité : application web IaaS à trois niveaux pour UK OFFICIAL
 
@@ -204,7 +204,7 @@ Les clients peuvent également envisager d’utiliser un [modèle administratif 
 
 **Séparation des préoccupations** : cette architecture de référence attribue un réseau virtuel à chaque type d’opérations (administratives et commerciales). La séparation des réseaux virtuels et des sous-réseaux permet de gérer le trafic, notamment de restreindre le trafic entrant et sortant, en utilisant des groupes de sécurité réseau entre les segments réseau, et en suivant les bonnes pratiques de la rubrique [Services cloud et sécurité réseau Microsoft](https://docs.microsoft.com/azure/best-practices-network-security).
 
-**Gestion des ressources** : les ressources Azure, telles que les machines virtuelles, les réseaux virtuels et les équilibreurs de charge, sont regroupées dans des [groupes de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource) pour être gérées. Les rôles du contrôle d’accès basé sur les ressources peuvent ensuite être affectés à chaque groupe de ressources pour restreindre l’accès aux seuls utilisateurs autorisés.
+**Gestion des ressources** : les ressources Azure, telles que les machines virtuelles, les réseaux virtuels et les équilibreurs de charge, sont regroupées dans des [groupes de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pour être gérées. Les rôles du contrôle d’accès basé sur les ressources peuvent ensuite être affectés à chaque groupe de ressources pour restreindre l’accès aux seuls utilisateurs autorisés.
 
 **Restrictions de contrôle d’accès** : utilisez le [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) pour gérer les ressources de votre application à l’aide de [rôles personnalisés](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). Le contrôle RBAC peut être utilisé pour restreindre les opérations que DevOps peut effectuer sur chaque couche. Lorsque vous accordez des autorisations, utilisez le [principe des privilèges minimum](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Journalisez toutes les opérations d’administration et réalisez des audits réguliers pour vérifier qu’aucune modification de configuration n’est prévue.
 
@@ -226,7 +226,7 @@ En outre, le Cloud Security Alliance (CSA) a publié une matrice de contrôle cl
 
 ## <a name="deploy-the-solution"></a>Déployer la solution
 
-Il existe deux méthodes pour déployer cette automatisation de plan. La première méthode utilise un script PowerShell, alors que la deuxième utilise le portail Azure pour déployer l’architecture de référence. Des instructions détaillées sur le déploiement sont disponibles [ici](https://aka.ms/ukofficial-iaaswa-repo).
+Il existe deux méthodes pour déployer cette automatisation de plan. La première méthode utilise un script PowerShell, alors que la deuxième utilise le portail Azure pour déployer l'architecture de référence. Des instructions détaillées sur le déploiement sont disponibles [ici](https://aka.ms/ukofficial-iaaswa-repo).
 
 ## <a name="disclaimer"></a>Clause d'exclusion de responsabilité
 

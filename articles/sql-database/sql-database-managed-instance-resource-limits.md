@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 01/22/2019
-ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6bb90480667a899d9d7bc7a5d8269b0cdf1da223
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450879"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219717"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -39,6 +39,7 @@ Azure SQL Database Managed Instance peut être déployé sur deux générations 
 | Matériel | Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz, disque SSD attaché, vCore = 1 PP (cœur physique) | Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz, disque SSD fast eNVM, vCore = 1 LP (hyperthread) |
 | Calcul | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Mémoire | 7 Go par vCore | 5,1 Go par vCore |
+| OLTP en mémoire | 3 Go par vCore | 2,6 Go par vCore |
 | Espace de stockage maximal (usage général) |  8 To | 1 To |
 | Espace de stockage maximal (Critique pour l’entreprise) | 8 To | 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
 

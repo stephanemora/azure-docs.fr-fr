@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Infogix Data3Sixty Govern | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Infogix Data3Sixty Govern | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Infogix Data3Sixty Govern.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: aa3109b8-bdbe-45ae-933a-2eb4dc03855c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e54ade44828bf1e26c310a14ae401fe8ae33229
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e9b805786346abd6dfe830c9ce6ae4cc341c9e7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437659"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194268"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutoriel : Intégration d’Azure Active Directory avec Infogix Data3Sixty Govern
+# <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Didacticiel : Intégration d'Azure Active Directory à Infogix Data3Sixty Govern
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Infogix Data3Sixty Govern à Azure Active Directory (Azure AD).
 
@@ -199,7 +199,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Infogix Data3Sixty Govern. Infogix Data3Sixty Govern prend en charge le provisionnement juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un nouvel utilisateur est créé lors d’une tentative d’accès à Infogix Data3Sixty Govern, s’il n’existe pas encore.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez l’[équipe de support Infogix Data3Sixty Govern](mailto:data3sixtysupport@infogix.com).
+>Si vous devez créer un utilisateur manuellement, contactez l' [équipe du support d'Infogix Data3Sixty Govern](mailto:data3sixtysupport@infogix.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

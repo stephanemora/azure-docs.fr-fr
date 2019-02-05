@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600860"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455063"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights
 
@@ -45,12 +45,12 @@ Intelligent Insights détecte automatiquement les problèmes de performances li�
 | [Contention de tempDB](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Plusieurs threads essaient d’accéder à la même ressource TempDB, ce qui provoque un goulet d’étranglement. Ce phénomène affecte les performances de SQL Database. | Plusieurs threads essaient d’accéder à la même ressource TempDB, ce qui provoque un goulet d’étranglement. Ce phénomène affecte les performances de la base de données. |
 | [Pénurie de DTU du pool élastique](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | La pénurie de eDTU disponibles dans le pool élastique affecte les performances de SQL Database. | Non disponible pour Managed Instance, car c’est le modèle vCore qui est en usage. |
 | [Régression de plan](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Un nouveau plan ou une modification de la charge de travail d’un plan existant ont été détectés. Ce phénomène affecte les performances de SQL Database. | Un nouveau plan ou une modification de la charge de travail d’un plan existant ont été détectés. Ce phénomène affecte les performances de la base de données. |
-| [Changement de la valeur de configuration à l’échelle de la base de données](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Une modification de configuration apportée à SQL Database a été détectée, ce qui affecte les performances de la base de données. | Une modification de configuration apportée à la base de données a été détectée, ce qui affecte les performances de la base de données. |
+| [Modification de la valeur de configuration à l’échelle de la base de données](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Une modification de configuration apportée à SQL Database a été détectée, ce qui affecte les performances de la base de données. | Une modification de configuration apportée à la base de données a été détectée, ce qui affecte les performances de la base de données. |
 | [Client lent](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | Un client d’application lent est incapable de consommer la sortie de la base de données assez rapidement. Ce phénomène affecte les performances de SQL Database. | Un client d’application lent est incapable de consommer la sortie de la base de données assez rapidement. Ce phénomène affecte les performances de la base de données. |
-| [Passage à un niveau tarifaire inférieur](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Le passage à un niveau tarifaire inférieur a diminué les ressources disponibles. Ce phénomène affecte les performances de SQL Database. | Le passage à un niveau tarifaire inférieur a diminué les ressources disponibles. Ce phénomène affecte les performances de la base de données. |
+| [Rétrogradation à un niveau tarifaire inférieur](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Le passage à un niveau tarifaire inférieur a diminué les ressources disponibles. Ce phénomène affecte les performances de SQL Database. | Le passage à un niveau tarifaire inférieur a diminué les ressources disponibles. Ce phénomène affecte les performances de la base de données. |
 
 > [!TIP]
-> Pour optimiser en continu les performances de SQL Database, activez le [paramétrage automatique d’Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Il s’agit d’une fonctionnalité unique de l’intelligence intégrée de SQL Database qui surveille en permanence votre base de données SQL, paramètre automatiquement les index et applique les corrections du plan d’exécution de requêtes.
+> Pour optimiser en continu les performances de SQL Database, activez le [paramétrage automatique d’Azure SQL Database](sql-database-automatic-tuning.md). Il s’agit d’une fonctionnalité unique de l’intelligence intégrée de SQL Database qui surveille en permanence votre base de données SQL, paramètre automatiquement les index et applique les corrections du plan d’exécution de requêtes.
 >
 
 La section suivante décrit plus en détail les modèles de performances détectables.
@@ -61,7 +61,7 @@ La section suivante décrit plus en détail les modèles de performances détect
 
 Ce modèle de performances détectables combine les problèmes de performances liés à l’atteinte des limites de ressources, de threads de travail et de sessions disponibles. Une fois que ce problème de performances a été détecté, un champ de description du journal de diagnostic indique si le problème est lié aux limites de ressources, de threads de travail ou de sessions.
 
-Les ressources de SQL Database sont généralement appelées des ressources [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) ou [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore). Le modèle lié à l’atteinte des limites de ressources est reconnu quand une détérioration des performances de requête est détectée et qu’elle est due à l’atteinte de l’une des limites de ressources mesurées.
+Les ressources de SQL Database sont généralement appelées des ressources [DTU](sql-database-what-is-a-dtu.md) ou [vCore](sql-database-service-tiers-vcore.md). Le modèle lié à l’atteinte des limites de ressources est reconnu quand une détérioration des performances de requête est détectée et qu’elle est due à l’atteinte de l’une des limites de ressources mesurées.
 
 La ressource relative aux limites de sessions indique le nombre de connexions simultanées disponibles à SQL Database. Ce modèle de performances est reconnu quand des applications connectées à des bases de données SQL ont atteint le nombre de connexions simultanées disponibles à la base de données. Si les applications essaient d’utiliser plus de sessions que le nombre disponible sur une base de données, les performances des requêtes sont affectées.
 
@@ -73,7 +73,7 @@ Le journal de diagnostic génère les codes de hachage des requêtes qui ont aff
 
 Si vous avez atteint les limites de sessions disponibles, vous pouvez optimiser vos applications en réduisant le nombre de connexions à la base de données. Si vous ne parvenez pas à réduire le nombre de connexions de vos applications à la base de données, augmentez éventuellement le niveau tarifaire de votre base de données. Vous pouvez également fractionner et déplacer votre base de données vers plusieurs bases de données pour obtenir une distribution plus équilibrée de la charge de travail.
 
-Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales de SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez l’article de [vue d’ensemble des limites de ressources sur un serveur logique](sql-database-resource-limits-logical-server.md).
+Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales de SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Pour plus d'informations sur les limites au niveau du serveur et de l'abonnement, consultez [Vue d'ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).
 
 ## <a name="workload-increase"></a>Augmentation de la charge de travail
 

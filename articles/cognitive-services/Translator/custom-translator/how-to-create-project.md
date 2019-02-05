@@ -5,16 +5,16 @@ description: Comment créer un projet dans Custom Translator ?
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 4e5ac4386af55855c5240f89557feafd4a93adfb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9886ba39846d9489a66c57bcc614f90e2bf70d4e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626771"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218102"
 ---
 # <a name="create-a-project"></a>Création d’un projet
 
@@ -30,17 +30,17 @@ La création d'un projet constitue la première étape de création d’un modè
 
 2.  Dans la boîte de dialogue, entrez les détails suivants relatifs à votre projet :
 
-    a.  Nom du projet (obligatoire) : donnez un nom unique et explicite à votre projet. Il n’est pas nécessaire de mentionner les langues dans le titre.
+    a.  Nom du projet (obligatoire) : Donnez un nom unique et explicite à votre projet. Il n’est pas nécessaire de mentionner les langues dans le titre.
 
-    b.  Description : résumé succinct du projet. Cette description n'influe en rien sur le comportement de Custom Manager ou du système personnalisé qui en résulte, mais peut vous aider à différencier les projets.
+    b.  Description : Résumé succinct du projet. Cette description n'influe en rien sur le comportement de Custom Manager ou du système personnalisé qui en résulte, mais peut vous aider à différencier les projets.
 
-    c.  Paire de langues (obligatoire) : sélectionnez les langues source et cible.
+    c.  Paire de langues (obligatoire) : Sélectionnez les langues source et cible.
 
-    d.  Catégorie (obligatoire) : sélectionnez la catégorie la plus adaptée à votre projet. La catégorie décrit la terminologie et le style des documents que vous envisagez de traduire.
+    d.  Catégorie (obligatoire) : Sélectionnez la catégorie la plus adaptée à votre projet. La catégorie décrit la terminologie et le style des documents que vous envisagez de traduire.
 
-    e.  Description de la catégorie : utilisez ce champ pour mieux décrire le domaine ou secteur dans lequel vous travaillez. Par exemple, si votre catégorie est médecine, vous pouvez ajouter un document spécifique (chirurgie ou pédiatrie, par exemple). Cette description n'influe en rien sur le comportement de Custom Manager ou du système personnalisé qui en résulte.
+    e.  Description de la catégorie : Utilisez ce champ pour mieux décrire le domaine ou secteur dans lequel vous travaillez. Par exemple, si votre catégorie est médecine, vous pouvez ajouter un document spécifique (chirurgie ou pédiatrie, par exemple). Cette description n'influe en rien sur le comportement de Custom Manager ou du système personnalisé qui en résulte.
 
-    f.  Étiquette du projet : l'[étiquette du projet](workspace-and-project.md#project-labels) permet de différencier les projets présentant la même paire de langues et la même catégorie. En guise de bonne pratique, utilisez une étiquette *uniquement* si vous envisagez de générer plusieurs projets pour la même paire de langues et la même catégorie, et souhaitez accéder à ces projets avec un ID de catégorie différent. N’utilisez pas ce champ si vous créez des systèmes pour une seule catégorie. Une étiquette de projet n’est pas obligatoire, et inutile pour différentier les paires de langues. Vous pouvez utiliser la même étiquette pour plusieurs projets.
+    f.  Étiquette du projet : L'[étiquette du projet](workspace-and-project.md#project-labels) permet de différencier les projets présentant la même paire de langues et la même catégorie. En guise de bonne pratique, utilisez une étiquette *uniquement* si vous envisagez de générer plusieurs projets pour la même paire de langues et la même catégorie, et souhaitez accéder à ces projets avec un ID de catégorie différent. N’utilisez pas ce champ si vous créez des systèmes pour une seule catégorie. Une étiquette de projet n’est pas obligatoire, et inutile pour différentier les paires de langues. Vous pouvez utiliser la même étiquette pour plusieurs projets.
 
     ![Créer une boîte de dialogue de projet](media/how-to/how-to-create-project-dialog.png)
 
@@ -52,13 +52,13 @@ La page d’accueil Custom Translator affiche les 10 premiers projets de votre 
 
 Après avoir sélectionné un projet, la page de projet affiche ce qui suit :
 
-- CategoryID : un CategoryID est créé en concaténant l'ID d'espace de travail, l'étiquette de projet et le code de catégorie. Vous utilisez le CategoryID avec l’API Text Translator pour obtenir des traductions personnalisées.
+- CategoryID : Un CategoryID est créé en concaténant l'ID d'espace de travail, l'étiquette de projet et le code de catégorie. Vous utilisez le CategoryID avec l’API Text Translator pour obtenir des traductions personnalisées.
 
-- Bouton Effectuer l'apprentissage : utilisez ce bouton pour démarrer l'[apprentissage d’un modèle](how-to-train-model.md).
+- Bouton Effectuer l'apprentissage : Utilisez ce bouton pour démarrer l'[apprentissage d’un modèle](how-to-train-model.md).
 
-- Bouton Ajouter des documents : utilisez ce bouton pour [charger des documents](how-to-upload-document.md).
+- Bouton Ajouter des documents : Utilisez ce bouton pour [charger des documents](how-to-upload-document.md).
 
-- Bouton Filtrer des documents : utilisez ce bouton pour filtrer et rechercher des documents spécifiques.
+- Bouton Filtrer des documents : Utilisez ce bouton pour filtrer et rechercher des documents spécifiques.
 
     ![Afficher les détails du projet](media/how-to/how-to-view-project.png)
 

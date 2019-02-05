@@ -4,25 +4,25 @@ titleSuffix: Azure Machine Learning service
 description: Ce guide de procédures décrit les différents quotas sur les ressources pour Azure Machine Learning, comment les afficher et comment demander un quota plus élevé.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6a08a5a79a8a072bd4621a7e200e84c2c71c9cd4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b735df4e245d6e3ceebd847e91ed7dfdb255c267
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475065"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245988"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gérer et demander des quotas pour les ressources Azure
 
 À l’instar d’autres services Azure, certaines ressources associées au service Azure Machine Learning présentent des limites. Ces limites vont du plafond appliqué au nombre d’espaces de travail que vous pouvez créer aux limites sur le calcul sous-jacent réel utilisé pour l’entraînement ou l’inférence de vos modèles. Cet article fournit d’autres détails sur les limites préconfigurées de différentes ressources Azure pour votre abonnement et contient également des liens pratiques afin de demander des améliorations de quotas pour chaque type de ressource. Ces limites sont mises en place pour empêcher les dépassements de budget dus à des fraudes et respecter les contraintes de capacité Azure.
 
-Gardez ces quotas à l’esprit quand vous concevez et augmentez vos ressources Azure ML pour des charges de travail de production. Par exemple, si votre cluster n’atteint pas le nombre cible de nœuds spécifié, c’est peut-être le signe que vous avez atteint la limite de cœurs de la Capacité de calcul Azure Machine Learning de votre abonnement. Si vous souhaitez élever la limite ou le quota au-dessus de la limite par défaut, ouvrez gratuitement une demande de service clientèle en ligne. Les limites ne peuvent pas être supérieures à la valeur Limite maximale indiquée dans les tableaux suivants, en raison des contraintes de capacité Azure. Si aucune colonne Limite maximale n’est présente, la ressource spécifiée ne possède pas de limites ajustables. 
+Gardez ces quotas à l'esprit lorsque vous concevez et montez en puissance vos ressources Azure Machine Learning service pour des charges de travail de production. Par exemple, si votre cluster n’atteint pas le nombre cible de nœuds spécifié, c’est peut-être le signe que vous avez atteint la limite de cœurs de la Capacité de calcul Azure Machine Learning de votre abonnement. Si vous souhaitez élever la limite ou le quota au-dessus de la limite par défaut, ouvrez gratuitement une demande de service clientèle en ligne. Les limites ne peuvent pas être supérieures à la valeur Limite maximale indiquée dans les tableaux suivants, en raison des contraintes de capacité Azure. Si aucune colonne Limite maximale n’est présente, la ressource spécifiée ne possède pas de limites ajustables.
 
 ## <a name="special-considerations"></a>Considérations spéciales
 
@@ -34,12 +34,12 @@ Gardez ces quotas à l’esprit quand vous concevez et augmentez vos ressources 
 
 ## <a name="default-resource-quotas"></a>Quotas de ressources par défaut
 
-Voici la répartition des limites de quota selon les différents types de ressources au sein de votre abonnement Azure. 
+Voici la répartition des limites de quota selon les différents types de ressources au sein de votre abonnement Azure.
 
 > [!Important]
 > Les limites sont susceptibles d’être modifiées. La dernière version se trouve toujours dans le [document](https://docs.microsoft.com/azure/azure-subscription-service-limits/) sur les quotas au niveau du service pour l’ensemble d’Azure.
 
-### <a name="virtual-machines"></a>Machines virtuelles 
+### <a name="virtual-machines"></a>Machines virtuelles
 Il existe une limite au nombre de machines virtuelles que vous pouvez provisionner sur un abonnement Azure entre vos services ou de manière autonome. Cette limite se situe au niveau régional à la fois sur le nombre total de cœurs et en fonction de la famille.
 
 Il est important de noter qu’une limite totale régionale et une limite régionale par gamme de taille (Dv2, F, etc.) s’appliquent séparément aux cœurs de machine virtuelle. Par exemple, considérons un abonnement dont le nombre total limite de cœurs de machine virtuelle est de 30 pour la région USA Est, de 30 pour la gamme A et de 30 pour la gamme D. Cet abonnement serait autorisé à déployer 30 machines virtuelles A1, ou 30 machines virtuelles D1, ou encore une combinaison de ces deux types de machines dans la limite de 30 cœurs au total (par exemple, 10 machines virtuelles A1 et 20 machines virtuelles D1).
@@ -91,8 +91,8 @@ L’affichage de votre quota pour différentes ressources, telles que les machin
 
 1. Dans la liste des abonnements, sélectionnez celui dont vous recherchez le quota.
 
-   **Il existe une réserve**, en particulier pour ce qui est de voir le quota Capacité de calcul Azure Machine Learning. Comme mentionné ci-dessus, ce quota est distinct du quota de calcul de votre abonnement. 
-   
+   **Il existe une réserve**, en particulier pour ce qui est de voir le quota Capacité de calcul Azure Machine Learning. Comme mentionné ci-dessus, ce quota est distinct du quota de calcul de votre abonnement.
+
 1. Dans le volet gauche, sélectionnez  **Machine Learning service**, puis sélectionnez un espace de travail dans la liste qui s’affiche.
 
 1. Dans le panneau suivant, sous la section **Support + résolution des problèmes**, sélectionnez **Utilisation + quotas** pour afficher vos limites de quota et votre utilisation actuelles.

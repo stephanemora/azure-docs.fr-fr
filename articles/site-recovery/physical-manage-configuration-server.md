@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: ee5cc1f185640c9ea22ceb80b1fabb20df245fe2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 824c7c70cf3e79df3aa04bbe86674ed9486b79f2
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823078"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300436"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
 
@@ -20,7 +20,7 @@ Vous configurez un serveur de configuration local quand vous utilisez le service
 
 ## <a name="prerequisites"></a>Prérequis
 
-Le tableau répertorie les prérequis du déploiement d’une machine de serveur de configuration locale.
+Le tableau répertorie les prérequis du déploiement d'une machine de serveur de configuration locale.
 
 | **Composant** | **Prérequis** |
 | --- |---|
@@ -106,7 +106,7 @@ Exécutez le fichier d’installation de la manière suivante :
 
 ### <a name="parameters"></a>parameters
 
-|Nom du paramètre| type | Description| Valeurs|
+|Nom du paramètre| Type | Description| Valeurs|
 |-|-|-|-|
 | /ServerMode|Obligatoire|Spécifie si les serveurs de configuration et de processus doivent être installés ou si seul le serveur de processus doit être installé|CS<br>PS|
 |/InstallLocation|Obligatoire|Dossier d’installation des composants| N’importe quel dossier sur l’ordinateur|
@@ -128,7 +128,7 @@ Exécutez le fichier d’installation de la manière suivante :
 ### <a name="create-file-input-for-mysqlcredsfilepath"></a>Créer le fichier d’entrée pour MYSQLCredsFilePath
 
 Le paramètre MySQLCredsFilePath accepte un fichier comme entrée. Créez le fichier au format suivant et transmettez-le comme paramètre MySQLCredsFilePath d’entrée.
-```
+```ini
 [MySQLCredentials]
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
@@ -136,7 +136,7 @@ MySQLUserPassword = "Password"
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>Créer le fichier d’entrée pour ProxySettingsFilePath
 Le paramètre ProxySettingsFilePath prend un fichier en tant qu’entrée. Créez le fichier au format suivant et transmettez-le comme paramètre ProxySettingsFilePath d’entrée.
 
-```
+```ini
 [ProxySettings]
 ProxyAuthentication = "Yes/No"
 Proxy IP = "IP Address"
@@ -157,7 +157,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
 5. Fournissez les informations sur le nouveau proxy, puis cliquez sur le bouton **Inscrire**.
 6. Ouvrez une fenêtre de commandes PowerShell administrateur.
 7. Exécutez la commande suivante :
-  ```
+  ```powershell
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine
@@ -177,7 +177,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
   6. Ouvrez une fenêtre de commandes PowerShell administrateur.
   7. Exécutez la commande suivante
 
-      ```
+      ```powershell
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
       net stop obengine
@@ -205,7 +205,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
 6. Indiquez les détails du serveur proxy, puis cliquez sur le bouton **Inscrire**.  
 7. Ouvrez une fenêtre de commandes PowerShell administrateur.
 8. Exécutez la commande suivante
-    ```
+    ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
@@ -273,7 +273,7 @@ Mettez à niveau le serveur comme suit :
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Configurez votre contexte de coffre.
     
-    ```
+    ```powershell
     $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```

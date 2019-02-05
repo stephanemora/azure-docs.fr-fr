@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: c25dd911b5648cdf4b64053ef26a7b70c9156074
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599754"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468901"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 
-Cet article vous explique comment configurer [géo-réplication active pour les bases de données uniques et en pool] sur un server logique(sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) dans SQL Database avec le [portail Azure](http://portal.azure.com) et comment lancer le basculement.
+Cet article montre comment configurer la [géoréplication active pour les bases de données uniques ou en pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) dans Azure SQL Database via le [portail Azure](http://portal.azure.com) et initier le basculement.
 
 Pour plus d’informations sur les groupes de basculement automatique avec les bases de données uniques et en pool, consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des bases de données uniques et en pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Pour plus d’informations sur les groupes de basculement automatique avec Managed Instance (préversion), consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des bases de données uniques et en pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
@@ -40,7 +40,7 @@ Les étapes suivantes créent une nouvelle base de données secondaire dans un p
 
 Pour ajouter une base de données secondaire, vous devez être le propriétaire ou copropriétaire de l’abonnement.
 
-La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service et la même taille de calcul. La base de données secondaire peut être une base de données autonome ou une base de données dans un pool élastique. Pour plus d’informations, consultez [Modèle d’achat basé sur DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md).
+La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service et la même taille de calcul. La base de données secondaire peut être une base de données unique ou une base de données en pool. Pour plus d’informations, consultez [Modèle d’achat basé sur DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md).
 Une fois la base de données secondaire créée et amorcée, une réplication des données de la base de données primaire vers la base de données secondaire commence.
 
 > [!NOTE]

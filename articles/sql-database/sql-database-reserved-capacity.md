@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 01/25/2019
+ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584149"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455744"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
 
@@ -34,9 +34,9 @@ Plus en savoir plus sur la facturation des achats de réservation pour les clien
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Déterminer la bonne taille de SQL avant l’achat
 
-La taille de la réservation doit être basée sur la quantité totale de calcul utilisé par les bases de données uniques et/ou les pools élastiques SQL, existants ou bientôt déployés au sein d’une région spécifique et utilisant le même niveau de performance avec une génération de matériel identique. 
+La taille de la réservation doit s'appuyer sur le nombre total de calculs utilisés par les bases de données uniques et/ou pools élastiques existants ou à déployer dans une région spécifique et utilisant le même niveau de performance et la même génération de matériel. 
 
-Par exemple, supposons que vous exécutez un processeur Gen5, option Usage général ; un pool élastique de 16 vCore et deux processeurs Gen5, option Critique pour l’entreprise ; des bases de données uniques 4 vCore. Admettons également que vous envisagez de déployer au cours du mois suivant un processeur Gen5 supplémentaire, option Usage général ; un pool élastique de 16 vCore et un processeur Gen5, option Critique pour l’entreprise ; un pool élastique de 32 vCore. Enfin, imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins 1 an. Dans ce cas, vous devez acheter une réservation de 32 (2x16) vCores pour une durée d’un an, avec l’option Usage général pour pool élastique/bases de données uniques SQL Database d’une puissance de calcul Gen5, et une réservation de 40 (2x4 + 32) vCores pour une durée d’un an, avec l’option Critique pour l’entreprise pour pool élastique/bases de données uniques SQL Database d’une puissance de calcul Gen5.
+Par exemple, supposons que vous exécutez un processeur Gen5, option Usage général ; un pool élastique de 16 vCore et deux processeurs Gen5, option Critique pour l’entreprise ; des bases de données uniques 4 vCore. Admettons également que vous envisagez de déployer au cours du mois suivant un processeur Gen5 supplémentaire, option Usage général ; un pool élastique de 16 vCore et un processeur Gen5, option Critique pour l’entreprise ; un pool élastique de 32 vCore. Enfin, imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins 1 an. Dans ce cas, vous devez acheter une réservation de 32 (2x16) vCores pour une durée d'un an, avec l'option Usage général pour pool élastique/bases de données autonomes SQL Database d'une puissance de calcul Gen5, et une réservation de 40 (2x4 + 32) vCores pour une durée d'un an, avec l'option Critique pour l'entreprise pour pool élastique/bases de données autonomes SQL Database d'une puissance de calcul Gen5.
 
 ## <a name="buy-sql-database-reserved-capacity"></a>Acheter une capacité réservée SQL Database
 
@@ -50,7 +50,7 @@ Par exemple, supposons que vous exécutez un processeur Gen5, option Usage gén
     | Champ      | Description|
     |:------------|:--------------|
     |NOM        |Nom de cette réservation.| 
-    |Abonnement|Abonnement utilisé pour payer la réservation de capacité réservée SQL Database. Les coûts initiaux de la réservation de capacité réservée SQL Database sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un contrat Entreprise (numéro de l’offre : MS-AZR-0017P) ou Paiement à l’utilisation (numéro de l’offre : MS-AZR-0003P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.|    
+    |Abonnement|Abonnement utilisé pour payer la réservation de capacité réservée SQL Database. Les coûts initiaux de la réservation de capacité réservée SQL Database sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un Accord Entreprise (numéro de l’offre : MS-AZR-0017P) ou Paiement à l’utilisation (numéro de l’offre : MS-AZR-0003P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.|    
     |Étendue       |L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>Abonnement unique : la remise de réservation vCore est appliquée aux instances SQL Database incluses dans cet abonnement. </li><li>Partagé : la remise de réservation vCore est appliquée aux instances SQL Database en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l’étendue partagée correspond à l’inscription et inclut tous les abonnements (à l’exception des abonnements de développement/test) au sein de l’inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</li></ul>|
     |Région      |Région Azure couverte par la réservation de capacité réservée SQL Database.|    
     |Type de déploiement|Type de ressource SQL pour laquelle vous voulez acheter la réservation.|

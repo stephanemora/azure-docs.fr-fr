@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: ce16ab3b723b9a6c87c7b980e3cc76c389609da6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.lastreviewed: 11/26/2018
+ms.openlocfilehash: 5252eed66018cd2028545567dfe62ca7ba17be7e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847899"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247814"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notes de publication de Validation en tant que service
 
@@ -45,7 +46,7 @@ Si vous exécutez le flux de travail Vérification de mise à jour mensuelle Azu
 1.  Exécutez normalement la mise à jour OEM.
 2.  Exécutez Test-AzureStack après avoir appliqué le package et enregistré la sortie.
 3.  Annuler le test.
-4.  Envoyez la sorte enregistrée à VaaSHelp@microsoft.com pour recevoir les résultats de validation de l’exécution.
+4.  Envoyez la sorte enregistrée à VaaSHelp@microsoft.com pour recevoir les résultats de validation de l'exécution.
 
 ## <a name="version-402"></a>Version 4.0.2
 

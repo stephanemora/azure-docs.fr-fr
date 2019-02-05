@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: f79b148558e7881f852ccd57916b0b0f31a98219
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342328"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219071"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Guide de démarrage rapide : Utiliser l’API Reconnaissance vocale Bing en C&#35; pour .NET sur Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Démarrage rapide : Utiliser l'API Reconnaissance vocale Bing en C&#35; pour .NET sous Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -46,7 +46,7 @@ L’API Microsoft Speech fait partie de Cognitive Services (anciennement Project
 >
 > * Utilisez votre clé d’abonnement. Avec l’exemple d'application de bureau C#, collez votre clé d’abonnement dans la zone de texte lors de l’exécution de l’exemple. Pour plus d’informations, consultez [Exécuter l’exemple d’application](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>Étape 1 : Installer l’exemple d’application
+## <a name="step-1-install-the-sample-application"></a>Étape 1 : Installation de l’exemple d’application
 
 1. Démarrez Visual Studio 2015 et sélectionnez **Fichier** > **Ouvrir** > **Projet/Solution**.
 
@@ -78,9 +78,9 @@ L’API Microsoft Speech fait partie de Cognitive Services (anciennement Project
 
    Chaque catégorie comporte trois modes de reconnaissance :
 
-    * Mode **ShortPhrase** : énoncé de 15 secondes maximum. À mesure que les données sont envoyées au serveur, le client reçoit de multiples résultats partiels et un résultat final avec plusieurs n meilleurs choix.
-    * **Mode LongDictation** : énoncé de deux minutes maximum. À mesure que les données sont envoyées au serveur, le client reçoit plusieurs résultats partiels et plusieurs résultats finaux, selon les emplacements où le serveur indique des pauses dans la phrase.
-    * **Intent detection** (Détection d’intention): le serveur renvoie davantage d’informations structurées sur les entrées vocales. Pour utiliser la détection d’intention, vous devez d’abord former un modèle à l’aide du service [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+    * **Mode ShortPhrase** : énoncé de 15 secondes maximum. À mesure que les données sont envoyées au serveur, le client reçoit de multiples résultats partiels et un résultat final avec plusieurs n meilleurs choix.
+    * **Mode LongDictation** : énoncé de deux minutes maximum. À mesure que les données sont envoyées au serveur, le client reçoit plusieurs résultats partiels et plusieurs résultats finaux, selon les emplacements où le serveur indique des pauses dans la phrase.
+    * **Détection d'intention** : le serveur renvoie des informations structurées supplémentaires sur les entrées vocales. Pour utiliser la détection d’intention, vous devez d’abord former un modèle à l’aide du service [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 Utilisez les exemples de fichiers audio avec cet exemple d’application. Recherchez les fichiers dans le référentiel que vous avez téléchargé avec cet exemple sous le dossier samples/SpeechRecognitionServiceExample. Ces exemples de fichiers audio s’exécutent automatiquement si aucun autre fichier n’est choisi lorsque vous sélectionnez **Use wav file for Shortphrase mode** (Utiliser un fichier wav pour le mode Shortphrase) ou **Use wav file for Longdictation mode** (Utiliser un fichier wav pour le mode Longdictation) en tant qu’entrée vocale. Actuellement, seul le format audio WAV est pris en charge.
 
@@ -90,9 +90,9 @@ Utilisez les exemples de fichiers audio avec cet exemple d’application. Recher
 
 ### <a name="recognition-events"></a>Événements de reconnaissance
 
-* **Événements de résultats partiels** : cet événement est appelé chaque fois que le service Speech prédit ce que vous pouvez dire, avant même que vous n’ayez terminé de parler (si vous utilisez `MicrophoneRecognitionClient`) ou d’envoyer les données (si vous utilisez `DataRecognitionClient`).
-* **Événements d’erreur** : cet événement est appelé quand le service détecte une erreur.
-* **Événements d’intention** : cet événement est appelé sur les clients « WithIntent » (uniquement en mode ShortPhrase) une fois le résultat final de la reconnaissance converti en intention JSON structurée.
+* **Événement de résultats partiels** : Cet événement est appelé chaque fois que le service Speech prédit ce que vous pouvez dire, avant même que vous n’ayez terminé de parler (si vous utilisez `MicrophoneRecognitionClient`) ou d’envoyer les données (si vous utilisez `DataRecognitionClient`).
+* **Événements d'erreur** : appelés quand le service détecte une erreur.
+* **Événements d'intention** : appelés sur les clients « WithIntent » (uniquement en mode ShortPhrase) une fois le résultat final de la reconnaissance converti en intention JSON structurée.
 * **Événements de résultat** :
   * En mode `ShortPhrase`, cet événement est appelé et renvoie les n meilleurs résultats une fois que vous avez terminé de parler.
   * En mode `LongDictation`, le gestionnaire d’événements est appelé plusieurs fois, selon les emplacements où le service identifie des pauses dans la phrase.

@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f658afa1a08a6b8779c2f1e18944eec40abdc465
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586255"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299994"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Jeux de données publics pour la création de prototypes et de tests
 
@@ -44,7 +44,7 @@ Parcourez cette liste de jeux de données publics pour trouver des données que 
 | [Jeux de données de Microsoft Research - « Science des données pour la recherche »](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Plusieurs jeux de données couvrant l’interaction homme-ordinateur, l’audio/la vidéo, la récupération/l’exploration de données, la localisation géographique, traitement de langage naturel et la vision par informatique/robotique. | Les jeux de données sont disponibles dans différents formats, compressés pour le téléchargement. |
 | [Données publiques de génome](http://www.completegenomics.com/public-data/) | « Un vaste jeu de données pour des génomes humains entiers est librement accessible au public pour améliorer les études génomiques... » Le fournisseur, Complete Genomics, est une société privée à but lucratif. | Les jeux de données, après extraction, sont au format UNIX. Des outils d’analyse sont également disponibles. |
 | [Données de l’Open Science Data Cloud](https://www.opensciencedatacloud.org/) | « L’Open Science Data Cloud offre à la communauté scientifiques des ressources pour stocker, partager et analyser des jeux de données scientifiques à l’échelle du téraoctet et du pétaoctet. »| Les jeux de données se trouvent dans différents formats. |
-| [Données climatiques mondiales - WorldcLIM](http://worldclim.org/) | « WorldClim est un ensemble de couches climatiques mondiales (données climatiques en grille) avec une résolution spatiale d’environ 1 km2. Ces données peuvent être utilisées pour le mappage et la modélisation spatiale. » | Ces fichiers contiennent des données géospatiales. Pour plus d’informations, consultez [Format de données](http://worldclim.org/formats1). |
+| [Données climatiques mondiales - WorldClim](http://worldclim.org/) | « WorldClim est un ensemble de couches climatiques mondiales (données climatiques en grille) avec une résolution spatiale d’environ 1 km2. Ces données peuvent être utilisées pour le mappage et la modélisation spatiale. » | Ces fichiers contiennent des données géospatiales. Pour plus d’informations, consultez [Format de données](http://worldclim.org/formats1). |
 | [Données sur la société humaine - Le projet GDELT](http://www.gdeltproject.org/data.html) | « Le projet GDELT est la plus grande base, la plus complète et la plus détaillée base de données ouverte sur la société humaine jamais créée. » | Les fichiers de données brutes sont au format CSV. |
 | [Données de prévision des clics sur les publicités pour l’apprentissage automatisé de Criteo](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | « Le plus grand jeu de données jamais publié pour l’apprentissage automatisé. » Pour plus d’informations, consultez [Jeu de données de prévision de clics de 1 To de Criteo](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
 | [Jeu de données d’exploration de texte ClueWeb09 du projet Lemur](http://www.lemurproject.org/clueweb09.php/) | « Le jeu de données ClueWeb09 a été créé pour soutenir la recherche sur la récupération d’informations et les technologies liées aux langages humains. Il se compose d’environ 1 milliard de pages web dans 10 langues qui ont été collectées en janvier et février 2009. » | Consultez la page [Informations sur le jeu de données](http://www.lemurproject.org/clueweb09/datasetInformation.php).|
@@ -53,6 +53,6 @@ Parcourez cette liste de jeux de données publics pour trouver des données que 
 
 | Source de données | À propos des données | À propos des fichiers |
 |---|---|---|
-| [GitHub Archive](https://www.githubarchive.org/) | « GitHub Archive est un projet d’enregistrement de la chronologie [d’événements] GitHub publique afin de l’archiver et la rendre facilement accessible pour une analyse ultérieure. » | Téléchargez les archives d’événements JSON au format .gz (Gzip) à partir d’un client web. |
-| [Données d’activité GitHub du projet GHTorrent](http://ghtorrent.org/) | « Le projet GHTorrent a pour objectif de créer un miroir évolutif, interrogeable hors connexion des données proposées via l’API REST de GitHub. GHTorrent analyse la chronologie d’événements publique de GitHub. Pour chaque événement, il récupère son contenu et ses dépendances, de façon exhaustive. » | Les dumps de base de données MySQL sont au format CSV. |
+| [GitHub Archive](https://www.githubarchive.org/) | « GitHub Archive est un projet d’enregistrement de la chronologie [d’événements] GitHub publique afin de l’archiver et la rendre facilement accessible pour une analyse ultérieure. » | Téléchargez les archives d'événements JSON au format .gz (Gzip) à partir d'un client web. |
+| [Données d’activité GitHub du projet GHTorrent](http://ghtorrent.org/) | « Le projet GHTorrent a pour objectif de créer un miroir évolutif, interrogeable hors connexion des données proposées via l'API REST de GitHub. GHTorrent analyse la chronologie d’événements publique de GitHub. Pour chaque événement, il récupère son contenu et ses dépendances, de façon exhaustive. » | Les dumps de base de données MySQL sont au format CSV. |
 | [Dump de données de Stack Overflow](https://archive.org/details/stackexchange) | « Il s’agit d’un dump anonymisé de tout le contenu proposé par les utilisateurs sur le réseau Stack Exchange [qui comprend Stack Overflow]. » | « Chaque site [comme Stack Overflow] est formaté en tant qu’archive distincte composée de fichiers XML compressés en utilisant la compression bzip2 avec 7-zip. Chaque archive de site inclut les publications, les utilisateurs, les votes, les commentaires, l’historique des publications et les liens des publications. » |

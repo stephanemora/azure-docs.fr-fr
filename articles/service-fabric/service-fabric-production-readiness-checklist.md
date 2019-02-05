@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: 4e6d5cb3191be7188c1a7c4753200cf049800f04
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 02ad880f3c4a4f5812b60887090c29a0a39f6742
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436005"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206967"
 ---
 # <a name="production-readiness-checklist"></a>Liste de vérification de disponibilité de la production
 
@@ -27,15 +27,15 @@ Votre application et le cluster sont prêts à accepter le trafic de production�
 
 
 ## <a name="pre-requisites-for-production"></a>Conditions préalables à la production
-1. Les [meilleures pratiques Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) sont : 
+1. Les [bonnes pratiques en matière de sécurité Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) sont les suivantes : 
 * Utiliser des certificats X.509
 * Configurer des stratégies de sécurité
 * Configurer SSL pour Azure Service Fabric
 * Utiliser la sécurité et l’isolement réseau avec Azure Service Fabric
 * Configurer Azure Key Vault pour la sécurité
-* Affecter des utilisateurs aux rôles
+* Microsoft.Network/loadBalancers - Affecter des utilisateurs aux rôles
 * Implémenter la configuration de sécurité de Reliable Actors si vous utilisez le modèle de programmation Actors
-2. Pour les clusters comprenant plus de 20 cœurs ou 10 nœuds, créez un type de nœud principal dédié aux services système. Ajoutez des [contraintes de placement](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) pour réserver le type de nœud principal aux services système. 
+2. Pour les clusters comprenant plus de 20 cœurs ou 10 nœuds, créez un type de nœud principal dédié aux services système. Ajoutez des [contraintes de placement](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) pour réserver le type de nœud principal aux services système.
 3. Utilisez une référence (SKU) D2v2 ou supérieure pour le type de nœud principal. Il est recommandé de choisir une référence (SKU) avec une capacité de disque dur d’au moins 50 Go.
 4. Les clusters de production doivent être [sécurisés](service-fabric-cluster-security.md). Pour un exemple de configuration de cluster sécurisé, regardez ce [modèle de cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Utilisez des noms communs pour les certificats, et évitez d’utiliser des certificats auto-signés.
 5. Ajoutez [des contraintes de ressources sur les conteneurs et les services](service-fabric-resource-governance.md), afin qu’ils ne consomment pas plus de 75 % des ressources du nœud. 
@@ -61,8 +61,8 @@ Si vous utilisez le modèle de programmation Reliable Services ou Reliable Actor
 22. Mettez à niveau les applications pendant le développement local pour vérifier que votre code de service honore le jeton d’annulation dans la méthode `RunAsync` et ferme les écouteurs de communication personnalisés.
 23. Évitez les [pièges courants](service-fabric-work-with-reliable-collections.md) lors de l’utilisation de Collections fiables.
 24. Surveillez les compteurs de performances de mémoire CLR .NET lors de l’exécution des tests de charge, et vérifiez la présence de taux élevés de nettoyage de la mémoire ou de croissance de pile d’échappement.
-25. Conservez une sauvegarde hors connexion de [Reliable Services et de Reliable Actors](service-fabric-reliable-services-backup-restore.md), puis testez le processus de restauration. 
-
+25. Conservez une sauvegarde hors connexion de [Reliable Services et de Reliable Actors](service-fabric-reliable-services-backup-restore.md), puis testez le processus de restauration.
+26. Idéalement, le nombre d'instances de machines virtuelles NodeType principales doit être égal au niveau de fiabilité minimum des clusters ; conditions nécessaires pour dépasser le niveau minimum : temporairement, lors de la mise à l'échelle verticale de la référence SKU du groupe principal de machines virtuelles identiques NodeType.
 
 ## <a name="optional-best-practices"></a>Meilleures pratiques facultatives
 

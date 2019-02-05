@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: c6f17fd4cc225b7d4ce60d38bf2abcabf12a40c5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.lastreviewed: 01/25/2018
+ms.openlocfilehash: 9568ac58e646be03d367fe466ae972955f23488c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945584"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252232"
 ---
 # <a name="provider-resource-usage-api"></a>API Utilisation des ressources de fournisseur
 Le terme *fournisseur* s’applique à l’administrateur de services et à tous les fournisseurs délégués. Les opérateurs et fournisseurs délégués Azure Stack peuvent utiliser l’API d’utilisation du fournisseur pour consulter l’utilisation de leurs locataires directs. Par exemple, comme indiqué dans le diagramme, P0 peut appeler l’API du fournisseur pour obtenir des informations sur l’utilisation directe de P1 et de P2, et P1 peut effectuer un appel pour obtenir des informations relatives à l’utilisation de P3 et P4.
@@ -86,7 +87,7 @@ meterID1",
 | *subscriptionId* |Identificateur d’abonnement de l’utilisateur Azure Stack. |
 | *usageStartTime* |Heure de début, au format UTC, du compartiment d’utilisation auquel appartient cet agrégat d’utilisation.|
 | *usageEndTime* |Heure de fin, au format UTC, du compartiment d’utilisation auquel appartient cet agrégat d’utilisation. |
-| *instanceData* |Paires clé-valeur des détails de l’instance (dans un nouveau format) :<br> *resourceUri* : ID de ressource complet, qui inclut les groupes de ressources et le nom de l’instance. <br> *location* : région dans laquelle ce service a été exécuté. <br> *tags* : balises de ressources spécifiées par l’utilisateur. <br> *additionalInfo* : informations supplémentaires sur la ressource consommée, par exemple, la version du système d’exploitation ou le type d’image. |
+| *instanceData* |Paires clé-valeur des détails de l’instance (dans un nouveau format) :<br> *resourceUri* : ID de ressource complet, qui inclut les groupes de ressources et le nom de l'instance. <br> *location* : région dans laquelle ce service a été exécuté. <br> *tags* : balises de ressources spécifiées par l'utilisateur. <br> *additionalInfo* : informations supplémentaires sur la ressource consommée, par exemple, la version du système d'exploitation ou le type d'image. |
 | *quantity* |Quantité de ressources consommées au cours de cette période. |
 | *meterId* |ID unique de la ressource consommée (également appelé *ResourceID*). |
 

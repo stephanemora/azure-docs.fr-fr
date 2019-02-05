@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
+ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: 8dcc64350e25be0c8131dc75d96f2a8938944eaf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e756b48003ebfaff98271d93a3d8f0231571b5f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962179"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242431"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planification de la capacité de calcul Azure Stack
 Les [tailles de machine virtuelle prises en charge dans Azure Stack](./user/azure-stack-vm-sizes.md) sont un sous-ensemble de celles prises en charge dans Azure. Azure impose des limites de ressources à différents niveaux pour éviter la consommation excessive des ressources (au niveau du service ou du serveur local). Si aucune limite n’est appliquée à la consommation des locataires, la surconsommation de ressources par certains locataires aurait un impact négatif sur l’expérience des autres locataires. Pour la sortie réseau de la machine virtuelle, des limites de bande passante sont en place dans Azure Stack conformément aux limites d’Azure. Pour les ressources de stockage, Azure Stack implémente des limites d’E/S par seconde de stockage pour éviter une consommation excessive de base des ressources par les locataires pour l’accès au stockage.  
@@ -29,10 +30,7 @@ Les [tailles de machine virtuelle prises en charge dans Azure Stack](./user/azur
 ## <a name="vm-placement-and-virtual-to-physical-core-overprovisioning"></a>Placement de machine virtuelle et sur-approvisionnement de cœurs virtuels par rapport aux cœurs physiques
 Dans Azure Stack, un locataire ne peut pas spécifier un serveur spécifique à utiliser pour le placement de machine virtuelle. Le seul facteur qui entre en compte pour le placement des machines virtuelles est la quantité, suffisante ou non, de mémoire disponible sur l’hôte pour ce type de machine virtuelle. Azure Stack ne surexploite pas la mémoire, mais autorise le sur-approvisionnement de cœurs. Étant donné que les algorithmes de placement ne considèrent pas le ratio de sur-provisionnement cœurs virtuels/cœurs physiques comme un facteur déterminant, chaque hôte peut présenter un ratio différent. 
 
-Dans Azure, pour garantir la haute disponibilité d’un système de production à plusieurs machines virtuelles, ces machines virtuelles sont placées dans un groupe à haute disponibilité qui les répartit entre plusieurs domaines d’erreur. Les machines virtuelles déployées dans des groupes à haute disponibilité sont ainsi physiquement isolées les unes des autres sur des racks distincts, ce qui assure une résilience en cas d’échec, comme l’indique le diagramme suivant :
-
-![Domaines d’erreur et de mise à jour](media/azure-stack-capacity-planning/domains.png)
-
+Dans Azure, pour garantir la haute disponibilité d’un système de production à plusieurs machines virtuelles, ces machines virtuelles sont placées dans un groupe à haute disponibilité qui les répartit entre plusieurs domaines d’erreur. Dans Azure Stack, un domaine d'erreur au sein d'un groupe à haute disponibilité est défini comme un nœud unique dans l'unité d'échelle.
 
 Même si l’infrastructure d’Azure Stack résiste aux défaillances, la technologie sous-jacente (clustering de basculement) implique toujours un temps d’arrêt pour les machines virtuelles qui se trouvent sur le serveur physique concerné en cas de défaillance matérielle. Actuellement, Azure Stack gère les groupes à haute disponibilité comportant trois domaines d’erreur maximum dans un souci de compatibilité avec Azure. Les machines virtuelles placées dans un groupe à haute disponibilité seront physiquement isolées les unes des autres grâce à une répartition aussi équilibrée que possible sur plusieurs domaines d’erreur (nœuds Azure Stack). En cas de défaillance matérielle, les machines virtuelles du domaine d’erreur défaillant sont redémarrées dans d’autres nœuds, si possible distincts de ceux des autres machines virtuelles du même groupe à haute disponibilité. Une fois le matériel rétabli, les machines virtuelles seront rééquilibrées de façon à maintenir une haute disponibilité.
 

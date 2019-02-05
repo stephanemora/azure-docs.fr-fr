@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b5314ce874c253151b88882b086257f96612c019
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: ec7b56a7324f3c8c3e3459639e4fd00e92d93e8f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615386"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249746"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Préparer l’ordinateur hôte de l’ASDK
 Avant de pouvoir installer le kit ASDK sur l’ordinateur hôte, vous devez préparer l’environnement. Une fois préparé, l’ordinateur hôte du kit de développement Azure Stack démarre à partir du disque dur de la machine virtuelle CloudBuilder.vhdx pour commencer le déploiement du kit.
@@ -52,7 +53,7 @@ Avant de pouvoir installer le kit ASDK sur l’ordinateur hôte, vous devez pré
     ![](media/asdk-prepare-host/2.PNG)
 
 6. Dans la page **Paramètres facultatifs**, entrez les informations d’identification du compte d’administrateur local de l’ordinateur hôte du kit de développement, puis cliquez sur **Suivant**. Vous pouvez également fournir des valeurs pour les paramètres facultatifs suivants :
-  - **Nom de l’ordinateur** : cette option définit le nom de l’hôte du Kit de développement. Le nom doit respecter les spécifications des noms de domaine complets et ne pas dépasser 15 caractères. La valeur par défaut est un nom d’ordinateur aléatoire généré par Windows.
+  - **Nom de l'ordinateur** : cette option définit le nom de l'hôte du kit de développement. Le nom doit respecter les spécifications des noms de domaine complets et ne pas dépasser 15 caractères. La valeur par défaut est un nom d’ordinateur aléatoire généré par Windows.
   - **Configuration IP statique** : indique que votre déploiement doit utiliser une adresse IP statique. Dans le cas contraire, quand le programme d’installation redémarre dans cloudbuilder.vhdx, les interfaces réseau sont configurées avec DHCP.
 
     ![](media/asdk-prepare-host/3.PNG)

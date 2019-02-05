@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services : Résolution des problèmes de la configuration du protocole LDAP sécurisé | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Résolution des problèmes de configuration du protocole LDAP sécurisé | Microsoft Docs'
 description: Résolution des problèmes du protocole LDAP sécurisé pour Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3a31749407f9ec0494e8452b602ed9966c5ab83
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: be07579d8273ab19101aa6c475ae5d23375517ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504207"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177183"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services : Résolution des problèmes de la configuration du protocole LDAP sécurisé
 
@@ -28,7 +28,7 @@ Cet article donne la résolution des problèmes couramment rencontrés lors de l
 
 ## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101 : Configuration du Groupe de sécurité réseau du protocole LDAP sécurisé
 
-**Message d’alerte :**
+**Message d'alerte :**
 
 *Le protocole LDAP sécurisé sur Internet est activé pour le domaine managé. Toutefois, l’accès au port 636 n’est pas verrouillé à l’aide d’un Groupe de sécurité réseau (NSG). Cela peut exposer les comptes d’utilisateurs du domaine managé à des attaques de mots de passe par force brute.*
 
@@ -54,7 +54,7 @@ Lorsque le protocole LDAP sécurisé est activé, nous recommandons de créer de
 > Le port 636 n’est pas la seule règle nécessaire au bon fonctionnement d’Azure AD Domain Services. Pour en savoir plus, consultez les articles traitant des [recommandations en matière de mise en réseau](active-directory-ds-networking.md) ou de la [résolution des problèmes de configuration liés au groupe de sécurité réseau](active-directory-ds-troubleshoot-nsg.md).
 >
 
-## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502 : expiration du certificat LDAP sécurisé
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502 : Expiration du certificat LDAP sécurisé
 
 **Message d'alerte :**
 

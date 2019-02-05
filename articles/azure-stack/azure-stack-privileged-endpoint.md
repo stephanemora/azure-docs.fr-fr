@@ -11,19 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: ff7513f197b3035b88748e2e73c38789d9010d9c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300436"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251314"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 En tant qu’opérateur Azure Stack, vous devez utiliser le portail administrateur, PowerShell ou les API Azure Resource Manager pour la plupart des tâches d’administration quotidiennes. Toutefois, pour certaines opérations moins courantes, vous devez utiliser le *point de terminaison privilégié* (PEP). Ce point de terminaison est une console PowerShell distante préconfigurée qui vous fournit suffisamment de fonctionnalités pour vous aider à effectuer une tâche requise. Le point de terminaison s’appuie sur [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) pour exposer uniquement un ensemble limité d’applets de commande. Pour accéder au point de terminaison privilégié et appeler l’ensemble limité d’applets de commande, un compte à faibles privilèges est utilisé. Aucun compte d’administrateur n’est requis. Pour plus de sécurité, les scripts ne sont pas autorisés.
 
@@ -52,38 +53,38 @@ Avant de commencer cette procédure pour un système intégré, vérifiez que vo
 
     - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, en cours d’exécution sur l’hôte de cycle de vie du matériel, ou sur la station de travail d’accès privilégié.
 
-      ````PowerShell
+      ```PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ````
+      ```
     - Si vous exécutez le Kit ASDK, connectez-vous à l’hôte du Kit de développement.
 
 2. Sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
  
     - Sur un système intégré :
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ````
+      ```
       Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge un point de terminaison privilégié. 
     - Si vous exécutez le Kit ADSK :
      
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```` 
+      ``` 
    Quand vous y êtes invité, utilisez les informations d’identification suivantes :
 
-      - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
-      - **Mot de passe** : entrez le mot de passe fourni pendant l’installation pour le compte d’administrateur de domaine AzureStackAdmin.
+      - **Nom d’utilisateur :** spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
+      - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
 
     > [!NOTE]
     > Si vous ne parvenez pas à vous connecter au point de terminaison ERCS, essayez à nouveau les étapes 1 et 2 en utilisant l’adresse IP d’une machine virtuelle ERCS à laquelle vous n’avez pas déjà essayé de vous connecter.
 
-3.  Après vous être connecté, l’invite devient **[*adresse IP ou nom de machine virtuelle ERCS*]: PS>** ou **[azs-ercs01]: PS>**, en fonction de l’environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
+3.  Une fois connecté, l'invite devient **[*adresse IP ou nom de la machine virtuelle ERCS*]: PS>** ou à **[azs-ercs01]: PS>**, en fonction de l'environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
 
     Un grand nombre de ces applets de commande sont uniquement destinées aux environnements de système intégré (par exemple, les applets de commande associées à l’intégration au centre de données). Dans le Kit ASDK, les applets de commande suivantes ont été validées :
 
@@ -124,38 +125,38 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
 
     - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié.
 
-      ````PowerShell
+      ```PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ````
+      ```
     - Si vous exécutez le Kit ASDK, connectez-vous à l’hôte du Kit de développement.
 
 2. Sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
  
     - Sur un système intégré :
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ````
+      ```
       Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge un point de terminaison privilégié. 
     - Si vous exécutez le Kit ADSK :
      
-      ````PowerShell
+      ```PowerShell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```` 
+      ``` 
    Quand vous y êtes invité, utilisez les informations d’identification suivantes :
 
-      - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
-      - **Mot de passe** : entrez le mot de passe fourni pendant l’installation pour le compte d’administrateur de domaine AzureStackAdmin.
+      - **Nom d’utilisateur :** spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
+      - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
 
 3. Importer la session du point de terminaison privilégié dans votre ordinateur local
-    ````PowerShell 
+    ```PowerShell 
         Import-PSSession $session
-    ````
+    ```
 4. Vous pouvez désormais utiliser la saisie semi-automatique via la touche Tab et écrire des scripts comme de coutume sur votre session locale PowerShell à l’aide de l’ensemble des fonctions et des applets de commande du point de terminaison privilégié, sans réduire l’état de la sécurité d’Azure Stack. Vous n’avez plus qu’à l’utiliser !
 
 
@@ -178,4 +179,5 @@ Une fois les fichiers journaux de transcription correctement transférés vers l
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Outils de diagnostic Azure Stack](azure-stack-diagnostics.md)

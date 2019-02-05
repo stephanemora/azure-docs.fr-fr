@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465171"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462339"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Sauvegarde et restauration dans Azure SQL Data Warehouse
 Découvrez comment la sauvegarde et la restauration fonctionnent dans Azure SQL Data Warehouse. Utilisez des captures instantanées d’entrepôts de données pour récupérer ou copier votre entrepôt de données dans un point de restauration précédent dans la région primaire. Utilisez des sauvegardes géoredondantes d’entrepôts de données pour effectuer une restauration dans une autre région géographique. 
@@ -73,7 +73,7 @@ Les géosauvegardes sont activées par défaut. Si votre entrepôt de données e
 
 
 ## <a name="backup-and-restore-costs"></a>Coûts de sauvegarde et de restauration
-Vous remarquerez que la facture Azure comprend un élément de ligne pour le Stockage et un élément de ligne pour le Stockage de reprise d’activité après sinistre. Les frais de stockage correspondent au coût total du stockage de vos données dans la région principale et aux changements incrémentiels pris par des captures instantanés. Pour obtenir une explication plus détaillée sur la façon dont les captures instantanées sont actuellement prises, reportez-vous à cette [documentation](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). Les frais géoredondants couvrent le coût du stockage des géosauvegardes.  
+Vous remarquerez que la facture Azure comprend un élément de ligne pour le Stockage et un élément de ligne pour le Stockage de reprise d’activité après sinistre. Les frais de stockage correspondent au coût total du stockage de vos données dans la région principale et aux changements incrémentiels pris par des captures instantanés. Pour en savoir plus sur la facturation des captures instantanées, reportez-vous à [Facturation des captures instantanées](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). Les frais géoredondants couvrent le coût du stockage des géosauvegardes.  
 
 Le coût total de votre entrepôt de données principal et de sept jours de changements de captures instantanées est arrondi au To le plus proche. Par exemple, si la taille de votre entrepôt de données est de 1,5 To et que les captures instantanées occupent 100 Go, vous êtes facturé pour 2 To de données aux prix du Stockage Premium Azure. 
 

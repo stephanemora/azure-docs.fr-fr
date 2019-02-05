@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Skytap | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Skytap | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Skytap.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d6cb7ab2-da1a-4015-8e6f-c0c47bb6210f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 754697682470ac3c1f982e6cb1fc5f6043f3b92c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6466e40fca954d41a32424c55b8ee465fb7ad7ec
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438128"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195700"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Tutoriel : Intégration d’Azure Active Directory à Skytap
+# <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Didacticiel : Intégration d'Azure Active Directory à Skytap
 
 Dans ce tutoriel, vous allez apprendre à intégrer Skytap à Azure Active Directory (Azure AD).
 
@@ -167,7 +167,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-skytap-test-user"></a>Créer un utilisateur de test Skytap
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Skytap. Collaborez avec l’[équipe du support technique Skytap](mailto:support@skytap.com) pour ajouter des utilisateurs à la plateforme Skytap. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Skytap. Collaborez avec l' [équipe du support technique de Skytap](mailto:support@skytap.com) pour ajouter des utilisateurs à la plateforme Skytap. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

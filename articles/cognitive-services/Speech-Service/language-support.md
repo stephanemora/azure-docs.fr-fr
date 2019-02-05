@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 688194c8d5ec0c2594d8c7178d8cae3925b8e482
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: bc85de9d2d94cd325095f5f6555105a724865005
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413372"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213307"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Prise en charge de la région et de la langue pour l’API du service de reconnaissance vocale
 
@@ -79,6 +79,10 @@ Pour obtenir la liste complète des voix neuronales et la disponibilité région
 |--------|----------|---------|--------------------|
 | en-US | Anglais (US) | Masculin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, GuyNeural) » |
 | en-US | Anglais (US) | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, JessaNeural) » |
+| zh-CN | Chinois | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, XiaoxiaoNeural) » |
+
+> [!IMPORTANT]
+> Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, XiaoxiaoNeural) est uniquement disponible via le point de terminaison Asie Sud-Est : https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### <a name="standard-voices"></a>Voix standard
 

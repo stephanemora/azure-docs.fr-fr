@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c08e3d2e8f712f5eb7c56585507a283c7fd040c1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: b2c43ad2475ab75d251e57fca6009eb1fa2e1f00
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796507"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225293"
 ---
 # <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Création d’un modèle « Hello World » avec Apprenant de conversation
 
@@ -53,7 +53,7 @@ Vous devrez maintenant voir l’affichage du modèle que vous avez créé.
 
 Vous avez créé la première action que le bot peut exécuter, à savoir retourner une réponse textuelle.
 
-### <a name="train-dialogs"></a>Dialogues d’apprentissage
+### <a name="train-dialogs"></a>Boîtes de dialogue d’apprentissage
 C’est ici que vous formez le modèle sur la façon de répondre aux énoncés de l’utilisateur.
 
 #### <a name="first-training-dialog"></a>Premier dialogue d’apprentissage
@@ -67,7 +67,7 @@ C’est ici que vous formez le modèle sur la façon de répondre aux énoncés 
 5. Tapez la réponse de l’utilisateur, « Au revoir ».
 6. Cliquez sur le bouton « Sore actions » (Noter les actions).
 7. Cliquez sur le bouton «+ Action ».
-8. Tapez « Au revoir ! » dans le champ « Bot’s response... » (Réponse du bot), puis cliquez sur le bouton « Create » (Créer).
+8. Tapez « Goodbye! » (Au revoir !) dans le champ « Bot’s response... » (Réponse du bot), puis cliquez sur le bouton « Create » (Créer).
     - Notez que le bot a répondu avec l’action que vous venez de créer.
 9. Cliquez sur le bouton « Save » (Enregistrer). 
     - Cela a pour effet de terminer et d’enregistrer ce dialogue d’apprentissage.
@@ -102,8 +102,8 @@ C’est ici que vous testez, affichez et corrigez les conversations que vous ou 
 #### <a name="view-and-correct-a-user-conversation"></a>Afficher et corriger une conversation d’utilisateur
 À l’aide des dialogues journalisés, vous pouvez afficher la liste des conversations que des utilisateurs ont eues avec votre bot. Vous pouvez également les modifier afin de corriger les réponses du bot et enregistrer les interactions en tant que dialogues d’apprentissage. Pour ce faire :
 1. Dans la grille, cliquez sur le journal de la conversation.
-2. Cliquez sur la dernière action du bot, par exemple, « Hello ».
-3. Sélectionnez « Au revoir ! » pour corriger le bot.
+2. Cliquez sur la dernière action du bot, par exemple « Hello » (Bonjour).
+3. Sélectionnez « Au revoir ! ». pour corriger le bot.
 4. Cliquez sur le bouton « Save As Train Dialog » (Enregistrer en tant que dialogue d’apprentissage).
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fa53a7e598b42e93e86eb059c36ff89f38bb7093
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424519"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300589"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Utilisation de PowerShell pour sauvegarder et restaurer des machines virtuelles
 
@@ -355,11 +355,17 @@ $restorejob
 #### <a name="restore-managed-disks"></a>Restaurer des disques managés
 
 > [!NOTE]
-> Si la machine virtuelle sauvegardée a des disques managés que vous souhaitez restaurer, vous pouvez désormais le faire dans Azure PowerShell v 6.7.0. et versions ultérieures.
+> Si la machine virtuelle sauvegardée contient des disques managés que vous souhaitez restaurer, vous pouvez désormais le faire dans Azure PowerShell RM module v 6.7.0. et versions ultérieures.
 >
 >
 
-Précisez un paramètre supplémentaire **TargetResourceGroupName** correspondant au groupe de ressources dans lequel les disques managés seront restaurés.
+Précisez un paramètre supplémentaire **TargetResourceGroupName** correspondant au groupe de ressources dans lequel les disques managés seront restaurés. 
+
+> [!NOTE]
+> Il est vivement recommandé d'utiliser le paramètre **TargetResourceGroupName** pour la restauration des disques managés car il améliore considérablement les performances. De plus, à partir du module 1.0 d'Azure Powershell Az, ce paramètre est obligatoire en cas de restauration avec des disques managés.
+>
+>
+
 
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"

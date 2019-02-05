@@ -5,27 +5,27 @@ services: active-directory
 author: eross-msft
 manager: daveba
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 01/29/2019
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: e1ec57dd058caff076d3fe8877928efb293ee5fa
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5780090f155b3e09792aeb78c4e1d573808028ca
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451338"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299348"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?
-Dans Azure Active Directory (Azure AD), tous les utilisateurs bénéficient d’un jeu d’autorisations par défaut. L’accès d’un utilisateur se compose du type d’utilisateur, de ses [appartenances aux rôles](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) et de sa possession d’objets individuels. Cet article décrit ces autorisations par défaut et compare celles des utilisateurs membres et celles des utilisateurs invités.
+Dans Azure Active Directory (Azure AD), tous les utilisateurs bénéficient d’un jeu d’autorisations par défaut. L’accès d’un utilisateur se compose du type d’utilisateur, de ses [appartenances aux rôles](active-directory-users-assign-role-azure-portal.md) et de sa possession d’objets individuels. Cet article décrit ces autorisations par défaut et compare celles des utilisateurs membres et celles des utilisateurs invités.
 
 ## <a name="member-and-guest-users"></a>Utilisateurs membres et utilisateurs invités
-Le jeu d’autorisations par défaut reçu varie selon que l’utilisateur est membre natif du locataire (utilisateur membre) ou invité à la collaboration B2B (utilisateur invité). Pour plus d’informations sur la collaboration B2B et les utilisateurs invités, consultez [Qu’est-ce qu’Azure AD B2B Collaboration ?](../b2b/what-is-b2b.md). 
+Le jeu d'autorisations par défaut reçu varie selon que l'utilisateur est membre natif du locataire (utilisateur membre) ou transféré depuis un autre répertoire en tant qu'invité de collaboration B2B (utilisateur invité). Pour plus d'informations sur l'ajout d'utilisateurs invités, consultez [Qu'est-ce que la collaboration B2B d'Azure AD](../b2b/what-is-b2b.md).
 * Les utilisateurs membres peuvent inscrire des applications, gérer leurs numéro de téléphone mobile et photo de profil, changer leur mot de passe et inviter des invités B2B. En outre, les utilisateurs peuvent lire toutes les informations d’annuaire (à quelques exceptions près). 
-* Les utilisateurs invités B2B Azure AD ont des autorisations d’annuaire limitées. Par exemple, les utilisateurs invités ne peuvent pas parcourir les informations du locataire au-delà de leurs propres informations de profil. Toutefois, un utilisateur invité peut récupérer des informations relatives à un autre utilisateur en fournissant le nom d’utilisateur principal ou un ID d’objet. Un invité ne peut voir aucune information sur les autres objets de locataire, comme les groupes ou les applications.
+* Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Par exemple, les utilisateurs invités ne peuvent pas parcourir les informations du locataire au-delà de leurs propres informations de profil. Toutefois, un utilisateur invité peut récupérer des informations relatives à un autre utilisateur en fournissant le nom d’utilisateur principal ou un ID d’objet. Un utilisateur invité peut lire les propriétés des groupes auxquels il appartient, y compris l'appartenance, indépendamment du paramètre **Les autorisations des utilisateurs invités sont limitées**. Un invité ne peut pas afficher d'informations sur d'autres objets locataires.
 
 Les autorisations par défaut des invités sont restrictives par défaut. Les invités peuvent être ajoutés à un rôle d’administrateur, bénéficiant ainsi des autorisations de lecture et d’écriture complètes contenues dans le rôle. Il existe une restriction supplémentaire, à savoir la possibilité pour les invités d’inviter d’autres invités. Définir **Les invités peuvent inviter** sur **Non** empêche les invités d’inviter d’autres invités. Pour connaître la marche à suivre, consultez [Déléguer des invitations pour B2B Collaboration](../b2b/delegate-invitations.md). Pour accorder par défaut aux utilisateurs invités les mêmes autorisations qu’aux utilisateurs membres, définissez **Les autorisations d’utilisateurs invités sont limitées** sur **Non**. Ce paramètre accorde par défaut toutes les autorisations d’utilisateur membre aux utilisateurs invités, et permet également aux invités d’être ajoutés aux rôles d’administration.
 
@@ -34,7 +34,7 @@ Les autorisations par défaut des invités sont restrictives par défaut. Les in
 **Zone** | **Autorisations d’utilisateur membre** | **Autorisations d’utilisateur invité**
 ------------ | --------- | ----------
 Utilisateurs et contacts | Lire toutes les propriétés publiques des utilisateurs et des contacts<br>Inviter des invités<br>Changer son propre mot de passe<br>Gérer son propre numéro de téléphone mobile<br>Gérer sa propre photo<br>Invalider ses propres jetons d’actualisation | Lire ses propres propriétés<br>Lire le nom d’affichage, l’e-mail, le nom de connexion, la photo, le nom d’utilisateur principal et les propriétés de type d’utilisateur des autres utilisateurs et contacts<br>Changer son propre mot de passe
-Groupes | Créer des groupes de sécurité<br>Créer des groupes Office 365<br>Lire toutes les propriétés des groupes<br>Lire les appartenances aux groupes non masquées<br>Lire les appartenances aux groupes Office 365 masquées pour un groupe rejoint<br>Gérer les propriétés, l’appartenance et l’adhésion des groupes acquis<br>Ajouter des invités aux groupes acquis<br>Gérer les paramètres d’appartenance dynamique<br>Supprimer des groupes acquis<br>Restaurer des groupes Office 365 acquis | Lire toutes les propriétés des groupes<br>Lire les appartenances aux groupes non masquées<br>Lire les appartenances aux groupes Office 365 masquées pour des groupes rejoints<br>Gérer des groupes acquis<br>Ajouter des invités aux groupes acquis (si autorisé)<br>Supprimer des groupes acquis<br>Restaurer des groupes Office 365 acquis 
+Groupes | Créer des groupes de sécurité<br>Créer des groupes Office 365<br>Lire toutes les propriétés des groupes<br>Lire les appartenances aux groupes non masquées<br>Lire les appartenances aux groupes Office 365 masquées pour un groupe rejoint<br>Gérer les propriétés, l’appartenance et l’adhésion des groupes acquis<br>Ajouter des invités aux groupes acquis<br>Gérer les paramètres d’appartenance dynamique<br>Supprimer des groupes acquis<br>Restaurer des groupes Office 365 acquis | Lire toutes les propriétés des groupes<br>Lire les appartenances aux groupes non masquées<br>Lire les appartenances aux groupes Office 365 masquées pour des groupes rejoints<br>Gérer des groupes acquis<br>Ajouter des invités aux groupes acquis (si autorisé)<br>Supprimer des groupes acquis<br>Restaurer des groupes Office 365 acquis<br>Lire les propriétés des groupes auxquels ils appartiennent, y compris l'appartenance.
 APPLICATIONS | Inscrire (créer) une application<br>Lire les propriétés des applications inscrites et d’entreprise<br>Gérer les propriétés d’application, les affectations et les informations d’identification des applications acquises<br>Créer ou supprimer le mot de passe d’application pour un utilisateur<br>Supprimer des applications acquises<br>Restaurer des applications acquises | Lire les propriétés des applications inscrites et d’entreprise<br>Gérer les propriétés d’application, les affectations et les informations d’identification des applications acquises<br>Supprimer des applications acquises<br>Restaurer des applications acquises
 Appareils | Lire toutes les propriétés des appareils<br>Gérer toutes les propriétés des appareils acquis<br> | | Aucune autorisation<br>Supprimer des appareils acquis<br>
 Répertoire | Lire toutes les informations de l’entreprise<br>Lire tous les domaines<br>Lire tous les contrats de partenaire | Lire le nom d’affichage et les domaines vérifiés

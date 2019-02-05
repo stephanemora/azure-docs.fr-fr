@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 9f1a21d6f099bc27c81e8c254f7df73d6c3e585d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3f99172f486c374cdbd0b6ebd50fdf7bfec98ec3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341798"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227146"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Utiliser un point de terminaison de reconnaissance vocale personnalisé
 
@@ -36,10 +36,10 @@ Le service suppose que les données sont transmises en temps réel. Si elles son
 
 Pour envoyer des requêtes à votre point de terminaison personnalisé à l’aide de la bibliothèque de client Speech, démarrez le client de reconnaissance. Utilisez le Kit de développement logiciel (SDK) Speech du client à partir de [NuGet](http://nuget.org/). Recherchez *la reconnaissance vocale*, puis sélectionnez le package de reconnaissance vocale à partir de Microsoft pour votre plateforme. Des exemples de code source sont disponibles sur [GitHub](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). Le Kit de développement logiciel (SDK) Speech du client fournit une classe de fabrique **SpeechRecognitionServiceFactory** proposant les méthodes suivantes :
 
-  *   ```CreateDataClient(...)``` : un client de reconnaissance de données.
-  *   ```CreateDataClientWithIntent(...)``` : un client de reconnaissance de données avec une intention.
-  *   ```CreateMicrophoneClient(...)``` : un client de reconnaissance de microphone.
-  *   ```CreateMicrophoneClientWithIntent(...)``` : un client de reconnaissance de microphone avec une intention.
+  *   ```CreateDataClient(...)```: un client de reconnaissance de données.
+  *   ```CreateDataClientWithIntent(...)```: un client de reconnaissance de données avec une intention.
+  *   ```CreateMicrophoneClient(...)```: un client de reconnaissance de microphone.
+  *   ```CreateMicrophoneClientWithIntent(...)```: un client de reconnaissance de microphone avec une intention.
 
 Pour avoir accès à la documentation détaillée, reportez-vous à l’article [Vue d’ensemble de l’API Microsoft Speech](https://docs.microsoft.com/azure/cognitive-services/speech/home). Les points de terminaison Custom Speech Service prennent en charge le même Kit de développement logiciel (SDK).
 

@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433014"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301439"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -62,7 +62,7 @@ Pour commencer à suivre les modifications, vous devez activer la solution Chang
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configuration de Change Tracking et Inventory
 
-Pour découvrir comment intégrer des ordinateurs à la solution, visitez : [Intégration de solutions Automation](automation-onboard-solutions-from-automation-account.md). Lorsque vous disposez de l’intégration d’une machine avec la solution Change Tracking and Inventory, vous pouvez configurer les éléments à suivre. Quand vous activez le suivi d’un nouveau fichier ou d’une nouvelle clé de Registre, ceux-ci sont activés à la fois pour Change Tracking et Inventory.
+Pour découvrir comment intégrer des ordinateurs à la solution, visitez : [Intégration de solutions Automation](automation-onboard-solutions-from-automation-account.md). Une fois que vous avez une machine intégrée à la solution Change Tracking and Inventory, vous pouvez configurer les éléments à suivre. Quand vous activez le suivi d’un nouveau fichier ou d’une nouvelle clé de Registre, ceux-ci sont activés à la fois pour Change Tracking et Inventory.
 
 Pour suivre les modifications apportées à des fichiers sur Windows et Linux, les hachages MD5 de fichiers sont utilisés. Ces hachages sont ensuite utilisés pour détecter si une modification a été apportée depuis le dernier inventaire.
 
@@ -83,7 +83,7 @@ Utilisez les étapes ci-dessous pour configurer le suivi des fichiers sur des or
 |Type de chemin     | Type d’élément à suivre. Valeurs possibles : fichier et répertoire.        |
 |Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
 |Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
-|Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du contenu retourné.     |
+|Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n'inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du contenu retourné.     |
 |Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
 > [!NOTE]
@@ -108,7 +108,7 @@ Utilisez les étapes suivantes pour configurer le suivi des fichiers sur des ord
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Caractère générique, récursivité et paramètres d’environnement
 
-La récursivité vous permet de spécifier des caractères génériques pour simplifier le suivi entre les répertoires, et des variables d’environnement pour vous permettre d’effectuer le suivi de fichiers entre les environnements avec plusieurs noms de lecteurs ou des noms de lecteurs dynamiques. Voici une liste des informations courantes que vous devez connaître lorsque vous configurez la récursivité :
+La récursivité vous permet de spécifier des caractères génériques pour simplifier le suivi entre les répertoires, et des variables d’environnement pour vous permettre d’effectuer le suivi de fichiers entre les environnements avec plusieurs noms de lecteurs ou des noms de lecteurs dynamiques. La liste suivante répertorie les informations courantes que vous devez connaître lors de la configuration de la récursivité :
 
 * Les caractères génériques sont requis pour effectuer le suivi de plusieurs fichiers
 * Si vous utilisez des caractères génériques, ceux-ci ne peuvent être utilisés que dans le dernier segment du chemin d’accès. (par exemple C:\dossier\\**fichier** ou /etc/*.conf)
@@ -117,7 +117,7 @@ La récursivité vous permet de spécifier des caractères génériques pour sim
 
 ## <a name="configure-file-content-tracking"></a>Configurer le suivi de contenu de fichier
 
-Avec File Content Change Tracking, vous pouvez voir le contenu d’un fichier avant et après modification. Cette fonctionnalité est disponible pour les fichiers Windows et Linux. À chaque modification du fichier, le contenu est stocké dans un compte de stockage, puis il est montré avant et après modification, à la suite ou côte à côte. Pour plus d’informations, consultez [Afficher le contenu d’un fichier suivi](change-tracking-file-contents.md).
+Avec File Content Change Tracking, vous pouvez voir le contenu d’un fichier avant et après modification. Cette fonctionnalité est disponible pour les fichiers Windows et Linux. À chaque modification, le contenu du fichier est stocké dans un compte de stockage, avec présentation de celui-ci avant et après la modification, à la suite ou côte à côte. Pour plus d’informations, consultez [Afficher le contenu d’un fichier suivi](change-tracking-file-contents.md).
 
 ![Afficher les modifications d’un fichier](./media/change-tracking-file-contents/view-file-changes.png)
 
@@ -154,8 +154,7 @@ Autres limitations :
 
 La solution Change Tracking connaît les problèmes suivants :
 
-* Les mises à jour de correctif logiciel ne sont pas collectées pour les machines Windows 10 Creators Update et Windows Server 2016 Core RS3.
-* Pour les fichiers Windows, Change Tracking ne détecte pas l’ajout d’un fichier dans un chemin d’accès du dossier suivi
+* Les mises à jour de correctif logiciel ne sont pas collectées sur les machines Windows 2016 Core RS3.
 
 ## <a name="change-tracking-data-collection-details"></a>Détails de la collecte de données de suivi des modifications
 
@@ -177,18 +176,18 @@ Le tableau suivant montre les limites des éléments suivis par machine pour Cha
 |---|---|---|
 |Fichier|500||
 |Registre|250||
-|Logiciels Windows|250|N’inclut pas les mises à jour logicielles|
+|Logiciels Windows|250|N'inclut pas les mises à jour logicielles|
 |Packages Linux|1250||
 |Services|250||
 |Daemon|250||
 
 ### <a name="windows-service-tracking"></a>Suivi du service Windows
 
-Pour les services Windows, la fréquence de collecte par défaut est de 30 minutes. Pour configurer la fréquence, ouvrez **Change Tracking**. Sous **Modifier les paramètres** de l’onglet **Services Windows**, un curseur vous permet de modifier la fréquence de collecte des services Windows (de 10 secondes à 30 minutes). Déplacez la barre du curseur sur la fréquence de votre choix (celle-ci est automatiquement enregistrée).
+Pour les services Windows, la fréquence de collecte par défaut est de 30 minutes. Pour configurer la fréquence, accédez à **Change Tracking**. Sous l'option **Modifier les paramètres** de l'onglet **Services Windows**, un curseur vous permet de modifier la fréquence de collecte des services Windows (de 10 secondes à 30 minutes). Déplacez la barre du curseur sur la fréquence de votre choix (celle-ci est automatiquement enregistrée).
 
 ![Curseur des services Windows](./media/automation-change-tracking/windowservices.png)
 
-L’agent effectue uniquement le suivi des modifications, ce qui permet d’optimiser ses performances. Si vous définissez un seuil trop élevé, des modifications risquent d’être omises lorsque le service est rétabli à son état d’origine. Le fait de définir une fréquence moins élevée vous permet d’intercepter les modifications susceptibles d’être omises.
+L’agent effectue uniquement le suivi des modifications, ce qui permet d’optimiser ses performances. Lorsqu'un seuil élevé est défini, certaines modifications peuvent être omises si le service est rétabli à son état d'origine. Le fait de définir une fréquence moins élevée vous permet d’intercepter les modifications susceptibles d’être omises.
 
 > [!NOTE]
 > Même si l’agent peut enregistrer les modifications toutes les 10 secondes, les données mettent quelques minutes à s’afficher dans le portail. Les modifications effectuées pendant l’affichage des données dans le portail continuent d’être suivies et enregistrées.
@@ -270,6 +269,41 @@ Le tableau suivant fournit des exemples de recherches dans les journaux d’enre
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Affiche les enregistrements d’inventaire les plus récents des services Windows qui ont été définis sur Auto, mais qui ont été signalés comme étant arrêtés.<br>Les résultats se limitent à l’enregistrement le plus récent pour ce SoftwareName et ce Computer.      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Affiche les enregistrements de modification des logiciels supprimés.|
+
+## <a name="alert-on-changes"></a>Alerte sur les modifications
+
+L'une des principales caractéristiques de la solution Change Tracking and Inventory est sa capacité à alerter sur l'état de la configuration et sur les modifications apportées à l'état de la configuration de votre environnement hybride.  
+
+Dans l'exemple suivant, la capture d'écran montre que le fichier `C:\windows\system32\drivers\etc\hosts` a été modifié sur une machine. Ce fichier est important car le fichier Hosts est utilisé par Windows pour associer des noms d'hôtes à des adresses IP et il prime même sur le DNS, ce qui a pu entraîner des problèmes de connectivité ou la redirection du trafic vers des sites web malveillants ou dangereux.
+
+![Graphique montrant la modification du fichier Hosts](./media/automation-change-tracking/changes.png)
+
+Pour analyser cette modification plus en détail, accédez à Recherche dans les journaux en cliquant sur **Log Analytics**. Une fois dans Recherche dans les journaux, recherchez les modifications apportées au contenu du fichier Hosts à l'aide de la requête `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Cette requête permet de rechercher les modifications apportées au contenu des fichiers dont le chemin d'accès complet contient le mot « hosts ». Vous pouvez également rechercher un fichier spécifique en remplaçant le chemin d'accès par sa forme complète (par exemple, `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+
+Une fois que la requête a renvoyé les résultats souhaités, cliquez sur le bouton **Nouvelle règle d'alerte** de l'expérience Recherche dans les journaux pour ouvrir la page de création d'alerte. Vous pouvez également accéder à cette expérience via **Azure Monitor** sur le portail Azure. Dans l'expérience de création d'alerte, vérifiez à nouveau notre requête et modifiez la logique d'alerte. Pour cet exemple, vous souhaitez que l'alerte soit déclenchée à la moindre modification détectée sur l'ensemble des machines de l'environnement.
+
+![Image illustrant la requête de modification pour le suivi des modifications apportées au fichier Hosts](./media/automation-change-tracking/change-query.png)
+
+Une fois la logique de condition définie, attribuez des groupes d'actions pour répondre à l'alerte déclenchée. J'ai ici configuré les actions suivantes : envoi d'e-mails et création d'un ticket ITSM.  De nombreuses autres actions utiles peuvent également être prises, telles que le déclenchement d'une fonction Azure, d'un runbook Automation, d'un webhook ou d'une application logique.
+
+![Image illustrant la configuration d'un groupe d'actions pour alerter de la modification](./media/automation-change-tracking/action-groups.png)
+
+Une fois tous les paramètres et la logique définis, nous pouvons appliquer l'alerte à l'environnement.
+
+### <a name="alert-suggestions"></a>Suggestions d'alertes
+
+L'alerte relative aux modifications apportées au fichier Hosts est une bonne application des alertes disponibles pour les données Change Tracking or Inventory, mais il existe de nombreux autres scénarios d'alerte, y compris les cas définis dans la section ci-dessous ainsi que leurs exemples de requêtes.
+
+|Requête  |Description  |
+|---------|---------|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Utile pour le suivi des modifications apportées aux fichiers critiques du système|
+|ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Utile pour le suivi des modifications apportées aux fichiers de configuration de clés|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|Utile pour le suivi des modifications apportées aux services critiques du système|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|Utile pour le suivi des modifications apportées aux services critiques du système|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|Utile pour les environnements nécessitant des configurations logicielles verrouillées|
+|ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion != "8.0.11081.0"|Utile pour voir sur quelles machines une version obsolète ou non conforme d'un logiciel est installée. Présente le dernier état de configuration signalé, pas les modifications.|
+|ConfigurationChange <br>&#124; where RegistryKey == "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Utile pour le suivi des modifications apportées aux clés antivirus essentielles|
+|ConfigurationChange <br>&#124; where RegistryKey contains "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Utile pour le suivi des modifications apportées aux paramètres de pare-feu|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

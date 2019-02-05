@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: danlep
-ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969105"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228353"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Mettre à niveau un registre de conteneurs Classique
 
@@ -52,7 +52,7 @@ Pendant le processus de conversion, toutes les `docker push`opérations sont blo
 
 Ne supprimez , ni ne modifiez le contenu du compte de stockage en sauvegardant votre registre Classique au cours du processus de conversion du compte de stockage. Vous pourriez corrompre vos images de conteneur.
 
-Une fois la migration terminée, le compte de stockage de l’abonnement dans lequel le registre Classique était sauvegardé n’est plus utilisé par ACR. Après avoir vérifié la réussite de la migration, envisagez de supprimer le compte de stockage afin de réduire les coûts.
+Au terme de la migration, le compte de stockage de l'abonnement dans lequel le registre Classique était sauvegardé n'est plus utilisé par ACR. Après avoir vérifié la réussite de la migration, envisagez de supprimer le compte de stockage afin de réduire les coûts.
 
 >[!IMPORTANT]
 > La mise à niveau de Classique vers une des références SKU managées est un **processus unidirectionnel**. Une fois que vous avez converti un registre Classique en registre De base, Standard ou Premium, vous ne pouvez plus revenir en arrière. Vous pouvez, toutefois, librement passer d’une référence SKU à une autre disposant de la capacité suffisante pour votre registre.

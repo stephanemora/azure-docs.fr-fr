@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.lastreviewed: 09/28/2018
+ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886822"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246362"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Utiliser des profils de version d’API avec Java dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Le Kit de développement logiciel (SDK) Java pour Azure Stack Resource Manager fournit des outils conçus pour vous aider à créer et gérer votre infrastructure. Le Kit de développement logiciel (SDK) comporte des fournisseurs de ressources de calcul, de mise en réseau, de stockage, de services d’application et [KeyVault](../../key-vault/key-vault-whatis.md). Le Kit de développement logiciel (SDK) Java incorpore des profils d’API en incluant des dépendances dans le fichier Pom.xml qui charge les modules adéquats dans le fichier .java. Toutefois, vous pouvez ajouter plusieurs profils en tant que dépendances, comme **2018-03-01-hybrid**, ou **latest** en guise de profil Azure. L’utilisation de ces dépendances charge le module approprié ; ainsi, lorsque vous créez votre type de ressource, vous êtes en mesure de sélectionner la version d’API de ces profils que vous souhaitez utiliser. Cette approche vous permet d’utiliser les dernières versions dans Azure, tout en développant avec les dernières versions d’API pour Azure Stack. Le Kit de développement logiciel (SDK) Java favorise une véritable expérience de développement cloud hybride. Les profils d’API fournis dans le Kit de développement logiciel (SDK) Java autorisent un développement cloud hybride en vous permettant de basculer entre les ressources Azure globales et les ressources d’Azure Stack.
 
@@ -149,9 +150,9 @@ Exemple de fichier JSON :
 
 ## <a name="existing-api-profiles"></a>Profils d’API existants
 
-1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid** : dernier profil conçu pour Azure Stack. Utilisez ce profil pour que les services soient davantage compatibles avec Azure Stack, à condition que vous utilisiez le tampon 1808 ou ultérieur.
+1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid** : Dernier profil créé pour Azure Stack. Utilisez ce profil pour que les services soient davantage compatibles avec Azure Stack, à condition que vous utilisiez le tampon 1808 ou un tampon ultérieur.
 
-2.  **com.microsoft.azure** : profil constitué des dernières versions de l’ensemble des services. Utilisez les dernières versions de tous les services.
+2.  **com.microsoft.azure** : profil constitué des dernières versions de l’ensemble des services. Utilisez les dernières versions de tous les services.
 
 Pour plus d’informations sur Azure Stack et les profils d’API, consultez la section [Résumé des profils d’API](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
 

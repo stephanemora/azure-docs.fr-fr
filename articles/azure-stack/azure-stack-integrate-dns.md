@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: bf412809f9d10296ad600e64abb6d870dbb88d3e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339676"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252309"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Intégration au centre de données Azure Stack - DNS
 Pour pouvoir accéder aux points de terminaison Azure Stack (**portal**, **adminportal**, **management**, **adminmanagement**, etc.) en dehors d’Azure Stack, vous devez intégrer les services DNS Azure Stack aux serveurs DNS qui hébergent les zones DNS que vous souhaitez utiliser dans Azure Stack.
@@ -121,7 +122,7 @@ Si la machine virtuelle de déploiement n’est plus disponible ou n’est pas a
 
 La façon la plus simple et la plus sûre d’intégrer Azure Stack à votre infrastructure DNS consiste à effectuer un transfert conditionnel de la zone à partir du serveur qui héberge la zone parente. Nous vous recommandons cette approche si vous contrôlez directement les serveurs DNS qui hébergent la zone parente pour votre espace de noms DNS externe Azure Stack.
 
-Si vous n’êtes pas familiarisé avec la façon d’effectuer un transfert conditionnel avec DNS, consultez l’article TechNet suivant : [Assign a Conditional Forwarder for a Domain Name](https://technet.microsoft.com/library/cc794735) (Affecter un redirecteur conditionnel pour un nom de domaine), ou la documentation relative à votre solution DNS.
+Si vous ne savez pas comment effectuer une redirection conditionnelle avec DNS, consultez l'article TechNet suivant : [Assigner un redirecteur conditionnel pour un nom de domaine](https://technet.microsoft.com/library/cc794735), ou reportez-vous à la documentation spécifique à votre solution DNS.
 
 Dans les scénarios où vous avez spécifié votre zone DNS Azure Stack externe de telle façon qu’elle s’apparente à un domaine enfant de votre nom de domaine d’entreprise, vous ne pouvez pas utiliser le transfert conditionnel. Vous devez configurer la délégation DNS.
 

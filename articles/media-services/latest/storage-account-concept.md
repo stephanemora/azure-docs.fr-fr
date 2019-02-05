@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: f5fc1385bff92851db81cd4ed397d66cb8a832f2
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4668ff23710121e5495395d71902b9ffa4c01238
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54350929"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220346"
 ---
 # <a name="storage-accounts"></a>Comptes de stockage
 
-Lorsque vous créez un compte Media Services, vous devez indiquer le nom d’une ressource de compte de stockage Azure. Le compte de stockage spécifié est lié à votre compte Media Services. Le compte Media Services et le compte de stockage associé doivent faire partie du même centre de données et du même groupe de ressources.
+Lorsque vous créez un compte Media Services, vous devez indiquer le nom d’une ressource de compte de stockage Azure. Le compte de stockage spécifié est lié à votre compte Media Services. 
 
 Vous devez disposer d’un compte de stockage **principal** et vous pouvez avoir n’importe quel nombre de comptes de stockage **secondaires** associés à votre compte Media Services. Media Services prend en charge les comptes **v2 à usage général** (GPv2) ou **v1 à usage général** (GPv1). 
 
@@ -28,6 +28,8 @@ Vous devez disposer d’un compte de stockage **principal** et vous pouvez avoir
 > Les comptes Blob uniquement ne sont pas autorisés en tant que comptes **principaux**. 
 
 Nous vous recommandons d’utiliser GPv2 pour pouvoir choisir entre des niveaux de stockage chaud ou froid. Pour plus d’informations sur les comptes de stockage, consultez la [présentation générale du compte de stockage Azure](../../storage/common/storage-account-overview.md). 
+
+Le compte Media Services et tous les comptes de stockage associés doivent appartenir au même abonnement Azure. Il est recommandé d'utiliser les comptes de stockage au même emplacement que le compte Media Services.
 
 ## <a name="assets-in-a-storage-account"></a>Ressources d’un compte de stockage
 

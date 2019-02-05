@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à TonicDM | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à TonicDM | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TonicDM.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 19ea9a07-9ecf-43dc-91ba-593ce3c00b01
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b582af22707b7bff187ed93fb48ba96d15634ab3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8e92e97a27f36d37d30335b6eb8492f41ede7510
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433322"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190426"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tonicdm"></a>Tutoriel : Intégration d’Azure Active Directory à TonicDM
+# <a name="tutorial-azure-active-directory-integration-with-tonicdm"></a>Tutoriel : Intégration d'Azure Active Directory à TonicDM
 
 Dans ce tutoriel, vous allez apprendre à intégrer TonicDM à Azure Active Directory (Azure AD).
 
@@ -160,7 +160,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-tonicdm-test-user"></a>Créer un utilisateur de test TonicDM
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans TonicDM. Rapprochez-vous de [l’équipe de support de TonicDM](mailto:support@tonicdm.com) pour ajouter des utilisateurs sur la plateforme TonicDM. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans TonicDM. Collaborez avec l' [équipe du support technique de TonicDM](mailto:support@tonicdm.com) pour ajouter des utilisateurs sur la plateforme TonicDM. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
