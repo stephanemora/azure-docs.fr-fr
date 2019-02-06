@@ -7,19 +7,19 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 83694f121fb17f90aa89fb9ba99e8514cadd5b09
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 90b7638acf6df721a16bdcca6ceebb6f9d65ca2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723637"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096821"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Guide pratique pour remplir les champs spécifiques d’une application personnalisée
 
@@ -41,8 +41,8 @@ Cet article décrit brièvement tous les champs disponibles dans le formulaire d
 | Champ            | Description                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | NOM             | Le nom de l’application. Il doit être composé de quatre caractères minimum.                |
-| Type d’application | **Application/API web** : une application qui représente une application web, une API web, ou les deux. 
-| |**Natif** : une application qui peut être installée sur l'appareil ou l'ordinateur d'un utilisateur           |
+| Type d’application | **Application web/API web** : une application qui représente une application web, une API web, ou les deux 
+| |**Native** : une application qui peut être installée sur l’appareil ou l’ordinateur d’un utilisateur           |
 | URL de connexion      | L’URL à laquelle les utilisateurs peuvent se connecter pour utiliser votre application.                                  |
 
 Après avoir rempli les champs ci-dessus, l’application est inscrite dans le portail Azure et vous êtes redirigé vers la page de l’application. Le bouton **Paramètres** du volet de l’application ouvre la page Paramètres, qui comporte des champs supplémentaires vous permettant de personnaliser votre application. Le tableau ci-dessous décrit tous les champs de la page Paramètres. Notez que vous voyez uniquement un sous-ensemble de ces champs, selon que vous avez créez une application web ou une application native.

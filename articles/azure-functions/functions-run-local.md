@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: c99d5e9d64e9e9715589ecf2c0de57ce660917aa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103687"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094239"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -40,13 +40,13 @@ Sauf indication contraire, les exemples de cet article concernent la version 2.x
 
 ### <a name="v2"></a>Version 2.x
 
-La version 2.x des outils utilise le runtime d’Azure Functions 2.x qui repose sur .NET Core. Cette version est prise en charge sur tous les supports des plateformes .NET Core 2.x, y compris [Windows](#windows-npm), [macOS](#brew) et [Linux](#linux).
+La version 2.x des outils utilise le runtime d’Azure Functions 2.x qui repose sur .NET Core. Cette version est prise en charge sur tous les supports des plateformes .NET Core 2.x, y compris [Windows](#windows-npm), [macOS](#brew) et [Linux](#linux). Vous devez d’abord installer le kit SDK .NET Core 2.x.
 
 #### <a name="windows-npm"></a>Windows
 
 Les étapes suivantes utilisent npm pour installer les outils Core sur Windows. Vous pouvez également utiliser [Chocolatey](https://chocolatey.org/). Pour plus d’informations, consultez le [fichier Lisez-moi Outils Core](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installez [.NET Core 2.1 pour Windows](https://www.microsoft.com/net/download/windows).
+1. Installez le kit [SDK .NET Core 2.x pour Windows](https://www.microsoft.com/net/download/windows).
 
 2. Installez [Node.js], qui inclut npm. Pour la version 2.x des outils, seuls Node.js 8.5 et les versions ultérieures sont pris en charge.
 
@@ -60,7 +60,7 @@ Les étapes suivantes utilisent npm pour installer les outils Core sur Windows. 
 
 Les étapes suivantes utilisent Homebrew pour installer les Outils Core sur macOS.
 
-1. Installez [.NET Core 2.1 pour macOS](https://www.microsoft.com/net/download/macos).
+1. Installez le kit [SDK .NET Core 2.x pour macOS](https://www.microsoft.com/net/download/macos).
 
 2. Installez [Homebrew](https://brew.sh/), s’il n’est pas déjà installé.
 
@@ -75,7 +75,7 @@ Les étapes suivantes utilisent Homebrew pour installer les Outils Core sur macO
 
 Les étapes suivantes utilisent [APT](https://wiki.debian.org/Apt) pour installer les Outils Core sur votre distribution Ubuntu/Debian Linux. Pour les autres distributions Linux, consultez le [fichier Lisez-moi Outils Core](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Installez [.NET Core 2.1 pour Linux](https://www.microsoft.com/net/download/linux).
+1. Installez le kit [SDK .NET Core 2.x pour Linux](https://www.microsoft.com/net/download/linux).
 
 2. Enregistrez la clé de produit de Microsoft comme approuvé :
 
@@ -371,7 +371,7 @@ Pour passer des données de test au point de terminaison d’administrateur d’
 {
     "input": "<trigger_input>"
 }
-````
+```
 
 La valeur de `<trigger_input>` contient des données dans un format attendu par la fonction. L’exemple cURL suivant est une demande POST adressée à une fonction `QueueTriggerJS`. Dans ce cas, l’entrée est une chaîne qui est équivalente au message attendu dans la file d’attente.
 

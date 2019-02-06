@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour intégrer des journaux Azure Active Directory avec Log Analytics à l’aide d’Azure Monitor (préversion)  | Microsoft Docs
+title: Diffuser en continu les journaux Azure Active Directory vers Log Analytics avec Azure Monitor (préversion) | Microsoft Docs
 description: Découvrez comment intégrer des journaux Azure Active Directory avec Log Analytics à l’aide d’Azure Monitor (préversion)
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8b9189ef3fff75023316d5272bd93c136106cf94
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ad01784f3a808be4a27c97934b7ce4e83de8cdc2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824675"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168479"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Intégrer des journaux Azure AD avec Log Analytics à l’aide d’Azure Monitor (préversion)
 

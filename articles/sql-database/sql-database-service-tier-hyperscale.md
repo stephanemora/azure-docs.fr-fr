@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 25936fa1156dea4beff6e593646d0468a4687f36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872881"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476177"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Niveau de service Hyperscale (préversion) jusqu’à 100 To
 
 Azure SQL Database est basé sur une architecture de moteur de base de données SQL Server. Celle-ci est ajustée pour l’environnement cloud afin de garantir une disponibilité de 99,99 % même en cas de panne d’infrastructure. Trois modèles d’architecture sont utilisés dans Azure SQL Database :
+
 - Usage général/Standard 
 - Critique pour l’entreprise/Premium
 - Hyperscale
@@ -31,7 +32,7 @@ Le niveau de service Hyperscale dans Azure SQL Database est le tout nouveau nive
 > [!IMPORTANT]
 > Le niveau de service Hyperscale est actuellement disponible en préversion publique dans un nombre limité de régions Azure. Pour obtenir la liste complète des régions, consultez [Régions disponibles pour le niveau de service Hyperscale](#available-regions). Nous vous recommandons de ne pas exécuter des charges de travail de production dans des bases de données Hyperscale pour le moment. Vous ne pouvez pas mettre à jour une base de données Hyperscale vers d’autres niveaux de service. À des fins de test, nous vous recommandons de faire une copie de votre base de données actuelle et de mettre à jour la copie vers le niveau de service Hyperscale.
 > [!NOTE]
-> Pour en savoir plus sur les niveaux de service Usage général et Critique pour l’entreprise du modèle d’achat vCore, consultez les niveaux de service [Usage général](sql-database-service-tier-general-purpose.md) et [Critique pour l’entreprise](sql-database-service-tier-business-critical.md). Pour obtenir une comparaison du modèle d’achat basé sur le nombre de cœurs virtuels avec le modèle d’achat basé sur des unités DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-service-tiers.md).
+> Pour en savoir plus sur les niveaux de service Usage général et Critique pour l’entreprise du modèle d’achat vCore, consultez les niveaux de service [Usage général](sql-database-service-tier-general-purpose.md) et [Critique pour l’entreprise](sql-database-service-tier-business-critical.md). Pour obtenir une comparaison du modèle d’achat basé sur le nombre de cœurs virtuelss avec le modèle d’achat basé sur des unités DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-service-tiers.md).
 > [!IMPORTANT]
 > Le niveau de service Hyperscale est actuellement en préversion publique. Nous vous recommandons de ne pas exécuter des charges de travail de production dans des bases de données Hyperscale pour le moment. Vous ne pouvez pas mettre à jour une base de données Hyperscale vers d’autres niveaux de service. À des fins de test, nous vous recommandons de faire une copie de votre base de données actuelle et de mettre à jour la copie vers le niveau de service Hyperscale.
 
@@ -40,7 +41,7 @@ Le niveau de service Hyperscale dans Azure SQL Database est le tout nouveau nive
 Le niveau de service Hyperscale dans Azure SQL Database fournit les fonctionnalités supplémentaires suivantes :
 
 - Prise en charge d’une taille de base de données pouvant atteindre 100 To
-- Sauvegardes de base de données quasi instantanées (basées sur des instantanés de fichiers stockés dans le stockage Blob Azure), quel que soit leur taille, sans impact des E/S sur le calcul
+- Sauvegardes de base de données quasi instantanées (basées sur des instantanés de fichiers stockés dans le stockage Blob Azure), quel que soit leur taille, sans impact des E/S sur le calcul   
 - Restaurations de base de données rapides (basées sur des instantanés de fichiers) en minutes plutôt qu’en heures ou en jours (opération qui ne dépend pas de la taille des données)
 - Meilleures performances générales en raison d’un débit de journal plus élevé et de temps de validation de transaction plus rapides, quels que soient les volumes de données
 - Augmentation rapide du nombre de nœuds (scale out) : vous pouvez provisionner un ou plusieurs nœuds en lecture seule pour décharger votre charge de travail de lecture et les utiliser comme serveurs de secours
@@ -133,9 +134,6 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-> [!IMPORTANT]
-> [Transparent Data Encryption (TDE)](transparent-data-encryption-azure-sql.md) doit être désactivé avant de transformer une base de données non Hyperscale en base de données Hyperscale.
-
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Se connecter à un réplica avec échelle lecture d’une base de données Hyperscale
 
 Dans les bases de données Hyperscale, l’argument `ApplicationIntent` de la chaîne de connexion fournie par le client détermine si la connexion est routée vers le réplica en écriture ou vers un réplica secondaire en lecture seule. Si l’option `ApplicationIntent` est définie sur `READONLY` et que la base de données ne dispose pas de réplica secondaire, la connexion est routée vers le réplica principal et la valeur par défaut est le comportement `ReadWrite`.
@@ -153,17 +151,18 @@ Le niveau de service Hyperscale est actuellement disponible en préversion publi
 
 | Problème | Description |
 | :---- | :--------- |
-| Le volet Gérer les sauvegardes d’un serveur logique ne s’affiche pas. Les bases de données Hyperscale sont filtrées à partir du serveur SQL ->  | Hyperscale a une méthode distincte pour la gestion des sauvegardes. Par conséquent, les paramètres Conservation à long terme et Conservation des sauvegardes dans le temps ne s’appliquent pas/sont non valides. En conséquence, les bases de données Hyperscale n’apparaissent pas dans le volet Gérer les sauvegardes. |
+| Le volet Gérer les sauvegardes d’un serveur SQL Database ne s’affiche pas. Les bases de données Hyperscale sont filtrées à partir du serveur SQL->  | Hyperscale a une méthode distincte pour la gestion des sauvegardes. Par conséquent, les paramètres Conservation à long terme et Conservation des sauvegardes dans le temps ne s’appliquent pas/sont non valides. En conséquence, les bases de données Hyperscale n’apparaissent pas dans le volet Gérer les sauvegardes. |
 | Limite de restauration dans le temps | Une fois qu’une base de données est migrée dans le niveau de service Hyperscale, la limite de restauration dans le temps avant la migration n’est pas prise en charge.|
 | Si la taille d’un fichier de base de données augmente pendant la migration en raison d’une charge de travail active et qu’il dépasse la limite de 1 To par fichier, la migration échoue | Atténuations : <br> - Si possible, migrez la base de données quand aucune charge de travail de mise à jour n’est en cours d’exécution.<br> - Réessayez la migration. Elle réussira tant que la limite de 1 To n’est pas dépassée pendant la migration.|
 | Managed Instance n’est actuellement pas pris en charge | Non prise en charge pour le moment |
 | La migration vers Hyperscale est actuellement une opération unidirectionnelle | Une fois qu’une base de données est migrée vers Hyperscale, elle ne peut pas être migrée directement vers un niveau de service non Hyperscale. À l’heure actuelle, la seule façon de migrer une base de données du niveau Hyperscale vers un niveau non Hyperscale consiste à effectuer une exportation/importation à l’aide d’un fichier BACPAC.|
-| La migration de bases de données avec des objets en mémoire n’est actuellement pas prise en charge | Les objets en mémoire doivent être supprimés et recréés en tant qu’objets qui ne sont pas en mémoire avant de migrer une base de données vers le niveau de service Hyperscale.
+| La migration de bases de données avec des objets en mémoire n’est actuellement pas prise en charge | Les objets en mémoire doivent être supprimés et recréés en tant qu’objets qui ne sont pas en mémoire avant de migrer une base de données vers le niveau de service Hyperscale.|
+| Le suivi des modifications de données n’est pas pris en charge pour le moment. | Vous ne pouvez pas utiliser le suivi des modifications de données avec des bases de données Hyperscale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour consultez un forum aux questions sur Hyperscale, consultez [Questions fréquentes (FAQ) sur Hyperscale](sql-database-service-tier-hyperscale-faq.md).
 - Pour plus d’informations sur les niveaux de service, consultez [Niveaux de service](sql-database-service-tiers.md)
-- Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez l’article de [vue d’ensemble des limites de ressources sur un serveur logique](sql-database-resource-limits-logical-server.md).
+- Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez l’article [Vue d’ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).
 - Pour connaître les limites du modèle d’achat pour une base de données unique, consultez [Limites du modèle d’achat basé sur le nombre de vCores d’Azure SQL Database pour une base de données unique](sql-database-vcore-resource-limits-single-databases.md).
 - Pour consulter la liste des fonctionnalités et les comparer, consultez [Fonctionnalités SQL communes](sql-database-features.md).

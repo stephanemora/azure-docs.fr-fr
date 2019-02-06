@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Form.com | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Form.com | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Form.com.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: faa89ffd572733c580235b1c6dec58893de20503
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d5748cad11e8e0e4bdfd1000b312ab44fc304059
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449619"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161052"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Didacticiel : Intégration d’Azure Active Directory à Form.com
+# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutoriel : Intégration d’Azure Active Directory à Form.com
 
 Dans ce didacticiel, vous allez apprendre à intégrer Form.com à Azure Active Directory (Azure AD).
 
@@ -123,11 +123,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’URL de réponse et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Form.com](https://form.com/about/company/contact-us/).
 
-1. Dans la section **Certificat de signature SAML**, effectuez les étapes suivantes :
+1. Dans la section  **Certificat de signature SAML** , effectuez les étapes suivantes :
     
     ![Configurer l'authentification unique](./media/formcom-tutorial/tutorial_metadataurl.png)
 
-    a. Cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+    a. Cliquez sur le bouton Copier pour copier  **l’URL des métadonnées de fédération de l’application** , puis collez-la dans le Bloc-notes.
 
     b. Cliquez sur **Certificat (en base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
      

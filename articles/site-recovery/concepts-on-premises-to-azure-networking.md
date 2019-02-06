@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e682850d331770766a9b97c2b4b9102af143f2e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836268"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211353"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurer l’adressage IP pour se connecter à des machines virtuelles Azure après un basculement
 
@@ -73,7 +73,7 @@ Pour pouvoir répliquer ses machines virtuelles vers Azure en conservant les adr
 #### <a name="site-to-site-connection"></a>Connexion de site à site
 
 Outre la connexion de réseau virtuel à réseau virtuel, après le basculement, Woodgrove peut configurer la connectivité VPN de site à site :
-- Quand vous configurez une connexion de site à site, dans le réseau Azure, vous pouvez uniquement acheminer le trafic vers l’emplacement local (local-ntwork) si la plage d’adresses IP est différente de la plage d’adresses IP locales. Cela est dû au fait qu’Azure ne prend pas en charge les sous-réseaux étirés. Si vous avez un sous-réseau local 192.168.1.0/24, vous ne pouvez donc pas ajouter un réseau local 192.168.1.0/24 dans le réseau Azure. Ceci est dû au fait que Azure ne sait pas qu’aucune machine virtuelle n’est active dans le sous-réseau et que le sous-réseau est créé uniquement à des fins de récupération d’urgence.
+- Quand vous configurez une connexion de site à site, dans le réseau Azure, vous pouvez uniquement acheminer le trafic à l’emplacement local (réseau local) si la plage d’adresses IP est différente de la plage d’adresses IP locales. Cela est dû au fait qu’Azure ne prend pas en charge les sous-réseaux étirés. Si vous avez un sous-réseau local 192.168.1.0/24, vous ne pouvez donc pas ajouter un réseau local 192.168.1.0/24 dans le réseau Azure. Ceci est dû au fait que Azure ne sait pas qu’aucune machine virtuelle n’est active dans le sous-réseau et que le sous-réseau est créé uniquement à des fins de récupération d’urgence.
 - Pour pouvoir acheminer correctement le trafic réseau à partir d’un réseau Azure, les sous-réseaux du réseau et le réseau local ne doivent pas entrer en conflit.
 
 

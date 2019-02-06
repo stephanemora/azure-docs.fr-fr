@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1c53dfb1447b0abd5b96d109a657eae5f5947118
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401433"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098028"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -66,7 +66,7 @@ Azure Monitor peut collecter des données de journal à partir de n’importe qu
 
 
 ## <a name="insights"></a>Insights
-La supervision des données est utile uniquement si elle permet d’augmenter votre visibilité sur le fonctionnement de votre environnement informatique. Azure Monitor inclut plusieurs fonctionnalités et outils qui fournissent des informations importantes sur vos applications et d’autres ressources dont elles dépendent. La [supervision des solutions](insights/solutions.md) et des fonctionnalités telles qu’[Application Insights](app/app-insights-overview.md) et Container Insights fournit des informations détaillées sur les différents aspects de votre application et les services Azure spécifiques. 
+La supervision des données est utile uniquement si elle permet d’augmenter votre visibilité sur le fonctionnement de votre environnement informatique. Azure Monitor inclut plusieurs fonctionnalités et outils qui fournissent des informations importantes sur vos applications et d’autres ressources dont elles dépendent. La [supervision des solutions](insights/solutions.md) et des fonctionnalités telles qu’[Application Insights](app/app-insights-overview.md) et [Azure Monitor pour les conteneurs](insights/container-insights-overview.md) fournit des insights détaillés sur les différents aspects de votre application et les services Azure spécifiques. 
 
 ### <a name="application-insights"></a>Application Insights
 [Application Insights](app/app-insights-overview.md) surveille la disponibilité, les performances et l’utilisation de votre application web, qu’elle soit hébergée dans le cloud ou localement. Cette solution s’appuie sur la puissante plateforme d’analyse de données dans Azure Monitor pour vous fournir des informations détaillées sur le fonctionnement de votre application et pour diagnostiquer les erreurs sans attendre qu’un utilisateur les signale. Application Insights inclut des points de connexion à divers outils de développement et s’intègre à Visual Studio pour prendre en charge vos processus DevOps.
@@ -74,12 +74,12 @@ La supervision des données est utile uniquement si elle permet d’augmenter vo
 ![App Insights](media/overview/app-insights.png)
 
 ### <a name="azure-monitor-for-containers"></a>Azure Monitor pour des conteneurs
-Azure Monitor pour les conteneurs est une fonctionnalité conçue pour surveiller les performances des charges de travail de conteneur déployées sur des clusters Kubernetes managés hébergés sur Azure Kubernetes Service (AKS). Cela vous permet de visualiser les performances en collectant des métriques sur la mémoire et le processeur à partir des contrôleurs, des nœuds et des conteneurs qui sont disponibles dans Kubernetes via l’API Metrics. Les journaux de conteneur sont aussi collectés.  Une fois que vous avez activé la supervision des clusters Kubernetes, ces métriques et ces journaux sont automatiquement collectés à l’aide d’une version conteneurisée de l’agent Log Analytics pour Linux.
+[Azure Monitor pour les conteneurs](insights/container-insights-overview.md) est une fonctionnalité conçue pour superviser les performances des charges de travail de conteneur déployées sur des clusters Kubernetes managés hébergés sur Azure Kubernetes Service (AKS). Cela vous permet de visualiser les performances en collectant des métriques sur la mémoire et le processeur à partir des contrôleurs, des nœuds et des conteneurs qui sont disponibles dans Kubernetes via l’API Metrics. Les journaux de conteneur sont aussi collectés.  Une fois que vous avez activé la supervision des clusters Kubernetes, ces métriques et ces journaux sont automatiquement collectés à l’aide d’une version conteneurisée de l’agent Log Analytics pour Linux.
 
 ![Intégrité du conteneur](media/overview/container-insights.png)
 
-### <a name="azure-monitor-for-vms"></a>Azure Monitor pour les machines virtuelles
-Les insights de machine virtuelle Azure Monitor surveillent vos machines virtuelles Azure en analysant les performances et l’intégrité de vos machines virtuelles Windows et Linux, y compris leurs différents processus et les dépendances interconnectées envers d’autres ressources et processus externes. Cette solution inclut la prise en charge de la supervision des performances et des dépendances des applications pour les machines virtuelles hébergées sur site ou par un autre fournisseur cloud.  
+### <a name="azure-monitor-for-vms"></a>Azure Monitor pour machines virtuelles
+[Azure Monitor pour machines virtuelles](insights/vminsights-overview.md) supervise vos machines virtuelles Azure à grande échelle en analysant les performances et l’intégrité de vos machines virtuelles Windows et Linux, y compris leurs différents processus et les dépendances interconnectées envers d’autres ressources et processus externes. Cette solution inclut la prise en charge de la supervision des performances et des dépendances des applications pour les machines virtuelles hébergées sur site ou par un autre fournisseur cloud.  
 
 
 ![Insights de machine virtuelle](media/overview/vm-insights.png)

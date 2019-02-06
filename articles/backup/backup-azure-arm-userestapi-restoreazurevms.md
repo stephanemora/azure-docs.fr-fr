@@ -1,5 +1,5 @@
 ---
-title: 'Sauvegarde Azure : Restaurer des machines virtuelles Azure avec l’API REST'
+title: 'Sauvegarde Azure : Restaurer des machines virtuelles Azure avec l’API REST'
 description: Gérer les opérations de restauration de la sauvegarde de machines virtuelles Azure avec l’API REST
 services: backup
 author: pvrk
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 68c611b08524b5fc037598bafe46d75b3293886d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289496"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100195"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurer des machines virtuelles avec l’API REST
 
@@ -127,9 +127,9 @@ Pour personnaliser la création d’une machine virtuelle à partir des données
 
 Le déclenchement de la restauration des disques est une requête *POST*. Pour plus d’informations sur l’opération de restauration de disques, voir [API REST « déclencher la restauration »](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 `{containerName}` et `{protectedItemName}` sont tels qu’ils ont été créés [ici](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` correspond à « Azure » et `{recoveryPointId}` est le champ `{name}` du point de récupération mentionné [ci-dessus](#example-response).
 
@@ -147,7 +147,7 @@ Pour obtenir la liste complète des définitions du corps de la demande et d’a
 
 Le corps de demande suivant définit les propriétés requises pour déclencher une restauration de disque.
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -163,13 +163,13 @@ Le corps de demande suivant définit les propriétés requises pour déclencher 
     }
   }
 }
-````
+```
 
 ### <a name="response"></a>response
 
 Le déclenchement d’une restauration de disque est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
-Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) à la fin de cette opération.
+Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
 |NOM  |type  |Description  |
 |---------|---------|---------|
@@ -243,7 +243,7 @@ Une fois cette longue tâche terminée, les disques et la configuration de la ma
 
 Le corps de demande suivant définit les propriétés requises pour déclencher une restauration de machine virtuelle.
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -275,7 +275,7 @@ Le corps de demande suivant définit les propriétés requises pour déclencher 
       }
     }
 }
-````
+```
 
 La réponse doit être gérée comme [pour la restauration de disques](#response).
 

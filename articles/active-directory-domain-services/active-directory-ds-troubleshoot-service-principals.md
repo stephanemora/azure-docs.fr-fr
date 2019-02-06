@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services : Dépannage de la configuration du principal de service | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Dépannage de la configuration du principal de service | Microsoft Docs'
 description: Résolution des problèmes de configuration du principal de service pour les services de domaine Azure AD
 services: active-directory-ds
 documentationcenter: ''
@@ -8,27 +8,27 @@ manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035033"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191327"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Résoudre les problèmes liés à une configuration de principal de service non valide pour votre domaine managé
 
 Cet article vous aide à résoudre les erreurs liées à la configuration du principal de service qui entraînent l’affichage du message d’alerte suivant :
 
-## <a name="alert-aadds102-service-principal-not-found"></a>Alerte AADDS102 : Principal de service introuvable
+## <a name="alert-aadds102-service-principal-not-found"></a>Alerte AADDS102 : Principal de service introuvable
 
-**Message d’alerte :**  *Un principal du service requis pour qu’Azure AD Domain Services fonctionne correctement a été supprimé de votre locataire Azure AD. Cette configuration affecte la capacité de Microsoft à surveiller, gérer, mettre à jour et synchroniser votre domaine géré.*
+**Message d'alerte :** *Un principal de service requis pour que les services de domaine Azure AD fonctionnent correctement a été supprimé de votre annuaire Azure AD. Cette configuration affecte la capacité de Microsoft à surveiller, gérer, mettre à jour et synchroniser votre domaine géré.*
 
 Les [principaux de service](../active-directory/develop/app-objects-and-service-principals.md) sont des applications que Microsoft utilise pour gérer, mettre à jour et maintenir votre domaine managé. S’ils sont supprimés, ils interrompent la capacité de Microsoft à travailler sur votre domaine.
 
@@ -50,7 +50,7 @@ Suivez les étapes ci-dessous pour déterminer les principaux de services qui do
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Recréer un principal de service manquant avec PowerShell
 Suivez ces étapes si un principal de service avec l’ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` est absent de votre annuaire Azure AD.
 
-**Résolution :** vous avez besoin d’Azure AD PowerShell pour effectuer ces étapes. Pour plus d’informations sur l’installation d’Azure AD PowerShell, consultez [cet article](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Résolution :** Vous avez besoin d’Azure AD PowerShell pour effectuer ces étapes. Pour plus d’informations sur l’installation d’Azure AD PowerShell, consultez [cet article](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Pour résoudre ce problème, saisissez les commandes suivantes dans une fenêtre PowerShell :
 1. Installez le module Azure AD PowerShell, puis importez-le.
@@ -78,7 +78,7 @@ Pour résoudre ce problème, saisissez les commandes suivantes dans une fenêtre
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Réinscrivez l’espace de noms Microsoft AAD via le portail Azure
 Suivez ces étapes s’il manque un principal de service avec l’ID ```443155a6-77f3-45e3-882b-22b3a8d431fb```, ```abba844e-bc0e-44b0-947a-dc74e5d09022``` ou ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` dans votre annuaire Azure AD.
 
-**Résolution :** procédez comme suit pour restaurer Domain Services dans votre annuaire :
+**Résolution :** Pour restaurer les services de domaine sur votre annuaire, procédez comme suit :
 
 1. Accédez à la page [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) dans le portail Azure.
 2. Choisissez l’abonnement dans la table qui est associée à votre domaine géré
@@ -87,12 +87,12 @@ Suivez ces étapes s’il manque un principal de service avec l’ID ```443155a6
 5. Pour vérifier que l’alerte est résolue, attendez deux heures, puis consultez la page de contrôle d’intégrité de votre domaine managé.
 
 
-## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerte AADDS105 : l’application de synchronisation du mot de passe est obsolète
+## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerte AADDS105 : La synchronisation du mot de passe est obsolète
 
-**Message d’alerte :** le principal du service avec l’application ID « d87dcbc6-a371-462e-88e3-28ad15ec4e64 » a été supprimé puis recréé. Cette nouvelle création laisse des autorisations incohérentes sur les ressources Azure AD Domain Services nécessaires pour traiter votre domaine managé. La synchronisation des mots de passe dans votre domaine managé pourrait en être affectée.
+**Message d'alerte :** Le principal du service avec l’application ID « d87dcbc6-a371-462e-88e3-28ad15ec4e64 » a été supprimé puis recréé. Cette nouvelle création laisse des autorisations incohérentes sur les ressources Azure AD Domain Services nécessaires pour traiter votre domaine managé. La synchronisation des mots de passe dans votre domaine managé pourrait en être affectée.
 
 
-**Résolution :** vous avez besoin d’Azure AD PowerShell pour effectuer ces étapes. Pour plus d’informations sur l’installation d’Azure AD PowerShell, consultez [cet article](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Résolution :** Vous avez besoin d’Azure AD PowerShell pour effectuer ces étapes. Pour plus d’informations sur l’installation d’Azure AD PowerShell, consultez [cet article](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Pour résoudre ce problème, saisissez les commandes suivantes dans une fenêtre PowerShell :
 1. Installez le module Azure AD PowerShell, puis importez-le.

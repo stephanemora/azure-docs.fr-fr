@@ -1,6 +1,6 @@
 ---
-titre : Poser une question à laquelle les données peuvent répondre - titleSuffix : Description d'Azure Machine Learning Studio : Découvrez comment formuler une question de science des données précise dans la vidéo 3 Science des données pour les débutants. Inclut une comparaison des questions de classification et de régression.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Poser une question à laquelle les données peuvent répondre - titleSuffix : Description d'Azure Machine Learning Studio : Découvrez comment formuler une question de science des données précise dans la vidéo 3 Science des données pour les débutants. Inclut une comparaison des questions de classification et de régression.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---

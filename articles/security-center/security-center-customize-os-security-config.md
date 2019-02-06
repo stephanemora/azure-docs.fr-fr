@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 16c7ad523bcd4a1f7b7b1f80d99e4d36dade72df
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334191"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102428"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire)
 
@@ -90,29 +90,29 @@ Dans le fichier de personnalisation, chaque version de système d’exploitation
 >
 >
 
-Lorsque vous modifiez le fichier de personnalisation, vous pouvez modifier une règle ou la totalité d’entre elles. Chaque ensemble de règles comprend une section *rules*, composée de 3 catégories : Registre, Stratégie d’audit et Stratégie de sécurité, comme illustré ici :
+Lorsque vous modifiez le fichier de personnalisation, vous pouvez modifier une règle ou la totalité d’entre elles. Chaque groupe de règles comprend une section *rules* qui est divisée en trois catégories : Registry, AuditPolicy et SecurityPolicy, comme illustré ici :
 
 ![Trois catégories d’ensemble de règles](media/security-center-customize-os-security-config/rules-section.png)
 
 Chaque catégorie possède son propre ensemble d’attributs. Vous pouvez modifier les attributs suivants :
 
-- **expectedValue** : le type de données du champ de cet attribut doit correspondre aux valeurs prises en charge par chaque *type de règle*, par exemple :
+- **expectedValue** : le type de données du champ de cet attribut doit correspondre aux valeurs prises en charge par chaque *type de règle*, par exemple :
 
-  - **baselineRegistryRules** : la valeur doit correspondre à l’élément [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) défini dans cette règle.
+  - **baselineRegistryRules** : la valeur doit correspondre à l’élément [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) défini dans cette règle.
 
-  - **baselineAuditPolicyRules** : utilisez l’une des valeurs de chaîne suivantes :
+  - **baselineAuditPolicyRules** : Utilisez l’une des valeurs de chaîne suivantes :
 
     - *Success and Failure* (« Succès et échec »)
 
     - *Success*
 
-  - **baselineSecurityPolicyRules** : utilisez l’une des valeurs de chaîne suivantes :
+  - **baselineSecurityPolicyRules** : Utilisez l’une des valeurs de chaîne suivantes :
 
     - *No one* (« Aucune »)
 
-    - Liste des groupes d’utilisateurs autorisés, par exemple : *Administrators*, *Backup Operators* (« Administrateurs, opérateurs de sauvegarde »).
+    - Liste des groupes d’utilisateurs autorisés, par exemple : *Administrators* (Administrateurs), *Backup Operators* (Opérateurs de sauvegarde)
 
--   **state** : chaîne qui peut contenir l’option *Disabled* ou *Enabled* (« Désactivé » ou « activé ») Dans cette préversion privée, la chaîne respecte la casse.
+-   **state** : chaîne qui peut contenir l’option *Disabled* ou *Enabled* (« Désactivé » ou « Activé ») Dans cette préversion privée, la chaîne respecte la casse.
 
 Ce sont les seuls champs configurables. Si vous ne respectez pas le format ou la taille de fichier, vous ne pourrez pas enregistrer la modification. Un message d’erreur indique que vous devez pour charger un fichier de configuration JSON valide.
 
@@ -121,7 +121,7 @@ Pour obtenir une liste des erreurs potentielles, consultez la rubrique [Codes d�
 Les trois sections suivantes comportent des exemples des règles précédentes. Les attributs *expectedValue* et *state* peuvent être modifiés.
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -144,7 +144,7 @@ Les trois sections suivantes comportent des exemples des règles précédentes. 
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -161,7 +161,7 @@ Les trois sections suivantes comportent des exemples des règles précédentes. 
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -194,17 +194,17 @@ Il est également possible de créer des règles. Au préalable, tenez compte de
 
 Les nouvelles règles personnalisées sont marquées par une nouvelle source personnalisée (!= « Microsoft »). Le champ *ruleId* peut avoir la valeur Null ou être vide. S’il est vide, Microsoft en génère un. Sinon, il doit avoir un GUID valide et commun à toutes les règles (par défaut et personnalisées). Passez en revue les contraintes suivantes concernant les champs de base :
 
--   **originalId** : peut comporter la valeur Null ou être vide. Si *non vide*, doit être un GUID valide.
+-   **originalId** : peut comporter une valeur Null ou être vide. Si *non vide*, doit être un GUID valide.
 
--   **cceId** : peut comporter la valeur Null ou être vide. Si *non vide*, doit être unique.
+-   **cceId** : peut comporter une valeur Null ou être vide. Si *non vide*, doit être unique.
 
 -   **ruleType** : (sélectionnez une valeur) Registry, AuditPolicy ou SecurityPolicy.
 
 -   **Severity** : (sélectionnez une valeur) Unknown, Critical, Warning ou Informational.
 
--   **analyzeOperation** : doit comporter la valeur *Equals*.
+-   **analyzeOperation** : Doit être *Equals*.
 
--   **auditPolicyId** : doit être un GUID valide.
+-   **auditPolicyId** : Doit être un GUID valide.
 
 -   **regValueType** : (sélectionnez une valeur) Int, Long, String ou MultipleString.
 
@@ -216,7 +216,7 @@ Les nouvelles règles personnalisées sont marquées par une nouvelle source per
 Exemple de nouvelle règle personnalisée :
 
 **Registry** :
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -225,7 +225,7 @@ Exemple de nouvelle règle personnalisée :
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -233,7 +233,7 @@ Exemple de nouvelle règle personnalisée :
     }
 ```
 **Security policy** :
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -248,7 +248,7 @@ Exemple de nouvelle règle personnalisée :
    }
 ```
 **Audit policy** :
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -275,7 +275,7 @@ Le tableau suivant répertorie l’ensemble des erreurs potentielles :
 
 | **Error**                                | **Description**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | La propriété *schemaVersion* est vide ou non valide. Elle doit avoir la valeur *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | La propriété *schemaVersion* est vide ou non valide. Elle doit avoir la valeur *{0}*.                                                         |
 | BaselineInvalidStringError               | La propriété *{0}* ne peut pas contenir *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | La liste de règles de configuration de base contient une règle dont la valeur est *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | Le CCE-ID *{0}* n’est pas unique.                                                                                                                  |
@@ -298,7 +298,7 @@ Le tableau suivant répertorie l’ensemble des erreurs potentielles :
 | BaselineRuleTypeDoesntMatchError         | Le type réel de la règle est *{0}*, alors que la propriété *ruleType* est *{1}*.                                                                          |
 | BaselineRuleUnpermittedChangesError      | Seules les propriétés *expectedValue* et *state* sont modifiables.                                                                       |
 | BaselineTooManyRules                     | Le nombre maximal de règles personnalisées autorisées est de {0} règles. La configuration donnée comporte {1} règles, {2} règles par défaut et {3} règles personnalisées. |
-| ErrorNoConfigurationStatus               | Aucun état de configuration n’a été trouvé. Veuillez indiquer l’état de configuration souhaité : *Default* (« par défaut ») ou *Custom* (« personnalisé »).                                    |
+| ErrorNoConfigurationStatus               | Aucun état de configuration n’a été trouvé. État de configuration souhaité : *Default* (« Par défaut ») ou *Custom* (« Personnalisé »).                                    |
 | ErrorNonEmptyRulesetOnDefault            | L’état de la configuration a la valeur par défaut. La liste *BaselineRulesets* doit comporter la valeur Null ou être vide.                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | L’état de configuration indiqué est *Custom* (« personnalisé »), alors que la propriété *baselineRulesets* comporte la valeur Null ou est vide.                                             |
 | ErrorParsingBaselineConfig               | La configuration spécifiée n’est pas valide. Au moins une des valeurs définies comporter la valeur Null ou a un type non valide.                                  |

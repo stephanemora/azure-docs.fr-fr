@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d51cbc7bd88fd9f4baf066210e7b7da8cd175cd6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4adadf4951ffbb31a354284340a3716b194d864d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603121"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219275"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 Le [cycle de vie du développement d’une base de connaissances](../Concepts/development-lifecycle-knowledge-base.md) vous guide de bout en bout sur la façon de gérer votre base de connaissances. Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
@@ -95,6 +95,10 @@ Ces deux entités QnA employant des mots très similaires, elles pourraient gén
 
 ## <a name="collaborate"></a>Travailler en collaboration
 QnA Maker permet aux utilisateurs de [travailler en collaboration](../How-to/collaborate-knowledge-base.md) sur une base de connaissances. Les utilisateurs doivent avoir accès au groupe de ressources Azure QnA Maker pour accéder à la base de connaissances. Certaines organisations souhaitent externaliser la mise à jour et la gestion des bases de connaissances tout en pouvant quand même protéger l’accès à leurs ressources Azure. Ce modèle éditeur-approbateur s’obtient en configurant deux [services QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identiques dans des abonnements différents et en sélectionnant l’un d’entre eux pour le cycle de modification-test. À la fin des tests, le contenu de la base de connaissances est transféré, par un processus [importation-exportation](../Tutorials/migrate-knowledge-base.md), au service QnA Maker de l’approbateur, qui publiera la base de connaissances et mettra à jour le point de terminaison.
+
+## <a name="active-learning"></a>Apprentissage actif
+
+L’[apprentissage actif](../How-to/improve-knowledge-base.md) est le plus à même de suggérer d’autres questions quand il dispose d’un large éventail qualitatif et quantitatif de requêtes utilisateur. Il est important d’autoriser les requêtes utilisateur des applications clientes à participer à la boucle de commentaires sur l’apprentissage actif sans censure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

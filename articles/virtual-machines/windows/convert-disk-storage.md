@@ -3,7 +3,7 @@ title: Convertir le stockage Managed Disks Azure de standard en premium, et vice
 description: Comment convertir les disques gérés Azure de standard en premium, et vice versa, à l’aide de Microsoft Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
-ms.component: disks
-ms.openlocfilehash: 4f9e3468cc8ec94eeb3ba936b828e9adfd9a3e6d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 4c13708ad785a2291da3db61d739f604a2c3bb88
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478516"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475888"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Mettre à jour le type de stockage d’un disque managé
 
@@ -83,7 +83,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="convert-a-managed-disk-from-standard-to-premium"></a>Convertir un disque managé standard en premium
 
-Pour votre charge de travail de développement/test, vous souhaiterez peut-être combiner disques standard et disques premium pour réduire les coûts. Pour cela, mettez uniquement à niveau les disques qui nécessitent de meilleures performances avec le stockage premium. L’exemple suivant montre comment faire passer un seul disque d’une machine virtuelle du stockage standard au stockage premium, et vice versa. Pour utiliser des disques managés premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage premium. Cet exemple montre également comment passer à une taille prenant en charge le stockage premium :
+Pour votre charge de travail de développement/test, vous souhaiterez peut-être combiner disques standard et disques premium pour réduire les coûts. Pour ce faire, mettez uniquement à niveau les disques qui nécessitent de meilleures performances avec le stockage Premium. L’exemple suivant montre comment faire passer un seul disque d’une machine virtuelle du stockage standard au stockage premium, et vice versa. Pour utiliser des disques managés premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage premium. Cet exemple montre également comment passer à une taille prenant en charge le stockage premium :
 
 ```azurepowershell-interactive
 

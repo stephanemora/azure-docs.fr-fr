@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119231"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104609"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
@@ -36,19 +36,19 @@ Avec les flux de métriques temps réel, vous pouvez :
 
 [![Vidéo sur les flux de métriques temps réel](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
+Les métriques temps réel sont actuellement prises en charge pour les applications ASP.NET, ASP.NET Core, Azure Functions et Java.
+
 ## <a name="get-started"></a>Prise en main
 
-1. Si vous ne l’avez pas encore fait, [installez Application Insights](../../azure-monitor/app/asp-net.md) dans votre application web ASP.NET ou dans votre [application de serveur Windows](../../azure-monitor/app/windows-services.md). 
-2. **Mettez à jour vers la dernière version** du package Application Insights. Dans Visual Studio, cliquez avec le bouton droit sur votre projet et choisissez **Gérer les packages NuGet**. Ouvrez l’onglet **Mises à jour**, cochez **Inclure la version préliminaire** et sélectionnez tous les packages Microsoft.ApplicationInsights.*.
+1. Si vous n’avez pas encore [installé Application Insights](../../azure-monitor/azure-monitor-app-hub.md) dans votre application web, faites-le maintenant.
+2. En plus des packages Application Insights standard, [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) est nécessaire pour activer le flux de métriques temps réel.
+3. **Mettez à jour vers la dernière version** du package Application Insights. Dans Visual Studio, cliquez avec le bouton droit sur votre projet et choisissez **Gérer les packages NuGet**. Ouvrez l’onglet **Mises à jour** et sélectionnez tous les packages Microsoft.ApplicationInsights.*.
 
     Redéployez votre application.
 
 3. Dans le [portail Azure](https://portal.azure.com), ouvrez la ressource Application Insights pour votre application puis ouvrez Flux temps réel.
 
 4. [Sécurisez le canal de contrôle](#secure-the-control-channel) si vous utilisez des données sensibles comme des noms de clients dans vos filtres.
-
-
-![Dans le panneau Vue d'ensemble, cliquez sur Live Stream](./media/live-stream/live-stream-2.png)
 
 ### <a name="no-data-check-your-server-firewall"></a>Pas de données ? Vérifier le pare-feu de votre serveur
 
@@ -69,7 +69,7 @@ Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../
 
 ## <a name="select-and-filter-your-metrics"></a>Sélectionner et filtrer vos métriques
 
-(Disponible sur les applications ASP.NET classiques avec la dernière version du SDK.)
+(Disponible avec ASP.NET, ASP.NET Core et Azure Functions (v2).)
 
 Vous pouvez surveiller un KPI personnalisé en temps réel en appliquant des filtres arbitraires sur les données de télémétrie Application Insights à partir du portail. Cliquez sur la commande de filtre qui s’affiche lorsque vous passez la souris sur un graphique. Le graphique suivant indique un KPI de nombre de demandes personnalisé avec des filtres sur les attributs d’URL et de durée. Vérifiez vos filtres grâce à la section Vue d’ensemble du flux qui affiche un flux en temps réel de télémétrie correspondant aux critères que vous avez spécifiés. 
 
@@ -111,7 +111,7 @@ Le flux de métriques temps réel personnalisé est disponible avec la version 2
 Les critères de filtres personnalisés que vous spécifiez sont renvoyés au composant de métriques temps réel dans le Kit de développement logiciel (SDK) Application Insights. Les filtres peuvent potentiellement contenir des informations sensibles telles que des ID clients. Vous pouvez sécuriser le canal avec une clé API secrète en plus de la clé d’instrumentation.
 ### <a name="create-an-api-key"></a>Création d’une clé API
 
-![Création d’une clé API](./media/live-stream/live-metrics-apikeycreate.png)
+![Créer une clé API](./media/live-stream/live-metrics-apikeycreate.png)
 
 ### <a name="add-api-key-to-configuration"></a>Ajout d’une clé API à la configuration
 
@@ -161,6 +161,12 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
+### <a name="azure-function-apps"></a>Applications de fonction Azure
+
+Pour Azure Function Apps (v2), la sécurisation du canal avec une clé API peut se faire avec une variable d’environnement. 
+
+Créez une clé API à partir de votre ressource Application Insights et accédez à **Paramètres d’application** pour votre application de fonction. Sélectionnez **Ajouter un nouveau paramètre** et entrez le nom `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` et une valeur qui correspond à votre clé API.
+
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (nécessite Application Insights ASP.NET Core SDK 2.3.0-beta ou version ultérieure)
 
 Modifiez votre fichier startup.cs comme suit :
@@ -176,7 +182,6 @@ Ensuite, dans la méthode ConfigureServices, ajoutez :
 ``` C#
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
-
 
 Toutefois, si vous connaissez et faites confiance à tous les serveurs connectés, vous pouvez essayer les filtres personnalisés sans le canal authentifié. Cette option est disponible pour six mois. Ce remplacement est nécessaire à chaque nouvelle session, ou lorsqu’un nouveau serveur est en ligne.
 

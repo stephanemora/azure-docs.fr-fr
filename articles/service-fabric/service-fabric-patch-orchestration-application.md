@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427931"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155304"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -143,9 +143,6 @@ L’application et les scripts d’installation peuvent être téléchargés à 
 
 L’application au format sfpkg peut être téléchargée à partir de [lien sfpkg](https://aka.ms/POA/POA.sfpkg). Cela s’avère utile pour le [déploiement de l’application basée sur Azure Resource Manager](service-fabric-application-arm-resource.md).
 
-> [!IMPORTANT]
-> La version 1.3.0 (plus récente) de l’application d’orchestration des correctifs a un problème connu présent sur Windows Server 2012. Si vous exécutez Windows Server 2012, téléchargez la version 1.2.2 de l’application [ici](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). Lien SFPkg [ici](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg).
-
 ## <a name="configure-the-app"></a>Configurer l’application
 
 Vous pouvez configurer le comportement de l’application d’orchestration des correctifs en fonction de vos besoins. Remplacez les valeurs par défaut en entrant le paramètre d’application durant la création ou la mise à jour de l’application. Il est possible de fournir des paramètres d’application en spécifiant `ApplicationParameter` pour les applets de commande `Start-ServiceFabricApplicationUpgrade` ou `New-ServiceFabricApplication`.
@@ -156,7 +153,7 @@ Vous pouvez configurer le comportement de l’application d’orchestration des 
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indique la stratégie que le service Coordinateur doit utiliser pour installer les mises à jour Windows Update sur les nœuds du cluster Service Fabric.<br>                         Les valeurs autorisées sont les suivantes : <br>                                                           <b>NodeWise</b>. Les mises à jour Windows Update sont installées de façon séquentielle, nœud après nœud. <br>                                                           <b>UpgradeDomainWise</b>. Les mises à jour Windows Update sont installées sur un domaine de mise à niveau à la fois (au maximum, tous les nœuds appartenant à un domaine de mise à niveau peuvent bénéficier de Windows Update).<br> Reportez-vous à la section [FAQ](#frequently-asked-questions) sur la façon de déterminer la stratégie la plus adaptée pour votre cluster.
 |LogsDiskQuotaInMB   |long  <br> (Par défaut : 1 024               |Taille maximale en Mo des journaux de l’application d’orchestration des correctifs qui peuvent être conservés localement sur des nœuds.
 | WUQuery               | chaîne<br>(Par défaut : « IsInstalled=0 »)                | Requête pour obtenir les mises à jour Windows Update. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
-| InstallWindowsOSOnlyUpdates | Booléen <br> (Par défaut : True)                 | Utilisez cet indicateur pour contrôler les mises à jour qui doivent être téléchargées et installées. Les valeurs suivantes sont autorisées <br>True : installe uniquement les mises à jour du système d’exploitation Windows.<br>False : installe toutes les mises à jour disponibles sur l’ordinateur.          |
+| InstallWindowsOSOnlyUpdates | Booléen <br> (par défaut : false)                 | Utilisez cet indicateur pour contrôler les mises à jour qui doivent être téléchargées et installées. Les valeurs suivantes sont autorisées <br>True : installe uniquement les mises à jour du système d’exploitation Windows.<br>False : installe toutes les mises à jour disponibles sur l’ordinateur.          |
 | WUOperationTimeOutInMinutes | Int <br>(Par défaut : 90)                   | Spécifie le délai d’expiration de toute opération de Windows Update (rechercher, télécharger ou installer). Si l’opération n’est pas terminée dans le délai imparti, elle est abandonnée.       |
 | WURescheduleCount     | Int <br> (Par défaut : 5)                  | Nombre maximal de fois que le service replanifie une mise à jour Windows en cas d’échec persistant d’une opération.          |
 | WURescheduleTimeInMinutes | Int <br>(Par défaut : 30) | Intervalle auquel le service replanifie une mise à jour de Windows en cas d’échec persistant. |
@@ -295,7 +292,7 @@ Selon la stratégie définie pour l’application, une opération de mise à jou
 
 À la fin de l’installation des mises à jour Windows Update, les nœuds sont réactivés après redémarrage.
 
-Dans l’exemple suivant, le cluster a présenté temporairement un état d’erreur parce que deux nœuds ont été désactivés et la stratégie MaxPercentageUnhealthNodes a été violée. L’erreur persiste temporairement jusqu’à ce que l’opération de mise à jour corrective soit en cours.
+Dans l’exemple suivant, le cluster a présenté temporairement un état d’erreur, car deux nœuds ont été désactivés et la stratégie MaxPercentageUnhealthyNodes a été enfreinte. L’erreur persiste temporairement jusqu’à ce que l’opération de mise à jour corrective soit en cours.
 
 ![Image de cluster défectueux](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
@@ -330,7 +327,7 @@ Q. **Combien de temps faut-il pour appliquer un correctif à un cluster entier 
 R. Le temps nécessaire pour appliquer un correctif à un cluster entier dépend des facteurs suivants :
 
 - Temps nécessaire pour appliquer un correctif à un nœud.
-- La stratégie du service Coordinateur. - La stratégie par défaut, `NodeWise`, entraîne la mise à jour corrective d’un nœud à la fois, ce qui est plus lent que `UpgradeDomainWise`. Par exemple :  Si l’application d’un correctif à un nœud prend environ 1 heure, pour appliquer un correctif à un cluster de 20 nœuds (du même type) avec 5 domaines de mise à niveau, contenant 4 nœuds chacun.
+- La stratégie du service Coordinateur. - La stratégie par défaut, `NodeWise`, entraîne la mise à jour corrective d’un nœud à la fois, ce qui est plus lent que `UpgradeDomainWise`. Par exemple :  Si l’application d’un correctif à un nœud prend environ 1 heure, pour appliquer un correctif à un cluster de 20 nœuds (du même type) avec 5 domaines de mise à niveau, contenant 4 nœuds chacun.
     - Il faut environ 20 heures pour appliquer le correctif au cluster entier si la stratégie est `NodeWise`.
     - Il faut environ 5 heures si la stratégie est `UpgradeDomainWise`.
 - Charge du cluster : chaque opération de mise à jour corrective requiert un déplacement de la charge de travail client vers d’autres nœuds disponibles dans le cluster. Pendant ce temps, le nœud auquel est appliqué le correctif est en état de [désactivation](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling). Si le cluster exécute une charge proche du pic, le processus de désactivation prend plus de temps. Par conséquent, le processus de mise à jour corrective global peut sembler lent dans de telles conditions de sollicitation.
@@ -411,3 +408,8 @@ Un administrateur doit intervenir et déterminer la raison pour laquelle l’app
 - L’affectation de la valeur False à InstallWindowsOSOnlyUpdates installe maintenant toutes les mises à jour disponibles.
 - Changement de la logique de désactivation des mises à jour automatiques. Cela résout un bogue à cause duquel les mises à jour automatiques n’étaient pas désactivées sur Server 2016 et ultérieur.
 - Contrainte de placement paramétrable pour les deux microservices de l’application d’orchestration des correctifs pour les cas d’utilisation avancés.
+
+### <a name="version-131"></a>Version 1.3.1
+- Correction d’une régression où POA 1.3.0 ne fonctionnait pas sur Windows Server 2012 R2 ou antérieur en raison d’une impossibilité de désactiver les mises à jour automatiques. 
+- Résolution du bogue avec lequel la configuration InstallWindowsOSOnlyUpdates avait toujours la valeur True.
+- Remplacement de la valeur par défaut de InstallWindowsOSOnlyUpdates par la valeur False.

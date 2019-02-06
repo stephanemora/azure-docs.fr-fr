@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: a80895db8a89b8d9392d0ed067b95daa23474d8b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113867"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168411"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
 Lors de l’empaquetage d’un fichier exécutable en tant [qu’exécutable invité](service-fabric-guest-executables-introduction.md), vous pouvez choisir d’utiliser un modèle de projet Visual Studio ou de [créer le package d’application manuellement](#manually). À l’aide de Visual Studio, la structure de package d’application et les fichiers manifeste sont créés pour vous par le modèle de nouveau projet.
@@ -69,7 +69,7 @@ Le processus d’empaquetage manuel d’un exécutable invité est basé sur les
 4. Modifiez le fichier de manifeste d’application.
 
 <!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
 -->
 
 ### <a name="create-the-package-directory-structure"></a>Création de la structure de répertoires du package
@@ -143,7 +143,7 @@ L’élément CodePackage spécifie l’emplacement (et la version) du code du s
 
 L’élément `Name` est utilisé pour spécifier le nom du répertoire dans le package d’application qui contient le code du service. `CodePackage` a également l’attribut `version`. Cela peut être utilisé pour spécifier la version du code et peut également permettre de mettre à niveau le code de service en utilisant l’infrastructure de gestion du cycle de vie d’application dans Service Fabric.
 
-#### <a name="optional-update-setupentrypoint"></a>Facultatif : mettre à jour SetupEntrypoint
+#### <a name="optional-update-setupentrypoint"></a>Facultatif : Mettre à jour SetupEntrypoint
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -302,4 +302,4 @@ Dans cet article, vous avez appris à empaqueter un exécutable invité et à le
 * [Exemple pour empaqueter et déployer un exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), avec un lien vers la version préliminaire de l’outil d’empaquetage
 * [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-containers)
 * [Déploiement de plusieurs exécutables invités](service-fabric-deploy-multiple-apps.md)
-* [Créez votre première application Service Fabric avec Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+* [Créez votre première application Service Fabric avec Visual Studio](service-fabric-tutorial-create-dotnet-app.md)

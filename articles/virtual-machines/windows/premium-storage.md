@@ -7,13 +7,13 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.component: disks
-ms.openlocfilehash: 18e79854ac57deb9e06bf6296f3865a35f48f0a8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: disks
+ms.openlocfilehash: 7f8a3b4284df73dbe6bb6b22afa50423415b3561
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252375"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475021"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 
@@ -26,4 +26,4 @@ ms.locfileid: "51252375"
 
 ### <a name="blog-posts"></a>Billets de blog :
 * [Mise à la disposition générale du stockage Premium Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [Annonce de la série GS : ajout de prise en charge du stockage Premium pour les machines virtuelles les plus grandes dans le cloud Public](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+* [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud (Annonce de la série GS : ajout de la prise en charge du stockage Premium pour les machines virtuelles les plus grandes du cloud public)](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

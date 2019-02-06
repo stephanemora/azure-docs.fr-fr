@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: d57a80ec2a1ebfca173d7eaa165de4d344af2ccf
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391111"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913357"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Créer, superviser et gérer des fichiers FTP avec Azure Logic Apps
 
@@ -29,7 +29,7 @@ Avec Azure Logic Apps et le connecteur FTP, vous pouvez créer des tâches et de
 Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre serveur FTP, et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions d’exécution dans vos applications logiques pour la gestion des fichiers sur votre serveur FTP. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions FTP. Par exemple, si vous obtenez régulièrement des fichiers à partir de votre serveur FTP, vous pouvez envoyer un e-mail au sujet de ces fichiers et de leur contenu en utilisant le connecteur Office 365 Outlook ou le connecteur Outlook.com. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> Le connecteur FTP prend en charge uniquement les fichiers d’une taille inférieure ou égale à 50 Mo, sauf si vous utilisez la [segmentation pour gérer les messages volumineux](../logic-apps/logic-apps-handle-large-messages.md). 
+> Le connecteur FTP prend en charge uniquement les fichiers d’une taille inférieure ou égale à 50 Mo, sauf si vous utilisez la [segmentation de messages dans les actions](../logic-apps/logic-apps-handle-large-messages.md). Vous ne pouvez pas utiliser de segmentation pour les déclencheurs.
 >
 > De plus, le connecteur FTP ne prend en charge que FTPS (FTP sur SSL en mode explicite) ; il n’est pas compatible avec le protocole FTPS implicite. 
 
@@ -66,13 +66,27 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre ser
 
 1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionnés et continuez à générer le flux de travail de votre application logique.
 
+Quand il demande le contenu du fichier, le déclencheur n’obtient pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle :
+
+* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
+
+* Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## <a name="examples"></a>Exemples
+
+<a name="file-added-modified"></a>
 
 ### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>Déclencheur FTP : Lors de l’ajout ou de la modification d’un fichier
 
 Ce déclencheur démarre un flux de travail d’application logique quand il détecte qu’un fichier est ajouté ou modifié sur un serveur FTP. Par exemple, vous pouvez ajouter une condition qui vérifie le contenu du fichier pour savoir s’il peut être obtenu. Enfin, vous pouvez ajouter une action qui obtient le contenu du fichier et le place dans un dossier sur le serveur SFTP. 
 
 **Exemple en entreprise** : vous pouvez utiliser ce déclencheur pour superviser l’apparition dans un dossier FTP de nouveaux fichiers qui décrivent les commandes des clients. Vous pouvez ensuite utiliser une action FTP comme **Obtenir le contenu du fichier** pour pouvoir récupérer le contenu de la commande à des fins de traitement, et stocker cette commande dans une base de données de commandes.
+
+Quand ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
+
+* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
+
+* Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
 
 Une application de logique fonctionnelle valide nécessite un déclencheur, et au moins une action. Ainsi, assurez-vous d’ajouter une action après l’ajout d’un déclencheur.
 
@@ -101,9 +115,19 @@ Voici un exemple illustrant ce déclencheur : **Lors de l’ajout ou de la modi
 
 À présent que votre application logique dispose d’un déclencheur, ajoutez les actions que vous souhaitez exécuter lorsqu’elle trouve un fichier nouveau ou modifié. Pour cet exemple, vous pouvez ajouter une action FTP qui obtient le contenu nouveau ou mis à jour.
 
+<a name="get-content"></a>
+
 ### <a name="ftp-action-get-content"></a>Action FTP : Get content
 
 Cette action obtient le contenu d’un fichier sur un serveur FTP quand ce fichier est ajouté ou mis à jour. Par exemple, vous pouvez ajouter le déclencheur de l’exemple précédent, et une action qui obtient le contenu du fichier après l’ajout ou la modification de celui-ci. 
+
+Quand ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
+
+* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
+
+* Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
+
+Voici un exemple illustrant cette action : **Get content**
 
 1. Sous le déclencheur ou n’importe quel autre action, choisissez **Nouvelle étape**. 
 

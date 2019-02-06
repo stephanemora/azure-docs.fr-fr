@@ -1,6 +1,6 @@
 ---
 title: Présentation d’Azure SQL Database Managed Instance | Microsoft Docs
-description: Cette rubrique décrit Azure SQL Database Managed Instance et explique son fonctionnement ainsi que ses différences par rapport à une base de données unique dans Azure SQL Database.
+description: Cette rubrique décrit Azure SQL Database Managed Instance et explique son fonctionnement ainsi que ses différences par rapport à une base de données unique ou en pool dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/25/2019
+ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994757"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465705"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Utiliser SQL Database Managed Instance avec des réseaux virtuels et une compatibilité de presque 100 %
 
@@ -34,7 +34,7 @@ Azure SQL Database Managed Instance est conçu pour les clients cherchant à eff
 
 En disponibilité générale, Managed Instance a pour but d’offrir une compatibilité de la surface d’exposition proche de 100 % avec la dernière version de SQL Server locale par le biais d’un plan de mise en production intermédiaire.
 
-Pour choisir entre la base de données unique Azure SQL Database, Azure SQL Database Managed Instance et SQL Server IaaS hébergée dans une machine virtuelle, consultez [comment choisir la bonne version de SQL Server dans le cloud Azure](sql-database-paas-vs-sql-server-iaas.md).
+Pour choisir entre une base de données unique ou en pool Azure SQL Database, Azure SQL Database Managed Instance et SQL Server hébergée dans une machine virtuelle, consultez [Comment choisir la bonne version de SQL Server dans le cloud Azure](sql-database-paas-vs-sql-server-iaas.md).
 
 ## <a name="key-features-and-capabilities"></a>Fonctionnalités principales
 
@@ -185,7 +185,7 @@ L’approche de la migration s’appuie sur les sauvegardes SQL dans Stockage Bl
 - Pour plus d’informations sur la restauration à partir d’une URL, consultez [Restauration native à partir d’une URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> Les sauvegardes d’une instance managée peuvent uniquement être restaurées sur une autre instance managée. Elles ne peuvent pas être restaurées sur un serveur SQL Server local, ni sur une base de données unique ou mise en pool qui serait sur un serveur logique Azure SQL Database.
+> Les sauvegardes d’une instance managée peuvent uniquement être restaurées sur une autre instance managée. Elles ne peuvent pas être restaurées sur une instance SQL Server locale ni dans une base de données unique ou un pool élastique.
 
 ### <a name="data-migration-service"></a>Service de migration des données
 
@@ -210,7 +210,7 @@ Managed Instance tire parti du fait d’être toujours à jour dans le cloud, ce
 - Managed Instance ne permet pas de spécifier les chemins d’accès physiques complets. Tous les scénarios correspondants doivent donc être pris en charge de façon différente : RESTORE DB ne prend pas en charge WITH MOVE, CREATE DB n’autorise pas les chemins d’accès physiques, BULK INSERT fonctionne uniquement avec les objets BLOB Azure, etc.
 - Managed Instance prend en charge l’[authentification Azure AD](sql-database-aad-authentication.md) en tant qu’alternative cloud à l’authentification Windows.
 - Managed Instance gère automatiquement le groupe de fichiers et les fichiers XTP des bases de données contenant des objets OLTP In-Memory.
-- Managed Instance prend en charge SSIS (SQL Server Integration Services) et peut héberger le catalogue SSIS (SSISDB) qui stocke les packages SSIS, mais ceux-ci sont exécutés sur une instance Azure-SSIS IR (Integration Runtime) gérée dans ADF (Azure Data Factory). Consultez [Créer Azure-SSIS IR dans ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Pour comparer les fonctionnalités SSIS dans SQL Database et Managed Instance, consultez [Comparer un serveur logique SQL Database et SQL Database Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
+- Managed Instance prend en charge SSIS (SQL Server Integration Services) et peut héberger le catalogue SSIS (SSISDB) qui stocke les packages SSIS, mais ceux-ci sont exécutés sur une instance Azure-SSIS IR (Integration Runtime) gérée dans ADF (Azure Data Factory). Consultez [Créer Azure-SSIS IR dans ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Pour comparer les fonctionnalités SSIS de SQL Database et Managed Instance, consultez [Comparer des bases de données uniques/pools élastiques Azure SQL Database et Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Fonctionnalités administratives de Managed Instance
 

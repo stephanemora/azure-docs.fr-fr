@@ -5,15 +5,15 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 18a63497cb0df2ade495dfb721aaa881aa4e6ff7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464109"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156409"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -23,7 +23,7 @@ Cet article décrit les alertes Microsoft Azure ainsi que leurs avantages, et co
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Que sont les alertes dans Microsoft Azure ?
 Les alertes vous avertissent de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes avant que les utilisateurs de votre système ne les remarquent. 
 
-Cet article décrit l’expérience d’alerte unifiée dans Azure Monitor, qui inclut maintenant Log Analytics et Application Insights. La [précédente expérience d’alerte](alerts-overview.md) et les anciens types d’alertes sont appelés **alertes classiques**. Vous pouvez afficher cette expérience antérieure et les type d’alerte plus anciens en cliquant sur **Afficher les alertes classiques** en haut de la page d’alerte. 
+Cet article décrit l’expérience d’alerte unifiée dans Azure Monitor, qui inclut maintenant Log Analytics et Application Insights. La [précédente expérience d’alerte](alerts-classic.overview.md) et les anciens types d’alertes sont appelés **alertes classiques**. Vous pouvez afficher cette expérience antérieure et les type d’alerte plus anciens en cliquant sur **Afficher les alertes classiques** en haut de la page d’alerte. 
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -62,6 +62,13 @@ Vous pouvez définir des alertes sur des métriques et des journaux, comme décr
 - Événements du journal d'activité
 - Contrôle d’intégrité de la plateforme Azure sous-jacente
 - Tests de disponibilité des sites web
+
+Par le passé, les métriques Azure Monitor, Application Insights, Log Analytics et Service Health disposaient de fonctionnalités d’alerte distinctes. Au fil du temps, Azure a amélioré et combiné l’interface utilisateur et les différentes méthodes de génération d’alertes. Cette consolidation est toujours en cours. Par conséquent, certaines fonctionnalités ne sont pas encore disponibles dans le nouveau système d’alertes.  
+
+| **Source de la surveillance** | **Type de signal**  | **Description** | 
+|-------------|----------------|-------------|
+| État d’intégrité du service | Journal d’activité  | Non pris en charge. Consultez [Créer des alertes de journal d’activité sur les notifications de service](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Tests de disponibilité web | Non pris en charge. Consultez [Alertes de test web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibles pour tout site web instrumenté pour envoyer des données à Application Insights. Réception d’une notification lorsque la réactivité ou la disponibilité d’un site web est inférieure aux attentes. |
 
 ## <a name="manage-alerts"></a>Gérer les alertes
 Vous pouvez définir l’état d’une alerte afin d’indiquer où elle se situe dans le processus de résolution. Lorsque les critères spécifiés dans la règle d’alerte sont remplis, une alerte est créée ou déclenchée, et elle a le statut *Nouveau*. Vous pouvez changer son état après l’avoir reconnue ou fermée. Les changements d’état sont stockés dans l’historique de l’alerte.
@@ -124,14 +131,7 @@ Ce processus de création simplifié ne nécessite plus que vous connaissiez la 
 
 Pour plus d’informations sur la création de règles d’alerte, voir [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour plus d’informations sur la façon d’utiliser chacun de ces services et le moment opportun pour le faire, voir [Surveillance des applications et des ressources Azure](../../azure-monitor/overview.md). Le tableau suivant fournit la liste des types de règles d’alerte disponibles dans Azure. Il répertorie aussi les éléments actuellement pris en charge dans chaque expérience d’alerte.
-
-Par le passé, Azure Monitor, Application Insights, Log Analytics et Service Health disposaient de fonctionnalités d’alerte distinctes. Au fil du temps, Azure a amélioré et combiné l’interface utilisateur et les différentes méthodes de génération d’alertes. Cette consolidation est toujours en cours. Par conséquent, certaines fonctionnalités ne sont pas encore disponibles dans le nouveau système d’alertes.  
-
-| **Source de la surveillance** | **Type de signal**  | **Description** | 
-|-------------|----------------|-------------|
-| État d’intégrité du service | Journal d’activité  | Non pris en charge. Consultez [Créer des alertes de journal d’activité sur les notifications de service](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Tests de disponibilité web | Non pris en charge. Consultez [Alertes de test web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibles pour tout site web instrumenté pour envoyer des données à Application Insights. Réception d’une notification lorsque la réactivité ou la disponibilité d’un site web est inférieure aux attentes. |
+Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour plus d’informations sur la façon d’utiliser chacun de ces services et le moment opportun pour le faire, voir [Surveillance des applications et des ressources Azure](../../azure-monitor/overview.md). 
 
 
 ## <a name="all-alerts-page"></a>Page Toutes les alertes 

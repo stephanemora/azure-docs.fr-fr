@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f5d09600829a3efa2682721bf4aedbed7e5cf969
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439066"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883770"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Surveiller l’activité d’abonnement avec le journal d’activité Azure
 
@@ -45,7 +45,7 @@ Le journal d’activité contient plusieurs catégories de données. Pour plus d
 * **Mise à l’échelle automatique** : cette catégorie contient l’enregistrement de tous les événements liés au fonctionnement du moteur de mise à l’échelle selon les paramètres d’échelle automatique définis dans votre abonnement. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « Échec de l’action de monter en puissance de la mise à l’échelle automatique. » À l’aide de la mise à l’échelle automatique, vous pouvez automatiquement augmenter ou diminuer la taille des instances dans un type de ressource pris en charge basé sur l’heure du jour et/ou les données de charge (métriques) à l’aide d’un paramètre de mise à l’échelle automatique. Lorsque les conditions sont remplies pour monter ou descendre en puissance, les événements de démarrage réussis ou échoués sont enregistrés dans cette catégorie.
 * **Recommandation** : cette catégorie contient les événements de recommandation d’Azure Advisor.
 * **Sécurité** : Cette catégorie contient l’enregistrement de toutes les alertes générées par Azure Security Center. Voici un exemple du type d’événement que vous pouvez voir dans cette catégorie : « Suspicious double extension file executed. » (Fichier à extension double suspect exécuté.).
-* **Stratégie** : cette catégorie ne contient pas d’événements ; elle est réservée à une utilisation ultérieure. 
+* **Policy** : cette catégorie contient les enregistrements de toutes les opérations d’action à effet effectuées par Azure Policy. Cette catégorie pourrait par exemple contenir les types d’événements Audit et Deny (Refus). Chaque action effectuée par Policy est modélisée en tant qu’opération sur une ressource.
 
 ## <a name="event-schema-per-category"></a>Schéma d’événements par catégorie
 [Consultez cet article pour comprendre le schéma d’événements de journal d’activité par catégorie.](../../azure-monitor/platform/activity-log-schema.md)
@@ -142,7 +142,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Propriété | Obligatoire | Description |
 | --- | --- | --- |
-| NOM |Oui |Nom de votre profil de journal. |
+| Name |Oui |Nom de votre profil de journal. |
 | StorageAccountId |Non  |ID de ressource du compte de stockage dans lequel le journal d’activité doit être enregistré. |
 | serviceBusRuleId |Non  |ID de règle Service Bus pour l’espace de noms Service Bus dans lequel vous souhaitez que des concentrateurs d’événements soient créés. Est une chaîne au format suivant : `{service bus resource ID}/authorizationrules/{key name}`. |
 | Lieu |Oui |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |

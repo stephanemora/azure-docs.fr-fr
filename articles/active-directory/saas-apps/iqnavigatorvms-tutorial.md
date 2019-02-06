@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à IQNavigator VMS | Documents Microsoft'
+title: 'Tutoriel : Intégration d’Azure Active Directory à IQNavigator VMS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et IQNavigator VMS.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: f568f33de348289334c4b4c346e9525e28cce51c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 062c83c7e1d621a80a5e81cdaf6b070eb446453c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445120"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180532"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Didacticiel : intégration d’Azure Active Directory à IQNavigator VMS
+# <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Tutoriel : Intégration d’Azure Active Directory à IQNavigator VMS
 
 Dans ce didacticiel, vous allez apprendre à intégrer IQNavigator VMS à Azure Active Directory (Azure AD).
 
@@ -125,7 +125,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’état de relais réels. Pour obtenir ces valeurs, contactez [l’équipe de support client IQNavigator VMS](https://www.beeline.com/iqn-product-support/).
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+1. Dans la section  **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération de l’application** , puis collez-la dans le Bloc-notes.
     
     ![Configurer l'authentification unique](./media/iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 

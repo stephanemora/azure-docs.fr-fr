@@ -6,16 +6,16 @@ author: sachinpMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 131a2102ec3ede930de3cad7516e486d793fec3d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686600"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250554"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de la capacité de SQL Data Warehouse
 Valeurs maximales autorisées pour les différents composants d’Azure SQL Data Warehouse.
@@ -33,7 +33,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure SQL Data
 ## <a name="database-objects"></a>Objets de base de données
 | Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
-| Base de données |Taille maximale | Gen1 : 240 To compressés sur disque. Cet espace est indépendant de tempdb ou de l’espace de journalisation. Par conséquent, cet espace est dédié aux tables permanentes.  La compression du cluster columnstore est estimée à 5 X.  Cette compression permet à la base de données d’atteindre un volume d’environ 1 Po lorsque toutes les tables sont en cluster columnstore (le type de table par défaut). <br/><br/> Gen2 : 240 To pour rowstore et stockage illimité pour les tables columnstore |
+| Base de données |Taille maximale | Gen1 : 240 To compressés sur disque. Cet espace est indépendant de tempdb ou de l’espace de journalisation. Par conséquent, cet espace est dédié aux tables permanentes.  La compression du cluster columnstore est estimée à 5 X.  Cette compression permet à la base de données d’atteindre un volume d’environ 1 Po lorsque toutes les tables sont en cluster columnstore (le type de table par défaut). <br/><br/> Gen2 : 240 To pour rowstore et stockage illimité pour les tables columnstore |
 | Table |Taille maximale |60 To compressés sur disque |
 | Table |Tables par base de données | 100 000 |
 | Table |Colonnes par table |1 024 colonnes |
@@ -69,7 +69,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure SQL Data
 | SELECT |Colonnes par JOIN |1 024 colonnes<br/><br/>L’instruction JOIN ne peut pas contenir plus de 1 024 colonnes. Le nombre de 1024 colonnes n’est pas toujours garanti. Si le plan JOIN exige une table temporaire avec davantage de colonnes que le résultat JOIN, la limite de 1 024 s’applique à la table temporaire. |
 | SELECT |Octets par colonnes GROUP BY. |8 060<br/><br/>Les colonnes incluses dans la clause GROUP BY peuvent comporter un maximum de 8 060 octets. |
 | SELECT |Octets par colonnes ORDER BY |8060 octets<br/><br/>Les colonnes incluses dans la clause ORDER BY peuvent comporter un maximum de 8060 octets. |
-| Identificateurs par instruction |Nombre d’identificateurs référencés |65 535<br/><br/>SQL Data Warehouse limite le nombre d’identificateurs pouvant être contenus dans une seule expression d’une requête. Le dépassement de ce nombre génère l’erreur SQL Server 8632. Pour plus d’informations, consultez [Erreur interne : une limite des services d’expression a été atteint](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
+| Identificateurs par instruction |Nombre d’identificateurs référencés |65 535<br/><br/>SQL Data Warehouse limite le nombre d’identificateurs pouvant être contenus dans une seule expression d’une requête. Le dépassement de ce nombre génère l’erreur SQL Server 8632. Pour plus d’informations, consultez la rubrique [Internal error: An expression services limit has been reached (Erreur interne : une limite des services d’expression est dépassée)](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Littéraux de chaîne | Nombre de littéraux de chaîne dans une instruction | 20 000 <br/><br/>SQL Data Warehouse limite le nombre de constantes de chaînes dans une seule expression d’une requête. Le dépassement de ce nombre génère l’erreur SQL Server 8632.|
 
 ## <a name="metadata"></a>Métadonnées

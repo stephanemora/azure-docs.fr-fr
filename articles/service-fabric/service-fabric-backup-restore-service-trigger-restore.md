@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ad89acb63057ff260332384372bcb7719cc8e4f3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 1482497f3767e7533d1d56e6eb63e55cdb5c9ebb
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064829"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104641"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauration de la sauvegarde dans Azure Service Fabric
 
@@ -229,7 +229,7 @@ La demande de restauration progresse dans l’ordre suivant :
     ```
     
 3. **Success** (Réussite), **Failure** (Échec) ou **Timeout** (Expiration du délai) : une restauration demandée peut être effectuée avec l’un des états suivants. Chaque état présente les détails d’importance et de réponse suivants :
-    - **Réussite** : l’état de restauration _Success_ indique un état de partition retrouvée. La partition indique les états _RestoreEpoch_ et _RestordLSN_ ainsi que l’heure UTC.
+    - **Réussite** : l’état de restauration _Success_ indique un état de partition retrouvée. La partition indique les états _RestoredEpoch_ et _RestoredLSN_ ainsi que l’heure UTC.
 
         ```
         RestoreState  : Success

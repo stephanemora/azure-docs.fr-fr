@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812537"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079254"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Forum aux questions
 
@@ -33,7 +33,7 @@ Azure Migrate est un service qui vous permet de découvrir vos charges de travai
 
 ### <a name="whats-the-difference-between-using-azure-migrate-for-assessments-and-the-map-toolkit"></a>Quelle est la différence entre l’utilisation d’Azure Migrate et de Map Toolkit pour les évaluations ?
 
-[Azure Migrate](migrate-overview.md) offre une évaluation spécifique de la migration pour vous aider à la préparer et à évaluer les charges de travail locales dans Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) a d’autres fonctionnalités. Par exemple, la planification de la migration pour les versions plus récentes de systèmes d’exploitation Windows clients et serveurs, le suivi de l’utilisation des logiciels, etc. Pour ces scénarios, continuez à utiliser MAP Toolkit.
+[Azure Migrate](migrate-overview.md) offre une évaluation spécifique de la migration pour vous aider à la préparer et à évaluer les charges de travail locales dans Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) a d’autres fonctionnalités, telles que la planification de la migration pour les versions plus récentes de systèmes d’exploitation Windows clients et serveurs ainsi que le suivi de l’utilisation des logiciels. Pour ces scénarios, continuez à utiliser MAP Toolkit.
 
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>En quoi Azure Migrate diffère-t-il du planificateur de déploiement Azure Site Recovery ?
@@ -198,7 +198,7 @@ Non. La visualisation des dépendances ne peut pas être exportée. Toutefois, �
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Comment puis-je automatiser l’installation de Microsoft Monitoring Agent (MMA) et de l’agent de dépendances ?
 
-[Voici](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) un script que vous pouvez utiliser pour l’installation de l’agent de dépendances. Pour MMA, [voici](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) un script disponible sur TechNet que vous pouvez utiliser.
+[Voici](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) un script que vous pouvez utiliser pour l’installation de l’agent de dépendances. [Voici](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) des instructions sur la façon d’installer MMA à l’aide de la ligne de commande ou de méthodes automatisées. Pour MMA, vous pouvez également exploiter un script disponible [ici](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) sur Technet.
 
 En plus des scripts, vous pouvez également tirer parti des outils de déploiement tels que System Center Configuration Manager (SCCM), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), etc. pour déployer les agents.
 
@@ -213,10 +213,10 @@ La liste des systèmes d’exploitation Windows pris en charge par l’agent de 
 La liste des systèmes d’exploitation Linux pris en charge par l’agent de dépendances est disponible [ici](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Puis-je visualiser des dépendances dans Azure Migrate pour une durée supérieure à une heure ?
-Non. Azure Migrate vous permet de visualiser des dépendances avec une durée d’une heure maximum. Azure Migrate vous permet de revenir en arrière dans l’historique jusqu’à une date spécifique sur une période d’un mois, mais la durée maximale pour laquelle vous pouvez visualiser des dépendances est 1 heure. Par exemple, vous pouvez utiliser la fonctionnalité de durée dans la carte des dépendances pour voir les dépendances d’hier, mais uniquement pour une fenêtre d’une heure.
+Non. Azure Migrate vous permet de visualiser des dépendances avec une durée d’une heure maximum. Azure Migrate vous permet de revenir en arrière dans l’historique jusqu’à une date spécifique sur une période d’un mois, mais la durée maximale pour laquelle vous pouvez visualiser des dépendances est 1 heure. Par exemple, vous pouvez utiliser la fonctionnalité de durée dans la carte des dépendances pour voir les dépendances d’hier, mais uniquement pour une fenêtre d’une heure. Toutefois, vous pouvez utiliser Log Analytics pour [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) sur une plus longue durée.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>La visualisation des dépendances est-elle prise en charge pour les groupes avec plus de 10 machines virtuelles ?
-Vous pouvez [visualiser les dépendances de groupes](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) ayant 10 machines virtuelles maximum. Si vous avez ce type de groupe, nous vous recommandons de diviser le groupe en groupes plus petits pour visualiser les dépendances.
+Vous pouvez [visualiser les dépendances de groupes](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) ayant 10 machines virtuelles au maximum. Si vous avez un groupe avec plus de 10 machines virtuelles, nous vous recommandons de diviser le groupe en groupes plus petits pour visualiser les dépendances.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

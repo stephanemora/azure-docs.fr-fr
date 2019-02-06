@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e2cb1a76bfde5bea7707cf3cc6658e3fc82163c5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043088"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457664"
 ---
-# <a name="optimize-the-cost-required-to-run-queries-in-azure-cosmos-db"></a>Optimiser le coût nécessaire à l’exécution des requêtes dans Azure Cosmos DB
+# <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimiser le coût de requête dans Azure Cosmos DB
 
 Azure Cosmos DB propose un ensemble complet d’opérations de base de données, notamment des requêtes relationnelles et hiérarchiques qui opèrent sur les éléments au sein d’un conteneur. Le coût associé à chacune de ces opérations varie en fonction du processeur, des E/S et de la mémoire nécessaires à l’exécution de l’opération. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une unité de requête comme une mesure unique des ressources nécessaires à l’exécution des opérations de base de données pour répondre à une requête. Cet article décrit comment évaluer les frais liés aux unités d’une requête, et optimiser cette dernière en termes de performances et de coût. 
 

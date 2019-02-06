@@ -9,22 +9,27 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d98ff2c5b9d18c36e7d16ec19d3e136be03b8d4c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9446bbd4783aaf20f1bc9079ec43f7050274bf11
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848000"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095614"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
-Si tout un centre de données ou une région Azure complète (si aucune [zone de disponibilité](../availability-zones/az-overview.md) n’est utilisée) connaît un temps d’arrêt, il est essentiel que le traitement des données puisse continuer dans les autres régions ou centres de données. Pour cette raison, la *géorécupération d’urgence* et la *géoréplication* sont des fonctionnalités importantes pour les entreprises. Azure Service Bus prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. 
+Si tout un centre de données ou une région Azure complète (si aucune [zone de disponibilité](../availability-zones/az-overview.md) n’est utilisée) connaît un temps d’arrêt, il est essentiel que le traitement des données puisse continuer dans les autres régions ou centres de données. Pour cette raison, la *géo-reprise d’activité après sinistre* est une fonctionnalité importante pour toutes les entreprises. Azure Service Bus prend en charge la géo-reprise d’activité après sinistre au niveau de l’espace de noms.
 
 La fonctionnalité de géorécupération d’urgence est disponible de manière globale pour la référence SKU Premium de Service Bus. 
 
+>[!NOTE]
+> La géo-reprise d’activité après sinistre garantit uniquement la copie des métadonnées (files d’attente, rubriques, abonnements, filtres) entre l’espace de noms principal et l’espace de noms secondaire, lorsque ceux-ci sont associés.
+
 ## <a name="outages-and-disasters"></a>Pannes et sinistres
 
-Il est important de noter la différence entre « panne » et « sinistre ». Une *panne* se définit comme l’indisponibilité temporaire d’Azure Service Bus. La panne impacte certains composants du service, comme une banque de messages, ou le centre de données entier. Toutefois, une fois le problème résolu, Service Bus redevient disponible. En règle générale, une panne ne provoque aucune perte de messages ou d’autres données. Une coupure de courant dans le centre de données est un exemple de panne. Certaines pannes sont uniquement dues à une courte perte de la connexion en raison de problèmes réseau ou de soucis temporaires. 
+Il est important de noter la différence entre « panne » et « sinistre ». 
+
+Une *panne* se définit comme l’indisponibilité temporaire d’Azure Service Bus. La panne impacte certains composants du service, comme une banque de messages, ou le centre de données entier. Toutefois, une fois le problème résolu, Service Bus redevient disponible. En règle générale, une panne ne provoque aucune perte de messages ou d’autres données. Une coupure de courant dans le centre de données est un exemple de panne. Certaines pannes sont uniquement dues à une courte perte de la connexion en raison de problèmes réseau ou de soucis temporaires. 
 
 Un *sinistre* se définit comme une perte définitive ou à long terme d’un cluster Service Bus, d’une région Azure ou d’un centre de données. La région ou le centre de données peut redevenir disponible ou pas, et rester arrêté(e) pendant plusieurs heures ou jours. Les incendies, les inondations ou les tremblements de terre sont des exemples de sinistres. Un sinistre qui devient permanent peut entraîner la perte de certains messages, événements ou d’autres données. Toutefois, dans la plupart des cas, il ne doit y avoir aucune perte de données et les messages peuvent être récupérés une fois que le centre de données est sauvegardé.
 
@@ -36,33 +41,47 @@ La fonctionnalité de récupération d’urgence implémente la récupération d
 
 Cet article emploie les termes suivants :
 
--  *Alias* : nom d’une configuration de récupération d’urgence que vous avez configurée. L’alias fournit une chaîne de connexion de nom de domaine complet (FQDN) stable. Les applications utilisent cet alias de chaîne de connexion pour se connecter à un espace de noms. 
+-  *Alias* : nom d’une configuration de récupération d’urgence que vous avez configurée. L’alias fournit une chaîne de connexion de nom de domaine complet (FQDN) stable. Les applications utilisent cet alias de chaîne de connexion pour se connecter à un espace de noms. L’utilisation d’un alias garantit que la chaîne de connexion restera inchangée après le déclenchement du basculement.
 
 -  *Espace de noms principal/secondaire* : espaces de noms qui correspondent à l’alias. L’espace de noms principal est « actif » et reçoit les messages (il peut s’agir d’un espace de noms existant ou nouveau). L’espace de noms secondaire est « passif » et ne reçoit pas de messages. Les métadonnées sont synchronisées entre ces deux espaces de noms, qui peuvent ainsi accepter facilement les messages sans aucune modification du code d’application ou de la chaîne de connexion. Pour vous assurer que seul l’espace de noms actif reçoit des messages, vous devez utiliser l’alias. 
 
--  *Métadonnées* : entités telles que les files d'attentes, les rubriques et les abonnements ; incluent également leurs propriétés sur le service associé à l'espace de noms. Notez que seules les entités et leurs paramètres sont automatiquement répliqués. Les messages ne sont pas répliqués. 
+-  *Métadonnées* : entités telles que les files d'attentes, les rubriques et les abonnements ; incluent également leurs propriétés sur le service associé à l'espace de noms. Notez que seules les entités et leurs paramètres sont automatiquement répliqués. Les messages ne sont pas répliqués.
 
 -  *Basculement* : processus d’activation de l’espace de noms secondaire.
 
-## <a name="setup-and-failover-flow"></a>Flux de configuration et de basculement
+## <a name="setup"></a>Paramétrage
 
-La section suivante présente une vue d’ensemble du processus de basculement et explique comment configurer le basculement initial. 
+La section suivante est une présentation de l’association de deux espaces de noms.
 
 ![1][]
 
-### <a name="setup"></a>Paramétrage
+Le processus est le suivant :
 
-Tout d’abord, vous créez ou utilisez un espace de noms principal existant et un espace de noms secondaire, avant d’associer les deux. Cette association crée un alias qui vous servira à vous connecter. Étant donné que vous utilisez un alias, vous n’avez pas besoin de modifier les chaînes de connexion existantes. Vous pouvez uniquement ajouter de nouveaux espaces de noms à votre association de basculement. Enfin, vous devez ajouter un système de surveillance afin de détecter si un basculement est nécessaire. Dans la plupart des cas, le service fait partie d’un écosystème de grande taille. C’est pourquoi les basculements automatiques sont rarement possibles, dans la mesure où, très souvent, les basculements doivent être synchronisés avec le reste de l’infrastructure ou du sous-système.
+1. Provisionnez un espace de noms ***Principal*** pour Service Bus Premium.
 
-### <a name="example"></a>Exemple
+2. Provisionnez un espace de noms ***Secondaire*** pour Service Bus Premium dans une région *différente de celle où est provisionné l’espace de noms principal*. Vous obtiendrez ainsi un isolement des pannes dans toutes les régions du centre de données.
 
-Dans un exemple de ce scénario, imaginez une solution de Point de vente (PDV) qui émet des messages ou des événements. Service Bus transmet ces événements à une solution de mappage ou de reformatage, qui envoie ensuite les données mappées à un autre système pour traitement. À ce stade, tous ces systèmes peuvent être hébergés dans la même région Azure. Le choix du moment du basculement et des éléments à basculer varie selon le flux de données dans votre infrastructure. 
+3. Créez une association entre l’espace de noms principal et l’espace de noms secondaire pour obtenir l’***alias***.
 
-Vous pouvez automatiser le basculement à l’aide de systèmes de surveillance ou à l’aide de solutions de surveillance personnalisées. Toutefois, cette automatisation nécessite des tâches de planification et du travail supplémentaires, qui ne seront pas abordés dans cet article.
+4. Utilisez l’***alias*** obtenu à l’étape 3 pour connecter vos applications clientes à l’espace de noms principal où est activée la géo-reprise d’activité après sinistre. Initialement, l’alias pointe vers l’espace de noms principal.
 
-### <a name="failover-flow"></a>Flux de basculement
+5. [Facultatif] Ajoutez un système de supervision pour détecter si un basculement est nécessaire.
 
-Si vous lancez le basculement, deux étapes sont requises :
+## <a name="failover-flow"></a>Flux de basculement
+
+Le basculement est déclenché manuellement par le client (soit explicitement à l’aide d’une commande, soit via une logique métier appartenant au client qui déclenche cette commande) et jamais par Azure. Ainsi, le client dispose d’une pleine propriété et d’une visibilité complète pour la résolution des pannes sur le segment principal d’Azure.
+
+![4][]
+
+Après le déclenchement du basculement :
+
+1. La chaîne de connexion ***alias*** est mise à jour pour pointer vers l’espace de noms secondaire Premium.
+
+2. Les clients (expéditeurs et destinataires) se connectent automatiquement à l’espace de noms secondaire.
+
+3. L’association existante entre les espaces de noms Premium principal et secondaire est rompue.
+
+Après le lancement du basculement :
 
 1. Vous voulez être sûr de pouvoir refaire un basculement en cas de nouvelle panne. Pour cela, configurez un autre espace de noms passif et mettez à jour l’association. 
 
@@ -70,6 +89,8 @@ Si vous lancez le basculement, deux étapes sont requises :
 
 > [!NOTE]
 > Seule la sémantique de transfert du basculement est prise en charge. Dans ce scénario, vous basculez puis effectuez un nouveau couplage avec un nouvel espace de noms. La restauration automatique n’est pas prise en charge ; par exemple, dans un cluster SQL. 
+
+Vous pouvez automatiser le basculement à l’aide de systèmes de surveillance ou à l’aide de solutions de surveillance personnalisées. Toutefois, cette automatisation nécessite des tâches de planification et du travail supplémentaires, qui ne seront pas abordés dans cet article.
 
 ![2][]
 
@@ -95,20 +116,20 @@ Les [exemples sur GitHub](https://github.com/Azure/azure-service-bus/tree/master
 
 Notez les points suivants pour cette version :
 
-1. Dans votre planification de basculement, vous devez également tenir compte du facteur temps. Par exemple, si vous perdez la connectivité pendant plus de 15 à 20 minutes, vous pouvez décider de lancer le basculement. 
- 
+1. Dans votre planification de basculement, vous devez également tenir compte du facteur temps. Par exemple, si vous perdez la connectivité pendant plus de 15 à 20 minutes, vous pouvez décider de lancer le basculement.
+
 2. Le fait qu’aucune donnée ne soit répliquée signifie que les sessions actuellement actives ne sont pas répliquées. En outre, la détection des doublons et les messages planifiés peuvent ne pas fonctionner. Les nouvelles sessions, les nouveaux messages planifiés et les nouveaux doublons fonctionneront. 
 
-3. Le basculement d’une infrastructure distribuée complexe doit être [répétée](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) au moins une fois. 
+3. Le basculement d’une infrastructure distribuée complexe doit être [répétée](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) au moins une fois.
 
-4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute. Les abonnements et les règles comptent également comme des entités. 
+4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute. Les abonnements et les règles comptent également comme des entités.
 
-## <a name="availability-zones-preview"></a>Zones de disponibilité (préversion)
+## <a name="availability-zones"></a>Zones de disponibilité
 
-La référence SKU de Service Bus Premium prend également en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant des emplacements isolés des défaillances au sein d’une région Azure. 
+La référence SKU de Service Bus Premium prend également en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant des emplacements isolés des défaillances au sein d’une région Azure.
 
 > [!NOTE]
-> La préversion des Zones de disponibilité est prise en charge uniquement dans les régions **USA Centre**, **USA Est 2** et **France Centre**.
+> Dans Azure Service Bus Premium, la prise en charge des zones de disponibilité est fournie uniquement pour les [régions Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones) qui comprennent déjà des zones de disponibilité.
 
 Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms uniquement, à l’aide du portail Azure. Service Bus ne prend pas en charge la migration des espaces de noms existants. Vous ne pouvez pas désactiver la redondance de zone après l’avoir activée sur votre espace de noms.
 
@@ -127,6 +148,7 @@ Pour en savoir plus sur la messagerie Service Bus, consultez les articles suivan
 * [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 * [API REST](/rest/api/servicebus/) 
 
-[1]: ./media/service-bus-geo-dr/geo1.png
+[1]: ./media/service-bus-geo-dr/geodr_setup_pairing.png
 [2]: ./media/service-bus-geo-dr/geo2.png
 [3]: ./media/service-bus-geo-dr/az.png
+[4]: ./media/service-bus-geo-dr/geodr_failover_alias_update.png

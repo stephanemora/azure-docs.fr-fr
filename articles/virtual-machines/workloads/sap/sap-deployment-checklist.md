@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2019
+ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78599a350aff4d0aba5603e8ad7959c945f1aca
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 67083a8214724659765922047c1f0ccd6da87b9d
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439151"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884926"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure 
 
@@ -47,7 +47,7 @@ Au cours de cette phase, une migration de la charge de travail SAP vers le cloud
     3.  L'architecture de continuité d'activité et de reprise d'activité.
     4.  Les versions détaillées des packs de support SE, DB, Kernel et SAP. Une version de système d’exploitation prise en charge par SAP NetWeaver ou S/4HANA ne l’est pas nécessairement sur les machines virtuelles Azure. Il en va de même pour les versions des SGBD. Les sources suivantes doivent impérativement être vérifiées pour aligner et, si nécessaire, mettre à niveau les versions des SAP, SGBD ou SE afin de figurer dans une fenêtre prise en charge par SAP et Azure. Vous devez obligatoirement disposer de combinaisons de versions prises en charge par SAP et Azure pour bénéficier d'une prise en charge complète par SAP et Microsoft. Si nécessaire, planifiez la mise à niveau de certains composants logiciels. Vous trouverez plus de détails sur les logiciels SAP, SE et SGBD pris en charge aux emplacements suivants :
         1.  Note de support SAP [n° 1928533](https://launchpad.support.sap.com/#/notes/1928533). Cette note définit les versions minimum des SE prises en charge dans les machines virtuelles Azure. Elle définit également les versions minimum requises pour la plupart des bases de données non-HANA. La note présente également le dimensionnement SAP des différents types de machines virtuelles Azure pris en charge par SAP.
-        2.  Note de support SAP [n° 2039619](https://launchpad.support.sap.com/#/notes/2039619). Cette note définit la matrice de prise en charge Oracle sur Azure. Sachez que Windows et Oracle Linux sont les seuls systèmes d'exploitation pris en charge par Oracle en tant que SE invités dans la charge de travail Azure pour SAP. Cette instruction s'applique également à la couche Application SAP qui exécute les instances SAP. Toutefois, Oracle ne prend pas en charge la haute disponibilité pour les services SAP Central Services dans Oracle Linux. Pour Windows, la solution de cluster de basculement Windows prise en charge par SAP pour SAP Central Services est prise en charge conjointement avec Oracle comme couche SGBD. 
+        2.  Note de support SAP [n° 2039619](https://launchpad.support.sap.com/#/notes/2039619). Cette note définit la matrice de prise en charge Oracle sur Azure. Sachez que Windows et Oracle Linux sont les seuls systèmes d'exploitation pris en charge par Oracle en tant que SE invités dans la charge de travail Azure pour SAP. Cette instruction s'applique également à la couche Application SAP qui exécute les instances SAP. Toutefois, Oracle ne prend pas en charge la haute disponibilité pour les services SAP Central Services dans Oracle Linux par le biais de Pacemaker. Si vous avez besoin de la haute disponibilité pour ASCS sur Oracle Linux, vous devez exploiter SIOS Protection Suite pour Linux. Pour obtenir des données de certification SAP détaillées, consultez la note de prise en charge SAP [1662610 - Détails de prise en charge pour SIOS Protection Suite pour Linux](https://launchpad.support.sap.com/#/notes/1662610). Pour Windows, la solution de cluster de basculement Windows prise en charge par SAP pour SAP Central Services est prise en charge conjointement avec Oracle comme couche SGBD. 
         3.  Note de support SAP [n° 2235581](https://launchpad.support.sap.com/#/notes/2235581) pour obtenir la matrice de prise en charge de SAP HANA sur les différentes versions de SE.
         4.  Les machines virtuelles Azure prises en charge par SAP HANA et les [Grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sont répertoriées [ici](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
         5.  [Tableau de disponibilité des produits SAP](https://support.sap.com/en/)
@@ -196,7 +196,7 @@ Dans cette phase, vous pouvez collecter l’ensemble des expériences et enseign
     2.  Utilisez la sauvegarde/restauration pour les bases de données de plus petite taille.
     3.  Utilisez le Moniteur de migration SAP implémenté dans l'outil SAP SWPM pour effectuer des migrations hétérogènes.
     4.  Utilisez le processus [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) si vous avez besoin de combiner le processus avec une mise à niveau de version SAP. N'oubliez pas que certaines combinaisons entre les SGBD source et cible ne sont pas prises en charge. Pour plus d'informations, reportez-vous aux notes de support SAP spécifiques aux différentes versions de DMO. Par exemple, [Outil Database Migration Option (DMO) de SUM 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872).
-    5.  Testez le transfert de données via Internet ou ExpressRoute pour déterminer si le débit est meilleur au cas où vous auriez besoin de déplacer des sauvegardes ou des fichiers d'exportation SAP. Dans le cas du transfert de données via Internet, vous devrez peut-être modifier certaines des règles de sécurité NSG/ASG à mettre en place pour les futurs systèmes de production.
+    5.  Testez le transfert de données via Internet ou ExpressRoute pour déterminer si le débit est meilleur au cas où vous auriez besoin de déplacer des sauvegardes ou des fichiers d'exportation SAP. Dans le cas du transfert de données via Internet, vous devrez peut-être changer certaines des règles de sécurité NSG/ASG à mettre en place pour les futurs systèmes de production.
 3.  Avant de déplacer les systèmes de l'ancienne plateforme vers Azure, recueillez des données sur la consommation des ressources, comme l'utilisation de l'UC, le débit de stockage et les données IOPS. En particulier à partir des unités de la couche SGBD, mais aussi à partir des unités de la couche Application. Mesurez également la latence du réseau et du stockage.
 4.  Validez à nouveau les ressources sur les notes de support SAP, le répertoire matériel SAP HANA et SAP PAM pour vous assurer qu'aucun changement n'est intervenu au niveau des machines virtuelles prises en charge pour Azure, des versions de SE prises en charge sur ces machines virtuelles et des versions de SAP et SGBD. 
 4.  Adaptez les scripts de déploiement en fonction des dernières modifications que vous avez décidé d'apporter aux types de machines virtuelles et aux fonctionnalités Azure.
@@ -224,7 +224,7 @@ Dans cette phase, vous pouvez collecter l’ensemble des expériences et enseign
     
 
 ## <a name="go-live-phase"></a>Phase de mise en service
-Lors de la phase de mise en service, vous devez suivre les playbooks que vous avez développés au cours des phases précédentes. Exécutez les étapes que vous avez testées. N'acceptez pas les changements de dernière minute pour les configurations et processus. En outre, appliquez ce qui suit :
+Lors de la phase de mise en service, vous devez suivre les playbooks que vous avez développés au cours des phases précédentes. Exécutez les étapes que vous avez testées. N'acceptez pas les changements de dernière minute pour les configurations et processus. Par ailleurs, appliquez les mesures suivantes :
 
 1. Vérifiez que la supervision du portail Azure et les autres outils de supervision fonctionnent.  Les outils recommandés sont Perfmon (Windows) ou SAR (Linux) : 
     1.  Compteurs UC 

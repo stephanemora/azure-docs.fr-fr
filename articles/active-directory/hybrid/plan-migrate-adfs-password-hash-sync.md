@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/13/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c6c13d0e27edd5563f10df59ce7af585a345bfab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a24281f2b01b53ddb165d15bca4d8d43c26c5c05
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463335"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159844"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory
 
@@ -30,7 +30,8 @@ Les prérequis suivants sont nécessaires pour migrer de l’utilisation d’AD 
 
 ### <a name="update-azure-ad-connect"></a>Mettre à jour Azure AD Connect
 
-Pour pouvoir effectuer les étapes nécessaires pour migrer vers l’utilisation de la synchronisation de hachage de mot de passe, vous devez disposer d’[Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 ou ultérieur. Dans Azure AD Connect 1.1.819.0, la façon dont conversion de la connexion est effectuée change considérablement. Le temps total nécessaire pour depuis AD FS vers l’authentification cloud dans cette version est réduit d’une durée potentielle de plusieurs heures à quelques minutes.
+Pour réaliser correctement les étapes de migration vers la synchronisation de hachage du mot de passe, vous devez disposer au minimum d’[Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) version 1.1.819.0. Cette version contient des modifications significatives au niveau de la conversion de la connexion et réduit le temps global du passage de l’authentification fédérée à l’authentification cloud de quelques heures à quelques minutes.
+
 
 > [!IMPORTANT]
 > Vous pouvez lire dans des documentations, des outils et des blogs obsolètes que la conversion de l’utilisateur est nécessaire quand vous convertissez des domaines de l’identité fédérée à l’identité managée. La *conversion des utilisateurs* n’est plus nécessaire. Microsoft s’emploie à mettre à jour la documentation et les outils afin de refléter ce changement.

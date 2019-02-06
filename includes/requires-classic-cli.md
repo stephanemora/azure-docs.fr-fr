@@ -7,15 +7,16 @@ manager: carmonm
 ms.date: 06/12/2018
 ms.topic: include
 ms.custom: include file
-ms.openlocfilehash: 3839ee598afd2028f5bef11ed7e59a1f330b5009
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f44bb5353a522e187adf8da0d1a573e3a4489aa
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47017563"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913697"
 ---
 > [!IMPORTANT]
-> Cet article comporte un contenu qui nécessite Azure Classic CLI. La version actuelle de l’interface CLI Azure ne prend pas en charge les fonctionnalités présentées dans cet article. L’interface CLI classique est donc nécessaire. 
+> Cet article comporte un contenu qui nécessite l’interface de ligne de commande Azure classique. La version actuelle d’Azure CLI ne prend pas en charge les fonctionnalités présentées dans cet article. L’interface de ligne de commande Azure classique est donc nécessaire. 
 > 
-> Vous pouvez installer l’interface CLI classique Azure côte à côte avec l’interface Azure CLI de nouvelle génération. Toutefois, nous vous recommandons d’utiliser l’interface Azure CLI pour tous les nouveaux scripts et déploiements, partout où cette fonctionnalité est prise en charge. Pour installer l’interface CLI classique Azure, consultez [Installer l’interface CLI classique Azure](/cli/azure/install-classic-cli), et pour installer l’interface CLI actuelle, consultez [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
+> Vous pouvez installer l’interface de ligne de commande Azure classique et l’interface de ligne de commande Azure moderne côte à côte. Toutefois, nous vous recommandons d’utiliser Azure CLI pour tous les nouveaux scripts et déploiements, partout où cette fonctionnalité est prise en charge. Pour installer l’interface de ligne de commande classique, consultez [Installer l’interface de ligne de commande Azure classique](https://docs.microsoft.com/cli/azure/install-classic-cli?view=azure-cli-latest). 
+> Pour installer l’interface de ligne de commande actuelle, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 

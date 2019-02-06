@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 00124562d3bc21f9139ae54f022d7893a4eaf11c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6d9370ce6a031377e37c4e830400337f3e57a62e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53638859"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55084828"
 ---
 | Ressource | Cible | Limite inconditionnelle |
 |----------|--------------|------------|
-| Services de synchronisation de stockage par abonnement | 15 services de synchronisation de stockage par région | Non  |
+| Services de synchronisation de stockage par région | 15 services de synchronisation de stockage | Oui |
 | Groupes de synchronisation par service de synchronisation de stockage | 100 groupes de synchronisation | Oui |
 | Serveurs inscrits par le service de synchronisation de stockage | 99 serveurs | Oui |
 | Points de terminaison cloud par groupe de synchronisation | 1 point de terminaison cloud | Oui |

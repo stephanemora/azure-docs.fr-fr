@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315772"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103070"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
@@ -48,7 +48,7 @@ Ce plan est destiné à servir de base modulaire. Il pourra être adapté par le
 
 -   **Diagramme architectural.** Le diagramme illustre l’architecture de référence utilisée pour le plan et l’exemple de scénario de cas d’usage.
 
--   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Cette solution IaaS montrera comment migrer une solution SQL locale vers Azure et implémenter une station de travail à accès privilégié pour gérer les services et solutions cloud en toute sécurité. 
+-   [Extension IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Cette solution montrera comment migrer une solution SQL locale vers Azure et implémenter une station de travail à accès privilégié pour gérer les services et solutions cloud de manière sécurisée. 
 
 ## <a name="solution-components"></a>Composants de la solution
 

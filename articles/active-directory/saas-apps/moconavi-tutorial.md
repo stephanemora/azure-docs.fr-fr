@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e1916224-e1c2-426f-b233-0a2518fa41db
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 3467b823e6c91d34ebd48c7f8bc29558a79c59e5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3009cb42ac477b18d45ab5968d6f5793ce1cd36c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229544"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutoriel : Intégration d’Azure Active Directory à moconavi
 
@@ -162,7 +162,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="create-a-moconavi-test-user"></a>Créer un utilisateur de test moconavi
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans moconavi. Rapprochez-vous de [l’équipe de support de moconavi](mailto:support@recomot.co.jp) pour ajouter les utilisateurs sur la plateforme moconavi. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans moconavi. Collaborez avec l’ [équipe du support technique de moconavi](mailto:support@recomot.co.jp)  pour ajouter les utilisateurs à la plateforme moconavi. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

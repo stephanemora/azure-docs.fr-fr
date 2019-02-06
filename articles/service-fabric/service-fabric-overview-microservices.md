@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 48df598ab12c509952b7712bb8cc9fe21355325f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 39034d069c0c0feb2ac81437e34c7206d7fe6c4c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613679"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102814"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Pourquoi une approche de microservices pour la conception d’applications ?
 
@@ -33,11 +33,11 @@ Les nouveaux besoins de l’entreprise sont les suivants :
 
 Ces besoins de l’entreprise affectent *la manière* dont nous créons des applications.
 
-Pour plus d’informations sur l’approche d’Azure à l’égard des microservices, consultez [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices : une approche révolutionnaire des applications reposant sur le cloud).
+Pour plus d’informations sur l’approche d’Azure à l’égard des microservices, consultez [Microservices: An application revolution powered by the cloud (Microservices : une approche révolutionnaire des applications reposant sur le cloud)](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>Approches de conception monolithique et de microservices
 
-Les applications évoluent au fil du temps. Les applications réussies évoluent en étant utiles aux utilisateurs. Les applications ratées n’évoluent pas et sont, en fin de compte, déconseillées. La question est : Que savez-vous de vos besoins aujourd’hui et que seront-ils à l’avenir ? Par exemple, supposons que vous créez une application de création de rapports pour un service. Vous êtes certain que l’application s’applique uniquement dans l’étendue de votre entreprise et que les rapports ont une durée de vie limitée. L’approche que vous choisirez est différente de celle adoptée pour la création d’un service de distribution de contenu vidéo à des dizaines de millions de clients par exemple.
+Les applications évoluent au fil du temps. Les applications réussies évoluent en étant utiles aux utilisateurs. Les applications ratées n’évoluent pas et sont, en fin de compte, déconseillées. La question est la suivante : Que savez-vous de vos besoins aujourd’hui et que seront-ils à l’avenir ? Par exemple, supposons que vous créez une application de création de rapports pour un service. Vous êtes certain que l’application s’applique uniquement dans l’étendue de votre entreprise et que les rapports ont une durée de vie limitée. L’approche que vous choisirez est différente de celle adoptée pour la création d’un service de distribution de contenu vidéo à des dizaines de millions de clients par exemple.
 
 Parfois, la sortie d’un élément en tant que preuve de concept constitue un facteur déterminant lorsque l’on sait que l’application peut être repensée ultérieurement. Il n’est pas très pertinent de lancer une ingénierie complexe pour quelque chose qui ne sera jamais utilisé. C’est un compromis habituel en ingénierie. Par ailleurs, lorsque des entreprises parlent de mettre en place le cloud, leurs attentes concernent la croissance et l’utilisation. Le problème, c’est que la croissance et l’évolutivité sont imprévisibles. Nous souhaitons pouvoir créer des prototypes rapidement, mais, dans le même temps, savoir que nous sommes sur la voie du succès. C’est l’approche d’une lean startup : créer, mesurer, apprendre et itérer.
 
@@ -149,7 +149,7 @@ Service Fabric vous aide à créer des applications avec une approche de microse
 
 * Une plateforme qui fournit des services système pour déployer, mettre à niveau, détecter les services en panne, router les messages, ainsi que pour gérer l’état et surveiller l’intégrité.
 * Possibilité de déployer des applications exécutées dans des conteneurs ou en tant que processus. Service Fabric est un conteneur et orchestrateur de processus.
-* Des API de programmation productives pour vous aider à concevoir des applications sous la forme de microservices : [ASP.NET Core, des acteurs et des services fiables](service-fabric-choose-framework.md). Par exemple, vous pouvez obtenir des informations sur l’intégrité et les diagnostics, ou tirer parti de la haute disponibilité intégrée.
+* Des API de programmation productives qui vous permettent de créer des applications en tant que microservices : [ASP.NET Core, Reliable Actors et Reliable Services](service-fabric-choose-framework.md). Par exemple, vous pouvez obtenir des informations sur l’intégrité et les diagnostics, ou tirer parti de la haute disponibilité intégrée.
 
 ***Service Fabric est indifférent à la façon dont vous créez votre service. Vous pouvez utiliser la technologie de votre choix. Toutefois, il intègre des API de programmation qui facilitent la création de microservices.***
 
@@ -181,7 +181,7 @@ De nombreuses organisations ne vont pas plus loin. Elles bénéficient déjà de
 L’ajout de nouveaux services en plus du code en conteneur existant. Si vous souhaitez du code, il est conseillé de suivre quelques étapes liées aux microservices. Cela peut consister dans l’ajout d’un nouveau point de terminaison d’API REST ou d’une nouvelle logique métier. De cette manière, vous commencez à créer de nouveau microservices et vous vous exercez à leur développement et déploiement.
 
 **Innovation**  
-Une approche avec des microservices s’adapte aux besoins métier variables. À ce stade, la décision repose sur la question de savoir si vous devez commencer à fractionner l’application monolithique ou opter pour l’innovation. Un exemple : une base de données utilisée comme file d’attente de flux de travail devient un goulot d’étranglement qui ralentit le traitement. L’augmentation des demandes de workflow requiert une distribution du travail pour la mise à l’échelle. Concernant cette partie de l’application qui n’est pas mise à l’échelle, ou qui doit être mise à jour plus fréquemment, il est conseillé de la fractionner en microservices et d’opter pour l’innovation.
+Les microservices vous permettent de mieux vous adapter aux changements de vos besoins. À ce stade, la décision repose sur la question de savoir si vous devez commencer à fractionner l’application monolithique ou opter pour l’innovation. Un exemple : une base de données utilisée comme file d’attente de flux de travail devient un goulot d’étranglement qui ralentit le traitement. L’augmentation des demandes de workflow requiert une distribution du travail pour la mise à l’échelle. Concernant cette partie de l’application qui n’est pas mise à l’échelle, ou qui doit être mise à jour plus fréquemment, il est conseillé de la fractionner en microservices et d’opter pour l’innovation.
 
 **Transformation en microservices**  
 Votre application est entièrement composée de (ou décomposée) en microservices. Pour atteindre ce stade, vous avez suivi la procédure liée aux microservices. Vous pouvez commencer ici. Toutefois, effectuer cette opération sans l’aide d’une plate-forme de microservices demande un investissement important. 
@@ -197,7 +197,7 @@ L’objectif de Service Fabric consiste à réduire la complexité de la créat
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation de la terminologie Service Fabric](service-fabric-technical-overview.md)
-* [Microservices: An application revolution powered by the cloud (Microservices : une approche révolutionnaire des applications reposant sur le cloud)](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Microservices : An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

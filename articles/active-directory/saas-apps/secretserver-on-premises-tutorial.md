@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Secret Server (On-Premises) | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Secret Server (On-Premises) | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Secret Server (On-Premises).
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: be4ba84a-275d-4f71-afce-cb064edc713f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 30a1498ab41f263c77656400c4200313048cc331
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 447307c0c27fda9e7719e74e529f21d767c9f58d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436163"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152363"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Didacticiel : Intégration d’Azure Active Directory avec Secret Server (On-Premises)
+# <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Tutoriel : Intégration d’Azure Active Directory à Secret Server (On-Premises)
 
 Dans ce didacticiel, vous allez apprendre à intégrer Secret Server (On-Premises) avec Azure Active Directory (Azure AD).
 
@@ -176,7 +176,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-secret-server-on-premises-test-user"></a>Créer un utilisateur de test de Secret Server (On-Premises)
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Secret Server (On-Premises). Pour ajouter les utilisateurs dans la plateforme Secret Server (On-Premises), faites-vous aider par [l’équipe de support de Secret Server (On-Premises)](https://thycotic.force.com/support/s/). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Secret Server (On-Premises). Pour ajouter des utilisateurs à la plateforme  [Secret Server (On-Premises)](https://thycotic.force.com/support/s/) , collaborez avec l’équipe du support technique de Secret Server (On-Premises). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

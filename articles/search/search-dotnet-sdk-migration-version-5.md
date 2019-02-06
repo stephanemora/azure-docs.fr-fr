@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/24/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 743ac433418386281acc58ad1deef06ee75e38d9
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d7684aa79ac9f58c2a047b01a6d9f5263795221d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316866"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912048"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Mise à niveau vers la version 5 du SDK .NET Recherche Azure
 Si vous utilisez la version 4.0-preview ou une version antérieure du [SDK .NET Recherche Azure](https://aka.ms/search-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 5.
@@ -44,17 +44,26 @@ La version 5 du SDK .NET Recherche Azure cible la dernière version en disponibi
 ## <a name="steps-to-upgrade"></a>Procédure de mise à niveau
 Tout d’abord, mettez à jour vos références NuGet `Microsoft.Azure.Search` , soit en utilisant la console NuGet Package, soit en effectuant un clic droit sur les références de votre projet et en sélectionnant « Gérer les packages NuGet » dans Visual Studio.
 
-Une fois que NuGet a téléchargé les nouveaux packages et leurs dépendances, recompilez votre projet. Sauf si vous utilisez une fonctionnalité préliminaire qui est absente dans le nouveau SDK disponible généralement, la regénération doit réussir (dans le cas contraire, faites-le nous savoir sur [GitHub](https://github.com/azure/azure-sdk-for-net/issues)). Si c’est le cas, vous êtes prêt !
+Une fois que NuGet a téléchargé les nouveaux packages et leurs dépendances, recompilez votre projet. En fonction de la structure de votre code, la recompilation peut réussir. Si c’est le cas, vous êtes prêt !
+
+Si la compilation échoue, vous devriez voir une erreur de ce type :
+
+    The name 'SuggesterSearchMode' does not exist in the current context
+
+L’étape suivante consiste à corriger cette erreur de build. Pour plus d’informations sur la cause de l’erreur et les possibilités de correction, consultez [Modifications notables dans la version 5](#ListOfChanges).
 
 Notez qu’en raison des modifications dans l’empaquetage du SDK .NET Recherche Azure, vous devez regénérer votre application pour pouvoir utiliser la version 5. Ces modifications sont détaillées dans [Modifications notables dans la version 5](#ListOfChanges).
 
 D’autres avertissements de compilation sont susceptibles de s’afficher ; ils sont liés à des propriétés ou des méthodes obsolètes. Ces avertissements incluent des instructions sur les fonctionnalités à utiliser à la place de la fonctionnalité déconseillée. Par exemple, si votre application utilise la méthode `IndexingParametersExtensions.DoNotFailOnUnsupportedContentType`, vous devez obtenir un avertissement indiquant que le comportement concerné est désormais activé par défaut et qu’il n’est plus nécessaire d’appeler cette méthode.
 
-Une fois que vous avez résolu les avertissements de build, vous pouvez apporter des modifications à votre application pour exploiter les nouvelles fonctionnalités si vous le souhaitez. Les nouvelles fonctionnalités du Kit SDK sont détaillées dans la section [Nouveautés de la version 5](#WhatsNew).
+Une fois que vous avez résolu les erreurs de build ou les avertissements sur la génération, vous pouvez apporter des changements à votre application pour exploiter les nouvelles fonctionnalités, si vous le souhaitez. Les nouvelles fonctionnalités du Kit SDK sont détaillées dans la section [Nouveautés de la version 5](#WhatsNew).
 
 <a name="ListOfChanges"></a>
 
 ## <a name="breaking-changes-in-version-5"></a>Modifications notables dans la version 5
+
+### <a name="new-package-structure"></a>Nouvelle structure des packages
+
 La modification notable la plus importante dans la version 5 est que l’assembly `Microsoft.Azure.Search` et son contenu ont été divisés en quatre assemblys distincts qui sont désormais distribués sous la forme de quatre packages NuGet distincts :
 
  - `Microsoft.Azure.Search`: Il s’agit d’un méta-package qui inclut tous les autres packages Recherche Azure en tant que dépendances. Si vous effectuez une mise à niveau à partir d’une version antérieure du SDK, la mise à niveau de ce package et sa regénération devraient suffire pour commencer à utiliser la nouvelle version.
@@ -65,6 +74,10 @@ La modification notable la plus importante dans la version 5 est que l’assembl
 Cette modification marque techniquement une rupture, car plusieurs types ont été déplacés entre les assemblys. C’est pourquoi il est indispensable de regénérer votre application pour effectuer une mise à niveau vers la version 5 du SDK.
 
 Il n’y a qu’un petit nombre d’autres modifications dans la version 5 qui soient susceptibles de nécessiter des modifications de code en plus de la regénération de votre application.
+
+### <a name="change-to-suggesters"></a>Changement apporté à Suggesters 
+
+Le constructeur `Suggester` n’a plus de paramètre `enum` pour `SuggesterSearchMode`. Cette énumération avait une seule valeur et était donc redondante. Si vous voyez des erreurs de build suite à ce changement, supprimez simplement les références au paramètre `SuggesterSearchMode`.
 
 ### <a name="removed-obsolete-members"></a>Membres obsolètes supprimés
 

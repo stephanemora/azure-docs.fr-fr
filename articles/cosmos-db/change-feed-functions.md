@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 41cbb657a4fc83b498c5cc9a6a16397a619aa075
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034044"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469479"
 ---
-# <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>Comment utiliser le flux de modification Azure Cosmos DB avec Azure Functions
+# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>Déclencher Azure Functions depuis Azure Cosmos DB
 
 Si vous utilisez Azure Functions, la façon la plus simple de se connecter à un flux de modification est d’ajouter un [déclencheur Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) à votre application Azure Functions. Lorsque vous créez un déclencheur Cosmos DB dans une application Azure Functions, vous sélectionnez le conteneur Cosmos auquel vous souhaitez vous connecter, et la fonction se déclenche chaque fois que vous apportez une modification au conteneur.
 

@@ -5,25 +5,25 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/29/2018
+ms.date: 01/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260531"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098336"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Modèle de solution de consortium de preuve de travail Ethereum
 
 Le modèle de solution de consortium de preuve de travail Ethereum est conçu pour faciliter et accélérer le déploiement et la configuration d’un réseau Ethereum de consortium de plusieurs membres avec des connaissances minimales au sujet d’Azure et d’Ethereum.
 
-En quelques entrées d’utilisateur et avec un déploiement par simple clic via le portail Azure, chaque membre peut fournir son empreinte réseau, à l’aide de Microsoft Azure Compute, de la mise en réseau et de services de stockage dans le monde entier. L’empreinte réseau de chaque membre se compose d’un ensemble de nœuds de transaction avec équilibrage de charge grâce auquel une application ou un utilisateur peut interagir pour soumettre des transactions, un ensemble de nœuds d’exploration de données pour enregistrer les transactions et une passerelle VPN. Une étape suivante connecte les passerelles pour créer un réseau blockchain de plusieurs membres entièrement configuré.
+À l’aide d’un modèle Azure Resource Manager, chaque membre peut provisionner son empreinte réseau en utilisant les services de computing, de réseau et de stockage Microsoft Azure. L’empreinte réseau de chaque membre se compose d’un ensemble de nœuds de transaction avec équilibrage de charge grâce auquel une application ou un utilisateur interagit pour soumettre des transactions, un ensemble de nœuds d’exploration de données pour enregistrer les transactions et une passerelle VPN. Une fois le déploiement effectué, vous connectez les passerelles pour créer un réseau blockchain multimembre entièrement configuré.
 
-## <a name="about-blockchain"></a>À propos de blockchain
+## <a name="about-blockchain"></a>À propos de la technologie blockchain
 
 Pour les petits nouveaux de la communauté blockchain, la version de cette solution représente une opportunité exceptionnelle d’en savoir plus sur cette technologie de manière simple et configurable via Azure. Toutefois, pour commencer, nous vous recommandons de déployer la topologie de réseau Ethereum autonome simple avec cette procédure pas à pas guidée, puis de créer les réseaux de consortium de plusieurs membres.
 
@@ -45,7 +45,7 @@ Les nœuds de transaction sont équilibrés en charge au sein d’un groupe à h
 
 ### <a name="log-analytics-details"></a>Détails de Log Analytics
 
-Chaque déploiement également crée instance Log Analytics ou peut rejoindre une instance existante. Cela permet de surveiller diverses mesures de performances de chaque machine virtuelle composant le réseau déployé.
+Chaque déploiement crée aussi une instance Log Analytics ou peut rejoindre une instance existante. Log Analytics permet de superviser diverses métriques de performances de chaque machine virtuelle composant le réseau déployé.
 
 ## <a name="deployment-architecture"></a>Architecture de déploiement
 
@@ -88,11 +88,9 @@ Abonnement| Abonnement vers lequel vous déployez le réseau de consortium.||N/D
 Groupe de ressources| Groupe de ressources sur lequel déployez le réseau de consortium.||N/D
 Lieu| Région Azure du groupe de ressources. ||N/D
 
-
-
 ### <a name="operations-management-suite"></a>Operations Management Suite
 
-Le panneau Operations Management Suite (OMS) permet de configurer une ressource OMS pour votre réseau. OMS collecte et fournit des métriques et journaux utiles à partir de votre réseau, en offrant la possibilité de vérifier rapidement l’intégrité du réseau ou les problèmes de débogage. L’offre gratuite OMS échoue une fois que la capacité est atteinte.
+Operations Management Suite (OMS) permet de configurer une ressource OMS pour votre réseau. OMS collecte et fournit des métriques et journaux utiles à partir de votre réseau, en offrant la possibilité de vérifier rapidement l’intégrité du réseau ou les problèmes de débogage. L’offre gratuite OMS échoue une fois que la capacité est atteinte.
 
 ![Création d’une instance OMS](./media/ethereum-deployment/new-oms.png)
 
@@ -143,8 +141,8 @@ Nom du paramètre |Description |Valeurs autorisées|Valeurs par défaut
 ID de membre de consortium|ID associé à chaque membre participant au réseau de consortium, qui sert à configurer les espaces d’adressage IP pour éviter les collisions. <br /><br />L’ID de membre doit être unique dans les différentes organisations du même réseau. Un ID de membre unique est nécessaire même si une organisation effectue des déploiements dans plusieurs régions.<br /><br />Notez la valeur de ce paramètre, car vous devrez le partager avec les autres membres participants.|0 - 255
 ID de réseau Ethereum|ID du réseau Ethereum de consortium en cours de déploiement. Chaque réseau Ethereum possède son propre ID de réseau, 1 étant l’ID du réseau public. Même si l’accès réseau est limité pour les nœuds d’exploration de données, nous vous recommandons toutefois d’utiliser un nombre élevé pour empêcher les collisions.|5 - 999 999 999| 10101010
 Bloc de genèse personnalisé|Option permettant de générer un bloc de genèse automatiquement ou d’en fournir un personnalisé.|Oui/Non| Non 
-Mot de passe du compte Ethereum (Bloc de genèse personnalisé = Non)|Mot de passe d’administrateur utilisé pour sécuriser le compte Ethereum importé dans chaque nœud. Le mot de passe doit contenir les éléments suivants : un caractère majuscule, un caractère minuscule et un chiffre.|12 caractères ou plus|N/D
-Phrase secrète de clé privée Ethereum (Bloc de genèse personnalisé = Non)|Phrase secrète utilisée pour générer la clé privée ECC associée au compte Ethereum par défaut qui est généré. Une clé privée prégénérée n’a pas besoin d’être explicitement transmise.<br /><br />Envisagez une phrase secrète suffisamment aléatoire afin de garantir une clé privée forte et aucun chevauchement avec d’autres membres du consortium. La phrase secrète doit contenir au minimum les éléments suivants : un caractère majuscule, un caractère minuscule et un chiffre.<br /><br />Notez que, si deux membres utilisent la même phrase secrète, les comptes générés doit être identiques. La même phrase secrète est utile si une organisation tente un déploiement dans plusieurs régions et souhaite partager un seul compte (base de jetons) sur tous les nœuds.|12 caractères ou plus|N/D
+Mot de passe du compte Ethereum (Bloc de genèse personnalisé = Non)|Mot de passe d’administrateur utilisé pour sécuriser le compte Ethereum importé dans chaque nœud. Le mot de passe doit contenir : un caractère majuscule, un caractère minuscule et un chiffre.|12 caractères ou plus|N/D
+Phrase secrète de clé privée Ethereum (Bloc de genèse personnalisé = Non)|Phrase secrète utilisée pour générer la clé privée ECC associée au compte Ethereum par défaut qui est généré. Une clé privée prégénérée n’a pas besoin d’être explicitement transmise.<br /><br />Envisagez une phrase secrète suffisamment aléatoire afin de garantir une clé privée forte et aucun chevauchement avec d’autres membres du consortium. La phrase secrète doit contenir au minimum : un caractère majuscule, un caractère minuscule et un chiffre.<br /><br />Notez que, si deux membres utilisent la même phrase secrète, les comptes générés doit être identiques. La même phrase secrète est utile si une organisation tente un déploiement dans plusieurs régions et souhaite partager un seul compte (base de jetons) sur tous les nœuds.|12 caractères ou plus|N/D
 Bloc de genèse (Bloc de genèse personnalisé = Oui)|Chaîne JSON représentant le bloc de genèse personnalisé. Vous trouverez plus d’informations sur le format du bloc de genèse sous Réseaux personnalisés.<br /><br />Un compte Ethereum est toujours créé lors de la fourniture d’un bloc de genèse personnalisé. Envisagez de spécifier un compte Ethereum prépayé dans le bloc de genèse pour ne pas attendre l’exploration de données.|JSON valide |N/D
 Clé partagée pour la connexion|Clé partagée pour la connexion entre les passerelles de réseau virtuel.| 12 caractères ou plus|N/D
 URL de données du consortium|URL pointant vers les données de configuration de consortium pertinentes, fournies par le déploiement d’un autre membre. <br /><br />Ces informations sont fournies par un membre déjà connecté qui dispose d’un déploiement. Si vous avez déployé le reste du réseau, l’URL est la sortie de déploiement de modèle nommée CONSORTIUM-DATA.||N/D
@@ -154,7 +152,7 @@ Clé du bureau d’enregistrement des informations de pair|Clé primaire des inf
 
 ### <a name="summary"></a>Résumé
 
-Cliquez sur le panneau de résumé pour passer en revue les entrées spécifiées et pour exécuter une validation de base avant le déploiement.
+Cliquez sur le résumé pour passer en revue les entrées spécifiées et pour exécuter une validation de base avant le déploiement.
 
 ![Résumé](./media/ethereum-deployment/summary.png)
 
@@ -264,7 +262,7 @@ Enfin, exécutez la fonction avec l’entrée appropriée :
 - **MyGatewayResourceId :** chemin de ressource de votre passerelle. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **OtherGatewayResourceId :** chemin de ressource de la passerelle du nouveau membre. Il est fourni par le nouveau membre et il s’agit du paramètre de sortie de déploiement de modèle également nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **ConnectionName :** nom vous permettant d’identifier cette connexion à la passerelle.
-- **Shared Key :** secret préétabli entre deux membres du réseau de consortium qui établissent une connexion.
+- **Clé partagée :** secret préétabli entre deux membres du réseau de consortium qui établissent une connexion.
 
 **CreateConnection** - MyGatewayResourceId <resource path of your Gateway> -OtherGatewayResourceId <chemin d’accès de ressource de la passerelle du nouveau membre> -ConnectionName myConnection -SharedKey "MySharedKeyAbc123"
 
@@ -277,8 +275,8 @@ Exécutez le script avec l’entrée appropriée :
 - **MyGatewayResourceId :** chemin de ressource de votre passerelle. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **OtherGatewayResourceId :** chemin de ressource de la passerelle du nouveau membre. Il est fourni par le nouveau membre et il s’agit du paramètre de déploiement de modèle également nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **ConnectionName :** nom vous permettant d’identifier cette connexion à la passerelle.
-- **Shared Key :** secret préétabli entre deux membres du réseau de consortium qui établissent une connexion.
-- **Location** : région Azure où la ressource de passerelle est déployée.
+- **Clé partagée :** secret préétabli entre deux membres du réseau de consortium qui établissent une connexion.
+- **Emplacement :** région Azure où la ressource de passerelle est déployée.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group

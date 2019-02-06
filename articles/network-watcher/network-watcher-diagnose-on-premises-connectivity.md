@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e51d31035a8b05238ef0f8d13dd6b6c3f9ad02e8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26374200"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099394"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostiquer la connectivité locale par le biais de passerelles VPN
 
@@ -36,7 +36,7 @@ Vous pouvez configurer une connexion site à site entre Azure et votre site loca
 1. Connexion site à site (basée sur l’itinéraire) : [Connexion entre la passerelle VPN et le routeur local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
 1. [Configuration de FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-Vous trouverez des instructions étape par étape détaillées sur la configuration d’une connexion de site à site en consultant [Création d’un réseau virtuel avec une connexion de site à site à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Vous trouverez des instructions étape par étape détaillées sur la configuration d’une connexion de site à site en consultant : [Créer un réseau virtuel avec une connexion de site à site à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 L’une des étapes critiques de configuration consiste à configurer les paramètres de communication IPsec. Une mauvaise configuration entraîne une perte de connectivité entre le réseau local et Azure. Les passerelles VPN Azure sont actuellement configurées pour prendre en charge les paramètres IPsec suivants pour la phase 1. Notez, comme mentionné précédemment, que ces paramètres ne peuvent pas être modifiés.  Comme vous pouvez le voir dans le tableau ci-dessous, les algorithmes de chiffrement pris en charge par la passerelle VPN Azure sont AES256 AES128 et 3DES.
 
@@ -81,13 +81,13 @@ La fonctionnalité de résolution des problèmes d’Azure Network Watcher vous 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
 | NoFault | Quand aucune erreur n’est détectée. |Oui|
-| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non|
-| PlannedMaintenance |  Instance de passerelle en maintenance.  |Non|
-| UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement. | Non |
-| VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non |
-| PlatformInActive | Il existe un problème avec la plateforme. | Non|
-| ServiceNotRunning | Le service sous-jacent ne fonctionne pas. | Non|
-| NoConnectionsFoundForGateway | Aucune connexion n’existe sur la passerelle. Il s’agit simplement d’un avertissement.| Non|
+| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non |
+| PlannedMaintenance |  Instance de passerelle en maintenance.  |Non |
+| UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement. | Non  |
+| VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non  |
+| PlatformInActive | Il existe un problème avec la plateforme. | Non |
+| ServiceNotRunning | Le service sous-jacent ne fonctionne pas. | Non |
+| NoConnectionsFoundForGateway | Aucune connexion n’existe sur la passerelle. Il s’agit simplement d’un avertissement.| Non |
 | ConnectionsNotConnected | Aucune des connexions n’est connectée. Il s’agit simplement d’un avertissement.| Oui|
 | GatewayCPUUsageExceeded | L’utilisation du processeur par la passerelle est actuellement supérieure à 95 %. | Oui |
 
@@ -96,14 +96,14 @@ La fonctionnalité de résolution des problèmes d’Azure Network Watcher vous 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
 | NoFault | Quand aucune erreur n’est détectée. |Oui|
-| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non|
-| PlannedMaintenance | Instance de passerelle en maintenance.  |Non|
-| UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement.  | Non |
-| VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non |
-| ConnectionEntityNotFound | La configuration de la connexion est manquante. | Non |
-| ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée ». |Non|
+| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non |
+| PlannedMaintenance | Instance de passerelle en maintenance.  |Non |
+| UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement.  | Non  |
+| VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non  |
+| ConnectionEntityNotFound | La configuration de la connexion est manquante. | Non  |
+| ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée ». |Non |
 | ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | Oui |
-| ConnectionMarkedStandy | Le service sous-jacent est identifié comme étant en veille.| Oui|
+| ConnectionMarkedStandby | Le service sous-jacent est identifié comme étant en veille.| Oui|
 | Authentification | Non-concordance des clés prépartagées. | Oui|
 | PeerReachability | La passerelle homologue n’est pas accessible. | Oui|
 | IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | Oui|

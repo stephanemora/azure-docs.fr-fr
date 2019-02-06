@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: bb82ef542db09b3b7f864c4901107e1c5c0827f6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: bb22a2545466c72f7dac68f80668b8b530832c21
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464768"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094716"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recevoir des événements sur un point de terminaison HTTP
 
@@ -370,6 +370,6 @@ Vous pouvez également tester cette fonctionnalité en direct en [envoyant un é
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Explorer les [Kits SDK Event Grid de gestion et de publication](./sdk-overview.md)
+* Explorez les [kits SDK Azure Event Grid de gestion et de publication](./sdk-overview.md)
 * Découvrez comment [publier vers une rubrique personnalisée](./post-to-custom-topic.md)
 * Essayez l’un des didacticiels approfondis sur Event Grid et les fonctions tel que [Automatiser le redimensionnement des images chargées à l’aide d’Event Grid](resize-images-on-storage-blob-upload-event.md)

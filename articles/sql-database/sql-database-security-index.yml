@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 22a2a5d0a275b4eeb9ddea88741abdef9745a539
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 904cd593022006bc16908664fb7d7d0e3f6f24b0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166721"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455216"
 documentType: LandingData
 title: Azure SQL Database - Sécurité avancée
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 11/11/2018
+  ms.date: 01/25/2019
   ms.author: jovanpop-msft
 sections:
 - items:
@@ -74,7 +74,7 @@ sections:
       - href: /azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal
       - href: 
       - href: 
-    - title: Configurer des règles de pare-feu sur une base de données unique
+    - title: Configurer des règles de pare-feu de serveur de base de données sur une base de données unique
       values:
       - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-portal
       - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-cli
@@ -93,7 +93,7 @@ sections:
     items:
     - html: La protection contre les menaces dans les <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">instances managées</a> et les <a href="/azure/sql-database/sql-database-threat-detection">bases de données</a> détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de vos bases de données.
     - html: L’audit des <a href="/azure/sql-database/sql-database-managed-instance-auditing">instances managées</a> et des <a href="/azure/sql-database/sql-database-auditing">bases de données</a> suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure, votre espace de travail OMS ou Event Hubs.
-    - html: Les <a href="/azure/sql-database/sql-database-firewall-configure">règles de pare-feu</a> dans les bases de données uniques vous permettent de contrôler les adresses IP qui peuvent accéder à votre base de données.
+    - html: Les <a href="/azure/sql-database/sql-database-firewall-configure">règles de pare-feu de serveur de base de données</a> dans les bases de données uniques vous permettent de contrôler les adresses IP qui peuvent accéder à votre base de données.
     - html: L’<a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">intégration au réseau virtuel</a> dans une instance managée vous permet de placer les bases de données dans votre propre espace d’adresses privé.
     - html: Le <a href="/azure/sql-database/sql-database-always-encrypted">chiffrement intégral</a> protège les données au repos sensibles sur le serveur, pendant le déplacement entre le client et le serveur, ainsi que pendant l’utilisation des données, pour garantir que les données sensibles ne s’affichent pas en clair dans le système de base de données.
     - html: Le <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">masquage des données dynamiques</a> empêche tout accès non autorisé aux données sensibles en permettant aux clients d’indiquer la quantité de données sensibles à faire apparaître, avec un impact minimal sur la couche application.

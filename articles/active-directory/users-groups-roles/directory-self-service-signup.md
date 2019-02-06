@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394678"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195815"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Présentation de l’inscription en libre-service pour Azure Active Directory
 Cet article explique l’inscription en libre-service et comment la prendre en charge dans Azure Active Directory (Azure AD). Si vous souhaitez prendre le contrôle d’un nom de domaine d’un locataire Azure AD non géré, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur](domains-admin-takeover.md).
@@ -31,9 +31,9 @@ Cet article explique l’inscription en libre-service et comment la prendre en c
 * Un répertoire Azure AD créé en libre-service peut être transformé en répertoire géré utilisable pour d’autres services.
 
 ## <a name="terms-and-definitions"></a>Termes et définitions
-* **Inscription en libre-service** : méthode via laquelle un utilisateur s‘abonne à un service cloud et bénéficie automatiquement d’une identité créée pour lui dans Azure AD en fonction de son domaine de messagerie.
-* **Répertoire Azure AD non géré** : répertoire dans lequel cette identité est créée. Un répertoire non géré est un répertoire qui ne possède aucun administrateur général.
-* **Utilisateur vérifié par e-mail**: type de compte d'utilisateur dans Azure AD. Un utilisateur qui possède une identité créée automatiquement après s’être abonné à une offre libre-service est considéré comme un utilisateur vérifié par e-mail. Un utilisateur vérifié par e-mail est un membre ordinaire d'un répertoire marqué par la valeur creationmethod=EmailVerified.
+* **Inscription en libre-service** : méthode selon laquelle un utilisateur s‘abonne à un service cloud et bénéficie automatiquement d’une identité créée pour lui dans Azure AD en fonction de son domaine de messagerie.
+* **Annuaire Azure AD non managé** : annuaire dans lequel cette identité est créée. Un annuaire non managé est un annuaire qui n’a aucun administrateur général.
+* **Utilisateur vérifié par e-mail** : type de compte d’utilisateur dans Azure AD. Un utilisateur qui possède une identité créée automatiquement après s’être abonné à une offre libre-service est considéré comme un utilisateur vérifié par e-mail. Un utilisateur vérifié par e-mail est un membre ordinaire d'un répertoire marqué par la valeur creationmethod=EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>Comment vérifier les paramètres libre-service ?
 Les administrateurs peuvent désormais effectuer deux vérifications libre-service. Ils peuvent contrôler si :
@@ -63,9 +63,9 @@ Les inscriptions à la version d’évaluation de Flow et de PowerApps ne sont p
 ### <a name="how-do-the-controls-work-together"></a>Comment les vérifications parviennent-elles à fonctionner ensemble ?
 Ces deux paramètres peuvent être utilisés conjointement pour définir un contrôle plus précis de l’inscription en libre-service. Par exemple, la commande suivante permettra aux utilisateurs d’effectuer une inscription en libre-service, mais uniquement si ces utilisateurs possèdent déjà un compte dans Azure AD (en d’autres termes, les utilisateurs qui ont besoin qu’un compte vérifié par e-mail soit d’abord créé ne peuvent pas effectuer d’inscription en libre-service) :
 
-````powershell
+```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-````
+```
 
 L‘organigramme suivant décrit les différentes combinaisons de paramètres et les conditions qui en résultent pour le répertoire et l’inscription en libre-service.
 

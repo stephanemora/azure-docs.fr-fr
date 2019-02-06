@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 522e9209da5d2df796700dea764270382b1170f5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852977"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102763"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Installer et configurer un proxy inverse dans Azure Service Fabric
 Un proxy inverse est un service Azure Service Fabric facultatif qui aide des microservices s’exécutant dans un cluster Service Fabric à découvrir d’autres services ayant des points de terminaison HTTP, et à communiquer avec ces services. Pour en savoir plus, voir [Proxy inverse dans Azure Service Fabric](service-fabric-reverseproxy.md). Cet article vous montre comment installer et configurer un proxy inverse dans votre cluster. 
@@ -30,10 +30,10 @@ Le portail Azure fournit une option permettant d’activer un proxy inverse lor
 
 Pour configurer un proxy inverse quand vous [créez un cluster à l’aide du portail Azure](./service-fabric-cluster-creation-via-portal.md), procédez comme suit :
 
-1. À l’**Étape 2 : configuration de Cluster**, sous **Configuration du type de nœud**, sélectionnez **Activer un proxy inverse**.
+1. À l’**Étape 2 : configuration de cluster**, sous **Configuration du type de nœud**, sélectionnez **Activer un proxy inverse**.
 
    ![Activer un proxy inverse sur le portail](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (Facultatif) Pour configurer un proxy inverse sécurisé, vous devez configurer un certificat SSL. À l’**Étape 3 : sécurité**, dans **Configurer les paramètres de sécurité du cluster**, sous **Type de configuration**, sélectionnez **Personnalisé**. Ensuite, sous **Certificat SSL de proxy inverse**, sélectionnez **Inclure un certificat SSL pour proxy inverse**, puis entrez les détails de votre certificat.
+2. (Facultatif) Pour configurer un proxy inverse sécurisé, vous devez configurer un certificat SSL. À l’**Étape 3 : sécurité**, dans **Configurer les paramètres de sécurité du cluster**, sous **Type de configuration**, sélectionnez **Personnalisé**. Ensuite, sous **Certificat SSL de proxy inverse**, sélectionnez **Inclure un certificat SSL pour proxy inverse**, puis entrez les détails de votre certificat.
 
    ![Configurer un proxy inverse sécurisé sur le portail](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -239,7 +239,7 @@ Après avoir modifié votre fichier ClusterConfig.json pour activer un proxy inv
 Pour adresser le proxy inverse à partir de l’extérieur d’un cluster Azure, définissez des règles Azure Load Balancer et une sonde d’intégrité Azure pour le port du proxy inverse. Vous pouvez effectuer ces étapes à l’aide du portail Azure ou du modèle Resource Manager à tout moment après avoir créé le cluster. 
 
 > [!WARNING]
-> Lorsque vous configurez le port du proxy inverse dans l’équilibreur de charge, les systèmes se trouvant à l’extérieur du cluster peuvent atteindre tous les microservices du cluster exposant un point de terminaison HTTP. Cela signifie que des microservices destinés à être internes pourraient se révéler détectables par un utilisateur malveillant déterminé. C’est une source potentielle de vulnérabilités qui risquent, par exemple, d’être exploitées dans les cas de figure suivants :
+> Lorsque vous configurez le port du proxy inverse dans l’équilibreur de charge, les systèmes se trouvant à l’extérieur du cluster peuvent atteindre tous les microservices du cluster exposant un point de terminaison HTTP. Cela signifie que des microservices destinés à être internes pourraient se révéler détectables par un utilisateur malveillant déterminé. Il peut en résulter de graves vulnérabilités qui peuvent être exploitées, notamment dans les cas de figure suivants :
 >
 > * Un utilisateur malveillant lance une attaque par déni de service en appelant à de nombreuses reprises un service interne qui ne dispose pas d’une surface d’attaque suffisamment renforcée.
 > * Un utilisateur malveillant remet des paquets incorrects à un service interne, ce qui entraîne un comportement inattendu.

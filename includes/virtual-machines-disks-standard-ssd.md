@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: da46687517dbfe189571286087d4ef29d50d1246
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572097"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906308"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Disques managés SSD Standard pour les charges de travail des machines virtuelles Azure
 
@@ -21,14 +21,14 @@ Les disques managés SSD (Solid State Drives) Standard constituent une option de
 
 ## <a name="standard-ssd-features"></a>Fonctionnalités des disques SSD Standard
 
-**Disques managés** : Les disques SSD Standard sont seulement disponibles en tant que disques managés. Les disques non managés et les objets blob de pages ne sont pas pris en charge sur les disques SSD Standard. Quand vous créez un disque managé, vous spécifiez le type de disque SSD Standard et vous indiquez la taille du disque dont vous avez besoin, puis Azure crée et gère le disque pour vous.
+**Disques managés** : Les disques SSD Standard sont disponibles uniquement en tant que disques managés. Les disques non managés et les objets blob de pages ne sont pas pris en charge sur les disques SSD Standard. Quand vous créez un disque managé, vous spécifiez le type de disque SSD Standard et vous indiquez la taille du disque dont vous avez besoin, puis Azure crée et gère le disque pour vous.
 Les disques SSD Standard prennent en charge toutes les opérations du modèle de déploiement classique qu’offrent les disques managés. Par exemple, vous pouvez créer, copier ou capturer des disques managés SSD Standard comme vous le faites avec des disques managés.
 
 **Machines virtuelles** : Les disques SSD Standard peuvent être utilisés avec toutes les machines virtuelles Azure, y compris les types de machine virtuelle qui ne prennent pas en charge les disques Premium. Par exemple, si vous utilisez une machine virtuelle de série A ou une machine virtuelle de série N ou de série DS, ou de n’importe quelle autre série de machine virtuelle Azure, vous pouvez utiliser des disques SSD Standard. Avec l’introduction des disques SSD Standard, nous permettons à un large éventail de charges de travail qui utilisaient des disques HDD d’effectuer une transition vers des disques SSD et de bénéficier de performances cohérentes, d’une disponibilité plus élevée, d’une meilleure latence et d’une meilleure expérience générale qu’offrent les disques SSD.
 
-**Durabilité et disponibilité élevées** : Les disques SSD Standard reposent sur la même plateforme de disques Azure, qui fournit de façon constante une disponibilité et une durabilité élevées pour les disques. Les disques Azure sont conçus pour offrir une disponibilité de 99,999 pour cent. Comme tous les disques managés, les disques SSD Standard proposent aussi un stockage localement redondant (LRS). Avec le stockage LRS, la plateforme conserve plusieurs réplicas de données pour chaque disque et fournit de façon constante une durabilité de classe Entreprise pour les disques IaaS, avec un taux de défaillance annuel de ZÉRO pour cent, inégalé dans le secteur.
+**Disponibilité et durabilité élevées** : Les disques SSD Standard reposent sur la même plateforme de disques Azure, qui fournit de façon cohérente une disponibilité et une durabilité élevées pour les disques. Les disques Azure sont conçus pour offrir une disponibilité de 99,999 pour cent. Comme tous les disques managés, les disques SSD Standard proposent aussi un stockage localement redondant (LRS). Avec le stockage LRS, la plateforme conserve plusieurs réplicas de données pour chaque disque et fournit de façon constante une durabilité de classe Entreprise pour les disques IaaS, avec un taux de défaillance annuel de ZÉRO pour cent, inégalé dans le secteur.
 
-**Captures instantanées** : Comme tous les disques managés, les disques SSD Standard prennent également en charge la création de captures instantanées. Le type de capture instantanée peut être Standard (HDD) ou Premium (SSD). Pour réduire les coûts, nous vous recommandons le type de capture instantanée Standard (HDD) pour tous les types de disque Azure. En effet, quand vous créerez un disque managé à partir d’une capture instantanée, vous pourrez toujours choisir un niveau supérieur comme Standard SSD ou Premium SSD.
+**Instantanés** : Comme tous les disques managés, les disques SSD Standard prennent également en charge la création d’instantanés. Le type de capture instantanée peut être Standard (HDD) ou Premium (SSD). Pour réduire les coûts, nous vous recommandons le type de capture instantanée Standard (HDD) pour tous les types de disque Azure. En effet, quand vous créerez un disque managé à partir d’une capture instantanée, vous pourrez toujours choisir un niveau supérieur comme Standard SSD ou Premium SSD.
 
 ## <a name="scalability-and-performance-targets"></a>Cibles de performance et d’évolutivité
 
@@ -36,6 +36,8 @@ Le tableau suivant contient les tailles de disque qui sont actuellement proposé
 
 |Type de disque SSD Standard  |Taille du disque  |IOPS par disque  |Débit par disque  |
 |---------|---------|---------|---------|
+|E4     |32 Gio         |Jusqu’à 120         |Jusqu’à 25 Mio par seconde         |
+|E6     |64 Gio         |Jusqu’à 240         |Jusqu’à 50 Mio par seconde         |
 |E10     |128 Go         |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
 |E15     |256 Gio         |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
 |E20     |512 Go         |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
@@ -61,13 +63,13 @@ Lorsque vous utilisez des disques SSD Standard, les règles de facturation suiva
 - Transferts de données sortantes
 - Transactions
 
-**Taille des disques managés :** Les disques managés sont facturés selon la taille provisionnée. Azure fait correspondre la taille provisionnée (arrondie à la valeur supérieure) à l’offre de taille de disque la plus proche. Pour plus d’informations sur les tailles de disque proposées, consultez le tableau dans la section Objectifs de performance et de scalabilité ci-dessus. Chaque disque correspond à une taille de disque provisionnée prise en charge et est facturé en conséquence. Par exemple, si vous avez provisionné un disque SSD Standard de 200 Gio, celui-ci va correspondre à l’offre de taille de disque E15 (256 Gio). La facturation de n’importe quel disque configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous provisionnez un disque E10 et le supprimez au bout de 20 heures, l’offre E10 vous est facturée au prorata de 20 heures. Le montant facturé est indépendant de la quantité de données écrites sur le disque.
+**Taille des disques managés** : Les disques managés sont facturés selon la taille provisionnée. Azure fait correspondre la taille provisionnée (arrondie à la valeur supérieure) à l’offre de taille de disque la plus proche. Pour plus d’informations sur les tailles de disque proposées, consultez le tableau dans la section Objectifs de performance et de scalabilité ci-dessus. Chaque disque correspond à une taille de disque provisionnée prise en charge et est facturé en conséquence. Par exemple, si vous avez provisionné un disque SSD Standard de 200 Gio, celui-ci va correspondre à l’offre de taille de disque E15 (256 Gio). La facturation de n’importe quel disque configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous provisionnez un disque E10 et le supprimez au bout de 20 heures, l’offre E10 vous est facturée au prorata de 20 heures. Le montant facturé est indépendant de la quantité de données écrites sur le disque.
 
-**Captures instantanées** : Les captures instantanées de disques managés sont facturées en fonction de la capacité utilisée par les captures instantanées, à la cible et à la source, le cas échéant. Pour plus d’informations sur les captures instantanées, consultez [Captures instantanées de disque managé](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
+**Instantanés** : Les instantanés de disques managés sont facturés en fonction de la capacité qu’ils utilisent, à la cible et à la source, le cas échéant. Pour plus d’informations sur les captures instantanées, consultez [Captures instantanées de disque managé](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 
-**Transferts de données sortantes**: les [transferts de données sortantes](https://azure.microsoft.com/pricing/details/bandwidth/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
+**Transferts de données sortants** : [transferts de données sortants](https://azure.microsoft.com/pricing/details/bandwidth/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
 
-**Transactions** : Tout comme les disques HDD Standard, les transactions sur les disques SSD Standard sont facturées. Les transactions comprennent les opérations de lecture et d’écriture sur le disque. La taille d’unité d’E/S utilisée pour comptabiliser les transactions sur disque SSD Standard est de 256 Kio. Les tailles d’E/S supérieures sont divisées en plusieurs unités d’E/S de 256 Kio.
+**Transactions** : À l’instar des disques HDD Standard, les transactions sur les disques SSD Standard sont facturées. Les transactions comprennent les opérations de lecture et d’écriture sur le disque. La taille d’unité d’E/S utilisée pour comptabiliser les transactions sur disque SSD Standard est de 256 Kio. Les tailles d’E/S supérieures sont divisées en plusieurs unités d’E/S de 256 Kio.
 
 Pour plus d’informations sur le prix des machines virtuelles et des disques managés, consultez :
 

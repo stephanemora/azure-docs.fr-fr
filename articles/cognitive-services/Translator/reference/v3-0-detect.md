@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 892a029c3a51aa3574d92b838a51359438a6bdb6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126120"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464991"
 ---
-# <a name="translator-text-api-30-detect"></a>API de traduction de texte Translator Text 3.0 : Detect
+# <a name="translator-text-api-30-detect"></a>API de traduction de texte Translator Text 3.0 : Detect
 
 Identifie la langue d’un texte.
 
@@ -85,15 +85,15 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `language` : code de la langue détectée.
+  * `language`: code de la langue détectée.
 
-  * `score` : valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
+  * `score`: valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
 
-  * `isTranslationSupported` : valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la traduction de texte.
+  * `isTranslationSupported`: valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la traduction de texte.
 
-  * `isTransliterationSupported` : valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la translittération.
+  * `isTransliterationSupported`: valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la translittération.
   
-  * `alternatives` : tableau des autres langues possibles. Chaque élément du tableau est un autre objet avec les mêmes propriétés que celles répertoriées ci-dessus : `language`, `score`, `isTranslationSupported` et `isTransliterationSupported`.
+  * `alternatives`: tableau des autres langues possibles. Chaque élément du tableau est un autre objet avec les mêmes propriétés que celles répertoriées ci-dessus : `language`, `score`, `isTranslationSupported` et `isTransliterationSupported`.
 
 Exemple de réponse JSON :
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: cdda1a06f32e712df71ec815f190f6346bebc135
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4b6ef4823fc78c15dda31e96d8bd6c4f798c0e99
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711461"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097746"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverse dans Azure Service Fabric
 Le proxy inverse intégré à Azure Service Fabric permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services détenant des points de terminaison http et de communiquer avec ces services.
@@ -44,8 +44,8 @@ Le proxy inverse expose un ou plusieurs points de terminaison sur le nœud local
 > **Plateformes prises en charge**
 >
 > Le proxy inverse dans Service Fabric prend en charge les plateformes suivantes :
-> * *Cluster Windows* : Windows versions 8 et ultérieures ou Windows Server versions 2012 et ultérieures
-> * *Cluster Linux* : le proxy inverse n’est pas disponible pour les clusters Linux.
+> * *Cluster Windows* : Windows 8 et versions ultérieures, ou Windows Server 2012 et versions ultérieures
+> * *Cluster Linux* : le proxy inverse n’est pas disponible pour les clusters Linux.
 >
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Atteindre les microservices de l’extérieur du cluster
@@ -57,7 +57,7 @@ Au lieu de configurer le port d’un service donné dans l’équilibreur de cha
 ![Communications externes][0]
 
 > [!WARNING]
-> Lorsque vous configurez le port du proxy inverse dans l’équilibreur de charge, les systèmes se trouvant à l’extérieur du cluster peuvent atteindre tous les microservices du cluster exposant un point de terminaison HTTP. Cela signifie que des microservices destinés à être internes pourraient se révéler détectables par un utilisateur malveillant déterminé. C’est une source potentielle de vulnérabilités qui risquent, par exemple, d’être exploitées dans les cas de figure suivants :
+> Lorsque vous configurez le port du proxy inverse dans l’équilibreur de charge, les systèmes se trouvant à l’extérieur du cluster peuvent atteindre tous les microservices du cluster exposant un point de terminaison HTTP. Cela signifie que des microservices destinés à être internes pourraient se révéler détectables par un utilisateur malveillant déterminé. C’est une source potentielle de vulnérabilités qui risquent notamment d’être exploitées dans les cas de figure suivants :
 >
 > * Un utilisateur malveillant lance une attaque par déni de service en appelant à de nombreuses reprises un service interne qui ne dispose pas d’une surface d’attaque suffisamment renforcée.
 > * Un utilisateur malveillant remet des paquets incorrects à un service interne, ce qui entraîne un comportement inattendu.
@@ -74,20 +74,20 @@ Le proxy inverse utilise un format d’URI (Uniform Resource Identifier) spécif
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s) :** le proxy inverse peut être configuré pour accepter le trafic HTTP ou HTTPS. Pour le transfert HTTPS, reportez-vous à [Se connecter à un service sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md) une fois que vous avez configuré le proxy inverse pour écouter sur HTTPS.
-* **Cluster fully qualified domain name (FQDN) | internal IP :** pour les clients externes, vous pouvez configurer le proxy inverse de façon à le rendre accessible par le biais du domaine du cluster, par exemple mycluster.eastus.cloudapp.azure.com. Par défaut, le proxy inverse s’exécute sur chacun des nœuds. Pour le trafic interne, le proxy inverse est accessible sur l’hôte local ou sur n’importe quelle adresse IP de nœud interne, par exemple 10.0.0.1.
-* **Port :** port, par exemple 19081, spécifié pour le proxy inverse.
-* **ServiceInstanceName :** nom complet de l’instance de service déployée que vous tentez d’atteindre sans le schéma « fabric:/ ». Par exemple, pour atteindre le service *fabric:/myapp/myservice/*, vous pouvez utiliser *myapp/myservice*.
+* **http(s) :** le proxy inverse peut être configuré pour accepter le trafic HTTP ou HTTPS. Pour le transfert HTTPS, reportez-vous à [Se connecter à un service sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md) une fois que vous avez configuré le proxy inverse pour écouter sur HTTPS.
+* **Nom de domaine complet du cluster | IP interne :** pour les clients externes, vous pouvez configurer le proxy inverse de façon à le rendre accessible par le biais du domaine du cluster, par exemple mycluster.eastus.cloudapp.azure.com. Par défaut, le proxy inverse s’exécute sur chacun des nœuds. Pour le trafic interne, le proxy inverse est accessible sur l’hôte local ou sur n’importe quelle adresse IP de nœud interne, par exemple 10.0.0.1.
+* **Port :** port (par exemple 19081) qui est spécifié pour le proxy inverse.
+* **ServiceInstanceName :** nom complet de l’instance de service déployée que vous tentez d’atteindre sans le schéma « fabric:/ ». Par exemple, pour atteindre le service *fabric:/myapp/myservice/*, vous pouvez utiliser *myapp/myservice*.
 
     Le nom d’instance de service respecte la casse. L’utilisation d’une casse différente pour le nom d’instance de service dans l’URL entraîne l’échec des demandes avec l’erreur 404 (Introuvable).
-* **Suffix path :** chemin d’accès réel à l’URL, par exemple *myapi/values/add/3*, associée au service auquel vous souhaitez vous connecter.
-* **PartitionKey :** pour un service partitionné, il s’agit de la clé calculée associée à la partition que vous souhaitez atteindre. Il ne s’agit *pas* du GUID d’ID de la partition. Ce paramètre n’est pas obligatoire pour les services qui utilisent le schéma de partition de singleton.
-* **PartitionKind :** schéma de partition du service. Il peut s’agir de Named ou Int64Range. Ce paramètre n’est pas obligatoire pour les services qui utilisent le schéma de partition de singleton.
+* **Suffix path :** chemin de l’URL, par exemple *myapi/values/add/3*,qui est associée au service auquel vous souhaitez vous connecter.
+* **PartitionKey :** pour un service partitionné, il s’agit de la clé calculée associée à la partition que vous souhaitez atteindre. Il ne s’agit *pas* du GUID d’ID de la partition. Ce paramètre n’est pas obligatoire pour les services qui utilisent le schéma de partition de singleton.
+* **PartitionKind :** schéma de partition du service. Il peut s’agir de Named ou Int64Range. Ce paramètre n’est pas obligatoire pour les services qui utilisent le schéma de partition de singleton.
 * **ListenerName :** les points de terminaison du service se présentent sous la forme {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2"...}}. Lorsque le service expose plusieurs points de terminaison, cela permet d’identifier le point de terminaison auquel la demande client doit être transférée. Ce paramètre peut être omis si le service n’a qu’un seul écouteur.
 * **TargetReplicaSelector :** spécifie le mode de sélection à utiliser pour le réplica cible ou l’instance.
-  * Lorsque le service cible est avec état, le paramètre TargetReplicaSelector peut être défini sur « PrimaryReplica », « RandomSecondaryReplica » ou « RandomReplica ». Lorsque ce paramètre n’est pas spécifié, la valeur par défaut est « PrimaryReplica ».
+  * Lorsque le service cible est avec état, le paramètre TargetReplicaSelector peut être défini sur :  « PrimaryReplica », « RandomSecondaryReplica » ou « RandomReplica ». Lorsque ce paramètre n’est pas spécifié, la valeur par défaut est « PrimaryReplica ».
   * Lorsque le service cible est sans état, le proxy inverse transfère la demande à une instance aléatoire de la partition de service.
-* **Timeout :** spécifie le délai d’attente de la requête HTTP créée par le proxy inverse pour le service, pour le compte de la requête du client. La valeur par défaut est de 60 secondes. Paramètre facultatif.
+* **Timeout :**  spécifie le délai d’attente de la requête HTTP créée par le proxy inverse pour le service, pour le compte de la requête du client. La valeur par défaut est de 60 secondes. Paramètre facultatif.
 
 ### <a name="example-usage"></a>Exemple d’utilisation
 Prenons l’exemple du service *fabric:/MyApp/MyService*, qui ouvre un écouteur HTTP sur l’URL suivante :
@@ -132,8 +132,8 @@ Toutefois, les instances de service ou réplicas peuvent partager un processus h
 
 Dans cette situation, le serveur web est probablement disponible dans le processus hôte et répond aux requêtes, mais le réplica ou l’instance de service résolue ne sont plus accessibles sur l’hôte. Dans ce cas, la passerelle reçoit une réponse HTTP 404 du serveur web. Par conséquent, une réponse HTTP 404 peut avoir deux significations :
 
-- 1er cas : l’adresse du service est correcte, mais la ressource demandée par l’utilisateur n’existe pas.
-- 2e cas : l’adresse du service est incorrecte, et la ressource demandée par l’utilisateur peut exister sur un autre nœud.
+- 1er cas : l’adresse du service est correcte, mais la ressource demandée par l’utilisateur n’existe pas.
+- 2e cas : l’adresse du service est incorrecte, et la ressource demandée par l’utilisateur peut exister sur un autre nœud.
 
 Le premier cas est une erreur HTTP 404 normale, considérée comme une erreur de l’utilisateur. Toutefois, dans le deuxième cas, l’utilisateur a demandé une ressource qui existe réellement. Le proxy inverse n’a pas réussi à la localiser parce que le service a été déplacé. Le proxy inverse doit résoudre à nouveau l’adresse et réexécuter la requête.
 

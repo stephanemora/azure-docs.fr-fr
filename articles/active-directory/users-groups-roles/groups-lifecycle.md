@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 070e86f2d5d37823f1596cf04735b199289f3d75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841732"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166167"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Office 365
 
@@ -55,9 +55,9 @@ Pour plus d’informations sur les autorisations nécessaires pour restaurer un 
 
 4. Dans le panneau **Expiration**, vous pouvez :
 
-  * Définir la durée de vie du groupe en jours. Vous pouvez sélectionner l’une des valeurs prédéfinies ou une valeur personnalisée (31 jours ou plus). 
-  * Spécifier une adresse de messagerie à laquelle les notifications de renouvellement et d’expiration doivent être envoyées lorsqu’un groupe n’a pas de propriétaire. 
-  * Sélectionnez les groupes Office 365 qui expirent. Vous pouvez activer l’expiration pour **tous** les groupes Office 365, vous pouvez choisir d’activer les groupes Office 365 **sélectionnés** uniquement, ou vous pouvez sélectionner **Aucun** pour désactiver l’expiration de tous les groupes.
+  * Définir la durée de vie du groupe en jours. Vous pouvez sélectionner l’une des valeurs prédéfinies ou une valeur personnalisée (31 jours ou plus). 
+  * Spécifier une adresse de messagerie à laquelle les notifications de renouvellement et d’expiration doivent être envoyées lorsqu’un groupe n’a pas de propriétaire. 
+  * Sélectionnez les groupes Office 365 qui expirent. Vous pouvez activer l’expiration pour  **tous** les groupes Office 365, vous pouvez choisir d’activer les groupes Office 365 **sélectionnés** uniquement, ou vous pouvez sélectionner  **Aucun**  pour désactiver l’expiration de tous les groupes.
   * Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
 
@@ -91,45 +91,45 @@ La stratégie de conservation est configurée dans le Centre de conformité et d
 Voici des exemples d’utilisation des applets de commande PowerShell permettant de configurer les paramètres d’expiration des groupes Office 365 de votre locataire :
 
 1. Installez le module de la préversion de PowerShell v2.0 (2.0.0.137) et connectez-vous à l’invite de PowerShell :
-  ````
+  ```
   Install-Module -Name AzureADPreview
   connect-azuread 
-  ````
-2. Configurez les paramètres d’expiration New-AzureADMSGroupLifecyclePolicy : cette applet de commande définit la durée de vie de tous les groupes Office 365 du locataire sur 365 jours. Les notifications de renouvellement pour les groupes Office 365 sans propriétaires sont envoyées à « emailaddress@contoso.com ».
+  ```
+2. Configurez les paramètres d’expiration. New-AzureADMSGroupLifecyclePolicy :  cette applet de commande définit a durée de vie de tous les groupes Office 365 du locataire sur 365 jours. Les notifications de renouvellement pour les groupes Office 365 sans propriétaires sont envoyées à « emailaddress@contoso.com ».
   
-  ````
+  ```
   New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
-  ````
-3. Récupérez la stratégie existante Get-AzureADMSGroupLifecyclePolicy : cette applet de commande récupère les paramètres d’expiration des groupes Office 365 qui ont été configurés. Dans cet exemple, vous pouvez voir ce qui suit :
+  ```
+3. Récupérez la stratégie existante. Get-AzureADMSGroupLifecyclePolicy : cette applet de commande récupère les paramètres d’expiration actuels du groupe Office 365 qui ont été configurés. Dans cet exemple, vous pouvez voir ce qui suit :
   * L’ID de la stratégie 
   * La durée de vie de tous les groupes Office 365 du locataire est définie sur 365 jours
   * Les notifications de renouvellement pour les groupes Office 365 sans propriétaires sont envoyées à « emailaddress@contoso.com ».
   
-  ````
+  ```
   Get-AzureADMSGroupLifecyclePolicy
   
   ID                                    GroupLifetimeInDays ManagedGroupTypes AlternateNotificationEmails
   --                                    ------------------- ----------------- ---------------------------
   26fcc232-d1c3-4375-b68d-15c296f1f077  365                 All               emailaddress@contoso.com
-  ```` 
+  ``` 
    
-4. Mettez à jour la stratégie existante Set-AzureADMSGroupLifecyclePolicy : cette applet de commande est utilisée pour mettre à jour une stratégie existante. Dans l’exemple ci-dessous, la durée de vie du groupe dans la stratégie existante est passée de 365 jours à 180 jours. 
+4. Mettez à jour la stratégie existante. Set-AzureADMSGroupLifecyclePolicy : cette applet de commande sert à mettre à jour une stratégie existante. Dans l’exemple ci-dessous, la durée de vie du groupe dans la stratégie existante est passée de 365 jours à 180 jours. 
   
-  ````
-  Set-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”   -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
-  ````
+  ```
+  Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
+  ```
   
-5. Ajoutez des groupes à la stratégie Add-AzureADMSLifecyclePolicyGroup : cette applet de commande ajoute un groupe à la stratégie de cycle de vie. Par exemple : 
+5. Ajoutez des groupes spécifiques à la stratégie. Add-AzureADMSLifecyclePolicyGroup : cette applet de commande ajoute un groupe à la stratégie du cycle de vie. Par exemple : 
   
-  ````
-  Add-AzureADMSLifecyclePolicyGroup -Id “26fcc232-d1c3-4375-b68d-15c296f1f077” -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
-  ````
+  ```
+  Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
+  ```
   
-6. Supprimez la stratégie existante AzureADMSGroupLifecyclePolicy : cette applet de commande supprime les paramètres d’expiration des groupes Office 365, mais nécessite l’ID de la stratégie. Cela va désactiver l’expiration des groupes Office 365. 
+6. Supprimez la stratégie existante. Remove-AzureADMSGroupLifecyclePolicy : cette applet de commande supprime les paramètres d’expiration du groupe Office 365, mais nécessite l’ID de stratégie. Cela va désactiver l’expiration des groupes Office 365. 
   
-  ````
-  Remove-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”
-  ````
+  ```
+  Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
+  ```
   
 Les applets de commande suivantes peuvent être utilisées pour configurer la stratégie plus en détail. Pour plus d’informations, consultez la [documentation PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
 

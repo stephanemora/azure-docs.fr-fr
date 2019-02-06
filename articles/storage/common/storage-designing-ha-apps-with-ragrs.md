@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: afcda23faf4e9f0999442fa91d3c016e446c04db
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524540"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454941"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d’applications hautement disponibles à l’aide du stockage RA-GRS
 
@@ -24,12 +24,12 @@ La fourniture d’une plateforme hautement disponible comme Stockage Azure pour 
 
 Cet article se concentre sur GRS et RA-GRS. Avec le stockage GRS, trois copies de vos données sont conservées dans la région primaire que vous avez sélectionnée lors de la configuration du compte de stockage. Trois copies supplémentaires sont conservées de façon asynchrone dans une région secondaire spécifiée par Azure. RA-GRS offre un stockage géoredondant avec accès en lecture à la copie secondaire.
 
-Pour plus d’informations sur les appairages entre régions primaires et régions secondaires, consultez [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Pour plus d’informations sur les peerings entre régions primaires et régions secondaires, consultez [Continuité et reprise d’activité : régions jumelées d’Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Vous y trouverez aussi des extraits de code et, à la fin, un lien vers un exemple complet que vous pouvez télécharger et exécuter.
 
 > [!NOTE]
-> Le stockage Azure prend maintenant en charge le stockage redondant interzone (ZRS) pour générer des applications hautement disponibles. Le stockage ZRS offre une solution simple pour les besoins de redondance de nombreuses applications. Il protège contre les défaillances matérielles ou les catastrophes naturelles qui affecteraient un centre de données unique. Pour plus d’informations, consultez [Stockage redondant interzone (ZRS) : applications de stockage Azure hautement disponibles](storage-redundancy-zrs.md).
+> Le stockage Azure prend maintenant en charge le stockage redondant interzone (ZRS) pour générer des applications hautement disponibles. Le stockage ZRS offre une solution simple pour les besoins de redondance de nombreuses applications. Il protège contre les défaillances matérielles ou les catastrophes naturelles qui affecteraient un centre de données unique. Pour plus d’informations, consultez [Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>Fonctionnalités clés du stockage RA-GRS
 
@@ -149,7 +149,7 @@ Vous devez également réfléchir à la façon de gérer plusieurs instances d�
 
 Vous disposez de trois options principales pour la surveillance de la fréquence des nouvelles tentatives dans la région primaire, en vue de déterminer à quel moment basculer vers la région secondaire et faire passer l’application en mode lecture seule.
 
-*   Ajoutez un gestionnaire pour l’événement [**Retrying**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) sur l’objet [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) transmis à vos demandes de stockage. Il s’agit de la méthode présentée dans cet article et utilisée dans l’exemple qui l’accompagne. Ces événements se déclenchent à chaque fois que le client tente une nouvelle demande, ce qui vous permet de suivre la fréquence à laquelle le client rencontre des erreurs renouvelables sur un point de terminaison principal.
+*   Ajoutez un gestionnaire pour l’événement [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) sur l’objet [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) transmis à vos demandes de stockage. Il s’agit de la méthode présentée dans cet article et utilisée dans l’exemple qui l’accompagne. Ces événements se déclenchent à chaque fois que le client tente une nouvelle demande, ce qui vous permet de suivre la fréquence à laquelle le client rencontre des erreurs renouvelables sur un point de terminaison principal.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -160,7 +160,7 @@ Vous disposez de trois options principales pour la surveillance de la fréquence
     };
     ```
 
-*   Dans la méthode [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) d’une stratégie de nouvelle tentative personnalisée, vous pouvez exécuter du code personnalisé chaque fois qu’une nouvelle tentative est effectuée. Le moment où une nouvelle tentative est effectuée est enregistré. En outre, cela vous donne également la possibilité de modifier le comportement de nouvelle tentative.
+*   Dans la méthode [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) d’une stratégie de nouvelle tentative personnalisée, vous pouvez exécuter du code personnalisé chaque fois qu’une nouvelle tentative est effectuée. Le moment où une nouvelle tentative est effectuée est enregistré. En outre, cela vous donne également la possibilité de modifier le comportement de nouvelle tentative.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

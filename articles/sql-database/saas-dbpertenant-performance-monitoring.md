@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.date: 01/25/2019
+ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259135"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459483"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 
 Ce didacticiel aborde plusieurs scénarios de gestion de performance clés utilisés dans les applications SaaS. Les fonctionnalités intégrées de surveillance et d’alerte de base de données de SQL Database, ainsi que les pools élastiques sont illustrés à l’aide d’un générateur de charge destiné à simuler l’activité de toutes les bases de données client.
 
-L’application de base de données Wingtip Tickets SaaS par client utilise un modèle de données par locataire, où chaque lieu (locataire) possède sa propre base de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation typique, les bases de données de locataire sont déployées dans des pools de bases de données élastiques. Les pools élastiques optimisent le coût d’une solution en partageant des ressources entre de nombreuses bases de données. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données et des pools pour veiller à ce que les charges soient raisonnablement équilibrées entre les pools. Vous devez également vous assurer que les bases de données ont des ressources appropriées et que les pools n’atteignent pas les limites d’[eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Ce didacticiel explore plusieurs moyens de surveiller et de gérer des bases de données et des pools et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
+L’application de base de données Wingtip Tickets SaaS par client utilise un modèle de données par locataire, où chaque lieu (locataire) possède sa propre base de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation de base de données typique, les bases de données de locataire sont déployées dans des pools élastiques. Les pools élastiques optimisent le coût d’une solution en partageant des ressources entre de nombreuses bases de données. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données et des pools pour veiller à ce que les charges soient raisonnablement équilibrées entre les pools. Vous devez également vous assurer que les bases de données ont des ressources appropriées et que les pools n’atteignent pas les limites d’[eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Ce didacticiel explore plusieurs moyens de surveiller et de gérer des bases de données et des pools et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -42,7 +42,7 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Présentation des modèles de gestion de la performance SaaS
 
-La gestion des performances des bases de données se compose des opérations suivantes : compilation et analyse des données de performances, puis réaction à ces données en ajustant les paramètres afin de conserver un temps de réponse acceptable pour votre application. Lorsque vous hébergez plusieurs locataires, les pools de bases de données élastiques sont un moyen économique pour fournir et gérer des ressources d’un groupe de bases de données avec des charges de travail imprévisibles. Avec certains modèles de charge de travail, il peut être avantageux de gérer ne serait-ce que 2 bases de données S3 dans un pool.
+La gestion des performances des bases de données se compose des opérations suivantes : compilation et analyse des données de performances, puis réaction à ces données en ajustant les paramètres afin de conserver un temps de réponse acceptable pour votre application. Lorsque vous hébergez plusieurs locataires, les pools élastiques sont un moyen économique pour fournir et gérer des ressources d’un groupe de bases de données avec des charges de travail imprévisibles. Avec certains modèles de charge de travail, il peut être avantageux de gérer ne serait-ce que 2 bases de données S3 dans un pool.
 
 ![Diagramme de l’application](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
@@ -169,7 +169,7 @@ Comme alternative à la mise à l’échelle du pool, créez un deuxième pool e
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez le serveur **tenants1-dpt-&lt;UTILISATEUR&gt;**.
 1. Cliquez sur **+ Nouveau pool** pour créer un pool sur le serveur actuel.
-1. Sur le modèle de **pool de bases de données élastique** :
+1. Sur le modèle de **pool élastique** :
 
     1. Définissez **Nom** sur *Pool2*.
     1. Laissez le niveau tarifaire **Pool Standard**.
@@ -189,9 +189,9 @@ Accédez à **Pool2** (sur le serveur *tenants1-dpt-\<utilisateur\>*) pour ouvri
 
 Vous voyez à présent que l’utilisation des ressources sur le *Pool1* a chuté et que le *Pool2* est chargé dans la même mesure.
 
-## <a name="manage-performance-of-a-single-database"></a>Gérer les performances d’une base de données
+## <a name="manage-performance-of-an-individual-database"></a>Gérer les performances d’une base de données individuelle
 
-Si une base de données d’un pool connaît une charge élevée soutenue, selon la configuration du pool, elle peut dominer les ressources du pool et avoir un impact sur d’autres bases de données. Si l’activité est susceptible de continuer pendant un certain temps, la base de données peut être déplacée temporairement hors du pool. Cela permet à la base de données de disposer des ressources supplémentaires dont elle a besoin, et l’isole les autres bases de données.
+Si une base de données individuelle d’un pool connaît une charge élevée soutenue, selon la configuration du pool, elle peut dominer les ressources du pool et avoir un impact sur d’autres bases de données. Si l’activité est susceptible de continuer pendant un certain temps, la base de données peut être déplacée temporairement hors du pool. Cela permet à la base de données de disposer des ressources supplémentaires dont elle a besoin, et l’isole les autres bases de données.
 
 Cet exercice simule l’effet de la salle de concert Contoso qui subit une charge élevée quand les tickets sont mis en vente pour un concert populaire.
 
@@ -203,7 +203,7 @@ Cet exercice simule l’effet de la salle de concert Contoso qui subit une charg
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à la liste des bases de données sur le serveur *tenants1-dpt-\<utilisateur\>*. 
 1. Cliquez sur la base de données **contosoconcerthall**.
-1. Cliquez sur le pool dans lequel se trouve **contosoconcerthall**. Recherchez dans le pool de la section **Pool de bases de données élastiques**.
+1. Cliquez sur le pool dans lequel se trouve **contosoconcerthall**. Recherchez le pool dans la section **Pool élastique**.
 
 1. Inspectez le graphique **Surveillance du pool élastique**, et recherchez l’utilisation d’eDTU du pool accrue. Après une ou deux minutes, la charge plus élevée doit commencer à apparaître et vous devez rapidement voir que le pool a atteint 100 % d’utilisation.
 2. Examinez également l’affichage **Surveillance de la base de données élastique** qui illustre les bases de données les plus actives au cours de la dernière heure. La base de données *contosoconcerthall* doit figurer rapidement parmi les cinq bases de données les plus sollicitées.

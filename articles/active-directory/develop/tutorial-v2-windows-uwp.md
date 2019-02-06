@@ -7,7 +7,7 @@ author: andretms
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986540"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097059"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (XAML)
 
@@ -359,7 +359,7 @@ Des informations de base sur le jeton obtenu via `AcquireTokenAsync` ou `Acquire
 |---------|---------|---------|
 |**Name** |Nom complet de l’utilisateur|Prénom et nom de l’utilisateur|
 |**Nom d’utilisateur** |<span>user@domain.com</span> |Nom qui identifie l’utilisateur.|
-|**Token Expires** |Datetime |L’heure d’expiration du jeton. MSAL repousse la date d’expiration en renouvelant le jeton si nécessaire.|
+|**Token Expires** |DateTime |L’heure d’expiration du jeton. MSAL repousse la date d’expiration en renouvelant le jeton si nécessaire.|
 |**Access Token** |Chaîne |Chaîne de jeton qui est envoyée aux requêtes HTTP qui nécessitent un *en-tête d’autorisation*.|
 
 #### <a name="see-whats-in-the-access-token-optional"></a>Voir le contenu du jeton d’accès (facultatif)
@@ -384,12 +384,12 @@ Vous recevez l’un des messages d’erreur suivants lorsque vous vous connectez
 
 **Cause :** les fonctionnalités d’entreprise et de certificats ne sont pas activées.
 
-**Solution :** suivez les étapes de [l’authentification intégrée sur des domaines fédérés](#enable-integrated-authentication-on-federated-domains-optional).
+**Solution :** suivez les étapes de [l’authentification intégrée sur des domaines fédérés](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Problème 2
 Vous activez [l’authentification intégrée sur des domaines fédérés](#enable-integrated-authentication-on-federated-domains-optional) et essayez d’utiliser Windows Hello sur un ordinateur Windows 10 pour vous connecter à un environnement dans lequel l’authentification multifacteur est configurée. La liste des certificats s’affiche. Toutefois, si vous choisissez d’utiliser votre code confidentiel, la fenêtre correspondante ne s’affiche jamais.
 
-**Cause :** ce problème est une limitation connue du service Broker d’authentification web dans les applications UWP qui s’exécutent sur Windows 10 Desktop. Il fonctionne correctement sur Windows 10 Mobile.
+**Cause :** ce problème est une limitation connue du répartiteur d’authentification web dans les applications UWP qui s’exécutent sur les appareils de bureau Windows 10. Il fonctionne correctement sur Windows 10 Mobile.
 
 **Solution de contournement :** sélectionnez **Connexion avec d’autres options**, puis **Sign in with a username and password** (Se connecter avec un nom d’utilisateur et un mot de passe). Sélectionnez **Provide your password** (Indiquer votre mot de passe), puis passez au processus d’authentification par téléphone.
 

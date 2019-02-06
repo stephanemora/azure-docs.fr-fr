@@ -1,6 +1,6 @@
 ---
-titre : Étape 3 : Créer une expérience Machine Learning Studio titleSuffix : Description d’Azure Machine Learning Studio : Étape 3 de la procédure pas à pas : développer une solution prédictive : Créer une expérience de formation dans Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Étape 3 : Créer une expérience Machine Learning Studio titleSuffix : Description d’Azure Machine Learning Studio : Étape 3 de la procédure pas à pas : développer une solution prédictive : Créer une expérience de formation dans Azure Machine Learning Studio.
+services : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---

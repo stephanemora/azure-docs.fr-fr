@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 28c9e342aec3eb3ba61b46f4f80c7d097b0653b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 211051254e08d69c06afd4242599c909048e7e17
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258712"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464838"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Utilisation d’Azure Classic CLI avec le Stockage Azure
 
@@ -35,7 +35,7 @@ Ce guide part du principe que vous comprenez les concepts de base de Microsoft A
 ## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Bien démarrer avec le Stockage Azure et Azure Classic CLI en 5 minutes
 Ce guide inclut des exemples basés sur Ubuntu, mais les résultats devraient être les mêmes sur d’autres plates-formes.
 
-**Nouveautés de Microsoft Azure :** obtenez un abonnement à Microsoft Azure, ainsi qu’un compte Microsoft associé. Pour en savoir plus sur les options d’achat de Microsoft Azure, voir [Essai gratuit](https://azure.microsoft.com/pricing/free-trial/), [Options d’achat](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network et BizSpark, ainsi que d’autres programmes Microsoft).
+**Nouveautés d’Azure :** Obtenez un abonnement à Microsoft Azure, ainsi qu’un compte Microsoft associé. Pour en savoir plus sur les options d’achat de Microsoft Azure, voir [Essai gratuit](https://azure.microsoft.com/pricing/free-trial/), [Options d’achat](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network et BizSpark, ainsi que d’autres programmes Microsoft).
 
 Pour plus d’informations sur les abonnements Azure, consultez la section [Attribution de rôles d’administrateur dans Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) .
 
@@ -78,7 +78,7 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
 5. Sur ce dernier, ouvrez l’éditeur de texte de votre choix (vim, par exemple). Saisissez le script ci-dessus dans cet éditeur.
 6. Maintenant, vous devez mettre à jour les variables du script en fonction de vos paramètres de configuration.
 
-   * **&lt;nom_compte_stockage&gt;** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
+   * **&lt;nom_compte_stockage&gt;** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre compte de stockage. **Important :** Le nom du compte de stockage doit être unique dans Azure. Il doit également inclure des minuscules uniquement.
    * **&lt;clé_compte_stockage&gt;** : clé d’accès associée à votre compte de stockage.
    * **&lt;nom_conteneur&gt;** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
    * **&lt;image_à_télécharger&gt;** : entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « ~/images/HelloWorld.png ».

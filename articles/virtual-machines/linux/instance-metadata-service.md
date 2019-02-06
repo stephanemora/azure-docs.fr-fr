@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: eab9f13ad41d4109bb44ae196a7f8e2177886532
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 772070b73f1d2dcf83d15283f6be70ab4fef148b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994196"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155663"
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -491,7 +491,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Pour obtenir un support technique pour le service, créez un problème de support dans le portail Azure pour la machine virtuelle sur laquelle vous ne pouvez pas obtenir de réponse de métadonnées après plusieurs tentatives longues. 
 9. Quand j’appelle le service, un message m’informe que ma demande a expiré.
    * Les appels de métadonnées doivent être effectués à partir de l’adresse IP principale assignée à la carte réseau de la machine virtuelle. En outre, si vous avez modifié vos itinéraires, un itinéraire doit exister pour l’adresse 169.254.0.0/16 en dehors de votre carte réseau.
-10. J’ai mis à jour les balises d’un groupe de machines virtuelles identiques, mais elles ne s’affichent pas dans les instances, contrairement aux machines virtuelles
+10. J’ai mis à jour les balises d’un groupe de machines virtuelles identiques, mais elles ne s’affichent pas dans les instances, contrairement aux machines virtuelles.
    * Les balises de groupe de machines virtuelles identiques s’affichent uniquement dans la machine virtuelle lors d’un redémarrage, d’une réinitialisation ou d’une modification de disque pour l’instance. 
 
    ![Support des métadonnées d’instance](./media/instance-metadata-service/InstanceMetadata-support.png)

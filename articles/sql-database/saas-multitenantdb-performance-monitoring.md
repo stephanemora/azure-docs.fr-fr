@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 01/25/2019
+ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830003"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458123"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire
 
@@ -161,7 +161,7 @@ Si vous avez déjà provisionné un nouveau locataire dans sa propre base de don
 
 Le script provisionne ce locataire dans une base de données distincte, inscrit la base de données et le locataire auprès du catalogue, puis ouvre la page des événements du locataire dans le navigateur. Quand vous actualisez la page Event Hub, vous pouvez voir que « Salix Salsa » a été ajouté comme lieu.
 
-## <a name="manage-performance-of-a-single-database"></a>Gérer les performances d’une base de données
+## <a name="manage-performance-of-an-individual-database"></a>Gérer les performances d’une base de données individuelle
 
 Si un locataire unique dans une base de données multi-locataire fait l’objet d’une charge élevée soutenue, il peut avoir tendance à dominer les ressources de la base de données et à impacter d’autres locataires dans la même base de données. Si l’activité est susceptible de continuer pendant un certain temps, le locataire peut être déplacé temporairement hors de la base de données et dans sa propre base de données à locataire unique. Cela permet au locataire de disposer des ressources supplémentaires dont il a besoin et d’être complètement isolé des autres locataires.
 

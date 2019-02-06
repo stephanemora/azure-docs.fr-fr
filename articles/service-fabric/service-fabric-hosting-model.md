@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 367f21c63eac3969fb19eada91eae9a8577921de
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80d9d447a86b58c8d6db5a62d3b0df997e42f673
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348478"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172372"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modèle d’hébergement Azure Service Fabric
 Cet article fournit une vue d’ensemble des modèles d’hébergement d’applications fournis par Azure Service Fabric et décrit les différences entre les modèles à **processus partagé** et à **processus exclusif**. Il décrit le fonctionnement d’une application déployée sur un nœud Service Fabric, et présente la relation entre les réplicas (ou instances) du service et le processus hôte du service.
@@ -150,7 +150,7 @@ Dans certains cas d’usage, Service Fabric autorise également plusieurs *Servi
 
 Le modèle d’hébergement à processus exclusif n’est pas cohérent avec le modèle d’application qui utilise plusieurs *ServiceTypes* par *ServicePackage*. En effet, plusieurs *ServiceTypes* par *ServicePackage* sont destinés à améliorer le partage des ressources entre les réplicas et à augmenter la densité de réplica par processus. Le modèle à processus exclusif à un usage différent.
 
-Prenons le cas de plusieurs *ServiceTypes* par *ServicePackage* avec un *CodePackage* différent qui inscrit chaque *ServiceType*. Supposons que nous avons un *ServicePackage* « MultiTypeServicePackage » qui comporte deux *CodePackages* :
+Prenons le cas de plusieurs *ServiceTypes* par *ServicePackage* avec un *CodePackage* différent qui inscrit chaque *ServiceType*. Prenons l’exemple d’un *ServicePackage*, « MultiTypeServicePackage », comprenant deux *CodePackages* :
 
 - « MyCodePackageA », qui inscrit le *ServiceType* « MyServiceTypeA ».
 - « MyCodePackageB », qui inscrit le *ServiceType* « MyServiceTypeB ».
@@ -160,15 +160,15 @@ Maintenant, nous allons créer l’application **fabric:/SpecialApp**. Dans **fa
 - Le service **fabric:/SpecialApp/ServiceA** de type « MyServiceTypeA » avec deux partitions (par exemple, **P1** et **P2**), et trois réplicas par partition.
 - Le service **fabric:/SpecialApp/ServiceB** de type « MyServiceTypeB » avec deux partitions (par exemple, **P3** et **P4**), et trois réplicas par partition.
 
-Sur un nœud donné, les deux services ont chacun deux réplicas. Étant donné que nous avons utilisé le modèle à processus exclusif pour créer les services, Service Fabric active une nouvelle copie de « MyServicePackage » pour chaque réplica. Chaque activation de « MultiTypeServicePackage » démarre une copie de « MyCodePackageA » et « MyCodePackageB ». Cependant, le réplica pour lequel « MultiTypeServicePackage » a été activé ne peut être hébergé que par « MyCodePackageA » ou par « MyCodePackageB ». Le diagramme qui suit montre la vue du nœud :
+Sur un nœud donné, les deux services ont chacun deux réplicas. Étant donné que nous avons utilisé le modèle à processus exclusif pour créer les services, Service Fabric active une nouvelle copie de « MyServicePackage » pour chaque réplica. Chaque activation de « MultiTypeServicePackage » démarre une copie de « MyCodePackageA » et « MyCodePackageB ». Cependant, le réplica pour lequel « MultiTypeServicePackage » a été activé ne peut être hébergé que par « MyCodePackageA » ou par « MyCodePackageB ». Le diagramme qui suit montre la vue du nœud :
 
 
 ![Diagramme de la vue du nœud de l’application déployée][node-view-five]
 
 
-Dans l’activation de « MultiTypeServicePackage » pour le réplica de la partition **P1** du service **fabric:/SpecialApp/ServiceA**, « MyCodePackageA » héberge le réplica. « MyCodePackageB » est en cours d’exécution. De même, dans l’activation de « MultiTypeServicePackage » pour le réplica de la partition **P3** du service **fabric:/SpecialApp/ServiceB**, « MyCodePackageB » héberge le réplica. « MyCodePackageA » est en cours d’exécution. Par conséquent, plus il y a de *CodePackages* (inscrivant différents *ServiceTypes*) par *ServicePackage*, plus on utilise de ressources redondantes. 
+Dans l’activation de « MultiTypeServicePackage » pour le réplica de la partition **P1** du service **fabric:/SpecialApp/ServiceA**, « MyCodePackageA » héberge le réplica. « MyCodePackageB » est en cours d’exécution. De même, dans l’activation de « MultiTypeServicePackage » pour le réplica de la partition **P3** du service **fabric:/SpecialApp/ServiceB**, « MyCodePackageB » héberge le réplica. « MyCodePackageA » est en cours d’exécution. Par conséquent, plus il y a de *CodePackages* (inscrivant différents *ServiceTypes*) par *ServicePackage*, plus on utilise de ressources redondantes. 
  
- En revanche, si nous créons les services **fabric:/SpecialApp/ServiceA** et **fabric:/SpecialApp/ServiceB** avec le modèle à processus partagé, Service Fabric active une seule copie de « MultiTypeServicePackage » pour l’application **fabric:/SpecialApp**. « MyCodePackageA » héberge tous les réplicas pour le service **fabric:/SpecialApp/ServiceA**. « MyCodePackageB » héberge tous les réplicas pour le service **fabric:/SpecialApp/ServiceB**. Le schéma qui suit présente la vue du nœud dans ce paramètre : 
+ En revanche, si nous créons les services **fabric:/SpecialApp/ServiceA** et **fabric:/SpecialApp/ServiceB** avec le modèle à processus partagé, Service Fabric active une seule copie de « MultiTypeServicePackage » pour l’application **fabric:/SpecialApp**. « MyCodePackageA » héberge tous les réplicas pour le service **fabric:/SpecialApp/ServiceA**. « MyCodePackageB » héberge tous les réplicas pour le service **fabric:/SpecialApp/ServiceB**. Le schéma qui suit présente la vue du nœud dans ce paramètre : 
 
 
 ![Diagramme de la vue du nœud de l’application déployée][node-view-six]

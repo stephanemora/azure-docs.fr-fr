@@ -11,24 +11,28 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
-ms.date: 08/27/2018
-ms.openlocfilehash: b3bdcc81776067f279c1f95458a0a79a8824f51c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: dbc3b7e2e013dc53a1e2524c44bd2229a6a1b18d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603047"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462968"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Bien démarrer avec les outils de base de données élastique
+
 Ce document présente l’expérience du développeur dans la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md) en vous aidant à exécuter un exemple d’application. L’exemple d’application crée une application partitionnée simple et explore les fonctionnalités clés des outils de base de données élastique d’Azure SQL Database. Il s’intéresse aux cas d’utilisation pour la [gestion des cartes de partition](sql-database-elastic-scale-shard-map-management.md), le [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) et [l’interrogation de plusieurs partitions](sql-database-elastic-scale-multishard-querying.md). La bibliothèque cliente est disponible pour .NET ainsi que Java. 
 
 ## <a name="elastic-database-tools-for-java"></a>Outils de base de données élastique pour Java
+
 ### <a name="prerequisites"></a>Prérequis
+
 * JDK (Java Developer Kit) version 1.8 ou ultérieure
 * [Maven](http://maven.apache.org/download.cgi)
-* Serveur logique dans Azure ou instance SQL Server locale
+* Serveur SQL Database dans Azure ou instance SQL Server locale
 
 ### <a name="download-and-run-the-sample-app"></a>Télécharger et exécuter l’exemple d’application
+
 Pour générer les fichiers JAR et commencer avec l’exemple de projet, effectuez les étapes suivantes : 
 1. Clonez le [dépôt GitHub](https://github.com/Microsoft/elastic-db-tools-for-java) contenant la bibliothèque cliente en même temps que l’exemple d’application. 
 
@@ -65,12 +69,15 @@ Pour ajouter la bibliothèque cliente à votre propre projet Maven, ajoutez la d
 </dependency> 
 ```
 
-## <a name="elastic-database-tools-for-net"></a>Outils de base de données élastique pour .NET 
+## <a name="elastic-database-tools-for-net"></a>Outils de base de données élastique pour .NET
+
 ### <a name="prerequisites"></a>Prérequis
+
 * Visual Studio 2012 ou ultérieur avec C#. Téléchargez une version gratuite à la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>Télécharger et exécuter l’exemple d’application
+
 Pour installer la bibliothèque, accédez à [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). La bibliothèque est installée avec l’exemple d’application décrit dans la section ci-dessous.
 
 Pour télécharger et exécuter les exemples, procédez comme suit : 
@@ -91,10 +98,9 @@ Félicitations ! Vous avez correctement conçu et exécuté votre première appl
 
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour d’Azure et de SQL Database. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
 
 ## <a name="key-pieces-of-the-code-sample"></a>Éléments clés de l’exemple de code
+
 * **Gestion des partitions et des cartes de partitions** : le code montre comment utiliser les partitions, les plages et les mappages dans le fichier *ShardManagementUtils.cs*. Pour plus d’informations, consultez la page [Monter en charge les bases de données avec le Gestionnaire de cartes de partitions](https://go.microsoft.com/?linkid=9862595).  
 
 * **Routage dépendant des données** : le routage des transactions vers la partition appropriée est indiqué dans le fichier *DataDependentRoutingSample.cs*. Pour plus d’informations, consultez la page [Routage dépendant des données](https://go.microsoft.com/?linkid=9862596). 
@@ -104,11 +110,13 @@ Félicitations ! Vous avez correctement conçu et exécuté votre première appl
 * **Ajout de partitions vides** : l’ajout itératif de nouvelles partitions vides est effectué par le code dans le fichier *CreateShardSample.cs*. Pour plus d’informations, consultez la page [Monter en charge les bases de données avec le Gestionnaire de cartes de partitions](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Autres opérations de mise à l’échelle élastique
+
 * **Fractionnement d’une partition existante** : la fonctionnalité de fractionnement des partitions est proposée par l’outil de division-fusion. Pour plus d’informations, consultez la page [Déplacement de données entre des bases de données cloud montées en charge](sql-database-elastic-scale-overview-split-and-merge.md).
 
 * **Fusion des partitions existantes** : les fusions de partitions sont aussi effectuées à l’aide de l’outil de division-fusion. Pour plus d’informations, consultez la page [Déplacement de données entre des bases de données cloud montées en charge](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## <a name="cost"></a>Coût
+
 La bibliothèque des outils de base de données élastique est gratuite. Si vous utilisez des outils de base de données élastique, aucun frais supplémentaire n’est ajouté au coût d’utilisation d’Azure. 
 
 Par exemple, l’exemple d’application crée des bases de données. Le coût correspondant dépend de l’édition de SQL Database choisie et de l’utilisation d’Azure par votre application.
@@ -116,6 +124,7 @@ Par exemple, l’exemple d’application crée des bases de données. Le coût c
 Pour plus d’informations sur la tarification, consultez la page [Tarification de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur les outils de base de données élastique, consultez les articles suivants :
 
 * Exemples de code : 

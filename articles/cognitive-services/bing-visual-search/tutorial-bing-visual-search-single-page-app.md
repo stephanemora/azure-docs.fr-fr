@@ -6,22 +6,22 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: 8ff5e36e6189c522e00c7cdd126c26b1cef92912
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ca210130a1319ffc1f9dfd867d6c320ea0bd68b1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745140"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192645"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Créer une application Recherche visuelle d’une seule page 
 
 L’API Recherche visuelle de Bing fournit une expérience similaire aux détails de l’image illustrés sur Bing.com/images. Avec la Recherche visuelle, vous pouvez spécifier une image et obtenir des insights sur celle-ci, comme des images visuellement similaires, des sources d’achat, des pages web qui incluent l’image, et bien plus encore. 
 
-Cet article explique comment étendre une application web d’une seule page pour l’API Recherche d’images Bing. Pour afficher ce didacticiel ou obtenir le code source utilisé ici, voir [Didacticiel : Créer une application d’une seule page pour l’API Recherche d’images Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
+Cet article explique comment étendre une application web d’une seule page pour l’API Recherche d’images Bing. Pour afficher ce tutoriel ou obtenir le code source utilisé ici, consultez [Tutoriel : Créer une application monopage avec l’API Recherche d’images Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
 
 Le code source complet pour cette application (après son extension pour utiliser l’API Recherche visuelle Bing) est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 

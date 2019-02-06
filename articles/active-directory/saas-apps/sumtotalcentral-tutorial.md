@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SumTotalCentral | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à SumTotalCentral | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SumTotalCentral.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 93ad629a-f516-4cac-bfe2-a77257e3a797
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c604eebb2c1c85de717217063333190ffa865f4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6658cc2db28fb58821afbc320ed4f7227fb3ccc2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426514"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>Didacticiel : Intégration d’Azure Active Directory à SumTotalCentral
 
@@ -128,7 +128,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 1. Pour configurer l’authentification unique côté **SumTotalCentral**, vous devez envoyer le fichier **XML des métadonnées** téléchargé à [l’équipe de support SumTotalCentral](http://www.sumtotalsystems.com/support/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
@@ -165,7 +165,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-sumtotalcentral-test-user"></a>Créer un utilisateur de test SumTotalCentral
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SumTotalCentral. Collaborez avec [l’équipe de support SumTotalCentral](http://www.sumtotalsystems.com/support/) pour ajouter des utilisateurs dans la plateforme SumTotalCentral. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.  
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SumTotalCentral. Collaborez avec l’ [équipe de support technique SumTotalCentral](http://www.sumtotalsystems.com/support/)  pour ajouter des utilisateurs à la plateforme SumTotalCentral. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

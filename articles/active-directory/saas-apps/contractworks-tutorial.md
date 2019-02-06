@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e7b269d6-3c4e-4bc4-a55f-5071d1f52591
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf012f276a300cb8f70590c306020993b448cc6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: faa1f4887502968e4deeee47e396b25480d0cd05
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427739"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182283"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Tutoriel : Intégration d’Azure Active Directory à ContractWorks
+# <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Tutoriel : Intégration d’Azure Active Directory à ContractWorks
 
 Dans ce tutoriel, vous allez apprendre à intégrer ContractWorks à Azure Active Directory (Azure AD).
 
@@ -141,7 +141,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     d. Cliquez sur **OK**.
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+1. Dans la section  **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération de l’application** , puis collez-la dans le Bloc-notes.
     
     ![Configurer l'authentification unique](./media/contractworks-tutorial/tutorial_metadataurl.png)
      
@@ -185,7 +185,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-contractworks-test-user"></a>Créer un utilisateur de test ContractWorks
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ContractWorks. Collaborez avec [l’équipe de support ContractWorks](mailto:support@contractworks.com) pour ajouter des utilisateurs dans la plateforme ContractWorks. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ContractWorks. Collaborez avec  [l’équipe du support technique de ContractWorks](mailto:support@contractworks.com)  pour ajouter des utilisateurs à la plateforme ContractWorks. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

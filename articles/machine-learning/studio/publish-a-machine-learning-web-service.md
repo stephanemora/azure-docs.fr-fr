@@ -1,6 +1,6 @@
 ---
-titre : Déployer un service web Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Comment convertir une expérience d’entraînement en expérience prédictive, la préparer en vue de son déploiement, puis la déployer en tant que service web Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Déployer un service web Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Comment convertir une expérience d’entraînement en expérience prédictive, la préparer en vue de son déploiement, puis la déployer en tant que service web Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 06/01/2017
 ---

@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 39d49a223fb02d00af2309922ccd98a764264b4d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4e6912d13b4192b1f938acf5a9808221f5aa42f7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452511"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077656"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ?
 
@@ -71,9 +71,15 @@ L’authentification multifacteur contribue à empêcher tout accès à vos ress
 
 ### <a name="compliant-device"></a>Conformité de l’appareil
 
-Vous pouvez configurer des stratégies d’accès conditionnel au niveau de l’appareil. L’objectif d’une stratégie d’accès conditionnel appareil par appareil est de n’accorder l’accès aux ressources configurées qu’aux [appareils gérés](require-managed-devices.md). Vous pouvez par exemple exiger un appareil conforme, ce qui implique de définir ce qu’est un appareil géré. Si cette option est sélectionnée, votre stratégie d’accès conditionnel accorde l’accès aux tentatives effectuées à l’aide d’appareils [inscrits](../devices/overview.md) dans Azure Active Directory, et marqués comme conformes par Intune (pour n’importe quel système d’exploitation) ou par votre système MDM tiers pour appareils Windows 10. Les systèmes MDM tiers pour les systèmes d’exploitation autres que Windows 10 ne sont pas pris en charge.
+Vous pouvez configurer des stratégies d’accès conditionnel au niveau de l’appareil. L’objectif d’une stratégie d’accès conditionnel appareil par appareil est de n’accorder l’accès aux applications cloud sélectionnées qu’aux [appareils managés](require-managed-devices.md). Exiger qu’un appareil soit marqué comme conforme est une option dont vous disposez pour limiter l’accès aux appareils managés. Un appareil peut être marqué comme conforme par Intune (pour n’importe quel système d’exploitation d’appareil), ou par votre système MDM tiers pour les appareils Windows 10. Les systèmes MDM tiers pour les systèmes d’exploitation autres que Windows 10 ne sont pas pris en charge. 
 
-Pour plus d’informations, consultez [Configurer des stratégies d’accès conditionnel au niveau de l’appareil Azure Active Directory](require-managed-devices.md).
+Votre appareil doit être inscrit auprès d’Azure AD avant de pouvoir être marqué comme conforme. Pour inscrire un appareil, vous disposez de trois options : 
+
+- [Appareils inscrits sur Azure AD](../devices/overview.md#azure-ad-registered-devices)
+- [Appareils joints Azure AD](../devices/overview.md#azure-ad-joined-devices)  
+- [Appareils avec jonction Azure AD Hybride](../devices/overview.md#hybrid-azure-ad-joined-devices)
+
+Pour plus d’informations, consultez le [guide pratique pour exiger des appareils managés et accéder aux applications cloud avec l’accès conditionnel](require-managed-devices.md).
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Appareil joint Azure AD hybride
 

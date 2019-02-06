@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 84ce13f78a9c597c780cb0dfa0fa5d16e6175b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742998"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077724"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning sur HDInsight
 
@@ -42,13 +42,13 @@ Azure Machine Learning fournit des outils de modélisation d’analyses prédict
 
 ![Création d’analyses avancées accessibles à Hadoop avec Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
 
-Créez des fonctionnalités pour les données dans un cluster HDInsight Hadoop à l’aide de [requêtes Hive](../machine-learning/team-data-science-process/create-features-hive.md). La *conception de fonctionnalités* tente d’augmenter la puissance prédictive des algorithmes d’apprentissage en créant des fonctionnalités à partir des données brutes qui facilitent le processus d’apprentissage. Vous pouvez exécuter des requêtes HiveQL depuis Azure ML et accéder aux données traitées dans Hive et stockées dans le stockage BLOB, à l’aide du [module Import Data (Importer les données)](../machine-learning/studio/import-data.md).
+Créez des fonctionnalités pour les données dans un cluster HDInsight Hadoop à l’aide de [requêtes Hive](../machine-learning/team-data-science-process/create-features-hive.md). La *conception de fonctionnalités* tente d’augmenter la puissance prédictive des algorithmes d’apprentissage en créant des fonctionnalités à partir des données brutes qui facilitent le processus d’apprentissage. Vous pouvez utiliser le [module Import Data (Importer les données)](../machine-learning/studio/import-data.md) pour exécuter des requêtes HiveQL depuis Azure Machine Learning, et accéder aux données traitées dans Hive et stockées dans le stockage Blob.
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
 
 L’[apprentissage profond](https://www.microsoft.com/en-us/research/group/dltc/) est une branche du Machine Learning qui utilise les réseaux neuronaux profonds, à l’image des processus biologiques du cerveau humain. De nombreux chercheurs considèrent l’apprentissage profond comme une approche prometteuse de l’intelligence artificielle. Les traducteurs de langue parlée, les systèmes de reconnaissance d’image et le raisonnement automatique sont quelques exemples d’apprentissage profond.
 
-Dans le cadre de son travail sur l’apprentissage profond, Microsoft a développé [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), un outil open source gratuit et facile à utiliser. Cette boîte à outils est largement utilisée par un grand nombre de produits Microsoft, par des entreprises du monde entier qui doivent déployer l’apprentissage profond à grande échelle ainsi que par des étudiants intéressés par les techniques et les algorithmes les plus récents. 
+Dans le cadre de son travail sur l’apprentissage profond, Microsoft a développé [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), un outil open source gratuit et facile à utiliser. Cette boîte à outils est largement utilisée par un grand nombre de produits Microsoft, par des entreprises du monde entier qui doivent déployer l’apprentissage profond à grande échelle ainsi que par des étudiants intéressés par les techniques et les algorithmes les plus récents.
 
 ## <a name="see-also"></a>Voir aussi
 

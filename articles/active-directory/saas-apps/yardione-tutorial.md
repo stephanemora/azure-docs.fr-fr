@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à YardiOne | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à YardiOne | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et YardiOne.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 508957f6-caa5-4234-a7f3-90015937e4eb
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d14cca505f85bdf0d8abd32a954487639fe54631
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f326e7d1599d3c797311c85635516d591fd681a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444216"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Didacticiel : Intégration d’Azure Active Directory à YardiOne
 
@@ -162,7 +162,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans YardiOne. YardiOne prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à YardiOne s’il n’existe pas encore.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support YardiOne](https://clientcentral.yardi.com).
+>Si vous devez créer un utilisateur manuellement, contactez l’ [équipe de support technique YardiOne](https://clientcentral.yardi.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

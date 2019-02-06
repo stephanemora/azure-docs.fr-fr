@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 0984f53c70baa50916e125d096a612ad8f061228
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 38f344ef9e24816a17975c60a5863be46da1364b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972819"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210333"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>À propos de la reprise d’activité de machines virtuelles VMware sur Azure
 
@@ -72,7 +72,7 @@ Voici ce que vous devez faire localement :
 
 1. Vous devez configurer deux comptes :
 
-    - Si vous répliquez des machines virtuelles VMware, un compte est nécessaire pour que Site Recovery puisse accéder au serveur vCenter ou aux hôtes ESXi vSphere afin de découvrir automatiquement les machines virtuelles.
+    - Si vous répliquez des machines virtuelles VMware, un compte est nécessaire pour que Site Recovery puisse accéder à vCenter Server ou aux hôtes ESXi vSphere afin de découvrir automatiquement les machines virtuelles.
     - Un compte est nécessaire pour installer l’agent du service Mobilité Azure Site Recovery sur chaque machine physique ou virtuelle que vous souhaitez répliquer.
 
 2. Vous devez vérifier la compatibilité de votre infrastructure VMware si ce n’est déjà fait.

@@ -6,12 +6,12 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: dd62e0f4ff110ec8454031f1b66b56025328c33c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 55e9ef0f8bd268f36378c7d34cea95384c6f725e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101477"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099343"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Une partition logique définit la portée des transactions de base de données. 
 
 ## <a name="physical-partitions"></a>Partitions physiques
 
-Un conteneur Cosmos est mis à l’échelle en répartissant les données et le débit sur un grand nombre de partitions logiques. En interne, une ou plusieurs partitions logiques sont mappées sur une **partition physique** composée d’un ensemble de réplicas, également appelé un jeu de réplicas. Chaque jeu de réplicas héberge une instance du moteur de base de données Azure Cosmos. Grâce au jeu de réplicas, les données stockées dans la partition physique sont durables, hautement disponibles et cohérentes. Une partition physique prend en charge un volume maximal fixe de stockage et d’unités de requête. Chaque réplica constituant la partition physique hérite du quota de stockage. Et tous les réplicas d’une partition physique prennent collectivement en charge le débit alloué à la partition physique. L’illustration suivante montre comment les partitions logiques sont mappées sur des partitions physiques mondialement distribuées :
+Un conteneur Cosmos est mis à l’échelle en répartissant les données et le débit sur un grand nombre de partitions logiques. En interne, une ou plusieurs partitions logiques sont mappées sur une **partition physique** composée d’un ensemble de réplicas, également appelé un jeu de réplicas. Chaque jeu de réplicas héberge une instance du moteur de base de données Azure Cosmos. Grâce au jeu de réplicas, les données stockées dans la partition physique sont durables, hautement disponibles et cohérentes. Une partition physique prend en charge un volume maximal de stockage et d’unités de requête. Chaque réplica constituant la partition physique hérite du quota de stockage. Et tous les réplicas d’une partition physique prennent collectivement en charge le débit alloué à la partition physique. L’illustration suivante montre comment les partitions logiques sont mappées sur des partitions physiques mondialement distribuées :
 
 ![Partitionnement dans Azure Cosmos DB](./media/partition-data/logical-partitions.png)
 

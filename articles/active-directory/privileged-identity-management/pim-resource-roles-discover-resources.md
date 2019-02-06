@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
-ms.date: 08/30/2018
+ms.subservice: pim
+ms.date: 01/23/2019
 ms.author: rolyon
-ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e6548c2635afd8e1ac784a1930c2277548647cfd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306687"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192747"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Découvrir les ressources Azure à gérer dans PIM
 
@@ -52,12 +52,16 @@ Quand vous configurez pour la première fois PIM pour des ressources Azure, vous
 
 1. Ajoutez une coche en regard des ressources non managées que vous souhaitez gérer.
 
+1. Cliquez sur **Gérer les ressources** pour commencer à gérer les ressources sélectionnées.
+
     > [!NOTE]
     > Une fois qu’un groupe d’administration ou abonnement est défini sur managé, il ne peut pas ne pas être managé. Cela empêche tout autre administrateur de ressources de supprimer des paramètres de PIM.
 
     ![Découverte - Gérer les ressources](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Cliquez sur **Gérer les ressources** pour commencer à gérer les ressources sélectionnées.
+1. Si vous voyez un message de confirmation de l’intégration de la ressource sélectionnée pour la gestion, cliquez sur **Oui**.
+
+    ![Découverte - Gérer le message de ressource](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

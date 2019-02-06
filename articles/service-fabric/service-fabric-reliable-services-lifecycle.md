@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 391fc493d642c260a10b74aa42b805ad055dd8b1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044575"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164552"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Vue d’ensemble du cycle de vie de Reliable Services
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Comme pour les services sans état, les événements de cycle de vie lors de l�
 3. Quand `StatefulServiceBase.OnCloseAsync()` se termine, l’objet de service est détruit.
 
 ## <a name="stateful-service-primary-swaps"></a>Échanges de réplica principal de service avec état
-Pendant l’exécution d’un service avec état, seuls les réplicas principaux de ce service avec état ont leurs écouteurs de communication ouverts et leur méthode **RunAsync** appelée. Les réplicas secondaires sont construits, mais ne reçoivent aucun autre appel. Pendant l’exécution d’un service avec état, le réplica principal peut changer. Que cela signifie-t-il en termes des événements du cycle de vie qu’un réplica peut voir ? Le comportement que voit le réplica avec état varie selon qu’il s’agit du réplica qui est rétrogradé ou promu au cours de l’échange.
+Pendant l’exécution d’un service avec état, seuls les réplicas principaux de ce service avec état ont leurs écouteurs de communication ouverts et leur méthode **RunAsync** appelée. Les réplicas secondaires sont construits, mais ne reçoivent aucun autre appel. Pendant l’exécution d’un service avec état, le réplica principal peut changer à la suite d’une panne ou d’une optimisation de l’équilibrage du cluster. Que cela signifie-t-il en termes des événements du cycle de vie qu’un réplica peut voir ? Le comportement que voit le réplica avec état varie selon qu’il s’agit du réplica qui est rétrogradé ou promu au cours de l’échange.
 
 ### <a name="for-the-primary-thats-demoted"></a>Pour le réplica principal rétrogradé
 Pour le réplica principal rétrogradé, Service Fabric nécessite que ce réplica arrête de traiter des messages et quitte tout travail en arrière-plan qu’il exécute. Par conséquent, cette étape est similaire à l’arrêt du service. La différence est que le service n’est pas détruit ni fermé, car il est conservé en tant que réplica secondaire. Les API suivantes sont appelées :

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 70280676453bd146102ca331daae038b947aab58
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632855"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888989"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extension DSC pour Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -64,11 +64,11 @@ Voici tous les paramètres de configuration publique pris en charge :
 
 * `FileUri` : (facultatif, chaîne) URI du fichier MOF, du fichier MOF Meta ou du fichier ZIP de ressources personnalisées.
 * `ResourceName` : (facultatif, chaîne) nom du module de ressources personnalisées.
-* `ExtensionAction` : (facultatif, chaîne) spécifie le rôle d’une extension. Valeurs valides : Register, Push, Pull, Install, Remove. Si rien n’est spécifié, l’action par défaut est Push.
+* `ExtensionAction` : (facultatif, chaîne) spécifie le rôle d’une extension. Valeurs valides : Register, Push, Pull, Install, Remove. Si rien n’est spécifié, l’action par défaut est Push.
 * `NodeConfigurationName` : (facultatif, chaîne) nom d’une configuration de nœud à appliquer.
 * `RefreshFrequencyMins` : (facultatif, entier) spécifie la fréquence (en minutes) à laquelle DSC tente d’obtenir la configuration depuis le serveur collecteur. 
        Si la configuration du serveur collecteur est différente de la configuration actuelle sur le nœud cible, elle est copiée dans le magasin en attente, puis appliquée.
-* `ConfigurationMode` : (facultatif, chaîne) indique la façon dont DSC applique la configuration. Valeurs valides : ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
+* `ConfigurationMode` : (facultatif, chaîne) indique la façon dont DSC applique la configuration. Les valeurs autorisées sont : ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins` : (facultatif, entier) spécifie la fréquence (en minutes) à laquelle DSC vérifie que la configuration est conforme à l’état souhaité.
 
 > [!NOTE]
@@ -424,8 +424,8 @@ La sortie de l’exécution de l’extension est enregistrée dans le fichier su
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-« Error code: 51 » correspond soit à une distribution non prise en charge, soit à une action de l’extension non prise en charge.
-Dans certains cas, l’extension Linux DSC ne parvient pas à installer OMI lorsqu’une version plus récente d’OMI existe déjà sur l’ordinateur. [error response: (000003)Downgrade not allowed]
+Code d’erreur : 51 correspond soit à une distribution non prise en charge, soit à une action de l’extension non prise en charge.
+Dans certains cas, l’extension Linux DSC ne parvient pas à installer OMI lorsqu’une version plus récente d’OMI existe déjà sur l’ordinateur. [Réponse d’erreur : (000003)Passage à une version antérieure interdit]
 
 
 

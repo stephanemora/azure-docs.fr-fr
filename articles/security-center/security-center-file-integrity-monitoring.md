@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b7e2a075df7d0d7f6bb68163414fab525aad25a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338513"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093442"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
 Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -152,7 +152,7 @@ Sous **Modification pour Change Tracking**, vous pouvez :
 - Supprimer l’entité, ignorer la modification ou enregistrer les modifications
 
 ## <a name="add-a-new-entity-to-monitor"></a>Ajouter une nouvelle entité à surveiller
-1. Revenez au **tableau de bord Monitoring d’intégrité de fichier** et sélectionnez **Paramètres** en haut de la page. La fenêtre **Configuration de l’espace de travail** s’affiche.
+1. Revenez au **tableau de bord Monitoring d’intégrité de fichier**, puis sélectionnez **Paramètres** en haut de la page. La fenêtre **Configuration de l’espace de travail** s’affiche.
 2. Sous **Configuration de l’espace de travail**, sélectionnez l’onglet correspondant au type d’entité que vous souhaitez ajouter : Registre Windows, Fichiers Windows ou Fichiers Linux. Dans cet exemple, nous avons sélectionné **Fichiers Linux**.
 
   ![Ajoutez un nouvel élément à surveiller][14]

@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/08/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 6b7f3dc79e3b4c06b2b974e0cdca0bf20221c3ad
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 99498646a65865add35ec4a86cb7a25b42dd5523
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845008"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162189"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -97,6 +97,11 @@ Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2
 | {OAUTH-KV:loyalty_number} | Paramètre de chaîne de requête. | 1234 |
 | {OAUTH-KV : n’importe quelle chaîne de requête personnalisée} | Paramètre de chaîne de requête. | N/A |
 
+### <a name="oauth2"></a>OAuth2
+
+| Revendication | Description | Exemples |
+| ----- | ----------------------- | --------|
+| {oauth2:access_token} | Jeton d’accès. | N/A |
 
 ## <a name="how-to-use-claim-resolvers"></a>Comment utiliser des résolveurs de revendication
 

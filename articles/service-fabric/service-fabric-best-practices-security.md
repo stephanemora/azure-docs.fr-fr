@@ -1,0 +1,245 @@
+---
+title: Bonnes pratiques pour la sécurité Azure Service Fabric | Microsoft Docs
+description: Bonnes pratiques pour la sécurité Azure Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: peterpogorski
+manager: jeanpaul.connock
+editor: ''
+ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: conceptual
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/23/2019
+ms.author: pepogors
+ms.openlocfilehash: 587478b7b53a6ddafcda9980dfa4c2a00daeea16
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54914416"
+---
+# <a name="azure-service-fabric-security"></a>Sécurité de Microsoft Azure Service Fabric 
+
+Pour plus d’informations sur les [bonnes pratiques relatives à la sécurité d’Azure](https://docs.microsoft.com/azure/security/), passez en revue [Bonnes pratiques pour la sécurité Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
+
+## <a name="key-vault"></a>Key Vault
+
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) est le service de gestion des secrets recommandé pour les applications et les clusters Azure Service Fabric.
+> [!NOTE]
+> Si les certificats/secrets d’un coffre de clés sont déployés sur un groupe de machines virtuelles identiques en tant que secret d’un groupe de machines virtuelles identiques, le coffre de clés et le groupe de machines virtuelles identiques doivent être colocalisés.
+
+## <a name="create-certificate-authority-issued-service-fabric-certificate"></a>Créer un certificat Service Fabric émis par une autorité de certification
+
+Un certificat Azure Key Vault peut être créé ou importé dans un coffre de clés. Lors de la création d’un certificat Key Vault, la clé privée est créée dans le coffre de clés sans jamais être exposée au propriétaire du certificat. Voici les différentes façons de créer un certificat dans Key Vault :
+
+- Créez un certificat auto-signé pour créer une paire de clés publique-privée et l’associer à un certificat. Le certificat est signé par sa propre clé. 
+- Créez un certificat manuellement pour créer une paire de clés publique-privée et générer une demande de signature de certificat X.509. La demande de signature peut être signée par votre autorité de certification ou autorité d’inscription. Le certificat X509 signé peut être fusionné avec la paire de clés en attente afin de terminer la création du certificat KV dans Key Vault. Bien que cette méthode nécessite davantage d’étapes, elle offre une plus grande sécurité, car la clé privée est créée dans Key Vault et restreinte à ce dernier. Ceci est expliqué dans le diagramme ci-dessous. 
+
+Pour plus d’informations, consultez [Méthodes de création de certificats Azure Key Vault ](https://docs.microsoft.com/azure/key-vault/create-certificate).
+
+## <a name="deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets"></a>Déployer des certificats Key Vault sur les groupes de machines virtuelles identiques d’un cluster Service Fabric
+
+Pour déployer des certificats d’un coffre de clés colocalisé sur un groupe de machines virtuelles identiques, utilisez le paramètre [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) du groupe de machines virtuelles identiques. Les propriétés du modèle Resource Manager sont les suivantes :
+
+```json
+"secrets": [
+   {
+       "sourceVault": {
+           "id": "[parameters('sourceVaultValue')]"
+       },
+       "vaultCertificates": [
+          {
+              "certificateStore": "[parameters('certificateStoreValue')]",
+              "certificateUrl": "[parameters('certificateUrlValue')]"
+          }
+       ]
+   }
+]
+```
+
+> [!NOTE]
+> Le coffre doit être activé pour le déploiement du modèle Resource Manager.
+
+## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Appliquer une liste de contrôle d’accès (ACL) à votre certificat pour votre cluster Service Fabric
+
+Le serveur de publication des [extensions de groupe de machines virtuelles identiques](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) Microsoft.Azure.ServiceFabric est utilisé pour configurer la sécurité de vos nœuds.
+Pour appliquer une ACL à vos certificats pour les processus de votre cluster Service Fabric, utilisez les propriétés du modèle Resource Manager suivantes :
+
+```json
+"certificate": {
+   "commonNames": [
+       "[parameters('certificateCommonName')]"
+   ],
+   "x509StoreName": "[parameters('certificateStoreValue')]"
+}
+```
+
+## <a name="secure-a-service-fabric-cluster-certificate-by-common-name"></a>Sécuriser un certificat de cluster Service Fabric par nom commun
+
+Pour sécuriser votre cluster Service Fabric par `Common Name` de certificat, utilisez la propriété de modèle Resource Manager [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) comme ceci :
+
+```json
+"certificateCommonNames": {
+    "commonNames": [
+        {
+            "certificateCommonName": "[parameters('certificateCommonName')]",
+            "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
+        }
+    ],
+    "x509StoreName": "[parameters('certificateStoreValue')]"
+}
+```
+
+> [!NOTE]
+> Les clusters Service Fabric utilisent le premier certificat valide trouvé dans le magasin de certificats de votre hôte. Sur Windows, il s’agit du certificat dont la date d’expiration la plus récente correspond à votre nom commun et à votre empreinte d’émetteur.
+
+Les domaines Azure, tels que *\<VOTRE SOUS-DOMAINE\>.cloudapp.azure.com ou \<VOTRE SOUS-DOMAINE\>.trafficmanager.net, sont la propriété de Microsoft. Les autorités de certification n’émettent pas de certificats pour les domaines à des utilisateurs non autorisés. Pour qu’une autorité de certification émette un certificat portant ce nom commun, la plupart des utilisateurs doivent acheter un domaine auprès d’un bureau d’enregistrement ou disposer d’une autorisation d’administrateur de domaine.
+
+Pour plus d’informations sur la façon de configurer le service DNS afin de résoudre votre domaine en adresse IP Microsoft, examinez comment configurer [Azure DNS pour héberger votre domaine](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
+
+> [!NOTE]
+> Après avoir délégué vos serveurs de noms de domaine à vos serveurs de noms de zone Azure DNS, ajoutez les deux enregistrements suivants à votre zone DNS :
+> - Un enregistrement « A » pour l’APEX de domaine qui N’EST PAS un `Alias record set` pour l’ensemble des adresses IP résolues par votre domaine personnalisé.
+> - Un enregistrement « C » pour les sous-domaines Microsoft que vous avez provisionnés qui NE SONT PAS un `Alias record set`. Par exemple, vous pouvez utiliser le nom DNS de votre service Traffic Manager ou Load Balancer.
+
+Pour mettre à jour votre portail afin d’afficher un nom DNS personnalisé pour le `"managementEndpoint"` de votre cluster Service Fabric, mettez à jour les propriétés du modèle Resource Manager du cluster :
+
+```json
+ "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
+```
+
+## <a name="encrypting-service-fabric-package-secret-values"></a>Chiffrement des valeurs des secrets des packages Service Fabric
+
+Les valeurs courantes chiffrées dans les packages Service Fabric sont, entre autres, les informations d’identification d’Azure Container Registry (ACR), les variables d’environnement, les paramètres et les clés de compte de stockage du plug-in Volume d’Azure.
+
+Pour [configurer un certificat de chiffrement et chiffrer des secrets sur des clusters Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows) :
+
+Générez un certificat auto-signé pour chiffrer votre secret :
+
+```powershell
+New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
+```
+
+Suivez les instructions pour [déployer des certificats Key Vault sur les groupes de machines virtuelles identiques de votre cluster Service Fabric](#deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets).
+
+Chiffrez votre secret à l’aide de la commande PowerShell suivante, puis mettez à jour votre manifeste d’application Service Fabric avec la valeur chiffrée :
+
+``` powershell
+Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
+```
+
+Pour [configurer un certificat de chiffrement et chiffrer des secrets sur des clusters Linux.](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-linux) :
+
+Générez un certificat auto-signé pour chiffrer vos secrets :
+
+```bash
+user@linux:~$ openssl req -newkey rsa:2048 -nodes -keyout TestCert.prv -x509 -days 365 -out TestCert.pem
+user@linux:~$ cat TestCert.prv >> TestCert.pem
+```
+
+Suivez les instructions pour [déployer des certificats Key Vault sur les groupes de machines virtuelles identiques de votre cluster Service Fabric](#deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets).
+
+Chiffrez votre secret à l’aide des commandes suivantes, puis mettez à jour votre manifeste d’application Service Fabric avec la valeur chiffrée :
+
+```bash
+user@linux:$ echo "Hello World!" > plaintext.txt
+user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
+user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
+```
+
+Après avoir chiffré vos valeurs protégées, [spécifiez les secrets chiffrés dans l’application Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application), et [déchiffrez les secrets chiffrés à partir du code de service](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code).
+
+## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Authentifier les applications Service Fabric auprès de ressources Azure à l’aide de MSI (Managed Service Identity)
+
+Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work)
+Les clusters Azure Service Fabric sont hébergés sur des groupes de machines virtuelles identiques qui prennent en charge [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
+Pour obtenir la liste des services avec lesquels vous pouvez utiliser MSI pour l’authentification, consultez [Services Azure prenant en charge l’authentification Azure Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
+
+
+Pour activer une identité managée affectée par le système pendant la création d’un groupe de machines virtuelles identiques ou dans un groupe de machines virtuelles identiques existant, déclarez la propriété `"Microsoft.Compute/virtualMachinesScaleSets"` suivante :
+
+```json
+"identity": { 
+    "type": "SystemAssigned"
+}
+```
+Pour plus d’informations, consultez [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss#system-assigned-managed-identity)
+
+Si vous avez créé une [identité managée affectée par l’utilisateur](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity), déclarez la ressource suivante dans votre modèle pour l’affecter à votre groupe de machines virtuelles identiques. Remplacez `\<USERASSIGNEDIDENTITYNAME\>` par le nom de l’identité managée affectée par l’utilisateur que vous avez créée :
+
+```json
+"identity": {
+    "type": "userAssigned",
+    "userAssignedIdentities": {
+        "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+    }
+}
+```
+
+Pour que votre application Service Fabric puisse utiliser une identité managée, vous devez au préalable accorder des autorisations aux ressources Azure dont elle a besoin pour s’authentifier.
+Les commandes suivantes accordent l’accès à une ressource Azure :
+
+```bash
+principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGroups/<YOUR RG>/providers/Microsoft.Compute/virtualMachineScaleSets/<YOUR SCALE SET> --api-version 2018-06-01 | python -c "import sys, json; print(json.load(sys.stdin)['identity']['principalId'])")
+
+az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
+```
+
+Dans le code de votre application Service Fabric, obtenez un jeton d’accès pour Azure Resource Manager à l’aide d’une REST similaire à la suivante :
+
+```bash
+access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
+
+```
+
+Votre application Service Fabric peut ensuite utiliser le jeton d’accès pour s’authentifier auprès de ressources Azure prenant en charge Active Directory.
+L’exemple suivant montre comment faire pour une ressource Cosmos DB :
+
+```bash
+cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
+```
+
+## <a name="windows-defender"></a>Windows Defender 
+
+Par défaut, l’antivirus Windows Defender est installé sur Windows Server 2016. Pour plus d’informations, consultez [Antivirus Windows Defender sur Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). L’interface utilisateur est installée par défaut sur certaines références SKU, mais elle n’est pas obligatoire. Pour réduire l’impact sur les performances et la consommation de ressources de Windows Defender, et si vos stratégies de sécurité vous permettent d’exclure des processus et des chemins pour les logiciels open-source, déclarez les propriétés suivantes du modèle Resource Manager de l’extension de groupe de machines virtuelles identiques pour exclure votre cluster Service Fabric des analyses :
+
+
+```json
+ {
+    "name": "[concat('VMIaaSAntimalware','_vmNodeType0Name')]",
+    "properties": {
+        "publisher": "Microsoft.Azure.Security",
+        "type": "IaaSAntimalware",
+        "typeHandlerVersion": "1.5",
+        "settings": {
+            "AntimalwareEnabled": "true",
+            "Exclusions": {
+                "Paths": "[concat(parameters('svcFabData'), ';', parameters('svcFabLogs'), ';', parameters('svcFabRuntime'))]",
+                "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe"
+            },
+            "RealtimeProtectionEnabled": "true",
+            "ScheduledScanSettings": {
+                "isEnabled": "true",
+                "scanType": "Quick",
+                "day": "7",
+                "time": "120"
+            }
+        },
+        "protectedSettings": null
+    }
+}
+```
+
+> [!NOTE]
+> Si vous n’utilisez pas Windows Defender, reportez-vous à la documentation de votre logiciel anti-programme malveillant pour les règles de configuration. Windows Defender n’est pas pris en charge sur Linux.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* Créez un cluster sur des machines virtuelles ou des ordinateurs exécutant Windows Server : [Création de clusters Service Fabric pour Windows Server](service-fabric-cluster-creation-for-windows-server.md).
+* Créez un cluster sur des machines virtuelles ou des ordinateurs exécutant Linux : [Créer un cluster Linux](service-fabric-cluster-creation-via-portal.md).
+* Découvrez les [options de support de Service Fabric](service-fabric-support.md).
+
+[Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

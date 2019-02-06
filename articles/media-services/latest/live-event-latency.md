@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: f4ded67ef964482a2acea0d731b1b154a95168d2
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: db6646c2066be940b2c058653fe8f2ceb9bff3a2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741349"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169703"
 ---
-# <a name="liveevent-latency-in-media-services"></a>Latence LiveEvent dans Media Services
+# <a name="live-event-latency-in-media-services"></a>Latence de l’événement en direct dans Media Services
 
-Cet article explique comment définir une faible latence sur un événement [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents). Il traite également des résultats généralement obtenus avec des paramètres de faible latence sur différents lecteurs. Les résultats varient en fonction de la latence réseau et du CDN.
+Cet article explique comment définir une faible latence sur un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents). Il traite également des résultats généralement obtenus avec des paramètres de faible latence sur différents lecteurs. Les résultats varient en fonction de la latence réseau et du CDN.
 
 Pour utiliser la nouvelle fonction **LowLatency**, définissez le paramètre **StreamOptionsFlag** sur **LowLatency** dans l’événement **LiveEvent**. Lors de la création de [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) pour la lecture HLS, définissez [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) sur 1. Une fois le flux opérationnel, vous pouvez ouvrir la page de démonstration du [Lecteur multimédia Azure](http://ampdemo.azureedge.net/) et configurer les options de lecture afin d’utiliser le profil heuristique à faible latence (« Low Latency Heuristics Profile »).
 
@@ -54,7 +54,7 @@ LiveEvent liveEvent = new LiveEvent(
 
 Pour voir l’exemple complet : [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## <a name="liveevents-latency"></a>Latence LiveEvents
+## <a name="live-events-latency"></a>Latence d’événements en direct
 
 Les tableaux suivants illustrent les résultats classiques de latence (quand l’indicateur LowLatency est activé) dans Media Services, mesurée entre le moment où le flux de contribution atteint le service et celui où un utilisateur voit la lecture sur le lecteur. Pour utiliser de façon optimale une faible latence, vous devez baisser les paramètres de votre encodeur en les définissant sur une longueur GOP (« groupe d’images ») de 1 seconde. Quand vous utilisez une longueur GOP supérieure, vous réduisez la consommation de bande passante ainsi que la vitesse de transmission sous la même fréquence d’images. Cela est particulièrement utile dans les vidéos avec moins de mouvement.
 

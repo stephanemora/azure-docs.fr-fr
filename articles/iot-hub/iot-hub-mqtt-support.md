@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052034"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913567"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -198,20 +198,18 @@ Tout d’abord, un appareil s’abonne à `$iothub/twin/res/#` pour recevoir les
 
 L’ID de la requête peut avoir n’importe quelle valeur valide de propriété de message, conformément au [Guide du développeur de messages IoT Hub][lnk-messaging], et l’état est validé comme entier.
 
-Le corps de la réponse contient la section properties du jumeau d’appareil. L’extrait suivant montre le corps de l’entrée du registre des identités limité au membre « propriétés », par exemple :
+Le corps de la réponse contient la section des propriétés du jumeau d’appareil, comme illustré dans l’exemple de réponse suivant :
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
@@ -220,7 +218,7 @@ Les codes d’état possibles sont :
 
 |Statut | Description |
 | ----- | ----------- |
-| 200 | Succès |
+| 204 | Réussite (aucun contenu n’est retourné) |
 | 429 | Trop de demandes (limité), selon la [Limitation IoT Hub][lnk-quotas] |
 | 5** | Erreurs de serveur |
 

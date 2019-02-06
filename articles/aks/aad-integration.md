@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 9bdd3060219907f95454bfc9248572f796afd72e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 78f00b00465b6d834f30411485a874d6d2116ea4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437603"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081243"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Intégrer Azure Active Directory dans Azure Kubernetes Service
 
@@ -22,7 +22,7 @@ Cet article explique comment déployer les conditions préalables pour AKS et Az
 
 Les limites suivantes s'appliquent :
 
-- À l’heure actuelle, il n’est pas possible d’ajouter le contrôle RBAC à des clusters AKS qui n’en disposent pas en les mettant à jour.
+- Azure AD ne peut être activé que quand vous créez un nouveau cluster prenant en charge RBAC. Vous ne pouvez pas activer Azure AD sur un cluster AKS existant.
 - Les utilisateurs *Invités* dans Azure AD, comme si vous utilisiez une connexion fédérée à partir d’un autre répertoire, ne sont pas pris en charge.
 
 ## <a name="authentication-details"></a>Informations sur l’authentification

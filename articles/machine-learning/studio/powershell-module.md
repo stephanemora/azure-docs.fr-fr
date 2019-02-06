@@ -1,47 +1,66 @@
 ---
-titre : Module PowerShell pour Machine Learning Studio titleSuffix : Description d’Azure Machine Learning Studio : Le module PowerShell pour Azure Machine Learning est disponible en version préliminaire publique. Utilisez PowerShell pour créer et gérer des espaces de travail, des expériences, des services web, etc.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Modules PowerShell pour Machine Learning Studio titleSuffix : Description d'Azure Machine Learning Studio : Utilisez PowerShell pour créer et gérer des espaces de travail Azure Machine Learning Studio, des expériences, des services web, etc. services : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
 
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 15/03/2017
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 25/01/2019
 ---
-# <a name="powershell-module-for-azure-machine-learning-studio"></a>Module PowerShell pour Azure Machine Learning Studio
-Le module PowerShell pour Azure Machine Learning est un outil puissant qui vous permet d’utiliser Windows PowerShell pour gérer des espaces de travail, des expériences, des jeux de données, des services web classiques, etc.
+# <a name="powershell-modules-for-azure-machine-learning-studio"></a>Modules PowerShell pour Azure Machine Learning Studio
 
-Vous pouvez consulter la documentation et télécharger le module, ainsi que le code source complet, à l’adresse [https://aka.ms/amlps](https://aka.ms/amlps). 
+Grâce aux modules PowerShell, vous pouvez gérer par programmation vos ressources Studio et des ressources telles que les espaces de travail, les jeux de données et les services web.
 
-> [!NOTE]
-> Le module PowerShell pour Azure Machine Learning est actuellement en version préliminaire. Nous continuerons d’améliorer et de développer le module pendant toute la durée de la version préliminaire. Pour vous tenir informé, consultez régulièrement le blog [Cortana Intelligence and Machine Learning](https://blogs.technet.microsoft.com/machinelearning/) (en anglais).
+Vous pouvez interagir avec les ressources Studio à l’aide de trois modules PowerShell :
 
-## <a name="what-is-the-machine-learning-powershell-module"></a>Qu’est-ce que le module Machine Learning PowerShell ?
-Le module Machine Learning PowerShell est un module DLL basé sur .NET qui vous permet de gérer entièrement les espaces de travail, les expériences, les jeux de données, les services web classiques et les points de terminaison de services web classiques Azure Machine Learning depuis Windows PowerShell. 
+* [Azure PowerShell Az](#az-rm), publié en 2018, inclut toutes les fonctionnalités d’AzureRM, mais avec des noms cmdlets différents
+* [AzureRM](#az-rm) publié en 2016
+* [Azure Machine Learning PowerShell classique](#classic) publié en 2016
 
-En plus du module, vous pouvez télécharger le code source complet, qui inclut une [couche d’API C#](https://github.com/hning86/azuremlps/blob/master/code/AzureMLSDK.cs) bien distincte. Vous pouvez référencer cette DLL depuis votre propre projet .NET et gérer Azure Machine Learning par le biais du code .NET. En outre, la DLL repose sur des API REST sous-jacentes que vous pouvez utiliser directement depuis le client de votre choix.
+Même si ces modules ont des similitudes, chacun d’eux est conçu pour certains scénarios particuliers. Cet article décrit les différences entre les modules PowerShell et vous aide à décider lequel choisir.
 
-## <a name="what-can-i-do-with-the-powershell-module"></a>Quelles sont les possibilités offertes par le module PowerShell ?
-Voici quelques-unes des tâches que vous pouvez effectuer avec ce module PowerShell. Pour plus d’informations sur celles-ci et les nombreuses autres fonctions disponibles, consultez la [documentation complète](https://aka.ms/amlps) .
+## <a name="choosing-modules"></a> Choix des modules
 
-* Approvisionner un nouvel espace de travail à l’aide d’un certificat de gestion ([New-AmlWorkspace](https://github.com/hning86/azuremlps#new-amlworkspace))
-* Exporter et importer un fichier JSON représentant un graphique d’expérience ([Export-AmlExperimentGraph](https://github.com/hning86/azuremlps#export-amlexperimentgraph) et [Import-AmlExperimentGraph](https://github.com/hning86/azuremlps#import-amlexperimentgraph))
-* Exécuter une expérience ([Start-AmlExperiment](https://github.com/hning86/azuremlps#start-amlexperiment))
-* Créer un service web à partir d’une expérimentation prédictive ([New-AmlWebService](https://github.com/hning86/azuremlps#new-amlwebservice))
-* Créer un point de terminaison sur un service web publié ([Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint))
-* Appeler un point de terminaison de service web RRS et/ou BES ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) and [Invoke-AmlWebServiceBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
+Le choix entre les modules PowerShell disponibles varie selon le type de ressources que vous gérez.
 
-Voici un exemple rapide d’utilisation de PowerShell pour exécuter une expérience existante :
+Consultez le [tableau de prise en charge](#support-table) ci-dessous pour connaître les ressources prises en charge par chaque module. Dans la mesure où PowerShell classique peut être installé en parallèle avec Az ou AzureRM, vous pouvez installer deux modules et couvrir tous les types de ressources (classiques avec Az ou classiques avec AzureRM)
 
-        #Find the first Experiment named “xyz”
-        $exp = (Get-AmlExperiment | where Description -eq ‘xyz’)[0]
-        #Run the Experiment
-        Start-AmlExperiment -ExperimentId $exp.ExperimentId 
+Il n’est toutefois pas recommandé d’installer Az et AzureRM en même temps. Pour choisir entre Az et AzureRM, Microsoft recommande Az pour tous les déploiements futurs. N’utilisez AzureRm que si des circonstances particulières dans votre environnement l’exigent.
 
-Pour un cas d’utilisation plus approfondi, consultez l’article sur l’utilisation du module PowerShell pour automatiser une tâche souvent demandée : [Créer de nombreux modèles Machine Learning et points de terminaison de service web à partir d’une expérience à l’aide de PowerShell](create-models-and-endpoints-with-powershell.md).
+Pour en savoir plus sur les différences entre Az et AzureRM, ainsi que sur notre chemin de migration fourni, consultez notre [présentation d’Azure PowerShell Az.](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)
 
-## <a name="how-do-i-get-started"></a>Comment faire pour démarrer ?
-Pour bien démarrer avec Machine Learning PowerShell, téléchargez le [package de la version](https://github.com/hning86/azuremlps/releases) dans GitHub et suivez les [instructions d’installation](https://github.com/hning86/azuremlps/blob/master/README.md). Les instructions indiquent comment débloquer la DLL téléchargée/décompressée et l’importer dans votre environnement PowerShell. La plupart des applets de commande nécessitent que vous fournissiez l’ID de l’espace de travail, le jeton d’autorisation de l’espace de travail et la région Azure dans laquelle l’espace de travail se trouve. La façon la plus simple de fournir ces valeurs est d’utiliser un fichier config.json par défaut. Les instructions expliquent également comment configurer ce fichier. 
+## <a name="az-rm"></a> Azure PowerShell Az et AzureRM
 
-Si vous le souhaitez, vous pouvez cloner l’arborescence git, modifier le code et le compiler localement à l’aide de Visual Studio.
+Az et AzureRM gèrent les solutions déployées à l’aide du modèle de déploiement **Azure Resource Manager**. Ces ressources incluent des espaces de travail Studio et de nouveaux services web Studio. Pour gérer les ressources déployées à l’aide du modèle de déploiement classique, vous devez utiliser le module PowerShell classique. Si vous souhaitez en savoir plus sur les modèles de déploiement, consultez l’article [Déploiement Azure Resource Manager et déploiement Classic](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+
+Az est maintenant le module PowerShell prévu pour interagir avec Azure et inclut toutes les fonctionnalités précédentes d’AzureRM. AzureRM continue de bénéficier de correctifs de bogues, mais ne recevra aucune nouvelle cmdlet ni fonctionnalité. Bien qu’un chemin de mise à niveau à partir d’AzureRM soit possible, si vous rencontrez des problèmes avec Az lorsque vous utilisez Studio, signalez le problème et réutilisez AzureRM.
+
+Pour vous familiariser avec Az, suivez les [instructions d’installation pour Azure Az](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+## <a name="classic"></a> PowerShell classique
+
+Le [module PowerShell classique](https://aka.ms/amlps) Studio vous permet de gérer les ressources déployées à l’aide du **modèle de déploiement classique**. Ces ressources incluent des ressources utilisateur Studio, des services web classiques et des points de terminaison de service web classique.
+
+Microsoft vous recommande toutefois d’utiliser le modèle de déploiement Resource Manager pour les nouvelles ressources afin de simplifier le déploiement et la gestion des ressources. Si vous souhaitez en savoir plus sur les modèles de déploiement, consultez l’article [Déploiement Azure Resource Manager et déploiement Classic](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+
+Pour bien démarrer avec PowerShell classique, téléchargez le [package de la version](https://github.com/hning86/azuremlps/releases) dans GitHub et suivez les [instructions d’installation](https://github.com/hning86/azuremlps/blob/master/README.md). Les instructions indiquent comment débloquer la DLL téléchargée/décompressée et l’importer dans votre environnement PowerShell.
+
+## <a name="support-table"></a> Tableau de prise en charge PowerShell
+
+ **Espaces de travail Studio** | **Az** |  **AzureRM** | **PowerShell Classic** |
+| --- | --- | --- | --- | --- |
+| Créer/supprimer des espaces de travail | [Modèles Microsoft Azure Resource Manager](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Modèles Microsoft Azure Resource Manager](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
+| Gérer les utilisateurs de l’espace de travail |  |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
+| Gérer les plans d’engagement | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | [New-AzureRmMlCommitmentPlan](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/new-azurermmlcommitmentplan) |
+|||
+| **Services web** | **Az** | **AzureRM** | **PowerShell Classic** |
+| Gérer des services web | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br> (Nouveaux services web) | [New-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/new-azurermmlwebservice) <br> (Nouveaux services web) |[New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br> (Services web classiques) |
+| Gérer les points de terminaison/clés |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys) <br> (Nouveaux services web) | [Get-AzureRmMlWebServiceKeys](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservicekeys) <br> (Nouveaux services web) | [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint) <br> (Services web classiques) |
+|||
+| **Ressources utilisateur** | **Az** | **AzureRM** | **PowerShell Classic** |
+| Gérer les jeux de données/modèles formés |  |  | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
+| Gérer les expériences |  |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
+| Gérer les modules personnalisés |  |  | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous trouverez la documentation complète sur le module PowerShell à l’adresse [https://aka.ms/amlps](https://aka.ms/amlps). 
-
-Pour obtenir un exemple de l’utilisation du module dans un scénario réel, consultez le cas d’utilisation détaillé, [Créer de nombreux modèles Machine Learning et points de terminaison de service web à partir d’une expérience à l’aide de PowerShell](create-models-and-endpoints-with-powershell.md).
+Suivez ces liens pour accéder à la documentation complète sur les modules PowerShell :
+* [AzureRM](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/#machine_learning)
+* [PowerShell Classic](https://aka.ms/amlps)
+* [Azure PowerShell Az](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)

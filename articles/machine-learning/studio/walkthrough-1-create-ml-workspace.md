@@ -1,6 +1,6 @@
 ---
-titre : Étape 1 : Création d’un espace de travail - titleSuffix : Description d'Azure Machine Learning Studio : Étape 1 de la procédure pas à pas : Développer une solution prédictive : Apprenez à configurer un nouvel espace de travail Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Étape 1 : Création d’un espace de travail - titleSuffix : Description d'Azure Machine Learning Studio : Étape 1 de la procédure pas à pas : Développer une solution prédictive : Apprenez à configurer un nouvel espace de travail Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 23/03/2017
 ---

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390392"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453925"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Utiliser des règles et des points de terminaison de service de réseau virtuel pour Azure SQL Database
 
@@ -162,7 +162,7 @@ Il existe actuellement deux façons d’activer l’audit sur votre instance SQL
 
 ### <a name="impact-on-data-sync"></a>Impact sur la synchronisation de données
 
-Azure SQL Database dispose de la fonctionnalité de synchronisation de données qui se connecte à vos bases de données à l’aide d’adresses IP Azure. Lorsque vous utilisez des points de terminaison de service, il est probable que vous comptiez désactiver le paramètre **Autoriser l’accès des services Azure au serveur** pour votre serveur logique. Cela arrêtera la fonctionnalité de synchronisation de données.
+Azure SQL Database dispose de la fonctionnalité de synchronisation de données qui se connecte à vos bases de données à l’aide d’adresses IP Azure. Lorsque vous utilisez des points de terminaison de service, il est probable que vous comptiez désactiver le paramètre **Autoriser l’accès des services Azure au serveur** pour votre serveur SQL Database. Cela arrêtera la fonctionnalité de synchronisation de données.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impact de l’utilisation des points de terminaison de service de réseau virtuel avec le stockage Azure
 
@@ -173,17 +173,18 @@ Stockage Azure a implémenté la même fonctionnalité qui vous permet de limite
 La technologie PolyBase est couramment utilisée pour charger des données dans Azure SQL Data Warehouse à partir de comptes Stockage Azure. Si le compte Stockage Azure à partir duquel vous chargez des données limite l’accès à un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue. Pour autoriser les scénarios d’importation et d’exportation PolyBase dans lesquels Azure SQL Data Warehouse se connecte de manière sécurisée à Stockage Azure au réseau virtuel, suivez les étapes indiquées ci-dessous :
 
 #### <a name="prerequisites"></a>Prérequis
+
 1.  Installez Azure PowerShell en vous aidant de ce [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez commencer par le mettre à niveau avec un compte v2 universel en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Vous devez avoir activé **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** sous le menu de paramètres **Pare-feux et réseaux virtuels** du compte Stockage Azure. Pour plus d’informations, consultez ce [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
  
 #### <a name="steps"></a>Étapes
-1.  Dans PowerShell, **inscrivez votre serveur logique SQL Server** auprès d’Azure Active Directory (AAD) :
+1.  Dans PowerShell, **inscrivez votre serveur SQL Database** auprès d’Azure Active Directory (AAD) :
 
     ```powershell
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
     ```
     
  1. Créez un **compte de stockage v2 universel** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -192,7 +193,7 @@ La technologie PolyBase est couramment utilisée pour charger des données dans 
     > - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     > - Pour examiner les problèmes connus liés à Azure Data Lake Storage Gen2, consultez ce [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1.  Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)**, puis cliquez sur **Ajouter une attribution de rôle**. Attribuez le rôle RBAC **Contributeur aux données Blob de stockage (préversion)** à votre serveur logique SQL Server.
+1.  Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)**, puis cliquez sur **Ajouter une attribution de rôle**. Attribuez le rôle RBAC **Contributeur aux données Blob de stockage (préversion)** à votre serveur SQL Database.
 
     > [!NOTE] 
     > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés pour les ressources Azure, consultez ce [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

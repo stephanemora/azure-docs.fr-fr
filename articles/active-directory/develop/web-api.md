@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,19 +16,19 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: e4ed0db3a08937c3c8b51e2c8af5e566b59df4c4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b507e6630e5b0b0e73edad1815825e70ed90ec4d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970955"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097297"
 ---
 # <a name="web-api"></a>API Web
 
 Les applications API web sont des applications web qui doivent obtenir des ressources d’une API web. Dans ce scénario, il existe deux types d’identité que l’application web peut utiliser pour authentifier et appeler l’API web :
 
-- **Identité d’application** : ce scénario utilise l’octroi d’informations d’identification client OAuth 2.0 pour l’authentification en tant qu’application et l’accès à l’API web. Avec une identité d’application, l’API web peut détecter uniquement que l’application web l’appelle, car elle ne reçoit aucune information sur l’utilisateur. Si l’application reçoit des informations sur l’utilisateur, celles-ci sont envoyées via le protocole d’application et ne sont pas signées par Azure AD. L’API web suppose que l’application web a authentifié l’utilisateur. C’est pour cette raison que ce modèle est appelé « sous-système approuvé ».
-- **Identité d’utilisateur délégué** : ce scénario peut être obtenu de deux façons : OpenID Connect et octroi de code d’autorisation OAuth 2.0 avec un client confidentiel. L’application web obtient un jeton d’accès pour l’utilisateur, ce qui prouve à l’API web que l’utilisateur s’est correctement authentifié auprès de l’application web et que l’application web a pu obtenir une identité d’utilisateur délégué pour appeler l’API web. Ce jeton d’accès est envoyé via la demande à l’API web, qui autorise l’utilisateur et renvoie la ressource souhaitée.
+- **Identité d’application**. Ce scénario utilise l’octroi d’informations d’identification client OAuth 2.0 pour l’authentification en tant qu’application et l’accès à l’API web. Avec une identité d’application, l’API web peut détecter uniquement que l’application web l’appelle, car elle ne reçoit aucune information sur l’utilisateur. Si l’application reçoit des informations sur l’utilisateur, celles-ci sont envoyées via le protocole d’application et ne sont pas signées par Azure AD. L’API web suppose que l’application web a authentifié l’utilisateur. C’est pour cette raison que ce modèle est appelé « sous-système approuvé ».
+- **Identité d’utilisateur délégué**. Ce scénario peut être réalisé de deux manières : OpenID Connect et octroi du code d’autorisation OAuth 2.0 avec un client confidentiel. L’application web obtient un jeton d’accès pour l’utilisateur, ce qui prouve à l’API web que l’utilisateur s’est correctement authentifié auprès de l’application web et que l’application web a pu obtenir une identité d’utilisateur délégué pour appeler l’API web. Ce jeton d’accès est envoyé via la demande à l’API web, qui autorise l’utilisateur et renvoie la ressource souhaitée.
 
 L’identité d’application et l’identité d’utilisateur délégué sont décrites dans le flux ci-après. La différence principale entre ces deux types d’identité est que l’identité d’utilisateur délégué doit obtenir un code d’autorisation avant que l’utilisateur puisse se connecter et accéder à l’API web.
 

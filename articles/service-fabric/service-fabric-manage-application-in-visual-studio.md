@@ -1,5 +1,5 @@
 ---
-title: Gestion de vos applications Azure service Fabric dans Visual Studio | Documents Microsoft
+title: Gérer les applications Azure Service Fabric dans Visual Studio | Microsoft Docs
 description: Utilisez Visual Studio pour créer, développer, packager, déployer et déboguer vos applications et services Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 01a9852157cbaefd966be974a3175c25e7ff69f8
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b90c39416a522b42932dd82214316e586ba4293a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001700"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192551"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Utilisation de Visual Studio pour simplifier l'écriture et la gestion des applications Service Fabric
 Vous pouvez gérer vos applications et services Azure Service Fabric via Visual Studio. Après avoir [configuré votre environnement de développement](service-fabric-get-started.md), vous pouvez utiliser Visual Studio pour créer des applications Service Fabric, ajouter des services ou empaqueter, enregistrer et déployer des applications dans votre cluster de développement local.
@@ -47,7 +47,7 @@ Visual Studio fournit une propriété appelée **Mode de débogage de l’applic
 
 #### <a name="application-debug-modes"></a>Modes de débogage de l’application
 
-1. **Actualiser l’application** Ce mode vous permet de modifier et de déboguer rapidement votre code, et prend en charge la modification des fichiers web statiques pendant le débogage. Ce mode fonctionne uniquement si votre cluster de développement local est en [mode 1 nœud](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Il s’agit du Mode de débogage d’application par défaut.
+1. **Actualiser l’application** Ce mode vous permet de modifier et de déboguer rapidement votre code, et prend en charge la modification des fichiers web statiques pendant le débogage. Ce mode fonctionne uniquement si votre cluster de développement local est en mode 1 nœud. Il s’agit du Mode de débogage d’application par défaut.
 2. **Supprimer l’application** entraîne la suppression de l’application lorsque la session de débogage se termine.
 3. **Mise à niveau automatique** L’application continue à s’exécuter lorsque la session de débogage se termine. La session de débogage suivante traitera le déploiement comme une mise à niveau. Le processus de mise à niveau conserve les données que vous avez saisies au cours de la précédente session de débogage.
 4. **Conserver l’application** L’application continue à s’exécuter dans le cluster lorsque la session de débogage se termine. Au début de la prochaine session de débogage, l’application sera supprimée.

@@ -6,17 +6,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7f8f4848b7181ad3df7ad4fa009ff284de381b75
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c9c88a2d77aea203b4ef19d2e5188caa5c99b46c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820408"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219129"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
@@ -24,15 +24,14 @@ LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](
 
 ## <a name="model-boundaries"></a>Limites du modèle
 
-
 |Domaine|Limite|
 |--|:--|--|
 | [Nom de l’application][luis-get-started-create-app] | * Nombre maximum de caractère par défaut |
 | [Test par lot][batch-testing]| jeux de 10 données, 1 000 énoncés par jeu de données|
 | Liste explicite | 50 par application|
-| [Intentions][intents]|500 par application<br>L’application [basée sur la répartition](https://aka.ms/dispatch-tool) a 500 sources de répartition correspondantes|
+| [Intentions][intents]|500 par application : 499 intentions personnalisées et l’intention _Aucune_ obligatoire.<br>L’application [dispatch](https://aka.ms/dispatch-tool) a 500 sources de dispatch correspondantes.|
 | [Répertorier des entités](./luis-concept-entity-types.md) | Parent : 50, Enfant : 20 000 éléments. Le nom canonique est *nombre maximum de caractère par défaut. Les valeurs synonymes n’ont aucune restriction de longueur. |
-| [Entités issues de l’apprentissage automatique](./luis-concept-entity-types.md) :<br> Composite<br>  Hiérarchique<br> Simple|100 <br>Le nombre total d’entités issues de l’apprentissage automatique (simples, hiérarchiques et composites) ne peut pas dépasser 100. Les entités hiérarchiques et composites ne peuvent pas avoir plus de 10 enfants.  |
+| [Entités issues de l’apprentissage automatique](./luis-concept-entity-types.md) :<br> Composite<br>  Hiérarchique<br> Simple|Une limite de 100 entités parentes (sans inclure les enfants hiérarchiques) ou de 330 entités (en incluant les enfants hiérarchiques), selon celle que l’utilisateur atteint en premier.<br><br>Un exemple de hiérarchie inclurait 30 hiérarchies avec chacune 10 enfants.  Les enfants consomment un total de 300, tandis que les éléments de la hiérarchie consomment les 30 restants. |
 | [Modèles](luis-concept-patterns.md)|500 modèles par application.<br>La longueur maximale du modèle est de 400 caractères.<br>3 entités Pattern.any par modèle<br>2 textes facultatifs maximum imbriqués dans le modèle|
 | [Pattern.any](./luis-concept-entity-types.md)|100 par application, 3 entités pattern.any par modèle |
 | [Liste d’expressions][phrase-list]|10 listes d’expressions, 5 000 éléments par liste|

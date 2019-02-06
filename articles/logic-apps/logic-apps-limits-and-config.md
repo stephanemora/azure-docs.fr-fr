@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469736"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912780"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -119,9 +119,9 @@ Pour dépasser ces limites dans le cadre d’un traitement normal ou exécuter d
 
 | NOM | Limite | Notes |
 |------|-------|-------|
-| FTP | 50 Mo | Pour dépasser cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
-| SFTP | 50 Mo | Pour dépasser cette limite, utilisez le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
-| SFTP-SSH | 1 Go | Ce connecteur peut gérer jusqu’à 1 Go de données, qu’il transfère par portions de 50 Mo. | 
+| FTP | 50 Mo | Pour dépasser cette limite pour les actions uniquement, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). <p>**Remarque**: La segmentation ne s’applique pas aux déclencheurs. En outre, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
+| SFTP | 50 Mo | Pour dépasser cette limite pour les actions uniquement, utilisez le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). <p>**Remarque**: La segmentation ne s’applique pas aux déclencheurs. En outre, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
+| SFTP-SSH | 1 Go | Ce connecteur peut gérer jusqu’à 1 Go de données, qu’il transfère par portions de 50 Mo. Pour dépasser cette limite pour les actions uniquement, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). <p>**Remarque**: La segmentation ne s’applique pas aux déclencheurs. | 
 |||| 
 
 <a name="request-limits"></a>

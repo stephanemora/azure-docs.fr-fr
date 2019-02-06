@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour analyser les journaux d’activité Azure Active Directory avec Log Analytics (préversion) | Microsoft Docs
+title: Analyser les journaux d’activité Azure Active Directory avec Log Analytics (préversion) | Microsoft Docs
 description: Découvrez comment analyser les journaux d’activité Azure Active Directory avec Log Analytics (préversion)
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 759a0da93544e2a17b71d762924981f05c3ea322
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a508c8a2bb4a28372f5dd8f833f6e55adc3c39ed
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810772"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158738"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Analyser les journaux d’activité Azure AD avec Log Analytics (préversion)
 

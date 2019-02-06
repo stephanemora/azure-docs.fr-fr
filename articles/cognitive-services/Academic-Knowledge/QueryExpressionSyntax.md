@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c130c6cd5fcb5191195712f570db66408734200a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901275"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150869"
 ---
 # <a name="query-expression-syntax"></a>Syntaxe d’expression de requête
 
@@ -25,39 +25,39 @@ Vous pouvez également construire vos propres expressions de requête et les uti
 
 Chaque attribut d’entité pouvant être inclus dans une expression de requête dispose d’un type de données spécifique et d’un ensemble d’opérateurs de requête possibles. L’ensemble des attributs d’entité et des opérateurs pris en charge pour chaque attribut est spécifié sur la page [Attributs d’entité](EntityAttributes.md). Une requête à valeur unique requiert l’attribut afin de prendre en charge l’opération *Equals*. Une requête de préfixe requiert l’attribut pour prendre en charge l’opération *StartsWith*. Une requête de plage numérique requiert l’attribut pour prendre en charge l’opération *IsBetween*.
 
-Certaines des données d’entité sont stockées en tant qu’attributs composites, comme l’indique le point « . » dans le nom de l’attribut. Par exemple, les informations d’auteur et de collaboration sont représentées sous forme d’attribut composite. Il contient 4 composants : AuN, AuId, AfN, AfId. Ces composants sont des éléments de données distincts qui forment une valeur d’attribut d’entité unique.
+Certaines des données d’entité sont stockées en tant qu’attributs composites, comme l’indique le point « . » dans le nom de l’attribut. Par exemple, les informations d’auteur et de collaboration sont représentées sous forme d’attribut composite. Elles contiennent 4 composants : AuN, AuId, AfN et AfId. Ces composants sont des éléments de données distincts qui forment une valeur d’attribut d’entité unique.
 
 
-**Attribut de chaîne : valeur unique** (inclut des correspondances avec des synonymes)  
+**Attribut de chaîne : valeur unique** (inclut les correspondances aux synonymes)  
 Ti='indexation par analyse sémantique latente'  
 Composite (AA.AuN='sue dumais')
 
-**Attribut de chaîne : valeur unique exacte** (correspondance uniquement avec des valeurs canoniques)  
+**Attribut de chaîne : valeur unique exacte** (correspond uniquement à des valeurs canoniques)  
 Ti=='indexation par analyse sémantique latente'  
 Composite (AA.AuN=='susan t dumais')
      
-**Attribut de chaîne : valeur de préfixe**   
+**Attribut de chaîne : valeur de préfixe**   
 Ti='indexation par analyse séman'…  
 Composite (AA.AuN='sue du'...)
 
-**Attribut numérique : valeur unique**  
+**Attribut numérique : valeur unique**  
 Y=2010
  
-**Attribut numérique : valeur de plage**  
+**Attribut numérique : valeur de plage**  
 Y>2005  
 Y>2005  
 Y<2010  
 Y<=2010  
-Y=\[2010, 2012\) (inclut la valeur limite gauche uniquement : 2010, 2011)  
-Y=\[2010, 2012\] (inclut les deux valeurs limites : 2010, 2011, 2012)
+Y=\[2010, 2012\) (inclut la valeur limite gauche uniquement : 2010, 2011)  
+Y=\[2010, 2012\] (inclut les deux valeurs limites : 2010, 2011, 2012)
  
-**Attribut numérique : valeur de préfixe**  
+**Attribut numérique : valeur de préfixe**  
 Y='19'... (toute valeur numérique qui commence par 19) 
  
-**Attribut de date : valeur unique**  
+**Attribut de date : valeur unique**  
 D='2010-02-04'
 
-**Attribut de date : valeur de plage**  
+**Attribut de date : valeur de plage**  
 D>'2010-02-03'  
 D=['2010-02-03','2010-02-05']
 
@@ -85,7 +85,7 @@ And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 ```
 <br>Dans cette version, étant donné que Composite() est appliqué à l’auteur et à la collaboration de façon individuelle avant And(), vous obtenez tous les livres où l’un des auteurs est « Mike Smith » et l’établissement de l’un des auteurs ayant collaboré est « Harvard ». Cet exemple semble similaire au précédent, mais tous deux sont différents.
 
-Pour résumer, prenons l’exemple suivant : nous disposons d’un attribut composite C doté de deux éléments (A et B). Une entité peut disposer de plusieurs valeurs pour C. Voici nos entités :
+Pour résumer, prenons l’exemple suivant : Nous disposons d’un attribut composite C doté de deux éléments (A et B). Une entité peut disposer de plusieurs valeurs pour C. Voici nos entités :
 ```
 E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}

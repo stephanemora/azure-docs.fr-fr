@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à FreshGrade | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à FreshGrade | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FreshGrade.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: c6439b31d2f8c95e0dc1526b92f21aee2966f12f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1861dfb23d105fa6b403095b5fc36d1f2a894fe9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436357"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152552"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Didacticiel : Intégration d’Azure Active Directory à FreshGrade
+# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutoriel : Intégration d’Azure Active Directory à FreshGrade
 
 Dans ce didacticiel, vous allez apprendre à intégrer FreshGrade à Azure Active Directory (Azure AD).
 
@@ -127,7 +127,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de prise en charge des clients FreshGrade](mailTo:support@freshgrade.com).
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+1. Dans la section  **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération de l’application** , puis collez-la dans le Bloc-notes.
     
     ![Configurer l'authentification unique](./media/freshgrade-tutorial/tutorial_metadataurl.png)
      

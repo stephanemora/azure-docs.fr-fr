@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310243"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151088"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core dans le modèle Reliable Services de Service Fabric
 
@@ -62,15 +62,15 @@ Une instance du service Reliable Service est représentée par votre classe de s
 Les modèles d’utilisation des implémentations `ICommunicationListener` pour Kestrel et HttpSys dans les packages NuGet `Microsoft.ServiceFabric.AspNetCore.*` sont similaires, mais ces implémentations effectuent des actions légèrement différentes propres à chaque serveur web. 
 
 Les deux écouteurs de communications fournissent un constructeur qui accepte les arguments suivants :
- - **`ServiceContext serviceContext`**  : objet `ServiceContext` qui contient des informations sur le service en cours d’exécution.
- - **`string endpointName`**  : nom d’une configuration `Endpoint` dans le fichier ServiceManifest.xml. C’est essentiellement là que les deux écouteurs de communication diffèrent : HttpSys **nécessite** une configuration `Endpoint`, contrairement à Kestrel.
+ - **`ServiceContext serviceContext`** : objet `ServiceContext` qui contient des informations sur le service en cours d’exécution.
+ - **`string endpointName`**  : nom d’une configuration `Endpoint` dans le fichier ServiceManifest.xml. C’est là que se situe la principale différence entre les deux écouteurs de communication : HttpSys **nécessite** une configuration `Endpoint`, contrairement à Kestrel.
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**  : expression lambda que vous implémentez dans laquelle vous créez et retournez un `IWebHost`. Vous pouvez ainsi configurer `IWebHost` comme vous le feriez normalement dans une application ASP.NET Core. L’expression lambda fournit une URL, qui est générée pour vous en fonction des options d’intégration de Service Fabric que vous utilisez et de la configuration `Endpoint` que vous fournissez. Cette URL peut ensuite être modifiée ou utilisée telle quelle pour démarrer le serveur web.
 
 ## <a name="service-fabric-integration-middleware"></a>Intergiciel (middleware) d’intégration à Service Fabric
 Le paquet NuGet `Microsoft.ServiceFabric.AspNetCore` inclut la méthode d’extension `UseServiceFabricIntegration` sur `IWebHostBuilder` qui ajoute l’intergiciel (middleware) prenant en charge Service Fabric. Cet intergiciel (middleware) configure l’élément `ICommunicationListener` Kestrel ou HttpSys pour inscrire une URL de service unique auprès de Service Fabric Naming Service, puis valide les requêtes des clients pour s’assurer qu’ils se connectent au service approprié. Cela est nécessaire dans un environnement hôte partagé comme Service Fabric, où plusieurs applications web peuvent s’exécuter sur une même machine physique ou virtuelle, mais n’utilisent pas de noms d’hôte uniques, pour empêcher les clients de se connecter par erreur à un service incorrect. Ce scénario est décrit plus en détail dans la section suivante.
 
 ### <a name="a-case-of-mistaken-identity"></a>Cas d’erreur d’identité
-Quel que soit le protocole utilisé, les réplicas de service écoutent sur une combinaison IP:port unique. Lorsqu’un réplica de service a commencé à écouter sur un point de terminaison IP:port, il indique l’adresse de ce point de terminaison à Service Fabric Naming Service où elle peut être détectée par des clients ou d’autres services. Si des services utilisent des ports d’application affectés de manière dynamique, un réplica de service peut utiliser par hasard le même point de terminaison IP:port d’un autre service qui existait précédemment sur la même machine physique ou virtuelle. Cela peut provoquer la connexion d’un client par erreur à un service incorrect. Cela peut se produire si la séquence d’événements suivante se produit :
+Quel que soit le protocole utilisé, les réplicas de service écoutent sur une combinaison IP:port unique. Lorsqu’un réplica de service a commencé à écouter sur un point de terminaison IP:port, il indique l’adresse de ce point de terminaison à Service Fabric Naming Service où elle peut être détectée par des clients ou d’autres services. Si des services utilisent des ports d’application affectés de manière dynamique, un réplica de service peut utiliser par hasard le même point de terminaison IP:port d’un autre service qui existait précédemment sur la même machine physique ou virtuelle. Cela peut provoquer la connexion d’un client au mauvais service. Cela peut se produire si la séquence d’événements suivante se produit :
 
  1. Le service A écoute sur 10.0.0.1:30000 via HTTP. 
  2. Le client résout le service A et obtient l’adresse 10.0.0.1:30000.

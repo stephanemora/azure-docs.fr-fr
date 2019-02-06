@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ChronicX® | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ChronicX® | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ChronicX®.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: f3f19be6-6ee8-413c-919c-4884ffe685ca
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 51eab8099aee6378893f24e0cea6aa37a4995495
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 982a639fe7a57c2db484acc6b272e5314637d1c4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428146"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167663"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Didacticiel : Intégration d’Azure Active Directory à ChronicX®
+# <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Tutoriel : Intégration d’Azure Active Directory à ChronicX®
 
 Dans ce didacticiel, vous allez apprendre à intégrer ChronicX® à Azure Active Directory (Azure AD).
 
@@ -162,7 +162,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans ChronicX®. ChronicX® prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à ChronicX® s’il n’existe pas déjà.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support ChronicX®](https://www.casebank.com/contact-us/).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe du support technique de ChronicX®](https://www.casebank.com/contact-us/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

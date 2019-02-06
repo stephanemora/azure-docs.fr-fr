@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243792"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454485"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -89,7 +89,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 * [Contrôle d’accès en fonction du rôle Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   Cet article décrit le contrôle d’accès en fonction du rôle d’Active Directory Azure et en explique le fonctionnement.
-* [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md)
+* [Contrôle d’accès en fonction du rôle (RBAC) : rôles intégrés](../../role-based-access-control/built-in-roles.md)
 
   Cet article explique en détail tous les rôles intégrés disponibles dans RBAC.
 * [Présentation du déploiement de Resource Manager et du déploiement classique](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -240,7 +240,7 @@ Pour plus d’informations sur l’utilisation des signatures d’accès partag�
 * Il s’agit de didacticiels pour l’utilisation de la bibliothèque cliente .NET pour créer des signatures d’accès partagé et des stratégies d’accès stockées.
 
   * [Utilisation des signatures d’accès partagé (SAP)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Signatures d’accès partagé, partie 2 : création et utilisation d’une signature d’accès partagé avec le service BLOB](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Stockage Blob](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Cet article contient une description du modèle SAP, des exemples de signatures d’accès partagé et des recommandations pour une utilisation optimale de ces signatures. La révocation de l’autorisation accordée est également abordée.
 
@@ -307,7 +307,7 @@ Azure Disk Encryption est une nouvelle fonctionnalité. Cette fonctionnalité vo
 La solution prend en charge les scénarios de machines virtuelles IaaS suivants lorsqu’ils sont activés dans Microsoft Azure :
 
 * Prise en main d’Azure Key Vault
-* Machines virtuelles de niveau standard : [Machines virtuelles IaaS des séries A, D, DS, G, GS, etc.](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* Machines virtuelles de niveau Standard : [Machines virtuelles IaaS des séries A, D, DS, G, GS, etc.](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * Activation du chiffrement sur les machines virtuelles IaaS Windows et Linux
 * Désactivation du chiffrement sur les systèmes d’exploitation et les lecteurs de données pour les machines virtuelles IaaS Windows
 * Désactivation du chiffrement sur les lecteurs de données pour les machines virtuelles IaaS Linux
@@ -328,7 +328,7 @@ La solution ne prend pas en charge les scénarios, fonctionnalités et technolog
 
 
 > [!NOTE]
-> Le chiffrement de disque du système d’exploitation Linux est actuellement pris en charge sur les distributions Linux suivantes : RHEL 7.2, CentOS 7.2n et Ubuntu 16.04.
+> Le chiffrement du disque de système d’exploitation Linux est actuellement pris en charge sur les distributions Linux suivantes : RHEL 7.2, CentOS 7.2n et Ubuntu 16.04
 >
 >
 
@@ -479,7 +479,7 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 * [Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage sur MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Il s’agit de la documentation de référence pour la prise en charge de CORS pour les services Azure Storage. Elle propose des liens vers des articles concernant chaque service de stockage, et propose un exemple et une description de chaque élément du fichier CORS.
-* [Microsoft Azure Storage: Introducing CORS (Microsoft Azure Storage : Présentation de CORS)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure Storage: Introducing CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx) (Stockage Microsoft Azure : Présentation de CORS)
 
   Il s’agit d’un lien vers l’article de blog initial qui présente CORS et montre comment l’utiliser.
 
@@ -504,6 +504,6 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 * [FIPS 140 Validation (Validation de la norme FIPS 140)](https://technet.microsoft.com/library/cc750357.aspx)
 
   Cet article fournit des informations sur la façon dont les produits et les modules de chiffrement Microsoft sont conformes aux normes FIPS pour l’État fédéral américain.
-* [Effets des paramètres de sécurité « Chiffrement système : utilisez des algorithmes compatibles FIPS pour le chiffrement, le hachage et la signature » dans Windows XP et les versions ultérieures de Windows](https://support.microsoft.com/kb/811833)
+* ["System cryptography: Use FIPS compliant algorithms for encryption, hashing, and signing" security settings effects in Windows XP and in later versions of Windows](https://support.microsoft.com/kb/811833) (Effets des paramètres de sécurité « Chiffrement système : utilisez des algorithmes compatibles FIPS pour le chiffrement, le hachage et la signature » dans Windows XP et les versions ultérieures de Windows)
 
   Cet article traite de l’utilisation du mode FIPS sur des ordinateurs Windows anciens.

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: df919e23fd608cdf41e93844f13342ca00657adb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72640a4d917ddb2485199f0df1fead8b0bdcd1c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205142"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192963"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Renouveler manuellement un certificat de cluster Service Fabric
-Lorsqu’un certificat de cluster Service Fabric est proche de la date d’expiration, vous devez le mettre à jour.  Le renouvellement de certificat est un processus simple si le cluster a été [configuré pour utiliser des certificats basés sur un nom commun](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (et pas une empreinte).  Obtenez un nouveau certificat auprès d’une autorité de certification avec une nouvelle date d’expiration.  Les certificats auto-signés, notamment ceux qui sont générés lors du déploiement d’un cluster Service Fabric dans le portail Azure, ne sont pas pris en charge.  Le nouveau certificat doit présenter le même nom commun que l’ancien certificat. 
+Lorsqu’un certificat de cluster Service Fabric est proche de la date d’expiration, vous devez le mettre à jour.  Le renouvellement de certificat est un processus simple si le cluster a été [configuré pour utiliser des certificats basés sur un nom commun](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (et pas une empreinte).  Obtenez un nouveau certificat auprès d’une autorité de certification avec une nouvelle date d’expiration.  Les certificats auto-signés ne sont pas pris en charge avec les clusters Service Fabric de production, afin d’inclure les certificats générés dans le cadre du workflow de création de cluster dans le portail Azure. Le nouveau certificat doit présenter le même nom commun que l’ancien certificat. 
 
-Le script suivant charge un nouveau certificat dans un coffre de clés, puis installe le certificat sur le groupe de machines virtuelles identiques.  Le cluster Service Fabric utilise automatiquement le certificat pourvu de la dernière date d’expiration.
+Lorsque plusieurs certificats valides sont installés sur l’ordinateur hôte, le cluster Service Fabric utilise automatiquement le certificat déclaré dont la date d’expiration est la plus éloignée. L’utilisation d’un modèle Resource Manager pour provisionner les ressources Azure constitue une bonne pratique. Dans un environnement autre que de production, le script suivant peut être utilisé pour charger un nouveau certificat dans un coffre de clés, puis pour installer le certificat sur le groupe de machines virtuelles identiques : 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -78,6 +78,9 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 # Update the VM scale set 
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
+
+>[!NOTE]
+> Vous ne pouvez pas utiliser un même ID de ressource pour deux secrets de groupes de machines virtuelles identiques, puisque chaque secret constitue une ressource unique avec sa propre version. 
 
 Pour plus d’informations, consultez les articles suivants :
 * Découvrez plus en détail la [sécurité des clusters](service-fabric-cluster-security.md).

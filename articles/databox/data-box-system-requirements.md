@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794003"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206745"
 ---
 # <a name="azure-data-box-system-requirements"></a>Conditions requises pour le système Data Box
 
@@ -48,13 +48,18 @@ Voici une liste des systèmes d’exploitation pris en charge pour l’opératio
 
 ### <a name="supported-storage-accounts"></a>Comptes de stockage pris en charge
 
-Voici une liste des types de stockage pris en charge pour l’appareil Data Box.
+Voici une liste des comptes de stockage et des types de stockage pris en charge pour l’appareil Data Box. Pour obtenir la liste complète des différents types de comptes de stockage et de leurs fonctionnalités, consultez [Types de comptes de stockage](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
-| **Compte de stockage** | **Remarques** |
-| --- | --- |
-| Classique | standard |
-| Usage général  |Standard ; V1 et V2 sont pris en charge. |
-| Blob |Les objets chauds et froids sont pris en charge. |
+| **Compte de stockage / Type de stockage pris en charge** | **Objet blob de blocs** |**Objet blob de pages*** |**Azure Files** |**Remarques**|
+| --- | --- | -- | -- | -- |
+| Standard classique | O | O | O |
+| Édition Standard v1 à usage général  | O | O | O | Les objets chauds et froids sont pris en charge.|
+| Comptes de stockage à usage général v1 Premium  |  | O| | |
+| Comptes de stockage à usage général v2 Standard  | O | O | O | Les objets chauds et froids sont pris en charge.|
+| Comptes de stockage à usage général v2 Premium  |  |O | | |
+| Stockage d'objets blob Standard |O | | |Les objets chauds et froids sont pris en charge. |
+
+\* *- Les données chargées dans les objets blob de pages doivent être de 512 octets alignés, disques durs virtuels, par exemple.*
 
 >[!NOTE]
 > Les comptes Azure Data Lake Storage Gen 2 ne sont pas pris en charge.
@@ -85,7 +90,7 @@ Voici une liste des navigateurs web pris en charge pour l’interface utilisateu
 
 ## <a name="networking-requirements"></a>Configuration requise du réseau
 
-Votre centre de données doit avoir un réseau haut débit. Nous vous recommandons vivement une connexion 10 GbE minimum. Si une connexion 10 GbE n’est pas disponible, une liaison de données 1 GbE peut être utilisée pour copier des données, mais la vitesse de copie sera affectée.
+Votre centre de données doit avoir un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si une connexion 10 GbE n’est pas disponible, une liaison de données 1 GbE peut être utilisée pour copier des données, mais la vitesse de copie sera affectée.
 
 ## <a name="next-step"></a>Étape suivante
 

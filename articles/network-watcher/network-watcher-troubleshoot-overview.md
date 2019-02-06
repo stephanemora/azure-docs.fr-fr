@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 2f8a41834c1451d80c53cfed4bae3b7e36281702
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 8048dde6158d9eaa9bf38a8c3020420b81bdd55b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779258"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099774"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduction à la résolution des problèmes des ressources dans Azure Network Watcher
 
@@ -51,7 +51,7 @@ Les tableaux suivants présentent les différents types d’erreur (« id » dan
 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
-| NoFault | Quand aucune erreur n’est détectée |OUI|
+| NoFault | Quand aucune erreur n’est détectée |Oui|
 | GatewayNotFound | Passerelle introuvable ou non approvisionnée |Non |
 | PlannedMaintenance |  Instance de la passerelle en maintenance  |Non |
 | UserDrivenUpdate | Cette défaillance se produit lorsqu’une mise à jour utilisateur est en cours. La mise à jour peut être d’une opération de redimensionnement. | Non  |
@@ -59,26 +59,26 @@ Les tableaux suivants présentent les différents types d’erreur (« id » dan
 | PlatformInActive | Il existe un problème avec la plateforme. | Non |
 | ServiceNotRunning | Le service sous-jacent ne fonctionne pas. | Non |
 | NoConnectionsFoundForGateway | Aucune connexion n’existe sur la passerelle. Cette défaillance est simplement un avertissement.| Non |
-| ConnectionsNotConnected | Aucune connexion n’est établie. Cette défaillance est simplement un avertissement.| OUI|
-| GatewayCPUUsageExceeded | L’utilisation du processeur par la passerelle est actuellement supérieure à 95 %. | OUI |
+| ConnectionsNotConnected | Aucune connexion n’est établie. Cette défaillance est simplement un avertissement.| Oui|
+| GatewayCPUUsageExceeded | L’utilisation du processeur par la passerelle est actuellement supérieure à 95 %. | Oui |
 
 ### <a name="connection"></a>Connexion
 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
-| NoFault | Quand aucune erreur n’est détectée |OUI|
+| NoFault | Quand aucune erreur n’est détectée |Oui|
 | GatewayNotFound | Passerelle introuvable ou non approvisionnée |Non |
 | PlannedMaintenance | Instance de la passerelle en maintenance  |Non |
 | UserDrivenUpdate | Cette défaillance se produit lorsqu’une mise à jour utilisateur est en cours. La mise à jour peut être d’une opération de redimensionnement.  | Non  |
 | VipUnResponsive | Cette défaillance se produit lorsque l’instance principale de la passerelle ne peut pas être atteinte en raison d’un échec de la sonde d’intégrité. | Non  |
 | ConnectionEntityNotFound | La configuration de la connexion est manquante | Non  |
 | ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée » |Non |
-| ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | OUI |
-| ConnectionMarkedStandy | Le service sous-jacent est identifié comme étant en veille.| OUI|
-| Authentication | Incompatibilité des clés prépartagées | OUI|
-| PeerReachability | La passerelle homologue n’est pas accessible. | OUI|
-| IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | OUI|
-| WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |OUI|
+| ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | Oui |
+| ConnectionMarkedStandby | Le service sous-jacent est identifié comme étant en veille.| Oui|
+| Authentification | Incompatibilité des clés prépartagées | Oui|
+| PeerReachability | La passerelle homologue n’est pas accessible. | Oui|
+| IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | Oui|
+| WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |Oui|
 
 ## <a name="supported-gateway-types"></a>Types de passerelles pris en charge
 
@@ -87,14 +87,14 @@ La table suivante répertorie quelles passerelles et quelles connexions sont pri
 |  |  |
 |---------|---------|
 |**Types de passerelles**   |         |
-|VPN      | Prise en charge        |
+|VPN      | Pris en charge        |
 |ExpressRoute | Non pris en charge |
 |**Types de VPN** | |
-|Route-based | Prise en charge|
+|Route-based | Pris en charge|
 |Policy-based | Non pris en charge|
 |**Types de connexions**||
-|IPsec| Prise en charge|
-|Vnet2Vnet| Prise en charge|
+|IPsec| Pris en charge|
+|Vnet2Vnet| Pris en charge|
 |ExpressRoute| Non pris en charge|
 |VPNClient| Non pris en charge|
 
@@ -107,7 +107,7 @@ Les fichiers journaux de dépannage des ressources sont stockés dans un compte 
 > [!NOTE]
 > Dans certains cas, seul un sous-ensemble des fichiers journaux est écrit dans l’espace de stockage.
 
-Pour obtenir des instructions de téléchargement des fichiers à partir des comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). L’explorateur de stockage peut aussi être utilisé. Pour en savoir plus sur l’explorateur de stockage, cliquez sur le lien suivant : [Explorateur de stockage](http://storageexplorer.com/)
+Pour obtenir des instructions de téléchargement des fichiers à partir des comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). L’explorateur de stockage peut aussi être utilisé. Pour en savoir plus sur l’Explorateur Stockage, cliquez sur le lien suivant : [Explorateur Stockage](http://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

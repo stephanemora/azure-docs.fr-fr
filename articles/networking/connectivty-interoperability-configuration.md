@@ -1,5 +1,5 @@
 ---
-title: 'Interopérabilité des fonctionnalités de connectivité de back-end Azure : détails de la configuration | Microsoft Docs'
+title: 'Interopérabilité des fonctionnalités de connectivité de back-end Azure : Détails de configuration | Microsoft Docs'
 description: Cet article décrit les détails de configuration de l’initialisation (tearDown) de test que vous pouvez utiliser pour analyser l’interopérabilité entre ExpressRoute, un réseau privé virtuel (VPN) de site à site et l’appairage de réseau virtuel dans Azure.
 documentationcenter: na
 services: networking
@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: a460a8f4c652182a7916cba5aef0520834432909
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4aa594769a3665908f0adce498a4a2bf3a4f4f83
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614811"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189066"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : détails de la configuration de test
 
@@ -166,9 +166,9 @@ ExpressRoute 1 connecte le réseau virtuel hub et l’emplacement Location 1 l
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>VPN de site à site sur ExpressRoute
 
-Vous pouvez configurer un VPN de site à site à l’aide de l’appairage Microsoft ExpressRoute pour échanger des données de façon privée entre votre réseau local et vos réseaux virtuels Azure. Avec cette configuration, vous pouvez échanger des données en garantissant confidentialité, authenticité et intégrité. L’échange de données est également soumis à un système anti-relecture. Pour plus d’informations sur la configuration d’un VPN IPsec de site à site en mode tunnel à l’aide de l’appairage Microsoft ExpressRoute, consultez [VPN de site à site via l’appairage Microsoft ExpressRoute][S2S-Over-ExR]. 
+Vous pouvez configurer un VPN de site à site à l’aide de l’appairage Microsoft ExpressRoute pour échanger des données de façon privée entre votre réseau local et vos réseaux virtuels Azure. Avec cette configuration, vous pouvez échanger des données en garantissant confidentialité, authenticité et intégrité. L’échange de données est également soumis à un système anti-relecture. Pour plus d’informations sur la configuration d’un VPN IPSec de site à site en mode tunnel via l’homologation Microsoft ExpressRoute, consultez l’article [Configurer un réseau VPN de site à site via l’homologation Microsoft ExpressRoute][S2S-Over-ExR]. 
 
-La principale limitation liée à la configuration d’un VPN de site à site qui utilise l’appairage Microsoft est le débit. Le débit sur le tunnel IPsec est limité par la capacité de la passerelle VPN. Le débit d’une passerelle VPN est inférieur au débit ExpressRoute. Dans ce scénario, le fait d’utiliser le tunnel IPsec pour un trafic très sécurisé et d’utiliser l’appairage privé pour toutes les autres catégories de trafic permet d’optimiser l’utilisation de la bande passante ExpressRoute.
+La principale limitation liée à la configuration d’un VPN de site à site qui utilise l’homologation Microsoft est le débit. Le débit sur le tunnel IPsec est limité par la capacité de la passerelle VPN. Le débit d’une passerelle VPN est inférieur au débit ExpressRoute. Dans ce scénario, le fait d’utiliser le tunnel IPsec pour un trafic très sécurisé et d’utiliser l’appairage privé pour toutes les autres catégories de trafic permet d’optimiser l’utilisation de la bande passante ExpressRoute.
 
 ### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>VPN de site à site en tant que chemin de basculement sécurisé pour ExpressRoute
 
@@ -178,7 +178,7 @@ Pour plus d’informations sur la façon de configurer des connexions coexistant
 
 ## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Étendre la connectivité de back-end à des réseaux virtuels spoke et à des emplacements branch
 
-### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Connectivité de réseau virtuel spoke à l’aide de l’appairage de réseau virtuel
+### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Connectivité de réseau virtuel spoke via l’homologation de réseaux virtuels
 
 L’architecture des réseaux virtuels hub et spoke est largement utilisée. Le hub est un réseau virtuel dans Azure qui centralise la connectivité entre vos réseaux virtuels spoke et votre réseau local. Les spokes sont des réseaux virtuels appairés avec le hub et que vous pouvez utiliser pour isoler les charges de travail. Le trafic circule entre le centre de données local et le hub via une connexion ExpressRoute ou VPN. Pour plus d’informations sur l’architecture, consultez [Implémenter une topologie réseau hub-and-spoke dans Azure][Hub-n-Spoke].
 

@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 533e8b30bf59010f71df477b96b5441c83c34be7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ada75f9ebe38615d17276c9e5b731924a45c8e75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307106"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148454"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Java
 
 Utilisez ce démarrage rapide pour commencer à envoyer des demandes à l’API Recherche d’entreprises locales Bing, un service Azure Cognitive Services. Alors que cette application simple est écrite en Java, l’API est un service web RESTful compatible avec tous les langages de programmation capables de formuler des requêtes HTTP et d’analyser du JSON.
 
@@ -27,7 +27,7 @@ Cet exemple d’application récupère des données de réponse locales auprès 
 
 * Le [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les API Recherche Bing. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) est suffisant pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de l’essai gratuit.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les API Recherche Bing. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) est suffisant pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de l’essai gratuit.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Cet exemple d’application récupère des données de réponse locales pour la requête de recherche d’un *hôtel à Bellevue*.
 
@@ -35,7 +35,7 @@ Cet exemple d’application récupère des données de réponse locales pour la 
 
 Le code suivant crée un `WebRequest`, définit l’en-tête de clé d’accès et ajoute une chaîne de requête pour « hotel in Bellevue ».  Ensuite, il envoie la requête et affecte la réponse à une chaîne devant contenir le texte JSON.
 
-````
+```
     // construct URL of search request (endpoint + query string)
      URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -47,7 +47,7 @@ Le code suivant crée un `WebRequest`, définit l’en-tête de clé d’accès 
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="run-the-complete-application"></a>Exécuter l’application complète
 
@@ -58,7 +58,7 @@ L’API Recherche d’entreprises locales Bing renvoie des résultats à partir 
 4. Remplacez la valeur subscriptionKey par une clé d’accès valide pour votre abonnement.
 5. Exécutez le programme.
 
-````
+```
 package localSearch;
 import java.net.*;
 import java.util.*;
@@ -162,7 +162,7 @@ public class LocalSearchCls {
         }
     }
 
-````
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide de la Recherche d’entreprises locales](local-quickstart.md)

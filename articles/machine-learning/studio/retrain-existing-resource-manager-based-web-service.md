@@ -1,6 +1,6 @@
 ---
-titre : Reformer un service web prédictif Studio - titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à réentraîner un modèle et à mettre à jour le service web pour utiliser le modèle réentraîné dans Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Reformer un service web prédictif Studio - titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à réentraîner un modèle et à mettre à jour le service web pour utiliser le modèle réentraîné dans Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 07/11/2017
 ---
