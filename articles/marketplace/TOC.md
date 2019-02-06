@@ -1,7 +1,7 @@
 # [Documentation de la Place de marché Microsoft Azure et d’AppSource](index.md)
+## [Feuille de route de la Place de marché Azure et d’AppSource](./marketplace-roadmap.md)
 
 ## [Vue d’ensemble et avantages de la Place de marché Microsoft Azure et d’AppSource](./marketplace-publishers-guide.md)  
-
 ### [Devenir un éditeur sur la Place de marché](./become-publisher.md)  
 #### [Créer un compte Microsoft](./guidelines.md)
 #### [S’inscrire dans le centre de développement](./register-dev-center.md) 

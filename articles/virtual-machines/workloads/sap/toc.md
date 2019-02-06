@@ -63,9 +63,9 @@
 ### [Déploiement SGBD de machines virtuelles SAP ASE Azure pour charge de travail SAP](dbms_guide_sapase.md)
 ### [Déploiement Content Server, liveCache et SAP MaxDB sur Azure](dbms_guide_maxdb.md)
 ### Disponibilité de SAP HANA sur les machines virtuelles Azure
-### [Présentation de la disponibilité de SAP HANA sur Azure](sap-hana-availability-overview.md)
-### [Disponibilité de SAP HANA sur Azure au sein d’une région Azure](sap-hana-availability-one-region.md)
-### [Disponibilité de SAP HANA sur Azure dans l’ensemble des régions Azure](sap-hana-availability-across-regions.md)
+#### [Présentation de la disponibilité de SAP HANA sur Azure](sap-hana-availability-overview.md)
+#### [Disponibilité de SAP HANA sur Azure au sein d’une région Azure](sap-hana-availability-one-region.md)
+#### [Disponibilité de SAP HANA sur Azure dans l’ensemble des régions Azure](sap-hana-availability-across-regions.md)
 ## [SAP Business One sur les machines virtuelles Azure](business-one-azure.md)
 ## [Guide de déploiement SAP IDES sur Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Connecteur SAP LaMa pour Azure](lama-installation.md)
@@ -74,6 +74,7 @@
 ### Architecture haute disponibilité
 #### [Architecture haute disponibilité et scénarios](sap-high-availability-architecture-scenarios.md)
 #### [Architecture à plus haute disponibilité et scénarios](sap-higher-availability-architecture-scenarios.md)
+#### [Configurations de la charge de travail SAP avec des zones de disponibilité Azure](sap-ha-availability-zones.md)
 #### [Haute disponibilité sur Windows avec disque partagé pour l’instance (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Haute disponibilité sur Windows avec partage de fichiers SOFS pour l’instance (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
 #### [Haute disponibilité sur SUSE Linux pour l’instance (A)SCS](high-availability-guide-suse.md)
