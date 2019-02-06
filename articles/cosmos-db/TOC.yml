@@ -21,7 +21,7 @@ items:
       href: create-sql-api-python.md
     - name: Xamarin
       href: create-sql-api-xamarin-dotnet.md
-  - name: MongoDB
+  - name: API d’Azure Cosmos DB pour MongoDB
     items:
     - name: .NET
       href: create-mongodb-dotnet.md
@@ -196,7 +196,7 @@ items:
     items:
     - name: Données de document de modèle
       href: modeling-data.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Créer un compte
         items:
@@ -250,7 +250,7 @@ items:
         href: powershell-samples.md
       - name: Azure CLI
         href: cli-samples.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
       - name: Régler les performances des requêtes
         href: sql-api-query-metrics.md
@@ -306,7 +306,7 @@ items:
       href: mongodb-introduction.md
     - name: Prise en charge du protocole filaire
       href: mongodb-feature-support.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Créer un compte
         items:
@@ -334,7 +334,7 @@ items:
         href: tutorial-query-mongodb.md
       - name: 4 - Distribuer les données globalement
         href: tutorial-global-distribution-mongodb.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
       - name: Obtenir la chaîne de connexion
         href: connect-mongodb-account.md
@@ -356,11 +356,11 @@ items:
       href: graph-introduction.md
     - name: Prise en charge du protocole filaire
       href: gremlin-support.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Interroger les données
         href: tutorial-query-graph.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
       - name: Importer des données graphiques
         href: bulk-executor-graph-dotnet.md
@@ -372,7 +372,7 @@ items:
       href: cassandra-introduction.md
     - name: Prise en charge du protocole filaire
       href: cassandra-support.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Créer un compte et une base de données
         href: create-cassandra-api-account-java.md
@@ -408,7 +408,7 @@ items:
     items:
     - name: Introduction
       href: table-introduction.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Créer un compte
         href: tutorial-develop-table-dotnet.md
@@ -418,7 +418,7 @@ items:
         href: tutorial-query-table.md
       - name: 4 - Distribuer les données globalement
         href: tutorial-global-distribution-table.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
       - name: Générer des applications avec l’API Table
         href: table-support.md
@@ -457,7 +457,7 @@ items:
       - name: API REST du Stockage de table
         href: /rest/api/storageservices/Table-Service-Concepts
   expanded: true
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Gérer un compte Azure Cosmos
     href: how-to-manage-database-account.md
@@ -613,7 +613,7 @@ items:
     href: whitepapers.md
   - name: Partenaires
     href: partners-migration-cosmosdb.md
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: Applications de réseaux sociaux
       href: social-media-apps.md
-ms.openlocfilehash: 2fdf08837bc239ba10da85fad7b81c819b9f26fc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: da87cea310f5bda952cfa014d7b45e23e555efcf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511919"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746181"
