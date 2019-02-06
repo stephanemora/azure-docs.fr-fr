@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/3/2018
+ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ec1c24e4a9714506a4107fd5bfd53d1a562c8781
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022357"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098729"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personnalisation l’installation du runtime d’intégration Azure-SSIS
 
@@ -27,6 +27,8 @@ Vous configurez votre installation personnalisée en préparant un script et ses
 
 Vous pouvez installer des composants libres, ou sans licence, et des composants payants, ou sous licence. Si vous êtes un éditeur de logiciels, consultez [Comment développer des composants payants, ou sous licence, pour l’IR Azure-SSIS](how-to-develop-azure-ssis-ir-licensed-components.md).
 
+> [!IMPORTANT]
+> Les nœuds de série v2 d’Azure-SSIS IR ne convenant pas pour une installation personnalisée, veuillez utiliser les nœuds de série v3 à la place.  Si vous utilisez déjà les nœuds de série v2, optez dès que possible pour l’utilisation des nœuds de série v3.
 
 ## <a name="current-limitations"></a>Limitations actuelles
 
@@ -78,7 +80,7 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
        ![Création d’un conteneur d’objets blob](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-    1.  Sélectionnez le nouveau conteneur et chargez votre script d’installation personnalisée et ses fichiers associés. Assurez-vous que vous chargez `main.cmd` au niveau supérieur du conteneur, pas dans un dossier. 
+    1.  Sélectionnez le nouveau conteneur et chargez votre script d’installation personnalisée et ses fichiers associés. Veillez à charger `main.cmd` au niveau supérieur de votre conteneur, pas dans un dossier. Vérifiez également que votre conteneur contient uniquement les fichiers d’installation personnalisée nécessaires afin que leur téléchargement ultérieur sur votre runtime d’intégration Azure-SSIS ne prenne pas beaucoup de temps.
 
        ![Chargez des fichiers vers le conteneur d’objets blob](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -140,15 +142,15 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
        1. Un dossier `.NET FRAMEWORK 3.5`, qui contient une installation personnalisée permettant d’installer une version précédente de .NET Framework, potentiellement nécessaire pour les composants personnalisés sur chaque nœud de votre runtime d’intégration Azure-SSIS.
 
-       1. Un dossier `AAS`, qui contient une installation personnalisée permettant d’installer les bibliothèques clientes sur chaque nœud de votre instance Azure-SSIS IR, ce qui permet à vos tâches Analysis Services de se connecter à une instance Azure Analysis Services (AAS) avec l’authentification du principal de service. Tout d’abord, téléchargez les derniers programmes d’installation Windows et bibliothèques clientes **MSOLAP (amd64)** et **AMO** (par exemple `x64_15.0.900.108_SQL_AS_OLEDB.msi` et `x64_15.0.900.108_SQL_AS_AMO.msi`) à partir d’[ici](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), puis chargez-les ensemble avec `main.cmd` dans votre conteneur.  
-
        1. Un dossier `BCP` qui contient une installation personnalisée pour les utilitaires de ligne de commande SQL Server (`MsSqlCmdLnUtils.msi`), y compris le programme de copie en bloc (`bcp`), sur chaque nœud de votre IR Azure-SSIS.
 
        1. Un dossier `EXCEL`, qui contient une installation personnalisée pour des assemblys open source (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll` et `ExcelDataReader.dll`) sur chaque nœud de votre IR Azure-SSIS.
 
        1. Un dossier `ORACLE ENTERPRISE`, qui contient un script d’installation personnalisée (`main.cmd`) et le fichier de configuration de l’installation sans assistance (`client.rsp`) pour installer les connecteurs Oracle et le pilote OCI sur chaque nœud de votre instance Azure-SSIS IR, Enterprise Edition. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination Oracle. Commencez par télécharger Microsoft Connectors v5.0 pour Oracle (`AttunitySSISOraAdaptersSetup.msi` et `AttunitySSISOraAdaptersSetup64.msi`) à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179), et le dernier client Oracle (par exemple, `winx64_12102_client.zip`) depuis [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), puis chargez-les tous ensemble avec `main.cmd` et `client.rsp` dans votre conteneur. Si vous utilisez TNS pour vous connecter à Oracle, vous devez également télécharger `tnsnames.ora`, le modifier, puis le charger dans votre conteneur de manière à ce qu’il puisse être copié dans le dossier d’installation Oracle pendant l’installation.
 
-       1. Un dossier `ORACLE STANDARD`, qui contient un script d’installation personnalisée (`main.cmd`) pour installer le pilote Oracle ODP.NET sur chaque nœud de votre IR Azure-SSIS. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination ADO.NET. Vous devez d’abord télécharger le dernier pilote ODP.NET Oracle, par exemple `ODP.NET_Managed_ODAC122cR1.zip`, depuis [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), puis le charger dans votre conteneur avec `main.cmd`.
+       1. Un dossier `ORACLE STANDARD ADO.NET`, qui contient un script d’installation personnalisée (`main.cmd`) pour installer le pilote Oracle ODP.NET sur chaque nœud de votre IR Azure-SSIS. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination ADO.NET. Vous devez d’abord télécharger le dernier pilote ODP.NET Oracle, par exemple `ODP.NET_Managed_ODAC122cR1.zip`, depuis [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), puis le charger dans votre conteneur avec `main.cmd`.
+       
+       1. Un dossier `ORACLE STANDARD ODBC`, qui contient un script d’installation personnalisée (`main.cmd`) pour installer le pilote Oracle ODBC et configurer le nom de source de données sur chaque nœud de votre IR Azure-SSIS. Cette configuration vous permet d’utiliser le gestionnaire de connexions/la source/la destination ODBC ou le gestionnaire de connexions/la source Power Query avec le type de source de données ODBC pour vous connecter au serveur Oracle. Téléchargez les derniers packages Oracle Instant Client (Basic ou Basic Lite) et ODBC - par exemple, les packages 64 bits [ici](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (package Basic : `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, package Basic Lite : `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, package ODBC : `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) ou les packages 32 bits [ici](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (package Basic : `instantclient-basic-nt-18.3.0.0.0dbru.zip`, package Basic Lite : `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, package ODBC : `instantclient-odbc-nt-18.3.0.0.0dbru.zip`), puis chargez-les avec `main.cmd` sur votre conteneur.
 
        1. Un dossier `SAP BW`, qui contient un script d’installation personnalisée (`main.cmd`) pour installer l’assembly de connecteurs SAP .NET (`librfc32.dll`) sur chaque nœud de votre IR Azure-SSIS, Enterprise Edition. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination SAP BW. Commencez par charger la version 64 bits ou 32 bits de `librfc32.dll` du dossier d’installation SAP vers votre conteneur avec `main.cmd`. Le script copie ensuite l’assembly SAP dans le dossier `%windir%\SysWow64` ou `%windir%\System32` pendant l’installation.
 

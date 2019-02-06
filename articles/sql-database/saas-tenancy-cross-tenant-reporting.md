@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e23b679d6c81d1a4103f010a9d13c35e80d4d2af
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.date: 01/25/2019
+ms.openlocfilehash: ccf6ff75cb041c7d9998f67d579d1b392f83cee9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240986"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476245"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Création de rapports inter-clients à l’aide de requêtes distribuées
 
@@ -93,7 +93,7 @@ Pour examiner la définition de la vue *Venues* :
 
 1. Dans **Explorateur d’objets**, développez **contosoconcerthall** > **Vues** :
 
-   ![vues](media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![views](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Cliquez avec le bouton droit sur **dbo.Venues**.
 3. Sélectionnez **Générer un script de la vue en tant que** > **CRÉER vers** > **Nouvelle fenêtre d’éditeur de requête**
@@ -128,7 +128,7 @@ Cet exercice ajoute le schéma (les définitions de la source de données extern
 
     ![créer une source de données externe](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   Les tables externes qui font référence aux vues globales décrites dans la section précédente et définies avec **DISTRIBUTION = SHARDED(VenueId)**. Étant donné que chaque élément *VenueId* correspond à une base de données unique, cela améliore les performances dans de nombreux scénarios, comme illustré dans la section suivante.
+   Les tables externes qui font référence aux vues globales décrites dans la section précédente et définies avec **DISTRIBUTION = SHARDED(VenueId)**. Étant donné que chaque élément *VenueId* correspond à une base de données individuelle, cela améliore les performances dans de nombreux scénarios, comme illustré dans la section suivante.
 
     ![créer des tables externes](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -148,7 +148,7 @@ Maintenant que la base de données *adhocreporting* est configurée, lancez-vous
 
 Lors de l’inspection du plan d’exécution, passez la souris sur les icônes de plan pour plus d’informations. 
 
-Remarque importante : lorsque nous avons défini la source de données externe, le paramètre **DISTRIBUTION = SHARDED(VenueId)** améliore les performances dans de nombreux scénarios. Comme que chaque élément *VenueId* correspond à une base de données unique, le filtrage peut être effectué à distance facilement, renvoyant uniquement les données nécessaires.
+Remarque importante : lorsque nous avons défini la source de données externe, le paramètre **DISTRIBUTION = SHARDED(VenueId)** améliore les performances dans de nombreux scénarios. Étant donné que chaque élément *VenueId* correspond à une base de données individuelle, le filtrage peut être effectué à distance facilement, renvoyant uniquement les données nécessaires.
 
 1. Ouvrir... \\Modules d’apprentissage\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* dans SSMS.
 2. Assurez-vous que vous êtes connecté à la base de données **adhocreporting**.

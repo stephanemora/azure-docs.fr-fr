@@ -1,6 +1,6 @@
 ---
-titre : Interpréter les résultats de modèle dans Machine Learning Studio titleSuffix : Description d’Azure Machine Learning Studio : Sélection du paramètre optimal défini pour un algorithme en utilisant et visualisant des sorties de modèle de notation.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Interpréter les résultats de modèle dans Machine Learning Studio titleSuffix : Description d’Azure Machine Learning Studio : Sélection du paramètre optimal défini pour un algorithme en utilisant et visualisant des sorties de modèle de notation.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 29/11/2017
 ---

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014129"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296542"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -155,7 +155,10 @@ Cliquez pour afficher la liste des activités dans cette exécution de pipeline.
 
 ![Surveiller des exécutions d’activités](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Cliquez sur le lien « **Détails** » sous **Actions** pour afficher les détails et les caractéristiques de performances de l’exécution de l’activité de copie. Parmi les informations répertoriées figurent le volume/les lignes/les fichiers de données copiés de la source vers le récepteur, le débit, les étapes effectuées avec la durée correspondante, et les configurations utilisées pour votre scénario de copie.
+Cliquez sur le lien « **Détails** » sous **Actions** pour afficher les détails et les caractéristiques de performances de l’exécution de l’activité de copie. Parmi les informations répertoriées figurent le volume/les lignes/les fichiers de données copiés de la source vers le récepteur, le débit, les étapes effectuées avec la durée correspondante, et les configurations utilisées pour votre scénario de copie. 
+
+>[!TIP]
+>Dans certains scénarios, vous pouvez également voir « **Conseils pour le réglage des performances** » en haut de la page de surveillance de la copie, qui vous indique le goulot d’étranglement identifié et vous guide pour savoir quelles modifications apporter pour accélérer le débit de copie ; consultez l’exemple détaillé [ici](#performance-and-tuning).
 
 **Exemple : copier d’Amazon S3 vers Azure Data Lake Store**
 ![Surveiller les détails de l’exécution d’activité](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -232,6 +235,14 @@ Par défaut, l’activité de copie arrête la copie de données et retourne une
 ## <a name="performance-and-tuning"></a>Performances et réglage
 
 Consultez [Guide des performances et de l’optimisation de l’activité de copie](copy-activity-performance.md), qui décrit les facteurs clés affectant les performances du déplacement de données dans Azure Data Factory (activité de copie). Il répertorie également les performances observées lors des tests internes, et présente les différentes manières d’optimiser les performances de l’activité de copie.
+
+Dans certains cas, lorsque vous exécutez une activité de copie dans ADF, vous voyez directement « **Conseils pour le réglage des performances** » en haut de la [page de surveillance de l’activité de copie](#monitor-visually) comme indiqué dans l’exemple suivant. En plus de vous indiquer le goulot d’étranglement identifié pour l’exécution de la copie, il vous guide sur les modifications à apporter pour accélérer le débit de copie. Actuellement, les conseils pour le réglage des performances offrent des suggestions : par exemple, utiliser PolyBase lors de la copie de données dans Azure SQL Data Warehouse, augmenter l’unité de requête Azure Cosmos DB ou l’unité de transaction de base de données Azure SQL Database quand la ressource côté magasin de données est le goulot d’étranglement, supprimer la copie intermédiaire non nécessaire, etc. Les règles de réglage des performances seront également enrichies de façon progressive.
+
+**Exemple : copier dans Azure SQL Database avec des conseils pour le réglage des performances**
+
+Dans cet exemple, l’exécution de la copie, ADF remarque que l’instance Azure SQL DB de réception atteint une utilisation d’unités de transaction de base de données élevée qui ralentit les opérations d’écriture. La suggestion est d’augmenter le niveau Azure SQL DB avec plus de DTU. 
+
+![Surveillance de la copie avec des conseils pour le réglage des performances](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Copie incrémentielle 
 Data Factory prend en charge les scénarios de copie incrémentielle de données delta d’un magasin de données source vers un magasin de données de destination. Consultez [Didacticiel : Copier de façon incrémentielle des données](tutorial-incremental-copy-overview.md). 

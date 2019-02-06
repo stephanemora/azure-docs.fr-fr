@@ -8,13 +8,13 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.component: disks
-ms.openlocfilehash: b1127475b873c5679946121e570ef2bb51f25be1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: disks
+ms.openlocfilehash: 968c8aa74a35bf753d92e7c417aaec2a1361f425
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234712"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467966"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>À propos du stockage des disques pour les machines virtuelles Azure Windows
 
@@ -55,7 +55,7 @@ Vous pouvez ajouter un disque de données à une machine virtuelle à tout momen
 
 Pour les tailles de préversion, consultez notre [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) pour découvrir quelles régions sont couvertes.
 
-## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Une dernière recommandation : utilisez TRIM avec des disques standard non gérés
+## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Une dernière recommandation : utilisez TRIM avec des disques standard non managés
 
 Si vous utilisez les disques standard non gérés (disque dur), vous devez activer TRIM. TRIM ignore les blocs inutilisés sur le disque afin que vous soyez facturé uniquement pour le stockage que vous utilisez réellement. Vous pouvez ainsi faire des économies si vous créez des fichiers volumineux, puis les supprimez.
 
@@ -72,7 +72,7 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 > [!NOTE]
-> Remarque : la prise en charge de Trim démarre avec Windows Server 2012 / Windows 8 et versions ultérieures. Voir [La nouvelle API permet aux applications d’envoyer des indications « TRIM et Unmap » au support de stockage](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> Remarque : Trim est pris en charge à partir de Windows Server 2012 / Windows 8 et versions ultérieures. Consultez [New API allows apps to send "TRIM and Unmap" hints to storage media](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints) (La nouvelle API permet aux applications d’envoyer des indications « TRIM et Unmap » au support de stockage).
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->

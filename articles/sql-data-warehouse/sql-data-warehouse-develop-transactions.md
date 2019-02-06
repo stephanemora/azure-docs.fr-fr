@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 121fa87cb295799fdcd3de5e627fb894efc24c49
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2f463620f43ae95535a55005ebe9732495b89dc9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301263"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456661"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Utilisation de transactions dans SQL Data Warehouse
 Conseils relatifs à l’implémentation de transactions dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
@@ -107,7 +107,7 @@ SELECT @xact_state AS TransactionState;
 
 Le code précédent génère le message d’erreur suivant :
 
-Msg 111233, Level 16, State 1, Line 1 111233; La transaction active a été abandonnée. Les modifications en attente ont été restaurées. Cause : Une transaction à un état de restauration uniquement n’a pas été explicitement restaurée avant une instruction DDL, DML ou SELECT.
+Msg 111233, Level 16, State 1, Line 1 111233; La transaction active a été abandonnée. Les modifications en attente ont été restaurées. Cause : une transaction à un état de restauration uniquement n’a pas été explicitement restaurée avant une instruction DDL, DML ou SELECT.
 
 Vous n’obtiendrez pas la sortie des fonctions ERROR_* non plus.
 
@@ -175,5 +175,5 @@ Les voici :
 * Aucune prise en charge de DDL comme CREATE TABLE dans une transaction définie par l’utilisateur
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’optimisation des transactions, consultez [Bonnes pratiques relatives aux transactions](sql-data-warehouse-develop-best-practices-transactions.md). Pour plus d’informations sur les bonnes pratiques relatives à SQL Data Warehouse, consultez [Bonnes pratiques relatives à SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Pour en savoir plus sur l’optimisation des transactions, consultez les [bonnes pratiques relatives aux transactions](sql-data-warehouse-develop-best-practices-transactions.md). Pour plus d’informations sur les bonnes pratiques relatives à SQL Data Warehouse, consultez [Bonnes pratiques relatives à SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

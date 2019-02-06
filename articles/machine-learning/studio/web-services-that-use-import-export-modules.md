@@ -9,18 +9,18 @@ ms.author: amlstudiodocs
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ca4c8c2d16e2cc44768785c26ffa070b59d5f8d7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251383"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478013"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Déployer des services web Azure Machine Learning Studio utilisant les modules d’importation et d’exportation des données
 
@@ -44,9 +44,9 @@ Pour lire les données à partir de la table SQL Azure :
 5. Dans le panneau Propriétés, sélectionnez **Base de données SQL Azure** in the **Source de données** .
 6. Dans les champs **Nom du serveur de base de données**, **Nom de la base de données**, **Nom d’utilisateur** et **Mot de passe** saisissez les informations appropriées pour votre base de données.
 7. Dans le champ de requête de base de données, entrez la requête suivante.
-   
+
      select [age],
-   
+
         [workclass],
         [fnlwgt],
         [education],
@@ -68,17 +68,17 @@ Pour lire les données à partir de la table SQL Azure :
 Maintenant, vous devez configurer l’expérience prédictive à partir de laquelle déployer votre service web.
 
 1. En bas de la zone de dessin de l’expérience, cliquez sur **Configurer le service web** puis sélectionnez **Service web prédictif [recommandé]**.
-2. Supprimez l *’entrée du service web* et les *modules de sortie du service web* de l’expérience prédictive. 
+2. Supprimez l *’entrée du service web* et les *modules de sortie du service web* de l’expérience prédictive.
 3. Dans la zone de recherche des composants, tapez export.
 4. Dans la liste des résultats, ajoutez un module *Exporter des données* à la zone de dessin de l’expérience.
-5. Connectez la sortie du module *Noter le modèle* à l’entrée du module *Exporter des données*. 
+5. Connectez la sortie du module *Noter le modèle* à l’entrée du module *Exporter des données*.
 6. Dans le panneau Propriétés, sélectionnez **Base de données SQL Azure** dans la liste déroulante de destination des données.
 7. Dans les champs **Nom du serveur de base de données**, **Nom de la base de données**, **Nom de compte d’utilisateur du serveur** et **Mot de passe de compte d’utilisateur du serveur**, saisissez les informations appropriées pour votre base de données.
 8. Dans le champ **Liste de colonnes séparées par des virgules à enregistrer** , tapez Étiquettes notées.
 9. Dans le **champ du nom de la table de données**, tapez dbo.ScoredLabels. Si la table n’existe pas, elle est créée lors de l’exécution de l’expérience ou lors de l’appel du service web.
 10. Dans le champ **Liste des colonnes de table de données séparées par des virgules** , tapez Étiquettes notées.
 
-Lorsque vous écrivez une application qui appelle le service web final, vous pouvez spécifier une autre requête d’entrée ou table de destination lors de l’exécution. Pour configurer ces entrées et sorties, utilisez la fonctionnalité des paramètres du service web afin de définir la propriété de *source de données* du module *Importer des données* ainsi que la propriété de destination des données du module *Exporter des données*.  Pour plus d’informations sur les paramètres du service web, consultez l [’entrée Paramètres du service web AzureML](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) du blog Cortana Intelligence et Machine Learning.
+Lorsque vous écrivez une application qui appelle le service web final, vous pouvez spécifier une autre requête d’entrée ou table de destination lors de l’exécution. Pour configurer ces entrées et sorties, utilisez la fonctionnalité des paramètres du service web afin de définir la propriété de *source de données* du module *Importer des données* ainsi que la propriété de destination des données du module *Exporter des données*.  Pour plus d’informations sur les paramètres du service web, consultez [l’entrée sur les paramètres du service web Azure Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) du blog Cortana Intelligence et Machine Learning.
 
 Pour configurer les paramètres du service web pour la requête d’importation et la table de destination :
 
@@ -108,22 +108,22 @@ Pour déployer comme un service web classique et créer une application afin de 
 7. Copiez et collez l’exemple de code C# dans votre fichier Program.cs et supprimez toutes les références au stockage d’objets blob.
 8. Mettez à jour la valeur de la variable *apiKey* avec la clé API enregistrée précédemment.
 9. Recherchez la déclaration de requête et mettez à jour les valeurs des paramètres du service web passés aux modules *Importer des données* et *Exporter des données*. Dans le cas présent, vous utilisez la requête d’origine, mais définissez un nouveau nom de table.
-   
-        var request = new BatchExecutionRequest() 
-        {           
+
+        var request = new BatchExecutionRequest()
+        {
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
             }
         };
-10. Exécutez l'application. 
+10. Exécutez l'application.
 
 À la fin de l’exécution, une nouvelle table est ajoutée à la base de données contenant les résultats de notation.
 
 ### <a name="deploy-a-new-web-service"></a>Déployer comme un nouveau service web
 
-> [!NOTE] 
-> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md). 
+> [!NOTE]
+> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md).
 
 Pour déployer comme un nouveau service web et créer une application afin de l’utiliser :
 
@@ -136,9 +136,9 @@ Pour déployer comme un nouveau service web et créer une application afin de l�
 7. Copiez et collez l’exemple de code C# dans votre fichier Program.cs.
 8. Mettez à jour la valeur de la variable *apiKey* variable avec la **clé primaire** située dans la section des **informations de base sur la consommation**.
 9. Recherchez la déclaration *scoreRequest* et mettez à jour les valeurs des paramètres du service Web passés aux modules *Importer des données* et *Exporter des données*. Dans le cas présent, vous utilisez la requête d’origine, mais définissez un nouveau nom de table.
-   
+
         var scoreRequest = new
-        {       
+        {
             Inputs = new Dictionary<string, StringTable>()
             {
             },
@@ -147,5 +147,5 @@ Pour déployer comme un nouveau service web et créer une application afin de l�
                 { "Table", "dbo.ScoredTable3" },
             }
         };
-10. Exécutez l'application. 
+10. Exécutez l'application.
 

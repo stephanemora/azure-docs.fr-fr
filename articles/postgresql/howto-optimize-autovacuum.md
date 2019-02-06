@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 21ac48ff473dcf494f96f87210bdfe09e4d82646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539787"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103392"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Optimisation du nettoyage automatique sur un serveur Azure Database pour PostgreSQL 
 Cet article décrit comment optimiser le nettoyage automatique sur Azure Database pour PostgreSQL.
@@ -33,7 +33,7 @@ Si vous n’effectuez pas de nettoyage de temps en temps, les tuples morts qui s
 - Augmentation des E/S
 
 ## <a name="monitoring-bloat-with-autovacuum-queries"></a>Supervision du ballonnement avec des requêtes de nettoyage automatique
-L’exemple de requête suivant est conçu pour identifier le nombre de tuples vivants et morts dans une table nommée « XYZ » : ’SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = ’XYZ’ order by n_dead_tup DESC;’
+L’exemple de requête suivant est conçu pour identifier le nombre de tuples vivants et morts dans une table nommée « XYZ » : 'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
 
 ## <a name="autovacuum-configurations"></a>Configurations de nettoyage automatique
 Les paramètres de configuration qui contrôlent le nettoyage automatique sont axés sur deux questions clés :
@@ -97,6 +97,6 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 Le nettoyage automatique est un processus synchrone exécuté par table. Plus une table contient un pourcentage élevé de tuples morts, plus le « coût » du nettoyage automatique est élevé.  Fractionner les tables qui ont un taux élevé de mises à jour/suppressions en plusieurs tables vous aidera à paralléliser le nettoyage automatique et à réduire le « coût » d’exécution du nettoyage automatique sur une table. Vous pouvez également augmenter le nombre de workers parallèles de nettoyage automatique afin de garantir une planification libérale des workers.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez la documenatation PostgreSQL suivante pour en savoir plus sur l’utilisation et le réglage du nettoyage automatique :
+Consultez la documentation PostgreSQL suivante pour en savoir plus sur l’utilisation et le réglage du nettoyage automatique :
  - Documentation PostgreSQL : [Chapter 18, Server Configuration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
  - Documentation PostgreSQL : [Chapter 24, Routine Database Maintenance Tasks](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

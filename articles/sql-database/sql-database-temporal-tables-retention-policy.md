@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f339cadc63d5e5cd934d07e7b0fffc6342ca04c7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a6fc5f353eceab5ac02895e110aec6e11ddc5d0c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159094"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101899"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gérer les données d’historique dans les tables temporelles avec la stratégie de rétention
 Par rapport aux tables normales, les tables temporelles peuvent augmenter la taille des bases de données, notamment si vous conservez les données d’historique pendant longtemps. Par conséquent, une stratégie de rétention des données d’historique est un aspect important de la planification et de la gestion du cycle de vie de chaque table temporelle. Les tables temporelles dans Azure SQL Database sont fournies avec un mécanisme de rétention facile à utiliser qui vous permet d’accomplir cette tâche.
@@ -26,26 +26,26 @@ La rétention d’historique temporelle peut être configurée au niveau de tabl
 
 Une fois que vous avez défini la stratégie de rétention, Azure SQL Database commence par vérifier régulièrement s’il existe des lignes d’historique éligibles pour le nettoyage automatique des données. L’identification des lignes correspondantes et leur suppression de la table d’historique se produisent en toute transparence, dans la tâche d’arrière-plan planifiée et exécutée par le système. La condition d’ancienneté des lignes de la table d’historique est vérifiée en fonction de la colonne représentant la fin de la période SYSTEM_TIME. Par exemple, si la période de rétention est définie sur six mois, les lignes de table éligibles pour le nettoyage répondent à la condition suivante :
 
-````
+```
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
-````
+```
 
 Dans l’exemple précédent, nous avons supposé que la colonne **ValidTo** correspond à la fin de la période SYSTEM_TIME.
 
 ## <a name="how-to-configure-retention-policy"></a>Configuration d’une stratégie de rétention
 Avant de configurer la stratégie de rétention d’une table temporelle, vérifiez si la rétention historique temporelle est activée *au niveau de la base de données*.
 
-````
+```
 SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
-````
+```
 
 L’indicateur de base de données **is_temporal_history_retention_enabled** est défini sur Activé par défaut, mais les utilisateurs peuvent le modifier avec l’instruction ALTER DATABASE. Il est automatiquement défini sur Désactivé après une opération de [limite de restauration dans le temps](sql-database-recovery-using-backups.md). Pour activer le nettoyage de la rétention d’historique temporelle pour votre base de données, exécutez l’instruction suivante :
 
-````
+```
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
-````
+```
 
 > [!IMPORTANT]
 > Vous pouvez configurer la durée de rétention pour les tables temporelles même si **is_temporal_history_retention_enabled** est DÉSACTIVÉ, mais le nettoyage automatique des lignes anciennes n’est pas déclenché dans ce cas.
@@ -54,7 +54,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 
 La stratégie de rétention est configurée lors de la création de table en spécifiant la valeur du paramètre HISTORY_RETENTION_PERIOD :
 
-````
+```
 CREATE TABLE dbo.WebsiteUserInfo
 (  
     [UserID] int NOT NULL PRIMARY KEY CLUSTERED
@@ -72,16 +72,16 @@ CREATE TABLE dbo.WebsiteUserInfo
         HISTORY_RETENTION_PERIOD = 6 MONTHS
      )
  );
-````
+```
 
 Azure SQL Database permet de spécifier la période de rétention à l’aide de différentes unités de temps : JOURS, SEMAINES, MOIS et ANNÉES. Si HISTORY_RETENTION_PERIOD est omis, la rétention INFINITE est utilisée. Vous pouvez également utiliser le mot clé INFINITE de façon explicite.
 
 Dans certains scénarios, vous pouvez configurer la rétention après la création de la table ou pour modifier la valeur configurée précédemment. Dans ce cas, utilisez l’instruction ALTER TABLE :
 
-````
+```
 ALTER TABLE dbo.WebsiteUserInfo
 SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
-````
+```
 
 > [!IMPORTANT]
 > Le fait de définir SYSTEM_VERSIONING sur Désactivé *ne préserve pas* la valeur de période de rétention. La définition de SYSTEM_VERSIONING sur Activé sans spécifier HISTORY_RETENTION_PERIOD résulte de façon explicite en une période de rétention illimitée (INFINITE).
@@ -90,7 +90,7 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 
 Pour vérifier l’état actuel de la stratégie de rétention, utilisez la requête suivante qui joint l’indicateur d’activation de la rétention temporelle au niveau de la base de données avec des périodes de rétention pour les tables individuelles :
 
-````
+```
 SELECT DB.is_temporal_history_retention_enabled,
 SCHEMA_NAME(T1.schema_id) AS TemporalTableSchema,
 T1.name as TemporalTableName,  SCHEMA_NAME(T2.schema_id) AS HistoryTableSchema,
@@ -101,7 +101,7 @@ OUTER APPLY (select is_temporal_history_retention_enabled from sys.databases
 where name = DB_NAME()) AS DB
 LEFT JOIN sys.tables T2   
 ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
-````
+```
 
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>Comment SQL Database supprime les anciennes lignes ?
@@ -127,7 +127,7 @@ Le nettoyage de l’index cluster columnstore fonctionne de façon optimale si d
 
 Évitez de reconstruire l’index cluster columnstore sur la table d’historique avec la période de rétention limitée, car cela risque de modifier l’ordre des groupes de lignes naturellement imposé par l’opération de système de version. Si vous devez reconstruire l’index cluster columnstore sur la table d’historique, faites-le en le recréant par-dessus l’index d’arbre B conforme, en conservant l’ordre des groupes de lignes nécessaire au nettoyage de données standard. La même approche convient si vous créez la table temporelle avec une table d’historique existante qui a un index de colonne cluster sans ordre de données garanti :
 
-````
+```
 /*Create B-tree ordered by the end of period column*/
 CREATE CLUSTERED INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory (ValidTo)
 WITH (DROP_EXISTING = ON);
@@ -135,13 +135,13 @@ GO
 /*Re-create clustered columnstore index*/
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON);
-````
+```
 
 Lorsque la période de rétention limitée est configurée pour la table d’historique avec l’index cluster columnstore, vous ne pouvez pas créer d’index d’arbre B supplémentaire non cluster sur cette table :
 
-````
+```
 CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
-````
+```
 
 Une tentative d’exécution de l’instruction ci-dessus échoue avec l’erreur suivante :
 
@@ -152,9 +152,9 @@ Toutes les requêtes effectuées sur une table temporelle filtrent automatiqueme
 
 L’illustration suivante montre le plan de requête pour une requête simple :
 
-````
+```
 SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
-````
+```
 
 Le plan de requête inclut un filtre supplémentaire appliqué à la fin de la colonne de période (ValidTo) dans l’opérateur Analyse d’index cluster sur la table d’historique (mise en surbrillance). Cet exemple suppose que la période de rétention d’un MOIS a été définie sur la table WebsiteUserInfo.
 
@@ -173,10 +173,10 @@ Supposons qu’une table temporelle a une période de rétention de un MOIS. Si 
 
 Si vous souhaitez activer le nettoyage de la rétention temporelle, exécutez l’instruction Transact-SQL suivante après le point de restauration dans le temps :
 
-````
+```
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
-````
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour apprendre à utiliser les tables temporelles dans vos applications, consultez [Prise en main des tables temporelles dans Azure SQL Database](sql-database-temporal-tables.md).

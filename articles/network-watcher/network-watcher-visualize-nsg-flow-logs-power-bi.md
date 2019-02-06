@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822872"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913299"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualisation des journaux de flux des groupes de sécurité réseau Azure avec Power BI
 
@@ -46,7 +46,7 @@ Le modèle fourni est modifiable afin de vous permettre d’ajouter de nouvelles
 
 ## <a name="setup"></a>Paramétrage
 
-Avant de commencer, la journalisation des flux de groupe de sécurité réseau doit être activée sur un ou plusieurs groupes de sécurité réseau de votre compte. Pour obtenir des instructions sur l’activation des journaux de flux de sécurité réseau, consultez l’article suivant [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md) (Introduction à la journalisation des flux pour les groupes de sécurité réseau).
+Avant de commencer, la journalisation des flux de groupe de sécurité réseau doit être activée sur un ou plusieurs groupes de sécurité réseau de votre compte. Pour obtenir des instructions sur l’activation des journaux de flux de sécurité réseau, consultez l’article suivant : [Introduction à la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
 
 Le client Power BI Desktop doit également être installé sur votre ordinateur, lequel doit posséder suffisamment d’espace libre pour pouvoir télécharger et charger les données de journaux existant dans votre compte de stockage.
 
@@ -123,7 +123,7 @@ N’hésitez pas à personnaliser ce modèle selon vos besoins. Il existe de nom
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez l’article [Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) pour apprendre à visualiser vos journaux de flux NSG avec la pile Elastick.
+Consultez l’article [Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) pour apprendre à visualiser vos journaux de flux NSG avec Elastic Stack.
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

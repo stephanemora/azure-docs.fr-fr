@@ -2,20 +2,20 @@
 title: Détection de menaces - Azure SQL Data Warehouse | Microsoft Docs
 description: Configurez la détection des menaces et explorez les événements suspects dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ff23235e9681301984e13e346b23f277662bb5c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2f07699b49b7791894d1f183b0686161375ea17a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300932"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295415"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Détection de menaces dans Azure SQL Data Warehouse
 Configurez la détection des menaces et explorez les événements suspects dans Azure SQL Data Warehouse.
@@ -44,7 +44,7 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 
 ## <a name="explore-anomalous-data-warehouse-activities-upon-detection-of-a-suspicious-event"></a>Explorer les activités anormales sur l'entrepôt de données en cas de détection d'un événement suspect
 1. Vous recevrez une notification par courrier électronique lorsque des activités anormales sont détectées au niveau de la base de données. <br/>
-   Le courrier électronique contiendra des informations sur l’événement de sécurité suspect, notamment la nature des activités anormales, le nom de la base de données, le nom du serveur et l’heure de l’événement. Il fournit également des informations sur les causes possibles et les mesures recommandées afin d’examiner et atténuer la menace potentielle pesant sur la base de données.<br/>
+    Le courrier électronique contiendra des informations sur l’événement de sécurité suspect, notamment la nature des activités anormales, le nom de la base de données, le nom du serveur et l’heure de l’événement. Il fournit également des informations sur les causes possibles et les mesures recommandées afin d’examiner et atténuer la menace potentielle pesant sur la base de données.<br/>
    
     ![Volet de navigation](media/sql-data-warehouse-security-threat-detection/4_td_email.png)
 2. Dans le courrier électronique, cliquez sur le lien **Azure SQL Auditing Log** pour ouvrir le portail Azure et afficher les enregistrements d’audit pertinents au moment de l’événement suspect.
@@ -54,7 +54,7 @@ Par exemple, il détecte certaines activités de base de données anormales indi
    
     ![Volet de navigation](media/sql-data-warehouse-security-threat-detection/6_td_audit_record_details.png)
 4. Dans le panneau des enregistrements d’audit, cliquez sur **Ouvrir dans Excel** pour ouvrir un modèle Excel préconfiguré à importer et exécuter une analyse plus approfondie du journal d’audit au moment de l’événement suspect.<br/>
-   **Remarque :** dans Excel 2010 ou version ultérieure, les paramètres Power Query et **Combinaison rapide** sont requis.
+   **Remarque :** dans Excel 2010 ou version ultérieure, les paramètres Power Query et **Combinaison rapide** sont requis.
    
     ![Volet de navigation](media/sql-data-warehouse-security-threat-detection/7_td_audit_records_open_excel.png)
 5. Pour configurer le paramètre **Combinaison rapide** : sous l’onglet du ruban **POWER QUERY**, sélectionnez **Options** pour afficher la boîte de dialogue correspondante. Sélectionnez la section Confidentialité et choisissez la deuxième option « Ignore the Privacy Levels and potentially improve performance » :

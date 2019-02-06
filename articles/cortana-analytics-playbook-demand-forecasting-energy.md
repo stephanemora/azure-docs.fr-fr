@@ -10,29 +10,29 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306486"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078778"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manuel du modèle de solution Microsoft Cortana Intelligence de prévision de la demande d’énergie
 ## <a name="executive-summary"></a>Résumé
-Ces dernières années, en fusionnant, l’Internet des objets (IoT), les sources d’énergie alternatives et le Big Data ont généré d’importantes opportunités dans le domaine des services publics et de l’énergie. Dans le même temps, le secteur des services publics et celui de l’énergie ont vu la consommation baisser, et les usagers exiger des solutions qui leur permettraient de mieux contrôler leur consommation. C’est pour cette raison que les sociétés de service public et du secteur des réseaux intelligents doivent absolument innover et se renouveler. En outre, de nombreuses infrastructures servant à la distribution d’électricité et de services publics deviennent obsolètes et sont donc très coûteuses à entretenir et à gérer. Au cours de l’année dernière, l’équipe a travaillé sur un certain nombre de projets dans le domaine de l’énergie. C’est à l’occasion de ces interventions que nous avons rencontré de nombreux cas dans lesquels les fournisseurs de services publics ou de logiciels indépendants (ISV) cherchaient des prévisions relatives à la demande d’énergie future. Ces prévisions jouent un rôle important dans leurs activités actuelles et futures, et sont à la base de différentes études de cas, parmi lesquelles les prévisions de charge à court et à long terme, les échanges et l’équilibrage des charges, l’optimisation des réseaux, etc. Les méthodes Big Data et Advanced Analytics (AA) telles que Machine Learning (ML) sont des activateurs clés servant à générer des prévisions précises et fiables.  
+Ces dernières années, en fusionnant, l’Internet des objets (IoT), les sources d’énergie alternatives et le Big Data ont généré d’importantes opportunités dans le domaine des services publics et de l’énergie. Dans le même temps, le secteur des services publics et celui de l’énergie ont vu la consommation baisser, et les usagers exiger des solutions qui leur permettraient de mieux contrôler leur consommation. C’est pour cette raison que les sociétés de service public et du secteur des réseaux intelligents doivent absolument innover et se renouveler. En outre, de nombreuses infrastructures servant à la distribution d’électricité et de services publics deviennent obsolètes et sont donc très coûteuses à entretenir et à gérer. Au cours de l’année dernière, l’équipe a travaillé sur un certain nombre de projets dans le domaine de l’énergie. C’est à l’occasion de ces interventions que nous avons rencontré de nombreux cas dans lesquels les fournisseurs de services publics ou de logiciels indépendants (ISV) cherchaient des prévisions relatives à la demande d’énergie future. Ces prévisions jouent un rôle important dans leurs activités actuelles et futures, et sont à la base de différentes études de cas, parmi lesquelles les prévisions de charge à court et à long terme, les échanges et l’équilibrage des charges, l’optimisation des réseaux, etc. Les méthodes Big Data et Advanced Analytics (AA) telles que Machine Learning (ML) sont des activateurs clés servant à générer des prévisions précises et fiables.
 
 Ce manuel regroupe les instructions liées aux analyses et aux activités métier nécessaires à la réussite du développement et du déploiement d’une solution de prévision de demande d’énergie. Ces instructions peuvent aider les services publics, les spécialistes et les ingénieurs de données à mettre en place des solutions de prévision de la demande parfaitement opérationnelles basées sur le cloud. Pour les entreprises qui entament seulement leur évolution vers le Big data et les analyses avancées, une telle solution peut constituer le « fondement » d’une stratégie de réseau intelligent à long terme.
 
 > [!TIP]
-> Pour télécharger un diagramme offrant une vue d’ensemble de l’architecture de ce modèle, consultez [Architecture du modèle de solution Cortana Intelligence pour la prévision de la demande d'énergie](cortana-analytics-architecture-demand-forecasting-energy.md).  
-> 
-> 
+> Pour télécharger un diagramme offrant une vue d’ensemble de l’architecture de ce modèle, consultez [Architecture du modèle de solution Cortana Intelligence pour la prévision de la demande d'énergie](cortana-analytics-architecture-demand-forecasting-energy.md).
+>
+>
 
 ## <a name="overview"></a>Vue d’ensemble
-Ce document traite de l’utilisation de Cortana Intelligence, et plus particulièrement d’Azure Machine Learning (AML), dans l’implémentation et le déploiement de solutions de prévision d’énergie du point de vue de l’entreprise, des données et de la technique. Le document se compose de trois parties principales :  
+Ce document traite de l’utilisation de Cortana Intelligence, et plus particulièrement d’Azure Machine Learning (AML), dans l’implémentation et le déploiement de solutions de prévision d’énergie du point de vue de l’entreprise, des données et de la technique. Le document se compose de trois parties principales :
 
-1. Présentation de l’entreprise  
-2. Présentation des données  
+1. Présentation de l’entreprise
+2. Présentation des données
 3. Implémentation technique
 
 La partie **Présentation de l’entreprise** décrit les aspects d’entreprise à connaître et à prendre en compte avant de prendre une décision d’investissement. Elle explique comment appréhender la problématique de l’entreprise pour vous assurer que l’analyse prédictive et l’apprentissage automatique sont efficaces et applicables dans les faits. Ce document explique les principes de base de l’apprentissage automatique et la façon de l’utiliser pour résoudre les problèmes de prévision de la demande en énergie. Il décrit les conditions requises et les critères de qualification d’une étude de cas. Certains exemples d’études de cas et scénarios pratiques sont également fournis.
@@ -43,7 +43,7 @@ La troisième partie du document traite de l’aspect **Implémentation techniqu
 
 En outre, le document contient des informations de référence que vous pouvez utiliser pour mieux connaître le domaine et la technologie.
 
-Il est important de noter que nous ne voulons pas aborder dans ce document le traitement scientifique approfondi des données et ses aspects mathématiques et techniques. Vous trouverez ces détails dans la [documentation](https://azure.microsoft.com/services/machine-learning/) et les [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/) Azure ML.
+Il est important de noter que nous ne voulons pas aborder dans ce document le traitement scientifique approfondi des données et ses aspects mathématiques et techniques. Vous trouverez ces informations dans la [documentation du service Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) et les [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/) correspondants.
 
 ### <a name="target-audience"></a>Public cible
 Ce document est destiné aux employés des services commerciaux et techniques d’une entreprise souhaitant acquérir des connaissances et une bonne compréhension des solutions Machine Learning et de la façon dont elles sont utilisées spécifiquement dans le domaine de la prévision des besoins en énergie.
@@ -87,7 +87,7 @@ Dans le contexte de la demande énergétique, la prévision de charge à court t
 * Équilibrage de charge et prévention des surcharges
 * Prévision de charge à long terme
 * Détection des anomalies et des défaillances
-* Limitation/nivellement des pics 
+* Limitation/nivellement des pics
 
 Le modèle STLF est principalement basé sur les données de consommation enregistrées dans un passé proche (jour ou semaine venant de s’écouler) et les prévisions de température constituent un facteur de prévision important. De nos jours, l’obtention de prévisions de température précises pour l’heure et les 24 heures à venir est de moins en moins difficile. Ces modèles sont moins sensibles aux schémas saisonniers et aux tendances de consommation à long terme.
 
@@ -189,9 +189,9 @@ Le paragraphe suivant décrit ce processus en 4 étapes :
 
 1. **Collecte des données** : toute solution d’analyse avancée repose sur des données (voir **Présentation des données**). Plus précisément, lorsqu’il s’agit d’analyse prédictive et de prévisions, nous nous basons sur flux de données continu et dynamique. Dans le cas de prévisions de demande d’énergie, ces données peuvent être issues directement de capteurs intelligents, ou être déjà agrégées sur une base de données en local. Nous utilisons également d’autres sources de données externes, notamment pour la météo et la température. Ce flux de données continu doit être orchestré, planifié et stocké. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) est le principal moteur pour accomplir cette tâche.
 2. **Modélisation** : pour obtenir des prévisions d’énergie précises et fiables, il convient de développer (former) et de gérer un excellent modèle utilisant les données d’historique et extraire les schémas de données significatifs et prédictifs. Le domaine de Machine Learning (ML) a rapidement augmenté grâce à des algorithmes plus avancés qui sont développés constamment. Azure ML Studio offre une expérience utilisateur satisfaisante, qui permet d’utiliser les algorithmes ML plus avancés dans un workflow complet. Ce workflow figure dans un diagramme de flux intuitif et inclut la préparation des données, l’extraction des fonctionnalités, la modélisation et l’évaluation du modèle. L’utilisateur peut extraire les centaines de modèles différents inclus dans cet environnement. À la fin de cette phase, un spécialiste des données dispose d’un modèle opérationnel parfaitement évalué et prêt au déploiement.
-   
+
    Le diagramme qui suit représente un workflow classique :
-   
+
    ![Workflow de modélisation](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
 3. **Déploiement** : une fois le modèle opérationnel disponible, l’opération suivante est le déploiement. Ici, le modèle est converti en un service web qui expose une API RESTful pouvant être appelée simultanément sur Internet à partir de différents clients. Azure ML offre un moyen simple de déployer un modèle directement à partir d’Azure ML Studio, sur simple clic sur un bouton. L’ensemble du processus de déploiement se déroule en coulisses. Cette solution peut automatiquement être mise à l’échelle pour répondre à la consommation requise.
 4. **Consommation** : lors de cette phase, nous utilisons le modèle de prévision pour générer des prédictions. La consommation peut être pilotée à partir d’une application utilisateur (*par exemple*, tableau de bord) ou directement à partir d’un système opérationnel, notamment le système d’équilibrage demande/offre ou une solution d’optimisation de réseau. Plusieurs études de cas peuvent être pilotées depuis un modèle unique.
@@ -321,8 +321,8 @@ Au cours des récentes années, des algorithmes avancés ont été développés 
 
 > [!NOTE]
 > Cette section n’est pas destinée à être utilisée en tant qu’apprentissage unique et présentation de la prévision, mais plutôt comme un court résumé des techniques de modélisation qui sont en général utilisées pour la prévision de la demande. Pour plus d’informations, et pour obtenir une documentation matérielle sur les prévisions de série chronologique, nous recommandons particulièrement le manuel en ligne [Forecasting: principles and practice](https://www.otexts.org/)(Prévision : principes et pratique).
-> 
-> 
+>
+>
 
 #### <a name="ma-moving-average"></a>**MA (Moyenne mobile)**
 Moyenne mobile a été la première technique d’analyse utilisée pour la prévision des séries chronologiques et elle reste l’une des plus utilisées à ce jour. Il s’agit également de l’élément de base servant à des techniques de prévision avancées. Avec Moyenne mobile, nous prévoyons le point de données suivant en faisant la moyenne des K points les plus récents, K désignant l’ordre de la moyenne mobile.

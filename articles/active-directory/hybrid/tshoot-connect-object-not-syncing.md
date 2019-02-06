@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7b43b0e0676cc31938bf64cf84f9e6799c2dd3dd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478652"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296595"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Dépanner un objet qui bloque la synchronisation avec Azure AD
 
@@ -28,6 +28,34 @@ Si un objet ne se synchronise pas comme attendu avec Azure AD, cela peut être c
 
 >[!IMPORTANT]
 >Dans le cas d’un déploiement d’Azure Active Directory (Azure AD) Connect version 1.1.749.0 ou ultérieure, utilisez la [tâche de résolution des problèmes](tshoot-connect-objectsync.md) disponible dans l’Assistant pour résoudre les problèmes de synchronisation d’objets. 
+
+## <a name="synchronization-process"></a>Processus de synchronisation
+
+Avant d’examiner les problèmes de synchronisation, essayons de comprendre le processus de synchronisation **Azure AD Connect** :
+
+  ![Processus de synchronisation Azure AD Connect](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+
+### <a name="terminology"></a>**Terminologie**
+
+* **CS :** Connector Space (table de base de données).
+* **MV :** métaverse (table de base de données).
+* **AD :** Active Directory
+* **AAD :** Azure Active Directory
+
+### <a name="synchronization-steps"></a>**Étapes de la synchronisation**
+Le processus de synchronisation implique les étapes suivantes :
+
+1. **Importation à partir d’AD :** les objets **Active Directory** sont placés dans **AD CS**.
+
+2. **Importation à partir d’AAD :** les objets **Azure Active Directory** sont placés dans **AAD CS**.
+
+3. **Synchronisation :** les **règles de synchronisation entrante** et les **règles de synchronisation sortante** sont exécutées dans l’ordre de priorité des nombres du plus petit au plus grand. Pour afficher les règles de synchronisation, vous pouvez accéder à **Synchronization Rules Editor** (Éditeur des règles de synchronisation) à partir des applications de bureau. Les **règles de synchronisation entrante** placent les données de CS dans MV. Les **règles de synchronisation sortante** déplacent les données de MV dans CS.
+
+4. **Exportation vers AD :** Une fois la synchronisation effectuée, les objets sont exportés depuis AD CS vers **Active Directory**.
+
+5. **Exportation vers AAD :** Une fois la synchronisation effectuée, les objets sont exportés depuis AAD CS vers **Azure Active Directory**.
+
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Pour rechercher les erreurs, vous allez examiner différents endroits dans l’ordre suivant :
 
@@ -123,7 +151,28 @@ Dans **Synchronization Service Manager**, cliquez sur **Recherche de métaverse*
 
 Dans la fenêtre **Résultats de la recherche**, cliquez sur l’objet.
 
-Si vous ne trouvez pas l’objet, il n’a pas encore atteint le métaverse. Continuez à rechercher l’objet dans [l’espace de connecteur](#connector-space-object-properties) Active Directory. Une erreur de synchronisation qui bloque l’arrivée de l’objet dans le métaverse peut s’être produite ou il peut y avoir un filtre appliqué.
+Si vous ne trouvez pas l’objet, il n’a pas encore atteint le métaverse. Continuez à rechercher l’objet dans [l’espace connecteur](#connector-space-object-properties) **Active Directory**. Si vous le trouvez dans l’espace connecteur **Active Directory**, il se peut qu’une erreur de synchronisation bloque l’entrée de l’objet dans le métaverse ou qu’un filtre d’étendue de règles de synchronisation soit appliqué.
+
+### <a name="object-not-found-in-the-mv"></a>Objet introuvable dans MV
+Si l’objet se trouve dans l’espace connecteur **Active Directory**, mais pas dans MV, le filtre d’étendue est appliqué. 
+
+* Pour examiner le filtre d’étendue, accédez au menu de l’application de bureau, puis cliquez sur **Synchronization Rules Editor (Éditeur des règles de synchronisation)**. Filtrez les règles applicables à l’objet en ajustant le filtre ci-dessous.
+
+  ![Recherche des règles de synchronisation entrante](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
+
+* Affichez chaque règle de la liste ci-dessus et vérifiez le paramètre **Scoping filter (Filtre d’étendue)**. Dans le filtre d’étendue indiqué ci-dessous, si l’attribut **isCriticalSystemObject** a la valeur Null ou FALSE, ou s’il n’est pas défini, il est donc dans l’étendue.
+
+  ![Recherche des règles de synchronisation entrante](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
+
+* Accédez à la liste d’attributs [CS Import (Importation de CS)](#cs-import), puis vérifiez quel filtre bloque l’objet à déplacer vers MV. Ce filtre distinct de la liste d’attributs **Connector Space** affiche uniquement les attributs renseignés ou dont la valeur n’est pas de type Null. Par exemple, si l’attribut **isCriticalSystemObject** n’apparaît pas dans la liste, cela signifie qu’il a la valeur Null ou qu’il n’est pas renseigné.
+
+### <a name="object-not-found-in-the-aad-cs"></a>Objet introuvable dans AAD CS
+Si l’objet n’est pas présent dans **l’espace connecteur** **d’Azure Active Directory**, mais qu’il existe dans MV, examinez le filtre d’étendue des règles de synchronisation **sortante** de **l’espace connecteur** correspondant, puis vérifiez si l’objet est filtré en raison des [attributs MV](#mv-attributes) qui ne répondent pas aux critères.
+
+* Pour afficher le filtre d’étendue sortant, sélectionnez les règles applicables de l’objet en ajustant le filtre ci-dessous. Affichez chaque règle et examinez la valeur correspondante de [l’attribut MV](#mv-attributes).
+
+  ![Recherche des règles de synchronisation sortante](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
+
 
 ### <a name="mv-attributes"></a>Attributs MV
  : sous l’onglet Attributs, vous pouvez voir les valeurs et le connecteur qui y a contribué.  

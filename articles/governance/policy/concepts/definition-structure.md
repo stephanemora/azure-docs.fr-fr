@@ -4,17 +4,17 @@ description: Explique comment Azure Policy utilise une définition de stratégie
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0fe15cc87e0d30f58dc26ae925efa6d65b243f5b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851655"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296655"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -137,7 +137,7 @@ Si l’emplacement de la définition est l’un ou l’autre élément suivant 
 
 ## <a name="display-name-and-description"></a>Nom d’affichage et description
 
-**displayName** et **description** permettent de distinguer la définition de stratégie et de préciser son contexte d’utilisation.
+**displayName** et **description** permettent de distinguer la définition de stratégie et de préciser son contexte d’utilisation. **displayName** a une longueur maximale de _128_ caractères et **description** a une longueur maximale de _512_ caractères.
 
 ## <a name="policy-rule"></a>Règle de stratégie
 

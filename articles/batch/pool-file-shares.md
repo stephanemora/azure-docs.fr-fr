@@ -3,7 +3,7 @@ title: Partage de fichiers Azure pour des pools Azure Batch | Microsoft Docs
 description: Guide pratique pour monter un partage Azure Files à partir de nœuds de calcul dans un pool Linux ou Windows dans Azure Batch.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 88d7c0d033d7b517a396df27468de8be7ae20be9
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34811774"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469564"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utiliser un partage de fichiers Azure avec un pool Batch
 
@@ -51,7 +51,7 @@ Dans Batch, vous devez monter le partage chaque fois qu’une tâche est exécut
 
 Par exemple, incluez une commande `net use` pour monter le partage de fichiers dans le cadre de chaque ligne de commande de tâche. Pour monter le partage de fichiers, les informations d’identification suivantes sont nécessaires :
 
-* **Nom d’utilisateur** : AZURE\\\<nom_compte_stockage\>, par exemple, AZURE\\*mystorageaccountname*
+* **Nom d’utilisateur :** AZURE\\\<nom_compte_stockage\>, par exemple, AZURE\\*mystorageaccountname*
 * **Mot de passe** : <compte_de_stockage_se_terminant_par==>, par exemple *XXXXXXXXXXXXXXXXXXXXX==*
 
 La commande suivante monte un partage de fichiers *myfileshare* dans le compte de stockage *mystorageaccountname* en tant que le lecteur *S:*  :

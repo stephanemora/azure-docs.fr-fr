@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/16/2019
-ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/25/2019
+ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360086"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467661"
 ---
 # <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configurer la réplication dans Azure SQL Database Managed Instance
 
-La réplication transactionnelle vous permet de répliquer les données des bases de données SQL Server ou Azure SQL Database Managed Instance dans l'instance managée, ou d'envoyer (push) les modifications apportées à vos bases de données de l'instance managée vers un autre serveur SQL Server, une autre base de données unique Azure ou une autre instance managée. La réplication est disponible en préversion publique dans [Azure SQL Database Managed Instance](sql-database-managed-instance.md). Managed Instance peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Reportez-vous à [Configurations de réplication transactionnelle](sql-database-managed-instance-transactional-replication.md#common-configurations) pour connaître les configurations disponibles.
+La réplication transactionnelle vous permet de répliquer les données des bases de données SQL Server ou Azure SQL Database Managed Instance dans Managed Instance, ou d’envoyer (push) les modifications apportées à vos bases de données dans Managed Instance vers d’autres bases de données uniques ou pools élastiques SQL Server, SQL Database ou d’autres instances de Managed Instance. La réplication est disponible en préversion publique dans [Azure SQL Database Managed Instance](sql-database-managed-instance.md). Managed Instance peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Reportez-vous à [Configurations de réplication transactionnelle](sql-database-managed-instance-transactional-replication.md#common-configurations) pour connaître les configurations disponibles.
 
 ## <a name="requirements"></a>Configuration requise
 
@@ -46,7 +46,7 @@ Prend en charge :
 
 - La réplication transactionnelle et de capture instantanée pour un mélange d’instances locales et d’instances Azure SQL Database Managed Instance.
 
-- Les abonnés peuvent être des bases de données uniques locales dans Azure SQL Database, ou des bases de données mises en pool dans des pools élastiques Azure SQL Database.
+- Les abonnés peuvent être des bases de données uniques locales dans Azure SQL Database, ou des bases de données regroupées dans des pools élastiques Azure SQL Database.
 
 - La réplication unidirectionnelle ou bidirectionnelle.
 
@@ -71,7 +71,7 @@ Les fonctionnalités suivantes ne sont pas prises en charge :
 
    Dans les exemples de scripts ci-dessous, utilisez `<SQL_USER>` et `<PASSWORD>` avec l’utilisateur de base de données et le mot de passe du compte SQL Server.
 
-5. [Connectez-vous à SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Connectez-vous à SQL Database Managed Instance](sql-database-connect-query-ssms.md).
 
 6. Exécutez la requête suivante pour ajouter le serveur de distribution et la base de données de distribution.
 
@@ -172,4 +172,4 @@ Les fonctionnalités suivantes ne sont pas prises en charge :
 ## <a name="see-also"></a>Voir aussi
 
 - [Réplication transactionnelle](sql-database-managed-instance-transactional-replication.md)
-- [Présentation de Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Présentation de Managed Instance](sql-database-managed-instance.md)

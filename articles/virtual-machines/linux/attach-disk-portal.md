@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.component: disks
-ms.openlocfilehash: 668f14d491fe3e47a445e6d80efda69c017024e2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 2c1b46f1c1726a473fe15e490f3000f3c5235a77
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470917"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477503"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utiliser le portail pour attacher un disque de données à une machine virtuelle Linux 
 Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Windows dans le Portail Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -99,7 +99,7 @@ Le résultat ressemble à l’exemple suivant :
 
 Ici, *sdc* est le disque que nous recherchons. 
 
-### <a name="partion-a-new-disk"></a>Partitionner un nouveau disque
+### <a name="partition-a-new-disk"></a>Partitionnement d’un nouveau disque
 Si vous utilisez un disque existant contenant des données, passez au montage du disque. Si vous attachez un nouveau disque, vous devez partitionner ce disque.
 
 Utilisez `fdisk` pour partitionner le disque, faites-en le disque principal sur la partition 1 et acceptez les autres valeurs par défaut. L’exemple suivant démarre le processus `fdisk` sur */dev/sdc* :

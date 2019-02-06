@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e418316a74ccf27ec730261957a8b6c64de5d063
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: dabee3f4eb6fb2bf4f58ff8654068e138858dbbd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040599"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156919"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Créer un groupe dynamique et vérifier l’état
 
@@ -39,8 +39,9 @@ Cet article explique comment configurer une règle dans le portail Azure pour un
 
    ![Ajouter une règle d’appartenance dynamique](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. Après avoir créé la règle, sélectionnez **Ajouter une requête** dans le bas du panneau.
-6. Sélectionnez **Créer** on the **Groupe** panneau pour créer le groupe.
+5. Pour afficher la liste complète des propriétés d’extension personnalisées que vous pouvez ajouter à votre requête d’appartenance, sélectionnez **Obtenir des propriétés d’extension personnalisées**, entrez l’ID d’application, puis sélectionnez **Actualiser les propriétés**. Vous pouvez désormais sélectionner des éléments de la liste des propriétés.
+6. Après avoir créé la règle, sélectionnez **Ajouter une requête** dans le bas du panneau.
+7. Sélectionnez **Créer** on the **Groupe** panneau pour créer le groupe.
 
 > [!TIP]
 > La création du groupe échoue si la règle que vous avez entrée est incorrecte ou non valide. Une notification s’affiche alors dans le coin supérieur droit du portail. Elle contient une explication de la raison pour laquelle la règle n’a pas pu être traitée. Lisez-la avec attention pour comprendre comment vous devez ajuster la règle pour la rendre valide.
@@ -53,17 +54,17 @@ Vous pouvez voir l’état du traitement de l’appartenance et la date de la de
 
 Les messages d’état suivants peuvent être affichés pour l’état **Traitement de l’appartenance** :
 
-* **Évaluation** : le changement de groupe a été reçu, et les mises à jour sont en cours d’évaluation.
-* **Traitement** : les mises à jour sont en cours de traitement.
-* **Mise à jour terminée** : le traitement est terminé, et toutes les mises à jour applicables ont été effectuées.
-* **Erreur de traitement** : une erreur s’est produite lors de l’évaluation de la règle d’appartenance et le traitement n’a pas pu être effectué.
-* **Mise à jour suspendue** : les mises à jour de la règle d’appartenance dynamique ont été suspendues par l’administrateur. Le paramètre MembershipRuleProcessingState est défini sur « Suspendu ».
+* **Évaluation** :  le changement de groupe a été reçu et les mises à jour sont en cours d’évaluation.
+* **Traitement** : les mises à jour sont en cours de traitement.
+* **Mise à jour terminée** : le traitement est terminé et toutes les mises à jour applicables ont été effectuées.
+* **Erreur de traitement** : une erreur s’est produite lors de l’évaluation de la règle d’appartenance et le traitement n’a pas pu être effectué.
+* **Mise à jour suspendue** : les mises à jour de la règle d’appartenance dynamique ont été suspendues par l’administrateur. Le paramètre MembershipRuleProcessingState est défini sur « Suspendu ».
 
 Les messages d’état suivants peuvent être affichés pour l’état **Dernière mise à jour de l’appartenance** :
 
-* &lt;**Date et heure**&gt; : date et heure de la dernière mise à jour de l’appartenance.
-* **En cours** : les mises à jour sont en cours d’exécution.
-* **Inconnue** : impossible de récupérer l’heure de la dernière mise à jour. Cela tient peut-être au groupe qui vient d’être créé.
+* &lt;**Date et heure**&gt; : date et heure de la dernière mise à jour de l’appartenance.
+* **En cours** : les mises à jour sont en cours d’exécution.
+* **Inconnue** : impossible de récupérer l’heure de la dernière mise à jour. Cela tient peut-être au groupe qui vient d’être créé.
 
 Si une erreur se produit lors du traitement de la règle d’appartenance pour un groupe spécifique, une alerte s’affiche en haut de la page **Vue d’ensemble** du groupe. Si aucune mise à jour d’appartenance dynamique en attente ne peut être traitée pour tous les groupes au sein du locataire pendant plus de 24 heures, une alerte s’affiche en haut de **Tous les groupes**.
 

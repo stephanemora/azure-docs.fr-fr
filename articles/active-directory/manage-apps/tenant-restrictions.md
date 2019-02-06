@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 editor: yossib
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d6030c2bf169d74959279b9c05298db90138a94f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478142"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163090"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser les Restrictions du client pour gérer l’accès aux applications cloud SaaS
 
@@ -89,7 +89,7 @@ Cette section présente l’expérience des utilisateurs finaux et des administr
 
 ### <a name="end-user-experience"></a>Expérience de l’utilisateur final
 
-Par exemple, un utilisateur sur le réseau Contoso tente d’accéder à l’instance Fabrikam d’une application SaaS partagée comme Outlook Online. Si Contoso est un client non autorisé pour cette instance, la page suivante s’affiche pour l’utilisateur :
+Par exemple, un utilisateur sur le réseau Contoso tente d’accéder à l’instance Fabrikam d’une application SaaS partagée comme Outlook Online. Si Fabricam est un locataire non autorisé pour cette instance, la page suivante s’affiche pour l’utilisateur :
 
 ![Page Accès refusé pour les utilisateurs dans des clients non autorisés](./media/tenant-restrictions/end-user-denied.png)
 

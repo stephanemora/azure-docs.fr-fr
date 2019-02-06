@@ -1,6 +1,6 @@
 ---
-titre : Prédire les réponses avec les modèles de régression - titleSuffix : Description d'Azure Machine Learning Studio : Comment créer un modèle de régression simple pour prédire un prix dans la quatrième vidéo de la série Science des données pour les débutants 4. Comprend une régression linéaire avec des données cibles.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Prédire les réponses avec les modèles de régression - titleSuffix : Description d'Azure Machine Learning Studio : Comment créer un modèle de régression simple pour prédire un prix dans la quatrième vidéo de la série Science des données pour les débutants 4. Comprend une régression linéaire avec des données cibles.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/01/2018
 ---

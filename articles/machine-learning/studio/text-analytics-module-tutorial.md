@@ -1,5 +1,5 @@
 ---
-titre : Créer un modèle d’analyse des sentiments titleSuffix: Description d'Azure Machine Learning Studio : Création de modèles d’analyse de texte dans Azure Machine Learning Studio à l’aide de modules pour le pré-traitement de texte, les N-grammes ou le hachage de fonction services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Créer un modèle d’analyse des sentiments titleSuffix: Description d'Azure Machine Learning Studio : Création de modèles d’analyse de texte dans Azure Machine Learning Studio à l’aide de modules pour le pré-traitement de texte, les N-grammes ou le hachage de fonction services : machine-learning ms.service : machine-learning ms.component : studio ms.topic : article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2018
 ---

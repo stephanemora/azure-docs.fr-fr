@@ -11,16 +11,19 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359632"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104552"
 ---
 # <a name="streaming-endpoints"></a>Points de terminaison de diffusion en continu
 
-Dans Microsoft Azure Media Services (AMS), l’entité [Points de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) représente un service de streaming qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de distribution de contenu (CDN) pour être redistribué. Le flux sortant d’un service de point de terminaison de streaming peut être un flux dynamique ou une ressource de vidéo à la demande dans votre compte Media Services. Quand vous créez un compte Media Services, un point de terminaison de streaming **par défaut** est créé pour vous dans l’état Arrêté. Vous ne pouvez pas supprimer le point de terminaison de streaming **par défaut**. Vous pouvez créer d’autres points de terminaison de streaming sous votre compte. Pour démarrer le streaming de vidéos, vous devez démarrer le point de terminaison de streaming à partir duquel vous souhaitez diffuser la vidéo. 
+Dans Microsoft Azure Media Services (AMS), l’entité [Points de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) représente un service de streaming qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de distribution de contenu (CDN) pour être redistribué. Le flux sortant d’un service de **point de terminaison de streaming** peut être un flux temps réel ou un actif multimédia de vidéo à la demande dans votre compte Media Services. Quand vous créez un compte Media Services, un point de terminaison de streaming **par défaut** est créé pour vous dans l’état Arrêté. Vous ne pouvez pas supprimer le point de terminaison de streaming **par défaut**. Vous pouvez créer d’autres points de terminaison de streaming sous votre compte. 
+
+> [!NOTE]
+> Pour démarrer le streaming de vidéos, vous devez démarrer le **point de terminaison de streaming** à partir duquel vous souhaitez diffuser la vidéo. 
 
 ## <a name="naming-convention"></a>Conventions d’affectation de noms
 
@@ -34,7 +37,7 @@ Il existe deux types de **points de terminaison de streaming** : **Standard** e
 
 Le tableau décrit les types :  
 
-|type|Unités d’échelle|Description|
+|Type|Unités d’échelle|Description|
 |--------|--------|--------|  
 |**Point de terminaison de streaming Standard** (recommandé)|0|Le type **Standard** est l’option recommandée pour pratiquement tous les scénarios de streaming et toutes les tailles d’audience. Le type **Standard** met automatiquement à l’échelle la bande passante sortante. <br/>Pour les clients avec des exigences extrêmement fortes, Media Services offre des points de terminaison de streaming **Premium**, qui peuvent être utilisés pour faire monter en charge la capacité pour les audiences Internet les plus étendues. Si vous attendez des audiences importantes et un grand nombre de visiteurs simultanés, contactez-nous à l’adresse amsstreaming@microsoft.com pour obtenir des conseils sur la nécessité de passer au type **Premium**. |
 |**Point de terminaison de streaming Premium**|>0|Les points de terminaison de streaming **Premium** sont conçus pour les charges de travail avancées et fournissent une capacité de bande passante dédiée et scalable. Vous passez à un type **Premium** en ajustant les `scaleUnits`. Les `scaleUnits` vous offrent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbits/s. Quand vous utilisez le type **Premium**, chaque unité activée fournit une capacité de bande passante supplémentaire à l’application. |

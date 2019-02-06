@@ -1,5 +1,5 @@
 ---
-title: Comment lier un abonnement Azure à Azure Active Directory B2C | Microsoft Docs
+title: Guide pratique pour lier un abonnement Azure - Azure Active Directory B2C | Microsoft Docs
 description: Guide détaillé pour activer la facturation pour un client Azure AD B2C dans un abonnement Azure.
 services: active-directory-b2c
 author: davidmu1
@@ -7,27 +7,29 @@ manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: c914b3a3ab40971cf9318cafc787d358dab2faff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853185"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196172"
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Liaison d’un abonnement Azure à un locataire Azure AD B2C
+# <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Lier un abonnement Azure à un locataire Azure Active Directory B2C
 
 > [!IMPORTANT]
-> Les dernières informations sur la facturation à l’utilisation et les tarifs d’Azure AD B2C sont disponibles sur la page suivante : [Tarification Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Pour obtenir les informations les plus récentes sur les prix et la facturation de l’utilisation d’Azure Active Directory (Azure AD) B2C, consultez [Tarification Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 Les frais d’utilisation pour Azure AD B2C sont facturés à un abonnement Azure. Quand un locataire Azure AD B2C est créé, l’administrateur du locataire doit lier explicitement le locataire Azure AD B2C à un abonnement Azure. Cet article vous montre comment procéder.
 
 > [!NOTE]
 > Un abonnement lié à un locataire Azure AD B2C peut être utilisé pour la facturation de l’utilisation d’Azure AD B2C ou d’autres ressources Azure, y compris des ressources Azure AD B2C supplémentaires.  Il ne peut pas être utilisé pour ajouter d’autres services Azure basés sur une licence ou des licences Office 365 au sein du locataire Azure AD B2C.
 
- Le lien de l’abonnement est obtenu en créant une « ressource » Azure AD B2C dans l’abonnement Azure cible. De nombreuses « ressources » Azure AD B2C peuvent être créées dans à un abonnement Azure, ainsi que d’autres ressources Azure (par exemple, machines virtuelles, stockage de données, LogicApps). Vous pouvez voir toutes les ressources au sein de l’abonnement en accédant au locataire Azure AD auquel l’abonnement est associé.
+Le lien de l’abonnement est obtenu en créant une « ressource » Azure AD B2C dans l’abonnement Azure cible. De nombreuses « ressources » Azure AD B2C peuvent être créées dans à un abonnement Azure, ainsi que d’autres ressources Azure (par exemple, machines virtuelles, stockage de données, LogicApps). Vous pouvez voir toutes les ressources au sein de l’abonnement en accédant au locataire Azure AD auquel l’abonnement est associé.
+
+Les abonnements aux fournisseurs de solutions Cloud Azure sont pris en charge dans Azure AD B2C. La fonctionnalité est disponible à l’aide des API ou du portail Azure pour Azure AD B2C et pour toutes les ressources Azure. Les administrateurs des abonnements aux fournisseurs de solutions cloud peuvent lier, déplacer et supprimer des relations avec Azure AD B2C de la même façon que pour toutes les ressources Azure. La gestion d’Azure AD B2C à l’aide du contrôle d’accès en fonction du rôle n’est pas affectée par l’association entre le locataire Azure AD B2C et un abonnement à un fournisseur de solutions cloud Azure. Le contrôle d’accès en fonction du rôle est obtenu à l’aide de rôles basés sur le locataire, et non de rôles basés sur l’abonnement.
 
 Un abonnement Azure valide est nécessaire pour continuer.
 
@@ -81,10 +83,6 @@ Vous pouvez utiliser cette ressource pour :
 ![Paramètres de ressource B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Problèmes connus
-
-### <a name="csp-subscriptions"></a>Abonnements CSP
-
-Un locataire Azure AD B2C **ne peut pas** être lié à des abonnements CSP.
 
 ### <a name="self-imposed-restrictions"></a>Restrictions imposées automatiquement
 

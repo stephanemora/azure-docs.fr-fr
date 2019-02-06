@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/03/2018
-ms.openlocfilehash: c24fedcc2ab42825950ca6a93fc954d7e6d36b00
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 116a465a0ddc913e342e0ffcc1fb29f5bf969419
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864897"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464158"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Prise en main des requêtes de bases de données croisées (partitionnement vertical) (version préliminaire)
 
@@ -33,7 +33,7 @@ L’autorisation ALTER ANY EXTERNAL DATA SOURCE est requise. Cette autorisation 
 
 ## <a name="create-the-sample-databases"></a>Créer les exemples de bases de données
 
-Pour commencer, créez deux bases de données, **Customers** et **Orders**, dans les mêmes serveurs logiques ou non.
+Pour commencer, créez deux bases de données, **Customers** et **Orders**, dans les mêmes serveurs SQL Database ou non.
 
 Exécutez les requêtes suivantes sur la base de données **Orders** pour créer la table **OrderInformation** et ajouter les exemples de données.
 

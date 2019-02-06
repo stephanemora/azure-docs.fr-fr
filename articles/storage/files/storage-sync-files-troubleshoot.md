@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.subservice: files
+ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157630"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471400"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -804,24 +804,19 @@ Il existe deux classes principales de défaillances pouvant se produire par le b
 Les sections suivantes vous indiquent comment résoudre les problèmes de hiérarchisation cloud et déterminer si un problème est lié au stockage cloud ou au serveur.
 
 <a id="monitor-tiering-activity"></a>**Comment surveiller l’activité de hiérarchisation sur un serveur**  
-Pour surveiller l’activité de hiérarchisation sur un serveur, utilisez les ID d’événement 9002, 9003, 9016 et 9029 dans le journal des événements des données de télémétrie (situé sous Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
-
-- L’ID d’événement 9002 fournit des statistiques de dédoublement pour un point de terminaison de serveur. Par exemple, TotalGhostedFileCount, SpaceReclaimedMB, etc.
+Pour surveiller l’activité de hiérarchisation sur un serveur, utilisez les ID d’événement 9003, 9016 et 9029 dans le journal des événements de télémétrie (situé sous Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - L’ID d’événement 9003 fournit la distribution des erreurs de distribution pour un point de terminaison de serveur. Par exemple, le nombre total d’erreurs, le code d’erreur, etc. Remarque, un événement est enregistré par code d’erreur.
-
 - L’ID d’événement 9016 fournit des résultats de dédoublement pour un volume. Par exemple, le pourcentage d’espace libre, le nombre de fichiers dédoublé dans la session, le nombre d’échec de dédoublement de fichiers, etc.
-
-- L’ID d’événement 9029 fournit des informations sur les sessions de dédoublement. Par exemple, le nombre de fichiers tentés dans la session, le nombre de fichiers hiérarchisés dans la session, le nombre de fichiers déjà hiérarchisés, etc.
+- L’ID d’événement 9029 fournit des informations sur les sessions de duplication d’un point de terminaison de serveur. Par exemple, le nombre de fichiers tentés dans la session, le nombre de fichiers hiérarchisés dans la session, le nombre de fichiers déjà hiérarchisés, etc.
 
 <a id="monitor-recall-activity"></a>**Comment surveiller l’activité de rappel sur un serveur**  
-Pour surveiller l’activité de rappel sur un serveur, utilisez les ID d’événement 9005, 9006, 9007 dans le journal des événements de télémétrie (situé sous Applications and Services\Microsoft\FileSync\Agent in Event Viewer). Remarque : ces événements sont enregistrés toutes les heures.
+Pour surveiller l’activité de rappel sur un serveur, utilisez les ID d’événement 9005, 9006, 9009 et 9059 dans le journal des événements de télémétrie (situé sous Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - L’ID d’événement 9005 fournit une fiabilité de rappel pour un point de terminaison de serveur. Par exemple, le nombre de total des fichiers uniques consultés, le nombre total des fichiers uniques dont l’accès a échoué, etc.
-
 - L’ID d’événement 9006 fournit la distribution des erreurs de rappel pour un point de terminaison de serveur. Par exemple, le nombre total d’échecs de requête, le code d’erreur, etc. Remarque : un événement est enregistré par code d’erreur.
-
-- L’ID d’événement 9007 fournit une performance de rappel pour un point de terminaison de serveur. Par exemple, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+- L’ID d’événement 9009 fournit des informations sur les sessions de rappel d’un point de terminaison de serveur. Par exemple, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
+- L’ID d’événement 9059 fournit la distribution des rappels d’application pour un point de terminaison de serveur. Par exemple, ShareId, Application Name et TotalEgressNetworkBytes.
 
 <a id="files-fail-tiering"></a>**Résoudre les problèmes de hiérarchisation de fichiers**  
 Si la hiérarchisation des fichiers dans Azure Files échoue :
@@ -858,6 +853,9 @@ Contactez votre éditeur de logiciel pour savoir comment configurer la solution 
 
 Des rappels inattendus peuvent également se produire dans d’autres scénarios, par exemple, quand vous parcourez des fichiers dans l’Explorateur de fichiers. L’ouverture d’un dossier contenant des fichiers cloud hiérarchisés dans l’Explorateur de fichiers sur le serveur peut provoquer des rappels inattendus. Le risque est d’autant plus grand si une solution antivirus est activée sur le serveur.
 
+> [!NOTE]
+>Utilisez l’ID d’événement 9059 dans le journal d’événements de télémétrie pour déterminer quelles sont les applications à l’origine des rappels. Cet événement fournit la distribution des rappels d’application pour un point de terminaison de serveur, et est enregistré une fois par heure.
+
 ## <a name="general-troubleshooting"></a>Résolution générale des problèmes
 Si vous rencontrez des problèmes avec Azure File Sync sur un serveur, commencez par effectuer les étapes suivantes :
 1. Dans l’observateur d’événements, examinez les journaux d’événements de télémétrie, des opérations et de diagnostic.
@@ -884,6 +882,7 @@ Si le problème n’est toujours pas résolu, exécutez l’outil AFSDiag :
 6. Un fichier .zip contenant les journaux et les fichiers de trace est enregistré dans le répertoire de sortie que vous avez spécifié.
 
 ## <a name="see-also"></a>Voir aussi
+- [Superviser Azure File Sync](storage-sync-files-monitoring.md)
 - [Forum Aux Questions Azure Files](storage-files-faq.md)
 - [Résoudre les problèmes liés à Azure Files sous Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Résoudre les problèmes liés à Azure Files dans Linux](storage-troubleshoot-linux-file-connection-problems.md)

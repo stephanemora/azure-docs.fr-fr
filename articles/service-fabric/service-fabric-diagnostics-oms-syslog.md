@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959529"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297665"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>événements de cluster Linux Service Fabric dans Syslog
 
@@ -35,7 +35,7 @@ Chaque événement Syslog comprend 4 composants
 * Message
 * Severity
 
-Le SyslogConsumer écrit tous les événements de plateforme à l’aide de la Facility `Local0`. Vous pouvez choisir une autre Facility valide en modifiant la configuration. L’identité utilisée est `ServicFabric`. Le champ Message contient l’événement entier sérialisé au format JSON afin qu’il puisse être interrogé et consommé par une variété d’outils. 
+Le SyslogConsumer écrit tous les événements de plateforme à l’aide de la Facility `Local0`. Vous pouvez choisir une autre Facility valide en modifiant la configuration. L’identité utilisée est `ServiceFabric`. Le champ Message contient l’événement entier sérialisé au format JSON afin qu’il puisse être interrogé et consommé par une variété d’outils. 
 
 ## <a name="enable-syslogconsumer"></a>Activer SyslogConsumer
 
@@ -84,7 +84,7 @@ Pour activer SyslogConsumer, vous devez effectuer une mise à niveau de votre cl
 Voici les modifications apportées
 1. Dans la section commune, il existe un nouveau paramètre nommé `LinuxStructuredTracesEnabled`. **Il est nécessaire pour que les événements Linux soient structurés et sérialisés lors de leur envoi à Syslog.**
 2. Dans la section Diagnostics, un nouveau paramètre ConsumerInstance: SyslogConsumer a été ajouté. Il indique à la plateforme qu’il existe un autre consommateur des événements. 
-3. La nouvelle section SyslogConsumer doit avoir `IsEnabled` comme `true`. Cette configuration utilise automatiquement la Facility Local0. Vous pouvez la remplacer en ajoutant un autre paramètre.
+3. La nouvelle section SyslogConsumer doit avoir `IsEnabled` comme `true`. Elle est configurée pour utiliser automatiquement la Facility Local0. Vous pouvez la remplacer en ajoutant un autre paramètre.
 
 ```json
     {

@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: cwatson
-ms.openlocfilehash: 176e282a53c19e303fd06629a0045a79fd200dea
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: b39c56e8dcae6cdac45160240a6b0f12a1ac0f2e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580369"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902548"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Comprendre comment une remise de réservation Azure est appliquée aux bases de données SQL
 
@@ -32,13 +32,13 @@ Pour Azure Reserved Virtual Machine Instances, consultez [Comprendre la remise A
 
 Les exemples suivants montrent comment la remise de capacité réservée SQL Database s’applique en fonction du nombre de cœurs achetés et du moment où ils s’exécutent.
 
-- Scénario 1 : Vous achetez une capacité réservée de la base de données SQL pour une base de données SQL à 8 cœurs. Vous exécutez une base de données SQL à 16 cœurs qui correspond au reste des attributs de la réservation. Vous êtes facturé selon la méthode du paiement à l’utilisation pour les calculs utilisés par la base de données SQL à 8 cœurs. Vous obtenez la remise de réservation pour les calculs utilisés par la base de données SQL à 8 cœurs pendant une heure.
+- Scénario 1 : Vous achetez une capacité réservée de la base de données SQL pour une base de données SQL à 8 cœurs. Vous exécutez une base de données SQL à 16 cœurs qui correspond au reste des attributs de la réservation. Vous êtes facturé selon la méthode du paiement à l’utilisation pour les calculs utilisés par la base de données SQL à 8 cœurs. Vous obtenez la remise de réservation pour les calculs utilisés par la base de données SQL à 8 cœurs pendant une heure.
 
 Dans le reste de ces exemples, nous supposons que la capacité réservée SQL Database que vous achetez est pour une base de données SQL à 16 cœurs et que le reste des attributs de réservation correspond aux bases de données SQL en cours d’exécution.
 
-- Scénario 2 : Vous exécutez deux bases de données SQL à 8 cœurs pendant une heure. La remise de réservation pour 16 cœurs est appliquée aux calculs utilisés par les deux bases de données SQL à 8 cœurs.
-- Scénario 3 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 30. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Les deux sont couvertes par la remise de réservation.
-- Scénario 4 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 45. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique aux calculs utilisés pendant la période restante.
+- Scénario 2 : Vous exécutez deux bases de données SQL à 8 cœurs pendant une heure. La remise de réservation pour 16 cœurs est appliquée aux calculs utilisés par les deux bases de données SQL à 8 cœurs.
+- Scénario 3 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 30. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Les deux sont couvertes par la remise de réservation.
+- Scénario 4 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 45. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique aux calculs utilisés pendant la période restante.
 
 Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](https://go.microsoft.com/fwlink/?linkid=862757).
 
@@ -56,4 +56,4 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (Support request).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

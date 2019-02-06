@@ -1,8 +1,21 @@
 ---
-titre : Comment un modèle Machine Learning Studio devient un service web - titleSuffix : Description d'Azure Machine Learning Studio : Vue d’ensemble de la façon dont votre modèle Azure Machine Learning peut passer du stade de l’expérience de développement à celui d’un service web opérationnel.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 20/03/2017
+title: Comment un modèle Machine Learning devient un service web
+titleSuffix: Azure Machine Learning Studio
+description: Vue d’ensemble de la façon dont votre modèle Azure Machine Learning peut passer du stade de l’expérience de développement à celui d’un service web opérationnel.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 03/20/2017
+ms.openlocfilehash: a2e7c45615c1f9d07ef3392ee10579a1b5e3588f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477979"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Comment faire évoluer un modèle Machine Learning Studio d’une simple expérience en service web opérationnel
 Azure Machine Learning Studio fournit un canevas interactif qui permet de développer, d’exécuter, de tester et d’itérer une ***expérience*** représentant un modèle d’analyse prédictive. Il existe un large éventail de modules capables d’effectuer les opérations suivantes :
@@ -19,9 +32,9 @@ Une fois que vous êtes satisfait de votre expérience, vous pouvez la déployer
 Cet article donne une vue d’ensemble de la façon dont votre modèle d’apprentissage automatique peut passer du stade de l’expérience de développement à celui d’un service web opérationnel.
 
 > [!NOTE]
-> Il existe d’autres manières de développer et déployer des modèles d’apprentissage automatique, mais cet article se concentre uniquement sur l’utilisation de Machine Learning Studio. Par exemple, pour lire une description sur la création d’un service web prédictif classique avec R, consultez le billet de blog relatif au [développement et au déploiement d’applications web prédictives à l’aide de RStudio et d’Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
-> 
-> 
+> Il existe d’autres manières de développer et déployer des modèles d’apprentissage automatique, mais cet article se concentre uniquement sur l’utilisation de Machine Learning Studio. Par exemple, pour lire une description sur la création d’un service web prédictif classique avec R, consultez le billet de blog relatif au [développement et au déploiement d’applications web prédictives à l’aide de RStudio et d’Azure Machine Learning Studio](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+>
+>
 
 Bien qu’Azure Machine Learning Studio soit principalement conçu pour vous aider à développer et déployer un *modèle d’analyse prédictive*, il est possible de l’utiliser pour développer une expérience qui n’inclut pas de modèle d’analyse prédictive. Une expérience peut, par exemple, simplement injecter des données et les manipuler avant de générer les résultats. À l’instar d’une expérience d’analyse prédictive, vous pouvez déployer cette expérience non prédictive en tant que service web. Ce processus sera toutefois plus simple car l’expérience n’est pas apparentée à l’apprentissage ou à la notation d’un modèle d’apprentissage automatique. Si cela ne représente pas l’utilisation classique de Studio, nous allons l’inclure dans la discussion afin de pouvoir vous expliquer de manière exhaustive le mode de fonctionnement de Studio.
 
@@ -50,8 +63,8 @@ Dans ce processus de conversion, l’expérience de formation n’est pas suppri
 
 > [!NOTE]
 > Lorsque vous cliquez sur **Service web prédictif**, vous démarrez un processus automatique permettant de convertir votre expérience de formation en expérience prédictive. Ce processus fonctionne bien dans la plupart des cas. Si vous avez défini une expérience de formation complexe (par exemple, si vous avez plusieurs chemins d’accès pour des formations que vous souhaitez relier entre elles), vous préférerez peut-être effectuer cette conversion manuellement. Pour plus d’informations, consultez [Guide pratique pour préparer votre modèle pour le déploiement dans Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
-> 
-> 
+>
+>
 
 ### <a name="the-web-service"></a>Le service web
 Une fois que vous êtes satisfait et que votre expérience prédictive est prête, vous pouvez déployer votre service en tant que service web classique ou nouveau service web basé sur Azure Resource Manager. Pour rendre opérationnel votre modèle en le déployant en tant que *service web Machine Learning classique*, cliquez sur **Déployer le service web** puis sélectionnez **Déployer le service web [classique]**. Pour déployer en tant que *nouveau service web Machine Learning*, cliquez sur **Déployer le service web** puis sélectionnez **Déployer le service web [nouveau]**. Les utilisateurs peuvent maintenant envoyer des données à votre modèle à l’aide de l’API REST du service web, et recevoir les résultats en retour. Pour plus d’informations, consultez [Utilisation d’un service Web Microsoft Azure Machine Learning](consume-web-services.md).
@@ -84,7 +97,7 @@ Si vous souhaitez conserver votre modèle d’apprentissage automatique, mais en
 
 1. **Reformer le modèle pendant l’exécution du service web** : si vous souhaitez reformer votre modèle pendant l’exécution du service web prédictif, vous pouvez procéder en apportant quelques modifications à l’expérience de formation pour en faire une ***expérience de reformation***, puis le déployer en tant que ***service web de reformation***. Pour connaître la procédure à suivre, consultez la page [Reformation des modèles Machine Learning par programme](retrain-models-programmatically.md).
 2. **Revenir à l’expérience de formation d’origine et utiliser d’autres données de formation pour développer votre modèle** : votre expérience prédictive est liée au service web, mais l’expérience de formation n’est pas directement liée de cette façon. Si vous modifiez l’expérience de formation d’origine, cliquez sur **Configurer le service web**. Vous obtiendrez alors une *nouvelle* expérience prédictive qui, une fois déployée, créera un *nouveau* service web. L’opération ne se résume pas à mettre simplement à jour le service web d’origine.
-   
+
    Si vous devez modifier l’expérience de formation, ouvrez-la et cliquez sur **Enregistrer sous** pour effectuer une copie. Cette précaution garantira l’intégrité de l’expérience d’apprentissage d’origine, de l’expérience prédictive et du service web. Vous pouvez désormais créer un service web avec vos modifications. Après avoir déployé le nouveau service web, vous pouvez alors décider d’arrêter le service web précédent ou de le maintenir en exécution simultanée.
 
 **Vous souhaitez former un modèle différent**

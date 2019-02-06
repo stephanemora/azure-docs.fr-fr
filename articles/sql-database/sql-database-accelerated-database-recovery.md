@@ -1,6 +1,6 @@
 ---
 title: Récupération accélérée de base de données - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database dispose d’une nouvelle fonctionnalité qui permet une récupération de base de données rapide et cohérente, l’annulation de transaction instantanée et la troncation agressive du journal pour les bases de données uniques, les pools élastiques et Azure SQL Data Warehouse.
+description: Azure SQL Database dispose d’une nouvelle fonctionnalité qui permet une récupération de base de données rapide et cohérente, l’annulation de transaction instantanée et la troncation agressive du journal pour les bases de données uniques et les bases de données regroupées dans Azure SQL Database, et les bases de données dans Azure SQL Data Warehouse.
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: ''
@@ -10,17 +10,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: deaf5c9180841f8c5b2d21a820f2ab2362dc2453
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600711"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475446"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Récupération de base de données accélérée (préversion)
 
-La **récupération de base de données accélérée** est une nouvelle fonctionnalité du moteur de base de données SQL qui améliore considérablement la disponibilité des bases de données, en particulier en présence de transactions d’une durée d’exécution longue, grâce à une nouvelle conception du processus de récupération du moteur de base de données SQL. La récupération de base de données accélérée est actuellement disponible pour les bases de données uniques, les pools élastiques et Azure SQL Data Warehouse. Les principaux avantages de la récupération de base de données accélérée sont :
+La **récupération de base de données accélérée** est une nouvelle fonctionnalité du moteur de base de données SQL qui améliore considérablement la disponibilité des bases de données, en particulier en présence de transactions d’une durée d’exécution longue, grâce à une nouvelle conception du processus de récupération du moteur de base de données SQL. La récupération de base de données accélérée est disponible pour les bases de données uniques et les bases de données regroupées dans Azure SQL Database, et les bases de données dans Azure SQL Data Warehouse. Les principaux avantages de la récupération de base de données accélérée sont :
 
 - **Récupération rapide et cohérente des bases de données**
 
@@ -127,4 +127,4 @@ Les types suivants de clients doivent envisager l’utilisation de la récupéra
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Pour activer la récupération de base de données accélérée pendant cette période de préversion
 
-Pendant la période de préversion, pour activer cette fonctionnalité, envoyez un e-mail à [adr@microsoft.com](mailto:adr@microsoft.com) pour en savoir plus et essayer la récupération de base de données accélérée. Dans l’e-mail, incluez le nom de votre serveur logique (pour les bases de données uniques, les pools élastiques et Azure Data Warehouse). Cette fonctionnalité étant en préversion, votre serveur de test ne doit pas être un serveur de production.
+Pendant la période de préversion, pour activer cette fonctionnalité, envoyez un e-mail à [adr@microsoft.com](mailto:adr@microsoft.com) pour en savoir plus et essayer la récupération de base de données accélérée. Dans le courrier électronique, indiquez le nom de votre serveur SQL Database (pour les bases de données uniques et les bases de données regroupées dans SQL Database, et les bases de données dans Azure Data Warehouse). Cette fonctionnalité étant en préversion, votre serveur de test ne doit pas être un serveur de production.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: c90715608b5d35520605c504b5cebb5e7a3ec021
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9cb41bfde38d9b47f5db994c0ca39c64b453ef1d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096631"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171454"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemples de manifestes d’application de services fiables et de service
 Voici quelques exemples de manifestes d’applications et de services pour une application Service Fabric avec un serveur web ASP.NET Core frontal et un serveur backend avec état. Ces exemples ont pour but de vous montrer les paramètres disponibles et leur utilisation. Ces manifestes d’applications et de services sont basés sur les manifestes du [guide de démarrage rapide Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
@@ -198,7 +198,7 @@ Pour en savoir plus sur les éléments XML spécifiques, consultez les articles 
         the root of the code package regardless of where the EXE is defined in the code package directory. This is where the processes can write the data. Writing data 
         in the code package or code base is not recommended as those folders could be shared between different application instances and may get deleted.-->
         <WorkingFolder>CodePackage</WorkingFolder>
-        <!-- Warning! Do not use console rediriction in a production application, only use it for local development and debugging. Redirects console output from the startup
+        <!-- Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup
         script to an output file in the application folder called "log" on the cluster node where the application is deployed and run. Also set the number of output files
         to retain and the maximum file size (in KB). -->
         <ConsoleRedirection FileRetentionCount="10" FileMaxSizeInKb="20480"/>
@@ -215,7 +215,7 @@ Pour en savoir plus sur les éléments XML spécifiques, consultez les articles 
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -399,10 +399,12 @@ Nom du fichier exécutable.  Par exemple, « MySetup.bat » ou « MyServiceHost.
  Pour plus d’informations, consultez l’article [Élément Arguments](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType).
 
 ### <a name="workingfolder-element"></a>Élément WorkingFolder
-Répertoire de travail pour le processus dans le package de code sur le nœud de cluster où l’application est déployée. Vous pouvez spécifier trois valeurs : Work (valeur par défaut), CodePackage ou CodeBase. CodeBase indique que le répertoire de travail correspond au répertoire dans lequel le fichier EXE est défini dans le package de code. CodePackage définit le répertoire de travail pour en faire la racine du package de code, peu importe l’emplacement de définition du fichier EXE dans le répertoire de package de code. Work définit le répertoire de travail dans un dossier unique créé sur le nœud.  Ce dossier est le même pour l’intégralité de l’instance de l’application. Par défaut, le répertoire de travail de tous les processus de l’application est défini sur le dossier de travail de l’application. C’est là que les processus peuvent écrire les données. Il est déconseillé d’écrire les données dans le package de code ou la base de code, car ces dossiers peuvent être partagés entre différentes instances d’application et sont susceptibles d’être supprimés. Pour plus d’informations, consultez l’article [Élément WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType).
+Répertoire de travail pour le processus dans le package de code sur le nœud de cluster où l’application est déployée. Vous pouvez spécifier trois valeurs : Work (valeur par défaut), CodePackage ou CodeBase CodeBase indique que le répertoire de travail correspond au répertoire dans lequel le fichier EXE est défini dans le package de code. CodePackage définit le répertoire de travail pour en faire la racine du package de code, peu importe l’emplacement de définition du fichier EXE dans le répertoire de package de code. Work définit le répertoire de travail dans un dossier unique créé sur le nœud.  Ce dossier est le même pour l’intégralité de l’instance de l’application. Par défaut, le répertoire de travail de tous les processus de l’application est défini sur le dossier de travail de l’application. C’est là que les processus peuvent écrire les données. Il est déconseillé d’écrire les données dans le package de code ou la base de code, car ces dossiers peuvent être partagés entre différentes instances d’application et sont susceptibles d’être supprimés. Pour plus d’informations, consultez l’article [Élément WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType).
 
 ### <a name="consoleredirection-element"></a>Élément ConsoleRedirection
-Avertissement ! N’utilisez pas la redirection de console dans une application de production. Utilisez cette fonctionnalité uniquement pour le développement local et le débogage. La sortie de la console est redirigée du script de démarrage vers un fichier de sortie dans le dossier d’application « log », sur le nœud de cluster où l’application est déployée et exécutée. Pour plus d’informations, consultez l’article [Élément ConsoleRedirection](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType).
+
+> [!WARNING]
+> N’utilisez pas la redirection de console dans une application de production. Utilisez cette fonctionnalité uniquement pour le développement local et le débogage. La sortie de la console est redirigée du script de démarrage vers un fichier de sortie dans le dossier d’application « log », sur le nœud de cluster où l’application est déployée et exécutée. Pour plus d’informations, consultez l’article [Élément ConsoleRedirection](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType).
 
 ### <a name="entrypoint-element"></a>Élément EntryPoint
 Le fichier exécutable spécifié par EntryPoint est généralement l’hôte de service à exécution longue. La présence d’un point d’entrée de configuration distinct évite d’avoir à exécuter l’hôte de service avec des privilèges élevés pendant de longues périodes de temps. Le fichier exécutable spécifié par EntryPoint est exécuté une fois que SetupEntryPoint se termine correctement. Le processus résultant fait l’objet d’une surveillance et est redémarré (à partir de SetupEntryPoint) en cas d’interruption ou de défaillance. Pour plus d’informations, consultez l’article [Élément EntryPoint](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType).
@@ -447,7 +449,7 @@ Le fichier exécutable spécifié par EntryPoint est généralement l’hôte de
 Nom du fichier exécutable.  Par exemple, « MySetup.bat » ou « MyServiceHost.exe ». Pour plus d’informations, consultez l’article [Élément Program](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType).
 
 ### <a name="workingfolder-element"></a>Élément WorkingFolder
-Répertoire de travail pour le processus dans le package de code sur le nœud de cluster où l’application est déployée. Vous pouvez spécifier trois valeurs : Work (valeur par défaut), CodePackage ou CodeBase. CodeBase indique que le répertoire de travail correspond au répertoire dans lequel le fichier EXE est défini dans le package de code. CodePackage définit le répertoire de travail pour en faire la racine du package de code, peu importe l’emplacement de définition du fichier EXE dans le répertoire de package de code. Work définit le répertoire de travail dans un dossier unique créé sur le nœud.  Ce dossier est le même pour l’intégralité de l’instance de l’application. Par défaut, le répertoire de travail de tous les processus de l’application est défini sur le dossier de travail de l’application. C’est là que les processus peuvent écrire les données. Il est déconseillé d’écrire les données dans le package de code ou la base de code, car ces dossiers peuvent être partagés entre différentes instances d’application et sont susceptibles d’être supprimés. Pour plus d’informations, consultez l’article [Élément WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType).
+Répertoire de travail pour le processus dans le package de code sur le nœud de cluster où l’application est déployée. Vous pouvez spécifier trois valeurs : Work (valeur par défaut), CodePackage ou CodeBase CodeBase indique que le répertoire de travail correspond au répertoire dans lequel le fichier EXE est défini dans le package de code. CodePackage définit le répertoire de travail pour en faire la racine du package de code, peu importe l’emplacement de définition du fichier EXE dans le répertoire de package de code. Work définit le répertoire de travail dans un dossier unique créé sur le nœud.  Ce dossier est le même pour l’intégralité de l’instance de l’application. Par défaut, le répertoire de travail de tous les processus de l’application est défini sur le dossier de travail de l’application. C’est là que les processus peuvent écrire les données. Il est déconseillé d’écrire les données dans le package de code ou la base de code, car ces dossiers peuvent être partagés entre différentes instances d’application et sont susceptibles d’être supprimés. Pour plus d’informations, consultez l’article [Élément WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType).
 
 ### <a name="configpackage-element"></a>Élément ConfigPackage
 Déclare un dossier, nommé par l’attribut de nom et placé sous PackageRoot, contient un fichier Settings.xml. Ce fichier contient des sections de paramètres clé-valeur définis par l'utilisateur que le processus peut lire pendant l'exécution. Le processus en cours d’exécution n’est pas redémarré pendant la mise à niveau si seule la version de ConfigPackage a changé. Au lieu de cela, un rappel indique au processus que les paramètres de configuration ont été modifiés afin qu'ils puissent être rechargés dynamiquement. Pour plus d’informations, consultez l’article [Élément ConfigPackage](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement).

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 1b39de45d5046ce5a59dcaf0648b87aca2a5c6f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.subservice: common
+ms.openlocfilehash: 62c6e24776c1d9a4e6a82eea557244bb390ebd00
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868342"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471485"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -25,19 +25,20 @@ Le stockage ZRS est disponible pour les objets blob de blocs, les objets blob de
 
 Le stockage ZRS est généralement disponible dans les régions suivantes :
 
+- Asie du Sud-Est
+- Europe occidentale
+- Europe septentrionale
+- France Centre
+- Japon Est
 - USA Est
 - USA Est 2
 - USA Ouest 2
 - USA Centre
-- Europe Nord
-- Europe Ouest
-- France Centre
-- Asie Sud-Est
 
 Microsoft continue d’activer le stockage ZRS dans d’autres régions Azure. Consultez la page [Mises à jour de service Azure](https://azure.microsoft.com/updates/) régulièrement pour plus d’informations sur les nouvelles régions.
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>Que se passe-t-il lorsqu’une zone n’est plus disponible ?
-Vos données restent accessibles, même si une zone devient indisponible. Microsoft recommande de continuer à suivre les pratiques de gestion des erreurs temporaires. Ces pratiques incluent l’implémentation de stratégies de nouvelle tentative avec une interruption exponentielle.
+Vos données restent accessibles pour des opérations de lecture et d’écriture, même si une zone devient indisponible. Microsoft recommande de continuer à suivre les pratiques de gestion des erreurs temporaires. Ces pratiques incluent l’implémentation de stratégies de nouvelle tentative avec une interruption exponentielle.
 
 Lorsqu’une zone n’est pas disponible, Azure procède à des mises à jour des réseaux, telles que le rejointoiement DNS. Ces mises à jour peuvent affecter votre application si vous accédez à vos données avant qu’elles soient terminées.
 

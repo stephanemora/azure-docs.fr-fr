@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à PlanGrid | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à PlanGrid | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PlanGrid.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ba72432-9b49-4358-b756-14c982422be8
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: b2225a48e78e8c609223510a32d3ed5c735ed3b6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5ceb5f09b599b6c42dea3359b18c319e7b44fed7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046056"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165079"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Didacticiel : intégration d’Azure Active Directory à PlanGrid
+# <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Tutoriel : Intégration d’Azure Active Directory à PlanGrid
 
 Dans ce didacticiel, vous allez apprendre à intégrer PlanGrid à Azure Active Directory (Azure AD).
 
@@ -160,7 +160,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-plangrid-test-user"></a>Créer un utilisateur de test PlanGrid
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans PlanGrid. Collaborez avec [l’équipe du support technique de PlanGrid](mailto:help@plangrid.com) pour ajouter les utilisateurs dans la plateforme PlanGrid. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans PlanGrid. Collaborez avec  [l’équipe du support technique de PlanGrid](mailto:help@plangrid.com)  pour ajouter des utilisateurs à la plateforme PlanGrid. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

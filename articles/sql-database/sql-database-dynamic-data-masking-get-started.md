@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/16/2018
-ms.openlocfilehash: 3e807033b109b8281057f6881a315f5c1c783a22
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/25/2019
+ms.openlocfilehash: 7ca54117b014cb093b63e265864b0b0efa787865
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536370"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461217"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Masquage de données dynamiques dans une base de données SQL
 
@@ -28,12 +28,15 @@ Le masquage des données dynamiques empêche tout accès non autorisé aux donn�
 Par exemple, un représentant du centre d’appel peut identifier les appelants par plusieurs chiffres de leur numéro de carte de crédit, mais ces éléments de données ne doivent pas être divulgués entièrement au conseiller du service. Une règle de masquage peut être définie pour ne faire apparaître que les quatre derniers chiffres du numéro de carte de crédit dans l’ensemble de résultats de chaque requête. Autre exemple, un masque de données approprié peut être défini pour protéger les informations d'identification personnelle (PII), de telle sorte qu'un développeur puisse interroger les environnements de production à des fins de dépannage sans aller à l'encontre des réglementations de conformité.
 
 ## <a name="sql-database-dynamic-data-masking-basics"></a>Principes fondamentaux du masquage de données dynamiques de base de données SQL
+
 Pour définir une stratégie de masquage de données dynamiques sur le Portail Azure, sélectionnez l’opération de masquage des données dynamiques dans votre panneau de configuration ou de paramètres SQL Database.
 
 ### <a name="dynamic-data-masking-permissions"></a>Autorisations du masquage des données dynamiques
-Le masquage des données dynamiques peut être configuré par les rôles d’administrateur de base de données Azure, d’administrateur de serveur ou [Gestionnaire de la sécurité SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager).
+
+Le masquage des données dynamiques peut être configuré par les rôles d’administrateur de base de données SQL Azure, d’administrateur de serveur ou [Gestionnaire de la sécurité SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager).
 
 ### <a name="dynamic-data-masking-policy"></a>Stratégie de masquage des données dynamiques
+
 * **Utilisateurs SQL exclus du masquage** : ensemble d’utilisateurs SQL ou d’identités AAD qui obtiennent des données non masquées dans les résultats de requêtes SQL. Les utilisateurs possédant des privilèges administrateur sont toujours exclus du masquage et voient les données d’origine sans masque.
 * **Règles de masquage** : ensemble de règles qui définissent les champs désignés à masquer et la fonction de masquage à utiliser. Les champs désignés peuvent être définis avec un nom de schéma de base de données, un nom de table et un nom de colonne.
 * **Fonctions de masquage** : ensemble de méthodes qui contrôlent l'exposition des données dans différents scénarios.
@@ -49,11 +52,13 @@ Le masquage des données dynamiques peut être configuré par les rôles d’adm
 <a name="Anchor1"></a>
 
 ### <a name="recommended-fields-to-mask"></a>Champs à masquer recommandés
+
 Le moteur de recommandations DDM signale certains champs de votre base de données en tant que champs potentiellement sensibles, qui peuvent être de bons candidats au masquage. Dans le volet Masquage des données dynamiques du portail, vous verrez les colonnes recommandées pour votre base de données. Il vous suffit de cliquer sur **Ajouter un masque** pour une ou plusieurs colonnes, puis de cliquer sur **Enregistrer** pour appliquer un masque à ces champs.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configuration du masquage des données dynamiques pour votre base de données à l’aide des cmdlets Powershell
+
 Voir [Cmdlets de la base de données SQL Azure](https://docs.microsoft.com/powershell/module/azurerm.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configuration du masquage des données dynamiques pour votre base de données à l’aide de l’API REST
-Voir [Opérations pour Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).
 
+Voir [Opérations pour Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).

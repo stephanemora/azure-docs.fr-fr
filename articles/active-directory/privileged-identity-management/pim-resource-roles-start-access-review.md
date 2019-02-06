@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9a35d32d89931a03b33f232ba4f79226fc3f57e5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 607104c5a8021107be9e343d71ade049712454f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189172"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160047"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Démarrer une révision d’accès des rôles de ressources Azure dans PIM
 Les attributions de rôles deviennent « obsolètes » lorsque les utilisateurs bénéficient d’un accès privilégié dont ils n’ont plus besoin. Pour réduire les risques associés à ces affectations de rôles obsolètes, les administrateurs de rôle privilégié doivent régulièrement réviser les rôles. Ce document décrit les étapes de démarrage d’une révision d’accès dans Privileged Identity Management (PIM) pour les ressources Azure.
@@ -54,8 +54,8 @@ Il existe trois options pour effectuer une révision. Vous pouvez affecter la r�
 
 1. Choisissez l'une des options :
    
-   * **Utilisateurs sélectionnés** : utilisez cette option lorsque vous ne savez pas qui a besoin de l’accès. Avec cette option, vous pouvez affecter la révision à un propriétaire de ressource ou un responsable de groupe.
-   * **Affecté (auto)** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres affectations de rôles.
+   * **Utilisateurs sélectionnés** : utilisez cette option lorsque vous ne savez pas qui a besoin de l’accès. Avec cette option, vous pouvez affecter la révision à un propriétaire de ressource ou un responsable de groupe.
+   * **Affecté (auto)**  : utilisez cette option pour demander aux utilisateurs de réviser leurs propres attributions de rôles.
    
 2. Accédez à **Sélectionner des réviseurs**.
    

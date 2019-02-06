@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728038"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912031"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtres et manifestes dynamiques
 
@@ -124,8 +124,8 @@ Utilisez cette propriété avec les **filtres d’élément multimédia**. Il n�
 |---|---|
 |**endTimestamp**|Limite absolue de l’heure de fin. Applicable à la vidéo à la demande (VoD). Pour la présentation en direct, cette propriété est ignorée (mode silencieux) puis appliquée lorsque la présentation se termine et que le flux est transmis en VoD.<br/><br/>La valeur représente un point de fin absolu du flux. Elle est arrondie au début GOP suivant le plus proche.<br/><br/>Utilisez StartTimestamp et EndTimestamp pour ajuster la sélection (manifeste). Par exemple, StartTimestamp=40000000 et EndTimestamp = 100000000 généreront une sélection contenant les éléments multimédia situés entre StartTimestamp et EndTimestamp. Si un fragment approche la limite, le fragment entier sera inclus dans le manifeste.<br/><br/>Consultez également la définition **forceEndTimestamp** qui suit.|
 |**forceEndTimestamp**|S’applique aux filtres en direct.<br/><br/>**forceEndTimestamp** est une valeur booléenne qui indique si **endTimestamp** a été défini sur une valeur valide. <br/><br/>Si la valeur est **true**, la valeur **endTimestamp** doit être spécifiée. Si elle n’est pas spécifiée, une demande incorrecte est retournée.<br/><br/>Si, par exemple, vous souhaitez définir un filtre commençant à 5 minutes dans la vidéo en entrée, et qui reste valable jusqu'à la fin du flux de données, définissez **forceEndTimestamp** sur la valeur false et omettez le paramètre **endTimestamp**.|
-|**liveBackoffDuration**|S’applique à la lecture en direct uniquement. La propriété est utilisée pour définir la position de la lecture en direct. Cette règle vous permet de différer la position de lecture en direct et de créer une mémoire tampon côté serveur pour les lecteurs. La valeur LiveBackoffDuration dépend de la position en direct. La durée d’interruption en direct maximale est de 60 secondes.|
-|**presentationWindowDuration**|S’applique à la lecture en direct. Utilisez **presentationWindowDuration** pour appliquer une fenêtre glissante à la sélection. Par exemple, définissez presentationWindowDuration=1200000000 pour appliquer une fenêtre glissante de deux minutes. Les éléments multimédia situés à 2 minutes de la session en direct figureront dans la sélection. Si un fragment approche la limite, le fragment entier sera inclus dans la sélection. La durée minimale de la fenêtre de présentation est de 120 secondes.|
+|**liveBackoffDuration**|S’applique à la lecture en direct uniquement. La propriété est utilisée pour définir la position de la lecture en direct. Cette règle vous permet de différer la position de lecture en direct et de créer une mémoire tampon côté serveur pour les lecteurs. La valeur LiveBackoffDuration dépend de la position en direct. La durée d’interruption en direct maximale est de 300 secondes.|
+|**presentationWindowDuration**|S’applique à la lecture en direct. Utilisez **presentationWindowDuration** pour appliquer une fenêtre glissante à la sélection. Par exemple, définissez presentationWindowDuration=1200000000 pour appliquer une fenêtre glissante de deux minutes. Les éléments multimédia situés à 2 minutes de la session en direct figureront dans la sélection. Si un fragment approche la limite, le fragment entier sera inclus dans la sélection. La durée minimale de la fenêtre de présentation est de 60 secondes.|
 |**startTimestamp**|S’applique aux flux de vidéo à la demande ou en direct. La valeur représente un point de début absolu du flux. Elle est arrondie au début GOP suivant le plus proche.<br/><br/>Utilisez **startTimestamp** et **endTimestamp** pour ajuster la sélection (manifeste). Par exemple, startTimestamp=40000000 et endTimestamp = 100000000 généreront une sélection contenant les éléments multimédia situés entre StartTimestamp et EndTimestamp. Si un fragment approche la limite, le fragment entier sera inclus dans le manifeste.|
 |**timescale**|S’applique aux flux de vidéo à la demande ou en direct. L’échelle de temps utilisée par les horodatages et les durées spécifiés ci-dessus. L’échelle de temps par défaut est 10 000 000. Une autre échelle de temps peut être utilisée. La valeur par défaut est 10000000 HNS (cent nanosecondes).|
 

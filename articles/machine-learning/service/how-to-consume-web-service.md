@@ -1,22 +1,22 @@
 ---
 title: Créer un client pour consommer un service web déployé
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser un service web qui a été généré lorsqu’un modèle a été déployé avec un modèle Azure Machine Learning. Le service web expose une API REST. Créez des clients pour cette API en utilisant le langage de programmation de votre choix.
+description: Apprenez à utiliser un service web généré dans le cadre du déploiement d'un modèle Azure Machine Learning. Le service web expose une API REST. Créez des clients pour cette API en utilisant le langage de programmation de votre choix.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b83542a11ce2351214ac8f15a6902d1a90f871ee
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753385"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242261"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 
@@ -84,7 +84,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Si vous devez régénérer une clé, utilisez [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key).
+> Si vous devez régénérer une clé, utilisez [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
 
 ## <a name="request-data"></a>Données de la demande
 

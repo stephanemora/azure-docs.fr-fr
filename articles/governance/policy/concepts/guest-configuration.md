@@ -4,17 +4,17 @@ description: Découvrez comment Azure Policy utilise la configuration d’invit�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0a571084819c5dfed3f8d6891b59032ef2eecdd6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 77d99c90e65647a1f4a4efb07ff5520596fa54cf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856398"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295166"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -63,6 +63,16 @@ Le tableau suivant affiche une liste des outils locaux utilisés sur chaque syst
 | Windows|[Configuration de l’état souhaité (DSC) Microsoft](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby et Python sont installés par l’extension de configuration d’invité. |
 
+### <a name="validation-frequency"></a>Fréquence de validation
+
+Le client de configuration d'invité vérifie le nouveau contenu toutes les 5 minutes.
+Une fois l'affectation d'invité reçue, les paramètres sont vérifiés à intervalle de 15 minutes.
+Les résultats sont envoyés au fournisseur de ressources de configuration d’invité dès la fin de l’audit.
+Lorsqu'un [déclencheur d’évaluation](../how-to/get-compliance-data.md#evaluation-triggers) de stratégie intervient, l'état de la machine est consigné dans le fournisseur de ressources de configuration d'invité.
+Azure Policy évalue alors les propriétés Azure Resource Manager.
+Une évaluation de la stratégie à la demande récupère la valeur la plus récente du fournisseur de ressources de configuration d'invité.
+Cela étant, elle ne déclenche pas de nouvel audit de la configuration de la machine virtuelle.
+
 ### <a name="supported-client-types"></a>Types de clients pris en charge
 
 Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
@@ -90,7 +100,7 @@ Le tableau suivant répertorie les systèmes d’exploitation qui ne sont pas pr
 
 ## <a name="guest-configuration-definition-requirements"></a>Exigences de définition de la configuration d’invité
 
-Chaque audit exécuté par la configuration d’invité nécessite deux définitions de stratégies : **DeployIfNotExists** et **AuditIfNotExists**. **DeployIfNotExists** sert à préparer la machine virtuelle avec l’agent de configuration d’invité et d’autres composants pour prendre en charge les [outils de validation](#validation-tools).
+Chaque audit exécuté par la configuration d’invité nécessite deux définitions de stratégies : **DeployIfNotExists** et **Audit**. **DeployIfNotExists** sert à préparer la machine virtuelle avec l’agent de configuration d’invité et d’autres composants pour prendre en charge les [outils de validation](#validation-tools).
 
 La définition de stratégie **DeployIfNotExists** valide et corrige les éléments suivants :
 
@@ -99,14 +109,14 @@ La définition de stratégie **DeployIfNotExists** valide et corrige les éléme
   - Installation de la dernière version de l’extension **Microsoft.GuestConfiguration**
   - Installation des [outils de validation](#validation-tools) et des dépendances, si nécessaire
 
-Une fois **DeployIfNotExists** conforme, la définition de stratégie **AuditIfNotExists** utilise les outils de validation locaux pour déterminer si l’attribution de configuration est conforme ou non conforme. L’outil de validation fournit les résultats au client de configuration d’invité. Le client transmet à l’extension invité les résultats pour les rendre disponibles via le fournisseur de ressources de la configuration d’invité.
+Une fois **DeployIfNotExists** conforme, la définition de stratégie **Audit** utilise les outils de validation locaux pour déterminer si l’attribution de configuration est conforme ou non conforme. L’outil de validation fournit les résultats au client de configuration d’invité. Le client transmet à l’extension invité les résultats pour les rendre disponibles via le fournisseur de ressources de la configuration d’invité.
 
 Azure Policy utilise la propriété **complianceStatus** des fournisseurs de ressources de configuration d’invité pour signaler la conformité dans le nœud **Conformité**. Pour plus d’informations, consultez [Obtention de données de conformité](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> Pour chaque définition de la configuration d’invité, les définitions de stratégies **DeployIfNotExists** et **AuditIfNotExists** doivent toutes deux exister.
+> Pour chaque définition de la configuration d’invité, les définitions de stratégies **DeployIfNotExists** et **Audit** doivent toutes deux exister.
 
-Toutes les stratégies intégrées pour la configuration d’invité sont incluses dans une initiative pour regrouper les définitions à utiliser dans les attributions. L’initiative intégré nommée *[Préversion] : Auditer les paramètres de sécurité de mot de passe dans les machines virtuelles Linux et Windows* contient 18 stratégies. Il existe six paires **DeployIfNotExists** et **AuditIfNotExists** pour Windows et trois paires pour Linux. Dans chaque cas, la logique à l’intérieur de la définition permet de garantir que seul le système d’exploitation cible est évalué en fonction de la définition de [règle de stratégie](definition-structure.md#policy-rule).
+Toutes les stratégies intégrées pour la configuration d’invité sont incluses dans une initiative pour regrouper les définitions à utiliser dans les attributions. L’initiative intégré nommée *[Préversion] : Auditer les paramètres de sécurité de mot de passe dans les machines virtuelles Linux et Windows* contient 18 stratégies. Il existe six paires **DeployIfNotExists** et **Audit** pour Windows et trois paires pour Linux. Dans chaque cas, la logique à l’intérieur de la définition permet de garantir que seul le système d’exploitation cible est évalué en fonction de la définition de [règle de stratégie](definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

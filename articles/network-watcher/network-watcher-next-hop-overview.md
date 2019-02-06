@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 28eacdce922e26d391cf34f78cb03ead9c6887a1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 40f1790806aac6756979f28ad29442b7abf96019
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391264"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096889"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Utiliser le tronçon suivant pour diagnostiquer les problèmes de routage de machines virtuelles
 
@@ -42,4 +42,4 @@ Pour plus d’informations sur chaque type de tronçon suivant, consultez [Vue d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment utiliser le tronçon suivant pour diagnostiquer les problèmes de routage réseau de machines virtuelles, consultez [Diagnostiquer les problèmes de routage réseau de machines virtuelles](diagnose-vm-network-routing-problem.md).
+Pour savoir comment utiliser le tronçon suivant pour diagnostiquer les problèmes de routage réseau de machines virtuelles, consultez Diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide du [portail Azure](diagnose-vm-network-routing-problem.md), de [PowerShell](diagnose-vm-network-routing-problem-powershell.md) ou d’[Azure CLI](diagnose-vm-network-routing-problem-cli.md).

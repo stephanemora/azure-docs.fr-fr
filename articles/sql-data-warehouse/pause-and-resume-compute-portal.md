@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Suspendre et reprendre le calcul dans Azure SQL Data Warehouse – Portail Azure | Microsoft Docs'
+title: 'Démarrage rapide : Suspendre et reprendre le calcul dans Azure SQL Data Warehouse – Portail Azure | Microsoft Docs'
 description: Utilisez le Portail Azure pour interrompre le calcul dans Azure SQL Data Warehouse afin de réduire les coûts. Reprenez le calcul dès que vous pourrez à nouveau utiliser l’entrepôt de données.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a82d3cfcbc4481c970f5a31ad2de711fb1562657
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: b21c982a7f390855ccb7b9212ea92db8c26d303c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246585"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460282"
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : Suspendre et reprendre le calcul pour un entrepôt Azure SQL Data Warehouse sur le Portail Azure
+# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : Suspendre et reprendre le calcul pour un entrepôt Azure SQL Data Warehouse sur le portail Azure
 Utilisez le Portail Azure pour interrompre le calcul dans Azure SQL Data Warehouse afin de réduire les coûts. [Reprenez le calcul](sql-data-warehouse-manage-compute-overview.md) quand vous êtes prêt à utiliser l’entrepôt de données.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -73,7 +73,7 @@ Suivez les étapes ci-dessous pour reprendre un entrepôt de données SQL.
 
     ![Calcul en ligne](media/pause-and-resume-compute-portal/compute-online.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Les unités Data Warehouse Unit et les données stockées dans votre entrepôt de données vous sont facturées. Ces ressources de calcul et de stockage sont facturées séparément. 
 
@@ -84,7 +84,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur votre entrepôt de données.
 
-    ![Supprimer les ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 1. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** est visible.  Pour reprendre le calcul, cliquez sur **Démarrer**.
 

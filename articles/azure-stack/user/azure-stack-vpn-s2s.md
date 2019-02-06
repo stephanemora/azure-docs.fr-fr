@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
-ms.openlocfilehash: cfd46f8178f36213ecc16db0e092e81ac2d0eff1
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.lastreviewed: 01/19/2019
+ms.openlocfilehash: 9a14c819acbc46d8a281f73fd4f3185caa8a1e02
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54414755"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478149"
 ---
-# <a name="configure-ipsecike-policy-for-site-to-site-vpn-or-vnet-to-vnet-connections"></a>Configurer une stratégie IPsec/IKE pour les connexions VPN site à site ou les connexions de réseau virtuel à réseau virtuel
+# <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN site à site
 
 Cet article décrit les étapes permettant de configurer une stratégie IPsec/IKE pour les connexions VPN site à site (S2S) dans Azure Stack.
 
@@ -102,10 +103,10 @@ Le tableau suivant répertorie les groupes Diffie-Hellman correspondants pris en
 |----------------------|-----------|---------------|---------------|
 | 1                    | DHGroup1  | PFS1          | MODP 768 bits  |
 | 2                    | DHGroup2  | PFS2          | MODP 1 024 bits |
-| 14                   | DHGroup14 |               |               |
-| DHGroup2048          | PFS2048   | MODP 2 048 bits |               |
+| 14                   | DHGroup14<br/>DHGroup2048 | PFS2048       | MODP 2 048 bits |
 | 19                   | ECP256    | ECP256        | ECP 256 bits   |
-| 20                   | ECP384    | ECP284        | ECP 384 bits   |
+| 20                   | ECP384    | ECP384        | ECP 384 bits   |
+| 24                   | DHGroup24 | PFS24         | MODP 2 048 bits |
 
 Pour plus d’informations, consultez les [RFC3526](https://tools.ietf.org/html/rfc3526) et [RFC5114](https://tools.ietf.org/html/rfc5114).
 

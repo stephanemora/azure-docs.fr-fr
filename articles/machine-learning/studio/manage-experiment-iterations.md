@@ -1,6 +1,6 @@
 ---
-titre : Gestion des itérations d’expériences dans Azure Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Gestion des itérations d’expériences dans Azure Machine Learning Studio. Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Gestion des itérations d’expériences dans Azure Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Gestion des itérations d’expériences dans Azure Machine Learning Studio. Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 20/03/2017
 ---

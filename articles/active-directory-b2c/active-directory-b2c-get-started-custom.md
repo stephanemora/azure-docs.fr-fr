@@ -7,21 +7,21 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852301"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298736"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Les [stratégies personnalisées](active-directory-b2c-overview-custom.md) sont des fichiers de configuration qui définissent le comportement de votre locataire Azure Active Directory (Azure AD) B2C. Dans cet article, vous allez créer une stratégie personnalisée qui prend en charge l’inscription ou la connexion de comptes locaux à l’aide d’une adresse e-mail et d’un mot de passe. Vous préparerez également votre environnement à l’ajout de fournisseurs d’identité, tels que Facebook ou Azure Active Directory.
+Les [stratégies personnalisées](active-directory-b2c-overview-custom.md) sont des fichiers de configuration qui définissent le comportement de votre locataire Azure Active Directory (Azure AD) B2C. Dans cet article, vous allez créer une stratégie personnalisée qui prend en charge l’inscription ou la connexion de comptes locaux à l’aide d’une adresse e-mail et d’un mot de passe. Vous préparerez également votre environnement pour l’ajout de fournisseurs d’identité.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,9 +31,6 @@ Si vous n’en avez pas, vous devez [créer un locataire Azure AD B2C](tutorial-
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire. 
-
-    ![Basculez vers votre client Azure AD B2C.](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
 3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
 4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité - PRÉVERSION**.
 
@@ -72,7 +69,7 @@ Azure AD B2C exige que vous inscriviez deux applications utilisées pour inscrir
 
 ### <a name="register-the-identityexperienceframework-application"></a>Inscrire l’application IdentityExperienceFramework
 
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, recherchez et sélectionnez **Azure Active Directory**, puis sélectionnez **Inscriptions des applications**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 2. Sélectionnez **Nouvelle inscription d’application**.
 3. Pour **Nom**, entrez `IdentityExperienceFramework`.
 4. Pour **Type d’application**, choisissez **Application/API web**.
@@ -105,8 +102,8 @@ Les stratégies personnalisées sont un ensemble de fichiers XML qui doivent êt
 Chaque pack de démarrage contient :
 
 - Le fichier de base. Il n’y a que peu de modifications à apporter la base.
-* Le fichier d’extension.  C’est sur ce fichier que portent la plupart des modifications de la configuration.
-* Les fichiers de partie de confiance. Il s’agit de fichiers propres aux tâches appelés par votre application.
+- Le fichier d’extension.  C’est sur ce fichier que portent la plupart des modifications de la configuration.
+- Les fichiers de partie de confiance. Il s’agit de fichiers propres aux tâches appelés par votre application.
 
 >[!NOTE]
 >Si votre éditeur XML prend en charge la validation, validez la conformité des fichiers au schéma XML TrustFrameworkPolicy_0.3.0.0.xsd, qui se trouve dans le dossier racine du pack de démarrage. La validation du schéma XML identifie les erreurs avant le chargement.
@@ -117,17 +114,14 @@ Chaque pack de démarrage contient :
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. Dans le dossier SocialAndLocalAccounts, modifiez tous les fichiers en remplaçant `yourtenant.onmicrosoft.com` par le nom de votre locataire. Par exemple : `contosoTenant.onmicrosoft.com`. Si vous avez besoin d’un éditeur XML, [essayez Visual Studio Code](https://code.visualstudio.com/download), un éditeur multiplateforme léger.
+2. Dans le dossier SocialAndLocalAccounts, modifiez tous les fichiers en remplaçant `yourtenant` par le nom de votre locataire. Par exemple : `contosoTenant.onmicrosoft.com`. Si vous avez besoin d’un éditeur XML, [essayez Visual Studio Code](https://code.visualstudio.com/download), un éditeur multiplateforme léger.
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Ajouter des ID d’applications à la stratégie personnalisée
 
 Ajoutez les ID d’applications au fichier d’extensions *TrustFrameworkExtensions.xml*.
 
 1. Ouvrez le fichier *TrustFrameworkExtensions.xml* et recherchez l’élément `<TechnicalProfile Id="login-NonInteractive">`.
-2. Remplacez les deux instances de `IdentityExperienceFrameworkAppId` par l’ID de l’application d’infrastructure d’expérience d’identité que vous avez créée précédemment. Remplacez les deux instances de `ProxyIdentityExperienceFrameworkAppId` par l’ID de l’application Infrastructure d’expérience d’identité de proxy que vous avez créée précédemment. L’exemple suivant montre le profil technique **login-NonInteractive** après les modifications :
-
-    ![ID d’applications](./media/active-directory-b2c-get-started-custom/login-NonInteractive.png)
-
+2. Remplacez les deux instances de `IdentityExperienceFrameworkAppId` par l’ID de l’application d’infrastructure d’expérience d’identité que vous avez créée précédemment. Remplacez les deux instances de `ProxyIdentityExperienceFrameworkAppId` par l’ID de l’application Infrastructure d’expérience d’identité de proxy que vous avez créée précédemment.
 3. Enregistrez votre fichier d’extensions.
 
 ## <a name="upload-the-policies"></a>Charger les stratégies

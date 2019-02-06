@@ -11,13 +11,13 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449399"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458089"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
 
@@ -75,9 +75,9 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ```
 
 
-## <a name="exclude-a-single-database"></a>Exclure un singleton
+## <a name="exclude-an-individual-database"></a>Exclure une base de données individuelle
 
-L’exemple suivant montre comment exécuter un travail sur toutes les bases de données d’un serveur, à l’exception de la base de données nommée *MappingDB*.  
+L’exemple suivant montre comment exécuter un travail sur toutes les bases de données d’un serveur SQL Database, à l’exception de la base de données nommée *MappingDB*.  
 Se connecter à la [*base de données de travail*](sql-database-job-automation-overview.md#job-database) et exécuter la commande suivante :
 
 ```sql
@@ -103,7 +103,7 @@ EXEC [jobs].sp_add_target_group_member
 @server_name='server2.database.windows.net'
 GO
 
---Excude a database target member from the server target group
+--Exclude a database target member from the server target group
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @membership_type = N'Exclude',
@@ -1032,10 +1032,10 @@ Spécifie si le membre du groupe cible sera inclus ou exclu. target_group_name e
 Type de base de données cible ou de collection de bases de données incluant toutes les bases de données dans un serveur, toutes les bases de données dans un pool élastique, toutes les bases de données dans un mappage de partition, ou une base de données individuelle. target_type est nvarchar(128), sans valeur par défaut. Les valeurs valides pour target_type sont 'SqlServer', 'SqlElasticPool', 'SqlDatabase' ou 'SqlShardMap'. 
 
 [ **@refresh_credential_name =** ] 'refresh_credential_name'  
-Nom du serveur logique. refresh_credential_name est nvarchar(128), sans valeur par défaut.
+Nom du serveur SQL Database. refresh_credential_name est nvarchar(128), sans valeur par défaut.
 
 [ **@server_name =** ] 'server_name'  
-Nom du serveur logique qui doit être ajouté au groupe cible spécifié. server_name doit être spécifié lorsque target_type est 'SqlServer'. server_name est nvarchar(128), sans valeur par défaut.
+Nom du serveur SQL Database qui doit être ajouté au groupe cible spécifié. server_name doit être spécifié lorsque target_type est 'SqlServer'. server_name est nvarchar(128), sans valeur par défaut.
 
 [ **@database_name =** ] 'database_name'  
 Nom de la base de données qui doit être ajoutée au groupe cible spécifié. database_name doit être spécifié lorsque target_type est 'SqlDatabase'. database_name est nvarchar (128), sans valeur par défaut.
@@ -1051,7 +1051,7 @@ Numéro d’identification cible affecté au membre du groupe cible s’il a ét
 Codet de retour 0 (réussite) ou 1 (échec)
 
 #### <a name="remarks"></a>Remarques
-Un travail s’exécute sur toutes les bases de données au sein d’un serveur ou un pool élastique au moment de l’exécution, quand un serveur logique ou un pool élastique est inclus dans le groupe cible.
+Un travail s’exécute sur toutes les bases de données uniques au sein d’un serveur SQL Database ou d’un pool élastique au moment de l’exécution, quand un serveur SQL Database ou un pool élastique est inclus dans le groupe cible.
 
 #### <a name="permissions"></a>Autorisations
 Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
@@ -1229,7 +1229,7 @@ Afficher l'historique d'exécution des travaux.
 |**target_type**|   nvarchar(128)   |Type de base de données cible ou de collection de bases de données incluant toutes les bases de données dans un serveur, toutes les bases de données dans un pool élastique, ou une base de données individuelle. Les valeurs valides pour target_type sont 'SqlServer', 'SqlElasticPool' ou 'SqlDatabase'. NULL indique qu’il s’agit de l’exécution du travail parent.
 |**target_id**  |uniqueidentifier|  ID unique du membre du groupe cible.  NULL indique qu’il s’agit de l’exécution du travail parent.
 |**target_group_name**  |nvarchar(128)  |Nom du groupe cible. NULL indique qu’il s’agit de l’exécution du travail parent.
-|**target_server_name**|    nvarchar(256)|  Nom du serveur logique contenu dans le groupe cible. Spécifié uniquement si target_type est 'SqlServer'. NULL indique qu’il s’agit de l’exécution du travail parent.
+|**target_server_name**|    nvarchar(256)|  Nom du serveur SQL Database contenu dans le groupe cible. Spécifié uniquement si target_type est 'SqlServer'. NULL indique qu’il s’agit de l’exécution du travail parent.
 |**target_database_name**   |nvarchar(128)| Nom de la base de données contenue dans le groupe cible. Spécifié uniquement lorsque target_type est ‘SqlDatabase’. NULL indique qu’il s’agit de l’exécution du travail parent.
 
 
@@ -1332,7 +1332,7 @@ Affiche tous les membres de tous les groupes cibles.
 |**refresh_credential_name**    |nvarchar(128)  |Nom des informations d'identification incluses dans l'étendue de la base de données utilisées pour se connecter au membre du groupe cible.|
 |**subscription_id**    |uniqueidentifier|  ID unique de l’abonnement.|
 |**resource_group_name**    |nvarchar(128)| Nom du groupe de ressources dans lequel réside le membre du groupe cible.|
-|**server_name**    |nvarchar(128)  |Nom du serveur logique contenu dans le groupe cible. Spécifié uniquement si target_type est 'SqlServer'. |
+|**server_name**    |nvarchar(128)  |Nom du serveur SQL Database contenu dans le groupe cible. Spécifié uniquement si target_type est 'SqlServer'. |
 |**database_name**  |nvarchar(128)  |Nom de la base de données contenue dans le groupe cible. Spécifié uniquement lorsque target_type est ‘SqlDatabase’.|
 |**elastic_pool_name**  |nvarchar(128)| Nom du pool élastique contenu dans le groupe cible. Spécifié uniquement lorsque target_type est ‘SqlElasticPool’.|
 |**shard_map_name** |nvarchar(128)| Nom du mappage de partition contenu dans le groupe cible. Spécifié uniquement lorsque target_type est ‘SqlShardMap’.|

@@ -6,18 +6,18 @@ author: MarkusVi
 manager: daveba
 tags: azuread
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: 1911dd189e21a6d29b2bf1ba3d179b41e948f469
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ca0dfcd9b776b6aea052e2569f9a5aec3ae50eca
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450505"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081022"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procédure : Planifier votre déploiement d’accès conditionnel Azure Active Directory
 
@@ -54,9 +54,9 @@ Utilisez l’exemple de modèle suivant pour créer des stratégies d’accès c
 
 |Quand *cela* se produit :|Faire *cela* :|
 |-|-|
-|Une tentative d’accès est effectuée :<br>- Sur une application cloud*<br>- Par des utilisateurs et des groupes*<br>Au moyen de :<br>- Condition 1 (par exemple, en dehors du réseau d’entreprise)<br>- Condition 2 (par exemple, risque de connexion)|Bloquer l’accès à l’application|
-|Une tentative d’accès est effectuée :<br>- Sur une application cloud*<br>- Par des utilisateurs et des groupes*<br>Au moyen de :<br>- Condition 1 (par exemple, en dehors du réseau d’entreprise)<br>- Condition 2 (par exemple, risque de connexion)|Accorder l’accès avec (AND) :<br>- Exigence 1 (par exemple, MFA)<br>- Exigence 2 (par exemple, conformité des appareils)|
-|Une tentative d’accès est effectuée :<br>- Sur une application cloud*<br>- Par des utilisateurs et des groupes*<br>Au moyen de :<br>- Condition 1 (par exemple, en dehors du réseau d’entreprise)<br>- Condition 2 (par exemple, risque de connexion)|Accorder l’accès avec (OR) :<br>- Exigence 1 (par exemple, MFA)<br>- Exigence 2 (par exemple, conformité des appareils)|
+|Une tentative d’accès est effectuée :<br>- Sur une application cloud*<br>- Par des utilisateurs et des groupes*<br>Au moyen de :<br>- Condition 1 (par exemple, en dehors du réseau d’entreprise)<br>- Condition 2 (par exemple, les plateformes d’appareils)|Bloquer l’accès à l’application|
+|Une tentative d’accès est effectuée :<br>- Sur une application cloud*<br>- Par des utilisateurs et des groupes*<br>Au moyen de :<br>- Condition 1 (par exemple, en dehors du réseau d’entreprise)<br>- Condition 2 (par exemple, les plateformes d’appareils)|Accorder l’accès avec (AND) :<br>- Exigence 1 (par exemple, MFA)<br>- Exigence 2 (par exemple, conformité des appareils)|
+|Une tentative d’accès est effectuée :<br>- Sur une application cloud*<br>- Par des utilisateurs et des groupes*<br>Au moyen de :<br>- Condition 1 (par exemple, en dehors du réseau d’entreprise)<br>- Condition 2 (par exemple, les plateformes d’appareils)|Accorder l’accès avec (OR) :<br>- Exigence 1 (par exemple, MFA)<br>- Exigence 2 (par exemple, conformité des appareils)|
 
 Au minimum, **quand cela se produit** définit l’entité de sécurité (**qui**) qui tente d’accéder à une application cloud (**quoi**). Si nécessaire, vous pouvez également ajouter **comment** une tentative d’accès est effectuée. Dans l’accès conditionnel, les éléments qui définissent les variables qui, quoi et comment sont appelées des conditions. Pour plus d’informations, consultez [Que sont les conditions dans l’accès conditionnel Azure Active Directory ?](conditions.md) 
 
@@ -76,22 +76,36 @@ Pour plus d’informations, consultez [Que faut-il pour faire fonctionner une st
 - L’application cloud à laquelle elle s’applique
 - La réponse
 - L’objet auquel elle s’applique (qui)
-- Quand elle doit s’appliquer 
+- Quand elle s’applique (le cas échéant)
  
 ![Convention de nommage](./media/plan-conditional-access/11.png)
 
-
+Si un nom descriptif vous aide à maintenir une vue d’ensemble de votre implémentation de l’accès conditionnel, le numéro de séquence vous est aussi utile lorsque vous devez référencer une stratégie dans une conversation. Par exemple, si vous parlez à un collègue administrateur au téléphone, vous pouvez lui demander d’ouvrir une stratégie EM063 pour résoudre un problème.
 
 
 
 Par exemple, le nom suivant indique que la stratégie nécessite MFA pour les utilisateurs du marketing sur des réseaux externes utilisant l’application Dynamics CRP :
 
-`CA01-Dynamics CRP: Require MFA For marketing When on external networks`
+`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-En plus de vos stratégies actives, vous devez également implémenter des stratégies désactivées qui agissent comme des [contrôles d’accès résilients secondaires dans des scénarios d’urgence/de panne](../authentication/concept-resilient-controls.md). Votre convention de nommage doit également inclure cet objectif pour faciliter l’activation des stratégies en cas de panne. Par exemple : 
+En plus de vos stratégies actives, il est préférable d’implémenter également des stratégies désactivées qui agissent comme des [contrôles d’accès résilients secondaires dans des scénarios d’urgence/de panne](../authentication/concept-resilient-controls.md). Votre standard de nommage pour les stratégies d’urgence doit inclure quelques éléments supplémentaires : 
 
-`EM01-Finance app: Require MFA For Sales When on untrusted network`
+- `ENABLE IN EMERGENCY` au début, pour faire ressortir le nom au milieu des autres stratégies.
+
+- Le nom d’interruption auquel elle doit s’appliquer.
+
+- Un numéro de séquence de classement pour aider l’administrateur à savoir dans quel ordre les stratégies doivent être activées. 
+
+
+Par exemple, le nom suivant indique que cette stratégie est la première de quatre stratégies à activer en cas d’interruption de l’authentification multifacteur :
+
+`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
+
+
+
+
+
 
 
 ## <a name="plan-policies"></a>Planifier des stratégies
@@ -184,8 +198,8 @@ Le plan de test est important pour comparer les résultats attendus et les résu
 |[Exiger l’authentification multifacteur en dehors du bureau](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|L’utilisateur autorisé se connecte à l’*application* quand il n’est pas dans un emplacement approuvé ou au bureau|L’utilisateur est invité à utiliser l’authentification multifacteur et peut se connecter| |
 |[Exiger l’authentification multifacteur (pour les administrateurs)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|L’administrateur général se connecte à l’*application*|L’administrateur est invité à utiliser l’authentification multifacteur| |
 |[Connexions risquées](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|L’utilisateur se connecte à l’*application* à l’aide d’un [navigateur Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|L’administrateur est invité à utiliser l’authentification multifacteur| |
-|[Gestion de l’appareil](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|L’utilisateur autorisé tente de se connecter à partir d’un appareil autorisé|Accès accordé| |
-|[Gestion de l’appareil](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|L’utilisateur autorisé tente de se connecter à partir d’un appareil non autorisé|Accès bloqué| |
+|[Gestion des appareils](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|L’utilisateur autorisé tente de se connecter à partir d’un appareil autorisé|Accès accordé| |
+|[Gestion des appareils](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|L’utilisateur autorisé tente de se connecter à partir d’un appareil non autorisé|Accès bloqué| |
 |[Changement de mot de passe pour les utilisateurs à risque](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|L’utilisateur autorisé tente de se connecter avec des informations d’identification compromises (connexion à haut risque)|L’utilisateur est invité à changer le mot de passe ou l’accès est bloqué selon votre stratégie| |
 
 
@@ -232,7 +246,7 @@ La procédure de nettoyage utilise les étapes suivantes :
 
 ## <a name="move-to-production"></a>Passer en production
 
-Lorsque vous êtes prêt à déployer une nouvelle stratégie dans votre environnement, vous devez le faire en plusieurs phases :
+Lorsque de nouvelles stratégies sont prêtes pour votre environnement, déployez-les en phases :
 
 - Indiquez aux utilisateurs finaux les changements internes.
 

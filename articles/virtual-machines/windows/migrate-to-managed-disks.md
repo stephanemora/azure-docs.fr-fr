@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.component: disks
-ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 4aefc8c033383125a803eb0c8a38e2f3de119540
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474215"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467908"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrer des machines virtuelles Azure vers des disques gérés dans Azure
 
@@ -37,7 +37,7 @@ Vous pouvez migrer vers des disques gérés dans les cas de figure suivants :
 | Migrer...                                            | Lien vers la documentation                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Convertir des machines virtuelles autonomes et des machines virtuelles dans un groupe à haute disponibilité en disques gérés   | [Convertir des machines virtuelles pour utiliser des disques gérés](convert-unmanaged-to-managed-disks.md) |
-| Une machine virtuelle unique du modèle Classic vers le modèle Resource Manager sur des disques gérés     | [Migrer une machine virtuelle unique](migrate-single-classic-to-resource-manager.md)  | 
+| Une machine virtuelle unique du modèle Classic vers le modèle Resource Manager sur des disques gérés     | [Créer une machine virtuelle à partir d’un disque dur virtuel classique](create-vm-specialized-portal.md)  | 
 | Toutes les machines virtuelles d’un réseau virtuel du modèle Classic vers le modèle Resource Manager sur des disques gérés     | [Migration de ressources IaaS d’un environnement Classic vers Resource Manager](migration-classic-resource-manager-ps.md), puis [Convertir une machine virtuelle à partir de disques non gérés vers des disques gérés](convert-unmanaged-to-managed-disks.md) | 
 
 

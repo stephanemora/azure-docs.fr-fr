@@ -2,18 +2,18 @@
 title: Protection du serveur DPM/Sauvegarde Azure d’une batterie de serveurs SharePoint sur Azure
 description: Cet article fournit une vue d’ensemble de la protection du serveur DPM/Azure Backup Server d’une batterie de serveurs SharePoint sur Azure
 services: backup
-author: adigan
-manager: Nkolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: b3b4d42d9a48d02639019f815cbf4fca15060771
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 79b4962e1c37858fbd52d65aff56476e55ffa371
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946043"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296458"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure
 Vous sauvegardez une batterie de serveurs SharePoint sur Microsoft Azure à l’aide de System Center Data Protection Manager (DPM) de la même façon que vous sauvegardez d’autres sources de données. Azure Backup offre une flexibilité dans la planification d’une sauvegarde pour créer des points de sauvegarde quotidiens, hebdomadaires, mensuels ou annuels, et vous offre des options de stratégie de conservation pour les différents points de sauvegarde. DPM vous permet de stocker des copies sur disque local pour bénéficier d’objectifs de temps de récupération (RTO) rapides, ainsi que de stocker des copies sur Azure pour une conservation à long terme économique.
@@ -23,7 +23,7 @@ Sauvegarde Azure pour DPM prend en charge les scénarios suivants :
 
 | Charge de travail | Version | Déploiement de SharePoint | Type de déploiement de DPM | DPM - System Center 2012 R2 | Protection et récupération |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint déployé comme un serveur physique ou une machine virtuelle Hyper-V/VMware  <br> -------------- <br> SQL AlwaysOn |Serveur physique ou machine virtuelle Hyper-V locale |Prend en charge la sauvegarde vers Azure à partir du correctif cumulatif 5 |Options de protection de la récupération de la batterie de serveurs SharePoint : batterie de serveurs de récupération, base de données, fichier ou élément de liste à partir de points de récupération de disque.  Récupération d’une batterie de serveurs et d’une base de données à partir de points de récupération Azure. |
+| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint déployé comme un serveur physique ou une machine virtuelle Hyper-V/VMware  <br> -------------- <br>  SQL AlwaysOn |Serveur physique ou machine virtuelle Hyper-V locale |Prend en charge la sauvegarde vers Azure à partir du correctif cumulatif 5 |Options de protection de la récupération de la batterie de serveurs SharePoint : batterie de serveurs de récupération, base de données, fichier ou élément de liste à partir de points de récupération de disque.  Récupération d’une batterie de serveurs et d’une base de données à partir de points de récupération Azure. |
 
 ## <a name="before-you-start"></a>Avant de commencer
 Quelques points doivent être confirmés avant de sauvegarder une batterie de serveurs SharePoint sur Azure.
@@ -229,14 +229,14 @@ Dans l'exemple ci-dessous, l’ *élément de récupération SharePoint* a été
 5. À ce stade, suivez les [étapes de récupération mentionnées précédemment dans cet article](#restore-a-sharepoint-item-from-disk-using-dpm) pour la récupération d’une base de données de contenu SharePoint à partir du disque.
 
 ## <a name="faqs"></a>FAQ
-Q : Quelles versions de DPM prennent en charge SQL Server 2014 et SQL 2012 (SP2) ?<br>
-R : DPM 2012 R2 avec le correctif cumulatif 4 prend en charge les deux.
+Q : Quelles versions de DPM prennent en charge SQL Server 2014 et SQL 2012 (SP2) ?<br>
+R : DPM 2012 R2 avec le correctif cumulatif 4 prend en charge les deux.
 
-Q : Puis-je restaurer un élément SharePoint sur l’emplacement d’origine si SharePoint est configuré avec SQL AlwaysOn (avec protection sur disque) ?<br>
-R : Oui, l’élément peut être récupéré sur le site SharePoint d’origine.
+Q : Puis-je restaurer un élément SharePoint à l'emplacement d'origine si SharePoint est configuré à l'aide de SQL AlwaysOn (avec protection sur disque) ?<br>
+R : Oui, l'élément peut être restauré sur le site SharePoint d'origine.
 
-Q : Puis-je restaurer une base de données SharePoint sur l’emplacement d’origine si SharePoint est configuré avec SQL AlwaysOn ?<br>
-R : Comme les bases de données SharePoint sont configurées dans SQL AlwaysOn, elles ne peuvent pas être modifiées, à moins que le groupe de disponibilité n’ait été supprimé. Par conséquent, DPM ne peut pas restaurer la base de données sur l’emplacement d’origine. Vous pouvez récupérer une base de données SQL Server sur une autre instance SQL Server.
+Q : Puis-je restaurer une base de données SharePoint à l'emplacement d'origine si SharePoint est configuré à l'aide de SQL AlwaysOn ?<br>
+R : Comme les bases de données SharePoint sont configurées dans SQL AlwaysOn, elles ne peuvent être modifiées que si le groupe de disponibilité est supprimé. Par conséquent, DPM ne peut pas restaurer la base de données sur l’emplacement d’origine. Vous pouvez récupérer une base de données SQL Server sur une autre instance SQL Server.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur la protection DPM de SharePoint, consultez la [série de vidéos - Protection DPM de SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)

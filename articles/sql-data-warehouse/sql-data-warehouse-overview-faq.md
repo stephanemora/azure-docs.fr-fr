@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306738"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462543"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Foire aux questions SQL Data Warehouse
 
@@ -31,7 +31,7 @@ R. Consultez la page [Conformité Microsoft] pour connaître les différentes of
 
 Q. Puis-je connecter Power BI ?
 
-R. Oui. Bien que Power BI prenne en charge les requêtes directes avec SQL DW, il n’est pas destiné à traiter un grand nombre d’utilisateurs ou de données en temps réel. Pour une utilisation en production de Power BI, nous recommandons d’utiliser Power BI en complément d’Azure Analysis Services ou d’Analysis Service IaaS. 
+R.  Oui. Bien que Power BI prenne en charge les requêtes directes avec SQL DW, il n’est pas destiné à traiter un grand nombre d’utilisateurs ou de données en temps réel. Pour une utilisation en production de Power BI, nous recommandons d’utiliser Power BI en complément d’Azure Analysis Services ou d’Analysis Service IaaS. 
 
 Q. Quelles sont les limites de capacité de SQL Data Warehouse ?
 
@@ -82,21 +82,21 @@ Q : Quels pilotes clients prenez-vous en charge ?
 
 R. La prise en charge des pilotes pour DW est détaillée sur la page [Chaînes de connexion].
 
-Q : Quels sont les formats de fichier pris en charge par PolyBase avec SQL Data Warehouse ?
+Q : Quels sont les formats de fichiers pris en charge par PolyBase avec SQL Data Warehouse ?
 
-R : Orc, RC, Parquet et le texte plat délimité
+R : Orc, RC, Parquet et le texte plat délimité
 
-Q : À quoi puis-je me connecter à partir de SQL DW à l’aide de PolyBase ? 
+Q : À quoi puis-je me connecter à partir de SQL DW à l’aide de PolyBase ? 
 
-R : [Azure Data Lake Store] et [Azure Storage Blobs].
+R : [Azure Data Lake Store] et [Azure Storage Blobs]
 
-Q : Les automates à pile sont-ils possibles lors de la connexion à Azure Storage Blobs ou à  ADLS ? 
+Q : Les automates à pile sont-ils possibles lors de la connexion à Azure Storage Blobs ou à  ADLS ? 
 
-R : Non, SQL DW PolyBase interagit uniquement avec les composants de stockage. 
+R : Non, SQL DW PolyBase interagit uniquement avec les composants de stockage. 
 
-Q : Puis-je me connecter à HDI ?
+Q : Puis-je me connecter à HDI ?
 
-R : HDI peut utiliser ADLS ou WASB comme couche HDFS. Si vous avez l’un des deux comme couche HDFS, vous pouvez charger ces données dans SQL DW. Toutefois, vous ne peut pas générer d’automate à pile vers l’instance HDI. 
+R : HDI peut utiliser ADLS ou WASB comme couche HDFS. Si vous avez l’un des deux comme couche HDFS, vous pouvez charger ces données dans SQL DW. Toutefois, vous ne peut pas générer d’automate à pile vers l’instance HDI. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur SQL Data Warehouse dans son ensemble, consultez notre page [Vue d'ensemble].

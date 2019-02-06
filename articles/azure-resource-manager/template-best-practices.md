@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd54ae2c82d3baf716784c39951c5cad7ec364b3
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0736ed32fa6f17cc840d6b144503409365c33d84
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730225"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077935"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Meilleures pratiques relatives aux modèles Azure Resource Manager
 
 Cet article fournit des suggestions sur la façon de construire votre modèle Resource Manager. Celles-ci vous aident à éviter des problèmes qui se produisent couramment lors de l’utilisation d’un modèle pour déployer une solution.
 
-Pour obtenir des suggestions sur la façon de gérer vos abonnements Azure, voir [Structure d’entreprise Azure : gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
+Pour obtenir des suggestions sur la façon de gérer vos abonnements Azure, consultez [Structure d’entreprise Azure : gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
 Pour obtenir des suggestions sur la création de modèles qui fonctionnent dans tous les environnements cloud Azure, voir [Développer des modèles Azure Resource Manager de cohérence du cloud](templates-cloud-consistency.md).
 
@@ -82,7 +82,7 @@ Les informations de cette section peuvent être utiles lorsque vous travaillez a
 
 * Utilisez `allowedValues` avec parcimonie. Ne l’utilisez que lorsque vous devez vous assurer que certaines valeurs ne sont pas incluses dans les options autorisées. Si vous utilisez `allowedValues` trop abondamment, vous risquez de bloquer des déploiements valides en ne tenant pas votre liste à jour.
 
-* Quand un nom de paramètre dans votre modèle correspond à un paramètre dans la commande de déploiement PowerShell, Resource Manager résout ce conflit d’affectation de noms en ajoutant le suffixe **FromTemplate** au paramètre du modèle. Par exemple, si vous incluez dans votre modèle un paramètre nommé **ResourceGroupName**, celui-ci est en conflit avec le paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Pendant le déploiement, vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**.
+* Quand un nom de paramètre dans votre modèle correspond à un paramètre dans la commande de déploiement PowerShell, Resource Manager résout ce conflit d’affectation de noms en ajoutant le suffixe **FromTemplate** au paramètre du modèle. Par exemple, si vous incluez dans votre modèle un paramètre nommé **ResourceGroupName**, celui-ci est en conflit avec le paramètre **ResourceGroupName** dans l’applet de commande [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Pendant le déploiement, vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**.
 
 ### <a name="security-recommendations-for-parameters"></a>Suggestions en matière de sécurité pour les paramètres
 

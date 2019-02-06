@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: 5c1207b1b21e2d2ee229f5bea068b99f3b3218b1
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 9576854fbad88724f3d229d239b9d3e263fb7492
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389119"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912399"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
@@ -32,7 +32,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 2. Sélectionnez **Connexion**. Sélectionnez ou entrez un **ID utilisateur** qui est un membre du rôle **Créateur de laboratoire** dans le compte de laboratoire, puis entrez un mot de passe. Azure Lab Services prend en charge les comptes professionnels et les comptes Microsoft. 
 3. Dans la fenêtre **New Lab** (Nouveau laboratoire), effectuez les actions suivantes : 
     1. Spécifiez un **nom** pour votre laboratoire. 
-    2. Spécifiez le **nombre d’utilisateurs** autorisés dans le laboratoire. 
+    2. Spécifiez le **nombre de machines virtuelles** maximal dans le laboratoire. Vous pouvez augmenter ou diminuer le nombre de machines virtuelles dans le laboratoire par la suite. 
     6. Sélectionnez **Enregistrer**.
 
         ![Créer un laboratoire de classe](../media/tutorial-setup-classroom-lab/new-lab-window.png)

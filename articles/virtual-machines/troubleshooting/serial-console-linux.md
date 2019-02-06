@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438080"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098457"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console série de machine virtuelle pour Linux
 
@@ -89,7 +89,7 @@ Règles de pare-feu incorrectes | Accédez à la console série et corrigez les 
 Contrôle de la corruption du système de fichiers | Accédez à la console série et récupérez le système de fichiers.
 Problèmes de configuration SSH/RDP | Accédez à la console série et modifiez les paramètres.
 Système de verrouillage du réseau| Accédez à la console série à partir du portail Azure pour gérer le système.
-Interaction avec le chargeur de démarrage | Accédez au GRUB au moyen de la console série. Pour en savoir plus, consultez [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md).
+Interaction avec le chargeur de démarrage | Redémarrez votre machine virtuelle à partir du panneau de la console série pour accéder au GRUB sur votre machine virtuelle Linux. Pour en savoir plus, consultez [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Désactiver la console série
 Par défaut, tous les abonnements ont accès à la console série pour toutes les machines virtuelles. Vous pouvez désactiver la console série au niveau de l’abonnement ou de la machine virtuelle.

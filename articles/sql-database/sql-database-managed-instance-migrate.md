@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: f68cb2d1c34ca351811050546c0eae818e84300a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: 6198c451442bde3f19b44d6c4d6216d8ea8b226d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651756"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478191"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers Azure SQL Database Managed Instance
 
@@ -34,7 +34,7 @@ Le processus général de migration d’une base de données ressemble à ce qui
 - [Surveillance des applications](#monitor-applications)
 
 > [!NOTE]
-> Pour effectuer la migration d’une base de données unique vers une base de données unique ou un pool élastique, consultez [Effectuer la migration d’une base de données SQL Server vers Azure SQL Database](sql-database-cloud-migrate.md).
+> Pour effectuer la migration d’une base de données individuelle vers une base de données unique ou un pool élastique, consultez [Effectuer la migration d’une base de données SQL Server vers Azure SQL Database](sql-database-cloud-migrate.md).
 
 ## <a name="assess-managed-instance-compatibility"></a>Évaluer la compatibilité de Managed Instance
 

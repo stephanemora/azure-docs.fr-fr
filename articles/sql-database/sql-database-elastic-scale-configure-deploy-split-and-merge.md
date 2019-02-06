@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e8a849fdc6674a0c6ab801bd8f26a01f89fb8857
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969581"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458055"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Déployer un service de fractionnement et de fusion pour déplacer des données entre bases de données partitionnées
 
@@ -204,7 +204,7 @@ Les fichiers de script inclus sont les suivants :
    
 ## <a name="use-powershell-to-verify-your-deployment"></a>Utiliser PowerShell pour vérifier le déploiement
 1. Ouvrez une nouvelle fenêtre PowerShell et accédez au répertoire dans lequel vous avez téléchargé le package de fractionnement/fusion, puis accédez au répertoire « powershell ».
-2. Créez un serveur de base de données SQL Azure (ou choisissez un serveur existant) dans lequel le Gestionnaire des cartes de partitions et les partitions seront créés.
+2. Créez un serveur Azure SQL Database (ou choisissez un serveur existant) dans lequel le Gestionnaire des cartes de partitions et les partitions seront créés.
    
    > [!NOTE]
    > le script SetupSampleSplitMergeEnvironment.ps1 crée, par défaut, ces bases de données sur le même serveur pour simplifier le script. Il ne s’agit pas d’une restriction du service de fractionnement/fusion.

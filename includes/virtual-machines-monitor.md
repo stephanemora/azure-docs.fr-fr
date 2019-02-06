@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: a13ce8d3dc71be83e05fae5bd07f30f413ce59f2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54404666"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147937"
 ---
 Vous pouvez tirer parti de nombreuses possibilités d’analyser vos machines virtuelles en collectant, affichant et analysant les données de diagnostic et de journal. Pour [analyser](../articles/azure-monitor/overview.md) simplement votre machine virtuelle, vous pouvez utiliser l’écran Vue d’ensemble de la machine virtuelle sur le portail Azure. Vous pouvez utiliser des [extensions](../articles/virtual-machines/windows/extensions-features.md) pour configurer des diagnostics sur vos machines virtuelles afin de collecter des données de mesure supplémentaires. Vous pouvez également utiliser des options d’analyse plus avancées, telles que [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) et [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -41,7 +41,7 @@ Vous pouvez créer des [alertes](../articles/azure-monitor/platform/alerts-overv
 
 [Azure Resource Health](../articles/service-health/resource-health-overview.md) vous aide à diagnostiquer les problèmes et à accéder au support quand un problème Azure a une incidence sur vos ressources. Il vous informe de l’intégrité (actuelle et passée) de vos ressources et vous aide à atténuer les problèmes. Resource Health propose un support technique dès lors que vous êtes confronté à des problèmes de service Azure et que vous avez besoin d’aide.
 
-## <a name="logs"></a>Journaux
+## <a name="azure-activity-log"></a>Journaux d’activité
 
 Le [Journal d’activité Azure](../articles/azure-monitor/platform/activity-logs-overview.md) est un journal d’abonnement qui fournit un aperçu de tous les événements relatifs aux abonnements qui se sont produits dans Azure. Cela inclut une plage de données, à partir de données opérationnelles d’Azure Resource Manager pour les mises à jour des événements de l’état d’intégrité du service. Vous pouvez cliquer sur le journal d’activité dans le portail Azure pour afficher le journal de votre machine virtuelle.
 
@@ -64,11 +64,13 @@ Voici ce que vous pouvez faire avec les journaux de diagnostic :
 
 ## <a name="advanced-monitoring"></a>Surveillance avancée
 
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) est un service qui surveille vos environnements cloud et locaux, afin de préserver leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources. Vous pouvez installer une extension sur une [machine virtuelle Linux](../articles/virtual-machines/linux/extensions-oms.md) ou une [machine virtuelle Windows](../articles/virtual-machines/windows/extensions-oms.md), ce qui entraîne l’installation de l’agent Log Analytics et l’inscription de la machine virtuelle dans un espace de travail Log Analytics existant.
+- [Azure Monitor](../articles/azure-monitor/overview.md) est un service qui supervise vos environnements cloud et locaux, afin de préserver leur disponibilité et leurs performances. Il offre une solution complète pour collecter, analyser et exploiter des données de télémétrie de vos environnements cloud et locaux. Il vous aide à comprendre le fonctionnement de vos applications et identifie de façon proactive les problèmes qui les affectent et les ressources dont elles dépendent. Vous pouvez installer une extension sur une [machine virtuelle Linux](../articles/virtual-machines/linux/extensions-oms.md) ou une [machine virtuelle Windows](../articles/virtual-machines/windows/extensions-oms.md) qui installe l’agent Log Analytics pour collecter des données de journal et les stocker dans un espace de travail Log Analytics.
 
-    Pour les machines virtuelles Windows et Linux, la méthode recommandée pour collecter des journaux et des mesures est d’installer l’agent Log Analytics. Le moyen le plus simple pour installer l’agent de Log Analytics sur une machine virtuelle consiste à utiliser l’[extension de machine virtuelle Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). L’utilisation de l’extension simplifie le processus d’installation et configure automatiquement l’agent pour qu’il envoie des données à l’espace de travail Log Analytics que vous spécifiez. L’agent est également mis à niveau automatiquement, de façon à ce que vous disposiez des fonctionnalités et correctifs les plus récents.
+    Pour les machines virtuelles Windows et Linux, la méthode recommandée pour collecter des journaux consiste à installer l’agent Log Analytics. Le moyen le plus simple pour installer l’agent de Log Analytics sur une machine virtuelle consiste à utiliser l’[extension de machine virtuelle Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). L’utilisation de l’extension simplifie le processus d’installation et configure automatiquement l’agent pour qu’il envoie des données à l’espace de travail Log Analytics que vous spécifiez. L’agent est également mis à niveau automatiquement, de façon à ce que vous disposiez des fonctionnalités et correctifs les plus récents.
 
 - [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md) vous permet d’analyser votre machine virtuelle et ses ressources associées qui sont liées au réseau dans lequel ils se trouvent. Vous pouvez installer l’extension Network Watcher Agent sur une machine virtuelle [Linux](../articles/virtual-machines/linux/extensions-nwa.md) ou [Windows](../articles/virtual-machines/windows/extensions-nwa.md).
+
+- [Azure Monitor pour machines virtuelles](../articles/azure-monitor/insights/vminsights-overview.md) supervise vos machines virtuelles Azure à l’échelle en analysant les performances et l’intégrité de vos machines virtuelles Windows et Linux, y compris leurs différents processus et dépendances interconnectées vis-à-vis d’autres ressources et processus externes. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Suivez les étapes de [Monitor a Windows Virtual Machine with Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) (Analyser une machine virtuelle Windows avec Azure PowerShell) ou [Monitor a Linux Virtual Machine with the Azure CLI](../articles/virtual-machines/linux/tutorial-monitoring.md) (Analyser une machine virtuelle Linux avec Azure CLI).

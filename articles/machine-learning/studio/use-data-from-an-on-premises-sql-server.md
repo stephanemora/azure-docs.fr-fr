@@ -1,6 +1,6 @@
 ---
-titre : Instance locale de SQL Server - titleSuffix : Description d'Azure Machine Learning Studio : Utilisez les données d’une base de données SQL Server locale pour effectuer des analyses avancées avec Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Instance locale de SQL Server - titleSuffix : Description d'Azure Machine Learning Studio : Utilisez les données d’une base de données SQL Server locale pour effectuer des analyses avancées avec Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 13/03/2017
 ---

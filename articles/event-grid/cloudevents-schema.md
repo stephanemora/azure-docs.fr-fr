@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: ff40ac0e5ab6176bcf192289c0506f57ebf04a11
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755085"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079866"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utiliser le schéma CloudEvents avec Event Grid
 
@@ -21,7 +21,7 @@ En plus de son [schéma d’événement par défaut](event-schema.md), Azure Eve
 
 CloudEvents simplifie l’interopérabilité grâce à un schéma d’événement commun pour la publication et la consommation des événements basés sur le cloud. Ce schéma permet l’utilisation d’outils uniformes, la mise en œuvre de méthodes de routage et de gestion des événements standard, ainsi que de méthodes universelles pour désérialiser le schéma d’événement externe. Avec un schéma commun, vous pouvez plus facilement intégrer le travail entre plusieurs plateformes.
 
-Plusieurs [collaborateurs](https://github.com/cloudevents/spec/blob/master/community/contributors.md), dont Microsoft, travaillent à l’élaboration de CloudEvents par le biais de la [Cloud Native Compute Foundation](https://www.cncf.io/). Il est disponible en version 0.1.
+Plusieurs [collaborateurs](https://github.com/cloudevents/spec/blob/master/community/contributors.md), dont Microsoft, travaillent à l’élaboration de CloudEvents par le biais de la [Cloud Native Computing Foundation](https://www.cncf.io/). Il est disponible en version 0.1.
 
 Cet article décrit comment utiliser le schéma CloudEvents avec Event Grid.
 
@@ -60,7 +60,7 @@ Voici un exemple d’événement Stockage Blob Azure dans le format CloudEvents 
 
 CloudEvents v0.1 dispose des propriétés suivantes :
 
-| CloudEvents        | type     | Exemple de valeur JSON             | Description                                                        | Mappage Event Grid
+| CloudEvents        | Type     | Exemple de valeur JSON             | Description                                                        | Mappage Event Grid
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | eventType          | Chaîne   | "com.example.someevent"          | Type d’occurrence qui s’est produit                                   | eventType
 | eventTypeVersion   | Chaîne   | "1.0"                            | Version d’eventType (facultatif)                            | dataVersion

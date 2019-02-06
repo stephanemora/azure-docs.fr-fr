@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185116"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098559"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Créer des artefacts personnalisés pour votre machine virtuelle DevTest Labs
 
 Regardez la vidéo suivante pour avoir une vue d’ensemble de la procédure décrite dans cet article :
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Vue d’ensemble
 Vous pouvez utiliser des *artefacts* pour déployer et configurer votre application après avoir approvisionné une machine virtuelle. Un artefact se compose d’un fichier de définition d’artefact et autres fichiers de script qui sont stockés dans un dossier de dépôt Git. Les fichiers de définition d'artefact se composent de JSON et d'expressions que vous pouvez utiliser pour spécifier ce que vous voulez installer sur une machine virtuelle. Par exemple, vous pouvez définir le nom d’un artefact, une commande à exécuter et des paramètres disponibles quand la commande est exécutée. Vous pouvez faire référence à d'autres fichiers de script dans le fichier de définition d'artefact par nom.
@@ -69,12 +69,12 @@ Dans la section des paramètres du fichier de définition, spécifiez les valeur
 Pour définir des paramètres, utilisez la structure suivante :
 
     "parameters": {
-        "<parameterName>": {
-          "type": "<type-of-parameter-value>",
-          "displayName": "<display-name-of-parameter>",
-          "description": "<description-of-parameter>"
-        }
+      "<parameterName>": {
+        "type": "<type-of-parameter-value>",
+        "displayName": "<display-name-of-parameter>",
+        "description": "<description-of-parameter>"
       }
+    }
 
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
@@ -96,13 +96,13 @@ En général, vous utilisez des expressions avec des fonctions pour construire u
 
 La liste suivante indique les fonctions courantes :
 
-* **parameters(parameterName)** : retourne une valeur de paramètre qui est fournie à l’exécution de la commande de l’artefact.
-* **concat(arg1, arg2, arg3,….. )** : combine plusieurs valeurs de chaîne. Cette fonction peut prendre de nombreux arguments.
+* **parameters(parameterName)**  : retourne une valeur de paramètre qui est fournie à l’exécution de la commande de l’artefact.
+* **concat(arg1, arg2, arg3,….. )**  : combine plusieurs valeurs de chaîne. Cette fonction peut prendre de nombreux arguments.
 
 L’exemple suivant indique comment utiliser les fonctions et les expressions pour construire une valeur :
 
     runCommand": {
-         "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
     , ' -RawPackagesList ', parameters('packages')
     , ' -Username ', parameters('installUsername')
     , ' -Password ', parameters('installPassword'))]"
@@ -113,7 +113,7 @@ L’exemple suivant indique comment utiliser les fonctions et les expressions po
 1. Installer un éditeur JSON. Vous avez besoin d’un éditeur JSON pour utiliser les fichiers de définition d’artefact. Nous vous recommandons d’utiliser [Visual Studio Code](https://code.visualstudio.com/), qui est disponible pour Windows, Linux et OS X.
 2. Obtenir un exemple de fichier de définition artifactfile.json. Découvrez les artefacts créés par l’équipe DevTest Labs dans notre [dépôt GitHub](https://github.com/Azure/azure-devtestlab). Nous avons créé une bibliothèque d’artefacts riche qui vous permet de créer vos propres artefacts. Téléchargez un fichier de définition d'artefact et modifiez-le pour créer vos propres artefacts.
 3. Utiliser IntelliSense. Utilisez IntelliSense pour voir des éléments valides que vous pouvez utiliser pour construire un fichier de définition d’artefact. Vous pouvez également voir les différentes options pour les valeurs d’un élément. Par exemple, quand vous modifiez l’élément **targetOsType**, IntelliSense vous montre deux options, pour Windows ou Linux.
-4. Stockez l’artefact dans le [dépôt Git public pour DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou [votre propre dépôt Git](devtest-lab-add-artifact-repo.md). Dans le dépôt public, vous pouvez afficher les artefacts partagés par d’autres utilisateurs et vous pouvez les utiliser directement ou les personnaliser en fonction de vos besoins. 
+4. Stockez l’artefact dans le [dépôt Git public pour DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou [votre propre dépôt Git](devtest-lab-add-artifact-repo.md). Dans le dépôt public, vous pouvez afficher les artefacts partagés par d’autres utilisateurs et vous pouvez les utiliser directement ou les personnaliser en fonction de vos besoins.
    
    1. Créez un répertoire distinct pour chaque artefact. Le nom du répertoire doit être le même que le nom de l’artefact.
    2. Stockez le fichier de définition d’artefact (artifactfile.json) dans le répertoire que vous avez créé.
@@ -122,8 +122,7 @@ L’exemple suivant indique comment utiliser les fonctions et les expressions po
       Voici un exemple de dossier d'artefact :
       
       ![Exemple de dossier d’artefact](./media/devtest-lab-artifact-author/git-repo.png)
-5. Si vous utilisez votre propre dépôt pour stocker les artefacts, ajoutez le dépôt au lab en suivant les instructions fournies dans l’article : [Ajouter un dépôt Git des artefacts et des modèles](devtest-lab-add-artifact-repo.md).
-
+5. Si vous utilisez votre propre dépôt pour stocker les artefacts, ajoutez le dépôt au laboratoire en suivant les instructions fournies dans l’article : [Ajouter un dépôt Git des artefacts et des modèles](devtest-lab-add-artifact-repo.md).
 
 ## <a name="related-articles"></a>Articles connexes
 * [Guide pratique pour diagnostiquer les échecs d’artefact dans DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
@@ -131,4 +130,3 @@ L’exemple suivant indique comment utiliser les fonctions et les expressions po
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [ajouter un dépôt d’artefacts Git à un laboratoire](devtest-lab-add-artifact-repo.md).
-

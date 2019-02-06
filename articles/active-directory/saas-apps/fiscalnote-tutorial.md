@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à FiscalNote | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à FiscalNote | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FiscalNote.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 55274f26-be7e-4514-964c-7186ecb55c4a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 2dfc450fe53c543c1d5119cd9c6954aadaa3b3ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cea5c6ad57d8c391bd1d5264abbc1397fbad0f30
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421421"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>Tutoriel : Intégration d’Azure Active Directory à FiscalNote
 
@@ -192,7 +192,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur nommé Britta Simon dans FiscalNote. FiscalNote prend en charge le provisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à FiscalNote s’il n’existe pas encore.
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support FiscalNote](mailto:support@fiscalnote.com).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe du support technique de FiscalNote](mailto:support@fiscalnote.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

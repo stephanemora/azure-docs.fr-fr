@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 20e5c96110f07d8eaec218ed167c87a48fd65782
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 73d4ba0c82f26a6249528f2dbef1fd30f99ccedb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037376"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475871"
 ---
-# <a name="unique-keys-in-azure-cosmos-db"></a>Clés uniques dans Azure Cosmos DB
+# <a name="unique-key-constraints-in-azure-cosmos-db"></a>Contraintes des clés uniques dans Azure Cosmos DB
 
 Les clés uniques vous permettent d'ajouter une couche d'intégrité des données à un conteneur Cosmos. Vous créez une stratégie de clé unique lors de la création d'un conteneur Cosmos. Avec les clés uniques, vous garantissez l'unicité d'une ou plusieurs valeurs au sein d'une partition logique (vous pouvez garantir l'unicité par [clé de partition](partition-data.md)). Une fois qu'un conteneur a été créé avec une stratégie de clé unique, il empêche la création (ou la mise à jour) de doublons au sein d'une partition logique, comme spécifié par la contrainte de clé unique. La clé de partition associée à la clé unique garantit l'unicité d'un élément au sein d'un conteneur.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 804b7c0ff31575e6d62497fd5166e1a38a273076
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7167e31261ce029a6a0a6fe070232d1086942162
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965575"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297699"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Étapes détaillées : Créer et gérer des clés SSH pour l’authentification sur une machine virtuelle Linux dans Azure 
 Avec une paire de clés SSH (secure shell), vous pouvez créer une machine virtuelle Linux sur Azure qui utilise par défaut des clés SSH pour l’authentification sans avoir à utiliser de mot de passe pour la connexion. Les machines virtuelles créées avec le portail Azure, Azure CLI, les modèles Resource Manager ou d’autres outils peuvent inclure votre clé publique SSH dans le cadre du déploiement, qui configure l’authentification par clé SSH pour les connexions SSH. 
@@ -38,7 +38,7 @@ La clé privée SSH doit être protégée par une phrase secrète très sécuris
 
 ## <a name="ssh-keys-use-and-benefits"></a>Utilisation et avantages des clés SSH
 
-Quand vous créez une machine virtuelle Azure en spécifiant la clé publique, Azure copie cette clé (au format `.pub`) dans le dossier `~/.ssh/authorized_keys` sur la machine virtuelle. Les clés SSH dans `~/.ssh/authorized_keys` servent à demander au client la clé privée correspondante sur une connexion SSH. Quand une machine virtuelle Linux Azure utilise des clés SSH pour l’authentification, Azure configure le serveur SSHD pour ne pas autoriser les connexions par mot de passe, mais seulement les clés SSH. Par conséquent, en créant une machine virtuelle Linux Azure avec des clés SSH, vous sécurisez le déploiement de machines virtuelles et évitez l’étape de configuration post-déploiement classique qui consiste à désactiver les mots de passe dans le fichier `sshd_config`.
+Quand vous créez une machine virtuelle Azure en spécifiant la clé publique, Azure copie cette clé (au format `.pub`) dans le dossier `~/.ssh/authorized_keys` sur la machine virtuelle. Les clés SSH dans `~/.ssh/authorized_keys` servent à demander au client la clé privée correspondante sur une connexion SSH. Lorsqu’une machine virtuelle Linux Azure utilise des clés SSH pour l’authentification, Azure configure le serveur SSHD pour ne pas autoriser les connexions par mot de passe, mais seulement les clés SSH. Par conséquent, en créant une machine virtuelle Linux Azure avec des clés SSH, vous sécurisez le déploiement de machines virtuelles et évitez l’étape de configuration post-déploiement classique qui consiste à désactiver les mots de passe dans le fichier `sshd_config`.
 
 Si vous ne voulez pas utiliser de clés SSH, vous pouvez configurer votre machine virtuelle Linux pour utiliser une authentification par mot de passe. Si votre machine virtuelle n’est pas exposée à Internet, l’utilisation de mots de passe peut être suffisante. Toutefois, vous devez toujours gérer vos mots de passe pour chaque machine virtuelle Linux et maintenir des stratégies de mot de passe efficaces, par exemple, en spécifiant une longueur minimale de mot de passe et des mises à jour régulières. L’utilisation de clés SSH simplifie la gestion des informations d’identification individuelles sur plusieurs machines virtuelles.
 
@@ -148,7 +148,7 @@ Le résultat est semblable à ce qui suit (illustré ici de manière rédigée) 
 ssh-rsa XXXXXXXXXXc2EAAAADAXABAAABAXC5Am7+fGZ+5zXBGgXS6GUvmsXCLGc7tX7/rViXk3+eShZzaXnt75gUmT1I2f75zFn2hlAIDGKWf4g12KWcZxy81TniUOTjUsVlwPymXUXxESL/UfJKfbdstBhTOdy5EG9rYWA0K43SJmwPhH28BpoLfXXXXXG+/ilsXXXXXKgRLiJ2W19MzXHp8z3Lxw7r9wx3HaVlP4XiFv9U4hGcp8RMI1MP1nNesFlOBpG4pV2bJRBTXNXeY4l6F8WZ3C4kuf8XxOo08mXaTpvZ3T1841altmNTZCcPkXuMrBjYSJbA8npoXAXNwiivyoe3X2KMXXXXXdXXXXXXXXXXCXXXXX/ azureuser@myserver
 ```
 
-Si vous copiez et collez le contenu du fichier de clé publique dans le portail Azure ou dans un modèle Resource Manager, ne copiez pas les espaces blancs supplémentaires et n’introduisez pas de sauts de ligne. Par exemple, si vous utilisez macOS, vous pouvez diriger le fichier de clé publique (par défaut, `~/.ssh/id_rsa.pub`) sur **pbcopy** pour en copier le contenu (d’autres programmes Linux ont la même fonction, par exemple, **xclip**).
+Si vous copiez et collez le contenu du fichier de clé publique dans le portail Azure ou dans un modèle Resource Manager, ne copiez pas les espaces blancs supplémentaires et n’introduisez pas de sauts de ligne. Par exemple, si vous utilisez macOS, vous pouvez diriger le fichier de clé publique (par défaut, `~/.ssh/id_rsa.pub`) sur **pbcopy** pour en copier le contenu (d’autres programmes Linux ont la même fonction, par exemple, `xclip`).
 
 Si vous préférez utiliser une clé publique avec un format multiligne, vous pouvez générer une clé au format RFC4716 dans un conteneur PEM à partir de la clé publique précédemment créée.
 
@@ -169,6 +169,8 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
 Si vous avez fourni un mot de passe lorsque vous avez créé votre paire de clés, saisissez-le lorsque vous y êtes invité pendant le processus de connexion. (Le serveur est ajouté à votre dossier `~/.ssh/known_hosts` et vous n’avez pas à vous connecter à nouveau tant que la clé publique sur votre machine virtuelle Azure n’est pas modifiée ou que le nom de serveur n’est pas supprimé du dossier `~/.ssh/known_hosts`.)
+
+Si la machine virtuelle utilise la stratégie juste-à-temps, vous devez demander à y accéder avant de pouvoir vous connecter à cette machine virtuelle. Pour plus d’informations sur la stratégie juste-à-temps, consultez [Gérer l’accès à la machine virtuelle à l’aide de la stratégie juste-à-temps](../../security-center/security-center-just-in-time.md).
 
 ## <a name="use-ssh-agent-to-store-your-private-key-passphrase"></a>Utiliser ssh-agent pour stocker votre phrase secrète de clé privée
 

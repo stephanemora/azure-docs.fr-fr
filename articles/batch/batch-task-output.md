@@ -2,7 +2,7 @@
 title: Conserver les résultats ou les journaux des tâches et des travaux terminés dans un magasin de données - Azure Batch | Microsoft Docs
 description: Découvrez les différentes possibilités pour conserver les données de sortie des tâches et des travaux Batch. Vous pouvez conserver les données dans le Stockage Azure ou un autre magasin de données.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 463c3605f96774b6f05235f3c9d7fe0e5a7139f2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: ff7224b342aa421c576c170f3c23ac64cad9f161
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705713"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474341"
 ---
 # <a name="persist-job-and-task-output"></a>Conserver les résultats des tâches et des travaux
 
@@ -77,13 +77,13 @@ Vous pouvez aussi implémenter votre propre solution de déplacement de fichiers
 
 Au moment de concevoir votre solution Batch, tenez compte des points suivants s’agissant des sorties des travaux et des tâches.
 
-- **Durée de vie de nœud de calcul**: les nœuds de calcul sont souvent temporaires, notamment dans les pools à mise à l’échelle automatique. La sortie d’une tâche qui s’exécute sur un nœud est disponible uniquement pendant que le nœud existe, et seulement pendant la période de rétention des fichiers que vous avez définie pour la tâche. Si une tâche génère une sortie qui peut être nécessaire à la fin de la tâche, celle-ci doit charger ses fichiers de sortie dans un magasin durable tels que le Stockage Azure.
+- **Durée de vie de nœud de calcul** : les nœuds de calcul sont souvent temporaires, notamment dans les pools à mise à l’échelle automatique. La sortie d’une tâche qui s’exécute sur un nœud est disponible uniquement pendant que le nœud existe, et seulement pendant la période de rétention des fichiers que vous avez définie pour la tâche. Si une tâche génère une sortie qui peut être nécessaire à la fin de la tâche, celle-ci doit charger ses fichiers de sortie dans un magasin durable tels que le Stockage Azure.
 
-- **Stockage de sortie** : le Stockage Azure est recommandé comme magasin de données pour la sortie des tâches, mais vous pouvez utiliser n’importe quel stockage durable. L’écriture de la sortie des tâches dans le Stockage Azure est intégrée dans l’API du service Batch. Si vous utilisez une autre forme de stockage durable, vous devez écrire la logique d’application pour conserver vous-même la sortie des tâches.
+- **Stockage de sortie** : Stockage Azure est recommandé comme magasin de données pour la sortie des tâches, mais vous pouvez utiliser n’importe quel stockage durable. L’écriture de la sortie des tâches dans le Stockage Azure est intégrée dans l’API du service Batch. Si vous utilisez une autre forme de stockage durable, vous devez écrire la logique d’application pour conserver vous-même la sortie des tâches.
 
-- **Récupération de sortie** : vous pouvez récupérer la sortie des tâches directement à partir des nœuds de calcul de votre pool ou depuis le Stockage Azure ou un autre magasin de données si vous avez conservé la sortie des tâches. Pour récupérer la sortie d’une tâche directement à partir d’un nœud de calcul, vous avez besoin du nom de fichier et de son emplacement de sortie sur le nœud. Si vous conservez la sortie des tâches dans le Stockage Azure, vous avez besoin du chemin complet des fichiers dans le Stockage Azure pour télécharger les fichiers de sortie à l’aide du kit SDK Stockage Azure.
+- **Récupération de sortie** : vous pouvez récupérer la sortie des tâches directement à partir des nœuds de calcul de votre pool ou depuis Stockage Azure ou un autre magasin de données si vous avez conservé la sortie des tâches. Pour récupérer la sortie d’une tâche directement à partir d’un nœud de calcul, vous avez besoin du nom de fichier et de son emplacement de sortie sur le nœud. Si vous conservez la sortie des tâches dans le Stockage Azure, vous avez besoin du chemin complet des fichiers dans le Stockage Azure pour télécharger les fichiers de sortie à l’aide du kit SDK Stockage Azure.
 
-- **Affichage de sortie** : lorsque vous accédez à une tâche Batch dans le portail Azure et sélectionnez **Fichiers sur le nœud**, tous les fichiers associés à la tâche s’affichent, et pas seulement les fichiers de sortie qui vous intéressent. De nouveau, les fichiers hébergés sur les nœuds de calcul sont disponibles uniquement lorsque le nœud existe, et seulement pendant la durée de rétention des fichiers que vous avez définie pour la tâche. Pour afficher la sortie des tâches que vous avez conservée dans le Stockage Azure, vous pouvez utiliser le portail Azure ou une application cliente du Stockage Azure telle que l’[Explorateur de Stockage Azure][storage_explorer]. Pour afficher des données de sortie dans le Stockage Azure avec le portail ou un autre outil, vous devez connaître l’emplacement du fichier correspondant et y accéder directement.
+- **Affichage de sortie** : lorsque vous accédez à une tâche Batch dans le portail Azure et sélectionnez **Fichiers sur le nœud**, tous les fichiers associés à la tâche s’affichent, et pas seulement les fichiers de sortie qui vous intéressent. De nouveau, les fichiers hébergés sur les nœuds de calcul sont disponibles uniquement lorsque le nœud existe, et seulement pendant la durée de rétention des fichiers que vous avez définie pour la tâche. Pour afficher la sortie des tâches que vous avez conservée dans le Stockage Azure, vous pouvez utiliser le portail Azure ou une application cliente du Stockage Azure telle que l’[Explorateur de Stockage Azure][storage_explorer]. Pour afficher des données de sortie dans le Stockage Azure avec le portail ou un autre outil, vous devez connaître l’emplacement du fichier correspondant et y accéder directement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

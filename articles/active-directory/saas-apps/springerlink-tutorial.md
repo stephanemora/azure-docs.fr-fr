@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Springer Link | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Springer Link | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Springer Link.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 58cdf029-bdc0-43c4-a469-b921c2a669bd
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 8138c7605b0024dfe4569e33843cb1e9d169271f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d4d8d61f5e8834b679eeb68cb416bb6358a5f53a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438764"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180141"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Didacticiel : Intégration d’Azure Active Directory avec Springer Link
+# <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutoriel : Intégration d’Azure Active Directory à Springer Link
 
 Ce didacticiel explique comment intégrer Springer Link avec Azure Active Directory (Azure AD).
 

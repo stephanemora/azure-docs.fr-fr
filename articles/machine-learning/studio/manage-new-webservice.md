@@ -1,6 +1,6 @@
 ---
-titre : Utiliser le portail des services web Azure Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Utiliser le portail des services web Azure Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 02/28/2017
 ---

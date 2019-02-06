@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: b2312534cdd63f5672f6b2294e3aef6b50be229a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600044"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461591"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajustement manuel des performances de requêtes dans Azure SQL Database
 
@@ -235,18 +235,18 @@ Si une charge de travail présente un ensemble de requêtes répétitives, il es
 
 ### <a name="cross-database-sharding"></a>Partitionnement entre plusieurs bases de données
 
-Microsoft Azure SQL Database s’exécutant sur du matériel, les limites de capacité pour une base de données unique sont inférieures par rapport à une installation SQL Server locale traditionnelle. Certains clients utilisent des techniques de partitionnement pour diffuser les opérations de base de données sur plusieurs bases de données lorsqu’elles ne s’adaptent pas aux limites d’une base de données unique dans Microsoft Azure SQL Database. La plupart des clients utilisant des techniques de partitionnement dans Microsoft Azure SQL Database fractionnent leurs données dans une seule dimension sur plusieurs bases de données. Pour cette approche, vous devez comprendre que les applications OLTP exécutent souvent des transactions s’appliquant uniquement à une ligne ou à un petit groupe de lignes dans le schéma.
+Azure SQL Database s’exécutant sur du matériel, les limites de capacité pour une base de données individuelle sont inférieures à celles d’une installation SQL Server locale traditionnelle. Certains clients utilisent des techniques de partitionnement pour diffuser les opérations de base de données sur plusieurs bases de données lorsqu’elles ne s’adaptent pas aux limites d’une base de données individuelle dans Azure SQL Database. La plupart des clients utilisant des techniques de partitionnement dans Microsoft Azure SQL Database fractionnent leurs données dans une seule dimension sur plusieurs bases de données. Pour cette approche, vous devez comprendre que les applications OLTP exécutent souvent des transactions s’appliquant uniquement à une ligne ou à un petit groupe de lignes dans le schéma.
 
 > [!NOTE]
 > La base de données SQL fournit désormais une bibliothèque pour faciliter le partitionnement. Pour en savoir plus, consultez [Vue d'ensemble de la bibliothèque cliente de bases de données élastiques](sql-database-elastic-database-client-library.md).
 
-Par exemple, si une base de données comporte le nom d’un client, une commande et des détails relatifs à la commande (comme vu dans l’exemple de base de données Northwind classique fourni dans SQL Server), vous pouvez fractionner ces données en plusieurs bases de données, en regroupant un client avec la commande associée et les détails relatifs à cette commande. Vous pouvez garantir que les données du client sont conservées dans une base de données unique. L’application fractionnerait différents clients sur les bases de données, répartissant ainsi efficacement la charge sur celles-ci. Le partitionnement permet non seulement aux clients d’éviter la limite de taille maximum de la base de données, mais également à Microsoft Azure SQL Database de traiter les charges de travail qui sont beaucoup plus volumineuses que les limites des différentes tailles de calcul, à condition que chaque base de données individuelle s’adapte à sa DTU.
+Par exemple, si une base de données comporte le nom d’un client, une commande et des détails relatifs à la commande (comme vu dans l’exemple de base de données Northwind classique fourni dans SQL Server), vous pouvez fractionner ces données en plusieurs bases de données, en regroupant un client avec la commande associée et les détails relatifs à cette commande. Vous pouvez garantir que les données du client sont conservées dans une base de données individuelle. L’application fractionnerait différents clients sur les bases de données, répartissant ainsi efficacement la charge sur celles-ci. Le partitionnement permet non seulement aux clients d’éviter la limite de taille maximum de la base de données, mais également à Microsoft Azure SQL Database de traiter les charges de travail qui sont beaucoup plus volumineuses que les limites des différentes tailles de calcul, à condition que chaque base de données individuelle s’adapte à sa DTU.
 
 Bien que le partitionnement de base de données ne réduise pas la capacité des ressources globales pour une solution, cette technique est très efficace pour prendre en charge des solutions volumineuses réparties sur plusieurs bases de données. Chaque base de données peut s’exécuter à une taille de calcul différente afin de prendre en charge des bases de données très grandes, efficaces, dont les besoins en ressources sont importants.
 
 ### <a name="functional-partitioning"></a>Partitionnement fonctionnel
 
-Les utilisateurs SQL Server combinent bien souvent de nombreuses fonctions dans une seule base de données. Par exemple, si une application contient une logique pour gérer le stock d’un magasin, cette base de données peut contenir la logique associée au stock, le suivi des bons de commande, les procédures stockées et les vues indexées/matérialisées pour la gestion de rapports de fin de mois et d’autres fonctions. Cette technique facilite l’administration de la base de données pour des opérations comme la sauvegarde, mais elle nécessite également que vous redimensionniez le matériel pour gérer la charge maximale sur toutes les fonctions d’une application.
+Les utilisateurs SQL Server combinent bien souvent de nombreuses fonctions dans une base de données individuelle. Par exemple, si une application contient une logique pour gérer le stock d’un magasin, cette base de données peut contenir la logique associée au stock, le suivi des bons de commande, les procédures stockées et les vues indexées/matérialisées pour la gestion de rapports de fin de mois et d’autres fonctions. Cette technique facilite l’administration de la base de données pour des opérations comme la sauvegarde, mais elle nécessite également que vous redimensionniez le matériel pour gérer la charge maximale sur toutes les fonctions d’une application.
 
 Si vous utilisez une architecture de montée en charge dans Microsoft Azure SQL Database, il peut être judicieux de répartir différentes fonctions d’une application entre plusieurs bases de données. En appliquant cette technique, chaque application est mise à l’échelle indépendamment. Lorsqu’une application devient plus occupée (et reçoit plus de charge sur la base de données), l’administrateur peut choisir des tailles de calcul indépendamment pour chaque fonction dans une application. À la limite, cette architecture permet à une application de devenir plus grande que ce qu’un seul ordinateur peut gérer en diffusant la charge sur plusieurs ordinateurs.
 

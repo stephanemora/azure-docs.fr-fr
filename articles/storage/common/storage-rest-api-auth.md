@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 78e2620ba6e5e29a1f1ac9719b709d5a2f468122
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529309"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476194"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Utilisation de l’API REST Stockage Azure
 
@@ -58,15 +58,15 @@ L’exemple d’application liste les conteneurs dans un compte de stockage. Une
 
 Si vous regardez [l’API REST du service Blob](/rest/api/storageservices/Blob-Service-REST-API), vous voyez toutes les opérations que vous pouvez effectuer sur le Stockage Blob. Les bibliothèques clientes de stockage sont des wrappers autour des API REST : elles vous permettent d’accéder facilement au stockage sans utiliser les API REST directement. Mais, comme indiqué précédemment, vous voulez parfois utiliser l’API REST au lieu d’une bibliothèque cliente de stockage.
 
-## <a name="rest-api-reference-list-containers-api"></a>Référence d’API REST : API List Containers
+## <a name="rest-api-reference-list-containers-api"></a>Référence d’API REST : API List Containers (Répertorier les conteneurs)
 
 Consultons la page dans la Référence d’API REST pour l’opération [ListContainers](/rest/api/storageservices/List-Containers2) pour que vous compreniez d’où proviennent certains champs dans la requête et la réponse dans la section suivante avec le code.
 
 **Méthode de requête** : GET. Ce verbe est la méthode HTTP que vous spécifiez en tant que propriété de l’objet de requête. Les autres valeurs pour ce verbe incluent HEAD, PUT et DELETE en fonction de l’API que vous appelez.
 
-**URI de requête** : https://myaccount.blob.core.windows.net/?comp=list est créé à partir du point de terminaison du compte de Stockage Blob `http://myaccount.blob.core.windows.net` et de la chaîne de ressources `/?comp=list`.
+**URI de requête** : https://myaccount.blob.core.windows.net/?comp=list Est créé à partir du point de terminaison du compte de Stockage Blob `http://myaccount.blob.core.windows.net` et de la chaîne de ressources `/?comp=list`.
 
-[Paramètres d’URI](/rest/api/storageservices/List-Containers2#uri-parameters) : il s’agit de paramètres de requête supplémentaires que vous pouvez utiliser lors de l’appel de ListContainers. Certains de ces paramètres sont *timeout* pour l’appel (en secondes) et *prefix*, utilisé pour le filtrage.
+[Paramètres d’URI](/rest/api/storageservices/List-Containers2#uri-parameters) : Il s’agit de paramètres de requête supplémentaires que vous pouvez utiliser lors de l’appel de ListContainers. Certains de ces paramètres sont *timeout* pour l’appel (en secondes) et *prefix*, utilisé pour le filtrage.
 
 Un autre paramètre utile est *maxresults:* s’il existe plus de conteneurs disponibles que cette valeur, le corps de la réponse contiendra un élément *NextMarker* indiquant le conteneur suivant à retourner pour la requête suivante. Pour utiliser cette fonctionnalité, vous fournissez la valeur *NextMarker* sous la forme du paramètre *marker* dans l’URI lors de la requête suivante. L’utilisation de cette fonctionnalité est similaire à la pagination des résultats. 
 
@@ -76,15 +76,15 @@ Pour utiliser d’autres paramètres, ajoutez-les à la chaîne de ressource ave
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[En-têtes de requête](/rest/api/storageservices/List-Containers2#request-headers) **:** cette section répertorie les en-têtes de requête obligatoires et facultatifs. Trois des en-têtes sont obligatoires : un en-tête *Authorization*, *x-ms-date* (contient l’heure UTC de la requête) et *x-ms-version* (spécifie la version de l’API REST à utiliser). Inclure *x-ms-client-request-id* dans les en-têtes est facultatif. Vous pouvez définir ce champ sur n’importe quelle valeur ; il est écrit dans les journaux d’analytique du stockage lorsque la journalisation est activée.
+[En-têtes de requête](/rest/api/storageservices/List-Containers2#request-headers) **:** Cette section répertorie les en-têtes de requête obligatoires et facultatifs. Trois des en-têtes sont obligatoires : un en-tête *Authorization*, *x-ms-date* (contient l’heure UTC de la requête) et *x-ms-version* (spécifie la version de l’API REST à utiliser). Inclure *x-ms-client-request-id* dans les en-têtes est facultatif. Vous pouvez définir ce champ sur n’importe quelle valeur ; il est écrit dans les journaux d’analytique du stockage lorsque la journalisation est activée.
 
-[Corps de la requête](/rest/api/storageservices/List-Containers2#request-body) **:** il n’existe pas de corps de requête pour ListContainers. Le paramètre Corps de la requête est utilisé pour toutes les opérations PUT lors de la mise à jour d’objets Blob, tout comme SetContainerAccessPolicy, qui vous permet d’envoyer une liste XML des stratégies d’accès stockées à appliquer. Les stratégies d’accès stockées sont traitées dans l’article [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
+[Corps de la requête](/rest/api/storageservices/List-Containers2#request-body) **:** Il n’existe pas de corps de requête pour ListContainers. Le paramètre Corps de la requête est utilisé pour toutes les opérations PUT lors de la mise à jour d’objets Blob, tout comme SetContainerAccessPolicy, qui vous permet d’envoyer une liste XML des stratégies d’accès stockées à appliquer. Les stratégies d’accès stockées sont traitées dans l’article [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 
-[Code d’état de la réponse](/rest/api/storageservices/List-Containers2#status-code) **:** indique tous les codes d’état que vous devez connaître. Dans cet exemple, un code d’état HTTP de 200 est acceptable. Pour obtenir la liste complète des codes d’état HTTP, consultez [Définitions des codes d’état](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Pour consulter les codes d’erreur spécifiques aux API REST de Stockage, consultez [Codes d’erreur API REST courants](/rest/api/storageservices/common-rest-api-error-codes)
+[Code d’état de la réponse](/rest/api/storageservices/List-Containers2#status-code) **:** Indique tous les codes d’état que vous devez connaître. Dans cet exemple, un code d’état HTTP de 200 est acceptable. Pour obtenir la liste complète des codes d’état HTTP, consultez [Définitions des codes d’état](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Pour consulter les codes d’erreur spécifiques aux API REST de Stockage, consultez [Codes d’erreur API REST courants](/rest/api/storageservices/common-rest-api-error-codes)
 
-[En-têtes de réponse](/rest/api/storageservices/List-Containers2#response-headers) **:** ils incluent *Type de contenu* ; *x-ms-request-id* (l’ID de requête que vous avez transmis, le cas échéant) ; *x-ms-version* (indique la version du service Blob utilisé) et *Date* (format UTC, indique l’heure à laquelle la requête a été faite).
+[En-têtes de réponse](/rest/api/storageservices/List-Containers2#response-headers) **:** Ils incluent *Type de contenu* ; *x-ms-request-id* (l’ID de requête que vous avez transmis, le cas échéant) ; *x-ms-version* (indique la version du service Blob utilisé) et *Date* (format UTC, indique l’heure à laquelle la requête a été faite).
 
-[Corps de la réponse](/rest/api/storageservices/List-Containers2#response-body) : ce champ est une structure XML qui fournit les données demandées. Dans cet exemple, la réponse est une liste de conteneurs et leurs propriétés.
+[Corps de réponse](/rest/api/storageservices/List-Containers2#response-body) : Ce champ est une structure XML qui fournit les données demandées. Dans cet exemple, la réponse est une liste de conteneurs et leurs propriétés.
 
 ## <a name="creating-the-rest-request"></a>Création de la requête REST
 
@@ -204,7 +204,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**Corps de la réponse (XML) :** pour ListContainers, ce paramètre affiche la liste des conteneurs et leurs propriétés.
+**Corps de la réponse (XML) :** Pour ListContainers, ce paramètre affiche la liste des conteneurs et leurs propriétés.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -283,19 +283,19 @@ Cet extrait de code affiche le format de la chaîne de signature par clé partag
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 La plupart de ces champs est rarement utilisée. Pour le stockage Blob, vous spécifiez VERB, md5, content length (longueur du contenu), Canonicalized Headers (en-têtes rendus canoniques) et Canonicalized Resource (ressource rendue canonique). Vous pouvez laisser les autres champs vides (mais insérez `\n` pour montrer qu’ils sont vides).
@@ -512,7 +512,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Corps de la réponse (XML) :** cette réponse XML affiche la liste des objets Blob et leurs propriétés. 
+**Corps de la réponse (XML) :** Cette réponse XML affiche la liste des objets Blob et leurs propriétés. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

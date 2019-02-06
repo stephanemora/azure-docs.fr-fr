@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/29/2019
+ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232985"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466590"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Découverte et classification des données Azure SQL Database
 
@@ -28,7 +28,7 @@ La découverte et la classification de vos données les plus sensibles (professi
 - Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles.
 - Contrôler l’accès et renforcer la sécurité des bases de données contenant des données sensibles.
 
-Découverte et classification des données fait partie de l’offre [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) qui est un package unifié de fonctionnalités de sécurité SQL avancées. L’accès au composant Découverte et classification des données ainsi que sa gestion se font via le portail SQL ATP central.
+Découverte et classification des données fait partie de l’offre [SQL Advanced Data Security](sql-advanced-threat-protection.md) (ADS) qui est un package unifié de fonctionnalités de sécurité SQL avancées. L’accès au composant Découverte et classification des données ainsi que sa gestion se font via le portail SQL ADS central.
 
 > [!NOTE]
 > Ce document se rapporte uniquement à Azure SQL Database. Pour SQL Server (local), consultez [Découverte et classification de données SQL](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -77,7 +77,7 @@ Une fois que la stratégie au niveau du locataire a été définie, vous pouvez 
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 
-2. Accédez à **Advanced Threat Protection** sous l’en-tête Sécurité du volet Azure SQL Database. Cliquez pour activer Advanced Threat Protection, puis cliquez sur la carte **Découverte et classification des données (préversion)**.
+2. Accédez à **Advanced Data Security** sous l’en-tête Sécurité du volet Azure SQL Database. Cliquez pour activer Advanced Data Security, puis cliquez sur la carte **Découverte et classification des données (préversion)**.
 
    ![Analyser une base de données](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -123,7 +123,7 @@ Une fois que la stratégie au niveau du locataire a été définie, vous pouvez 
 
 ## <a id="subheading-3"></a>Audit de l’accès aux données sensibles
 
-Un aspect important du paradigme de protection des informations est la possibilité de surveiller l’accès aux données sensibles. [L’audit Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) a été amélioré pour inclure dans le journal d’audit un nouveau champ nommé *data_sensitivity_information*, qui enregistre las classifications de la sensibilité (étiquettes) des données réelles retournées par la requête.
+Un aspect important du paradigme de protection des informations est la possibilité de surveiller l’accès aux données sensibles. [L’audit Azure SQL Database](sql-database-auditing.md) a été amélioré pour inclure dans le journal d’audit un nouveau champ nommé *data_sensitivity_information*, qui enregistre las classifications de la sensibilité (étiquettes) des données réelles retournées par la requête.
 
 ![Journal d’audit](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -134,7 +134,7 @@ Vous pouvez utiliser T-SQL pour ajouter/supprimer des classifications de colonne
 > [!NOTE]
 > Quand vous utilisez T-SQL pour gérer les étiquettes, aucune validation n’est effectuée pour vérifier que les étiquettes ajoutées à une colonne existent dans la stratégie de protection des informations de l’organisation (ensemble des étiquettes qui apparaissent dans les recommandations du portail). Il vous appartient d’effectuer cette validation.
 
-- Ajouter/mettre à jour la classification d’une ou plusieurs colonnes : [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Ajouter/Mettre à jour la classification d’une ou plusieurs colonnes : [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 - Supprimer la classification d’une ou plusieurs colonnes : [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Voir toutes les classifications sur la base de données : [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
@@ -147,8 +147,8 @@ Vous pouvez également utiliser des API REST pour gérer par programme les class
 
 ## <a id="subheading-5"></a>Étapes suivantes
 
-- En savoir plus sur [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
-- Vous pouvez configurer [l’audit Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) pour effectuer la surveillance et l’audit de l’accès à vos données sensibles classifiées.
+- En savoir plus sur [SQL Advanced Data Security](sql-advanced-threat-protection.md).
+- Vous pouvez configurer [l’audit Azure SQL Database](sql-database-auditing.md) pour effectuer la surveillance et l’audit de l’accès à vos données sensibles classifiées.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

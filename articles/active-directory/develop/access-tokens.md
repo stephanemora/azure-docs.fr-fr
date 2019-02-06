@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7dd2b60a985291311328407b07ef290e962f147b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157766"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080563"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Jetons d’accès Azure Active Directory
 
@@ -218,7 +218,7 @@ Les jetons d’actualisation peuvent être rendus non valides ou révoqués à t
 ### <a name="token-timeouts"></a>Délais d’expiration des jetons
 
 * MaxInactiveTime : si le jeton d’actualisation n’a pas été utilisé dans le délai défini par MaxInactiveTime, il ne sera plus valide. 
-* MaxSessionAge : si MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor ont été définis sur une valeur autre que la valeur par défaut (Until-revoked), une réauthentification sera nécessaire après écoulement du délai défini dans MaxAgeSession*. 
+* MaxSessionAge : si MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor ont été définis sur une valeur autre que la valeur par défaut (Until-revoked), une réauthentification est nécessaire après l’écoulement du délai défini dans MaxAgeSession*. 
 * Exemples :
   * Le client a un MaxInactiveTime de cinq jours et l’utilisateur est parti en congé pour une semaine ; par conséquent, AAD n’a pas reçu de nouvelle demande de jeton de sa part depuis sept jours. La prochaine fois que l’utilisateur demandera un nouveau jeton, il s’apercevra que son jeton d’actualisation a été révoqué, et il devra entrer à nouveau ses informations d’identification.
   * Une application sensible a un MaxAgeSessionSingleFactor d’un jour. Si un utilisateur se connecte le lundi et le mardi (après 25 heures), il devra s’authentifier à nouveau.

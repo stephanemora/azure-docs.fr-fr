@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 28542bb66fe1e523201967a9dd67fd7e41fed7a0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ab19baa1c10f329b5bbe3c14261434d7f8e2538f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135625"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076521"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Développer des modèles Azure Resource Manager de cohérence du cloud
 
@@ -59,14 +59,14 @@ Les fonctionnalités d’Azure Resource Manager sont toujours introduites à Azu
 
 1. Une fois que vous avez un clone local du référentiel, connectez-vous au Azure Resource Manager de la destination avec PowerShell.
 
-1. Importez le module psm1 et exécutez l’applet de commande Test-AzureRmTemplateFunctions :
+1. Importez le module psm1 et exécutez l’applet de commande Test-AzTemplateFunctions :
 
   ```powershell
   # Import the module
-  Import-module <path to local clone>\AzureRmTemplateFunctions.psm1
+  Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
+  # Execute the Test-AzTemplateFunctions cmdlet
+  Test-AzTemplateFunctions -path <path to local clone>
   ```
 
 Le script déploie plusieurs modèles réduits, chacun contenant seulement des fonctions de modèle uniques. La sortie du script signale les fonctions de modèle prises en charge et non disponibles.
@@ -230,7 +230,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 Vous pouvez également utiliser l’applet de commande PowerShell suivante pour afficher les fournisseurs de ressources disponibles :
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 ### <a name="verify-the-version-of-all-resource-types"></a>Vérifier la version de tous les types de ressources
@@ -248,7 +248,7 @@ az provider list --query "[].{namespace:namespace, resourceType:resourceType[]}"
 Vous pouvez également utiliser l’applet de commande PowerShell suivante :
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
+Get-AzResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
 ```
 
 ### <a name="refer-to-resource-locations-with-a-parameter"></a>Faire référence à des emplacements de ressources avec un paramètre
@@ -491,10 +491,10 @@ Pour récupérer la liste des images de machine virtuelle disponibles dans un em
 az vm image list -all
 ```
 
-Vous pouvez récupérer la même liste à l’aide de l’applet de commande Azure PowerShell [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) et spécifier l’emplacement de votre choix avec le paramètre `-Location`. Par exemple : 
+Vous pouvez récupérer la même liste à l’aide de l’applet de commande Azure PowerShell [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) et spécifier l’emplacement de votre choix avec le paramètre `-Location`. Par exemple : 
 
 ```azurepowershell-interactive
-Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRMVMImage
+Get-AzVMImagePublisher -Location "West Europe" | Get-AzVMImageOffer | Get-AzVMImageSku | Get-AzureRMVMImage
 ```
 
 Cette commande prend quelques minutes pour retourner toutes les images disponibles dans la région Europe de l’Ouest du cloud Azure global.
@@ -527,7 +527,7 @@ az vm list-sizes --location "West Europe"
 Pour Azure PowerShell, utilisez :
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location "West Europe"
+Get-AzVMSize -Location "West Europe"
 ```
 
 Pour obtenir la liste complète des services actuellement disponibles, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable).
@@ -594,10 +594,10 @@ Pour obtenir une liste des extensions de machine virtuelle disponibles pour une 
 az vm extension image list --location myLocation
 ```
 
-Vous pouvez également exécuter l’applet de commande [Get-AzureRmVmImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) PowerShell Azure et utiliser `-Location` pour spécifier l’emplacement de l’image de machine virtuelle. Par exemple : 
+Vous pouvez également exécuter l’applet de commande [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Azure PowerShell et utiliser `-Location` pour spécifier l’emplacement de l’image de machine virtuelle. Par exemple : 
 
 ```azurepowershell-interactive
-Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
+Get-AzVmImagePublisher -Location myLocation | Get-AzVMExtensionImageType | Get-AzVMExtensionImage | Select Type, Version
 ```
 
 #### <a name="ensure-that-versions-are-available"></a>S’assurer que deux versions sont disponibles
@@ -615,16 +615,16 @@ Comme les extensions de machine virtuelle sont des ressources Resource Manager i
 
 La version d’API de la ressource d’extension de machine virtuelle doit être présente dans tous les emplacements que vous envisagez de cibler avec votre modèle. La dépendance de l’emplacement fonctionne comme la disponibilité de la version d’API du fournisseur de ressources évoquée précédemment dans la section « Vérifier la version de tous les types de ressources ».
 
-Pour obtenir une liste des versions d’API disponibles pour la ressource d’extension de machine virtuelle, utilisez l’applet de commande [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider) avec le fournisseur de ressources **Microsoft.Compute**, comme suit :
+Pour obtenir une liste des versions d’API disponibles pour la ressource d’extension de machine virtuelle, utilisez l’applet de commande [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) avec le fournisseur de ressources **Microsoft.Compute**, comme suit :
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
+Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
 ```
 
 Vous pouvez également utiliser des extensions de machine virtuelle pour les jeux de mise à l’échelle de machine virtuelle. Les mêmes conditions d’emplacement s’appliquent. Pour développer votre modèle de cohérence du cloud, assurez-vous que les versions d’API sont disponibles dans tous les emplacements où vous envisagez de déployer le modèle. Pour récupérer les versions d’API de la ressource d’extension de machine virtuelle pour les jeux de mise à l’échelle, utilisez la même applet de commande que précédemment, mais spécifiez le type de ressource des jeux de mise à l’échelle de machine virtuelle comme suit :
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
+Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
 Chaque extension spécifique est gérée. Cette version est montrée dans la propriété `typeHandlerVersion` de l’extension de machine virtuelle. Assurez-vous que la version spécifiée dans l’élément `typeHandlerVersion` des extensions de machine virtuelle de votre modèle est disponible dans les emplacements où vous envisagez de déployer le modèle. Par exemple, le code suivant spécifie la version 1.7 :
@@ -645,13 +645,13 @@ Chaque extension spécifique est gérée. Cette version est montrée dans la pro
         ...   
 ```
 
-Pour obtenir une liste des versions disponibles d’une extension de machine virtuelle spécifique, utilisez l’applet de commande [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). L’exemple suivant récupère les versions disponibles de l’extension de machine virtuelle PowerShell DSC (Configuration de l’état souhaité) à partir de **myLocation** :
+Pour obtenir une liste des versions disponibles d’une extension de machine virtuelle spécifique, utilisez l’applet de commande [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). L’exemple suivant récupère les versions disponibles de l’extension de machine virtuelle PowerShell DSC (Configuration de l’état souhaité) à partir de **myLocation** :
 
 ```azurepowershell-interactive
-Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
+Get-AzVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-Pour obtenir une liste des serveurs de publication, utilisez la commande [Get-AzureRmVmImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher). Pour demander un type, utilisez la commande [Get-AzureRmVMExtensionImageType](/powershell/module/azurerm.compute/get-azurermvmextensionimagetype).
+Pour obtenir une liste des serveurs de publication, utilisez la commande [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher). Pour demander un type, utilisez la commande [Get-AzVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype).
 
 ## <a name="tips-for-testing-and-automation"></a>Conseils relatifs aux tests et à l’automatisation
 

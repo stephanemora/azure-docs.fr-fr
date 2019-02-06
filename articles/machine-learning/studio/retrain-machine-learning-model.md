@@ -1,6 +1,6 @@
 ---
-titre : Réentraîner un modèle Azure Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à reformer un modèle et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Réentraîner un modèle Azure Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à reformer un modèle et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning.
+services : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

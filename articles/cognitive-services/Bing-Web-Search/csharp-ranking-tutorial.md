@@ -7,16 +7,16 @@ author: bradumbaugh
 manager: cgronlun
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: ebe95c8ebad8c7d6b77d98dc0d590a4d38d76b94
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 90ad2ff87e9541c892262edb2e48366826b2a388
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465965"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188437"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Générer un client de recherche d’application console en C#
 
@@ -49,7 +49,7 @@ Json.NET vous permet d’utiliser les réponses JSON retournées par l’API. Aj
 - Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet...**.
 - Sous l’onglet **Parcourir**, recherchez `Newtonsoft.Json`. Sélectionnez la version la plus récente, puis cliquez sur **Installer**.
 - Cliquez sur le bouton **OK** dans la fenêtre **Examiner les modifications**.
-- Fermez l’onglet Visual Studio intitulé **NuGet : MyConsoleSearchApp**.
+- Fermez l’onglet de Visual Studio intitulé **NuGet : MyConsoleSearchApp**.
 
 ## <a name="add-a-reference-to-systemweb"></a>Ajouter une référence à System.Web
 
@@ -223,9 +223,9 @@ Avant de voir comment afficher les résultats dans un ordre de classement, exami
 
 L’objet JSON `rankingResponse` ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) décrit l’ordre d’affichage approprié pour les résultats de la recherche. Il contient un ou plusieurs des groupes suivants, classés par ordre de priorité :
 
-- `pole` : Résultats de la recherche qui doivent être le plus visibles (par exemple, affichés au-dessus de la partie principale et de l’encadré).
-- `mainline` : Résultats de la recherche à afficher dans la partie principale.
-- `sidebar` : Résultats de la recherche à afficher dans l’encadré. En l’absence d’encadré, affichez les résultats sous la partie principale.
+- `pole`: Résultats de la recherche qui doivent être les plus visibles (par exemple, affichés au-dessus de la partie principale et de l’encadré).
+- `mainline`: Résultats de la recherche à afficher dans la partie principale.
+- `sidebar`: Résultats de la recherche à afficher dans l’encadré. En l’absence d’encadré, affichez les résultats sous la partie principale.
 
 La réponse de classement JSON peut inclure un ou plusieurs des groupes.
 

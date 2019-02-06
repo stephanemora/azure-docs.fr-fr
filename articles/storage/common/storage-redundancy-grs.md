@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 85d69db2f94e4bddf1258233c34c64dcf78a3eeb
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.subservice: common
+ms.openlocfilehash: 8ffd3c34628f96888145a3639ddfe4a190dffc7f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219220"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467065"
 ---
-# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Stockage géoredondant (GRS) : réplication interrégion pour le stockage Azure
+# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Stockage géoredondant (GRS) : réplication interrégion pour Stockage Azure
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
 
 ## <a name="read-access-geo-redundant-storage"></a>Stockage géo-redondant avec accès en lecture
@@ -34,9 +34,9 @@ Certaines considérations à prendre en compte lors de l’utilisation du stocka
 * Pour obtenir des suggestions de conception pour la haute disponibilité à l’aide du stockage géographiquement redondant avec accès en lecture, voir [Concevoir des applications hautement disponibles à l’aide du stockage géographiquement redondant avec accès en lecture](storage-designing-ha-apps-with-ragrs.md).
 
 ## <a name="what-is-the-rpo-and-rto-with-grs"></a>Que sont l’objectif de point de récupération (RPO) et l’objectif de délai de récupération (RTO) avec GRS ?
-**Objectif de point de récupération (RPO) :** dans le stockage géoredondant et le stockage géographiquement redondant avec accès en lecture, le service de stockage effectue de façon asynchrone la géoréplication des données de l’emplacement primaire vers l’emplacement secondaire. En cas de sinistre régional majeur dans la région principale, Microsoft effectue un basculement vers la région secondaire. Si un basculement se produit, les modifications récentes qui n’ont pas encore été géo-répliquées peuvent être perdues. Le nombre de minutes de données potentielles perdues est appelé RPO. Le RPO indique le moment où les données peuvent être récupérées. Stockage Azure comporte généralement un RPO inférieur à 15 minutes, même s’il n’existe actuellement aucun contrat de niveau de service sur la durée de la géoréplication.
+**Objectif de point de récupération (RPO) :** dans les stockages GRS et RA-GRS, le service de stockage effectue de façon asynchrone la géoréplication des données de l’emplacement principal vers l’emplacement secondaire. En cas de sinistre régional majeur dans la région principale, Microsoft effectue un basculement vers la région secondaire. Si un basculement se produit, les modifications récentes qui n’ont pas encore été géo-répliquées peuvent être perdues. Le nombre de minutes de données potentielles perdues est appelé RPO. Le RPO indique le moment où les données peuvent être récupérées. Stockage Azure comporte généralement un RPO inférieur à 15 minutes, même s’il n’existe actuellement aucun contrat de niveau de service sur la durée de la géoréplication.
 
-**Objectif de délai de récupération (RTO, Recovery Time Objective) :** le RTO est une mesure de la durée nécessaire pour effectuer le basculement et replacer le compte de stockage en ligne. Le temps nécessaire à l’exécution du basculement inclut les actions suivantes :
+**Objectif de délai de récupération (RTO) :** le RTO est une mesure de la durée nécessaire pour effectuer le basculement et replacer le compte de stockage en ligne. Le temps nécessaire à l’exécution du basculement inclut les actions suivantes :
 
    * Le temps nécessaire à Microsoft pour déterminer si les données peuvent être récupérées à l’emplacement principal ou si un basculement est nécessaire
    * Le temps nécessaire à l’exécution du basculement du compte de stockage en modifiant les entrées DNS principales pour pointer vers l’emplacement secondaire
@@ -44,9 +44,9 @@ Certaines considérations à prendre en compte lors de l’utilisation du stocka
 Microsoft prend la responsabilité de conserver vos données de manière rigoureuse. Si la récupération des données dans la région principale est possible, Microsoft retarde le basculement et se concentre sur la récupération de vos données. 
 
 ## <a name="paired-regions"></a>Régions jumelées 
-Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La région secondaire couplée est déterminée en fonction de la région primaire et n’est pas modifiable. Pour des informations actuelles sur les régions prises en charge par Azure, consultez [Continuité d’activité et reprise d’activité (BCDR) : régions couplées Azure](../../best-practices-availability-paired-regions.md).
+Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La région secondaire couplée est déterminée en fonction de la région primaire et n’est pas modifiable. Pour obtenir des informations actuelles sur les régions prises en charge par Azure, consultez [Continuité d’activité et reprise d’activité (BCDR) : régions couplées Azure](../../best-practices-availability-paired-regions.md).
 
 ## <a name="see-also"></a>Voir aussi
 - [Réplication Azure Storage](storage-redundancy.md)
-- [Stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure](storage-redundancy-lrs.md)
-- [Stockage redondant interzone (ZRS) : applications de stockage Azure hautement disponibles](storage-redundancy-zrs.md)
+- [Stockage localement redondant (LRS) : redondance des données à faible coût pour Stockage Azure](storage-redundancy-lrs.md)
+- [Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles](storage-redundancy-zrs.md)

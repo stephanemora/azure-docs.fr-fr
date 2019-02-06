@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278455"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472642"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Création et gestion de tâches de bases de données SQL élastiques à l’aide de PowerShell (version préliminaire)
 
@@ -189,7 +189,7 @@ Le tableau suivant répertorie les types d’objets des **tâches de bases de do
 </table>
 
 ## <a name="supported-elastic-database-jobs-group-types"></a>Types de groupe des tâches de bases de données élastiques prises en charge
-La tâche exécute les scripts Transact-SQL (T-SQL) ou l’application de DACPAC sur un groupe de bases de données. Lorsqu’une tâche est soumise pour être exécutée sur un groupe de bases de données, la tâche « se développe » dans des tâches enfants dans lesquelles chaque tâche effectue l’exécution requise sur une seule base de données du groupe. 
+La tâche exécute les scripts Transact-SQL (T-SQL) ou l’application de DACPAC sur un groupe de bases de données. Lorsqu’une tâche est soumise pour être exécutée sur un groupe de bases de données, la tâche « se développe » dans des tâches enfants dans lesquelles chaque tâche effectue l’exécution demandée sur une seule base de données individuelle du groupe. 
 
 Vous pouvez créer deux types de groupes : 
 
@@ -417,18 +417,18 @@ Les stratégies d'exécution permettent de définir :
 * Nom : identificateur de la stratégie d’exécution.
 * Délai d’attente de la tâche : délai avant l’annulation d’une tâche par Tâches de base de données élastique.
 * Intervalle avant nouvelle tentative initiale : intervalle d’attente avant la première nouvelle tentative.
-* Intervalle maximal avant nouvelle tentative : plafond des intervalles avant nouvelle tentative à utiliser.
-* Coefficient d’interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives.  La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) * Math.pow ((coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2). 
-* Nombre maximal de tentatives : le nombre maximal de nouvelles tentatives effectuées dans une tâche.
+* Intervalle maximal avant nouvelle tentative : plafond des intervalles avant nouvelle tentative à utiliser.
+* Coefficient d’interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives.  La formule utilisée est la suivante : (intervalle avant nouvelle tentative initiale) * Math.pow ((coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2). 
+* Nombre maximal de tentatives : nombre maximal de nouvelles tentatives effectuées dans une tâche.
 
 La stratégie d'exécution par défaut utilise les valeurs suivantes :
 
-* Nom : la stratégie d’exécution par défaut
-* Délai d’attente de la tâche : 1 semaine
-* Intervalle avant nouvelle tentative initiale :  100 millisecondes
-* Intervalle maximal avant nouvelle tentative : 30 minutes
-* Coefficient de l’intervalle avant nouvelle tentative : 2
-* Nombre maximal de tentatives : 2 147 483 647
+* Nom : stratégie d’exécution par défaut
+* Délai d’attente de la tâche : 1 semaine
+* Intervalle avant nouvelle tentative initiale :  100 millisecondes
+* Intervalle maximal avant nouvelle tentative : 30 minutes
+* Coefficient de l’intervalle avant nouvelle tentative : 2
+* Nombre maximal de tentatives : 2 147 483 647
 
 Créez la stratégie d'exécution souhaitée :
 

@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 1f2dcb43878359d20d737cef6ceb492eb79b7f4c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602344"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468323"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Surveillance et optimisation des performances
 
-Azure SQL Database est un service de données flexible et géré automatiquement dans lequel vous pouvez facilement superviser l’utilisation, ajouter ou supprimer des ressources (processeur, mémoire, E/S), obtenir des recommandations susceptibles d’améliorer les performances de votre base de données, ou laisser la base de données s’adapter à votre charge de travail et optimiser automatiquement les performances.
+Azure SQL Database est un service de données flexible et géré automatiquement dans lequel vous pouvez facilement superviser l’utilisation, ajouter ou supprimer des ressources (processeur, mémoire, E/S), obtenir des suggestions susceptibles d’améliorer les performances de votre base de données, ou laisser la base de données s’adapter à votre charge de travail et optimiser automatiquement les performances.
 
 ## <a name="monitoring-database-performance"></a>Supervision des performances de la base de données
 
@@ -34,14 +34,14 @@ Vous disposez des options suivantes pour la surveillance et la résolution des p
 - Utilisez [SQL Database Advisor](sql-database-advisor-portal.md) pour obtenir des recommandations concernant la création et la suppression d’index, le paramétrage des requêtes et la résolution des problèmes de schéma.
 - Utilisez [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) pour le monitoring automatique des performances de votre base de données. Si un problème de performances est détecté, un journal de diagnostic est généré avec les détails correspondants et une analyse de la cause première du problème. Des recommandations sur l’amélioration des performances sont fournies quand cela est possible.
 - [Activez le réglage automatique](sql-database-automatic-tuning-enable.md) et laissez Azure SQL Database corriger automatiquement les problèmes de performances identifiés.
-- Utilisez des [vues de gestion dynamique (DMV)](sql-database-monitoring-with-dmvs.md), des [événements étendus](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-db-diff-from-svr) et le [magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) pour savoir comment corriger les problèmes de performances.
+- Utilisez des [vues de gestion dynamique (DMV)](sql-database-monitoring-with-dmvs.md), des [événements étendus](sql-database-xevent-db-diff-from-svr.md) et le [magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) pour savoir comment corriger les problèmes de performances.
 
 > [!TIP]
 > Consultez les [conseils sur les performances](sql-database-performance-guidance.md) pour connaître les techniques que vous pouvez utiliser afin d’améliorer les performances d’Azure SQL Database après avoir identifié l’origine du problème de performances au moyen de l’une des méthodes ci-dessus.
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Analyser des bases de données au moyen du portail Azure
 
-Dans le [Portail Azure](https://portal.azure.com/), vous pouvez superviser l’utilisation d’une base de données unique en sélectionnant votre base de données et en cliquant sur le graphique **Surveillance**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+Dans le [portail Azure](https://portal.azure.com/), vous pouvez superviser l’utilisation de bases de données individuelles en sélectionnant votre base de données et en cliquant sur le graphique **Surveillance**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
 
 - Pourcentage UC
 - Pourcentage DTU
@@ -204,7 +204,7 @@ Comme illustré dans le graphique précédent, les attentes les plus courantes s
 
 Enfin, si aucun élément ne peut être modifié pour améliorer les performances de votre base de données, vous pouvez modifier la quantité de ressources disponibles dans Azure SQL Database. Vous pouvez affecter davantage de ressources en modifiant le [niveau de service DTU](sql-database-service-tiers-dtu.md) d’une base de données unique, ou augmenter les eDTU d’un pool élastique à tout moment. Ou, si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), vous pouvez changer le niveau de service ou augmenter les ressources allouées à votre base de données.
 
-1. Pour les bases de données uniques, vous pouvez [modifier les niveaux de service](sql-database-service-tiers-dtu.md) et les [ressources de calcul](sql-database-service-tiers-vcore.md) à la demande afin d’améliorer les performances.
+1. Pour les bases de données uniques, vous pouvez [modifier les niveaux de service](sql-database-single-database-scale.md) et les [ressources de calcul](sql-database-single-database-scale.md) à la demande afin d’améliorer les performances.
 2. S’il existe plusieurs bases de données, envisagez d’utiliser des [pools élastiques](sql-database-elastic-pool-guidance.md) pour une mise à l’échelle automatique des ressources.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Régler et refactoriser le code d’une application ou d’une base de données

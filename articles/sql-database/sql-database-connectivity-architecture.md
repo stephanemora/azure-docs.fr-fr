@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388339"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469109"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -34,7 +34,7 @@ Cet article décrit l'architecture de la connectivité Azure SQL Database et SQL
 >
 > Les utilisateurs des points de terminaison de service peuvent encore être affectés dans les scénarios suivants :
 > - L'application se connecte rarement à un serveur existant, de sorte que notre télémétrie n'a pas capturé les informations relatives à cette application.
-> - La logique de déploiement automatisé crée un serveur logique en supposant que le comportement par défaut des connexions aux points de terminaison de service est `Proxy`.
+> - La logique de déploiement automatisé crée un serveur SQL Database en supposant que le comportement par défaut des connexions aux points de terminaison de service est `Proxy`
 >
 > Si les connexions des points de terminaison de service n'ont pas pu être établies avec Azure SQL Server et que vous pensez être affecté par ce changement, vérifiez que le type de connexion est explicitement défini sur `Redirect`. Si tel est le cas, vous devez ouvrir les règles de pare-feu VM et les groupes de sécurité réseau (NSG) à toutes les adresses IP Azure de la région qui appartiennent à la [balise de service​​](../virtual-network/security-overview.md#service-tags) SQL pour les ports 11000-12000. Si cette option ne vous convient pas, basculez explicitement le serveur vers `Proxy`.
 > [!NOTE]

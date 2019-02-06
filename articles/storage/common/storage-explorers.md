@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.component: common
-ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c45c70055817eeeed19f9c8a832a76b10beceaa6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526196"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467031"
 ---
 # <a name="azure-storage-client-tools"></a>Outils clients d’Azure Storage
 Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher/d’interagir avec leurs données à l’aide d’un outil client d’Azure Storage. Dans les tableaux ci-dessous, nous répertorions un certain nombre d’outils qui vous permettent de le faire. Nous avons placé un « X » dans chaque bloc si l’outil offre la possibilité d’énumérer et/ou d’accéder à l’abstraction des données. Le tableau indique également si l’outil est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais que le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.
@@ -36,7 +36,7 @@ Ceci n’est qu’un aperçu des outils clients Azure Storage disponibles. Ces o
   </tr>
   <tr>
     <td>Web</td>
-    <td>Windows</td>
+    <td> Windows</td>
     <td>OSX</td>
     <td>Linux</td>
   </tr>
@@ -102,12 +102,12 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
   </tr>
   <tr>
     <td>Web</td>
-    <td>Windows</td>
+    <td> Windows</td>
     <td>OSX</td>
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata : Azure Management Studio</a></td>
+    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata : Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -121,7 +121,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate : Azure Explorer</a></td>
+    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate : Azure Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -177,7 +177,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf : AzureXplorer, CloudXplorer, TableXplorer</a></td>
+    <td><a href="http://clumsyleaf.com">ClumsyLeaf : AzureXplorer, CloudXplorer, TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2018
+ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6f571655bb0501f8ef4018bf47588c8db4cc2a3e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384885"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097660"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Services et technologies de sécurité disponibles sur Azure
 
@@ -84,7 +84,11 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 | [Groupes&nbsp;de sécurité&nbsp;réseau](../virtual-network/virtual-networks-nsg.md)| Fonctionnalité de contrôle d’accès basée sur le réseau utilisant un tuple de 5 éléments pour prendre les décisions d’autoriser ou de refuser.  |
 | [Passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)| Appareil réseau utilisé comme un point de terminaison de réseau privé virtuel pour autoriser les accès locaux à des réseaux virtuels Azure.  |
 | [Application Gateway Azure](../application-gateway/application-gateway-introduction.md)|Équilibreur de charge pour les applications web avancées qui peut router en fonction des URL et effectuer un déchargement SSL. |
+|[Pare-feu d’applications web](../application-gateway/waf-overview.md) (WAF)|Fonctionnalité d’Application Gateway qui permet de protéger de manière centralisée vos applications web contre les vulnérabilités courantes et le code malveillant exploitant.|
 | [Équilibrage de charge Azure](../load-balancer/load-balancer-overview.md)|Équilibreur de charge réseau pour les applications TCP/UDP. |
 | [Azure ExpressRoute](../expressroute/expressroute-introduction.md)| Lien WAN dédié entre des réseaux locaux et des réseaux virtuels Azure. |
 | [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)| Équilibreur de charge DNS global.|
 | [Proxy d’application Azure](../active-directory/active-directory-application-proxy-get-started.md)| Frontend d’authentification utilisé pour sécuriser l’accès à distance pour des applications web hébergées en local. |
+|[Pare-feu Azure](../firewall/overview.md)|Service de sécurité réseau cloud managé qui protège vos ressources Réseau virtuel Azure.|
+|[Protection DDoS Azure](../virtual-network/ddos-protection-overview.md)|Associé aux bonnes pratiques de conception d’application, assure une excellente protection contre les attaques DDoS.|
+|[Points de terminaison du service Réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)|Étend votre espace d’adressage privé de réseau virtuel et l’identité de votre réseau virtuel aux services Azure, par le biais d’une connexion directe.|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: b5c07c7d142e231c945906d6e75ce16a5bb1d252
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3a796733f5987f4cc550a606e06166395d1595cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985979"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156652"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
 ## <a name="overview"></a>Vue d’ensemble
@@ -78,7 +78,7 @@ Les points de terminaison HTTP sont automatiquement répertoriés dans la liste 
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -198,7 +198,7 @@ Lors du déploiement de l’application, vous pouvez passer ces valeurs en tant 
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Remarque : Si les valeurs affectées à ApplicationParameters sont vides, on revient à la valeur par défaut fournie dans ServiceManifest pour le nom EndPointName correspondant.
+Remarque : Si les valeurs fournies pour ApplicationParameters sont vides, on revient à la valeur par défaut fournie dans ServiceManifest pour le EndPointName correspondant.
 
 Par exemple : 
 
@@ -214,4 +214,4 @@ Si, dans ServiceManifest, vous avez spécifié :
 
 Et que la valeur Port1 et Protocol1 des paramètres d’application est Null ou vide. Le port est toujours déterminé par ServiceFabric. Et Protocol a la valeur tcp.
 
-Supposons que vous spécifiez une valeur incorrecte. Par exemple, pour Port, vous avez spécifié la valeur de chaîne « Foo » au lieu d’un entier.  La commande New-ServiceFabricApplication échouera avec une erreur : « The override parameter with name ’ServiceEndpoint1’ attribute ’Port1’ in section ’ResourceOverrides’ is invalid. The value specified is ’Foo’ and required is ’int’. » (Le paramètre de remplacement portant le nom « ServiceEndpoint1 » pour l’attribut « Port1 » dans la section « ResourceOverrides » n’est pas valide. La valeur spécifiée est « Foo » alors que le type « int » est requis.)
+Supposons que vous spécifiez une valeur incorrecte. Par exemple, pour Port, vous avez spécifié la valeur de chaîne « Foo » au lieu d’un entier.  La commande New-ServiceFabricApplication échoue avec l’erreur suivante : « The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is ’Foo’ and required is ’int’. » (Le paramètre de remplacement portant le nom « ServiceEndpoint1 » pour l’attribut « Port1 » dans la section « ResourceOverrides » n’est pas valide. La valeur spécifiée est « Foo » alors que le type « int » est requis.)

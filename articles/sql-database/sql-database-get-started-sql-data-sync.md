@@ -11,15 +11,15 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/08/2018
-ms.openlocfilehash: eb788c07ed9424ae6d5beed5be11c71a11c62265
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/25/2018
+ms.openlocfilehash: 03ea4a7db27e32b370be89adf308ded9a22f9e37
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304276"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478421"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutoriel : configurer SQL Data Sync entre Azure SQL Database et SQL Server en local
+# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Didacticiel : configurer SQL Data Sync entre Azure SQL Database et SQL Server en local
 
 Dans ce tutoriel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation contenant des instances SQL Database et SQL Server. Le groupe de synchronisation est configuré de manière personnalisée et se synchronise selon la planification définie.
 
@@ -71,17 +71,17 @@ Dans la section **Base de données Hub**, entrez les informations d’identifica
 
 ### <a name="to-add-an-azure-sql-database"></a>Pour ajouter une base de données SQL Azure
 
-Dans la section **Base de données membre**, ajoutez éventuellement une base de données Azure SQL Database au groupe de synchronisation en sélectionnant **Ajouter une base de données Azure**. La page **Configurer une base de données Azure** s’ouvre.
+Dans la section **Base de données membre**, ajoutez éventuellement une base de données Azure SQL Database au groupe de synchronisation en sélectionnant **Add an Azure SQL Database** (Ajouter une instance Azure SQL Database). La page **Configure Azure SQL Database** (Configurer Azure SQL Database) s’ouvre.
 
   ![Étape 2 : configurer la base de données](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  Dans la page **Configurer une base de données Azure**, changez les paramètres suivants :
+  Dans la page **Configure Azure SQL Database** (Configurer Azure SQL Database), changez les paramètres suivants :
 
   | Paramètre                       | Description |
   | ----------------------------- | ------------------------------------------------- |
   | **Nom du membre de synchronisation** | Entrez le nom du nouveau membre de synchronisation. Ce nom est différent de celui de la base de données. |
   | **Abonnement** | Sélectionnez l’abonnement Azure associé en vue de la facturation. |
-  | **Azure SQL Server** | Sélectionnez le serveur de base de données SQL existant. |
+  | **Azure SQL Server** | Sélectionnez le serveur SQL Database existant. |
   | **Base de données SQL Azure** | Sélectionnez la base de données SQL existante. |
   | **Sens de la synchronisation** | Sélectionnez **Synchronisation bidirectionnelle**, **Vers le hub** ou **À partir du hub**. |
   | **Nom d’utilisateur** et **Mot de passe** | Entrez les informations d’identification existantes du serveur SQL Database qui héberge la base de données membre. N’entrez pas de *nouvelles* informations d’identification dans cette section. |

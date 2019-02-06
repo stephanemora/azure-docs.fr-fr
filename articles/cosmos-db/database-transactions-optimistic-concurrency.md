@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5af305a2e0d4754cf4fad8557db9d367c828ecc5
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 044fe3de265d298ecd366a50b9db77eeea32bbb7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389102"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457936"
 ---
-# <a name="database-transactions-and-optimistic-concurrency-control"></a>Transactions de base de données et contrôle d’accès concurrentiel optimiste
+# <a name="transactions-and-optimistic-concurrency-control"></a>Transactions et contrôle d’accès concurrentiel optimiste
 
 Les transactions de base de données offrent un modèle de programmation prédictif et sécurisé pour gérer les modifications simultanées des données. Les bases de données relationnelles classiques, telles que SQL Server, vous permettent d’écrire la logique métier à l’aide de procédures stockées et/ou de déclencheurs, de l’envoyer au serveur pour une exécution directe dans le moteur de base de données. Avec les bases de données relationnelles classiques, vous êtes amené à traiter deux langages de programmation différents : le langage de programmation d’application non transactionnel (JavaScript, Python, C#, Java, etc.) et le langage de programmation transactionnel (T-SQL) exécuté en mode natif par la base de données.
 

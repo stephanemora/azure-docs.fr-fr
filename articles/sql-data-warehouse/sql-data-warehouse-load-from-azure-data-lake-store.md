@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c3902061264b75ba177ba150176d784ad5384a9f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 32ac5b0841365acfc0a52e343eafc4f3760dffaa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297194"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472222"
 ---
 # <a name="load-data-from-azure-data-lake-storage-gen1-to-sql-data-warehouse"></a>Chargement de données Azure Data Lake Storage Gen1 dans SQL Data Warehouse
 Utilisez des tables externes PolyBase pour charger des données Azure Data Lake Storage Gen1 dans Azure SQL Data Warehouse. Même si vous pouvez exécuter des requêtes ad hoc sur des données stockées dans Data Lake Storage Gen1, nous vous recommandons d’importer les données dans SQL Data Warehouse pour de meilleures performances.
@@ -40,7 +40,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un entrepôt de données SQL Azure. Consultez [Créer et interroger un entrepôt de données SQL Azure](create-data-warehouse-portal.md).
 
-* Compte Data Lake Storage Gen1. Consultez [Prise en main d’Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md). 
+* Un compte Data Lake Storage Gen1. Consultez [Prise en main d’Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md). 
 
 ##  <a name="create-a-credential"></a>Créer des informations d’identification
 Pour accéder à votre compte Data Lake Storage Gen1, vous devez créer une clé principale de base de données afin de chiffrer les informations secrètes d’identification au cours de l’étape suivante. Créez ensuite des informations d’identification incluses dans l’étendue de la base de données, qui stockent les informations d’identification du principal du service configurées dans AAD. Pour ceux d'entre vous qui ont utilisé PolyBase pour se connecter à des objets blob Windows Azure Storage, notez que la syntaxe des informations d’identification est différente.
@@ -171,7 +171,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Optimiser la compression columnstore
-Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cela peut être dû à diverses raisons. Pour plus d’informations, consultez [Gérer les index Columnstore](sql-data-warehouse-tables-index.md).
+Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cela peut être dû à diverses raisons. Pour plus d’informations, consultez [Gérer les index columnstore](sql-data-warehouse-tables-index.md).
 
 Pour optimiser les performances des requêtes et la compression du columnstore après un chargement, reconstruisez la table afin de forcer l’index columnstore à compresser toutes les lignes.
 
@@ -184,7 +184,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## <a name="optimize-statistics"></a>Optimiser les statistiques
 Il est préférable de créer des statistiques sur une colonne immédiatement après un chargement. Les statistiques offrent plusieurs possibilités. Par exemple, si vous créez des statistiques sur une colonne pour chaque colonne, il faudra peut-être beaucoup de temps pour reconstruire toutes les statistiques. S’il est certain que des colonnes ne se trouveront pas dans les prédicats de requête, vous pouvez ignorer la création des statistiques sur ces colonnes.
 
-Si vous décidez de créer des statistiques sur une colonne pour chaque colonne de chaque table, vous pouvez utiliser l’exemple de code de procédure stockée `prc_sqldw_create_stats` dans l’article portant sur les [statistiques](sql-data-warehouse-tables-statistics.md).
+Si vous décidez de créer des statistiques sur une colonne pour chaque colonne de chaque table, vous pouvez utiliser l’exemple de code de procédure stockée `prc_sqldw_create_stats` dans l’article portant sur les [statistiques](sql-data-warehouse-tables-statistics.md) .
 
 L’exemple suivant est un bon point de départ pour la création de statistiques. Il permet de créer des statistiques sur une colonne pour chaque colonne de la table de dimension, et chaque colonne de jointure des tables de faits. Vous pouvez toujours ajouter ultérieurement des statistiques sur une ou plusieurs colonnes dans d’autres colonnes de table de faits.
 

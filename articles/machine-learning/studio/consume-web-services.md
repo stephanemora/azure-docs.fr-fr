@@ -1,8 +1,21 @@
 ---
-titre : Utiliser le service web - titleSuffix : Description d'Azure Machine Learning Studio : Une fois qu’un service de machine learning a été déployé à partir d’Azure Machine Learning Studio, le service web RESTful peut être utilisé soit en tant que service de requête-réponse en temps réel, soit en tant que service d’exécution par lot.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/06/2017
+title: Utiliser un service web
+titleSuffix: Azure Machine Learning Studio
+description: Une fois qu’un service de machine learning a été déployé à partir d’Azure Machine Learning Studio, le service web RESTful peut être utilisé soit en tant que service de requête-réponse en temps réel, soit en tant que service d’exécution par lot.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 06/02/2017
+ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464379"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Guide pratique pour utiliser un service web Azure Machine Learning Studio
 

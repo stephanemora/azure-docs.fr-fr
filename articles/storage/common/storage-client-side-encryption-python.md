@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: 6a6508393fe935b456cde815d35f2fd4447cd2d4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528120"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453397"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Chiffrement côté client avec Python pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -125,12 +125,12 @@ Après avoir créé un objet de service de stockage (c'est-à-dire blockblobserv
 
 La KEK doit implémenter les méthodes suivantes pour chiffrer des données :
 
-* wrap_key(cek) : encapsule la clé de chiffrement de contenu (CEK) spécifiée (octets) à l’aide d’un algorithme choisi par l’utilisateur. Retourne la clé encapsulée.
-* get_key_wrap_algorithm() : retourne l’algorithme utilisé pour encapsuler les clés.
-* get_kid() : retourne l’ID de clé de type chaîne pour cette KEK.
+* wrap_key(cek) : encapsule la clé de chiffrement de contenu (CEK) spécifiée (octets) à l’aide d’un algorithme choisi par l’utilisateur. Retourne la clé encapsulée.
+* get_key_wrap_algorithm() : retourne l’algorithme utilisé pour encapsuler les clés.
+* get_kid() : retourne l’ID de clé de type chaîne pour cette clé KEK.
   La KEK doit implémenter les méthodes suivantes pour déchiffrer des données :
-* unwrap_key(cek, algorithm) : retourne la forme encapsulée de la CEK spécifiée à l’aide de l’algorithme de la chaîne spécifiée.
-* get_kid() : retourne un ID de clé de type chaîne pour cette KEK.
+* unwrap_key(cek, algorithm) : retourne la forme désencapsulée de la clé CEK spécifiée à l’aide de l’algorithme spécifié par la chaîne.
+* get_kid() : retourne un ID de clé de type chaîne pour cette clé KEK.
 
 Le programme de résolution de clé doit implémenter au moins une méthode qui, avec un ID de clé, retourne la KEK correspondante qui implémente l’interface ci-dessus. Seule cette méthode doit être affectée à la propriété key_resolver_function sur l’objet de service.
 

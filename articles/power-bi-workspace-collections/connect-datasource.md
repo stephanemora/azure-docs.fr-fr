@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: c626601d9eae7732779020b153c624f80605b56a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fcf18731bd5b9bbe91541931ac68effd9de6debf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051873"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104692"
 ---
 # <a name="connect-to-a-data-source"></a>Se connecter à une source de données
 
@@ -30,7 +30,7 @@ Voici les différences entre l’**importation** et l’utilisation de **DirectQ
 | --- | --- |
 | Les tables, colonnes *et données* sont importées ou copiées dans le jeu de données du rapport. Pour voir les modifications apportées aux données sous-jacentes, vous devez actualiser ou réimporter un jeu de données à jour et complet. |Seules les *tables et colonnes* sont importées ou copiées dans le jeu de données du rapport. Vous visualisez toujours les données les plus récentes. |
 
-Les collections d’espaces de travail Power BI vous permettent d’utiliser DirectQuery avec des sources de données cloud mais pas des sources de données locales, pour l’instant.
+Pour l’instant, les collections d’espaces de travail Power BI vous permettent d’utiliser DirectQuery avec des sources de données cloud mais pas des sources de données locales.
 
 > [!NOTE]
 > La passerelle de données locale n’est pas prise en charge avec les collections d’espaces de travail Power BI pour l’instant. Cela signifie que vous ne pouvez pas utiliser DirectQuery avec des sources de données locales.

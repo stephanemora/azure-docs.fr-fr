@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: cwatson
+ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: de7b0a2746c79242cb6538595ca3205455a2cc5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f83499e52b6405ec5475795a80c5a4325043a441
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582738"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904486"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Comprendre comment la remise de réservation est appliquée à Azure Cosmos DB
 
@@ -70,7 +70,7 @@ La remise de réservation est appliquée aux coûts de débit d’Azure Cosmos D
 
 Imaginons les exigences suivantes pour une réservation :
 
-* Débit requis : 50 000 RU/s  
+* Débit nécessaire : 50 000 RU/s  
 * Régions utilisées : 2 
 
 Dans ce cas, votre total de frais à la demande correspond à une quantité de 500, par compteur de 100 RU/s dans ces deux régions. La consommation de RU/s totale est de 100 000 par heure. 
@@ -79,7 +79,7 @@ Dans ce cas, votre total de frais à la demande correspond à une quantité de 5
 
 Par exemple, supposons que vous avez besoin de déployer Azure Cosmos DB dans les régions USA Centre Nord et USA Ouest. Chaque région dispose d’une consommation de débit de 50 000 RU/s. un achat de réservation de 100 000 RU/s couvrirait complètement vos frais à la demande.
 
-La remise qu’une réservation couvre est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Pour les régions USA Centre Nord et USA Ouest, le taux de la remise de réservation est 1. Ainsi, la remise totale de RU/s est de 100 000. Cette valeur est calculée comme suit : 50 000 * 1 + 50 000 * 1 = 100 000 RU/s. Vous ne payez aucun frais supplémentaire au tarif habituel du paiement à l’utilisation. 
+La remise qu’une réservation couvre est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Pour les régions USA Centre Nord et USA Ouest, le taux de la remise de réservation est 1. Ainsi, la remise totale de RU/s est de 100 000. Cette valeur est calculée comme suit . 50 000 * 1 + 50 000 * 1 = 100 000 RU/s. Vous ne payez aucun frais supplémentaire au tarif habituel du paiement à l’utilisation. 
 
 |Description du compteur | Région |Consommation de débit (RU/s) |Remise de réservation appliquée aux RU/s |
 |---------|---------|---------|---------|
@@ -95,9 +95,9 @@ Par exemple, supposons que vous avez besoin de déployer Azure Cosmos DB dans le
 |Azure Cosmos DB - 100 RU/s/heure - Australie Centre 2  |  Australie Centre 2   |  50 000  |  50 000   |
 |Azure Cosmos DB - 100 RU/s/heure - France Sud  |  France Sud   |  50 000 |  15 384  |
 
-Une utilisation de 50 000 unités dans la région Australie Centre 2 correspond à 75 000 RU/s d’utilisation facturable (ou utilisation normalisée). Cette valeur est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Le total est de 75 000 RU/s d’utilisation facturable ou normalisée. Cette valeur est calculée comme suit : 50 000 * 1,5 = 75 000 RU/s.
+Une utilisation de 50 000 unités dans la région Australie Centre 2 correspond à 75 000 RU/s d’utilisation facturable (ou utilisation normalisée). Cette valeur est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Le total est de 75 000 RU/s d’utilisation facturable ou normalisée. Cette valeur est calculée comme suit . 50 000 * 1.5 = 75 000 RU/s.
 
-L’achat d’une réservation de 100 000 RU/s absorbe les 75 000 RU/s dans la région Australie Centre 2. Il reste 25 000 RU/s pour la région France Sud. Sur les 25 000 RU/s restantes, une remise de réservation de 15 384 RU/s est appliquée à la région France Sud. Cette valeur de remise est calculée comme suit : 25 000 / 1,625 = 15 384 RU/s. Les 34 616 RU/s restantes dans la région France Sud sont facturées au tarif habituel du paiement à l’utilisation. 
+L’achat d’une réservation de 100 000 RU/s absorbe les 75 000 RU/s dans la région Australie Centre 2. Il reste 25 000 RU/s pour la région France Sud. Sur les 25 000 RU/s restantes, une remise de réservation de 15 384 RU/s est appliquée à la région France Sud. Cette valeur de remise est calculée comme suit : 25 000 / 1,625 = 15 384 RU/s. Les 34 616 RU/s restantes dans la région France Sud sont facturées au tarif habituel du paiement à l’utilisation. 
 
 Le système de facturation Azure fait bénéficier de l’avantage lié à la facturation de la réservation, la première instance qui est traitée et qui satisfait à la configuration de la réservation. En l’occurrence, dans notre exemple, Australie Centre 2.
 

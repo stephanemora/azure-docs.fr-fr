@@ -11,20 +11,20 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/09/2018
-ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056333"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471145"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Récupération d’urgence d’une application SaaS multi-locataire à l’aide de la géoréplication de bases de données
 
-Dans ce didacticiel, vous examinez un scénario complet de récupération d’urgence pour une application SaaS multi-locataire implémentée à l’aide du modèle de base de données par locataire. Afin de protéger l’application contre les pannes, vous utilisez la [_géoréplication_](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) pour créer des réplicas de bases de données de catalogue et de locataire dans une autre région de récupération. En cas de panne, vous basculez rapidement vers ces réplicas pour reprendre les opérations normales. Lors du basculement, les bases de données dans la région d’origine deviennent des réplicas secondaires des bases de données dans la région de récupération. Après leur retour en ligne, les réplicas reprennent automatiquement l’état des bases de données dans la région de récupération. Une fois la panne résolue, vous restaurez automatiquement les bases de données dans la région de production d’origine.
+Dans ce didacticiel, vous examinez un scénario complet de récupération d’urgence pour une application SaaS multi-locataire implémentée à l’aide du modèle de base de données par locataire. Afin de protéger l’application contre les pannes, vous utilisez la [_géoréplication_](sql-database-geo-replication-overview.md) pour créer des réplicas de bases de données de catalogue et de locataire dans une autre région de récupération. En cas de panne, vous basculez rapidement vers ces réplicas pour reprendre les opérations normales. Lors du basculement, les bases de données dans la région d’origine deviennent des réplicas secondaires des bases de données dans la région de récupération. Après leur retour en ligne, les réplicas reprennent automatiquement l’état des bases de données dans la région de récupération. Une fois la panne résolue, vous restaurez automatiquement les bases de données dans la région de production d’origine.
 
 Ce didacticiel explore les flux de travail de basculement et de restauration automatique. Vous découvrirez comment effectuer les actions suivantes :
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Synchroniser les informations de configuration des bases de données et du pool élastique dans le catalogue du locataire
 >* Configurer un environnement de récupération dans une autre région, comprenant une application, des serveurs et des pools
@@ -53,9 +53,9 @@ Un plan de récupération d’urgence basé sur la géoréplication comprend tro
 Toutes les parties doivent être examinées avec précaution, surtout en cas de fonctionnement maximum. Globalement, le plan doit atteindre plusieurs objectifs :
 
 * Paramétrage
-    * Créer un environnement miroir dans la région de récupération et en assurer la maintenance. La création de pools élastiques et la réplication de bases de données uniques dans cet environnement de récupération assurent une capacité de réserve dans la région de récupération. La maintenance de cet environnement comprend la réplication des nouvelles bases de données de locataire, au fur et à mesure de leur approvisionnement.  
+    * Créer un environnement miroir dans la région de récupération et en assurer la maintenance. La création de pools élastiques et la réplication de bases de données dans cet environnement de récupération assurent une capacité de réserve dans la région de récupération. La maintenance de cet environnement comprend la réplication des nouvelles bases de données de locataire, au fur et à mesure de leur approvisionnement.  
 * Récupération
-    * Lorsque vous utilisez un environnement de récupération dont la taille a été diminuée pour réduire les coûts quotidiens, les pools et les bases de données uniques doivent être mis à l’échelle pour atteindre une capacité opérationnelle complète dans la région de récupération.
+    * Lorsque vous utilisez un environnement de récupération dont la taille a été diminuée pour réduire les coûts quotidiens, les pools et les bases de données doivent être mis à l’échelle pour atteindre une capacité opérationnelle complète dans la région de récupération.
     * Activer l’approvisionnement des nouveaux locataires dans la région de récupération dès que possible  
     * Être optimisé pour restaurer les locataires dans leur ordre de priorité
     * Être optimisé pour mettre les locataires en ligne dès que possible en effectuant des tâches en parallèle le cas échéant
@@ -67,10 +67,10 @@ Toutes les parties doivent être examinées avec précaution, surtout en cas de 
 Dans ce didacticiel, ces tâches sont effectuées à l’aide des fonctionnalités d’Azure SQL Database et de la plateforme Azure :
 
 * [Modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) pour réserver toute la capacité nécessaire aussi rapidement que possible. Les modèles Azure Resource Manager sont utilisés pour approvisionner une image miroir des serveurs de production et des pools élastiques dans la région de récupération.
-* [Géoréplication](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) pour créer des copies secondaires en lecture seule et répliquées de façon asynchrone pour toutes les bases de données. Pendant la panne, vous basculez vers les réplicas dans la région de récupération.  Une fois la panne résolue, vous restaurez automatiquement les bases de données dans la région d’origine sans aucune perte de données.
+* [Géoréplication](sql-database-geo-replication-overview.md) pour créer des copies secondaires en lecture seule et répliquées de façon asynchrone pour toutes les bases de données. Pendant la panne, vous basculez vers les réplicas dans la région de récupération.  Une fois la panne résolue, vous restaurez automatiquement les bases de données dans la région d’origine sans aucune perte de données.
 * Opérations de basculement [asynchrones](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) transmises dans l’ordre de priorité des locataires, pour minimiser le temps de basculement d’un grand nombre de bases de données.
-* [Fonctionnalités de récupération de gestion de partition](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) pour modifier les entrées de base de données dans le catalogue pendant la récupération et le rapatriement. Ces fonctionnalités permettent à l’application de se connecter aux bases de données de locataire, quel que soit l’emplacement, sans reconfigurer l’application.
-* [Alias DNS de serveur SQL](https://docs.microsoft.com/azure/sql-database/dns-alias-overview), pour activer l’approvisionnement transparent des nouveaux locataires, quelle que soit la région dans laquelle l’application fonctionne. Les alias DNS permettent également au processus de synchronisation des catalogues de se connecter au catalogue actif, quel que soit son emplacement.
+* [Fonctionnalités de récupération de gestion de partition](sql-database-elastic-database-recovery-manager.md) pour modifier les entrées de base de données dans le catalogue pendant la récupération et le rapatriement. Ces fonctionnalités permettent à l’application de se connecter aux bases de données de locataire, quel que soit l’emplacement, sans reconfigurer l’application.
+* [Alias DNS de serveur SQL](dns-alias-overview.md), pour activer l’approvisionnement transparent des nouveaux locataires, quelle que soit la région dans laquelle l’application fonctionne. Les alias DNS permettent également au processus de synchronisation des catalogues de se connecter au catalogue actif, quel que soit son emplacement.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obtenir des scripts de récupération d’urgence 
 
@@ -92,8 +92,8 @@ Ensuite, lors d’une étape distincte de rapatriement, vous basculez les bases 
 Avant de lancer le processus de récupération, examinez l’état d’intégrité normale de l’application.
 1. Dans votre navigateur web, ouvrez le hub d’événements Wingtip Tickets (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net, remplacez &lt;user&gt; par la valeur d’utilisateur de votre déploiement).
     * Faites défiler la page vers le bas et notez le nom et l’emplacement du serveur de catalogue dans le pied de page. L’emplacement correspond à la région dans laquelle vous avez déployé l’application.
-    *Conseil : placez le pointeur de la souris sur l’emplacement pour agrandir l’affichage.*
-    ![État intègre du hub d’événements dans la région d’origine](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *CONSEIL : placez le pointeur de la souris sur l’emplacement pour agrandir l’affichage.*
+    ![État intègre d’Event Hub dans la région d’origine](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Cliquez sur le locataire Contoso Concert Hall et ouvrez sa page d’événement.
     * Dans le pied de page, notez le nom du serveur du locataire. L’emplacement sera le même que celui du serveur de catalogue.
@@ -126,7 +126,7 @@ Laissez la fenêtre PowerShell ouverte en arrière-plan et poursuivez le didacti
 Dans cette tâche, vous démarrez un processus qui déploie une instance d’application en double et réplique le catalogue ainsi que toutes les bases de données de locataire dans une région de récupération.
 
 > [!Note]
-> Ce didacticiel ajoute une protection de la géoréplication dans l’application exemple Wingtip Tickets. Dans un scénario de production, pour une application qui utilise la géoréplication, chaque locataire est approvisionné avec une base de données géorépliquée dès le début. Consultez [Conception de services hautement disponibles à l’aide d’Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime).
+> Ce didacticiel ajoute une protection de la géoréplication dans l’application exemple Wingtip Tickets. Dans un scénario de production, pour une application qui utilise la géoréplication, chaque locataire est approvisionné avec une base de données géorépliquée dès le début. Consultez [Conception de services hautement disponibles à l’aide d’Azure SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime).
 
 1. Dans l’*ISE PowerShell*, ouvrez le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 et configurez la valeur suivante :
     * **$DemoScenario = 2**, pour créer l’environnement de récupération d’image miroir et répliquer les bases de données de catalogue et de locataire.
@@ -135,12 +135,14 @@ Dans cette tâche, vous démarrez un processus qui déploie une instance d’app
 ![Processus de synchronisation](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>Examiner l’état d’application normal
+
 À ce stade, l’application s’exécute normalement dans la région d’origine et est maintenant protégée par la géoréplication.  Il existe des réplicas secondaires en lecture seule dans la région de récupération pour toutes les bases de données. 
+
 1. Dans le portail Azure, examinez vos groupes de ressources et notez qu’un groupe de ressources a été créé avec le suffixe -recovery dans la région de récupération. 
 
-1. Explorez les ressources du groupe de ressources de récupération.  
+2. Explorez les ressources du groupe de ressources de récupération.  
 
-1. Cliquez sur la base de données Concert Contoso Hell sur le serveur _tenants1-dpt -&lt;utilisateur&gt;-recovery_.  Cliquez sur la géoréplication sur le côté gauche. 
+3. Cliquez sur la base de données Concert Contoso Hell sur le serveur _tenants1-dpt -&lt;utilisateur&gt;-recovery_.  Cliquez sur la géoréplication sur le côté gauche. 
 
     ![Lien de géoréplication de Contoso Concert](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -193,6 +195,7 @@ Le script de récupération effectue les tâches suivantes :
 > Pour explorer le code des travaux de récupération, examinez les scripts PowerShell dans le dossier ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\RecoveryJobs.
 
 ### <a name="review-the-application-state-during-recovery"></a>Examiner l’état de l’application pendant la récupération
+
 Pendant que le point de terminaison de l’application est désactivé dans Traffic Manager, l’application n’est pas disponible. Une fois le catalogue basculé vers la région de récupération et tous les locataires marqués hors connexion, l’application repasse en ligne. Bien que l’application soit disponible, chaque locataire apparaît hors connexion dans le hub d’événements jusqu’à ce que sa base de données soit basculée. Il est important de concevoir votre application pour qu’elle gère les bases de données de locataire hors connexion.
 
 1. Juste après la récupération de la base de données de catalogue, actualisez le hub d’événements Wingtip Tickets dans votre navigateur web.
@@ -301,7 +304,7 @@ Les bases de données de locataire peuvent être réparties entre les régions d
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Synchroniser les informations de configuration des bases de données et du pool élastique dans le catalogue du locataire
 >* Configurer un environnement de récupération dans une autre région, comprenant une application, des serveurs et des pools
@@ -313,4 +316,4 @@ Pour plus d’informations sur les technologies fournies par SQL Azure Database 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Autres didacticiels reposant sur l’application SaaS Wingtip](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Autres didacticiels reposant sur l’application SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

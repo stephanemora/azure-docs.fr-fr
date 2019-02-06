@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 37b88b254b350d5c9e006e882a2dc5a39b880b2c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035421"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477809"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -42,7 +42,7 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
 ## <a name="how-long-are-backups-kept"></a>Quelle est la durée de conservation des sauvegardes ?
 
-Chaque base de données SQL Database a une période de rétention de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du modèle d’achat et du niveau de service. Vous pouvez mettre à jour la période de rétention des sauvegardes pour une base de données sur le serveur logique Azure. Consultez [Modification de la période de conservation](#how-to-change-the-pitr-backup-retention-period) pour plus d’informations.
+Chaque base de données SQL Database a une période de rétention de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du modèle d’achat et du niveau de service. Vous pouvez mettre à jour la période de rétention des sauvegardes d’une base de données sur le serveur SQL Database. Consultez [Modification de la période de conservation](#how-to-change-the-pitr-backup-retention-period) pour plus d’informations.
 
 Si vous supprimez une base de données, SQL Database conserve les sauvegardes de la même façon que s’il s’agissait d’une base de données en ligne. Par exemple, si vous supprimez une base de données De base dont la période de conservation est de sept jours, une sauvegarde datant de quatre jours est enregistrée pendant encore trois jours.
 
@@ -63,7 +63,7 @@ La période de conservation par défaut pour une base de données créée à l�
 
 #### <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
-Si vous utilisez le [modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md), la période de conservation des sauvegardes par défaut est de 7 jours (pour les bases de données uniques, regroupées et dans des instances managées). Pour toutes les bases de données SQL Azure (unique, regroupée et dans des instances managées, vous pouvez [modifier la période de conservation des sauvegardes et la prolonger jusqu’à 35 jours](#how-to-change-the-pitr-backup-retention-period).
+Si vous utilisez le [modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md), la période de rétention des sauvegardes par défaut est de 7 jours (pour les bases de données autonomes, en pool et d’instance). Pour toutes les bases de données SQL Azure (autonomes, en pool et d’instance), vous pouvez [modifier la période de rétention des sauvegardes et la prolonger jusqu’à 35 jours](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Si vous réduisez la période de rétention actuelle, toutes les sauvegardes antérieures à la nouvelle période de rétention ne seront plus disponibles. Si vous augmentez la période de rétention actuelle, SQL Database conserve les sauvegardes existantes jusqu’à ce que la période de rétention plus longue soit atteinte.
@@ -80,7 +80,7 @@ Pour plus d'informations, consultez [Limite de restauration dans le temps](sql-d
 
 ### <a name="backups-for-long-term-retention"></a>Sauvegardes pour la conservation à long terme
 
-SQL Database hébergé dans un serveur logique permet de configurer une conservation à long terme des sauvegardes complètes d’une durée allant jusqu’à 10 ans dans Stockage Blob Azure. Si la stratégie de conservation à long terme est activée, les sauvegardes complètes hebdomadaires sont automatiquement copiées vers un autre conteneur de stockage RA-GRS. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de rétention pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La consommation du stockage dépend de la fréquence sélectionnée des sauvegardes et des périodes de conservation. Vous pouvez utiliser la [calculatrice de prix LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) pour estimer le coût du stockage de conservation à long terme.
+Les bases de données autonomes et en pool permettent de configurer une conservation à long terme des sauvegardes complètes allant jusqu’à 10 ans dans le service Stockage Blob Azure. Si la stratégie de conservation à long terme est activée, les sauvegardes complètes hebdomadaires sont automatiquement copiées vers un autre conteneur de stockage RA-GRS. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de rétention pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La consommation du stockage dépend de la fréquence sélectionnée des sauvegardes et des périodes de conservation. Vous pouvez utiliser la [calculatrice de prix LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) pour estimer le coût du stockage de conservation à long terme.
 
 Comme les sauvegardes PITR, les sauvegardes LTR sont géo-redondantes et protégées par la [réplication entre les régions du stockage Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -111,7 +111,7 @@ Vous pouvez modifier la période de conservation des sauvegardes PITR par défau
 
 Pour changer la période de conservation des sauvegardes PITR dans le portail Azure, accédez à l’objet serveur dont vous souhaitez changer la période de conservation dans le portail, puis sélectionnez l’option appropriée selon l’objet serveur que vous modifiez.
 
-#### <a name="change-pitr-for-a-logical-server"></a>Changer la valeur PITR d’un serveur logique
+#### <a name="change-pitr-for-a-sql-database-server"></a>Modification de la récupération jusqu’à une date et heure d’un serveur SQL Database
 
 ![Modification PITR sur le Portail Azure](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 

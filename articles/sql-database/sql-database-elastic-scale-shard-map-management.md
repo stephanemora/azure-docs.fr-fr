@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 77ef1fed7bbdb53898a688f14944b9b6b16773c7
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/25/2019
+ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200970"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476789"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Monter en charge les bases de données avec le Gestionnaire de cartes de partitions
 
@@ -40,11 +40,11 @@ Pour un modèle monolocataire, créez une carte de partitions de **mappage de li
 
 ![Mappage de liste][1]
 
-Le modèle mutualisé affecte plusieurs clients à une seule base de données (et vous pouvez distribuer des groupes de clients sur plusieurs bases de données). Utilisez ce modèle lorsque vous pensez que chaque client va avoir de faibles besoins en termes de données. Dans ce modèle, attribuez une plage de clients à une base de données à l’aide du **mappage de plage**.
+Le modèle multi-locataire affecte plusieurs locataires à une seule base de données (et vous pouvez distribuer des groupes de locataires sur plusieurs bases de données). Utilisez ce modèle lorsque vous pensez que chaque client va avoir de faibles besoins en termes de données. Dans ce modèle, attribuez une plage de clients à une base de données à l’aide du **mappage de plage**.
 
 ![Mappage de plage][2]
 
-Vous pouvez également implémenter un modèle de base de données mutualisée à l’aide d’un *mappage de liste* pour affecter plusieurs clients à une base de données unique. Par exemple, DB1 est utilisée pour stocker les informations d’ID client 1 et 5 et DB2 stocke les données pour les clients 7 et 10.
+Vous pouvez également implémenter un modèle de base de données multi-locataire à l’aide d’un *mappage de liste* pour affecter plusieurs locataires à une base de données individuelle. Par exemple, DB1 est utilisée pour stocker les informations d’ID client 1 et 5 et DB2 stocke les données pour les clients 7 et 10.
 
 ![Plusieurs clients sur une base de données unique][3]
 
@@ -58,7 +58,7 @@ L’infrastructure élastique prend en charge les types suivants en tant que cl�
 | long |long |
 | GUID |uuid |
 | byte[]  |byte[] |
-| Datetime |  timestamp |
+| Datetime | timestamp |
 | intervalle de temps | duration|
 | datetimeoffset |offsetdatetime |
 

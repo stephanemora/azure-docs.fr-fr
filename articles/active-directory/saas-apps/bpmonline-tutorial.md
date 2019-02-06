@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Bpm’online | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Bpm’online | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bpm’online.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b6fe50b24a20f81500ac1ed5008fcb6c59c0243a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 97b0530f3a260b4ad82c4287b4b37595ab1cf25d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449398"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187332"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Didacticiel : Intégration d’Azure Active Directory à Bpm’online
+# <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Tutoriel : Intégration d’Azure Active Directory à Bpm’online
 
 Dans ce didacticiel, vous allez apprendre à intégrer Bpm’online à Azure Active Directory (Azure AD).
 
@@ -123,7 +123,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Bpm’online](mailto:support@bpmonline.com). 
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+1. Dans la section  **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération de l’application** , puis collez-la dans le Bloc-notes.
     
     ![Configurer l'authentification unique](./media/bpmonline-tutorial/tutorial_metadataurl.png)
      
@@ -167,7 +167,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-bpmonline-test-user"></a>Créer un utilisateur de test Bpm’online
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Bpm’online. Contactez [l’équipe du support technique Bpm’online](mailto:support@bpmonline.com) pour ajouter des utilisateurs à la plateforme Bpm’online. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Bpm’online. Collaborez avec  [l’équipe du support technique de Bpm’online](mailto:support@bpmonline.com)  pour ajouter des utilisateurs à la plateforme Bpm’online. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

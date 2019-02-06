@@ -1,6 +1,6 @@
 ---
-titre : Étape 2 : charger des données dans une expérience Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Étape 2 de la procédure pas à pas : développer une solution prédictive : chargement des données publiques stockées dans Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Étape 2 : charger des données dans une expérience Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Étape 2 de la procédure pas à pas : développer une solution prédictive : chargement des données publiques stockées dans Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 58ba44488e8ef211e7c318fc9ba6497a5b1b69bb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 9a4e47143515c7f9c21d701809c35d61853d91ec
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523272"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471910"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Résolution des problèmes associés à l’outil d’importation/d’exportation Azure
 L’outil Microsoft Azure Import/Export renvoie des messages d’erreur s’il rencontre des problèmes. Cette rubrique répertorie certains des problèmes courants que les utilisateurs peuvent rencontrer.  
@@ -24,7 +24,7 @@ L’outil Microsoft Azure Import/Export renvoie des messages d’erreur s’il r
  Si une nouvelle tentative est possible, par exemple si le partage réseau était déconnecté pendant une courte période et qu’il est de nouveau en ligne, vous pouvez reprendre la session de copie. Si l’erreur n’est pas récupérable, par exemple si vous avez spécifié un mauvais répertoire de fichier source dans les paramètres de ligne de commande, vous devez abandonner la session de copie. Consultez la page [Préparer des disques durs pour un travail d’importation](../storage-import-export-tool-preparing-hard-drives-import-v1.md) pour plus d’informations sur la reprise et l’abandon de sessions de copie.  
   
 ## <a name="i-cant-resume-or-abort-a-copy-session"></a>Je n’arrive pas à reprendre ou à abandonner une session de copie.  
- S’il s’agit de la première session de copie d’un lecteur, le message d’erreur doit indiquer : « La première session de copie ne peut pas être reprise ou abandonnée ». Dans ce cas, vous pouvez supprimer l’ancien fichier journal et réexécuter la commande.  
+ S’il s’agit de la première session de copie d’un lecteur, le message d’erreur doit indiquer : « La première session de copie ne peut pas être reprise ou abandonnée ». Dans ce cas, vous pouvez supprimer l’ancien fichier journal et réexécuter la commande.  
   
  Si la session de copie n’est pas la première du lecteur, elle peut toujours être reprise ou abandonnée.  
   

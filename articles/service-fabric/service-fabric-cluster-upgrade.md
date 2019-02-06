@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: a864d6423dc530857009e58a2fa90f0fa2cbc84f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853283"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102394"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Mise à niveau et mise à jour d’un cluster Azure Service Fabric
 
@@ -36,7 +36,7 @@ Vous pouvez définir votre cluster de façon à recevoir les nouvelles mises à 
 ## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>Comportement de mise à niveau de la structure pendant les mises à niveau automatiques
 Microsoft tient à jour le code de l’infrastructure et la configuration exécutés dans un cluster Azure. Nous effectuons des mises à niveau automatiques surveillées du logiciel en fonction des besoins. Ces mises à niveau peuvent concerner le code, la configuration ou les deux. Pour garantir que votre application n’est pas affectée par ces mises à niveau, ou l’est au minimum, nous effectuons ces dernières en plusieurs phases :
 
-### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Phase 1 : Une mise à niveau est effectuée à l'aide de toutes les stratégies d'intégrité du cluster
+### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Phase 1 : Une mise à niveau est effectuée à l’aide de toutes les stratégies d’intégrité du cluster
 Pendant cette phase, les mises à niveau traitent un domaine de mise à niveau à la fois et les applications qui étaient en cours d'exécution dans le cluster continuent à fonctionner sans interruption. Les stratégies de contrôle d’intégrité du cluster (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la mise à niveau.
 
 Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Un message électronique est envoyé au propriétaire de l’abonnement. Le message électronique contient les informations suivantes :
@@ -49,7 +49,7 @@ Nous essayons d'exécuter la même mise à niveau plusieurs fois dans le cas où
 
 Si les stratégies d'intégrité du cluster sont respectées, la mise à niveau est considérée comme réussie et marquée comme terminée. Cela peut se produire pendant la première exécution ou l'une des exécutions de la mise à niveau suivantes dans cette phase. Aucun message électronique de confirmation d'une exécution réussie n'est envoyé. Ceci afin d'éviter de vous envoyer trop de messages électroniques, la réception d'un message devant être considérée comme une exception. Nous pensons que la plupart des mises à niveau du cluster s'exécuteront sans affecter la disponibilité de votre application.
 
-### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Phase 2 : Une mise à niveau est effectuée à l'aide des stratégies d'intégrité par défaut uniquement
+### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Phase 2 : Une mise à niveau est effectuée uniquement à l’aide des stratégies d’intégrité par défaut
 Les stratégies d'intégrité de cette phase sont définies de telle sorte que le nombre d'applications intègres au début de la mise à niveau reste identique pendant la durée de la mise à niveau. Comme lors de la Phase 1, les mises à niveau de la Phase 2 traitent un domaine de mise à niveau à la fois et les applications qui étaient en cours d'exécution dans le cluster continuent à fonctionner sans interruption. Les stratégies d’intégrité du cluster (une combinaison de l’intégrité du nœud et l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la durée de la mise à niveau.
 
 Si les stratégies d'intégrité de cluster en vigueur ne sont pas respectées, la mise à niveau est annulée. Un message électronique est envoyé au propriétaire de l’abonnement. Le message électronique contient les informations suivantes :
@@ -62,7 +62,7 @@ Nous essayons d'exécuter la même mise à niveau plusieurs fois dans le cas où
 
 Si les stratégies d'intégrité du cluster sont respectées, la mise à niveau est considérée comme réussie et marquée comme terminée. Cela peut se produire pendant la première exécution ou l'une des exécutions de la mise à niveau suivantes dans cette phase. Aucun message électronique de confirmation d'une exécution réussie n'est envoyé.
 
-### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Phase 3 : Une mise à niveau est effectuée à l'aide de stratégies d'intégrité agressives
+### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Phase 3 : Une mise à niveau est effectuée à l’aide de stratégies d’intégrité agressives
 Les stratégies d'intégrité de cette phase visent à compléter la mise à niveau plutôt qu’à protéger l'intégrité des applications. Peu de mises à niveau de cluster se terminent par cette phase. Si votre cluster atteint cette phase, il est très probable que votre application devienne défectueuse et/ou ne soit plus disponible.
 
 Comme pour les deux autres phases, les mises à niveau de la Phase 3 traitent un domaine de mise à niveau à la fois.

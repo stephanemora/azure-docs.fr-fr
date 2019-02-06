@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 1c83ebd0153e7a28365317b02d3debbe43d976f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 49743130966589cceedb7756540c723a6f3276ff
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601574"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471665"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Mettre à l’échelle de façon dynamique les ressources de base de données moyennant un temps d’arrêt minimal
 
@@ -54,9 +54,9 @@ Vous pouvez changer les [niveaux de service des DTU](sql-database-service-tiers-
 
 Ces trois possibilités d’Azure SQL Database offrent des capacités à mettre à l'échelle vos bases de données de façon dynamique :
 
-- Dans [Azure SQL Single Database](sql-database-single-database-scale.md), vous pouvez utiliser des modèles [DTU](sql-database-dtu-resource-limits-single-databases.md) ou [vCore](sql-database-vcore-resource-limits-single-databases.md) pour définir le volume maximal de ressources assignées à chaque base de données.
-- [Azure SQL Managed Instance](sql-database-managed-instance.md) utilise le modèle [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) et vous permet de définir le nombre maximum de cœurs de processeur et de stockage alloué à votre instance. Toutes les bases de données au sein de l’instance partageront les ressources allouées à l’instance.
-- Les [pools élastiques SQL Azure](sql-database-elastic-pool-scale.md) vous permettent de définir la limite de ressources maximum par groupe de bases de données dans le pool.
+- Avec une [base de données unique](sql-database-single-database-scale.md), vous pouvez utiliser des modèles [DTU](sql-database-dtu-resource-limits-single-databases.md) ou [vCore](sql-database-vcore-resource-limits-single-databases.md) pour définir le volume maximal de ressources assignées à chaque base de données.
+- Une instance [Managed Instance](sql-database-managed-instance.md) utilise le modèle [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) et vous permet de définir la quantité maximale de cœurs de processeur et de stockage allouée à votre instance. Toutes les bases de données au sein de l’instance partageront les ressources allouées à l’instance.
+- Les [pools élastiques](sql-database-elastic-pool-scale.md) vous permettent de définir la limite de ressources maximale par groupe de bases de données dans le pool.
 
 ## <a name="alternative-scale-methods"></a>Autres méthodes de mise à l’échelle
 

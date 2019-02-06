@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 2bb3665f0d0ab15f212741a6ce032fcd7ac2620d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7cc8e46c841b6e385d1a3b442fdb63d465486af8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358111"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477724"
 ---
-# <a name="ip-firewall-for-azure-cosmos-accounts"></a>Pare-feu IP pour les comptes Azure Cosmos
+# <a name="ip-firewall-in-azure-cosmos-db"></a>Pare-feu IP dans Azure Cosmos DB
 
 Pour sécuriser les données dans votre compte, Azure Cosmos DB assure la prise en charge d’un modèle d’autorisation basé sur une clé secrète, qui utilise un code d’authentification de message basé sur le hachage (HMAC) à forte intégrité. De plus, Azure Cosmos DB prend en charge les contrôles d’accès basés sur IP pour le pare-feu entrant. Ce modèle est semblable aux règles de pare-feu d’un système de base de données classique et renforce la sécurité de votre compte. Avec des pare-feu, vous pouvez configurer un compte Cosmos pour qu’il soit accessible uniquement à partir d’un ensemble d’ordinateurs et/ou de services cloud approuvés. L’accès aux données stockées dans votre base de données Azure Cosmos à partir de ces ensembles d’ordinateurs et de services approuvés nécessite toujours que l’appelant présente un jeton d’autorisation valide.
 

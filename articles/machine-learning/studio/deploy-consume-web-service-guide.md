@@ -1,5 +1,5 @@
 ---
-titre : Déploiement et consommation titleSuffix : Description d'Azure Machine Learning Studio : Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de machine learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles de machine learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots. services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Déploiement et consommation titleSuffix : Description d'Azure Machine Learning Studio : Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de machine learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles de machine learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots. services : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

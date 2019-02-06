@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847541"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904367"
 ---
 # <a name="manage-and-configure-projects"></a>Gérer et configurer des projets
 
@@ -41,9 +41,9 @@ La liste déroulante **Exécuter** qui se trouve sur le tableau de bord du proje
 
 ![Liste déroulante du niveau de calcul sur le tableau de bord du projet](media/project-compute-tier-list.png)
 
-Vous pouvez contourner ces limitations en utilisant une autre machine virtuelle configurée dans un abonnement Azure. Vous devez également installer Jupyter sur cette machine virtuelle. Les images Data Science Virtual Machine conviennent, car elles incluent Jupyter par défaut.
+Vous pouvez contourner ces limitations en utilisant une autre machine virtuelle configurée dans un abonnement Azure. Vous devez installer et exécuter JupyterHub sur cette machine virtuelle. Les images Data Science Virtual Machine (quel que soit le système d’exploitation) conviennent, car elles incluent JupyterHub par défaut.
 
-Vous pouvez vous connecter à n’importe quelle machine virtuelle Azure correctement configurée avec l’option **Calcul direct** de la liste déroulante. Cette option vous invite à saisir un nom (à afficher dans la liste), l’adresse IP et le port de la machine virtuelle (généralement 8000, port d’écoute par défaut de JupyterHub) et les informations d’identification de la machine virtuelle :
+Une fois que vous avez une machine virtuelle Azure correctement configurée, sélectionnez l’option **Calcul direct** dans la liste déroulante. Vous êtes alors invité à entrer un nom (à afficher dans la liste), l’adresse IP et le port (généralement le port 8000, qui est le port par défaut sur lequel JupyterHub écoute) de la machine virtuelle, ainsi que les informations d’identification de cette dernière :
 
 ![Invite à collecter des informations sur le serveur pour l’option Calcul direct](media/project-compute-tier-direct.png)
 
@@ -57,7 +57,7 @@ Si les conditions suivantes sont remplies, la liste déroulante affiche égaleme
 
 Lorsque vous sélectionnez une instance DSVM, Azure Notebooks peut vous demander les informations d’identification de l’ordinateur utilisé lors de la création de la machine virtuelle.
 
-Pour créer une instance DSVM, suivez les instructions de la section [Créer une machine virtuelle Data Science Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Vous *devez* utiliser l’image **Data Science Virtual Machine pour Linux (Ubuntu)**, car Azure Notebooks n’affiche pas les machines virtuelles DSVM qui utilisent les images Windows ou CentOS.
+Pour créer une instance DSVM, suivez les instructions de la section [Créer une machine virtuelle Data Science Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Utilisez l’image **Data Science Virtual Machine pour Linux (Ubuntu)** si vous voulez que la machine DSVM apparaissent dans la liste déroulante dans Azure Notebooks.  Si, pour d’autres raisons, vous devez utiliser l’image Windows ou CentOS, vous pouvez faire appel à l’option **Calcul direct** pour vous connecter manuellement à la machine DSVM.
 
 ## <a name="edit-project-metadata"></a>Modifier les métadonnées de projet
 

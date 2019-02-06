@@ -3,19 +3,19 @@ title: Mot de passe Azure Active Directory en libre-service - Approfondissement
 description: Comment fonctionne la réinitialisation de mot de passe en libre-service ?
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 41bdc2497ff19f0033a5253814771072b47eef62
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435717"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475175"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -84,7 +84,7 @@ Si un utilisateur n’a pas le nombre minimal requis de méthodes inscrites, une
 
 #### <a name="mobile-app-and-sspr-preview"></a>Application mobile et réinitialisation de mot de passe en libre-service (préversion)
 
-Lorsque vous utilisez une application mobile, comme l’application Microsoft Authenticator, vous devez tenir compte de ce qui suit concernant la méthode de réinitialisation de mot de passe :
+Lorsque vous utilisez une application mobile, comme l’application Microsoft Authenticator, vous devez tenir compte des mises en garde suivantes concernant la méthode de réinitialisation de mot de passe :
 
 * Lorsque les administrateurs demandent d’utiliser une méthode de réinitialisation de mot de passe, le code de vérification est la seule option disponible.
 * Lorsque les administrateurs demandent d’utiliser deux méthodes de réinitialisation de mot de passe, les utilisateurs seront en mesure d’effectuer la réinitialisation **SOIT** avec une notification, **SOIT** avec un code de vérification en plus de n’importe quelle autre méthode activée.
@@ -119,7 +119,7 @@ Exemple :
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Obliger les utilisateurs à s’inscrire durant la connexion
 
-L’activation de cette option nécessite que l’utilisateur termine l’inscription pour la réinitialisation de mot de passe s’il se connecte à des applications à l’aide d’Azure AD. Cela inclut les applications suivantes :
+L’activation de cette option nécessite que l’utilisateur termine l’inscription pour la réinitialisation de mot de passe s’il se connecte à des applications à l’aide d’Azure AD. Ce workflow inclut les applications suivantes :
 
 * Office 365
 * Portail Azure
@@ -132,7 +132,7 @@ Quand l’obligation d’inscription est désactivée, les utilisateurs peuvent 
 > [!NOTE]
 > Les utilisateurs peuvent ignorer le portail d’inscription à la réinitialisation du mot de passe en sélectionnant **Annuler** ou en fermant la fenêtre. Dans ce cas, tant qu’ils ne procèdent pas à leur inscription, ils sont invités à s’inscrire chaque fois qu’ils se connectent.
 >
-> La connexion des utilisateurs n’est pas interrompue s’ils sont déjà connectés.
+> Cette interruption ne déconnecte pas les utilisateurs s’ils sont déjà connectés.
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Définir le nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification
 
@@ -169,7 +169,7 @@ Cette page fournit un état rapide du client de réécriture local. L’un des m
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Réécriture du mot de passe dans votre répertoire local
 
-Ce contrôle détermine si la réécriture du mot de passe est activée pour ce répertoire. Si c’est le cas, il indique l’état du service de réécriture local. Cela peut être utile si vous voulez désactiver temporairement la réécriture du mot de passe sans devoir reconfigurer Azure AD Connect.
+Ce contrôle détermine si la réécriture du mot de passe est activée pour ce répertoire. Si c’est le cas, il indique l’état du service de réécriture local. Ce contrôle est utile si vous voulez désactiver temporairement la réécriture du mot de passe sans devoir reconfigurer Azure AD Connect.
 
 * Si le commutateur est défini sur **Oui**, la réécriture est activée et les utilisateurs fédérés, utilisant l’authentification directe ou synchronisés par hachage du mot de passe peuvent réinitialiser leur mot de passe.
 * Si le commutateur est défini sur **Non**, la réécriture est désactivée et les utilisateurs fédérés, utilisant l’authentification directe ou synchronisés par hachage du mot de passe ne peuvent pas réinitialiser leur mot de passe.
@@ -180,6 +180,10 @@ Ce contrôle indique si les utilisateurs qui visitent le portail de réinitialis
 
 * Si la valeur est **Oui**, les utilisateurs peuvent réinitialiser leur mot de passe et déverrouiller le compte ou déverrouiller celui-ci sans devoir réinitialiser le mot de passe.
 * Si la valeur est **Non**, les utilisateurs doivent réinitialiser leur mot de passe quand ils déverrouillent leur compte.
+
+### <a name="on-premises-active-directory-password-filters"></a>Filtres de mot de passe Active Directory locaux
+
+La réinitialisation de mot de passe en libre-service Azure AD est identique à la réinitialisation de mot de passe initiée par l’administrateur dans Active Directory. Si vous utilisez un filtre de mot de passe tiers pour appliquer les règles de mot de passe personnalisé, et que vous avez besoin que ce filtre de mot de passe soit vérifié au cours de la réinitialisation de mot de passe en libre-service Azure AD, vérifiez que la solution de filtre de mot de passe tiers est configurée pour le scénario de réinitialisation de mot de passe administrateur. [La protection de mot de passe Azure AD pour Windows Server Active Directory](concept-password-ban-bad-on-premises.md) est prise en charge par défaut.
 
 ## <a name="password-reset-for-b2b-users"></a>Réinitialisation de mot de passe pour les utilisateurs B2B
 

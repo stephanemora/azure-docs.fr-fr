@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230985"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239772"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -76,12 +76,12 @@ Le tableau suivant décrit chaque attribut du nom du journal.
 | Attribut | Description |
 | --- | --- |
 | <service-name> |Nom du service de stockage. Par exemple : blob, table ou file d'attente. |
-| YYYY |Année à quatre chiffres pour le journal. Par exemple : 2011. |
-| MM |Mois à deux chiffres pour le journal. Par exemple : 07. |
-| DD |Mois à deux chiffres pour le journal. Par exemple : 07. |
-| hh |Heure à deux chiffres qui indique l’heure de début pour les journaux, au format UTC 24 heures. Par exemple : 18. |
+| YYYY |Année à quatre chiffres pour le journal. Par exemple :  2011. |
+| MM |Mois à deux chiffres pour le journal. Par exemple :  07. |
+| DD |Mois à deux chiffres pour le journal. Par exemple :  07. |
+| hh |Heure à deux chiffres qui indique l’heure de début pour les journaux, au format UTC 24 heures. Par exemple :  18. |
 | MM |Nombre à deux chiffres qui indique la minute de début pour les journaux. Cette valeur n'étant pas prise en charge dans la version actuelle de Storage Analytics, elle est toujours égale à 00. |
-| <counter> |Compteur de base zéro à six chiffres qui indique le nombre d'objets blob de journal générés pour le service de stockage durant une période d'une heure. Ce compteur commence à 000000. Par exemple : 000001. |
+| <counter> |Compteur de base zéro à six chiffres qui indique le nombre d'objets blob de journal générés pour le service de stockage durant une période d'une heure. Ce compteur commence à 000000. Par exemple :  000001. |
 
 Voici un exemple complet de nom de journal qui combine les exemples précédents.
 
@@ -99,8 +99,8 @@ Tous les objets blob de journal sont stockés avec des métadonnées qui peuvent
 | Attribut | Description |
 | --- | --- |
 | LogType |Décrit si le journal contient des informations relatives aux opérations de lecture, écriture ou suppression. Cette valeur peut inclure un type ou une combinaison des trois, séparés par des virgules. Exemple 1 : write ; Exemple 2 : read,write ; Exemple 3 : read,write,delete. |
-| StartTime |Heure la plus antérieure d'une entrée dans le journal, au format AAAA-MM-JJThh:mm:ssZ. Par exemple : 2011-07-31T18:21:46Z. |
-| EndTime |Heure la plus récente d'une entrée dans le journal, au format AAAA-MM-JJThh:mm:ssZ. Par exemple : 2011-07-31T18:22:09Z. |
+| StartTime |Heure la plus antérieure d'une entrée dans le journal, au format AAAA-MM-JJThh:mm:ssZ. Par exemple :  2011-07-31T18:21:46Z. |
+| EndTime |Heure la plus récente d'une entrée dans le journal, au format AAAA-MM-JJThh:mm:ssZ. Par exemple :  2011-07-31T18:22:09Z. |
 | LogVersion |Version du format du journal. Actuellement, la seule valeur possible est : 1.0. |
 
 La liste suivante présente un exemple de métadonnées complètes utilisant les exemples précédents.
@@ -135,9 +135,9 @@ Les métriques de transaction sont enregistrées pour les demandes utilisateur e
 
 Les données de capacité sont enregistrées quotidiennement pour le service BLOB d’un compte de stockage, et deux entités de table sont écrites. Une entité fournit des statistiques sur les données utilisateur et l'autre, sur le conteneur d'objets blob `$logs` utilisé par Storage Analytics. La table `$MetricsCapacityBlob` inclut les statistiques suivantes :
 
-* **Capacité** : quantité de stockage utilisée par le service BLOB du compte de stockage, en octets.
-* **ContainerCount** : nombre de conteneurs d’objets blob dans le service BLOB du compte de stockage.
-* **ObjectCount** : nombre d’objets blob de blocs ou de pages validés et non validés dans le service BLOB du compte de stockage.
+* **Capacity** : volume de stockage utilisé par le service BLOB du compte de stockage, en octets.
+* **ContainerCount** : nombre de conteneurs d'objets blob dans le service BLOB du compte de stockage.
+* **ObjectCount** : nombre d'objets blob de blocs ou de pages validés et non validés dans le service BLOB du compte de stockage.
 
 Pour plus d'informations sur les métriques de capacité, consultez [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx).
 
@@ -146,7 +146,7 @@ Toutes les données de métriques pour chacun des services de stockage sont stoc
 
 | Niveau de métriques | Noms de tables | Versions prises en charge |
 | --- | --- | --- |
-| Métriques toutes les heures, emplacement principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versions antérieures à la version du 15 août 2013 uniquement. Bien que ces noms soient toujours pris en charge, il est recommandé d’utiliser les tables listées ci-dessous. |
+| Métriques toutes les heures, emplacement principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Versions antérieures à la version du 15 août 2013 uniquement. Bien que ces noms soient toujours pris en charge, il est recommandé d’utiliser les tables listées ci-dessous. |
 | Métriques toutes les heures, emplacement principal |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. |
 | Métriques par minute, emplacement principal |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. |
 | Métriques toutes les heures, emplacement secondaire |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. La géo-réplication redondante avec accès en lecture doit être activée. |

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7234c1a5f7914ad3ce0ff415b387bfee386198c1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478601"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169601"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect : Comptes et autorisations
 
@@ -136,7 +136,7 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
 | Réécriture du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../authentication/howto-sspr-writeback.md) pour les utilisateurs. |
 | Écriture différée des appareils |Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](how-to-connect-device-writeback.md). |
-| Écriture différée de groupe |Lire, créer, mettre à jour et supprimer des objets de groupe pour les **groupes Office 365** synchronisés.  Pour plus d’informations, consultez [Écriture différée de groupe](how-to-connect-preview.md#group-writeback).|
+| Écriture différée de groupe |Vous permet de récrire **Groupes Office 365** sur une forêt avec Exchange installé.  Pour plus d’informations, consultez [Écriture différée de groupe](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="upgrade"></a>Mise à niveau
 Lors de la mise à niveau vers une nouvelle version d’Azure AD Connect, vous devez disposer des autorisations suivantes :

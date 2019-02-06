@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: fb3e61b2b43194cb550a7c87c6841e91b4025560
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a919d10bbb7def8f81e68d95c03d95309483df59
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002754"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210378"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -318,7 +318,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |DeploymentMaxRetryInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(3600)|Dynamique| Spécifiez la durée en secondes. Intervalle maximum avant une nouvelle tentative de déploiement. À chaque échec continu, l’intervalle avant nouvelle tentative est calculé de la manière suivante : Min( DeploymentMaxRetryInterval; Nombre d’échecs continus * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(10)|Dynamique|Spécifiez la durée en secondes. Intervalle de temporisation pour l’échec du déploiement. À chaque échec de déploiement continu, le système retentera le déploiement jusqu'à la valeur MaxDeploymentFailureCount. L’intervalle entre chaque tentative est un produit de l’échec du déploiement continu et de l’intervalle de temporisation de déploiement. |
 |DisableContainers|valeur booléenne, valeur par défaut : FALSE|statique|Configuration pour la désactivation des conteneurs - utilisé à la place de DisableContainerServiceStartOnContainerActivatorOpen qui est un paramètre de configuration déprécié |
-|DisableDockerRequestRetry|valeur booléenne, valeur par défaut : FALSE |Dynamique| Par défaut SF communique avec DD (docker dameon) avec un délai d’expiration « DockerRequestTimeout » pour chaque requête http qui lui est envoyée. Si DD ne répond pas au cours de cette période ; SF renvoie la requête s’il reste du temps dans l’opération de niveau supérieur.  Avec le conteneur Hyper-V ; DD prend parfois beaucoup plus de temps pour afficher le conteneur ou le désactiver. Dans ce cas, DD demande un délai d’expiration à partir de la perspective de SF et SF retente l’opération. Parfois, cela semble ajoute plus de pression sur DD. Cette configuration permet de désactiver cette nouvelle tentative et d’attendre la réponse de DD. |
+|DisableDockerRequestRetry|valeur booléenne, valeur par défaut : FALSE |Dynamique| Par défaut SF communique avec DD (docker dameon) avec un délai d’expiration « DockerRequestTimeout » pour chaque requête http qui lui est envoyée. Si DD ne répond pas au cours de cette période, SF renvoie la requête s’il reste du temps dans l’opération de niveau supérieur.  Avec le conteneur Hyper-V ; DD prend parfois beaucoup plus de temps pour afficher le conteneur ou le désactiver. Dans ce cas, DD demande un délai d’expiration à partir de la perspective de SF et SF retente l’opération. Parfois, cela semble ajoute plus de pression sur DD. Cette configuration permet de désactiver cette nouvelle tentative et d’attendre la réponse de DD. |
 |EnableActivateNoWindow| valeur booléenne, valeur par défaut : FALSE|Dynamique| Le processus activé est créé en arrière-plan sans aucune console. |
 |EnableContainerServiceDebugMode|Valeur booléenne, valeur par défaut : TRUE|statique|Activer/désactiver la journalisation pour les conteneurs Docker.  Windows uniquement.|
 |EnableDockerHealthCheckIntegration|Valeur booléenne, valeur par défaut : TRUE|statique|Permet l’intégration des événements de vérification d’intégrité Docker avec le rapport d’intégrité du système Service Fabric |

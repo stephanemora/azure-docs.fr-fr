@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d5a94258e8c17d13e15f22f9fa96ef0647105abe
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807871"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904452"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -35,8 +35,8 @@ App Service fournit des fonctionnalités de diagnostic pour les informations de
 Vous pouvez activer ou désactiver les types de journaux suivants :
 
 * **Messages d’erreur détaillés** : informations d’erreur détaillées pour les codes d’état HTTP qui indiquent un échec (code d’état 400 ou supérieur). Il peut s’agir d’informations permettant de déterminer la raison pour laquelle le serveur a renvoyé le code d’erreur.
-* **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations peuvent se révéler utiles si vous essayez d’améliorer les performances du site ou d’isoler la cause d’une erreur HTTP spécifique.
-* **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ces informations peuvent se révéler utiles pour déterminer les métriques globales d’un site, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
+* **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique.
+* **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ces informations peuvent se révéler utiles pour déterminer les métriques globales d’un site, comme le nombre de requêtes traitées ou le nombre de requêtes émanant d’une adresse IP spécifique.
 
 ### <a name="application-diagnostics"></a>Diagnostic d'application
 Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple : 
@@ -45,7 +45,7 @@ Le diagnostic d'application vous permet de capturer des informations générées
 
 Au moment de l’exécution, vous pouvez récupérer ces journaux pour vous aider durant le dépannage. Pour plus d’informations, consultez la page [Résolution des problèmes Azure App Service dans Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
-App Service journalise également les informations de déploiement lorsque vous publiez du contenu dans une application. Cette opération est automatique et il n’existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l'échec du script.
+App Service journalise également les informations de déploiement quand vous publiez du contenu dans une application. Cette opération est automatique et il n’existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l’échec du script.
 
 ## <a name="enablediag"></a>Activation des diagnostics
 Pour activer les diagnostics sur le [portail Azure](https://portal.azure.com), accédez à la page de votre application, puis cliquez sur **Paramètres > Journaux de diagnostics**.
@@ -53,12 +53,16 @@ Pour activer les diagnostics sur le [portail Azure](https://portal.azure.com), a
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Partie des journaux](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Quand vous activez les **diagnostics d’application**, choisissez également le **niveau**. Ce paramètre vous permet de filtrer les données capturées selon le critère **Information**, **Avertissement** ou **Erreur**. Vous pouvez également sélectionner le niveau **Détaillé** pour journaliser toutes les informations générées par l’application.
+Quand vous activez les **diagnostics d’application**, choisissez également le **niveau**. Le tableau suivant présente les catégories de journaux offertes par chaque niveau :
 
-> [!NOTE]
-> Contrairement à la modification du fichier web.config, le fait d'activer le diagnostic d'application ou de modifier les niveaux de journalisation de diagnostic ne recycle pas le domaine dans lequel l'application s'exécute.
->
->
+| Niveau| Catégories de journaux incluses |
+|-|-|
+|**Désactivé** | Aucun |
+|**Erreur** | Erreur, Critique |
+|**Avertissement** | Avertissement, Erreur, Critique|
+|**Informations** | Info, Avertissement, Erreur, Critique|
+|**Verbose** | Trace, Débogage, Info, Avertissement, Erreur, Critique (toutes les catégories) |
+|-|-|
 
 Pour **Journal des applications**, vous pouvez temporairement activer l’option système à des fins de débogage. Cette option se désactive automatiquement au bout de 12 heures. Vous pouvez également activer l’option de stockage Blob pour sélectionner un conteneur d’objets blob pour y écrire des journaux.
 
@@ -114,7 +118,7 @@ Pour télécharger les fichiers journaux à l’aide de l’interface de ligne d
 Cette commande enregistre les journaux de l’application nommée « appname » dans un fichier **diagnostics.zip** du répertoire actif.
 
 > [!NOTE]
-> Si vous n’avez pas installé ou configuré Azure CLI de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Si vous n’avez pas installé ou configuré Azure CLI de manière à utiliser votre abonnement Azure, consultez [Guide pratique pour utiliser Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -157,7 +161,7 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Si vous n’avez pas installé ou configuré Azure CLI de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure CLI](../cli-install-nodejs.md).
+> Si vous n’avez pas installé ou configuré Azure CLI de manière à utiliser votre abonnement Azure, consultez la page [Guide pratique pour utiliser Azure CLI](../cli-install-nodejs.md).
 >
 >
 
@@ -165,7 +169,7 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 ### <a name="application-diagnostics-logs"></a>Journaux de diagnostic d'application
 Le diagnostic d’application stocke les informations dans un format spécifique pour les applications .NET selon que vous stockez les journaux dans le système de fichiers ou le stockage d’objets blob. 
 
-L’ensemble de base des données stockées est le même dans les deux types de stockage, à savoir : date et heure auxquelles l’événement s’est produit, ID de processus qui a généré l’événement, type d’événement (informations, avertissement, erreur) et message d’événement. L’utilisation du système de fichiers pour le stockage des journaux est utile lorsque vous avez besoin d’un accès immédiat pour résoudre un problème car les fichiers journaux sont mis à jour presque instantanément. Le stockage Blob est utilisé à des fins d’archivage parce que les fichiers sont mis en cache et sont ensuite acheminés vers le conteneur de stockage selon un calendrier précis.
+L’ensemble de base des données stockées est le même dans les deux types de stockage, à savoir : date et heure auxquelles l’événement s’est produit, ID de processus qui a généré l’événement, type d’événement (informations, avertissement, erreur) et message d’événement. L’utilisation du système de fichiers pour le stockage des journaux est utile lorsque vous avez besoin d’un accès immédiat pour résoudre un problème car les fichiers journaux sont mis à jour presque instantanément. Le stockage d’objets blob est utilisé à des fins d’archivage car les fichiers sont mis en cache puis acheminés vers le conteneur de stockage selon un calendrier précis.
 
 **Système de fichiers**
 

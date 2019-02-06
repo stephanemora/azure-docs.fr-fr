@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354187"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478186"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Utiliser Azure Container Instances en tant qu’agent de build Jenkins
 
@@ -26,28 +26,28 @@ Pour plus d’informations sur Azure Container Instances, consultez l’article 
 
 2. Entrez les informations ci-après sur le formulaire **De base**, puis sélectionnez **OK**.
 
-   - **Nom** : entrez un nom pour le déploiement Jenkins.
-   - **Nom d’utilisateur** : entrez un nom pour l’utilisateur administrateur de la machine virtuelle Jenkins.
-   - **Type d’authentification** : nous vous recommandons d’utiliser une clé publique SSH pour l’authentification. Si vous sélectionnez cette option, collez une clé publique SSH à utiliser pour la connexion à la machine virtuelle Jenkins.
-   - **Abonnement**: sélectionnez un abonnement Azure.
-   - **Groupe de ressources** : créez un groupe de ressources ou sélectionnez un groupe existant.
-   - **Emplacement** : sélectionnez un emplacement pour le serveur Jenkins.
+   - **Nom** : Entrez un nom pour le déploiement Jenkins.
+   - **Nom d’utilisateur :** Entrez un nom pour l’utilisateur administrateur de la machine virtuelle Jenkins.
+   - **Type d'authentification** : Nous vous recommandons d’utiliser une clé publique SSH pour l’authentification. Si vous sélectionnez cette option, collez une clé publique SSH à utiliser pour la connexion à la machine virtuelle Jenkins.
+   - **Abonnement**: Sélectionnez un abonnement Azure.
+   - **Groupe de ressources** : Créez un groupe de ressources ou sélectionnez-en un.
+   - **Emplacement** : Sélectionnez un emplacement pour le serveur Jenkins.
 
    ![Paramètres de base relatifs au déploiement du portail Jenkins](./media/container-instances-jenkins/jenkins-portal-01.png)
 
 3. Sur le formulaire **Paramètres supplémentaires**, renseignez les champs suivants :
 
-   - **Taille** : sélectionnez l’option de dimensionnement appropriée pour votre machine virtuelle Jenkins.
-   - **Type de disque de machine virtuelle** : spécifiez le type de disque **HDD** (lecteur de disque dur) ou **SSD** (solid-state drive) pour le serveur Jenkins.
-   - **Réseau virtuel** : sélectionnez la flèche si vous souhaitez modifier les paramètres par défaut.
-   - **Sous-réseaux** : sélectionnez la flèche, vérifiez les informations, puis sélectionnez **OK**.
-   - **Adresse IP publique** : sélectionnez la flèche pour attribuer un nom personnalisé à l’adresse IP publique, configurer la référence SKU et définir la méthode d’affectation.
-   - **Étiquette du nom de domaine** : spécifiez une valeur pour créer l’URL complète d’accès à la machine virtuelle Jenkins.
-   - **Jenkins release type** (Type de version Jenkins) : sélectionnez le type de version souhaité parmi les options suivantes : **LTS** (LTS), **Weekly build** (Build hebdomadaire) ou **Azure Verified** (Vérifié par Azure).
+   - **Taille**: Sélectionnez l’option de dimensionnement appropriée pour votre machine virtuelle Jenkins.
+   - **Type de disque de machine virtuelle** : Spécifiez le type de disque **HDD** (lecteur de disque dur) ou **SSD** (solid-state drive) pour le serveur Jenkins.
+   - **Réseau virtuel** : Sélectionnez la flèche si vous souhaitez modifier les paramètres par défaut.
+   - **Sous-réseaux** : Sélectionnez la flèche, vérifiez les informations, puis sélectionnez **OK**.
+   - **Adresse IP publique** : Sélectionnez la flèche pour attribuer un nom personnalisé à l’adresse IP publique, configurer la référence SKU et définir la méthode d’affectation.
+   - **Étiquette du nom de domaine** : Spécifiez une valeur pour créer l’URL complète d’accès à la machine virtuelle Jenkins.
+   - **Jenkins release type** (Type de version Jenkins) : Sélectionnez le type de version souhaité parmi les options : **LTS**, **Weekly build** (Build hebdomadaire) ou **Azure Verified** (Vérifié par Azure).
 
    ![Paramètres supplémentaires relatifs au déploiement du portail Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Dans la zone Service Principal Integration (Intégration de principal de service), sélectionnez **Auto(MSI)** (Automatique [MSI]) afin que les [identités managées pour les ressources Azure][managed-identities-azure-resources] créent automatiquement une identité d’authentification pour l’instance Jenkins. Si vous préférez fournir vos propres informations d’identification de principal de service, sélectionnez **Manuel**.
+4. Pour l’intégration de principal du service, sélectionnez **Auto(MSI)** (Automatique (MSI)) afin que les [identités managées pour les ressources Azure][managed-identities-azure-resources] créent automatiquement une identité d’authentification pour l’instance Jenkins. Si vous préférez fournir vos propres informations d’identification de principal de service, sélectionnez **Manuel**.
 
 5. Les agents cloud configurent une plateforme cloud pour les travaux de build Jenkins. Pour les besoins de cet article, sélectionnez **ACI** (ACI). Avec l’agent cloud ACI, chaque travail de build Jenkins est exécuté dans une instance de conteneur.
 
@@ -138,4 +138,4 @@ Pour plus d’informations sur l’utilisation de Jenkins sur Azure, consultez l
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md
 [jenkins-azure]: ../jenkins/overview.md
-[managed-service-identity]: ../active-directory/managed-service-identity/overview.md
+[managed-identities-azure-resources]: ../active-directory/managed-identities-azure-resources/overview.md

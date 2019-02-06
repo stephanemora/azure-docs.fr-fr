@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ab5a072d845bfdbaafabe1e0e7bdce2dfce6184d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: a4dbce678d5d3eac106363e958636810ea9040bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188177"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180209"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Afficher l’historique d’audit pour les rôles d’annuaire Azure AD dans PIM
 Vous pouvez utiliser l’historique d’audit PIM (Privileged Identity Management) pour voir toutes les activations et toutes les affectations d’utilisateurs qui ont été effectuées durant une période donnée pour tous les rôles privilégiés. Si vous souhaitez consulter l’historique d’audit complet de l’activité dans votre client, notamment l’activité de l’administrateur, de l’utilisateur final et de la synchronisation, vous pouvez utiliser les [rapports d’accès et d’utilisation d’Azure Active Directory.](../reports-monitoring/overview-reports.md)
@@ -64,4 +64,4 @@ Cochez ou décochez la case **Rôle** en regard de chaque rôle à inclure dans 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Afficher l’historique d’audit pour les rôles de ressources Azure dans PIM](pim-resource-roles-use-the-audit-log.md)
+- [Afficher l’activité et l’historique d’audit des rôles de ressources Azure dans PIM](azure-pim-resource-rbac.md)

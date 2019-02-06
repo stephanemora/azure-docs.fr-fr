@@ -1,6 +1,6 @@
 ---
 titre : Science des données pour les débutants - titleSuffix : Description d'Azure Machine Learning Studio : La série Science des données pour les débutants enseigne des concepts de base en 5 courtes vidéos, et commence par Les 5 questions de la science des données. À partir d’Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+services : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/01/2018
 ---

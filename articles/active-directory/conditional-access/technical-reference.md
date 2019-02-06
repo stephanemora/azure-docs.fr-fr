@@ -7,20 +7,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0971b5abee872d9a7010f0ce931f09c47808eb80
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452137"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302102"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -53,6 +53,8 @@ Vous pouvez affecter une stratégie d’accès conditionnel aux applications clo
 - Azure Information Protection - [En savoir plus](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
 - Azure RemoteApp
+
+- Azure SQL Database - [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
 
 - Microsoft Dynamics 365
 
@@ -149,7 +151,7 @@ Pour déployer automatiquement cette extension sur les navigateurs Chrome, crée
 |--- | ---|
 |path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 |NOM | 1 |
-|type | REG_SZ (String) |
+|Type | REG_SZ (String) |
 |Données | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Pour la prise en charge de Chrome dans **Windows 8.1 et 7**, créez la clé de Registre suivante :
@@ -158,7 +160,7 @@ Pour la prise en charge de Chrome dans **Windows 8.1 et 7**, créez la clé de R
 |--- | ---|
 |path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |NOM | 1 |
-|type | REG_SZ (String) |
+|Type | REG_SZ (String) |
 |Données | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Ces navigateurs prennent en charge l’authentification des appareils, ce qui permet de les identifier et de les valider par rapport à une stratégie. La vérification de l’appareil échoue si le navigateur est en cours d’exécution en mode privé. 
@@ -242,7 +244,7 @@ Ce paramètre s’applique aux applications clientes suivantes :
 
 - Exigence **Nécessite une application cliente approuvée** :
 
-    - elle prend uniquement en charge iOS et Android pour la [condition de plate-forme de périphérique](#device-platforms-condition).
+    - elle prend uniquement en charge iOS et Android pour la [condition de plate-forme de périphérique](#device-platform-condition).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

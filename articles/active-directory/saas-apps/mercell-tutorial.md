@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Mercell | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Mercell | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Mercell.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bb94c288-2ed4-4683-acde-62474292df29
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e2ca2d4f4a93f6c4bbfdacb6f25185cd59586964
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1763a022487f0a6b01a59156960e59a0bb8663f3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041129"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183592"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Didacticiel : Intégration d’Azure Active Directory à Mercell
+# <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Tutoriel : Intégration d’Azure Active Directory à Mercell
 
 Dans ce didacticiel, vous allez apprendre à intégrer Mercell à Azure Active Directory (Azure AD).
 
@@ -110,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     Dans la zone de texte **Identificateur**, tapez l’URL : `https://my.mercell.com/`
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+4. Dans la section  **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération de l’application** , puis collez-la dans le Bloc-notes.
     
     ![Configurer l'authentification unique](./media/mercell-tutorial/tutorial_metadataurl.png)
      
@@ -156,7 +156,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Mercell. Mercell prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas déjà, un utilisateur est créé lors d’une tentative d’accès à Mercell.
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support Mercell](mailto:webmaster@mercell.com).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe du support technique de Mercell](mailto:webmaster@mercell.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

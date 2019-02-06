@@ -1,6 +1,6 @@
 ---
-titre : Déboguer votre modèle - titleSuffix : Description d'Azure Machine Learning Studio : Comment déboguer les erreurs produites par les modules Entraîner le modèle et Noter le modèle dans Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Déboguer votre modèle - titleSuffix : Description d'Azure Machine Learning Studio : Comment déboguer les erreurs produites par les modules Entraîner le modèle et Noter le modèle dans Azure Machine Learning Studio.
+services : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2017
 ---

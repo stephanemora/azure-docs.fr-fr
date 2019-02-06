@@ -1,6 +1,6 @@
 ---
-titre : Étape 4 : Former des modèles d’analyse prédictive titleSuffix : Description d’Azure Machine Learning Studio : Étape 4 de la procédure pas à pas Développer une solution prédictive : effectuer l’apprentissage, noter et évaluer plusieurs modèles dans Azure Machine Learning Studio
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Étape 4 : Former des modèles d’analyse prédictive titleSuffix : Description d’Azure Machine Learning Studio : Étape 4 de la procédure pas à pas Développer une solution prédictive : effectuer l’apprentissage, noter et évaluer plusieurs modèles dans Azure Machine Learning Studio
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---

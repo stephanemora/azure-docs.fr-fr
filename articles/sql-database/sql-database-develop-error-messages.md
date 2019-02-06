@@ -12,22 +12,24 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/31/2018
-ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 01/25/2019
+ms.openlocfilehash: 6bbb2bfa0fe3c157114d53b070d6c98e68099643
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317455"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464729"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codes d’erreur SQL pour les applications clientes SQL Database : erreurs de connexion de base de données et autres problèmes
 
 Cet article répertorie les codes d’erreur SQL pour les applications clientes SQL Database, y compris les erreurs de connexion de base de données, les erreurs temporaires, les erreurs de gouvernance des ressources, les problèmes de copie de base de données, le pool élastique et d’autres erreurs. La plupart des catégories sont spécifiques à Azure SQL Database et ne s'appliquent pas à Microsoft SQL Server. Voir aussi [Messages d’erreur système](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Erreurs de connexion de base de données et erreurs temporaires
+
 Le tableau suivant décrit les codes d’erreur SQL pour les erreurs de perte de connexion, et autres erreurs temporaires, que vous pouvez rencontrer quand votre application tente d’accéder à SQL Database. Pour obtenir des didacticiels sur la façon de se connecter à la base de données SQL Azure, consultez [Connexion à la base de données SQL Azure](sql-database-libraries.md).
 
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Erreurs de connexion de base de données et erreurs temporaires les plus courantes
+
 L’infrastructure Azure a la capacité de reconfigurer dynamiquement les serveurs quand des charges de travail importantes sont à traiter dans le service SQL Database.  Ce comportement dynamique peut entraîner la perte par votre programme client de sa connexion à SQL Database. Ce type d’erreur état est connu sous le nom d’ *erreur temporaire*.
 
 Il est fortement recommandé que votre programme client possède une logique de nouvelle tentative afin qu’il puisse rétablir une connexion après avoir donné à l’erreur temporaire le temps de se corriger elle-même.  Nous vous recommandons de patienter 5 secondes avant votre première tentative. Si vous effectuez une nouvelle tentative avant 5 secondes, vous risquez de submerger le service cloud. Pour chaque nouvelle tentative, le délai doit augmenter de manière exponentielle, sans dépasser 60 secondes.
@@ -48,6 +50,7 @@ Pour obtenir des exemples de code de logique de nouvelle tentative, voir :
 Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.NET, consultez la page [Regroupement de connexions SQL Server (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### <a name="transient-fault-error-codes"></a>Codes d’erreur pour les erreurs temporaires
+
 Les erreurs suivantes sont temporaires et doivent être relancées dans la logique d’application : 
 
 | Code d'erreur | Severity | Description |
@@ -62,6 +65,7 @@ Les erreurs suivantes sont temporaires et doivent être relancées dans la logiq
 | 4221 |16 |La connexion au serveur de lecture secondaire a échoué en raison d’une longue attente sur 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. Le réplica n’est pas disponible pour la connexion, car il manque des versions de ligne pour les transactions qui étaient en cours lorsque le réplica a été recyclé. Le problème peut être résolu en restaurant ou en validant les transactions actives au niveau du réplica principal. Les occurrences de cette erreur peuvent être réduites en évitant les transactions d’écriture longues sur le serveur principal. |
 
 ## <a name="database-copy-errors"></a>Erreurs de copie de base de données
+
 Les erreurs suivantes peuvent survenir lors de la copie d’une base de données dans la base de données SQL Azure. Pour en savoir plus, consultez [Copie d’une base de données SQL Azure](sql-database-copy.md).
 
 | Code d'erreur | Severity | Description |
@@ -81,6 +85,7 @@ Les erreurs suivantes peuvent survenir lors de la copie d’une base de données
 | 40571 |16 |La copie de base de données a échoué en raison d'une erreur interne. Supprimez la base de données cible et réessayez ultérieurement. |
 
 ## <a name="resource-governance-errors"></a>Erreurs de gouvernance des ressources
+
 Les erreurs suivantes sont causées par une utilisation excessive des ressources avec Azure SQL Database. Par exemple : 
 
 * Votre transaction a été ouverte trop longtemps.
@@ -94,8 +99,8 @@ Rubriques connexes :
 
 | Code d'erreur | Severity | Description |
 | ---:| ---:|:--- |
-| 10928 |20 |ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour en savoir plus, consultez [Limites de ressources de SQL Database pour les bases de données uniques et regroupées](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour en savoir plus, consultez [Limites de ressources de SQL Database pour les bases de données uniques et regroupées](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server). Sinon, réessayez plus tard.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour plus d’informations, consultez [Limites de ressources de SQL Database pour les bases de données autonomes et regroupées](sql-database-resource-limits-database-server.md).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations, consultez [Limites de ressources de SQL Database pour les bases de données autonomes et regroupées](sql-database-resource-limits-database-server.md). Sinon, réessayez plus tard.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |La base de données a atteint son quota de taille. Partitionnez ou supprimez des données, supprimez des index ou consultez la documentation pour connaître les résolutions possibles. |
 | 40549 |16 |La session est arrêtée, car l’une des transactions est de longue durée. Essayez de la raccourcir. |
 | 40550 |16 |La session a été arrêtée, car elle a acquis trop de verrous. Essayez de lire ou de modifier moins de lignes dans une transaction unique. |
@@ -104,15 +109,16 @@ Rubriques connexes :
 | 40553 |16 |La session a été arrêtée en raison d’une utilisation excessive de la mémoire. Essayez de modifier votre requête pour traiter moins de lignes.<br/><br/>La diminution du nombre d’opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête. |
 
 ## <a name="elastic-pool-errors"></a>Erreurs relatives au pool élastique
+
 Les erreurs suivantes sont liées à la création et à l’utilisation de pools élastiques :
 
 | Code d'erreur | Severity | Description | Action corrective |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Le pool élastique a atteint sa limite de stockage. Le taux d’utilisation du stockage pour le pool élastique ne doit pas dépasser (%d) Mo. Tentative d’écriture de données dans une base de données alors que la limite de stockage du pool élastique a été atteinte. |Envisagez si possible d’augmenter le nombre de DTU du pool élastique ou d’ajouter de la capacité de stockage à ce dernier afin d’accroître sa limite de stockage. Vous pouvez aussi réduire l’espace de stockage utilisé par les bases de données individuelles qu’il contient ou supprimer certaines de ses bases de données. |
-| 10929 | 16 |La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Voir [Limites de ressources de SQL Database pour les bases de données uniques et regroupées](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) pour obtenir de l’aide. Sinon, réessayez plus tard. Nombre minimal de DTU/vCore par base de données ; nombre maximal de DTU/vCore par base de données. Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. |Envisagez si possible d’augmenter le nombre de DTU ou de vCore du pool élastique afin d’accroître sa limite de rôles de travail, ou supprimez des bases de données du pool élastique. |
+| 10929 | 16 |La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Voir [Limites de ressources de SQL Database pour les bases de données uniques et regroupées](sql-database-resource-limits-database-server.md) pour obtenir de l’aide. Sinon, réessayez plus tard. Nombre minimal de DTU/vCore par base de données ; nombre maximal de DTU/vCore par base de données. Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. |Envisagez si possible d’augmenter le nombre de DTU ou de vCore du pool élastique afin d’accroître sa limite de rôles de travail, ou supprimez des bases de données du pool élastique. |
 | 40844 | 16 |La base de données '%ls' sur le serveur '%ls' est une base de données présentant l’édition '%ls' dans un pool élastique. Elle ne peut pas présenter de relation de copie continue.  |N/A |
 | 40857 | 16 |Pool élastique introuvable pour le serveur : '%ls'. Nom du pool élastique: '%ls'. Le pool élastique spécifié n’existe pas sur le serveur spécifié. | Indiquez un nom de pool élastique valide. |
-| 40858 | 16 |Le pool élastique '%ls' existe déjà sur le serveur : '%ls'. Le pool élastique spécifié existe déjà sur le serveur logique spécifié. | Saisissez un nouveau nom pour le pool élastique. |
+| 40858 | 16 |Le pool élastique '%ls' existe déjà sur le serveur : '%ls'. Le pool élastique spécifié existe déjà sur le serveur SQL Database spécifié. | Saisissez un nouveau nom pour le pool élastique. |
 | 40859 | 16 |Le pool élastique ne prend pas en charge le niveau de service '%ls'. Le niveau de service spécifié n’est pas pris en charge pour le provisioning du pool élastique. |Saisissez l’édition correcte, ou laissez le champ du niveau de service vide afin d’utiliser le niveau de service par défaut. |
 | 40860 | 16 |La combinaison du pool élastique '%ls' et de l’objectif de service '%ls' n’est pas valide. Le pool élastique et le niveau de service ne peuvent être spécifiés ensemble que si le type de ressource est spécifié comme étant un « ElasticPool ». |Spécifiez la combinaison de pool élastique et de niveau de service adéquate. |
 | 40861 | 16 |L’édition de base de données '%.**ls' ne peut pas être différente du niveau de service du pool élastique, qui correspond à '%.**ls'. L’édition de base de données est différente du niveau de service du pool élastique. |Indiquez une édition de base de données identique au niveau de service du pool élastique.  Remarque : l’édition de base de données n’a pas besoin d’être spécifiée. |
@@ -137,6 +143,7 @@ Rubriques connexes :
 * [Surveiller et gérer un pool élastique (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 
 ## <a name="general-errors"></a>Erreurs générales.
+
 Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 
 | Code d'erreur | Severity | Description |
@@ -204,10 +211,11 @@ Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 | 40671 |17 |Échec de la communication entre la passerelle et le service de gestion. Veuillez réessayer ultérieurement. |
 | 40852 |16 |Impossible d’ouvrir la base de données '%.\*ls' on server '%.\*ls' demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet  -  ’nom de servur’.database.windows.net doit être transformé en ’nom de serveur’.database`secure`.windows.net. |
 | 40914 | 16 | Impossible d’ouvrir le serveur « *[nom-serveur]* » demandé par la connexion. Le client n’est pas autorisé à accéder au serveur.<br /><br />Pour résoudre le problème, envisagez d’ajouter une [règle de réseau virtuel](sql-database-vnet-service-endpoint-rule-overview.md). |
-| 45168 |16 |Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations DB CRUD simultanées pour un serveur unique (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement. |
+| 45168 |16 |Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations DB CRUD simultanées pour un serveur SQL Database unique (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement. |
 | 45169 |16 |Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement. |
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * En savoir plus sur les [Fonctionnalités Azure SQL Database](sql-database-features.md).
 * En savoir plus sur le [modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md).
 * En savoir plus sur le [modèle d’achat vCore](sql-database-service-tiers-vcore.md).

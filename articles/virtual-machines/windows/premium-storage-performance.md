@@ -1,24 +1,19 @@
 ---
-title: 'Stockage Azure Premium : des performances élevées sur les machines virtuelles Windows | Microsoft Docs'
+title: 'Stockage Premium Azure : des performances élevées sur les machines virtuelles Windows | Microsoft Docs'
 description: Concevoir des applications hautes performances avec Azure Premium Storage. Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d'E/S exécutées sur les machines virtuelles Azure.
-services: virtual-machines-windows
-documentationcenter: na
+services: virtual-machines-windows,storage
 author: aungoo-msft
-manager: tadb
-editor: tysonn
-ms.assetid: e6a409c3-d31a-4704-a93c-0a04fdc95960
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: aungoo
-ms.openlocfilehash: d4270ff219de7df8de75c70dcbf5d2911ef52e98
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.subservice: disks
+ms.openlocfilehash: ab2c4e7bd3d8d35d10cf119db0bf42bd1d35b96c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531405"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477537"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

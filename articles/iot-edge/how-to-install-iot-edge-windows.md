@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 01/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: c280410816bfb48f21c68fe5d57b6ae18af0e855
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970659"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902803"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installer le runtime Azure IoT Edge sur Windows
 
@@ -26,7 +26,7 @@ Pour en savoir plus sur le runtime IoT Edge, voir [Présentation du runtime Azur
 Cet article répertorie les étapes d’installation du runtime Azure IoT Edge sur votre système Windows x64 (AMD/Intel). La prise en charge de Windows est actuellement assurée en préversion.
 
 >[!NOTE]
-L’utilisation de conteneurs Linux sur les systèmes Windows n’est pas une configuration de production recommandée ou prise en charge pour Azure IoT Edge. Cependant, ils peuvent être utilisés à des fins de développement et de test.
+L’utilisation de conteneurs Linux sur les systèmes Windows n’est pas une configuration de production recommandée ni prise en charge pour Azure IoT Edge. Cependant, ils peuvent être utilisés à des fins de développement et de test.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -73,11 +73,11 @@ Si votre appareil Azure IoT Edge est un ordinateur Windows, vérifiez qu’il pr
 
 Un script PowerShell télécharge et installe le démon de sécurité Azure IoT Edge. Le démon de sécurité démarre ensuite le premier des deux modules de runtime, l’agent IoT Edge qui permet de déployer à distance d’autres modules. 
 
-Lorsque vous installez le runtime IoT Edge pour la première fois sur un appareil, vous devez fournir à celui-ci une identité d’un hub IoT. Un appareil IoT Edge unique peut être provisionné manuellement à l’aide d’une chaîne de connexion d’appareil fournie par IoT Hub. Vous pouvez également utiliser le service Device Provisioning pour provisionner automatiquement des appareils, ce qui s’avère particulièrement utile lorsque vous devez configurer de nombreux appareils. Choisissez le script d’installation approprié selon votre choix en matière de provisionnement. 
+Lorsque vous installez le runtime IoT Edge pour la première fois sur un appareil, vous devez fournir à celui-ci une identité d’un hub IoT. Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d’une chaîne de connexion d’appareil fournie par IoT Hub. Vous pouvez également utiliser le service Device Provisioning pour provisionner automatiquement des appareils, ce qui s’avère particulièrement utile lorsque vous devez configurer de nombreux appareils. Choisissez le script d’installation approprié selon votre choix en matière d’approvisionnement. 
 
 Les sections suivantes décrivent les cas et paramètres d’utilisation courants du script d’installation d’IoT Edge sur un nouvel appareil. 
 
-### <a name="option-1-install-and-manually-provision"></a>Option 1 : Installer et provisionner manuellement
+### <a name="option-1-install-and-manually-provision"></a>Option 1 : Installer et approvisionner manuellement
 
 Dans cette première option, vous fournissez une chaîne de connexion d’appareil générée par IoT Hub pour provisionner l’appareil. 
 
@@ -98,7 +98,7 @@ Lorsque vous installez et provisionnez un appareil manuellement, vous pouvez uti
 
 Pour plus d’informations sur ces options d’installation, poursuivez la lecture de cet article, ou passez à la section décrivant [tous les paramètres d’installation](#all-installation-parameters).
 
-### <a name="option-2-install-and-automatically-provision"></a>Option 2 : Installer et provisionner automatiquement
+### <a name="option-2-install-and-automatically-provision"></a>Option 2 : Installer et approvisionner automatiquement
 
 Dans cette deuxième option, vous provisionnez l’appareil en utilisant le Service IoT Hub Device Provisioning. Fournissez l’**ID de l’étendue** d’une instance du Service Device Provisioning, et l’**ID d’inscription** de votre appareil.
 
@@ -227,7 +227,7 @@ Si vous avez l’intention de réinstaller IoT Edge sur votre appareil, omettez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous disposez d’un appareil IoT Edge provisionné avec le runtime installé, vous pouvez [déployer des modules IoT Edge](how-to-deploy-modules-portal.md).
+Maintenant que vous disposez d’un appareil IoT Edge approvisionné avec le runtime installé, vous pouvez [déployer des modules IoT Edge](how-to-deploy-modules-portal.md).
 
 Si vous éprouvez des difficultés à installer correctement IoT Edge, voir la page [Résolution des problèmes](troubleshoot.md).
 

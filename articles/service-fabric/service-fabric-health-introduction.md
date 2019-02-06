@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215228"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194285"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Présentation du contrôle d’intégrité de Service Fabric
 Azure Service Fabric introduit un modèle d’intégrité qui fournit une évaluation et des rapports d’intégrité riches, flexibles et extensibles. Ce modèle permet un contrôle quasiment en temps réel de l’état du cluster et des services qu’il exécute. Vous pouvez facilement obtenir les informations de contrôle d’intégrité et corriger les problèmes potentiels avant qu’ils ne s’enchaînent et ne provoquent des pannes massives. Dans le modèle standard, les services envoient des rapports en fonction de leur vue locale et les informations sont agrégées pour fournir une vue globale du cluster.
@@ -46,7 +46,7 @@ Les entités d’intégrité reflètent les entités Service Fabric (par ex., **
 Les entités d’intégrité et la hiérarchie permettent un processus efficace de création de rapports, de débogage et d’analyse du cluster et des applications. Le modèle d’intégrité permet une représentation précise et *granulaire* de l’intégrité de nombreux éléments mobiles du cluster.
 
 ![Entités d’intégrité.][1]
-Entités d’intégrité, organisées dans une hiérarchie basée sur les relations parent-enfant.
+ Entités d’intégrité, organisées dans une hiérarchie basée sur les relations parent-enfant.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -68,10 +68,10 @@ La hiérarchie d’intégrité est composée de relations parent-enfant. Un clus
 La hiérarchie d'intégrité représente le dernier état du système basé sur les derniers rapports d'intégrité, c'est-à-dire, des informations quasiment en temps réel.
 Les agents de surveillance internes et externes peuvent établir des rapports sur les mêmes entités en fonction de la logique spécifique de l’application ou des conditions personnalisées surveillées. Les rapports utilisateur coexistent avec les rapports système.
 
-Nous vous encourageons à investir dans une fonction de création de rapports et de réponse aux problèmes d’intégrité lors de la conception d’un service cloud volumineux. Vous faciliterez ainsi le débogage, la surveillance et l’utilisation du service.
+Nous vous encourageons à investir dans une fonction de création de rapports et de réponse aux problèmes d’intégrité lors de la conception d’un service cloud volumineux. Vous faciliterez ainsi le débogage, la surveillance et l'utilisation du service.
 
 ## <a name="health-states"></a>États d'intégrité
-Service Fabric utilise trois états d’intégrité pour décrire si une entité est intègre ou non : OK, Warning et Error. Tous les rapports envoyés au magasin d’intégrité doivent spécifier l’un de ces états. Le résultat de l'évaluation d'intégrité est l'un de ces états.
+Service Fabric utilise trois états d'intégrité pour indiquer si une entité est saine ou non : OK, Warning et Error. Tous les rapports envoyés au magasin d’intégrité doivent spécifier l’un de ces états. Le résultat de l'évaluation d'intégrité est l'un de ces états.
 
 Les [états d’intégrité](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) possibles sont les suivants :
 
@@ -233,7 +233,7 @@ Les champs de transition d’état peuvent être utilisés pour des niveaux d’
 * Alerte uniquement sur les conditions modifiées au cours des X dernières minutes. Si un rapport indiquait déjà l’état Error avant la période spécifiée, il peut être ignoré car il a déjà été signalé précédemment.
 * Si une propriété oscille entre Warning et Error, détermine la durée pendant laquelle elle a été défectueuse (donc pas à l’état OK). Par exemple, une alerte indiquant que la propriété a été défectueuse pendant plus de 5 minutes peut être traduite en : (HealthState != Ok et Now - LastOkTransitionTime > 5 minutes).
 
-## <a name="example-report-and-evaluate-application-health"></a>Exemple : évaluer et établir un rapport sur l’intégrité de l’application
+## <a name="example-report-and-evaluate-application-health"></a>Exemple : évaluer et établir un rapport sur l'intégrité de l'application
 L’exemple suivant envoie un rapport d’intégrité via PowerShell sur l’application **fabric:/WordCount** à partir de la source **MyWatchdog**. Le rapport d’intégrité contient des informations sur la « disponibilité » de la propriété d’intégrité dans un état d’intégrité Error avec une valeur TimeToLive infinie. Il interroge ensuite l’intégrité de l’application, qui retourne l’état d’intégrité agrégé Error et les événements d’état signalés dans la liste des événements d’intégrité.
 
 ```powershell

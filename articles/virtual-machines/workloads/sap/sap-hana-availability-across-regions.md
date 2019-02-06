@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 95ada2cb146bdbc972afee883a1d174c95aa67d7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713967"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297580"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilité de SAP HANA dans l’ensemble des régions Azure
 
@@ -39,7 +39,7 @@ Le réseau virtuel Azure utilise une autre plage d’adresses IP. Les adresses I
 
 ## <a name="simple-availability-between-two-azure-regions"></a>Disponibilité simple entre deux régions Azure
 
-Vous pouvez choisir de ne pas mettre en place de configuration de disponibilité dans une seule région, mais vous avez toujours la possibilité d’avoir la charge de travail prise en charge en cas d’incident. Les systèmes de non-production sont des cas typiques. Même si vous pouvez tolérer que le système soit hors service pendant une demi-journée, voire une journée entière, vous ne pouvez pas vous permettre qu’il soit indisponible pendant 48 heures ou plus. Pour que la configuration soit moins coûteuse, exécutez un autre système moins important dans la machine virtuelle. L’autre système fonctionne en tant que destination. Vous pouvez également dimensionner la machine virtuelle dans la région secondaire pour qu’elle soit plus petite et choisir de ne pas précharger les données. Étant donné que le basculement se fait manuellement et qu’il comporte de nombreuses étapes supplémentaires pour basculer la pile d’applications complète, le temps supplémentaire nécessaire pour arrêter, redimensionner et redémarrer la machine virtuelle est acceptable.
+Vous pouvez choisir de ne pas mettre en place de configuration de disponibilité dans une seule région, mais vous avez toujours la possibilité d’avoir la charge de travail prise en charge en cas d’incident. Les systèmes de non-production sont des cas typiques de tels scénarios. Même si vous pouvez tolérer que le système soit hors service pendant une demi-journée, voire une journée entière, vous ne pouvez pas vous permettre qu’il soit indisponible pendant 48 heures ou plus. Pour que la configuration soit moins coûteuse, exécutez un autre système moins important dans la machine virtuelle. L’autre système fonctionne en tant que destination. Vous pouvez également dimensionner la machine virtuelle dans la région secondaire pour qu’elle soit plus petite et choisir de ne pas précharger les données. Étant donné que le basculement se fait manuellement et qu’il comporte de nombreuses étapes supplémentaires pour basculer la pile d’applications complète, le temps supplémentaire nécessaire pour arrêter, redimensionner et redémarrer la machine virtuelle est acceptable.
 
 Si vous utilisez le scénario de partage de la cible de récupération d’urgence avec un système d’assurance qualité sur une machine virtuelle, vous devez prendre en compte les éléments suivants :
 
@@ -64,9 +64,19 @@ Une combinaison de disponibilité dans une région et entre des régions peut ê
 - L’organisation n’est pas prête ou capable d’avoir des opérations globales affectées par une catastrophe naturelle majeure qui touche une région plus vaste. C’était le cas ces dernières années avec les ouragans qui ont frappé les Caraïbes.
 - Des réglementations qui exigent des distances entre des sites principaux et secondaires clairement au-delà de ce que les zones de disponibilité Azure peuvent fournir.
 
-Dans de tels cas, vous pouvez configurer ce que SAP nomme une [configuration de la réplication du système SAP HANA intermédiaire](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) avec la réplication de système HANA. L’architecture ressemblerait à ce qui suit :
+Dans de tels cas, vous pouvez configurer ce que SAP nomme une [configuration de la réplication du système SAP HANA intermédiaire](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) avec la réplication de système HANA. L’architecture ressemblerait à :
 
 ![Schéma représentant trois machines virtuelles sur deux régions](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+
+SAP a introduit la [réplication de système multi-cibles](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) avec HANA 2.0 SPS3. La réplication de système multi-cibles offre certains avantages dans les scénarios de mise à jour. Par exemple, le site de récupération d’urgence (région 2) n’est pas affecté lorsque le site HA secondaire est arrêté pour maintenance ou mise à jour. Vous trouverez plus d’informations sur la réplication de système multi-cibles HANA [ici](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
+L’architecture possible avec la réplication multi-cibles ressemblerait à :
+
+![Schéma représentant trois machines virtuelles sur deux régions multi-cibles](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)
+
+Si l’organisation dispose de la configuration requise pour la préparation de la haute disponibilité dans la région Azure secondaire (récupération d’urgence), l’architecture ressemblerait à :
+
+![Schéma représentant trois machines virtuelles sur deux régions multi-cibles](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+
 
 Avec le mode d’opération logreplay, cette configuration offre un objectif de point de récupération égal à 0, avec un objectif de délai de récupération faible, dans la région primaire. La configuration fournit également un objectif de point de récupération acceptable en cas de migration vers la région secondaire. Les délais d’objectifs de délai de récupération dans la région secondaire dépendent du préchargement ou non des données. De nombreux clients utilisent la machine virtuelle dans la région secondaire pour exécuter un test du système. Dans ce cas d’usage, les données ne peuvent pas être préchargées.
 

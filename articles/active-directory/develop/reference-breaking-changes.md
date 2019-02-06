@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8e00674f331a56be9abe6f2356aa88d7dcf1d0b0
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 3da99506d50ec12140c188cd86cde2556be4a308
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282382"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099139"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ? 
 
@@ -48,9 +48,9 @@ Aucun n’est planifié pour l’instant.
 
 **Date d’effet** : 15 novembre 2018
 
-**Points de terminaison affectés** : v1.0 et v2.0
+**Points de terminaison impactés** : V1.0 et v2.0
 
-**Protocole affecté** : [Flux de code](v2-oauth2-auth-code-flow.md)
+**Protocole impacté** : [Flux de code](v2-oauth2-auth-code-flow.md)
 
 À compter du 15 novembre 2018, Azure AD n’acceptera plus les codes d’authentification utilisés pour les applications. Cette modification de sécurité a pour but d’assurer la conformité d’Azure AD avec la spécification OAuth et s’appliquera aux points de terminaison v1 et v2.
 
@@ -62,11 +62,11 @@ Pour plus d’informations sur les jetons d’actualisation, voir [Actualisation
 
 ### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Impossible d’utiliser les jetons d’ID pour le flux OBO
 
-**Date** : 1er mai 2018
+**Date** : 1er mai 2018
 
-**Points de terminaison affectés** : v1.0 et v2.0
+**Points de terminaison impactés** : V1.0 et v2.0
 
-**Protocoles affectées** : flux implicite et [flux OBO](v1-oauth2-on-behalf-of-flow.md)
+**Protocoles impactés** : Flux implicite et [flux OBO](v1-oauth2-on-behalf-of-flow.md)
 
 Depuis le 1er mai 2018, id_tokens ne peut pas être utilisé en tant qu’assertion dans un flux OBO pour les nouvelles applications. Désormais, des jetons d’accès servent à sécuriser les API, même entre un client et le niveau intermédiaire de la même application. Les applications inscrites avant le 1er mai 2018 continueront à fonctionner et à pouvoir échanger des id_tokens pour un jeton d’accès. Toutefois, cela n’est pas considéré comme une meilleure pratique.
 

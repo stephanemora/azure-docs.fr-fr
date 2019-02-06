@@ -3,7 +3,7 @@ title: Procédure pas à pas d’exemple d’infrastructure Azure | Microsoft Do
 description: Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement d’un exemple d’infrastructure dans Azure.
 documentationcenter: ''
 services: virtual-machines-linux
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 794182e3988a353b1e305a36da0475bacdea69b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469848"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888956"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Linux
 Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.
@@ -73,13 +73,13 @@ Adventure Works Cycles a déterminé que des disques managés Azure doivent êtr
 Un réseau virtuel cloud a été créé avec les paramètres suivants via le portail Azure :
 
 * Nom : AZOS-USE-VN01
-* Emplacement : USA Est 2
+* Localisation : USA Est 2
 * Espace d’adressage du réseau virtuel : 10.0.0.0/8
 * Premier sous-réseau :
-  * Nom : FrontEnd
+  * Nom : FrontEnd
   * Espace d’adressage : 10.0.1.0/24
 * Second sous-réseau :
-  * Nom : BackEnd
+  * Nom : BackEnd
   * Espace d’adressage : 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité

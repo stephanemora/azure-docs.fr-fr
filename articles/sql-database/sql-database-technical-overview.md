@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6b4bc5a75f49287ad0425a7fe94f099204b73e44
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270006"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469547"
 ---
 # <a name="the-azure-sql-database-service"></a>Service Azure SQL Database
 
@@ -26,8 +26,8 @@ SQL Database est un service administré de bases de données relationnelles à u
 
 Azure SQL Database fournit les options de déploiement suivantes pour une base de données SQL Azure :
 
-- En tant que base de données unique avec son propre ensemble de ressources géré via un serveur logique
-- En tant que base de données regroupée dans un [pool élastique](sql-database-elastic-pool.md) avec un ensemble partagé de ressources géré via un serveur logique
+- En tant que base de données unique avec son propre ensemble de ressources géré via un serveur SQL Database.
+- En tant que base de données regroupée dans un [pool élastique](sql-database-elastic-pool.md) avec un ensemble partagé de ressources géré via un serveur SQL Database.
 - Dans le cadre d’une collection de bases de données connue comme une [instance managée](sql-database-managed-instance.md) qui contient les bases de données utilisateur et système, et partageant un ensemble de ressources
 
 L’illustration suivante représente ces options de déploiement :
@@ -68,7 +68,7 @@ Vous pouvez créer votre première application dans une petite base de données 
 > [!IMPORTANT]
 > Le [niveau de service Hyperscale](sql-database-service-tier-hyperscale.md) est actuellement en préversion publique. Nous ne vous recommandons pas d’exécuter des charges de travail de production dans des bases de données Hyperscale pour le moment. Vous ne pouvez pas mettre à jour une base de données Hyperscale vers d’autres niveaux de service. À des fins de test, nous vous recommandons de faire une copie de votre base de données actuelle et de mettre à jour la copie vers le niveau de service Hyperscale.
 
-La scalabilité dynamique est différente de la mise à l’échelle automatique. La mise à l’échelle survient lorsqu’un service se met à l’échelle automatiquement en fonction de critères, tandis que l’extensibilité dynamique permet la mise à l’échelle manuelle sans temps d’arrêt. Une instance unique d’Azure SQL Database prend en charge l’extensibilité dynamique, mais pas la mise à l’échelle automatique. Pour plus expérience plus *automatique*, envisagez d’utiliser des pools élastiques, ce qui permet aux bases de données de partager des ressources dans un pool en fonction de leurs besoins individuels. Toutefois, il existe des scripts qui peuvent aider à automatiser l’extensibilité pour une instance unique d’Azure SQL Database. Pour obtenir un exemple, consultez la rubrique [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
+La scalabilité dynamique est différente de la mise à l’échelle automatique. La mise à l’échelle survient lorsqu’un service se met à l’échelle automatiquement en fonction de critères, tandis que l’extensibilité dynamique permet la mise à l’échelle manuelle sans temps d’arrêt. Une base de données unique prend en charge l’extensibilité dynamique manuelle, mais pas la mise à l’échelle automatique. Pour plus expérience plus *automatique*, envisagez d’utiliser des pools élastiques, ce qui permet aux bases de données de partager des ressources dans un pool en fonction de leurs besoins individuels. Toutefois, il existe des scripts qui peuvent aider à automatiser l’extensibilité pour une base de données unique. Pour obtenir un exemple, consultez [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools élastiques pour optimiser l’utilisation des ressources
 
@@ -148,7 +148,7 @@ SQL Database fournit toute une gamme de [fonctionnalités intégrées de sécuri
 
 ### <a name="advance-threat-protection"></a>Protection avancée contre les menaces
 
-Protection avancée contre les menaces SQL est un package unifié de fonctionnalités de sécurité SQL avancées. Il inclut des fonctionnalités permettant de découvrir et de classifier les données sensibles, de gérer les vulnérabilités de votre base de données et de détecter les activités anormales pouvant indiquer une menace ciblant votre base de données. Il vous permet d’activer et de gérer ces fonctionnalités à partir d’un seul et même emplacement.
+SQL Advanced Data Security est un package unifié de fonctionnalités de sécurité SQL avancées. Il inclut des fonctionnalités permettant de découvrir et de classifier les données sensibles, de gérer les vulnérabilités de votre base de données et de détecter les activités anormales pouvant indiquer une menace ciblant votre base de données. Il vous permet d’activer et de gérer ces fonctionnalités à partir d’un seul et même emplacement.
 
 - [Découverte et classification des données](sql-database-data-discovery-and-classification.md) :
 

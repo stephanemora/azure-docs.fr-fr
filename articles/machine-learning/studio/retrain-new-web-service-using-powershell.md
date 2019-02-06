@@ -1,6 +1,6 @@
 ---
-titre : Reformer un nouveau service web Machine Learning Studio avec PowerShell - titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à reformer un modèle par programme et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning à l’aide des applets de commande PowerShell de gestion Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Reformer un nouveau service web Machine Learning Studio avec PowerShell - titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à reformer un modèle par programme et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning à l’aide des applets de commande PowerShell de gestion Machine Learning.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 28/03/2017
 ---

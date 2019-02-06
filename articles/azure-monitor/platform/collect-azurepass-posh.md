@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 3a20884dedf2d0f197cd73f0e67f412633736686
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a7c823493369735df23360645004b0bec85dbd7
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421573"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885505"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configurer la collecte de métriques de ressources Azure PaaS avec Log Analytics
 
@@ -67,7 +67,7 @@ Pour télécharger et exécuter le script, effectuez les étapes suivantes.
 
 Le script sera exécuté sur chaque ressource correspondant aux critères sélectionnés, et la collecte des métriques sera activée pour ces ressources. Une fois terminé, vous verrez un message indiquant que la configuration est terminée.  
 
-Peu après, vous commencerez à voir des données de la ressource PaaS Azure dans votre référentiel Log Analytics.  Un enregistrement du type `AzureMetrics` est créé, et l’analyse de ces enregistrements est prise en charge par les solutions de gestion [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) et [Azure Web Apps Analytics](../../azure-monitor/insights/azure-web-apps-analytics.md).   
+Peu après, vous commencerez à voir des données de la ressource PaaS Azure dans votre référentiel Log Analytics.  Un enregistrement du type `AzureMetrics` est créé, et l’analyse de ces enregistrements est prise en charge par les solutions de gestion [Azure SQL Analytics](../insights/azure-sql.md) et [Azure Web Apps Analytics](../insights/azure-web-apps-analytics.md).   
 
 ## <a name="update-a-resource-to-send-data-to-another-workspace"></a>Mettre à jour une ressource pour envoyer des données à un autre espace de travail
 Si vous avez une ressource qui envoie déjà des données à un espace de travail Log Analytics, et que vous décidez ultérieurement de la reconfigurer pour qu’elle référence un autre espace de travail, vous pouvez exécuter le script avec le paramètre `-Update`.  
@@ -79,8 +79,8 @@ Vous serez invité à fournir les mêmes informations que quand vous avez exécu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez les [recherches de journaux](../../azure-monitor/log-query/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions. 
+* Découvrez les [recherches de journaux](../log-query/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions. 
 
-* Utilisez des [champs personnalisés](../../azure-monitor/platform/custom-fields.md) pour analyser les enregistrements d’événements dans des champs individuels.
+* Utilisez des [champs personnalisés](custom-fields.md) pour analyser les enregistrements d’événements dans des champs individuels.
 
-* Pour découvrir comment visualiser vos recherches dans les journaux de manière significative pour l’organisation, consultez [Créer un tableau de bord personnalisé à utiliser dans Log Analytics](../../azure-monitor/platform/dashboards.md).
+* Pour découvrir comment visualiser vos recherches dans les journaux de manière significative pour l’organisation, consultez [Créer et partager des tableaux de bord de données Log Analytics](../learn/tutorial-logs-dashboards.md).

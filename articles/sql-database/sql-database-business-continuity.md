@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3b3f1268866c936ae4674188f8e3297702167415
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599431"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473423"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -46,7 +46,7 @@ Ensuite, vous pouvez en apprendre davantage sur les mécanismes supplémentaires
 
 - Les [tables temporelles](sql-database-temporal-tables.md) vous permettent de restaurer des versions de ligne à partir de n’importe quel point dans le temps.
 - Les [sauvegardes automatisées intégrées](sql-database-automated-backups.md) et la [limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) vous permettent de restaurer l’ensemble de la base de données selon un moment donné au cours des 35 derniers jours.
-- Vous pouvez [restaurer une base de données supprimée](sql-database-recovery-using-backups.md#deleted-database-restore) au point où sa suppression s’est produite si le **serveur logique n’a pas été supprimé**.
+- Vous pouvez [restaurer une base de données supprimée](sql-database-recovery-using-backups.md#deleted-database-restore) au point où sa suppression s’est produite si le **serveur SQL Database n’a pas été supprimé**.
 - La [rétention des sauvegardes à long terme](sql-database-long-term-retention.md) vous permet de conserver les sauvegardes sur une période allant jusqu’à 10 ans.
 - La [géoréplication active](sql-database-active-geo-replication.md) vous permet de créer des réplicas lisibles et d’effectuer un basculement manuel vers n’importe quel réplica en cas de panne de centre de données ou de mise à niveau d’application.
 - Le [groupe de basculement automatique](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) permet à l’application d’effectuer automatiquement une récupération en cas de panne du centre de données.
@@ -63,7 +63,7 @@ Le tableau suivant compare le temps de récupération estimé et l’objectif de
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Récupération d’une base de données sur le serveur existant
 
-SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les 12 heures) et de sauvegardes de fichiers journaux (toutes les 5 à 10 minutes) pour protéger votre entreprise contre la perte de données. Les sauvegardes sont stockées dans le stockage RA-GRS pendant 35 jours pour tous les niveaux de service à l’exception des niveaux de service DTU De base avec lesquels les sauvegardes sont stockées pendant 7 jours. Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md). Vous pouvez restaurer une base de données existante à partir des sauvegardes automatisées à un point antérieur dans le temps en tant que nouvelle base de données sur le même serveur logique à l’aide du portail Azure, de PowerShell ou de l’API REST. Pour plus d’informations, consultez [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les 12 heures) et de sauvegardes de fichiers journaux (toutes les 5 à 10 minutes) pour protéger votre entreprise contre la perte de données. Les sauvegardes sont stockées dans le stockage RA-GRS pendant 35 jours pour tous les niveaux de service à l’exception des niveaux de service DTU De base avec lesquels les sauvegardes sont stockées pendant 7 jours. Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md). Vous pouvez restaurer une base de données existante à partir des sauvegardes automatisées à un point antérieur dans le temps en tant que nouvelle base de données sur le même serveur SQL Database à l’aide du portail Azure, de PowerShell ou de l’API REST. Pour plus d’informations, consultez [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Si la période maximale de rétention qui est associée à la limite de restauration dans le temps n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de rétention à long terme (LTR) pour les bases de données. Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
 

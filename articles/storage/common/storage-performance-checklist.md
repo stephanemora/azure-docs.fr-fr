@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: d627fa1ca52356c43c9a771f612ae6d043299678
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231786"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460826"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage
 ## <a name="overview"></a>Vue d’ensemble
@@ -147,7 +147,7 @@ En règle générale, un navigateur n’autorise pas le code JavaScript d’une 
 Ces deux technologies vous aident à éviter toute charge inutile (ainsi que les goulots d’étranglement) au niveau de votre application web.  
 
 #### <a name="useful-resources"></a>Ressources utiles
-Pour plus d’informations sur SAP, voir la page [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1.md)  
+Pour plus d’informations sur les signatures d’accès partagé, consultez l’article [Signatures d’accès partagé, partie 1 : Présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1.md).  
 
 Pour plus d’informations sur CORS, consultez [Prise en charge du service Partage des ressources cross-origin (CORS) pour les services Azure Storage](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
@@ -178,7 +178,7 @@ Vous devez définir la limite de connexions avant d’ouvrir une connexion.
 
 Pour les autres langages de programmation, voir la documentation correspondante pour savoir comment définir la limite de connexions.  
 
-Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>Augmentation du nombre minimum de threads du pool de threads en cas d’utilisation de code synchrone avec Async Tasks
 Ce code augmente le nombre minimum de threads du pool de threads :  
@@ -255,8 +255,8 @@ Pour télécharger les objets blob rapidement, la première question est : tél
 #### <a name="subheading21"></a>Téléchargement rapide d’un objet blob volumineux
 Pour télécharger rapidement un seul objet blob de grande taille, votre application cliente doit télécharger ses blocs ou pages en parallèle (en tenant compte des objectifs d’extensibilité des différents objets blob et du compte de stockage dans son ensemble).  Notez que les bibliothèques clientes de stockage RTM fournies par Microsoft (.NET, Java) offrent cette possibilité.  Pour chacune des bibliothèques, utilisez l’objet ou la propriété indiqué ci-dessous pour définir le niveau de simultanéité :  
 
-* .NET : définissez ParallelOperationThreadCount sur un objet BlobRequestOptions à utiliser.
-* Java/Android : utilisez BlobRequestOptions.setConcurrentRequestCount()
+* .NET : définissez ParallelOperationThreadCount sur un objet BlobRequestOptions à utiliser.
+* Java/Android : utilisez BlobRequestOptions.setConcurrentRequestCount()
 * Node.js : utilisez parallelOperationThreadCount sur les options de demande ou sur le service BLOB.
 * C++ : utilisez la méthode blob_request_options::set_parallelism_factor.
 
@@ -286,7 +286,7 @@ Cette section décrit les paramètres de configuration rapide que vous pouvez ut
 #### <a name="subheading25"></a>Utilisation de JSON
 Depuis la version 2013-08-15 du service de stockage, le service de Table prend en charge l’utilisation de JSON plutôt que le format AtomPub XML pour transférer des données de table. Cela permet de réduire la taille de la charge utile de quelque 75 % et d’améliorer sensiblement les performances de votre application.
 
-Pour plus d’informations, consultez [Tables Microsoft Azure : présentation de JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) et [Format de charge utile pour les opérations du service de Table](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Pour plus d’informations, consultez le billet [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) (Tables Microsoft Azure : Présentation du format JSON) et l’article [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Format de charge utile pour les opérations du service de Table).
 
 #### <a name="subheading26"></a>Désactivation de Nagle
 L’algorithme de Nagle est utilisé à grande échelle sur les réseaux TCP/IP en vue d’améliorer les performances du réseau. Cependant, il n’est pas idéal dans toutes les situations (c’est le cas, par exemple, dans les environnements très interactifs). Pour le stockage Azure, l’algorithme de Nagle a un impact négatif sur les performances des demandes adressées aux services de table et de file d’attente. Vous devez donc le désactiver si cela s’avère possible.  
@@ -303,8 +303,8 @@ Le mode de représentation et d’interrogation de vos données constitue le pri
 #### <a name="subheading27"></a>Tables et partitions
 Les tables sont divisées en partitions. Toutes les entités stockées dans une partition partagent la même clé de partition et sont associées à une clé de ligne pour les identifier dans cette partition. Les partitions offrent des avantages, mais elles s’accompagnent également de limites d’extensibilité.  
 
-* Avantages : vous pouvez mettre à jour des entités d’une même partition au cours d’une seule transaction atomique par lots pouvant contenir jusqu’à 100 opérations de stockage distinctes (taille totale limite de 4 Mo). En partant du principe que le même nombre d’entités doit être récupéré, vous pouvez également interroger plus efficacement les données d’une seule partition que celles qui couvrent plusieurs partitions (vous trouverez d’autres conseils sur l’interrogation des données de table dans la suite de ce document).
-* Limite d’extensibilité : l’accès aux entités stockées dans une seule partition ne peut pas faire l’objet d’un équilibrage de la charge, car les partitions prennent en charge les transactions atomiques par lots. C’est pourquoi l’objectif d’extensibilité d’une partition de table individuelle est inférieur à celui du service de Table dans son ensemble.  
+* Avantages : vous pouvez mettre à jour des entités d’une même partition au cours d’une seule transaction atomique par lots pouvant contenir jusqu’à 100 opérations de stockage distinctes (taille totale limite de 4 Mo). En partant du principe que le même nombre d’entités doit être récupéré, vous pouvez également interroger plus efficacement les données d’une seule partition que celles qui couvrent plusieurs partitions (vous trouverez d’autres conseils sur l’interrogation des données de table dans la suite de ce document).
+* Limite d’extensibilité : l’accès aux entités stockées dans une seule partition ne peut pas faire l’objet d’un équilibrage de la charge, car les partitions prennent en charge les transactions atomiques par lots. C’est pourquoi l’objectif d’extensibilité d’une partition de table individuelle est inférieur à celui du service de Table dans son ensemble.  
 
 Compte tenu des caractéristiques des tables et des partitions, il est conseillé d’adopter les principes de conception suivants :  
 
@@ -359,8 +359,8 @@ Dans Azure Storage, les transactions par lots sont connues sous le nom de trans
 ##### <a name="subheading36"></a>Opération Upsert
 Lorsque cela s'avère possible, il est conseillé d'utiliser des opérations de table **Upsert** . Il existe deux types d’opération **Upsert** ; tous deux peuvent se révéler plus efficaces que les opérations **Insert** et **Update** classiques :  
 
-* **InsertOrMerge** : utilisez cette opération lorsque vous souhaitez télécharger un sous-ensemble des propriétés de l’entité, mais ne savez pas si cette dernière existe déjà. Si elle existe, cet appel met à jour les propriétés incluses dans l’opération **Upsert** et laisse toutes les propriétés existantes en l’état. Si elle n’existe pas, cet appel insère la nouvelle entité. Cela revient à utiliser la projection dans une requête, en ce sens que vous devez simplement télécharger les propriétés qui sont modifiées.
-* **InsertOrReplace** : utilisez cette opération lorsque vous souhaitez télécharger une toute nouvelle entité, mais ne savez pas si cette dernière existe déjà. Ne l’utilisez que lorsque vous n’avez aucun doute quant à la qualité de la nouvelle entité téléchargée, car elle écrase complètement l’ancienne entité. Vous souhaitez, par exemple, mettre à jour l’entité qui stocke l’emplacement actuel d’un utilisateur et ce, que l’application ait déjà stocké ou non des données d’emplacement pour cet utilisateur ; la nouvelle entité d’emplacement est complète et vous n’avez besoin d’aucune information d’une entité précédente.
+* **InsertOrMerge** : utilisez cette opération lorsque vous souhaitez charger un sous-ensemble des propriétés de l’entité, mais ne savez pas si cette dernière existe déjà. Si elle existe, cet appel met à jour les propriétés incluses dans l’opération **Upsert** et laisse toutes les propriétés existantes en l’état. Si elle n’existe pas, cet appel insère la nouvelle entité. Cela revient à utiliser la projection dans une requête, en ce sens que vous devez simplement télécharger les propriétés qui sont modifiées.
+* **InsertOrReplace** : utilisez cette opération lorsque vous souhaitez charger une toute nouvelle entité, mais ne savez pas si cette dernière existe déjà. Ne l’utilisez que lorsque vous n’avez aucun doute quant à la qualité de la nouvelle entité téléchargée, car elle écrase complètement l’ancienne entité. Vous souhaitez, par exemple, mettre à jour l’entité qui stocke l’emplacement actuel d’un utilisateur et ce, que l’application ait déjà stocké ou non des données d’emplacement pour cet utilisateur ; la nouvelle entité d’emplacement est complète et vous n’avez besoin d’aucune information d’une entité précédente.
 
 ##### <a name="subheading37"></a>Stockage de séries de données dans une seule entité
 Parfois, une application stocke une série de données fréquemment nécessaires pour tout récupérer à la fois : par exemple, une application peut suivre l’utilisation du processeur au fil du temps pour tracer un graphique propagée des données à partir des dernières 24 heures. Une méthode consiste à disposer d’une entité de table par heure, chaque entité représentant alors une heure donnée et stockant l’utilisation du processeur au cours de cette période. Pour représenter ces données sur un graphique, l’application doit récupérer les entités qui contiennent les données des 24 dernières heures.  
@@ -395,7 +395,7 @@ Pour plus d’informations relatives au coût, consultez [Tarification Azure Sto
 ### <a name="subheading44"></a>UpdateMessage
 Vous pouvez utiliser l'opération **UpdateMessage** pour augmenter le délai d'expiration de l'invisibilité ou pour mettre à jour les informations d'état d'un message. Bien que l'opération **UpdateMessage** soit particulièrement puissante, n'oubliez pas que chacune d'elles est comptabilisée dans le cadre de l'objectif d'évolutivité. Cependant, cela peut constituer une méthode beaucoup plus efficace qu’un flux de travail qui transmet une tâche d’une file d’attente à la suivante, une fois chaque étape terminée. L’utilisation de l’opération **UpdateMessage** permet à votre application d’enregistrer l’état de la tâche dans le message, puis de poursuivre le traitement, au lieu de replacer à chaque fois le message en file d’attente pour l’étape suivante.  
 
-Pour plus d’informations, voir l’article [Modification du contenu d’un message en file d’attente](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
+Pour plus d’informations, consultez l’article [ Modification du contenu d’un message en file d’attente](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
 ### <a name="subheading45"></a>Architecture de l’application
 Il est conseillé d’utiliser des files d’attente pour rendre l’architecture de votre application extensible. Vous trouverez, dans les listes suivantes, les méthodes applicables pour accroître l’extensibilité de votre application :  

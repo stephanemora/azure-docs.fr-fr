@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a0f4e4dd5cea9c3ea7b682e6372d2ffa8726e6ef
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ea409a4295cb07800e3f48ab408135071d0faea6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646471"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464813"
 ---
 # <a name="how-to-return-n-best-translations"></a>Comment renvoyer les n meilleures traductions
 
@@ -44,13 +44,13 @@ La signature est :
 | maxTranslations | **Requis** Un entier représentant le nombre maximal de traductions à renvoyer. |
 | options | **Facultatif** Un objet TranslateOptions qui contient les valeurs répertoriées ci-dessous. Tous sont facultatifs. Par défaut, il s’agit des paramètres les plus courants.
 
-* Catégorie : la seule option prise en charge (et donc par défaut) est « général ».
-* ContentType : la seule option prise en charge (et donc par défaut) est 	« texte/brut ».
-* État : état utilisateur pour aider à mettre en corrélation la requête et la réponse. Le même contenu sera renvoyé dans la réponse.
+* Catégorie : la seule option prise en charge (et donc par défaut) est « général ».
+* ContentType : la seule option prise en charge (et donc par défaut) est « text/plain ».
+* État : état utilisateur pour aider à mettre en corrélation la requête et la réponse. Le même contenu sera renvoyé dans la réponse.
 * IncludeMultipleMTAlternatives : indicateur pour déterminer s’il faut renvoyer plusieurs alternatives du moteur de traduction machine. Par défaut, la valeur est false et n’offre qu’une seule alternative.
 
 ## <a name="ratings"></a>Évaluations
-Les notes sont appliquées comme suit : la meilleure traduction automatique obtient une note de 5.
+Les notes sont appliquées comme suit : La meilleure traduction automatique obtient une note de 5.
 Les alternatives de traduction générées automatiquement (les n meilleures traductions) ont la note de 0, et leur degré de correspondance est de 100.
 
 ## <a name="number-of-alternatives"></a>Nombre d’alternatives

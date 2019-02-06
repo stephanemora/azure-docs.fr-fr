@@ -1,5 +1,5 @@
 ---
-titre : Gérer un espace de travail Machine Learning Studio titleSuffix : Description d'Azure Machine Learning Studio : Gestion de l'accès aux espaces de travail Azure Machine Learning, et déploiement et gestion des services web d'API ML services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Gérer un espace de travail Machine Learning Studio titleSuffix : Description d'Azure Machine Learning Studio : Gestion de l’accès aux espaces de travail Azure Machine Learning, et déploiement et gestion des services web d’API ML services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 27/02/2017
 ---

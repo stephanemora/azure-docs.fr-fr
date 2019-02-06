@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: fc7bf4eaeb073b0337be68632e5057bfce96e06a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: a09037f2e33d87446696dd11477c4e8b45af4187
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43311258"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474171"
 ---
 # <a name="migrate-your-data"></a>Migration de vos données
 Les données peuvent être déplacées à partir de différentes sources dans SQL Data Warehouse avec divers outils.  Les solutions ADF Copy, SSIS et bcp peuvent toutes être utilisées à cette fin. Toutefois, à mesure de l’augmentation du volume des données, vous avez tout intérêt à réfléchir à un moyen de diviser le processus de migration des données en étapes. Ce faisant, vous vous donnez les moyens d’optimiser chacune des phases en matière de performance et de résilience afin de garantir une migration sans heurts des données.
@@ -157,7 +157,7 @@ Voici les étapes possibles d’un processus de niveau supérieur :
 3. Traitement de vos données à l’aide d’AZCopy dans le contenu de stockage d’objets Blob Microsoft Azure
 4. Charger les données dans SQL Data Warehouse à l’aide de PolyBase
 
-Documentation complète disponible : [AZCopy][AZCopy].
+Documentation complète disponible : [AZCopy][AZCopy].
 
 ## <a name="optimizing-data-export"></a>Optimisation de l’exportation des données
 En plus d’assurer la conformité de l’exportation avec les exigences associées à PolyBase, vous pouvez également chercher à optimiser l’exportation des données afin d’améliorer davantage le processus.

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528554"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453380"
 ---
 # <a name="what-is-azure-importexport-service"></a>Qu’est-ce que le service Azure Import/Export ?
 
@@ -27,18 +27,18 @@ Si vous souhaitez transférer des données à l’aide des lecteurs de disque fo
 
 Envisagez d’utiliser le service Azure Import/Export lorsque le chargement ou le téléchargement de données sur le réseau est trop lent ou lorsque l’obtention d’une bande passante réseau supplémentaire est coûteuse. Utilisez ce service dans les situations suivantes :
 
-* **Migration de données vers le cloud** : déplacez rapidement de grandes quantités de données vers Azure et à moindre coût.
+* **Migration des données vers le cloud** : déplacez rapidement de grandes quantités de données vers Azure et à moindre coût.
 * **Distribution de contenu** : envoyez rapidement des données aux sites de vos clients.
-* **Sauvegarde** : sauvegardez vos données locales dans Stockage Azure.
-* **Récupération des données** : récupérez de grandes quantités de données stockées pour les transférer vers votre site local.
+* **Sauvegarder** : sauvegardez vos données locales dans Stockage Azure.
+* **Récupération de données** : récupérez de grandes quantités de données stockées pour les transférer vers votre site local.
 
 ## <a name="importexport-components"></a>Composants du service Azure Import/Export
 
 Le service Azure Import/Export utilise les composants suivants :
 
-- **Service Import/Export** : ce service disponible dans le portail Azure permet à l’utilisateur de créer et d’effectuer le suivi de travaux d’importation (chargement) et d’exportation (téléchargement) de données.  
+- **Service d’importation/exportation** : ce service disponible dans le portail Azure permet à l’utilisateur de créer des travaux d’importation (chargement) et d’exportation (téléchargement) de données et d’en effectuer le suivi.  
 
-- **Outil WAImportExport** : outil en ligne de commande qui effectue les opérations suivantes : 
+- **Outil WAImportExport** : outil en ligne de commande qui effectue les opérations suivantes : 
     - prépare vos lecteurs de disque expédiés à l’importation ;
     - facilite la copie de vos données sur le lecteur ;
     - chiffre les données sur le lecteur avec BitLocker ;
@@ -52,7 +52,7 @@ Le service Azure Import/Export utilise les composants suivants :
 >
 > L’outil WAImportExport est compatible uniquement avec le système d’exploitation Windows 64 bits. Pour connaître les versions de système d’exploitation prises en charge, consultez [Conditions requises pour le service Azure Import/Export](storage-import-export-requirements.md#supported-operating-systems).
 
-- **Lecteurs de disque** : vous pouvez expédier des disques SSD ou des disques durs au centre de données Azure. Lorsque vous créez un travail d’importation, vous expédiez les lecteurs de disque contenant vos données. Lorsque vous créez un travail d’exportation, vous expédiez des lecteurs vides au centre de données Azure. Pour les types de disques, consultez [Types de disques pris en charge](storage-import-export-requirements.md#supported-hardware).
+- **Lecteurs de disque** : vous pouvez expédier des disques SSD (Solid-state drive) ou des disques HDD (Hard disk drive) au centre de données Azure. Lorsque vous créez un travail d’importation, vous expédiez les lecteurs de disque contenant vos données. Lorsque vous créez un travail d’exportation, vous expédiez des lecteurs vides au centre de données Azure. Pour les types de disques, consultez [Types de disques pris en charge](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>Comment fonctionne le service Import/Export ?
 

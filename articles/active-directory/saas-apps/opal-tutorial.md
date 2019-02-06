@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Opal | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Opal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Opal.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 434fc204-e9f9-4678-ad5f-054d621bb2f9
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: a20818fc03117b3e6a6cdb882c7323d6b9aec533
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cacfa736a91d47abb91b40b1c549aba884d16ec0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438839"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168955"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-opal"></a>Didacticiel : Intégration d’Azure Active Directory à Opal
+# <a name="tutorial-azure-active-directory-integration-with-opal"></a>Didacticiel : Intégration d’Azure Active Directory à Opal
 
 Dans ce didacticiel, vous allez apprendre à intégrer Opal à Azure Active Directory (Azure AD).
 
@@ -153,7 +153,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 1. Pour configurer l’authentification unique du côté **Opal**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe de support technique d’Opal](mailto:support@workwithopal.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -189,7 +189,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   
 ### <a name="create-an-opal-test-user"></a>Créer un utilisateur de test Opal
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Opal. Collaborez avec [l’équipe de support technique Opal](mailto:support@workwithopal.com) pour ajouter des utilisateurs dans la plateforme Opal. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Opal. Collaborez avec  [l’équipe de support technique Opal](mailto:support@workwithopal.com)  pour ajouter des utilisateurs à la plateforme Opal. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

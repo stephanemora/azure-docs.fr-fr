@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: a296576d3d7983b710727923043091f5660b693d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.subservice: files
+ms.openlocfilehash: cec6da78ae47b509e2bb5f8ba0007208545062e7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002550"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478064"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gérer des serveurs inscrits avec Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -191,5 +191,6 @@ Lorsqu’Azure File Sync est hébergé dans une machine virtuelle s’exécutant
 
 ## <a name="see-also"></a>Voir aussi
 - [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md)
-- [Déployer Azure File Sync](storage-sync-files-deployment-guide.md) 
+- [Déployer Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Superviser Azure File Sync](storage-sync-files-monitoring.md)
 - [Résoudre les problèmes d’Azure File Sync](storage-sync-files-troubleshoot.md)

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 87f6437f836d46fc24ae016823a1b091bcd81943
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 0f29544890fe10f4914de393a4b153cfe393a2ec
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582041"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904299"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Comprendre l’utilisation d’une réservation Azure pour votre Accord de Mise en Œuvre Entreprise
 
@@ -76,7 +76,7 @@ Filtrez sur les **Informations supplémentaires** et saisissez votre **ID de ré
 
 ## <a name="usage-summary-page-in-enterprise-portal"></a>Page récapitulative de l’utilisation dans Enterprise Portal
 
-L’utilisation de la réservation Azure apparaît également dans la section récapitulative de l’utilisation d’Enterprise Portal : ![Récapitulatif de l’utilisation du Contrat Entreprise](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png).
+L’utilisation de la réservation Azure apparaît également dans la section récapitulative de l’utilisation d’Enterprise Portal : ![Récapitulatif de l’utilisation du Contrat Entreprise](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
 
 1. Le composant matériel de la machine virtuelle ne vous est pas facturé, car il est couvert par la réservation. Pour une réservation SQL Database, une ligne avec **Nom du service** indique l’utilisation de la capacité réservée Azure SQL Database.
 2. Dans cet exemple, vous n’avez pas Azure Hybrid Benefit. Les logiciels Windows utilisés avec la machine virtuelle vous sont donc facturés.

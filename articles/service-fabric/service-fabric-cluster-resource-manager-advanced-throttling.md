@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e9db1070066a2a02b72b5cc051e59d8b04dc9928
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4c86655b650464f1debadab35fdd82611d17ad81
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205125"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092337"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Limitations de Service Fabric Cluster Resource Manager
 Même si vous avez configuré le Cluster Resource Manager , le cluster peut être interrompu. Par exemple, il peut y avoir des défaillances de nœud et de domaine d’erreur simultanées. Que se passe-t-il alors si cela se produit pendant une mise à niveau ? Le Gestionnaire de ressources de cluster essaie de résoudre tous les problèmes en utilisant des ressources du cluster pour tenter de réparer et réorganiser le cluster. Les limitations servent de filet de sécurité afin que le cluster puisse utiliser des ressources pour se stabiliser. Les nœuds reviennent, les partitions réseau sont réparées et les bits corrigés sont déployés.
@@ -35,7 +35,7 @@ La plupart du temps, les clients utilisent des limitations, car ils travaillent 
 
 Service Fabric dispose de deux mécanismes pour limiter le nombre de mouvements de réplicas. Le mécanisme par défaut qui existait avant Service Fabric 5.7 correspond à une limitation sous forme de nombre absolu de déplacements autorisés. Il ne fonctionne pas avec des clusters de toutes tailles. En particulier, pour les grands clusters, la valeur par défaut peut être trop petite, ce qui ralentirait considérablement l’équilibrage même lorsqu’il est nécessaire, tout en n’ayant aucun effet sur les clusters plus petits. Le mécanisme antérieur a été remplacé par une limitation basée sur des pourcentages, qui s’adapte mieux aux clusters dynamiques dans lesquels le nombre de services et de nœuds change régulièrement.
 
-Les limitations sont basées sur des pourcentages du nombre de réplicas dans les clusters. Ces limitations permettent, par exemple, de définir la règle : « Ne pas déplacer plus de 10 % des réplicas dans un intervalle de 10 minutes ».
+Les limitations sont basées sur des pourcentages du nombre de réplicas dans les clusters. Ces limitations permettent, par exemple, de définir la règle : « Ne pas déplacer plus de 10 % des réplicas dans un intervalle de 10 minutes ».
 
 Les paramètres de configuration de la limitation basée sur des pourcentages sont :
 

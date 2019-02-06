@@ -1,6 +1,6 @@
 ---
-titre : Déployer le service Web Studio dans plusieurs régions - titleSuffix : Description d'Azure Machine Learning Studio : Étapes pour déployer (copier) un nouveau service web dans d’autres régions. Déployez facilement un service web dans plusieurs régions, sans avoir besoin de plusieurs abonnements ni espaces de travail.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Déployer le service Web Studio dans plusieurs régions - titleSuffix : Description d'Azure Machine Learning Studio : Étapes pour déployer (copier) un nouveau service web dans d’autres régions. Déployez facilement un service web dans plusieurs régions, sans avoir besoin de plusieurs abonnements ni espaces de travail.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

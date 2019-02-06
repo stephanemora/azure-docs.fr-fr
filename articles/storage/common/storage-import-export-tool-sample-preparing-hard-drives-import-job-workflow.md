@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: b21c378d58590e33c7b6aeffe627ce5602074fa2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: de2cfbf2b4119daf965c95d8973b8528799c9502
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524618"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454623"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exemple de workflow pour préparer des disques durs à un travail d’importation
 
@@ -70,8 +70,8 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 
 En outre, vous pouvez définir les métadonnées suivantes pour tous les fichiers :
 
-* **UploadMethod :** Service Windows Azure Import/Export
-* **DataSetName :** SampleData
+* **UploadMethod :** Service Windows Azure Import/Export
+* **DataSetName :** SampleData
 * **CreationDate :** 10/1/2013
 
 Pour définir les métadonnées pour les fichiers importés, créez un fichier texte, `c:\WAImportExport\SampleMetadata.txt`, avec le contenu suivant :

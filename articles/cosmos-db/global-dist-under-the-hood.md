@@ -1,5 +1,5 @@
 ---
-title: Distribution mondiale d’Azure Cosmos DB - sous le capot
+title: Distribution mondiale avec Azure Cosmos DB - Sous le capot
 description: Cet article fournit des détails techniques sur la distribution mondiale d’Azure Cosmos DB
 author: dharmas-cosmos
 ms.service: cosmos-db
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e1c84bb28747cf1799b39c70b6df3dc0cb9f8d78
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 86e4441174fa89fc688fa4e411ead0a7b3ebc8ee
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038940"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475378"
 ---
-# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Distribution mondiale d’Azure Cosmos DB - sous le capot
+# <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribution de données mondiale avec Azure Cosmos DB - Sous le capot
 
 Cosmos DB étant un service fondamental d’Azure, il est déployé dans toutes les régions d’Azure du monde entier, dont les clouds publics, souverains, du ministère de la Défense et du secteur public. À l’intérieur d’un centre de données, nous déployons et gérons Azure Cosmos DB sur des tampons massifs de machines, chacune avec un stockage local dédié. À l’intérieur d’un centre de données, Cosmos DB est déployé dans de nombreux clusters, chacun pouvant exécuter plusieurs générations de matériel. Les machines au sein d’un cluster sont généralement réparties sur 10 à 20 domaines d’erreurs. L’image suivante montre la topologie du système de distribution mondiale Cosmos DB :
 

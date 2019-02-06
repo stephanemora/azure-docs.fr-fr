@@ -1,6 +1,6 @@
 ---
-titre : Réentraîner les modèles Machine Learning Studio programmatiquement - titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à réentraîner un modèle par programmatique à l’aide de C# et du service d’exécution par lot Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Réentraîner les modèles Machine Learning Studio programmatiquement - titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à réentraîner un modèle par programmatique à l’aide de C# et du service d’exécution par lot Machine Learning.
+services : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

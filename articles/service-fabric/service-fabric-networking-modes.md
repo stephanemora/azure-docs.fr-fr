@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024788"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093148"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modes de mise en réseau du conteneur Service Fabric
 
@@ -264,7 +264,7 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
    </Resources>
    ```
    
-6. Pour Windows, un redémarrage de la machine virtuelle entraîne la recréation du réseau ouvert. Il s’agit d’atténuer un problème sous-jacent dans la pile du réseau. Le comportement par défaut est de recréer le réseau. Si vous voulez désactiver ce comportement, vous pouvez utiliser la configuration suivante suivie d’une mise à niveau de la configuration.
+6. Pour Windows, un redémarrage de la machine virtuelle entraîne la recréation du réseau ouvert. Il s’agit d’atténuer un problème sous-jacent dans la pile du réseau. Le comportement par défaut est de recréer le réseau. Si vous voulez désactiver ce comportement, vous pouvez utiliser la configuration suivante, suivie d’une mise à niveau de la configuration.
 
 ```json
 "fabricSettings": [

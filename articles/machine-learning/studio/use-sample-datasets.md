@@ -1,6 +1,6 @@
 ---
-titre : Utiliser des exemples de jeux de données titleSuffix : Description d’Azure Machine Learning Studio : Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans Machine Learning Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Utiliser des exemples de jeux de données titleSuffix : Description d’Azure Machine Learning Studio : Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans Machine Learning Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 19/01/2018
 ---

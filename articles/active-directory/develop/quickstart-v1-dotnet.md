@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f9389a7c0e80f075c01f2236fa1bdf9dc9544ac6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 968afcba8b0a6ab9d46c5582eecbb4901975257c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987439"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101134"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application de bureau .NET (WPF)
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application de bureau .NET (WPF)
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -49,7 +49,7 @@ Pour commencer, configurez les prérequis suivants :
 * Téléchargez [la structure de l’application](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).
 * Vous disposez d’un locataire Azure AD dans lequel vous pouvez créer des utilisateurs et inscrire une application. Si vous ne disposez pas encore d’un client, [découvrez comment en obtenir un](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-the-directorysearcher-application"></a>Étape 1 : Inscrire l’application DirectorySearcher
+## <a name="step-1-register-the-directorysearcher-application"></a>Étape 1 : Inscrire l’application DirectorySearcher
 
 Pour que votre application puisse obtenir des jetons, vous devez tout d’abord l’inscrire dans votre locataire Azure AD et lui donner l’autorisation d’accéder à l’API Graph Azure AD :
 
@@ -80,7 +80,7 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
   * `ida:ClientId` correspond à l’ID client de votre application, que vous avez copié à partir du portail.
   * `ida:RedirectUri` correspond à l’URL de redirection que vous avez inscrite dans le portail.
 
-## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Étape 3 : Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
+## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Étape 3 : Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
 
 Le principe de base de la bibliothèque ADAL consiste simplement à appeler `authContext.AcquireTokenAsync(...)` chaque fois que votre application a besoin d’un jeton d’accès, et la bibliothèque ADAL s’occupe du reste.
 

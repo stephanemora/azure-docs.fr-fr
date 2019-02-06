@@ -1,6 +1,6 @@
 ---
-titre : Reformer un service web classique titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à reformer un modèle par programme et à mettre à jour le service Web pour utiliser le modèle reformé dans Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Reformer un service web classique titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à reformer un modèle par programme et à mettre à jour le service Web pour utiliser le modèle reformé dans Azure Machine Learning.
+services : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 19/04/2017
 ---

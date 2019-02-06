@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 48d6ddd1-4d3e-4019-8234-5e5212684d9c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 40237946adf0e9cf30367fd0464a6c32572c3aaf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6b66a7343c6ddaa9ff8cf36489798a96fbdf1c30
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423723"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175313"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Tutoriel : Intégration d’Azure Active Directory à Skyhigh Networks
+# <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Tutoriel : Intégration d’Azure Active Directory à Skyhigh Networks
 
 Dans ce tutoriel, vous allez apprendre à intégrer Skyhigh Networks à Azure Active Directory (Azure AD).
 
@@ -169,7 +169,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-skyhigh-networks-test-user"></a>Créer un utilisateur de test Skyhigh Networks
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Skyhigh Networks. Travaillez avec [l’équipe de support Skyhigh Networks](mailto:support@skyhighnetworks.com) pour ajouter des utilisateurs dans la plateforme Skyhigh Networks. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Skyhigh Networks. Collaborez avec  [l’équipe du support technique de Skyhigh Networks](mailto:support@skyhighnetworks.com) pour ajouter des utilisateurs à la plateforme Skyhigh Networks. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

@@ -1,6 +1,6 @@
 ---
-titre : Résolution des problèmes : création d’un espace de travail Machine Learning Studio et connexion à celui-ci titleSuffix : Description d'Azure Machine Learning Studio : Ce guide propose des solutions pour certains défis qui se posent souvent quand vous configurez des espaces de travail Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Résolution des problèmes : création d’un espace de travail Machine Learning Studio et connexion à celui-ci titleSuffix : Description d'Azure Machine Learning Studio : Ce guide propose des solutions pour certains défis qui se posent souvent quand vous configurez des espaces de travail Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: f3192aafb6f19695bc99310dd980382510bc633b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 01/25/2019
+ms.openlocfilehash: b5ba5fadd229fa7119f9af791f7eaedbc984c92a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188112"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457188"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Forum aux questions sur les outils de bases de données élastiques
 
@@ -43,13 +43,13 @@ Non, le Gestionnaire de cartes de partitions (par exemple, [ShardMapManagerFacto
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Je me pose des questions sur l'utilisation des outils de bases de données élastiques. Où puis-je trouver des réponses ?
 
-Contactez-nous via le [forum Azure SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+Contactez-nous via le [forum SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Quand j’obtiens une connexion de base de données à l’aide d’une clé de partitionnement, je peux encore interroger les données pour d’autres clés de partitionnement sur la même partition.  Est-ce normal ?
 
 Les API d’infrastructure élastique vous donnent une connexion à la base de données correspondant à votre clé de partitionnement, mais elles ne permettent pas de filtrer les clés de partitionnement.  Ajoutez des clauses **WHERE** à votre requête pour restreindre l’étendue à la clé de partitionnement fournie, si nécessaire.
 
-## <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>Puis-je utiliser une édition différente d'Azure SQL Database pour chacune des partitions de mon ensemble de partitions ?
+## <a name="can-i-use-a-different-sql-database-edition-for-each-shard-in-my-shard-set"></a>Puis-je utiliser une édition différente de SQL Database pour chacune des partitions de mon ensemble de partitions ?
 
 Oui, une partition est une base de données individuelle, par conséquent, une partition peut utiliser une édition Premium alors qu’une autre utilise une édition Standard. Par ailleurs, l’édition d’une partition peut monter ou descendre en puissance plusieurs fois pendant la durée de vie de la partition.
 

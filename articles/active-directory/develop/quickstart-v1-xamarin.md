@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8af6846da78d12460b7866297c9802c5dab20a69
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5b721dfd7a229220836f273be58c5ca74c4284d1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967521"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097927"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Démarrage rapide : Créer une application Xamarin qui intègre la connexion Microsoft
 
@@ -43,7 +43,7 @@ Pour les applications Xamarin qui doivent accéder à des ressources protégées
 
 Lorsque vous êtes prêt, suivez les procédures des quatre sections qui suivent.
 
-## <a name="step-1-set-up-your-xamarin-development-environment"></a>Étape 1 : Configurer votre environnement de développement Xamarin
+## <a name="step-1-set-up-your-xamarin-development-environment"></a>Étape 1 : configurer votre environnement de développement Xamarin ;
 
 Étant donné que ce didacticiel inclut des projets pour iOS, Android et Windows, il vous faut à la fois Visual Studio et Xamarin. Pour créer l’environnement nécessaire, suivez la procédure à la page [Configurer et installer Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) sur MSDN. Les instructions incluent des documents que vous pouvez consulter pour en savoir plus sur Xamarin en attendant que les installations se terminent.
 
@@ -98,7 +98,7 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
   * *clientId* est l’ID client de l’application, que vous avez copié à partir du portail.
   * *returnUri* est l’URI de redirection que vous avez entrée sur le portail (par exemple, http://DirectorySearcher).
 
-## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Étape 4 : Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
+## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Étape 4 : Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
 
 Presque toute la logique d’authentification de l’application réside dans `DirectorySearcher.SearchByAlias(...)`. Dans les projets propres à la plateforme, la seule nécessité est de transmettre un paramètre contextuel à la PCL `DirectorySearcher`.
 
@@ -187,7 +187,7 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 
 Vous disposez maintenant d’une application Xamarin fonctionnelle capable d’authentifier les utilisateurs et d’appeler en toute sécurité les API web à l’aide d’OAuth 2.0 sur cinq plateformes différentes.
 
-## <a name="step-5-populate-your-tenant"></a>Étape 5 : Remplir votre client 
+## <a name="step-5-populate-your-tenant"></a>Étape 5 : Remplir votre locataire 
 
 Si vous n’avez pas encore rempli votre client avec des utilisateurs, il est maintenant temps de le faire.
 

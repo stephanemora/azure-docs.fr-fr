@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 738cc5b4e90d9572b65f122076973e2d9f1b264f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450488"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302119"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notes de publication de préversion d’Azure Data Box Gateway
 
@@ -50,7 +50,9 @@ Le tableau suivant résume les problèmes connus pour Data Box Gateway exécutan
 | **5.** |Types de fichier | Les types de fichiers Linux suivants ne sont pas pris en charge : fichiers de caractères, fichiers de blocs, sockets, pipes et liens symboliques.  |La copie de ces fichiers entraîne la création de fichiers de longueur nulle sur le partage NFS. Ces fichiers restent dans un état d’erreur et sont également signalés dans le fichier *error.xml*. |
 | **6.** |Suppression | En raison d’un bogue dans cette version, si un partage NFS est supprimé, le partage peut ne pas être supprimé. L’état du partage indique *Suppression*.  |Cela ne se produit que lorsque le partage utilise un nom de fichier non pris en charge. |
 | **7.** |Actualiser | Les autorisations et les listes de contrôle d’accès (ACL) ne sont pas conservées lors d’une opération d’actualisation.  | |
-| **8.** |Aide en ligne |Les liens d’aide dans le portail Azure peuvent ne pas diriger vers la documentation.|Les liens d’aide fonctionneront dans la version en disponibilité générale. |
+| **8.** |Copier | Échec de la copie des données avec l’erreur :  Impossible de terminer l’opération demandée du fait d’une limitation du système de fichiers.  |Cette erreur se produit lorsque le flux de données alternatif (ADS) associé au fichier dépasse 128 Ko (limite maximale pour ReFS).  |
+| **9.** |Liens symboliques |Les liens symboliques ne sont pas pris en charge.  |Si des liens symboliques existent vers des répertoires, ces derniers ne sont jamais marqués hors connexion. Par conséquent, vous pouvez ne pas voir la croix grise sur les répertoires, qui indique qu’ils sont hors connexion et que tout le contenu associé a été complètement chargé vers Azure. |
+| **10.** |Aide en ligne |Les liens d’aide dans le portail Azure peuvent ne pas diriger vers la documentation.|Les liens d’aide fonctionneront dans la version en disponibilité générale. |
 
 
 

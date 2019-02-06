@@ -1,6 +1,6 @@
 ---
-titre : Gérer les services web Machine Learning Studio à l'aide de Gestion des API - titleSuffix : Description d'Azure Machine Learning Studio : Guide montrant comment gérer les services web AzureML à l’aide de la gestion des API Gérez vos points de terminaison d’API REST en définissant l’accès utilisateur, la limitation d’utilisation et la surveillance du tableau de bord.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Gérer les services web Machine Learning Studio à l'aide de Gestion des API - titleSuffix : Description d'Azure Machine Learning Studio : Guide montrant comment gérer les services web AzureML à l’aide de la gestion des API Gérez vos points de terminaison d’API REST en définissant l’accès utilisateur, la limitation d’utilisation et la surveillance du tableau de bord.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/11/2017
 ---

@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 40dd963a4aad7ffdd092d6835e8444cf0789e129
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044567"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462798"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
 Azure SQL Database, les pools élastiques, Managed Instance et les bases de données de Managed Instance peuvent diffuser en continu des métriques et des journaux de diagnostic pour faciliter la supervision des performances. Vous pouvez configurer une base de données de sorte qu’elle transmette les informations relatives à l’utilisation des ressources, aux workers et sessions ainsi qu’à la connectivité à l’une de ces ressources Azure :
 
-- **Azure SQL Analytics** : pour bénéficier d’une supervision intelligente de vos bases de données Azure avec des rapports de performances, des alertes et des recommandations d’atténuation.
+- **Azure SQL Analytics** : pour bénéficier d’une supervision intelligente de vos bases de données SQL Azure avec des rapports de performances, des alertes et des suggestions d’atténuation.
 - **Azure Event Hubs** : pour intégrer des données de télémétrie SQL Database à votre solution de supervision personnalisée ou à vos pipelines chauds.
 - **Stockage Azure** : pour archiver des quantités importantes de données de télémétrie pour une fraction du prix.
 
@@ -68,7 +68,7 @@ Vous pouvez configurer les bases de données Azure SQL Database et les bases de 
 | [Toutes les métriques](sql-database-metrics-diag-logging.md#all-metrics) : Pourcentage DTU/CPU, Limite DTU/CPU, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP. | Oui | Non  |
 | [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics) : contient des informations sur les statistiques d’exécution de requête comme les statistiques concernant l’utilisation du processeur et la durée des requêtes. | Oui | Oui |
 | [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics) : contient des informations sur les statistiques d’attente des requêtes (ce que vos requêtes ont attendu) comme CPU, LOG et LOCKING. | Oui | Oui |
-| [Errors](sql-database-metrics-diag-logging.md#errors-dataset) : contient des informations sur les erreurs SQL au niveau de la base de données. | Oui | Non  |
+| [Errors](sql-database-metrics-diag-logging.md#errors-dataset) : contient des informations sur les erreurs SQL au niveau de la base de données. | Oui | Oui |
 | [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset) : contient des informations sur le temps que la base de données a passé à attendre différents types d’attente. | Oui | Non  |
 | [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset) : contient des informations sur les délais d’expiration au niveau de la base de données. | Oui | Non  |
 | [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset) : contient des informations sur les événements bloquants au niveau de la base de données. | Oui | Non  |
@@ -414,7 +414,7 @@ Consultez le tableau suivant pour obtenir des détails sur les journaux pour Man
 |TenantId|Votre ID d’abonné |
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
-|type|Toujours : AzureDiagnostics |
+|Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Catégorie|Nom de la catégorie. Toujours : ResourceUsageStats |
 |Ressource|Nom de la ressource |
@@ -443,7 +443,7 @@ Pour obtenir des détails sur les journaux pour bases de données Azure SQL Data
 |TenantId|Votre ID d’abonné |
 |SourceSystem|Toujours : Azure |
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
-|type|Toujours : AzureDiagnostics |
+|Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Catégorie|Nom de la catégorie. Toujours : QueryStoreRuntimeStatistics |
 |OperationName|Nom de l’opération. Toujours : QueryStoreRuntimeStatisticsEvent |
@@ -494,7 +494,7 @@ En savoir plus sur les [données de statistiques d’exécution du magasin des r
 |TenantId|Votre ID d’abonné |
 |SourceSystem|Toujours : Azure |
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
-|type|Toujours : AzureDiagnostics |
+|Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Catégorie|Nom de la catégorie. Toujours : QueryStoreWaitStatistics |
 |OperationName|Nom de l’opération. Toujours : QueryStoreWaitStatisticsEvent |
@@ -532,7 +532,7 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 |TenantId|Votre ID d’abonné |
 |SourceSystem|Toujours : Azure |
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
-|type|Toujours : AzureDiagnostics |
+|Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQ |
 |Catégorie|Nom de la catégorie. Toujours : Errors |
 |OperationName|Nom de l’opération. Toujours : ErrorEvent |
@@ -561,7 +561,7 @@ En savoir plus sur les [messages d’erreur SQL Server](https://msdn.microsoft.c
 |TenantId|Votre ID d’abonné |
 |SourceSystem|Toujours : Azure |
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
-|type|Toujours : AzureDiagnostics |
+|Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Catégorie|Nom de la catégorie. Toujours : DatabaseWaitStatistics |
 |OperationName|Nom de l’opération. Toujours : DatabaseWaitStatisticsEvent |
@@ -590,7 +590,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |TenantId|Votre ID d’abonné |
 |SourceSystem|Toujours : Azure |
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
-|type|Toujours : AzureDiagnostics |
+|Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Catégorie|Nom de la catégorie. Toujours : Délais d’expiration |
 |OperationName|Nom de l’opération. Toujours : TimeoutEvent |
@@ -613,7 +613,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |TenantId|Votre ID d’abonné |
 |SourceSystem|Toujours : Azure |
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
-|type|Toujours : AzureDiagnostics |
+|Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Catégorie|Nom de la catégorie. Toujours : Blocs |
 |OperationName|Nom de l’opération. Toujours : BlockEvent |
@@ -637,7 +637,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |TenantId|Votre ID d’abonné |
 |SourceSystem|Toujours : Azure |
 |TimeGenerated [UTC] |Horodatage indiquant à quel moment le journal a été enregistré |
-|type|Toujours : AzureDiagnostics |
+|Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Catégorie|Nom de la catégorie. Toujours : Blocages |
 |OperationName|Nom de l’opération. Toujours : DeadlockEvent |
@@ -658,7 +658,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |TenantId|Votre ID d’abonné |
 |SourceSystem|Toujours : Azure |
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
-|type|Toujours : AzureDiagnostics |
+|Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Catégorie|Nom de la catégorie. Toujours : AutomaticTuning |
 |Ressource|Nom de la ressource |

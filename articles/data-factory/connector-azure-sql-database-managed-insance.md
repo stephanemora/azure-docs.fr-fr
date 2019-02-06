@@ -1,6 +1,6 @@
 ---
-title: Copier des données depuis/vers Azure SQL Database Managed Instance à l’aide d’Azure Data Factory | Microsoft Docs
-description: Découvrez comment déplacer des données depuis et vers Azure SQL Database Managed Instance à l’aide d’Azure Data Factory.
+title: Copier des données vers et depuis Azure SQL Database Managed Instance à l'aide d'Azure Data Factory | Microsoft Docs
+description: Apprenez à déplacer des données vers et depuis Azure SQL Database Managed Instance à l'aide d'Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,55 +10,59 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9cd2eaefb845b6ce9ca2f1cfcaf1234f8f96615c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025077"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300326"
 ---
-# <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Copier des données depuis et vers Azure SQL Database Managed Instance à l’aide d’Azure Data Factory
+# <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database Managed Instance à l'aide d'Azure Data Factory
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis/vers Azure SQL Database Managed Instance. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment utiliser l'activité de copie d'Azure Data Factory pour copier des données vers et depuis Azure SQL Database Managed Instance. Il s'appuie sur l'article [Vue d'ensemble de l'activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-Vous pouvez copier des données depuis Azure SQL Database Managed Instance vers toute banque de données réceptrice prise en charge, ou copier des données depuis toute banque de données source prise en charge vers Managed Instance. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Vous pouvez copier des données d'Azure SQL Database Managed Instance vers n'importe quel magasin de données récepteur pris en charge. Vous pouvez également copier des données de n'importe quel magasin de données source pris en charge vers l'instance gérée. Pour obtenir la liste des magasins de données pris en charge en tant que sources ou récepteurs par l'activité de copie, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Plus précisément, ce connecteur Azure SQL Database Managed Instance prend en charge :
 
-- La copie des données à l’aide de l’authentification **SQL** ou **Windows**
-- En tant que source, la récupération de données à l’aide d’une procédure stockée ou d’une requête SQL
-- En tant que récepteur, l’ajout de données à une table de destination ou l’appel d’une procédure stockée avec une logique personnalisée pendant la copie.
+- La copie des données à l'aide de l'authentification SQL ou Windows
+- En tant que source, la récupération de données à l'aide d'une requête SQL ou d'une procédure stockée
+- En tant que récepteur, l'ajout de données à une table de destination ou l'appel d'une procédure stockée avec une logique personnalisée pendant la copie
+
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) n'est actuellement pas pris en charge. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser les données de copie à partir d’Azure SQL Database Managed Instance dans le réseau virtuel, vous devez configurer un runtime d’intégration autohébergé capable d’accéder à la base de données dans le même réseau virtuel. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
+Pour utiliser les données de copie à partir d'une instance d'Azure SQL Database Managed Instance située dans un réseau virtuel, vous devez configurer un runtime d'intégration auto-hébergé capable d'accéder à la base de données. Pour plus d'informations, consultez [Runtime d'intégration auto-hébergé](create-self-hosted-integration-runtime.md).
 
-## <a name="getting-started"></a>Prise en main
+Si vous configurez votre runtime d'intégration auto-hébergé dans le même réseau virtuel que votre instance gérée, assurez-vous que la machine qui exécute le runtime d'intégration ne se trouve pas dans le même sous-réseau que votre instance gérée. Si vous configurez votre runtime d'intégration auto-hébergé dans un réseau virtuel différent de celui de votre instance gérée, vous pouvez utiliser un appairage de réseau virtuel ou une connexion de réseau virtuel à réseau virtuel. Pour plus d'informations, consultez [Connecter votre application à Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+
+## <a name="get-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir des entités Data Factory spécifiques du connecteur Azure SQL Database Managed Instance.
+Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir des entités Data Factory spécifiques au connecteur Azure SQL Database Managed Instance.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
-Les propriétés prises en charge pour le service lié Azure SQL Database Managed Instance sont les suivantes :
+Les propriétés prises en charge pour le service lié Azure SQL Database Managed Instance sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **SqlServer** | Oui |
-| connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à Managed Instance à l’aide de l’authentification SQL ou de l’authentification Windows. Consultez l’exemple suivant. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
-| userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non  |
-| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non  |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Provisionner le runtime d’intégration autohébergé dans le même réseau virtuel que Managed Instance. |Oui |
+| Type | La propriété type doit être définie sur **SqlServer**. | Oui. |
+| connectionString |Cette propriété spécifie les informations connectionString nécessaires pour se connecter à l'instance gérée à l'aide de l'authentification SQL ou de l'authentification Windows. Pour plus d'informations, consultez les exemples suivants. Sélectionnez **SecureString** pour stocker les informations connectionString en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui. |
+| userName |Cette propriété spécifie un nom d'utilisateur si vous utilisez l'authentification Windows. Exemple : **domainname\\username**. | Non. |
+| password |Cette propriété spécifie le mot de passe du compte d'utilisateur que vous avez spécifié pour le nom d'utilisateur. Sélectionnez **SecureString** pour stocker les informations connectionString en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non. |
+| connectVia | Ce [runtime d'intégration](concepts-integration-runtime.md) permet de se connecter au magasin de données. Configurez le runtime d'intégration auto-hébergé dans le même réseau virtuel que votre instance gérée. |Oui. |
 
 >[!TIP]
->Si vous rencontrez une erreur avec le code d’erreur « UserErrorFailedToConnectToSqlServer » et un message tel que « La limite de session pour la base de données est XXX et a été atteinte. », ajoutez `Pooling=false` à votre chaîne de connexion, puis réessayez.
+>Le code d'erreur « UserErrorFailedToConnectToSqlServer » peut s'afficher avec un message tel que « La limite de session XXX de la base de données a été atteinte ». Dans ce cas, ajoutez `Pooling=false` à votre chaîne de connexion, puis réessayez.
 
-**Exemple 1 : Utilisation de l’authentification SQL**
+**Exemple 1 : Utilisation de l'authentification SQL**
 
 ```json
 {
@@ -79,7 +83,7 @@ Les propriétés prises en charge pour le service lié Azure SQL Database Manage
 }
 ```
 
-**Exemple 2 : Utilisation de l’authentification Windows**
+**Exemple 2 : Utilisation de l'authentification Windows**
 
 ```json
 {
@@ -91,30 +95,30 @@ Les propriétés prises en charge pour le service lié Azure SQL Database Manage
                 "type": "SecureString",
                 "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
             },
-             "userName": "<domain\\username>",
-             "password": {
+            "userName": "<domain\\username>",
+            "password": {
                 "type": "SecureString",
                 "value": "<password>"
-             }
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
         }
-     }
+    }
 }
 ```
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les jeux de données. Cette section fournit la liste des propriétés prises en charge par le jeu de données Azure SQL Database Managed Instance.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l'article consacré aux jeux de données. Cette section fournit la liste des propriétés prises en charge par le jeu de données Azure SQL Database Managed Instance.
 
-Pour copier des données depuis/vers Azure SQL Database Managed Instance, définissez la propriété type du jeu de données sur **SqlServerTable**. Les propriétés prises en charge sont les suivantes :
+Pour copier des données vers et depuis Azure SQL Database Managed Instance, définissez la propriété type du jeu de données sur **SqlServerTable**. Les propriétés prises en charge sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **SqlServerTable** | Oui |
-| TableName |Nom de la table ou de la vue dans l’instance de base de données à laquelle le service lié fait référence. | Non pour Source, Oui pour Récepteur |
+| Type | La propriété type du jeu de données doit être définie sur **SqlServerTable**. | Oui. |
+| TableName |Cette propriété est le nom de la table ou de la vue dans l'instance de base de données à laquelle le service lié fait référence. | Non pour la source. Oui pour le récepteur. |
 
 **Exemple**
 
@@ -137,25 +141,25 @@ Pour copier des données depuis/vers Azure SQL Database Managed Instance, défin
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par la source et le récepteur Azure SQL Database Managed Instance.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par la source et le récepteur Azure SQL Database Managed Instance.
 
-### <a name="azure-sql-database-managed-instance-as-source"></a>Azure SQL Database Managed Instance en tant que source
+### <a name="azure-sql-database-managed-instance-as-a-source"></a>Azure SQL Database Managed Instance en tant que source
 
-Pour copier des données d’Azure SQL Database Managed Instance, définissez **SqlSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
+Pour copier des données d’Azure SQL Database Managed Instance, définissez **SqlSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section source de l'activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **SqlSource** | Oui |
-| SqlReaderQuery |Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. |Non  |
-| sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non  |
-| storedProcedureParameters |Paramètres de la procédure stockée.<br/>Valeurs autorisées : paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
+| Type | La propriété type de la source de l'activité de copie doit être définie sur **SqlSource**. | Oui. |
+| SqlReaderQuery |Cette propriété utilise la requête SQL personnalisée pour lire les données. Par exemple `select * from MyTable`. | Non. |
+| sqlReaderStoredProcedureName |Cette propriété est le nom de la procédure stockée qui lit les données dans la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. | Non. |
+| storedProcedureParameters |Ces paramètres concernent la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non. |
 
-**Points à noter**
+Notez les points suivants :
 
-- Si **sqlReaderQuery** est spécifié comme SqlSource, l’activité de copie exécute cette requête sur la source Managed Instance pour obtenir les données. Vous pouvez également spécifier une procédure stockée en indiquant **sqlReaderStoredProcedureName** et **storedProcedureParameters** (si la procédure stockée accepte des paramètres).
-- Si vous ne spécifiez pas la propriété « sqlReaderQuery » ou « sqlReaderStoredProcedureName », les colonnes définies dans la section « structure » du jeu de données JSON sont utilisées pour construire une requête (`select column1, column2 from mytable`) à exécuter sur Managed Instance. Si la définition du jeu de données ne possède pas de « structure », toutes les colonnes de la table sont sélectionnées.
+- Si **sqlReaderQuery** est spécifié comme **SqlSource**, l'activité de copie exécute cette requête sur la source de l'instance gérée pour obtenir les données. Vous pouvez également spécifier une procédure stockée en spécifiant **sqlReaderStoredProcedureName** et **storedProcedureParameters** si la procédure stockée accepte des paramètres.
+- Si vous ne spécifiez pas la propriété **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, les colonnes définies dans la section « structure » du JSON de jeu de données sont utilisées pour créer une requête. La requête `select column1, column2 from mytable` s'exécute sur l'instance gérée. Si la définition du jeu de données ne possède pas de « structure », toutes les colonnes de la table sont sélectionnées.
 
-**Exemple : Utilisation d’une requête SQL**
+**Exemple : Utilisation d'une requête SQL**
 
 ```json
 "activities":[
@@ -187,7 +191,7 @@ Pour copier des données d’Azure SQL Database Managed Instance, définissez **
 ]
 ```
 
-**Exemple : Utilisation d’une procédure stockée**
+**Exemple : Utilisation d'une procédure stockée**
 
 ```json
 "activities":[
@@ -234,30 +238,30 @@ CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
 AS
 SET NOCOUNT ON;
 BEGIN
-     select *
-     from dbo.UnitTestSrcTable
-     where dbo.UnitTestSrcTable.stringData != stringData
+    select *
+    from dbo.UnitTestSrcTable
+    where dbo.UnitTestSrcTable.stringData != stringData
     and dbo.UnitTestSrcTable.identifier != identifier
 END
 GO
 ```
 
-### <a name="azure-sql-database-managed-instance-as-sink"></a>Azure SQL Database Managed Instance en tant que récepteur
+### <a name="azure-sql-database-managed-instance-as-a-sink"></a>Azure SQL Database Managed Instance en tant que récepteur
 
-Pour copier des données vers Azure SQL Database Managed Instance, définissez **SqlSink** comme type de récepteur dans l’activité de copie. Les propriétés prises en charge dans la section **sink** (récepteur) de l’activité de copie sont les suivantes :
+Pour copier des données vers Azure SQL Database Managed Instance, définissez **SqlSink** comme type de récepteur dans l’activité de copie. Les propriétés prises en charge dans la section récepteur de l'activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du récepteur d’activité de copie doit être définie sur : **SqlSink** | Oui |
-| writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10000) |
-| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : “00:30:00” (30 minutes). |Non  |
-| preCopyScript |Spécifiez une requête SQL que l’activité de copie doit exécuter avant l’écriture des données dans Managed Instance. Elle ne sera appelée qu’une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non  |
-| sqlWriterStoredProcedureName |Nom de la procédure stockée qui définit comment appliquer les données sources dans la table cible, par exemple pour effectuer des upserts ou des transformations à l’aide de votre propre logique métier. <br/><br/>Notez que cette procédure stockée sera **appelée par lot**. Si vous souhaitez effectuer une opération qui ne s’exécute qu’une seule fois et n’a rien à faire avec les données sources, par exemple supprimer/tronquer, utilisez la propriété `preCopyScript`. |Non  |
-| storedProcedureParameters |Paramètres de la procédure stockée.<br/>Valeurs autorisées : paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
-| sqlWriterTableType |Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Non  |
+| Type | La propriété type du récepteur de l'activité de copie doit être définie sur **SqlSink**. | Oui. |
+| writeBatchSize |Cette propriété insère des données dans la table SQL lorsque la taille de la mémoire tampon atteint writeBatchSize.<br/>Les valeurs autorisées sont des entiers pour le nombre de lignes. |Non (valeur par défaut : 10 000). |
+| writeBatchTimeout |Cette propriété spécifie le délai d'attente avant expiration de l'opération d'insertion de lot.<br/>Les valeurs autorisées sont celles qui expriment une durée. Par exemple, « 00:30:00 » (30 minutes). | Non. |
+| preCopyScript |Cette propriété spécifie une requête SQL que l'activité de copie doit exécuter avant l'écriture des données dans l'instance gérée. Elle n'est appelée qu'une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non. |
+| sqlWriterStoredProcedureName |Ce nom est celui de la procédure stockée qui définit le mode d'application des données sources dans une table cible. Les opérations d'upsert ou de transformations effectuées à l'aide de votre propre logique métier sont des exemples de procédures. <br/><br/>Cette procédure stockée est *appelée par lot*. Pour effectuer une opération qui ne s'exécute qu'une seule fois et n'a rien à voir avec les données sources (par exemple, supprimer ou tronquer), utilisez la propriété `preCopyScript`. | Non. |
+| storedProcedureParameters |Ces paramètres sont utilisés pour la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non. |
+| sqlWriterTableType |Cette propriété spécifie le nom du type de table à utiliser dans la procédure stockée. L'activité de copie rend les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. | Non. |
 
 > [!TIP]
-> Lors de la copie de données vers Azure SQL Database Managed Instance, l’activité de copie ajoute des données à la table du récepteur par défaut. Pour effectuer un UPSERT ou une logique métier supplémentaire, utilisez la procédure stockée dans SqlSink. Pour en savoir plus, consultez [Appel d’une procédure stockée pour un récepteur SQL](#invoking-stored-procedure-for-sql-sink).
+> Par défaut, lors de la copie de données vers Azure SQL Database Managed Instance, l'activité de copie ajoute les données à la table du récepteur. Pour effectuer une opération d'upsert ou appliquer une logique métier supplémentaire, utilisez la procédure stockée dans SqlSink. Pour plus d'informations, consultez [Appel d'une procédure stockée à partir d'un récepteur SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
 **Exemple 1 : Ajout de données**
 
@@ -291,9 +295,9 @@ Pour copier des données vers Azure SQL Database Managed Instance, définissez *
 ]
 ```
 
-**Exemple 2 : Appel d’une procédure stockée pendant la copie pour upsert**
+**Exemple 2 : Appel d'une procédure stockée pendant la copie pour une opération d'upsert**
 
-Pour en savoir plus, consultez [Appel d’une procédure stockée pour un récepteur SQL](#invoking-stored-procedure-for-sql-sink).
+Pour en savoir plus, consultez [Appel d'une procédure stockée à partir d'un récepteur SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -332,15 +336,15 @@ Pour en savoir plus, consultez [Appel d’une procédure stockée pour un récep
 
 ## <a name="identity-columns-in-the-target-database"></a>Colonnes d’identité dans la base de données cible
 
-Cette section fournit un exemple qui copie des données d’une table source sans colonne d’identité vers une table de destination avec une colonne d’identité.
+L'exemple suivant illustre la copie de données d'une table source sans colonne d'identité vers une table de destination dotée d'une colonne d'identité.
 
 **Table source**
 
 ```sql
 create table dbo.SourceTbl
 (
-       name varchar(100),
-       age int
+    name varchar(100),
+    age int
 )
 ```
 
@@ -349,9 +353,9 @@ create table dbo.SourceTbl
 ```sql
 create table dbo.TargetTbl
 (
-       identifier int identity(1,1),
-       name varchar(100),
-       age int
+    identifier int identity(1,1),
+    name varchar(100),
+    age int
 )
 ```
 
@@ -397,15 +401,15 @@ Notez que la table cible possède une colonne d’identité.
 }
 ```
 
-Notez que vos tables source et cible ont des schémas différents (la cible possède une colonne supplémentaire avec identité). Dans ce scénario, vous devez spécifier la propriété **structure** dans la définition du jeu de données cible, qui n’inclut pas la colonne d’identité.
+Notez que vos tables source et cible présentent des schémas différents. La table cible a une colonne d’identité. Dans ce scénario, vous devez spécifier la propriété « structure » dans la définition du jeu de données cible, qui n'inclut pas la colonne d'identité.
 
-## <a name="invoking-stored-procedure-for-sql-sink"></a> Appel d’une procédure stockée pour un récepteur SQL
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Appel d'une procédure stockée à partir d'un récepteur SQL
 
-Quand vous copiez des données vers Azure SQL Database Managed Instance, une procédure stockée spécifiée par l’utilisateur peut être configurée et appelée avec des paramètres supplémentaires.
+Lorsque des données sont copiées vers Azure SQL Database Managed Instance, une procédure stockée peut être configurée et appelée avec des paramètres supplémentaires que vous spécifiez.
 
-Une procédure stockée peut être utilisée à la place des mécanismes de copie intégrée. C’est généralement le cas quand une opération upsert (insertion + mise à jour) ou un traitement supplémentaire (fusion de colonnes, recherche de valeurs supplémentaires, insertion dans plusieurs tables, etc.) doivent être effectués avant l’insertion finale des données sources dans la table de destination.
+Vous pouvez utiliser une procédure stockée à la place des mécanismes de copie intégrée. Elle est généralement utilisée lorsqu'une opération d'upsert (mise à jour + insertion) ou un traitement supplémentaire doit être effectué avant l'insertion finale des données sources dans la table de destination. Le traitement supplémentaire peut inclure des tâches telles que la fusion de colonnes, la recherche de valeurs supplémentaires et l'insertion dans plusieurs tables.
 
-L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert simple dans une table de Managed Instance. En supposant que les données d’entrée et la table réceptrice « Marketing » ont trois colonnes : ProfileID, State et Category. On effectue une opération upsert basée sur la colonne « ProfileID » et on l’applique uniquement à une catégorie spécifique.
+L'exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération d'upsert dans une table de l'instance gérée. L'exemple part du principe que les données d'entrée et la table réceptrice « Marketing » possèdent trois colonnes : ProfileID, State et Category. On effectue l'opération d'upsert à partir de la colonne « ProfileID » et on l'applique uniquement à une catégorie spécifique.
 
 **Jeu de données de sortie**
 
@@ -426,7 +430,7 @@ L’exemple suivant montre comment utiliser une procédure stockée pour effectu
 }
 ```
 
-Définissez la section SqlSink dans l’activité de copie comme suit.
+Définissez la section SqlSink d'une activité de copie comme suit :
 
 ```json
 "sink": {
@@ -441,7 +445,7 @@ Définissez la section SqlSink dans l’activité de copie comme suit.
 }
 ```
 
-Dans votre base de données, définissez la procédure stockée portant le même nom que SqlWriterStoredProcedureName. Elle gère les données d’entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Le nom de paramètre du type de table dans la procédure stockée doit être le même que le « tableName » défini dans le jeu de données.
+Dans votre base de données, définissez la procédure stockée portant le même nom que SqlWriterStoredProcedureName. Celle-ci gère les données d'entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Le nom du paramètre du type de table de la procédure stockée doit être identique au « tableName » défini dans le jeu de données.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -458,7 +462,7 @@ BEGIN
 END
 ```
 
-Dans votre base de données, définissez le type de table portant le même nom que SqlWriterTableType. Notez que le schéma du type de table doit être identique au schéma retourné par vos données d'entrée.
+Dans votre base de données, définissez le type de table portant le même nom que SqlWriterTableType. Le schéma du type de table doit être identique au schéma retourné par vos données d'entrée.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -468,49 +472,52 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 )
 ```
 
-La fonction de procédure stockée tire parti des [paramètres Table-Valued](https://msdn.microsoft.com/library/bb675163.aspx).
+La fonction de procédure stockée tire parti des [paramètres table](https://msdn.microsoft.com/library/bb675163.aspx).
 
 >[!NOTE]
->Si vous écrivez avec le type de données Money/Smallmoney en appelant la procédure stockée, les valeurs peuvent être arrondies. Pour éviter cela, définissez le type de données correspondant dans TVP sur le format Décimal au lieu de Money/Smallmoney. 
+>Si vous écrivez avec le type de données **Money/Smallmoney** en appelant une procédure stockée, les valeurs peuvent être arrondies. Pour y remédier, dans les paramètres table, définissez le type de données correspondant sur **Decimal** au lieu de **Money/Smallmoney**. 
 
 ## <a name="data-type-mapping-for-azure-sql-database-managed-instance"></a>Mappage de type de données pour Azure SQL Database Managed Instance
 
-Lors de la copie de données à partir d’Azure SQL Database Managed Instance, les mappages suivants sont utilisés entre les types de données Managed Instance et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
+Lors de la copie de données vers et depuis Azure SQL Database Managed Instance, les mappages suivants sont utilisés entre les types de données Azure SQL Database Managed Instance et les types de données intermédiaires Azure Data Factory. Pour savoir comment l'activité de copie mappe le schéma et le type de données entre la source et le récepteur, consultez [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
 
-| Type de données Azure SQL Database Managed Instance | Type de données intermédiaires de Data Factory |
+| Type de données Azure SQL Database Managed Instance | Type de données intermédiaires Azure Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
 | binaire |Byte[] |
 | bit |Booléen |
 | char |String, Char[] |
-| date |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
-| Datetimeoffset |DatetimeOffset |
-| Décimal |Décimal |
+| date |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
+| Datetimeoffset |DateTimeOffset |
+| Decimal |Decimal |
 | Attribut FILESTREAM (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |Décimal |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numérique |Décimal |
+| numérique |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Décimal |
-| sql_variant |Objet * |
+| smallmoney |Decimal |
+| sql_variant |Object |
 | texte |String, Char[] |
-| time |intervalle de temps |
-|  timestamp |Byte[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |xml |
 
+>[!NOTE]
+> Pour les types de données mappés avec le type intermédiaire Decimal, Azure Data Factory prend actuellement en charge une précision maximale de 28. Si vous disposez de données qui nécessitent une précision supérieure à 28, pensez à les convertir en chaîne dans une requête SQL.
+
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).
+Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l'activité de copie d'Azure Data Factory, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md##supported-data-stores-and-formats).

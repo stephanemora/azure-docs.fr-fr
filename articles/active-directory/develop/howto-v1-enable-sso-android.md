@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2c7ccd8d2022631e32c240007a782d2382aac518
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9f0cc19ae220d27de620e5bd347fe78d9bfab2d5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422845"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093289"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procédure : activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Activation Activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -108,7 +108,7 @@ Voici la procédure à suivre :
 2. Établir un nouvel URI de redirection à fournir à l’application et à votre inscription d’application
 3. Configuration des autorisations appropriées dans le manifeste Android
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>Étape 1 : Activer le mode répartiteur dans votre application
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>Étape 1 : Activer le mode répartiteur dans votre application
 
 La capacité de votre application à utiliser le répartiteur est activée lorsque vous créez les paramètres, ou la configuration initiale, de votre instance d’authentification. Pour ce faire dans votre application :
 
@@ -128,7 +128,7 @@ ex. : *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
 Vous pouvez inscrire cet URI de direction dans l’inscription de votre application avec le [portail Azure](https://portal.azure.com/). Pour plus d’informations sur l’inscription d’applications Azure AD, consultez [Intégration avec Azure Active Directory](active-directory-how-to-integrate.md).
 
-#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Étape 3: Configurer les autorisations appropriées dans votre application
+#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Étape 3 : Configurer les autorisations appropriées dans votre application
 
 Dans Android, l’application de répartiteur utilise la fonctionnalité de Gestionnaire de comptes du système d’exploitation Android pour gérer les informations d’identification entre les applications. Pour pouvoir utiliser le répartiteur dans Android, le manifeste de votre application doit être autorisé à utiliser les comptes AccountManager. Ces autorisations sont décrites en détail dans la [documentation Google pour AccountManager disponible ici](https://developer.android.com/reference/android/accounts/AccountManager.html)
 

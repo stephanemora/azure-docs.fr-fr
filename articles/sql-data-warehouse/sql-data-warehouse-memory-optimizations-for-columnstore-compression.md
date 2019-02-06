@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: e30320631a7fd9b4ee27096556af01f2ad77a746
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d956322233cb6b4f8502775dcf2f89d96fd5cafe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306830"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463359"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Optimiser la qualité du rowgroup pour columnstore
 
@@ -67,9 +67,9 @@ from cte;
 ```
 
 trim_reason_desc indique si le rowgroup a été découpé (trim_reason_desc = NO_TRIM signifie qu’aucun découpage n’a été effectué et que la qualité du rowgroup est optimale). Les raisons suivantes indiquent un découpage prématuré du rowgroup :
-- BULKLOAD : cette raison de découpage est utilisée si le lot entrant de lignes pour la charge est inférieur à 1 million de lignes. Le moteur créera des rowgroups compressés si plus de 100 000 lignes sont insérées (par opposition à l’insertion dans le deltastore), mais affiche BULKLOAD comme raison du découpage. Dans ce scénario, vous pouvez augmenter votre fenêtre de charge de lot pour insérer plus de lignes. En outre, réévaluez votre schéma de partitionnement pour vous assurer qu’il n’est pas trop granulaire car les rowgroups ne peuvent pas s’étendre sur plusieurs limites de partition.
-- MEMORY_LIMITATION : pour créer des rowgroups avec 1 million de lignes, le moteur nécessite une certaine quantité de mémoire de travail. Lorsque la mémoire disponible de la session de chargement est inférieure à la mémoire de travail requise, les rowgroups sont prématurément découpés. Les sections suivantes expliquent comment estimer la mémoire requise et comment allouer davantage de mémoire.
-- DICTIONARY_SIZE : cette raison indique qu’un rowgroup a été découpé car il contenant au moins une colonne de chaîne avec des chaînes de cardinalité large et/ou haute. La taille du dictionnaire est limitée à 16 Mo de mémoire, et une fois cette limite atteinte, le rowgroup est compressé. Si cette situation se produit, vous pouvez isoler la colonne problématique dans un tableau distinct.
+- CHARGEMENT EN BLOC : cette raison de découpage est utilisée si le lot entrant de lignes pour la charge est inférieur à 1 million de lignes. Le moteur créera des rowgroups compressés si plus de 100 000 lignes sont insérées (par opposition à l’insertion dans le deltastore), mais affiche BULKLOAD comme raison du découpage. Dans ce scénario, vous pouvez augmenter votre fenêtre de charge de lot pour insérer plus de lignes. En outre, réévaluez votre schéma de partitionnement pour vous assurer qu’il n’est pas trop granulaire car les rowgroups ne peuvent pas s’étendre sur plusieurs limites de partition.
+- MEMORY_LIMITATION : pour créer des groupes de 1 million de lignes, le moteur requiert une certaine quantité de mémoire de travail. Lorsque la mémoire disponible de la session de chargement est inférieure à la mémoire de travail requise, les rowgroups sont prématurément découpés. Les sections suivantes expliquent comment estimer la mémoire requise et comment allouer davantage de mémoire.
+- DICTIONARY_SIZE : cette raison indique qu’un rowgroup a été découpé, car il contenait au moins une colonne de chaîne avec des chaînes de cardinalité large et/ou haute. La taille du dictionnaire est limitée à 16 Mo de mémoire, et une fois cette limite atteinte, le rowgroup est compressé. Si cette situation se produit, vous pouvez isoler la colonne problématique dans un tableau distinct.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Estimation des besoins en mémoire
 
@@ -88,7 +88,7 @@ où les colonnes de chaîne courte utilisent des données de type chaîne <= 32�
 
 Les chaînes longues sont compressés avec une méthode de compression conçue pour la compression de texte. Cette méthode de compression utilise un *dictionnaire* pour stocker les modèles de texte. La taille maximale d’un dictionnaire est de 16 Mo. Il n’y qu’un seul dictionnaire pour chaque colonne de chaîne longue dans le rowgroup.
 
-Pour une présentation détaillée des besoins en mémoire de columnstore, voir la vidéo [Mise à l’échelle d’Azure SQL Data Warehouse : configuration et instructions](https://myignite.microsoft.com/videos/14822).
+Pour une présentation détaillée des besoins en mémoire de columnstore, voir la vidéo [Mise à l’échelle d’Azure SQL Data Warehouse : configuration et instructions](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Réduction des besoins en mémoire
 
@@ -124,10 +124,10 @@ Chaque distribution compresse les rowgroups dans le columnstore en parallèle lo
 
 Pour réduire la sollicitation de la mémoire, vous pouvez utiliser l’indicateur de requête MAXDOP pour forcer l’exécution de l’opération de chargement en mode série au sein de chaque distribution.
 
-```
+```sql
 CREATE TABLE MyFactSalesQuota
 WITH (DISTRIBUTION = ROUND_ROBIN)
-AS SELECT * FROM FactSalesQUota
+AS SELECT * FROM FactSalesQuota
 OPTION (MAXDOP 1);
 ```
 

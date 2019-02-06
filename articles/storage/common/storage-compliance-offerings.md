@@ -7,19 +7,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
-ms.component: common
-ms.openlocfilehash: 293067b2d76f7ef88b6946aee9d39d4c6da97230
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 49ea6a3c6be2325acdcdf61188ced777bd36f0da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229542"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478132"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Offres de conformité sur Stockage Azure
 
 Pour aider les entreprises à répondre aux exigences nationales, régionales et sectorielles régissant la collecte et l’utilisation des données des individus, Microsoft Azure et Stockage Azure proposent l’ensemble de certifications et d’attestations de fournisseur de services cloud le plus complet.
 
-Vous trouverez ci-dessous les offres de conformité qui permettent à votre service d’utiliser le service Stockage Azure de façon régulée. Elles sont applicables aux offres Stockage Azure suivantes : Blobs, Fichiers, Files d’attente, Tables, Disques, Stockage froid et Stockage Premium.
+Vous trouverez ci-dessous les offres de conformité qui permettent à votre service d’utiliser le service Stockage Azure de façon régulée. Elles s’appliquent aux offres de stockage Azure suivantes : Objets BLOB, fichiers, files d’attente, tables, disques, stockage froid et stockage Premium.
 
 ## <a name="global"></a>Globale
 

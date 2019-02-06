@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: b7c1f873d47be0f2ec0125f769a47a399e492662
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536149"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095093"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Protection avancée contre les menaces d’Azure Database pour PostgreSQL
 
@@ -22,6 +22,9 @@ La protection avancée contre les menaces fait partie de l’offre Advanced Data
 > [!NOTE]
 > La fonctionnalité Advanced Threat Protection **n’est pas** disponible dans les régions administratives et souveraines suivantes du cloud Azure : US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginie, US DoD Est, US DoD Central, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.
 >
+
+> [!NOTE]
+> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour PostgreSQL est déployé pour les serveurs à usage général et à mémoire optimisée.
 
 ## <a name="set-up-threat-detection"></a>Configurer la détection des menaces
 1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).
@@ -55,7 +58,7 @@ La protection avancée contre les menaces intègre ses alertes avec [Azure Secur
 
 Cliquez sur **Alertes de sécurité** sous **PROTECTION CONTRE LES MENACES** pour ouvrir la page d’alertes d’Azure Security Center et obtenir une vue d’ensemble des menaces SQL actives détectées sur la base de données.
 
-  ![Protection contre les menaces croiss](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+  ![ASC de protection contre les menaces](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

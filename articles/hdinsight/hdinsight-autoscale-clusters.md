@@ -1,5 +1,5 @@
 ---
-title: Mettre à l’échelle automatiquement les clusters Azure HDInsight
+title: Mise à l’échelle automatique des clusters Azure HDInsight (préversion)
 description: Utilisez la fonction HDInsight de mise à l’échelle automatique pour mettre automatiquement à l’échelle les clusters
 services: hdinsight
 author: hrasheed-msft
@@ -9,33 +9,35 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 043c83e2039d87b1650ba17f770ce16a2ad2c13d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bd1ffcfd915fe9ece683ec88d27f54b3a9214621
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811160"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475673"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement les clusters Azure HDInsight
+# <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Mise à l’échelle automatique des clusters Azure HDInsight (préversion)
 
 La fonction de mise à l’échelle automatique de cluster d’Azure HDInsight met automatiquement à l’échelle le nombre de nœuds Worker dans un cluster en fonction de la charge dans une plage prédéfinie. Lors de la création d’un cluster HDInsight, il est possible de définir un nombre minimum et un nombre maximum de nœuds Worker. La mise à l’échelle automatique surveille ensuite les besoins en ressources de la charge analytique et augmente ou diminue le nombre de nœuds Worker en conséquence. L’utilisation de cette fonctionnalité n’entraîne aucun coût supplémentaire.
 
 ## <a name="getting-started"></a>Mise en route
 
-### <a name="create-cluster-with-azure-portal"></a>Créer un cluster avec le portail Azure
+### <a name="create-a-cluster-with-the-azure-portal"></a>Création d’un cluster dans le portail Azure
 
 > [!Note]
 > La fonction de mise à l’échelle automatique n’est actuellement prise en charge que pour les clusters Azure HDInsight Hive, MapReduce et Spark version 3.6.
 
-Suivez les étapes de [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md) et, lorsque vous atteignez l’étape 5, **Taille du cluster**, sélectionnez **Worker node Autoscale (preview)** (Mise à l’échelle des nœuds Worker (préversion)) comme indiqué ci-dessous. 
+Pour activer la fonctionnalité Mise à l’échelle automatique, effectuez les opérations suivantes dans le cadre de la création de cluster normale :
 
-![Activer la mise à l’échelle automatique des nœuds Worker](./media/hdinsight-autoscale-clusters/worker-node-autoscale-option.png)
+1. Sélectionnez **Personnalisé (taille, paramètres, applications)** plutôt que **Création rapide**.
+2. À l’étape 5 **Personnalisé** (**Taille du cluster**), cochez la case **Mise à l’échelle automatique de nœud worker (préversion)**.
+3. Entrez les valeurs souhaitées pour :  
 
-En cochant cette option, vous pouvez spécifier les paramètres suivants :
+    * le **nombre initial de nœuds worker** ;  
+    * le nombre **minimal** de nœuds worker ;  
+    * le nombre **maximal** de nœuds worker.  
 
-* Nombre initial de nœuds Worker
-* Nombre minimal de nœuds Worker
-* Nombre maximal de nœuds Worker
+![Activer la mise à l’échelle automatique des nœuds Worker](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
 
 Le nombre initial de nœuds Worker doit se situer entre le minimum et le maximum inclus. Cette valeur définit la taille initiale du cluster lors de sa création. Le nombre minimal de nœuds Worker doit être supérieur à zéro.
 
@@ -43,12 +45,14 @@ Après avoir sélectionné le type de machine virtuelle pour chaque type de nœu
 
 Votre abonnement a un quota de capacité pour chaque région. Le nombre total de cœurs de vos nœuds principaux combiné au nombre maximum de nœuds Worker ne peut dépasser le quota de capacité. Toutefois, ce quota est une limite logicielle ; vous pouvez toujours créer un ticket de support pour l’augmenter aisément.
 
-> [!Note]
+> [!Note]  
 > Si vous dépassez la limite totale de quota de base, vous recevrez un message d’erreur disant indiquant que le nœud maximum a dépassé les noyaux disponibles dans cette région et que vous devez choisir une autre région ou contacter le support pour augmenter le quota (« the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota »).
 
-### <a name="create-cluster-with-an-resource-manager-template"></a>Créer un cluster avec un modèle Resource Manager
+Pour plus d’informations sur la création de clusters HDInsight à l’aide du portail Azure, consultez [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md).  
 
-Lorsque vous créez un cluster HDInsight avec un modèle de Resource Manager, vous devez ajouter les paramètres suivants à la section "computeProfile" "worker node" :
+### <a name="create-a-cluster-with-a-resource-manager-template"></a>Création d’un cluster avec un modèle Resource Manager
+
+Pour créer un cluster HDInsight avec un modèle Azure Resource Manager, ajoutez un nœud `autoscale` à la section `computeProfile` > `workernode` avec les propriétés `minInstanceCount` et `maxInstanceCount`, comme indiqué dans l’extrait de code json indiqué ci-dessous.
 
 ```json
 {                            
@@ -72,7 +76,9 @@ Lorsque vous créez un cluster HDInsight avec un modèle de Resource Manager, vo
 }
 ```
 
-### <a name="enable-and-disabling-autoscale-for-a-running-cluster"></a>Activer et désactiver la mise à l’échelle pour un cluster en cours d’exécution
+Pour plus d’informations sur la création de clusters avec des modèles Resource Manager, consultez [Création de clusters Apache Hadoop dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
+
+### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Activation et désactivation de la mise à l’échelle automatique d’un cluster en cours d’exécution
 
 L’activation de la mise à l’échelle automatique pour un cluster en cours d’exécution n’est pas prise en charge pendant la préversion privée. Elle doit être activée lors de la création du cluster.
 
@@ -80,7 +86,7 @@ La désactivation de la mise à l’échelle automatique ou la modification des 
 
 ## <a name="monitoring"></a>Surveillance
 
-Vous pouvez afficher l’historique de Scale up/Scale down du cluster dans le cadre des métriques de celui-ci. Vous pouvez dresser la liste de toutes les actions de mise à l’échelle au cours de la journée, de la semaine ou d’une période de temps plus longue.
+Vous pouvez afficher l’historique de Scale up/Scale down du cluster dans le cadre des métriques de celui-ci. Vous pouvez également dresser la liste de toutes les actions de mise à l’échelle au cours de la journée, de la semaine ou d’une période de temps plus longue.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -104,7 +110,7 @@ Lorsque les conditions suivantes sont détectées, la fonction de mise à l’é
 * « Total pending CPU » est supérieur à la valeur de « Total free CPU » pendant plus de 1 minute.
 * « Total pending memory » est supérieur à la valeur de « Total free memory » pendant plus de 1 minute.
 
-Nous allons calculer que N nouveaux nœuds Worker sont nécessaires pour répondre aux besoins actuels en UC et en mémoire, puis nous allons effectuer une requête de mise à l’échelle en demandant N nouveaux nœuds Worker.
+Nous allons calculer qu’un certain nombre de nouveaux nœuds worker sont nécessaires pour répondre aux besoins actuels en UC et en mémoire, puis nous allons effectuer une requête de mise à l’échelle qui ajoutera ce nombre de nouveaux nœuds worker.
 
 ### <a name="cluster-scale-down"></a>Descendre en puissance pour les clusters
 
@@ -113,7 +119,7 @@ Lorsque les conditions suivantes sont détectées, la fonction de mise à l’é
 * « Total pending CPU » est inférieur à la valeur de « Total free CPU » pendant plus de 10 minutes.
 * « Total pending memory » est inférieur à la valeur de « Total free memory » pendant plus de 10 minutes.
 
-En fonction du nombre de conteneurs AM par nœud ainsi que des besoins actuels en UC et en mémoire, la fonction de mise à l’échelle automatique émet une demande de suppression de N nœuds, en précisant quels nœuds sont des candidats potentiels à la suppression. Par défaut, deux nœuds sont supprimés par cycle.
+En fonction du nombre de conteneurs AM par nœud ainsi que des besoins actuels en UC et en mémoire, la fonction de mise à l’échelle automatique émet une demande de suppression d’un certain nombre de nœuds, en précisant quels nœuds sont des candidats potentiels à la suppression. Par défaut, deux nœuds sont supprimés par cycle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

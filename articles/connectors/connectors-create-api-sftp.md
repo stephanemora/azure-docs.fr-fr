@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 3dbe40476757ba93f33d39f71c46bf58302b3570
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979452"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910282"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide d’Azure Logic Apps
 
@@ -27,7 +27,7 @@ Pour automatiser les tâches qui surveillent, créent, envoient et reçoivent de
 * Obtenir les métadonnées et le contenu des fichiers.
 * Extraire des archives dans des dossiers.
 
-Par rapport au [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md), le connecteur SFTP peut lire ou écrire des fichiers jusqu'à 50 Mo, sauf si vous utilisez la [segmentation pour gérer des messages volumineux](../logic-apps/logic-apps-handle-large-messages.md). Pour les fichiers jusqu'à 1 Go, utilisez le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md). Pour les fichiers supérieurs à 1 Go, vous pouvez utiliser le connecteur SFTP-SSH ainsi que [la segmentation pour les messages volumineux](../logic-apps/logic-apps-handle-large-messages.md). 
+Par rapport au [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md), le connecteur SFTP peut lire ou écrire des fichiers jusqu’à 50 Mo, sauf si vous utilisez la [segmentation de messages dans les actions](../logic-apps/logic-apps-handle-large-messages.md). Vous ne pouvez pas utiliser de segmentation pour les déclencheurs. Pour les fichiers jusqu'à 1 Go, utilisez le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md). Pour les fichiers supérieurs à 1 Go, vous pouvez utiliser le connecteur SFTP-SSH ainsi que [la segmentation des messages](../logic-apps/logic-apps-handle-large-messages.md). 
 
 Vous pouvez utiliser des déclencheurs qui surveillent les événements sur votre serveur SFTP et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions qui effectuent diverses tâches sur votre serveur SFTP. Vous pouvez également faire en sorte que d’autres actions de votre application logique utilisent la sortie d’actions SFTP. Par exemple, si vous récupérez régulièrement des fichiers de votre serveur SFTP, vous pouvez envoyer des alertes par e-mail au sujet de ces fichiers et de leur contenu en utilisant le connecteur Office 365 Outlook ou le connecteur Outlook.com.
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
@@ -102,17 +102,39 @@ Les déclencheurs SFTP fonctionnent en interrogeant le système de fichiers SFTP
 
 Quand un déclencheur détecte un nouveau fichier, il vérifie que le nouveau fichier est complet et non partiellement écrit. Par exemple, un fichier peut être en cours de modification lorsque le déclencheur vérifie le serveur de fichiers. Pour éviter de retourner un fichier partiellement écrit, le déclencheur note l’horodatage du fichier qui comporte des modifications récentes, mais ne retourne pas immédiatement ce fichier. Le déclencheur retourne le fichier uniquement lors d’une nouvelle interrogation du serveur. Parfois, ce comportement peut entraîner un retard correspondant à jusqu’à deux fois l’intervalle d’interrogation du déclencheur. 
 
+Quand ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
+
+* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
+
+* Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## <a name="examples"></a>Exemples
 
-### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Déclencheur SFTP : Lorsqu’un fichier est ajouté ou modifié
+<a name="file-add-modified"></a>
+
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Déclencheur SFTP : Lors de l’ajout ou de la modification d’un fichier
 
 Ce déclencheur démarre un flux de travail d’application logique quand un fichier est ajouté ou changé sur un serveur SFTP. Par exemple, vous pouvez ajouter une condition qui vérifie et extrait le contenu du fichier si ce contenu répond à une condition spécifiée. Vous pouvez ensuite ajouter une action qui obtient le contenu du fichier et le place dans un dossier sur le serveur SFTP. 
 
 **Exemple en entreprise** : vous pouvez utiliser ce déclencheur pour superviser l’apparition dans un dossier SFTP de nouveaux fichiers représentant les commandes des clients. Vous pouvez ensuite utiliser une action SFTP comme **Obtenir le contenu du fichier** afin d’obtenir le contenu de la commande à des fins de traitement et stocker cette commande dans une base de données de commandes.
 
-### <a name="sftp-action-get-content"></a>Action SFTP : Obtenir le contenu
+Quand ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
+
+* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
+
+* Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
+
+<a name="get-content"></a>
+
+### <a name="sftp-action-get-content"></a>Action SFTP : Get content
 
 Cette action obtient le contenu d’un fichier sur un serveur SFTP. Par exemple, vous pouvez ajouter le déclencheur de l’exemple précédent et une condition à laquelle le contenu du fichier doit satisfaire. Si la condition est vérifiée, l’action qui obtient le contenu peut s’exécuter. 
+
+Quand ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
+
+* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
+
+* Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="connector-reference"></a>Référence de connecteur
 

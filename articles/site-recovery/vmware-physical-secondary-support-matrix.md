@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: b03ee4ebf1113fd422d34ebf219461e75c4a5a45
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970761"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208174"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge de la récupération d’urgence des machines virtuelles VMware et serveurs physiques sur un site secondaire
 
@@ -64,7 +64,7 @@ Hôte - IPv6 | Non
 Machine virtuelle invitée - Association de cartes réseau | Non 
 Machine virtuelle invitée - IPv4 | Oui
 Machine virtuelle invitée - IPv6 | Non 
-Machine virtuelle invitée - Windows/Linux - Adresse IP statique | Oui
+Machine virtuelle invitée - Windows/Linux - Adresse IP statique | Oui
 Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 
 

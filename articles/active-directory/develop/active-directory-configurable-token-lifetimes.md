@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1fa5a2f9d63dfd9af006285beec256395d7ac668
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 5dd5920eae97399bae03c6917bb610103bd556c2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069503"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912712"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (préversion)
 
@@ -85,8 +85,6 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 | Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor<sup>3</sup> |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 
 * <sup>1</sup>Une durée explicite maximale de 365 jours peut être définie pour ces attributs.
-* <sup>2</sup>Si **MaxAgeSessionSingleFactor** n’est pas défini, cette valeur prend la valeur **MaxAgeSingleFactor**. Si aucun de ces paramètres n’est défini, la propriété prend la valeur par défaut (Jusqu’à révocation).
-* <sup>3</sup>Si **MaxAgeSessionMultiFactor** n’est pas défini, cette valeur prend la valeur **MaxAgeMultiFactor**. Si aucun de ces paramètres n’est défini, la propriété prend la valeur par défaut (Jusqu’à révocation).
 
 ### <a name="exceptions"></a>Exceptions
 | Propriété | Éléments affectés | Default |
@@ -114,7 +112,7 @@ Tous les intervalles de temps utilisés ici sont mis en forme selon C# [TimeSpan
 > [!NOTE]
 > Voici un scénario d’exemple.
 >
-> Un utilisateur souhaite accéder à deux applications web : l’application web A et l’application web B.
+> Un utilisateur souhaite accéder à deux applications web : l’application web A et l’application web B.
 > 
 > Facteurs :
 > * Les deux applications web résident dans la même organisation parente.
@@ -143,7 +141,7 @@ Tous les intervalles de temps utilisés ici sont mis en forme selon C# [TimeSpan
 ### <a name="refresh-token-max-inactive-time"></a>Délai d’inactivité maximale de jeton d’actualisation
 **Chaîne :** MaxInactiveTime
 
-**Éléments affectés :** jetons d’actualisation
+**Éléments affectés :** Jetons d’actualisation
 
 **Résumé :** cette stratégie détermine l’âge qu’un jeton d’actualisation peut avoir avant qu’un client ne puisse plus l’utiliser pour récupérer une nouvelle paire de jetons d’actualisation/d’accès lors de la tentative d’accès à cette ressource. Comme un nouveau jeton d’actualisation est généralement renvoyé lorsqu’un jeton d’actualisation est utilisé, la stratégie bloque l’accès si le client tente d’accéder à une ressource à l’aide du jeton d’actualisation en cours pour la période spécifiée.
 
@@ -154,7 +152,7 @@ La propriété Délai d’inactivité maximale de jeton d’actualisation doit �
 ### <a name="single-factor-refresh-token-max-age"></a>Âge maximal de jeton d’actualisation à facteur unique
 **Chaîne :** MaxAgeSingleFactor
 
-**Éléments affectés :** jetons d’actualisation
+**Éléments affectés :** Jetons d’actualisation
 
 **Résumé :** cette stratégie détermine la durée pendant laquelle un utilisateur peut utiliser des jetons d’actualisation pour obtenir de nouvelles paires de jetons d’accès/actualisation après sa dernière authentification réussie avec un seul facteur. Une fois que l’utilisateur est authentifié et qu’il reçoit un nouveau jeton d’actualisation, il peut utiliser le flux de jeton d’actualisation pour la période spécifiée. (Cela est vrai tant que le jeton d’actualisation actuel n’a pas été révoqué et qu’il ne reste pas inutilisé plus longtemps que la durée d’inactivité.) À ce stade, l’utilisateur est contraint de s’authentifier de nouveau pour recevoir un nouveau jeton d’actualisation.
 
@@ -163,7 +161,7 @@ En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifie
 ### <a name="multi-factor-refresh-token-max-age"></a>Âge maximal de jeton d’actualisation multifacteur
 **Chaîne :** MaxAgeMultiFactor
 
-**Éléments affectés :** jetons d’actualisation
+**Éléments affectés :** Jetons d’actualisation
 
 **Résumé :** cette stratégie détermine la durée pendant laquelle un utilisateur peut utiliser des jetons d’actualisation pour obtenir de nouvelles paires de jetons d’accès/actualisation après sa dernière authentification réussie avec plusieurs facteurs. Une fois que l’utilisateur est authentifié et qu’il reçoit un nouveau jeton d’actualisation, il peut utiliser le flux de jeton d’actualisation pour la période spécifiée. (Cela est vrai tant que le jeton d’actualisation actuel n’a pas été révoqué et qu’il ne reste pas inutilisé plus longtemps que la durée d’inactivité.) À ce stade, les utilisateurs sont contraints de s’authentifier de nouveau pour recevoir un nouveau jeton d’actualisation.
 
@@ -172,7 +170,7 @@ En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifie
 ### <a name="single-factor-session-token-max-age"></a>Âge maximal de jeton de session à facteur unique
 **Chaîne :** MaxAgeSessionSingleFactor
 
-**Éléments affectés :** jetons de session (persistants et non persistants)
+**Éléments affectés :** Jetons de session (persistants et non persistants)
 
 **Résumé :** cette stratégie détermine la durée pendant laquelle un utilisateur peut utiliser des jetons de session pour obtenir un nouvel ID et un nouveau jeton de session après sa dernière authentification réussie avec un seul facteur. Une fois que l’utilisateur est authentifié et qu’il reçoit un nouveau jeton de session, il peut utiliser le flux de jeton de session pour la période spécifiée. (Cela est vrai tant que le jeton de session actuel n’est pas révoqué et qu’il n’a pas expiré.) Après la période de temps spécifié, l’utilisateur est forcé à s’authentifier de nouveau pour recevoir un nouveau jeton de session.
 
@@ -181,7 +179,7 @@ En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifie
 ### <a name="multi-factor-session-token-max-age"></a>Âge maximal de jeton de session multifacteur
 **Chaîne :** MaxAgeSessionMultiFactor
 
-**Éléments affectés :** jetons de session (persistants et non persistants)
+**Éléments affectés :** Jetons de session (persistants et non persistants)
 
 **Résumé :** cette stratégie détermine la durée pendant laquelle un utilisateur peut utiliser des jetons de session pour obtenir un nouvel ID et un nouveau jeton de session après sa dernière authentification réussie avec plusieurs facteurs. Une fois que l’utilisateur est authentifié et qu’il reçoit un nouveau jeton de session, il peut utiliser le flux de jeton de session pour la période spécifiée. (Cela est vrai tant que le jeton de session actuel n’est pas révoqué et qu’il n’a pas expiré.) Après la période de temps spécifié, l’utilisateur est forcé à s’authentifier de nouveau pour recevoir un nouveau jeton de session.
 

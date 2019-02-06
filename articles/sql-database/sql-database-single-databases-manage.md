@@ -1,9 +1,9 @@
 ---
-title: Créer et gérer des serveurs et des singletons SQL Azure | Microsoft Docs
-description: En savoir plus sur la création et la gestion de serveurs logiques et de singletons.
+title: Créer et gérer des serveurs et des bases de données uniques Azure SQL Database | Microsoft Docs
+description: En savoir plus sur la création et la gestion de serveurs et bases de données uniques SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,29 +11,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: f43c2cd5a3c155258cd698f6b55854bc0df9f861
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 32b532cab7e970d01c3963729658c32ac4a020b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388586"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465042"
 ---
-# <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Créer et gérer des serveurs logiques et des singletons dans Azure SQL Database
+# <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Créer et gérer des serveurs et bases de données uniques SQL Database dans Azure SQL Database
 
-Vous pouvez créer et gérer des bases de données uniques et des serveurs logiques Azure SQL Database via le portail Azure, PowerShell, Azure CLI, l’API REST et Transact-SQL.
+Vous pouvez créer et gérer des serveurs et bases de données uniques SQL Database via le portail Azure, PowerShell, Azure CLI, l’API REST et Transact-SQL.
 
-## <a name="azure-portal-manage-logical-servers-and-databases"></a>Portail Azure : gérer des bases de données et des serveurs logiques
+## <a name="azure-portal-manage-sql-database-servers-and-single-databases"></a>Portail Azure : Gérer des serveurs et bases de données uniques SQL Database
 
 Vous pouvez créer le groupe de ressources de la base de données SQL Azure en avance ou lors de la création du serveur lui-même. Il existe plusieurs méthodes pour accéder à un nouveau formulaire de serveur SQL : en créant un nouveau serveur SQL ou dans le cadre de la création d’une base de données.
 
-### <a name="create-a-blank-sql-server-logical-server"></a>Créer un serveur SQL vide (serveur logique)
+### <a name="create-a-blank-sql-database-server"></a>Créer un serveur SQL Database vide
 
-Pour créer un serveur Azure SQL Database (sans base de données) à l’aide du [portail Azure](https://portal.azure.com), accédez à un formulaire de serveur SQL vide (serveur logique).  
+Pour créer un serveur SQL Database à l’aide du [portail Azure](https://portal.azure.com), accédez à un formulaire de serveur SQL vide (serveur logique).  
 
-### <a name="create-a-blank-or-sample-sql-database"></a>Créer un exemple de base de données SQL ou une base de données SQL vide
+### <a name="create-a-blank-or-sample-sql-single-database"></a>Créer un exemple de base de données unique SQL ou une base de données SQL vide
 
-Pour créer une base de données SQL Azure à l’aide du [portail Azure](https://portal.azure.com), accédez à un formulaire SQL Database vide et renseignez les informations demandées. Vous pouvez créer le groupe de ressources de la base de données SQL Azure et le serveur logique en avance ou lors de la création de la base de données elle-même. Vous pouvez créer une base de données vide ou créer un exemple de base de données reposant sur Adventure Works LT.
+Pour créer une base de données unique SQL Azure à l’aide du [portail Azure](https://portal.azure.com), accédez à un formulaire SQL Database vide et renseignez les informations demandées. Vous pouvez créer le groupe de ressources de la base de données SQL Azure et le serveur SQL Database en avance ou lors de la création de la base de données unique elle-même. Vous pouvez créer une base de données vide ou créer un exemple de base de données reposant sur Adventure Works LT.
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -42,9 +42,9 @@ Pour créer une base de données SQL Azure à l’aide du [portail Azure](https
 
 Pour créer une option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-get-started.md)
 
-## <a name="manage-an-existing-sql-server"></a>Gérer un serveur SQL existant
+## <a name="manage-an-existing-sql-database-server"></a>Gérer un serveur SQL Database existant
 
-Pour gérer un serveur existant, accédez au serveur à l’aide de plusieurs méthodes, à partir d’une page de base de données SQL spécifique, de la page **Serveurs SQL** ou de la page **Toutes les ressources**, par exemple.
+Pour gérer un serveur SQL Database existant, accédez au serveur à l’aide de plusieurs méthodes, à partir d’une page de base de données SQL spécifique, de la page **Serveurs SQL** ou de la page **Toutes les ressources**, par exemple.
 
 Pour gérer une base de données existante, accédez à la page **Bases de données SQL** page, puis cliquez sur la base de données que vous souhaitez gérer. La capture d’écran suivante montre comment commencer à définir un pare-feu au niveau du serveur pour une base de données, à partir de la page **Vue d’ensemble** d’une base de données.
 
@@ -55,12 +55,12 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
 > [!TIP]
 > Pour un démarrage rapide du portail Azure, consultez la page[Créer une base de données SQL Azure à l’aide du portail Azure](sql-database-get-started-portal.md).
 
-## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell : gérer des bases de données et des serveurs logiques
+## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell : Gérer des serveurs et bases de données uniques SQL Database
 
-Pour créer et gérer des serveurs logiques, des bases de données uniques et en pool ainsi que des pare-feu de serveur logique Azure SQL avec Azure PowerShell, utilisez les applets de commande PowerShell suivants. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-az-ps).
+Pour créer et gérer des serveurs Azure SQL Database, des bases de données autonomes et regroupées, ainsi que des pare-feu de serveur SQL Database avec Azure PowerShell, utilisez les cmdlets PowerShell suivantes. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> Pour obtenir des exemples de script PowerShell, consultez [Utiliser PowerShell pour créer une base de données unique Azure SQL et configurer une règle de pare-feu de serveur logique](scripts/sql-database-create-and-configure-database-powershell.md) et [Surveiller et mettre à l’échelle une base de données SQL unique à l’aide de PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Pour obtenir des exemples de script PowerShell, consultez [Utiliser PowerShell pour créer une base de données SQL Azure et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-powershell.md) et [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 | Applet de commande | Description |
 | --- | --- |
@@ -79,12 +79,12 @@ Pour créer et gérer des serveurs logiques, des bases de données uniques et en
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Supprime une règle de pare-feu d’un serveur|
 | New-AzureRmSqlServerVirtualNetworkRule | Crée une [*règle de réseau virtuel*](sql-database-vnet-service-endpoint-rule-overview.md), basée sur un sous-réseau qui est un point de terminaison de service de réseau virtuel. |
 
-## <a name="azure-cli-manage-logical-servers-and-databases"></a>Interface de ligne de commande Azure : gérer des bases de données et des serveurs logiques
+## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>Interface de ligne de commande Azure : Gérer des serveurs et bases de données uniques SQL Database
 
 Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Azure avec [Azure CLI](/cli/azure), utilisez les commandes [Azure CLI SQL Database](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](/azure/cloud-shell/overview) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer des pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
 
 > [!TIP]
-> Pour un démarrage rapide d’Azure CLI, consultez la page [Créer une base de données SQL Azure unique à l’aide d’Azure CLI](sql-database-cli-samples.md). Pour obtenir des exemples de scripts Azure CLI, consultez [Utiliser CLI pour créer une seule base de données Azure SQL et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-cli.md) et [Utiliser CLI pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
+> Pour un démarrage rapide d’Azure CLI, consultez [Exemples Azure CLI pour Azure SQL Database](sql-database-cli-samples.md). Pour obtenir des exemples de scripts Azure CLI, consultez [Utiliser CLI pour créer une seule base de données Azure SQL et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-cli.md) et [Utiliser CLI pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 | Applet de commande | Description |
@@ -109,7 +109,7 @@ Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Az
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Met à jour une règle de pare-feu|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Supprime une règle de pare-feu|
 
-## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL : gérer des bases de données et des serveurs logiques
+## <a name="transact-sql-manage-sql-database-servers-and-single-databases"></a>Transact-SQL : Gérer des serveurs et bases de données uniques SQL Database
 
 Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Azure avec Transact-SQL, utilisez les commandes T-SQL suivantes. Vous pouvez entrer ces commandes à l’aide du portail Azure, de [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), de [Visual Studio Code](https://code.visualstudio.com/docs), ou de tout autre programme pouvant se connecter à un serveur Azure SQL Database et transmettre des commandes Transact-SQL. Pour gérer des pools élastiques, consultez la page [Pools élastiques](sql-database-elastic-pool.md).
 
@@ -135,28 +135,28 @@ Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Az
 |[sys.database_firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Renvoie des informations sur les paramètres de pare-feu au niveau de la base de données associés à votre Microsoft Azure SQL Database. |
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Supprime les paramètres de pare-feu au niveau de la base de données de votre Azure SQL Database ou de votre entrepôt de données SQL Data Warehouse. |
 
-## <a name="rest-api-manage-logical-servers-and-databases"></a>API REST : gérer des bases de données et des serveurs logiques
+## <a name="rest-api-manage-sql-database-servers-and-single-databases"></a>API REST : Gérer des serveurs et bases de données uniques SQL Database
 
 Pour créer et gérer un serveur, des bases de données et des pare-feux Azure SQL, utilisez les requêtes suivantes de l’API REST.
 
 | Commande | Description |
 | --- | --- |
-|[Serveurs - Create ou Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crée ou met à jour un serveur.|
+|[Servers - Create ou Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crée ou met à jour un serveur.|
 |[Serveurs - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Supprime un serveur SQL.|
 |[Serveurs - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Obtient un serveur.|
 |[Serveurs - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Retourne la liste des serveurs d’un abonnement.|
-|[Serveurs - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Retourne une liste de serveurs dans un groupe de ressources.|
+|[Servers - List by resource group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Retourne une liste de serveurs dans un groupe de ressources.|
 |[Serveurs - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Met à jour un serveur existant.|
-|[Bases de données : Create ou Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
+|[Databases - Create or update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
 |[Bases de données - Supprimer](https://docs.microsoft.com/rest/api/sql/databases/delete)|Supprime une base de données.|
 |[Bases de données - Obtenir](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtient une base de données.|
-|[Bases de données - Lister par pool élastique](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
-|[Bases de données - Lister par serveur](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
+|[Databases - List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
+|[Databases - List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
 |[Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/update)|Met à jour une base de données existante.|
-|[Règles de pare-feu - Create ou Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Crée ou met à jour une règle de pare-feu.|
-|[Règles de pare-feu - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Supprime une règle de pare-feu.|
-|[Règles de pare-feu - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Obtient une règle de pare-feu.|
-|[Règles de pare-feu - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Retourne une liste de règles de pare-feu.|
+|[Firewall rules - Create or update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Crée ou met à jour une règle de pare-feu.|
+|[Firewall rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Supprime une règle de pare-feu.|
+|[Firewall rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Obtient une règle de pare-feu.|
+|[Firewall rules - List by server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Retourne une liste de règles de pare-feu.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

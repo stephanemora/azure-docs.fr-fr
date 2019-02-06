@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e5039e299df30df4d49f24430af4b44837d65c44
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 01/25/2019
+ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166359"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455590"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migration de bases de données existantes pour une mise à l’échelle
 Gérez facilement vos bases de données partitionnées et montées en charge existantes à l’aide des outils de base de données Base de données SQL Azure (comme la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md)). Convertissez d’abord un ensemble existant de bases de données pour utiliser le [Gestionnaire de cartes de partitions](sql-database-elastic-scale-shard-map-management.md). 
@@ -69,11 +69,11 @@ Pour un modèle de client unique, créez une carte de partitions de **mappage de
 
 ![Mappage de liste][1]
 
-Le modèle mutualisé affecte plusieurs clients à une seule base de données (et vous pouvez distribuer des groupes de clients sur plusieurs bases de données). Utilisez ce modèle lorsque vous pensez que chaque client va avoir de faibles besoins en termes de données. Dans ce modèle, attribuez une plage de clients à une base de données à l’aide du **mappage de plage**. 
+Le modèle multi-locataire affecte plusieurs locataires à une seule base de données (et vous pouvez distribuer des groupes de locataires sur plusieurs bases de données). Utilisez ce modèle lorsque vous pensez que chaque client va avoir de faibles besoins en termes de données. Dans ce modèle, attribuez une plage de clients à une base de données à l’aide du **mappage de plage**. 
 
 ![Mappage de plage][2]
 
-Vous pouvez également implémenter un modèle de base de données mutualisée à l’aide d’un *mappage de liste* pour affecter plusieurs clients à une base de données unique. Par exemple, DB1 est utilisée pour stocker les informations d’ID client 1 et 5 et DB2 stocke les données pour les clients 7 et 10. 
+Vous pouvez également implémenter un modèle de base de données multi-locataire à l’aide d’un *mappage de liste* pour affecter plusieurs locataires à une base de données individuelle. Par exemple, DB1 est utilisée pour stocker les informations d’ID client 1 et 5 et DB2 stocke les données pour les clients 7 et 10. 
 
 ![Plusieurs clients sur une base de données unique][3] 
 
@@ -98,10 +98,10 @@ Pour utiliser ce modèle de mappage, les valeurs d’ID client doivent être des
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>Option 3 : Mappages de liste sur une base de données unique
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Option 3 : Mappages de liste sur une base de données individuelle
 La configuration de ce modèle nécessite également la création d’un mappage de liste comme indiqué à l’étape 2, option 1.
 
-## <a name="step-3-prepare-individual-shards"></a>Étape 3 : préparer les partitions individuelles
+## <a name="step-3-prepare-individual-shards"></a>Étape 3 : Préparer les partitions individuelles
 Ajoutez chaque partition (base de données) dans le gestionnaire de cartes de partitions. Cela prépare les bases de données individuelles à stocker les informations de mappage. Exécutez cette méthode sur chaque partition.
 
     Add-Shard 
@@ -138,7 +138,7 @@ Ajoutez les mappages de plage pour la plage d’ID client – associations de ba
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Étape 4, option 3 : mapper les données de plusieurs clients sur une base de données unique
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>Étape 4, option 3 : mapper les données de plusieurs clients sur une base de données individuelle
 Pour chaque client, exécutez la commande Add-ListMapping (option 1). 
 
 ## <a name="checking-the-mappings"></a>Vérification des mappages
@@ -154,7 +154,7 @@ Une fois que vous avez terminé l’installation, vous pouvez commencer à utili
 ## <a name="next-steps"></a>Étapes suivantes
 Obtenez les scripts PowerShell à partir de [scripts d’outils de base de données élastique Azure SQL DB](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-Les outils sont également disponibles sur GitHub : [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+Les outils se trouvent également sur GitHub : [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
 Utilisez l’outil de fractionnement et de fusion pour déplacer des données, à partir d’un modèle mutualisé ou vers celui-ci, vers un modèle de client unique. Consultez [Outil de fractionnement et de fusion](sql-database-elastic-scale-get-started.md).
 
@@ -162,7 +162,7 @@ Utilisez l’outil de fractionnement et de fusion pour déplacer des données, �
 Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Questions et demandes de fonctionnalités
-Pour toute question, utilisez le [forum SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+Pour toute question, utilisez le [forum SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

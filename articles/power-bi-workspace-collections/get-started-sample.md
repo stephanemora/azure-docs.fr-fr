@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 630413d15df04d27599389f647c57876fff9d295
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246682"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094425"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Exemple de prise en main des collections d’espaces de travail Power BI
 
@@ -24,7 +24,7 @@ Les **collections d’espaces de travail Microsoft Power BI** vous permettent d�
 > [!IMPORTANT]
 > Les collections d’espaces de travail Power BI sont déconseillées et disponibles jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la migration de vos données vers Power BI Embedded, consultez l’article [How to migrate Power BI Workspace Collections content to Power BI Embedded (Migration du contenu de collections d’espaces de travail Power BI vers Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Avant d’aller plus loin, vous devez enregistrer les ressources ci-après, qui vous aideront lors de l’intégration de rapports Power BI dans l’exemple d’application, ainsi que dans vos propres applications.
+Avant de poursuivre, vous souhaitez enregistrer les ressources suivantes. Elles vous aident lors de l’intégration de rapports Power BI à l’exemple d’application ainsi qu’à vos propres applications.
 
 * [Exemple d’application web d’espace de travail](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Informations de référence sur les API des collections d’espaces de travail Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
@@ -71,7 +71,7 @@ Checking import state... Succeeded
 L’exemple d’application web est un exemple d’application qui restitue les rapports importés dans votre **espace de travail**. Voici comment configurer l’exemple d’application web.
 
 1. Dans la solution Visual Studio **PowerBI-embedded**, cliquez avec le bouton droit sur l’application web **EmbedSample**, puis choisissez **Définir comme projet de démarrage**.
-2. Dans **web.config**, dans l’application web **EmbedSample**, modifiez la section **appSettings** : **AccessKey**, le nom **WorkspaceCollection** et **WorkspaceId**.
+2. Dans **web.config**, dans l’application web **EmbedSample**, modifiez le nom **appSettings** : **AccessKey**, **WorkspaceCollection**, ainsi que **WorkspaceId**.
 
     ```
     <appSettings>
@@ -93,7 +93,7 @@ Une fois que vous avez cliqué sur un rapport, l’application web **EmbedSample
 
 ## <a name="explore-the-sample-code"></a>Explorer l’exemple de code
 
-L’exemple de **collections d’espaces de travail Microsoft Power BI** est un exemple d’application web qui vous indique comment intégrer des rapports **Power BI** dans votre application. Il utilise un modèle de conception MVC (Model-View-Controller) pour illustrer les meilleures pratiques. Cette section met en évidence les parties de l’exemple de code que vous pouvez explorer dans la solution d’application web **PowerBI-embedded**. Le modèle MVC (Model-View-Controller) sépare la modélisation du domaine, la présentation et les actions basées sur les entrées des utilisateurs en trois classes distinctes : modèle, affichage et contrôle. Pour plus d’informations sur MVC, consultez [En savoir plus sur ASP.NET](http://www.asp.net/mvc).
+L’exemple de **collections d’espaces de travail Microsoft Power BI** est un exemple d’application web qui vous indique comment intégrer des rapports **Power BI** dans votre application. Il utilise un modèle de conception MVC (Model-View-Controller) pour illustrer les meilleures pratiques. Cette section met en évidence les parties de l’exemple de code que vous pouvez explorer dans la solution d’application web **PowerBI-embedded**. Le modèle MVC (Model-View-Controller) sépare la modélisation du domaine, la présentation et les actions basées sur l’entrée de l’utilisateur en trois classes distinctes : modèle, affichage et contrôle. Pour plus d’informations sur MVC, consultez [En savoir plus sur ASP.NET](http://www.asp.net/mvc).
 
 L’exemple de code relatif aux **collections d’espaces de travail Microsoft Power BI** inclut les sections suivantes. Chacune d’elles inclut le nom de fichier dans la solution PowerBI-embedded.sln afin que vous puissiez facilement trouver le code dans l’exemple.
 
@@ -104,14 +104,14 @@ L’exemple de code relatif aux **collections d’espaces de travail Microsoft P
 
 L’exemple inclut deux modèles : **ReportsViewModel** et **ReportViewModel**.
 
-**ReportsViewModel.cs** : représente les rapports Power BI.
+**ReportsViewModel.cs** : représente les rapports Power BI.
 
     public class ReportsViewModel
     {
         public List<Report> Reports { get; set; }
     }
 
-**ReportViewModel.cs** : représente un rapport Power BI.
+**ReportViewModel.cs** : représente un rapport Power BI.
 
     public classReportViewModel
     {
@@ -128,13 +128,13 @@ La chaîne de connexion doit avoir le format suivant :
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ```
 
-L’utilisation d’attributs de serveur et de base de données communs échoue. Par exemple : Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
+L’utilisation d’attributs de serveur et de base de données communs échoue. Par exemple :  Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### <a name="view"></a>Affichage
 
 L’**affichage** gère la présentation des **rapports** Power BI et d’un **rapport** Power BI.
 
-**Reports.cshtml** : effectue une itération sur **Model.Reports** pour créer un **ActionLink**. **ActionLink** est composé comme suit :
+**Reports.cshtml** : effectue une itération sur **Model.Reports** pour créer un **ActionLink**. **ActionLink** est composé comme suit :
 
 | Partie | Description |
 | --- | --- |
@@ -155,7 +155,7 @@ L’**affichage** gère la présentation des **rapports** Power BI et d’un **r
         </div>
     </div>
 
-Report.cshtml : définit **Model.AccessToken** et l’expression lambda pour **PowerBIReportFor**.
+Report.cshtml : définit **Model.AccessToken** et l’expression lambda pour **PowerBIReportFor**.
 
     @model ReportViewModel
 
@@ -168,7 +168,7 @@ Report.cshtml : définit **Model.AccessToken** et l’expression lambda pour **P
 
 ### <a name="controller"></a>Controller
 
-**DashboardController.cs** : crée un PowerBIClient qui transmet un **jeton d’application**. Un jeton JWT (JSON Web Token) est généré à partir de la **clé de signature** pour obtenir les **informations d’identification**. Les **informations d’identification** sont utilisées pour créer une instance de **PowerBIClient**. Une fois que vous avez une instance de **PowerBIClient**, vous pouvez appeler GetReports() et GetReportsAsync().
+**DashboardController.cs** : crée un PowerBIClient qui transmet un **jeton d’application**. Un jeton JWT (JSON Web Token) est généré à partir de la **clé de signature** pour obtenir les **informations d’identification**. Les **informations d’identification** sont utilisées pour créer une instance de **PowerBIClient**. Une fois que vous avez une instance de **PowerBIClient**, vous pouvez appeler GetReports() et GetReportsAsync().
 
 CreatePowerBIClient()
 
@@ -228,7 +228,7 @@ Une fois que vous avez un **rapport**, utilisez un **iframe** pour incorporer le
 ```
 init: function() {
     var embedUrl = this.getEmbedUrl();
-    var iframeHtml = '<igrame style="width:100%;height:100%;" src="' + embedUrl + 
+    var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 
         '" scrolling="no" allowfullscreen="true"></iframe>';
     this.element.innerHTML = iframeHtml;
     this.iframe = this.element.childNodes[0];

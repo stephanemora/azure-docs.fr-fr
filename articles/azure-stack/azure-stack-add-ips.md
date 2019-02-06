@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.openlocfilehash: b401139d417674cf58d2db264b442d7588cc34ba
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d81374b110523e48e06725d3d3153e61135471cc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987100"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251620"
 ---
 # <a name="add-public-ip-addresses"></a>Ajouter des adresses IP publiques
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*  
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*  
 
 Apprenez à ajouter plus d’adresses IP publiques dans Azure Stack.  Dans cet article, nous parlons d’adresses IP publiques pour les adresses externes, mais dans Azure Stack, il faut comprendre ajouter des blocs d’adresses IP à votre réseau externe.  Que ce réseau externe soit routable sur l’Internet public ou sur un intranet et utilise un espace d’adresses n’est pas important dans cet article.  La procédure est la même. 
 
@@ -49,7 +50,7 @@ Vous devez en premier lieu obtenir le bloc d’adresses que vous souhaitez ajout
 5.  Cliquez sur la vignette Utilisation des pools IP publics.
 6.  Cliquez sur le bouton Ajouter un pool IP.
 7.  Donnez un nom au pool IP.  Le nom que vous choisissez vous permet d’identifier facilement le pool IP. Vous pouvez donc lui donner le nom que vous voulez.  Il est conseillé de donner le même nom que la plage d’adresses, mais cela n’est pas obligatoire.
-8.   Entrez le bloc d’adresses que vous voulez ajouter dans la notation CIDR.  Par exemple : 192.168.203.0/24
+8.   Entrez le bloc d’adresses que vous voulez ajouter dans la notation CIDR.  Par exemple :  192.168.203.0/24
 9.  Lorsque vous fournissez une plage CIDR valide dans le champ Plage d’adresses (bloc CIDR), les champs Adresse IP de début, Adresse IP de fin et Adresses IP disponibles sont automatiquement renseignés.  Ils sont en lecture seule et générés automatiquement. Vous ne pouvez donc pas les modifier sans modifier la valeur dans le champ Plage d’adresses.
 10. Après avoir vérifié les informations sur le panneau et confirmé que tout est correct, cliquez sur OK pour valider les modifications et ajouter la plage d’adresses à Azure Stack.
 

@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/21/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1db379a48d4dafdaa2494d081658296a7145bcd9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 80510b4f3f07b96b9084108fcb89c75e108cbc65
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815226"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096841"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>FAQ Azure Disk Encryption pour machines virtuelles IaaS
 
@@ -42,8 +42,8 @@ Azure Disk Encryption est pris en charge sur les versions et distributions de se
 
 | Distribution Linux | Version | Type de volume pris en charge pour le chiffrement|
 | --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Disque de système d’exploitation et de données |
-| Ubuntu | 14.04.5-DAILY-LTS | Disque de système d’exploitation et de données |
+| Ubuntu | 16.04| Disque de système d’exploitation et de données |
+| Ubuntu | 14.04.5</br>[avec le noyau Azure mis à jour vers la version 4.15 ou ultérieure](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disque de système d’exploitation et de données |
 | RHEL | 7.5 | Disque de système d’exploitation et de données* |
 | RHEL | 7.4 | Disque de système d’exploitation et de données* |
 | RHEL | 7.3 | Disque de système d’exploitation et de données* |
@@ -59,12 +59,10 @@ Azure Disk Encryption est pris en charge sur les versions et distributions de se
 | CentOS | 6.7 | Disque de données |
 | CentOS | 6.6 | Disque de données |
 | CentOS | 6.5 | Disque de données |
-| openSUSE | 13.2 | Disque de données |
-| SLES | 12 SP1 | Disque de données |
-| SLES | Priorité : 12-SP1 | Disque de données |
-| SLES | HPC 12 | Disque de données |
-| SLES | Priorité : 11-SP4 | Disque de données |
-| SLES | 11 SP4 | Disque de données |
+| openSUSE | SUSE:openSUSE-Leap:42.3:latest | Disque de données |
+| SLES | SUSE:SLES-Priority:12-SP4:latest | Disque de données |
+| SLES | SUSE:SLES-HPC:12-SP3:latest | Disque de données |
+| SLES | SUSE:SLES-Priority:12-SP3:latest | Disque de données |
 
 
 *__La nouvelle implémentation d’ADE est prise en charge pour les disques de système d’exploitation et de données RHEL pour les images avec paiement à l’utilisation de RHEL7. ADE n’est actuellement pas pris en charge pour les images BYOS de RHEL. Pour plus d’informations, consultez également l’article [Azure Disk Encryption pour Linux](azure-security-disk-encryption-linux.md).__

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 10023d34a245f9493cfe244882dbdc1351a78513
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 59562d0571486a4bcbc96be4cb7dcddb4dfb0a44
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447212"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095717"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -135,7 +135,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 ##  <a name="LimitCallRateByKey"></a> Limite de débit d’appels par clé  
 
 > [!IMPORTANT]
-> Cette fonctionnalité n’est pas disponible dans le niveau **Consommation** de Gestion des API.
+> Cette fonctionnalité n’est pas disponible dans le niveau **Consommation** du service Gestion des API.
 
  La stratégie `rate-limit-by-key` évite les pics d’utilisation des API par clé en limitant le débit d’appels à un nombre spécifié pour une période donnée. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie. Une condition d’incrément facultative peut être ajoutée pour spécifier quelles demandes doivent être comptées dans la limite. Lorsque cette stratégie est déclenchée, l’appelant reçoit le code d’état de réponse `429 Too Many Requests`.  
   
@@ -350,11 +350,12 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   **Étendues de la stratégie :** global, product, API, operation  
   
 ##  <a name="ValidateJWT"></a> Validate JWT  
- La stratégie `validate-jwt` applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.  
+ La stratégie `validate-jwt` applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
   
 > [!IMPORTANT]
 >  La stratégie `validate-jwt` exige que la revendication inscrite `exp` soit incluse dans le jeton JWT, sauf si l’attribut `require-expiration-time` est spécifié et a la valeur `false`.  
-> La stratégie `validate-jwt` prend en charge les algorithmes de signature HS256 et RS256. Pour HS256, la clé doit être fournie en ligne au sein de la stratégie au format encodé en base 64. Pour RS256, la clé doit être fournie par le biais d’un point de terminaison de configuration Open ID.  
+> La stratégie `validate-jwt` prend en charge les algorithmes de signature HS256 et RS256. Pour HS256, la clé doit être fournie en ligne au sein de la stratégie au format encodé en base 64. Pour RS256, la clé doit être fournie par le biais d’un point de terminaison de configuration Open ID.
+> La stratégie `validate-jwt` prend en charge les jetons chiffrés avec des clés symétriques à l’aide des algorithmes de chiffrement suivants : A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
   
@@ -370,7 +371,11 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   <issuer-signing-keys>  
     <key>base64 encoded signing key</key>  
     <!-- if there are multiple keys, then add additional key elements -->  
-  </issuer-signing-keys>  
+  </issuer-signing-keys>
+  <decryption-keys>
+    <key>base64 encoded signing key</key>  
+    <!-- if there are multiple keys, then add additional key elements -->  
+  </decryption-keys>
   <audiences>  
     <audience>audience string</audience>  
     <!-- if there are multiple possible audiences, then add additional audience elements -->  
@@ -444,7 +449,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 ```  
   
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>Autoriser l’accès aux opérations à partir de revendications de jetons  
- Cet exemple montre comment utiliser la stratégie [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) pour préautoriser l’accès aux opérations à partir de revendications de jetons. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez la page [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 13 min 50 s. Rendez-vous directement à 15’00’’ pour afficher les stratégies configurées dans l’éditeur de stratégies, puis à 18’50’’ pour une démonstration de l’appel d’une opération à partir du portail des développeurs avec et sans le jeton d’autorisation requis.  
+ Cet exemple montre comment utiliser la stratégie [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) pour préautoriser l’accès aux opérations à partir de revendications de jetons. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 13 min 50 s. Rendez-vous directement à 15’00’’ pour afficher les stratégies configurées dans l’éditeur de stratégies, puis à 18’50’’ pour une démonstration de l’appel d’une opération à partir du portail des développeurs avec et sans le jeton d’autorisation requis.  
   
 ```xml  
 <!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->  
@@ -491,6 +496,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |validate-jwt|Élément racine.|Oui|  
 |audiences|Contient la liste des revendications d’audience acceptables qui peuvent être présentes sur le jeton. Si plusieurs valeurs d’audience sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse. Au moins une audience doit être spécifiée.|Non |  
 |issuer-signing-keys|Liste de clés de sécurité encodées en base 64 utilisé pour valider les jetons signés. Si plusieurs clés de sécurité sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse (utile pour la substitution de jeton). Les éléments clés ont un attribut `id` facultatif utilisé pour comparer à la revendication `kid`.|Non |  
+|decryption-keys|Liste de clés codée en Base64 utilisée pour déchiffrer les jetons. Si plusieurs clés de sécurité sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse. Les éléments clés ont un attribut `id` facultatif utilisé pour comparer à la revendication `kid`.|Non |  
 |issuers|Liste des services principaux acceptables qui ont émis le jeton. Si plusieurs valeurs d’émetteur sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse.|Non |  
 |openid-config|Élément utilisé pour spécifier un point de terminaison de configuration Open ID conforme à partir duquel l’émetteur et les clés de signature peuvent être obtenus.|Non |  
 |required-claims|Contient une liste de revendications censées être présentes sur le jeton pour qu’il soit considéré comme valide. Si l’attribut `match` a la valeur `all`, toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse. Si l’attribut `match` a la valeur `any`, au moins une revendication doit être présente dans le jeton pour que la validation réussisse.|Non |  

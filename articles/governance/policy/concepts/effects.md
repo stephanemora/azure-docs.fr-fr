@@ -4,17 +4,17 @@ description: Les effets différents de la définition Azure Policy déterminent 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310842"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912507"
 ---
 # <a name="understand-policy-effects"></a>Comprendre les effets de Policy
 
@@ -257,6 +257,11 @@ La propriété **details** des effets DeployIfNotExists possède toutes les sous
   - Par exemple, permet de vérifier que la ressource parent (dans la condition **if**) réside dans le même emplacement de la ressource en tant que ressource connexe correspondante.
 - **roleDefinitionIds** [obligatoire]
   - Cette propriété doit inclure un tableau de chaînes qui correspondent aux ID de rôle de contrôle de l’accès en fonction du rôle accessibles par l’abonnement. Pour plus d’informations, consultez [Correction - Configurer une définition de stratégie](../how-to/remediate-resources.md#configure-policy-definition).
+- **DeploymentScope** (facultatif)
+  - Les valeurs autorisées sont _Subscription_ et _ResourceGroup_.
+  - Définit le type de déploiement à effectuer. _Subscription_ indique un [déploiement au niveau de l’abonnement](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indique un déploiement dans un groupe de ressources.
+  - Une propriété _location_ doit être spécifiée dans _Deployment_ pour les déploiements au niveau de l’abonnement.
+  - La valeur par défaut est _ResourceGroup_.
 - **Deployment** [obligatoire]
   - Cette propriété doit inclure le déploiement de modèle complet, car elle est transmise à l’API PUT `Microsoft.Resources/deployments`. Pour plus d’informations, consultez [l’API REST Deployments](/rest/api/resources/deployments).
 
@@ -351,5 +356,5 @@ Chaque affectation est évaluée individuellement. Par conséquent, une ressourc
 - Consulter la page [Structure de définition Azure Policy](definition-structure.md)
 - Savoir comment [créer des stratégies par programmation](../how-to/programmatically-create.md)
 - Découvrir comment [obtenir des données de conformité](../how-to/getting-compliance-data.md)
-- Découvrir comment [remédier à la non-conformité des ressources](../how-to/remediate-resources.md)
+- Découvrir comment [corriger les ressources non conformes](../how-to/remediate-resources.md)
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

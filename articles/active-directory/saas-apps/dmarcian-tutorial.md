@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à dmarcian | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à dmarcian | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et dmarcian.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 0f8878505280371bf6046c1d1f0d7fc1275dd496
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 197e0cceb7457ffdd96ada7d4561de56c7ed10fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039885"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095649"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Didacticiel : Intégration d’Azure Active Directory à dmarcian
+# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutoriel : Intégration d’Azure Active Directory à dmarcian
 
 Dans ce didacticiel, vous allez apprendre à intégrer dmarcian à Azure Active Directory (Azure AD).
 
@@ -157,18 +157,18 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![L’authentification ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-    * Sous la section **Add dmarcian to your Identity Provider** (Ajouter dmarcian à votre fournisseur d’identité), cliquez sur **COPIER** pour copier **l’URL du service consommateur d’assertion** de votre instance et la coller dans la zone de texte **URL de réponse** dans la section **dmarcian Domain and URLs** (Domaine et URL dmarcian) du Portail Azure.
+    * Sous la section **Add dmarcian to your Identity Provider** (Ajouter dmarcian à votre fournisseur d’identité), cliquez sur  **COPY**  (Copier) pour copier l’**URL Assertion Consumer Service** de votre instance et collez-la dans la zone de texte  **URL de réponse** dans la section  **Domaine et URL dmarcian** du portail Azure.
 
-    * Sous la section **Add dmarcian to your Identity Provider** (Ajouter dmarcian à votre fournisseur d’identité), cliquez sur **COPIER** pour copier **l’ID d’entité** de votre instance et la coller dans la zone de texte **Identificateur** dans la section **dmarcian Domain and URLs** (Domaine et URL dmarcian) du Portail Azure.
+    * Sous la section **Add dmarcian to your Identity Provider** (Ajouter dmarcian à votre fournisseur d’identité), cliquez sur  **COPIER**  (Copier) pour copier l’**ID d’entité** de votre instance et collez-la dans la zone de texte  **Identificateur** dans la section  **Domaine et URL dmarcian** du portail Azure.
 
     * Sous la section **Set up Authentication** (Configurer l’authentification), dans la zone de texte **Identity Provider Metadata** (Métadonnées du fournisseur d’identité), collez **l’URL des métadonnées de fédération d’application**, que vous avez copiée à partir du Portail Azure.
 
     * Sous la section **Set up Authentication** (Configurer l’authentification), dans la zone de texte **Attribute Statements** (Instructions d’attribut), collez l’URL `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    * Sous la section **Set up Login URL** (Configurer l’URL de connexion), copiez **l’URL de connexion** de votre instance et collez-la dans la zone de texte **URL de connexion** de la section **dmarcian Domain and URLs** (Domaine et URL dmarcian) sur le Portail Azure.
+    * Sous la section **Set up Login URL** (Configurer l’URL de connexion), copiez l’**URL de connexion** de votre instance et collez-la dans la zone de texte  **URL de connexion** de la section  **Domaine et URL dmarcian** dans le Portail Azure.
 
         > [!Note]
-        > Vous pouvez modifier **l’URL de connexion** en fonction de votre organisation.
+        > Vous pouvez modifier l’**URL de connexion** en fonction de votre organisation.
 
     * Cliquez sur **Enregistrer**.
 

@@ -1,6 +1,6 @@
 ---
-titre : Tutoriel de démarrage rapide sur le langage R - titleSuffix : Description d'Azure Machine Learning Studio : Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Tutoriel de démarrage rapide sur le langage R - titleSuffix : Description d'Azure Machine Learning Studio : Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 06/01/2017
 ---

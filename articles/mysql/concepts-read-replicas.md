@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/22/2019
-ms.openlocfilehash: 6ebbaece66d9055fd2bff68eee873b012b4a6d50
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 1/23/2019
+ms.openlocfilehash: eca67cb70756dd1184bd3a66c2582743c8baa8fd
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462418"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903755"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
-La fonctionnalité de réplica en lecture (en préversion publique) vous permet de répliquer des données d’un serveur Azure Database pour MySQL (maître) sur jusqu’à cinq serveurs en lecture seule (réplicas) dans la même région Azure. Les réplicas en lecture seule sont mis à jour de manière asynchrone à l’aide de la technologie de réplication selon la position du fichier journal binaire (binlog) native au moteur MySQL. Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+> [!IMPORTANT]
+> La fonctionnalité de réplica en lecture est en préversion publique.
+
+La fonctionnalité de réplica en lecture vous permet de répliquer des données d’un serveur Azure Database pour MySQL (maître) sur jusqu’à cinq serveurs en lecture seule (réplicas) dans la même région Azure. Les réplicas en lecture seule sont mis à jour de manière asynchrone à l’aide de la technologie de réplication selon la position du fichier journal binaire (binlog) native au moteur MySQL. Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Les réplicas créés dans le service Azure Database pour MySQL sont de nouveaux serveurs pouvant être gérés de la même façon que les serveurs MySQL normaux/autonomes. Pour chaque réplica en lecture, vous êtes facturé pour la capacité de calcul provisionnée dans les vCores et le stockage provisionné en Go/mois. 
 

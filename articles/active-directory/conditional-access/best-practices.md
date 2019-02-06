@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 62bb9b6b4b0edd9e45b317c3c4e18872bae2eec4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8324b7bf97325c295fdf95819cc2b22fb0f3c14e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452834"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078948"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques l’accès conditionnel dans Azure Active Directory
 
@@ -47,14 +47,32 @@ Pour que votre stratégie fonctionne, vous devez configurer les éléments suiva
 
 |Quoi           | Comment                                  | Pourquoi|
 |:--            | :--                                  | :-- |
-|**Applications cloud** |Vous devez sélectionner une ou plusieurs applications.  | Une stratégie d’accès conditionnel a pour fonction de vous permettre de contrôler la manière dont les utilisateurs autorisés peuvent accéder à vos applications cloud.|
-| **Utilisateurs et groupes** | Vous devez sélectionner au moins un utilisateur ou groupe autorisé à accéder à vos applications cloud sélectionnées. | Une stratégie d’accès conditionnel, à laquelle aucun utilisateur ou groupe n’est affecté, n’est jamais déclenchée. |
-| **Contrôles d’accès** | Vous devez sélectionner au moins un contrôle d'accès. | Si vos conditions sont remplies, votre processeur de stratégies doit connaître la procédure à suivre.|
+|**Applications cloud** |Sélection d’une ou de plusieurs applications.  | Une stratégie d’accès conditionnel a pour fonction de vous permettre de contrôler la manière dont les utilisateurs autorisés peuvent accéder à vos applications cloud.|
+| **Utilisateurs et groupes** | Sélection d’au moins un utilisateur ou un groupe autorisé à accéder à vos applications cloud sélectionnées. | Une stratégie d’accès conditionnel, à laquelle aucun utilisateur ou groupe n’est affecté, n’est jamais déclenchée. |
+| **Contrôles d’accès** | Sélection d’au moins un contrôle d’accès. | Si vos conditions sont remplies, votre processeur de stratégies doit connaître la procédure à suivre.|
 
 
 
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
+
+
+
+### <a name="how-are-conditional-access-policies-applied"></a>Comment les stratégies d’accès conditionnel sont-elles appliquées ?
+
+Plusieurs stratégies d’accès conditionnel peuvent s’appliquer lorsque vous accédez à une application cloud. Dans ce cas, toutes les stratégies qui s’appliquent doivent être satisfaites. Par exemple, si une première stratégie demande une authentification MFA et que la seconde demande un appareil conforme, vous devez passer par l’authentification multifacteur et utiliser un appareil compatible. 
+
+Toutes les stratégies sont appliquées en deux phases :
+
+- Dans la **première** phase, toutes les stratégies sont évaluées et tous les contrôles d’accès qui ne sont pas satisfaits sont collectés. 
+
+- Dans la **deuxième** phase, vous êtes invité à vous conformer aux exigences que vous n’avez pas satisfaites. Si une des stratégies verrouille l’accès, vous êtes bloqué et n’êtes pas invité à répondre à d’autres contrôles de stratégie. Si aucune de ces stratégie ne vous bloque, vous êtes invité à répondre à d’autres contrôles de stratégie dans l’ordre suivant :
+
+    ![Ordre](./media/best-practices/06.png)
+    
+    Les fournisseurs d’authentification multifacteur externes et les conditions d’utilisation viennent ensuite.
+
+
 
 ### <a name="how-are-assignments-evaluated"></a>Comment les affectations sont-elles évaluées ?
 
@@ -122,13 +140,13 @@ Dans votre environnement, vous devez éviter les configurations suivantes :
 
 Pour commencer, vous devez évaluer votre stratégie à l’aide de [l’outil de simulation](what-if-tool.md).
 
-Lorsque vous êtes prêt à déployer une nouvelle stratégie dans votre environnement, vous devez le faire en plusieurs phases :
+Lorsque de nouvelles stratégies sont prêtes pour votre environnement, déployez-les en phases :
 
 1. Appliquez une stratégie à un ensemble d’utilisateurs restreint et vérifiez qu’elle fonctionne comme prévu. 
 
-2.  Lorsque vous étendez une stratégie de façon à inclure davantage d’utilisateurs, continuez à exclure tous les administrateurs de la stratégie. Cette opération garantit que les administrateurs disposent toujours d’un accès et qu’ils peuvent mettre à jour une stratégie si une modification est nécessaire.
+2.  Lorsque vous développez une stratégie pour inclure davantage d’utilisateurs. Continuez à exclure tous les administrateurs de la stratégie pour vous assurer qu’ils ont toujours accès et qu’ils peuvent mettre à jour une stratégie si une modification est nécessaire.
 
-3. N’appliquez une stratégie à tous les utilisateurs que si cette opération se révèle réellement nécessaire. 
+3. Appliquez une stratégie à tous les utilisateurs uniquement si c’est nécessaire. 
 
 Une bonne pratique consiste à créer un compte d’utilisateur :
 
@@ -154,4 +172,7 @@ Pour plus d’informations, consultez [Migrer les stratégies classiques dans le
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
+Si vous voulez savoir :
+
+- Comment configurer une stratégie d’accès conditionnel, consultez [Exiger une authentification multifacteur pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
+- Comment planifier vos stratégies d’accès conditionnel, consultez [Guide pratique pour planifier votre déploiement de l’accès conditionnel dans Azure Active Directory](plan-conditional-access.md).

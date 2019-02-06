@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d287f79f4161c509f96b679d4b794c2906f2e020
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9a445e5a7d230195472c2202d3f40458a23883e9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030364"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477847"
 ---
 # <a name="onboarding-requirements"></a>Conditions d’intégration
 
@@ -28,12 +28,12 @@ Cette liste indique la configuration requise pour l’exécution de SAP HANA sur
 **Microsoft Azure**
 
 - Un abonnement Azure qui peut être lié à SAP HANA sur Azure (grandes instances).
-- Contrat de support Premier Microsoft. Pour plus d’informations sur l’exécution de SAP dans Azure, consultez [Remarque sur la prise en charge SAP n° 2015553 – SAP sur Microsoft Azure : composants requis de la prise en charge](https://launchpad.support.sap.com/#/notes/2015553). Si vous utilisez des unités de grande instance HANA incluant 384 UC et plus, vous devez également étendre le contrat de support Premier pour inclure Azure Rapid Response.
+- Contrat de support Premier Microsoft. Pour plus d’informations sur l’exécution de SAP dans Azure, consultez [SAP Support Note #2015553 – SAP on Microsoft Azure: Support prerequisites](https://launchpad.support.sap.com/#/notes/2015553) (Remarque 2015553 sur la prise en charge de SAP sur Microsoft Azure : conditions préalables à la prise en charge). Si vous utilisez des unités de grande instance HANA incluant 384 UC et plus, vous devez également étendre le contrat de support Premier pour inclure Azure Rapid Response.
 - Reconnaissance des références de la grande instance HANA dont vous avez besoin après avoir effectué un exercice de redimensionnement avec SAP.
 
 **Connectivité réseau**
 
-- ExpressRoute entre le système local et Azure : pour connecter votre centre de données local à Azure, assurez-vous de commander au moins une connexion de 1 Gbit/s à votre ISP. 
+- ExpressRoute entre le système local et Azure : pour connecter votre centre de données local à Azure, assurez-vous de commander au moins une connexion de 1 Gbit/s auprès de votre ISP. La connectivité entre les unités de grande instance HANA et Azure utilise également la technologie ExpressRoute. Cette connexion ExpressRoute entre les unités de grande instance HANA et Azure est incluse dans le prix des unités de grande instance HANA. En tant que client, aucuns frais supplémentaires ne vous sont donc facturés au-delà de votre lien ExpressRoute entre votre système local et Azure.
 
 **Système d’exploitation**
 
@@ -50,7 +50,7 @@ Cette liste indique la configuration requise pour l’exécution de SAP HANA sur
 
 - Gestionnaire des abonnements Red Hat déployé dans Azure sur une machine virtuelle. Le gestionnaire des abonnements Red Hat permet à SAP HANA sur Azure (grandes instances) d’être inscrit et respectivement mis à jour par Red Hat. (Il n’existe aucun accès direct à internet à partir de l’abonné déployé sur le tampon de grande instance Azure.)
 - Le système SAP requiert également un contrat de support avec votre fournisseur Linux. Cette exigence n’est pas supprimée par la solution de la grande instance HANA ni par le fait de l’exécution de Linux dans Azure. Contrairement à certaines images de la galerie Linux Azure, les frais de service ne sont *pas* inclus dans l’offre de solution de la grande instance HANA. Vous êtes tenu de respecter les exigences de SAP en matière de contrat de support avec le distributeur Linux. 
-   - Pour connaître les exigences en matière de contrat de support avec SUSE Linux, consultez [Remarque SAP n° 1984787 - SUSE LINUX Enterprise Server 12 : remarques d’installation](https://launchpad.support.sap.com/#/notes/1984787) et [Remarque SAP n ° 1056161 - Support prioritaire SUSE pour les applications SAP](https://launchpad.support.sap.com/#/notes/1056161).
+   - Pour SUSE Linux, recherchez les conditions requises des contrats de support dans [SAP Note #1984787 - SUSE Linux Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) (Note SAP 1984787 - SUSE Linux Enterprise Server 12 : notes relatives à l’installation) et [SAP Note #1056161 - SUSE priority support for SAP applications](https://launchpad.support.sap.com/#/notes/1056161) (Note SAP 1056161 : support prioritaire SUSE des applications SAP).
    - Pour Red Hat Linux, vous devez disposer des bons niveaux d’abonnement, y compris la prise en charge et les mises à jour du service des systèmes d’exploitation de la grande instance HANA. Red Hat recommande la solution d’abonnement Red Hat Enterprise Linux pour SAP. Voir https://access.redhat.com/solutions/3082481. 
 
 Pour consulter la matrice de prise en charge des différentes versions SAP HANA avec les différentes versions Linux, reportez-vous à [Remarque SAP n° 2235581](https://launchpad.support.sap.com/#/notes/2235581).
@@ -69,7 +69,7 @@ Pour la matrice de compatibilité des versions de système d’exploitation et d
 **Applications**
 
 - Licences et composants d’installation logiciels pour toutes les applications SAP se connectant à SAP HANA et associées aux contrats de support SAP.
-- Licences et composants d’installation logiciels pour toutes les applications autres que SAP utilisées dans le cadre des environnements SAP HANA sur Azure (grandes instances) et associées aux contrats de support.
+- Licences et composants d’installation logiciels pour toutes les applications autres que SAP utilisées avec SAP HANA sur Azure (grandes instances) et associées aux contrats de support.
 
 **Compétences**
 

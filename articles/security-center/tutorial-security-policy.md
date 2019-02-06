@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c706dbd4536b9c75281500ace6f02db00ff2f95d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259962"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095516"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -121,7 +121,7 @@ L’initiative intégrée a toutes les stratégies de Security Center activées 
 Dans les exemples suivants, remplacez les variables suivantes :
 
 - **{scope}** Entrez le nom du groupe d’administration ou de l’abonnement auquel vous appliquez la stratégie.
-- **{poicyAssignmentName}** Entrez le [nom de l’affectation de stratégie appropriée](#policy-names).
+- **{policyAssignmentName}** Entrez le [nom de l’affectation de stratégie appropriée](#policy-names).
 - **{name}** Entrez votre nom ou le nom de l’administrateur qui a approuvé le changement de stratégie.
 
 Cet exemple vous montre comment affecter l’initiative Security Center intégrée sur un abonnement ou un groupe d’administration :
@@ -212,7 +212,7 @@ Cet exemple vous montre comment supprimer une affectation :
 |Configurations de sécurité |Superviser les vulnérabilités du système d’exploitation dans Azure Security Center |systemConfigurationsMonitoringEffect| 
 |Protection du point de terminaison |Superviser les agents Endpoint Protection manquants dans Azure Security Center |endpointProtectionMonitoringEffect |
 |Chiffrement de disque |Superviser les disques de machine virtuelle non chiffrés dans Azure Security Center |diskEncryptionMonitoringEffect|
-|Évaluation des vulnérabilités |Superviser les vulnérabilités de machine virtuelle dans Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
+|Évaluation des vulnérabilités |Superviser les vulnérabilités de machine virtuelle dans Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
 |Pare-feu d’application web |Superviser les applications web non protégées dans Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Pare-feu de nouvelle génération |Superviser les points de terminaison réseau non protégés dans Azure Security Center| |
 

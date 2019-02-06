@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bd00a339-27c9-4904-b66f-a95bf597ac3c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 6c6fe0a720795c67a7062f5a5971c699472fca07
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: deb7cf8368c5830bd575c617adf857448cfe2e48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434344"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166491"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Didacticiel : Intégration d’Azure Active Directory à mindWireless
+# <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Tutoriel : Intégration d’Azure Active Directory à mindWireless
 
 Dans ce didacticiel, vous allez apprendre à intégrer mindWireless dans Azure Active Directory (Azure AD).
 
@@ -189,7 +189,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="create-a-mindwireless-test-user"></a>Créer un utilisateur de test mindWireless
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans mindWireless. Travaillez avec l’[équipe de support technique de mindWireless](mailto:sdulloor@mindwireless.com) pour ajouter des utilisateurs dans la plateforme mindWireless. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans mindWireless. Collaborez avec l’ [équipe du support technique de mindWireless](mailto:sdulloor@mindwireless.com)  pour ajouter des utilisateurs à la plateforme mindWireless. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

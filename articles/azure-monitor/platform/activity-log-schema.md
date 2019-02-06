@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438233"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888139"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
-Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./tutorial-dashboards.md) est fourni à la fin de cet article.
+Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./diagnostic-logs-schema.md) est fourni à la fin de cet article.
 
 ## <a name="administrative"></a>Administratif
 Cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès basé sur un rôle dans un abonnement.
@@ -356,9 +356,9 @@ Cette catégorie contient l’enregistrement de toutes les activations des alert
 | description |Description textuelle statique de l’événement d’alerte. |
 | eventDataId |Identificateur unique de l'événement d’alerte. |
 | level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
-| nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, ceci est le nom du groupe de ressources qui contient l’alerte elle-même. |
-| resourceProviderName |Nom du fournisseur de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, ceci est le nom du fournisseur de ressources pour l’alerte elle-même. |
-| ResourceId | Nom de l’ID de ressource de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, ceci est le nom de l’ID de ressource pour l’alerte elle-même. |
+| nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom du groupe de ressources qui contient l’alerte elle-même. |
+| resourceProviderName |Nom du fournisseur de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom du fournisseur de ressources pour l’alerte elle-même. |
+| ResourceId | Nom de l’ID de ressource de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom de l’ID de ressource pour l’alerte elle-même. |
 | operationId |Un GUID partagé par les événements correspondant à une opération unique. |
 | operationName |Nom de l’opération. |
 | properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. |
@@ -757,7 +757,7 @@ Cette catégorie contient les enregistrements de toutes les opérations d’acti
 | resourceType | Pour les nouvelles ressources, il s’agit du type en cours d’évaluation. Pour les ressources existantes, retourne « Microsoft.Resources/checkPolicyCompliance ». |
 | ResourceId | ID de ressource de la ressource évaluée. |
 | status | Chaîne décrivant l’état du résultat de l’évaluation Azure Policy. La plupart des évaluations Azure Policy retournent « Succeeded », mais un effet Deny retourne « Failed ». Les erreurs dans auditIfNotExists ou deployIfNotExists retournent également « Failed ». |
-| subStatus | Ce champ est vide pour les événements Azure Policy. |
+| subStatus | Le champ est vide pour les événements Azure Policy. |
 | submissionTimestamp | Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
 | subscriptionId | ID d’abonnement Azure. |
 | properties.isComplianceCheck | Retourne « False » quand une nouvelle ressource est déployée ou que les propriétés Resource Manager d’une ressource existante sont mises à jour. Tous les autres [déclencheurs d’évaluation](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) génèrent la valeur « True ». |
@@ -768,7 +768,7 @@ Cette catégorie contient les enregistrements de toutes les opérations d’acti
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>Mappage vers le schéma des journaux de diagnostic
 
-Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers un espace de noms Event Hubs, les données suivent le [schéma des journaux de diagnostic Azure](./tutorial-dashboards.md). Voici le mappage des propriétés du schéma ci-dessus vers le schéma des journaux de diagnostic :
+Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers un espace de noms Event Hubs, les données suivent le [schéma des journaux de diagnostic Azure](./diagnostic-logs-schema.md). Voici le mappage des propriétés du schéma ci-dessus vers le schéma des journaux de diagnostic :
 
 | Propriété du schéma des journaux de diagnostic | Propriété du schéma de l’API REST Journal d’activité | Notes |
 | --- | --- | --- |

@@ -12,19 +12,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5b6bef8194123ed6c83a48dd5e819085d4bc5424
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434238"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453465"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Créer un Azure-SSIS Integration Runtime dans Azure Data Factory
 Cet article explique pas à pas comment provisionner Azure-SSIS Integration Runtime (IR) dans Azure Data Factory (ADF). Vous pouvez ensuite utiliser SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer et exécuter des packages SQL Server Integration Services (SSIS) sur ce runtime d’intégration dans Azure. 
 
 Le [Tutoriel : Déployer des packages SSIS sur Azure](tutorial-create-azure-ssis-runtime-portal.md) montre comment créer un Azure-SSIS IR en utilisant le serveur Azure SQL Database pour héberger la base de données de catalogue SSIS (SSISDB). Cet article s’appuie sur le didacticiel et vous montre comment effectuer les opérations suivantes : 
 
-- Si vous le souhaitez, vous pouvez utiliser le serveur Azure SQL Database avec des points de terminaison de service de réseau virtuel/Managed Instance pour héberger SSISDB. Pour obtenir de l’aide sur le choix du type de serveur de base de données pour héberger SSISDB, consultez [Comparer Azure SQL Database server et Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Comme prérequis, vous devez joindre votre Azure-SSIS IR à un réseau virtuel et configurer les paramètres et les autorisations de réseau virtuel comme il se doit. Consultez [Joindre le runtime d’intégration Azure-SSIS à un réseau virtuel](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+- Si vous le souhaitez, vous pouvez utiliser le serveur Azure SQL Database avec des points de terminaison de service de réseau virtuel/Managed Instance pour héberger SSISDB. Pour obtenir de l’aide sur le choix du type de serveur de base de données pour héberger SSISDB, consultez [Comparer les bases de données uniques/pools élastiques Azure SQL Database et Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). Comme prérequis, vous devez joindre votre Azure-SSIS IR à un réseau virtuel et configurer les paramètres et les autorisations de réseau virtuel comme il se doit. Consultez [Joindre le runtime d’intégration Azure-SSIS à un réseau virtuel](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
 - Le cas échéant, utilisez l’authentification Azure Active Directory (AAD) avec l’identité managée pour que votre service ADF se connecte au serveur de base de données. Comme prérequis, vous devrez ajouter l’identité managée pour votre service ADF en tant qu’utilisateur de base de données autonome capable de créer SSISDB dans votre serveur Azure SQL Database/Managed Instance. Pour cela, consultez [Activer l’authentification AAD pour Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
@@ -55,11 +55,11 @@ Quand vous provisionnez Azure-SSIS IR, les composants Azure Feature Pack pour SS
 ### <a name="region-support"></a>Prise en charge de la région
 Pour obtenir la liste des régions Azure dans lesquelles ADF et Azure-SSIS IR sont actuellement disponibles, consultez [Disponibilité d’Azure Data Factory et de SSIS IR par région](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
-### <a name="compare-sql-database-logical-server-and-sql-database-managed-instance"></a>Comparer un serveur logique SQL Database et SQL Database Managed Instance
+### <a name="compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance"></a>Comparer une base de données unique/un pool élastique Azure SQL Database et SQL Database Managed Instance
 
 Le tableau suivant compare certaines fonctionnalités du serveur Azure SQL Database et de Managed Instance pour ce qui est d’Azure-SSIR IR :
 
-| Fonctionnalité | Serveur de base de données SQL Azure| Instance gérée |
+| Fonctionnalité | base de données unique/pool élastique| Instance gérée |
 |---------|--------------|------------------|
 | **Planification** | SQL Server Agent n’est pas disponible.<br/><br/>Consultez [Planifier l’exécution de packages SSIS (SQL Server Integration Services) déployés dans Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| L’agent Managed Instance est disponible. |
 | **Authentification** | Vous pouvez créer SSISDB avec un utilisateur de base de données autonome représentant un groupe AAD avec l’identité managée de votre service ADF en tant que membre du rôle **db_owner**.<br/><br/>Consultez [Activer l’authentification Azure AD pour créer SSISDB sur le serveur Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Vous pouvez créer SSISDB avec un utilisateur de base de données autonome représentant l’identité managée de votre service ADF. <br/><br/>Consultez [Activer l’authentification Azure AD pour créer SSISDB dans Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
@@ -69,9 +69,11 @@ Le tableau suivant compare certaines fonctionnalités du serveur Azure SQL Datab
 | | | |
 
 ## <a name="azure-portal"></a>Portail Azure
+
 Dans cette section, vous utilisez le portail Azure, plus précisément l’application/interface utilisateur ADF, pour créer Azure-SSIS IR. 
 
 ### <a name="create-a-data-factory"></a>Créer une fabrique de données 
+
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome. 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/). 
 1. Cliquez sur **Nouveau** dans le menu de gauche, puis sur **Données + analyse** et sur **Data Factory**. 

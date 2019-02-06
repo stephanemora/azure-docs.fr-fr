@@ -6,16 +6,16 @@ author: hirokib
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4a45d00559a84c178ab760acf8616f97ce7bb57c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718280"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466283"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Meilleures pratiques d’utilisation d’une requête élastique dans Azure SQL Database pour accéder aux données dans Azure SQL Data Warehouse
 Découvrez les meilleures pratiques d’utilisation d’une requête élastique pour accéder aux données dans Azure SQL Data Warehouse Azure à partir d’Azure SQL Database. 
@@ -55,13 +55,13 @@ Ensuite, dans une instance de la base de données SQL, créez une définition de
 
 Pour plus d’informations sur la fonctionnalité de requête élastique avec la base de données SQL, consultez [Vue d’ensemble de la fonctionnalité de requête élastique Azure SQL Database (préversion)][Azure SQL Database elastic query overview].
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 Utilisez ces meilleures pratiques pour utiliser efficacement les requêtes élastiques.
 
 ### <a name="general"></a>Généralités
 
 - Quand vous utilisez l’exécution de requête distante, veillez à ne sélectionner que les colonnes nécessaires et à n’appliquer que les filtres appropriés. Cette méthode augmente à la fois le calcul nécessaire et la taille du jeu de résultats, et, par là même, la quantité de données à déplacer entre les deux instances.
-- Pour optimiser le niveau de performance des analyses, conservez les données de l’entrepôt de données SQL et de la base de données SQL dans un columnstore en cluster.
+- Pour optimiser le niveau de performance des analyses, conservez les données de SQL Data Warehouse et de SQL Database dans un columnstore en cluster.
 - Vérifiez que les tables sources sont partitionnées pour la requête et le déplacement des données.
 - Vérifiez que les instances de la base de données SQL utilisées en tant que cache sont partitionnées pour autoriser des mises à jour plus précises et faciliter la gestion. 
 - Dans l’idéal, utilisez des bases de données PremiumRS, qui offrent les avantages analytiques de l’indexation columnstore en cluster en mettant l’accent sur les charges de travail gourmandes en opérations d’E/S et reviennent moins cher que les bases de données Premium.
@@ -125,9 +125,9 @@ Utilisez Azure SQL Database lorsque :
 
 ## <a name="faq"></a>Forum Aux Questions
 
-Q : Puis-je utiliser des bases de données au sein d’un pool élastique avec une requête élastique ?
+Q : Puis-je utiliser des bases de données au sein d’un pool élastique avec la fonctionnalité de requête élastique ?
 
-R. : Oui. Les bases de données SQL au sein d’un pool élastique peuvent utiliser la fonctionnalité de requête élastique. 
+R : Oui. Les bases de données SQL au sein d’un pool élastique peuvent utiliser la fonctionnalité de requête élastique. 
 
 Q : Le nombre de bases de données utilisables avec la fonctionnalité de requête élastique est-il limité ?
 
@@ -139,13 +139,13 @@ R : Les limites DTU ne sont pas imposées différemment avec la fonctionnalité 
 
 Q : Puis-je utiliser la sécurité au niveau des lignes/Dynamic Data Masking avec la fonctionnalité de requête élastique ?
 
-R : Si vous souhaitez utiliser des fonctionnalités de sécurité plus avancées avec SQL Database, vous devez au préalable déplacer les données et les stocker dans la base de données SQL. Vous ne pouvez pas appliquer la sécurité au niveau des lignes ou DDM sur les données interrogées au moyen de tables externes. 
+R : Si vous souhaitez utiliser des fonctionnalités de sécurité plus avancées avec SQL Database, vous devez au préalable déplacer les données et les stocker dans l’instance SQL Database. Vous ne pouvez pas appliquer la sécurité au niveau des lignes ou DDM sur les données interrogées au moyen de tables externes. 
 
-Q : Puis-je écrire depuis mon instance de base de données SQL vers l’instance de l’entrepôt de données ?
+Q : Puis-je écrire depuis mon instance SQL Database vers l’instance Data Warehouse ?
 
-R : cette fonctionnalité n’est pas prise en charge pour l’instant. Visitez notre [page de commentaires][Feedback page] pour proposer cette fonctionnalité ou voter en sa faveur si vous aimeriez la voir à l’avenir. 
+R : Cette fonctionnalité n’est pas prise en charge pour l’instant. Visitez notre [page de commentaires][Feedback page] pour proposer cette fonctionnalité ou voter en sa faveur si vous aimeriez la voir à l’avenir. 
 
-Q : Puis-je utiliser des types spatiaux comme géométrie/géographie ?
+Q : Puis-je utiliser des types spatiaux comme la géométrie/géographie ?
 
 R : Vous pouvez stocker des types spatiaux dans SQL Data Warehouse en tant que valeurs varbinary(max). Quand vous interrogez ces colonnes à l’aide de la fonctionnalité de requête élastique, vous pouvez les convertir en types appropriés au moment de l’exécution.
 

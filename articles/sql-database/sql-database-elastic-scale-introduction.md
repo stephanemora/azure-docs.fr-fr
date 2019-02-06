@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: a36c5cfc977920f43b7f73e3e7cf9176de7c1f8a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867084"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463019"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Montée en charge avec la base de données SQL Azure
 Vous pouvez facilement faire évoluer les bases de données SQL Azure à l’aide des outils de **base de données élastique** . Ces outils et fonctionnalités vous permettent d’utiliser les ressources de la **base de données SQL Azure** pour créer des solutions pour les charges de travail transactionnelles et notamment les applications Software as a Service (SaaS). Les fonctionnalités de base de données élastique se composent des éléments suivants :
@@ -67,8 +67,8 @@ La plupart des applications de base de données à l’échelle du cloud associe
 ## <a name="sharding"></a>Partitionnement
 Le *partitionnement* est une technique permettant de distribuer de grandes quantités de données structurées de façon identique entre plusieurs bases de données indépendantes. Il est particulièrement populaire auprès des développeurs cloud qui créent des offres Software as a Service (SAAS) pour les clients finaux ou les entreprises. Ces clients finaux sont souvent appelés « locataires ». Le partitionnement peut être nécessaire pour plusieurs raisons :  
 
-* La quantité totale de données est trop grande pour tenir dans les contraintes d'une base de données unique
-* Le débit des transactions de la charge de travail globale dépasse les capacités d'une base de données unique
+* La quantité totale de données est trop importante pour respecter les contraintes d’une base de données individuelle
+* Le débit des transactions de la charge de travail globale dépasse les capacités d’une base de données individuelle
 * Les locataires peuvent nécessiter une isolation physique l'un de l'autre, donc des bases de données distinctes sont nécessaires pour chaque locataire
 * Différentes sections d’une base de données peuvent se trouver dans différentes zones géographiques pour des raisons géopolitiques, de performances ou de conformité.
 

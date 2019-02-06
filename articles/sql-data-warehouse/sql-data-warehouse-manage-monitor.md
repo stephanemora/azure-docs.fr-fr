@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe989a1693d73dbbea7ed0e3e91ed7aaf6fc37c4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fdb51bf249990a10b8476a55be1103cb05c5821b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301080"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466980"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Surveiller votre charge de travail à l'aide de vues de gestion dynamique
 Cet article décrit comment utiliser des vues de gestion dynamique (DMV) pour surveiller votre charge de travail. Cela inclut l’examen de l’exécution des requêtes dans Azure SQL Data Warehouse.
@@ -45,7 +45,7 @@ Toutes les requêtes exécutées sur SQL Data Warehouse sont consignées dans [s
 
 Voici les étapes à suivre pour analyser les heures et les plans d’exécution d’une requête spécifique.
 
-### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>ÉTAPE 1 : Identifier la requête que vous souhaitez examiner
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>ÉTAPE 1 : identifier la requête que vous souhaitez examiner
 ```sql
 -- Monitor active queries
 SELECT * 
@@ -80,7 +80,7 @@ OPTION (LABEL = 'My Query')
 ;
 ```
 
-### <a name="step-2-investigate-the-query-plan"></a>ÉTAPE 2 : examiner le plan de requête
+### <a name="step-2-investigate-the-query-plan"></a>ÉTAPE 2 : examiner le plan de requête
 Utilisez l’ID de requête pour récupérer le plan SQL distribué (DSQL) de la requête dans [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
 
 ```sql
@@ -96,8 +96,8 @@ Lorsqu’un plan DSQL prend plus de temps que prévu, la cause peut être un pla
 
 Pour examiner les détails d’une seule étape, vérifiez la colonne *operation_type* de l’étape de la requête longue et notez **l’index de l’étape** :
 
-* Passez à l’étape 3a pour les **opérations SQL**: OnOperation, RemoteOperation, ReturnOperation.
-* Passez à l’étape 3b pour **les opérations de déplacement des données**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* Passez à l’étape 3a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
+* Passez à l’étape 3b pour les **opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>ÉTAPE 3a : examiner SQL dans les bases de données distribuées
 Utilisez l’ID de requête et l’index de l’étape pour récupérer des détails dans [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], qui contient des informations sur l’exécution de l’étape de la requête sur toutes les bases de données distribuées.
@@ -119,7 +119,7 @@ Quand l’étape de la requête est en cours d’exécution, [DBCC PDW_SHOWEXECU
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>ÉTAPE 3b : examiner le déplacement des données sur les bases de données distribuées
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>ÉTAPE 3b : examiner le déplacement des données dans les bases de données distribuées
 Utilisez l’ID de requête et l’index de l’étape pour récupérer des informations sur une étape de déplacement des données en cours d’exécution sur chaque distribution dans [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql

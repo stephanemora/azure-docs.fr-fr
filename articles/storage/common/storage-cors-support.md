@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-ms.component: common
-ms.openlocfilehash: fd5df50128885f6a96e68c8ad46204bc21d80264
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529709"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473763"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage
 Depuis la version 2013-08-15, les services Azure Storage prennent en charge le partage de ressources cross-origine (CORS) pour les services Blob Storage, Table Storage, Queue Storage et File Storage. CORS est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d'accéder aux ressources d'un autre domaine. Les navigateurs web implémentent une restriction de sécurité appelée [stratégie de même origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) qui empêche une page web d’appeler des API d’un autre domaine ; CORS constitue un moyen sûr pour autoriser un domaine (le domaine d’origine) à appeler des API d’un autre domaine. Pour plus d’informations sur CORS, consultez la [Spécification CORS](http://www.w3.org/TR/cors/) .
@@ -67,11 +67,11 @@ Voici un exemple de règle CORS spécifiée via une opération Set Service Prope
 
 Chaque élément inclus dans la règle CORS est décrit ci-dessous :
 
-* **AllowedOrigins**: domaines d’origine qui sont autorisés à effectuer une demande auprès du service de stockage via CORS. Le domaine d'origine est celui d'où provient la demande. Notez que l'origine doit correspondance exactement (avec respect de la casse) à l'origine que l'utilisateur envoie au service. Vous pouvez également utiliser le caractère générique « * » pour autoriser tous les domaines d'origine à effectuer des demandes via CORS. Dans l’exemple ci-dessus, les domaines [http://www.contoso.com](http://www.contoso.com) et [http://www.fabrikam.com](http://www.fabrikam.com) peuvent envoyer des requêtes au service à l’aide de CORS.
-* **AllowedMethods**: méthodes (verbes de requête HTTP) que le domaine d’origine peut utiliser pour une demande CORS. Dans l'exemple ci-dessus, seules les demandes PUT et GET sont autorisées.
-* **AllowedHeaders**: en-têtes de demande que le domaine d’origine peut spécifier dans la demande CORS. Dans l'exemple ci-dessus, tous les en-têtes de métadonnées commençant par x-ms-meta-data, x-ms-meta-target et x-ms-meta-abc sont autorisés. Notez que le caractère générique « * » indique que les en-têtes commençant par le préfixe spécifié sont autorisés.
-* **ExposedHeaders**: en-têtes de réponse qui peuvent être envoyés dans la réponse à la demande CORS et exposés par le navigateur à l’émetteur de la demande. Dans l'exemple ci-dessus, il est demandé au navigateur d'exposer les en-têtes commençant par x-ms-meta.
-* **MaxAgeInSeconds**: durée maximale pendant laquelle un navigateur doit mettre en cache la demande OPTIONS préliminaire.
+* **AllowedOrigins** : Domaines d’origine qui sont autorisés à effectuer une requête auprès du service de stockage via CORS. Le domaine d'origine est celui d'où provient la demande. Notez que l'origine doit correspondance exactement (avec respect de la casse) à l'origine que l'utilisateur envoie au service. Vous pouvez également utiliser le caractère générique « * » pour autoriser tous les domaines d'origine à effectuer des demandes via CORS. Dans l’exemple ci-dessus, les domaines [http://www.contoso.com](http://www.contoso.com) et [http://www.fabrikam.com](http://www.fabrikam.com) peuvent envoyer des requêtes au service à l’aide de CORS.
+* **AllowedMethods** : Méthodes (verbes de requête HTTP) que le domaine d’origine peut utiliser pour une requête CORS. Dans l'exemple ci-dessus, seules les demandes PUT et GET sont autorisées.
+* **AllowedHeaders** : En-têtes de requête que le domaine d’origine peut spécifier dans la requête CORS. Dans l'exemple ci-dessus, tous les en-têtes de métadonnées commençant par x-ms-meta-data, x-ms-meta-target et x-ms-meta-abc sont autorisés. Notez que le caractère générique « * » indique que les en-têtes commençant par le préfixe spécifié sont autorisés.
+* **ExposedHeaders** : En-têtes de réponse qui peuvent être envoyés dans la réponse à la requête CORS et exposés par le navigateur à l’émetteur de la requête. Dans l'exemple ci-dessus, il est demandé au navigateur d'exposer les en-têtes commençant par x-ms-meta.
+* **MaxAgeInSeconds** : Durée maximale pendant laquelle un navigateur doit mettre en cache la requête OPTIONS préliminaire.
 
 Les services de stockage Azure prennent en charge la spécification d’en-têtes préfixés pour les éléments **AllowedHeaders** et **ExposedHeaders**. Pour autoriser une catégorie d'en-têtes, vous pouvez spécifier un préfixe commun à cette catégorie. Par exemple, le fait de spécifier *x-ms-meta** comme en-tête préfixé crée une règle qui établit une correspondance avec tous les en-têtes commençant par x-ms-meta.
 

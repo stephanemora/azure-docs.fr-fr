@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: cde355381b0d726a1ab340bc4230b2dc8f6e2c56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee17e4b69d1e6c9de465e4241ee2237361e320b7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110667"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168003"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Déployer le composant logiciel enfichable MMC Gestionnaire d’instantanés StorSimple
 
@@ -66,7 +66,7 @@ Les étapes suivantes fournissent une vue d’ensemble des tâches de configurat
    * Volumes dynamiques en miroir (RAID 1)
    * Volumes partagés de cluster
      
-     Pour plus d’informations sur la création de volumes sur l’appareil StorSimple ou l’appareil virtuel StorSimple, consultez la section [« Étape 6 : création d’un volume »](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) de l’article [Déploiement de votre appareil StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
+     Pour plus d’informations sur la création de volumes sur un appareil StorSimple ou un appareil virtuel StorSimple, accédez à [Étape 6 : Créer un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume), dans [Déployer votre appareil StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="install-a-new-storsimple-snapshot-manager"></a>Installation d’un nouveau Gestionnaire d’instantanés StorSimple
 Avant d’installer le Gestionnaire d’instantanés StorSimple, assurez-vous que les volumes que vous avez créés sur l’appareil StorSimple ou l’appareil virtuel StorSimple sont montés, initialisés et formatés comme indiqué dans la section [Configuration préalable requise](#configure-prerequisites).
@@ -78,11 +78,11 @@ Avant d’installer le Gestionnaire d’instantanés StorSimple, assurez-vous q
 
 Pour effectuer une nouvelle installation du Gestionnaire d’instantanés StorSimple, suivez les étapes ci-dessous. Si vous installez une mise à niveau, accédez à la section [Mise à niveau ou réinstallation du Gestionnaire d’instantanés StorSimple](#upgrade-or-reinstall-storsimple-snapshot-manager).
 
-* Étape 1 : installation du Gestionnaire d’instantanés StorSimple 
-* Étape 2 : connexion du Gestionnaire d’instantanés StorSimple à un appareil 
-* Étape 3 : vérification de la connexion à l’appareil 
+* Étape 1 : Installer le Gestionnaire d’instantanés StorSimple 
+* Étape 2 : Connecter StorSimple Snapshot Manager à un appareil 
+* Étape 3 : Vérifier la connexion à l’appareil 
 
-### <a name="step-1-install-storsimple-snapshot-manager"></a>Étape 1 : installation du Gestionnaire d’instantanés StorSimple
+### <a name="step-1-install-storsimple-snapshot-manager"></a>Étape 1 : Installer le Gestionnaire d’instantanés StorSimple
 Pour installer le Gestionnaire d’instantanés StorSimple, procédez comme suit.
 
 #### <a name="to-install-storsimple-snapshot-manager"></a>Pour installer le Gestionnaire d’instantanés StorSimple
@@ -101,11 +101,11 @@ Pour installer le Gestionnaire d’instantanés StorSimple, procédez comme suit
    
     ![Icône du Bureau](./media/storsimple-snapshot-manager-deployment/HCS_SSM_desktop_icon.png) 
 
-### <a name="step-2-connect-storsimple-snapshot-manager-to-a-device"></a>Étape 2 : connexion du Gestionnaire d’instantanés StorSimple à un appareil
+### <a name="step-2-connect-storsimple-snapshot-manager-to-a-device"></a>Étape 2 : Connecter StorSimple Snapshot Manager à un appareil
 Pour connecter le Gestionnaire d’instantanés StorSimple à un appareil StorSimple, procédez comme suit.
 
 #### <a name="to-connect-storsimple-snapshot-manager-to-a-device"></a>Pour connecter le Gestionnaire d’instantanés StorSimple à un appareil
-1. Cliquez sur l’icône du Gestionnaire d’instantanés StorSimple sur votre bureau. La fenêtre du Gestionnaire d’instantanés StorSimple apparaît. Cette fenêtre contient un volet **Étendue**, un volet **Résultats** et un volet **Actions**. 
+1. Cliquez sur l’icône du Gestionnaire d’instantanés StorSimple de votre bureau. La fenêtre du Gestionnaire d’instantanés StorSimple apparaît. Cette fenêtre contient un volet **Étendue**, un volet **Résultats** et un volet **Actions**. 
    
     ![Interface utilisateur du gestionnaire d’instantanés StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png)
    
@@ -123,7 +123,7 @@ Pour connecter le Gestionnaire d’instantanés StorSimple à un appareil StorSi
     Si, pour une raison quelconque, l’appareil est indisponible, le Gestionnaire d’instantanés StorSimple renvoie un message d’erreur. Cliquez sur **OK** pour fermer le message d’erreur, puis cliquez sur **Annuler** pour fermer la boîte de dialogue **Configurer un appareil**.
 5. Au moment de se connecter à un appareil, le Gestionnaire d’instantanés StorSimple importe chaque groupe de volumes configuré pour cet appareil, à condition que le groupe de volumes soit associé à des sauvegardes. Les groupes de volumes qui ne sont associés à aucune sauvegarde ne sont pas importés. De plus, les stratégies de sauvegarde créées pour un groupe de volumes ne sont pas importées. Pour afficher les groupes importés, cliquez avec le bouton droit sur le nœud **Groupes de volumes** situé le plus haut dans le volet **Étendue**, puis cliquez sur **Activer/Désactiver les groupes importés**.
 
-### <a name="step-3-verify-the-connection-to-the-device"></a>Étape 3 : vérification de la connexion à l’appareil
+### <a name="step-3-verify-the-connection-to-the-device"></a>Étape 3 : Vérifier la connexion à l’appareil
 Pour vérifier que le Gestionnaire d’instantanés StorSimple est connecté à l’appareil StorSimple, procédez comme suit.
 
 #### <a name="to-verify-the-connection"></a>Pour vérifier la connexion
@@ -143,11 +143,11 @@ Avant de réinstaller le Gestionnaire d’instantanés StorSimple, sauvegardez l
 
 Pour mettre à niveau ou réinstaller le Gestionnaire d’instantanés StorSimple, suivez ces étapes :
 
-* Étape 1 : désinstallation du Gestionnaire d’instantanés StorSimple 
-* Étape 2 : sauvegarde de la base de données du Gestionnaire d’instantanés StorSimple 
-* Étape 3 : réinstallation du Gestionnaire d’instantanés StorSimple et restauration de la base de données 
+* Étape 1 : Désinstaller StorSimple Snapshot Manager 
+* Étape 2 : Sauvegarder la base de données StorSimple Snapshot Manager 
+* Étape 3 : Réinstaller StorSimple Snapshot Manager et restaurer la base de données 
 
-### <a name="step-1-uninstall-storsimple-snapshot-manager"></a>Étape 1 : désinstallation du Gestionnaire d’instantanés StorSimple
+### <a name="step-1-uninstall-storsimple-snapshot-manager"></a>Étape 1 : Désinstaller StorSimple Snapshot Manager
 Pour désinstaller le Gestionnaire d’instantanés StorSimple, procédez comme suit.
 
 #### <a name="to-uninstall-storsimple-snapshot-manager"></a>Pour désinstaller le Gestionnaire d’instantanés StorSimple
@@ -162,7 +162,7 @@ Pour désinstaller le Gestionnaire d’instantanés StorSimple, procédez comme 
    > 
 5. Une fois le processus de désinstallation terminé, le message **Installation/désinstallation réussie** s’affiche. Cliquez sur **Fermer**.
 
-### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>Étape 2 : sauvegarde de la base de données du Gestionnaire d’instantanés StorSimple
+### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>Étape 2 : Sauvegarder la base de données StorSimple Snapshot Manager
 Pour créer et enregistrer une copie de la base de données du Gestionnaire d’instantanés StorSimple, procédez comme suit.
 
 #### <a name="to-back-up-the-database"></a>Pour sauvegarder la base de données
@@ -188,7 +188,7 @@ Pour créer et enregistrer une copie de la base de données du Gestionnaire d’
    2. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
    3. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Redémarrer le service**. 
 
-### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>Étape 3 : réinstallation du Gestionnaire d’instantanés StorSimple et restauration de la base de données
+### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>Étape 3 : Réinstaller StorSimple Snapshot Manager et restaurer la base de données
 Pour réinstaller le Gestionnaire d’instantanés StorSimple, suivez les étapes de la section [Installer un nouveau Gestionnaire d’instantanés StorSimple](#install-a-new-storsimple-snapshot-manager). Appliquez ensuite la procédure suivante pour restaurer la base de données du Gestionnaire d’instantanés StorSimple.
 
 #### <a name="to-restore-the-database"></a>Pour restaurer la base de données

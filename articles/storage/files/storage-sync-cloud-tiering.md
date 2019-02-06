@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
-ms.component: files
-ms.openlocfilehash: a0f427ef84a6540522f521cd365e2422a70eb0cd
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.subservice: files
+ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623649"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470448"
 ---
 # <a name="cloud-tiering-overview"></a>Vue d’ensemble de la hiérarchisation cloud
 La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync, qui met en cache sur le serveur local les fichiers faisant l’objet d’accès fréquents, tous les autres fichiers étant hiérarchisés sur Azure Files en fonction de paramètres de stratégie. Quand un fichier est hiérarchisé, le filtre du système de fichiers Azure File Sync (StorageSync.sys) remplace le fichier local par un pointeur, ou point d’analyse. Le point d’analyse représente une URL vers le fichier dans Azure Files. Un fichier hiérarchisé a l’attribut « offline » (hors connexion), et son attribut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS est défini dans le système de fichiers NTFS de façon à ce que des applications tierces puissent identifier sûrement des fichiers hiérarchisés.
@@ -21,7 +21,7 @@ La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Syn
 Quand un utilisateur ouvre un fichier hiérarchisé, Azure File Sync rappelle les données du fichier à partir d’Azure Files avec fluidité, sans que l’utilisateur ait besoin de savoir que le fichier est réellement stocké dans Azure. 
  
  > [!Important]  
-    > Important : la hiérarchisation cloud n’est pas prise en charge pour les points de terminaison de serveur sur les volumes système Windows, et seuls des fichiers d’une taille supérieure à 64 Kio peuvent être hiérarchisés sur Azure Files.
+    > Important : La hiérarchisation cloud n’est pas prise en charge pour les points de terminaison de serveur sur les volumes système Windows, et seuls des fichiers d’une taille supérieure à 64 Kio peuvent être hiérarchisés sur Azure Files.
     
 Azure File Sync ne prend pas en charge la hiérarchisation de fichiers d’une taille inférieure à 64 Kio, car la surcharge de performances qu’entraîneraient la hiérarchisation et le rappel de tels petits fichiers l’emporterait sur les économies d’espace.
 

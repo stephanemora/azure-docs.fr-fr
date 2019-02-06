@@ -6,22 +6,22 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: f8073fd746bc02c23efab914c45c61830942a677
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577962"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460724"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Nouveautés dans Azure SQL Data Warehouse Septembre 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les changements introduits en septembre 2018.
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>Nouveau point d’entrée inférieur pour SQL Data Warehouse Gen2
-En avril 2018, [Microsoft a annoncé](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) la sortie d’Azure SQL Data Warehouse Gen2, avec des performances multipliées par 5, une échelle de calcul multipliée par 5, une concurrence multipliée par 4 et un stockage illimité. Comme indiqué dans le [test d’évaluation de Data Warehouse dans le cloud](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) réalisé par Gigaom, SQL Data Warehouse Gen2 **surclasse Amazon Redshift de 42 %**.
+En avril 2018, [Microsoft a annoncé](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) la sortie d’Azure SQL Data Warehouse Gen2, qui offre des performances multipliées par 5, une échelle de calcul multipliée par 5, une concurrence multipliée par 4 et un stockage illimité. Comme indiqué dans le [test d’évaluation de Data Warehouse dans le cloud](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) réalisé par Gigaom, SQL Data Warehouse Gen2 **surclasse Amazon Redshift de 42 %**.
 
 Gen2 est généralement disponible à un point d’entrée inférieur à celui de DWU500c, ce qui vous permet d’exécuter un entrepôt de données de plus petite taille ou des environnements de développement/test avec les dernières améliorations du service. Le nouveau point d’entrée conserve toutes les fonctionnalités de Gen2, notamment la [mise en cache adaptative](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), la [lecture aléatoire ultra-rapide des données](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/) et la prise en charge d’un [entrepôt de données en temps réel](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
 

@@ -1,10 +1,22 @@
 ---
-titre : Exporter et supprimer vos données de Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Les données intégrées au produit stockées par Azure Machine Learning Studio sont disponibles pour l’exportation et la suppression via le portail Azure, ainsi que via des API REST authentifiées. Les données de télémétrie sont accessibles via le portail de confidentialité Azure. Cet article vous montre comment procéder.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: conceptual
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 25/05/2018
+title: Exporter et supprimer vos données à partir de Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Les données intégrées au produit stockées par Azure Machine Learning Studio sont disponibles pour l’exportation et la suppression via le portail Azure, ainsi que via des API REST authentifiées. Les données de télémétrie sont accessibles via le portail de confidentialité Azure. Cet article vous montre comment procéder.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: conceptual
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 05/25/2018
+ms.openlocfilehash: d2276eb11ce904b485440a6ce91981846a980dbc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462186"
 ---
-
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exporter et supprimer d’Azure Machine Learning Studio des données utilisateur intégrées dans le produit
 
 Vous pouvez supprimer ou exporter des données intégrées au produit stockées par Azure Machine Learning Studio en utilisant le portail Azure, l’interface de Studio, PowerShell et des API REST authentifiées. Cet article vous explique comment procéder. 

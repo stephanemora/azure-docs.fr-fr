@@ -1,6 +1,6 @@
 ---
-titre : Utiliser le service web dans Excel - titleSuffix : Description d'Azure Machine Learning Studio : Microsoft Azure Machine Learning Studio permet d’appeler facilement des services web directement à partir de Microsoft Excel sans qu’il soit nécessaire d’écrire du code.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Utiliser le service web dans Excel - titleSuffix : Description d'Azure Machine Learning Studio : Microsoft Azure Machine Learning Studio permet d’appeler facilement des services web directement à partir de Microsoft Excel sans qu’il soit nécessaire d’écrire du code.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 01/02/2018
 ---

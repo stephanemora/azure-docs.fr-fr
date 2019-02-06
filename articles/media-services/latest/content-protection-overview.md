@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bce28a2498793b7a1edb8aa0437a7d7c75a45ae9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828254"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911946"
 ---
 # <a name="content-protection-overview"></a>Présentation de la protection du contenu
 
@@ -60,7 +60,9 @@ Pour mener à bien votre conception de système/d’application de « protectio
 
     Pour tester du contenu chiffré par AES ou CENC (Widevine et/ou PlayReady), vous pouvez utiliser le [lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Veillez à cliquer sur Options avancées et vérifiez vos options de chiffrement.
 
-    Si vous souhaitez tester le contenu chiffré de FairPlay, utilisez [ce lecteur test](https://aka.ms/amtest). Le lecteur prend en charge les DRM Widevine, PlayReady et FairPlay, ainsi que le chiffrement de clé en clair AES-128. Vous devez choisir le navigateur approprié pour tester les différents systèmes DRM : Chrome/Opera/Firefox pour Widevine, Microsoft Edge/IE11 pour PlayReady, Safari sur macOS pour FairPlay.
+    Si vous souhaitez tester le contenu chiffré de FairPlay, utilisez [ce lecteur test](https://aka.ms/amtest). Le lecteur prend en charge les DRM Widevine, PlayReady et FairPlay, ainsi que le chiffrement de clé en clair AES-128. 
+    
+    Vous devez choisir le navigateur approprié pour tester les différents systèmes DRM : Chrome/Opera/Firefox pour Widevine, Microsoft Edge/IE11 pour PlayReady, Safari sur macOS pour FairPlay.
 
 3. Secure Token Service (STS), qui émet le jeton JSON Web Token (JWT) en tant que jeton d’accès pour accéder aux ressources principales. Vous pouvez utiliser les services de distribution de licence AMS en tant que ressource principale. Un service STS doit définir les éléments suivants :
 
@@ -69,7 +71,7 @@ Pour mener à bien votre conception de système/d’application de « protectio
   * La vérification symétrique ou asymétrique pour vérifier la signature
   * La prise en charge de substitution de clé (si nécessaire)
 
-    Vous pouvez utiliser [cet outil STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) pour tester STS, qui prend en charge les 3 types de clé de vérification : symétriques, asymétriques ou AAD avec substitution de clé. 
+    Vous pouvez utiliser [cet outil STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) pour tester STS, qui prend en charge les 3 types de clés de vérification : symétriques, asymétriques ou Azure AD avec substitution de clé. 
 
 > [!NOTE]
 > Nous recommandons fortement de tester chaque partie (décrite plus haut) entièrement et une par une, avant de passer à la partie suivante. Pour tester votre système de « protection de contenu », utilisez les outils spécifiés dans la liste ci-dessus.  

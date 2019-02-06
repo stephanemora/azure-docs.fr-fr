@@ -1,6 +1,6 @@
 ---
 title: Groupes de basculement - Azure SQL Database | Microsoft Docs
-description: Les groupes de basculement automatique sont une fonctionnalité de SQL Database qui vous permet de gérer la réplication et le basculement automatique/coordonné d’un groupe de bases de données sur un serveur logique ou de toutes les bases de données dans l’instance gérée.
+description: Les groupes de basculement automatique sont une fonctionnalité de SQL Database qui vous permet de gérer la réplication et le basculement automatique/coordonné d’un groupe de bases de données sur un serveur SQL Database ou de toutes les bases de données d’une instance gérée.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,24 +11,24 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033806"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468697"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
-Les groupes de basculement automatique sont une fonctionnalité de SQL Database qui vous permet de gérer la réplication et le basculement d’un groupe de bases de données sur un serveur logique ou de toutes les bases de données Managed Instance vers une autre région (actuellement en préversion publique pour Managed Instance). Cette fonction utilise la même technologie sous-jacente que la [géoréplication active](sql-database-active-geo-replication.md). Vous pouvez déclencher le basculement manuellement ou vous pouvez le déléguer au service SQL Database via une stratégie définie par l’utilisateur. Cette dernière option vous permet de récupérer automatiquement plusieurs bases de données associées dans une région secondaire après une défaillance grave ou un autre événement non planifié qui entraîne une perte totale ou partielle de la disponibilité du service SQL Database dans la région primaire. En outre, vous pouvez utiliser les bases de données secondaires accessibles en lecture pour décharger les charges de travail de requêtes en lecture seule. Comme les groupes de basculement automatique impliquent de nombreuses bases de données, celles-ci doivent être configurées sur le serveur primaire. Les serveurs primaire et secondaire pour les bases de données dans le groupe de basculement doivent faire partie du même abonnement. Les groupes de basculement automatique prennent en charge la réplication de toutes les bases de données du groupe vers un seul serveur secondaire situé dans une autre région,
+Les groupes de basculement automatique sont une fonctionnalité de SQL Database qui vous permet de gérer la réplication et le basculement d’un groupe de bases de données sur un serveur SQL Database ou de toutes les bases de données Managed Instance vers une autre région (actuellement en préversion publique pour Managed Instance). Cette fonction utilise la même technologie sous-jacente que la [géoréplication active](sql-database-active-geo-replication.md). Vous pouvez déclencher le basculement manuellement ou vous pouvez le déléguer au service SQL Database via une stratégie définie par l’utilisateur. Cette dernière option vous permet de récupérer automatiquement plusieurs bases de données associées dans une région secondaire après une défaillance grave ou un autre événement non planifié qui entraîne une perte totale ou partielle de la disponibilité du service SQL Database dans la région primaire. En outre, vous pouvez utiliser les bases de données secondaires accessibles en lecture pour décharger les charges de travail de requêtes en lecture seule. Comme les groupes de basculement automatique impliquent de nombreuses bases de données, celles-ci doivent être configurées sur le serveur primaire. Les serveurs primaire et secondaire pour les bases de données dans le groupe de basculement doivent faire partie du même abonnement. Les groupes de basculement automatique prennent en charge la réplication de toutes les bases de données du groupe vers un seul serveur secondaire situé dans une autre région,
 
 > [!NOTE]
-> Lorsque vous utilisez des bases de données individuelles ou regroupées sur un serveur logique et que vous souhaitez que plusieurs bases de données secondaires se trouvent dans des régions identiques ou différentes, utilisez la [géoréplication active](sql-database-active-geo-replication.md).
+> Si vous utilisez des bases de données autonomes ou en pool sur un serveur SQL Database et que vous souhaitez que plusieurs bases de données secondaires se trouvent dans des régions identiques ou différentes, utilisez la [géoréplication active](sql-database-active-geo-replication.md).
 
 Lorsque vous utilisez des groupes de basculement automatique avec une stratégie de basculement automatique, toute panne qui affecte une ou plusieurs des bases de données du groupe donne lieu à un basculement automatique. En outre, les groupes de basculement automatique fournissent des points de terminaison d’écouteur de lecture-écriture et de lecture seule qui restent inchangés pendant les basculements. Que vous utilisiez l’activation manuelle ou automatique du basculement, ce dernier bascule toutes les bases de données secondaires du groupe en bases de données primaires. Une fois le basculement des bases de données terminé, l’enregistrement DNS est automatiquement mis à jour pour rediriger les points de terminaison vers la nouvelle région. Pour en savoir plus sur les données d’objectif de point et de délai de récupération, voir [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 
-Lorsque vous utilisez des groupes de basculement automatique avec une stratégie de basculement automatique, toute panne qui affecte les bases de données sur le serveur logique ou l’instance gérée donne lieu à un basculement automatique. Vous pouvez gérer le groupe de basculement automatique à l’aide des méthodes suivantes :
+Lorsque vous utilisez des groupes de basculement automatique avec une stratégie de basculement automatique, toute panne qui affecte les bases de données sur le serveur SQL Database ou l’instance gérée donne lieu à un basculement automatique. Vous pouvez gérer le groupe de basculement automatique à l’aide des méthodes suivantes :
 
 - [Portail Azure](sql-database-implement-geo-distributed-database.md)
 - [PowerShell : Groupe de basculement](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
@@ -42,27 +42,27 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Groupe de basculement**
 
-  Un groupe de basculement est un groupe de bases de données gérées par un même serveur logique ou dans une même instance gérée, et qui peut basculer entièrement vers une autre région lorsqu’une partie ou la totalité des bases de données primaires devient indisponible en raison d’une panne dans la région primaire.
+  Un groupe de basculement est un groupe de bases de données gérées par un même serveur SQL Database ou dans une même instance gérée, et qui peut basculer entièrement vers une autre région lorsqu’une partie ou la totalité des bases de données primaires devient indisponible en raison d’une panne dans la région primaire.
 
-  - **Serveurs logiques**
+  - **Serveurs SQL Database**
 
-     Avec les serveurs logiques, une partie ou la totalité des bases de données utilisateur d’un même serveur peut être placée dans un groupe de basculement. En outre, un serveur logique prend en charge plusieurs groupes de basculement sur un seul serveur.
+     Avec les serveurs SQL Database, une partie ou la totalité des bases de données utilisateur d’un même serveur SQL Database peut être placée dans un groupe de basculement. En outre, un seul et même serveur SQL Database prend en charge plusieurs groupes de basculement.
 
   - **Instances managées**
   
-     Avec Managed Instance, un groupe de basculement contient toutes les bases de données utilisateur dans l’instance managée. Par conséquent, cette instance ne prend en charge qu’un seul groupe de basculement.
+     Avec Managed Instance, un groupe de basculement contient toutes les bases de données utilisateur de l’instance gérée. Par conséquent, cette instance ne prend en charge qu’un seul et même groupe de basculement.
 
 - **Primaire**
 
-  Le serveur logique ou l’instance managée qui héberge les bases de données primaires dans le groupe de basculement.
+  Serveur SQL Database ou instance gérée qui héberge les bases de données primaires dans le groupe de basculement.
 
 - **Secondaire**
 
-  Le serveur logique ou l’instance managée qui héberge les bases de données secondaires dans le groupe de basculement. Le serveur logique secondaire ne peut pas être situé dans la même région que le serveur logique primaire.
+  Serveur SQL Database ou instance gérée qui héberge les bases de données secondaires dans le groupe de basculement. Le serveur logique secondaire ne peut pas être situé dans la même région que le serveur logique primaire.
 
-- **Ajout de bases de données au groupe de basculement sur un serveur logique**
+- **Ajout de bases de données au groupe de basculement sur un serveur SQL Database**
 
-  vous pouvez placer plusieurs bases de données individuelles ou bases de données d’un pool élastique sur le même serveur logique dans le même groupe de basculement. Si vous ajoutez une base de données unique à un groupe de basculement, celui-ci crée automatiquement une base de données secondaire en utilisant la même édition et la même taille de calcul. Si la base de données primaire se trouve dans un pool élastique, la base de données secondaire est automatiquement créée dans le pool élastique avec le même nom. Si vous ajoutez une base de données qui présente déjà une base de données secondaire dans le serveur secondaire, cette géo-réplication est héritée par le groupe. Lors de l’ajout d’une base de données qui présente déjà une base de données secondaire sur un serveur qui ne fait pas partie du groupe de basculement, une nouvelle base de données secondaire est créée sur le serveur secondaire.
+  Vous pouvez placer plusieurs bases de données uniques ou plusieurs bases de données d’un pool élastique sur le même serveur SQL Database dans le même groupe de basculement. Si vous ajoutez une base de données unique à un groupe de basculement, celui-ci crée automatiquement une base de données secondaire en utilisant la même édition et la même taille de calcul. Si la base de données primaire se trouve dans un pool élastique, la base de données secondaire est automatiquement créée dans le pool élastique avec le même nom. Si vous ajoutez une base de données qui présente déjà une base de données secondaire dans le serveur secondaire, cette géo-réplication est héritée par le groupe. Lors de l’ajout d’une base de données qui présente déjà une base de données secondaire sur un serveur qui ne fait pas partie du groupe de basculement, une nouvelle base de données secondaire est créée sur le serveur secondaire.
   
 > [!IMPORTANT]
   > Dans une instance managée, toutes les bases de données utilisateur sont répliquées. Vous ne pouvez pas choisir un sous-ensemble de bases de données utilisateur pour la réplication dans le groupe de basculement.
@@ -71,9 +71,9 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
   Un enregistrement DNS CNAME formé qui pointe vers l’URL du serveur primaire actuel. Il permet aux applications SQL en lecture-écriture de se reconnecter en toute transparence à la base de données primaire lorsqu’elle est modifiée après le basculement.
 
-  - **Enregistrement DNS CNAME du serveur logique pour l’écouteur en lecture-écriture**
+  - **Enregistrement DNS CNAME du serveur SQL Database pour l’écouteur en lecture-écriture**
 
-     Sur un serveur logique, l’enregistrement DNS CNAME du groupe de basculement qui pointe vers l’URL du serveur primaire actuel est formé comme suit : `failover-group-name.database.windows.net`.
+     Sur un serveur SQL Database, l’enregistrement DNS CNAME du groupe de basculement qui pointe vers l’URL du serveur primaire actuel est formé comme suit : `failover-group-name.database.windows.net`.
 
   - **Enregistrement DNS CNAME de l’instance managée pour l’écouteur en lecture-écriture**
 
@@ -83,9 +83,9 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
   Enregistrement DNS CNAME formé pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire. Il permet aux applications SQL en lecture seule de se connecter en toute transparence à la base de données secondaire à l’aide des règles d’équilibrage de charge spécifiées.
 
-  - **Enregistrement DNS CNAME du serveur logique pour l’écouteur en lecture seule**
+  - **Enregistrement DNS CNAME du serveur SQL Database pour l’écouteur en lecture seule**
 
-     Sur un serveur logique, l’enregistrement DNS CNAME pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire est formé comme suit : `failover-group-name.secondary.database.windows.net`.
+     Sur un serveur SQL Database, l’enregistrement DNS CNAME pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire est formé comme suit : `failover-group-name.secondary.database.windows.net`.
 
   - **Enregistrement DNS CNAME de l’instance managée pour l’écouteur en lecture seule**
 
@@ -128,7 +128,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Meilleures pratiques relatives à l’utilisation des groupes de basculement avec des bases de données uniques et des pools élastiques
 
-Le groupe de basculement automatique doit être configuré sur le serveur logique primaire, qu’il connectera au serveur logique secondaire dans une autre région Azure.  Les groupes peuvent inclure une partie ou la totalité des bases de données dans ces serveurs. Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec plusieurs bases de données et un groupe de basculement automatique.
+Le groupe de basculement automatique doit être configuré sur le serveur SQL Database primaire, qu’il connectera au serveur SQL Database secondaire dans une autre région Azure.  Les groupes peuvent inclure une partie ou la totalité des bases de données dans ces serveurs. Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec plusieurs bases de données et un groupe de basculement automatique.
 
 ![basculement automatique](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
@@ -331,7 +331,7 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Déclenche le basculement du groupe de basculement vers le serveur secondaire.|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Supprime un groupe de basculement|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST : Gérer les groupes de basculement de base de données SQL avec des bases de données uniques et mises en pool
+### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>API REST : Gérer les groupes de basculement de base de données SQL avec des bases de données autonomes et en pool
 
 | API | Description |
 | --- | --- |

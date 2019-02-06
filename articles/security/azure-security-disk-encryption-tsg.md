@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/08/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103163"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468391"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guide de rési=olution des problèmes Azure Disk Encryption
 
@@ -33,7 +33,23 @@ Cette erreur peut se produire lors d’une tentative de chiffrement de disque da
 - Les lecteurs de données ont été montés de manière récursive sous le répertoire /mnt/ ou les uns sous les autres (par exemple /mnt/data1, /mnt/data2, /data3 + /data3/data4, etc.).
 - D’autres [conditions préalables](azure-security-disk-encryption-prerequisites.md) pour Azure Disk Encryption pour Linux ne sont pas remplies.
 
-## <a name="unable-to-encrypt"></a>Chiffrement impossible
+## <a name="bkmk_Ubuntu14"></a> Mettre à jour le noyau par défaut pour Ubuntu 14.04 LTS
+
+L’image Ubuntu 14.04 LTS est fournie avec une version de noyau par défaut de 4.4. Cette version de noyau présente un problème connu : le mécanisme Out of Memory Killer met fin de façon inappropriée à la commande dd lors du processus de chiffrement du système d’exploitation. Ce bogue a été corrigé dans le noyau Linux réglé sur Azure le plus récent. Pour éviter cette erreur, avant d’activer le chiffrement sur l’image, effectuez une mise à jour sur le [noyau réglé sur Azure 4.15](https://packages.ubuntu.com/trusty/linux-azure) ou version ultérieure à l’aide des commandes suivantes :
+
+```
+sudo apt-get update
+sudo apt-get install linux-azure
+sudo reboot
+```
+
+Après le redémarrage de la machine virtuelle dans le nouveau noyau, la nouvelle version du noyau peut être confirmée à l’aide de :
+
+```
+uname -a
+```
+
+## <a name="unable-to-encrypt-linux-disks"></a>Impossible de chiffrer des disques Linux
 
 Dans certains cas, le chiffrement de disque Linux semble être bloqué à l’étape « OS disk encryption started » (le chiffrement du disque du système d’exploitation a démarré) et SSH est désactivé. Ce processus de chiffrement peut prendre entre 3 et 16 heures pour se terminer sur une image de galerie de stock. Si des disques de données de plusieurs To sont ajoutés, le processus peut prendre des jours.
 
@@ -71,7 +87,7 @@ Lorsque la connectivité est limitée par un pare-feu, une exigence de proxy ou 
 Les paramètres de groupe de sécurité réseau appliqués doivent permettre au point de terminaison de remplir les [conditions requises](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) de configuration réseau indiquées pour le chiffrement de disque.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault derrière un pare-feu
-La machine virtuelle doit pouvoir accéder au coffre de clés. Reportez-vous au guide d’accès au coffre de clés derrière un pare-feu géré par l’équipe [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md). 
+Lorsque le chiffrement est activé avec les [informations d’identification Azure AD](azure-security-disk-encryption-prerequisites-aad.md), la machine virtuelle cible doit avoir accès aux points de terminaison d’authentification Azure AD, ainsi qu’aux points de terminaison Key Vault.  Pour plus d’informations sur ce processus, reportez-vous aux conseils sur l’accès au coffre de clés derrière un pare-feu géré par l’équipe [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md). 
 
 ### <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure 
 La machine virtuelle doit pouvoir accéder au point de terminaison [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) qui utilise une adresse IP non routable bien connue (`169.254.169.254`), accessible uniquement à partir de la machine virtuelle.

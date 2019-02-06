@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b4b49cd679ee5d770696b4fa5cc29ebdd908cecf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816342"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093119"
 ---
 # <a name="application-types-in-v10"></a>Types d’applications dans v1.0
 
@@ -33,11 +33,11 @@ Le diagramme suivant illustre les scénarios et types d’application, ainsi que
 
 Voici les cinq principaux scénarios d’application pris en charge par Azure AD :
 
-- **[Application monopage (SPA)](single-page-application.md)** : un utilisateur doit se connecter à une application monopage sécurisée par Azure AD.
-- **[Navigateur web vers application web](web-app.md)**: un utilisateur doit se connecter à une application web sécurisée par Azure AD.
-- **[Application native vers API web](native-app.md)** : une application native qui s’exécute sur un téléphone, une tablette ou un PC doit authentifier un utilisateur pour obtenir des ressources d’une API web sécurisée par Azure AD.
-- **[Application web vers API web](web-api.md)** : une application web doit obtenir des ressources d’une API web sécurisée par Azure AD.
-- **[Application démon ou serveur vers API web](service-to-service.md)** : une application démon ou une application serveur sans interface utilisateur web doit obtenir des ressources d’une API web sécurisée par Azure AD.
+- **[Application à page unique (SPA)](single-page-application.md)**  : un utilisateur doit se connecter à une application à page unique sécurisée par Azure AD.
+- **[Navigateur web vers application web](web-app.md)**  : un utilisateur doit se connecter à une application web sécurisée par Azure AD.
+- **[Application native vers API web](native-app.md)**  : une application native qui s’exécute sur un téléphone, une tablette ou un PC doit authentifier un utilisateur pour obtenir des ressources d’une API web sécurisée par Azure AD.
+- **[Application web vers API web](web-api.md)**  : une application web doit obtenir des ressources d’une API web sécurisée par Azure AD.
+- **[Application démon ou serveur vers API web](service-to-service.md)**  : une application démon ou une application serveur sans interface utilisateur web doit obtenir des ressources d’une API web sécurisée par Azure AD.
 
 Cliquez sur les liens pour en savoir plus sur chaque type d’application et comprendre les lignes directrices des scénarios avant de commencer à travailler avec le code. Vous pouvez également obtenir des informations sur les différences à prendre en compte lorsque vous écrivez une application spécifique qui fonctionne avec le point de terminaison v1.0 ou le point de terminaison v2.0.
 

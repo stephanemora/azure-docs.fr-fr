@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Accredible | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Accredible | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Accredible.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jeedes
-ms.openlocfilehash: b997d03534fdd7c5075b1bd483dac9ad5e1ddbd3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c5eaa0944210e701c306180709bf97abdbb3b9e3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048325"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151275"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Didacticiel : Intégration d’Azure Active Directory à Accredible
+# <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Tutoriel : Intégration d’Azure Active Directory à Accredible
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer Accredible à Azure Active Directory (Azure AD).
 
@@ -132,7 +132,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 6. Pour configurer l’authentification unique du côté **Accredible**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique d’Accredible](mailto:support@accredible.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -168,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   
 ### <a name="create-an-accredible-test-user"></a>Créer un utilisateur de test Accredible
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Accredible. Vous devez envoyer l’ID d’e-mail de l’utilisateur à [l’équipe de support technique Accredible](mailto:support@accredible.com). Ensuite, celle-ci vérifie l’e-mail et vous envoie le message d’invitation afin que vous puissiez ajouter l’utilisateur sur la plateforme Accredible.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Accredible. Vous devez envoyer l’ID d’e-mail de l’utilisateur à  [l’équipe du support technique d’Accredible](mailto:support@accredible.com). Ensuite, celle-ci vérifie l’e-mail et vous envoie le message d’invitation, afin que vous puissiez ajouter l’utilisateur à la plateforme Accredible.
  
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

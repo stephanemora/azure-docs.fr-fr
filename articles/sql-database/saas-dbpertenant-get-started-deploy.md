@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 6a5ee991ca21e60e6c2b14d5e3be560183eae4fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/25/2019
+ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232900"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453669"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -63,9 +63,9 @@ Choisissez vos noms maintenant et notez-les.
     > [!IMPORTANT]
     > Certaines authentifications et pare-feu de serveur sont volontairement non sécurisés à des fins de démonstration. Nous vous recommandons de créer un groupe de ressources. N’utilisez pas de groupes de ressources, serveurs ou pools existants. N’utilisez pas cette application, les scripts ou des ressources déployées pour la production. Supprimez ce groupe de ressources lorsque vous en avez terminé avec l’application pour interrompre la facturation associée.
 
-    - **Groupe de ressources** : sélectionnez **Création** et indiquez le nom unique que vous avez choisi précédemment pour le groupe de ressources.
-    - **Emplacement** : sélectionnez un emplacement dans la liste déroulante.
-    - **Utilisateur** : utilisez la valeur du nom d’utilisateur que vous avez choisi précédemment.
+    - **Groupe de ressources** : Sélectionnez **Création** et indiquez le nom unique que vous avez choisi précédemment pour le groupe de ressources.
+    - **Emplacement** : Sélectionnez un emplacement dans la liste déroulante.
+    - **Utilisateur** : Utilisez la valeur du nom d’utilisateur que vous avez choisi précédemment.
 
 1. Déployez l’application.
 
@@ -129,7 +129,7 @@ L’application Wingtip utilise  [*Azure Traffic Manager*](../traffic-manager/t
 
     | Partie de l’URL        | Description       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Parties des événements de l’application Wingtip.<br /><br /> *-dpt* distingue l’implémentation de *base de données par locataire* de Wingtip Tickets des autres implémentations. Par exemple, les implémentations d’application par locataire *autonomes* (*-sa*), ou les *bases de données multilocataires* (*- mt*). |
+    | http://events.wingtip-dpt | Parties des événements de l’application Wingtip.<br /><br /> *-dpt* distingue l’implémentation de *base de données par locataire* de Wingtip Tickets des autres implémentations. Par exemple, les implémentations d’application par locataire *autonomes* (*-sa*), ou les *bases de données multi-locataires* (*- mt*). |
     | .*&lt;user&gt;* | *af1* dans l’exemple. |
     | .trafficmanager.net/ | Traffic Manager, URL de base. |
     | fabrikamjazzclub | Identifie le locataire nommé Fabrikam Jazz Club. |
@@ -248,7 +248,7 @@ Accédez au serveur **tenants1-dpt-&lt;utilisateur&gt;**, puis sélectionnez  *
 - Le premier graphique, intitulé **Utilisation des ressources**, montre l’utilisation eDTU du pool.
 - Le second graphique montre l’utilisation eDTU des bases de données les plus actives du pool.
 
-Ces deux graphiques illustrent bien que les pools élastiques et SQL Database sont parfaitement adaptés aux charges de travail imprévisibles de l’application SaaS. Les graphiques montrent que quatre bases de données ont chacune des pics d’activité allant jusqu’à 40 eDTU, et pourtant toutes les bases de données sont confortablement prises en charge par un pool de 50 eDTU. Le pool de 50 eDTU peut prendre en charge des charges de travail encore plus lourdes. Si les bases de données sont provisionnées comme des bases de données uniques, chacune d’elle doit être de type S2 (50 DTU) pour pouvoir gérer les pics d’activité. Le coût de quatre bases de données S2 autonomes s’élève à presque trois fois celui du pool. Dans des situations réelles, les clients SQL Database exécutent jusqu'à 500 bases de données dans des pools de 200 eDTU. Pour plus d’informations, consultez le [didacticiel sur la surveillance des performances](saas-dbpertenant-performance-monitoring.md).
+Ces deux graphiques illustrent bien que les pools élastiques et SQL Database sont parfaitement adaptés aux charges de travail imprévisibles de l’application SaaS. Les graphiques montrent que quatre bases de données ont chacune des pics d’activité allant jusqu’à 40 eDTU, et pourtant toutes les bases de données sont confortablement prises en charge par un pool de 50 eDTU. Le pool de 50 eDTU peut prendre en charge des charges de travail encore plus lourdes. Si les bases de données sont provisionnées comme des bases de données uniques, chacune d’elle doit être de type S2 (50 DTU) pour pouvoir gérer les pics d’activité. Le coût de quatre bases de données S2 s’élève à presque trois fois celui du pool. Dans des situations réelles, les clients SQL Database exécutent jusqu'à 500 bases de données dans des pools de 200 eDTU. Pour plus d’informations, consultez le [didacticiel sur la surveillance des performances](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: d006deb83ca16860eb669548ae8563304f7937fa
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/29/2019
+ms.openlocfilehash: c9f6ad48f6c2e3b2ed60833f0cba111cc96a8a54
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306605"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240758"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Éléments de Place de Marché Azure disponibles pour Azure Stack
 
@@ -97,10 +98,11 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15. | SUSE |
 
-## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>Images et modèles de solution de tiers BYOL, gratuites et en version d’évaluation
+## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>Images et modèles de solution de tiers BYOL, gratuits et en version d’évaluation
 
 |  | Nom de l’élément | Description | Publisher |
 | --- | --- | --- | --- |
+| ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | A10 Networks vThunder Application Delivery Controller for Microsoft Azure est conçu pour offrir des performances élevées, de la flexibilité, une livraison d’applications facile à déployer et un équilibrage de charge de serveur optimisé pour s’exécuter nativement dans le cloud Azure. | Réseaux A10 |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS Router est un routeur virtuel complet, multicloud et multi-hyperviseur, grâce auquel les entreprises et les fournisseurs de services cloud peuvent concevoir des réseaux hybrides modulaires, homogènes et hautement sécurisés. | Arista Networks |
 | ![Centre de contrôle de sécurité des applications Barracuda](media/azure-stack-marketplace-azure-items/barracuda.png) | [Centre de contrôle de sécurité des applications Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Gérer de manière centralisée plusieurs pare-feu d'applications web (WAF) Barracuda. | Barracuda Networks, Inc. |
 | ![Passerelle de sécurité des courriers électroniques Barracuda](media/azure-stack-marketplace-azure-items/barracuda.png) | [Passerelle de sécurité des courriers électroniques Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | Passerelle de sécurité des courriers électroniques pour vous protéger contre les menaces entrantes circulant par courrier électronique. | Barracuda Networks, Inc. |

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ae792df428d897277e15df9db3ff6f99a5b8859e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: e183ed5ecda3053ed052952f4db5adfb016bfa68
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527285"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459043"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exemple de workflow pour préparer des disques durs à un travail d’importation
 Cette rubrique vous guide tout au long du processus de préparation des disques pour un travail d’importation.  
@@ -67,9 +67,9 @@ Pour cet exemple, deux disques durs de 3 To devraient suffire. Cependant, comme
   
 En outre, vous pouvez définir les métadonnées suivantes pour tous les fichiers :  
   
--   **UploadMethod :** Service Windows Azure Import/Export  
+-   **UploadMethod :** Service Windows Azure Import/Export  
   
--   **DataSetName :** SampleData  
+-   **DataSetName :** SampleData  
   
 -   **CreationDate :** 10/1/2013  
   
@@ -169,4 +169,4 @@ Une fois les sessions de copie terminées, vous pouvez déconnecter les deux dis
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Préparation des disques durs pour un travail d’importation](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Référence rapide pour les commandes fréquemment utilisées](../storage-import-export-tool-quick-reference-v1.md) 
+* [Référence rapide pour les commandes fréquemment utilisées](../storage-import-export-tool-quick-reference-v1.md) 

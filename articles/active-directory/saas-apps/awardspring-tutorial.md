@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 2f115be6-4fbe-42aa-9319-7462e7a75736
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
-ms.openlocfilehash: f75c14989b46721e7043c06086cac02222f452a5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d633a9a4d162b921c360572ea8c6a942e4788d54
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431315"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168360"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-awardspring"></a>Tutoriel : Intégration d’Azure Active Directory à AwardSpring
+# <a name="tutorial-azure-active-directory-integration-with-awardspring"></a>Tutoriel : Intégration d’Azure Active Directory à AwardSpring
 
 Dans ce tutoriel, vous allez découvrir comment intégrer AwardSpring à Azure Active Directory (Azure AD).
 
@@ -199,7 +199,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans AwardSpring. AwardSpring prend en charge le provisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore, un utilisateur est créé lors d’une tentative d’accès à AwardSpring.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support AwardSpring](maito:support@awardspring.com).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe du support technique d’AwardSpring](maito:support@awardspring.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

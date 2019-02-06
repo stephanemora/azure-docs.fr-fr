@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 857ab3ad9870407b91b0fdc9c552a89fd1f4ccd4
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.subservice: common
+ms.openlocfilehash: 2f646df3cab0320b574023cd543015921c640cab
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140517"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478319"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -124,7 +124,7 @@ Le coffre de clés est conçu pour les clés principales de valeur élevée et l
 
 Vous trouverez plus d’informations concernant l’utilisation du coffre de clés dans les [exemples de code de chiffrement](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 La prise en charge du chiffrement est disponible uniquement dans la bibliothèque cliente de stockage pour .NET. Windows Phone et Windows Runtime ne prennent pas en charge le chiffrement pour le moment.
 
 > [!IMPORTANT]
@@ -241,7 +241,7 @@ Comme mentionné ci-dessus, si l’entité implémente TableEntity, les proprié
 Notez que le chiffrement de vos données de stockage affecte les performances. La clé de contenu et le vecteur d’initialisation doivent être générés, le contenu proprement dit doit être chiffré et des métadonnées supplémentaires doivent être mises en forme et téléchargées. Cette surcharge varie selon la quantité de données chiffrées. Nous recommandons de tester systématiquement les performances des applications au cours du développement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
+* [Tutoriel : Chiffrement et déchiffrement d’objets blob dans le service Stockage Microsoft Azure à l’aide d’Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Télécharger la [Bibliothèque cliente Azure Storage pour le package NuGet .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Télécharger les packages NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault  
 * Consulter la [documentation d’Azure Key Vault](../../key-vault/key-vault-whatis.md)

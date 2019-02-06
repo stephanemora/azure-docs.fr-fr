@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b06864e08f6edf52e4c96c33c88bba9f8ef4e859
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343205"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251552"
 ---
 # <a name="about-the-text-to-speech-api"></a>À propos de l’API Synthèse vocale
 
@@ -38,7 +38,10 @@ Les scénarios dans lesquels la synthèse vocale est adoptée sont les suivants�
 
 Le service de **synthèse vocale** Microsoft propose plus de 75 voix dans plus de 45 langues et paramètres régionaux. Pour utiliser ces « polices de la voix » standard, vous devez uniquement spécifier le nom de la voix ainsi que quelques autres paramètres lorsque vous appelez l’API REST du service. Pour plus d’informations sur les langues, les paramètres régionaux et les voix pris en charge, consultez [langues prises en charge](language-support.md#text-to-speech).
 
-### <a name="neural-voices"></a>Voix neuronales
+> [!IMPORTANT]
+> Les prix varient en fonction des voix standard, personnalisées et neurales. Pour plus d’informations, voir la [tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+### <a name="neural-voices"></a>Voix neurales
 
 La synthèse vocale neuronale peut être utilisée pour rendre les interactions avec les chatbots et les assistants virtuels plus naturelles et agréables, convertir des textes numériques comme les livres électroniques en livres audio et améliorer les systèmes de navigation embarqués. Grâce à la prosodie naturelle quasi humaine et à la bonne articulation des mots, la synthèse vocale neuronale réduit considérablement la fatigue d’écoute quand il s’agit d’interagir avec les systèmes d’intelligence artificielle. Pour plus d’informations sur les voix neuronales, consultez [langues prises en charge](language-support.md#text-to-speech).
 

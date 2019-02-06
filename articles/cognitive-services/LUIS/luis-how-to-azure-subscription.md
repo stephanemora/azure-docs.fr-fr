@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7662d58c1686dfa4e545246eb897af134a67144c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 26954c8f839ff0bfb2da484e4fb535f33d4e07ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473382"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239177"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Utilisation des clés d’abonnement avec votre application LUIS
 
@@ -32,7 +32,7 @@ Pour des tests et des prototypes uniquement, utilisez le niveau gratuit (F0). Po
 
 Cette procédure permet de créer une ressource **Language Understanding**. Si vous souhaitez une ressource utilisable dans Cognitive Services, créez la clé tout-en-un **[Cognitive Service](../cognitive-services-apis-create-account.md)** à la place de la ressource Language Understanding. 
 
-Cette clé doit être utilisée uniquement pour les requêtes de prédiction de point de terminaison. N’utilisez pas cette clé pour apporter des changements au modèle ou à l’application. 
+Cette clé doit être utilisée uniquement pour les requêtes de prédiction de point de terminaison. N'utilisez pas cette clé pour apporter des changements au modèle ou à l'application. 
 
 1. Connectez-vous au **[portail Azure](https://ms.portal.azure.com/)**. 
 1. Sélectionnez le signe vert **+** dans le panneau supérieur gauche et recherchez `Language Understanding` sur la Place de marché, puis sélectionnez **Language Understanding** et suivez l’**expérience de création** pour créer un compte d’abonnement LUIS. 
@@ -43,7 +43,7 @@ Cette clé doit être utilisée uniquement pour les requêtes de prédiction de 
 
     ![Choix d’API Azure](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. Une fois que vous avez créé la ressource Language Understanding, vous pouvez voir les clés d’accès générées dans **Gestion des ressources->Clés**. N’utilisez pas les clés. La section suivante vous montre comment connecter cette nouvelle ressource à une application LUIS dans le portail LUIS. Vous avez besoin du nom de la ressource LUIS de l’étape 3.
+1. Une fois que vous avez créé la ressource Language Understanding, vous pouvez voir les clés d’accès générées dans **Gestion des ressources->Clés**. La section suivante vous montre comment connecter cette nouvelle ressource à une application LUIS dans le portail LUIS. Vous avez besoin du nom de la ressource LUIS de l’étape 3.
 
     ![Clés Azure](./media/luis-azure-subscription/azure-keys.png)
 
@@ -71,7 +71,7 @@ Cette clé doit être utilisée uniquement pour les requêtes de prédiction de 
 
     ![Affecter une ressource à votre application](./media/luis-manage-keys/assign-key.png)
 
-1. Sélectionnez un locataire dans la boîte de dialogue associée à l’adresse e-mail avec laquelle vous vous connectez au site web LUIS.  
+1. Sélectionnez un locataire dans la boîte de dialogue associée à l'adresse e-mail que vous avez utilisée pour vous connecter au site web LUIS.  
 
 1. Choisissez le **Nom de l’abonnement** associé à la ressource Azure que vous souhaitez ajouter.
 
@@ -142,7 +142,7 @@ En savoir plus sur les[régions](luis-reference-regions.md) de publication, nota
 
 ## <a name="assign-resource-without-luis-portal"></a>Affecter des ressources sans portail LUIS
 
-À des fins d’automation (par exemple pour le pipeline CI/CD), vous souhaiterez peut-être automatiser l’affectation d’une ressource LUIS à une application LUIS. Pour cela, vous devez effectuer les étapes suivantes :
+À des fins d’automation (par exemple pour le pipeline CI/CD), vous souhaiterez peut-être automatiser l’affectation d’une ressource LUIS à une application LUIS. Pour ce faire, vous devez suivre les étapes ci-dessous :
 
 1. Obtenir un jeton Azure Resource Manager à partir de ce [site web](https://resources.azure.com/api/token?plaintext=true). Ce jeton expire ; veillez donc à l’utiliser immédiatement. La requête retourne un jeton Azure Resource Manager.
 
@@ -163,7 +163,7 @@ En savoir plus sur les[régions](luis-reference-regions.md) de publication, nota
 
     Cette API POST nécessite les paramètres suivants :
 
-    |type|Paramètre|Valeur|
+    |Type|Paramètre|Valeur|
     |--|--|--|
     |En-tête|`Authorization`|La valeur de `Authorization` est `Bearer {token}`. Notez que la valeur du jeton doit être précédée du mot `Bearer` et d’un espace.|
     |En-tête|`Ocp-Apim-Subscription-Key`|Votre [clé de création](luis-how-to-account-settings.md).|

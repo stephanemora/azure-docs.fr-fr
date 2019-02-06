@@ -1,6 +1,6 @@
 ---
-title: Configurer Azure SQL Database - Singleton | Microsoft Docs
-description: Découvrez comment configurer et gérer Azure SQL Database - Single Database.
+title: Configuration d’Azure SQL Database (autonome) | Microsoft Docs
+description: En savoir plus sur la configuration et la gestion d’Azure SQL Database (base de données autonome)
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,21 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: d34853220e423e73c6ca8cf7c76ba616b815b8bd
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: bf126caa378eafe569b83f211d9d2bbfd37e18f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439746"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477792"
 ---
-# <a name="how-to-use-single-database"></a>Utiliser Single Database
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Utilisation d’une base de données unique dans Azure SQL Database
 
-Dans cette section, vous trouverez des guides, des scripts et des explications pour vous aider à gérer et à configurer votre base de données Azure SQL Database - Single Database.
+Dans cette section, vous trouverez des guides, des scripts et des explications pour vous aider à gérer et configurer votre base de données unique dans Azure SQL Database.
 
 ## <a name="migrate"></a>Migrer
 
-- [Migrer vers SQL Database](sql-database-cloud-migrate.md) : découvrez les processus de migration et les outils recommandés pour la migration vers Managed Instance.
+- [Migrer vers SQL Database](sql-database-cloud-migrate.md) : découvrez les processus de migration et les outils recommandés pour la migration vers une instance gérée.
 - Découvrez comment [gérer une base de données SQL après sa migration](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Configurer des fonctionnalités
@@ -66,7 +66,7 @@ Dans cette section, vous trouverez des guides, des scripts et des explications p
 - Exécutez des [requêtes sur plusieurs partitions](sql-database-elastic-scale-multishard-querying.md).
 - [Déplacez des données partitionnées](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 - [Configurez la sécurité](sql-database-elastic-scale-split-merge-security-configuration.md) dans des partitions de base de données.
-- [Ajoutez une partition](sql-database-elastic-scale-add-a-shard.md) à l’ensemble actuel de partitions de base de données.
+- [Ajoutez une partition](sql-database-elastic-scale-add-a-shard.md) à l’ensemble actuel des partitions de base de données.
 - [Résolvez les problèmes de carte de partitions](sql-database-elastic-database-recovery-manager.md).
 - [Migrez la base de données partitionnée](sql-database-elastic-convert-to-use-elastic-tools.md).
 - [Créez des compteurs](sql-database-elastic-database-perf-counters.md).
@@ -74,4 +74,4 @@ Dans cette section, vous trouverez des guides, des scripts et des explications p
 - [Utilisez le framework Dapper](sql-database-elastic-scale-working-with-dapper.md) pour interroger des données partitionnées.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [Guides pratiques dans Managed Instance](sql-database-howto-managed-instance.md)
+- En savoir plus sur les [Guides pratiques pour les instances gérées](sql-database-howto-managed-instance.md)

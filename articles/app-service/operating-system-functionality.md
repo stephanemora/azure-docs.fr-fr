@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653507"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901783"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
 Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications Windows exécutées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l'accès aux fichiers, l'accès réseau et l'accès au registre, ainsi que les journaux et événements de diagnostic. 
@@ -128,6 +128,10 @@ Les éléments de journalisation et de suivi des diagnostics non accessibles aux
 Les applications disposent d'un accès en lecture seule à la majeure partie du registre (mais pas à la totalité de celui-ci) de la machine virtuelle sur laquelle elles sont exécutées. En pratique, cela signifie que les clés de registre qui permettent un accès en lecture seule au groupe Utilisateurs local sont accessibles aux applications. La ruche HKEY\_CURRENT\_USER est une zone du registre actuellement non prise en charge pour l’accès en lecture ou en écriture.
 
 L'accès en écriture au registre est bloqué, y compris l'accès aux éventuelles clés de registre par utilisateur. Dans un environnement Azure, une application ne doit jamais compter sur l'accès en écriture au registre, car les applications peuvent être (et sont) migrées entre différentes machines virtuelles. Le seul stockage toujours accessible en écriture sur lequel une application peut compter est la structure des répertoires de contenu par application stockée dans les partages UNC App Service. 
+
+## <a name="remote-desktop-access"></a>Accès au Bureau à distance
+
+App Service ne fournit pas l’accès au Bureau à distance aux instances de machine virtuelle.
 
 ## <a name="more-information"></a>Plus d’informations
 

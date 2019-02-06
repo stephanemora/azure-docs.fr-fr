@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 01df34025c0389a4ea8bcd5eceaa29f0351df5f7
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 556ec0b55ea2e62975661eb5f668b4d3acda7c30
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329702"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466351"
 documentType: LandingData
 title: Azure SQL Database Managed Instance
 metadata:
@@ -55,7 +55,7 @@ sections:
       html: <p>Migrez un parc de bases de données avec un temps d’arrêt minimal à l’aide de Database Migration Service.</p>
     - title: Tarifs
       href: https://azure.microsoft.com/pricing/hybrid-benefit/
-      html: <p>Économisez jusqu'à 40 % sur Azure Hybrid Benefit (AHB) avec vos licences locales existantes.</p>
+      html: <p>Économisez jusqu’à 40 % sur Azure Hybrid Benefit (AHB) avec vos licences locales existantes.</p>
     - title: Fonctionnalités Paas
       href: /azure/sql-database/sql-database-paas
       html: <p>Azure PaaS vous permet d’utiliser l’instance disponible à 99,99 % avec une gestion minimale.</p>
@@ -78,7 +78,7 @@ sections:
     - html: "<a href=\"https://aka.ms/managed-instance-configurable-backup-retention\">Configuration de la rétention des sauvegardes jusqu’à 35 jours</a> pour la restauration d’un point dans le temps. Remarque : la rétention des sauvegardes à long terme (jusqu'à 10 ans) n’est toujours pas activée. Vous pouvez utiliser <a href=\"https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server\">les sauvegardes de copie uniquement</a> à la place."
     - html: (Préversion) Utilisez les <a href="https://aka.ms/managed-instance-failover-groups">groupes de basculement géolocalisés</a> pour conserver une copie de l’instance dans une autre région et vous assurer que vos données seront disponibles même en cas de catastrophe régionale.
     - html: (Préversion) <a href="https://aka.ms/managed-instance-tde-byok">Apportez vos propres clés de chiffrement</a> lorsque vous migrez des bases de données locales pour lesquelles l’option Transparent Data Encryption (TDE) est déjà activée.
-    - html: Managed Instance est protégé par un <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall">pare-feu intégré</a>.
+    - html: Managed Instance est protégé par un <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">pare-feu intégré</a>.
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph

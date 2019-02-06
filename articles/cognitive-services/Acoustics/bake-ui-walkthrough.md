@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f376b6bcb0238f96b4f5bb35d898cc600e108c65
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902244"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169754"
 ---
 # <a name="bake-acoustics"></a>Créer un baking acoustique
 
@@ -255,10 +255,10 @@ Installez et configurez Docker sur le PC qui traitera la simulation-
 
 Quatre fichiers de données sont créés par ce plug-in à différents stades. Un seul d’entre eux est nécessaire au moment de l’exécution. Les trois autres sont à l’intérieur de dossiers nommés « Editor » et ne seront pas compilés dans votre projet.
 
-* **Assets/Editor/[nom_scène]\_AcousticsParameters.asset** : ce fichier stocke les données que vous entrez dans les champs dans l’interface utilisateur d’Acoustics. Vous ne pouvez pas changer l’emplacement et le nom de ce fichier. D’autres valeurs stockées dans ce fichier affectent le baking, mais elles sont destinées aux utilisateurs avancés et ne doivent pas être modifiées.
-* **Assets/AcousticsData/Acoustics\_[nom_scène].ace.bytes** : ce fichier est créé au cours de la simulation de baking. Il contient les données de recherche utilisées par le runtime pour restituer l’acoustique de votre scène. L’emplacement et le nom de ce fichier peuvent être changés à l’aide des champs sous l’onglet **Probes**.
-* **Assets/AcousticsData/Editor/Acoustics_[nom_scène].vox** : ce fichier stocke la géométrie d’acoustique voxelisée et les propriétés des matières. Il est calculé à l’aide du bouton **Calculate...** sous l’onglet Probes. L’emplacement et le nom de ce fichier peuvent être changés à l’aide des champs sous l’onglet **Probes**.
-* **Assets/AcousticsData/Editor/Acoustics\_[nom_scène]\_config.xml** : ce fichier stocke les paramètres calculés à l’aide du bouton **Calculate...** sous l’onglet **Probes**. L’emplacement et le nom de ce fichier peuvent être changés à l’aide des champs sous l’onglet **Probes**.
+* **Assets/Editor/[SceneName]\_AcousticsParameters.asset** : Ce fichier stocke les données que vous entrez dans les champs dans l’interface utilisateur Acoustics. Vous ne pouvez pas changer l’emplacement et le nom de ce fichier. D’autres valeurs stockées dans ce fichier affectent le baking, mais elles sont destinées aux utilisateurs avancés et ne doivent pas être modifiées.
+* **Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes** : Ce fichier est créé au cours de la simulation du bake. Il contient les données de recherche utilisées par le runtime pour restituer l’acoustique de votre scène. L’emplacement et le nom de ce fichier peuvent être changés à l’aide des champs sous l’onglet **Probes**.
+* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox** : Ce fichier stocke la géométrie d’acoustique voxélisée et les propriétés du matériel. Il est calculé à l’aide du bouton **Calculate...** sous l’onglet Probes. L’emplacement et le nom de ce fichier peuvent être changés à l’aide des champs sous l’onglet **Probes**.
+* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml** : Ce fichier stocke les paramètres calculés à l’aide du bouton **Calculate...** de l’onglet **Probes**. L’emplacement et le nom de ce fichier peuvent être changés à l’aide des champs sous l’onglet **Probes**.
 
 Veillez à ne pas supprimer le fichier *.ace.bytes téléchargé suite au baking. Ce fichier n’est pas récupérable, sauf en réeffectuant un baking de la scène.
 

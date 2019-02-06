@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 998a2dac8332ea88f7cee308299ce5a1f90765a4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 26721aa0eac69875f6a3704025e6ab71a54a1e31
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449740"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078098"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qu’est-ce que la condition d’emplacement dans l’accès conditionnel Azure Active Directory ? 
 
@@ -58,7 +58,7 @@ Un emplacement nommé se compose des éléments suivants :
 
 - **Nom** : nom complet d’un emplacement nommé.
 
-- **Plages d’adresses IP** : une ou plusieurs plages d’adresses IPv4 au format CIDR. Les adresses Ipv6 ne sont pas prises en charge.
+- **Plages d’adresses IP** : une ou plusieurs plages d’adresses IPv4 au format CIDR. La définition d’une plage d’adresses Ipv6 n’est pas prise en charge.
 
 - **Marquer comme emplacement approuvé** : indicateur que vous pouvez définir pour un emplacement nommé afin d’indiquer un emplacement approuvé. Les emplacements approuvés sont généralement des zones de réseau qui sont contrôlées par votre service informatique. En plus de l’accès conditionnel, les emplacements nommés approuvés sont également utilisés par les rapports de sécurité Azure Identity Protection et Azure AD afin de réduire les [faux positifs](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 

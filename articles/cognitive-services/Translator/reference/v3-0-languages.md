@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 7489c4298abe91755a2bf9edd8335061ed42d6d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129639"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470924"
 ---
-# <a name="translator-text-api-30-languages"></a>API de traduction de texte Translator Text 3.0 : Languages
+# <a name="translator-text-api-30-languages"></a>API de traduction de texte Translator Text 3.0 : Languages
 
 Permet d’obtenir l’ensemble des langues actuellement prises en charge par d’autres opérations de l’API de traduction de texte Translator Text. 
 
@@ -97,11 +97,11 @@ La valeur de chaque propriété prend la forme suivante.
 
   La valeur de la propriété `translation` est un dictionnaire composé de paires (clé, valeur). Chaque clé est une balise de langue BCP 47. Une clé identifie une langue pour laquelle du texte peut être traduit de ou vers une autre langue. La valeur associée à cette clé est un objet JSON avec des propriétés décrivant la langue :
 
-  * `name` : nom d’affichage de la langue dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
+  * `name`: nom d’affichage de la langue dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
 
-  * `nativeName` : nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
+  * `nativeName`: nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
 
-  * `dir` : direction, soit `rtl` pour les langues s’écrivant de la droite vers la gauche ou `ltr` pour celles s’écrivant de la gauche vers la droite.
+  * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
 
   Voici un exemple :
           
@@ -123,21 +123,21 @@ La valeur de chaque propriété prend la forme suivante.
 
   La valeur de la propriété `transliteration` est un dictionnaire composé de paires (clé, valeur). Chaque clé est une balise de langue BCP 47. Une clé identifie une langue pour laquelle du texte peut être converti d’un script à l’autre. La valeur associée à cette clé est un objet JSON avec des propriétés décrivant la langue et ses scripts pris en charge :
 
-  * `name` : nom d’affichage de la langue dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
+  * `name`: nom d’affichage de la langue dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
 
-  * `nativeName` : nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
+  * `nativeName`: nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
 
-  * `scripts` : liste de scripts à partir desquels exécuter la conversion. Chaque élément de la liste `scripts` possède des propriétés :
+  * `scripts`: liste de scripts à partir desquels exécuter la conversion. Chaque élément de la liste `scripts` possède des propriétés :
 
-    * `code` : code identifiant le script.
+    * `code`: code identifiant le script.
 
-    * `name` : nom d’affichage du script dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
+    * `name`: nom d’affichage du script dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
 
-    * `nativeName` : nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
+    * `nativeName`: nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
 
-    * `dir` : direction, soit `rtl` pour les langues s’écrivant de la droite vers la gauche ou `ltr` pour celles s’écrivant de la gauche vers la droite.
+    * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
 
-    * `toScripts` : liste de scripts disponibles en lesquels convertir le texte. Chaque élément de la liste `toScripts` possède des propriétés `code`, `name`, `nativeName` et `dir`, comme décrit précédemment.
+    * `toScripts`: liste de scripts disponibles en lesquels convertir le texte. Chaque élément de la liste `toScripts` possède des propriétés `code`, `name`, `nativeName` et `dir`, comme décrit précédemment.
 
   Voici un exemple :
 
@@ -188,21 +188,21 @@ La valeur de chaque propriété prend la forme suivante.
 
   La valeur de la propriété `dictionary` est un dictionnaire composé de paires (clé, valeur). Chaque clé est une balise de langue BCP 47. La clé identifie une langue pour laquelle d’autres traductions et des traductions inverses sont disponibles. La valeur est un objet JSON qui décrit la langue source et les langues cibles avec les traductions disponibles :
 
-  * `name` : nom d’affichage de la langue source dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
+  * `name`: nom d’affichage de la langue source dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
 
-  * `nativeName` : nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
+  * `nativeName`: nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
 
-  * `dir` : direction, soit `rtl` pour les langues s’écrivant de la droite vers la gauche ou `ltr` pour celles s’écrivant de la gauche vers la droite.
+  * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
 
-  * `translations` : liste de langues avec des traductions alternatives et des exemples pour la requête exprimée en langue source. Chaque élément de la liste `translations` possède des propriétés :
+  * `translations`: liste de langues avec des traductions alternatives et des exemples pour la requête exprimée en langue source. Chaque élément de la liste `translations` possède des propriétés :
 
-    * `name` : nom d’affichage de la langue cible dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
+    * `name`: nom d’affichage de la langue cible dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
 
-    * `nativeName` : nom d’affichage de la langue cible dans les paramètres régionaux natifs de cette langue.
+    * `nativeName`: nom d’affichage de la langue cible dans les paramètres régionaux natifs de cette langue.
 
-    * `dir` : direction, soit `rtl` pour les langues s’écrivant de la droite vers la gauche ou `ltr` pour celles s’écrivant de la gauche vers la droite.
+    * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
     
-    * `code` : code de langue identifiant la langue cible.
+    * `code`: code de langue identifiant la langue cible.
 
   Voici un exemple :
 

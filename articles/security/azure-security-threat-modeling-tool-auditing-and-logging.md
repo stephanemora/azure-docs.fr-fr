@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 990f300055f7c0c7132dd44271dea73044649fc5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 1d67f981991796b81ba3ab6540631e6d62be8077
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306996"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092143"
 ---
-# <a name="security-frame-auditing-and-logging--mitigations"></a>Infrastructure de sécurité : Audit et journalisation | Corrections 
+# <a name="security-frame-auditing-and-logging--mitigations"></a>Infrastructure de sécurité : Audit et journalisation | Atténuation des risques 
 | Produit/Service | Article |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Identifier les entités sensibles dans votre solution et implémenter l’audit des modifications](#sensitive-entities)</li></ul> |
@@ -196,7 +196,7 @@ Voici un exemple de configuration dans lequel l’audit est activé
 
 ### <a name="example"></a>Exemples
 L’élément `<behavior/>` du fichier de configuration WCF ci-dessous indique à WCF de ne pas informer l’application lorsqu’il ne parvient pas à écrire dans un journal d’audit.
-````
+```
 <behaviors>
     <serviceBehaviors>
         <behavior name="NewBehavior">
@@ -207,7 +207,7 @@ L’élément `<behavior/>` du fichier de configuration WCF ci-dessous indique �
         </behavior>
     </serviceBehaviors>
 </behaviors>
-````
+```
 Configurez WCF pour informer le programme chaque fois qu’il ne parvient pas à écrire dans un journal d’audit. Un autre schéma de notification doit être en place dans le programme pour alerter l’organisation que les pistes d’audit ne sont pas conservées. 
 
 ## <a id="logging-web-api"></a>Vérifier que l’audit et la journalisation sont appliqués à l’API web

@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/25/2019
+ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052715"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478472"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud – Gestion de votre base de données dans Azure SQL Database
 
@@ -83,7 +83,7 @@ SQL Database propose [deux méthodes d’authentification](sql-database-control-
 - [Authentification Azure Active Directory](sql-database-aad-authentication.md)
 - Authentification SQL
 
-L’authentification Windows traditionnelle n’est pas prise en charge. Azure Active Directory (AD) est un service centralisé de gestion des identités et des accès. Ce service vous permet de proposer très facilement un accès par authentification unique à tout le personnel de votre organisation. Autrement dit, les informations d’identification sont partagées entre tous les services Azure pour une authentification plus simple. AAD prend en charge [MFA (Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) et, en [quelques clics](../active-directory/hybrid/how-to-connect-install-express.md), peut être intégré à Windows Server Active Directory. L’authentification SQL fonctionne exactement comme par le passé. Vous fournissez un nom d’utilisateur/mot de passe et vous pouvez authentifier des utilisateurs après de toute base de données sur un serveur logique donné. Cela permet également à SQL Database et SQL Data Warehouse de proposer une authentification multifacteur et des comptes d’utilisateur Invité dans un domaine Azure AD. Si vous disposez déjà d’Active Directory localement, vous pouvez fédérer l’annuaire avec Azure Active Directory pour étendre votre annuaire à Azure.
+L’authentification Windows traditionnelle n’est pas prise en charge. Azure Active Directory (AD) est un service centralisé de gestion des identités et des accès. Ce service vous permet de proposer très facilement un accès par authentification unique à tout le personnel de votre organisation. Autrement dit, les informations d’identification sont partagées entre tous les services Azure pour une authentification plus simple. AAD prend en charge [MFA (Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) et, en [quelques clics](../active-directory/hybrid/how-to-connect-install-express.md), peut être intégré à Windows Server Active Directory. L’authentification SQL fonctionne exactement comme par le passé. Vous fournissez un nom d’utilisateur/mot de passe et vous pouvez authentifier des utilisateurs après de toute base de données sur un serveur SQL Database donné. Cela permet également à SQL Database et SQL Data Warehouse de proposer une authentification multifacteur et des comptes d’utilisateur Invité dans un domaine Azure AD. Si vous disposez déjà d’Active Directory localement, vous pouvez fédérer l’annuaire avec Azure Active Directory pour étendre votre annuaire à Azure.
 
 |**Si vous…**|**SQL Database/SQL Data Warehouse**|
 |---|---|
@@ -106,7 +106,7 @@ Il existe plusieurs techniques à votre disposition pour garantir une organisati
 
 #### <a name="firewall"></a>Pare-feu
 
-Un pare-feu empêche l’accès à votre serveur à partir d’une entité externe en autorisant uniquement l’accès à votre serveur logique à des entités spécifiques. Par défaut, toutes les connexions et bases de données sont refusées au sein du serveur logique, à l’exception des connexions provenant d’autres services Azure. Avec une règle de pare-feu, vous pouvez ouvrir l’accès à votre serveur à certaines entités uniquement (par exemple, un ordinateur de développeur) que vous approuvez, en autorisant l’adresse IP correspondante à traverser le pare-feu. Une règle vous permet également de spécifier une plage d’adresses IP auxquelles vous autorisez l’accès au serveur logique. Par exemple, vous pouvez rapidement ajouter toutes les adresses IP des ordinateurs de développeur de votre organisation en spécifiant une plage dans la page des paramètres du pare-feu.
+Un pare-feu empêche l’accès à votre serveur à partir d’une entité externe en autorisant uniquement l’accès à votre serveur SQL Database à des entités spécifiques. Par défaut, toutes les connexions et bases de données sont refusées au sein du serveur SQL Database, à l’exception des connexions provenant d’autres services Azure. Avec une règle de pare-feu, vous pouvez ouvrir l’accès à votre serveur à certaines entités uniquement (par exemple, un ordinateur de développeur) que vous approuvez, en autorisant l’adresse IP correspondante à traverser le pare-feu. Une règle vous permet également de spécifier une plage d’adresses IP auxquelles vous autorisez l’accès au serveur SQL Database. Par exemple, vous pouvez rapidement ajouter toutes les adresses IP des ordinateurs de développeur de votre organisation en spécifiant une plage dans la page des paramètres du pare-feu.
 
 Vous pouvez créer des règles de pare-feu au niveau du serveur ou de la base de données. Des règles de pare-feu de niveau serveur peuvent être créées à l’aide du portail Azure ou avec SSMS. Pour en savoir plus sur la façon de définir une règle de pare-feu au niveau du serveur et de la base de données, consultez : [Créer des règles de pare-feu dans SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
@@ -240,7 +240,7 @@ Dans SQL Database, vous pouvez exploiter les analyses intelligentes de la platef
 
 #### <a name="azure-portal"></a>Portail Azure
 
-le portail Azure indique l’utilisation de la base de données quand vous la sélectionnez et cliquez sur le graphique du volet Vue d’ensemble. Vous pouvez modifier le graphique pour afficher plusieurs métriques, notamment le pourcentage d’UC, le pourcentage de DTU, le pourcentage d’E/S de données, le pourcentage de sessions et le pourcentage de taille de base de données.
+Le portail Azure montre l’utilisation d’une base de données lorsque vous la sélectionnez et que vous cliquez sur le graphique du volet Vue d’ensemble. Vous pouvez modifier le graphique pour afficher plusieurs métriques, notamment le pourcentage d’UC, le pourcentage de DTU, le pourcentage d’E/S de données, le pourcentage de sessions et le pourcentage de taille de base de données.
 
 ![Graphique de surveillance](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
@@ -250,7 +250,7 @@ le portail Azure indique l’utilisation de la base de données quand vous la s�
 
 #### <a name="dynamic-management-views"></a>Vues de gestion dynamique
 
-vous pouvez interroger la vue de gestion dynamique [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) pour retourner l’historique des statistiques de consommation des ressources de la dernière heure, et la vue de catalogue système sys.resource_stats pour retourner l’historique des 14 derniers jours.
+vous pouvez interroger la vue de gestion dynamique [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) pour retourner l’historique des statistiques de consommation des ressources de la dernière heure, et la vue de catalogue système [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) pour retourner l’historique des 14 derniers jours.
 
 #### <a name="query-performance-insight"></a>Query Performance Insight
 
@@ -287,7 +287,7 @@ SQL Database propose plusieurs niveaux de service : De base, Standard et Premiu
 
 Pour vérifier que votre taille de calcul est adaptée, vous pouvez superviser votre consommation des ressources de requête et de base de données de l’une des manières mentionnées ci-dessus dans « Comment faire pour surveiller les performances et l’utilisation des ressources dans SQL Database ? ». Si vous trouvez que vos requêtes ou vos bases de données s’approchent constamment des limites d’UC/mémoire, passez à une taille de calcul supérieure. De même, si vous remarquez que vous n’utilisez pas autant de ressources que vous le pensiez pendant vos heures de pointe, vous pouvez passer à une taille de calcul inférieure.
 
-Si vous utilisez un modèle d’application SaaS ou un scénario de consolidation de bases de données, vous pouvez utiliser un pool élastique pour optimiser les coûts. Un pool élastique est un excellent moyen pour consolider des bases de données et optimiser les coûts. Pour en savoir plus sur la gestion de plusieurs bases de données à l’aide d’un pool élastique, consultez : [Gérer des pools et des bases de données](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
+Si vous utilisez un modèle d’application SaaS ou un scénario de consolidation de bases de données, vous pouvez utiliser un pool élastique pour optimiser les coûts. Un pool élastique est un excellent moyen pour consolider des bases de données et optimiser les coûts. Pour en savoir plus sur la gestion de plusieurs bases de données à l’aide d’un pool élastique, consultez : [Gérer des pools et des bases de données](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>À quelle fréquence ai-je besoin d’exécuter les vérifications de l’intégrité de ma base de données
 

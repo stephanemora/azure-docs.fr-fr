@@ -11,32 +11,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 588aeede123848900fac6fab663dd1f6c6c169b6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719419"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158007"
 ---
-# <a name="liveevent-states-and-billing"></a>États et facturation d’événements en temps réel
+# <a name="live-event-states-and-billing"></a>États et facturation des événements en direct
 
-Dans Azure Media Services, la facturation d’un événement en temps réel commence dès que son état passe à **En cours d’exécution**. Pour interrompre la facturation du LiveEvent, vous devez arrêter cet événement.
+Dans Azure Media Services, la facturation d’un événement en direct commence dès que son état passe à **En cours d’exécution**. Pour interrompre la facturation de l’événement en direct, vous devez arrêter cet événement.
 
-Lorsque la valeur **LiveEventEncodingType** de votre [événement en temps réel](https://docs.microsoft.com/rest/api/media/liveevents) est définie sur Standard, Media Services met automatiquement fin aux événements en temps réel **En cours d’exécution** 12 heures après la perte du flux d’entrée et l’absence de **sorties en temps réel** en cours d’exécution. Toutefois, vous serez toujours facturé pour la durée pendant laquelle l’événement en temps réel était à l’état **En cours d’exécution**.
+Quand la valeur **LiveEventEncodingType** de votre [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) est définie sur Standard, Media Services met automatiquement fin aux événements en direct **En cours d’exécution** 12 heures après la perte du flux d’entrée et l’absence de **sorties en direct** en cours d’exécution. Toutefois, vous serez toujours facturé pour la durée pendant laquelle l’événement en direct était dans l’état **En cours d’exécution**.
 
 ## <a name="states"></a>États
 
-L’événement en temps réel peut avoir l’un des états suivants.
+L’événement en direct peut présenter l’un des états suivants.
 
 |État|Description|
 |---|---|
-|**Arrêté**| Ceci est l’état initial de l’événement en temps réel après sa création (sauf si le démarrage automatique a été défini sur true). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés de l’événement en temps réel peuvent être mises à jour, mais le streaming n’est pas autorisé.|
-|**Démarrage en cours**| L’événement en temps réel est en cours de démarrage et les ressources sont allouées. Aucune facturation ne survient dans cet état. Les mises à jour et diffusions en continu ne sont pas autorisées pendant cet état. Si une erreur se produit, l’événement en temps réel retourne à l’état Arrêté.|
-|**Exécution**| Les ressources de l’événement en direct ont été alloués, des URL d’ingestion et d’aperçu ont été générées, et l’événement peut recevoir des flux en direct. À ce stade, la facturation est active. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en remps réel pour arrêter toute facturation supplémentaire.|
-|**En cours d’arrêt**| L’événement en temps réel est en cours d’arrêt et les ressources sont déprovisionnées. Aucune facturation ne survient dans cet état de transition. Les mises à jour et diffusions en continu ne sont pas autorisées pendant cet état.|
-|**Suppression en cours**| L’événement en temps réel est en cours de suppression. Aucune facturation ne survient dans cet état de transition. Les mises à jour et diffusions en continu ne sont pas autorisées pendant cet état.|
+|**Arrêté**| C’est l’état initial de l’événement en direct après sa création (sauf si le démarrage automatique a été défini sur true). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés de l’événement en direct peuvent être mises à jour, mais le streaming n’est pas autorisé.|
+|**Démarrage en cours**| L’événement en direct est en cours de démarrage et les ressources sont allouées. Aucune facturation ne survient dans cet état. Les mises à jour et diffusions en continu ne sont pas autorisées pendant cet état. Si une erreur se produit, l’événement en direct retourne à l’état Arrêté.|
+|**Exécution**| Les ressources de l’événement en direct ont été allouées, des URL de réception et d’aperçu ont été générées, et l’événement peut recevoir des flux temps réel. À ce stade, la facturation est active. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en direct pour arrêter toute facturation supplémentaire.|
+|**En cours d’arrêt**| L’événement en direct est en cours d’arrêt et les ressources sont déprovisionnées. Aucune facturation ne survient dans cet état de transition. Les mises à jour et diffusions en continu ne sont pas autorisées pendant cet état.|
+|**Suppression en cours**| L’événement en direct est en cours de suppression. Aucune facturation ne survient dans cet état de transition. Les mises à jour et diffusions en continu ne sont pas autorisées pendant cet état.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

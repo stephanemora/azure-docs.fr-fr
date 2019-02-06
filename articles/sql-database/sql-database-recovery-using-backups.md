@@ -11,24 +11,24 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 301b0179c8222bfdff3b07f7962a74a4cc83b8f6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.date: 01/25/2019
+ms.openlocfilehash: 8d2cac7635b9d97561b3cebf517c95855407cbe3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432283"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462781"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Récupérer une base de données SQL Azure à l’aide des sauvegardes automatisées d’une base de données
 
 Par défaut, les sauvegardes de bases de données SQL sont placées dans l'espace de stockage blob géographiquement redondant (RA-GRS). Les options suivantes sont disponibles pour la récupération des bases de données à l’aide des [sauvegardes de bases de données automatisées](sql-database-automated-backups.md) :
 
-- Créer une nouvelle base de données sur le même serveur logique récupéré à un point spécifié dans le temps durant la période de rétention
-- Créer une base de données sur le même serveur logique récupéré à l’heure de suppression pour une base de données supprimée
-- Créer une nouvelle base de données sur un serveur logique dans la même région récupérée au point des sauvegardes les plus récentes
-- Créer une nouvelle base de données sur un serveur logique dans n’importe quelle autre même région récupérée au point des sauvegardes répliquées les plus récentes
+- Créer une base de données sur le même serveur SQL Database récupéré à un point spécifié dans le temps durant la période de rétention.
+- Créer une base de données sur le même serveur SQL Database récupéré à l’heure de suppression pour une base de données supprimée.
+- Créer une base de données sur un serveur SQL Database dans la même région récupérée au point des sauvegardes les plus récentes.
+- Créer une base de données sur un serveur SQL Database dans n’importe quelle autre région récupérée au point des sauvegardes répliquées les plus récentes.
 
-Si vous avez configuré la [conservation à long terme des sauvegardes](sql-database-long-term-retention.md), vous pouvez également créer une nouvelle base de données à partir de n’importe quelle sauvegarde de conservation à long terme (LTR), sur n’importe quel serveur logique et dans n’importe quelle région.
+Si vous avez configuré la [conservation à long terme des sauvegardes](sql-database-long-term-retention.md), vous pouvez également créer une base de données à partir de toute sauvegarde de conservation à long terme (LTR), sur n’importe quel serveur SQL Database et dans n’importe quelle région.
 
 > [!IMPORTANT]
 > Vous ne pouvez pas remplacer une base de données existante lors de la restauration.
@@ -71,7 +71,7 @@ Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. Le 
 
 ## <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 
-Vous pouvez restaurer une base de données unique, en pool ou Managed Instance à un moment antérieur en tant que nouvelle base de données sur le même serveur à l’aide du portail Azure, de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou de l’[API REST](https://docs.microsoft.com/rest/api/sql/databases). Une base de données peut être restaurée sur n’importe quel niveau de service ou taille de capacité de calcul. Assurez-vous d’avoir suffisamment de ressources sur le serveur vers lequel vous restaurez la base de données. Une fois le processus terminé, la base de données restaurée est une base de données normale entièrement accessible en ligne. La base de données restaurée est facturée aux tarifs habituels en fonction du niveau de service et de la taille de calcul. Aucun frais ne vous sera facturé jusqu’à ce que la restauration de la base de données soit terminée.
+Vous pouvez restaurer une base de données autonome, en pool ou d’instance à un moment antérieur en tant que nouvelle base de données sur le même serveur à l’aide du portail Azure, de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/databases). Une base de données peut être restaurée sur n’importe quel niveau de service ou taille de capacité de calcul. Assurez-vous d’avoir suffisamment de ressources sur le serveur vers lequel vous restaurez la base de données. Une fois le processus terminé, la base de données restaurée est une base de données normale entièrement accessible en ligne. La base de données restaurée est facturée aux tarifs habituels en fonction du niveau de service et de la taille de calcul. Aucun frais ne vous sera facturé jusqu’à ce que la restauration de la base de données soit terminée.
 
 En règle générale, vous restaurez une base de données à un point antérieur à des fins de récupération. Dans ce cas, vous pouvez traiter la base de données restaurée comme remplacement de la base de données d’origine, ou l’utiliser pour en extraire des données afin de mettre à jour la base de données d’origine.
 
@@ -83,7 +83,7 @@ En règle générale, vous restaurez une base de données à un point antérieur
 
   Si vous souhaitez récupérer des données à partir de la base de données restaurée suite à une erreur due à l'utilisateur ou à l'application, vous devez rédiger et exécuter les scripts de récupération de données nécessaires à l'extraction des données à partir de la base de données restaurée et les transférer vers la base de données d'origine. Bien que l’opération de restauration puisse prendre un certain temps, la base de données en cours de restauration sera visible dans la liste de bases de données pendant tout le processus de restauration. Si vous supprimez la base de données pendant la restauration, l’opération de restauration est annulée et vous ne serez pas facturé pour la base de données dont la restauration ne s’est pas terminée.
 
-Pour récupérer une base de données unique, en pool ou Managed Instance à un moment spécifique à l’aide du portail Azure, ouvrez la page de votre base de données, puis cliquez sur **Restaurer** dans la barre d’outils.
+Pour récupérer une base de données autonome, en pool ou d’instance à un moment spécifique à l’aide du portail Azure, ouvrez la page de votre base de données, puis cliquez sur **Restaurer** dans la barre d’outils.
 
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -92,7 +92,7 @@ Pour récupérer une base de données unique, en pool ou Managed Instance à un 
 
 ## <a name="deleted-database-restore"></a>Restauration d’une base de données supprimée
 
-Vous pouvez restaurer une base de données supprimée à l’heure de suppression sur le même serveur logique à l’aide du portail Azure, de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou de [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Vous pouvez [restaurer une base de données supprimée sur Managed Instance à l’aide de PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance). Vous pouvez restaurer une base de données supprimée à un point antérieur dans le temps au cours de la rétention à l’aide de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
+Vous pouvez restaurer une base de données supprimée à l’heure de sa suppression sur le même serveur SQL Database à l’aide du portail Azure, de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou de [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Vous pouvez [restaurer une base de données supprimée sur Managed Instance à l’aide de PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance). Vous pouvez restaurer une base de données supprimée à un point antérieur dans le temps au cours de la rétention à l’aide de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
 > [!TIP]
 > Pour obtenir un exemple de script PowerShell montrant comment restaurer une base de données supprimée, consultez [Restaurer une base de données SQL à l’aide de PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -139,7 +139,7 @@ Comme indiqué précédemment, en plus du Portail Azure, la récupération de la
 
 ### <a name="powershell"></a>PowerShell
 
-- Pour restaurer une base de données unique ou en pool, consultez [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
+- Pour restaurer une base de données autonome ou en pool, consultez [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
   | Applet de commande | Description |
   | --- | --- |
@@ -155,7 +155,7 @@ Comme indiqué précédemment, en plus du Portail Azure, la récupération de la
 
 ### <a name="rest-api"></a>API REST
 
-Pour restaurer une base de données unique ou en pool à l’aide de l’API REST :
+Pour restaurer une base de données autonome ou en pool à l’aide de l’API REST :
 
 | API | Description |
 | --- | --- |
@@ -164,7 +164,7 @@ Pour restaurer une base de données unique ou en pool à l’aide de l’API RES
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour restaurer une base de données unique ou en pool à l’aide d’Azure CLI, consultez [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
+Pour restaurer une base de données autonome ou en pool à l’aide d’Azure CLI, consultez [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
 
 ## <a name="summary"></a>Résumé
 

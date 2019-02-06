@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/24/2018
 ms.author: celested
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7d3796d8d4a5a2e292afaf9cd013ff04ffc082c5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d9e877fd648c28564f5eccc46f9c20741fe446f8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578668"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076313"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Informations d’identification de certificat pour l’authentification d’application
 
@@ -45,12 +45,12 @@ Pour calculer l’assertion, vous pouvez utiliser l’une des nombreuses bibliot
 
 | Paramètre |  Remarques |
 | --- | --- |
-| `aud` | Public : doit être  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/jeton** |
+| `aud` | Audience: Doit être **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Date d’expiration : date d’expiration du jeton. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’à l’expiration du jeton.|
 | `iss` | Émetteur : doit être le paramètre client_id (ID de l’application du service client) |
 | `jti` | GUID : ID JWT |
 | `nbf` | Pas avant : date avant laquelle le jeton ne peut pas être utilisé. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’émission du jeton. |
-| `sub` | Objet : comme pour `iss`, doit être le paramètre client_id (ID de l’application du service client) |
+| `sub` | Objet : En ce qui concerne `iss`, doit être le paramètre client_id (ID de l’application du service client) |
 
 ### <a name="signature"></a>Signature
 

@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 38da370e8e3cd81e209d0fd592d6b2afa8c82e44
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.subservice: queues
+ms.openlocfilehash: 295ca353530fb438d0bd77a9144813543102b997
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138501"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472709"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Utilisation du stockage de files d'attente à partir de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -64,7 +64,7 @@ var azure = require('azure-storage');
 ## <a name="setup-an-azure-storage-connection"></a>Configuration d'une connexion Azure Storage
 Le module Azure lit les variables d’environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations nécessaires à la connexion à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createQueueService**.
 
-## <a name="how-to-create-a-queue"></a>Création d'une file d'attente
+## <a name="how-to-create-a-queue"></a>Procédure : Création d’une file d’attente
 Le code suivant crée un objet **QueueService** , ce qui vous permet d'utiliser les files d'attente.
 
 ```javascript
@@ -105,7 +105,7 @@ var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Insertion d'un message dans une file d'attente
+## <a name="how-to-insert-a-message-into-a-queue"></a>Procédure : Insertion d’un message dans une file d’attente
 Pour insérer un message dans une file d'attente, utilisez la méthode **createMessage** afin de créer un message et de l'ajouter dans la file d'attente.
 
 ```javascript
@@ -116,7 +116,7 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 });
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Lecture furtive du message suivant
+## <a name="how-to-peek-at-the-next-message"></a>Procédure : Lecture furtive du message suivant
 Vous pouvez lire furtivement le message au début de la file d'attente sans l'enlever de la file d'attente en appelant la méthode **peekMessages** . Par défaut, **peekMessages** lit un seul message.
 
 ```javascript
@@ -134,7 +134,7 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 > 
 > 
 
-## <a name="how-to-dequeue-the-next-message"></a>Suppression du message suivant dans la file d'attente
+## <a name="how-to-dequeue-the-next-message"></a>Procédure : Suppression du message suivant de la file d’attente
 Le traitement d'un message se fait en deux étapes :
 
 1. Enlever le message de la file d'attente.
@@ -164,7 +164,7 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 > 
 > 
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Modification du contenu d'un message en file d'attente
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procédure : Modification du contenu d’un message en file d’attente
 Vous pouvez changer le contenu d'un message qui se trouve dans la file d'attente en utilisant **updateMessage**. L'exemple suivant met à jour le texte d'un message :
 
 ```javascript
@@ -181,7 +181,7 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 });
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Options supplémentaires pour la suppression des messages dans la file d'attente
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Procédure : Options supplémentaires pour la suppression des messages dans la file d’attente
 Il existe deux méthodes pour personnaliser l'extraction d'un message d'une file d'attente :
 
 * `options.numOfMessages` - Extraire un lot de messages (jusqu’à 32).
@@ -206,7 +206,7 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 });
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Obtention de la longueur de la file d'attente
+## <a name="how-to-get-the-queue-length"></a>Procédure : Obtention de la longueur de la file d’attente
 **getQueueMetadata** renvoie des métadonnées sur la file d'attente, y compris le nombre approximatif de messages en attente dans la file d'attente.
 
 ```javascript
@@ -217,7 +217,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 });
 ```
 
-## <a name="how-to-list-queues"></a>Procédure : Affichage de la liste de disques
+## <a name="how-to-list-queues"></a>Procédure : Lister les files d’attente
 Pour extraire une liste de files d'attente, utilisez **listQueuesSegmented**. Pour extraire une liste filtrée par un certain préfixe, utilisez **listQueuesSegmentedWithPrefix**.
 
 ```javascript
@@ -230,7 +230,7 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 
 Si aucune file d’attente ne peut être renvoyée, `result.continuationToken` peut servir de premier paramètre de **listQueuesSegmented** ou de second paramètre de **listQueuesSegmentedWithPrefix** pour récupérer plus de résultats.
 
-## <a name="how-to-delete-a-queue"></a>Suppression d'une file d'attente
+## <a name="how-to-delete-a-queue"></a>Procédure : Suppression d’une file d’attente
 Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode **deleteQueue** sur l'objet file d'attente.
 
 ```javascript
@@ -243,7 +243,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 Pour effacer tous les messages d'une file d'attente sans supprimer cette dernière, utilisez **clearMessages**.
 
-## <a name="how-to-work-with-shared-access-signatures"></a>Procédure : Utilisation des signatures d’accès partagé
+## <a name="how-to-work-with-shared-access-signatures"></a>Activation Utiliser les signatures d’accès partagé
 Les signatures d'accès partagé sont un moyen sécurisé de fournir un accès précis aux files d'attente sans fournir le nom ni les clés de votre compte de stockage. Elles servent souvent à fournir un accès limité à vos files d'attente, par exemple pour autoriser une application mobile à soumettre des messages.
 
 Une application approuvée, comme un service cloud, génère une signature d’accès partagé à l’aide de **generateSharedAccessSignature** de **QueueService**, et la fournit à une application non approuvée ou à moitié approuvée. Par exemple, une application mobile. La signature d'accès partagé est générée à l'aide d'une stratégie, qui décrit les dates de début et de fin de validité de la signature, et le niveau d'accès accordé au détenteur de la signature.

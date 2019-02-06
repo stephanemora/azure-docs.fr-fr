@@ -6,7 +6,7 @@ documentationcenter: ''
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: b440965fa3acb6c08c4827dce941247b8921b98b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6560209d3dd4fe2185e0f5b16c29bf235223805
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473467"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167493"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Résoudre les problèmes de proxy d’application et les messages d’erreur
 Si des erreurs se produisent dans l’accès à une application publiée ou dans la publication d’applications, vérifiez les options suivantes pour voir si le proxy d’application Microsoft Azure Active Directory fonctionne correctement :
@@ -54,7 +54,7 @@ Une fois l’erreur de connecteur identifiée dans le journal des événements, 
 | Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Error: « AADSTS50059 : pas d’informations d’identification de locataire trouvées dans la demande ou déduites des informations d’identification fournies. Échec de la recherche selon l’URI du principal du service. | Vous essayez de vous connecter en utilisant un compte Microsoft mais pas un domaine qui fait partie de l’ID d’organisation du répertoire auquel vous tentez d’accéder. Assurez-vous que l’administrateur fait partie du même nom de domaine que le domaine du locataire. Par exemple, si le domaine Azure AD est contoso.com, l’administrateur doit être admin@contoso.com. |
 | Impossible de récupérer la stratégie d’exécution actuelle pour l’exécution de scripts PowerShell. | En cas d’échec de l’installation du connecteur, vérifiez que la stratégie d’exécution de PowerShell n’est pas désactivée. <br><br>1. Ouvrez l’Éditeur de stratégie de groupe.<br>2. Accédez à **Configuration ordinateur** > **Modèles d’administration** > **Composants Windows** > **Windows PowerShell** et double-cliquez sur **Activer l’exécution des scripts**.<br>3. Cette stratégie d’exécution peut être définie sur **Non configuré** ou **Activé**. Si elle est définie sur **Activé**, vérifiez que sous Options, la stratégie d’exécution est définie sur **Autoriser les scripts locaux et les scripts signés distants** ou sur **Autoriser tous les scripts**. |
 | Échec du téléchargement de la configuration par le connecteur. | Le certificat client du connecteur, qui est utilisé pour l’authentification, est expiré. Ceci peut également se produire si le connecteur est installé derrière un proxy. Dans ce cas, le connecteur ne peut pas accéder à Internet et ne sera pas en mesure de fournir des applications aux utilisateurs distants. Renouvelez l’approbation manuellement à l’aide de l’applet de commande `Register-AppProxyConnector` dans Windows PowerShell. Si votre connecteur est derrière un proxy, il est nécessaire d’octroyer l’accès à Internet aux comptes du connecteur « services réseau » et « système local ». Ceci peut être effectué en leur accordant l’accès au proxy ou en les configurant pour qu’ils ignorent le proxy. |
-| Échec de l’inscription du connecteur : vous devez être un administrateur global de votre Active Directory pour inscrire le connecteur. Error: « La demande d’inscription a été refusée. » | L’alias avec lequel vous essayez de vous connecter n’est pas un administrateur sur ce domaine. Votre connecteur est toujours installé pour l’annuaire qui détient le domaine de l’utilisateur. Assurez-vous que l’administrateur de compte que vous voulez utiliser pour vous connecter dispose des autorisations globales sur le client Azure AD. |
+| Échec de l’inscription du connecteur : vous devez être un administrateur d’application de votre instance Active Directory pour inscrire le connecteur. Error: « La demande d’inscription a été refusée. » | L’alias avec lequel vous essayez de vous connecter n’est pas un administrateur sur ce domaine. Votre connecteur est toujours installé pour l’annuaire qui détient le domaine de l’utilisateur. Assurez-vous que le compte Administrateur avec lequel vous essayez de vous connecter dispose au moins des autorisations d’administrateur d’application sur le locataire Azure AD. |
 
 ## <a name="kerberos-errors"></a>Erreurs Kerberos
 

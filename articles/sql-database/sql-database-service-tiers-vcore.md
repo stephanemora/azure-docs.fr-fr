@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/08/2019
-ms.openlocfilehash: 6b5ff7294735048347c500d64b411f16bda5422f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/25/2019
+ms.openlocfilehash: 0d55b5d4c8d42a89a51fa5342d1ed747659a441b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212931"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465093"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveaux de service vCore, Azure Hybrid Benefit et migration
 
@@ -52,7 +52,7 @@ Le tableau suivant montre les différences entre les trois niveaux :
 > [!NOTE]
 > Vous pouvez obtenir une base de données Azure SQL Database gratuite au niveau de service De base avec un compte Azure gratuit pour explorer Azure. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).
 
-- Pour plus d’informations, consultez [Limites de ressources vCore dans une base de données unique](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources vCore dans une instance managée](sql-database-managed-instance.md#vcore-based-purchasing-model).
+- Pour plus d’informations, consultez [Limites de ressources vCore dans une base de données unique](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources vCore dans une instance gérée](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Pour plus d’informations sur les niveaux de service Usage général et Critique pour l’entreprise, consultez l’article [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md) (Niveaux de service Usage général et Critique pour l’entreprise).
 - Pour plus d’informations sur le niveau de service Hyperscale dans le modèle d’achat basé sur le nombre de cœurs virtuels, consultez [Niveau de service Hyperscale](sql-database-service-tier-hyperscale.md).  
 

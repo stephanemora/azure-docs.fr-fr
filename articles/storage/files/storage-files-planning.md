@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 0701049eb1aa86398e90484dbf21ef3781270fba
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.subservice: files
+ms.openlocfilehash: a9c37258d7c9631c6e5fe13007b78c4205a1c249
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831379"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473882"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le protocole SMB standard. Comme Azure Files est entièrement managé, son déploiement dans des scénarios de production est beaucoup plus simple que le déploiement et la gestion d’un serveur de fichiers ou d’un appareil NAS. Cet article aborde les rubriques à prendre en compte lors du déploiement d’un partage de fichiers Azure pour une utilisation en production dans votre organisation.
@@ -23,13 +23,13 @@ ms.locfileid: "48831379"
 
 ![Structure de fichiers](./media/storage-files-introduction/files-concepts.png)
 
-* **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* **Compte de stockage** : Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-* **Partage** : un partage de stockage de fichiers est un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans la limite de la capacité totale de 5 Tio du partage de fichiers.
+* **Partage** : un partage Stockage Fichier est un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans la limite de la capacité totale de 5 Tio du partage de fichiers.
 
-* **Répertoire** : hiérarchie facultative de répertoires.
+* **Répertoire** : hiérarchie facultative de répertoires.
 
-* **Fichier** : fichier du partage. Un fichier peut avoir une taille de 1 Tio maximum.
+* **Fichier** : fichier du partage. Un fichier peut avoir une taille de 1 Tio maximum.
 
 * **Format d’URL** : pour les demandes adressées à un partage de fichiers Azure avec le protocole File REST, les fichiers sont accessibles via le format d’URL suivant :
 
@@ -48,17 +48,17 @@ Le tableau suivant illustre la façon dont vos utilisateurs et les applications 
 | | Accès direct au cloud | Azure File Sync |
 |------------------------|------------|-----------------|
 | Quels protocoles devez-vous utiliser ? | Azure Files prend en charge les protocoles SMB 2.1, SMB 3.0 et l’API REST de fichier. | Accédez à votre partage de fichiers Azure via un protocole pris en charge sur Windows Server (SMB, NFS, FTPS, etc.) |  
-| Où exécutez-vous votre charge de travail ? | **Dans Azure** : Azure Files offre un accès direct à vos données. | **Localement avec un réseau lent** : les clients Windows, Linux et macOS peuvent monter un partage de fichiers Windows local comme cache rapide de votre partage de fichiers Azure. |
+| Où exécutez-vous votre charge de travail ? | **Dans Azure** : Azure Files offre un accès direct à vos données. | **Localement avec un réseau lent** : les clients Windows, Linux et macOS peuvent monter un partage de fichiers Windows local comme cache rapide de votre partage de fichiers Azure. |
 | Quel est le niveau d’ACL dont vous avez besoin ? | Au niveau du partage et des fichiers. | Au niveau du partage, des fichiers et de l’utilisateur. |
 
 ## <a name="data-security"></a>Sécurité des données
 Azure Files propose plusieurs options intégrées pour garantir la sécurité des données :
 
-* Prise en charge du chiffrement dans les deux protocoles réseau : chiffrement SMB 3.0 et API REST de fichier sur HTTPS. Par défaut : 
+* Prise en charge du chiffrement dans les deux protocoles réseau : chiffrement SMB 3.0 et File REST via le protocole HTTPS. Par défaut : 
     * Les clients qui prennent en charge le chiffrement SMB 3.0 envoient et reçoivent des données sur un canal chiffré.
     * Les clients qui ne prennent pas en charge SMB 3.0 avec chiffrement peuvent communiquer au sein du centre de données sur SMB 2.1 ou SMB 3.0 sans chiffrement. Les clients SMB ne sont pas autorisés à communiquer entre centres de données sur SMB 2.1 ou SMB 3.0 sans chiffrement.
     * Les clients peuvent communiquer sur l’API REST de fichier avec HTTP ou HTTPS.
-* Chiffrement au repos ([Chiffrement du service Stockage Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)) : Storage Service Encryption (SSE) est activé pour tous les comptes de stockage. Les données au repos sont chiffrées avec des clés entièrement gérées. Le chiffrement au repos n’augmente pas les coûts de stockage, ni ne réduit le niveau de performance. 
+* Chiffrement au repos ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)) : Storage Service Encryption (SSE) est activé pour tous les comptes de stockage. Les données au repos sont chiffrées avec des clés entièrement gérées. Le chiffrement au repos n’augmente pas les coûts de stockage, ni ne réduit le niveau de performance. 
 * Spécification facultative des données chiffrées en transit : quand Azure Files est sélectionné, il refuse l’accès aux données sur des canaux non chiffrés. Plus précisément, seules les connexions HTTPS et SMB 3.0 avec chiffrement sont autorisées. 
 
     > [!Important]  
@@ -106,9 +106,9 @@ Vous pouvez synchroniser plusieurs partages de fichiers Azure sur un même serve
 Il existe de nombreuses options pour facilement transférer en bloc les données d’un partage de fichiers existant, par exemple, un partage de fichiers local, dans Azure Files. En voici quelques-unes connues (liste non exhaustive) :
 
 * **Azure File Sync** : lors de la première synchronisation entre un partage de fichiers Azure (un « point de terminaison cloud ») et un espace de noms de répertoire Windows (un « point de terminaison de serveur »), Azure File Sync réplique toutes les données du partage de fichiers existant sur Azure Files.
-* **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : le service Azure Import/Export vous permet de transférer de façon sécurisée de grandes quantités de données sur un partage de fichiers Azure en expédiant des disques durs à un centre de données Azure. 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**  : Robocopy est un outil de copie bien connu fourni avec Windows et Windows Server. Robocopy peut servir à transférer des données dans Azure Files en montant le partage de fichiers localement, puis en utilisant l’emplacement monté comme destination de la commande Robocopy.
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**  : AzCopy est un utilitaire de ligne de commande conçu pour copier avec des performances optimales des données vers et à partir d’Azure Files, ou de Stockage Blob Azure, en utilisant des commandes simples. AzCopy est disponible pour Windows et Linux.
+* **[Azure Import Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : Le service Azure Import/Export permet de transférer en toute sécurité des volumes importants de données dans un partage de fichiers Azure en expédiant des disques durs vers un centre de données Azure. 
+* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy est un outil de copie bien connu fourni avec Windows et Windows Server. Robocopy peut servir à transférer des données dans Azure Files en montant le partage de fichiers localement, puis en utilisant l’emplacement monté comme destination de la commande Robocopy.
+* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)** : AzCopy est un utilitaire de ligne de commande conçu pour copier des données à destination et à partir d’Azure Files, ou d’un stockage blob Azure, en utilisant des commandes simples avec des performances optimales. AzCopy est disponible pour Windows et Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md)

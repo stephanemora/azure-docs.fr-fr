@@ -2,20 +2,20 @@
 title: Analyse de données avec Azure Machine Learning | Microsoft Docs
 description: Utilisez Azure Machine Learning pour générer un modèle Machine Learning prédictif basé sur les données stockées dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4324b1ac343a0e2b77c21d7834beffae08403953
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247524"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477656"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analyse des données avec Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Les données sont indiquées dans la vue dbo.vTargetMail de la base de données 
 
 1. Connectez-vous à [Azure Machine Learning Studio][Azure Machine Learning studio], puis cliquez sur Mes expériences.
 2. Cliquez sur **+NOUVEAU** et sélectionnez **Expérience vide**.
-3. Entrez le nom de votre expérience : Marketing ciblé.
+3. Entrez un nom pour votre expérience : marketing ciblé.
 4. Faites glisser le module **Lecteur** du volet des modules dans la zone de dessin.
 5. Spécifiez les détails de votre base de données SQL Data Warehouse dans le volet Propriétés.
 6. Spécifiez la **requête** de base de données pour lire les données intéressantes.
@@ -80,19 +80,19 @@ Pour nettoyer les données, supprimez certaines colonnes qui sont inutiles pour 
 1. Faites glisser le module **Colonnes de projet** sur la zone de dessin.
 2. Cliquez sur **Lancer le sélecteur de colonne** dans le volet Propriétés pour spécifier les colonnes que vous souhaitez supprimer.
    ![Colonnes de projet][4]
-3. Excluez deux colonnes : CustomerAlternateKey et GeographyKey.
+3. Excluez deux colonnes : CustomerAlternateKey et GeographyKey.
    ![Supprimer les colonnes inutiles][5]
 
 ## <a name="3-build-the-model"></a>3. Générer le modèle
-Nous allons fractionner les données dans la proportion 80 et 20 : 80 % pour l’apprentissage d’un modèle Machine Learning et 20 % pour tester le modèle. Nous nous engageons à utiliser des algorithmes « À deux classes » pour ce problème de classification binaire.
+Nous allons fractionner les données dans la proportion 80 et 20 : 80 % pour l’apprentissage d’un modèle Machine Learning et 20 % pour tester le modèle. Nous nous engageons à utiliser des algorithmes « À deux classes » pour ce problème de classification binaire.
 
 1. Faites glisser le module **Fractionner** dans la zone de dessin.
 2. Entrez 0,8 comme Fraction de lignes dans le premier jeu de données du volet Propriétés.
    ![Fractionner les données en jeu d’apprentissage et de test][6]
 3. Faites glisser le module **Arbre de décision optimisé à deux classes** dans la zone de dessin.
 4. Faites glisser le module **Effectuer le traitement de données pour apprentissage du modèle** dans la zone de dessin et spécifiez les entrées. Cliquez sur l’option **Lancer le sélecteur de colonne** figurant dans le volet Propriétés.
-   * Première entrée : algorithme ML.
-   * Deuxième entrée : données sur lesquelles essayer l’algorithme.
+   * Première entrée : algorithme ML.
+   * Seconde entrée : données sur lesquelles essayer l’algorithme.
      ![Connecter le module Former le modèle][7]
 5. Sélectionnez la colonne **BikeBuyer** comme colonne à prédire.
    ![Sélectionner la colonne à prédire][8]
@@ -101,7 +101,7 @@ Nous allons fractionner les données dans la proportion 80 et 20 : 80 % pour l
 Maintenant, nous allons voir comment le modèle s’exécute sur les données de test. Nous allons comparer l’algorithme de notre choix avec un autre algorithme et voir celui qui fonctionne le mieux.
 
 1. Faites glisser le module **Noter le modèle** dans la zone de dessin.
-    Première entrée : modèle formé Deuxième entrée : données de test ![Notation du modèle][9]
+    Première entrée : Modèle formé Seconde entrée : Données de test ![Notation du modèle][9]
 2. Faites glisser **Machines de points Bayes à deux classes** dans la zone de dessin de l’expérience. Nous allons comparer comment cet algorithme fonctionne par rapport à l’arbre de décision optimisé à deux classes.
 3. Copiez et collez les modules de Former le modèle et le modèle Noter le modèle dans la zone de dessin.
 4. Faites glisser le module **Évaluer le modèle** module dans la zone de dessin pour comparer les deux algorithmes.

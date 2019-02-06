@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 0ae6c27091dd2938ec7410e78ae12dbe20509029
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 12a9602ecd61da5dc497790ecca6d8d6f874252e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167643"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184289"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-that-have-been-excluded-from-conditional-access-policies"></a>Utiliser les révisions d’accès Azure AD pour gérer les utilisateurs exclus des stratégies d’accès conditionnel
 
@@ -96,7 +96,7 @@ Vous pouvez à présent créer une stratégie d’accès conditionnel qui utilis
 
 Examinons deux exemples dans lesquels vous pouvez utiliser les révisions d’accès pour gérer les exclusions dans les stratégies d’accès conditionnel.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Exemple 1 : Révision d’accès relative aux utilisateurs accédant au locataire à partir de pays bloqués
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Exemple 1 : Révision d’accès relative aux utilisateurs accédant au locataire à partir de pays bloqués
 
 Supposons que vous disposiez d’une stratégie d’accès conditionnel qui bloque l’accès à partir de certains pays. Vous avez créé un groupe qui est exclu de la stratégie. Voici une révision d’accès recommandée qui passe en revue les membres du groupe.
 
@@ -117,7 +117,7 @@ Supposons que vous disposiez d’une stratégie d’accès conditionnel qui bloq
 
     ![Créer une révision d’accès](./media/conditional-access-exclusion/create-access-review-1.png)
 
-## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Exemple 2 : Révision d’accès relative aux utilisateurs accédant au locataire avec l’authentification héritée
+## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Exemple 2 : Révision d’accès relative aux utilisateurs accédant au locataire avec l’authentification héritée
 
 Supposons que vous disposiez d’une stratégie d’accès conditionnel qui bloque l’accès des utilisateurs ayant recours à l’authentification héritée et à des versions de client antérieures. Vous avez créé un groupe qui est exclu de la stratégie. Voici une révision d’accès recommandée qui passe en revue les membres du groupe.
 
@@ -135,7 +135,7 @@ Supposons que vous disposiez d’une stratégie d’accès conditionnel qui bloq
 
     ![Créer une révision d’accès](./media/conditional-access-exclusion/create-access-review-2.png)
 
-**Conseil** : Si vous disposez de nombreux groupes d’exclusions et que vous devez donc créer plusieurs révisions d’accès, nous proposons désormais dans le point de terminaison bêta Microsoft Graph une API qui vous permet de créer et gérer ces révisions par programme. Pour commencer, consultez les [informations de référence sur les API des révisions d’accès Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root), ainsi que l’article [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096) (Exemple de récupération de révisions d’accès Azure AD par le biais de Microsoft Graph).
+**Conseil** : Si vous disposez de nombreux groupes d’exclusions et que vous devez donc créer plusieurs révisions d’accès, nous proposons désormais dans le point de terminaison bêta Microsoft Graph une API qui vous permet de créer et de gérer ces révisions par programmation. Pour commencer, consultez les [informations de référence sur les API des révisions d’accès Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root), ainsi que l’article [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096) (Exemple de récupération de révisions d’accès Azure AD par le biais de Microsoft Graph).
 
 ## <a name="access-review-results-and-audit-logs"></a>Résultats des révisions d’accès et journaux d’audit
 

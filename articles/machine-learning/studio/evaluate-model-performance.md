@@ -1,6 +1,6 @@
 ---
-titre : Évaluer les performances d'un modèle - titleSuffix : Description d'Azure Machine Learning Studio : Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio et décrit brièvement les métriques disponibles pour cette opération.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Évaluer les performances d'un modèle - titleSuffix : Description d'Azure Machine Learning Studio : Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio et décrit brièvement les métriques disponibles pour cette opération.
+services : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---

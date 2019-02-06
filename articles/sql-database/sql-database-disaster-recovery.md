@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 889f8f597b0b744ea5fe6ef2f5c82f2d09629607
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 61957b89bd5ec9a42d6fd03c7009187d71e448f4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605209"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474783"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire
 
@@ -37,7 +37,7 @@ Pour en savoir plus sur les scénarios de continuité d’activité et les fonct
 
 Pour parvenir à une récupération vers une autre région de données à l’aide des groupes de basculement ou des sauvegardes géoredondantes, vous devez préparer un serveur dans un autre centre de données. Celui-ci deviendra le nouveau serveur principal en cas de besoin. Vous devez également suivre des étapes précises, documentées et approuvées pour garantir une récupération optimale. Les étapes de préparation sont les suivantes :
 
-- Identifiez le serveur logique d’une autre région qui deviendra le nouveau serveur principal. Pour la géorestauration, il s’agit généralement d’un serveur dans la [région jumelée](../best-practices-availability-paired-regions.md) de la région dans laquelle se trouve votre base de données. Cela permet d’éliminer le coût d’un trafic supplémentaire pendant les opérations de géorestauration.
+- Identifiez le serveur SQL Database d’une autre région qui deviendra le nouveau serveur principal. Pour la géorestauration, il s’agit généralement d’un serveur dans la [région jumelée](../best-practices-availability-paired-regions.md) de la région dans laquelle se trouve votre base de données. Cela permet d’éliminer le coût d’un trafic supplémentaire pendant les opérations de géorestauration.
 - Identifiez, et éventuellement définissez, les règles de pare-feu nécessaires au niveau du serveur pour permettre aux utilisateurs d’accéder à la nouvelle base de données primaire.
 - Déterminez la façon dont vous souhaitez rediriger les utilisateurs vers le nouveau serveur principal, par exemple en modifiant des chaînes de connexion ou des entrées DNS.
 - Identifiez, et éventuellement créez, les connexions d’accès qui doivent être présentes dans la base de données master sur le nouveau serveur principal, puis vérifiez que ces connexions disposent des autorisations appropriées dans la base de données master, le cas échéant. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL après la récupération d’urgence](sql-database-geo-replication-security-config.md)

@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9586ffac2fc1f4d3e0a03d0e20052ad16b88cbe9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 66371fcdc3afba7a5974d8db047242c0c1646bc0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684781"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476857"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Guide pratique pour utiliser la méthode TransformText
 
@@ -30,7 +30,7 @@ La méthode est un service RESTful qui utilise GET via HTTP. Elle prend en charg
 
 | Paramètre | Description |
 |:---|:---|
-| En-tête d’autorisation. | **Requis** En-tête HTTP utilisé pour identifier l’application. Utilisez la clé : « Authorization » et la valeur : « Bearer » + « » + jeton d’accès. Pour plus d’informations, allez ici.|
+| En-tête d’autorisation. | **Requis** En-tête HTTP utilisé pour identifier l’application. Utiliser la clé : « Autorisation » et la valeur : « Porteur » + «» + jeton d’accès. Pour plus d’informations, allez ici.|
 | Langage | **Requis** Chaîne représentant le code de la langue. Ce paramètre prend en charge uniquement l’anglais avec **en** comme nom de langue.|
 | category | **Facultatif** Chaîne contenant la catégorie ou le domaine de la traduction. Ce paramètre prend en charge uniquement l’option par défaut **general**.|
 | sentence | **Requis** Phrase que vous souhaitez corriger. |

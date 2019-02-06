@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e0f85e11b2be8a615f949e0d37325dbd748f728a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614470"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103273"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Didacticiel Azure WCF Relay REST
 Ce didacticiel explique comment créer une simple application hôte Azure Relay qui expose une interface de type REST. REST permet à un client web, par exemple un navigateur web, d’accéder aux API Service Bus via des requêtes HTTP.
@@ -51,7 +51,7 @@ Pour commencer à utiliser les fonctionnalités de relais dans Azure, vous devez
 
 Lorsque vous créez un service de type REST WCF, vous devez définir le contrat. Le contrat spécifie les opérations prises en charge par l'hôte. Une opération de service peut être considérée comme une méthode de service web. Les contrats sont créés en définissant une interface C++, C# ou Visual Basic. Chaque méthode dans l'interface correspond à une opération de service spécifique. L’attribut [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) doit être appliqué à chaque interface et l’attribut [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) doit être appliqué à chaque opération. Si une méthode dans une interface qui contient l’attribut [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) n’a pas l’attribut [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), cette méthode n’est pas exposée. Le code utilisé pour effectuer ces tâches est indiqué dans l'exemple suivant la procédure.
 
-La principale différence entre un contrat WCF et un contrat de type REST est l’ajout d’une propriété à l’attribut [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) : [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Cette propriété vous permet de mapper une méthode dans votre interface à une méthode de l'autre côté de l'interface. Cet exemple utilise l’attribut [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) pour lier une méthode HTTP GET. Cela permet à Service Bus de récupérer et d’interpréter correctement les commandes envoyées à l’interface.
+La principale différence entre un contrat WCF et un contrat de type REST est l’ajout d’une propriété à l’attribut [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) : [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Cette propriété vous permet de mapper une méthode dans votre interface à une méthode de l'autre côté de l'interface. Cet exemple utilise l’attribut [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) pour lier une méthode HTTP GET. Cela permet à Service Bus de récupérer et d’interpréter correctement les commandes envoyées à l’interface.
 
 ### <a name="to-create-a-contract-with-an-interface"></a>Création d’un contrat avec une interface
 
@@ -439,9 +439,9 @@ L'exemple suivant montre le fichier App.config associé au service.
       </behaviors>
     </system.serviceModel>
     <appSettings>
-        <!-- Service Bus specific app setings for messaging connections -->
+        <!-- Service Bus specific app settings for messaging connections -->
         <add key="Microsoft.ServiceBus.ConnectionString"
-            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey="YOUR_SAS_KEY"/>
+            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SAS_KEY>"/>
     </appSettings>
 </configuration>
 ```

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3c2953d44587d72517c6f619ee9c9f05aabff186
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422743"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094374"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels de service à service utilisant l’identité utilisateur déléguée dans le flux On-Behalf-Of
 
@@ -37,7 +37,7 @@ Le flux On-Behalf-Of (OBO) OAuth 2.0 permet à une application qui appelle un se
 
 Le flux OBO commence après que l’utilisateur a été authentifié sur une application qui utilise le [flux d’octroi de code d’autorisation OAuth 2.0](v1-protocols-oauth-code.md). À ce stade, l’application envoie un jeton d’accès (jeton A) à l’API web de niveau intermédiaire (API A) contenant les revendications de l’utilisateur et le consentement pour accéder à l’API A. Ensuite, l’API A fait une demande authentifiée à l’API web en aval (API B).
 
-Ces étapes constituent le flux On-Behalf-Of : ![Flux On-Behalf-Of OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Ces étapes constituent le flux On-Behalf-Of : ![Flux Pour le compte de OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. L’application cliente fait une demande à l’API A avec le jeton A.
 1. L’API A s’authentifie auprès du point de terminaison d’émission de jeton Azure AD et demande un jeton pour accéder à l’API B.
@@ -103,7 +103,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 L’application cliente est sécurisée par un secret partagé ou par un certificat.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : demande de jeton d’accès avec un secret partagé
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : Requête de jeton d’accès avec un secret partagé
 
 Lorsque l’application utilise un secret partagé, la demande de jeton d’accès de service à service contient les paramètres suivants :
 
@@ -137,7 +137,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : demande de jeton d’accès avec un certificat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : Requête de jeton d’accès avec un certificat
 
 Une demande de jeton d’accès de service à service avec un certificat contient les paramètres suivants :
 
@@ -181,7 +181,7 @@ Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec
 
 | Paramètre | Description |
 | --- | --- |
-| token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le **jeton porteur**. Pour plus d’informations sur les jetons du porteur, consultez [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le **jeton porteur**. Pour plus d’informations sur les jetons du porteur, consultez le [Framework d’autorisation OAuth 2.0 : Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |Étendue de l’accès accordé dans le jeton. |
 | expires_in |Durée de validité du jeton d’accès (en secondes). |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
@@ -263,8 +263,8 @@ Une demande de service à service pour obtenir une assertion SAML contient les p
 
 La réponse contient un jeton SAML encodé en UTF8 et Base64url.
 
-- **SubjectConfirmationData pour une assertion SAML provenant d’un appel OBO** : si l’application cible requiert une valeur de destinataire dans **SubjectConfirmationData**, la valeur doit être une URL de réponse sans caractères génériques dans la configuration de la ressource d’application.
-- **Le nœud SubjectConfirmationData** : le nœud ne peut pas contenir d’attribut **InResponseTo**, car il ne fait pas partie d’une réponse SAML. L’application qui reçoit le jeton SAML doit pouvoir accepter l’assertion SAML sans attribut **InResponseTo**.
+- **SubjectConfirmationData pour une assertion SAML provenant d’un appel OBO** : si l’application cible nécessite une valeur de destinataire dans **SubjectConfirmationData**, la valeur doit être une URL de réponse sans caractère générique dans la configuration de la ressource d’application.
+- **Le nœud SubjectConfirmationData** : le nœud ne peut pas contenir d’attribut **InResponseTo**, dans la mesure où il ne fait pas partie d’une réponse SAML. L’application qui reçoit le jeton SAML doit pouvoir accepter l’assertion SAML sans attribut **InResponseTo**.
 
 - **Consentement** : un consentement doit avoir été accordé pour recevoir un jeton SAML contenant des données utilisateur sur un flux OAuth. Pour plus d’informations sur les autorisations et sur l’obtention d’un consentement de l’administrateur, consultez [Autorisations et consentement dans le point de terminaison Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
@@ -272,7 +272,7 @@ La réponse contient un jeton SAML encodé en UTF8 et Base64url.
 
 | Paramètre | Description |
 | --- | --- |
-| token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le **jeton porteur**. Pour plus d’informations sur les jetons du porteur, consultez [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le **jeton porteur**. Pour plus d’informations sur les jetons du porteur, consultez le [Framework d’autorisation OAuth 2.0 : Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |Étendue de l’accès accordé dans le jeton. |
 | expires_in |Durée de validité du jeton d’accès (en secondes). |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
@@ -280,14 +280,14 @@ La réponse contient un jeton SAML encodé en UTF8 et Base64url.
 | access_token |Paramètre qui retourne l’assertion SAML. |
 | refresh_token |Le jeton d’actualisation. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration de l’instruction d’assertion SAML actuelle. |
 
-- token_type : Bearer
+- token_type : Support
 - expires_in : 3296
 - ext_expires_in : 0
 - expires_on : 1529627844
 - resource : `https://api.contoso.com`
-- access_token : \<assertion SAML\>
+- access_token : \<Assertion SAML\>
 - issued_token_type : urn:ietf:params:oauth:token-type:saml2
-- refresh_token : \<jeton d’actualisation\>
+- refresh_token : \<Jeton d’actualisation\>
 
 ## <a name="client-limitations"></a>Limitations du client
 

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 5c904feacef4f5c15784c5f30c5f8bedf3940329
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425341"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097042"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procédure : Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application mutualisée
+# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Activation Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 
 Si vous proposez une application SaaS (Software as a Service) à de nombreuses organisations, vous pouvez configurer votre application pour accepter des connexions à partir de tout client Azure Active Directory (Azure AD). Cette configuration est appelée *quand vous rendez votre application mutualisée*. Les utilisateurs de n’importe quel client Azure AD pourront se connecter à votre application après votre consentement afin d’utiliser leur compte avec votre application. 
 
@@ -59,7 +59,7 @@ Dans une application à client unique, les demandes de connexion sont envoyées 
 
 Avec une application mutualisée, l’application ne sait pas à l’avance de quel client provient l’utilisateur et vous ne pouvez donc pas envoyer des demandes au point de terminaison d’un client. Au lieu de cela, les demandes sont envoyées à un point de terminaison qui est multiplexé entre tous les clients Azure AD : `https://login.microsoftonline.com/common`
 
-Quand Azure AD reçoit une demande sur le point de terminaison /common, il connecte l’utilisateur et, par conséquent, détecte le client dont il provient. Le point de terminaison /common fonctionne avec tous les protocoles d’authentification pris en charge par Azure AD : OpenID Connect OAuth 2.0, SAML 2.0 et WS-Federation.
+Quand Azure AD reçoit une demande sur le point de terminaison /common, il connecte l’utilisateur et, par conséquent, détecte le client dont il provient. Le point de terminaison /common fonctionne avec tous les protocoles d’authentification pris en charge par Azure AD :  OpenID Connect, OAuth 2.0, SAML 2.0 et WS-Federation.
 
 La réponse de connexion envoyée à l’application contient un jeton représentant l’utilisateur. La valeur issuer du jeton indique à une application de quel client provient l’utilisateur. Quand une réponse revient du point de terminaison /common, la valeur issuer du jeton correspond au locataire de l’utilisateur. 
 

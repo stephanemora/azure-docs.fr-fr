@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a76be5203c7d62ba973993bf6338b7496e2fce80
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902686"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203927"
 ---
 # <a name="lambda-search-syntax"></a>Syntaxe d’une recherche lambda
 
@@ -33,7 +33,7 @@ FollowEdge(params string[] edgeTypes)
 > [!NOTE]
 > Si le type d’arête n’a pas d’importance, omettez simplement *FollowEdge()* entre deux nœuds et la requête parcourra toutes les arêtes possible entre ces deux nœuds.
 
-Vous pouvez spécifier les actions de traversée à effectuer sur un nœud via *VisitNode()*. En d’autres termes, vous pouvez déterminer s’il convient de s’arrêter sur un nœud, auquel cas le résultat correspondra au chemin d’accès actuel, ou de continuer à explorer le graphique.  Le type enum *Action* définit deux types d’actions : *Action.Return* et *Action.Continue*. Vous pouvez transmettre ce type de valeur enum directement à *VisitNode()* ou les combiner aux opérations au niveau du bit et à l’opérateur « & » (AND). Lorsque deux actions sont combinées, cela signifie que les deux actions seront effectuées. Remarque : n’utilisez pas les opérations au niveau du bit ou l’opérateur « | » sur les actions (OR). Ce comportement entraîne l’arrêt de la requête sans aucun résultat. Si vous ignorez *VisitNode()* entre deux appels *FollowEdge()*, l’exploration du graphique est effectuée sans condition lorsque la requête atteint un nœud.
+Vous pouvez spécifier les actions de traversée à effectuer sur un nœud via *VisitNode()*. En d’autres termes, vous pouvez déterminer s’il convient de s’arrêter sur un nœud, auquel cas le résultat correspondra au chemin d’accès actuel, ou de continuer à explorer le graphique.  Le type enum *Action* définit deux types d’actions : *Action.Return* et *Action.Continue*. Vous pouvez transmettre ce type de valeur enum directement à *VisitNode()* ou les combiner aux opérations au niveau du bit et à l’opérateur « & » (AND). Lorsque deux actions sont combinées, cela signifie que les deux actions seront effectuées. Remarque : n’utilisez pas les opérations au niveau du bit ou l’opérateur « | » sur les actions (OR). Ce comportement entraîne l’arrêt de la requête sans aucun résultat. Si vous ignorez *VisitNode()* entre deux appels *FollowEdge()*, l’exploration du graphique est effectuée sans condition lorsque la requête atteint un nœud.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
@@ -93,7 +93,7 @@ Retourne *Action.Continue* si la condition est *true*. Si la condition est *fals
 
 Génère un nombre aléatoire supérieur ou égal à 0.0 et inférieur à 1.0. Cette fonction renvoie *true* uniquement si le nombre est inférieur ou égal à *p*.
 
-Par rapport à la recherche *json*, la recherche *lambda* est plus expressive : les expressions lambda C# peuvent être directement utilisées pour spécifier les modèles de requête. Voici deux exemples.
+Par rapport à la recherche *json*, la recherche *lambda* est plus expressive : Les expressions lambda C# peuvent servir directement à spécifier des modèles de requête. Voici deux exemples.
 
 ```
 MAG.StartFrom(@"{

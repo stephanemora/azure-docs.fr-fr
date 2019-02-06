@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 8d4a99ab9d8107f1b3fbe70f59299f427bc88bd5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 86eec87d0c466b9172834fa9dbe7dfcb3702ea55
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465882"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094102"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Développer un module IoT Edge en C# pour déplacer les fichiers vers Data Box Edge (préversion)
 
@@ -97,8 +97,8 @@ Les étapes suivantes permettent de créer un projet de module IoT Edge basé su
 Créez un modèle de solution C# que vous pouvez personnaliser avec votre propre code.
 
 1. Dans Visual Studio Code, sélectionnez **Affichage > Palette de commandes** pour ouvrir la palette de commandes VS Code.
-2. Dans la palette de commandes, entrez et exécutez la commande **Azure: Sign in** (Azure : connexion) et suivez les instructions pour vous connecter à votre compte Azure. Si vous êtes déjà connecté, vous pouvez ignorer cette étape.
-3. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge : nouvelle solution IoT Edge**. Dans la palette de commandes, spécifiez les informations suivantes pour créer votre solution :
+2. Dans la palette de commandes, entrez et exécutez la commande **Azure: Sign in** et suivez les instructions pour vous connecter à votre compte Azure. Si vous êtes déjà connecté, vous pouvez ignorer cette étape.
+3. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: Nouvelle solution IoT Edge**. Dans la palette de commandes, spécifiez les informations suivantes pour créer votre solution :
 
     1. Sélectionnez le dossier où vous souhaitez créer la solution.
     2. Spécifiez un nom pour votre solution ou acceptez le nom par défaut **EdgeSolution**.
@@ -143,7 +143,7 @@ Créez un modèle de solution C# que vous pouvez personnaliser avec votre propre
             static int counter;
             private const string InputFolderPath = "/home/LocalShare";
             private const string OutputFolderPath = "/home/CloudShare";
-    ````
+    ```
 
     > [!IMPORTANT]
     > Notez les valeurs `InputFolderPath` et `OutputFolderPath`. Vous devrez fournir ces chemins d’accès lorsque vous déploierez ce module.
@@ -269,7 +269,7 @@ Dans la section précédente, vous avez créé une solution IoT Edge et ajouté 
 
     L’avertissement suivant peut s’afficher, mais vous pouvez l’ignorer :
 
-    *Program.cs(77,44): warning CS1998: Cette méthode async n’a pas d’opérateur « await » et elle s’exécutera de façon synchrone. Utilisez l’opérateur « await » pour attendre les appels d’API non bloquants ou « await Task.Run(…) » pour effectuer un travail utilisant le processeur sur un thread d’arrière-plan.*
+    *Program.cs(77,44) : avertissement CS1998 : Cette méthode async n’a pas d’opérateur 'await' et elle s’exécutera de façon synchrone. Utilisez l’opérateur « await » pour attendre les appels d’API non bloquants ou « await Task.Run(…) » pour effectuer un travail utilisant le processeur sur un thread d’arrière-plan.*
 
 4. Vous pouvez afficher l’adresse complète de l’image conteneur avec la balise dans le terminal intégré de VS Code. L’adresse de l’image est créée à partir d’informations contenues dans le fichier module.json, au format `<repository>:<version>-<platform>`. Dans cet article, cela ressemble à ce qui suit : `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
 

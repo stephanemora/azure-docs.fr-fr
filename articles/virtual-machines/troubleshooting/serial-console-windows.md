@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b280c86b15f7af01b04d41b4c2d625ea4ec4a398
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432760"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104354"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Console série de machine virtuelle pour Windows
 
@@ -136,6 +136,13 @@ L’utilisation des touches de fonction est activée dans la console série sur 
 
 ### <a name="use-wsl-in-serial-console"></a>Utiliser WSL dans la console série
 Le sous-système Windows pour Linux (WSL) est activé pour Windows Server 2019 ou versions ultérieures. Ainsi, vous pouvez activer WSL afin de l’utiliser dans la console série si vous exécutez Windows Server 2019 ou une version ultérieure. Cette possibilité est particulièrement intéressante pour les utilisateurs qui connaissent également les commandes Linux. Pour obtenir des instructions sur l’activation de WSL pour Windows Server, consultez le [guide d’installation](https://docs.microsoft.com/windows/wsl/install-on-server).
+
+### <a name="restart-your-windows-vm-within-serial-console"></a>Redémarrer votre machine virtuelle Windows dans la console série
+Vous pouvez redémarrer votre machine virtuelle au sein de la console série en accédant au bouton d’alimentation, puis en cliquant sur « Redémarrer la machine virtuelle ». Cette opération lance un redémarrage de la machine virtuelle. Vous voyez ensuite une notification de redémarrage dans le portail Azure.
+
+Ce redémarrage s’avère utile quand vous voulez accéder au menu de démarrage de votre machine virtuelle sans quitter l’expérience de console série.
+
+![Redémarrage de la console série Windows](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## <a name="disable-serial-console"></a>Désactiver la console série
 Par défaut, tous les abonnements ont accès à la console série pour toutes les machines virtuelles. Vous pouvez désactiver la console série au niveau de l’abonnement ou de la machine virtuelle.

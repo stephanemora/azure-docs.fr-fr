@@ -1,6 +1,6 @@
 ---
-titre : Évaluation des données - titleSuffix : Description d'Azure Machine Learning Studio : Quatre critères que vos données doivent respecter pour être prêtes pour la science des données. Cette vidéo contient des exemples concrets pour faciliter l’évaluation de données de base.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Évaluation des données - titleSuffix : Description d'Azure Machine Learning Studio : Quatre critères que vos données doivent respecter pour être prêtes pour la science des données. Cette vidéo contient des exemples concrets pour faciliter l’évaluation de données de base.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/01/2018
 ---

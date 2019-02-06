@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 11125fb1c78852a048787e99d78bf4cb941184fa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 492bdd30a656a37196cf4d27a2510dbc3a79807d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320359"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463563"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Nouveautés dans Azure SQL Data Warehouse Août 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en août 2018.
@@ -32,7 +32,7 @@ Vous pouvez explorer chaque catégorie pour afficher les suggestions pour l’al
 
 | Intitulé | Description |
 |:---|:---|
-| **Échecs de requêtes potentiels lorsque le nombre de fragments dépasse la limite maximale autorisée** |Lorsque la limite maximale d’1 million de fragments de fichier a été dépassée, une exception non prise en charge a contraint le moteur SQL à vider la base de données et toutes les requêtes ont échoué. Ce correctif permet de résoudre le problème en gérant de manière appropriée l’exception et en retournant une erreur sans provoquer l’échec des requêtes. |
+| **Échecs de requêtes potentiels lorsque le nombre de fragments dépasse la limite maximale autorisée** |Lorsque la limite maximale d’1 million de fragments de fichier a été dépassée, une exception non prise en charge a contraint le moteur SQL à vider la base de données et toutes les requêtes ont échoué. Ce correctif a permis de résoudre le problème en gérant de manière appropriée l’exception et en retournant une erreur sans provoquer l’échec des requêtes. |
 | **Augmentation de la valeur ExternalMoveReadersPerNode par défaut pour améliorer les performances de chargement** |Ce problème est survenu suite à une erreur de synchronisation de la propriété ExternalMoveReadersPerNode avec le paramètre de structure de service. Cette régression a entraîné une dégradation des performances de chargement de deuxième génération. Le correctif rétablit les performances de chargement de deuxième génération avec des paramètres de conception optimisés.|
 
 

@@ -9,13 +9,13 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 67a5dc0eddb6deb51ec69c68c48d5edf308cf43e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: queues
+ms.openlocfilehash: 7ebb4326a8ec8a3382a5488ce3b966526bef446a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231564"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456270"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Utilisation du stockage de files d'attente à partir de Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -63,7 +63,7 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique ou Resour
 4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux. 
 5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers. 
 
-## <a name="how-to-create-a-queue"></a>Création d'une file d'attente
+## <a name="how-to-create-a-queue"></a>Procédure : Création d’une file d’attente
 Le code suivant crée un objet **Azure::QueueService** , ce qui vous permet d'utiliser les files d'attente.
 
 ```ruby
@@ -80,14 +80,14 @@ rescue
 end
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Insertion d'un message dans une file d'attente
+## <a name="how-to-insert-a-message-into-a-queue"></a>Procédure : Insertion d’un message dans une file d’attente
 Pour insérer un message dans une file d’attente, utilisez la méthode **create_message()** pour créer un message et l’ajouter à la file d’attente.
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Lecture furtive du message suivant
+## <a name="how-to-peek-at-the-next-message"></a>Procédure : Lecture furtive du message suivant
 Vous pouvez lire furtivement le message au début de la file d’attente sans l’enlever de la file d’attente en appelant la méthode **peek\_messages()**. Par défaut, **peek\_messages()** lit furtivement un seul message. Vous pouvez également spécifier le nombre de messages que vous souhaitez lire furtivement.
 
 ```ruby
@@ -95,7 +95,7 @@ result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Suppression du message suivant dans la file d'attente
+## <a name="how-to-dequeue-the-next-message"></a>Procédure : Suppression du message suivant de la file d’attente
 Vous pouvez supprimer un message d'une file d'attente en deux étapes.
 
 1. Lorsque vous appelez **list\_messages()**, vous obtenez le message suivant dans une file d’attente par défaut. Vous pouvez également spécifier le nombre de messages que vous souhaitez obtenir. Les messages renvoyés par **list\_messages()** deviennent invisibles aux autres codes lisant les messages de cette file d’attente. Vous transmettez le délai d'expiration de la visibilité en secondes en tant que paramètre.
@@ -109,7 +109,7 @@ azure_queue_service.delete_message("test-queue",
   messages[0].id, messages[0].pop_receipt)
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Modification du contenu d'un message en file d'attente
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procédure : Modification du contenu d’un message en file d’attente
 Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Le code ci-dessous utilise la méthode **update_message()** pour mettre à jour un message. La méthode renvoie un tuple qui contient l'accusé pop du message de file d'attente et une valeur de date et d'heure TUC représentant le moment où le message sera visible dans la file d'attente.
 
 ```ruby
@@ -119,7 +119,7 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
   30)
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Options supplémentaires pour la suppression des messages dans la file d'attente
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Procédure : Options supplémentaires pour la suppression des messages dans la file d’attente
 Il existe deux façons de personnaliser la récupération des messages à partir d'une file d'attente.
 
 1. Vous pouvez obtenir un lot de messages.
@@ -135,7 +135,7 @@ azure_queue_service.list_messages("test-queue", 300
 end
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Obtention de la longueur de la file d'attente
+## <a name="how-to-get-the-queue-length"></a>Procédure : Obtention de la longueur de la file d’attente
 Vous pouvez obtenir une estimation du nombre de messages dans la file d'attente. La méthode **get\_queue\_metadata()** demande au service de File d’attente de renvoyer le nombre de messages approximatif et les métadonnées relatives à la file d’attente.
 
 ```ruby
@@ -143,7 +143,7 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
   "test-queue")
 ```
 
-## <a name="how-to-delete-a-queue"></a>Suppression d'une file d'attente
+## <a name="how-to-delete-a-queue"></a>Procédure : Suppression d’une file d’attente
 Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode **delete\_queue()** sur l’objet file d’attente.
 
 ```ruby

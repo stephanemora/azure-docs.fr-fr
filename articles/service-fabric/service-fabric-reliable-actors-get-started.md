@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f92fe2432051b148bf0b35fccc3fa33db9b66a14
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054748"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093144"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Prise en main de Reliable Actors
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ La solution inclut trois projets :
 
 * **Le projet d’interface (HelloWorld.Interfaces)**. Ce projet contient la définition d'interface de l'acteur. Les interfaces d'acteur peuvent être définies dans n'importe quel projet avec n'importe quel nom.  L'interface définit le contrat d'acteur qui est partagé par l'implémentation de l'acteur et les clients appelant l'acteur.  Comme les projets client peuvent en dépendre, il est généralement logique de le définir dans un assembly distinct de l'implémentation de l'acteur.
 
-* **Le projet de service de l’acteur (HelloWorld)**. Ce projet définit le service Service Fabric qui va héberger l'acteur. Il contient l’implémentation de l’acteur, *HellowWorld.cs*. Une implémentation de l’acteur est une classe qui dérive d’un type de base `Actor` et implémente les interfaces définies dans le projet *MyActor.Interfaces*. Une classe d’acteur doit également implémenter un constructeur qui accepte une `ActorService` instance et un `ActorId` et les transmet à la classe de base `Actor`.
+* **Le projet de service de l’acteur (HelloWorld)**. Ce projet définit le service Service Fabric qui va héberger l'acteur. Il contient l’implémentation de l’acteur *HelloWorld.cs*. Une implémentation de l’acteur est une classe qui dérive d’un type de base `Actor` et implémente les interfaces définies dans le projet *MyActor.Interfaces*. Une classe d’acteur doit également implémenter un constructeur qui accepte une `ActorService` instance et un `ActorId` et les transmet à la classe de base `Actor`.
     
     Ce projet contient également *Program.cs*, qui inscrit les classes d'acteur auprès du runtime Service Fabric en utilisant `ActorRuntime.RegisterActorAsync<T>()`. La classe `HelloWorld` est déjà inscrite. Toute implémentation d'acteur supplémentaire ajoutée au projet doit également être inscrite dans la méthode `Main()`.
 

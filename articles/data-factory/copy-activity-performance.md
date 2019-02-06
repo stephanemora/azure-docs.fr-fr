@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020881"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301269"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -241,7 +241,17 @@ Nous vous recommandons d’effectuer cette procédure pour régler les performan
 
 1. **Établir une ligne de base**. Pendant la phase de développement, testez votre pipeline en utilisant l’activité de copie sur un échantillon de données représentatif. Collecter les détails de l’exécution et les caractéristiques des performances suivant [le monitoring de l’activité de copie](copy-activity-overview.md#monitoring).
 
-2. **Diagnostiquer et optimiser les performances**. Si les performances que vous observez ne répondent pas à vos attentes, vous devez identifier les goulots d’étranglement. Ensuite, optimisez les performances pour supprimer ou réduire l’effet des goulots d’étranglement. Une description complète du diagnostic des performances dépasserait la portée de cet article, mais voici quelques considérations d’ordre général :
+2. **Diagnostiquer et optimiser les performances**. Si les performances que vous observez ne répondent pas à vos attentes, vous devez identifier les goulots d’étranglement. Ensuite, optimisez les performances pour supprimer ou réduire l’effet des goulots d’étranglement. 
+
+    Dans certains cas, lorsque vous exécutez une activité de copie dans ADF, vous voyez directement « **Conseils pour le réglage des performances** » en haut de la [page de surveillance de l’activité de copie](copy-activity-overview.md#monitor-visually) comme indiqué dans l’exemple suivant. En plus de vous indiquer le goulot d’étranglement identifié pour l’exécution de la copie, il vous guide sur les modifications à apporter pour accélérer le débit de copie. Actuellement, les conseils pour le réglage des performances offrent des suggestions : par exemple, utiliser PolyBase lors de la copie de données dans Azure SQL Data Warehouse, augmenter l’unité de requête Azure Cosmos DB ou l’unité de transaction de base de données Azure SQL Database quand la ressource côté magasin de données est le goulot d’étranglement, supprimer la copie intermédiaire non nécessaire, etc. Les règles d'optimisation des performances seront également enrichies de façon progressive.
+
+    **Exemple : copier dans Azure SQL Database avec des conseils pour le réglage des performances**
+
+    Dans cet exemple, lors l’exécution de la copie, ADF remarque que l’instance Azure SQL DB de réception atteint une utilisation d’unités de transaction de base de données élevée qui ralentit les opérations d’écriture. La suggestion est d’augmenter le niveau Azure SQL DB avec plus de DTU. 
+
+    ![Surveillance de la copie avec conseils d'optimisation des performances](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    En outre, vous trouverez ci-dessous quelques considérations courantes. Une description complète du diagnostic des performances dépasserait la portée de cet article.
 
    * Fonctionnalités de performances :
      * [Copie en parallèle](#parallel-copy)

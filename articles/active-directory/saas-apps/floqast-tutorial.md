@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à FloQast | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à FloQast | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FloQast.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 013cb57d-567c-44d0-a119-e6ba6e607153
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 212e9b8c404cda330d2415b4f3274b668df8977b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f46714d2d4860abd1857e6ae16f98848678336aa
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432206"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184770"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Didacticiel : Intégration d’Azure Active Directory à FloQast
+# <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Tutoriel : Intégration d’Azure Active Directory à FloQast
 
 Dans ce didacticiel, vous allez apprendre à intégrer FloQast à Azure AD (Azure Active Directory).
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 1. Pour configurer l’authentification unique côté **FloQast**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique de FloQast](mailto:support@floqast.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -195,7 +195,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-floqast-test-user"></a>Créer un utilisateur test FloQast
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans FloQast. Collaborez avec l’[équipe du support technique FloQast](mailto:support@floqast.com) pour ajouter des utilisateurs dans la plate-forme FloQast. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans FloQast. Collaborez avec l’ [équipe du support technique de FloQast](mailto:support@floqast.com)  pour ajouter des utilisateurs à la plateforme FloQast. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

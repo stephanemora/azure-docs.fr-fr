@@ -2,18 +2,18 @@
 title: Configurer des points de terminaison de nœud dans le pool Azure Batch| Microsoft Docs
 description: Comment configurer ou désactiver l’accès aux ports SSH ou RDP sur les nœuds de calcul dans un pool Azure Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: danlep
-ms.openlocfilehash: 5898206761e5029f94b6d1f1b48223481ae2ca13
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: lahugh
+ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358725"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457613"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurer ou désactiver l’accès à distance aux nœuds de calcul dans un pool Azure Batch
 
@@ -31,7 +31,7 @@ Chaque configuration de pool NAT inclut les [règles d’un ou plusieurs groupes
 * Vous pouvez configurer plusieurs règles NSG lorsque vous configurez un pool NAT. Les règles sont vérifiées dans l’ordre de priorité. Une fois qu’une règle s’applique, plus aucune correspondance de règle n’est testée.
 
 
-## <a name="example-deny-all-rdp-traffic"></a>Exemple : refuser tout le trafic RDP
+## <a name="example-deny-all-rdp-traffic"></a>Exemple : refuser tout le trafic RDP
 
 L’extrait de code C# suivant montre comment configurer le point de terminaison RDP sur les nœuds de calcul dans un pool Windows afin de refuser tout le trafic réseau. Le point de terminaison utilise un pool frontal de ports dans la plage *60000 - 60099*. 
 
@@ -48,7 +48,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Exemple : refuser tout trafic SSH provenant d’Internet
+## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Exemple : refuser tout le trafic SSH provenant d’Internet
 
 L’extrait de code Python suivant montre comment configurer le point de terminaison SSH sur les nœuds de calcul dans un pool Linux afin de refuser tout le trafic Internet. Le point de terminaison utilise un pool frontal de ports dans la plage *4000 - 4100*. 
 
@@ -74,7 +74,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 )
 ```
 
-## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>Exemple : autoriser le trafic RDP à partir d’une adresse IP spécifique
+## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>Exemple : autoriser le trafic RDP à partir d’une adresse IP spécifique
 
 L’extrait de code C# suivant montre comment configurer le point de terminaison RDP sur les nœuds de calcul dans un pool Windows afin d’autoriser l’accès RDP uniquement à partir de l’adresse IP *198.51.100.7*. La deuxième règle NSG refuse le trafic qui ne correspond pas à l’adresse IP.
 
@@ -92,7 +92,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>Exemple : autoriser le trafic SSH à partir d’un sous-réseau spécifique
+## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>Exemple : autoriser le trafic SSH à partir d’un sous-réseau spécifique
 
 L’extrait de code Python suivant montre comment configurer le point de terminaison SSH sur les nœuds de calcul dans un pool Linux afin d’autoriser l’accès uniquement à partir du sous-réseau *192.168.1.0/24*. La deuxième règle NSG refuse le trafic qui ne correspond pas au sous-réseau.
 

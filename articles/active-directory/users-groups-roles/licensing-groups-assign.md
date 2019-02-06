@@ -10,16 +10,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 423842d3e2485334a916423e997c12669a126adb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215002"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155066"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Affecter des licences aux utilisateurs par appartenance aux groupes dans Azure Active Directory
 
@@ -32,7 +32,7 @@ Dans cet exemple, le locataire contient un groupe de sécurité appelé **HR Dep
 
 > Pour l’affectation d’une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si vos utilisateurs sont situés à plusieurs emplacements, nous vous recommandons de définir systématiquement l’emplacement d’utilisation dans le cadre de votre flux de création d’utilisateur dans Azure AD (par exemple, par le biais d’une configuration AAD Connect). Cela garantit que le résultat de l’affectation de licence est toujours correct et que les utilisateurs ne reçoivent pas de services à des emplacements non autorisés.
 
-## <a name="step-1-assign-the-required-licenses"></a>Étape 1 : Affecter les licences requises
+## <a name="step-1-assign-the-required-licenses"></a>Étape 1 : Affecter les licences requises
 
 1. Connectez-vous au [**portail Azure**](https://portal.azure.com) avec un compte administrateur. Pour gérer les licences, le compte doit être un rôle Administrateur général ou Administrateur des comptes d’utilisateur.
 
@@ -61,7 +61,7 @@ Nous avons maintenant spécifié un modèle de licence sur le groupe HR Departme
 > [!NOTE]
 > Vous pouvez démarrer la même affectation à partir d’un autre emplacement : **Utilisateurs et groupes** dans Azure AD. Accédez à **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les groupes**. Recherchez le groupe, sélectionnez-le et cliquez sur l’onglet **Licences**. Le bouton **Affecter** en haut du volet permet d’ouvrir le volet d’affectation des licences.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Étape 2 : Vérifier que l’affectation initiale est terminée
+## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Étape 2 : Vérifier que l’affectation initiale est terminée
 
 1. Accédez à **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les groupes**. Recherchez le groupe **HR Department** auquel ont été affectées les licences.
 
@@ -77,13 +77,13 @@ Nous avons maintenant spécifié un modèle de licence sur le groupe HR Departme
 
 3. Pour des informations plus détaillées sur le traitement des licences, consultez **Azure Active Directory** > **Utilisateurs et groupes** > *nom du groupe* > **Journaux d’audit**. Notez les activités suivants :
 
-   - Activité : **Commencer à appliquer une licence basée sur le groupe aux utilisateurs**. Elle est consignée lorsque le système sélectionne la modification d’affectation de licences sur le groupe et commence à l’appliquer à tous les membres utilisateur. Elle contient des informations sur la modification qui a été apportée.
+   - Activité : **Commencer à appliquer une licence basée sur un groupe à des utilisateurs**. Elle est consignée lorsque le système sélectionne la modification d’affectation de licences sur le groupe et commence à l’appliquer à tous les membres utilisateur. Elle contient des informations sur la modification qui a été apportée.
 
-   - Activité : **Terminer l’application d’une licence basée sur le groupe aux utilisateurs**. Elle est consignée lorsque le système termine le traitement de tous les utilisateurs du groupe. Elle contient un résumé du nombre d’utilisateurs qui ont été traités avec succès et du nombre d’utilisateurs auxquels les licences du groupe n’ont pas pu être affectées.
+   - Activité : **Terminer l’application d’une licence basée sur le groupe à des utilisateurs**. Elle est consignée lorsque le système termine le traitement de tous les utilisateurs du groupe. Elle contient un résumé du nombre d’utilisateurs qui ont été traités avec succès et du nombre d’utilisateurs auxquels les licences du groupe n’ont pas pu être affectées.
 
    [Lisez cette section](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) pour en savoir plus sur l’utilisation des journaux d’audit pour analyser les modifications apportées par une gestion des licences basée sur un groupe.
 
-## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Étape 3 : Rechercher des problèmes de licences et les résoudre
+## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Étape 3 : Rechercher des problèmes de licences et les résoudre
 
 1. Accédez à **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les groupes** et recherchez le groupe **HR Department** auquel des licences ont été affectées.
 2. Dans le volet du groupe **HR Department**, sélectionnez **Licences**. La notification en haut du volet indique que des licences n’ont pas pu être affectées à 10 utilisateurs. En cliquant sur cette notification, vous accédez à une liste de tous les utilisateurs associés à une erreur de licence pour ce groupe.

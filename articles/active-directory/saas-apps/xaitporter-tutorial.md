@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de Azure Active Directory avec XaitPorter | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à XaitPorter | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et XaitPorter.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 12fb8e5b2b940c48de766a48f59ed0cc342b5356
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fe89b64fb5f188591ce123e8ed7ed410d3c5ab48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421064"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170043"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Didacticiel : Intégration de Azure Active Directory à XaitPorter
+# <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Didacticiel : Intégration d’Azure Active Directory à XaitPorter
 
 Dans ce didacticiel, vous allez apprendre à intégrer XaitPorter dans Azure Active Directory (Azure AD).
 
@@ -183,7 +183,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-xaitporter-test-user"></a>Créer un utilisateur de test XaitPorter
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans XaitPorter. Collaborez avec l’[équipe du support technique XaitPorter](https://www.xait.com/support/) pour ajouter des utilisateurs à la plateforme XaitPorter. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans XaitPorter. Collaborez avec l’ [équipe du support technique XaitPorter](https://www.xait.com/support/)  pour ajouter des utilisateurs à la plateforme XaitPorter. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

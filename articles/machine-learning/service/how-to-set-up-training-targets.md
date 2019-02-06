@@ -7,37 +7,38 @@ author: heatherbshapiro
 ms.author: hshapiro
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75a1a8763125e1e93691e2a28bc90a6d02ed7c40
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: f7b71b2bae540f4ef6b1e9c637c601d6f7b303ae
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246328"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250705"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles
 
-Azure Machine Learning service vous permet de former votre modèle sur une variété de ressources ou d’environnements, appelés collectivement [__cibles de calcul__](concept-azure-machine-learning-architecture.md#compute-target). Une cible de calcul peut être un ordinateur local ou une ressource cloud telle qu’une capacité de calcul Azure Machine Learning, Azure HDInsight ou une machine virtuelle distante.  
+Azure Machine Learning service vous permet de former votre modèle sur une variété de ressources ou d’environnements, appelés collectivement [__cibles de calcul__](concept-azure-machine-learning-architecture.md#compute-target). Une cible de calcul peut être un ordinateur local ou une ressource cloud telle qu’une capacité de calcul Azure Machine Learning, Azure HDInsight ou une machine virtuelle distante.  Vous pouvez également créer des cibles de calcul pour le déploiement de modèle, comme décrit dans [« Déployer des modèles avec le service Azure Machine Learning »](how-to-deploy-and-where.md).
 
 Vous pouvez créer et gérer une cible de calcul avec le SDK Azure Machine Learning, Azure CLI ou le portail Azure. Si vous avez des cibles de calcul qui ont été créées via un autre service (par exemple un cluster HDInsight), vous pouvez les utiliser en les attachant à votre espace de travail du service Azure Machine Learning.
  
-Cet article explique comment utiliser les différentes cibles de calcul.  Pour toutes les cibles de calcul, le flux de travail est identique :
+Cet article explique comment utiliser les différentes cibles de calcul pour l’entraînement des modèles.  Pour toutes les cibles de calcul, le flux de travail est identique :
 1. __Créez__ une cible de calcul si vous n’en avez pas encore.
 2. __Attachez__ la cible de calcul à votre espace de travail.
 3. __Configurez__ la cible de calcul pour qu’elle contienne les dépendances d’environnement et de package Python requises par votre script.
 
+
 >[!NOTE]
 > Le code présenté dans cet article a été testé avec le Kit de développement logiciel (SDK) Azure Machine Learning version 1.0.6.
 
-## <a name="supported-compute-targets"></a>Cibles de calcul prises en charge
+## <a name="compute-targets-for-training"></a>Cibles de calcul pour l’entraînement
 
 La prise en charge par Azure Machine Learning service varie selon les cibles de calcul. Un cycle de vie typique du développement d’un modèle commence par le développement/l’expérience sur une petite quantité de données. À ce stade, nous recommandons d’utiliser un environnement local. Par exemple, votre ordinateur local ou une machine virtuelle basée cloud. Quand vous effectuez un scale-up de votre entraînement sur des jeux de données plus grands ou que vous faites un entraînement distribué, nous recommandons d’utiliser Capacité de calcul Azure Machine Learning pour créer un cluster avec un ou plusieurs nœuds qui se met à l’échelle automatiquement chaque fois que vous lancez une exécution. Vous pouvez également attacher votre propre ressource de calcul, bien que la prise en charge des différents scénarios puisse varier comme indiqué ci-dessous :
 
 
-|Cible de calcul| Accélération GPU | Automatisé<br/> optimisation des hyperparamètres | Automatisé</br> Apprentissage automatique | Pipelines faciles à utiliser|
+|Cible de calcul pour l’entraînement| Accélération GPU | Automatisé<br/> optimisation des hyperparamètres | Automatisé</br> Apprentissage automatique | Pipelines faciles à utiliser|
 |----|:----:|:----:|:----:|:----:|
 |[Ordinateur local](#local)| Peut-être | &nbsp; | ✓ | &nbsp; |
 |[Capacité de calcul Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |

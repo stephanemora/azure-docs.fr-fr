@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 01/25/2019
+ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227484"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471196"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
 
@@ -33,8 +33,8 @@ En échange du loyer, chaque client reçoit l’accès aux composants de votre a
 
 Le terme *modèle de location* fait référence à la façon dont sont organisées les données stockées des locataires :
 
-- *Monolocation :* &nbsp; Chaque base de données stocke les données d’un seul locataire.
-- *Multilocation :* &nbsp; Chaque base de données stocke les données de plusieurs locataires distincts (avec des mécanismes de protection de la confidentialité des données).
+- *Monolocation :*&nbsp; Chaque base de données stocke les données d’un seul locataire.
+- *Multilocation :*&nbsp; Chaque base de données stocke les données de plusieurs locataires distincts (avec des mécanismes de protection de la confidentialité des données).
 - Des modèles de location hybrides sont également disponibles.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Comment choisir le modèle de location approprié
@@ -49,7 +49,7 @@ En général, le modèle de location n’affecte pas le fonctionnement d’une a
 
 - **Isolation des locataires :**&nbsp; Niveau de performance et isolation des données (impact de la charge de travail d’un locataire sur les autres).
 
-- **Coût par locataire :** &nbsp; Coûts relatifs à la base de données.
+- **Coût par locataire :**&nbsp; Coûts des bases de données.
 
 - **Complexité du développement :**
     - Changements apportés au schéma.
@@ -61,7 +61,7 @@ En général, le modèle de location n’affecte pas le fonctionnement d’une a
     - Restauration d’un locataire.
     - Récupération d’urgence.
 
-- **Capacité de personnalisation :**&nbsp; Facilité de prise en charge des personnalisations de schéma spécifiques au locataire ou à la classe du locataire.
+- **Possibilités de personnalisation :**&nbsp; Facilité de prise en charge des personnalisations de schéma propres au locataire ou à la classe du locataire.
 
 La discussion sur la location est axée sur la couche *Données*.  Mais réfléchissons un instant à la couche *Application*.  La couche Application est traitée comme une entité monolithique.  Si vous divisez l’application en plusieurs composants, le modèle de location que vous avez choisi peut être amené à changer.  Vous pouvez traiter certains composants différemment des autres sur le plan de la location et de la plateforme/technologie de stockage utilisées.
 
@@ -95,7 +95,7 @@ Grâce au modèle de base de données par locataire, vous pouvez facilement pers
 
 #### <a name="elastic-pools"></a>Pools élastiques
 
-Quand des bases de données sont déployées dans le même groupe de ressources, elles peuvent être regroupées dans des pools de bases de données élastiques.  Les pools offrent un moyen économique de partager des ressources entre plusieurs bases de données.  Le fait de recourir à des pools revient moins cher que d’exiger une base de données suffisamment volumineuse pour faire face aux pics d’utilisation.  Même si les bases de données mises en pool partagent l’accès aux ressources, vous pouvez toujours obtenir un niveau élevé d’isolation des performances.
+Quand des bases de données sont déployées dans le même groupe de ressources, elles peuvent être regroupées dans des pools élastiques.  Les pools offrent un moyen économique de partager des ressources entre plusieurs bases de données.  Le fait de recourir à des pools revient moins cher que d’exiger une base de données suffisamment volumineuse pour faire face aux pics d’utilisation.  Même si les bases de données mises en pool partagent l’accès aux ressources, vous pouvez toujours obtenir un niveau élevé d’isolation des performances.
 
 ![Conception d’une application multi-locataire avec une base de données par locataire, à l’aide d’un pool élastique.][image-mt-app-db-per-tenant-pool-153p]
 
@@ -126,7 +126,7 @@ Un autre modèle disponible consiste à stocker plusieurs locataires dans une ba
 
 #### <a name="tenant-isolation-is-sacrificed"></a>L’isolation des locataires est pénalisée
 
-*Données :*&nbsp; Une base de données multi-locataire nuit nécessairement à l’isolation des locataires.  Les données de plusieurs locataires sont stockées ensemble dans une base de données.  Pendant le développement, vérifiez que les requêtes n’exposent jamais les données de plusieurs locataires.  SQL Database prend en charge la [sécurité au niveau des lignes][docu-sql-svr-db-row-level-security-947w], ce qui permet de limiter l’étendue des données retournées par une requête à un seul locataire.
+*Données :*&nbsp; Une base de données multi-locataire nuit nécessairement à l’isolation des locataires.  Les données de plusieurs locataires sont stockées ensemble dans une base de données.  Pendant le développement, vérifiez que les requêtes n’exposent jamais les données de plusieurs locataires.  SQL Database prend en charge la [sécurité au niveau des lignes][docu-sql-svr-db-row-level-security-947w], ce qui permet de limiter l’étendue des données retournées par une requête à un seul locataire.
 
 *Traitement :*&nbsp; Une base de données multi-locataire partage les ressources de calcul et de stockage entre tous ses locataires.  Vous pouvez surveiller la base de données dans son ensemble pour vérifier que ses performances sont acceptables.  Toutefois, le système Azure n’intègre aucun outil permettant de surveiller ou de gérer l’utilisation de ces ressources par un locataire individuel.  La base de données multi-locataire accroît donc le risque de rencontre de voisins bruyants, où la charge de travail d’un locataire hyperactif a un impact sur les performances des autres locataires dans la même base de données.  La mise en place d’une surveillance supplémentaire au niveau de l’application peut permettre de surveiller les performances au niveau du locataire.
 

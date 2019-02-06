@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b709bbacce23a89b8c60b77a524018b50ca1ca5e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536047"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245665"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Architecture de la connectivité d’Azure SQL Database Managed Instance
 
@@ -108,9 +108,12 @@ Vous pouvez déployer Managed Instance dans un sous-réseau dédié (sous-résea
 
 | NOM       |Port          |Protocole|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
-|gestion  |80, 443, 12000|TCP     |Quelconque              |Quelconque        |AUTORISER |
+|gestion  |80, 443, 12000|TCP     |Quelconque              |Internet   |AUTORISER |
 |mi_subnet   |Quelconque           |Quelconque     |Quelconque              |SOUS-RÉSEAU MI  |AUTORISER |
 
+  > [!Note]
+  > SOUS-RÉSEAU MI fait référence à la plage d’adresses IP du sous-réseau sous la forme 10.x.x.x/y. Vous trouverez ces informations dans le portail Azure (via les propriétés du sous-réseau).
+  
   > [!Note]
   > Bien que les règles de sécurité de trafic entrant obligatoires autorisent le trafic à partir de _n’importe quelle_ source vers les ports 9000, 9003, 1438, 1440 et 1452, ces ports sont protégés par un pare-feu intégré. Cet [article](sql-database-managed-instance-find-management-endpoint-ip-address.md) explique comment détecter l’adresse IP de point de terminaison de gestion et comment vérifier les règles de pare-feu. 
   

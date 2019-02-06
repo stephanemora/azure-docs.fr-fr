@@ -8,12 +8,12 @@ ms.date: 01/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 016d1c5d389cf1b9e82194e9d273863da1138d2b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 173e6ff91acd2ad28d7203b2b5db65e0ee0ecc43
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830035"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910827"
 ---
 # <a name="integrate-azure-iot-edge-with-jenkins-pipelines"></a>Intégrer Azure IoT Edge aux pipelines Jenkins
 
@@ -23,4 +23,4 @@ Le plug-in Azure IoT Edge pour Jenkins est axé sur l'intégration et le déploi
 
 Avant de commencer à utiliser le plug-in IoT Edge pour Jenkins, il vous faut un hub IoT dans Azure et un registre de conteneurs qui stockera les images de vos conteneurs. Utilisez un principal de service Azure pour octroyer des autorisations de contributeur Jenkins à votre hub IoT afin que le plug-in puisse créer des déploiements pour vos appareils IoT Edge. 
 
-Si vous êtes prêt à vous lancer, recherchez les informations d'installation et d'utilisation du [plug-in Azure IoT Edge pour Jenkins](https://plugins.jenkins.io/azure-iot-edge).
+Si vous êtes prêt à vous lancer, recherchez les informations d’installation et d’utilisation du [plug-in Azure IoT Edge pour Jenkins](https://plugins.jenkins.io/azure-iot-edge).

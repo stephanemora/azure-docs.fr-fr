@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: b4c873e319dd611221c81deb948db3a64062631e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032599"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457647"
 ---
-# <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Optimiser le coût des déploiements multirégions dans Azure Cosmos DB
+# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimiser le coût multirégion dans Azure Cosmos DB
 
 Vous pouvez ajouter et supprimer des régions dans votre compte Azure Cosmos à tout moment. Le débit que vous configurez pour différentes bases de données et conteneurs Azure Cosmos est réservé dans chaque région associée à votre compte. Si le débit approvisionné par heure, qui est la somme des RU/s configurées dans l’ensemble des bases de données et des conteneurs de votre compte Azure Cosmos, est égal à `T` et si le nombre de régions Azure associées à votre compte de base de données est de `N`, alors le débit total approvisionné pour votre compte Cosmos pour une heure donnée est égal à :
 

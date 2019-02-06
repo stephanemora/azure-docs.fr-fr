@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 11/09/2018
-ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/25/2019
+ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330158"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467694"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Réplication des bases de données uniques et mises en pool SQL Database
 
-La réplication SQL Server peut être configurée pour les bases de données uniques et mises en pool situées sur un [serveur logique](sql-database-logical-servers.md) dans Azure SQL Database.  
+La réplication SQL Server peut être configurée pour les bases de données uniques et en pool d’un [serveur SQL Database](sql-database-servers.md) dans Azure SQL Database.  
 
 ## <a name="supported-configurations"></a>**Configurations prises en charge :**
   
@@ -65,7 +65,7 @@ La réplication SQL Server peut être configurée pour les bases de données uni
 
 1. Créez une publication de réplication transactionnelle sur une base de données SQL Server locale.  
 2. Sur l’instance locale de SQL Server, servez-vous de **l’Assistant Nouvel abonnement** ou utilisez des instructions Transact-SQL pour envoyer l’abonnement vers Azure SQL Database.  
-3. Avec des bases de données simples et groupées dans Azure SQL Database, le jeu de données initial est un instantané créé par l’Agent d’instantané, puis distribué et appliqué par l’Agent de distribution. Avec Azure SQL Database Managed Instance, vous pouvez également utiliser une sauvegarde de la base de données pour alimenter la base de données des abonnés.
+3. Avec des bases de données simples et groupées dans Azure SQL Database, le jeu de données initial est un instantané créé par l’Agent d’instantané, puis distribué et appliqué par l’Agent de distribution. Avec une base de données d’instance gérée, vous pouvez également utiliser une sauvegarde de la base de données pour alimenter la base de données de l’abonné.
 
 ### <a name="data-migration-scenario"></a>Scénario de migration des données  
 
@@ -107,7 +107,7 @@ Les options suivantes ne sont pas prises en charge pour les abonnements Azure SQ
 Créez une publication et un abonnement par émission de données. Pour plus d'informations, consultez les pages suivantes :
   
 - [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Créer un abonnement par émission de données](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) en utilisant le nom du serveur logique de la base de données SQL Azure en tant qu’abonné (par exemple **N'azuresqldbdns.database.windows.net'**) et le nom de la base de données SQL Azure en tant que base de données de destination (par exemple **AdventureWorks**).  
+- [Créer un abonnement par émission de données](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple **N'azuresqldbdns.database.windows.net'**) et le nom de la base de données SQL Azure en tant que base de données de destination (par exemple **AdventureWorks**).  
 
 ## <a name="see-also"></a>Voir aussi  
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 920f350ab5ba1e9e1703ffcc32dc8c7153624c0b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 831286f1c98a2fc3d26277f4006283c3de64f900
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525152"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463240"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Format de fichier de manifeste du service Azure Import/Export
 Le fichier de manifeste de disque décrit le mappage entre les objets blob dans le stockage Blob Azure et les fichiers sur le disque comprenant un travail d’importation ou d’exportation. Pour une opération d’importation, le fichier de manifeste est créé dans le cadre du processus de préparation du disque et est stocké sur le disque avant d’envoyer le disque vers le centre de données Azure. Pendant une opération d’exportation, le manifeste est créé et stocké sur le disque par le service d’importation/exportation Azure.  
@@ -37,9 +37,9 @@ Vous trouverez ci-dessous une description du format général d’un fichier de 
         Hash="md5-hash">global-properties-file-path</PropertiesPath>]  
   
       <!-- First Blob -->  
-      <Blob>  
-        <BlobPath>blob-path-relative-to-account</BlobPath>  
-        <FilePath>file-path-relative-to-transfer-disk</FilePath>  
+      <Blob>  
+        <BlobPath>blob-path-relative-to-account</BlobPath>  
+        <FilePath>file-path-relative-to-transfer-disk</FilePath>  
         [<ClientData>client-data</ClientData>]  
         [<Snapshot>snapshot</Snapshot>]  
         <Length>content-length</Length>  
@@ -47,7 +47,7 @@ Vous trouverez ci-dessous une description du format général d’un fichier de 
         page-range-list-or-block-list          
         [<MetadataPath Hash="md5-hash">metadata-file-path</MetadataPath>]  
         [<PropertiesPath Hash="md5-hash">properties-file-path</PropertiesPath>]  
-      </Blob>  
+      </Blob>  
   
       <!-- Second Blob -->  
       <Blob>  
@@ -72,7 +72,7 @@ page-range-list ::=
     <PageRangeList>  
       [<PageRange Offset="page-range-offset" Length="page-range-length"   
        Hash="md5-hash"/>]  
-      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
        Hash="md5-hash"/>]  
     </PageRangeList>  
   
@@ -80,7 +80,7 @@ block-list ::=
     <BlockList>  
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
        Hash="md5-hash"/>]  
-      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
 
@@ -90,7 +90,7 @@ block-list ::=
 
 Les éléments et attributs de données du format XML de manifeste de disque sont spécifiés dans le tableau suivant.  
   
-|Élément XML|type|Description|  
+|Élément XML|Type|Description|  
 |-----------------|----------|-----------------|  
 |`DriveManifest`|Élément racine|Élément racine du fichier de manifeste. Tous les autres éléments du fichier se trouvent sous cet élément.|  
 |`Version`|Attribut, Chaîne|Version du fichier de manifeste.|  
@@ -108,9 +108,9 @@ Les éléments et attributs de données du format XML de manifeste de disque son
 |`Blob/BlobPath`|Chaîne|URI relatif de l’objet blob commençant par le nom du conteneur. Si l’objet blob se trouve dans le conteneur racine, il doit commencer par `$root`.|  
 |`Blob/FilePath`|Chaîne|Spécifie le chemin d’accès relatif au fichier sur le disque. Pour les travaux d’exportation, dans la mesure du possible, le chemin d’accès à l’objet blob sert de chemin d’accès au fichier ; *par exemple,*, `pictures/bob/wild/desert.jpg` est exporté vers `\pictures\bob\wild\desert.jpg`. Toutefois, en raison des limitations des noms NTFS, un objet blob peut être exporté dans un fichier avec un chemin d’accès différent du chemin d’accès à l’objet blob.|  
 |`Blob/ClientData`|Chaîne|facultatif. Contient des commentaires du client. Cette valeur n’est pas interprétée par le service d’importation/exportation.|  
-|`Blob/Snapshot`|Datetime|Facultatif pour les travaux d’exportation. Spécifie l’identificateur d’instantané pour un instantané d’objet blob exporté.|  
+|`Blob/Snapshot`|DateTime|Facultatif pour les travaux d’exportation. Spécifie l’identificateur d’instantané pour un instantané d’objet blob exporté.|  
 |`Blob/Length`|Entier |Spécifie la longueur totale de l’objet blob en octets. La valeur peut atteindre jusqu’à 200 Go pour un objet blob de blocs et jusqu’à 1 To pour un objet blob de pages. Pour un objet blob de pages, cette valeur doit être un multiple de 512.|  
-|`Blob/ImportDisposition`|Chaîne|Facultatif pour les travaux d’importation, omis pour les travaux d’exportation. Spécifie comment le service d’importation/exportation doit gérer le cas d’un travail d’importation dans lequel un objet blob portant le même nom existe déjà. Si cette valeur est omise dans le manifeste d’importation, la valeur par défaut est `rename`.<br /><br /> Les valeurs de cet élément incluent les suivantes :<br /><br /> -   `no-overwrite` : si un objet blob de destination portant le même nom existe déjà, l’opération d’importation ignore l’importation de ce fichier.<br />-   `overwrite` : un objet blob de destination existant est remplacé par le nouveau fichier importé.<br />-   `rename` : le nouvel objet blob est téléchargé sous un autre nom.<br /><br /> La règle de changement de nom est la suivante :<br /><br /> -   Si le nom de l’objet blob ne contient pas de point, un nouveau nom est généré en ajoutant `(2)` au nom de l’objet blob d’origine ; si ce nom est en conflit avec un nom d’objet blob existant, `(3)` est alors ajouté à la place de `(2)`, et ainsi de suite.<br />-   Si le nom de l’objet blob contient un point, la partie suivant le dernier point est considérée comme le nom d’extension. Comme dans la procédure ci-dessus, `(2)` est inséré avant le dernier point pour générer un nouveau nom ; si le nouveau nom est toujours en conflit avec un nom d’objet blob existant, le service essaie alors `(3)`, `(4)`, et ainsi de suite, jusqu’à ce qu’un nom non conflictuel soit trouvé.<br /><br /> Voici quelques exemples :<br /><br /> L’objet blob `BlobNameWithoutDot` est renommé en :<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> L’objet blob `Seattle.jpg` est renommé en :<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
+|`Blob/ImportDisposition`|Chaîne|Facultatif pour les travaux d’importation, omis pour les travaux d’exportation. Spécifie comment le service d’importation/exportation doit gérer le cas d’un travail d’importation dans lequel un objet blob portant le même nom existe déjà. Si cette valeur est omise dans le manifeste d’importation, la valeur par défaut est `rename`.<br /><br /> Les valeurs de cet élément incluent les suivantes :<br /><br /> -   `no-overwrite` : Si un objet blob de destination portant le même nom existe déjà, l’opération d’importation ignore l’importation de ce fichier.<br />-   `overwrite` : Un objet blob de destination existant est remplacé par le nouveau fichier importé.<br />-   `rename` : Le nouvel objet blob est téléchargé sous un autre nom.<br /><br /> La règle de changement de nom est la suivante :<br /><br /> -   Si le nom de l’objet blob ne contient pas de point, un nouveau nom est généré en ajoutant `(2)` au nom de l’objet blob d’origine ; si ce nom est en conflit avec un nom d’objet blob existant, `(3)` est alors ajouté à la place de `(2)`, et ainsi de suite.<br />-   Si le nom de l’objet blob contient un point, la partie suivant le dernier point est considérée comme le nom d’extension. Comme dans la procédure ci-dessus, `(2)` est inséré avant le dernier point pour générer un nouveau nom ; si le nouveau nom est toujours en conflit avec un nom d’objet blob existant, le service essaie alors `(3)`, `(4)`, et ainsi de suite, jusqu’à ce qu’un nom non conflictuel soit trouvé.<br /><br /> Voici quelques exemples :<br /><br /> L’objet blob `BlobNameWithoutDot` est renommé en :<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> L’objet blob `Seattle.jpg` est renommé en :<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
 |`PageRangeList`|Élément XML imbriqué|Obligatoire pour un objet blob de pages.<br /><br /> Pour une opération d’importation, spécifie une liste de plages d’octets d’un fichier à importer. Chaque plage de pages est décrite par un décalage et la longueur dans le fichier source qui décrit la plage de pages, ainsi que par un hachage MD5 de la région. L’attribut `Hash` d’une plage de pages est obligatoire. Le service vérifie que le hachage des données dans l’objet blob correspond au hachage MD5 calculé à partir de la plage de pages. N’importe quel nombre de plages de pages peut être utilisé pour décrire un fichier pour une importation, avec une taille totale maximale de 1 To. Toutes les plages de pages doivent être triées par décalage et aucun chevauchement n’est autorisé.<br /><br /> Pour une opération d’exportation, spécifie un ensemble de plages d’octets d’un objet blob exporté sur le disque.<br /><br /> Les plages de pages combinées ne peuvent couvrir que des sous-plages d’un objet blob ou d’un fichier.  Le reste du fichier n’est pas couvert par une plage de pages et son contenu peut être indéfini.|  
 |`PageRange`|Élément XML|Représente une plage de pages.|  
 |`PageRange/@Offset`|Attribut, Entier|Spécifie le décalage dans le fichier de transfert et l’objet blob où la plage de pages spécifiée commence. Cette valeur doit être un multiple de 512.|  

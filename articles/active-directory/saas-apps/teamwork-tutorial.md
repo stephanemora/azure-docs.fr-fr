@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Teamwork.com | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Teamwork.com | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Teamwork.com.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 6be2c9a17e719fb53ab257af77605c49ffea9e86
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7775c8ae92ebf6015f12bdebf0934752a5240f0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437472"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172406"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Didacticiel : Intégration d’Azure Active Directory à Teamwork.com
 
@@ -166,7 +166,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-teamworkcom-test-user"></a>Créer un utilisateur test Teamwork.com
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Teamwork.com. Collaborez avec [l'équipe de support Teamwork.com](mailto:support@teamwork.com) pour ajouter les utilisateurs de la plateforme Teamwork.com. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Teamwork.com. Collaborez avec l’ [équipe du support technique Teamwork.com](mailto:support@teamwork.com)  pour ajouter les utilisateurs à la plateforme Teamwork.com. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
