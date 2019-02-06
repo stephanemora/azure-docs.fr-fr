@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: db11ddc275b1e47b728cdc0f9b7d9bf6b6aa9652
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412816"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189525"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect : Activation de la réécriture d’appareil
 > [!NOTE]
@@ -89,7 +89,7 @@ Si la case à cocher pour l'écriture différée des appareils n'est pas activé
 
 Commençons par le début :
 
-* Assurez-vous qu'au moins une forêt a Windows Server 2012R2. Le type d'objet d'appareil doit être présent.
+* Le schéma de forêt de la forêt où figurent les appareils doit être mis à jour au niveau Windows 2012 R2 pour que l’objet d’appareil et les attributs associés soient présents.
 * Si l'Assistant d'installation est déjà en cours d'exécution, les modifications ne seront pas détectées. Dans ce cas, terminez l'Assistant installation et exécutez-le à nouveau.
 * Assurez-vous que le compte que vous fournissez dans le script d'initialisation est bien l'utilisateur utilisé par le connecteur Active Directory. Pour ce faire, procédez comme suit :
   * Dans le menu Démarrer, ouvrez **Service de synchronisation**.

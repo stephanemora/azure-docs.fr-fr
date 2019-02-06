@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Clever | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Clever | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Clever.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 483d03fcc72e0a93111d10b0221164459de27d12
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e65f0cb3ef30fb5b001acdb72481c1c3b55ca058
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431859"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197311"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clever"></a>Didacticiel : Intégration d’Azure Active Directory à Clever
+# <a name="tutorial-azure-active-directory-integration-with-clever"></a>Didacticiel : Intégration d’Azure Active Directory à Clever
 
 Dans ce didacticiel, vous allez apprendre à intégrer Clever dans Azure Active Directory (Azure AD).
 
@@ -117,7 +117,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     > [!NOTE]
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique de Clever](https://clever.com/about/contact/).
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+1. Dans la section  **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération de l’application** , puis collez-la dans le Bloc-notes.
     
     ![Configurer l'authentification unique](./media/clever-tutorial/tutorial_metadataurl.png)
 
@@ -214,7 +214,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Pour se connecter à Clever, les utilisateurs d’Azure AD doivent être approvisionnés dans Clever.
 
-Si vous optez pour Clever, travaillez avec [équipe de prise en charge des clients Clever](https://clever.com/about/contact/) pour ajouter des utilisateurs dans la plateforme Clever. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Si vous optez pour Clever, collaborez avec l’ [équipe du support technique de Clever](https://clever.com/about/contact/)  pour ajouter des utilisateurs à la plateforme Clever. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 >[!NOTE]
 >Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur fourni par Clever pour approvisionner des comptes d’utilisateurs Azure AD.

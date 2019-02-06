@@ -1,5 +1,5 @@
 ---
-title: 'Interopérabilité des fonctionnalités de connectivité de back-end Azure : analyse du plan de contrôle | Microsoft Docs'
+title: 'Interopérabilité des fonctionnalités de connectivité de back-end Azure : Analyse du plan de contrôle | Microsoft Docs'
 description: Cet article fournit l’analyse du plan de contrôle de la configuration de test que vous pouvez utiliser pour analyser l’interopérabilité entre ExpressRoute, un réseau virtuel de site à site et le peering de réseau virtuel dans Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 37f5399426bebd375200bbc18dae7ed83f4fde3f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 77a405e2f020ff764348370fc001388610ad75b6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614672"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155525"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : analyse du plan de contrôle
+# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : Analyse du plan de contrôle
 
 Cet article décrit l’analyse du plan de contrôle de la [configuration de test][Setup]. Vous pouvez également consulter la [configuration][Configuration] et l’[analyse du plan de données][Data-Analysis] de l’initialisation (tearDown) de test.
 
@@ -55,41 +55,41 @@ Le réseau local Location 2 est connecté au réseau local hub via le peering p
 
 [![4]][4]
 
-## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Connectivité en tandem d’ExpressRoute et du VPN de site à site
+## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Connectivité ExpressRoute et VPN de site à site en tandem
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>VPN de site à site sur ExpressRoute
 
-Vous pouvez configurer un VPN de site à site à l’aide de l’homologation Microsoft ExpressRoute pour échanger des données de façon privée entre votre réseau local et vos réseaux virtuels Azure. Avec cette configuration, vous pouvez échanger des données en toute confidentialité, authenticité et intégrité. L’échange de données est également anti-replay. Pour plus d’informations sur la configuration d’un VPN IPSec de site à site en mode tunnel via l’homologation Microsoft ExpressRoute, consultez l’article [Configurer un réseau VPN de site à site via l’homologation Microsoft ExpressRoute][S2S-Over-ExR]. 
+Vous pouvez configurer un VPN de site à site à l’aide de l’appairage Microsoft ExpressRoute pour échanger des données de façon privée entre votre réseau local et vos réseaux virtuels Azure. Avec cette configuration, vous pouvez échanger des données en garantissant confidentialité, authenticité et intégrité. L’échange de données est également soumis à un système anti-relecture. Pour plus d’informations sur la configuration d’un VPN IPSec de site à site en mode tunnel via l’homologation Microsoft ExpressRoute, consultez l’article [Configurer un réseau VPN de site à site via l’homologation Microsoft ExpressRoute][S2S-Over-ExR]. 
 
-La principale limitation liée à la configuration d’un VPN de site à site qui utilise l’homologation Microsoft est le débit. Le débit sur le tunnel IPSec est limité par la capacité de la passerelle VPN. Le débit d’une passerelle VPN est inférieur au débit ExpressRoute. Dans ce scénario, l’utilisation du tunnel IPsec pour le trafic très sécurisé et celle du peering privé pour les autres catégories de trafic permet d’optimiser l’utilisation de la bande passante ExpressRoute.
+La principale limitation liée à la configuration d’un VPN de site à site qui utilise l’homologation Microsoft est le débit. Le débit sur le tunnel IPsec est limité par la capacité de la passerelle VPN. Le débit d’une passerelle VPN est inférieur au débit ExpressRoute. Dans ce scénario, le fait d’utiliser le tunnel IPsec pour un trafic très sécurisé et d’utiliser l’appairage privé pour toutes les autres catégories de trafic permet d’optimiser l’utilisation de la bande passante ExpressRoute.
 
-### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>VPN de site à site en tant que chemin d’accès de basculement sécurisé pour ExpressRoute
+### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>VPN de site à site en tant que chemin de basculement sécurisé pour ExpressRoute
 
-ExpressRoute est utilisé comme une paire de circuits redondants pour garantir une haute disponibilité. Vous pouvez configurer une connectivité ExpressRoute géo-redondante dans différentes régions Azure. En outre, comme nous l’avons démontré dans notre configuration de test, dans une région Azure, vous pouvez utiliser un VPN de site à site afin de créer un chemin d’accès de basculement pour votre connectivité ExpressRoute. Lorsque les mêmes préfixes sont publiés sur ExpressRoute et un VPN de site à site, Azure choisit en priorité ExpressRoute. Pour éviter un routage asymétrique entre ExpressRoute et le VPN de site à site, la configuration réseau locale doit en faire autant, en choisissant la connectivité ExpressRoute avant la connectivité VPN de site à site.
+ExpressRoute est utilisé comme une paire de circuits redondants pour garantir une haute disponibilité. Vous pouvez configurer une connectivité ExpressRoute géo-redondante dans différentes régions Azure. En outre, comme nous l’avons démontré dans notre initialisation (tearDown) de test, dans une région Azure, vous pouvez utiliser un VPN de site à site pour créer un chemin de basculement pour votre connectivité ExpressRoute. Quand les mêmes préfixes sont publiés sur ExpressRoute et un VPN de site à site, Azure choisit en priorité ExpressRoute. Pour éviter un routage asymétrique entre ExpressRoute et le VPN de site à site, la configuration réseau locale doit en faire autant en utilisant la connectivité ExpressRoute avant la connectivité VPN de site à site.
 
-Pour plus d’informations sur la configuration de connexions coexistantes pour ExpressRoute et un VPN de site à site, consultez [Configurer la coexistence de connexions de site à site et ExpressRoutee][ExR-S2S-CoEx].
+Pour plus d’informations sur la façon de configurer des connexions coexistantes pour ExpressRoute et un VPN de site à site, consultez [Coexistence de connexions ExpressRoute et de site à site][ExR-S2S-CoEx].
 
-## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Étendre la connectivité du serveur principal aux emplacements branch et réseaux virtuels spoke
+## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Étendre la connectivité de back-end à des réseaux virtuels spoke et à des emplacements branch
 
-### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Connectivité de réseau virtuel spoke via le peering de réseaux virtuels
+### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Connectivité de réseau virtuel spoke via l’homologation de réseaux virtuels
 
-L’architecture de réseau virtuel hub-and-spoke est largement utilisée. Le hub est un réseau virtuel dans Azure qui centralise la connectivité entre vos réseaux virtuels spoke et vers votre réseau local. Les spokes sont des réseaux virtuels appairés avec le hub que vous pouvez utiliser pour isoler les charges de travail. Le trafic circule entre le centre de données local et le hub via une connexion ExpressRoute ou VPN. Pour plus d’informations sur l’architecture, consultez [Implémenter une topologie de réseau Hub et Spoke dans Azure][Hub-n-Spoke].
+L’architecture des réseaux virtuels hub et spoke est largement utilisée. Le hub est un réseau virtuel dans Azure qui centralise la connectivité entre vos réseaux virtuels spoke et votre réseau local. Les spokes sont des réseaux virtuels appairés avec le hub et que vous pouvez utiliser pour isoler les charges de travail. Le trafic circule entre le centre de données local et le hub via une connexion ExpressRoute ou VPN. Pour plus d’informations sur l’architecture, consultez [Implémenter une topologie réseau hub-and-spoke dans Azure][Hub-n-Spoke].
 
-Dans le cadre du peering de réseaux virtuels dans une région, les réseaux virtuels spoke peuvent utiliser les passerelles de réseau virtuel hub (les passerelles VPN et ExpressRoute) pour communiquer avec les réseaux distants.
+Dans l’appairage de réseau virtuel dans une région, les réseaux virtuels spoke peuvent utiliser des passerelles de réseau virtuel hub (les passerelles VPN et ExpressRoute) pour communiquer avec des réseaux distants.
 
-### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Connectivité de réseau virtuel branch à l’aide du VPN de site à site
+### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Connectivité de réseau virtuel branch à l’aide d’un VPN de site à site
 
-Vous souhaiterez peut-être que les réseaux virtuels branch, qui se trouvent dans différentes régions, et les réseaux locaux communiquent entre eux via un réseau virtuel Hub. La solution Azure native pour cette configuration est la connectivité VPN de site à site à l’aide d’un VPN. Une alternative consiste à utiliser une appliance virtuelle réseau (NVA) pour le routage dans le hub.
+Vous pouvez souhaiter que les réseaux virtuels branch, qui se trouvent dans différentes régions, et les réseaux locaux communiquent entre eux via un réseau virtuel hub. La solution Azure native pour cette configuration est la connectivité VPN de site à site à l’aide d’un VPN. Une autre solution consiste à utiliser une appliance virtuelle réseau (NVA) pour le routage dans le hub.
 
 Pour plus d’informations, consultez [Qu’est-ce qu’une passerelle VPN ?][VPN] et [Déployer une appliance virtuelle réseau hautement disponible][Deploy-NVA].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur l’[analyse de plan de données][Data-Analysis] de la configuration de test et les affichages des fonctionnalités de supervision de réseau Azure.
+Découvrez-en plus sur l’[analyse du plan de données][Data-Analysis] de l’initialisation (tearDown) de test et les affichages des fonctionnalités de supervision de réseau Azure.
 
-Consultez le [Forum Aux Questions sur ExpressRoute][ExR-FAQ] pour :
--   En savoir plus sur le nombre de circuits ExpressRoute que vous pouvez connecter à une passerelle ExpressRoute.
--   En savoir plus sur le nombre de passerelles ExpressRoute que vous pouvez connecter à un circuit ExpressRoute.
+Consultez le [Forum aux questions ExpressRoute][ExR-FAQ] pour :
+-   Connaître le nombre de circuits ExpressRoute que vous pouvez connecter à une passerelle ExpressRoute.
+-   Connaître le nombre de passerelles ExpressRoute que vous pouvez connecter à un circuit ExpressRoute.
 -   En savoir plus sur les autres limites de mise à l’échelle d’ExpressRoute.
 
 

@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c4a18fa022304e7ccfb4503cf2e02650555d6d7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 19199d25b960d768f844d725616220fb78e7d983
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425120"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094051"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0
 
@@ -63,7 +63,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | state |recommandé |Une valeur incluse dans la requête qui est également renvoyée dans la réponse de jeton. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](https://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | resource | recommandé |URI ID d’application de l’API web cible (ressource sécurisée). Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez sur **Azure Active Directory**, **Inscriptions des applications**, ouvrez la page **Paramètres** de l’application, puis cliquez sur **Propriétés**. Il peut également s’agir d’une ressource externe comme `https://graph.microsoft.com`. Il est nécessaire dans les requêtes de jeton ou d’autorisation. Pour réduire le nombre d’invites d’authentification, placez-le dans la requête d’autorisation afin d’être sûr que le consentement est reçu par l’utilisateur. |
 | scope | **ignoré** | Pour les applications Azure AD v1, les étendues doivent être configurées statiquement dans le portail Azure dans les **Paramètres** de l’application, sous **Autorisations requises**. |
-| prompt |facultatif |Indique le type d’interaction utilisateur requis.<p> Les valeurs autorisées sont : <p> *login*: l’utilisateur doit être invité à se réauthentifier. <p> *select_account* : l’utilisateur est invité à sélectionner un compte, mettant ainsi fin à l’authentification unique. L’utilisateur peut sélectionner un compte connecté existant, entrer ses informations d’identification pour un compte mémorisé ou choisir d’utiliser un autre compte. <p> *consent*: le consentement de l’utilisateur a été accordé, mais il doit être mis à jour. L’utilisateur doit être invité à donner son consentement. <p> *admin_consent* : un administrateur doit être invité à donner son consentement pour le compte de tous les utilisateurs de son organisation |
+| prompt |facultatif |Indique le type d’interaction utilisateur requis.<p> Les valeurs autorisées sont : <p> *login* : l’utilisateur doit être invité à se réauthentifier. <p> *select_account* : l’utilisateur est invité à sélectionner un compte, mettant ainsi fin à l’authentification unique. L’utilisateur peut sélectionner un compte connecté existant, entrer ses informations d’identification pour un compte mémorisé ou choisir d’utiliser un autre compte. <p> *consent* : le consentement de l’utilisateur a été accordé, mais il doit être mis à jour. L’utilisateur doit être invité à donner son consentement. <p> *admin_consent* : un administrateur doit être invité à donner son consentement pour le compte de tous les utilisateurs de son organisation. |
 | login_hint |facultatif |Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur d’une connexion précédente à l’aide de la revendication `preferred_username`. |
 | domain_hint |facultatif |Fournit une indication sur le client ou le domaine que l’utilisateur doit utiliser pour se connecter. La valeur du paramètre domain_hint est un domaine inscrit pour le client. Si le client est fédéré sur un répertoire local, AAD redirige vers le serveur de fédération du client spécifié. |
 | code_challenge_method | recommandé    | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Peut être `plain` ou `S256`. S’il est exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus. Azure AAD v1.0 prend en charge `plain` et `S256`. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
@@ -175,7 +175,7 @@ Une réponse réussie se présenterait ainsi :
 | Paramètre | Description |
 | --- | --- |
 | access_token |Le [jeton d’accès](access-tokens.md) demandé sous forme de JSON Web Token (JWT) signé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, comme une API Web. |
-| token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. Pour plus d’informations sur les jetons du porteur, consultez le document [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
+| token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. Pour plus d’informations sur les jetons du porteur, consultez le [Framework d’autorisation OAuth 2.0 : Utilisation de jetons du porteur (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | expires_in |La durée de validité (en secondes) du jeton d’accès. |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
 | resource |URI ID d’application de l’API web (ressource sécurisée). |

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254466"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168241"
 ---
 <a name="create-a-microsoft-developer-account"></a>Créer un compte de développeur Microsoft
 ====================================
@@ -106,7 +106,7 @@ Le Centre de développement Microsoft est utilisé pour enregistrer les informat
    ![Sélectionnez un pays/une région](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >Pays à partir duquel vous vendez : avant de pouvoir vendre vos services dans Azure Marketplace, l’entité inscrite doit résider dans l’un des pays autorisés répertoriés dans la liste déroulante. Cette restriction s’applique pour des raisons de revenus et de taxes. Pour plus d’informations, consultez les Politiques concernant la Participation à la Place de marché Microsoft Azure.
+    >Pays à partir desquels vous vendez : avant de pouvoir vendre vos services sur la Place de marché Azure, l’entité inscrite doit résider dans l’un des pays autorisés répertoriés dans la liste déroulante. Cette restriction s’applique pour des raisons de revenus et de taxes. Pour plus d’informations, consultez les Politiques concernant la Participation à la Place de marché Microsoft Azure.
 
 5. Sélectionnez **Entreprise** comme « Type de compte », puis sélectionnez **Suivant**.
 
@@ -181,7 +181,8 @@ Pour mettre en vente des offres commerciales, vous devez ajouter vos information
     - Sélectionnez **Suivant**.
 4.  Entrez vos informations fiscales, puis cliquez sur **Suivant**.
 
->[AVERTISSEMENT !] Vous ne pourrez pas mettre en production vos offres commerciales si vous n’avez pas fourni vos informations fiscales et bancaires dans votre compte Centre de développement Microsoft.
+>[!WARNING]
+>Vous ne pourrez pas envoyer (push) en production vos offres commerciales si vous n’avez pas fourni vos informations fiscales et bancaires dans votre compte Centre de développement Microsoft.
 
 ### <a name="developer-center-registration-issues"></a>Problèmes d’inscription au Centre de développement
 

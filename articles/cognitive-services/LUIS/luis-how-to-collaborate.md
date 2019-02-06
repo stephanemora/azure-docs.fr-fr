@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d1db8974ce134b50340db500c9ea1b00126fe10a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bf714e5bd47e244a410d1062488af623253bbee6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086417"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217779"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Comment gérer les créateurs et collaborateurs 
 
@@ -67,7 +67,12 @@ Si l’administrateur de locataire ne se connecte pas à LUIS, l’administrateu
 
 ![Autorisation Azure Active Directory par site web d’application](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-Si l’administrateur de locataire souhaite que seulement certains utilisateurs accèdent à LUIS, référez-vous à ce [blog d’identité](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
+Si l’administrateur de locataire veut uniquement que certaines personnes utilisent LUIS, plusieurs solutions sont possibles :
+* Donnez le « consentement administrateur » (à tous les utilisateurs d’Azure AD), mais affectez ensuite la valeur « Oui » à « Affectation de l’utilisateur obligatoire » sous les propriétés de l’application d’entreprise, et enfin attribuer/ajouter uniquement les utilisateurs souhaités à l’application. Avec cette méthode, l’administrateur offre quand même le « consentement administrateur » à l’application, mais il peut contrôler les utilisateurs en mesure d’y accéder.
+* Une autre solution consiste à utiliser l’[API Graph Azure AD](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) pour donner le consentement à chaque utilisateur spécifique. 
+
+Découvrez-en plus sur les utilisateurs Azure Active Directory et le consentement : 
+* [Limiter votre application](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) à un ensemble d’utilisateurs
 
 ### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Comptes d’utilisateur avec plusieurs adresses e-mails pour les collaborateurs
 

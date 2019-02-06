@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 5f93285061708172b9b6ac40dc97fce08f7b2a86
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 56a7478ab7221a1ccb4394a245540d3181e4ad8e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206711"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155576"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Exécuter un service en tant que compte de service administré de groupe
 Sur un cluster autonome Windows Server, vous pouvez exécuter un service en tant que compte de service administré de groupe (gMSA) avec une stratégie RunAs.  Par défaut, les applications Service Fabric s’exécutent sous le compte qui exécute le processus Fabric.exe. Les applications en cours d’exécution sous différents comptes sont plus sécurisées, même dans un environnement hébergé partagé. Remarque : cette fonctionnalité utilise Active Directory en local au sein de votre domaine et non Azure Active Directory (Azure AD). Si vous utilisez un compte gMSA, aucun mot de passe (chiffré ou non) n’est stocké dans le manifeste de l’application.  Vous pouvez également exécuter un service comme [utilisateur ou groupe Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
@@ -32,7 +32,7 @@ Conditions préalables :
 
 1. Avoir un administrateur de domaine Active Directory qui crée un compte de service géré de groupe à l’aide de la cmdlet `New-ADServiceAccount` et garantit que le `PrincipalsAllowedToRetrieveManagedPassword` inclut tous les nœuds du cluster Service Fabric. `AccountName`, `DnsHostName` et `ServicePrincipalName` doivent être uniques.
 
-    ```poweshell
+    ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
     ```
 
@@ -68,8 +68,7 @@ Conditions préalables :
 > Si vous appliquez une stratégie Run-As à un service et que le manifeste de service déclare des ressources de point de terminaison avec le protocole HTTP, vous devez spécifier une **SecurityAccessPolicy**.  Pour plus d’informations, consultez [Assigner une stratégie d’accès de sécurité pour des points de terminaison HTTP et HTTPS](service-fabric-assign-policy-to-endpoint.md). 
 >
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-Comme prochaine étape, lisez les articles suivants :
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> Comme prochaine étape, lisez les articles suivants :
 * [Comprendre le modèle d'application](service-fabric-application-model.md)
 * [Spécifier des ressources dans un manifeste de service](service-fabric-service-manifest-resources.md)
 * [Déployer une application](service-fabric-deploy-remove-applications.md)

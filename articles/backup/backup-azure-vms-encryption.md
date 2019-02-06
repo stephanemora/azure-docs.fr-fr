@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6793a83002029c009e3d4e124b4386feabecd5f8
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: a3a059e8edc286b2c1433c9b414dc275a433e2fd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201072"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217677"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Sauvegarder et restaurer des machines virtuelles chiffrées avec Sauvegarde Azure
 Cet article présente les étapes pour sauvegarder et restaurer des machines virtuelles à l’aide de Sauvegarde Azure. Il fournit également des détails sur les scénarios pris en charge, les composants requis et les étapes de dépannage en cas d’erreur.
@@ -138,7 +138,7 @@ Pour restaurer une machine virtuelle chiffrée, restaurez tout d’abord les dis
 ## <a name="troubleshooting-errors"></a>Résolution des erreurs
 | Opération | Détails de l’erreur | Résolution : |
 | --- | --- | --- |
-|Sauvegarde | Sauvegarde Azure ne dispose pas des autorisations d’accès suffisantes au coffre de clés pour la sauvegarde de machines virtuelles chiffrées. | Vous devez accorder ces autorisations à Sauvegarde Azure en suivant les [étapes de la section précédente](#provide-permissions-to-azure-backup). Sinon, vous pouvez suivre les étapes de PowerShell dans la section « Activer la protection » de l’article [Utiliser PowerShell pour sauvegarder et restaurer des machines virtuelles](backup-azure-vms-automation.md#enable-protection). |  
-| Restore |Vous ne pouvez pas restaurer cette machine virtuelle chiffrée car le coffre de clés associé à cette machine virtuelle n’existe pas. |Créez un coffre de clés en suivant les instructions de l’article [Bien démarrer avec Azure Key Vault](../key-vault/key-vault-get-started.md). Consultez [Restaurer la clé et le secret de coffre de clés à l’aide de Sauvegarde Azure](backup-azure-restore-key-secret.md) pour restaurer une clé et une clé secrète si celles-ci n’existent pas. |
-| Restore |Vous ne pouvez pas restaurer cette machine virtuelle chiffrée car la clé et la clé secrète associées à cette machine virtuelle n’existent pas. |Consultez [Restaurer la clé et le secret de coffre de clés à l’aide de Sauvegarde Azure](backup-azure-restore-key-secret.md) pour restaurer une clé et une clé secrète si celles-ci n’existent pas. |
-| Restore |Sauvegarde Azure n’a pas l’autorisation d’accéder aux ressources de votre abonnement. |Comme mentionné précédemment, restaurez tout d’abord les disques en suivant les étapes de la section « Restaurer les disques sauvegardés » de la rubrique [Choisir une configuration de restauration de machine virtuelle](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Ensuite, utilisez PowerShell pour [créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
+|Sauvegarde | Code d’erreur : UserErrorKeyVaultPermissionsNotConfigured<br><br>Message d’erreur : Le service de sauvegarde Azure n’a pas les autorisations requises sur Key Vault pour effectuer une sauvegarde des machines virtuelles chiffrées. | Vous devez accorder ces autorisations à Sauvegarde Azure en suivant les [étapes de la section précédente](#provide-permissions-to-azure-backup). Sinon, vous pouvez suivre les étapes de PowerShell dans la section « Activer la protection » de l’article [Utiliser PowerShell pour sauvegarder et restaurer des machines virtuelles](backup-azure-vms-automation.md#enable-protection). |  
+| Restore | Vous ne pouvez pas restaurer cette machine virtuelle chiffrée car le coffre de clés associé à cette machine virtuelle n’existe pas. |Créez un coffre de clés en suivant les instructions de l’article [Bien démarrer avec Azure Key Vault](../key-vault/key-vault-get-started.md). Consultez [Restaurer la clé et le secret de coffre de clés à l’aide de Sauvegarde Azure](backup-azure-restore-key-secret.md) pour restaurer une clé et une clé secrète si celles-ci n’existent pas. |
+| Restore | Code d’erreur : UserErrorKeyVaultKeyDoesNotExist<br><br> Message d’erreur : Vous ne pouvez pas restaurer cette machine virtuelle chiffrée, car la clé associée à cette machine virtuelle n’existe pas. |Consultez [Restaurer la clé et le secret de coffre de clés à l’aide de Sauvegarde Azure](backup-azure-restore-key-secret.md) pour restaurer une clé et une clé secrète si celles-ci n’existent pas. |
+| Restore | Code d’erreur : ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>Message d’erreur : Le service de sauvegarde n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Comme mentionné précédemment, restaurez tout d’abord les disques en suivant les étapes de la section « Restaurer les disques sauvegardés » de la rubrique [Choisir une configuration de restauration de machine virtuelle](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Ensuite, utilisez PowerShell pour [créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

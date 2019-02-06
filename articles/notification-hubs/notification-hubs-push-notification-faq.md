@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: afc3b0022056d529c69eeaabd229b809623e66ea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478584"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888156"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifications Push avec Azure Notification Hubs : Questions fréquentes (FAQ)
 
@@ -194,7 +194,7 @@ Pendant une certaine période, les appareils sur lesquels aucune application n�
 
 ### <a name="is-there-audit-log-capability"></a>Existe-t-il une fonctionnalité de journal d’audit ?
 
-Toutes les opérations de gestion de Notification Hubs sont enregistrées dans les journaux des opérations, qui sont exposés sur le [Portail Azure].
+Oui. Toutes les opérations de gestion de Notification Hubs mettent à jour le journal d’activité Azure dans les journaux des opérations qui est exposé dans le [portail Azure]. Le journal d’activité Azure fournit des insights sur les opérations effectuées sur des ressources de vos abonnements. Avec le journal d’activité, vous pouvez déterminer qui, quand et quoi pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées sur les ressources de votre abonnement. Vous pouvez également comprendre l’état des opérations et d’autres propriétés pertinentes. Toutefois, le journal d’activité n’inclut pas l’opération de lecture (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Surveillance et dépannage
 

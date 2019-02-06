@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 32e0be682d5d216df6741fa38bb0a16e4b323ef6
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 9f8ffe71743f4832d8ce633f050206d21f411276
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354193"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55082195"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -103,10 +103,10 @@ Les stratégies affectent le comportement d'exécution d'une activité, en parti
 | accès concurrentiel |Entier  <br/><br/>Valeur maximale : 10 |1 |Nombre d’exécutions simultanées de l’activité.<br/><br/>Il détermine le nombre d’exécutions en parallèle de l’activité qui peuvent se produire sur différents segments. Par exemple, si une activité doit passer par un grand ensemble de données disponibles, une valeur de concurrence plus élevée accélère le traitement des données. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Détermine l’ordre des segments de données qui sont traités.<br/><br/>Par exemple, si vous avez 2 segments (l’un se produisant à 16 heures et l’autre à 17 heures) et que les deux sont en attente d’exécution. Si vous définissez executionPriorityOrder sur NewestFirst, le segment à 17 h est traité en premier. De même, si vous définissez executionPriorityOrder sur OldestFIrst, le segment à 16 h est traité en premier. |
 | retry |Entier <br/><br/>La valeur max peut être 10 |0 |Nombre de nouvelles tentatives avant que le traitement des données du segment ne soit marqué comme un échec. L'exécution de l'activité pour un segment de données est répétée jusqu'au nombre de tentatives spécifié. La nouvelle tentative est effectuée dès que possible après l'échec. |
-| timeout |intervalle de temps |00:00:00 |Délai d'expiration de l'activité. Exemple : 00:10:00 (implique un délai d’expiration de 10 minutes)<br/><br/>Si une valeur n’est pas spécifiée ou est égale à 0, le délai d’expiration est infini.<br/><br/>Si le temps de traitement des données sur un segment dépasse la valeur du délai d’expiration, il est annulé et le système tente de réexécuter le traitement. Le nombre de nouvelles tentatives dépend de la propriété « retry ». Quand le délai d’expiration est atteint, l’état est défini sur TimedOut. |
-| delay |intervalle de temps |00:00:00 |Spécifie le délai avant le début du traitement des données du segment.<br/><br/>L’exécution d’activité pour une tranche de données est démarrée une fois que le délai a dépassé l’heure d’exécution prévue.<br/><br/>Exemple : 00:10:00 (implique un délai de 10 minutes) |
+| timeout |TimeSpan |00:00:00 |Délai d'expiration de l'activité. Exemple : 00:10:00 (implique un délai d’expiration de 10 minutes)<br/><br/>Si une valeur n’est pas spécifiée ou est égale à 0, le délai d’expiration est infini.<br/><br/>Si le temps de traitement des données sur un segment dépasse la valeur du délai d’expiration, il est annulé et le système tente de réexécuter le traitement. Le nombre de nouvelles tentatives dépend de la propriété « retry ». Quand le délai d’expiration est atteint, l’état est défini sur TimedOut. |
+| delay |TimeSpan |00:00:00 |Spécifie le délai avant le début du traitement des données du segment.<br/><br/>L’exécution d’activité pour une tranche de données est démarrée une fois que le délai a dépassé l’heure d’exécution prévue.<br/><br/>Exemple : 00:10:00 (implique un délai de 10 minutes) |
 | longRetry |Entier <br/><br/>Valeur maximale : 10 |1 |Le nombre de nouvelles tentatives longues avant l’échec de l’exécution du segment.<br/><br/>Les tentatives longRetry sont espacées par longRetryInterval. Par conséquent, si vous devez spécifier un délai entre chaque tentative, utilisez longRetry. Si les valeurs Retry et longRetry sont spécifiées, chaque tentative longRetry inclut des tentatives Retry et le nombre maximal de tentatives sera égal à Retry * longRetry.<br/><br/>Par exemple, si nous avons les paramètres suivants dans la stratégie de l’activité :<br/>Retry : 3<br/>longRetry : 2<br/>longRetryInterval : 01:00:00<br/><br/>Supposons qu’il existe un seul segment à exécuter (dont l’état est Waiting) et que l’exécution de l’activité échoue à chaque fois. Au départ, il y aurait 3 tentatives consécutives d'exécution. Après chaque tentative, l’état du segment serait Retry. Une fois les 3 premières tentatives terminées, l’état du segment serait LongRetry.<br/><br/>Après une heure (c’est-à-dire la valeur de longRetryInterval), il y aurait un autre ensemble de 3 tentatives consécutives d’exécution. Ensuite, l'état du segment serait Failed et aucune autre tentative ne serait exécutée. Par conséquent, 6 tentatives ont été exécutées.<br/><br/>Si une exécution réussit, l’état de la tranche est Ready et aucune nouvelle tentative n’est tentée.<br/><br/>La valeur longRetry peut être utilisée dans les situations où les données dépendantes arrivent à des moments non déterministes ou lorsque l’environnement global où le traitement des données se produit est douteux. Dans ces cas, l’exécution de nouvelles tentatives l’une après l’autre peut ne pas être utile et procéder ainsi après un intervalle de temps précis produit la sortie désirée.<br/><br/>Mise en garde : ne définissez pas de valeurs élevées pour longRetry ou longRetryInterval. En règle générale, des valeurs plus élevées impliquent d’autres problèmes systémiques. |
-| longRetryInterval |intervalle de temps |00:00:00 |Le délai entre les nouvelles tentatives longues |
+| longRetryInterval |TimeSpan |00:00:00 |Le délai entre les nouvelles tentatives longues |
 
 ### <a name="typeproperties-section"></a>Section typeProperties
 La section typeProperties est différente pour chaque activité. Les activités de transformation n’ont que les propriétés du type. Consultez la section [Activités de transformation des données](#data-transformation-activities) dans cet article pour obtenir des exemples JSON qui définissent les activités de transformation dans un pipeline.
@@ -4937,7 +4937,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété de type doit être définie sur : **AzureML**. |Oui |
+| Type |La propriété de type doit être définie sur : **AzureML**. |Oui |
 | mlEndpoint |L'URL de la notation par lot. |Oui |
 | apiKey |L'API du modèle d'espace de travail publié. |Oui |
 
@@ -4965,7 +4965,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. |Oui |
+| Type |La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. |Oui |
 | accountName |Nom du compte du service Analytique Azure Data Lake. |Oui |
 | dataLakeAnalyticsUri |URI du service Analytique Azure Data Lake. |Non  |
 | autorisation |Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur de la fabrique de données et une fois la connexion OAuth effectuée. |Oui |
@@ -5387,7 +5387,7 @@ Notez les points suivants :
 - La propriété **type** est définie sur **HDInsightSpark**.
 - **rootPath** est définie sur **adfspark\\pyFiles**, où adfspark est le conteneur d’objets Blob Azure contenant le dossier pyFiles. Dans cet exemple, le stockage Blob Azure est celui qui est associé au cluster Spark. Vous pouvez charger le fichier vers un autre stockage Azure. Si vous procédez ainsi, créez un service lié de stockage Azure pour lier ce compte de stockage à la fabrique de données. Ensuite, spécifiez le nom du service lié en tant que valeur pour la propriété **sparkJobLinkedService**. Consultez les [propriétés de l’activité Spark](#spark-activity-properties) pour plus d’informations sur cette propriété et d’autres propriétés prises en charge par l’activité Spark.
 - La propriété **entryFilePath** est définie sur **test.py**, c’est-à-dire le fichier python.
-- La propriété **getDebugInfo** est définie sur **Always**, ce qui signifie que les fichiers journaux sont toujours générés (succès ou échec).  
+- La propriété **getDebugInfo** est définie sur **Always**, ce qui signifie que les fichiers journaux sont toujours générés (succès ou échec).
 
     > [!IMPORTANT]
     > Nous vous recommandons de ne pas définir cette propriété sur Always dans un environnement de production, sauf si vous dépannez un problème.
@@ -5396,13 +5396,13 @@ Notez les points suivants :
 Pour plus d’informations sur l’activité, consultez l’article [Spark Activity (activité Spark)](data-factory-spark.md).
 
 ## <a name="machine-learning-batch-execution-activity"></a>Activité d’exécution par lot Machine Learning
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité d’exécution par lots Azure ML. La propriété de type de l’activité doit être : **AzureMLBatchExecution**. Vous devez d’abord créer un service lié Azure Machine Learning, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLBatchExecution :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité d’exécution par lots Azure Machine Learning Studio. La propriété de type de l’activité doit être : **AzureMLBatchExecution**. Vous devez d’abord créer un service lié Azure Machine Learning, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLBatchExecution :
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
-webServiceInput | Le jeu de données à transmettre en tant qu’entrée pour le service web Azure ML. Ce jeu de données doit également être inclus dans les entrées de l’activité. |Utilisez webServiceInput ou webServiceInputs. |
-webServiceInputs | Spécifie les jeux de données à transmettre en tant qu’entrées pour le service web Azure ML. Si le service web prend plusieurs entrées, utilisez la propriété webServiceInputs au lieu de la propriété webServiceInput. Les jeux de données référencés par **webServiceInputs** doivent également être inclus dans les **entrées** de l’activité. | Utilisez webServiceInput ou webServiceInputs. |
-webServiceOutputs | Les jeux de données qui sont attribués en tant que sorties pour le service web Azure ML. Le service web renvoie des données de sortie dans ce jeu de données. | Oui |
+webServiceInput | Le jeu de données à transmettre en tant qu’entrée pour le service web Azure Machine Learning Studio. Ce jeu de données doit également être inclus dans les entrées de l’activité. |Utilisez webServiceInput ou webServiceInputs. |
+webServiceInputs | Spécifie les jeux de données à transmettre en tant qu’entrées pour le service web Azure Machine Learning Studio. Si le service web prend plusieurs entrées, utilisez la propriété webServiceInputs au lieu de la propriété webServiceInput. Les jeux de données référencés par **webServiceInputs** doivent également être inclus dans les **entrées** de l’activité. | Utilisez webServiceInput ou webServiceInputs. |
+webServiceOutputs | Les jeux de données qui sont attribués en tant que sorties pour le service web Azure Machine Learning Studio. Le service web renvoie des données de sortie dans ce jeu de données. | Oui |
 globalParameters | Spécifie les valeurs pour les paramètres de service web dans cette section. | Non  |
 
 ### <a name="json-example"></a>Exemple JSON
@@ -5452,7 +5452,7 @@ Dans l’exemple JSON, le service web Azure Machine Learning déployé utilise u
 > Seules les entrées et sorties de l’activité AzureMLBatchExecution peuvent être transmises en tant que paramètres au service web. Par exemple, dans l’extrait de code JSON ci-dessus, MLSqlInput est une entrée de l’activité AzureMLBatchExecution, qui est transmise comme entrée au service web via le paramètre webServiceInput.
 
 ## <a name="machine-learning-update-resource-activity"></a>Activité des ressources de mise à jour de Machine Learning
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité des ressources de mise à jour Azure ML. La propriété de type de l’activité doit être : **AzureMLUpdateResource**. Vous devez d’abord créer un service lié Azure Machine Learning, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLUpdateResource :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité des ressources de mise à jour Azure Machine Learning Studio. La propriété de type de l’activité doit être : **AzureMLUpdateResource**. Vous devez d’abord créer un service lié Azure Machine Learning, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLUpdateResource :
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
@@ -5460,7 +5460,7 @@ trainedModelName | Nom du modèle reformé. | Oui |
 trainedModelDatasetName | Jeu de données pointant vers le fichier iLearner renvoyé par l’opération de reformation. | Oui |
 
 ### <a name="json-example"></a>Exemple JSON
-Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateResource**. L’activité d’exécution par lot Azure ML prend les données d’apprentissage comme entrée et génère un fichier .iLearner comme sortie. L’activité appelle le service web de formation (expérience de formation exposée comme un service web) avec les données de formation d’entrée et reçoit le fichier iLearner du service web. placeholderBlob est simplement un jeu de données de sortie factice requis par le service Azure Data Factory pour exécuter le pipeline.
+Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateResource**. L’activité d’exécution par lot Azure Machine Learning Studio prend les données d’entraînement comme entrée et génère un fichier .iLearner comme sortie. L’activité appelle le service web de formation (expérience de formation exposée comme un service web) avec les données de formation d’entrée et reçoit le fichier iLearner du service web. placeholderBlob est simplement un jeu de données de sortie factice requis par le service Azure Data Factory pour exécuter le pipeline.
 
 
 ```json

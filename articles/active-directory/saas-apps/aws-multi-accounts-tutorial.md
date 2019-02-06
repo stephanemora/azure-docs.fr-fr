@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Amazon Web Services (AWS) pour connecter plusieurs comptes | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Amazon Web Services (AWS) pour connecter plusieurs comptes | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure AD et plusieurs comptes Amazon Web Services (AWS).
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: a9acb9539497c85f408ce7417fa5983072ea80b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 48d8516a1923aaacc26db2eb9a9acfd0ddff737e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365660"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197515"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutoriel : Intégration d’Azure Active Directory à plusieurs comptes Amazon Web Services (AWS)
 
@@ -122,11 +122,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![image](./media/aws-multi-accounts-tutorial/b1_b2_saml_sso.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+3. Sur la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![image](./media/aws-multi-accounts-tutorial/b1-domains_and_urlsedit.png)
 
-4. Dans la section **Configuration SAML de base**, l’utilisateur n’a à effectuer aucune étape, car l’application est déjà intégrée à Azure.
+4. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.
 
     ![image](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
@@ -202,13 +202,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Sélectionnez **SAML 2.0 federation** (Fédération SAML 2.0) dans **Select type of trusted entity** (Sélectionnez un type d’entité approuvé).
 
-    b. Dans la section **Choose a SAML 2.0 Provider** (Choisir un fournisseur SAML 2.0), sélectionnez le **fournisseur SAML** que vous avez déjà créé (par exemple : *WAAD*).
+    b. Dans la section **Choose a SAML 2.0 Provider** (Choisir un fournisseur SAML 2.0), sélectionnez le **fournisseur SAML** que vous avez déjà créé (par exemple : *WAAD*)
 
     c. Sélectionnez **Allow programmatic and AWS Management Console access** (Autoriser l’accès par programme à AWS Management Console).
   
-    d. Cliquez sur **Next: Permissions** (Suivant : Autorisations).
+    d. Cliquez sur **Suivant : Autorisations**.
 
-16. Dans la boîte de dialogue **Joindre des stratégies d’autorisation**, vous n’avez pas besoin de joindre une stratégie. Cliquez sur **Suivant : Revue**.  
+16. Dans la boîte de dialogue **Joindre des stratégies d’autorisation**, vous n’avez pas besoin de joindre une stratégie. Cliquez sur **Suivant : Vérification**).  
 
     ![Stratégie dans la configuration de l’authentification unique][33]
 

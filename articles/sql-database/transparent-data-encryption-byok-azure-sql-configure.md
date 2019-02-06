@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell et CLI : Activer TDE SQL - votre clé - Azure SQL Database | Microsoft Docs'
+title: 'PowerShell et CLI : Activer TDE SQL - votre clé - Azure SQL Database | Microsoft Docs'
 description: Découvrez comment configurer des entités Azure SQL Database et Data Warehouse pour commencer à utiliser Transparent Data Encryption (TDE) pour le chiffrement au repos à l’aide de PowerShell ou CLI.
 services: sql-database
 ms.service: sql-database
@@ -12,16 +12,16 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 0fad0cd32e8df38c5a9c06ecf01a14340f1bc9ef
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 87ffc4619f2ad864113db3b3aed42aa23535cb83
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165073"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900322"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell et CLI : Activer Transparent Data Encryption à l’aide de votre propre clé Azure Key Vault
+# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell et CLI : Activer Transparent Data Encryption à l’aide de votre propre clé Azure Key Vault
 
-Cet article explique comment utiliser une clé Azure Key Vault pour Transparent Data Encryption (TDE) sur une entité SQL Database ou Data Warehouse. Pour en savoir plus sur la prise en charge TDE avec Bring Your Own Key (BYOK), consultez [Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](transparent-data-encryption-byok-azure-sql.md) (Transparent Data Encryption avec la prise en charge Bring Your Own Key pour Azure SQL Database et Data Warehouse). 
+Cet article explique comment utiliser une clé Azure Key Vault pour Transparent Data Encryption (TDE) sur une entité SQL Database ou Data Warehouse. Pour en savoir plus sur la prise en charge TDE avec Bring Your Own Key (BYOK), consultez [Transparent Data Encryption avec prise en charge de Bring Your Own Key pour Azure SQL Database et Data Warehouse](transparent-data-encryption-byok-azure-sql.md). 
 
 ## <a name="prerequisites-for-powershell"></a>Prérequis pour PowerShell
 
@@ -186,8 +186,8 @@ Vérifiez les points suivants en cas de problème :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment faire pivoter le protecteur TDE d’un serveur pour respecter les exigences de sécurité : [Rotate the Transparent Data Encryption (TDE) protector using PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md) (Faire pivoter le protecteur Transparent Data Encryption (TDE) à l’aide de PowerShell).
-- En cas de risque de sécurité, découvrez comment supprimer un protecteur TDE potentiellement compromis : [Remove a Transparent Data Encryption (TDE) protector using PowerShell](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) (Supprimer un protecteur Transparent Data Encryption (TDE)). 
+- Découvrez comment faire pivoter le protecteur TDE d’un serveur pour se conformer à des exigences de sécurité : [Faites pivoter le protecteur Transparent Data Encryption à l’aide de PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
+- En cas de risque pour la sécurité, découvrez comment supprimer un protecteur TDE potentiellement compromis : [Supprimez une clé potentiellement compromise](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
 
 ## <a name="prerequisites-for-cli"></a>Prérequis pour CLI
 
@@ -208,7 +208,7 @@ Vérifiez les points suivants en cas de problème :
 ## <a name="step-1-create-a-server-and-assign-an-azure-ad-identity-to-your-server"></a>Étape 1. Créer un serveur et assigner une identité Azure AD à votre serveur
       cli
       # create server (with identity) and database
-      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -I 
+      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -i 
       az sql db create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
       
 

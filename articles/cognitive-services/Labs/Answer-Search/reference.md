@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 6548e0bb05b117cf79405b9516da815a7e81b6a3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 6ec09627fb80925fef72c491936a1dd83106874b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471218"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211693"
 ---
 # <a name="project-answer-search-v7-reference"></a>Informations de référence sur le projet Recherche de réponses v7
 
@@ -29,10 +29,10 @@ La réponse JSON peut être analysée pour trouver des faits et des entités qui
 Pour demander les résultats de la Recherche de réponses, envoyez une demande au point de terminaison suivant. Utilisez les en-têtes et les paramètres d’URL pour définir d’autres spécifications.
 
 Point de terminaison GET : 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>&subscription-key=0123456789ABCDEF&mkt=en-us
 
-````
+```
 
 La demande doit utiliser le protocole HTTPS et inclure le paramètre de requête suivant :
 -  q=<URL> : requête identifiant l’objet de la recherche.
@@ -71,7 +71,7 @@ Voici les en-têtes possibles d’une demande et d’une réponse.
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|En-tête de demande requis.<br /><br /> Clé d’abonnement reçue lors de l’inscription à ce service dans [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
 |<a name="pragma" />Pragma|En-tête de demande facultatif.<br /><br /> Par défaut, Bing retourne le contenu en cache, s’il est disponible. Pour éviter cela, définissez l’en-tête Pragma sur no-cache (par exemple, Pragma: no-cache).
 |<a name="useragent" />User-Agent|En-tête de demande facultatif.<br /><br /> Agent utilisateur à l’origine de la requête. Bing utilise l’agent utilisateur pour offrir une expérience optimisée aux utilisateurs mobiles. Nous vous conseillons de toujours indiquer cet en-tête, bien qu’il soit facultatif.<br /><br /> L’agent utilisateur doit correspondre à la chaîne envoyée par n’importe quel navigateur couramment utilisé. Pour plus d’informations sur les agents utilisateurs, voir [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Voici quelques exemples de chaînes de l’agent utilisateur.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (compatible ; MSIE 10.0 ; Windows Phone 8.0 ; Trident/6.0 ; IEMobile/10.0 ; ARM ; Touch ; NOKIA ; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux ; U ; Android 2.3.5 ; en-us ; SCH-I500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML ; comme Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone ; CPU iPhone OS 6_1 comme Mac OS X) AppleWebKit/536.26 (KHTML ; comme Gecko) Mobile/10B142 iPhone4;1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3 ; WOW64 ; Trident/7.0 ; Touch ; rv:11.0) comme Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad ; CPU OS 7_0 comme Mac OS X) AppleWebKit/537.51.1 (KHTML, comme Gecko) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
-|<a name="clientid" />X-MSEdge-ClientID|En-tête de demande et de réponse facultatif.<br /><br /> Bing utilise cet en-tête pour garantir aux utilisateurs un comportement cohérent d’un appel d’API Bing à l’autre. Bing propose souvent de nouvelles fonctionnalités et améliorations, et se sert de l’ID client comme d’une clé pour attribuer le trafic aux différentes versions d’évaluation. Si vous n’assignez pas le même ID client à un utilisateur d’une demande à l’autre, Bing est susceptible d’affecter cet utilisateur à plusieurs versions d’évaluation en conflit, ce qui risque de nuire à l’expérience utilisateur. Par exemple, si la deuxième demande comporte une attribution de version d’évaluation différente de la première, l’expérience se révélera peut-être inattendue. De même, Bing peut utiliser l’ID client pour personnaliser les résultats web d’après l’historique de recherche correspondant à cet ID et ainsi proposer à l’utilisateur une expérience plus riche.<br /><br /> Bing utilise également cet en-tête pour aider à améliorer le classement des résultats en analysant l’activité générée par un ID client. L’amélioration de la pertinence permet d’obtenir des résultats de meilleure qualité de la part des API Bing et, en retour, des taux de clic plus élevés pour le consommateur des API.<br /><br /> **IMPORTANT :** Il est vivement recommandé d’indiquer cet en-tête, bien qu’il soit facultatif. Grâce à la persistance de l’ID client dans plusieurs demandes pour une même combinaison appareil/utilisateur final, (1) le consommateur des API bénéficie d’une expérience utilisateur cohérente et (2) le taux de clic est plus élevé du fait des résultats de meilleure qualité provenant des API Bing.<br /><br /> Voici les règles d’utilisation de base qui s’appliquent à cet en-tête.<br /><ul><li>Chaque utilisateur de votre application sur l’appareil doit avoir un ID client unique, généré par Bing.<br /><br/>Si vous n’insérez pas cet en-tête dans la demande, Bing génère un ID et le retourne dans l’en-tête de réponse X-MSEdge-ClientID. La première fois que l’utilisateur utilise votre application sur cet appareil est la seule fois où vous ne devez PAS inclure cet en-tête dans la demande.<br /><br/></li><li>Utilisez l’ID client pour chaque demande d’API Bing que votre application effectue pour cet utilisateur sur l’appareil.<br /><br/></li><li>**ATTENTION :** Vérifiez que cet ID client ne peut pas être associé à des informations authentifiables sur le compte d’utilisateur.</li><br/><li>Conservez l’ID client. Pour conserver l’identifiant dans une application de navigateur, utilisez un cookie HTTP persistant qui garantit l’utilisation de cet identifiant dans toutes les sessions. N’utilisez pas de cookie de session. Dans le cas d’autres applications, comme des applications mobiles, utilisez le stockage persistant de l’appareil pour conserver cet identifiant.<br /><br/>La prochaine fois que l’utilisateur utilisera votre application sur cet appareil, vous récupérerez l’ID client que vous aurez conservé.</li></ul><br /> **REMARQUE :** Les réponses de Bing ne comportent pas forcément cet en-tête. Si elles l’incluent, capturez l’ID client et utilisez-le pour toutes les demandes Bing suivantes concernant l’utilisateur sur cet appareil.<br /><br /> **REMARQUE :** Si vous insérez l’en-tête X-MSEdge-ClientID, n’incluez pas les cookies dans la demande.|  
+|<a name="clientid" />X-MSEdge-ClientID|En-tête de demande et de réponse facultatif.<br /><br /> Bing utilise cet en-tête pour garantir aux utilisateurs un comportement cohérent d’un appel d’API Bing à l’autre. Bing propose souvent de nouvelles fonctionnalités et améliorations, et se sert de l’ID client comme d’une clé pour attribuer le trafic aux différentes versions d’évaluation. Si vous n’assignez pas le même ID client à un utilisateur d’une demande à l’autre, Bing est susceptible d’affecter cet utilisateur à plusieurs versions d’évaluation en conflit, ce qui risque de nuire à l’expérience utilisateur. Par exemple, si la deuxième demande comporte une attribution de version d’évaluation différente de la première, l’expérience se révélera peut-être inattendue. De même, Bing peut utiliser l’ID client pour personnaliser les résultats web d’après l’historique de recherche correspondant à cet ID et ainsi proposer à l’utilisateur une expérience plus riche.<br /><br /> Bing utilise également cet en-tête pour aider à améliorer le classement des résultats en analysant l’activité générée par un ID client. L’amélioration de la pertinence permet d’obtenir des résultats de meilleure qualité de la part des API Bing et, en retour, des taux de clic plus élevés pour le consommateur des API.<br /><br /> **IMPORTANT :** Il est vivement recommandé d’indiquer cet en-tête, bien qu’il soit facultatif. Grâce à la persistance de l’ID client dans plusieurs demandes pour une même combinaison appareil/utilisateur final, (1) le consommateur des API bénéficie d’une expérience utilisateur cohérente et (2) le taux de clic est plus élevé du fait des résultats de meilleure qualité provenant des API Bing.<br /><br /> Voici les règles d’utilisation de base qui s’appliquent à cet en-tête.<br /><ul><li>Chaque utilisateur de votre application sur l’appareil doit avoir un ID client unique, généré par Bing.<br /><br/>Si vous n’insérez pas cet en-tête dans la demande, Bing génère un ID et le retourne dans l’en-tête de réponse X-MSEdge-ClientID. La première fois que l’utilisateur utilise votre application sur cet appareil est la seule fois où vous ne devez PAS inclure cet en-tête dans la demande.<br /><br/></li><li>Utilisez l’ID client pour chaque requête d’API Bing qu’effectue votre application pour cet utilisateur sur l’appareil.<br /><br/></li><li>**ATTENTION :** Vérifiez que cet ID client ne peut pas être associé à des informations authentifiables sur le compte d’utilisateur.</li><br/><li>Conservez l’ID client. Pour conserver l’identifiant dans une application de navigateur, utilisez un cookie HTTP persistant qui garantit l’utilisation de cet identifiant dans toutes les sessions. N’utilisez pas de cookie de session. Dans le cas d’autres applications, comme des applications mobiles, utilisez le stockage persistant de l’appareil pour conserver cet identifiant.<br /><br/>La prochaine fois que l’utilisateur utilisera votre application sur cet appareil, vous récupérerez l’ID client que vous aurez conservé.</li></ul><br /> **REMARQUE :** Les réponses de Bing ne comportent pas forcément cet en-tête. Si elles l’incluent, capturez l’ID client et utilisez-le pour toutes les demandes Bing suivantes concernant l’utilisateur sur cet appareil.<br /><br /> **REMARQUE :** Si vous insérez l’en-tête X-MSEdge-ClientID, n’incluez pas les cookies dans la requête.|  
 |<a name="clientip" />X-MSEdge-ClientIP|En-tête de demande facultatif.<br /><br /> Adresse IPv4 ou IPv6 de l’appareil client. L’adresse IP est utilisée pour découvrir l’emplacement de l’utilisateur. Bing utilise les informations de localisation pour déterminer le comportement de recherche approprié.<br /><br /> **REMARQUE :** Nous vous conseillons de toujours indiquer cet en-tête et l’en-tête X-Search-Location, bien qu’ils soient facultatifs.<br /><br /> N’obfusquez pas l’adresse (par exemple, en remplaçant le dernier octet par 0). Cela aurait pour effet d’éloigner la localisation de l’emplacement réel de l’appareil, ce qui pourrait conduire Bing à retourner des résultats erronés.|  
 |<a name="location" />X-Search-Location|En-tête de demande facultatif.<br /><br /> Liste délimitée par des points-virgules de paires clé/valeur qui décrivent la situation géographique du client. Bing utilise les informations de localisation pour déterminer le comportement de recherche approprié et retourner le contenu local pertinent. Spécifiez la paire clé/valeur sous la forme \<clé\>:\<valeur\>. Voici les clés permettant de spécifier l’emplacement de l’utilisateur.<br /><br /><ul><li>lat &mdash; Latitude de l’emplacement du client, en degrés. Elle doit être supérieure ou égale à -90,0 et inférieure ou égale à +90,0. Les valeurs négatives indiquent les latitudes sud et les valeurs positives les latitudes nord.<br /><br /></li><li>long &mdash; Longitude de l’emplacement du client, en degrés. Elle doit être supérieure ou égale à -180,0 et inférieure ou égale à +180,0. Les valeurs négatives indiquent les longitudes occidentales et les valeurs positives les longitudes orientales.<br /><br /></li><li>re &mdash; Rayon, en mètres, qui spécifie la précision horizontale des coordonnées. Transmettez la valeur retournée par le service de localisation de l’appareil. Voici quelques valeurs courantes : 22 m pour le GPS/Wi-Fi, 380 m pour la triangulation des tours cellulaires et 18 000 m pour la recherche IP inversée.<br /><br /></li><li>ts &mdash; Horodatage UTC UNIX correspondant au moment où le client était à cette position. (L’horodatage UNIX est le nombre de secondes écoulées depuis le 1er janvier 1970.)<br /><br /></li><li>head &mdash; Facultatif. Direction relative du client en déplacement. Spécifiez-la en degrés, entre 0 et 360, dans le sens horaire par rapport au nord géographique. N’indiquez cette clé que si la clé `sp` est différente de zéro.<br /><br /></li><li>sp &mdash; Vélocité (vitesse) horizontale, en mètres par seconde, à laquelle se déplace l’appareil du client.<br /><br /></li><li>alt &mdash; Altitude de l’appareil du client, en mètres.<br /><br /></li><li>are &mdash; Facultatif. Rayon, en mètres, qui spécifie la précision verticale des coordonnées. La valeur par défaut est 50 km. N’indiquez cette clé que si vous spécifiez la clé `alt`.<br /><br /></li></ul> **REMARQUE :** Bien que la plupart des clés soient facultatives, plus vous fournirez d’informations, plus les résultats de localisation seront précis.<br /><br /> **REMARQUE :** Nous vous conseillons de toujours indiquer la situation géographique de l’utilisateur, bien qu’elle soit facultative. C’est particulièrement important si l’adresse IP du client ne reflète pas exactement l’emplacement physique de l’utilisateur (par exemple, si le client utilise un VPN). Pour des résultats optimaux, précisez cet en-tête et l’en-tête X-MSEdge-ClientIP ; au minimum, indiquez cet en-tête.|
 
@@ -83,9 +83,9 @@ Voici les en-têtes possibles d’une demande et d’une réponse.
 La demande peut comporter les paramètres de requête suivants. Consultez la colonne Requis pour savoir lesquels sont obligatoires. Vous devez encoder les paramètres de requête au format URL.  
   
   
-|NOM|Valeur|type|Obligatoire|  
+|NOM|Valeur|Type|Obligatoire|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir [Codes de marché](#market-codes).<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|Oui|  
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir [Codes de marché](#market-codes).<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|Oui|  
 |<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|Oui|  
 |<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](http://json-ld.org/).|Chaîne|Non |  
 |<a name="safesearch" />safeSearch|Filtre utilisé pour filtrer le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Retourner les pages web comportant du texte, des images ou des vidéos pour adultes.<br /><br/></li><li>Modéré &mdash; Retourner les pages web comportant du texte pour adultes, mais pas des images ou des vidéos pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas retourner de pages web comportant du texte, des images ou des vidéos pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la demande provient d’un marché où la stratégie de Bing en matière de contenu pour adultes exige que `safeSearch` ait la valeur Strict, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes. |Chaîne|Non |  
@@ -106,7 +106,7 @@ Le schéma de réponse est soit [WebPage] soit ErrorResponse, comme dans l’API
 ### <a name="error"></a>Error  
 Définit l’erreur qui s’est produite.  
   
-|Élément|Description|type|  
+|Élément|Description|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|Code d’erreur identifiant la catégorie de l’erreur. Pour connaître la liste des codes possibles, voir [Codes d’erreur](#error-codes).|Chaîne|  
 |<a name="error-message" />message|Description de l’erreur.|Chaîne|  
@@ -119,7 +119,7 @@ Définit l’erreur qui s’est produite.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objet de niveau supérieur figurant dans la réponse en cas d’échec de la demande.  
   
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type.|Chaîne|  
 |<a name="errors" />errors|Liste des erreurs qui décrivent les raisons pour lesquelles la demande a échoué.|[Error](#error)|  
@@ -129,7 +129,7 @@ Objet de niveau supérieur figurant dans la réponse en cas d’échec de la dem
 ### <a name="license"></a>Licence  
 Définit la licence sous laquelle il est possible d’utiliser le texte ou la photo.  
   
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |----------|-----------|----------|  
 |Nom|Nom de la licence.|Chaîne|  
 |url|URL vers un site web sur lequel l’utilisateur trouvera plus d’informations sur la licence.<br /><br /> Utilisez le nom et l’URL pour créer un lien hypertexte.|Chaîne|  
@@ -138,7 +138,7 @@ Définit la licence sous laquelle il est possible d’utiliser le texte ou la ph
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Définit une règle contractuelle pour l’attribution de la licence.  
   
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur LicenseAttribution.|Chaîne|  
 |license|Licence sous laquelle il est possible d’utiliser le contenu.|[License](#license)|  
@@ -150,7 +150,7 @@ Définit une règle contractuelle pour l’attribution de la licence.
 ### <a name="link"></a>Lien  
 Définit les composants d’un lien hypertexte.  
   
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type.|Chaîne|  
 |texte|Texte d’affichage.|Chaîne|  
@@ -160,7 +160,7 @@ Définit les composants d’un lien hypertexte.
 ### <a name="linkattribution"></a>LinkAttribution  
 Définit une règle contractuelle pour l’attribution du lien.  
   
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur LinkAttribution.|Chaîne|  
 |mustBeCloseToContent|Valeur booléenne qui détermine si le contenu de la règle doit être placé à proximité du champ auquel la règle s’applique. Si la valeur est **true**, le contenu doit être à proximité immédiate. Si ce champ a la valeur **false** ou n’existe pas, l’emplacement du contenu est à la discrétion de l’appelant.|Booléen|  
@@ -172,7 +172,7 @@ Définit une règle contractuelle pour l’attribution du lien.
 ### <a name="mediaattribution"></a>MediaAttribution  
 Définit une règle contractuelle pour l’attribution du média.  
   
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur MediaAttribution.|Chaîne|  
 |mustBeCloseToContent|Valeur booléenne qui détermine si le contenu de la règle doit être placé à proximité du champ auquel la règle s’applique. Si la valeur est **true**, le contenu doit être à proximité immédiate. Si ce champ a la valeur **false** ou n’existe pas, l’emplacement du contenu est à la discrétion de l’appelant.|Booléen|  
@@ -186,7 +186,7 @@ Définit un éditeur.
   
 Notez qu’un éditeur peut indiquer son nom, son site web ou les deux.  
   
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |----------|-----------|----------|  
 |Nom|Nom de l’éditeur.|Chaîne|  
 |url|URL du site web de l’éditeur.<br /><br /> Notez que l’éditeur peut ne pas indiquer de site web.|Chaîne|  
@@ -196,7 +196,7 @@ Notez qu’un éditeur peut indiquer son nom, son site web ou les deux.
 ### <a name="webpage"></a>WebPage  
 Définit les informations concernant la page web dans l’aperçu.  
   
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |----------|-----------|----------|
 |Nom|Titre de la page (pas nécessairement le titre HTML).|Chaîne|
 |url|URL réellement analysée (potentiellement avec redirections de la demande).|Chaîne|  
@@ -208,7 +208,7 @@ Définit les informations concernant la page web dans l’aperçu.
 ### <a name="querycontext"></a>QueryContext  
 Définit le contexte de requête utilisé par Bing pour la demande.  
   
-|Élément|Description|type|  
+|Élément|Description|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Valeur booléenne qui indique si la requête spécifiée est destinée à des adultes. La valeur est **true** si c’est le cas, **false** sinon.|Booléen|  
 |alterationOverrideQuery|Chaîne de requête à utiliser pour forcer Bing à utiliser la chaîne d’origine. Par exemple, si la chaîne de requête est *saling downwind*, la chaîne de requête de remplacement sera *+saling downwind*. N’oubliez pas d’encoder la chaîne de requête, ce qui donne *%2Bsaling+downwind*.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|Chaîne|  
@@ -217,19 +217,19 @@ Définit le contexte de requête utilisé par Bing pour la demande.
 |originalQuery|Chaîne de requête telle que spécifiée dans la demande.|Chaîne|  
 
 ### <a name="identifiable"></a>Identifiable
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |-------------|-----------------|----------|
 |id|Identificateur de ressource.|Chaîne|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Définit un groupe de résultats de la recherche, par exemple, mainline.
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |-------------|-----------------|----------|
 |items|Liste de résultats de la recherche à afficher dans le groupe.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Définit un élément de résultat de recherche à afficher.
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Index base zéro de l’élément de la réponse à afficher. Si l’élément ne comporte pas ce champ, affiche tous les éléments de la réponse. Par exemple, affiche tous les articles dans la réponse Actualités.|Entier |
 |answerType|Réponse qui contient l’élément à afficher. Par exemple, Actualités.<br /><br />Utilisez le type pour trouver la réponse dans l’objet SearchResponse. Le type est le nom d’un champ SearchResponse.<br /><br /> Toutefois, n’utilisez le type de réponse que si cet objet inclut le champ de valeur ; sinon, ignorez-le.|Chaîne|
@@ -251,7 +251,7 @@ Définit l’objet de niveau supérieur figurant dans la réponse en cas de réu
   
 Notez que, si le service suspecte une attaque par déni de service, la demande réussira (le code d’état HTTP est 200 OK) ; toutefois, le corps de la réponse sera vide.  
   
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur SearchResponse.|Chaîne|  
 |WebPage|Objet JSON qui définit l’aperçu.|chaîne|  
@@ -260,7 +260,7 @@ Notez que, si le service suspecte une attaque par déni de service, la demande r
 ### <a name="textattribution"></a>TextAttribution  
 Définit une règle contractuelle pour l’attribution du texte brut.  
   
-|NOM|Valeur|type|  
+|NOM|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur TextAttribution.|Chaîne|  
 |texte|Texte d’attribution.<br /><br /> L’attribution du texte s’applique à l’entité dans son ensemble et devrait s’afficher juste après la présentation de l’entité. Si plusieurs règles d’attribution du texte ou du lien ne spécifient pas de cible, concaténez-les et affichez-les avec une étiquette « Données provenant de : ».|Chaîne| 

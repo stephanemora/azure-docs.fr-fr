@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816753"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104233"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -59,7 +59,7 @@ Pour résoudre ce problème, supprimez le verrou du groupe de ressources de la m
 **Étape 1 : [Supprimer le verrou du groupe de ressources des points de restauration](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Étape 2 : [ Nettoyer la collection de points de restauration](#clean_up_restore_point_collection)**<br>
 
-## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured : Sauvegarde Azure ne dispose pas des autorisations d’accès suffisantes au coffre de clés pour la sauvegarde de machines virtuelles chiffrées.
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured : Sauvegarde Azure ne dispose pas des autorisations d’accès suffisantes au coffre de clés pour la sauvegarde de machines virtuelles chiffrées
 
 **Code d’erreur** : UserErrorKeyvaultPermissionsNotConfigured <br>
 **Message d’erreur** : Sauvegarde Azure ne dispose pas des autorisations d’accès suffisantes au coffre de clés pour la sauvegarde de machines virtuelles chiffrées. <br>
@@ -105,7 +105,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Code d’erreur** : UserErrorUnsupportedDiskSize <br>
 **Message d’erreur** : Actuellement, La sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 1 023 Go <br>
 
-Votre opération de sauvegarde peut échouer lorsque vous sauvegardez une machine virtuelle dotée d'un disque de plus de 1023 Go, car votre espace de stockage n'est pas mis à niveau vers la Restauration instantanée. La mise à niveau vers la Restauration instantanée fournira une prise en charge de 4 To maximum. Reportez-vous à cet [article](backup-instant-restore-capability.md).  
+Votre opération de sauvegarde peut échouer lorsque vous sauvegardez une machine virtuelle dotée d'un disque de plus de 1023 Go, car votre espace de stockage n'est pas mis à niveau vers la Restauration instantanée. La mise à niveau vers la Restauration instantanée fournira une prise en charge de 4 To maximum. Reportez-vous à cet [article](backup-instant-restore-capability.md#upgrading-to-instant-restore). Une fois la mise à niveau effectuée, l’abonnement peut bénéficier de cette fonctionnalité au bout de deux heures maximum. Fournissez suffisamment de mémoire avant de renouveler l’opération.  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - Actuellement, la sauvegarde Azure ne prend pas en charge les disques SSD Standard
 
@@ -114,7 +114,7 @@ Votre opération de sauvegarde peut échouer lorsque vous sauvegardez une machin
 
 Actuellement, Sauvegarde Azure prend en charge les disques SSD Standard uniquement pour les coffres qui ont été mis à niveau vers la [Restauration instantanée](backup-instant-restore-capability.md).
 
-## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress – Impossible de lancer la sauvegarde, car une autre opération de sauvegarde est en cours d’exécution
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossible de lancer la sauvegarde, car une autre opération de sauvegarde est en cours d’exécution
 
 **Code d’erreur** : UserErrorBackupOperationInProgress <br>
 **Message d’erreur** : Impossible de lancer la sauvegarde, car une autre opération de sauvegarde est en cours d’exécution<br>
@@ -132,7 +132,6 @@ L’une de vos dernières tâches de sauvegarde a échoué, car il y a déjà un
 4. Réessayez l’opération de sauvegarde.
 
 Si l’opération de sauvegarde planifiée empiète sur la configuration de sauvegarde suivante, voir [Meilleures pratiques](backup-azure-vms-introduction.md#best-practices), [Performances de sauvegarde](backup-azure-vms-introduction.md#backup-performance) et [Considérations sur la restauration](backup-azure-vms-introduction.md#restore-considerations).
-
 
 
 ## <a name="causes-and-solutions"></a>Causes et solutions

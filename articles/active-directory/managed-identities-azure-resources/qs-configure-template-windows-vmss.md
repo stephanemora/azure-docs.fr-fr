@@ -3,23 +3,23 @@ title: Configurer des identités managées pour ressources Azure sur un groupe d
 description: Instructions détaillées pour configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant un modèle Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: daveba
-ms.openlocfilehash: 6498079950310e52fcb16172a34b9848e6a98e8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 6fff8890a32cd6c3f0aeb506425964edcc841c5e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429019"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193469"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques Azure en utilisant un modèle
 
@@ -173,7 +173,7 @@ Dans cette section, vous allez affecter une identité managée affectée par l�
 > [!Note]
 > Pour créer une identité managée affectée par l’utilisateur en utilisant un modèle Azure Resource Manager, consultez [Créer une identité managée affectée par l’utilisateur](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
-### <a name="assign-a-user-assigned-managed-identity-to-a-virutal-machine-scale-set"></a>Attribuer une identité managée affectée par l’utilisateur à un groupe de machines virtuelles identiques
+### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>Attribuer une identité managée affectée par l’utilisateur à un groupe de machines virtuelles identiques
 
 1. Sous l’élément `resources`, ajoutez l’entrée suivante pour attribuer une identité managée affectée par l’utilisateur à votre groupe de machines virtuelles identiques.  Veillez à remplacer `<USERASSIGNEDIDENTITY>` par le nom de l’identité managée affectée par l’utilisateur que vous avez créée.
    

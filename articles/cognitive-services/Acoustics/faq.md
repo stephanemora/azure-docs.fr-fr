@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b8b5ea39c1cfb3a37a8e3009f59312728bcb0331
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 07e65e6ff544d6372197010a2b9d7f3f647eeb0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900391"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166558"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -41,7 +41,7 @@ Acoustics prend environ 0,01 % du processeur par source par trame. L’utilisat
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>Ai-je besoin de simplifier la géométrie de niveau ? De contrôler le nombre de triangles ? De rendre les mailles étanches ?
 
-Non. Le système ingère la géométrie de niveau détaillée directement. Elle est voxelisée pour le traitement interne.
+ Non. Le système ingère la géométrie de niveau détaillée directement. Elle est voxelisée pour le traitement interne.
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>Que contient le tableau de recherche du runtime ?
 
@@ -53,7 +53,7 @@ Oui, le plug-in spatialiseur **Microsoft Acoustics** Unity consulte la table de 
  
 ## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Peut-il gérer la géométrie dynamique ? Les fermetures de portes ? Les murs qui explosent ?
 
-Non. Les paramètres acoustiques sont précalculés d’après l’état statique d’un niveau de jeu. Nous vous suggérons de laisser la géométrie de porte hors acoustique, et d’appliquer une occlusion supplémentaire en fonction de l’état des objets de jeu destructibles et mobiles à l’aide de techniques établies.
+ Non. Les paramètres acoustiques sont précalculés d’après l’état statique d’un niveau de jeu. Nous vous suggérons de laisser la géométrie de porte hors acoustique, et d’appliquer une occlusion supplémentaire en fonction de l’état des objets de jeu destructibles et mobiles à l’aide de techniques établies.
  
 ## <a name="does-it-handle-materials"></a>Gère-t-il les matières ?
 
@@ -69,7 +69,7 @@ Project Acoustics fournit des paramètres acoustique précis et fiables même po
 
 ## <a name="what-exactly-happens-during-baking"></a>Que se passe-t-il exactement pendant le « baking » ?
 
-Le système prend en compte les emplacements de lecteur potentiels afin de générer un ensemble de positions d’échantillons de « sonde » espacées de façon uniforme. Le baking d’un niveau se compose de tâches indépendantes pour chaque sonde : le système considère une « région de simulation » cuboïde centrée sur la sonde et effectue une simulation d’ondes détaillée dans cette région à une résolution allant jusqu’à 25 cm.
+Le système prend en compte les emplacements de lecteur potentiels afin de générer un ensemble de positions d’échantillons de « sonde » espacées de façon uniforme. Un bake pour un niveau se compose de tâches indépendantes pour chaque probe : Le système considère une « région de simulation » cubique centrée autour de la sonde et effectue une simulation d’onde détaillée au sein de cette région à une résolution allant jusqu’à 25 cm.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Explorer l’[exemple de scène](sample-walkthrough.md)

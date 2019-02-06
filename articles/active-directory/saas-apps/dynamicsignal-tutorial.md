@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Dynamic Signal | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Dynamic Signal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Dynamic Signal.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 863f7340-b065-4f59-b092-daa67da6f703
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 2ca787be6d3697c84b8eeef637af8a14b190b428
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2588511ac3892575b5decadd5ddca474e29a0abc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428347"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170842"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dynamic-signal"></a>Didacticiel : Intégration d’Azure Active Directory à Dynamic Signal
+# <a name="tutorial-azure-active-directory-integration-with-dynamic-signal"></a>Tutoriel : Intégration d’Azure Active Directory à Dynamic Signal
 
 Dans ce didacticiel, vous allez apprendre à intégrer Dynamic Signal à Azure Active Directory (Azure AD).
 
@@ -168,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Dynamic Signal. Dynamic Signal prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas déjà, un utilisateur est créé durant une tentative d’accès à Dynamic Signal.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support Dynamic Signal](mailto:support@dynamicsignal.com).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe du support technique de Dynamic Signal](mailto:support@dynamicsignal.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

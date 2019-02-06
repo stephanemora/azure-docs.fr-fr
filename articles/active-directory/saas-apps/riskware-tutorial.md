@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Riskware | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Riskware | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Riskware.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 81866167-b163-4695-8978-fd29a25dac7a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c664fac99e93e94b46f5d917a63aa6530b695bd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3b4c979bf03b23280c9389a043375f088624efe6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437771"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163243"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutoriel : Intégration d’Azure Active Directory à Riskware
+# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutoriel : Intégration d’Azure Active Directory à Riskware
 
 Dans ce tutoriel, vous allez apprendre à intégrer Riskware à Azure Active Directory (Azure AD).
 
@@ -111,17 +111,17 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
     | Environnement| Modèle d’URL|
     |--|--|
-    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
+    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
+    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL :
     | Environnement| Modèle d’URL|
     |--|--|
-    | UAT| `https://riskcloud.net/uat` |
-    | PROD| `https://riskcloud.net/prod` |
-    | DEMO| `https://riskcloud.net/demo` |
+    | UAT| `https://riskcloud.net/uat` |
+    | PROD| `https://riskcloud.net/prod` |
+    | DEMO| `https://riskcloud.net/demo` |
     |||
 
     > [!NOTE]
@@ -167,7 +167,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     g. Dans la zone de texte **XML Identity Tag Name**, tapez l’attribut qui contient l’identificateur unique dans la réponse SAML, comme NameID.
 
-    h. Dans le Bloc-notes, ouvrez le **XML de métadonnées** téléchargé du portail Azure, copiez le certificat à partir du fichier de métadonnées, puis collez-le dans la zone de texte **Certificate**.
+    h. Dans le Bloc-notes, ouvrez le  **XML de métadonnées**  téléchargé du portail Azure, copiez le certificat à partir du fichier de métadonnées, puis collez-le dans la zone de texte **Certificate**.
 
     i. Dans la zone de texte **Consumer URL**, collez la valeur de **Reply URL**, que vous obtenez à partir de l’équipe de support.
 

@@ -4,17 +4,17 @@ description: Cet article vous explique comment créer et gérer des stratégies 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847048"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101785"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Créer des stratégies et afficher les données de conformité par programmation avec Azure Policy
 
@@ -201,17 +201,34 @@ Pour créer une définition de stratégie, procédez comme suit :
   }
   ```
 
+   Pour plus d’informations sur la création d’une définition de stratégie, consultez la page [Structure de définition Azure Policy](../concepts/definition-structure.md).
+
 1. Pour créer une définition de stratégie, exécutez la commande suivante :
 
    ```azurecli-interactive
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
+   La commande crée une définition de stratégie nommée _Audit Storage Accounts Open to Public Networks_.
+   Pour plus d’informations sur les autres paramètres utilisables, consultez [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create).
+
+   Lorsqu’il est appelé sans paramètre d’emplacement, par défaut, `az policy definition creation` enregistre la définition de stratégie dans l’abonnement sélectionné du contexte de sessions. Pour enregistrer la définition dans un autre emplacement, utilisez les paramètres suivants :
+
+   - **--subscription** : enregistre dans un autre abonnement. Nécessite une valeur _GUID_ pour l’ID d’abonnement ou une valeur _chaîne_ pour le nom de l’abonnement.
+   - **--management-group** : enregistre dans un groupe d’administration. Une valeur de _chaîne_ est nécessaire.
+
 1. Pour créer une attribution de stratégie, utilisez la commande suivante. Remplacez les informations de l’exemple entre &lt;&gt; par vos propres valeurs.
 
    ```azurecli-interactive
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
+
+   Le paramètre **--scope** sur `az policy assignment create` peut être défini pour un groupe d’administration, un abonnement, un groupe de ressources ou une seule ressource. Le paramètre utilise un chemin de ressource complet. Pour chaque conteneur, le modèle **--scope** est le suivant. Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement. `{rType}` est remplacé par le **type de la ressource**, comme `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
+
+   - Ressource : `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Groupe de ressources : `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Abonnement : `/subscriptions/{subID}`
+   - Groupe d'administration : `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Vous pouvez obtenir l’ID de définition de stratégie à l’aide de PowerShell avec la commande suivante :
 

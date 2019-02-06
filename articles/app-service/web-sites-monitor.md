@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247250"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913155"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Superviser les applications dans Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de supervision intégrées pour les applications web, back-ends mobiles et applications API dans le [portail Azure](https://portal.azure.com).
@@ -73,9 +73,15 @@ Pour une application, les métriques disponibles sont les suivantes :
 | --- | --- |
 | **Temps de réponse moyen** | Temps moyen, en millisecondes, nécessaire à l’application pour traiter les requêtes. |
 | **Plage de travail moyenne de la mémoire** | Quantité moyenne de mémoire, en mégaoctets (Mio), utilisée par l’application. |
+| **Connexions** | Nombre de sockets liés existants dans le bac à sable (w3wp.exe et ses processus enfants).  Un socket lié est créé en appelant les API bind()/connect(), et persiste jusqu’à être fermé avec CloseHandle()/closesocket(). |
 | **Temps processeur** | Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, consultez [Temps processeur et pourcentage processeur](#cpu-time-vs-cpu-percentage). |
+| **Assemblys actuels** | Nombre d’assemblys actuellement chargés dans tous les AppDomains dans cette application. |
 | **Données entrantes** | Quantité de bande passante entrante, en Mio, consommée par l’application. |
 | **Données sortantes** | Quantité de bande passante sortante, en Mio, consommée par l’application. |
+| **Garbage collections de génération 0** | Nombre de fois que les objets de génération 0 ont été récupérés par le Garbage Collector depuis le début du processus d’application. Les garbage collections de génération supérieure comprennent toutes celles de génération inférieure.|
+| **Garbage collections de génération 1** | Nombre de fois que les objets de génération 1 ont été récupérés par le Garbage Collector depuis le début du processus d’application. Les garbage collections de génération supérieure comprennent toutes celles de génération inférieure.|
+| **Garbage collections de génération 2** | Nombre de fois que les objets de génération 2 ont été récupérés par le Garbage Collector depuis le début du processus d’application.|
+| **Nombre de descripteurs** | Nombre total de handles actuellement ouverts par le processus d’application.|
 | **Http 2xx** | Nombre de requêtes donnant lieu à un code d’état HTTP ≥ 200, mais < 300. |
 | **Http 3xx** | Nombre de requêtes donnant lieu à un code d’état HTTP ≥ 300, mais < 400. |
 | **Http 401** | Nombre de requêtes donnant lieu à un code d’état HTTP 401. |
@@ -84,8 +90,20 @@ Pour une application, les métriques disponibles sont les suivantes :
 | **Http 406** | Nombre de requêtes donnant lieu à un code d’état HTTP 406. |
 | **Http 4xx** | Nombre de requêtes donnant lieu à un code d’état HTTP ≥ 400, mais < 500. |
 | **Erreurs de serveur http** | Nombre de requêtes donnant lieu à un code d’état HTTP ≥ 500, mais < 600. |
+| **Autres octets par seconde (E/S)** | Débit auquel le processus d’application émet des octets pour les opérations d’E/S qui n’impliquent pas de données, telles que les opérations de contrôle.|
+| **Autres opérations par seconde (E/S)** | Débit auquel le processus d’application émet des opérations d’E/S qui ne sont ni des opérations de lecture, ni des opérations d’écriture.|
+| **Octets lus par seconde (E/S)** | Débit auquel le processus d’application lit les octets à partir des opérations d’E/S.|
+| **Opérations de lecture par seconde (E/S)** | Débit auquel le processus d’application émet des opérations d’E/S de lecture.|
+| **Octets écrits par seconde (E/S)** | Débit auquel le processus d’application écrit des octets dans des opérations d’E/S.|
+| **Opérations d’écriture par seconde (E/S)** | Débit auquel le processus d’application émet des opérations d’E/S d’écriture.|
 | **Plage de travail de la mémoire** | Quantité actuelle de mémoire, en Mio, utilisée par l’application. |
+| **Octets privés** | Taille actuelle (en octets) de mémoire allouée par le processus d’application qui ne peut pas être partagée avec d’autres processus.|
 | **Demandes** | Nombre total de requêtes, quel que soit leur code d’état HTTP résultant. |
+| **Requêtes dans la file d’attente d’application** | Nombre de requêtes dans la file d’attente de requêtes de l’application.|
+| **Nombre de threads** | Nombre de threads actuellement actifs dans le processus d’application.|
+| **Total des domaines d’application** | Nombre actuel de domaines d’application chargés dans cette application.|
+| **Total des domaines d’application déchargés** | Nombre total de domaines d’application déchargés depuis le démarrage de l’application.|
+
 
 Pour un plan App Service, les métriques disponibles sont les suivantes :
 

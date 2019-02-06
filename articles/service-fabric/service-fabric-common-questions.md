@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce88c8c4850e5226ddda12ce5ee0e1d18b51ea5c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320597"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104080"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -73,7 +73,7 @@ Nous demandons qu’un cluster de production comporte au moins 5 nœuds pour les
 
 Nous voulons le cluster soit disponible en cas de défaillance simultanée de deux nœuds. Pour qu’un cluster Service Fabric soit disponible, les services système doivent être disponibles. Les services système avec état, comme le service de nommage et le service Failover Manager, qui font le suivi des services déployés sur le cluster ainsi que leur emplacement d’hébergement actuel, nécessitent une cohérence forte. Cette cohérence forte, quant à elle, dépend de la capacité d’atteindre un *quorum* pour une mise à jour donnée de l’état de ces services, ce quorum représentant une majorité stricte des réplicas (N/2 + 1) pour un service donné. Ainsi, si nous voulons assurer la résilience en cas de perte simultanée de deux nœuds (donc de la perte simultanée de deux réplicas d’un service système), nous devons avoir ClusterSize - QuorumSize >= 2, ce qui fait passer la taille minimale à cinq. Pour voir cela, considérez que le cluster a N nœuds et qu’il existe N réplicas d’un service système, un sur chaque nœud. La taille de quorum pour un service système est (N/2 + 1). L’inégalité ci-dessus se présente comme N - (N/2 + 1) >= 2. Il existe deux cas à prendre en compte : quand N est pair et quand il est impair. Si N est pair, disons N = 2\*m, où m >= 1, l’inégalité se présente comme 2\*m - (2\*m/2 + 1) >= 2 ou m >= 3. La valeur minimale pour N est 6, qui est obtenue quand m = 3. En revanche, si N est impair, disons N = 2\*m + 1, où m >= 1, l’inégalité se présente comme 2\*m + 1 - ( (2\*m+1)/2 + 1 ) >= 2 ou 2\*m+1 - (m+1) >= 2 or m >= 2. La valeur minimale pour N est 5, qui est obtenue quand m = 2. Ainsi, parmi toutes les valeurs de N qui satisfont l’inégalité ClusterSize - QuorumSize >= 2, la valeur minimale est 5.
 
-Notez que dans l’argument ci-dessus, nous avons supposé que chaque nœud a un réplica d’un service système : sa taille est donc calculée en fonction du nombre de nœuds du cluster. Cependant, en modifiant *TargetReplicaSetSize*, nous pourrions rendre la taille du quorum inférieure à (N/2+1), ce qui peut donner l’impression que nous pourrions avoir un cluster inférieur à 5 nœuds et avoir néanmoins toujours 2 nœuds au-dessus de la taille du quorum. Par exemple, dans un cluster de 4 nœuds, si nous définissons TargetReplicaSetSize sur 3, la taille du quorum basé sur TargetReplicaSetSize est (3/2 + 1) ou 2 : nous avons donc CluserSize - QuorumSize = 4-2 >= 2. Cependant, nous ne pouvons pas garantir que le service système est au niveau du quorum ou au-delà si nous perdons simultanément une paire de nœuds : il est possible que les deux nœuds que nous avons perdus hébergeaient deux réplicas, et que le service système perde donc le quorum (n’ayant plus qu’un seul réplica), devenant ainsi indisponible.
+Notez que dans l’argument ci-dessus, nous avons supposé que chaque nœud a un réplica d’un service système : sa taille est donc calculée en fonction du nombre de nœuds du cluster. Cependant, en modifiant *TargetReplicaSetSize*, nous pourrions rendre la taille du quorum inférieure à (N/2+1), ce qui peut donner l’impression que nous pourrions avoir un cluster inférieur à 5 nœuds et avoir néanmoins toujours 2 nœuds au-dessus de la taille du quorum. Par exemple, dans un cluster de quatre nœuds, si nous définissons TargetReplicaSetSize sur 3, la taille du quorum basé sur TargetReplicaSetSize est (3/2 + 1) ou 2 : nous avons donc ClusterSize - QuorumSize = 4-2 >= 2. Cependant, nous ne pouvons pas garantir que le service système est au niveau du quorum ou au-delà si nous perdons simultanément une paire de nœuds : il est possible que les deux nœuds que nous avons perdus hébergeaient deux réplicas, et que le service système perde donc le quorum (n’ayant plus qu’un seul réplica), devenant ainsi indisponible.
 
 Dans ce cadre, examinons certaines configurations de cluster possibles :
 

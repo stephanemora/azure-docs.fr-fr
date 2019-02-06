@@ -7,48 +7,34 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 9945b0aad32fe9abc6a51132a287da10f1b28daa
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 298acb446516a4cdc5057cd6bdcf10422d992ff3
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557748"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900594"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installer le runtime Azure IoT Edge sur Linux (x64)
 
-Le runtime Azure IoT Edge est ce qui transforme un appareil en appareil IoT Edge. Le runtime peut être déployé sur un appareil de petite taille comme un Raspberry Pi ou de grande taille comme un serveur industriel. Une fois qu’un appareil est configuré avec le runtime IoT Edge, vous pouvez commencer à déployer une logique métier sur celui-ci à partir du cloud. 
+Le runtime Azure IoT Edge est ce qui transforme un appareil en appareil IoT Edge. Le runtime peut être déployé sur un appareil de petite taille comme un Raspberry Pi ou de grande taille comme un serveur industriel. Une fois qu’un appareil est configuré avec le runtime IoT Edge, vous pouvez commencer à déployer une logique métier sur celui-ci à partir du cloud.
 
 Pour en savoir plus sur le fonctionnement du runtime IoT Edge et les composants inclus, consultez [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md).
 
-Cet article liste les étapes pour installer le runtime Azure IoT Edge sur votre appareil Edge Linux x64 (Intel/AMD). Consultez la [prise en charge Azure IoT Edge](support.md#operating-systems) pour obtenir la liste des systèmes d’exploitation AMD64 actuellement pris en charge. 
+Cet article liste les étapes pour installer le runtime Azure IoT Edge sur votre appareil Edge Linux x64 (Intel/AMD). Consultez la [prise en charge Azure IoT Edge](support.md#operating-systems) pour obtenir la liste des systèmes d’exploitation AMD64 actuellement pris en charge.
 
->[!NOTE]
->Chaque package des référentiels de logiciels Linux est soumis aux termes du contrat de licence qu’il contient (/usr/share/doc/*nom_package*). Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package revient à accepter ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
+> [!NOTE]
+> Chaque package des référentiels de logiciels Linux est soumis aux termes du contrat de licence qu’il contient (/usr/share/doc/*nom_package*). Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package revient à accepter ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
 
 ## <a name="register-microsoft-key-and-software-repository-feed"></a>Inscrire la clé Microsoft et le flux des référentiels de logiciels
 
-Selon votre système d’exploitation, choisissez les scripts appropriés afin de préparer votre appareil pour l’installation du runtime IoT Edge. 
-
-### <a name="ubuntu-1604"></a>Ubuntu 16.04
+Préparez votre appareil pour l’installation du runtime IoT Edge, en remplaçant ```<release>``` par **16.04** ou **18.04** en fonction de votre version d’Ubuntu.
 
 ```bash
 # Install repository configuration
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-
-# Install Microsoft GPG public key
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-### <a name="ubuntu-1804"></a>Ubuntu 18.04
-
-```bash
-# Install repository configuration
-curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 
 # Install Microsoft GPG public key
@@ -59,7 +45,7 @@ sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo apt-get upgrade
 ```
 
-## <a name="install-the-container-runtime"></a>Installer le runtime de conteneur 
+## <a name="install-the-container-runtime"></a>Installer le runtime de conteneur
 
 Azure IoT Edge s’appuie sur un runtime de conteneur [compatible avec OCI](https://www.opencontainers.org/). Pour les scénarios en production, nous vous recommandons vivement d’utiliser le moteur [basé sur Moby](https://mobyproject.org/) fourni ci-dessous. C’est le seul moteur de conteneur officiellement pris en charge avec Azure IoT Edge. Les images conteneur Docker CE/EE sont compatibles avec le runtime Moby.
 
@@ -69,7 +55,7 @@ Mettez à jour apt-get.
 sudo apt-get update
 ```
 
-Installez le moteur Moby. 
+Installez le moteur Moby.
 
 ```bash
 sudo apt-get install moby-engine
@@ -83,7 +69,7 @@ sudo apt-get install moby-cli
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Installer le démon de sécurité Azure IoT Edge
 
-Le **démon de sécurité IoT Edge** fournit et gère les standards de sécurité sur l’appareil Edge. Le démon se lance à chaque démarrage et amorce l’appareil en démarrant le reste du runtime IoT Edge. 
+Le **démon de sécurité IoT Edge** fournit et gère les standards de sécurité sur l’appareil Edge. Le démon se lance à chaque démarrage et amorce l’appareil en démarrant le reste du runtime IoT Edge.
 
 La commande d’installation installe également la version standard **d’iothsmlib** si elle n’est pas déjà présente.
 
@@ -101,18 +87,17 @@ sudo apt-get install iotedge
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>Configurer le démon de sécurité Azure IoT Edge
 
-Configurez le runtime IoT Edge pour lier votre appareil physique à une identité d’appareil existante dans un IoT Hub Azure. 
+Configurez le runtime IoT Edge pour lier votre appareil physique à une identité d’appareil existante dans un IoT Hub Azure.
 
 Le démon peut être configuré à l’aide du fichier de configuration situé à l’emplacement `/etc/iotedge/config.yaml`. Le fichier étant protégé en écriture par défaut, vous pouvez avoir besoin d’autorisations élevées pour le modifier.
 
-Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d’une chaîne de connexion d’appareil fournie par IoT Hub. Vous pouvez également utiliser le service Device Provisioning pour approvisionner automatiquement des appareils. Ce service s’avère particulièrement utile lorsque vous devez approvisionner de nombreux appareils. Choisissez le script d’installation approprié selon votre choix en matière d’approvisionnement. 
+Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d’une chaîne de connexion d’appareil fournie par IoT Hub. Vous pouvez également utiliser le service Device Provisioning pour approvisionner automatiquement des appareils. Ce service s’avère particulièrement utile lorsque vous devez approvisionner de nombreux appareils. Choisissez le script d’installation approprié selon votre choix en matière d’approvisionnement.
 
 ### <a name="option-1-manual-provisioning"></a>Option 1 : Provisionnement manuel
 
 Pour provisionner manuellement un appareil, vous devez lui fournir une [chaîne de connexion d’appareil](how-to-register-device-portal.md) que vous pouvez créer en inscrivant un nouvel appareil dans votre hub IoT.
 
-
-Ouvrez le fichier de configuration. 
+Ouvrez le fichier de configuration.
 
 ```bash
 sudo nano /etc/iotedge/config.yaml
@@ -125,14 +110,14 @@ Recherchez la section de provisionnement du fichier et supprimez les commentaire
      source: "manual"
      device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
-   # provisioning: 
+   # provisioning:
    #   source: "dps"
    #   global_endpoint: "https://global.azure-devices-provisioning.net"
    #   scope_id: "{scope_id}"
    #   registration_id: "{registration_id}"
    ```
 
-Enregistrez et fermez le fichier. 
+Enregistrez et fermez le fichier.
 
    `CTRL + X`, `Y`, `Enter`
 
@@ -144,29 +129,29 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Option 2 : Provisionnement automatique
 
-Pour provisionner automatiquement un appareil, [configurez le Service Device Provisioning et récupérez votre ID d’inscription d’appareil](how-to-auto-provision-simulated-device-linux.md). Le provisionnement automatique fonctionne uniquement avec des appareils qui possèdent une puce de Module de plateforme sécurisée (TPM). Par exemple, les appareils Raspberry Pi ne sont pas équipés d’une puce TPM par défaut. 
+Pour provisionner automatiquement un appareil, [configurez le Service Device Provisioning et récupérez votre ID d’inscription d’appareil](how-to-auto-provision-simulated-device-linux.md). Le provisionnement automatique fonctionne uniquement avec des appareils qui possèdent une puce de Module de plateforme sécurisée (TPM). Par exemple, les appareils Raspberry Pi ne sont pas équipés d’une puce TPM par défaut.
 
-Ouvrez le fichier de configuration. 
+Ouvrez le fichier de configuration.
 
 ```bash
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Recherchez la section de provisionnement du fichier et supprimez les commentaires du mode de provisionnement **dps**. Mettez à jour les valeurs de **scope_id** et de **registration_id** avec les valeurs de votre IoT Hub Device Provisioning Service et de votre appareil IoT Edge avec TPM. 
+Recherchez la section de provisionnement du fichier et supprimez les commentaires du mode de provisionnement **dps**. Mettez à jour les valeurs de **scope_id** et de **registration_id** avec les valeurs de votre IoT Hub Device Provisioning Service et de votre appareil IoT Edge avec TPM.
 
    ```yaml
    # provisioning:
    #   source: "manual"
    #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
-   provisioning: 
+   provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
      scope_id: "{scope_id}"
      registration_id: "{registration_id}"
    ```
 
-Enregistrez et fermez le fichier. 
+Enregistrez et fermez le fichier.
 
    `CTRL + X`, `Y`, `Enter`
 
@@ -208,29 +193,29 @@ Si votre réseau comporte un serveur proxy, effectuez les étapes décrites dans
 
 ## <a name="uninstall-iot-edge"></a>Désinstaller IoT Edge
 
-Si vous souhaitez supprimer l’installation d’IoT Edge de votre appareil Linux, utilisez les commandes suivantes à partir de la ligne de commande. 
+Si vous souhaitez supprimer l’installation d’IoT Edge de votre appareil Linux, utilisez les commandes suivantes à partir de la ligne de commande.
 
-Supprimez le runtime IoT Edge. 
+Supprimez le runtime IoT Edge.
 
 ```bash
 sudo apt-get remove --purge iotedge
 ```
 
-Lorsque le runtime IoT Edge est supprimé, les conteneurs qu’il a créés sont arrêtés, mais existent toujours sur votre appareil. Affichez tous les conteneurs pour voir ceux qui restent. 
+Lorsque le runtime IoT Edge est supprimé, les conteneurs qu’il a créés sont arrêtés, mais existent toujours sur votre appareil. Affichez tous les conteneurs pour voir ceux qui restent.
 
 ```bash
 sudo docker ps -a
 ```
 
-Supprimez les conteneurs de votre appareil, dont les deux conteneurs de runtime. 
+Supprimez les conteneurs de votre appareil, dont les deux conteneurs de runtime.
 
 ```bash
 sudo docker rm -f <container name>
 ```
 
-Enfin, supprimez le runtime du conteneur de votre appareil. 
+Enfin, supprimez le runtime du conteneur de votre appareil.
 
-```bash 
+```bash
 sudo apt-get remove --purge moby-cli
 sudo apt-get remove --purge moby-engine
 ```

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/25/2019
 ms.author: raiye
-ms.openlocfilehash: e621d526aed3c4d98d964dfdcd7ba01e8c1fb830
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104860"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075463"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -43,6 +43,9 @@ Vous ne savez pas comment mettre à jour votre système d’exploitation invité
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
 
+###### <a name="january-24-2019"></a>**24 janvier 2019**
+Le système d’exploitation invité de famille 6 (Windows Server 2019) a été publié.
+
 ###### <a name="january-7-2019"></a>**7 janvier 2019**
 Le système d’exploitation invité de décembre a été publié.
 
@@ -65,6 +68,21 @@ Le système d’exploitation invité de juillet a été publié.
 Le système d’exploitation invité de juin a été publié.
 
 ## <a name="releases"></a>Publications
+
+## <a name="family-6-releases"></a>Publications de famille 6
+**Windows Server 2019**
+
+.NET Framework installé : 3.5, 4.7.2
+
+> [!NOTE]
+> Le SDK Windows Azure pour .NET - 3.0 peut être téléchargé [ici][Windows Azure SDK].
+>
+
+| Chaîne de configuration | Date de lancement | Date de désactivation |
+| --- | --- | --- |
+| WA-GUEST-OS-6.2_201812-01 |24 janvier 2019 |Billet 6.4 |
+| WA-GUEST-OS-6.1_201811-01 |24 janvier 2019 |Billet 6.3 |
+
 ## <a name="family-5-releases"></a>Publications de famille 5
 **Windows Server 2016**
 
@@ -137,6 +155,7 @@ La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Azu
 
 | Famille de système d’exploitation invité | Versions de kit SDK compatibles |
 | --- | --- |
+| 6. |Version 2.9.6+ |
 | 5. |Versions 2.9.5.1 et ultérieures |
 | 4 |Versions 2.1 et ultérieures |
 | 3 |Versions 1.8 et ultérieures |
@@ -205,3 +224,4 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917

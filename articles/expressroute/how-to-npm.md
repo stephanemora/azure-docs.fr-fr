@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104728"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098576"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
 
@@ -38,7 +38,7 @@ Vous pouvez :
 Des agents de surveillance sont installés sur plusieurs serveurs, en local et sur Azure. Les agents communiquent entre eux mais n’envoient pas de données. Ils envoient des paquets de négociation TCP. La communication entre les agents permet à Azure de mapper la topologie réseau et le chemin d’accès que le trafic peut prendre.
 
 1. Créez un espace de travail NPM. Il est identique à un espace de travail Log Analytics.
-2. Installer et configurer des agents logiciels : 
+2. Installez et configurez les agents logiciels (si vous souhaitez uniquement superviser via Microsoft Peering, cette étape est inutile) : 
     * Installez des agents de surveillance sur les serveurs locaux et les machines virtuelles Azure (pour l’appairage privé).
     * Configurez les paramètres sur les serveurs de l’agent de surveillance pour autoriser les agents de surveillance à communiquer. (Ouvrez les ports du pare-feu, etc.)
 3. Configurez des règles de groupe de sécurité réseau pour permettre à l’agent de surveillance installé sur des machines virtuelles Azure de communiquer avec des agents de surveillance locaux.

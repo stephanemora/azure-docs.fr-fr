@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2019
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 329472f3edee66db6b12e369ee8f944546ad4734
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213125"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900440"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Durée d’ingestion de données dans Log Analytics
 Azure Log Analytics est un service de données à grande échelle dans Azure Monitor servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Les utilisateurs se demandent souvent quel est le délai nécessaire pour que les données soient disponibles dans Log Analytics une fois qu’elles ont été collectées. Cet article explique les différents facteurs qui affectent cette latence.
@@ -45,8 +45,15 @@ Les solutions de gestion et les agents utilisent différentes stratégies pour c
 ### <a name="agent-upload-frequency"></a>Fréquence de chargement de l’agent
 Pour vous assurer que l’agent Log Analytics est léger, l’agent met en mémoire tampon les journaux et les charge régulièrement sur Log Analytics. La fréquence de chargement varie entre 30 secondes et 2 minutes en fonction du type de données. La plupart des données sont chargées en moins d’une minute. Les conditions du réseau peuvent affecter négativement la latence nécessaire à ces données pour atteindre le point d’ingestion Log Analytics.
 
-### <a name="azure-logs-and-metrics"></a>Métriques et journaux Azure 
-Les données de journal d’activité sont disponibles dans Log Analytics en environ 5 minutes. Les données des journaux de diagnostic et des métriques sont disponibles pour l’ingestion en 1 à 15 minutes, en fonction du service Azure. Une fois les données disponibles, il faut 30 à 60 secondes supplémentaires pour les journaux et trois minutes supplémentaires pour les métriques afin que les données soient envoyées au point d’ingestion Log Analytics.
+### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Journaux d’activité Azure, journaux de diagnostic et métriques
+Les données Azure mettent un certain délai à être disponibles au point d’ingestion Log Analytics en vue de leur traitement :
+
+- La mise à disposition des données des journaux de diagnostic prend 2 à 15 minutes, suivant le service Azure. Consultez la [requête ci-dessous](#checking-ingestion-time) pour examiner cette latence dans votre environnement.
+- L’envoi des métriques de la plateforme Azure au point d’ingestion Log Analytics prend 3 minutes.
+- L’envoi des données du journal d’activité au point d’ingestion Log Analytics prend entre 10 et 15 minutes.
+
+Une fois disponibles au point d’ingestion, les données peuvent être interrogées au terme d’un délai supplémentaire de 2 à 5 minutes.
+
 
 ### <a name="management-solutions-collection"></a>Collecte des solutions de gestion
 Certaines solutions ne collectent pas leurs données à partir d’un agent et peuvent utiliser une méthode de collecte qui introduit une latence supplémentaire. Certaines solutions collectent des données à intervalles réguliers sans tenter d’effectuer une collecte en temps quasi-réel. Voici quelques exemples :

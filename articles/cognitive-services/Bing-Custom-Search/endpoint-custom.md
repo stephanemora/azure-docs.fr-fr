@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: da448cdeaf6fcbe10cba8e5e2613214f8e0cee18
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ed420676ddc4c83be93939874f2943126f9209e8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815186"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176622"
 ---
 # <a name="custom-search"></a>Recherche personnalisée
 La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour les sujets qui vous intéressent. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de parcourir des résultats de recherche dont le contenu n’est pas approprié.
@@ -23,7 +23,7 @@ La Recherche personnalisée Bing vous permet de créer des expériences de reche
 ## <a name="custom-search-endpoint"></a>Point de terminaison Recherche personnalisée
 Pour obtenir des résultats à l’aide de l’API Recherche personnalisée Bing, envoyez une requête `GET` au point de terminaison suivant. Utilisez les en-têtes et les paramètres d’URL pour définir d’autres spécifications.
 
-Point de terminaison : renvoie les suggestions de recherche en tant que résultats JSON qui correspondent à l’entrée utilisateur définie par `?q=""`.
+Point de terminaison : Renvoie les suggestions de recherche en tant que résultats JSON qui correspondent à l’entrée utilisateur définie par `?q=""`.
 ```  
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
@@ -58,7 +58,7 @@ https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 Pour plus d’informations sur la configuration d’une instance Recherche personnalisée, consultez [Configure your custom search experience](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view) (Configurer votre expérience de recherche personnalisée).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Les API **Bing** prennent en charge les actions de recherche qui renvoient des résultats en fonction de leur type. Tous les points de terminaison de recherche renvoient des résultats en tant qu’objets de réponse JSON.  Tous les points de terminaison prennent en charge les requêtes qui renvoient une langue et/ou un emplacement spécifique par longitude, latitude et rayon de recherche.
+Les API **Bing** prennent en charge les actions de recherche qui renvoient des résultats en fonction de leur type. Tous les points de terminaison de recherche renvoient des résultats en tant qu’objets de réponse JSON.  Tous les points de terminaison prennent en charge les requêtes qui renvoient une langue et/ou un emplacement spécifique par longitude, latitude et rayon de recherche.
 
 Pour plus d’informations sur les paramètres pris en charge par chaque point de terminaison, consultez les pages de référence pour chaque type.
 Pour obtenir des exemples de requêtes de base à l’aide de l’API Recherche personnalisée, consultez [Bing Custom Search Documentation](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) (Documentation sur Recherche personnalisée Bing)

@@ -3,7 +3,7 @@ title: Créer un groupe identique Azure qui utilise les zones de disponibilité 
 description: Découvrir comment créer des groupes identiques de machines virtuelles Azure qui utilisent les zones de disponibilité pour augmenter la redondance contre les pannes
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: zarhoads
-ms.openlocfilehash: 062725ab5e486ff795ffa0f4a72dd3fdb0e6b948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468872"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886235"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
 
@@ -215,7 +215,7 @@ Pour créer un groupe identique redondant interzone, spécifiez plusieurs valeur
 }
 ```
 
-Si vous créez une adresse IP publique ou un équilibreur de charge, spécifiez la propriété *"sku": { "name": "Standard" }"* pour créer des ressources réseau redondantes interzone. Vous devez également créer un groupe de sécurité réseau et les règles associées pour autoriser tout le trafic. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
+Si vous créez une adresse IP publique ou un équilibreur de charge, spécifiez la propriété *"sku": { "name": "Standard" }"* pour créer des ressources réseau redondantes interzones. Vous devez également créer un groupe de sécurité réseau et les règles associées pour autoriser tout le trafic. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Pour obtenir un exemple complet de groupe identique redondant interzone et de ressources réseau, consultez [cet exemple de modèle Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json).
 

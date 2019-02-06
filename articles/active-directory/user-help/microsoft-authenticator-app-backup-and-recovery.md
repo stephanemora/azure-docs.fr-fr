@@ -4,19 +4,19 @@ description: Découvrez comment sauvegarder et récupérer les informations d’
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.component: user-help
+ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 49cc5114106336f41d119b00db1bfa472f09d2d5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 56ea48accea135f79e4c8984238002f2eec5167b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821700"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167408"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Sauvegarder et récupérer des informations d’authentification de compte avec l’application Microsoft Authenticator
 
@@ -39,11 +39,11 @@ Pour pouvoir sauvegarder vos informations d’identification, vous devez avoir �
 Le fait de devoir se connecter à ces deux comptes renforce la sécurité de vos informations de sauvegarde.
 
 **Pour activer la sauvegarde dans le cloud**
--   Sur votre appareil iOS, sélectionnez **Paramètres** puis **Sauvegarde**, et activez **Sauvegarde automatique**.
+-   Sur votre appareil iOS, sélectionnez **Paramètres**, **Sauvegarde**, puis activez **Sauvegarde iCloud**.
 
     Les informations d’identification de votre compte sont sauvegardées dans votre compte iCloud.
 
-    ![Écran des paramètres iOS affichant l’emplacement des paramètres de sauvegarde automatique](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
+    ![Écran des paramètres iOS affichant l’emplacement des paramètres de sauvegarde iCloud](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
 
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Récupérer les informations d’identification de votre compte sur votre nouvel appareil
 Vous pouvez récupérer les informations d’identification de votre compte dans votre compte iCloud, à l’aide du compte de récupération Microsoft que vous avez créé lors de la sauvegarde de vos informations.
@@ -101,7 +101,6 @@ Maintenant que vous avez sauvegardé et récupéré les informations d’identif
 
 ## <a name="related-topics"></a>Rubriques connexes
 - [Prise en main de l’application Microsoft Authenticator](microsoft-authenticator-app-how-to.md)  
-
 - [Forum aux questions sur l’application Microsoft Authenticator](microsoft-authenticator-app-faq.md)
 
 - [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

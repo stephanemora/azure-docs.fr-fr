@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 9ad0579ff9c25753b1e4816b80948b4d8d1232f7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081877"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185807"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Fonctionnalités Application Insights prises en charge pour Azure Functions
 
@@ -40,6 +40,7 @@ Azure Functions offre une [intégration prédéfinie](https://docs.microsoft.com
 | | | | 
 | **Fonctionnalités prises en charge**                |                   |                   |               
 | &bull; Pulsation rapide/Métriques temps réel       | Oui             | Oui               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canal de contrôle sécurisé|                 | Oui               | 
 | &bull; Échantillonnage                     | Oui             | Oui               | 
 | &bull; Pulsations                   |                 | Oui               | 
 | | | | 
@@ -50,6 +51,10 @@ Azure Functions offre une [intégration prédéfinie](https://docs.microsoft.com
 | **Configurable**                      |                   |                   |           
 | &bull; Entièrement configurable.<br/>Consultez [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) pour obtenir des instructions.<br/>Consultez [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) pour connaître toutes les options.               |                   | Oui                   | 
 
+
+## <a name="live-metrics--secure-control-channel"></a>Métriques en temps réel et canal de contrôle sécurisé
+
+Les critères de filtres personnalisés que vous spécifiez sont renvoyés au composant de métriques temps réel dans le Kit de développement logiciel (SDK) Application Insights. Les filtres peuvent potentiellement contenir des informations sensibles telles que des ID clients. Vous pouvez sécuriser le canal avec une clé API secrète. Pour obtenir des instructions, consultez [Sécuriser le canal de contrôle](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel).
 
 ## <a name="sampling"></a>échantillonnage
 

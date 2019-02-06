@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à People | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à People | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et People.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: 7c9b6202-11dd-4bb6-a679-8fb0a7a0ef4e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: eac41b0c3def42f2417e7c033c645d8785a5f08b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c33f7fc23865169d50de73d27a0c45bb8a9aba0a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431366"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176826"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-people"></a>Didacticiel : Intégration d’Azure Active Directory à People
+# <a name="tutorial-azure-active-directory-integration-with-people"></a>Tutoriel : Intégration d’Azure Active Directory à People
 
 Dans ce didacticiel, vous allez apprendre à intégrer People à Azure Active Directory (Azure AD).
 
@@ -144,7 +144,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     ![Configurer l'authentification unique](./media/people-tutorial/tutorial_people_003.png)
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -180,7 +180,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="creating-a-people-test-user"></a>Création d’un utilisateur de test People
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans People. Collaborez avec l’[équipe du support technique People](mailto:customerservices@peoplehr.com) pour ajouter des utilisateurs dans la plateforme People. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans People. Collaborez avec l’ [équipe du support technique People](mailto:customerservices@peoplehr.com)  pour ajouter des utilisateurs à la plateforme People. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 

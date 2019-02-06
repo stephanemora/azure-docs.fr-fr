@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de Azure Active Directory à Compliance ELF | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Compliance ELF | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Compliance ELF.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e5a7bfc51bcd1931def202d701127de701afb595
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 509bec49840537dbb5bb7f0ec69cc4dfb750244a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042858"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189423"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Didacticiel : Intégration de Azure Active Directory à Compliance ELF
+# <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Tutoriel : Intégration d’Azure Active Directory à Compliance ELF
 
 Dans ce didacticiel, vous allez apprendre à intégrer Compliance ELF à Azure Active Directory (Azure AD).
 
@@ -106,22 +106,22 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Boîte de dialogue Authentification unique](./media/complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
-3. Dans la section **Domaines et URL Compliance ELF**, suivez les étapes ci-dessous pour configurer l’application en mode initié par **IDP** :
+3. Dans la section **Domaines et URL Compliance ELF**, suivez les étapes ci-dessous pour configurer l’application en mode initié par  **IDP** :
 
     ![Informations d’authentification unique dans Domaine et URL Compliance ELF](./media/complianceelf-tutorial/tutorial_complianceelf_url.png)
 
     Dans la zone de texte **Identificateur**, tapez une URL comme : `https://sso.cordium.com`
 
-4. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
+4. Cochez  **Afficher les paramètres d’URL avancés** , puis effectuez les étapes suivantes si vous souhaitez configurer l’application en mode lancé par le **fournisseur de services (SP)** :
 
     ![Authentification unique dans Domaine et URL Compliance ELF](./media/complianceelf-tutorial/tutorial_complianceelf_url1.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.complianceelf.com`
+    Dans la zone de texte  **URL de connexion** , tapez une URL au format suivant : `https://<subdomain>.complianceelf.com`
     
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL de connexion réelle. Contactez [l’équipe de support Compliance ELF](mailto:support@complianceelf.com) pour obtenir cette valeur.
 
-5. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+5. Dans la section  **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération de l’application** , puis collez-la dans le Bloc-notes.
     
     ![Configurer l'authentification unique](./media/complianceelf-tutorial/tutorial_metadataurl.png)
      

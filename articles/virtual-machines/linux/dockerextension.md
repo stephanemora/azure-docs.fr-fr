@@ -3,7 +3,7 @@ title: Utiliser l’extension de machine virtuelle Azure Docker | Microsoft Doc
 description: Découvrez comment utiliser l’extension de machine virtuelle Docker pour déployer de manière rapide et sécurisée un environnement Docker dans Azure en utilisant des modèles Resource Manager et Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
-ms.author: zarhoads
-ms.openlocfilehash: 75959225d6fcc5487466ed26a21ba2d26c55cde9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: f30305374b1fcaabfb36533195a098073d33b6c3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465931"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197600"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Création d’un environnement Docker dans Azure à l’aide de l’extension Docker VM
 
@@ -39,7 +39,7 @@ Pour plus d’informations sur les différentes méthodes de déploiement, y com
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Déployer un modèle avec l’extension de machine virtuelle Azure Docker
-Nous allons utiliser un modèle de démarrage rapide existant pour créer une machine virtuelle Ubuntu qui utilise l’extension Azure Docker VM pour installer et configurer l’hôte Docker. Vous pouvez voir le modèle ici : [Simple deployment of an Ubuntu VM with Docker (Déploiement simple d’une machine virtuelle Ubuntu avec Docker)](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Vous devez avoir la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et être connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
+Nous allons utiliser un modèle de démarrage rapide existant pour créer une machine virtuelle Ubuntu qui utilise l’extension Azure Docker VM pour installer et configurer l’hôte Docker. Vous pouvez voir le modèle ici : [Déploiement simple d’une machine virtuelle Ubuntu avec Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Vous devez avoir la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et être connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
 
 Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
@@ -58,7 +58,7 @@ Le déploiement prend quelques minutes.
 
 
 ## <a name="deploy-your-first-nginx-container"></a>Déployer votre premier conteneur NGINX
-Pour afficher les détails de votre machine virtuelle, y compris le nom DNS, utilisez [az vm show](/cli/azure/vm#az_vm_show) :
+Pour afficher les détails de votre machine virtuelle, y compris le nom DNS, utilisez [az vm show](/cli/azure/vm) :
 
 ```azurecli
 az vm show \

@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7c4a5029208854528afdfdbfcdc63434a2a94e24
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f8bc13aa2adad5c27b1754303ea30304c491f7ca
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338695"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211795"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Guide de démarrage rapide : Utiliser l’API Reconnaissance vocale en Objective-C sur iOS
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Démarrage rapide : Utiliser l’API Reconnaissance vocale Bing en Objective-C sur iOS
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -111,11 +111,11 @@ Le code suivant dans l’exemple montre comment créer des classes clientes de r
 
 ```
 
-La bibliothèque cliente fournit des classes clientes de reconnaissance pré-implémentées pour des scénarios de reconnaissance vocale classiques :
+La bibliothèque de client fournit des classes clientes de reconnaissance pré-implémentées pour des scénarios de reconnaissance vocale classiques :
 
-* `DataRecognitionClient` : reconnaissance vocale avec des données PCM (par exemple, à partir d’un fichier ou d’une source audio). Les données sont réparties sur des mémoires tampons, puis chaque mémoire tampon est envoyée au service Speech. Aucune modification n’étant apportée aux mémoires tampons, les utilisateurs peuvent appliquer leur propre détection de silence, s’ils le souhaitent. Si les données proviennent de fichiers WAV, vous pouvez les envoyer directement au serveur. Si vous avez des données brutes, par exemple, du contenu audio via Bluetooth, vous envoyez un en-tête de format au serveur, puis les données.
-* `MicrophoneRecognitionClient` : reconnaissance vocale avec contenu audio provenant du microphone. Vérifiez que le microphone est allumé et que les données du microphone sont envoyées au service de reconnaissance vocale. Un détecteur de silence intégré est appliqué aux données du microphone avant qu’elles ne soient envoyées au service de reconnaissance.
-* `DataRecognitionClientWithIntent` et `MicrophoneRecognitionClientWithIntent` : en plus du texte de reconnaissance, ces clients retournent des informations structurées sur l’intention de l’orateur, à partir desquelles vos applications peuvent effectuer des actions. Pour utiliser la fonctionnalité d’intention, vous devez entraîner un modèle à l’aide du service [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClient`: Reconnaissance vocale avec des données PCM (par exemple, à partir d’un fichier ou d’une source audio). Les données sont réparties sur des mémoires tampons, puis chaque mémoire tampon est envoyée au service Speech. Aucune modification n’étant apportée aux mémoires tampons, les utilisateurs peuvent appliquer leur propre détection de silence, s’ils le souhaitent. Si les données proviennent de fichiers WAV, vous pouvez les envoyer directement au serveur. Si vous avez des données brutes, par exemple, du contenu audio via Bluetooth, vous envoyez un en-tête de format au serveur, puis les données.
+* `MicrophoneRecognitionClient`: Reconnaissance vocale avec contenu audio provenant du microphone. Vérifiez que le microphone est allumé et que les données du microphone sont envoyées au service de reconnaissance vocale. Un détecteur de silence intégré est appliqué aux données du microphone avant qu’elles ne soient envoyées au service de reconnaissance.
+* `DataRecognitionClientWithIntent` et `MicrophoneRecognitionClientWithIntent` : En plus du texte de reconnaissance, ces clients retournent des informations structurées sur l’intention de l’orateur, à partir desquelles vos applications peuvent effectuer des actions. Pour utiliser la fonctionnalité d’intention, vous devez former un modèle à l’aide du service [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>Langue de reconnaissance
 
@@ -125,16 +125,16 @@ Quand vous utilisez `SpeechRecognitionServiceFactory` pour créer le client, vou
 
 Vous devez également spécifier `SpeechRecognitionMode` quand vous créez le client avec `SpeechRecognitionServiceFactory` :
 
-* `SpeechRecognitionMode_ShortPhrase` : énoncé d’une longueur de 15 secondes maximum. À mesure que les données sont envoyées au service, le client reçoit plusieurs résultats partiels et un résultat final avec les n-meilleurs choix.
-* `SpeechRecognitionMode_LongDictation` : énoncé d’une longueur jusqu’à deux minutes. À mesure que les données sont envoyées au service, le client reçoit plusieurs résultats partiels et plusieurs résultats finaux, selon les emplacements où le serveur identifie des pauses dans la phrase.
+* `SpeechRecognitionMode_ShortPhrase`: Énoncé d’une longueur de 15 secondes maximum. À mesure que les données sont envoyées au service, le client reçoit plusieurs résultats partiels et un résultat final avec les n-meilleurs choix.
+* `SpeechRecognitionMode_LongDictation`: Énoncé d’une longueur de deux minutes maximum. À mesure que les données sont envoyées au service, le client reçoit plusieurs résultats partiels et plusieurs résultats finaux, selon les emplacements où le serveur identifie des pauses dans la phrase.
 
 ### <a name="attach-event-handlers"></a>Attacher des gestionnaires d’événements
 
-Vous pouvez attacher plusieurs gestionnaires d’événements au client que vous avez créé :
+Vous pouvez joindre plusieurs gestionnaires d’événements au client que vous avez créé :
 
-* **Événements de résultats partiels** : cet événement est appelé chaque fois que le service Speech prédit ce que vous pouvez dire, avant même que vous n’ayez terminé de parler (si vous utilisez `MicrophoneRecognitionClient`) ou d’envoyer les données (si vous utilisez `DataRecognitionClient`).
-* **Événements d’erreur** : appelé quand le service détecte une erreur.
-* **Événements d’intention** : cet événement est appelé sur les clients « WithIntent » (uniquement en mode ShortPhrase) une fois le résultat final de la reconnaissance converti en intention JSON structurée.
+* **Événement de résultats partiels** : Cet événement est appelé chaque fois que le service Speech prédit ce que vous pouvez dire, avant même que vous n’ayez terminé de parler (si vous utilisez `MicrophoneRecognitionClient`) ou d’envoyer les données (si vous utilisez `DataRecognitionClient`).
+* **Événements d’erreur** : Appelés quand le service détecte une erreur.
+* **Événements d’intention** : Appelés sur les clients « WithIntent » (uniquement en mode ShortPhrase) une fois le résultat final de la reconnaissance converti en intention JSON structurée.
 * **Événements de résultat** :
   * En mode `SpeechRecognitionMode_ShortPhrase`, cet événement est appelé et renvoie les n meilleurs résultats une fois que vous avez terminé de parler.
   * En mode `SpeechRecognitionMode_LongDictation`, le gestionnaire d’événements est appelé plusieurs fois, selon les emplacements où le service identifie des pauses dans la phrase.

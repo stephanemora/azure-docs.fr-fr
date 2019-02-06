@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 905f00842c5ce74f681a6c5c09ff8bf6c7a9e162
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091247"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163447"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Créer une machine virtuelle à partir d’un disque dur virtuel à l’aide du portail Azure
 
@@ -28,6 +28,8 @@ Vous pouvez créer une machine virtuelle dans Azure de plusieurs façons :
 - Si vous souhaitez réutiliser un disque dur virtuel existant ou copier le disque dur virtuel à utiliser à partir d’une machine virtuelle existante, vous pouvez créer une machine virtuelle en *attachant* le disque dur virtuel à la nouvelle machine virtuelle comme disque du système d’exploitation. 
 
 - Vous pouvez créer une machine virtuelle à partir du disque dur virtuel d’une machine virtuelle qui a été supprimée. Par exemple, si vous avez une machine virtuelle Azure qui ne fonctionne pas correctement, vous pouvez la supprimer et utiliser son disque dur virtuel pour créer une autre machine virtuelle. Vous pouvez réutiliser le même disque dur virtuel ou créer une copie du disque dur virtuel en créant une capture instantanée, puis en créant un disque managé à partir de la capture instantanée. Bien que la création d’une capture instantanée nécessite quelques étapes supplémentaires, elle conserve le disque dur virtuel d’origine et offre une solution de secours.
+
+- Prenez une machine virtuelle classique et utilisez le disque dur virtuel pour en créer une nouvelle qui utilise le modèle de déploiement Resource Manager et des disques managés. Pour obtenir de meilleurs résultats, **arrêtez** la machine virtuelle classique dans le portail Azure avant de créer l’instantané.
  
 - Vous pouvez créer une machine virtuelle Azure à partir d’un disque dur virtuel local en chargeant le disque dur virtuel local et en l’attachant à une nouvelle machine virtuelle. Utilisez PowerShell ou un autre outil pour charger le disque dur virtuel sur un compte de stockage, puis créez un disque managé à partir du disque dur virtuel. Pour plus d’informations, consultez [Charger un disque dur virtuel spécialisé](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 

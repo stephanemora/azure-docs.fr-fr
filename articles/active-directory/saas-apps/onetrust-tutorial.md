@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec OneTrust Privacy Management Software | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à OneTrust Privacy Management Software | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et OneTrust Privacy Management Software.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 71c2b6d0-3d28-4130-a2c8-1e72ab3d5814
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeedes
-ms.openlocfilehash: f8e06a4578d2f11331b87fdfb493e2bba4edb8cf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 46480119579513839024d89e7657661e12e5509c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421688"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167289"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Didacticiel : Intégration d’Azure Active Directory avec OneTrust Privacy Management Software
+# <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Tutoriel : Intégration d’Azure Active Directory à OneTrust Privacy Management Software
 
 Dans ce didacticiel, vous allez apprendre à intégrer OneTrust Privacy Management Software à Azure Active Directory (Azure AD).
 
@@ -134,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 1. Pour configurer l’authentification unique côté **OneTrust Privacy Management Software**, vous devez envoyer le **XML des métadonnées** téléchargé à l’[équipe de support OneTrust Privacy Management Software](mailto:support@onetrust.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -173,7 +173,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans OneTrust Privacy Management Software. OneTrust Privacy Management Software prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à OneTrust Privacy Management Software s’il n’existe pas déjà.
 
 >[!Note]
->Si vous devez créer manuellement un utilisateur, contactez l’[équipe de support OneTrust Privacy Management Software](mailto:support@onetrust.com).
+>Si vous devez créer manuellement un utilisateur, contactez l’ [équipe du support technique de OneTrust Privacy Management Software](mailto:support@onetrust.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

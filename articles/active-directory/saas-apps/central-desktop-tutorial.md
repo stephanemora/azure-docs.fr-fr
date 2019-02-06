@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Central Desktop | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Central Desktop | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Central Desktop.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 82a6911c85dd1438aa8f60cb36194a2916bc91e7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bc8aec25d6493d87393a45549fb89f978c469912
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429044"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179155"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Didacticiel : Intégration d’Azure Active Directory à Central Desktop
+# <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutoriel : Intégration d’Azure Active Directory à Central Desktop
 
 Dans ce didacticiel, vous allez apprendre à intégrer Central Desktop à Azure Active Directory (Azure AD).
 
@@ -265,7 +265,7 @@ Dans cette section, vous allez autoriser l’utilisateur Britta Simon à utilise
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous sélectionnez la vignette Central Desktop dans le volet d’accès, vous êtes connecté automatiquement à votre application Central Desktop.
-Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 12/31/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.author: mayg
+ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478095"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212229"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -42,6 +42,9 @@ Vous devez disposer d’un compte de stockage LRS ou GRS. Nous vous recommandons
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Est-ce que mon compte Azure a besoin d’autorisations pour créer des machines virtuelles ?
 Si vous êtes un administrateur d’abonnement, vous disposez des autorisations de réplication nécessaires. Si ce n’est pas le cas, vous avez besoin d’autorisations pour créer une machine virtuelle Azure dans le groupe de ressources et le réseau virtuel que vous spécifiez quand vous configurez Site Recovery et des autorisations pour écrire dans le compte de stockage sélectionné. [Plus d’informations](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)
+
+### <a name="can-i-use-guest-os-server-license-on-azure"></a>Puis-je utiliser la licence serveur d’un système d’exploitation invité sur Azure ?
+Oui, les clients Microsoft Software Assurance peuvent utiliser Azure Hybrid Benefit afin de réduire les coûts de licences pour les **machines Windows Server** qui sont migrées vers Azure ou qui utilisent Azure pour la reprise d’activité.
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Mise à niveau des composants Azure Site Recovery
 
@@ -250,7 +253,7 @@ Oui, si vous effectuez le basculement vers Azure, vous pouvez effectuer la resta
 Quand vous effectuez la restauration à partir d’Azure, les données d’Azure sont recopiées vers votre machine virtuelle en local et un accès privé est requis.
 
 ### <a name="can-i-resize-the-azure-vm-after-failover"></a>Puis-je redimensionner la machine virtuelle Azure après basculement ?
-Non, vous ne pouvez pas modifier la taille de la machine virtuelle cible après basculement.
+Non, vous ne pouvez modifier ni la taille ni le type de la machine virtuelle cible après le basculement.
 
 
 ## <a name="automation-and-scripting"></a>Automatisation et scripts

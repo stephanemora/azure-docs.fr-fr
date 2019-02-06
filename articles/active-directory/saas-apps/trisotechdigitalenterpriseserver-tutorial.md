@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : intégration d’Azure Active Directory à Trisotech Digital Enterprise Server | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Trisotech Digital Enterprise Server | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Trisotech Digital Enterprise Server.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6d54d20c-eca1-4fa6-b56a-4c3ed0593db0
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e36a4be3a95b67c040855171d4b167e495a22496
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e3f90da177f46246d1a7453796b7b9a9c93f4a21
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439624"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193163"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutoriel : intégration d’Azure Active Directory à Trisotech Digital Enterprise Server
+# <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutoriel : Intégration d’Azure Active Directory à Trisotech Digital Enterprise Server
 
 Dans ce tutoriel, vous allez apprendre à intégrer Trisotech Digital Enterprise Server avec Azure Active Directory (Azure AD).
 
@@ -185,7 +185,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Trisotech Digital Enterprise Server. Trisotech Digital Enterprise Server prend en charge le provisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore, un utilisateur est créé au moment d’une tentative d’accès à Trisotech Digital Enterprise Server.
 >[!Note]
->Si vous avez besoin de créer un utilisateur manuellement, contactez l’[équipe de support Trisotech Digital Enterprise Server](mailto:support@trisotech.com).
+>Si vous avez besoin de créer un utilisateur manuellement, contactez l’ [équipe du support technique de Trisotech Digital Enterprise Server](mailto:support@trisotech.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

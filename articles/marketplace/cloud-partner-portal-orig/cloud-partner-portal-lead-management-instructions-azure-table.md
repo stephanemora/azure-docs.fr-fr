@@ -128,7 +128,7 @@ Dans les étapes suivantes, vous allez vous connecter à votre table Azure et co
 
        ![Configurer la messagerie pour la notification des prospects](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-13. Sélectionnez **Enregistrer** pour enregistrer le flux. Microsoft Flow vérifiera automatiquement si le flux contient des erreurs. Si aucune erreur n’est détectée, votre flux s’exécute dès qu’il est enregistré.
+13. Sélectionnez **Enregistrer** pour enregistrer le flux. Microsoft Flow vérifie automatiquement si le flux contient des erreurs. Si aucune erreur n’est détectée, votre flux s’exécute dès qu’il est enregistré.
 
 La capture d’écran suivante montre à quoi devrait ressembler le flux final.
 

@@ -3,19 +3,19 @@ title: FAQ sur Azure Active Directory B2B Collaboration | Microsoft Docs
 description: Trouvez les réponses aux questions les plus fréquentes sur Azure Active Directory B2B Collaboration.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: reference
 ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 481fb929a8f937b1d822755e93fae09d9f585fad
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 36efb943855d36d1f830ba08554eabd0a8a88f50
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169329"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
@@ -73,7 +73,7 @@ Si votre locataire Azure AD est le répertoire de base d’un utilisateur, vous 
  
 * Les utilisateurs invités qui se connectent avec un compte Microsoft (par exemple guestuser@live.com) peuvent réinitialiser leur mot de passe à l’aide de la méthode Self-service Password Reset (SSPR) du compte Microsoft. Consultez [Réinitialisation du mot de passe de votre compte Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Les utilisateurs invités qui se connectent avec un compte Google ou un autre fournisseur d’identité externe peuvent réinitialiser leur mot de passe à l’aide de la méthode SSPR de leur fournisseur d’identité. Par exemple, un utilisateur invité avec le compte Google guestuser@gmail.com peut réinitialiser son mot de passe en suivant les instructions de la section [Modifier ou réinitialiser votre mot de passe](https://support.google.com/accounts/answer/41078).
-* Si le locataire de l’identité est de locataire de type juste-à-temps (JIT) ou « viral » (un client Azure distinct et non managé), seul l’utilisateur invité peut réinitialiser son mot de passe.
+* Si le locataire de l’identité est de locataire de type juste-à-temps (JIT) ou « viral » (un client Azure distinct et non managé), seul l’utilisateur invité peut réinitialiser son mot de passe. Parfois, une organisation [reprend la gestion des clients viraux](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) qui sont créés lorsque des employés utilisent leur adresse e-mail professionnelle pour s’inscrire à des services. Dès lors que l’organisation adopte un locataire viral, seul un administrateur de cette organisation peut réinitialiser le mot de passe de l’utilisateur, ou activer la réinitialisation de mot de passe en libre-service. Le cas échéant, en tant qu’organisation à l’origine de l’invitation, vous pouvez supprimer le compte d’utilisateur invité de votre annuaire et renvoyer une invitation.
 * Si le répertoire de base de l’utilisateur invité est votre client Azure AD, vous pouvez réinitialiser le mot de passe. Par exemple, vous avez peut-être créé un utilisateur ou synchronisé un utilisateur à partir de votre annuaire Active Directory local et défini sa valeur UserType sur invité. Comme cet utilisateur est hébergé dans votre annuaire, vous pouvez réinitialiser son mot de passe à partir du portail Azure.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365 fournit-il un support en ligne pour Azure AD B2B Collaboration ?

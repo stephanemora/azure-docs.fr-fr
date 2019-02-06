@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec SignalFx | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à SignalFx | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SignalFx.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6d5ab4b0-29bc-4b20-8536-d64db7530f32
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0d21a409669cc7d7fceeec9787efbe31d880597c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6f2d869f345aeb8f50d42de6b1533b849ffb2182
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437846"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197566"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Didacticiel : Intégration d’Azure Active Directory à SignalFx
+# <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutoriel : Intégration d’Azure Active Directory à SignalFx
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer SignalFx à Azure Active Directory (Azure AD).
 
@@ -223,7 +223,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 Lorsqu’un utilisateur se connecte pour la première fois à SignalFx à partir de la SSO SAML, [l’équipe de support SignalFx](mailto:kmazzola@signalfx.com) lui envoie un e-mail contenant un lien sur lequel il doit cliquer pour s’authentifier. Cette procédure n’intervient que lors de la première connexion de l’utilisateur ; les tentatives de connexion suivantes ne nécessitent aucune validation par e-mail.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support SignalFx](mailto:kmazzola@signalfx.com).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe du support technique de SignalFx](mailto:kmazzola@signalfx.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

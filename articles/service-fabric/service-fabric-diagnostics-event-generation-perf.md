@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 114d71227e3cf3d0f235fc63135534b1030d4adc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290771"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188337"
 ---
 # <a name="performance-metrics"></a>Mesures de performances
 
@@ -80,7 +80,7 @@ Collectez les compteurs suivants si vous déployez des services .NET dans votre 
 
 Service Fabric génère une quantité importante de compteurs de performance personnalisés. Si le kit de développement SDK est installé, vous pouvez voir la liste complète sur votre ordinateur Windows dans l’Analyseur de performances (Démarrer > Analyseur de performances). 
 
-Si vous utilisez Reliable Actors, dans les applications que vous déployez dans votre cluster, ajoutez des compteurs des catégories `Service Fabric Actor` et `Service Fabric Actor Method` (consultez [Service Fabric Reliable Actors Diagnostics](service-fabric-reliable-actors-diagnostics.md)) (Diagnostics Reliable Actors de Service Fabric).
+Dans les applications que vous déployez sur votre cluster, si vous utilisez Reliable Actors, ajoutez des compteurs des catégories `Service Fabric Actor` et `Service Fabric Actor Method` (consultez [Diagnostics Service Fabric Reliable Actors](service-fabric-reliable-actors-diagnostics.md).
 
 Si vous utilisez Reliable Services ou la communication à distance du service, nous disposons également des catégories de compteur `Service Fabric Service` et `Service Fabric Service Method` à partir desquelles vous devez collecter les compteurs. Reportez-vous à la [surveillance via la communication à distance du service](service-fabric-reliable-serviceremoting-diagnostics.md) et aux [compteurs de performances de services fiables](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 

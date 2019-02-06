@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a2731397ece833adcedc4ebab640fa1b3ab2fc05
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725964"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076824"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -308,7 +308,7 @@ Pour plus d’informations, voir la section [Contrôler le trafic réseau](#netw
 
 ## <a id="hdinsight-ports"></a> Ports requis
 
-Si vous prévoyez d’utiliser un **pare-feu d’appliance virtuelle** réseau pour sécuriser le réseau virtuel, vous devez autoriser le trafic sortant sur les ports suivants :
+Si vous prévoyez d’utiliser un **pare-feu** pour sécuriser le réseau virtuel et accéder au cluster sur certains ports, vous devez autoriser le trafic sur les ports appropriés pour votre scénario. Par défaut, vous n’avez pas besoin d’autoriser ces ports :
 
 * 53
 * 443

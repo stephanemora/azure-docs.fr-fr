@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/05/2018
+ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b2d834c5f9f46f2ebe3c997c75dc50f30ed4bda7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558921"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081226"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) a plusieurs définitions de rôles intégrés que vous pouvez affecter aux utilisateurs, groupes et principaux de service. Les attributions de rôles vous permettent de contrôler l’accès aux ressources dans Azure. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés](custom-roles.md).
@@ -37,6 +37,8 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Contributeur](#contributor) | Permet de tout gérer, à l’exception de l’accès aux ressources. |
 | [Lecteur](#reader) | Vous permet de tout afficher, mais sans apporter de modifications. |
 | [AcrImageSigner](#acrimagesigner) | signataire d’image ACR |
+| [AcrPull](#acrpull) | tirer (pull) acr |
+| [AcrPush](#acrpush) | envoyer (push) acr |
 | [AcrQuarantineReader](#acrquarantinereader) | lecteur de données de quarantaine ACR |
 | [AcrQuarantineWriter](#acrquarantinewriter) | écriture de données de quarantaine ACR |
 | [Contributeur du service Gestion des API](#api-management-service-contributor) | Peut gérer le service et les API |
@@ -66,6 +68,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Contributeur Cognitive Services](#cognitive-services-contributor) | Vous permet de créer, lire, mettre à jour, supprimer et gérer les clés de Cognitive Services. |
 | [Utilisateur Cognitive Services](#cognitive-services-user) | Vous permet de lire et de répertorier les clés de Cognitive Services. |
 | [Rôle de lecteur de compte Cosmos DB](#cosmos-db-account-reader-role) | Lire les données de comptes Azure Cosmos DB. Consultez [Contributeur de compte DocumentDB](#documentdb-account-contributor) pour en savoir plus sur la gestion des comptes Azure Cosmos DB. |
+| [CosmosBackupOperator](#cosmosbackupoperator) | Peut envoyer une requête de restauration d’une base de données Cosmos DB ou d’un conteneur pour un compte |
 | [Contributeur Cost Management](#cost-management-contributor) | Peut afficher les coûts et gérer la configuration des coûts (par exemple, budgets, exportations) |
 | [Lecteur Cost Management](#cost-management-reader) | Peut afficher les données et la configuration des coûts (par exemple, budgets, exportations) |
 | [Contributeur Data Box](#data-box-contributor) | Permet de gérer toutes les opérations sous le service Data Box à l’exception de l’octroi d’accès à d’autres personnes. |
@@ -76,8 +79,8 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Utilisateur de DevTest Labs](#devtest-labs-user) | Permet de connecter, de démarrer, de redémarrer et d’arrêter vos machines virtuelles dans votre Azure DevTest Labs. |
 | [Contributeur de Zone DNS](#dns-zone-contributor) | Permet de gérer des zones DNS et des jeux d’enregistrements dans Azure DNS, mais pas de contrôler qui y a accès. |
 | [Contributeur de compte DocumentDB](#documentdb-account-contributor) | Gérer des comptes Azure Cosmos DB. Azure Cosmos DB était auparavant appelé DocumentDB. |
-| [Contributeur EventGrid EventSubscription (préversion)](#eventgrid-eventsubscription-contributor-preview) | Vous permet de gérer les opérations d’abonnement aux événements EventGrid. |
-| [Lecteur EventGrid EventSubscription (préversion)](#eventgrid-eventsubscription-reader-preview) | Vous permet de lire les abonnements aux événements EventGrid. |
+| [Contributeur EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Vous permet de gérer les opérations d’abonnement aux événements EventGrid. |
+| [Lecteur EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Vous permet de lire les abonnements aux événements EventGrid. |
 | [Contributeur HDInsight Domain Services](#hdinsight-domain-services-contributor) | Peut lire, créer, modifier et supprimer les opérations Domain Services nécessaires pour le pack Sécurité Entreprise HDInsight |
 | [Contributeur de compte Intelligent Systems](#intelligent-systems-account-contributor) | Permet de gérer des comptes Intelligent Systems, mais pas d’y accéder. |
 | [Contributeur Key Vault](#key-vault-contributor) | Permet de gérer des coffres de clés, mais pas d’y accéder. |
@@ -98,7 +101,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Contributeur de réseau](#network-contributor) | Permet de gérer des réseaux, mais pas d’y accéder. |
 | [Contributeur de compte NewRelic APM](#new-relic-apm-account-contributor) | Vous permet de gérer des comptes et applications New Relic Application Performance Management, mais pas d’y accéder. |
 | [Lecteur et accès aux données](#reader-and-data-access) | Permet d’afficher tous les éléments, mais pas de supprimer ou de créer un compte de stockage ou une ressource contenue. En outre, autorise l’accès en lecture/écriture à toutes les données contenues dans un compte de stockage via l’accès aux clés de compte de stockage. |
-| [Contributeur du cache Azure pour Redis](#redis-cache-contributor) | Vous permet de gérer le cache Azure pour Redis, mais pas d’y accéder. |
+| [Contributeur Cache Redis](#redis-cache-contributor) | Vous permet de gérer le cache Azure pour Redis, mais pas d’y accéder. |
 | [Contributeur de stratégie de ressource (préversion)](#resource-policy-contributor-preview) | (Préversion) Utilisateurs renvoyés de EA, avec des droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire des ressources ou la hiérarchie. |
 | [Contributeur des collections de travaux du planificateur](#scheduler-job-collections-contributor) | Permet de gérer des collections de tâches du planificateur, mais pas d’y accéder. |
 | [Contributeur du service de recherche](#search-service-contributor) | Permet de gérer des services de recherche, mais pas d’y accéder. |
@@ -114,7 +117,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Contributeur de compte de stockage](#storage-account-contributor) | Permet de gérer des comptes de stockage, mais pas d’y accéder. |
 | [Rôle de service d’opérateur de clé de compte de stockage](#storage-account-key-operator-service-role) | Les opérateurs de clés de comptes de stockage sont autorisés à lister et à régénérer des clés sur des comptes de stockage |
 | [Contributeur aux données blob du stockage (préversion)](#storage-blob-data-contributor-preview) | Permet l'accès en lecture, en écriture et pour suppression aux conteneurs blob et aux données du stockage Azure |
-| [Propriétaire des données Blob du stockage (préversion)](#storage-blob-data-owner-preview) | Permet l'accès en lecture, écriture, suppression et super utilisateur POSIX aux données et conteneurs blob Stockage Azure |
+| [Propriétaire des données Blob du stockage (préversion)](#storage-blob-data-owner-preview) | Permet un accès total aux conteneurs d’objets blob et aux données du Stockage Azure, notamment l’attribution du contrôle d’accès POSIX. |
 | [Lecteur des données blob du stockage (préversion)](#storage-blob-data-reader-preview) | Permet l'accès en lecture aux conteneurs blob et aux données du stockage Azure |
 | [Contributeur aux données en file d'attente du stockage (préversion)](#storage-queue-data-contributor-preview) | Permet l'accès en lecture, en écriture et pour suppression aux files d'attente et aux messages en file d'attente du stockage Azure |
 | [Lecteur des données en file d'attente du stockage (préversion)](#storage-queue-data-reader-preview) | Permet l'accès en lecture aux files d'attente et aux messages en file d'attente du stockage Azure |
@@ -169,6 +172,25 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Envoie ou tire des métadonnées d’approbation du contenu pour un registre de conteneurs. |
+
+## <a name="acrpull"></a>AcrPull
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | tirer (pull) acr |
+> | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | **Actions** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | Tire (pull) ou obtient des images à partir d’un registre de conteneurs. |
+
+## <a name="acrpush"></a>AcrPush
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | envoyer (push) acr |
+> | **Id** | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | **Actions** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | Tire (pull) ou obtient des images à partir d’un registre de conteneurs. |
+> | Microsoft.ContainerRegistry/registries/push/write | Envoie (push) ou écrit des images dans un registre de conteneurs. |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -385,7 +407,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Actualise la liste de conteneurs. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Créer et gérer des travaux de sauvegarde |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Travaux d’exportation |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Renvoie le résultat de l’opération de travail d’exportation. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Créer et gérer des métadonnées associées à la gestion des sauvegardes |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Créer et gérer les résultats des opérations de gestion des sauvegardes |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Créer et gérer des stratégies de sauvegarde |
@@ -445,8 +467,8 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Actualise la liste de conteneurs. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Créer et gérer des travaux de sauvegarde |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Travaux d’exportation |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Renvoie le résultat de l’opération de travail d’exportation. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Renvoie les métadonnées de gestion des sauvegardes pour le coffre Recovery Services. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Créer et gérer les résultats des opérations de gestion des sauvegardes |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obtenir les résultats de l’opération de stratégie. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Renvoie toutes les stratégies de protection. |
@@ -506,8 +528,8 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Renvoie le résultat de l’opération de travail. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Renvoie tous les objets de travail. |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Travaux d’exportation |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Renvoie le résultat de l’opération de travail d’exportation. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Renvoie les métadonnées de gestion des sauvegardes pour le coffre Recovery Services. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Renvoie le résultat de l’opération de sauvegarde pour le coffre Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obtenir les résultats de l’opération de stratégie. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Renvoie toutes les stratégies de protection. |
@@ -754,6 +776,16 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
+## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Peut envoyer une requête de restauration d’une base de données Cosmos DB ou d’un conteneur pour un compte |
+> | **Id** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
+> | **Actions** |  |
+> | Microsoft.DocumentDB/databaseAccounts/backup/action | Soumettre une demande pour configurer la sauvegarde |
+> | Microsoft.DocumentDB/databaseAccounts/restore/action | Soumettre une demande de restauration |
+
 ## <a name="cost-management-contributor"></a>Contributeur Cost Management
 > [!div class="mx-tableFixed"]
 > | | |
@@ -940,7 +972,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Contributeur (préversion)
+## <a name="eventgrid-eventsubscription-contributor"></a>Contributeur EventGrid EventSubscription
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -957,7 +989,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Lecteur (préversion)
+## <a name="eventgrid-eventsubscription-reader"></a>Lecteur EventGrid EventSubscription
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1201,6 +1233,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
+> | Microsoft.Insights/activityLogAlerts/* |  |
 > | Microsoft.Insights/AlertRules/* | Règles d’alerte en lecture/écriture/suppression. |
 > | Microsoft.Insights/components/* | Lire/écrire/supprimer des composants Application Insights. |
 > | Microsoft.Insights/DiagnosticSettings/* | Paramètres de diagnostic en lecture/écriture/suppression. |
@@ -1285,7 +1318,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
 
-## <a name="azure-cache-for-redis-contributor"></a>Contributeur du cache Azure pour Redis
+## <a name="redis-cache-contributor"></a>Contributeur Cache Redis
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1370,6 +1403,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Security/pricings/delete | Supprime les paramètres de tarification pour l’étendue |
 > | Microsoft.Security/securityContacts/delete | Supprime le contact de sécurité |
 > | Microsoft.Security/securityContacts/write | Met à jour le contact de sécurité |
+> | Microsoft.Security/InformationProtectionPolicies/write | Met à jour les stratégies de protection des informations pour la ressource |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ## <a name="security-manager-legacy"></a>Gestionnaire de sécurité (hérité)
@@ -1430,7 +1464,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/* | Créer et gérer des stratégies de réplication |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/* | Créer et gérer des plans de récupération |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* | Créer et gérer la configuration de stockage du coffre Recovery Services |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Renvoie des informations de jeton pour le coffre Recovery Services. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Renvoie des détails d’utilisation d’un coffre Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | L’opération de jeton de coffre peut être utilisée pour obtenir un jeton de coffre pour les opérations de serveur principal au niveau du coffre. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Lire les alertes pour le coffre Recovery Services |
@@ -1497,7 +1531,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Lire les alertes pour le coffre Recovery Services |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Renvoie des informations de jeton pour le coffre Recovery Services. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Renvoie des détails d’utilisation d’un coffre Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | L’opération de jeton de coffre peut être utilisée pour obtenir un jeton de coffre pour les opérations de serveur principal au niveau du coffre. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
@@ -1540,7 +1574,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Lire des stratégies. |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Lire des plans de récupération. |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Renvoie des informations de jeton pour le coffre Recovery Services. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Renvoie des détails d’utilisation d’un coffre Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | L’opération de jeton de coffre peut être utilisée pour obtenir un jeton de coffre pour les opérations de serveur principal au niveau du coffre. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
@@ -1565,6 +1599,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Insights/metricDefinitions/read | Lire les définitions des mesures |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossible de modifier les stratégies d’audit |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Impossible de modifier les paramètres d’audit |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Récupère les enregistrements d’audit d’objet blob de base de données. |
@@ -1578,6 +1613,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="sql-security-manager"></a>Gestionnaire de sécurité SQL
 > [!div class="mx-tableFixed"]
@@ -1593,6 +1629,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Créer et gérer les stratégies d’audit de serveur SQL |
 > | Microsoft.Sql/servers/auditingSettings/* | Créer et gérer les paramètres d’audit de serveur SQL |
 > | Microsoft.Sql/servers/extendedAuditingSettings/read | Récupère les détails de la stratégie étendue d’audit des objets blob de serveur configurée sur un serveur spécifié |
@@ -1616,6 +1653,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Sql/servers/firewallRules/* |  |
 > | Microsoft.Sql/servers/read | Retourner la liste des serveurs ou obtenir les propriétés pour le serveur spécifié. |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Créer et gérer les stratégies d’alerte de sécurité de serveur SQL |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ## <a name="sql-server-contributor"></a>Contributeur SQL Server
@@ -1637,6 +1675,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Insights/metricDefinitions/read | Lire les définitions des mesures |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Impossible de modifier les stratégies d’audit de serveur SQL |
 > | Microsoft.Sql/servers/auditingSettings/* | Impossible de modifier les paramètres d’audit de serveur SQL |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossible de modifier les stratégies d’audit de base de données de serveur SQL |
@@ -1654,6 +1693,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Impossible de modifier les stratégies d’alerte de sécurité de serveur SQL |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>Contributeur de compte de stockage
 > [!div class="mx-tableFixed"]
@@ -1690,8 +1730,8 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Retourne le résultat de la suppression d’un conteneur |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourne un conteneur ou une liste de conteneurs |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retourne le résultat du placement ou du bail du conteneur d’objets blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourne la liste des conteneurs |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retourne le résultat du conteneur put blob |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Retourne le résultat de la suppression d'un objet blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retourne un objet blob ou une liste d'objets blob |
@@ -1701,16 +1741,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Permet l'accès en lecture, écriture, suppression et super utilisateur POSIX aux données et conteneurs blob Stockage Azure |
+> | **Description** | Permet un accès total aux conteneurs d’objets blob et aux données du Stockage Azure, notamment l’attribution du contrôle d’accès POSIX. |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Retourne le résultat de la suppression d’un conteneur |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourne un conteneur ou une liste de conteneurs |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retourne le résultat du placement ou du bail du conteneur d’objets blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Retourne le résultat de la suppression d'un objet blob |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retourne un objet blob ou une liste d'objets blob |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Retourne le résultat de l'écriture d'un objet blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
 
 ## <a name="storage-blob-data-reader-preview"></a>Lecteur des données Blob du stockage (préversion)
 > [!div class="mx-tableFixed"]
@@ -1719,7 +1755,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Description** | Permet l'accès en lecture aux conteneurs blob et aux données du stockage Azure |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourne un conteneur ou une liste de conteneurs |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourne la liste des conteneurs |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retourne un objet blob ou une liste d'objets blob |
 

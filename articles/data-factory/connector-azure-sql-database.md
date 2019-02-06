@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 24fdfcb53e8f3cbf0e1bf4f7e567d9f768383ac1
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025689"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884229"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -35,6 +35,8 @@ Plus précisément, ce connecteur Azure SQL Database prend en charge les fonctio
 - Copie de données à l’aide de l’authentification SQL et de l’authentification du jeton de l’application Azure Active Directory (Azure AD) avec un principal de service ou l’identité managée pour les ressources Azure.
 - En tant que source, récupération de données à l’aide d’une requête SQL ou d’une procédure stockée.
 - En tant que récepteur, ajout de données à une table de destination ou appel d’une procédure stockée avec une logique personnalisée pendant la copie.
+
+Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) n’est pas pris en charge. 
 
 > [!IMPORTANT]
 > Si vous copiez des données à l’aide du runtime d’intégration Azure Data Factory, configurez un [pare-feu de serveur Azure SQL](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) de façon à ce que les services Azure puissent accéder au serveur.
@@ -580,34 +582,37 @@ Quand vous copiez des données vers ou à partir d’Azure SQL Database, les map
 | binaire |Byte[] |
 | bit |Booléen |
 | char |String, Char[] |
-| date |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
-| Datetimeoffset |DatetimeOffset |
-| Décimal |Décimal |
+| date |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
+| Datetimeoffset |DateTimeOffset |
+| Decimal |Decimal |
 | Attribut FILESTREAM (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |Décimal |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numérique |Décimal |
+| numérique |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Décimal |
-| sql_variant |Objet * |
+| smallmoney |Decimal |
+| sql_variant |Object |
 | texte |String, Char[] |
-| time |intervalle de temps |
-|  timestamp |Byte[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |xml |
+
+>[!NOTE]
+> Pour les mappages de types de données au type intermédiaire décimal, ADF prend en charge une précision allant jusqu’à 28. Si les données ont une précision supérieure à 28, envisagez d’effectuer une conversion en chaîne dans la requête SQL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez [Magasins de données et formats pris en charge](copy-activity-overview.md##supported-data-stores-and-formats).

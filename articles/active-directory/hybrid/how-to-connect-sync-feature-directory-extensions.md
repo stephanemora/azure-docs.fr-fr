@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 04ae99064723b1dba35dfe53721c185229f96252
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476901"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174616"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Synchronisation d’Azure AD Connect : Extensions d’annuaire
 Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être consommés par le biais des [extensions d’annuaire de l’API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou de [Microsoft Graph](https://developer.microsoft.com/graph/). Vous pouvez visualiser les attributs disponibles en utilisant [l’explorateur Azure AD Graph](https://graphexplorer.azurewebsites.net/) et [l’Explorateur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) respectivement.
@@ -42,7 +42,7 @@ Vous pouvez configurer les attributs supplémentaires à synchroniser dans le ch
 
 
 >[!NOTE]
-> Azure AD Connect prend en charge la synchronisation des attributs Active Directory à valeurs multiples avec Azure AD sous la forme d’extensions d’annuaire à valeurs multiples. Toutefois, aucune fonctionnalité d’Azure AD ne prend actuellement en charge l’utilisation d’extensions d’annuaire à valeurs multiples.
+> Même si Azure AD Connect prend en charge la synchronisation d’attributs Active Directory à valeurs multiples dans Azure AD en tant qu’extensions d’annuaire à valeurs multiples, il n’existe actuellement aucun moyen de récupérer/consommer les données chargées dans les attributs d’extensions d’annuaire à valeurs multiples.
 
 La liste des attributs est lue à partir du cache du schéma qui est créé pendant l’installation d’Azure AD Connect. Si vous avez étendu le schéma Active Directory avec des attributs supplémentaires, vous devez [actualiser le schéma](how-to-connect-installation-wizard.md#refresh-directory-schema) pour que ces nouveaux attributs soient visibles.
 

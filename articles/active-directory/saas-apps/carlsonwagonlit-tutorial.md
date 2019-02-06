@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Carlson Wagonlit Travel | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Carlson Wagonlit Travel | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Carlson Wagonlit Travel.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 2745e165-94ab-43b1-970a-4547b4e5b501
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jeedes
-ms.openlocfilehash: b1854b8e2c05fb2bcc5bd864c9ed8049250743b8
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 564f78b28be96209012542fd0d2e4de94872e583
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054112"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188074"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Didacticiel : Intégration d’Azure Active Directory à Carlson Wagonlit Travel
+# <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Tutoriel : Intégration d’Azure Active Directory à Carlson Wagonlit Travel
 
 Dans ce didacticiel, vous allez apprendre à intégrer Carlson Wagonlit Travel à Azure Active Directory (Azure AD).
 
@@ -123,7 +123,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 6. Pour configurer l’authentification unique côté **Carlson Wagonlit Travel**, vous devez envoyer les **métadonnées XML** téléchargées à [l’équipe du support technique Carlson Wagonlit Travel](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
@@ -160,7 +160,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-carlson-wagonlit-travel-test-user"></a>Créer un utilisateur test de Carlson Wagonlit Travel
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Carlson Wagonlit Travel. Travailler avec l’[équipe de support Carlson Wagonlit Travel](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) pour ajouter des utilisateurs dans la plateforme Carlson Wagonlit Travel. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Carlson Wagonlit Travel. Collaborez avec l’ [équipe du support technique de Carlson Wagonlit Travel](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html)  pour ajouter des utilisateurs à la plateforme Carlson Wagonlit Travel. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

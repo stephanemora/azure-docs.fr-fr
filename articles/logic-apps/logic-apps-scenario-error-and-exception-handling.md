@@ -10,16 +10,16 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124033"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098661"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
 
-Ce scénario décrit comment vous pouvez étendre une application logique pour assurer une meilleure prise en charge de la gestion des exceptions. Nous avons utilisé un cas d’utilisation réel, et cet article répond à la question « Azure Logic Apps prend-il en charge la gestion des exceptions et des erreurs ? »
+Ce scénario décrit comment vous pouvez étendre une application logique pour assurer une meilleure prise en charge de la gestion des exceptions. Nous avons employé un cas d’utilisation réel pour répondre à la question : « Azure Logic Apps prend-il en charge la gestion des exceptions et des erreurs ? »
 
 > [!NOTE]
 > Le schéma Azure Logic Apps actuel fournit un modèle standard pour les réponses à des actions. Ce schéma inclut les réponses de type validation interne et de type erreur retournées depuis une application API.
@@ -57,7 +57,7 @@ La première étape consiste à créer l’application logique et à l’ouvrir 
 
 Nous utilisons un déclencheur **Requête** comme indiqué dans l’exemple ci-dessous :
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -90,7 +90,7 @@ Nous utilisons un déclencheur **Requête** comme indiqué dans l’exemple ci-d
         }
       },
 
-````
+```
 
 
 ## <a name="steps"></a>Étapes
