@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6089f053472faaa7fa8c957904f73c7061cb2d3f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344923"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219768"
 ---
 # <a name="basic-concepts"></a>Concepts de base
 
@@ -76,7 +76,7 @@ Les étapes que vous suivez pour activer l’entrée vocale dans votre applicati
 Le service de reconnaissance vocale Microsoft fournit aux développeurs deux façons d’ajouter des fonctionnalités vocales à leurs applications.
 
 - [API REST](GetStarted/GetStartedREST.md) : les développeurs peuvent utiliser des appels HTTP au service à partir de leurs applications pour la reconnaissance vocale.
-- [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) : pour bénéficier de fonctionnalités avancées, les développeurs peuvent télécharger les bibliothèques clientes Microsoft Speech et les lier dans leurs applications.  Les bibliothèques clientes sont disponibles sur différentes plateformes (Windows, Android, iOS) dans différents langages (C#, Java, JavaScript, ObjectiveC).
+- [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) : pour bénéficier de fonctionnalités avancées, les développeurs peuvent télécharger les bibliothèques clientes Microsoft Speech et les lier dans leurs applications.  Les bibliothèques clientes sont disponibles sur différentes plateformes (Windows, Android, iOS) dans différents langages (C#, Java, JavaScript, ObjectiveC).
 
 | Cas d'utilisation | [API REST](GetStarted/GetStartedREST.md) | [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|

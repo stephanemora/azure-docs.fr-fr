@@ -6,25 +6,25 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: sbowles
-ms.openlocfilehash: 9b30fa0fbbd655c03800dadb19cc2568d404204d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b4b2c09ef608da7c52d415d5f1f2215ddc31c41a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129554"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223321"
 ---
 # <a name="face-api-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur l’API Visage
 
 ### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-face-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Si vous ne trouvez pas les réponses à vos questions dans ce Forum Aux Questions, interrogez la communauté de l’API Visage sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou contactez le support technique sur [UserVoice](https://cognitive.uservoice.com/).
 
 -----
-**Question** : quels facteurs peuvent réduire la précision des composants Reconnaissance, Vérification ou Rechercher des éléments similaires de l’API Visage ?
+**Question** : Quels facteurs peuvent réduire la précision des composants Reconnaissance, Vérification ou Rechercher des éléments similaires de l’API Visage ?
 
-**Réponse** : il s’agit généralement des mêmes facteurs qui font que l’homme éprouve des difficultés pour procéder à une identification :
+**Réponse** : Il s’agit généralement des mêmes facteurs qui font que l’homme éprouve des difficultés pour procéder à une identification :
 * Obstacles devant les yeux
 * Lumière crue, par exemple, contre-jour marqué
 * Modifications d’une coupe de cheveux ou d’une moustache/barbe
@@ -34,9 +34,9 @@ ms.locfileid: "46129554"
 L’API Visage réussit souvent dans des situations difficiles comme celles-ci, mais sa précision peut s’en trouver réduite. Pour renforcer la reconnaissance et surmonter ces difficultés, formez votre personnel en lui soumettant des photos qui présentent différents angles et éclairages.
 
 -----
-**Question** : je transmets les données d’une image binaire, mais j’obtiens l’erreur « image de visage non valide ».
+**Question** :  Je transmets les données d’une image binaire, mais j’obtiens l’erreur « image de visage non valide ».
 
-**Réponse** : cela signifie que l’algorithme a rencontré des problèmes lors de l’analyse de l’image. Causes possibles :
+**Réponse** :  Cela signifie que l’algorithme a rencontré des problèmes lors de l’analyse de l’image. Causes possibles :
 * Les formats d’image d’entrée pris en charge incluent JPEG, PNG, GIF (la première image), BMP.
 * La taille du fichier image ne doit pas dépasser 4 Mo
 * Les visages sont détectables selon une plage de tailles allant de 36 x 36 à 4 096 x 4 096 pixels. Les visages en dehors de cette plage ne sont pas détectés.

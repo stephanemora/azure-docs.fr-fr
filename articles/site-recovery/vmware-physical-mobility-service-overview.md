@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e3967319cd41399209bd50886bce88efc8ba6ba6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6319ef908b5b040bf61285451448c08bb3960fe2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956514"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215008"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>À propos du service Mobilité pour serveurs physiques et machines virtuelles VMware
 
@@ -64,7 +64,7 @@ Si les machines que vous souhaitez répliquer ont un logiciel antivirus actif en
 
 5. La tâche Mettre à jour le service Mobilité est alors lancée pour chacune des machines sélectionnées.
 
-## <a name="update-the-acount-used-for-push-installation-of-the-mobility-service"></a>Mettre à jour le compte utilisé pour l’installation Push du service Mobilité
+## <a name="update-the-account-used-for-push-installation-of-the-mobility-service"></a>Mettre à jour le compte utilisé pour l’installation Push du service Mobilité
 
 Au moment du déploiement de Site Recovery, pour activer l’installation Push du service Mobilité, vous avez spécifié un compte que le serveur de processus Site Recovery utilise afin d'accéder aux machines et installer le service lorsque de la réplication est activée pour la machine. Pour mettre à jour les informations d’identification de ce compte, suivez [ces instructions](vmware-azure-manage-configuration-server.md).
 

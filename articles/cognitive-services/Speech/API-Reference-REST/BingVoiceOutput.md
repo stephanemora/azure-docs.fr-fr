@@ -6,16 +6,16 @@ services: cognitive-services
 author: priyaravi20
 manager: yanbo
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343025"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215858"
 ---
 # <a name="bing-text-to-speech-api"></a>API Synthèse vocale Bing
 
@@ -179,7 +179,7 @@ L’API Synthèse vocale de Microsoft prend en charge le protocole SSML 1.0 tel 
   ```
 
 > [!NOTE]
-> Notez que les données audio doivent être des fichiers .wav 8k ou 16k au format suivant : **code CRC** (CRC-32) : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0xFFFFFFFF ; **Indicateur de format audio** : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0xFFFFFFFF ; **Nombre d’échantillons** : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0x7FFFFFFF ; **Taille du corps binaire** : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0x7FFFFFFF ; **Corps binaire** : n octets.
+> Notez que les données audio doivent être des fichiers .wav 8k ou 16k au format suivant : **code CRC** (CRC-32) : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0xFFFFFFFF ; **Indicateur de format audio** : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0xFFFFFFFF ; **Nombre d’échantillons** : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0x7FFFFFFF ; **Taille du corps binaire** : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0x7FFFFFFF ; **Corps binaire** : n octets.
 
 ## <a name="SampleApp"></a>Exemple d’application
 
@@ -214,9 +214,9 @@ en-IE | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft 
 en-IN | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Heera, Apollo) »
 en-IN | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, PriyaRUS) »
 en-IN | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Ravi, Apollo) »
-fr-FR | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, ZiraRUS) »
-fr-FR | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, JessaRUS) »
-fr-FR | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, BenjaminRUS) »
+en-US | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, ZiraRUS) »
+en-US | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, JessaRUS) »
+en-US | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, BenjaminRUS) »
 es-ES | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-ES, Laura, Apollo) »
 es-ES | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-ES, HelenaRUS) »
 es-ES | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-ES, Pablo, Apollo) »

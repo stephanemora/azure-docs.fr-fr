@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 210872a468f92f92edef9c8e29a26382c5646dae
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 55d6f1393f4f180776557ea9a2651064d61c3e06
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321549"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301499"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de VMware sur Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -169,7 +169,7 @@ L’outil génère un fichier Microsoft Excel avec les macros activées (fichier
 |-Currency|(Facultatif) La devise dans laquelle le coût est indiqué dans le rapport généré. La valeur par défaut est le Dollar américain ($) ou la dernière devise utilisée.<br>Reportez-vous à la liste des [devises prises en charge](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
 Par défaut, l'outil est configuré pour profiler et générer un rapport comprenant jusqu'à 1 000 machines virtuelles. Vous pouvez modifier la limite en modifiant la valeur de la clé MaxVMsSupported dans le fichier *ASRDeploymentPlanner.exe.config*.
-```
+```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
@@ -192,7 +192,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 #### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Exemple 4 : Générer un rapport avec un facteur de croissance de 5 pour cent au lieu des 30 pour cent par défaut
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Exemple 5 : Générer un rapport contenant un sous-ensemble de données profilées
@@ -219,7 +219,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 L’outil est configuré par défaut sur les valeurs du 95e centile des E/S par seconde de lecture/écriture, des E/S par seconde d’écriture et de l’activité des données collectées pendant le profilage de toutes les machines virtuelles. Cette mesure garantit que le pic du 100e centile que vos machines virtuelles peuvent voir en raison d’événements temporaires n’est pas utilisé pour déterminer vos besoins de compte de stockage cible et de bande passante source. Par exemple, un événement temporaire peut être une tâche de sauvegarde exécutée une fois par jour, une indexation de base de données périodique ou une activité de génération de rapport d’analyse ou d’autres événements similaires ponctuels et de courte durée.
 
 L’utilisation des valeurs du 95e centile permet de donner une image exacte des caractéristiques des charges de travail réelles et vous offre les meilleures performances lorsque les charges de travail s’exécutent sur Azure. Nous ne prévoyons pas que vous modifiiez ce numéro. Si vous modifiez la valeur (au 90e centile par exemple), vous pouvez mettre à jour le fichier de configuration *ASRDeploymentPlanner.exe.config* dans le dossier par défaut et l’enregistrer pour générer un nouveau rapport sur les données profilées existantes.
-```
+```xml
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
 <add key="DataChurnPercentile" value="95" />

@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 74ee04fb3d4044573a98535a9bdc26d5c593a222
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 9a819f94ae0cc90d86fdbdf4c9201f1d5a2df6ee
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796511"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213342"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Guide pratique pour consigner les dialogues dans un modèle Conversation Learner
 
@@ -26,7 +26,7 @@ Ce didacticiel montre comment des dialogues journalisés sont employés pour mie
 [![Didacticiel sur les dialogues journalisés en préversion](https://aka.ms/cl_Tutorial_v3_LogDialogs_Preview)](https://aka.ms/cl_Tutorial_v3_LogDialogs)
 
 ## <a name="requirements"></a>Configuration requise
-Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution,
+Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
 
     npm run tutorial-general
 
@@ -51,7 +51,7 @@ Celui-ci contient une entité nommée « city » (ville), et des actions conç
 6. Cliquez sur « Austin », puis sur « city » dans la liste d’entités.
 7. Cliquez sur le bouton « Submit Changes » (Envoyer les modifications).
     - Ce changement de valeur d’entité entraîne des modifications en aval de la conversation dans la mesure où nous avons de nouvelles valeurs d’entité en mémoire. Des actions ultérieures sont probablement devenues non valides, en particulier celles impliquant l’entité « city ».
-8. Cliquez sur l’énoncé « Which city ? » (Quelle ville) dans le panneau de conversation.
+8. Cliquez sur « Quelle ville ? » dans le panneau de conversation.
 9. Sélectionnez la réponse, « The weather in Austin is probably sunny » (la météo à Austin est probablement ensoleillée).
 10. Cliquez sur le bouton « Save As Train Dialog » (Enregistrer en tant que dialogue d’apprentissage).
     - L’apprentissage démarre immédiatement

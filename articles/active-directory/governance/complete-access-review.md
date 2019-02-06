@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 72b560aa742fb509b55fe5e27cb87b9a224bce7e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: ce791e2b230360a04a3051a8964e39c6d5a457ab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606879"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191361"
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Effectuer une révision d’accès des membres d’un groupe ou des accès des utilisateurs à une application dans Azure AD
 
@@ -48,7 +48,7 @@ Lorsque l’application automatique est configurée, l’option **Appliquer** n�
 
 Pour récupérer les résultats de la révision, sélectionnez **Approbations**, puis cliquez sur **Télécharger**. Le fichier CSV généré est consultable dans Excel ou dans d’autres programmes qui permettent d’ouvrir des fichiers CSV encodés UTF-8.
 
-## <a name="optional-delete-a-review"></a>Facultatif : supprimer une révision
+## <a name="optional-delete-a-review"></a>Facultatif : Supprimer une révision
 Si la révision ne vous intéresse plus, vous pouvez la supprimer. Sélectionnez **Supprimer** pour supprimer la révision d’Azure AD.
 
 > [!IMPORTANT]

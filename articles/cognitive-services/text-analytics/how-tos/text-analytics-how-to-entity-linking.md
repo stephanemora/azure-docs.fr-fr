@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645795"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220381"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte (préversion)
 
@@ -41,7 +41,7 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Types pris en charge pour la reconnaissance d’entité nommée
 
-| type  | Subtype | Exemples |
+| Type  | Subtype | Exemples |
 |:-----------   |:------------- |:---------|
 | Personne        | N/A\*         | « Jeff », « Bill Gates »     |
 | Lieu      | N/A\*         | « Redmond, Washington », « Paris »  |
@@ -54,14 +54,14 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 | Quantité      | Devise      | « 10,99 $ »     | 
 | Quantité      | Dimension     | « 10 miles », « 40 cm »     | 
 | Quantité      | Température   | « 32 degrés »    |
-| Datetime      | N/A\*         | « 6 h 30 le 4 février 2012 »      | 
-| Datetime      | Date          | « 2 mai 2017 », « 02/05/2017 »   | 
+| DateTime      | N/A\*         | « 6 h 30 le 4 février 2012 »      | 
+| DateTime      | Date          | « 2 mai 2017 », « 02/05/2017 »   | 
 | Date Heure     | Temps          | « 8 h », « 8:00 »  | 
-| Datetime      | DateRange     | « Du 2 au 5 mai »    | 
-| Datetime      | TimeRange     | « De 18 à 19 h »     | 
-| Datetime      | Duration      | « 1 minute et 45 secondes »   | 
-| Datetime      | Définir           | « Chaque mardi »     | 
-| Datetime      | TimeZone      |    | 
+| DateTime      | DateRange     | « Du 2 au 5 mai »    | 
+| DateTime      | TimeRange     | « De 18 à 19 h »     | 
+| DateTime      | Duration      | « 1 minute et 45 secondes »   | 
+| DateTime      | Définir           | « Chaque mardi »     | 
+| DateTime      | TimeZone      |    | 
 | URL           | N/A\*         | "http://www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 \* Selon les entités entrées et extraites, certaines entités peuvent omettre le `SubType`.
@@ -89,13 +89,13 @@ La taille des documents doit être inférieure à 5 000 caractères par docume
 }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Étape 1 : Structuration de la demande
+## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
 
 Vous trouverez plus d’informations sur la définition d’une demande dans [Guide pratique pour appeler l’API Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
 
-+ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette demande : [API Liaison d'entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API de liaison d’entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Définissez le point de terminaison HTTP pour l’extraction d’expressions clés. Il doit inclure la ressource `/entities` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Définissez le point de terminaison HTTP pour l’extraction d’entité. Il doit inclure la ressource `/entities` : `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
 
@@ -104,13 +104,13 @@ Vous trouverez plus d’informations sur la définition d’une demande dans [Gu
 > [!Tip]
 > Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) pour structurer une demande et la publier dans le service.
 
-## <a name="step-2-post-the-request"></a>Étape 2 : Publication de la demande
+## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
 L’analyse est effectuée à la réception de la demande. Le service accepte jusqu'à 100 demandes par minute. Chaque demande peut être au maximum de 1 Mo.
 
 Rappelez-vous que le service est sans état. Aucune donnée n’est stockée dans votre compte. Les résultats sont retournés immédiatement dans la réponse.
 
-## <a name="step-3-view-results"></a>Étape 3 : Affichage des résultats
+## <a name="step-3-view-results"></a>Étape 3 : Afficher les résultats
 
 Toutes les demandes POST retournent une réponse au format JSON avec les ID et les propriétés détectées.
 

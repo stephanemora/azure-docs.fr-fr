@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2bdda273a32167f70633096d463be59884eca033
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718219"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249903"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installer le Kit de développement Azure Stack (ASDK)
 Après la [préparation de l’ordinateur hôte ASDK](asdk-prepare-host.md), le kit ASDK peut être déployé dans l’image CloudBuilder.vhdx en suivant les étapes de cet article.
@@ -38,8 +39,8 @@ Les étapes de cet article vous montrent comment déployer le kit ASDK à l’ai
     ![](media/asdk-install/1.PNG) 
 
 3. Dans la zone déroulante **Type** du fournisseur d’identité, sélectionnez **Azure Cloud** ou **AD FS**. Sous **Mot de passe de l’administrateur local**, dans la zone **Mot de passe**, tapez le mot de passe de l’administrateur local (qui doit correspondre au mot de passe de l’administrateur local actuellement configuré), puis cliquez sur **Suivant**.
-    - **Cloud Azure** : configure Azure Active Directory (Azure AD) comme fournisseur d’identité. Pour utiliser cette option, vous avez besoin d’une connexion Internet, du nom complet d’un locataire d’annuaire Azure AD au format *nomdomaine*.onmicrosoft.com ou d’un nom de domaine personnalisé vérifié Azure AD et des informations d’identification d’administrateur général de l’annuaire spécifié. Après le déploiement, l’autorisation d’administrateur général Azure Active Directory n’est pas nécessaire. Toutefois, certaines opérations peuvent demander des informations d’identification d’administrateur général. Par exemple, un script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité peut avoir besoin d’une autorisation spécifique. Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de *l’abonnement fournisseur par défaut*.
-    - **AD FS** : Le service d’annuaire de marquage par défaut est utilisé comme fournisseur d’identité. Le compte par défaut avec lequel se connecter est azurestackadmin@azurestack.local et le mot de passe à utiliser est celui que vous avez fourni dans le cadre de la configuration.
+    - **Cloud Azure** : configure Azure Active Directory (Azure AD) comme fournisseur d’identité. Pour utiliser cette option, vous avez besoin d’une connexion Internet, du nom complet d’un locataire d’annuaire Azure AD au format *nomdomaine*.onmicrosoft.com ou d’un nom de domaine personnalisé vérifié Azure AD et des informations d’identification d’administrateur général de l’annuaire spécifié. Après le déploiement, l’autorisation d’administrateur général Azure Active Directory n’est pas nécessaire. Toutefois, certaines opérations peuvent demander des informations d’identification d’administrateur général. Par exemple, un script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité peut avoir besoin d’une autorisation spécifique. Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de l’*abonnement fournisseur par défaut*.
+    - **AD FS** : le service d’annuaire de marquage par défaut est utilisé comme fournisseur d’identité. Le compte par défaut avec lequel se connecter est azurestackadmin@azurestack.local et le mot de passe à utiliser est celui que vous avez fourni dans le cadre de la configuration.
 
     ![](media/asdk-install/2.PNG) 
     
@@ -61,8 +62,8 @@ Les étapes de cet article vous montrent comment déployer le kit ASDK à l’ai
       > Pour rechercher l’adresse IP d’un serveur de temps, visitez [pool.ntp.org](http://pool.ntp.org) ou effectuez un test ping time.windows.com. 
 
     - **Si vous le souhaitez**, vous pouvez aussi définir les valeurs suivantes :
-        - **ID de VLAN** : définit l’ID du réseau local virtuel. Utilisez cette option seulement si l’hôte et AzS-BGPNAT01 doivent configurer l’ID du réseau local virtuel pour accéder au réseau physique (et à Internet). 
-        - **Redirecteur DNS** : un serveur DNS est créé dans le cadre du déploiement d’Azure Stack. Pour permettre aux ordinateurs de la solution de résoudre les noms en dehors du marquage, spécifiez le serveur DNS de votre infrastructure existante. Le serveur DNS couvert par le marquage transfère les demandes de résolution de noms inconnus à ce serveur.
+        - **ID du réseau local virtuel** : Définit l’ID du réseau local virtuel. Utilisez cette option seulement si l’hôte et AzS-BGPNAT01 doivent configurer l’ID du réseau local virtuel pour accéder au réseau physique (et à Internet). 
+        - **Redirecteur DNS** : Un serveur DNS est créé dans le cadre du déploiement Azure Stack. Pour permettre aux ordinateurs de la solution de résoudre les noms en dehors du marquage, spécifiez le serveur DNS de votre infrastructure existante. Le serveur DNS couvert par le marquage transfère les demandes de résolution de noms inconnus à ce serveur.
 
     ![](media/asdk-install/4.PNG)
 
@@ -81,7 +82,7 @@ Les étapes de cet article vous montrent comment déployer le kit ASDK à l’ai
 
     ![](media/asdk-install/7.PNG)
 
-11. Le processus de déploiement peut prendre quelques heures, au cours desquelles l’ordinateur hôte ne redémarre automatiquement qu’une seule fois. Si vous voulez surveiller la progression du déploiement, connectez-vous en tant que azurestack\AzureStackAdmin après le redémarrage de l’hôte du kit de développement. Quand le déploiement est terminé, la console PowerShell affiche le message suivant : **TERMINÉ : Action « Déploiement »**. 
+11. Le processus de déploiement peut prendre quelques heures, au cours desquelles l’ordinateur hôte ne redémarre automatiquement qu’une seule fois. Si vous voulez surveiller la progression du déploiement, connectez-vous en tant que azurestack\AzureStackAdmin après le redémarrage de l’hôte du kit de développement. Une fois le déploiement terminé, la console PowerShell affiche le message suivant : **TERMINÉ : Action « Déploiement »**. 
     > [!IMPORTANT]
     > Si vous vous connectez en tant qu’administrateur local une fois que la machine est jointe au domaine, vous ne voyez pas la progression du déploiement. Ne réexécutez pas le déploiement : au lieu de cela, connectez-vous en tant que azurestack\AzureStackAdmin pour vérifier qu’il est en cours d’exécution.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214740"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301252"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -49,9 +49,9 @@ R : L’extraction de champs personnalisée est actuellement prise en charge da
 
 R : Le mode Liste n’est pas disponible dans les nouveaux journaux. Il existe une flèche à gauche de chaque enregistrement dans le tableau des résultats. Cliquez sur cette flèche pour ouvrir les détails de l’enregistrement correspondant. 
 
-### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>Q. Après avoir exécuté une requête, une liste de filtres suggérées s’affiche, mais elle n’inclut pas tous les filtres. Comment voir les autres ? 
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>Q. Après l'exécution d'une requête, une liste de filtres suggérés est disponible. Comment puis-je voir ces filtres ? 
 
-R : Ce que vous voyez actuellement est une préversion de nouvelle implémentation des filtres. Elle est désormais basée sur votre jeu de résultats complet plutôt que restreinte selon la limite de 10 000 enregistrements de l’interface utilisateur. Il s’agit actuellement d’une liste des filtres les plus populaires et des 10 valeurs les plus courantes pour chaque filtre. 
+R : Cliquez sur « Filtres » dans le volet de gauche pour afficher un aperçu de la nouvelle implémentation des filtres. Elle est désormais basée sur votre jeu de résultats complet plutôt que restreinte selon la limite de 10 000 enregistrements de l’interface utilisateur. Il s’agit actuellement d’une liste des filtres les plus populaires et des 10 valeurs les plus courantes pour chaque filtre. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. Pourquoi l’erreur : « Inscrivez le fournisseur de ressources 'Microsoft.Insights' pour cet abonnement afin d’activer cette requête » dans les journaux après une exploration à partir d’une machine virtuelle ? 
 

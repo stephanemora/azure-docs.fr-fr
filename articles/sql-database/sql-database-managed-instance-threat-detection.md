@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: f87b7093a732639db8a53ebec68fcae8f29735f3
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.date: 01/25/2019
+ms.openlocfilehash: 59a3b4a4e1b08a9a9985836a9f9be44d1eff9c71
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158667"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472063"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Configurer la détection des menaces (préversion) dans Azure SQL Database Managed Instance
 
@@ -25,7 +25,7 @@ La [détection des menaces](sql-database-threat-detection-overview.md) Azure SQL
 
 Vous pouvez recevoir des notifications à propos des menaces détectées par l’intermédiaire de [notifications par e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou du [portail Azure](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal).
 
-La [détection des menaces](sql-advanced-threat-protection.md) fait partie de l’offre [SQL Advanced Threat Protection](sql-database-threat-detection-overview.md) (ATP), qui est un package unifié de fonctionnalités de sécurité SQL avancées. Threat Detection peut être accessible et gérée via le portail SQL ATP central. Le service de détection des menaces est facturé 15 USD par mois et par instance managée, avec les 30 premiers jours gratuits.
+La [détection des menaces](sql-database-threat-detection-overview.md) fait partie de l’offre [SQL Advanced Data Security](sql-advanced-threat-protection.md) (ADS), qui est un package unifié de fonctionnalités de sécurité SQL avancées. Threat Detection peut être accessible et gérée via le portail SQL ADS central. Le service de détection des menaces est facturé 15 USD par mois et par instance managée, avec les 30 premiers jours gratuits.
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configurer Threat Detection pour votre Managed Instance dans le portail Azure
 

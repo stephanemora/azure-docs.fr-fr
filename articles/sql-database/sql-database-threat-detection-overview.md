@@ -11,24 +11,22 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 587c0718e333f121d0ff8b32d8c2a7dad6b8f774
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/29/2019
+ms.openlocfilehash: 4c9700344ca5b973b8dad9fd1505d15f58c06126
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037138"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451714"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL Database Threat Detection
 
 Azure SQL Threat Detection pour [Azure SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des bases de données.
 
-Threat Detection fait partie de l’offre [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) qui est un package unifié de fonctionnalités de sécurité SQL avancées. Threat Detection peut être accessible et gérée via le portail SQL ATP central.
+La détection des menaces fait partie de l’offre [SQL Advanced Data Security](sql-advanced-threat-protection.md) (ADS), qui est un package unifié de fonctionnalités de sécurité SQL avancées. Threat Detection peut être accessible et gérée via le portail SQL ADS central.
 
 > [!NOTE]
 > Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
-
-Le service de détection des menaces est facturé 15 $ par mois pour toutes les bases de données d’un serveur logique ou de Managed Instance, avec les 30 premiers jours gratuits.
 
 ## <a name="what-is-threat-detection"></a>En quoi consiste la détection des menaces
 
@@ -69,7 +67,7 @@ Vous recevez une notification par e-mail quand des activités anormales sont dé
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Explorer les alertes de détection des menaces pour votre base de données dans le portail Azure
 
-SQL Database Threat Detection intègre ses alertes avec [Azure Security Center](https://azure.microsoft.com/services/security-center/). Des vignettes de détection des menaces SQL dans les panneaux de base de données et SQL ATP au sein du Portail Azure effectuent le suivi de l’état des menaces actives.
+SQL Database Threat Detection intègre ses alertes avec [Azure Security Center](https://azure.microsoft.com/services/security-center/). Des vignettes de détection des menaces SQL dans les panneaux de base de données et SQL ADS au sein du portail Azure effectuent le suivi de l’état des menaces actives.
 
 Cliquez sur **Threat detection alert** (Alerte de détection des menaces) pour ouvrir la page d’alertes d’Azure Security Center et voir un aperçu de toutes les menaces SQL actives détectées dans la base de données ou l’entrepôt de données.
 
@@ -79,8 +77,8 @@ Cliquez sur **Threat detection alert** (Alerte de détection des menaces) pour o
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [Threat Detection dans une base de données unique](sql-database-threat-detection.md).
-- En savoir plus sur [Threat Detection dans Managed Instance](sql-database-managed-instance-threat-detection.md).
+- En savoir plus sur la [détection des menaces dans les bases de données autonomes et regroupées](sql-database-threat-detection.md).
+- En savoir plus sur la [détection des menaces dans Managed Instance](sql-database-managed-instance-threat-detection.md).
 - En savoir plus sur [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
 - En savoir plus sur [Audit Azure SQL Database](sql-database-auditing.md)
 - En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

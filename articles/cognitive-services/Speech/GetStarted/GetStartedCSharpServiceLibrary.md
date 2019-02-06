@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343689"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226041"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Guide de démarrage rapide : Utiliser la bibliothèque de services de la Reconnaissance vocale Bing en C&#35; pour Windows .NET
+# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Démarrage rapide : Utiliser la bibliothèque de services de la Reconnaissance vocale Bing en C&#35; pour Windows .NET
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -46,7 +46,7 @@ L’API Microsoft Speech fait partie de Cognitive Services (anciennement Project
 >
 > * Utilisez votre clé d’abonnement. Avec l’exemple d’application de bibliothèque de services C# fourni, vous devez fournir votre clé d’abonnement en tant qu’un des paramètres de ligne de commande. Pour plus d’informations, consultez [Exécuter l’exemple d’application](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>Étape 1 : Installer l’exemple d’application
+## <a name="step-1-install-the-sample-application"></a>Étape 1 : Installation de l’exemple d’application
 
 1. Démarrez Visual Studio 2015 et sélectionnez **Fichier** > **Ouvrir** > **Projet/Solution**.
 
@@ -64,17 +64,17 @@ Appuyez sur Ctrl+Maj+B ou sélectionnez **Générer** dans le menu du ruban. Ens
 
 3. Exécutez `SpeechClientSample.exe` avec les arguments suivants :
 
-   * Arg [0] : spécifiez un fichier WAV audio d’entrée.
-   * Arg [1] : spécifiez les paramètres régionaux audio.
-   * Arg [2] : spécifiez les modes de reconnaissance : *Short* pour le mode `ShortPhrase` et *Long* pour le mode `LongDictation`.
-   * Arg [3] : spécifiez la clé d’abonnement permettant d’accéder au service de reconnaissance vocale.
+   * Arg [0] : spécifiez un fichier WAV audio d’entrée.
+   * Arg [1] : spécifiez les paramètres régionaux audio.
+   * Arg [2] : spécifiez les modes de reconnaissance : *Short* pour le mode `ShortPhrase` et *Long* pour le mode `LongDictation`.
+   * Arg [3] : spécifiez la clé d’abonnement permettant d’accéder au service de reconnaissance vocale.
 
 ## <a name="samples-explained"></a>Exemples expliqués
 
 ### <a name="recognition-modes"></a>Modes de reconnaissance
 
-* Mode `ShortPhrase` : énoncé d’une longueur jusqu’à 15 secondes. À mesure que les données sont envoyées au serveur, le client reçoit plusieurs résultats partiels et un meilleur résultat final.
-* Mode `LongDictation` : énoncé d’une longueur jusqu’à 10 minutes. À mesure que les données sont envoyées au serveur, le client reçoit plusieurs résultats partiels et plusieurs résultats finaux, selon les emplacements où le serveur indique des pauses dans la phrase.
+* Mode `ShortPhrase` : énoncé d’une longueur de 15 secondes maximum. À mesure que les données sont envoyées au serveur, le client reçoit plusieurs résultats partiels et un meilleur résultat final.
+* Mode `LongDictation` : énoncé d’une longueur jusqu’à 10 minutes. À mesure que les données sont envoyées au serveur, le client reçoit plusieurs résultats partiels et plusieurs résultats finaux, selon les emplacements où le serveur indique des pauses dans la phrase.
 
 ### <a name="supported-audio-formats"></a>Formats audio pris en charge
 
@@ -88,20 +88,20 @@ L’API Microsoft Speech prend en charge les contenus audio/WAV en utilisant les
 
 Pour créer un SpeechClient, vous devez d’abord créer un objet Preferences. L’objet Preferences est un ensemble de paramètres qui configure le comportement du service de reconnaissance vocale. Il comprend les champs suivants :
 
-* `SpeechLanguage` : paramètres régionaux du contenu audio envoyé au service de reconnaissance vocale.
-* `ServiceUri` : point de terminaison utilisé pour appeler le service de reconnaissance vocale.
-* `AuthorizationProvider` : implémentation d’IAuthorizationProvider permettant d’extraire des jetons afin d’accéder au service de reconnaissance vocale. Bien que l’exemple procure un fournisseur d’autorisation Cognitive Services, nous vous recommandons vivement de créer votre propre implémentation pour gérer la mise en cache des jetons.
-* `EnableAudioBuffering` : option avancée. Consultez [Gestion des connexions](#connection-management).
+* `SpeechLanguage`: paramètres régionaux du contenu audio envoyé au service de reconnaissance vocale.
+* `ServiceUri`: point de terminaison utilisé pour appeler le service de reconnaissance vocale.
+* `AuthorizationProvider`: implémentation d’IAuthorizationProvider permettant d’extraire des jetons afin d’accéder au service de reconnaissance vocale. Bien que l’exemple procure un fournisseur d’autorisation Cognitive Services, nous vous recommandons vivement de créer votre propre implémentation pour gérer la mise en cache des jetons.
+* `EnableAudioBuffering`: option avancée. Consultez [Gestion des connexions](#connection-management).
 
 ### <a name="speech-input"></a>SpeechInput
 
 L’objet SpeechInput se compose de deux champs :
 
-* **Audio** : implémentation de flux de votre choix de laquelle le SDK extrait le contenu audio. Il peut s’agir de tout [flux](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) prenant en charge la lecture.
+* **Audio**: implémentation de flux de votre choix de laquelle le SDK extrait le contenu audio. Il peut s’agir de tout [flux](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) prenant en charge la lecture.
    > [!NOTE]
    > Le SDK détecte la fin du flux quand celui-ci retourne **0** en lecture.
 
-* **RequestMetadata** : métadonnées relatives à la demande de reconnaissance vocale. Pour plus d’informations, consultez les [informations de référence](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
+* **RequestMetadata** : métadonnées relatives à la demande de reconnaissance vocale. Pour plus d’informations, consultez les [informations de référence](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
 
 ### <a name="speech-request"></a>Demande de reconnaissance vocale
 

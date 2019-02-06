@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2c5fac377dfab4b4c85991dcb8f4e15f4e3cb61a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809095"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225927"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide du portail Azure
 Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser le portail Azure pour connecter votre disque dur virtuel à une autre machine virtuelle Windows pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine.
@@ -37,12 +37,11 @@ Pour la machine virtuelle qui utilise le disque managé, nous pouvons désormais
 ## <a name="determine-boot-issues"></a>Identifier les problèmes de démarrage
 Examinez les diagnostics de démarrage et la capture d’écran de la machine virtuelle afin d’identifier la raison pour laquelle votre machine virtuelle ne démarre pas correctement. Comme exemple courant, citons l’échec de mise à jour d’une application ou un disque dur virtuel en cours de suppression ou de déplacement.
 
-Dans le portail, sélectionnez votre machine virtuelle, puis accédez à la section **Prise en charge et dépannage**. Cliquez sur **Diagnostics de démarrage** pour afficher la capture d’écran. Notez les messages d’erreur ou les codes d’erreur spécifiques pour vous aider à déterminer pourquoi la machine virtuelle rencontre un problème. L’exemple suivant montre une machine virtuelle en attente d’arrêt des services :
+Dans le portail, sélectionnez votre machine virtuelle, puis accédez à la section **Prise en charge et dépannage**. Cliquez sur **Diagnostics de démarrage** pour afficher la capture d’écran. Notez les messages d’erreur ou les codes d’erreur spécifiques pour vous aider à déterminer pourquoi la machine virtuelle rencontre un problème. 
 
 ![Affichage des journaux de console des diagnostics de démarrage de la machine virtuelle](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
-Vous pouvez également cliquer sur **Capture d’écran** pour télécharger une copie de la capture d’écran de la machine virtuelle.
-
+Vous pouvez également cliquer sur **Télécharger une capture d’écran** pour télécharger une copie de la capture d’écran de la machine virtuelle.
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>Afficher les détails du disque dur virtuel existant
 Avant de pouvoir associer votre disque dur virtuel à une autre machine virtuelle, vous devez identifier le nom du disque dur virtuel. 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 72d1676613de699abda2136a7743a974b2b17c01
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162858"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300470"
 ---
 # <a name="access-the-vfxt-cluster"></a>Accéder au cluster vFXT
 
@@ -25,7 +25,7 @@ Pour modifier les paramètres et superviser le cluster Avere vFXT, utilisez le P
 > [!NOTE] 
 > Cet article suppose que vous avez défini une adresse IP publique sur le contrôleur de cluster ou sur une autre machine virtuelle à l’intérieur du réseau virtuel de votre cluster. Cet article décrit comment utiliser cette machine virtuelle comme hôte pour accéder au cluster. Si vous utilisez un VPN ou ExpressRoute pour l’accès au réseau virtuel, passez à [Se connecter au Panneau de configuration Avere](#connect-to-the-avere-control-panel-in-a-browser).
 
-Avant de vous connecter, vérifiez que la paire de clés publique/privée SSH que vous avez utilisée lors de la création du contrôleur de cluster est installée sur votre ordinateur local. Lisez la documentation sur les clés SSH pour [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) ou pour [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) si vous avez besoin d’aide.  
+Avant de vous connecter, vérifiez que la paire de clés publique/privée SSH que vous avez utilisée lors de la création du contrôleur de cluster est installée sur votre ordinateur local. Lisez la documentation sur les clés SSH pour [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) ou pour [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) si vous avez besoin d’aide. (Si vous avez utilisé un mot de passe plutôt qu'une clé publique, vous serez invité à l'entrer lors de la connexion.) 
 
 ## <a name="ssh-tunnel-with-a-linux-host"></a>Tunnel SSH avec un hôte Linux
 
@@ -41,7 +41,7 @@ Exemple :
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
 
-L’authentification est automatique si vous avez utilisé votre clé publique SSH pour créer le cluster et la clé correspondante est installée sur le système client.
+L’authentification est automatique si vous avez utilisé votre clé publique SSH pour créer le cluster et la clé correspondante est installée sur le système client. Si vous avez utilisé un mot de passe, vous serez invité à l'entrer.
 
 ## <a name="ssh-tunnel-with-a-windows-host"></a>Tunnel SSH avec un hôte Windows
 
@@ -63,7 +63,7 @@ Dans le panneau **Configuration** :
 
 ![Capture d’écran de l’application Putty montrant où cliquer pour ajouter un tunnel](media/avere-vfxt-ptty-numbered.png)
 
-L’authentification est automatique si vous avez utilisé votre clé publique SSH pour créer le cluster et la clé correspondante est installée sur le système client.
+L’authentification est automatique si vous avez utilisé votre clé publique SSH pour créer le cluster et la clé correspondante est installée sur le système client. Si vous avez utilisé un mot de passe, vous serez invité à l'entrer.
 
 ## <a name="connect-to-the-avere-control-panel-in-a-browser"></a>Se connecter au Panneau de configuration Avere dans un navigateur
 
@@ -77,7 +77,7 @@ Cette étape utilise un navigateur web pour se connecter à l’utilitaire de co
 
 En fonction de votre navigateur, vous devrez peut-être cliquer sur **Avancé** et vérifier que vous pouvez accéder à la page sans risque.
 
-Entrez le nom d’utilisateur `admin` et le mot de passe que vous avez fournis lors de la création du cluster.
+Entrez le nom d’utilisateur `admin` et le mot de passe d'administration que vous avez fournis lors de la création du cluster.
 
 ![Capture d’écran de la page de connexion Avere renseignée avec le nom d’utilisateur « admin » et un mot de passe](media/avere-vfxt-gui-login.png)
 

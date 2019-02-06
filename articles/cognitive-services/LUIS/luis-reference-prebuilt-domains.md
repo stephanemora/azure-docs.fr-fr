@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d17b6271468a9259314876e18ff7ead288c990bc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140963"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221009"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Référence de domaine prédéfinie pour votre application LUIS
 Cette référence fournit des informations sur les [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md), qui sont des collections prédéfinies d’intentions et d’entités proposées par LUIS.
@@ -163,7 +163,7 @@ Le domaine Divertissement fournit les intentions et entités liées à la recher
 | Personne| Acteur, directeur, producteur, musicien ou artiste associé à un film, une application, un jeu ou un programme télévisé.|Madonna<br/>Stanley Kubrick|
 | Rôle| Rôle joué par une personne dans la création d’un média.|Chante<br/>Dirigé par<br/>par|
 | Intitulé| Nom d’un film, d’une application, d’un jeu, d’un programme télévisé ou d’une chanson.|Friends<br/>Minecraft|
-| type| Type ou format de média d’un film, d’une application, d’un jeu, d’un programme télévisé ou d’une chanson.|Musique<br/>MovieTV <br/>programmes|
+| Type| Type ou format de média d’un film, d’une application, d’un jeu, d’un programme télévisé ou d’une chanson.|Musique<br/>MovieTV <br/>programmes|
 | UserRating| Évaluation utilisateur en étoile ou pouces.|5 étoiles<br/>3 étoiles<br/>4 étoiles|
 
 ## <a name="events"></a>Événements 
@@ -182,7 +182,7 @@ Le domaine Événements fournit les intentions et entités liées à la réserva
 | NOM | Nom d’un événement.|Shakespeare in the Park|
 | PlaceName| Nom d’emplacement de l’événement.|Louvre<br/>Opera House<br/>Broadway|
 | PlaceType | Type de l’emplacement où l’événement se déroulera.|Café<br/>Théâtre<br/>Bibliothèque|
-| type | Type d’un événement.|Concert<br/>Rencontre sportive|
+| Type | Type d’un événement.|Concert<br/>Rencontre sportive|
 
 ## <a name="fitness"></a>Fitness 
 Le domaine Fitness fournit les intentions et entités liées au suivi d’activités de fitness. Les intentions incluent l’enregistrement de notes, la durée ou distance restante ou l’enregistrement des résultats d’activité.

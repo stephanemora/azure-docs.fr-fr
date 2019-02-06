@@ -7,20 +7,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2010
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 916de2de6cdc19bfa1e3967661d40693d4be1e99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852386"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296163"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -128,6 +128,12 @@ Les utilisateurs supprimés ou désactivés qui ne se sont pas connectés préc�
 
 ---
 
+**Q : Pourquoi mes utilisateurs rencontrent-ils des problèmes sur les appareils joints Azure AD après avoir modifié leur UPN ?**
+
+**R :** Actuellement, les UPN ne sont pas entièrement pris en charge sur les appareils joints Azure AD. Dès lors, leur authentification auprès d’Azure AD échoue après la modification de leur UPN. C'est la raison pour laquelle les utilisateurs rencontrent des problèmes liés à l'authentification unique et à l'accès conditionnel sur leurs appareils. Pour l'instant, les utilisateurs doivent se connecter à Windows via la vignette « Autre utilisateur » à l’aide de leur nouvel UPN pour résoudre ce problème. Nous mettons tout en œuvre pour résoudre ce problème. Cela étant, les utilisateurs qui se connectent avec Windows Hello Entreprise ne rencontrent pas ce problème. 
+
+---
+
 **Q : Mes utilisateurs ne peuvent pas rechercher d’imprimantes à partir d’appareils joints à Azure AD. Comment activer l’impression à partir de ces appareils ?**
 
 **R :** Pour déployer des imprimantes pour les appareils joints à Azure AD, consultez [Déployer l’impression cloud hybride Windows Server avec l’authentification préalable](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Vous avez besoin d’un serveur Windows Server local pour déployer l’impression cloud hybride. Actuellement, le service d’impression cloud n’est pas disponible. 
@@ -170,7 +176,7 @@ Ce comportement ne s’applique pas à un autre utilisateur qui se connecte à c
 
 **Q : Pourquoi la boîte de dialogue *Désolé... une erreur s’est produite !* s’affiche-t-elle lorsque j’essaye de joindre mon ordinateur à Azure AD ?**
 
-**R :** Cette erreur résulte de la configuration de l’inscription Azure Active Directory avec Intune. Assurez-vous que l’utilisateur qui tente de créer la jointure Azure AD dispose de la licence Intune appropriée. Pour plus d’informations, consultez [Configurer l’inscription des appareils Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**R :** Cette erreur résulte de la configuration de l’inscription Azure Active Directory avec Intune. Assurez-vous que l’utilisateur qui tente de créer la jointure Azure AD dispose de la licence Intune appropriée. Pour plus d’informations, consultez [Configurer l’inscription des appareils Windows](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment).  
 
 ---
 
@@ -179,6 +185,19 @@ Ce comportement ne s’applique pas à un autre utilisateur qui se connecte à c
 **R :** Une cause possible est que vous vous êtes connecté à l’appareil à l’aide du compte administrateur local intégré. Créez un compte local distinct avant d’utiliser la jonction Azure Active Directory pour terminer la configuration. 
 
 ---
+
+**Q : Que sont les certificats MS-Organization-P2P-Access présents sur nos appareils Windows 10 ?**
+
+**R :** Les certificats MS-Organization-P2P-Access sont émis par Azure AD pour les appareils joints à Azure AD et les appareils joints à Azure AD hybrides. Ces certificats sont utilisés pour activer l’approbation entre les appareils dans le même locataire pour les scénarios de bureau à distance. Un certificat est émis pour l’appareil et un autre est émis pour l’utilisateur. Le certificat de l’appareil est présent dans `Local Computer\Personal\Certificates` et est valide pendant une journée. Ce certificat est renouvelé (par l’émission d’un nouveau certificat) si l’appareil est toujours actif dans Azure AD. Le certificat utilisateur est présent dans `Current User\Personal\Certificates` et ce certificat est également valide pendant une journée, mais il est émis à la demande lorsqu’un utilisateur tente d’établir une session Bureau à distance vers un autre appareil joint à Azure AD. En cas d’expiration, il n’est pas renouvelé. Ces deux certificats sont émis à l’aide du certificat MS-Organization-P2P-Access présent dans `Local Computer\AAD Token Issuer\Certificates`. Ce certificat est émis par Azure AD lors de l’inscription de l’appareil. 
+
+---
+
+**Q : Pourquoi plusieurs certificats expirés émis par MS-Organization-P2P-Access s’affichent-ils sur nos appareils Windows 10 ? Comment puis-je les supprimer ?**
+
+**R :** Un problème a été identifié sur Windows 10 version 1709 et versions antérieures où les certificats MS-Organization-P2P-Access expirés continuent d’exister sur le magasin de l’ordinateur en raison de problèmes de chiffrement. Vos utilisateurs peuvent rencontrer des problèmes de connectivité réseau, si vous utilisez des clients VPN (par exemple, Cisco AnyConnect) qui ne peuvent pas gérer le grand nombre de certificats expirés. Ce problème a été résolu dans Windows 10 version 1803 pour supprimer automatiquement les certificats MS-Organization-P2P-Access expirés. Vous pouvez résoudre ce problème en mettant à jour vos appareils vers Windows 10 1803. Si vous ne parvenez pas à mettre à jour, vous pouvez supprimer ces certificats sans causer d’impact négatif.  
+
+---
+
 
 ## <a name="hybrid-azure-ad-join-faq"></a>FAQ sur les jonctions Azure AD Hybride
 
@@ -196,7 +215,15 @@ Ce comportement ne s’applique pas à un autre utilisateur qui se connecte à c
 
 La jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’Azure AD. Ainsi, votre appareil est considéré comme jonction Azure AD hybride pour toute authentification et pour toute évaluation de l’accès conditionnel. Vous pouvez supprimer sans problème l’enregistrement d’appareil inscrit à Azure AD depuis le portail Azure AD. Apprenez à [éviter ou nettoyer ce double état sur l’ordinateur Windows 10](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
+
 ---
+
+**Q : Pourquoi mes utilisateurs rencontrent-ils des problèmes sur les appareils joints Windows 10 Azure AD Hybride après avoir modifié leur UPN ?**
+
+**R :** Actuellement, les UPN ne sont pas entièrement pris en charge sur les appareils joints Azure AD hybrides. Les utilisateurs peuvent se connecter à l’appareil et accéder à leurs applications locales, mais l’authentification auprès d’Azure AD échoue après la modification d'un UPN. C'est la raison pour laquelle les utilisateurs rencontrent des problèmes liés à l'authentification unique et à l'accès conditionnel sur leurs appareils. Pour l'instant, vous devez déconnecter l’appareil d’Azure AD (exécutez « dsregcmd /leave » avec des privilèges élevés) et le reconnecter (ce qui s'effectue automatiquement) pour résoudre le problème. Nous mettons tout en œuvre pour résoudre ce problème. Cela étant, les utilisateurs qui se connectent avec Windows Hello Entreprise ne rencontrent pas ce problème. 
+
+---
+
 
 ## <a name="azure-ad-register-faq"></a>FAQ sur les inscriptions Azure AD
 
@@ -217,15 +244,3 @@ La jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’A
 
 - Lors de la première tentative d’accès, vos utilisateurs sont invités à inscrire l’appareil par l’intermédiaire du portail d’entreprise.
 
----
-
-
-**Q : Que sont les certificats MS-Organization-P2P-Access présents sur nos appareils Windows 10 ?**
-
-**R :** Les certificats MS-Organization-P2P-Access sont émis par Azure AD pour les appareils joints à Azure AD et les appareils joints à Azure AD hybrides. Ces certificats sont utilisés pour activer l’approbation entre les appareils dans le même locataire pour les scénarios de bureau à distance. Un certificat est émis pour l’appareil et un autre est émis pour l’utilisateur. Le certificat de l’appareil est présent dans `Local Computer\Personal\Certificates` et est valide pendant une journée. Ce certificat est renouvelé (par l’émission d’un nouveau certificat) si l’appareil est toujours actif dans Azure AD. Le certificat utilisateur est présent dans `Current User\Personal\Certificates` et ce certificat est également valide pendant une journée, mais il est émis à la demande lorsqu’un utilisateur tente d’établir une session Bureau à distance vers un autre appareil joint à Azure AD. En cas d’expiration, il n’est pas renouvelé. Ces deux certificats sont émis à l’aide du certificat MS-Organization-P2P-Access présent dans `Local Computer\AAD Token Issuer\Certificates`. Ce certificat est émis par Azure AD lors de l’inscription de l’appareil. 
-
----
-
-**Q : Pourquoi plusieurs certificats expirés émis par MS-Organization-P2P-Access s’affichent-ils sur nos appareils Windows 10 ? Comment puis-je les supprimer ?**
-
-**R :** Un problème a été identifié sur Windows 10 version 1709 et versions antérieures où les certificats MS-Organization-P2P-Access expirés continuent d’exister sur le magasin de l’ordinateur en raison de problèmes de chiffrement. Vos utilisateurs peuvent rencontrer des problèmes de connectivité réseau, si vous utilisez des clients VPN (par exemple, Cisco AnyConnect) qui ne peuvent pas gérer le grand nombre de certificats expirés. Ce problème a été résolu dans Windows 10 version 1803 pour supprimer automatiquement les certificats MS-Organization-P2P-Access expirés. Vous pouvez résoudre ce problème en mettant à jour vos appareils vers Windows 10 1803. Si vous ne parvenez pas à mettre à jour, vous pouvez supprimer ces certificats sans causer d’impact négatif.  

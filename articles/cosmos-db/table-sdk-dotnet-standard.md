@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: 7ccc9793bd1c4a345098892e66be15228efcc265
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: ce7cc489b107ce4bd95270b9a7f8cb560a2d2398
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844566"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249644"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API .NET Standard Table Azure Cosmos DB : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -33,15 +33,18 @@ ms.locfileid: "54844566"
 
 ### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1-preview
 * Ajout de la prise en charge du jeton SAS et des opérations de TablePermissions, ServiceProperties et ServiceStats par rapport à des points de terminaison Table de stockage Azure. 
-   > [!NOTE] Certaines fonctionnalités des précédents kits SDK Table du stockage Azure ne sont pas encore prises en charge, comme le chiffrement côté client.
+   > [!NOTE]
+   > Certaines fonctionnalités des précédents kits SDK Table du stockage Azure ne sont pas encore prises en charge, comme le chiffrement côté client.
 
 ### <a name="a-name0100-preview0100-preview"></a><a name="0.10.0-preview"/>0.10.0-preview
 * Ajout de la prise en charge des principales opérations CRUD, de traitement par lots et d'interrogation par rapport à des points de terminaison Table de stockage Azure. 
-   > [!NOTE] Certaines fonctionnalités des précédents kits SDK Table du stockage Azure ne sont pas encore prises en charge, comme le chiffrement côté client.
+   > [!NOTE]
+   > Certaines fonctionnalités des précédents kits SDK Table du stockage Azure ne sont pas encore prises en charge, comme le chiffrement côté client.
 
 ### <a name="a-name091-preview091-preview"></a><a name="0.9.1-preview"/>0.9.1-preview
 * Le SDK .NET Standard Table d’Azure Cosmos DB est une bibliothèque .NET multiplateforme qui fournit un accès efficace au modèle de données Table sur Cosmos DB. Cette version initiale prend en charge l’ensemble complet des fonctionnalités CRUD + Requête sur les tables et les entités avec des API similaires à celles du [SDK Table de Cosmos DB pour .NET Framework](table-sdk-dotnet.md). 
-   > [!NOTE] Les points de terminaison Table du stockage Azure ne sont pas encore pris en charge dans la version 0.9.1-preview.
+   > [!NOTE]
+   >  Les points de terminaison Table de Stockage Azure ne sont pas encore pris en charge dans la version 0.9.1-preview.
 
 ## <a name="release-and-retirement-dates"></a>Dates de publication et de retrait
 Microsoft envoie une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.

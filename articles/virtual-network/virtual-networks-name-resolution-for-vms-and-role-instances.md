@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 4a4a4c6a37e3c52054d7bc773ef04bf057709fdd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e63db9dd5dcd48e19c75608c39c4c0b62db24527
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025094"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221196"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
 
@@ -157,7 +157,7 @@ Lorsque vous utilisez la résolution de noms fournie par Azure, le protocole DHC
 
 Si nécessaire, vous pouvez déterminer le suffixe DNS interne à l’aide de PowerShell ou de l’API :
 
-* Pour les réseaux virtuels des modèles de déploiement Azure Resource Manager, le suffixe est disponible via [l’API REST d’interface réseau](/rest/api/virtualnetwork/networkinterfaces/get), l’applet de commande PowerShell [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) et la commande [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI.
+* Pour les réseaux virtuels des modèles de déploiement Azure Resource Manager, le suffixe est disponible via [l’API REST d’interface réseau](/rest/api/virtualnetwork/networkinterfaces), l’applet de commande PowerShell [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) et la commande [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI.
 * Dans les modèles de déploiement classiques, le suffixe est disponible via l’appel de [l’API Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) ou l’applet de commande [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm).
 
 Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir votre propre solution DNS. Votre solution DNS doit :
@@ -195,6 +195,11 @@ Lorsque vous utilisez vos propres serveurs DNS, Azure offre la possibilité de s
 > 
 
 Quand vous utilisez le modèle de déploiement Azure Resource Manager, vous pouvez spécifier des serveurs DNS pour un réseau virtuel et une interface réseau. Pour plus d’informations, consultez [Gérer un réseau virtuel](manage-virtual-network.md) et [Gérer une interface réseau](virtual-network-network-interface.md).
+
+> [!NOTE]
+> Si vous choisissez un serveur DNS personnalisé pour votre réseau virtuel, vous devez spécifier au moins une adresse d’IP de serveur DNS, à défaut de quoi, le réseau virtuel ignorera la configuration et utilisera le DNS fourni par Azure.
+> 
+> 
 
 Si vous utilisez le modèle de déploiement classique, vous pouvez spécifier des serveurs DNS pour le réseau virtuel dans le portail Azure ou dans le [fichier Configuration réseau](https://msdn.microsoft.com/library/azure/jj157100). Pour les services cloud, vous pouvez spécifier des serveurs DNS via le [fichier Configuration du service](https://msdn.microsoft.com/library/azure/ee758710) ou via PowerShell avec [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 

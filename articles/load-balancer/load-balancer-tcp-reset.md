@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257287"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296917"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer avec réinitialisation TCP au terme du délai d’inactivité (préversion publique)
 
-Vous pouvez utiliser [Standard Load Balancer](load-balancer-standard-overview.md) pour créer un comportement d’application plus prévisible pour vos scénarios au moyen de réinitialisations TCP (paquet TCP RST) bidirectionnelles à chaque délai d’inactivité configurable.  Le comportement par défaut de Load Balancer consiste à supprimer silencieusement des flux lorsque le délai d’inactivité d’un flux est atteint.
+Vous pouvez utiliser [Standard Load Balancer](load-balancer-standard-overview.md) pour créer un comportement d’application plus prévisible pour vos scénarios en activant Réinitialisation TCP pendant le délai d'inactivité pour une règle donnée. Le comportement par défaut de Load Balancer consiste à supprimer silencieusement des flux lorsque le délai d’inactivité d’un flux est atteint.  Lorsque cette fonctionnalité est activée, Load Balancer envoie des réinitialisations TCP bidirectionnelles (paquet TCP RST) sur un délai d'inactivité.  Les points de terminaison de votre application sont ainsi informés que la connexion a expiré et n'est plus utilisable.  Les points de terminaison peuvent immédiatement établir une nouvelle connexion, si besoin.
 
 ![Réinitialisation TCP de Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
@@ -69,31 +69,10 @@ Examinez attentivement le scénario de bout en bout dans son intégralité pour 
 
 ## <a name="regions"></a> Disponibilité des régions
 
-Ce paramètre est en usage actuellement dans les régions suivantes.  Dans les régions non répertoriées ici, le paramètre n’a aucun effet.
-
-| Région |
-|---|
-| Asie du Sud-Est |
-| Brésil Sud |
-| Centre du Canada |
-| Europe occidentale |
-| Inde Centre |
-| Inde Ouest |
-| Japon Ouest |
-| Centre de la Corée |
-| Corée du Sud |
-| Nord du Royaume-Uni |
-| Sud du Royaume-Uni 2 |
-| USA Est |
-| USA Est 2 |
-| Nord du Royaume-Uni |
-| USA Ouest |
-
-Ce tableau est mis à jour au fur et à mesure que la préversion est étendue à d’autres régions.  
+Disponible dans toutes les régions.
 
 ## <a name="limitations"></a>Limites
 
-- [Disponibilité des régions](#regions) limitée.
 - Le portail ne peut pas servir à la configuration ou à l’affichage de la réinitialisation TCP.  Utilisez plutôt des modèles, l’API REST, Az CLI 2.0 ou PowerShell.
 
 ## <a name="next-steps"></a>Étapes suivantes

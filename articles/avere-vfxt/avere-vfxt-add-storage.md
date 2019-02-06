@@ -4,29 +4,23 @@ description: Comment ajouter un système de stockage back-end à votre cluster A
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: procedural
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8cd9bece53cd7fb961c5d81ae0c709dc89300ab9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190836"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299450"
 ---
 # <a name="configure-storage"></a>Configurer le stockage
 
 Cette étape configure un système de stockage back-end pour votre cluster vFXT.
 
 > [!TIP]
-> Si vous avez utilisé le script prototype `create-cloudbacked-cluster` pour créer un conteneur d’objets blob, ainsi que le cluster Avere vFXT, ce conteneur est opérationnel et vous n’avez pas besoin d’ajouter de stockage.
->
-> Toutefois, si votre nouveau conteneur d’objets Blob a été chiffré avec une clé de chiffrement par défaut, vous devez télécharger le fichier de récupération de la clé depuis le cluster ou remplacer la clé par défaut par une nouvelle clé avant de stocker des données. La clé par défaut est uniquement enregistrée dans le cluster. Il est impossible de la récupérer si le cluster est perdu ou n’est plus disponible.
->
-> Une fois que vous êtes connecté au panneau de configuration Avere, cliquez sur l’onglet **Paramètres**, puis choisissez **Système de stockage principal** > **Paramètres de chiffrement Cloud**. Dans la section **Magasin de clés local**, choisissez l’une des options suivantes : 
-> * Utilisez le bouton **Télécharger à nouveau le fichier de récupération** pour obtenir le fichier de récupération associé à la clé existante. Le fichier de récupération est chiffré à l’aide du mot de passe d’administration du cluster. Enregistrez le fichier dans un emplacement fiable. 
-> * Suivez les instructions de la section **Générer une nouvelle clé principale** pour créer une clé de chiffrement que vous contrôlez. Cette option vous permet de spécifier une phrase secrète unique. De plus, vous devez charger et télécharger à nouveau le fichier de récupération pour valider la paire fichier-phrase secrète.
+> Si vous avez créé un conteneur d’objets blob, ainsi que le cluster Avere vFXT, ce conteneur est opérationnel et vous n’avez pas besoin d’ajouter de stockage.
 
-Suivez ces instructions si vous avez utilisé le script prototype `create-minimal-cluster` pour votre cluster, ou si vous souhaitez ajouter du matériel ou un système de stockage basé sur le cloud.
+Suivez ces instructions si vous n'avez pas créé de nouveau conteneur d'objets blob avec votre cluster, ou si vous souhaitez ajouter du matériel ou un système de stockage basé sur le cloud.
 
 Il existe deux tâches principales :
 
@@ -43,12 +37,11 @@ Vous effectuez ces étapes à l’aide du panneau de configuration Avere. Lisez 
 Pour ajouter un système de stockage principal, choisissez l’un des deux types de système de stockage principal suivants :
 
   * [Système de stockage principal NAS](#nas-core-filer) : explique comment ajouter un système de stockage principal NAS 
-  * [Système de stockage principal cloud avec compte de stockage Azure](#azure-storage-account-cloud-core-filer) : explique comment ajouter un compte de stockage Azure en tant que système de stockage principal cloud
+  * [Système de stockage principal cloud avec stockage Azure](#azure-storage-cloud-core-filer) : explique comment ajouter un compte de stockage Azure en tant que système de stockage principal cloud
 
 ### <a name="nas-core-filer"></a>Système de stockage principal NAS
 
-Un système de stockage principal NAS peut être un dispositif NetApp ou Isilon local ou un point de terminaison NAS dans le cloud.  
-Le système de stockage doit disposer d’une connexion fiable à grande vitesse au cluster Avere vFXT - par exemple, une connexion ExpressRoute 1 Gbit/s (pas un VPN) - et doit donner au cluster un accès root aux exportations NAS utilisées.
+Un système de stockage principal NAS peut être un dispositif NetApp ou Isilon local ou un point de terminaison NAS dans le cloud. Le système de stockage doit disposer d’une connexion fiable à grande vitesse au cluster Avere vFXT - par exemple, une connexion ExpressRoute 1 Gbit/s (pas un VPN) - et doit donner au cluster un accès root aux exportations NAS utilisées.
 
 Effectuez les étapes suivantes pour ajouter un système de stockage principal NAS :
 
@@ -79,7 +72,7 @@ Ensuite, passez à la section [Créer une jonction](#create-a-junction).
 Pour utiliser le stockage Blob Azure en tant que stockage back-end de votre cluster vFXT, vous devez ajouter un conteneur vide en tant que système de stockage principal.
 
 > [!TIP] 
-> L’exemple de script ``create-cloudbacked-cluster`` crée un conteneur de stockage, le définit comme système de stockage principal et crée la jonction d’espace de noms dans le cadre de la création du cluster vFXT. L’exemple de script ``create-minimal-cluster`` ne crée pas de conteneur de stockage Azure. Pour éviter de devoir créer et configurer un système de stockage principal avec Stockage Azure après avoir créé le cluster, utilisez le script ``create-cloudbacked-cluster`` pour déployer votre cluster vFXT.
+> Si vous choisissez de créer un conteneur d’objets blob en même temps que le cluster Avere vFXT, le modèle de déploiement ou le script crée un conteneur de stockage, le définit comme système de stockage principal, et crée la jonction d'espace de noms dans le cadre de la création du cluster vFXT. 
 
 Pour ajouter un stockage d’objets blob à votre cluster, vous devez effectuer les tâches suivantes :
 

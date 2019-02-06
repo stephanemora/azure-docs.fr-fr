@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9149cef7ba7fa2d0a3d853c3b8e26d364f22d954
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6dba36eadde9bc9bb1e6ca778a3bce07b561e54
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999983"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207290"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Types d’entités et leurs objectifs dans LUIS
 
@@ -179,7 +179,7 @@ Dans le tableau suivant, chaque ligne contient deux versions de l’énoncé. L�
 |--|
 |L’Homme qui prenait sa femme pour un chapeau a-t-il été écrit par un Americain cette année ?<br>**L’Homme qui prenait sa femme pour un chapeau** a-t-il été écrit par un Americain cette année ?|
 |Nature morte avec pivert a-t-il été par un Américain cette année ?<br>**Nature morte avec pivert** a-t-il été par un Américain cette année ?|
-|La singulière tristesse du gâteau au citron a-t-il été écrit par un Américain cette année ?<br>**La singulière tristesse du gâteau au citron**  a-t-il été écrit par un Américain cette année ?|
+|La singulière tristesse du gâteau au citron : est-il un roman écrit par un Américain cette année ?<br>La **singulière tristesse du gâteau au citron** est-il un roman écrit par un Américain cette année ?|
 |Le Petit Prince a-t-il été écrit par un Américain cette année ?<br>**Le Petit Prince** a-t-il été écrit par un Américain cette année ?|
 
 ## <a name="prebuilt-entity"></a>Entité prédéfinie
@@ -234,7 +234,7 @@ Consultez les [limites](luis-boundaries.md#model-boundaries) pour comprendre le 
 
 Les entités composites et les entités hiérarchiques ont des relations parent-enfant et sont issues de l’apprentissage automatique. L’apprentissage automatique permet à LUIS de comprendre les entités dans différents contextes (organisation des mots). Les entités composite sont plus flexibles, car elles acceptent différents types d’entités en tant qu’enfants. Les enfants d’une entité hiérarchique sont des entités simples. 
 
-|type|Objectif|Exemples|
+|Type|Objectif|Exemples|
 |--|--|--|
 |Hiérarchique|Parent-enfant d’entités simples|Location.Origin=New York<br>Location.Destination=London|
 |Composite|Entités parent-enfant : prédéfinie, liste, simple, hiérarchique| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|

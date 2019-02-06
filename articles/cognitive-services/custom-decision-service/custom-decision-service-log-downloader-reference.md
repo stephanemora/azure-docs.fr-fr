@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 227caaa1b726210fd498596d716aa41365a63c7a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366798"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228115"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -23,8 +23,8 @@ Téléchargez les fichiers journaux produits par le service Décision personnali
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Python 3 : installé et sur votre chemin d’accès. Nous vous recommandons la version 64 bits pour gérer les fichiers volumineux.
-- Référentiel *Microsoft/mwt-ds* : [clonez le référentiel](https://github.com/Microsoft/mwt-ds).
+- Python 3 : installé et sur votre chemin d’accès. Nous vous recommandons la version 64 bits pour gérer les fichiers volumineux.
+- Le référentiel *mwt/Microsoft-ds* : [Clonez le référentiel](https://github.com/Microsoft/mwt-ds).
 - Package *azure-storage-blob* : pour en savoir plus sur l’installation, accédez à la [bibliothèque de stockage Microsoft Azure pour Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
 - Entrez la chaîne de connexion de stockage Azure dans *mwt-ds/DataScience/ds.config* : suivez le modèle *my_app_id: my_connectionString*. Vous pouvez spécifier plusieurs `app_id`. Lorsque vous exécutez `LogDownloader.py`, si l’entrée `app_id` est introuvable dans `ds.config`, `LogDownloader.py` utilise la chaîne de connexion `$Default`.
 
@@ -49,18 +49,18 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-s START_DATE`, `--start_date START_DATE` | Date de début du téléchargement (incluse), au format *AAAA-MM-JJ*. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | Date de fin du téléchargement (incluse), au format *AAAA-MM-JJ*. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | Mode de remplacement à utiliser. | |
-| | `0` : ne jamais remplacer. Demander à l’utilisateur si les objets BLOB sont actuellement utilisés. | Default | |
-| | `1` : demander à l’utilisateur la marche à suivre lorsque les fichiers sont de tailles différentes, ou lorsque les objets BLOB sont en cours d’utilisation. | |
-| | `2` : toujours remplacer. Télécharger les objets BLOB actuellement utilisés. | |
-| | `3` : ne jamais remplacer, et ajouter si la taille est supérieure, sans demander. Télécharger les objets BLOB actuellement utilisés. | |
-| | `4` : ne jamais remplacer, et ajouter si la taille est supérieure, sans demander. Ignorer les objets BLOB actuellement utilisés. | |
+| | `0`: ne jamais remplacer. Demander à l’utilisateur si les objets BLOB sont actuellement utilisés. | Default | |
+| | `1`: demander à l’utilisateur la marche à suivre lorsque les fichiers sont de tailles différentes, ou lorsque les objets BLOB sont en cours d’utilisation. | |
+| | `2`: toujours remplacer. Télécharger les objets BLOB actuellement utilisés. | |
+| | `3`: ne jamais remplacer, et ajouter si la taille est supérieure, sans demander. Télécharger les objets BLOB actuellement utilisés. | |
+| | `4`: ne jamais remplacer, et ajouter si la taille est supérieure, sans demander. Ignorer les objets BLOB actuellement utilisés. | |
 | `--dry_run` | Imprimer les objets BLOB qui auraient été téléchargés, sans télécharger. | `False` |
 | `--create_gzip` | Créer un fichier *gzip* pour Vowpal Wabbit. | `False` |
 | `--delta_mod_t DELTA_MOD_T` | Fenêtre de temps, en secondes, pour détecter si un fichier est actuellement en cours d’utilisation. | `3600` s (`1` heure) |
 | `--verbose` | Imprimer plus de détails. | `False` |
 | `-v VERSION`, `--version VERSION` | Version de l’outil de téléchargement de journal à utiliser. | |
-| | `1` : pour les journaux non traités (uniquement pour la compatibilité descendante). | Déconseillé |
-| | `2` : pour les journaux traités. | Default |
+| | `1`: pour les journaux non traités (uniquement pour la compatibilité descendante). | Déconseillé |
+| | `2`: pour les journaux traités. | Default |
 
 ### <a name="examples"></a>Exemples
 

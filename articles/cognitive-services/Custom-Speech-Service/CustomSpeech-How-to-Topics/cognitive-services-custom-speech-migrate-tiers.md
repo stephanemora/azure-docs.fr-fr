@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 71aa20c779ae0c73db3d7ce6f267524c5bf71ea5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340458"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214559"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migrer les déploiements vers le nouveau modèle de fixation des prix
 
@@ -37,12 +37,12 @@ La correspondance entre les anciens niveaux et les unités d’échelle est indi
 
 Pour migrer vers le nouveau niveau, effectuez les actions suivantes :
 
-## <a name="step-1-check-your-existing-deployment"></a>Étape 1 : Vérifier votre déploiement existant
+## <a name="step-1-check-your-existing-deployment"></a>Étape 1 : Vérifier votre déploiement existant
 Accédez au [portail Custom Speech Service](http://cris.ai) et contrôlez vos déploiements existants. Dans notre exemple, il existe deux déploiements. L’un s’exécute sur un niveau S0, l’autre sur un niveau S1. Les déploiements sont affichés dans la colonne **Deployment Options** (Options de déploiement) du tableau suivant :
 
 ![La page des déploiements](../../../media/cognitive-services/custom-speech-service/custom-speech-deployments.png)
 
-## <a name="step-2-select-your-new-pricing-tier-in-the-azure-portal"></a>Étape 2 : Sélectionner votre nouveau niveau tarifaire dans le portail Azure
+## <a name="step-2-select-your-new-pricing-tier-in-the-azure-portal"></a>Étape 2 : Sélectionner votre nouveau niveau tarifaire dans le portail Azure
 1. Ouvrez un nouvel onglet du navigateur et connectez-vous au [portail Azure](http://ms.portal.azure.com/). 
 
 2. Dans la liste **Abonnements** du volet **Cognitive Services**, sélectionnez votre abonnement de reconnaissance vocale personnalisée. 
@@ -57,7 +57,7 @@ Accédez au [portail Custom Speech Service](http://cris.ai) et contrôlez vos d�
 
     ![La page « Choisissez votre niveau tarifaire »](../../../media/cognitive-services/custom-speech-service/custom-speech-update-pricing.png)
 
-## <a name="step-3-check-the-migration-status-in-the-custom-speech-service-portal"></a>Étape 3 : Vérifier l’état de migration dans le portail Custom Speech Service
+## <a name="step-3-check-the-migration-status-in-the-custom-speech-service-portal"></a>Étape 3 : Vérifier l’état de migration dans le portail Custom Speech Service
 Revenez au portail Custom Speech Service et vérifiez vos déploiements. (Si la fenêtre du navigateur est toujours ouverte, actualisez-la.) 
 
 L’état du déploiement associé doit être basculé sur *Processing* (Traitement en cours). Vous pouvez également valider la migration en vérifiant la colonne **Deployment Options** (Options de déploiement). Vous trouvez là désormais des informations sur les unités d’échelle et la journalisation. Les unités d’échelle doivent refléter votre précédent niveau tarifaire. La journalisation doit également être activée, comme indiqué dans le tableau :

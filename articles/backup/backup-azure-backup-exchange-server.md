@@ -2,24 +2,24 @@
 title: Sauvegarder un serveur Exchange dans Azure Backup avec System Center 2012 R2 DPM
 description: Apprenez à sauvegarder un serveur Exchange dans Azure Backup à l’aide de System Center 2012 R2 DPM
 services: backup
-author: adigan
-manager: NKolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/19/2018
-ms.author: adigan
-ms.openlocfilehash: 8fbe3e716971f4d82e6d24fb866334ffd626bf32
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/31/2019
+ms.author: kasinh
+ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945975"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298311"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Sauvegarder un serveur Exchange dans Azure Backup avec System Center 2012 R2 DPM
 Cet article explique comment configurer un serveur System Center 2012 R2 Data Protection Manager (DPM) pour sauvegarder un serveur Microsoft Exchange dans Azure Backup.  
 
 ## <a name="updates"></a>Mises à jour
-Pour enregistrer correctement le serveur DPM sur Azure Backup, vous devez installer le dernier correctif cumulatif pour System Center 2012 R2 DPM ainsi que la dernière version de l’agent Azure Backup. Pour obtenir le dernier correctif cumulatif, consultez le [catalogue Microsoft](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
+Pour enregistrer correctement le serveur DPM sur Azure Backup, vous devez installer le dernier correctif cumulatif pour System Center 2012 R2 DPM ainsi que la dernière version de l’agent Azure Backup. Pour obtenir le dernier correctif cumulatif, consultez le [catalogue Microsoft](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
 > [!NOTE]
 > Pour les exemples de cet article, nous avons utilisé la version 2.0.8719.0 de l’agent Azure Backup et installé le correctif cumulatif 6 sur System Center 2012 R2 DPM.

@@ -6,17 +6,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239300"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208633"
 ---
 # <a name="analyze-method"></a>Méthode d’analyse
 
@@ -38,7 +38,7 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Paramètres de la demande
 
-NOM | type | Obligatoire | Description
+NOM | Type | Obligatoire | Description
 -----|-------|----------|------------
 **language**    | chaîne | Oui | Les deux lettres du code de langue ISO à utiliser pour l’analyse Par exemple, le code de langue anglais est « en ».
 **analyzerIds** | liste de valeurs string | Oui | Liste des GUID des analyseurs à appliquer. Pour plus d’informations, consultez la documentation Analyseurs.
@@ -147,7 +147,7 @@ Les arborescences d’analyse sont représentées entre parenthèses.
 
 `POST /analyze`
 
-Corps de la demande : charge utile JSON
+Corps de la demande : Charge utile JSON
 ```json
 {
   "language": "en",
@@ -158,7 +158,7 @@ Corps de la demande : charge utile JSON
 }
 ```
 
-Réponse : JSON
+Réponse : JSON
 ```json
 [
   {

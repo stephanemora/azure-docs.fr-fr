@@ -3,7 +3,7 @@ title: Utilisation de clés SSH avec Windows pour les machines virtuelles Linux 
 description: Apprenez à créer et à utiliser des clés SSH sur un ordinateur Windows pour vous connecter à une machine virtuelle Linux dans Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: danlep
-ms.openlocfilehash: abb0ba6eace2e837ea2f74a0d919097f8801101e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407414"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298651"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Comment utiliser des clés SSH avec Windows sur Azure
 
@@ -84,7 +84,7 @@ Pour créer une paire de clés SSH RSA avec PuTTYgen :
 
     Si vous voulez enregistrer la clé privée au format OpenSSH, le format de clé privée utilisé par de nombreux clients SSH, sélectionnez **Conversions** > **Exporter la clé OpenSSH**.
 
-## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Fournir une clé publique SSH pendant le déploiement d’une machine virtuelle
+## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Fournir une clé publique SSH lors du déploiement d’une machine virtuelle
 
 Pour créer une machine virtuelle Linux qui utilise des clés SSH pour l’authentification, fournissez votre clé publique SSH à la création de la machine virtuelle à l’aide du portail Azure ou d’autres méthodes.
 
@@ -104,7 +104,9 @@ Une fois la clé publique déployée sur votre machine virtuelle Azure et la cl�
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Si vous avez configuré une phrase secrète quand vous avez créé votre paire de clés, entrez-la quand vous y êtes invité pendant le processus de connexion.
+Si vous avez configuré une phrase secrète au moment de créer votre paire de clés, entrez-la quand vous y êtes invité pendant le processus de connexion.
+
+Si la machine virtuelle utilise la stratégie juste-à-temps, vous devez demander à y accéder avant de pouvoir vous connecter à cette machine virtuelle. Pour plus d'informations sur la stratégie juste-à-temps, consultez [Gérer l’accès à la machine virtuelle à l'aide de la stratégie juste-à-temps](../../security-center/security-center-just-in-time.md).
 
 ### <a name="connect-with-putty"></a>Se connecter avec PuTTY
 

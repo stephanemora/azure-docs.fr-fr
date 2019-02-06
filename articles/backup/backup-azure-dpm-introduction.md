@@ -2,19 +2,18 @@
 title: Préparer le serveur DPM pour sauvegarder des charges de travail vers Azure
 description: Introduction à la sauvegarde de données DPM dans un coffre Azure Recovery Services.
 services: backup
-author: adigan
-manager: nkolli
-keywords: System Center Data Protection Manager, Data Protection Manager, sauvegarde DPM
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024475"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301065"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Préparer la sauvegarde des charges de travail dans Azure avec System Center DPM
 
@@ -51,10 +50,10 @@ DPM sur une machine virtuelle Hyper-V | System Center 2012 SP1 ou version ult�
 DPM sur une machine virtuelle VMware | System Center 2012 R2 avec correctif cumulatif 5 ou version ultérieure.
 Composants | Windows PowerShell et .Net Framework 4.5 doivent être installés sur le serveur DPM.
 Applications prises en charge | [En savoir plus](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) sur ce que DPM peut sauvegarder.
-Types de fichiers pris en charge | Ces types de fichiers peuvent être sauvegardés avec Sauvegarde Azure : chiffré (sauvegardes complètes uniquement), compressé (sauvegardes incrémentielles prises en charge), partiellement alloué (sauvegardes incrémentielles prises en charge), compressé et partiellement alloué (traité comme partiellement alloué).
-Types de fichiers non pris en charge | Serveurs sur des systèmes de fichiers respectant la casse, liens physiques (ignorés), points d’analyse (ignorés), chiffrés et compressés (ignorés), chiffrés et partiellement alloués (ignorée), flux compressés, flux partiellement alloués.
+Types de fichiers pris en charge | Ces types de fichiers peuvent être sauvegardés avec le service Sauvegarde Azure : chiffré (sauvegardes complètes uniquement), compressé (sauvegardes incrémentielles prises en charge), partiellement alloué (sauvegardes incrémentielles prises en charge), compressé et partiellement alloué (traité comme partiellement alloué).
+Types de fichiers non pris en charge | Serveurs sur des systèmes de fichiers respectant la casse, liens physiques (ignorés), points d’analyse (ignorés), chiffrés et compressés (ignorés), chiffrés et partiellement alloués (ignorés), flux compressés, flux partiellement alloués.
 Stockage local | Chaque machine que vous voulez sauvegarder doit disposer d’un espace de stockage d’au moins 5 % de la taille des données sauvegardées.  Par exemple, la sauvegarde de 100 Go de données nécessite un minimum de 5 Go d'espace libre dans l'emplacement temporaire.
-Stockage de l’archivage | Il n’existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Sauvegarde Azure, mais la taille d’une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54400 Go.
+Stockage dans le coffre | Il n’existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Sauvegarde Azure, mais la taille d’une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54400 Go.
 Agent Azure Backup | Si DPM est en cours d’exécution sur System Center 2012 SP1, installez le correctif cumulatif 2 ou version ultérieure pour DPM SP1. Il est nécessaire pour l’installation de l’agent.<br/><br/> Cet article décrit comment déployer la dernière version de l’agent Sauvegarde Azure, également appelé agent Microsoft Azure Recovery Service (MARS). Si une version antérieure est déployée, mettez-la à jour vers la dernière version pour vous assurer que la sauvegarde fonctionne comme prévu. 
 
 

@@ -14,18 +14,19 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 11/12/2018
+ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613093"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249678"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Questions fréquentes sur Windows Server dans la Place de marché Azure Stack
 
 Cet article répond à certaines questions fréquemment posées sur les images Windows Server dans la [Place de marché Azure Stack](azure-stack-marketplace.md).
 
-## <a name="marketplace-items"></a>Éléments de la Place de marché
+## <a name="marketplace-items"></a>Éléments du Marketplace
 
 ### <a name="how-do-i-update-to-a-newer-windows-image"></a>Comment effectuer une mise à jour avec une image Windows plus récente ?
 
@@ -62,7 +63,7 @@ Ces images appliquent le paramètre **licenseType**, donc elles sont basées sur
 
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>J’ai un Contrat Entreprise (EA) et je vais utiliser ma licence Windows Server EA. Comment m’assurer que les images sont facturées correctement ?
 
-Vous pouvez ajouter **licenseType: Windows_Server** dans un modèle Azure Resource Manager. Ce paramètre doit être ajouté à chaque bloc de ressource de machine virtuelle.
+Vous pouvez ajouter **licenseType : Windows_Server** dans un modèle Azure Resource Manager. Ce paramètre doit être ajouté à chaque bloc de ressource de machine virtuelle.
 
 ## <a name="activation"></a>Activation
 

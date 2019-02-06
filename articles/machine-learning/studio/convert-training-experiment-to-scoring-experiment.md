@@ -1,6 +1,6 @@
 ---
-titre : Préparer le modèle pour le déploiement - titleSuffix : Description d'Azure Machine Learning Studio : Comment préparer votre modèle entraîné au déploiement sous forme de service web en convertissant votre expérience de formation Machine Learning Studio en une expérience prédictive.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Préparer le modèle pour le déploiement - titleSuffix : Description d'Azure Machine Learning Studio : Comment préparer votre modèle entraîné au déploiement sous forme de service web en convertissant votre expérience de formation Machine Learning Studio en une expérience prédictive.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.date: 28/03/2017
 ---

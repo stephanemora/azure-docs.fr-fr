@@ -8,19 +8,19 @@ manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
-ms.openlocfilehash: cf205249c4d07cee1ff17c9c726283cfddca1fce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7210610f8a082c34f8e87ef715b8252c2821bc83
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155217"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187094"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services pour les fournisseurs de solutions cloud (CSP) Azure
 Cet article explique comment vous pouvez utiliser Azure AD Domain Services dans un abonnement Azure CSP.
@@ -72,18 +72,18 @@ Ce modèle de déploiement peut être adapté aux scénarios où un éditeur de 
 ## <a name="administering-azure-ad-domain-services-managed-domains-in-csp-subscriptions"></a>Administration des domaines managés Azure AD Domain Services dans les abonnements CSP
 Tenez compte des considérations importantes suivantes quand vous administrez un domaine managé dans un abonnement Azure CSP :
 
-* **Les agents d’administration CSP peuvent provisionner un domaine managé à l’aide de leurs informations d’identification :** Azure AD Domain Services prend en charge les abonnements Azure CSP. Ainsi, les utilisateurs appartenant au groupe d’agents d’administration d’un partenaire CSP peuvent provisionner un nouveau domaine managé Azure AD Domain Services.
+* **Les agents d’administration CSP peuvent approvisionner un domaine managé à l’aide de leurs informations d’identification :** Azure AD Domain Services prend en charge les abonnements Azure CSP. Ainsi, les utilisateurs appartenant au groupe d’agents d’administration d’un partenaire CSP peuvent provisionner un nouveau domaine managé Azure AD Domain Services.
 
-* **Les fournisseurs de solutions cloud peuvent programmer au moyen d’un script la création de domaines managés pour leurs clients à l’aide de PowerShell :** consultez [Activer Azure Active Directory Domain Services à l’aide de PowerShell](active-directory-ds-enable-using-powershell.md) pour plus d’informations.
+* **Les fournisseurs de solutions cloud peuvent programmer au moyen d’un script la création de domaines managés pour leurs clients à l’aide de PowerShell :** Pour plus d'informations, consultez [Activer Azure Active Directory Domain Services à l’aide de PowerShell](active-directory-ds-enable-using-powershell.md).
 
-* **Les agents d’administration CSP ne peuvent pas effectuer de tâches de gestion en continu sur le domaine managé à l’aide de leurs informations d’identification :** les utilisateurs administrateurs CSP ne peuvent pas effectuer de tâches de gestion courantes dans le domaine managé à l’aide de leurs informations d’identification. Ces utilisateurs étant externes à l’annuaire Azure AD du client, leurs informations d’identification ne sont pas disponibles dans l’annuaire Azure AD du client. Ainsi, Azure AD Domain Services n’a pas accès aux hachages de mot de passe Kerberos et NTLM pour ces utilisateurs. Ces utilisateurs ne peuvent donc pas être authentifiés sur les domaines managés Azure AD Domain Services.
+* **Les agents d’administration CSP ne peuvent pas effectuer de tâches de gestion en continu sur le domaine managé à l’aide de leurs informations d’identification :** les utilisateurs administrateurs CSP ne peuvent pas effectuer de tâches de gestion courantes dans le domaine managé à l’aide de leurs informations d’identification. Ces utilisateurs étant externes à l’annuaire Azure AD du client, leurs informations d’identification ne sont pas disponibles dans l’annuaire Azure AD du client. Ainsi, Azure AD Domain Services n’a pas accès aux hachages de mot de passe Kerberos et NTLM pour ces utilisateurs. Ces utilisateurs ne peuvent donc pas être authentifiés sur les domaines managés Azure AD Domain Services.
 
   > [!WARNING]
   > **Vous devez créer un compte d’utilisateur dans l’annuaire du client pour effectuer des tâches d’administration courantes sur le domaine managé.**
   > Vous ne pouvez pas vous connecter au domaine managé à l’aide des informations d’identification d’un utilisateur administrateur CSP. Pour ce faire, utilisez les informations d’identification d’un compte d’utilisateur appartenant à l’annuaire Azure AD du client. Vous avez besoin de ces informations d’identification pour les tâches telles que la jonction de machines virtuelles au domaine managé, l’administration du système DNS ou l’administration de la stratégie de groupe.
   >
 
-* **Le compte d’utilisateur créé pour l’administration courante doit être ajouté au groupe « Administrateurs AAD DC » :** le groupe « Administrateurs AAD DC » dispose de privilèges pour effectuer certaines tâches d’administration déléguée dans le domaine managé. Ces tâches comprennent la configuration du système DNS, la création d’unités d’organisation, l’administration de la stratégie de groupe, etc. Pour qu’un partenaire CSP effectue ces tâches sur un domaine managé, un compte d’utilisateur doit être créé dans l’annuaire Azure AD du client. Les informations d’identification pour ce compte doivent être partagées avec les agents d’administration du partenaire CSP. De plus, ce compte d’utilisateur doit être ajouté au groupe « Administrateurs AAD DC » pour qu’il puisse effectuer des tâches de configuration sur le domaine managé.
+* **Le compte d’utilisateur créé pour l’administration courante doit être ajouté au groupe « Administrateurs AAD DC » :** le groupe « Administrateurs AAD DC » dispose de privilèges pour effectuer certaines tâches d’administration déléguée dans le domaine managé. Ces tâches comprennent la configuration du système DNS, la création d’unités d’organisation, l’administration de la stratégie de groupe, etc. Pour qu’un partenaire CSP effectue ces tâches sur un domaine managé, un compte d’utilisateur doit être créé dans l’annuaire Azure AD du client. Les informations d’identification pour ce compte doivent être partagées avec les agents d’administration du partenaire CSP. De plus, ce compte d’utilisateur doit être ajouté au groupe « Administrateurs AAD DC » pour qu’il puisse effectuer des tâches de configuration sur le domaine managé.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

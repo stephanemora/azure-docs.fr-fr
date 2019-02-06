@@ -1,8 +1,21 @@
 ---
-titre : Exemples d'algorithmes - titleSuffix : Description d'Azure Machine Learning Studio : Vue d’ensemble des principes fondamentaux de l’apprentissage automatique avec des exemples d’algorithmes. L’infographie téléchargeable couvre la plupart des questions relatives à l’apprentissage automatique.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodc18 ms.date: 18/12/2017
+title: Exemples d'algorithmes
+titleSuffix: Azure Machine Learning Studio
+description: Vue d’ensemble des principes fondamentaux de l’apprentissage automatique avec des exemples d’algorithmes. L’infographie téléchargeable couvre la plupart des questions relatives à l’apprentissage automatique.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodc18
+ms.date: 12/18/2017
+ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295574"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : principes de base de l’apprentissage automatique avec exemples d’algorithmes
 Téléchargez cette vue d’ensemble infographique présentant de manière simple les concepts de base de l’apprentissage automatique pour en savoir plus sur les algorithmes populaires utilisés pour répondre aux questions les plus courantes concernant l’apprentissage automatique. Des exemples d’algorithmes aident les débutants à mieux comprendre quels algorithmes utiliser et à quoi ils servent.

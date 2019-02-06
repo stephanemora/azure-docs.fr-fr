@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 11/13/2018
+ms.subservice: report-monitor
+ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a851d9cd4322f2460bfa7f74854c44e77a52e0a6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: da800b80c89aa0b63a386341a9b010d67f22e85a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818181"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186533"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
@@ -43,34 +43,36 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 
 |Catégorie d’audit|Activité|
 |---|---|
-|Gestion de répertoires|Ajouter une unité administrative|
-|Gestion de répertoires|Ajouter un membre à une unité administrative|
-|Gestion de répertoires|Supprimer une unité administrative|
-|Gestion de répertoires|Supprimer un membre d’une unité administrative|
-|Gestion de répertoires|Mettre à jour une unité administrative|
-|Gestion de répertoires|Administration|
-|User Management|Opération sur le répertoire|
-|User Management|Exportation|
-|User Management|Importer|
-|User Management|Autres|
-|User Management|Dépôt de processus|
-|User Management|Action de règles de synchronisation|
-|User Management|Ajouter l’application|
-|User Management|Supprimer l’application|
-|User Management|Mettre à jour l’application|
-|User Management|Mettre à jour le mode d’authentification unique de l’application|
-|User Management|Substitution de mot de passe automatique|
-|User Management|Ajouter des autorisations de l’application V2|
-|User Management|Créer une application V1|
-|User Management|Créer une application V2|
-|User Management|Supprimer une application V1|
-|User Management|Supprimer une application V2|
-|User Management|Supprimer une autorisation de l’application V2|
-|User Management|Obtenir des applications V1 et V2|
-|User Management|Obtenir une application V1|
-|User Management|Obtenir des applications V1|
-|User Management|Obtenir une application V2|
-|User Management|Obtenir des applications V2|
+|Révisions d’accès|Révision d’accès terminée|
+|Révisions d’accès|Ajouter un approbateur pour approuver une demande|
+|Révisions d’accès|Ajouter un réviseur pour la révision d’accès|
+|Révisions d’accès|Appliquer une révision d’accès|
+|Révisions d’accès|Créer une révision d’accès|
+|Révisions d’accès|Créer le programme|
+|Révisions d’accès|Créer une approbation de demande|
+|Révisions d’accès|Supprimer une révision d’accès|
+|Révisions d’accès|Supprimer le programme|
+|Révisions d’accès|Lier le contrôle du programme|
+|Révisions d’accès|Intégrer les révisions d’accès Azure AD|
+|Révisions d’accès|Supprimer un réviseur pour la révision d’accès|
+|Révisions d’accès|Demander l’arrêt de la révision|
+|Révisions d’accès|Demander l’application du résultat de révision|
+|Révisions d’accès|Examiner l’appartenance au rôle Rbac|
+|Révisions d’accès|Examiner l’affectation d’application|
+|Révisions d’accès|Examiner l’appartenance au groupe|
+|Révisions d’accès|Examiner la demande d’approbation de demande|
+|Révisions d’accès|Supprimer le lien du contrôle du programme|
+|Révisions d’accès|Mettre à jour une révision d’accès|
+|Révisions d’accès|Mettre à jour l'état d'intégration des révisions d'accès Azure AD|
+|Révisions d’accès|Mettre à jour les paramètres de notification par e-mail pour la révision d’accès|
+|Révisions d’accès|Mettre à jour le paramètre du nombre de récurrences pour la révision d’accès|
+|Révisions d’accès|Mettre à jour le paramètre de durée en jour de la récurrence pour la révision d’accès|
+|Révisions d’accès|Mettre à jour le paramètre de type de fin de la récurrence pour la révision d’accès|
+|Révisions d’accès|Mettre à jour le paramètre de type de récurrence pour la révision d’accès|
+|Révisions d’accès|Mettre à jour les paramètres de rappel pour la révision d’accès|
+|Révisions d’accès|Mettre à jour le programme|
+|Révisions d’accès|Mettre à jour une approbation de demande|
+|Révisions d’accès|Utilisateur désactivé|
 
 ## <a name="account-provisioning"></a>Approvisionnement des comptes
 
@@ -526,23 +528,27 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 
 |Catégorie d’audit|Activité|
 |---|---|
-|Gestion des rôles|Mettre à jour les paramètres de rappel pour la révision d’accès|
-|Gestion des rôles|Mettre à jour une approbation de demande|
-|Gestion des rôles|Ajouter une autorisation d’attribution de rôle d’application à un utilisateur|
-|Gestion des rôles|Ajouter un utilisateur|
-|Gestion des rôles|Ajouter des informations d’application de téléphone d’authentification renforcée pour des utilisateurs|
-|Gestion des rôles|Modifier la licence de l'utilisateur|
-|Gestion des rôles|Modifier le mot de passe de l'utilisateur|
-|Gestion des rôles|Convertir un utilisateur fédéré en utilisateur géré|
-|Gestion des rôles|Créer un mot de passe d’application pour un utilisateur|
-|Gestion des rôles|Supprimer un mot de passe d’application pour un utilisateur|
-|Gestion des rôles|Supprimer un utilisateur|
-|Gestion des rôles|Désactiver un compte|
-|Gestion des rôles|Activer l’authentification renforcée|
-|Gestion des rôles|Supprimer définitivement un utilisateur|
-|Gestion des rôles|Supprimer une attribution de rôle d’application d’un utilisateur|
-|Gestion des rôles|Supprimer des informations d’application de téléphone d’authentification renforcée pour des utilisateurs|
-
+|PIM|ActivationAborted|
+|PIM|ActivationApproved|
+|PIM|ActivationCanceled|
+|PIM|ActivationDenied|
+|PIM|ActivationRequested|
+|PIM|Ajouté|
+|PIM|AddedOutsidePIM|
+|PIM|Assigner|
+|PIM|DismissAlert|
+|PIM|Élever|
+|PIM|ReactivateAlert|
+|PIM|Supprimé|
+|PIM|RemovedOutsidePIM|
+|PIM|Demander l’arrêt de la révision|
+|PIM|Modifications des paramètres de rôle|
+|PIM|ScanAlertsNow|
+|PIM|Connecter|
+|PIM|Annuler l'assignation|
+|PIM|Baisser les privilèges|
+|PIM|UpdateAlertSettings|
+|PIM|UpdateCurrentState|
 
 
 ## <a name="self-service-group-management"></a>Gestion des groupes en libre service
@@ -580,17 +586,20 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 
 |Catégorie d’audit|Activité|
 |---|---|
-|Gestion des stratégies|Modifier un mot de passe (libre-service)|
-|Gestion des stratégies|Réinitialiser un mot de passe (par l’administrateur)|
-|Gestion des stratégies|Réinitialiser un mot de passe (libre-service)|
-|Gestion des stratégies|Progression de l’activité du flux de réinitialisation de mot de passe en libre-service|
-|Gestion des stratégies|Progression de l’activité du flux de réinitialisation de mot de passe en libre-service|
-|Gestion des stratégies|Déverrouiller un compte d’utilisateur (libre-service)|
-|Gestion des stratégies|Utilisateur enregistré pour la réinitialisation de mot de passe en libre-service|
+|Conditions d’utilisation|Accepter des conditions d’utilisation|
+|Conditions d’utilisation|Créer des conditions d’utilisation|
+|Conditions d’utilisation|Refuser des conditions d’utilisation|
+|Conditions d’utilisation|Supprimer le consentement|
+|Conditions d’utilisation|Supprimer des conditions d’utilisation|
+|Conditions d’utilisation|Modifier des conditions d’utilisation|
+|Conditions d’utilisation|Expiration des conditions d’utilisation|
+|Conditions d’utilisation|Supprimer définitivement des conditions d’utilisation|
+|Conditions d’utilisation|Publier des conditions d’utilisation|
+|Conditions d’utilisation|Annuler la publication des conditions d’utilisation|
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble des rapports Azure AD](overview-reports.md).
 - [Rapport de journaux d’audit](concept-audit-logs.md) 
-- [Accès par programmation aux rapports Azure AD](concept-reporting-api.md)
+- [Accès par programme aux rapports Azure AD](concept-reporting-api.md)

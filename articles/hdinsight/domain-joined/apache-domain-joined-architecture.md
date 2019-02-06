@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50c5838f576b6fd6775373f2dbe3c46d751545c1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3e58c22048c9b71b00cffb0657fc924277304662
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437586"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462426"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Utiliser le pack Sécurité Entreprise dans HDInsight
 
@@ -55,9 +55,41 @@ Pour plus d’informations, consultez [Configurer des clusters HDInsight avec E
 
 Si vous disposez d’une instance Active Directory locale ou de configurations Active Directory plus complexes pour votre domaine, vous pouvez synchroniser ces identités sur Azure AD au moyen d’Azure AD Connect. Vous pouvez ensuite activer Azure AD DS sur ce locataire Active Directory. 
 
-Étant donné que Kerberos s’appuie sur les hachages de mot de passe, vous devez [activer la synchronisation du hachage de mot de passe sur Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Si vous utilisez la fédération avec Active Directory Federation Services (AD FS), vous avez la possibilité de configurer la synchronisation de hachage de mot de passe comme dispositif de secours en cas de défaillance de votre infrastructure AD FS. Pour plus d’informations, consultez [Activer la synchronisation du hachage de mot de passe avec la synchronisation Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+Kerberos s’appuyant sur les hachages de mot de passe, vous devez [activer la synchronisation du hachage de mot de passe sur Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
+
+Si vous utilisez la fédération avec les services de fédération Active Directory (AD FS), vous devez activer la synchronisation du hachage de mot de passe (configuration recommandée, voir [ici](https://youtu.be/qQruArbu2Ew)), qui est également utile à des fins de récupération d'urgence en cas de défaillance de votre infrastructure ADFS et de fuite d'informations d'identification. Pour plus d’informations, consultez [Activer la synchronisation du hachage de mot de passe avec la synchronisation Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 La seule utilisation du service Active Directory local ou d’Active Directory sur des machines virtuelles IaaS, sans Azure AD ni Azure AD DS, n’est pas une configuration prise en charge pour les clusters HDInsight avec ESP.
+
+Si la fédération est utilisée et les hachages de mot de passe correctement synchronisés, mais que vous constatez des échecs d’authentification, vérifiez si l'authentification du mot de passe cloud du principal de service PowerShell est activée. Si ce n'est pas le cas, définissez une [stratégie de découverte du domaine d'accueil](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) pour votre locataire AAD. Pour vérifier et définir la stratégie de découverte du domaine d'accueil :
+
+ 1. Installez le module Azure PowerShell
+
+ ```
+  Install-Module AzureAD
+ ```
+
+ 2. ```Connect-AzureAD``` avec les informations d’identification d'un administrateur général (administrateur de locataire)
+
+ 3. Vérifiez si le principal de service « Microsoft Azure PowerShell » a déjà été créé.
+
+```
+ $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+```
+
+ 4. Si ce n'est pas le cas (à savoir, si ($powershellSPN - q $null)), créez le principal de service.
+
+```
+ $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+```
+
+ 5. Créez et attachez la stratégie au principal de service : 
+
+```
+ $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+ Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 9ea46860817d60c2ffbde68c0fc5ae6f6ca14877
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 5d9d01a482483d030569a4dcad03c9ecef7cffc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369736"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245148"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Planification de la capacité de stockage Azure Stack
 Les sections suivantes fournissent des informations relatives à la planification de la capacité de stockage Azure Stack pour vous aider à planifier selon les besoins de stockage de la solution.
@@ -29,7 +30,7 @@ Les sections suivantes fournissent des informations relatives à la planificatio
 La configuration hyperconvergée d’Azure Stack permet le partage des appareils de stockage physiques. Les trois principales divisions de stockage disponible sont réparties entre l’infrastructure, le stockage temporaire des machines virtuelles du locataire et le stockage prenant en charge les objets Blob, les tables et les files d’attente des services de stockage cohérent Azure (ACS).
 
 ## <a name="spaces-direct-cache-and-capacity-tiers"></a>Cache direct et niveaux de capacité des espaces
-La capacité de stockage est utilisée pour le système d’exploitation, la journalisation locale, les vidages et pour les autres besoins de stockage temporaires de l’infrastructure. Cette capacité de stockage local est séparée (appareils et capacité) des appareils de stockage placés sous la gestion de la configuration d’espaces de stockage direct. Le reste des appareils de stockage est placé dans un unique pool de capacité de stockage, quel que soit le nombre de serveurs dans l’unité d’échelle. Ces appareils sont de deux types : Cache et Capacité.  Les appareils Cache sont exactement cela : des caches. Les espaces de stockage direct consomment ces appareils pour l’écriture différée et la mise en cache en lecture. Les capacités de ces appareils Cache, bien qu’utilisées, ne conviennent pas pour la capacité « visible » de mise en forme des disques virtuels formatés. Les appareils Capacité sont utilisés à cet effet et fournissent « l’emplacement d’origine » des données gérées par les espaces de stockage.
+La capacité de stockage est utilisée pour le système d’exploitation, la journalisation locale, les vidages et pour les autres besoins de stockage temporaires de l’infrastructure. Cette capacité de stockage local est séparée (appareils et capacité) des appareils de stockage placés sous la gestion de la configuration d’espaces de stockage direct. Le reste des appareils de stockage est placé dans un unique pool de capacité de stockage, quel que soit le nombre de serveurs dans l’unité d’échelle. Ces appareils sont de deux types : Cache et Capacité.  Les appareils Cache sont exactement cela : des caches. Les espaces de stockage direct consomment ces appareils pour l’écriture différée et la mise en cache en lecture. Les capacités de ces appareils Cache, bien qu’utilisées, ne conviennent pas pour la capacité « visible » de mise en forme des disques virtuels formatés. Les appareils Capacité sont utilisés à cet effet et fournissent « l’emplacement d’origine » des données gérées par les espaces de stockage.
 
 Toute la capacité de stockage est allouée et gérée directement par l’infrastructure Azure Stack. L’opérateur n’a besoin de prendre de décisions concernant la configuration, l’allocation, ou même l’expansion de la capacité. Ces décisions de conception ont été faites pour s’aligner avec les exigences de la solution et sont automatisées pendant l’installation ou le déploiement initiaux ou durant l’expansion de la capacité. Les informations sur la résilience, la capacité réservée pour les reconstructions et d’autres détails ont été considérées comme faisant partie de la conception. 
 

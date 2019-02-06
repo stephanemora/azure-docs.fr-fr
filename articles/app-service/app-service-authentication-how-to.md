@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 34902016578d92847bd83a7dede8ef73bb640b3e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722649"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301575"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -176,9 +176,9 @@ Votre application peut également obtenir des détails supplémentaires sur l’
 > [!NOTE]
 > Les jetons d’accès permettent d’accéder aux ressources du fournisseur. Ils ne s’affichent donc que si vous configurez votre fournisseur avec une clé secrète client. Pour savoir comment obtenir des jetons d’actualisation, consultez [Actualiser des jetons d’accès](#refresh-access-tokens).
 
-## <a name="refresh-access-tokens"></a>Actualiser des jetons d’accès
+## <a name="refresh-identity-provider-tokens"></a>Actualiser des jetons de fournisseur d’identité
 
-Lorsque le jeton d’accès de votre fournisseur a expiré, vous devez réauthentifier l’utilisateur. Vous pouvez éviter l’expiration du jeton en effectuant un appel `GET` au point de terminaison `/.auth/refresh` de votre application. Lorsqu’il est appelé, App Service actualise automatiquement les jetons d’accès dans le magasin de jetons pour l’utilisateur authentifié. Les demandes de jeton suivantes effectuées via le code de votre application permettent d’obtenir les jetons actualisés. Toutefois, pour que l’actualisation des jetons soit effective, le magasin de jetons doit contenir les [jetons d’actualisation](https://auth0.com/learn/refresh-tokens/) pour votre fournisseur. La procédure pour obtenir des jetons d’actualisation est fournie par chaque fournisseur. La liste suivante en fournit toutefois un bref résumé :
+Lorsque le jeton d'accès de votre fournisseur (et non le [jeton de session](#extend-session-token-expiration-grace-period)) expire, vous devez réauthentifier l’utilisateur avant de réutiliser ce jeton. Vous pouvez éviter l’expiration du jeton en effectuant un appel `GET` au point de terminaison `/.auth/refresh` de votre application. Lorsqu’il est appelé, App Service actualise automatiquement les jetons d’accès dans le magasin de jetons pour l’utilisateur authentifié. Les demandes de jeton suivantes effectuées via le code de votre application permettent d’obtenir les jetons actualisés. Toutefois, pour que l’actualisation des jetons soit effective, le magasin de jetons doit contenir les [jetons d’actualisation](https://auth0.com/learn/refresh-tokens/) pour votre fournisseur. La procédure pour obtenir des jetons d’actualisation est fournie par chaque fournisseur. La liste suivante en fournit toutefois un bref résumé :
 
 - **Google** : ajouter un paramètre de chaîne de requête `access_type=offline` à votre appel d’API `/.auth/login/google`. Si vous utilisez le kit de développement logiciel Mobile Apps, vous pouvez ajouter le paramètre à l’une des surcharges `LogicAsync` (voir [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Jetons d’actualisation Google)).
 - **Facebook** : ne fournit pas de jetons d’actualisation. Les jetons de longue durée expirent au bout de 60 jours (voir [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiration et prolongation des jetons d’accès Facebook)).
@@ -213,9 +213,9 @@ function refreshTokens() {
 
 Si un utilisateur révoque les autorisations accordées à votre application, votre appel à `/.auth/me` peut échouer avec une réponse `403 Forbidden`. Pour diagnostiquer les erreurs, consultez vos journaux d’application pour obtenir des informations supplémentaires.
 
-## <a name="extend-session-expiration-grace-period"></a>Étendre la période de grâce d’expiration de session
+## <a name="extend-session-token-expiration-grace-period"></a>Étendre la période de grâce d’expiration de jeton de session
 
-Après expiration d’une session authentifiée, une période de grâce de 72 heures s’applique par défaut. Au cours de cette période de grâce, vous pouvez actualiser le cookie ou le jeton de session via App Service sans réauthentifier l’utilisateur. Vous pouvez simplement appeler `/.auth/refresh` lorsque votre cookie ou jeton de session n’est plus valide. Vous n’avez pas besoin de vérifier vous-même les dates d’expiration des jetons. À la fin de la période de grâce de 72 heures, l’utilisateur doit se connecter à nouveau pour obtenir un jeton ou un cookie de session valide.
+La session authentifiée expire au bout de 8 heures. Après expiration d’une session authentifiée, une période de grâce de 72 heures s’applique par défaut. Au cours de cette période de grâce, vous pouvez actualiser le jeton de session via App Service sans réauthentifier l’utilisateur. Vous pouvez simplement appeler `/.auth/refresh` lorsque jeton de session n’est plus valide. Vous n’avez pas besoin de vérifier vous-même les dates d’expiration des jetons. À la fin de la période de grâce de 72 heures, l’utilisateur doit se connecter à nouveau pour obtenir un jeton de session valide.
 
 Si le délai de 72 heures n’est pas suffisamment long pour vous, vous pouvez étendre cette fenêtre d’expiration. Étendre la fenêtre d’expiration sur une longue période peut avoir une incidence majeure sur la sécurité (par exemple lorsqu’un jeton d’authentification est divulgué ou volé). Nous vous recommandons donc de conserver la valeur par défaut de 72 heures ou de définir la période d’extension sur la valeur minimale.
 

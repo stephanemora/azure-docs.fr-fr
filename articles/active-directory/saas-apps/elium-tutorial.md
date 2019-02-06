@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Elium | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Elium | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Elium.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: fae344b3-5bd9-40e2-9a1d-448dcd58155f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: dfa90474632b2cf18055e0ba95994f120cb293ef
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ac88d3accad8aa9ec523ecce5eb11b6c10eb913c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447782"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181484"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-elium"></a>Tutoriel : Intégration d’Azure Active Directory à Elium
+# <a name="tutorial-azure-active-directory-integration-with-elium"></a>Tutoriel : Intégration d’Azure Active Directory à Elium
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Elium à Azure Active Directory (Azure AD).
 
@@ -233,7 +233,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Elium. Elium prend en charge le provisionnement juste-à-temps, une option qui est activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas déjà, un utilisateur est créé lors d’une tentative d’accès à Elium.
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support Elium](mailto:support@elium.com).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe de support technique Elium](mailto:support@elium.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

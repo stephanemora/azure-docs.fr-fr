@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230231"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295355"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Prise en main du connecteur de base de données Oracle
 
@@ -95,27 +95,27 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 
 ## <a name="common-errors"></a>Erreurs courantes
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Erreur** : La passerelle est injoignable
+#### <a name="error-cannot-reach-the-gateway"></a>**Erreur** : La passerelle est injoignable.
 
-**Cause** : la passerelle de données locale n’est pas en mesure de se connecter au cloud. 
+**Cause** : La passerelle de données locale n’est pas en mesure de se connecter au cloud. 
 
-**Atténuation** : assurez-vous que votre passerelle s’exécute sur l’ordinateur local où vous l’avez installée, et qu’elle peut se connecter à Internet.  Nous vous recommandons ne pas installer la passerelle sur un ordinateur susceptible d’être mis hors tension ou en veille. Vous pouvez également redémarrer le service de passerelle de données locale (PBIEgwService).
+**Atténuation** : Assurez-vous que votre passerelle s’exécute sur l’ordinateur local où vous l’avez installée, et qu’elle peut se connecter à Internet.  Nous vous recommandons ne pas installer la passerelle sur un ordinateur susceptible d’être mis hors tension ou en veille. Vous pouvez également redémarrer le service de passerelle de données locale (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erreur**: Le fournisseur utilisé est déconseillé : System.Data.OracleClient requiert le logiciel client Oracle version 8.1.7 ou supérieure. Consultez [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) pour installer le fournisseur officiel.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erreur** : Le fournisseur utilisé est déconseillé : System.Data.OracleClient requiert le logiciel client Oracle version 8.1.7 ou supérieure. Consultez [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) pour installer le fournisseur officiel.
 
-**Cause** : le kit de développement du client Oracle n’est pas installé sur l’ordinateur qui exécute la passerelle de données locale.  
+**Cause** : Le kit de développement du client Oracle n’est pas installé sur l’ordinateur qui exécute la passerelle de données locale.  
 
-**Résolution** : téléchargez et installez le kit de développement logiciel du client Oracle sur le même ordinateur que la passerelle de données locale.
+**Résolution** : Téléchargez et installez le kit de développement logiciel du client Oracle sur le même ordinateur que la passerelle de données locale.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erreur** : La table « [Tablename] » ne définit aucune colonne clé
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erreur** : La table « [Tablename] » ne définit aucune colonne clé.
 
-**Cause** : la table n’a pas de clé primaire.  
+**Cause** : La table n’a pas de clé primaire.  
 
-**Résolution** : le connecteur de la base de données Oracle requiert une table avec une colonne clé primaire.
+**Résolution** : Le connecteur Oracle Database requiert une table avec une colonne clé primaire.
 
 #### <a name="currently-not-supported"></a>Actuellement non pris en charge
 
-* Vues et procédures stockées 
+* Views 
 * Toute table avec des clés composites
 * Types d’objet imbriqués dans des tables
  

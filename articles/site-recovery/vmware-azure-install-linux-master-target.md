@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811857"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217983"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -130,7 +130,7 @@ Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et 
 
     ![Sélectionner les logiciels](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. Dans la sélection pour l’installation du chargeur de démarrage GRUB, sélectionnez **Oui**, puis **Entrée**.
+1. Dans la sélection de l'installation du chargeur de démarrage GRUB, sélectionnez **Oui**, puis **Entrée**.
      
     ![Programme d’installation de démarrage GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
 

@@ -1,27 +1,25 @@
 ---
-title: Guide pratique pour migrer des utilisateurs entre des licences de produit à l'aide de groupes - Azure Active Directory | Microsoft Docs
-description: Décrit le processus recommandé pour migrer des utilisateurs entre différentes licences de produit (par exemple, Office 365 Entreprise E1 et E3) à l'aide de la gestion de licences basée sur des groupes
+title: Guide pratique pour migrer des utilisateurs vers des licences de produit à l'aide de groupes - Azure Active Directory | Microsoft Docs
+description: Décrit le processus recommandé pour migrer des utilisateurs au sein d'un groupe vers différentes licences de produit (par exemple, Office 365 Entreprise E1 et E3) à l'aide de la gestion de licences basée sur des groupes
 services: active-directory
 keywords: Gestion des licences Azure AD
 documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.openlocfilehash: f675ff0dfaf183c2efd177c7888549e6976fbe6d
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: ea6159f487b35192e0e2137662a664a2796843c0
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389479"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294571"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Guide pratique pour migrer en toute sécurité des utilisateurs entre des licences produit à l’aide de la gestion de licences basée sur des groupes
 

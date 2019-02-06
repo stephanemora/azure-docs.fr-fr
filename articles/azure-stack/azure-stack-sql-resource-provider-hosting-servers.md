@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362056"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239466"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources SQL
 
@@ -61,9 +62,9 @@ Il existe d’autres options pour le déploiement de machines virtuelles SQL, y 
 
 Vous pouvez créer un utilisateur administratif avec des privilèges plus faibles qu’un administrateur système SQL. L’utilisateur a uniquement besoin des autorisations pour les opérations suivantes :
 
-* Base de données : Créer, Modifier, Avec imbrication (pour Always On uniquement), Supprimer, Sauvegarder
+* Base de données : Créer, Modifier, Avec imbrication (pour Always On uniquement), Supprimer, Sauvegarder
 * Groupe de disponibilité : Modifier, Joindre, Ajouter/Supprimer une base de données
-* Connexion : Créer, Sélectionner, Modifier, Supprimer, Révoquer
+* Connexion : Créer, Sélectionner, Modifier, Supprimer, Révoquer
 * Sélection d’opérations : \[master\].\[sys\].\[availability_group_listeners\] (AlwaysOn), sys.availability_replicas (AlwaysOn), sys.databases, \[master\].\[sys\].\[dm_os_sys_memory\], SERVERPROPERTY, \[master\].\[sys\].\[availability_groups\] (AlwaysOn), sys.master_files
 
 ### <a name="additional-security-information"></a>Informations supplémentaires relatives à la sécurité
@@ -88,7 +89,7 @@ Pour ajouter un serveur d’hébergement autonome déjà configuré, effectuez l
 
    ![Serveurs d’hébergement SQL](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   Sous **Serveurs d’hébergement SQL**, vous pouvez connecter le fournisseur de ressources SQL à des instances de SQL Server qui font office de back-end du fournisseur de ressources.
+   Sous **Serveurs d’hébergement SQL**, vous pouvez connecter le fournisseur de ressources SQL à des instances de SQL Server qui font office de backend du fournisseur de ressources.
 
    ![Tableau de bord de l’adaptateur SQL](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 

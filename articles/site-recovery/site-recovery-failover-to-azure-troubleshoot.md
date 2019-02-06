@@ -1,26 +1,22 @@
 ---
 title: Résoudre les problèmes d’échec de basculement vers Azure | Microsoft Docs
 description: Cet article explique comment résoudre les erreurs courantes qui surviennent lors d’un basculement vers Azure
-services: site-recovery
-documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2018
+ms.date: 1/29/2019
 ms.author: mayg
-ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255089"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207494"
 ---
-# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle vers Azure
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle VMware ou d'une machine physique vers Azure
 
 Vous pouvez recevoir les erreurs suivantes lorsque vous procédez au basculement d’une machine virtuelle vers Azure. Pour résoudre les problèmes, servez-vous des étapes décrites pour chaque condition d’erreur.
 
@@ -48,7 +44,9 @@ Site Recovery n’a pas pu créer de machine virtuelle classique basculée dans 
 
 Site Recovery n’a pas pu créer de machine virtuelle basculée dans Azure. Cela peut être causé par l’échec d’une activité interne d’alimentation pour la machine virtuelle locale.
 
-Pour afficher une machine dans Azure, l’environnement Azure exige que certains pilotes soient à l’état Démarrage et que des services comme DHCP soient à l’état Démarrage automatique. Au moment du basculement, l’activité d’alimentation convertit donc le type de démarrage des **pilotes atapi, intelide, storflt, vmbus et storvsc** en Démarrage, et celui de certains services comme DHCP en Démarrage automatique. Cette activité peut échouer en raison de problèmes propres à l’environnement. Pour modifier manuellement le type de démarrage des pilotes, suivez les étapes ci-dessous :
+Pour afficher une machine dans Azure, l’environnement Azure exige que certains pilotes soient à l’état Démarrage et que des services comme DHCP soient à l’état Démarrage automatique. Au moment du basculement, l’activité d’alimentation convertit donc le type de démarrage des **pilotes atapi, intelide, storflt, vmbus et storvsc** en Démarrage, et celui de certains services comme DHCP en Démarrage automatique. Cette activité peut échouer en raison de problèmes propres à l’environnement. 
+
+Pour modifier manuellement le type de démarrage des pilotes pour **SE invité Windows**, suivez les étapes ci-dessous :
 
 1. [Téléchargez](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) le script de non-alimentation, puis exécutez-le de la façon suivante. Ce script détermine si la machine virtuelle a besoin d’une alimentation.
 

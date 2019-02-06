@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339516"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296119"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Résoudre les problèmes de sauvegarde SQL Server sur Azure
 
@@ -37,6 +37,15 @@ Pour configurer la protection d’une base de données SQL Server sur une machin
 ## <a name="troubleshooting-errors"></a>Résolution des erreurs
 
 Utilisez les informations des tableaux suivants pour résoudre les problèmes et les erreurs rencontrés lorsque vous protégez SQL Server sur Azure.
+
+## <a name="alerts"></a>Alertes
+
+### <a name="backup-type-unsupported"></a>Type de sauvegarde non pris en charge
+
+| Severity | Description | Causes possibles | Action recommandée |
+|---|---|---|---|
+| Avertissement | Les paramètres actuels de cette base de données ne prennent pas en charge certains types de sauvegarde présents dans la stratégie associée. | <li>**Base de données master** : Seule une opération de sauvegarde de base de données complète peut être effectuée sur la base de données master : aucune sauvegarde **différentielle** ou sauvegarde de **journaux** de transaction n'est possible. </li> <li>Aucune base de données en **mode de récupération simple** n’autorise la sauvegarde de **journaux** de transaction.</li> | Modifiez les paramètres de la base de données de manière à ce que tous les types de sauvegarde de la stratégie soient pris en charge. Vous pouvez également modifier la stratégie actuelle de manière à inclure uniquement les types de sauvegarde pris en charge. Sinon, les types de sauvegarde non pris en charge seront ignorés lors de la sauvegarde planifiée ou le travail de sauvegarde échouera pour une sauvegarde ad hoc.
+
 
 ## <a name="backup-failures"></a>Échecs de sauvegarde
 

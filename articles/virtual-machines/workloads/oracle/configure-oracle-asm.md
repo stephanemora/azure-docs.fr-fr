@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 236809336975eec94d7decd9822fc9143ae19bfb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 692f6b1f02c6c1e86170971886e83722d0160838
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981017"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203587"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurer Oracle ASM sur une machine virtuelle Linux Azure  
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Pour créer une machine virtuelle basée sur l’image d’Oracle Database et la configurer pour utiliser Oracle ASM, exécutez la commande [az vm create](/cli/azure/vm#az_vm_create). 
+Pour créer une machine virtuelle basée sur l’image d’Oracle Database et la configurer pour utiliser Oracle ASM, exécutez la commande [az vm create](/cli/azure/vm). 
 
 L’exemple suivant crée une machine virtuelle nommée myVM qui a une taille Standard_DS2_v2 avec quatre disques de données associés de 50 Go. Il crée également des clés SSH si elles n’existent pas encore à un emplacement de clé par défaut.  Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`.  
 
@@ -540,7 +540,7 @@ Pour configurer votre installation Oracle ASM, procédez comme suit :
 
 6. Sélectionnez **Exit** (Quitter) pour fermer l’Assistant de configuration d’ASM.
 
-   ![Capture d’écran de la boîte de dialogue Configure ASM: Disk Groups (Configurer ASM : Groupes de disques) avec le bouton Exit (Quitter)](./media/oracle-asm/asm05.png)
+   ![Capture d'écran de la boîte de dialogue Configure ASM: Disk Groups (Configurer ASM : Groupes de disques) avec le bouton Exit (Quitter)](./media/oracle-asm/asm05.png)
 
 ## <a name="create-the-database"></a>Création de la base de données
 
@@ -583,8 +583,8 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Didacticiel : Configurer Oracle DataGuard](configure-oracle-dataguard.md)
+[Tutoriel : Configurer Oracle DataGuard](configure-oracle-dataguard.md)
 
-[Didacticiel : Configurer Oracle GoldenGate](Configure-oracle-golden-gate.md)
+[Tutoriel : Configurer Oracle GoldenGate](Configure-oracle-golden-gate.md)
 
 Revoir [Créer l’architecture d’une base de données Oracle](oracle-design.md)
