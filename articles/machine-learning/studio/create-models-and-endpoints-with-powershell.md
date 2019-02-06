@@ -1,6 +1,6 @@
 ---
-titre : Créer plusieurs modèles à partir d’une seule expérience Studio titleSuffix : Description d’Azure Machine Learning Studio : Utilisez PowerShell pour créer plusieurs modèles de formation et points de terminaison de service web Machine Learning avec le même algorithme, mais différents jeux de données de formation.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+titre : Créer plusieurs modèles à partir d’une seule expérience Studio titleSuffix : Description d’Azure Machine Learning Studio : Utilisez PowerShell pour créer plusieurs modèles de formation et points de terminaison de service web Machine Learning avec le même algorithme, mais différents jeux de données de formation.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/04/2017
 ---

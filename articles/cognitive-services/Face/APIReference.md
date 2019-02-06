@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: be3e408b3f5f6393786a35108202d51ae871ea3b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6c5bfb052fc887bb189edb06247642419b14ecf7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679730"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296968"
 ---
 # <a name="api-reference"></a>Référence API
 
@@ -28,5 +28,6 @@ L’API Visage Azure est une API basée sur le cloud qui fournit des algorithmes
 - [API de gestion LargeFaceList](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist) : permettent de gérer un LargeFaceList pour [Rechercher des éléments similaires](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
 - [API de gestion PersonGroup Person](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson) : permettent de gérer les visages PersonGroup Person pour [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
 - [API de gestion PersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup) : permettent de gérer un jeu de données PersonGroup pour [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [API de gestion des instantanés](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot) : Permet de gérer un instantané à des fins de migration des données entre différents abonnements.
 
 <!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

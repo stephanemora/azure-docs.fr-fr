@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463282"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296900"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -40,21 +40,19 @@ Pour exécuter le conteneur LUIS, vous devez disposer des éléments suivants :
 
 ### <a name="the-host-computer"></a>L’ordinateur hôte
 
-L’**hôte** est l’ordinateur qui exécute le conteneur docker. Il peut s’agir d’un ordinateur local ou d’un service d’hébergement docker dans Azure, notamment :
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
-* [Azure Kubernetes Service](../../aks/index.yml)
-* [Azure Container Instances](../../container-instances/index.yml)
-* Cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](../../azure-stack/index.yml). Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
-
-### <a name="container-requirements-and-recommendations"></a>Exigences et recommandations relatives au conteneur
+### <a name="container-requirements-and-recommendations"></a>Exigences et suggestions relatives au conteneur
 
 Ce conteneur prend en charge des valeurs minimales et recommandées pour les paramètres :
 
 |Paramètre| Minimale | Recommandé |
 |-----------|---------|-------------|
-|Cœurs<BR>`--cpus`|1 cœur<BR>au moins 2,6 gigahertz (GHz) ou plus rapide|1 cœur|
+|Cœurs<BR>`--cpus`|1 cœur|1 cœur|
 |Mémoire<BR>`--memory`|2 Go|4 Go|
 |Transactions par seconde<BR>(TPS)|20 TPS|40 TPS|
+
+Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
 
 Les paramètres `--cpus` et `--memory` sont utilisés dans le cadre de la commande `docker run`.
 
@@ -66,17 +64,12 @@ Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/co
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
+Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur.
+
 Pour obtenir une description complète des balises disponibles utilisées dans la commande précédente, telles que `latest`, consultez [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) sur Docker Hub.
 
-> [!TIP]
-> Vous pouvez utiliser la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour lister vos images conteneurs téléchargées. Par exemple, la commande suivante liste l’ID, le référentiel et la balise de chaque image conteneur téléchargée dans un tableau :
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->
->  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        mcr.microsoft.com/azure-cognitive-services/luis                           latest
->  ``` 
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
 
 ## <a name="how-to-use-the-container"></a>Comment utiliser le conteneur
 
@@ -268,7 +261,7 @@ Utilisez l’hôte, https://localhost:5000, pour les API de conteneur.
 
 Les paramètres de requête configurent ce qui est retourné dans la réponse de requête, et de quelle manière :
 
-|Paramètre de requête.|type|Objectif|
+|Paramètre de requête.|Type|Objectif|
 |--|--|--|
 |`q`|chaîne|Énoncé de l’utilisateur.|
 |`timezoneOffset`|number|timezoneOffset vous permet de [changer le fuseau horaire](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) utilisé par l’entité prédéfinie datetimeV2.|
@@ -325,14 +318,7 @@ Si vous exécutez le conteneur avec un [montage](luis-container-configuration.md
 
 ## <a name="containers-api-documentation"></a>Documentation sur l’API du conteneur
 
-Le conteneur fournit un ensemble complet de documentation pour les points de terminaison ainsi qu’une fonctionnalité `Try it now`. Cette fonctionnalité vous permet d’entrer vos paramètres dans un formulaire HTML basé sur le web et d’effectuer la requête sans avoir à écrire du code. Une fois la requête retournée, un exemple de commande CURL est fourni pour illustrer le format du corps et des en-têtes HTTP requis. 
-
-> [!TIP]
-> Consultez la [spécification OpenAPI](https://swagger.io/docs/specification/about/), qui décrit les opérations d’API prises en charge par le conteneur, à partir de l’URI relatif `/swagger`. Par exemple : 
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Facturation
 
@@ -371,7 +357,7 @@ Configurations d’application non prises en charge|Détails|
 
 Dans cet article, vous avez découvert des concepts et le flux de travail pour le téléchargement, l’installation et l’exécution des conteneurs LUIS (Language Understanding). En résumé :
 
-* LUIS (Language Understanding) fournit des conteneurs Linux pour Docker qui offrent des prédictions de requête de point de terminaison d’énoncés.
+* LUIS (Language Understanding) fournit un conteneur Linux pour Docker offrant des prédictions de requête de point de terminaison d’énoncés.
 * Les images conteneurs sont téléchargées à partir de Microsoft Container Registry (MCR).
 * Les images conteneurs s’exécutent dans Docker.
 * Vous pouvez utiliser l’API REST pour interroger les points de terminaison de conteneur en spécifiant l’URI hôte du conteneur.

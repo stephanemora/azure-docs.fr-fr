@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 90a99d4910b0afb885b415760f6a7ef1ca2aec33
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366547"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219819"
 ---
 # <a name="experimentation"></a>Expérimentation
 
@@ -35,7 +35,7 @@ Vous pouvez également opter pour une évaluation sans stratégie. Si vous avez 
 * Il teste la stratégie d’évaluation `--cb_type` (score de tendance inverse (`ips`) ou doublement robuste (`dr`)). Pour plus d’informations, consultez l’[exemple de bandit manchot contextuel](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
 * Il teste les éléments marginaux.
 * Il teste les fonctionnalités d’interaction quadratique :
-   * **phase bruteforce** : il teste toutes les combinaisons avec `--q_bruteforce_terms` paires ou moins.
+   * **phase bruteforce** : teste toutes les combinaisons avec `--q_bruteforce_terms` paires ou moins.
    * **phase greedy** : ajoute la meilleure paire jusqu'à ce qu’il n’y ait aucune amélioration pendant `--q_greedy_stop` tentatives successives.
 * Il effectue un deuxième balayage sur les hyper-paramètres (`learning rate`, `L1 regularization` et `power_t`).
 
@@ -54,12 +54,12 @@ Pour obtenir une explication détaillée des arguments ci-dessus, consultez les 
 
 ## <a name="prerequisites"></a>Prérequis
 - Vowpal Wabbit : installé et sur votre chemin d’accès.
-  - Windows : [utilisez le programme d’installation `.msi`](https://github.com/eisber/vowpal_wabbit/releases).
-  - Autres plates-formes : [obtenez le code source](https://github.com/JohnLangford/vowpal_wabbit/releases).
-- Python 3 : installé et sur votre chemin d’accès.
+  - Windows : [Utilisez le programme d'installation`.msi`](https://github.com/eisber/vowpal_wabbit/releases).
+  - Autres plateformes : [Obtenez le code source](https://github.com/JohnLangford/vowpal_wabbit/releases).
+- Python 3 : installé et sur votre chemin d’accès.
 - NumPy : utilisez le gestionnaire de package de votre choix.
-- Référentiel *Microsoft/mwt-ds* : [clonez le référentiel](https://github.com/Microsoft/mwt-ds).
-- Fichier journal JSON du service Décision : par défaut, la commande de base inclut `--dsjson`, qui permet au JSON du service Décision d’analyser le fichier de données d’entrée. [Obtenez un exemple de ce format](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
+- Le référentiel *mwt/Microsoft-ds* : [Clonez le référentiel](https://github.com/Microsoft/mwt-ds).
+- Fichier journal JSON du service Décision : Par défaut, la commande de base inclut `--dsjson`, qui permet au JSON du service Décision d’analyser le fichier de données d’entrée. [Obtenez un exemple de ce format](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
 ## <a name="usage"></a>Usage
 Accédez à `mwt-ds/DataScience` et exécutez `Experimentation.py` avec les arguments appropriés, comme indiqué dans le code suivant :

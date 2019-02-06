@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844989"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228200"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Résoudre les problèmes de réplication et de basculement de Hyper-V sur Azure
 
@@ -110,7 +110,7 @@ Une capture instantanée de cohérence des applications est un instantané à un
 5. Vérifiez que le service Sauvegarde Microsoft Azure est activé. Vérifiez qu’elle est activée dans **Paramètres Hyper-V** > **Services d’intégration**.
 6. Vérifiez qu’il n’y a aucun conflit avec les applications qui prennent des captures instantanées VSS. Si plusieurs applications essaient de prendre des captures instantanées VSS en même temps, des conflits peuvent survenir. Par exemple, si une application Sauvegarde Microsoft Azure prend des captures instantanées VSS lorsque votre stratégie de réplication lui indique de le faire.   
 7. Vérifiez si la machine virtuelle affiche un taux d’activité élevé :
-    - Vous pouvez mesurer le taux quotidien de modification de données sur les machines virtuelles invitées, à l’aide des compteurs de performance de l’hôte Hyper-V. Pour mesurer le taux de modification de données, activez le compteur suivant. Cumulez un échantillon de cette valeur sur les disques de la machine virtuelle pendant 5 à 15 minutes, pour obtenir l’activité de la machine virtuelle.
+    - Vous pouvez mesurer le taux quotidien de modification de données sur les machines virtuelles invitées, à l’aide des compteurs de performance de l’hôte Hyper-V. Pour mesurer le taux de modification de données, activez le compteur suivant. Cumulez un échantillon de cette valeur sur les disques de la machine virtuelle pendant 5 à 15 minutes, pour obtenir l’activité de la machine virtuelle.
         - Catégorie : « Dispositif de stockage virtuel Hyper-V »
         - Compteur : « Octets écrits/s »</br>
         - Ce taux d’activité des données va augmenter ou se maintenir à un niveau élevé, selon le niveau d’activité de la machine virtuelle ou de ses applications.

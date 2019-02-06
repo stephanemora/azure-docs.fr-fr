@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 765d93780ad45eaaca61d4deb5f6607ef70ee432
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413683"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247440"
 ---
 # <a name="speech-service-rest-apis"></a>API REST du service Speech
 
@@ -439,6 +439,9 @@ L’API REST de synthèse vocale prend en charge les voix de synthèse vocale ne
 
 * Pour obtenir la liste complète des voix, consultez [prise en charge linguistique](language-support.md#text-to-speech).
 * Pour obtenir des informations sur la disponibilité régionale, consultez [régions](regions.md#text-to-speech).
+
+> [!IMPORTANT]
+> Les prix varient pour les voix standard, personnalisées et neurales. Pour plus d’informations, voir la [tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="request-headers"></a>En-têtes de requête
 

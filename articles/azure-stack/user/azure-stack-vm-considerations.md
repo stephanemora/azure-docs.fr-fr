@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.lastreviewed: 12/19/2018
+ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651501"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245955"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considérations relatives à l’utilisation des machines virtuelles dans Azure Stack
 
@@ -53,7 +54,7 @@ Azure Stack impose des limites de ressources pour éviter la consommation excess
 
 Le tableau suivant répertorie les machines virtuelles prises en charge sur Azure Stack, ainsi que leur configuration :
 
-| type           | Taille          | Plage de tailles prises en charge |
+| Type           | Taille          | Plage de tailles prises en charge |
 | ---------------| ------------- | ------------------------ |
 |Usage général |De base A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |Usage général |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
@@ -104,8 +105,8 @@ La liste des types de ressources et des versions d’API pris en charge peut var
 
 Les produits Windows doivent être utilisés conformément aux droits d’utilisation des produits et aux termes des contrats de licence Microsoft. Azure Stack active les machines virtuelles Windows Server à l’aide de la fonctionnalité [Activation automatique des machines virtuelles](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA).
 
-- L’hôte Azure Stack active Windows avec les clés AVMA pour Windows Server 2016. Toutes les machines virtuelles exécutant Windows Server 2012 ou une version ultérieure sont automatiquement activées.
-- Celles qui exécutent Windows Server 2008 R2 doivent être activées manuellement à l’aide de [l’activation MAK](https://technet.microsoft.com/library/ff793438.aspx). Pour utiliser l’activation MAK, vous devez fournir votre propre clé de produit (Product Key).
+- L’hôte Azure Stack active Windows avec les clés AVMA pour Windows Server 2016. Toutes les machines virtuelles exécutant Windows Server 2012 R2 ou une version ultérieure sont automatiquement activées.
+- Celles qui exécutent Windows Server 2012 ou une version antérieure doivent être activées manuellement à l’aide de [l’activation MAK](https://technet.microsoft.com/library/ff793438.aspx). Pour utiliser l’activation MAK, vous devez fournir votre propre clé de produit (Product Key).
 
 Microsoft Azure utilise l’activation KMS pour activer les machines virtuelles Windows. Si vous déplacez une machine virtuelle d’Azure Stack vers Azure et rencontrez des problèmes d’activation, consultez [Résoudre les problèmes d’activation de Windows sur les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Vous trouverez des informations supplémentaires dans le billet de blog [Troubleshooting Windows activation failures on Azure VMs](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) publié par l’équipe du support technique Azure.
 

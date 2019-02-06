@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c6696d0f22026ac333c526b505732d15a4b01be7
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 01d991cff9b7f7a66740f86e537833ffe4e862c7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796509"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226266"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Comment utiliser la propriété « Entité attendue » des actions
 
@@ -47,9 +47,9 @@ Lorsque vous ajoutez des entités à la propriété « Entité attendue » d�
 2. Dans le champ « Name » (Nom), tapez « ExpectedEntities », puis appuyez sur Entrée.
 3. Cliquez sur le bouton « Create » (Créer).
 
-### <a name="entity-creation"></a>Création d’entité
+### <a name="entity-creation"></a>Création d’entités
 
-1. Dans le volet gauche, cliquez sur « Entities » (Entités), puis sur le bouton « New Entity » (Nouvelle entité).
+1. Dans le panneau gauche, cliquez sur « Entités », puis sur le bouton « Nouvelle entité ».
 2. Pour « Entity Type » (Type d’entité), sélectionnez « Custom Trained » (Formée personnalisée).
 3. Tapez « name » pour le « Nom d’entité ».
 4. Cliquez sur le bouton « Create » (Créer).
@@ -82,7 +82,7 @@ Vous avez maintenant deux actions.
 
 ![](../media/tutorial4_actions.PNG)
 
-### <a name="train-the-model"></a>Former le modèle
+### <a name="train-the-model"></a>Effectuer la formation du modèle
 
 1. Dans le volet gauche, cliquez sur « Train Dialogs » (Dialogues d’apprentissage), puis sur le bouton « New Train Dialog » (Nouveau dialogue d’apprentissage).
 2. Dans le panneau de conversation, sous « Type your message... » (Tapez votre message...), entrez « Bonjour ».
