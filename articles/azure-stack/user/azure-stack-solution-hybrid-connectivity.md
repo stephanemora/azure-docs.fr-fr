@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 84e952514b88620af565cf7e9775c055476fb530
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247559"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752657"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutoriel : Configurer l’identité de cloud hybride avec Azure et Azure Stack
 
@@ -61,7 +61,7 @@ Ce tutoriel suppose que vous disposez de connaissances de base sur Azure et Azur
 ### <a name="azure"></a>Azure
 
  - Si vous n’avez pas d’abonnement Azure, créez un  [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)  avant de commencer.
- - Créez une  [application web](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal) dans Azure. Notez l’URL de l’application web, car vous en aurez besoin dans le didacticiel.
+ - Créez une  [application web](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) dans Azure. Notez l’URL de l’application web, car vous en aurez besoin dans le didacticiel.
 
 ### <a name="azure-stack"></a>Azure Stack
 
@@ -97,7 +97,7 @@ Spécifications de la connexion :
 
 Adresses IP réseau et sous-réseau :
 
-| Connexion Azure/Azure Stack | NOM | Sous-réseau | Adresse IP |
+| Connexion Azure/Azure Stack | Nom | Sous-réseau | Adresse IP |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Réseau virtuel Azure | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | Sous-réseau de passerelle<br>10.100.103.0/24 |  |

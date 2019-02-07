@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 8115ffd943750d88a1aa9f94ba53ff972a636373
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ae9c0c1fb6cd341e812f9e8b35eaff789637561
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157310"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765644"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Qu'est-ce que l'API Recherche d’images Bing ?
 
@@ -33,9 +33,9 @@ Bien que le service Recherche d’images Bing recherche et renvoie principalemen
 | Fonctionnalité                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Suggestion de termes de recherche en temps réel](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | Améliorez votre expérience d’application en utilisant [l’API Suggestion automatique Bing](../bing-autosuggest/get-suggested-search-terms.md) pour afficher des suggestions de termes de recherche pendant la saisie de la requête. |
-| [Filtrage et restriction des résultats d’image](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#filtering-images)                       | Filtrez les images renvoyées par Bing en modifiant les paramètres de requête.                                                                                                       |
+| [Filtrage et restriction des résultats d’image](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | Filtrez les images renvoyées par Bing en modifiant les paramètres de requête.                                                                                                       |
 | [Rognage, redimensionnement et affichage des miniatures](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | Modifiez et affichez les miniatures des images renvoyées par le service Recherche d’images Bing.                                                                                      |
-| [Création d’un tableau croisé dynamique à partir des requêtes de recherche utilisateur et élargissement des requêtes](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#pivoting-the-query)               | Élargissez vos capacités de recherche en incluant et en affichant les suggestions de termes de recherche Bing dans les requêtes.                                                                    |
+| [Création d’un tableau croisé dynamique à partir des requêtes de recherche utilisateur et élargissement des requêtes](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | Élargissez vos capacités de recherche en incluant et en affichant les suggestions de termes de recherche Bing dans les requêtes.                                                                    |
 | [Obtention des images tendance](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | Personnalisez une recherche afin d’obtenir les images tendance du monde entier.                                                                                                          |
 
 ## <a name="workflow"></a>Workflow

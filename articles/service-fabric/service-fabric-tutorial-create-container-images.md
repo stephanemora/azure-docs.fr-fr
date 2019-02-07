@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: f2e8ce7dc6102471f95f6332d9cb01a6cb4f4f54
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0bba3c936463ad4fa8b4d06bf6f9df4f0ce6b863
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313783"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752311"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Didacticiel : Créer des images conteneurs sur un cluster Service Fabric Linux
 
@@ -190,7 +190,7 @@ Les commandes Docker de type push prennent quelques minutes.
 
 ## <a name="list-images-in-registry"></a>Créer la liste des images du registre
 
-Pour retourner une liste d’images qui ont été déplacées dans le registre de conteneurs Azure, utilisez la commande [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Mettez à jour la commande avec le nom d’instance ACR.
+Pour retourner une liste d’images qui ont été déplacées dans le registre de conteneurs Azure, utilisez la commande [az acr repository list](/cli/azure/acr/repository). Mettez à jour la commande avec le nom d’instance ACR.
 
 ```bash
 az acr repository list --name <acrName> --output table

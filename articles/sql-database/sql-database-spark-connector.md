@@ -11,19 +11,19 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/23/2018
-ms.openlocfilehash: 864cf49634e4f9452829a30ce4b260179bdeb8db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 09/25/2018
+ms.openlocfilehash: 927b887dbe9214867c0a694a611ca9fd9dc647a2
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476211"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565290"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Accélérer l’analytique du Big Data en temps réel avec le connecteur Spark pour Azure SQL Database et SQL Server
 
 Le connecteur Spark pour Azure SQL Database et SQL Server permet aux bases de données SQL, y compris à Azure SQL Database et SQL Server, de jouer le rôle de source de données d’entrée ou de récepteur de données de sortie pour les travaux Spark. Il vous permet d’utiliser des données transactionnelles en temps réel dans l’analytique du Big Data et de conserver les résultats pour des requêtes ad hoc ou des rapports. Par rapport au connecteur JDBC intégré, ce connecteur offre la possibilité d’insérer des données en bloc dans des bases de données SQL. Il peut donner de meilleurs résultats que l’insertion ligne par ligne et atteindre des performances entre 10 et 20 fois plus rapides. Le connecteur Spark pour Azure SQL Database et SQL Server prend également en charge l’authentification AAD. Il vous permet de vous connecter en toute sécurité à votre base de données SQL Azure depuis Azure Databricks à l’aide de votre compte AAD. Il fournit des interfaces similaires à celles du connecteur JDBC intégré. Effectuer la migration de vos travaux Spark existants pour utiliser ce nouveau connecteur est très simple.
 
-## <a name="download"></a>Download
+## <a name="download"></a>Téléchargement
 Pour commencer, téléchargez le connecteur Spark à SQL Database depuis le [dépôt azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) sur GitHub.
 
 ## <a name="official-supported-versions"></a>Versions officielles prises en charge

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446957"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733057"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles
 
@@ -45,15 +45,15 @@ La liste des modèles affiche plusieurs catégories de modèles applicables aux 
 
 ![Modèles du portail des développeurs][api-management-templates-menu]
 
-Cliquez sur un modèle pour accéder à la page du portail des développeurs que vous pouvez personnaliser avec ce modèle. Le modèle utilisé dans cet exemple s’intitule **Product list** (Liste de produits). Le modèle **Product list** contrôle la zone de l’écran indiquée par le rectangle rouge. 
+Cliquez sur un modèle pour accéder à la page du portail des développeurs que vous pouvez personnaliser avec ce modèle. Le modèle utilisé dans cet exemple s’intitule **Product list** (Liste de produits). Le modèle **Product list** contrôle la zone de l’écran indiquée par le rectangle rouge.
 
 ![Modèle Products list (Liste de produits)][api-management-developer-portal-templates-overview]
 
-Certains modèles, comme les modèles **User Profile** (Profil utilisateur), permettent de personnaliser différentes parties d’une même page. 
+Certains modèles, comme les modèles **User Profile** (Profil utilisateur), permettent de personnaliser différentes parties d’une même page.
 
 ![Modèles User profile (Profil utilisateur)][api-management-user-profile-templates]
 
-L’éditeur de chaque modèle du portail des développeurs comporte deux sections affichées au bas de la page. Dans la partie gauche figure le volet d’édition du modèle, tandis que la partie droite présente le modèle de données du modèle. 
+L’éditeur de chaque modèle du portail des développeurs comporte deux sections affichées au bas de la page. Dans la partie gauche figure le volet d’édition du modèle, tandis que la partie droite présente le modèle de données du modèle.
 
 Le volet d’édition du modèle contient le balisage qui contrôle l’apparence et le comportement de la page correspondante dans le portail des développeurs. Le balisage figurant dans le modèle utilise la syntaxe [DotLiquid](http://dotliquidmarkup.org/) . Pour DotLiquid, il existe un éditeur assez répandu : [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Les modifications apportées au modèle en phase d’édition s’affichent en temps réel dans le navigateur, mais vos clients ne peuvent pas les voir tant que vous [n’enregistrez](#to-save-a-template) et ne [publiez](#to-publish-a-template) pas le modèle.
 
@@ -118,7 +118,7 @@ Le balisage figurant dans le modèle **Product list** (Liste de produits) traite
         <li>
             <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
             {{product.description}}
-        </li>    
+        </li>
     {% endfor %}
     </ul>
     <paging-control></paging-control>
@@ -209,10 +209,3 @@ Pour obtenir des informations de référence sur les modèles du portail des dé
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
-
-
-
-
-
-
-

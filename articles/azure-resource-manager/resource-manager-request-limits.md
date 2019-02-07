@@ -13,14 +13,15 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136887"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493556"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
+
 Pour chaque abonnement et locataire Azure, Resource Manager autorise jusqu’à 12 000 demandes de lecture et 1 200 demandes d’écriture par heure. Ces limites sont définies d’après l’ID du principal qui effectue les requêtes et l’ID d’abonnement ou l’ID du locataire. Si vos demandes proviennent de plusieurs ID de principal, votre limite dans l’abonnement ou le locataire est supérieure à 12 000 et 1 200 par heure.
 
 Les requêtes sont appliquées à votre abonnement ou à votre locataire. Les requêtes appliquées à l’abonnement sont celles qui impliquent la transmission de votre ID d’abonnement, par exemple pour récupérer les groupes de ressources dans votre abonnement. Les requêtes appliquées au locataire n’incluent pas votre ID d’abonnement, notamment pour la récupération des emplacements Azure valides.
@@ -30,6 +31,8 @@ Ces limites s’appliquent à chaque instance Azure Resource Manager. Chaque ré
 Si votre application ou script atteint ces limites, vous devez limiter vos requêtes. Cet article vous montre comment déterminer les requêtes restantes dont vous disposez avant d’atteindre la limite et comment réagir si vous avez atteint la limite.
 
 Lorsque vous atteignez la limite, vous recevez le code d’état HTTP **429 Trop de requêtes**.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>Requêtes restantes
 Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-têtes de réponse. Chaque demande contient des valeurs pour le nombre de requêtes de lecture et d’écriture restantes. Le tableau suivant décrit les en-têtes de réponse que vous pouvez examiner pour ces valeurs :
@@ -66,7 +69,7 @@ Pour obtenir un exemple PowerShell complet, consultez [Vérifier les limites de 
 Si voulez voir les requêtes restantes pour le débogage, vous pouvez définir le paramètre **-Debug** sur votre cmdlet **PowerShell**.
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 Retourne un grand nombre de valeurs, notamment la valeur de réponse suivante :
@@ -85,7 +88,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 Pour obtenir des limites d’écriture, utilisez une opération d’écriture : 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Renvoie un grand nombre de valeurs, notamment celles-ci :

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 031085b3048d0ffc92dd5a35b4054903088b4858
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: c68b4bdffde5f987fe07d50d76fa83e7bdfa5235
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824334"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755036"
 ---
 # <a name="show-search-results-on-the-map"></a>Afficher les résultats de recherche sur la carte
 
@@ -29,7 +29,7 @@ Vous pouvez rechercher un lieu d’intérêt de deux façons. La première consi
 
 Dans le code ci-dessus, le premier bloc de code crée un objet carte et initialise le service client. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
 
-Le deuxième bloc de code utilise la méthode [getSearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) dans le [module de service](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). Elle vous permet d’effectuer une recherche de texte de forme libre via [l’API REST de recherche floue](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) pour rechercher des points d’intérêt. L’API de recherche approximative peut gérer n’importe quelle combinaison d’entrées approximatives. La réponse du service de recherche partielle est ensuite analysée au format GeoJSON à l’aide de la méthode [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse). 
+Le deuxième bloc de code utilise la méthode [getSearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) dans le [module de service](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). Elle vous permet d’effectuer une recherche de texte de forme libre via [l’API REST de recherche floue](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) pour rechercher des points d’intérêt. L’API de recherche approximative peut gérer n’importe quelle combinaison d’entrées approximatives. La réponse du service de recherche partielle est ensuite analysée au format GeoJSON à l’aide de la méthode [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest). 
 
 Le troisième bloc de code crée un objet source de données à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) et y ajoute les résultats de la recherche. Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que symboles sur la carte.  La couche de symboles est ensuite créée, la source de données y est ajoutée et l’ensemble est ensuite ajouté à la carte.
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 35c5731d260fb63dece3d2b8ae4f4a4522fb91b8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153402"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564785"
 ---
 # <a name="date-claims-transformations"></a>Transformations de revendications Date
 
@@ -23,7 +23,7 @@ ms.locfileid: "55153402"
 
 Cet article fournit des exemples pour l’utilisation de transformations de revendications Date du schéma Infrastructure d’expérience d’identité dans Azure Active Directory (Azure AD) B2C. Pour plus d’informations, consultez [ClaimsTransformations](claimstransformations.md).
 
-## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
+## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
 Vérifie qu’une revendication de date et d’heure (type de données string) est postérieure à une deuxième revendication de date et d’heure (type de données string) et lève une exception.
 
@@ -85,7 +85,6 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
     - **rightOperand** : 2018-10-01T14:00:00.0000000Z
 - Résultat : Erreur levée
 
-
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
 Convertit un ClaimType **Date** en un ClaimType **DateTime**. La transformation des revendications convertit le format d’heure et ajoute 12:00:00 AM à la date.
@@ -98,7 +97,7 @@ Convertit un ClaimType **Date** en un ClaimType **DateTime**. La transformation 
 L’exemple suivant illustre la conversion de la revendication `dateOfBirth` (type de données de date) en une autre revendication `dateOfBirthWithTime` (type de données date/heure).
 
 ```XML
-<ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
+  <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
     </InputClaims>
@@ -163,7 +162,7 @@ Pour exécuter la transformation de revendication,vous devez d’abord obtenir l
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="result" />
-  </OutputClaims>      
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -175,6 +174,5 @@ Pour exécuter la transformation de revendication,vous devez d’abord obtenir l
 - Paramètres d’entrée :
     - **opérateur** : après
     - **timeSpanInSeconds** : 7776000 (90 jours)
-- Revendications de sortie : 
+- Revendications de sortie :
     - **résultat** : true
-

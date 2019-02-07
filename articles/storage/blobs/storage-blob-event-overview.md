@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247746"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751393"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -90,7 +90,7 @@ Voici un exemple d’événement BlobCreated :
 Pour plus d’informations, consultez [Schéma des événements de stockage Blob](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Filtrage des événements
-Les abonnements aux événements d’objet Blob peuvent être filtrés en fonction du type d’événement et par le nom du conteneur et le nom de l’objet blob de l’objet qui a été créé ou supprimé.  Des filtres peuvent être appliqués aux abonnements aux événements pendant la [création](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) de l’abonnement aux événements ou [ultérieurement](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update). Les filtres d’objet dans Event Grid reposent sur les correspondances « commence par » et « se termine par », afin que les événements dont l’objet correspond soient remis à l’abonné. 
+Les abonnements aux événements d’objet Blob peuvent être filtrés en fonction du type d’événement et par le nom du conteneur et le nom de l’objet blob de l’objet qui a été créé ou supprimé.  Des filtres peuvent être appliqués aux abonnements aux événements pendant la [création](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) de l’abonnement aux événements ou [ultérieurement](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Les filtres d’objet dans Event Grid reposent sur les correspondances « commence par » et « se termine par », afin que les événements dont l’objet correspond soient remis à l’abonné. 
 
 Le sujet des événements de stockage d’objets Blob utilise le format suivant :
 

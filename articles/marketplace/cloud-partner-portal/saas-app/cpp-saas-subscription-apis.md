@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a778723093b226ee0e681c2a95ce4db597a310e5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198698"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695370"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Vente SaaS via Azure : interfaces de programmation d’applications
 
@@ -176,13 +176,13 @@ L’action POST sur le point de terminaison de résolution permet aux utilisateu
 
 *Corps de réponse*
 
- ``` json       
-    { 
-        “id”: “”, 
-        “subscriptionName”: “”,
-        “offerId”:””, 
-         “planId”:””
-    }     
+``` json
+{
+    "id": "",
+    "subscriptionName": "",
+    "offerId": "",
+    "planId": "",
+}
 ```
 
 | **Nom du paramètre** | **Type de données** | **Description**                       |
@@ -246,9 +246,9 @@ Le point de terminaison d’abonnement permet aux utilisateurs de s’abonner à
 *Corps*
 
 ``` json
-  { 
-      “planId”:””
-   }      
+{
+    "lanId": "",
+}
 ```
 
 | **Nom de l’élément** | **Type de données** | **Description**                      |
@@ -307,15 +307,13 @@ Le point de terminaison de changement permet à l’utilisateur de convertir son
 | autorisation           | Oui          | Jeton du porteur Web JSON (JWT).                    |
 |  |  |  |
 
-
 *Corps*
 
-``` json
-                { 
-                    “planId”:””
-                } 
+```json
+{
+    "planId": ""
+}
 ```
-
 
 |  **Nom de l’élément** |  **Type de données**  | **Description**                              |
 |  ---------------- | -------------   | --------------------------------------       |
@@ -370,7 +368,6 @@ L’action Delete sur le point de terminaison d’abonnement permet à un utilis
 | x-ms-correlationid | Non            | Valeur de chaîne unique pour l’opération sur le client. Cette valeur sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 | autorisation      | Oui          | Jeton du porteur Web JSON (JWT).                    |
 |  |  |  |
- 
 
 *Codes de réponse*
 
@@ -413,7 +410,6 @@ Ce terminal permet à l’utilisateur de suivre l’état d’une opération asy
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-
 *En-têtes*
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                                                                                                                                                  |
@@ -422,18 +418,17 @@ Ce terminal permet à l’utilisateur de suivre l’état d’une opération asy
 | x-ms-correlationid | Non            | Valeur de chaîne unique pour l’opération sur le client. Cette valeur sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 | autorisation      | Oui          | Jeton du porteur Web JSON (JWT).                    |
 |  |  |  | 
-  
 
 *Corps de réponse*
 
-``` json
-  { 
-      “id”: “”, 
-      “status”:””, 
-       “resourceLocation”:””, 
-      “created”:””, 
-      “lastModified”:”” 
-  } 
+```json
+{
+    "id": "",
+    "status": "",
+    "resourceLocation": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Nom du paramètre** | **Type de données** | **Description**                                                                                                                                               |
@@ -494,16 +489,16 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 *Corps de réponse*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “” 
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 | **Nom du paramètre**     | **Type de données** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
@@ -539,7 +534,6 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 | etag               | Oui          | Lien vers une ressource pour obtenir le statut de l’opération.                                                        |
 |  |  |  |
 
-
 ### <a name="get-subscriptions"></a>Obtenir des abonnements
 
 L’action Get sur le point de terminaison d’abonnement permet à un utilisateur de récupérer tous les abonnements pour toutes les offres émanant de l’éditeur de logiciels indépendant.
@@ -564,19 +558,18 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 | autorisation      | Oui          | Jeton du porteur Web JSON (JWT).                    |
 |  |  |  |
 
-
 *Corps de réponse*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “”
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Nom du paramètre**     | **Type de données** | **Description**                               |
@@ -615,7 +608,6 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 ### <a name="saas-webhook"></a>Webhook SaaS
 
 Un Webhook SaaS est utilisé pour notifier les modifications de manière proactive au service SaaS. Cette API POST est censée ne pas être authentifié et sera appelée par le service Microsoft. Le service SaaS est censé appeler l’API Opérations pour valider et autoriser avant d’entreprendre une action sur la notification de Webhook. 
-
 
 *Corps*
 

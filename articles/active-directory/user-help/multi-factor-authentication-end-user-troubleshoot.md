@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: 2b8a0db21ab4beb2128ae0a1cebbf9fb42691f3c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2ede7a172eda1122b0668984cc8e11937b3ae852
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177405"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768181"
 ---
 # <a name="get-help-with-two-step-verification"></a>Obtenir de l’aide pour la vérification en deux étapes
 
@@ -36,7 +36,7 @@ Plusieurs raisons peuvent expliquer la nécessité de changer de méthode de vé
 
 - **Vous avez perdu votre téléphone ou vous avez changé de numéro de téléphone.** Si vous avez perdu votre téléphone ou avez changé de numéro, vous pouvez vous connecter à l’aide d’une autre méthode ou demander à votre administrateur d’effacer vos paramètres. Nous vous recommandons vivement d’informer votre administrateur en cas de perte ou de vol de votre téléphone, afin que les mises à jour nécessaires puissent être appliquées à votre compte. Une fois vos paramètres effacés, la prochaine fois que vous vous connecterez, vous serez invité à vous [réinscrire à la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
 
-- **Vous n’avez pas reçu le SMS ou l’appel d’authentification.** Plusieurs raisons peuvent expliquer le fait que vous ne receviez pas de SMS ou d’appel. Si vous receviez des SMS ou des appels et que ce n’est plus le cas, il s’agit probablement d’un problème avec le fournisseur de téléphonie, et non d’un problème lié à votre compte. Si vous recevez les messages en retard en raison d’un mauvais signal, nous vous recommandons d’utiliser [l’application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) sur votre appareil mobile. Cette application peut générer des codes de sécurité aléatoires pour la connexion, sans nécessiter de signal de mobile ou de connexion Internet.<br><br>Pour savoir si vous pouvez recevoir des SMS, demandez à un ami de vous en envoyer un. Si vous avez reçu plusieurs messages, utilisez le code du message le plus récent.
+- **Vous n’avez pas reçu le SMS ou l’appel d’authentification.** Plusieurs raisons peuvent expliquer le fait que vous ne receviez pas de SMS ou d’appel. Si vous receviez des SMS ou des appels et que ce n’est plus le cas, il s’agit probablement d’un problème avec le fournisseur de téléphonie, et non d’un problème lié à votre compte. Si vous recevez les messages en retard en raison d’un mauvais signal, nous vous recommandons d’utiliser [l’application Microsoft Authenticator](user-help-auth-app-download-install.md) sur votre appareil mobile. Cette application peut générer des codes de sécurité aléatoires pour la connexion, sans nécessiter de signal de mobile ou de connexion Internet.<br><br>Pour savoir si vous pouvez recevoir des SMS, demandez à un ami de vous en envoyer un. Si vous avez reçu plusieurs messages, utilisez le code du message le plus récent.
 
 - **Les mots de passe d’application ne fonctionnent pas.** Les mots de passe d’application viennent remplacer les mots de passe standard de vos anciennes applications de bureau qui ne prennent pas en charge la vérification en deux étapes. En premier lieu, vérifiez que vous avez correctement tapé le mot de passe. Si le problème n’est pas résolu, essayez de vous connecter pour [créer un nouveau mot de passe](multi-factor-authentication-end-user-app-passwords.md), ou contactez votre administrateur pour [supprimer vos mots de passe d’application existants](../authentication/howto-mfa-userdevicesettings.md) afin d’en créer un nouveau.
 
@@ -61,4 +61,4 @@ Si malgré ces solutions, vous rencontrez encore des problèmes, contactez votre
 
 * [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md)
 
-* [FAQ sur l’application Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+* [FAQ sur l’application Microsoft Authenticator](user-help-auth-app-faq.md)

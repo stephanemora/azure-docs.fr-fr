@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7dffa1480be73f1dbf5e99d11fd8d33eb2ab9038
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 816d25473bfe5f9dc61d6d6f2e50d6cd82ace50c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196410"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562185"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C en utilisant un stratégie personnalisée
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dans Azure Active Directory (Azure AD) B2C, le flux des informations d’identification par mot de passe de propriétaire ressource (ROPC) est un flux d’authentification standard OAuth. Dans ce flux, une application, également appelée partie de confiance, échange des informations d’identification valides pour des jetons. Les informations d’identification incluent un ID utilisateur et un mot de passe. Les jetons retournés sont un jeton d’ID, un jeton d’accès et un jeton d’actualisation. 
+Dans Azure Active Directory (Azure AD) B2C, le flux des informations d’identification par mot de passe de propriétaire ressource (ROPC) est un flux d’authentification standard OAuth. Dans ce flux, une application, également appelée partie de confiance, échange des informations d’identification valides pour des jetons. Les informations d’identification incluent un ID utilisateur et un mot de passe. Les jetons retournés sont un jeton d’ID, un jeton d’accès et un jeton d’actualisation.
 
 Les options prises en charge dans le flux ROPC sont les suivantes :
 
 - **Client natif** : une interaction de l’utilisateur lors de l’authentification se produit lorsque le code s’exécute sur un appareil côté utilisateur.
 - **Flux client public** : seules les informations d’identification de l’utilisateur collectées par une application sont envoyées dans l’appel d’API. Les informations d’identification de l’application ne sont pas envoyées.
-- **Ajouter de nouvelles revendications** : Il est possible de modifier le contenu du jeton de l’ID pour ajouter de nouvelles revendications. 
+- **Ajouter de nouvelles revendications** : Il est possible de modifier le contenu du jeton de l’ID pour ajouter de nouvelles revendications.
 
 Les flux suivants ne sont pas pris en charge :
 
@@ -43,7 +43,7 @@ Suivez les étapes de l’article [Prise en main des stratégies personnalisées
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**. 
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application, par exemple *ROPC_Auth_app*.
 6. Sélectionnez **Non** pour **Application/API web**, puis **Oui** pour **Client natif**.
@@ -193,7 +193,7 @@ Suivez les étapes de l’article [Prise en main des stratégies personnalisées
           </Metadata>
         </TechnicalProfile>
       </TechnicalProfiles>
-    </ClaimsProvider>    
+    </ClaimsProvider>
     ```
 
 6. Ajoutez un élément **UserJourneys** et ses éléments enfants à l’élément **TrustFrameworkPolicy** :
@@ -201,7 +201,7 @@ Suivez les étapes de l’article [Prise en main des stratégies personnalisées
     ```XML
     <UserJourney Id="ResourceOwnerPasswordCredentials">
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
-        <OrchestrationSteps>
+      <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="ResourceOwnerFlow" TechnicalProfileReferenceId="ResourceOwnerPasswordCredentials-OAUTH2" />
@@ -278,7 +278,7 @@ Utilisez votre application de développement d’API favorite pour générer un 
 
 - Remplacez `user-account` par le nom d’un compte d’utilisateur de votre locataire.
 - Remplacez `password1` par le mot de passe du compte d’utilisateur.
-- Remplacez `application-id` par l’ID d’application extrait de l’inscription *ROPC_Auth_app*. 
+- Remplacez `application-id` par l’ID d’application extrait de l’inscription *ROPC_Auth_app*.
 - *offline_access* est facultatif si vous voulez recevoir un jeton d’actualisation.
 
 La requête POST réelle ressemble à l’exemple suivant :
@@ -291,17 +291,16 @@ Content-Type: application/x-www-form-urlencoded
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
-
 Une réponse correcte avec accès hors connexion ressemble à l’exemple suivant :
 
 ```JSON
-{ 
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...", 
-    "token_type": "Bearer", 
-    "expires_in": "3600", 
-    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...", 
-    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..." 
-} 
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...",
+    "token_type": "Bearer",
+    "expires_in": "3600",
+    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..."
+}
 ```
 
 ## <a name="redeem-a-refresh-token"></a>Échanger un jeton d’actualisation
@@ -322,7 +321,7 @@ Construire un appel POST comme celui illustré ici. Utilisez les informations du
 | refresh_token | `refresh-token` |
 
 - Remplacez `application-id` par l’ID d’application extrait de l’inscription *ROPC_Auth_app*.
-- Remplacez `refresh-token` par le **refresh_token** renvoyé dans la réponse précédente. 
+- Remplacez `refresh-token` par le **refresh_token** renvoyé dans la réponse précédente.
 
 Une réponse correcte ressemble à l’exemple suivant :
 
@@ -350,5 +349,3 @@ Azure AD B2C respecte les normes OAuth 2.0 ou les informations d’identificatio
 
 - Consulter un exemple complet de ce scénario dans le [pack de démarrage de stratégie personnalisée Azure Active Directory B2C](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
 - Apprenez-en davantage sur les jetons utilisés par Azure Active Directory B2C dans la [Documentation de référence sur les jetons](active-directory-b2c-reference-tokens.md).
-
-

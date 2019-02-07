@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 831286f1c98a2fc3d26277f4006283c3de64f900
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee53cc3a639a79e1b29ac6cd537bfb04e05b1bca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463240"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692474"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Format de fichier de manifeste du service Azure Import/Export
 Le fichier de manifeste de disque décrit le mappage entre les objets blob dans le stockage Blob Azure et les fichiers sur le disque comprenant un travail d’importation ou d’exportation. Pour une opération d’importation, le fichier de manifeste est créé dans le cadre du processus de préparation du disque et est stocké sur le disque avant d’envoyer le disque vers le centre de données Azure. Pendant une opération d’exportation, le manifeste est créé et stocké sur le disque par le service d’importation/exportation Azure.  
@@ -97,7 +97,7 @@ Les éléments et attributs de données du format XML de manifeste de disque son
 |`Drive`|Élément XML imbriqué|Contient le manifeste de chaque disque.|  
 |`DriveId`|Chaîne|Identificateur de disque unique pour le disque. L’identificateur de disque peut être trouvé en recherchant le numéro de série du disque. Le numéro de série du disque est également généralement imprimé à l’extérieur du disque. L’élément `DriveID` doit apparaître avant tout élément `BlobList` dans le fichier de manifeste.|  
 |`StorageAccountKey`|Chaîne|Obligatoire pour les travaux d’importation si et seulement si `ContainerSas` n’est pas spécifié. Clé du compte de stockage Azure associé au travail.<br /><br /> Cet élément est omis du manifeste pour une opération d’exportation.|  
-|`ContainerSas`|Chaîne|Obligatoire pour les travaux d’importation si et seulement si `StorageAccountKey` n’est pas spécifié. SAP de conteneur pour accéder aux objets blob associés au travail. Consultez [Travail Put](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) pour connaître son format. Cet élément est omis du manifeste pour une opération d’exportation.|  
+|`ContainerSas`|Chaîne|Obligatoire pour les travaux d’importation si et seulement si `StorageAccountKey` n’est pas spécifié. SAP de conteneur pour accéder aux objets blob associés au travail. Consultez [Travail Put](/rest/api/storageimportexport/jobs) pour connaître son format. Cet élément est omis du manifeste pour une opération d’exportation.|  
 |`ClientCreator`|Chaîne|Spécifie le client qui a créé le fichier XML. Cette valeur n’est pas interprétée par le service d’importation/exportation.|  
 |`BlobList`|Élément XML imbriqué|Contient une liste d’objets blob qui font partie du travail d’importation ou d’exportation. Chaque objet blob d’une liste d’objets blob partage les mêmes métadonnées et propriétés.|  
 |`BlobList/MetadataPath`|Chaîne|facultatif. Spécifie le chemin d’accès relatif d’un fichier sur le disque qui contient les métadonnées par défaut définies sur les objets blob dans la liste d’objets blob pour une opération d’importation. Ces métadonnées peuvent éventuellement être remplacées, objet blob par objet blob.<br /><br /> Cet élément est omis du manifeste pour une opération d’exportation.|  

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 744c8d6488b9b0688126d305426f90647a89d4be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478081"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733431"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plateformes de données prises en charge sur la machine virtuelle DSVM
 
@@ -105,5 +105,5 @@ Vous pouvez arrêter les services liés à Hadoop quand vous n’en avez pas bes
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
-Les bibliothèques pour l’accès aux données à partir du Stockage Blob Azure ou Azure Data Lake Storage (ADLS) et l’utilisation des bibliothèques d’apprentissage automatique MMLSpark de Microsoft sont préinstallées dans $SPARK_HOME/jars. Ces fichiers JAR sont automatiquement chargés au démarrage de Spark. Par défaut, Spark utilise des données sur le disque local. Pour que l’instance de Spark sur la machine virtuelle DSVM puisse accéder aux données stockées dans le Stockage Blob Azure ou dans ADLS, vous devez créer/configurer le fichier `core-site.xml` basé sur le modèle qui se trouve dans $SPARK_HOME/conf/core-site.xml.template (où il existe des espaces réservés pour les configurations du Stockage Blob Azure et ADLS) avec les informations d’identification appropriées pour le Stockage Blob Azure et Azure Data Lake Storage. Vous trouverez des étapes de création d’informations d’identification de service ADLS plus détaillées [ici](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Une fois que les informations d’identification pour le Stockage Blob Azure ou ADLS ont été entrées dans le fichier core-site.XML, vous pouvez référencer les données stockées dans ces sources, avec le préfixe d’URI wasb:// ou adl://. 
+Les bibliothèques pour l’accès aux données à partir du Stockage Blob Azure ou Azure Data Lake Storage (ADLS) et l’utilisation des bibliothèques d’apprentissage automatique MMLSpark de Microsoft sont préinstallées dans $SPARK_HOME/jars. Ces fichiers JAR sont automatiquement chargés au démarrage de Spark. Par défaut, Spark utilise des données sur le disque local. Pour que l’instance de Spark sur la machine virtuelle DSVM puisse accéder aux données stockées dans le Stockage Blob Azure ou dans ADLS, vous devez créer/configurer le fichier `core-site.xml` basé sur le modèle qui se trouve dans $SPARK_HOME/conf/core-site.xml.template (où il existe des espaces réservés pour les configurations du Stockage Blob Azure et ADLS) avec les informations d’identification appropriées pour le Stockage Blob Azure et Azure Data Lake Storage. Vous trouverez des étapes de création d’informations d’identification de service ADLS plus détaillées [ici](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Une fois que les informations d’identification pour le Stockage Blob Azure ou ADLS ont été entrées dans le fichier core-site.XML, vous pouvez référencer les données stockées dans ces sources, avec le préfixe d’URI wasb:// ou adl://. 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: c99b22a5dad1e64525b2b2ebcd214c3dc5bfb28f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8700d0988927b221ace82a492e9902f1f36a562b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473593"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731368"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Utiliser des données à l’aide de l’Explorateur Stockage Azure
 
@@ -59,7 +59,7 @@ Une autre façon de se connecter à Azure Cosmos DB est d’utiliser une chaîne
 
     ![Se connecter à Cosmos DB avec une chaîne de connexion](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Actuellement seules les API SQL et Table sont prises en charge. Choisissez l’API, collez la **chaîne de connexion**, indiquez un nom dans le champ **Libellé de compte**, cliquez sur **Suivant** pour vérifier le résumé, puis cliquez sur **Connexion** pour vous connecter au compte Azure Cosmos DB. Pour plus d’informations sur la récupération de la chaîne de connexion, consultez [Obtenir la chaîne de connexion](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Actuellement seules les API SQL et Table sont prises en charge. Choisissez l’API, collez la **chaîne de connexion**, indiquez un nom dans le champ **Libellé de compte**, cliquez sur **Suivant** pour vérifier le résumé, puis cliquez sur **Connexion** pour vous connecter au compte Azure Cosmos DB. Pour plus d’informations sur la récupération de la chaîne de connexion, consultez [Obtenir la chaîne de connexion](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![Connection-string](./media/storage-explorer/connection-string.png)
 
@@ -73,7 +73,7 @@ Suivez les étapes ci-après pour vous connecter à Azure Cosmos DB à l’aide 
 
     ![Se connecter à Cosmos DB à l’aide d’un émulateur](./media/storage-explorer/emulator-entry.png)
 
-3. Actuellement seules les API SQL sont prises en charge. Collez la **chaîne de connexion**, indiquez un nom dans le champ **Libellé de compte**, cliquez sur **Suivant** pour vérifier le résumé, puis cliquez sur **Connexion** pour vous connecter au compte Azure Cosmos DB. Pour plus d’informations sur la récupération de la chaîne de connexion, consultez [Obtenir la chaîne de connexion](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+3. Actuellement seules les API SQL sont prises en charge. Collez la **chaîne de connexion**, indiquez un nom dans le champ **Libellé de compte**, cliquez sur **Suivant** pour vérifier le résumé, puis cliquez sur **Connexion** pour vous connecter au compte Azure Cosmos DB. Pour plus d’informations sur la récupération de la chaîne de connexion, consultez [Obtenir la chaîne de connexion](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![Boîte de dialogue de connexion à Cosmos DB à l’aide d’un émulateur](./media/storage-explorer/emulator-dialog.png)
 

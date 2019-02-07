@@ -9,20 +9,18 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66f9c41e2551dffc32932f1cfa53fa444251b303
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a6ae388107e527b399dc758abccbefcec955a60d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301048"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661630"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>S’authentifier avec un registre de conteneurs Docker
 
 Plusieurs méthodes permettent de s’authentifier avec un registre de conteneurs Azure, chacune d’elles étant applicable à un ou plusieurs scénarios d’usage du registre.
 
 Vous pouvez vous connecter directement à un registre par le biais d’une [connexion individuelle](#individual-login-with-azure-ad), sinon vos applications et orchestrateurs de conteneurs peuvent procéder à une authentification sans assistance, ou « headless » (administrée à distance), à l’aide d’un [principal de service](#service-principal) Azure Active Directory (Azure AD).
-
-Azure Container Registry ne prend pas en charge les opérations Docker non authentifiées ni les accès anonymes. Pour des images publiques, vous pouvez utiliser [Docker Hub](https://docs.docker.com/docker-hub/).
 
 ## <a name="individual-login-with-azure-ad"></a>Connexion individuelle avec Azure AD
 
@@ -69,7 +67,7 @@ docker login myregistry.azurecr.io
 Une fois que vous êtes connecté, Docker met les informations d’identification en cache. Vous n’avez donc pas besoin de vous souvenir de l’ID d’application.
 
 > [!TIP]
-> Vous pouvez régénérer le mot de passe d’un principal du service en exécutant la commande [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).
+> Vous pouvez régénérer le mot de passe d’un principal du service en exécutant la commande [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest).
 >
 
 ## <a name="admin-account"></a>Compte d’administrateur

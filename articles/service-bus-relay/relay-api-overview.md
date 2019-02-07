@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c7aec700a1077bc1a1b56afb5d8d07f47f4c6e8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700370"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663092"
 ---
 # <a name="available-relay-apis"></a>API Relay disponibles
 
@@ -39,7 +39,7 @@ La section [Informations supplémentaires](#additional-information) contient plu
 
 #### <a name="net"></a>.NET
 
-L’écosystème .NET ayant plusieurs runtimes, il existe plusieurs bibliothèques .NET pour Relay. La bibliothèque .NET Standard peut être exécutée à l’aide de .NET Core ou de .NET Framework, tandis que la bibliothèque .NET Framework peut uniquement être exécutée dans un environnement .NET Framework. Pour plus d’informations sur .NET Framework, consultez les [versions d’infrastructure](/dotnet/articles/standard/frameworks#framework-versions).
+L’écosystème .NET ayant plusieurs runtimes, il existe plusieurs bibliothèques .NET pour Relay. La bibliothèque .NET Standard peut être exécutée à l’aide de .NET Core ou de .NET Framework, tandis que la bibliothèque .NET Framework peut uniquement être exécutée dans un environnement .NET Framework. Pour plus d’informations sur .NET Framework, consultez les [versions d’infrastructure](/dotnet/articles/standard/frameworks).
 
 La bibliothèque .NET Framework prend uniquement en charge le modèle de programmation WCF et s’appuie sur un protocole binaire propriétaire basé sur le transport `net.tcp` WCF. Ce protocole et cette bibliothèque sont conservés à des fins de compatibilité descendante avec les applications existantes.
 

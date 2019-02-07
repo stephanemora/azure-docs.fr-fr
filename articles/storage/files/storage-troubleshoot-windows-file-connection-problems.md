@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 384a277f3465ac97285fbb08fa299a5bed8c87c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477690"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564440"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -61,7 +61,7 @@ Une erreur système 53 ou 67 peut se produire si la communication sortante du 
 
 Pour vérifier si votre pare-feu ou votre ISP bloque le port 445, utilisez l’outil [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ou l’applet de commande `Test-NetConnection`. 
 
-Pour utiliser l’applet de commande `Test-NetConnection`, vous devez avoir installé le module AzureRM PowerShell, consultez [Installer un module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resoure-group-name>` avec les noms appropriés de votre compte de stockage.
+Pour utiliser l’applet de commande `Test-NetConnection`, vous devez avoir installé le module AzureRM PowerShell, consultez [Installer un module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -265,11 +265,11 @@ Par exemple, spécifiez la valeur 0x100000 pour voir si les performances sont me
 
 ### <a name="cause"></a>Cause :
 
-L’erreur AadDsTenantNotFound se produit lorsque vous tentez d’[activer l’authentification Azure Active Directory (AAD) pour Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) sur un compte de stockage où un [Service de domaine AAD (AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) n’est pas créé sur le locataire AAD de l’abonnement associé.  
+L’erreur AadDsTenantNotFound se produit lorsque vous tentez d’[activer l’authentification Azure Active Directory (AAD) pour Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) sur un compte de stockage où un [Service de domaine AAD (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) n’est pas créé sur le locataire AAD de l’abonnement associé.  
 
 ### <a name="solution"></a>Solution
 
-Activez AAD DS sur le locataire AAD de l’abonnement sur lequel votre compte de stockage est déployé. Pour créer un domaine managé, vous devez disposer des privilèges d’administrateur du locataire AAD. Si vous n’êtes pas l’administrateur du locataire Azure AD, contactez-le et suivez les instructions pas à pas pour [Activer Azure Active Directory Domain Services à l’aide du portail Azure](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Activez AAD DS sur le locataire AAD de l’abonnement sur lequel votre compte de stockage est déployé. Pour créer un domaine managé, vous devez disposer des privilèges d’administrateur du locataire AAD. Si vous n’êtes pas l’administrateur du locataire Azure AD, contactez-le et suivez les instructions pas à pas pour [Activer Azure Active Directory Domain Services à l’aide du portail Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.

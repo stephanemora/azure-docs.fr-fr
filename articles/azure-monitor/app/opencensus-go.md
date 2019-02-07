@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 935119f2efe40ee22d2d11005fa79b12c712b7c2
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104570"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694103"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Collecter les traces distribuées à partir de Go (préversion)
 
@@ -24,7 +24,7 @@ Application Insights prend désormais en charge le suivi distribué des applicat
 
 - Vous avez besoin d’un abonnement Azure.
 - Go doit être installé, cet article utilise la version 1.11, [Téléchargement de Go](https://golang.org/dl/).
-- Suivez les instructions pour installer le [redirecteur local en tant que service Windows](./opencensus-local-forwarder.md#windows-service).
+- Suivez les instructions pour installer le [redirecteur local en tant que service Windows](./opencensus-local-forwarder.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -57,7 +57,7 @@ Vous devez tout d’abord créer une ressource Application Insights qui génère
 
    ![Capture d’écran de la clé d’instrumentation](./media/opencensus-Go/0003-instrumentation-key.png)
 
-2. Modifiez votre fichier `LocalForwarder.config` et ajoutez votre clé d’instrumentation. Si vous avez suivi les instructions fournies dans les [prérequis](./opencensus-local-forwarder.md#windows-service), le fichier se trouve dans `C:\LF-WindowsServiceHost`
+2. Modifiez votre fichier `LocalForwarder.config` et ajoutez votre clé d’instrumentation. Si vous avez suivi les instructions fournies dans les [prérequis](./opencensus-local-forwarder.md), le fichier se trouve dans `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -186,7 +186,7 @@ Vous devez tout d’abord créer une ressource Application Insights qui génère
 
 3. Une fois l’application Go simple en cours d’exécution, accédez à `http://localhost:50030`. Chaque actualisation du navigateur génère le texte « hello world » accompagné des données environnantes correspondantes récupérées par le redirecteur local.
 
-4. Pour vérifier que le **redirecteur local** collecte les traces, consultez le fichier `LocalForwarder.config`. Si vous avez suivi les étapes décrites dans les [prérequis](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), il se trouve dans `C:\LF-WindowsServiceHost`.
+4. Pour vérifier que le **redirecteur local** collecte les traces, consultez le fichier `LocalForwarder.config`. Si vous avez suivi les étapes décrites dans les [prérequis](https://docs.microsoft.com/azure/application-insights/local-forwarder), il se trouve dans `C:\LF-WindowsServiceHost`.
 
     Dans l’image ci-dessous du fichier journal, vous voyez qu’avant d’exécuter le second script dans lequel nous avons ajouté un exportateur, la valeur de `OpenCensus input BatchesReceived` était 0. Une fois que nous avons commencé à exécuter le script mis à jour, la valeur de `BatchesReceived` a augmenté du nombre de valeurs saisies :
     

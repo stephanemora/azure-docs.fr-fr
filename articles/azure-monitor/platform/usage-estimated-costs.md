@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: c326c255636bac7e698a64044e9ab65c8c05d01c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6207c44fbac63163d125a109cbdc1c6f08e9860
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460717"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734502"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Surveillance de l’utilisation et de l’estimation des coûts
 
@@ -73,7 +73,7 @@ Une autre modification est apportée aux données ingérées dans Log Analytics 
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Nouveau modèle de tarification et droits applicables à l’abonnement à Operations Management Suite
 
-Les clients ayant acheté Microsoft Operations Management Suite E1 et E2 peuvent bénéficier des droits d’ingestion des données par nœud pour [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) et [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Pour que ces droits applicables aux espaces de travail Log Analytics ou aux ressources Application Insights puissent être reçus dans un abonnement donné : 
+Les clients ayant acheté Microsoft Operations Management Suite E1 et E2 peuvent bénéficier des droits d’ingestion des données par nœud pour [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) et [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Pour que ces droits applicables aux espaces de travail Log Analytics ou aux ressources Application Insights puissent être reçus dans un abonnement donné : 
 
 - Le modèle tarifaire de cet abonnement doit rester dans le modèle tarifaire antérieur à avril 2018.
 - Les espaces de travail Log Analytics doivent utiliser le niveau tarifaire « Par nœud (OMS) ».

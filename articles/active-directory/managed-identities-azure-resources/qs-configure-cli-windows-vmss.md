@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: priyamo
-ms.openlocfilehash: 03e22ae9aaa3ab967b55443ccbd933c265510227
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 42b0ab15f43d301629b9fbb3208ba24eae8c227e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180107"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694599"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant Azure CLI
 
@@ -113,7 +113,7 @@ Si vous disposez d’une machine virtuelle qui n’a plus besoin de l’identit�
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Pour supprimer l’extension de machine virtuelle d’identités managées pour ressources Azure (dont l’abandon est prévu en janvier 2019), utilisez la commande [az vmss identity remove](/cli/azure/vmss/identity/#az-vmss-remove-identity) pour supprimer l’identité managée affectée par le système d’un groupe de machines virtuelles identiques :
+Pour supprimer l’extension de machine virtuelle d’identités managées pour ressources Azure (dont l’abandon est prévu en janvier 2019), utilisez la commande [az vmss identity remove](/cli/azure/vmss/identity/) pour supprimer l’identité managée affectée par le système d’un groupe de machines virtuelles identiques :
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -190,7 +190,7 @@ La réponse contient les détails de l’identité managée affectée par l’ut
    }
    ```
 
-2. Attribuez l’identité managée affectée par l’utilisateur à votre groupe de machines virtuelles identiques en utilisant la commande [az vmss identity assign](/cli/azure/vmss/identity#az-vm-assign-identity). N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<VMSS NAME>` par vos propres valeurs. `<USER ASSIGNED IDENTITY>` est la propriété `name` de ressource de l’identité managée affectée par l’utilisateur, telle que créée à l’étape précédente :
+2. Attribuez l’identité managée affectée par l’utilisateur à votre groupe de machines virtuelles identiques en utilisant la commande [az vmss identity assign](/cli/azure/vmss/identity). N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<VMSS NAME>` par vos propres valeurs. `<USER ASSIGNED IDENTITY>` est la propriété `name` de ressource de l’identité managée affectée par l’utilisateur, telle que créée à l’étape précédente :
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>

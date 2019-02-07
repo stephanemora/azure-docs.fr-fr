@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 93b1b0c8288fb408e4af6aba2eb2267ce650208c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247117"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658332"
 ---
 # <a name="marketplace-faqs"></a>Questions fréquentes (FAQ) sur la Place de marché
 
@@ -358,7 +358,7 @@ Les éditeurs qui publient des types de liste Transaction : machine virtuelle, 
 
 **Que sont les prospects et en quoi sont-ils importants pour moi qui suis éditeur dans la Place de marché ?**
 
-Les prospects sont des clients qui déploient vos produits à partir de la Place de marché. Si votre produit est répertorié sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) ou sur [AppSource](https://appsource.microsoft.com), vous pouvez recevoir des prospects de clients qui sont intéressés par votre produit.  Vous pouvez configurer la destination du prospect sur votre offre. Pour en savoir plus, consultez [Devenir éditeur sur Place de marché dans le cloud](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher).
+Les prospects sont des clients qui déploient vos produits à partir de la Place de marché. Si votre produit est répertorié sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) ou sur [AppSource](https://appsource.microsoft.com), vous pouvez recevoir des prospects de clients qui sont intéressés par votre produit.  Vous pouvez configurer la destination du prospect sur votre offre. Pour en savoir plus, consultez [Devenir éditeur sur Place de marché dans le cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **Où puis-je obtenir de l’aide pour configurer la destination des prospects ?**
 

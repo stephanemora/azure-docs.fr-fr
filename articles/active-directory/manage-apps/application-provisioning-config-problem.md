@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2d1a449511ce944783c8d93b79d59be263b20fa3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38075c9216eab955a023fee53aad74f3768d783c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163941"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822270"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
 
@@ -41,7 +41,7 @@ Une fois que le service est configuré, la plupart des informations sur son fonc
 Voici une liste des problèmes généraux que vous pouvez explorer si vous savez par où commencer.
 
 * [Le service d’approvisionnement ne semble pas démarrer](#provisioning-service-does-not-appear-to-start)
-* [Impossible d’enregistrer la configuration car les informations d’identification de l’application ne fonctionnent pas](#can’t-save-configuration-due-to-app-credentials-not-working)
+* Impossible d’enregistrer la configuration car les informations d’identification de l’application ne fonctionnent pas
 * [Les journaux d’audit indiquent que les utilisateurs sont ignorés et non approvisionnés, alors qu’ils sont affectés](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Le service d’approvisionnement ne semble pas démarrer

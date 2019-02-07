@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7d79e7aca0e8aa506abba174668c60fcd2fd4bc2
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: d274642c8e35374dee2d584e6285165a15cd3128
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065441"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747031"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -49,6 +49,7 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 |RoyaumeUniSud|RoyaumeUniSud|
 |USGovVirginie|USGovVirginie|
 |USAEst2EUAP|USACentreEUAP|
+|USA Ouest 2|USA Ouest 2|
 
 La solution Change Tracking et Inventory fournit la possibilité de [suivre les changements](automation-vm-change-tracking.md) et de [faire l’inventaire](automation-vm-inventory.md) de vos machines virtuelles. Dans cette étape, vous activez la solution sur une machine virtuelle.
 
@@ -78,7 +79,7 @@ Quand un ordinateur est ajouté aux solutions Update Management ou Change Tracki
 
 Accédez à votre compte Automation et sélectionnez **Recherches enregistrées** sous **Ggénéral**. Les deux recherches enregistrées utilisées par ces solutions sont présentées dans le tableau suivant :
 
-|NOM     |Catégorie  |Alias  |
+|Nom     |Catégorie  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Mises à jour        | Updates__MicrosoftDefaultComputerGroup         |

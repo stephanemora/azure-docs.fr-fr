@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 25546c37db7e1117ed73c17f2f7b2a5211d48d51
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1fadf186176c8bc82aaefe9a908f25f9c8a7e35a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162614"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755457"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -164,14 +164,6 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso16.png)
  
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. Accédez à **Configuration utilisateur** > **Modèles d’administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité** > **Zone intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
-
-    ![Authentification unique](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. Activez le paramètre de stratégie, puis sélectionnez **OK**.
-
-    ![Authentification unique](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="browser-considerations"></a>Considérations sur le navigateur
 

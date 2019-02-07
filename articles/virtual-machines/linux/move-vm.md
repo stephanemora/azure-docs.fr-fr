@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: c451377d6274c50f22e3b1d4cd32fb0f3edd9d9e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d2d3f36c9b4ee0557f9e060bec762877a94ea637
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220390"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734179"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Déplacer une machine virtuelle Linux vers un autre abonnement ou groupe de ressources
 Cet article vous explique comment déplacer une machine virtuelle Linux entre des groupes de ressources ou des abonnements. Le déplacement d’une machine virtuelle entre abonnements peut être pratique si vous avez créé une machine virtuelle dans un abonnement personnel, et que vous souhaitez à présent la déplacer vers l’abonnement de votre entreprise.
@@ -35,7 +35,7 @@ Cet article vous explique comment déplacer une machine virtuelle Linux entre de
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Utiliser l’interface CLI Azure pour déplacer une machine virtuelle
 
 
-Pour pouvoir déplacer votre machine virtuelle à l’aide de l’interface Azure CLI, vous devez vous assurer que les abonnements source et de destination se trouvent dans le même locataire. Pour vérifier que les deux abonnements ont le même ID de locataire, utilisez la commande [az account show](/cli/azure/account#az_account_show).
+Pour pouvoir déplacer votre machine virtuelle à l’aide de l’interface Azure CLI, vous devez vous assurer que les abonnements source et de destination se trouvent dans le même locataire. Pour vérifier que les deux abonnements ont le même ID de locataire, utilisez la commande [az account show](/cli/azure/account).
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -43,13 +43,13 @@ az account show --subscription myDestinationSubscription --query tenantId
 ```
 Si les ID clients des abonnements source et de destination ne sont pas identiques, vous devez contacter le [support technique](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) pour déplacer les ressources vers un nouveau client.
 
-Pour déplacer avec succès une machine virtuelle, vous devez déplacer la machine virtuelle et toutes les ressources qui l’accompagnent. Utilisez la commande [azure resource list](/cli/azure/resource#az_resource_list) pour lister toutes les ressources d’un groupe de ressources et leurs ID. Cela permet de diriger la sortie de cette commande dans un fichier. Vous pouvez ainsi copier et coller les ID dans des commandes ultérieures.
+Pour déplacer avec succès une machine virtuelle, vous devez déplacer la machine virtuelle et toutes les ressources qui l’accompagnent. Utilisez la commande [azure resource list](/cli/azure/resource) pour lister toutes les ressources d’un groupe de ressources et leurs ID. Cela permet de diriger la sortie de cette commande dans un fichier. Vous pouvez ainsi copier et coller les ID dans des commandes ultérieures.
 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-Pour déplacer une machine virtuelle et ses ressources dans un autre groupe de ressources, utilisez la commande [az resource move](/cli/azure/resource#az_resource_move). L’exemple suivant montre comment déplacer une machine virtuelle et les ressources courantes nécessaires. Utilisez le paramètre **-ids** et transmettez la liste des ID des ressources à déplacer, séparée par des virgules (sans espaces).
+Pour déplacer une machine virtuelle et ses ressources dans un autre groupe de ressources, utilisez la commande [az resource move](/cli/azure/resource). L’exemple suivant montre comment déplacer une machine virtuelle et les ressources courantes nécessaires. Utilisez le paramètre **-ids** et transmettez la liste des ID des ressources à déplacer, séparée par des virgules (sans espaces).
 
 ```azurecli-interactive
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM

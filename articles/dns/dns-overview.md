@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: df890eb0e07c13d0757c706a3cabbbad67b6eac2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 51869bcc2ee892bc150102595de09782eb01547c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716274"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770518"
 ---
 # <a name="what-is-azure-dns"></a>Présentation d’Azure DNS
 
@@ -32,7 +32,7 @@ Les domaines DNS dans Azure DNS sont hébergés sur un réseau global de serveur
 
 * [Contrôle d’accès en fonction de rôles](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) : pour déterminer les utilisateurs qui sont autorisés à accéder à des actions spécifiques pour votre organisation.
 
-* [Journaux d’activité](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs) : pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation a modifié une ressource.
+* [Journaux d’activité](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) : pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation a modifié une ressource.
 
 * [Verrouillage de ressource](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) : pour verrouiller un abonnement, un groupe de ressources ou une ressource. Le verrouillage empêche les utilisateurs de votre organisation de supprimer ou de modifier accidentellement des ressources critiques.
 

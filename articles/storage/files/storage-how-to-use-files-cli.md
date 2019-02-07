@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 82d1a83dfd96dd6d4c2b37567c745998a6f0cbdb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee8dcf1488cfb407793bdb35cdbbee18b2ef15ab
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473508"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750968"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Démarrage rapide : Créer et gérer des partages de fichiers Azure à l’aide d’Azure CLI
 Ce guide vous explique les bases de l’utilisation des [partages de fichiers Azure](storage-files-introduction.md) avec Azure CLI. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Il prend en charge le protocole SMB de norme industrielle et permet le partage de fichiers entre plusieurs machines, applications et instances. 
@@ -34,7 +34,7 @@ az login
 ```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Si vous n’avez pas déjà un groupe de ressources Azure, vous pouvez utiliser la commande [az group create](/cli/azure/group#create) pour en créer un. 
+Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Si vous n’avez pas déjà un groupe de ressources Azure, vous pouvez utiliser la commande [az group create](/cli/azure/group) pour en créer un. 
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *USA Est* :
 
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 Un compte de stockage est un pool partagé de stockage dans lequel vous pouvez déployer des partages de fichiers Azure, ou d’autres ressources de stockage comme les objets blob ou les files d’attente. Un compte de stockage peut contenir un nombre illimité de partages de fichiers. Un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage.
 
-L’exemple suivant crée un compte de stockage nommé *mystorageaccount\<numéro aléatoire\>* avec la commande [az storage account create](/cli/azure/storage/account#create), puis place le nom de ce compte de stockage dans la variable `$STORAGEACCT`. Les noms de comptes de stockage doivent être uniques. L’utilisation de `$RANDOM` ajoute un numéro au nom du compte de stockage pour le rendre unique. 
+L’exemple suivant crée un compte de stockage nommé *mystorageaccount\<numéro aléatoire\>* avec la commande [az storage account create](/cli/azure/storage/account), puis place le nom de ce compte de stockage dans la variable `$STORAGEACCT`. Les noms de comptes de stockage doivent être uniques. L’utilisation de `$RANDOM` ajoute un numéro au nom du compte de stockage pour le rendre unique. 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -57,7 +57,7 @@ STORAGEACCT=$(az storage account create \
 ```
 
 ### <a name="get-the-storage-account-key"></a>Obtenir la clé du compte de stockage
-Les clés de comptes de stockage contrôlent l’accès aux ressources dans un compte de stockage. Les clés sont automatiquement créées en même temps que le compte de stockage. Vous pouvez récupérer les clés de votre compte de stockage avec la commande [az storage account keys list](/cli/azure/storage/account/keys#list) : 
+Les clés de comptes de stockage contrôlent l’accès aux ressources dans un compte de stockage. Les clés sont automatiquement créées en même temps que le compte de stockage. Vous pouvez récupérer les clés de votre compte de stockage avec la commande [az storage account keys list](/cli/azure/storage/account/keys) : 
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -67,7 +67,7 @@ STORAGEKEY=$(az storage account keys list \
 ```
 
 ## <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
-Vous pouvez désormais créer votre premier partage de fichiers Azure. Créez des partages de fichiers avec la commande [az storage share create](/cli/azure/storage/share#create). Cet exemple crée un partage de fichiers Azure nommé *myshare* : 
+Vous pouvez désormais créer votre premier partage de fichiers Azure. Créez des partages de fichiers avec la commande [az storage share create](/cli/azure/storage/share). Cet exemple crée un partage de fichiers Azure nommé *myshare* : 
 
 ```azurecli-interactive
 az storage share create \
@@ -98,7 +98,7 @@ Dans la plupart des scénarios Azure Files, vous allez utiliser votre partage de
 Les exemples suivants montrent comment utiliser l’interface Azure CLI pour manipuler votre partage de fichiers Azure avec le protocole REST de fichier. 
 
 ### <a name="create-a-directory"></a>Créer un répertoire
-Pour créer un répertoire nommé *myDirectory* à la racine de votre partage de fichiers Azure, exécutez la commande [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) :
+Pour créer un répertoire nommé *myDirectory* à la racine de votre partage de fichiers Azure, exécutez la commande [`az storage directory create`](/cli/azure/storage/directory) :
 
 ```azurecli-interactive
 az storage directory create \
@@ -109,7 +109,7 @@ az storage directory create \
 ```
 
 ### <a name="upload-a-file"></a>Charger un fichier
-Pour illustrer comment charger un fichier à l’aide de la commande [`az storage file upload`](/cli/azure/storage/file#az_storage_file_upload), créez d’abord un fichier à charger sur le lecteur de travail de Cloud Shell. Dans l’exemple suivant, vous créez puis chargez le fichier :
+Pour illustrer comment charger un fichier à l’aide de la commande [`az storage file upload`](/cli/azure/storage/file), créez d’abord un fichier à charger sur le lecteur de travail de Cloud Shell. Dans l’exemple suivant, vous créez puis chargez le fichier :
 
 ```azurecli-interactive
 date > ~/clouddrive/SampleUpload.txt
@@ -124,7 +124,7 @@ az storage file upload \
 
 Si vous exécutez Azure CLI en local, remplacez `~/clouddrive` par un chemin existant sur votre machine.
 
-Après avoir chargé le fichier, vous pouvez exécuter la commande [`az storage file list`](/cli/azure/storage/file#az_storage_file_list) pour vérifier que le fichier a bien été chargé dans votre partage de fichiers Azure :
+Après avoir chargé le fichier, vous pouvez exécuter la commande [`az storage file list`](/cli/azure/storage/file) pour vérifier que le fichier a bien été chargé dans votre partage de fichiers Azure :
 
 ```azurecli-interactive
 az storage file list \
@@ -136,7 +136,7 @@ az storage file list \
 ```
 
 ### <a name="download-a-file"></a>Téléchargement d’un fichier
-Vous pouvez exécuter la commande [`az storage file download`](/cli/azure/storage/file#az_storage_file_download) pour télécharger une copie du fichier chargé sur le disque de travail de Cloud Shell :
+Vous pouvez exécuter la commande [`az storage file download`](/cli/azure/storage/file) pour télécharger une copie du fichier chargé sur le disque de travail de Cloud Shell :
 
 ```azurecli-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
@@ -191,7 +191,7 @@ Une autre tâche utile que vous pouvez effectuer avec un partage de fichiers Azu
 
 - Les instantanés du [Gestionnaire de Volume logique (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) pour les systèmes Linux
 - Les instantanés du [système de fichiers Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) pour macOS
-- Les systèmes de fichiers [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) pour Windows, tels que NTFS et ReFS. Vous pouvez créer un instantané de partage en utilisant la commande [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot) :
+- Les systèmes de fichiers [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) pour Windows, tels que NTFS et ReFS. Vous pouvez créer un instantané de partage en utilisant la commande [`az storage share snapshot`](/cli/azure/storage/share) :
 
 ```azurecli-interactive
 SNAPSHOT=$(az storage share snapshot \
@@ -250,7 +250,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Supprimer un instantané de partage
-Vous pouvez supprimer un instantané de partage avec la commande [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete). Utilisez la variable qui contient la référence `$SNAPSHOT` au paramètre `--snapshot` :
+Vous pouvez supprimer un instantané de partage avec la commande [`az storage share delete`](/cli/azure/storage/share). Utilisez la variable qui contient la référence `$SNAPSHOT` au paramètre `--snapshot` :
 
 ```azurecli-interactive
 az storage share delete \
@@ -261,7 +261,7 @@ az storage share delete \
 ```
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous avez terminé, vous pouvez exécuter la commande [`az group delete`](/cli/azure/group#delete) pour supprimer le groupe de ressources et toutes les ressources associées : 
+Lorsque vous avez terminé, vous pouvez exécuter la commande [`az group delete`](/cli/azure/group) pour supprimer le groupe de ressources et toutes les ressources associées : 
 
 ```azurecli-interactive 
 az group delete --name "myResourceGroup"

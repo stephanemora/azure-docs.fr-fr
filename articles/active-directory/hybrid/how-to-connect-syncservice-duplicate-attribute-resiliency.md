@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: acc2790f935eae9bcb68c9fa3c443d7449922e71
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f4a9b4aba54f3968584187e108e87177c44bbc8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192466"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815794"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronisation des identités et résilience d’attribut en double
 La résilience d’attribut en double est une fonctionnalité d’Azure Active Directory qui élimine les problèmes liés aux conflits entre **UserPrincipalName** et **ProxyAddress** lors de l’exécution de l’un des outils de synchronisation de Microsoft.
@@ -81,7 +81,7 @@ Utilisez ensuite les applets de commande et les opérateurs suivants pour affich
 2. [Par type de propriété](#by-property-type)
 3. [Par valeur en conflit](#by-conflicting-value)
 4. [À l’aide d’une recherche de chaîne](#using-a-string-search)
-5. [Triées](#sorted)
+5. Triées
 6. [Par quantité limitée ou l’ensemble des erreurs](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>Afficher tout

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4fa3babbf8e757b6d40170440754c43e25ba83f8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4e1695eb85988b74bf968ebe08602164c94f01dd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252028"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696055"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Créer une machine virtuelle en utilisant un disque de système d’exploitation géré existant avec PowerShell
 
@@ -62,7 +62,7 @@ Ce script utilise les commandes suivantes pour obtenir des propriétés de disqu
 
 Pour les images Marketplace, utilisez [Set-AzureRmVMPlan](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmplan?view=azurermps-6.7.0) afin de définir les informations de plan.
 ```powershell
-Set-AzureRmVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame
+Set-AzureRmVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Name
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

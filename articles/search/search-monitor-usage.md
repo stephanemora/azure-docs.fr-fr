@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ed084520e092802ffa2a42e8a0c664ec09c4cbb7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093238"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745960"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
 
@@ -65,7 +65,7 @@ Le tableau suivant compare les options de stockage des journaux et d’ajout d�
 | [Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous. Les événements sont journalisés dans un conteneur d’objets blob et stockés dans des fichiers JSON. Utilisez un éditeur JSON pour afficher le contenu des fichiers.|
 | [Concentrateur d’événements](https://docs.microsoft.com/azure/event-hubs/) | Événements et métriques des requêtes journalisés, basés sur les schémas présentés dans cet article. Choisissez cette option comme autre service de collecte de données pour les journaux très volumineux. |
 
-Log Analytics et le Stockage Blob sont tous les deux disponibles sous la forme d’un service partagé gratuit pour vous permettre de l’essayer sans frais pendant la durée de vie de votre abonnement Azure. L’inscription à Application Insights et son utilisation sont gratuits tant que la taille de données d’application n’excède pas certaines limites. (Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/ricing/details/monitor/).)
+Log Analytics et le Stockage Blob sont tous les deux disponibles sous la forme d’un service partagé gratuit pour vous permettre de l’essayer sans frais pendant la durée de vie de votre abonnement Azure. L’inscription à Application Insights et son utilisation sont gratuits tant que la taille de données d’application n’excède pas certaines limites. (Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/monitor/).)
 
 La section suivante vous guide tout au long des étapes d’activation et d’utilisation du Stockage Blob Azure pour collecter des données de journal créées par les opérations Recherche Azure et y accéder.
 
@@ -109,7 +109,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>Schéma du journal
 Les objets blob contenant vos journaux du trafic de votre service de recherche sont structurés comme décrit dans cette section. Chaque objet blob a un objet racine appelé **records** contenant un tableau d’objets de journal. Chaque objet blob contient des enregistrements de toutes les opérations qui ont eu lieu au cours de la même heure.
 
-| NOM | Type | Exemples | Notes |
+| Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
 | ResourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
@@ -123,7 +123,7 @@ Les objets blob contenant vos journaux du trafic de votre service de recherche s
 
 **Schéma de propriétés**
 
-| NOM | Type | Exemples | Notes |
+| Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
 | Description |chaîne |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
 | Interroger |chaîne |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Paramètres de requête |
@@ -134,7 +134,7 @@ Les objets blob contenant vos journaux du trafic de votre service de recherche s
 
 Les métriques sont capturées pour les demandes de requête.
 
-| NOM | Type | Exemples | Notes |
+| Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
 | ResourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
 | metricName |chaîne |« Latency » |Nom de la mesure |

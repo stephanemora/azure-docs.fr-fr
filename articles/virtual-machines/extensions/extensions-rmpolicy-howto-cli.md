@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 529758a7b9fe4c8b669ade72273335389020fb65
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451201"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770582"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Utiliser Azure Policy pour restreindre l’installation d’extensions sur les machines virtuelles Linux
 
@@ -98,7 +98,7 @@ Quand vous avez terminé, appuyez sur la touche **Échap**, puis tapez **: wq** 
 
 ## <a name="create-the-policy"></a>Création de la stratégie
 
-Une définition de stratégie est un objet servant à stocker la configuration que vous souhaitez utiliser. La définition de stratégie fait appel aux fichiers de règles et de paramètres pour définir la stratégie. Créez la définition de stratégie à l’aide de la commande [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
+Une définition de stratégie est un objet servant à stocker la configuration que vous souhaitez utiliser. La définition de stratégie fait appel aux fichiers de règles et de paramètres pour définir la stratégie. Créez la définition de stratégie à l’aide de la commande [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest).
 
 Dans cet exemple, les règles et les paramètres correspondent aux fichiers que vous avez créés et stockés en tant que fichiers .json dans votre Cloud Shell.
 
@@ -115,9 +115,9 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Affecter la stratégie
 
-Dans cet exemple, la stratégie est affectée à un groupe de ressources à l’aide de la commande [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create). N’importe quelle machine virtuelle créée dans le groupe de ressources **myResourceGroup** ne pourra pas installer les extensions VM Access For Linux et Custom Script For Linux. Pour que la stratégie puisse être affectée, le groupe de ressources doit déjà exister.
+Dans cet exemple, la stratégie est affectée à un groupe de ressources à l’aide de la commande [az policy assignment create](/cli/azure/policy/assignment). N’importe quelle machine virtuelle créée dans le groupe de ressources **myResourceGroup** ne pourra pas installer les extensions VM Access For Linux et Custom Script For Linux. Pour que la stratégie puisse être affectée, le groupe de ressources doit déjà exister.
 
-Utilisez la commande [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) pour obtenir l’ID d’abonnement à utiliser à la place de celui de l’exemple.
+Utilisez la commande [az account list](/cli/azure/account?view=azure-cli-latest) pour obtenir l’ID d’abonnement à utiliser à la place de celui de l’exemple.
 
 
 ```azurecli-interactive

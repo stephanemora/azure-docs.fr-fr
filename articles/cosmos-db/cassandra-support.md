@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: a68d290bc21a8cdc36d5c85f770752ad67a4e91e
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 57127f3a87d8ec3077c0e2f5f6e16f536931e97f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330754"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756850"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 
@@ -58,7 +58,7 @@ L’API Cassandra Azure Cosmos DB prend en charge les types de données CQL suiv
 * smallint  
 * texte  
 * time  
-*  timestamp  
+* timestamp  
 * timeuuid  
 * tinyint  
 * tuple  
@@ -161,7 +161,6 @@ L’API Cassandra Azure Cosmos DB offre un choix de cohérence pour les opérati
 Azure Cosmos DB prend en charge le contrôle d’accès en fonction du rôle (RBAC) et les mots de passe/clés en lecture-écriture et en lecture seule, qui peuvent être obtenus via le [portail Azure](https://portal.azure.com). Azure Cosmos DB ne prend pas encore en charge les utilisateurs et les rôles pour les activités de plan de données. 
 
 ## <a name="planned-support"></a>Futures prises en charge 
-* Utilisation conjointe de timestamp et de TTL  
 * Pour l’instant, le nom de région dans la commande CREATE KEYSPACE est ignoré. La distribution des données est implémentée dans la plateforme Cosmos DB sous-jacente et est exposée par le biais du portail ou de PowerShell pour le compte. 
 
 

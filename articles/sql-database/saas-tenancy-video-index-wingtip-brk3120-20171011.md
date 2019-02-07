@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 05/14/2018
-ms.openlocfilehash: ad1ae537038c84aac7bebe40a1db124521933f3d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: bbe220780a3c21e7bfb15d0568904af4ed47f765
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608900"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567551"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vidéo indexée et annotée pour l’application SaaS multi-locataire à l’aide d’Azure SQL Database
 
@@ -25,7 +25,7 @@ Cet article est un index annoté dans les emplacements de temps d’une vidéo d
 
 La vidéo amplifie les informations de notre documentation écrite, par exemple : 
 - *Doc conceptuel :* Modèles de client de base de données SaaS mutualisée[saas-concept-design-patterns-563e]
-- *Didacticiels :* [Application SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
+- *Tutoriels:* [Application SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 La vidéo et les articles décrivent les différentes phases de création d’une application multi-locataire sur Azure SQL Database dans le cloud. Des fonctionnalités spéciales de Azure SQL Database facilitent le développement et la mise en œuvre des applications multi-locataires, toutes les deux plus faciles à gérer et fonctionnant de façon fiable.
 
@@ -296,7 +296,7 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 - *Doc conceptuel :* Modèles de client de base de données SaaS mutualisée[saas-concept-design-patterns-563e]
 
-- *Didacticiels :* [Application SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
+- *Tutoriels:* [Application SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 - Référentiels GitHub pour des variantes de l’application locative SaaS Wingtip Tickets :
     - [Réf GitHub pour : modèle d’application autonome][github-wingtip-standaloneapp].

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 3ad9308f3bc714ee2877627da8fdb328459b9fe4
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351947"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732326"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Activer une liste AppSource et Place de marché en utilisant Azure Active Directory
 
@@ -40,12 +40,12 @@ Aux différents [types d’offre et options de référencement](https://docs.mic
 
 | **Type d’offre**    | **Authentification unique Azure AD nécessaire ?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-|  | Me contacter | Essai | Test Drive | Transaction |
+|  | Me contacter | Version d’évaluation | Version d’évaluation | Transaction |
 | Machine virtuelle | N/A | Non  | Non  | Non  |
 | Applications Azure ( modèle de solution)  | N/A | N/A | N/A | N/A |
 | Applications managées  | N/A | N/A | N/A | Non  |
 | SaaS  | Non  | OUI | OUI | Oui |
-| Conteneurs  | N/A | N/A | N/A | Non  |
+| Containers  | N/A | N/A | N/A | Non  |
 | Services de conseil  | Non  | N/A | N/A | N/A |
 
 Pour plus d’informations sur les exigences techniques SaaS, consultez le [guide de publication de l’offre des applications SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
@@ -59,7 +59,7 @@ Pour plus d’informations sur les exigences techniques SaaS, consultez le [guid
 
 La configuration automatisée des clients peut accroître les chances de conversion. Quand un client sélectionne votre liste d’essai et qu’il est redirigé vers votre environnement d’essai, vous pouvez configurer le client directement sans avoir besoin d’étapes de connexion supplémentaires.
 
-Pendant l’authentification, Azure AD envoie un jeton à votre application ou offre. Les informations utilisateur fournies par le jeton permettent la création d’un compte d’utilisateur dans votre application ou offre. Pour plus d’informations, consultez [Exemples de jetons](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
+Pendant l’authentification, Azure AD envoie un jeton à votre application ou offre. Les informations utilisateur fournies par le jeton permettent la création d’un compte d’utilisateur dans votre application ou offre. Pour plus d’informations, consultez [Exemples de jetons](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 Quand vous utilisez Azure AD pour activer l’authentification en un clic dans votre application ou liste d’essai, vous :
 

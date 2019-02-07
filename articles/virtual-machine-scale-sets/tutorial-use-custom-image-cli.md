@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 119a53949b6184389c0e36e56732f0486c24ca5c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193486"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755184"
 ---
-# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure CLI
+# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Didacticiel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure CLI
 Lorsque vous créez un groupe identique, vous spécifiez une image à utiliser lors du déploiement des instances de machine virtuelle. Pour réduire le nombre de tâches une fois que les instances de machine virtuelle sont déployées, vous pouvez utiliser une image de machine virtuelle personnalisée. Cette image de machine virtuelle personnalisée inclut les configurations ou installations des applications requises. Toutes les instances de machine virtuelle créées dans le groupe identique utilisent l’image de machine virtuelle personnalisée et sont prêtes à répondre au trafic des applications. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -44,7 +44,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, v
 >[!NOTE]
 > Ce tutoriel vous sert de guide pour créer et utiliser une image de machine virtuelle généralisée. La création d’un groupe identique depuis une image de machine virtuelle généralisée n’est pas prise en charge.
 
-Commencez par créer un groupe de ressource avec [az group create](/cli/azure/group#az_group_create), puis créez une machine virtuelle avec [az vm create](/cli/azure/vm). Cette machine virtuelle est ensuite utilisée comme source d’une image de machine virtuelle personnalisée. L’exemple suivant crée une machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
+Commencez par créer un groupe de ressource avec [az group create](/cli/azure/group), puis créez une machine virtuelle avec [az vm create](/cli/azure/vm). Cette machine virtuelle est ensuite utilisée comme source d’une image de machine virtuelle personnalisée. L’exemple suivant crée une machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -87,7 +87,7 @@ exit
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Créer une image de machine virtuelle personnalisée à partir de la machine virtuelle source
 La machine virtuelle source est à présent personnalisée avec le serveur web Nginx installé. Nous allons créer l’image de machine virtuelle personnalisée à utiliser avec un groupe identique.
 
-Pour créer une image, la machine virtuelle doit être libérée. Libérez la machine virtuelle avec la commande [az vm deallocate](/cli//azure/vm#az_vm_deallocate). Définissez ensuite l’état de la machine virtuelle comme généralisé avec [az vm generalize](/cli//azure/vm#az_vm_generalize), afin que la plateforme Azure sache que la machine virtuelle est prête pour utiliser une image personnalisée. Vous pouvez uniquement créer une image à partir d’une machine virtuelle généralisée :
+Pour créer une image, la machine virtuelle doit être libérée. Libérez la machine virtuelle avec la commande [az vm deallocate](/cli//azure/vm). Définissez ensuite l’état de la machine virtuelle comme généralisé avec [az vm generalize](/cli//azure/vm), afin que la plateforme Azure sache que la machine virtuelle est prête pour utiliser une image personnalisée. Vous pouvez uniquement créer une image à partir d’une machine virtuelle généralisée :
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -122,7 +122,7 @@ La création et la configuration des l’ensemble des ressources et des machines
 
 
 ## <a name="test-your-scale-set"></a>Tester votre groupe identique
-Pour autoriser le trafic à atteindre votre groupe identique, vérifiez que le serveur web fonctionne correctement et créez une règle d’équilibreur de charge avec [az network lb rule create](/cli/azure/network/lb/rule#create). L’exemple suivant crée une règle nommée *myLoadBalancerRuleWeb* qui autorise le trafic sur le port *TCP* *80* :
+Pour autoriser le trafic à atteindre votre groupe identique, vérifiez que le serveur web fonctionne correctement et créez une règle d’équilibreur de charge avec [az network lb rule create](/cli/azure/network/lb/rule). L’exemple suivant crée une règle nommée *myLoadBalancerRuleWeb* qui autorise le trafic sur le port *TCP* *80* :
 
 ```azurecli-interactive
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Pour voir votre groupe identique en action, obtenez l’adresse IP publique de votre équilibreur de charge avec [az network public-ip show](/cli/azure/network/public-ip#show). L’exemple suivant obtient l’adresse IP pour *myScaleSetLBPublicIP* qui a été créée dans le cadre du groupe identique :
+Pour voir votre groupe identique en action, obtenez l’adresse IP publique de votre équilibreur de charge avec [az network public-ip show](/cli/azure/network/public-ip). L’exemple suivant obtient l’adresse IP pour *myScaleSetLBPublicIP* qui a été créée dans le cadre du groupe identique :
 
 ```azurecli-interactive
 az network public-ip show \
@@ -152,7 +152,7 @@ Entrez l’adresse IP publique dans votre navigateur web. La page web NGINX par 
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group#az_group_delete). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
+Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

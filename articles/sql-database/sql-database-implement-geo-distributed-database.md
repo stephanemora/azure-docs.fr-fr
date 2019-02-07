@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2018
-ms.openlocfilehash: 679a02c760d8b37d94a734bc9b023ed8fe59acad
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/10/2019
+ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198182"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750339"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutoriel : Implémenter une base de données géo-distribuée
 
@@ -36,7 +36,7 @@ Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés 
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - base de données SQL Azure. Pour en créer une :
-  - [Portal](sql-database-get-started-portal.md)
+  - [Portal](sql-database-single-database-get-started.md)
   - [INTERFACE DE LIGNE DE COMMANDE](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -48,7 +48,7 @@ Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés 
 > [!IMPORTANT]
 > Veillez à configurer des règles de pare-feu pour pouvoir utiliser l’adresse IP publique de l’ordinateur sur lequel vous effectuez les étapes de ce tutoriel. Les règles de pare-feu au niveau de la base de données sont répliquées automatiquement sur le serveur secondaire.
 >
-> Pour plus d’informations, consultez [Créer une règle de pare-feu au niveau du serveur](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou, pour déterminer l’adresse IP utilisée pour la règle de pare-feu au niveau du serveur pour votre ordinateur, consultez [Créer une règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md).  
+> Pour plus d’informations, consultez [Créer une règle de pare-feu au niveau du serveur](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou, pour déterminer l’adresse IP utilisée pour la règle de pare-feu au niveau du serveur pour votre ordinateur, consultez [Créer une règle de pare-feu au niveau du serveur](sql-database-server-level-firewall-rule.md).  
 
 ## <a name="create-a-failover-group"></a>Créer un groupe de basculement
 

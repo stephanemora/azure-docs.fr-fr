@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 93a4a47b539184910f01fe9261562ffd8816ad45
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cec481ca355ecf081f6aaff8228957f0adf226f6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581230"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691386"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>Créer un disque managé à partir d’un fichier de VHD dans un compte de stockage dans le même abonnement avec l’interface de ligne de commande
 
@@ -43,7 +43,7 @@ Ce script a recours aux commandes suivantes pour créer un disque managé à par
 
 | Commande | Notes |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Crée un disque managé en utilisant l’URI d’un VHD dans un compte de stockage dans le même abonnement |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Crée un disque managé en utilisant l’URI d’un VHD dans un compte de stockage dans le même abonnement |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

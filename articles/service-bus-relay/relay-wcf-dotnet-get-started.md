@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854114"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728310"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Comment utiliser les relais WCF Azure Relay avec .NET
 Cet article explique comment utiliser le service Azure Relay. Les exemples sont écrits en C# et utilisent l’API WCF (Windows Communication Foundation) avec les extensions contenues dans l’assembly Service Bus. Pour plus d’informations sur Azure Relay, consultez la page [Vue d’ensemble d’Azure Relay](relay-what-is-it.md).
@@ -116,7 +116,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-Dans l'exemple, vous créez deux points de terminaison dans le cadre de l'implémentation du même contrat. L’un est local et l’autre projeté via Azure Relay. Leurs principales différences sont les liaisons : [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) pour le point de terminaison local, et [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) pour les adresses et le point de terminaison de relais. Le point de terminaison local possède une adresse réseau locale avec un port distinct. Le point de terminaison de relais possède une adresse de point de terminaison constituée de la chaîne `sb`, du nom de votre espace de noms et du chemin « solver ». L’URI obtenu est le suivant : `sb://[serviceNamespace].servicebus.windows.net/solver`, lequel identifie le point de terminaison du service comme un point de terminaison TCP Service Bus (relais) associé à un nom DNS externe complet. Si vous insérez le code en remplaçant les espaces réservés dans la fonction `Main` de l’application **Service**, vous obtiendrez un service fonctionnel. Si vous voulez que votre service écoute exclusivement sur le relais, supprimez la déclaration du point de terminaison local.
+Dans l'exemple, vous créez deux points de terminaison dans le cadre de l'implémentation du même contrat. L’un est local et l’autre projeté via Azure Relay. Leurs principales différences sont les liaisons : [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) pour le point de terminaison local, et [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) pour les adresses et le point de terminaison de relais. Le point de terminaison local possède une adresse réseau locale avec un port distinct. Le point de terminaison de relais possède une adresse de point de terminaison constituée de la chaîne `sb`, du nom de votre espace de noms et du chemin « solver ». L’URI obtenu est le suivant : `sb://[serviceNamespace].servicebus.windows.net/solver`, lequel identifie le point de terminaison du service comme un point de terminaison TCP Service Bus (relais) associé à un nom DNS externe complet. Si vous insérez le code en remplaçant les espaces réservés dans la fonction `Main` de l’application **Service**, vous obtiendrez un service fonctionnel. Si vous voulez que votre service écoute exclusivement sur le relais, supprimez la déclaration du point de terminaison local.
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>Configurer un hôte de service dans le fichier App.config
 Vous pouvez également configurer l'hôte à l'aide du fichier App.config. Dans ce cas, le code d’hébergement de service s’affiche dans l’exemple suivant.
@@ -161,7 +161,7 @@ Une fois ces modifications effectuées, le service démarre comme précédemment
 
 ### <a name="create-the-client"></a>Création du client
 #### <a name="configure-a-client-programmatically"></a>Configuration d’un client par programme
-Pour consommer le service, vous pouvez construire un client WCF à l’aide d’un objet [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). Service Bus utilise un modèle de sécurité basée sur un jeton, implémenté à l'aide de SAS. La classe [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) représente un fournisseur de jetons de sécurité dont les méthodes de fabrique intégrées renvoient des fournisseurs de jetons bien connus. L’exemple suivant utilise la méthode [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) pour gérer l’acquisition du jeton SAP approprié. Le nom et la clé sont ceux obtenus sur le portail comme indiqué dans la section précédente.
+Pour consommer le service, vous pouvez construire un client WCF à l’aide d’un objet [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). Service Bus utilise un modèle de sécurité basée sur un jeton, implémenté à l'aide de SAS. La classe [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) représente un fournisseur de jetons de sécurité dont les méthodes de fabrique intégrées renvoient des fournisseurs de jetons bien connus. L’exemple suivant utilise la méthode [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) pour gérer l’acquisition du jeton SAP approprié. Le nom et la clé sont ceux obtenus sur le portail comme indiqué dans la section précédente.
 
 Tout d'abord, référencez ou copiez le code du contrat `IProblemSolver` du service dans votre projet client.
 

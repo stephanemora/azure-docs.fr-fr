@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0e73c0f94e0aa240349aec45b4a146ba5eb37dab
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103513"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700772"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire
 
@@ -170,7 +170,7 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
     - **Fréquence des captures instantanées de cohérence d’application** : par défaut, Site Recovery prend un instantané de cohérence des applications toutes les 4 heures. Vous pouvez configurer une valeur comprise entre 1 et 12 heures. Un instantané de cohérence des applications est un instantané à un point dans le temps des données d’application à l’intérieur de la machine virtuelle. Le service VSS (Volume Shadow Copy Service) s’assure que les applications sur la machine virtuelle sont dans un état cohérent au moment de la prise des captures instantanées.
     - **Groupe de réplication** : si votre application a besoin d’une cohérence multimachine virtuelle sur les machines virtuelles, vous pouvez créer un groupe de réplication pour ces machines virtuelles. Par défaut, les machines virtuelles sélectionnés ne font pas partie d’un groupe de réplication.
 
-5. Si vous souhaitez ajouter des machines virtuelles à un groupe de réplication nouveau ou existant, dans **Personnaliser**, sélectionnez **Oui** pour activer la cohérence multimachine virtuelle . Cliquez ensuite sur **OK**.
+5. Si vous souhaitez ajouter des machines virtuelles à un groupe de réplication nouveau ou existant, dans **Personnaliser**, sélectionnez **Oui** pour activer la cohérence multimachine virtuelle Cliquez ensuite sur **OK**.
 
     - Toutes les machines d’un groupe de réplication ont des points de récupération cohérents après incident et avec les applications lorsqu’elles basculent. L’activation de la cohérence multimachine virtuelle peut influer sur les performances de la charge de travail (utilisation intensive du processeur). Elle ne doit être utilisée que si les machines exécutent la même charge de travail et si vous avez besoin de cohérence entre plusieurs machines virtuelles.
     - Vous pouvez choisir d’avoir au maximum 16 machines virtuelles dans un groupe de réplication.

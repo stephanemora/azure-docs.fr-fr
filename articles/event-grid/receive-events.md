@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: bb22a2545466c72f7dac68f80668b8b530832c21
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094716"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728620"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recevoir des événements sur un point de terminaison HTTP
 
@@ -51,8 +51,6 @@ Cliquez sur le lien « Afficher les fichiers » dans votre fonction Azure (volet
 ## <a name="endpoint-validation"></a>Validation de point de terminaison
 
 La première chose à faire est de traiter les événements `Microsoft.EventGrid.SubscriptionValidationEvent`. Chaque fois que quelqu’un s’abonne à un événement, Event Grid envoie un événement de validation au point de terminaison avec un `validationCode` dans la charge utile de données. Le point de terminaison est nécessaire pour reproduire cela dans le corps de réponse pour [prouver que le point de terminaison est valide et qu’il vous appartient](security-authentication.md#webhook-event-delivery). Si vous utilisez un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid.md) au lieu d’une fonction déclenchée par un Webhook, la validation du point de terminaison est traitée pour vous. Si vous utilisez un service d’API tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous risquez de ne pas pouvoir envoyer le code de validation par programmation. Pour ces services, vous pouvez manuellement valider l’abonnement à l’aide d’une URL de validation qui est envoyée dans l’événement de validation de l’abonnement. Copiez cette URL dans la propriété `validationUrl` et envoyez une demande GET par le biais d’un client REST ou de votre navigateur web.
-
-La validation manuelle est en préversion. Pour l’utiliser, vous devez installer [l’extension Event Grid](/cli/azure/azure-cli-extensions-list) pour [Azure CLI](/cli/azure/install-azure-cli). Vous pouvez l’installer avec `az extension add --name eventgrid`. Si vous utilisez l’API REST, assurez-vous d’utiliser `api-version=2018-05-01-preview`.
 
 Dans C#, la fonction `DeserializeEventGridEvents()` désérialise les événements Event Grid. Elle désérialise les données d’événement dans le type approprié, tel que StorageBlobCreatedEventData. Utilisez la classe `Microsoft.Azure.EventGrid.EventTypes` pour obtenir les types et noms d’événements pris en charge.
 

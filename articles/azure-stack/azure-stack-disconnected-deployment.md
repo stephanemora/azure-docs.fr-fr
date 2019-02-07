@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 5447bcb0dc37cb3c923c4e6bbff4d69d987b6df6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244366"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691165"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement déconnecté de Azure pour les systèmes intégrés Azure Stack
 Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
@@ -47,7 +47,7 @@ Azure Stack a été conçu pour fonctionner de façon optimale avec une connexio
 |Déploiement de machine virtuelle avec l’extension Docker pour exécuter des commandes Docker|Altérée – Docker recherche la dernière version sur internet et cette recherche échoue.|
 |Liens de documentation dans le portail de Azure Stack|Non disponible – Les liens, tels que Donner votre avis, Aide, Démarrage rapide, etc. utilisant une URL internet, ne fonctionnent pas.|
 |Correction/atténuation des alertes faisant référence à un guide de correction en ligne|Non disponible – Les liens de correction d’alerte utilisant une URL internet ne fonctionnent pas.|
-|Place de marché – Possibilité de sélectionner et d’ajouter des packages de galerie directement à partir de la Place de marché Azure|Altérée – Lorsque vous déployez Azure Stack en mode déconnecté (sans connexion Internet), vous ne pouvez pas utiliser le portail Azure Stack pour télécharger des éléments de la Place de marché. Toutefois, vous pouvez utiliser [l’outil de syndication de la Place de marché](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) pour télécharger des éléments de la Place de marché sur un ordinateur qui dispose d’une connexion Internet, puis les transférer vers votre environnement Azure Stack.|
+|Place de marché – Possibilité de sélectionner et d’ajouter des packages de galerie directement à partir de la Place de marché Azure|Altérée – Lorsque vous déployez Azure Stack en mode déconnecté (sans connexion Internet), vous ne pouvez pas utiliser le portail Azure Stack pour télécharger des éléments de la Place de marché. Toutefois, vous pouvez utiliser [l’outil de syndication de la Place de marché](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) pour télécharger des éléments de la Place de marché sur un ordinateur qui dispose d’une connexion Internet, puis les transférer vers votre environnement Azure Stack.|
 |Utilisation des comptes de fédération Azure Active Directory pour gérer un déploiement de Azure Stack|Non disponible – Cette fonctionnalité nécessite une connexion à Azure. Des services de fédération Active Directory (AD FS) avec une instance de Active Directory local doivent être utilisés à la place.|
 |App Services|Altérée - WebApps peut nécessiter un accès à Internet pour le contenu mis à jour.|
 |Interface de ligne de commande (CLI)|Altérée - L’interface CLI a des fonctionnalités réduites en ce qui concerne l’authentification et le provisionnement des principaux de service.|

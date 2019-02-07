@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: c1fdd09023c07808226c95ed82d0c22e09d09ec4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 84a2ef60c9f6aa4270c3fc4f83327070b298b8b2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267383"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697185"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migration de Contoso : réhéberger une application locale sur des machines virtuelles Azure et un groupe de disponibilité SQL Server AlwaysOn
 
@@ -698,7 +698,7 @@ L’équipe de sécurité de Contoso examine les machines virtuelles Azure WEBVM
 - Elle prend également en considération la sécurisation des données sur le disque à l’aide d’Azure Disk Encryption et de KeyVault.
 - L’équipe doit évaluer le chiffrement transparent des données (TDE), puis l’activer sur la base de données SmartHotel360 qui s’exécute sur le nouvel AOG SQL. [Plus d’informations](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017)
 
-[En savoir plus](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) sur les pratiques de sécurité pour les machines virtuelles.
+[En savoir plus](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) sur les pratiques de sécurité pour les machines virtuelles.
 
 
 ## <a name="bcdr"></a>BCDR

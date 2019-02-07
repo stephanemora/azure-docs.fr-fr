@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102120"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751903"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -117,7 +117,7 @@ Si vous utilisez un proxy de pare-feu basé sur une URL pour contrôler la conne
 
 **Le collecteur ne parvient pas à se connecter à Internet en raison d’un échec de validation du certificat**
 
-Cette erreur est susceptible de se produire si vous utilisez un proxy d’interception pour vous connecter à Internet et que vous n’avez pas importé le certificat de proxy sur la machine virtuelle collecteur. Pour importer le certificat de proxy, suivez les étapes détaillées [ici](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
+Cette erreur est susceptible de se produire si vous utilisez un proxy d’interception pour vous connecter à Internet et que vous n’avez pas importé le certificat de proxy sur la machine virtuelle collecteur. Pour importer le certificat de proxy, suivez les étapes détaillées [ici](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 **Le collecteur ne peut pas se connecter au projet à l'aide de l'ID du projet et de la clé copiée sur le portail.**
 
@@ -172,7 +172,7 @@ Ce problème peut être lié à l’installation de VMware PowerCLI. Suivez les 
 
 Impossible de se connecter à vCenter Server « ServerName.com: 9443 » en raison de l’erreur : Il n’existait pas de point de terminaison à l’écoute sur https://Servername.com:9443/sdk pouvant accepter le message.
 
-Vérifiez que vous exécutez la dernière version de l’appliance du collecteur ; si ce n’est pas le cas, [mettez-la à niveau](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+Vérifiez que vous exécutez la dernière version de l’appliance du collecteur ; si ce n’est pas le cas, [mettez-la à niveau](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 Si le problème se produit toujours dans la dernière version, cela peut être dû au fait que l’ordinateur collecteur ne parvient pas à résoudre le nom du serveur vCenter Server spécifié ou que le port indiqué est incorrect. Par défaut, si le port n’est pas spécifié, le collecteur tentera de se connecter au port numéro 443.
 

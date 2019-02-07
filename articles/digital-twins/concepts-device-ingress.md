@@ -8,18 +8,18 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117416"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729521"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrée de télémétrie et connectivité des appareils
 
 Les données de télémétrie envoyées par les appareils et les capteurs constituent l’armature de toute solution IoT. La représentation de ces ressources disparates et leur gestion dans le contexte d’un emplacement sont une préoccupation primordiale pendant le développement d’applications IoT. Azure Digital Twins simplifie le processus de développement de solutions IoT en assemblant des appareils et des capteurs avec un graphe d’intelligence spatiale.
 
-Pour commencer, créez une ressource Azure IoT Hub à la racine du graphique spatial. La ressource IoT Hub permet à tous les appareils sous l’espace racine d’envoyer des messages. Une fois l’IoT Hub créé, enregistrez vos appareils dotés de capteurs dans l’instance Digital Twins. Les appareils peuvent envoyer des données à un service Digital Twins via le [Kit de développement logiciel (SDK) pour appareils Azure IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
+Pour commencer, créez une ressource Azure IoT Hub à la racine du graphique spatial. La ressource IoT Hub permet à tous les appareils sous l’espace racine d’envoyer des messages. Une fois l’IoT Hub créé, enregistrez vos appareils dotés de capteurs dans l’instance Digital Twins. Les appareils peuvent envoyer des données à un service Digital Twins via le [Kit de développement logiciel (SDK) pour appareils Azure IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
 Un guide pas à pas sur l’intégration des appareils est disponible dans le [tutoriel indiquant comment déployer et configurer Digital Twins](tutorial-facilities-setup.md). Voici un récapitulatif des étapes :
 

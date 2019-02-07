@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163056"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751155"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques avec Azure CLI
 Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -95,13 +95,13 @@ Bien que le tableau ci-dessus identifie le nombre max. d’E/S par seconde par d
 Vous pouvez créer et attacher des disques lorsque vous créez un groupe identique, ou avec un groupe identique existant.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Attacher des disques lors de la création d’un groupe identique
-Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *eastus*.
+Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group). Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez un groupe de machines virtuelles identiques avec la commande [az vmss create](/cli/azure/vmss#az_vmss_create). L’exemple suivant crée un groupe identique nommé *myScaleSet* et génère des clés SSH si elles n’existent pas. Deux disques sont créés avec le paramètre `--data-disk-sizes-gb`. Le premier disque fait *64* Go, et le second disque fait *128* Go :
+Créez un groupe de machines virtuelles identiques avec la commande [az vmss create](/cli/azure/vmss). L’exemple suivant crée un groupe identique nommé *myScaleSet* et génère des clés SSH si elles n’existent pas. Deux disques sont créés avec le paramètre `--data-disk-sizes-gb`. Le premier disque fait *64* Go, et le second disque fait *128* Go :
 
 ```azurecli-interactive
 az vmss create \
@@ -117,7 +117,7 @@ az vmss create \
 La création et la configuration de l’ensemble des ressources et des instances de machine virtuelle du groupe identique prennent quelques minutes.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Attacher un disque à un groupe identique existant
-Vous pouvez également attacher des disques à un groupe identique existant. Utilisez le groupe identique créé à l’étape précédente pour ajouter un autre disque avec la commande [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). Dans l’exemple suivant, un disque supplémentaire de *128* Go est attaché :
+Vous pouvez également attacher des disques à un groupe identique existant. Utilisez le groupe identique créé à l’étape précédente pour ajouter un autre disque avec la commande [az vmss disk attach](/cli/azure/vmss/disk). Dans l’exemple suivant, un disque supplémentaire de *128* Go est attaché :
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -144,7 +144,7 @@ az vmss extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
-Pour confirmer que les disques ont été correctement préparés, utilisez une clé SSH sur l’une des instances de machine virtuelle. Obtenez les informations de connexion pour votre groupe identique avec la commande [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) :
+Pour confirmer que les disques ont été correctement préparés, utilisez une clé SSH sur l’une des instances de machine virtuelle. Obtenez les informations de connexion pour votre groupe identique avec la commande [az vmss list-instance-connection-info](/cli/azure/vmss) :
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -225,7 +225,7 @@ exit
 
 
 ## <a name="list-attached-disks"></a>Afficher les disques attachés
-Pour afficher plus d’informations sur les disques attachés à un groupe identique, utilisez la commande [az vmss show](/cli/azure/vmss#az_vmss_show) et exécutez une requête sur *virtualMachineProfile.storageProfile.dataDisks* :
+Pour afficher plus d’informations sur les disques attachés à un groupe identique, utilisez la commande [az vmss show](/cli/azure/vmss) et exécutez une requête sur *virtualMachineProfile.storageProfile.dataDisks* :
 
 ```azurecli-interactive
 az vmss show \
@@ -279,7 +279,7 @@ Les informations sur la taille du disque, le niveau de stockage et le numéro d�
 
 
 ## <a name="detach-a-disk"></a>Détacher un disque
-Lorsque vous n’avez plus besoin d’un disque donné, vous pouvez le détacher du groupe identique. Le disque est supprimé de toutes les instances de machine virtuelle dans le groupe identique. Pour détacher un disque à partir d’un groupe identique, utilisez la commande [az vmss disk detach](/cli/azure/vmss/disk) et spécifiez le numéro d’unité logique du disque. Les numéros d’unité logique sont affichés en sortie à partir de la commande [az vmss show](/cli/azure/vmss#az_vmss_show) indiquée dans la section précédente. L’exemple ci-après montre comment détacher le numéro d’unité logique *2* du groupe identique :
+Lorsque vous n’avez plus besoin d’un disque donné, vous pouvez le détacher du groupe identique. Le disque est supprimé de toutes les instances de machine virtuelle dans le groupe identique. Pour détacher un disque à partir d’un groupe identique, utilisez la commande [az vmss disk detach](/cli/azure/vmss/disk) et spécifiez le numéro d’unité logique du disque. Les numéros d’unité logique sont affichés en sortie à partir de la commande [az vmss show](/cli/azure/vmss) indiquée dans la section précédente. L’exemple ci-après montre comment détacher le numéro d’unité logique *2* du groupe identique :
 
 ```azurecli-interactive
 az vmss disk detach \
@@ -290,7 +290,7 @@ az vmss disk detach \
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Pour supprimer votre groupe identique et vos disques, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group#az_group_delete). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
+Pour supprimer votre groupe identique et vos disques, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

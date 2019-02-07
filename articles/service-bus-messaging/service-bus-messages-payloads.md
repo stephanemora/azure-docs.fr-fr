@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849360"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733924"
 ---
 # <a name="messages-payloads-and-serialization"></a>Messages, charges utiles et sérialisation
 
@@ -28,7 +28,7 @@ Le modèle objet des clients Service Bus officiels pour .NET et Java reflète la
  
 Un message Service Bus se compose d’une section de charge utile binaire que Service Bus ne traite jamais sous quelque forme que ce soit côté service, ainsi que de deux ensembles de propriétés. Les *propriétés de répartiteur* sont prédéfinies par le système. Ces propriétés prédéfinies contrôlent les fonctionnalités au niveau des messages à l’intérieur du répartiteur, ou sont mappées sur des éléments de métadonnées communs et normalisés. Les *propriétés utilisateur* sont une collection de paires clé-valeur qui peuvent être définies et configurées par l’application.
  
-Les propriétés de répartiteur prédéfinies sont répertoriées dans le tableau ci-après. Les noms sont utilisés avec toutes les API clientes officielles, ainsi que dans l’objet JSON [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) du mappage de protocole HTTP.
+Les propriétés de répartiteur prédéfinies sont répertoriées dans le tableau ci-après. Les noms sont utilisés avec toutes les API clientes officielles, ainsi que dans l’objet JSON [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) du mappage de protocole HTTP.
  
 Les noms équivalents utilisés au niveau du protocole AMQP sont répertoriés entre parenthèses. 
 

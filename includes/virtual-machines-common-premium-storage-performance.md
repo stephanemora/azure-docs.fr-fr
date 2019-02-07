@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553529"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757596"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Stockage Premium Azure : Conception pour de hautes performances
 
@@ -411,24 +411,24 @@ Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scén
 
 1. Créez deux spécifications d’accès avec les valeurs indiquées ci-dessous
 
-   | NOM | Taille de la demande | % aléatoire | % écriture |
+   | Nom | Taille de la demande | % aléatoire | % écriture |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 Mo |100 |0 |
    | RandomReads\_1MB |1 Mo |100 |100 |
 1. Exécutez le test Iometer pour initialiser le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée d’exécution du test sur 2 heures sous l’onglet « Test Setup ».
 
-   | Scénario | Volume cible | NOM | Duration |
+   | Scénario | Volume cible | Nom | Duration |
    | --- | --- | --- | --- |
    | Initialisation du disque de cache |CacheReads |RandomWrites\_1MB |2 heures |
 1. Exécutez le test Iometer pour préchauffer le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée d’exécution du test sur 2 heures sous l’onglet « Test Setup ».
 
-   | Scénario | Volume cible | NOM | Durée |
+   | Scénario | Volume cible | Nom | Durée |
    | --- | --- | --- | --- |
    | Préchauffage du disque de cache |CacheReads |RandomReads\_1MB |2 heures |
 
 Une fois le disque de cache préchauffé, poursuivez avec les scénarios de test décrits ci-dessous. Pour exécuter le test Iometer, utilisez au moins trois threads de travail pour **chaque** volume cible. Pour chaque thread de travail, sélectionnez le volume cible, définissez une profondeur de file d’attente et sélectionnez l’une des spécifications de test enregistrées, comme illustré dans le tableau ci-dessous, pour exécuter le scénario de test correspondant. Le tableau indique également les résultats attendus pour les E/S par seconde et le débit lors de l’exécution de ces tests. Pour tous les scénarios, une petite taille d’E/S de 8 Ko et une profondeur de file d’attente élevée de 128 sont utilisées.
 
-| Scénario de test | Volume cible | NOM | Résultat |
+| Scénario de test | Volume cible | Nom | Résultat |
 | --- | --- | --- | --- |
 | Bande passante E/S par seconde en lecture |CacheReads |RandomWrites\_8K |50 000 E/S par seconde  |
 | Bande passante E/S par seconde en écriture |NoCacheWrites |RandomReads\_8K |64 000 E/S par seconde |
@@ -464,7 +464,7 @@ Nous allons utiliser quatre threads de travail pour générer les opérations d�
 *Taux d’E/S par seconde maximal en écriture*  
  Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en écriture. Nommez ce fichier « fiowrite.ini ».
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -504,7 +504,7 @@ Pendant l’exécution du test, vous serez en mesure de voir le nombre d’E/S p
 *Taux d’E/S par seconde maximal en lecture*  
  Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en lecture. Nommez ce fichier « fioread.ini ».
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -544,7 +544,7 @@ Pendant l’exécution du test, vous serez en mesure de voir le nombre d’E/S p
 *Taux d’E/S par seconde maximal en lecture et en écriture*  
  Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal combiné d’E/S par seconde en lecture et en écriture. Nommez ce fichier « fioreadwrite.ini ».
 
-```
+```ini
 [global]
 size=30g
 direct=1

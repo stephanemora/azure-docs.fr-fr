@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: dc44394bda1208eb2dab0a02dd73152e51788d4c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b2c3e8d7c465ca4fa9427c3a14ef04e4f69d17d6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424893"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661562"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Déploiement de machines virtuelles Azure pour SAP NetWeaver
 
@@ -719,7 +719,7 @@ Dans le portail Azure, entrez les paramètres suivants pour le modèle :
 
     Pour les grands systèmes, nous vous recommandons l’utilisation du stockage Premium Azure. Pour plus d’informations sur les types de stockage, consultez les ressources suivantes :
       * [Utilisation du stockage SSD Azure Premium pour l’instance de SGBD SAP][2367194]
-      * [Structure de stockage d’une machine virtuelle pour les déploiements SGBDR](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Structure de stockage d’une machine virtuelle pour les déploiements SGBDR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure][storage-premium-storage-preview-portal]
       * [Présentation du stockage Microsoft Azure][storage-introduction]
   * **URI du disque dur virtuel du disque du système d’exploitation** (modèle de disque non managé uniquement) : URI du disque privé du système d’exploitation, par exemple https://&lt;nom du compte&gt;.blob.core.windows.net/vhds/osdisk.vhd.

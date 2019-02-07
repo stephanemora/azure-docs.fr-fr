@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6362b243bff91233c3cd08f26904866dd7be9ebd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9610256ac68b6c1be12ca22220e317752c068b85
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248875"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730831"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Résolution des problèmes de déploiement de la machine virtuelle Windows dans Azure
 
@@ -124,7 +124,7 @@ Choisissez une taille prise en charge par le cluster du groupe à haute disponib
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Est-il possible d’ajouter une machine virtuelle classique à un groupe à haute disponibilité ?
 
-Oui. Vous pouvez ajouter une machine virtuelle classique existante à un nouveau groupe ou à un groupe à haute disponibilité déjà existant. Pour plus d’informations, consultez [Ajouter une machine virtuelle existante à un groupe à haute disponibilité](../windows/classic/configure-availability-classic.md#addmachine).
+Oui. Vous pouvez ajouter une machine virtuelle classique existante à un nouveau groupe ou à un groupe à haute disponibilité déjà existant. Pour plus d’informations, consultez [Ajouter une machine virtuelle existante à un groupe à haute disponibilité](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,8 +1,21 @@
 ---
-titre : Azure AI Gallery titleSuffix : Description d'Azure Machine Learning Studio : Partagez et découvrez des ressources d’analyse et plus encore dans Azure AI Gallery. Tirez parti de l’expérience des autres utilisateurs et apportez vos propres contributions à la communauté.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/01/2019
+title: Galerie Azure AI
+titleSuffix: Azure Machine Learning Studio
+description: Partagez et découvrez des ressources d’analyse et plus encore dans Azure AI Gallery. Tirez parti de l’expérience des autres utilisateurs et apportez vos propres contributions à la communauté.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/11/2019
+ms.openlocfilehash: b5a460f3449785721ac360ba398bc47d1945b954
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497692"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partager et découvrir des ressources dans Azure AI Gallery
 

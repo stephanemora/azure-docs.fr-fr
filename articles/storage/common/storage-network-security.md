@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c6b4ed787fa9e8881990801bdee77550a1a0bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473627"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699174"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -241,7 +241,7 @@ Chaque compte de stockage prend en charge jusqu’à 100 règles de réseau IP q
 
 Pour accorder l’accès à votre compte de stockage à partir de réseaux locaux avec une règle de réseau IP, vous devez identifier les adresses IP Internet utilisées par votre réseau. Contactez votre administrateur réseau pour obtenir de l’aide.
 
-Vous pouvez utiliser [ExpressRoute](/azure/expressroute/expressroute-introduction) pour connecter votre réseau au réseau Azure. Ici, chaque circuit est configuré avec deux adresses IP publiques. Elles sont accessibles sur Microsoft Edge et utilisent [Homologation publique Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) pour la connexion aux Services Microsoft comme Stockage Azure. Pour permettre la communication avec Stockage Azure, créez des règles de réseau IP pour les adresses IP publiques de vos circuits. Pour rechercher les adresses IP publiques de votre circuit ExpressRoute, [ouvrez un ticket de support avec ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) dans le portail Azure.
+Vous pouvez utiliser [ExpressRoute](/azure/expressroute/expressroute-introduction) pour connecter votre réseau au réseau Azure. Ici, chaque circuit est configuré avec deux adresses IP publiques. Elles sont accessibles sur Microsoft Edge et utilisent [Homologation publique Azure](/azure/expressroute/expressroute-circuit-peerings) pour la connexion aux Services Microsoft comme Stockage Azure. Pour permettre la communication avec Stockage Azure, créez des règles de réseau IP pour les adresses IP publiques de vos circuits. Pour rechercher les adresses IP publiques de votre circuit ExpressRoute, [ouvrez un ticket de support avec ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) dans le portail Azure.
 
 ### <a name="managing-ip-network-rules"></a>Gestion des règles de réseau IP
 
@@ -355,7 +355,7 @@ Si vous activez l’exception **Services Microsoft approuvés**, les services su
 |Azure Event Grid|Microsoft.EventGrid|Permettez la publication d’événements Stockage Blob et autorisez Event Grid à effectuer des publications dans les files d’attente de stockage. En savoir plus sur les [événements Stockage Blob](/azure/event-grid/event-sources) et la [publication dans les files d’attente](/azure/event-grid/event-handlers).|
 |Hubs d'événements Azure|Microsoft.EventHub|Archivage des données avec Event Hubs Capture. [En savoir plus](/azure/event-hubs/event-hubs-capture-overview)|
 |Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux du trafic réseau. [Plus d’informations](/azure/network-watcher/network-watcher-packet-capture-overview)|
-|Azure Monitor|Microsoft.Insights|Autorisation de l’écriture de données de supervision dans un compte de stockage sécurisé. [En savoir plus](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights|Autorisation de l’écriture de données de supervision dans un compte de stockage sécurisé. [En savoir plus](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure SQL Data Warehouse|Microsoft.Sql|Permet d’importer et d’exporter des scénarios à l’aide de PolyBase. [Plus d’informations](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)|
 
 ### <a name="storage-analytics-data-access"></a>Accès aux données Storage Analytics

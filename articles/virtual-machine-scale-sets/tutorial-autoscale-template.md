@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 261af3524b36d3742c68ef147bfa648bfe95034c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887766"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749191"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutoriel : Mettre automatiquement à l’échelle un groupe de machines virtuelles identiques avec un modèle Azure
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -144,13 +144,13 @@ L’exemple suivant définit une règle qui diminue le nombre d’instances de m
 ## <a name="create-an-autoscaling-scale-set"></a>Créer un groupe identique avec mise à l’échelle automatique
 Nous allons utiliser un exemple de modèle pour créer un groupe identique et appliquer des règles de mise à l’échelle automatique. Vous pouvez [examiner le modèle complet](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json) ou [consulter la section dédiée au fournisseur de ressources *Microsoft.insights/autoscalesettings* ](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) du modèle.
 
-Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
+Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez à présent un groupe identique de machines virtuelles avec [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Lorsque vous y êtes invité, fournissez votre propre nom d’utilisateur, comme *azureuser* et le mot de passe que vous avez utilisés comme informations d’identification pour chaque instance de machine virtuelle :
+Créez à présent un groupe identique de machines virtuelles avec [az group deployment create](/cli/azure/group/deployment). Lorsque vous y êtes invité, fournissez votre propre nom d’utilisateur, comme *azureuser* et le mot de passe que vous avez utilisés comme informations d’identification pour chaque instance de machine virtuelle :
 
 ```azurecli-interactive
 az group deployment create \
@@ -198,7 +198,7 @@ Lorsque **stress** affiche une sortie du type *stress: info: [2688] dispatching 
 
 Pour vérifier que **stress** génère une charge d’UC, examinez la charge du système actif avec l’utilitaire **top** :
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -264,7 +264,7 @@ Fermez *watch* avec `Ctrl-c`. Le groupe identique continue à diminuer toutes le
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group#az_group_delete) :
+Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group) :
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

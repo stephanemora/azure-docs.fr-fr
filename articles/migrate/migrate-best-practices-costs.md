@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995042"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700636"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Meilleures pratiques pour l’évaluation des coûts et le dimensionnement des charges de travail migrées vers Azure
 
@@ -154,7 +154,7 @@ Un portefeuille de produits Azure/locaux Microsoft intégrés génère des avant
 
 - [Essayez](https://azure.microsoft.com/pricing/hybrid-benefit/) la calculatrice des économies réalisées avec Azure Hybrid Benefit.
 - [Apprenez-en plus](https://azure.microsoft.com/pricing/hybrid-benefit/) sur Hybrid Benefit pour Windows Server.
-- [Passez en revue](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) la tarification conseillée des machines virtuelles SQL Server Azure.
+- [Passez en revue](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) la tarification conseillée des machines virtuelles SQL Server Azure.
 
 
 ## <a name="best-practice-use-reserved-vm-instances"></a>Meilleure pratique : utiliser des instances de machines virtuelles réservées
@@ -174,7 +174,7 @@ Avec des instances de machines virtuelles réservées Azure, vous prépayez l’
 **En savoir plus :**
 - [Apprenez-en plus](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) sur les réservations.
 - [Lisez](https://azure.microsoft.com/pricing/reserved-vm-instances/#faq) la FAQ sur les instances réservées Azure.
-- [Obtenez la tarification conseillée](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) des machines virtuelles SQL Server Azure.
+- [Obtenez la tarification conseillée](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) des machines virtuelles SQL Server Azure.
 
 
 ## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>Meilleure pratique : agréger les dépenses cloud des abonnements

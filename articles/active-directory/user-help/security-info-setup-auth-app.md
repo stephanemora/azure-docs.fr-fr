@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 191afec8733258519370d11942c0f6d18da6b603
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6ee75b0ee465e330d78b166b0da12232b7915ae7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180396"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766059"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Configurer les informations de sécurité pour utiliser une application d’authentification (préversion)
 
@@ -28,7 +28,7 @@ Pour configurer vos informations de sécurité, vous devez vous connecter à vot
 
 En fonction des paramètres de votre organisation, vous pouvez être invité à paramétrer l’application Microsoft Authenticator lors de la connexion. Sinon, pour commencer à configurer l’application Microsoft Authenticator dans les informations de sécurité, suivez les étapes indiquées dans l’article [Manage your security info](security-info-manage-settings.md) (Gérer vos informations de sécurité).
 
-Pour télécharger et découvrir l’application Microsoft Authenticator, consultez l’article [Bien démarrer avec l’application Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+Pour télécharger et découvrir l’application Microsoft Authenticator, consultez l’article [Bien démarrer avec l’application Microsoft Authenticator](user-help-auth-app-download-install.md).
 
 >[!Note]
 >Si vous ne souhaitez pas utiliser l’application Microsoft Authenticator, vous pouvez choisir une autre application au cours de la configuration. Cet article utilise l’application Microsoft Authenticator. Si vous ne voyez pas l’option d’application d’authentification, il est possible que votre organisation ne vous autorise pas à utiliser l’application d’authentification à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter votre administrateur pour obtenir de l’aide.

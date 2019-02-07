@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 470813b1a51db183476dd046dc102eb89d73debd
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e9378fd1e7fd0d8c6b3f913ec3d8f629a2c3be37
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354574"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770684"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Kit de développement logiciel .NET Azure Cosmos DB pour l’API SQL : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -30,20 +30,14 @@ ms.locfileid: "54354574"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
-
-<tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
-
-<tr><td>**Exemples**</td><td>[Exemples de code .NET](sql-api-dotnet-samples.md)</td></tr>
-
-<tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-get-started.md)</td></tr>
-
-<tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
-
-<tr><td>**Infrastructure actuellement prise en charge**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
+|**Documentation de l’API**|[Documentation de référence sur l’API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Exemples**|[Exemples de code .NET](sql-api-dotnet-samples.md)|
+|**Prise en main**|[Prise en main du Kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-get-started.md)|
+|**Didacticiel d’application web**|[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Infrastructure actuellement prise en charge**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 ## <a name="release-notes"></a>Notes de publication
 
@@ -66,7 +60,7 @@ ms.locfileid: "54354574"
 
 * Pour les diagnostics de transport direct/TCP, ajout de TransportException, un type d’exception interne du SDK. Lorsqu’il est présent dans les messages d’exception, ce type affiche des informations supplémentaires pour la résolution des problèmes de connectivité client.
 
-* Ajout d'une nouvelle surcharge de constructeur acceptant un HttpMessageHandler, une pile de gestionnaire HTTP à utiliser pour envoyer des demandes HttpClient (par exemple, HttpClientHandler).
+* Ajout d’une nouvelle surcharge de constructeur acceptant un HttpMessageHandler, une pile de gestionnaire HTTP à utiliser pour envoyer des demandes HttpClient (par exemple, HttpClientHandler).
 
 * Correction de bogue où un en-tête avec des valeurs null n’est pas traité correctement.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 110b909106f5b9eae639639adf418647e3e8bea9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022340"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491465"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Fonctions de déploiement pour les modèles Azure Resource Manager 
 
@@ -30,6 +30,8 @@ Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à 
 Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonnements, consultez [Fonctions de ressource](resource-group-template-functions-resource.md).
 
 <a id="deployment" />
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment"></a>déploiement
 `deployment()`
@@ -149,10 +151,10 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
-Pour un modèle de niveau d’abonnement qui utilise la fonction de déploiement, consultez [Fonction de déploiement d’abonnement](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Le déploiement s’effectue à l’aide des commandes `az deployment create` ou `New-AzureRmDeployment`.
+Pour un modèle de niveau d’abonnement qui utilise la fonction de déploiement, consultez [Fonction de déploiement d’abonnement](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Le déploiement s’effectue à l’aide des commandes `az deployment create` ou `New-AzDeployment`.
 
 <a id="parameters" />
 
@@ -163,7 +165,7 @@ Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être d�
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | nom_paramètre |Oui |chaîne |Nom du paramètre à retourner. |
 
@@ -250,7 +252,7 @@ En général, vous utilisez les paramètres pour définir les valeurs de la ress
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | stringOutput | Chaîne | option 1 |
 | intOutput | Int | 1 |
@@ -267,7 +269,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
 ```
 
 <a id="variables" />
@@ -279,7 +281,7 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | variableName |Oui |Chaîne |Nom de la variable à retourner. |
 
@@ -353,7 +355,7 @@ En général, vous utilisez les variables pour simplifier votre modèle en créa
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | exampleOutput1 | Chaîne | myVariable |
 | exampleOutput2 | Tableau | [1, 2, 3, 4] |
@@ -369,7 +371,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

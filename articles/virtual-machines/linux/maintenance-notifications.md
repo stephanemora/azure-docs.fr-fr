@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: fdd5e3577c91f288919b7223287d2d3722f0259c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e07937710dd36c14e7118caf6028a161ad7dc4ee
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543442"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753620"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Gestion de notifications de maintenance planifiées pour les machines virtuelles Linux
 
@@ -74,7 +74,7 @@ Il est conseillé d’utiliser la maintenance de libre-service dans les cas suiv
 
 ## <a name="find-vms-scheduled-for-maintenance-using-cli"></a>Trouver des machines virtuelles planifiées pour la maintenance à l’aide de l’interface de ligne de commande
 
-Les informations de maintenance planifiée peuvent être consultées à l’aide de [azure vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az_vm_get_instance_view).
+Les informations de maintenance planifiée peuvent être consultées à l’aide de [azure vm get-instance-view](/cli/azure/vm?view=azure-cli-latest).
  
 Les informations de maintenance sont retournées uniquement en cas de maintenance planifiée. S’il n’existe aucune maintenance planifiée qui affecte la machine virtuelle, la commande ne retourne pas d’informations de maintenance. 
 

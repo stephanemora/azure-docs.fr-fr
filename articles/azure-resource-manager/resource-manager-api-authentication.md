@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: d7beab66bdaed312f32adef74ceb4b2944e6853e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103887"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498248"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
-## <a name="introduction"></a>Introduction
+
 Si, en tant que développeur de logiciels, vous souhaitez créer une application pour gérer les ressources Azure d’un client, cet article vous explique comment effectuer l’authentification avec les API Azure Resource Manager et accéder aux ressources dans d’autres abonnements.
 
 Votre application peut accéder à ces API de différentes manières :
@@ -32,7 +32,10 @@ Votre application peut accéder à ces API de différentes manières :
 
 Cet article explique pas à pas comment créer une application qui met en œuvre ces deux méthodes d’autorisation. Elle montre comment effectuer chaque étape avec l’API REST ou C#. L’application ASP.NET MVC complète est disponible à l’adresse [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="what-the-web-app-does"></a>Ce que fait l’application web
+
 L’application web :
 
 1. Connecte un utilisateur Azure.
@@ -74,7 +77,7 @@ Votre application ayant accès à plusieurs abonnements, vous devez la configure
 L’exemple suivant montre comment inscrire l’application à l’aide d’Azure PowerShell. Pour que cette commande fonctionne, vous devez disposer de la version la plus récente (août 2016) d’Azure PowerShell.
 
 ```azurepowershell-interactive
-$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
 Pour vous connecter en tant qu’application Active Directory, il vous faut l’ID et le mot de passe de l’application. Pour afficher l’ID d’application renvoyé par la commande précédente, utilisez :

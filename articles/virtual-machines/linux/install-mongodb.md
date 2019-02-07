@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 8a9b14423566e631ddb41b42048104c8ee085486
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: cc786b97c38c115fb288a5b9a0f73f566777e7df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886694"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734417"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Guide pratique d’installation et de configuration de MongoDB sur une machine virtuelle Linux
 
@@ -39,7 +39,7 @@ Créez un groupe de ressources avec la commande [az group create](/cli/azure/gro
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée une machine virtuelle nommée *myVM* avec un utilisateur nommé *azureuser* utilisant l’authentification par clé publique SSH
+Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’exemple suivant crée une machine virtuelle nommée *myVM* avec un utilisateur nommé *azureuser* utilisant l’authentification par clé publique SSH
 
 ```azurecli
 az vm create \
@@ -127,7 +127,7 @@ Pour créer cet environnement, vous devez installer la dernière version [d’Az
 az group create --name myResourceGroup --location eastus
 ```
 
-Ensuite, déployez le modèle MongoDB avec [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). À l’invite, renseignez vos propres valeurs uniques pour *newStorageAccountName*, *dnsNameForPublicIP*, ainsi que vos nom d’utilisateur et mot de passe administrateur :
+Ensuite, déployez le modèle MongoDB avec [az group deployment create](/cli/azure/group/deployment). À l’invite, renseignez vos propres valeurs uniques pour *newStorageAccountName*, *dnsNameForPublicIP*, ainsi que vos nom d’utilisateur et mot de passe administrateur :
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -178,7 +178,7 @@ Pour créer cet environnement, vous devez installer la dernière version [d’Az
 az group create --name myResourceGroup --location eastus
 ```
 
-Ensuite, déployez le modèle MongoDB avec [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Définissez vos propres noms de ressources et tailles si nécessaire, comme par exemple pour *mongoAdminUsername*, *sizeOfDataDiskInGB* et *configNodeVmSize* :
+Ensuite, déployez le modèle MongoDB avec [az group deployment create](/cli/azure/group/deployment). Définissez vos propres noms de ressources et tailles si nécessaire, comme par exemple pour *mongoAdminUsername*, *sizeOfDataDiskInGB* et *configNodeVmSize* :
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -200,7 +200,7 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-Ce déploiement peut nécessiter plus d’une heure pour déployer et configurer toutes les instances de machine virtuelle. L’indicateur `--no-wait` est utilisé à la fin de la commande précédente pour renvoyer le contrôle à l’invite de commandes une fois le déploiement du modèle accepté par la plateforme Azure. Vous pouvez ensuite afficher l’état du déploiement avec [az group deployment show](/cli/azure/group/deployment#az_group_deployment_show). L’exemple suivant vérifie l’état du déploiement de *myMongoDBCluster* dans le groupe de ressources *myResourceGroup* :
+Ce déploiement peut nécessiter plus d’une heure pour déployer et configurer toutes les instances de machine virtuelle. L’indicateur `--no-wait` est utilisé à la fin de la commande précédente pour renvoyer le contrôle à l’invite de commandes une fois le déploiement du modèle accepté par la plateforme Azure. Vous pouvez ensuite afficher l’état du déploiement avec [az group deployment show](/cli/azure/group/deployment). L’exemple suivant vérifie l’état du déploiement de *myMongoDBCluster* dans le groupe de ressources *myResourceGroup* :
 
 ```azurecli
 az group deployment show \

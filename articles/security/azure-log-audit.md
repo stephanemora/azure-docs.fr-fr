@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 574c295c3b44d0c6146c852777f2bef3ad13ecdd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306248"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697915"
 ---
 # <a name="azure-logging-and-auditing"></a>Journalisation et audit Azure
 
@@ -194,9 +194,9 @@ Storage Analytics journalise les types suivants de demandes authentifiées et an
 
 La journalisation et la surveillance réseau dans Azure sont complètes et couvrent deux grandes catégories :
 
-* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) : la surveillance réseau basée sur des scénarios est fournie avec les fonctionnalités de Network Watcher. Ce service inclut la capture de paquets, le tronçon saut suivant, la vérification des flux IP, l’affichage de groupe de sécurité, les journaux de flux de groupe de sécurité réseau. La surveillance basée sur des scénarios fournit une vue de bout en bout des ressources réseau, à l’inverse de la surveillance des ressources réseau qui s’intéresse à chaque ressource spécifique.
+* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : la surveillance réseau basée sur des scénarios est fournie avec les fonctionnalités de Network Watcher. Ce service inclut la capture de paquets, le tronçon saut suivant, la vérification des flux IP, l’affichage de groupe de sécurité, les journaux de flux de groupe de sécurité réseau. La surveillance basée sur des scénarios fournit une vue de bout en bout des ressources réseau, à l’inverse de la surveillance des ressources réseau qui s’intéresse à chaque ressource spécifique.
 
-* [Surveillance des ressources](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring) : la surveillance au niveau des ressources se compose de quatre fonctionnalités : journaux de diagnostic, métriques, résolution des problèmes et intégrité des ressources. Toutes ces fonctionnalités sont conçues au niveau des ressources réseau.
+* [Surveillance des ressources](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : la surveillance au niveau des ressources se compose de quatre fonctionnalités : journaux de diagnostic, métriques, résolution des problèmes et intégrité des ressources. Toutes ces fonctionnalités sont conçues au niveau des ressources réseau.
 
 ![Journaux réseaux Azure](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -238,7 +238,7 @@ En plus des fonctionnalités de journalisation mentionnées ci-dessus, Network W
 
 * [Résolution des problèmes de passerelle de réseau virtuel et de connexion](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) : vous aide à résoudre les problèmes liés aux connexions ou aux passerelles de réseau virtuel.
 
-* [Limites d’abonnement réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits) : vous permet d’afficher l’utilisation des ressources réseau par rapport aux limites.
+* [Limites d’abonnement réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : vous permet d’afficher l’utilisation des ressources réseau par rapport aux limites.
 
 ### <a name="application-insights"></a>Application Insights
 

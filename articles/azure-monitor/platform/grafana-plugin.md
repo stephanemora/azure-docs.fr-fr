@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 9d0f814428a4d7bc57b4f0a01ff5adc658af1d91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466983"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730898"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Surveiller vos services Azure dans Grafana
 Maintenant, vous pouvez superviser les services et applications Azure à partir de [Grafana](https://grafana.com/) en utilisant le [plug-in Azure Monitor de source de données](https://grafana.com/plugins/grafana-azure-monitor-datasource). Le plug-in rassemble des données de performance d’application collectées par Azure Monitor, y compris divers journaux et métriques. Vous pouvez ensuite afficher ces données dans votre tableau de bord Grafana.
@@ -66,7 +66,7 @@ Lorsque vous êtes correctement connecté, vous devez voir que le plug-in Azure 
 
 3. Créer un principal de service - Grafana utilise un principal de service Azure Active Directory pour se connecter à des API Azure Monitor et collecter des données. Vous devez créer un principal de service ou en utiliser un existant pour gérer l’accès à vos ressources Azure.
     * Consultez [ces instructions](../../azure-resource-manager/resource-group-create-service-principal-portal.md) pour créer un principal de service. Copiez et enregistrez votre ID de locataire (ID d’annuaire), ID client (ID d’application) et le secret client (valeur de la clé d’application).
-    * Consultez [Affecter l’application à un rôle](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) pour assigner le rôle de lecteur à l’application Azure Active Directory dans l’abonnement, le groupe de ressources ou la ressource que vous souhaitez superviser. 
+    * Consultez [Affecter l’application à un rôle](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) pour assigner le rôle de lecteur à l’application Azure Active Directory dans l’abonnement, le groupe de ressources ou la ressource que vous souhaitez superviser. 
     L’API Log Analytics a besoin du [rôle Lecteur Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) qui inclut les autorisations du rôle de lecteur et les lui ajoute.
 
 4. Fournissez les informations de connexion aux API que vous souhaitez utiliser. Vous pouvez vous connecter à l’intégralité de ces API ou à certaines d’entre elles. 

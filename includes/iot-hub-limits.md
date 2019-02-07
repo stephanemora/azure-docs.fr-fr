@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: e1618ded270cddca13145195522d7b42a00d6585
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e6dbfe225b6957406b7143d5db4a28cb50f13e7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841411"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480404"
 ---
 Le tableau suivant répertorie les limites associées aux différents niveaux de service (S1, S2, S3 et F1). Pour plus d'informations sur le coût de chaque *unité* dans chaque couche, consultez [la tarification du IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -57,7 +57,7 @@ Le tableau suivant répertorie les limites qui s'appliquent aux ressources IoT H
 
 
 > [!NOTE]
-> Actuellement, le nombre maximal d’appareils que vous pouvez connecter à un IoT Hub unique est 500 000. Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
+> Actuellement, le nombre maximal d’appareils que vous pouvez connecter à un hub IoT unique est 1 000 000. Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
 
 Le service IoT Hub limite les demandes cas de dépassement des quotas suivants :
 
@@ -68,7 +68,7 @@ Le service IoT Hub limite les demandes cas de dépassement des quotas suivants 
 | Envois appareil-à-cloud |6 000/s/unité (pour S3), 120/s/unité (pour S2), 12/s/unité (pour S1). <br/>Minimum de 100/s. |
 | Envois cloud-à-appareil | 83,33/s/unité (5000/min/unité) (pour S3), 1,67/s/unité (100/min/unité) (pour S1 et S2). |
 | Réceptions cloud-à-appareil |833,33/s/unité (50 000/min/unité) (pour S3), 16,67/s/unité (1 000/min/unité) (pour S1 et S2). |
-| Opérations de téléchargement de fichier |83,33 notifications de chargement de fichier/s/unité (5 000/min/unité) (pour S3), 1,67 notifications de chargement de fichier/s/unité (100/min/unité) (pour S1 et S2). <br/> 10000 URI de signature d’accès partagé peuvent être générés à la fois pour un compte Azure Storage.<br/>  10 URI de signature d’accès partagé/appareil peuvent être générés à la fois. |
+| Opérations de téléchargement de fichier |83,33 notifications de chargement de fichier/s/unité (5 000/min/unité) (pour S3), 1,67 notifications de chargement de fichier/s/unité (100/min/unité) (pour S1 et S2). <br/> 10000 URI de signature d’accès partagé peuvent être générés à la fois pour un compte Azure Storage.<br/> 10 URI de signature d’accès partagé/appareil peuvent être générés à la fois. |
 | Méthodes directes | 24 Mo/s/unité (pour S3), 480 Ko/s/unité (pour S2), 160 Ko/s/unité (pour S1)<br/> Basée sur une limitation de taille du compteur de 8 Ko. |
 | Lectures de jumeaux d’appareil | 50/s/unité (pour S3), 10/s ou 1/s/unité maximum (pour S2), 10/s (pour S1) |
 | Mises à jour de jumeaux d’appareils | 50/s/unité (pour S3), 10/s ou 1/s/unité maximum (pour S2), 10/s (pour S1) |

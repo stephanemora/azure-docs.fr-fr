@@ -3,7 +3,7 @@ title: Serveurs Azure SQL Database | Microsoft Docs
 description: En savoir plus sur les serveurs Azure SQL Database et leur gestion.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f3378c43c225152ebdcf2e92de6d4fc65c047c31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479128"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756646"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Serveurs Azure SQL Database et leur gestion
 
@@ -78,7 +78,7 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
 > [!IMPORTANT]
 > Pour configurer les propriétés de performance d’une base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
 > [!TIP]
-> Pour un démarrage rapide du portail Azure, consultez la page[Créer une base de données SQL Azure à l’aide du portail Azure](sql-database-get-started-portal.md).
+> Pour un démarrage rapide du portail Azure, consultez la page[Créer une base de données SQL Azure à l’aide du portail Azure](sql-database-single-database-get-started.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Gérer les serveurs, les bases de données et les pare-feux SQL Azure à l’aide de PowerShell
 
@@ -102,7 +102,7 @@ Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Az
 | New-AzureRmSqlServerVirtualNetworkRule | Crée une [*règle de réseau virtuel*](sql-database-vnet-service-endpoint-rule-overview.md), basée sur un sous-réseau qui est un point de terminaison de service de réseau virtuel. |
 
 > [!TIP]
-> Pour un démarrage rapide de PowerShell, consultez la page [Créer une base de données SQL Azure unique à l’aide de PowerShell](sql-database-get-started-portal.md). Pour obtenir des exemples de script PowerShell, consultez [Utiliser PowerShell pour créer une base de données unique SQL Azure et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-powershell.md) et [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données unique SQL Azure](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Pour un démarrage rapide de PowerShell, consultez la page [Créer une base de données SQL Azure unique à l’aide de PowerShell](sql-database-single-database-get-started.md). Pour obtenir des exemples de script PowerShell, consultez [Utiliser PowerShell pour créer une base de données unique SQL Azure et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-powershell.md) et [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données unique SQL Azure](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Gérer les serveurs, les bases de données et les pare-feu SQL Azure à l’aide de l’interface de ligne de commande Azure

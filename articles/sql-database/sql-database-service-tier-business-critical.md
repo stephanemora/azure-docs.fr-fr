@@ -3,7 +3,7 @@ title: Niveau Critique pour l’entreprise - Service Azure SQL Database | Micros
 description: En savoir plus sur le niveau Critique pour l’entreprise d’Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: aecbc9415fc7fe93b5df355c97a1a51a74f01e97
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ca907e145067043b41dd6000248d44ecc1e3434f
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885108"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510440"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Niveau Critique pour l'entreprise - Azure SQL Database
 
 > [!NOTE]
-> Le niveau Critique pour l’entreprise s’appelle Premium dans le modèle d’achat DTU. Pour obtenir une comparaison du modèle d’achat basé sur le nombre de cœurs virtuels avec le modèle d’achat basé sur des unités DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-service-tiers.md).
+> Le niveau Critique pour l’entreprise s’appelle Premium dans le modèle d’achat DTU. Pour obtenir une comparaison du modèle d’achat basé sur le nombre de cœurs virtuelss avec le modèle d’achat basé sur des unités DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-service-tiers.md).
 
 Azure SQL Database est basé sur une architecture de moteur de base de données SQL Server. Celle-ci est ajustée pour l’environnement cloud afin de garantir une disponibilité de 99,99 % même en cas de panne d’infrastructure. Trois modèles d’architecture sont utilisés dans Azure SQL Database :
 - Usage général/Standard 

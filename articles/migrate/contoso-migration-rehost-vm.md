@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823349"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694497"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migration de Contoso : réhéberger une application locale sur des machines virtuelles Azure
 
@@ -460,7 +460,7 @@ L’équipe de sécurité de Contoso examine les machines virtuelles Azure afin 
 - Pour contrôler l’accès, l’équipe examine les groupes de sécurité réseau (NSG) des machines virtuelles. Les groupes de sécurité réseau sont utilisés pour s’assurer que seul le trafic autorisé vers l’application puisse atteindre celle-ci.
 - L’équipe envisage également la sécurisation des données sur le disque à l’aide d’Azure Disk Encryption et de KeyVault.
 
-[En savoir plus](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) sur les pratiques de sécurité pour les machines virtuelles.
+[En savoir plus](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) sur les pratiques de sécurité pour les machines virtuelles.
 
 ## <a name="bcdr"></a>BCDR
 

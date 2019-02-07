@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863531"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567007"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Prise en main de Tâches de bases de données élastiques
 
@@ -262,7 +262,7 @@ Les stratégies d'exécution permettent de définir :
 * Délai d’attente de la tâche : délai avant l’annulation d’une tâche par Tâches de base de données élastique.
 * Intervalle avant nouvelle tentative initiale : intervalle d’attente avant la première nouvelle tentative.
 * Intervalle maximal avant nouvelle tentative : plafond des intervalles avant nouvelle tentative à utiliser.
-* Coefficient d’interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives.  La formule utilisée est la suivante : (intervalle avant nouvelle tentative initiale) * Math.pow((coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2).
+* Coefficient d’interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives.  La formule utilisée est la suivante : (intervalle avant nouvelle tentative initiale) * Math.pow ((coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2).
 * Nombre maximal de tentatives : nombre maximal de nouvelles tentatives effectuées dans une tâche.
 
 La stratégie d'exécution par défaut utilise les valeurs suivantes :

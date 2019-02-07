@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466854"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749140"
 ---
-# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Didacticiel : Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutoriel : Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI
 
 Les machines virtuelles fournissent un environnement informatique entièrement configurable et flexible. Ce didacticiel traite d’aspects de base du déploiement de machines virtuelles Azure, tels que la sélection d’une taille de machine virtuelle, la sélection d’une image de machine virtuelle et le déploiement d’une machine virtuelle. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -40,7 +40,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
+Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group). 
 
 Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles. Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *eastus*. 
 
@@ -52,7 +52,7 @@ Le groupe de ressources est spécifié lors de la création ou de la modificatio
 
 ## <a name="create-virtual-machine"></a>Créer une machine virtuelle 
 
-Créez une machine virtuelle avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
+Créez une machine virtuelle avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm). 
 
 Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, comme l’image de système d’exploitation, le dimensionnement des disques et les informations d’identification d’administration. L’exemple suivant permet de créer une machine virtuelle nommée *myVM* qui s’exécute sur le serveur Ubuntu. Un compte d’utilisateur nommé *azureuser* est créé sur la machine virtuelle, et les clés SSH sont générées si elles n’existent pas dans l’emplacement de la clé par défaut (*~/.ssh*) :
 
@@ -98,7 +98,7 @@ exit
 
 La Place de marché Azure comprend de nombreuses images qui permettent de créer des machines virtuelles. Dans les étapes précédentes, une machine virtuelle a été créée à l’aide d’une image Ubuntu. Dans cette étape, vous allez utiliser l’interface Azure CLI pour rechercher dans la Place de marché une image CentOS, qui servira ensuite à déployer une deuxième machine virtuelle. 
 
-Pour afficher une liste des images les plus couramment utilisées, utilisez la commande [az vm image list](/cli/azure/vm/image#az_vm_image_list).
+Pour afficher une liste des images les plus couramment utilisées, utilisez la commande [az vm image list](/cli/azure/vm/image).
 
 ```azurecli-interactive 
 az vm image list --output table
@@ -155,7 +155,7 @@ Une taille de machine virtuelle détermine la quantité de ressources de calcul 
 
 Le tableau suivant classe les tailles en fonction des cas d’utilisation.  
 
-| type                     | Tailles           |    Description       |
+| Type                     | Tailles           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Usage général](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Ratio processeur/mémoire équilibré. Idéale pour le développement/test et pour les petites et moyennes applications et solutions de données.  |
 | [Optimisé pour le calcul](sizes-compute.md)   | Fs, F             | Ratio processeur/mémoire élevé. Convient pour les applications au trafic moyen, les appliances réseau et les processus de traitement par lots.        |
@@ -167,7 +167,7 @@ Le tableau suivant classe les tailles en fonction des cas d’utilisation.
 
 ### <a name="find-available-vm-sizes"></a>Rechercher les tailles de machines virtuelles disponibles
 
-Pour afficher la liste des tailles de machines virtuelles disponibles dans une région particulière, utilisez la commande [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). 
+Pour afficher la liste des tailles de machines virtuelles disponibles dans une région particulière, utilisez la commande [az vm list-sizes](/cli/azure/vm). 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -198,7 +198,7 @@ Résultat partiel :
 
 ### <a name="create-vm-with-specific-size"></a>Créer une machine virtuelle d’une taille spécifique
 
-Dans le précédent exemple de création d’une machine virtuelle, aucune taille n’a été spécifiée ; la taille par défaut a donc été appliquée. Vous pouvez sélectionner une taille de machine virtuelle au moment de la création à l’aide de la commande [az vm create](/cli/azure/vm#az_vm_create) et de l’argument `--size`. 
+Dans le précédent exemple de création d’une machine virtuelle, aucune taille n’a été spécifiée ; la taille par défaut a donc été appliquée. Vous pouvez sélectionner une taille de machine virtuelle au moment de la création à l’aide de la commande [az vm create](/cli/azure/vm) et de l’argument `--size`. 
 
 ```azurecli-interactive 
 az vm create \
@@ -217,12 +217,12 @@ Après avoir déployé une machine virtuelle, vous pouvez la redimensionner pour
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Avant de redimensionner une machine virtuelle, vérifiez si la taille souhaitée est disponible dans le cluster Azure actuel. La commande [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options) commande renvoie la liste des tailles disponibles. 
+Avant de redimensionner une machine virtuelle, vérifiez si la taille souhaitée est disponible dans le cluster Azure actuel. La commande [az vm list-vm-resize-options](/cli/azure/vm) commande renvoie la liste des tailles disponibles. 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-Si la taille souhaitée est disponible, la machine virtuelle peut être redimensionnée à partir d’un état sous tension, mais elle est redémarrée au cours de l’opération. Utilisez la commande [az vm resize]( /cli/azure/vm#az_vm_resize) commande pour effectuer le redimensionnement.
+Si la taille souhaitée est disponible, la machine virtuelle peut être redimensionnée à partir d’un état sous tension, mais elle est redémarrée au cours de l’opération. Utilisez la commande [az vm resize]( /cli/azure/vm) commande pour effectuer le redimensionnement.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
@@ -264,7 +264,7 @@ Une machine virtuelle Azure peut présenter différents états d’alimentation.
 
 ### <a name="find-the-power-state"></a>Rechercher l’état d’alimentation
 
-Pour récupérer l’état d’une machine virtuelle spécifique, utilisez la commande [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Veillez à spécifier le nom valide d’une machine virtuelle et d’un groupe de ressources. 
+Pour récupérer l’état d’une machine virtuelle spécifique, utilisez la commande [az vm get instance-view](/cli/azure/vm). Veillez à spécifier le nom valide d’une machine virtuelle et d’un groupe de ressources. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 6a4dedc2478b2f8c5fa754e3736dbfb983cfb7a2
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 1b772fdbda8e58db9414e09ef3ef7c98fc9f86b8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079815"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486977"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Créer des abonnements Azure Enterprise par programmation (préversion)
 
 En tant que client Azure bénéficiant d’un [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA, Enterprise Agreement), vous pouvez créer des abonnements EA (MS-AZR-0017P) et EA Dev/Test (MS-AZR-0148P) par programmation. Dans cet article, vous apprenez à créer des abonnements par programmation en utilisant Azure Resource Manager.
 
 Lorsque vous créez un abonnement Azure par le biais de cette API, cet abonnement est régi par le contrat aux termes duquel vous avez obtenu des services Microsoft Azure auprès de Microsoft ou d’un revendeur agréé. Pour en savoir plus, consultez [Informations Juridiques Microsoft Azure](https://azure.microsoft.com/support/legal/).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

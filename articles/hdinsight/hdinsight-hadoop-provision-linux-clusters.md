@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: 0878fc4b069f7c1ca34f8954320af6e69ceea717
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 33a882e8543f1a57afe9207f7a7263ec39530a0c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299860"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817920"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -31,7 +31,7 @@ Un cluster Hadoop se compose de plusieurs machines virtuelles (nœuds) utilisée
 ## <a name="cluster-setup-methods"></a>Méthodes de configuration du cluster
 La table suivante présente les différentes méthodes que vous pouvez utiliser pour configurer un cluster HDInsight.
 
-| Clusters créés avec | un navigateur Web | Ligne de commande | API REST | Foundation | 
+| Clusters créés avec | un navigateur Web | Ligne de commande | API REST | Kit SDK  | 
 | --- |:---:|:---:|:---:|:---:|
 | [Portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -50,7 +50,7 @@ Suivez les instructions à l’écran pour effectuer une configuration de cluste
 
 * [Nom de groupe ressources](#resource-group-name)
 * [Types de cluster et configuration](#cluster-types) 
-* [Connexion au cluster et nom d’utilisateur SSH](#cluster-login-and-ssh-username)
+* Connexion au cluster et nom d’utilisateur SSH
 * [Lieu](#location)
 
 > [!IMPORTANT]  

@@ -2,18 +2,18 @@
 title: Sauvegarde Azure pour les charges de travail SQL Server à l’aide du serveur de sauvegarde Azure
 description: Présentation de la sauvegarde de bases de données SQL Server à l’aide du serveur de sauvegarde Azure
 services: backup
-author: pvrk
-manager: Shivamg
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: pullabhk
-ms.openlocfilehash: 5d0fc66ff81672116d3d98ee9970456515ab3c9e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: kasinh
+ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606390"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490463"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Sauvegarder des données SQL Server vers Azure à l’aide du serveur de sauvegarde Azure
 Cet article vous guide tout au long des étapes de configuration de la sauvegarde des bases de données SQL Server à l’aide du serveur de sauvegarde Microsoft Azure.
@@ -66,7 +66,7 @@ Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de
 
     ![Méthode de réplication initiale](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copie de sauvegarde initiale nécessite le transfert de la source de données complète (base de données SQL Server) à partir du serveur de production (ordinateur SQL Server) vers le serveur de sauvegarde Microsoft Azure. Ces données peuvent être volumineuses et leur transfert sur le réseau peut dépasser la bande passante. Pour cette raison, les administrateurs peuvent choisir de transférer la sauvegarde initiale : **Manuellement** (à l’aide d’un support amovible) afin d’éviter la congestion de la bande passante, ou **Automatiquement sur le réseau** (à un moment précis).
+    La copie de sauvegarde initiale nécessite le transfert de la source de données complète (base de données SQL Server) à partir du serveur de production (ordinateur SQL Server) vers le serveur de sauvegarde Microsoft Azure. Ces données peuvent être volumineuses et leur transfert sur le réseau peut dépasser la bande passante. C'est la raison pour laquelle les administrateurs peuvent choisir de transférer la sauvegarde initiale : **Manuellement** (à l'aide d'un support amovible) afin d'éviter toute congestion de la bande passante, ou **Automatiquement sur le réseau** (à un moment précis).
 
     Une fois la sauvegarde initiale terminée, le reste des sauvegardes se compose de sauvegardes incrémentielles sur la copie de sauvegarde initiale. Les sauvegardes incrémentielles sont en général très limitées et sont faciles à transférer sur le réseau.
 10. Choisissez si vous souhaitez ou non exécuter la vérification de cohérence, puis cliquez sur **Suivant**.
@@ -88,7 +88,7 @@ Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de
     >
     >
 
-    **Meilleure pratique**: assurez-vous que les sauvegardes Azure Backup sont prévues après l'exécution de sauvegardes sur disque local à l'aide de DPM. Cela permet la copie de la dernière sauvegarde de disque sur Azure.
+    **Meilleure pratique** : assurez-vous que les sauvegardes Azure Backup sont prévues après l'exécution de sauvegardes sur disque local à l'aide de DPM. Cela permet la copie de la dernière sauvegarde de disque sur Azure.
 
 13. Cliquez sur la planification de stratégie de rétention. Les détails du fonctionnement de la stratégie de rétention sont fournis dans la section [Utilisation d'Azure Backup pour remplacer votre infrastructure sur bande](backup-azure-backup-cloud-as-tape.md).
 

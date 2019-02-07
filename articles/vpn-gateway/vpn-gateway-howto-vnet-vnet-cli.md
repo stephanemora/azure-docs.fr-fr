@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: dda4f68046b81d96cfe92d5e8b09eab23df0003b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e26ae189b6b0bdcbfdcf225772cb3fd0361abca2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846305"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698987"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide d’Azure CLI
 
@@ -140,7 +140,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Créez un espace d’adressage supplémentaire pour le sous-réseau principal. Notez que dans cette étape, nous spécifions l’espace d’adressage créé précédemment et l’espace d’adressage supplémentaires que nous souhaitons ajouter. Cela vient du fait que la [mise à jour du réseau virtuel du réseau az](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) écrase les paramètres précédents. Veillez à spécifier tous les préfixes d’adresse lors de l’utilisation de cette commande.
+3. Créez un espace d’adressage supplémentaire pour le sous-réseau principal. Notez que dans cette étape, nous spécifions l’espace d’adressage créé précédemment et l’espace d’adressage supplémentaires que nous souhaitons ajouter. Cela vient du fait que la [mise à jour du réseau virtuel du réseau az](https://docs.microsoft.com/cli/azure/network/vnet) écrase les paramètres précédents. Veillez à spécifier tous les préfixes d’adresse lors de l’utilisation de cette commande.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -384,5 +384,5 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles](https://docs.microsoft.com/azure/).
 * Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md).

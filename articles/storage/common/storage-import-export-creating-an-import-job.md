@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: efe7b6722a9cfa24ea86130a13a0599115e89821
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451663"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729402"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Création d’un travail d’importation pour le service Azure Import/Export
 
@@ -61,14 +61,14 @@ Avant de créer un travail d’importation, vous devez obtenir un nom et une adr
 
  Suivez les étapes ci-dessous pour obtenir l’emplacement d’expédition :
 
--   Identifiez le nom de l’emplacement de votre compte de stockage. Cette valeur se trouve sous le champ **Emplacement** sur le **Tableau de bord** du compte de stockage dans le portail Azure. Elle peut également être obtenue en utilisant l’opération de l’API Gestion des services [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Identifiez le nom de l’emplacement de votre compte de stockage. Cette valeur se trouve sous le champ **Emplacement** sur le **Tableau de bord** du compte de stockage dans le portail Azure. Elle peut également être obtenue en utilisant l’opération de l’API Gestion des services [Get Storage Account Properties](/rest/api/storagerp/storageaccounts).
 
 -   Récupérez l’emplacement disponible pour traiter ce compte de stockage en appelant l’opération `Get Location`.
 
 -   Si la propriété `AlternateLocations` de l’emplacement contient l’emplacement lui-même, alors il est possible d’utiliser cet emplacement. Sinon, appelez une nouvelle fois l’opération `Get Location` en utilisant l’un des autres emplacements. L’emplacement d’origine peut être fermé temporairement pour maintenance.
 
 ## <a name="creating-the-import-job"></a>Création du travail d’importation
-Pour créer le travail d’importation, appelez l’opération [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Vous devez fournir les informations suivantes :
+Pour créer le travail d’importation, appelez l’opération [Put Job](/rest/api/storageimportexport/jobs). Vous devez fournir les informations suivantes :
 
 -   Nom du travail.
 

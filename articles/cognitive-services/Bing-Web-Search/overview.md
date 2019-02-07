@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 08/14/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5c2a31e10d53c8088afd3c3910b1b2f9d2b2d247
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 46d79b1ac6c56ba953eb0908e46338387b69ff1f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159229"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768232"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Qu’est-ce que l’API Recherche Web Bing ?
 
 L’API Recherche Web Bing est un service RESTful fournissant des réponses instantanées aux requêtes utilisateur. Les résultats de la recherche sont facilement configurés pour inclure des pages web, des images, des vidéos, des actualités, des traductions et bien davantage. Les résultats sont fournis au format JSON et basés sur la pertinence de la recherche et sur vos abonnements API Recherche Web Bing.
 
-Cette API répond de manière optimale aux besoins des applications qui doivent accéder à l’ensemble du contenu pertinent pour une requête de recherche utilisateur. Si vous créez une application ne nécessitant qu’un type de résultat spécifique, envisagez d’utiliser [l’API Recherche d’images Bing](../Bing-Image-Search/overview.md), [l’API Recherche de vidéos Bing](../Bing-Video-Search/search-the-web.md) ou [l’API Recherche d’actualités Bing](../Bing-News-Search/search-the-web.md). Pour obtenir la liste complète des API Recherche Bing, Consultez la section [API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services#cognitive-services-apis).
+Cette API répond de manière optimale aux besoins des applications qui doivent accéder à l’ensemble du contenu pertinent pour une requête de recherche utilisateur. Si vous créez une application ne nécessitant qu’un type de résultat spécifique, envisagez d’utiliser [l’API Recherche d’images Bing](../Bing-Image-Search/overview.md), [l’API Recherche de vidéos Bing](../Bing-Video-Search/search-the-web.md) ou [l’API Recherche d’actualités Bing](../Bing-News-Search/search-the-web.md). Pour obtenir la liste complète des API Recherche Bing, Consultez la section [API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services).
 
 Vous souhaitez découvrir le fonctionnement de l’API ? Essayez notre [démonstration de l’API Recherche Web Bing](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/).
 

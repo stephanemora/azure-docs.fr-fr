@@ -10,13 +10,12 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-keywords: ''
-ms.openlocfilehash: f05d27effecee6a18a1395520b29d8cf1db1eaaa
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a7753280c0b84b21f44e52c303b96f11cd4cd8af
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246245"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765788"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
@@ -306,7 +305,7 @@ Il existe plusieurs scénarios qui requièrent l’utilisation d’un nom princi
 > [!Important]  
 > AD FS prend uniquement en charge les sessions ouvertes interactives. Si vous avez besoin d’une ouverture de session non interactive pour un scénario automatisé, vous devez utiliser un nom de principal du service (SPN).
 
-Pour plus d’informations sur la création d’un SPN, consultez [Créer un principal de service pour AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
+Pour plus d’informations sur la création d’un SPN, consultez [Créer un principal de service pour AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 
 ## <a name="troubleshooting"></a>Résolution de problèmes

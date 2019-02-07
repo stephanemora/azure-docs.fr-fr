@@ -1,6 +1,6 @@
 ---
 title: Améliorer la conformité aux réglementations à l’aide d’Azure Security Center | Microsoft Docs
-description: 'Tutoriel : Découvrez comment améliorer la conformité aux réglementations à l’aide d’Azure Security Center.'
+description: 'Didacticiel : Découvrez comment améliorer la conformité aux réglementations à l’aide d’Azure Security Center.'
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: dbff728c888e9e2f83d9a82ca9819bf9dd0b89e9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 252337c0d2bc162d418d20ca4641673d1564daa6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54268155"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660424"
 ---
-# <a name="tutorial-improve-your-regulatory-compliance"></a>Tutoriel : Améliorer votre conformité aux réglementations
+# <a name="tutorial-improve-your-regulatory-compliance"></a>Didacticiel : Améliorer votre conformité aux normes
 ---
 
 Le tableau de bord Conformité avec la réglementation d’Azure Security Center simplifie le processus visant à respecter les exigences de conformité aux règlementations. Dans le tableau de bord, Security Center fournit des insights sur votre niveau de conformité sur la base d’évaluations continues de votre environnement Azure. Les évaluations effectuées par Security Center analysent les facteurs de risque de votre environnement cloud hybride conformément aux bonnes pratiques de sécurité. Ces évaluations sont comparées à des contrôles de conformité provenant d’un ensemble de normes prises en charge. Le tableau de bord Conformité avec la réglementation offre une vision claire de l’état de toutes ces évaluations au sein de votre environnement dans le contexte d’une norme ou d’une réglementation en particulier. Si vous suivez les recommandations et réduisez les facteurs de risque de votre environnement, vous pourrez constater une amélioration de votre niveau de conformité.
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 Pour parcourir les fonctionnalités traitées dans ce tutoriel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard gratuitement.
-Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](https://docs.microsoft.com/en-us/azure/security-center/security-center-get-started) vous guide dans la mise à niveau vers le plan Standard.
+Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started) vous guide dans la mise à niveau vers le plan Standard.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Évaluer votre conformité aux réglementations
 

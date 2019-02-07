@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 936063e1419d5e2261033ea74d75687eade928e8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b3afbeb5a3fa2cda6ec5eaabe368163a370352d1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187318"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568190"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
@@ -28,7 +28,7 @@ Ce didacticiel s’appuie sur le code du didacticiel [Envoyer des messages du cl
 Le didacticiel [Prise en main d’IoT Hub](quickstart-send-telemetry-node.md) présente les fonctionnalités de messagerie de base appareil-à-cloud d’IoT Hub. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple : 
 
 * Fichiers volumineux qui contiennent des images
-* vidéos
+* Videos
 * Données de vibration échantillonnées à une fréquence élevée
 * Un certain type de données prétraitées.
 
@@ -45,7 +45,7 @@ Ces fichiers sont généralement traités par lot dans le cloud à l’aide d’
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Node.js version 4.0.x ou version ultérieure.
-* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
+* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -69,7 +69,7 @@ Dans cette section, créez l’application d’appareil pour charger un fichier 
 
 1. Ajoutez les instructions ```require``` ci-dessous au début du fichier **SimulatedDevice.js** :
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var fs = require('fs');
@@ -79,7 +79,7 @@ Dans cette section, créez l’application d’appareil pour charger un fichier 
 
 1. Ajoutez une variable ```deviceconnectionstring``` et utilisez-la pour créer une instance **Client**.  Remplacez ```{deviceconnectionstring}``` par le nom de l’appareil que vous avez créé dans la section _Créer un hub IoT_ :
 
-    ```nodejs
+    ```javascript
     var connectionString = '{deviceconnectionstring}';
     var filename = 'myimage.png';
     ```
@@ -89,14 +89,14 @@ Dans cette section, créez l’application d’appareil pour charger un fichier 
 
 1. Ajoutez le code suivant pour connecter le client :
 
-    ```nodejs
+    ```javascript
     var client = clientFromConnectionString(connectionString);
     console.log('Client connected');
     ```
 
 1. Créez un rappel et utilisez la fonction **uploadToBlob** pour charger le fichier.
 
-    ```nodejs
+    ```javascript
     fs.stat(filename, function (err, stats) {
         const rr = fs.createReadStream(filename);
     
@@ -136,7 +136,7 @@ Vous pouvez utiliser la chaîne de connexion **iothubowner** de votre hub IoT po
 
 1. Ajoutez les instructions ```require``` ci-dessous au début du fichier **FileUploadNotification.js** :
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var Client = require('azure-iothub').Client;
@@ -144,7 +144,7 @@ Vous pouvez utiliser la chaîne de connexion **iothubowner** de votre hub IoT po
 
 1. Ajoutez une variable ```iothubconnectionstring``` et utilisez-la pour créer une instance **Client**.  Remplacez ```{iothubconnectionstring}``` par la chaîne de connexion du hub IoT créé dans la section _Créer un hub IoT_ :
 
-    ```nodejs
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     ```
 
@@ -153,13 +153,13 @@ Vous pouvez utiliser la chaîne de connexion **iothubowner** de votre hub IoT po
 
 1. Ajoutez le code suivant pour connecter le client :
 
-    ```nodejs
+    ```javascript
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
 1. Ouvrez le client et utilisez la fonction **getFileNotificationReceiver** pour recevoir les mises à jour d’état.
 
-    ```nodejs
+    ```javascript
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);

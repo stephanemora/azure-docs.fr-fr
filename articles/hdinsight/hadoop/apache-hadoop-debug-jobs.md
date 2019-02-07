@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 86dbb6137964c00f6b98365e4891538751f17922
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0ba3c7321b0771c839289abb7891cd8e6b280afe
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438810"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822678"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analyser les journaux Apache Hadoop
 
@@ -99,7 +99,7 @@ Vous pouvez maintenant utiliser Excel pour filtrer et trier en fonction de vos b
     Pour plus d’informations sur la création de filtres, consultez [Construction de chaînes de filtrage pour le Concepteur de tables](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 ## <a name="logs-written-to-azure-blob-storage"></a>Journaux écrits dans le stockage d’objets Blob Azure
-[Les journaux écrits dans les tables Azure](#log-written-to-azure-tables) fournissent un niveau de compréhension sur ce qui se passe avec un cluster HDInsight. Toutefois, ces tables ne fournissent pas de journaux au niveau des tâches, qui peuvent être utiles pour explorer les problèmes lorsqu’ils se produisent. Pour fournir ce niveau de détail supérieur, les clusters HDInsight sont configurés pour écrire les journaux des tâches dans votre compte de stockage d’objets Blob pour toute tâche envoyée par le biais de Templeton. En pratique, cela signifie les tâches envoyées à l’aide des applets de commande Microsoft Azure PowerShell ou les API de soumission de tâche .NET, pas les tâches envoyées via RDP/accès par ligne de commande au cluster. 
+Les journaux écrits dans les tables Azure fournissent un niveau de compréhension sur ce qui se passe avec un cluster HDInsight. Toutefois, ces tables ne fournissent pas de journaux au niveau des tâches, qui peuvent être utiles pour explorer les problèmes lorsqu’ils se produisent. Pour fournir ce niveau de détail supérieur, les clusters HDInsight sont configurés pour écrire les journaux des tâches dans votre compte de stockage d’objets Blob pour toute tâche envoyée par le biais de Templeton. En pratique, cela signifie les tâches envoyées à l’aide des applets de commande Microsoft Azure PowerShell ou les API de soumission de tâche .NET, pas les tâches envoyées via RDP/accès par ligne de commande au cluster. 
 
 Pour afficher les journaux, consultez [Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight sous Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 

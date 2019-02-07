@@ -11,22 +11,23 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 75da9fd6dbd6218e46925eb2fc6cbec4969d5925
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867798"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561431"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossaire des outils de base de données élastique
+
 Les termes suivants sont définis pour les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md), une fonction de Base de données SQL Azure. Les outils permettent de gérer les [cartes de partition](sql-database-elastic-scale-shard-map-management.md) et incluent la [bibliothèque cliente](sql-database-elastic-database-client-library.md), [l’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md), les [pools élastiques](sql-database-elastic-pool.md) et les [requêtes](sql-database-elastic-query-overview.md). 
 
 Ces termes sont utilisés dans [Ajout d’une partition à l’aide des outils de base de données élastique](sql-database-elastic-scale-add-a-shard.md) et [Utiliser la classe RecoveryManager pour résoudre les problèmes de carte de partition](sql-database-elastic-database-recovery-manager.md).
 
-![Termes liés à l’infrastructure flexible][1]
+![Termes liés ç l’infrastructure flexible][1]
 
-**Base de données** : base de données Azure SQL Database. 
+**Base de données** : base de données SQL Azure. 
 
 **Routage dépendant des données** : fonctionnalité qui permet à une application de se connecter à une partition en fonction d’une clé de sharding spécifique. Consultez [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md). Comparer à la **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
 
@@ -68,7 +69,7 @@ Voici une représentation de bases de données **partitionnées** de type mono-u
 
 ![Mappages][2]
 
-## <a name="verbs"></a>Verbes
+## <a name="verbs"></a>Verbes et adverbes
 **Mise à l’échelle horizontale** : action qui consiste à effectuer le scale-out (ou le scale-in) d’une collection de partitions en ajoutant ou supprimant des partitions dans une carte de partitions, comme dans l’exemple ci-dessous.
 
 ![Mise à l’échelle horizontale et verticale][3]

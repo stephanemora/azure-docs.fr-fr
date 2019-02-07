@@ -3,7 +3,7 @@ title: Vue d’ensemble de l’API Azure Event Hubs | Microsoft Docs
 description: Vue d’ensemble des API Azure Event Hubs disponibles
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: 3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
-ms.author: sethm
-ms.openlocfilehash: bcd570d5fd2bdcf6cd344f5c81902420163b87ae
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.author: shvija
+ms.openlocfilehash: 432f2495dd1b4c8aeb761d12904adf26f3c24c0b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434539"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660695"
 ---
 # <a name="available-event-hubs-apis"></a>API Event Hubs disponibles
 
@@ -43,7 +43,7 @@ Pour plus d’informations sur l’état actuel de chaque bibliothèque runtime,
 
 #### <a name="net"></a>.NET
 
-L’écosystème .NET ayant plusieurs runtimes, il existe plusieurs bibliothèques .NET pour Event Hubs. La bibliothèque .NET Standard peut être exécutée à l’aide de .NET Core ou de .NET Framework, tandis que la bibliothèque .NET Framework peut uniquement être exécutée dans un environnement .NET Framework. Pour plus d’informations sur les versions .NET Framework, consultez [Versions d’infrastructure](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+L’écosystème .NET ayant plusieurs runtimes, il existe plusieurs bibliothèques .NET pour Event Hubs. La bibliothèque .NET Standard peut être exécutée à l’aide de .NET Core ou de .NET Framework, tandis que la bibliothèque .NET Framework peut uniquement être exécutée dans un environnement .NET Framework. Pour plus d’informations sur les versions .NET Framework, consultez [Versions d’infrastructure](https://docs.microsoft.com/dotnet/articles/standard/frameworks).
 
 #### <a name="node"></a>Nœud
 

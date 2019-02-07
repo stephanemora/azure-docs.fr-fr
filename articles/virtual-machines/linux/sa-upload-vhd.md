@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: efb8887085ad1f6f47667b1305191e514de74330
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 01d3a20022972b0e18de02bd2730ca31e57cd77a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468180"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755021"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Charger et créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI
 
@@ -31,11 +31,11 @@ Cette rubrique utilise des comptes de stockage pour les disques durs virtuels fi
 ## <a name="quick-commands"></a>Commandes rapides
 Si vous avez besoin d’accomplir rapidement cette tâche, la section suivante décrit les commandes de base permettant de charger un disque dur virtuel dans Azure. Pour obtenir plus d’informations et davantage de contexte pour chaque étape, lisez la suite de ce document, [à partir de cette section](#requirements).
 
-Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
+Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `mystorageaccount` et `mydisks`.
 
-Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `WestUs` :
+Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `WestUs` :
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -48,20 +48,20 @@ az storage account create --resource-group myResourceGroup --location westus \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-Répertoriez les clés d’accès pour votre compte de stockage avec [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Notez la valeur de `key1` :
+Répertoriez les clés d’accès pour votre compte de stockage avec [az storage account keys list](/cli/azure/storage/account/keys). Notez la valeur de `key1` :
 
 ```azurecli
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-Créez un conteneur dans votre compte de stockage à l’aide de la clé de stockage que vous venez d’obtenir avec [az storage container create](/cli/azure/storage/container#az_storage_container_create). L’exemple suivant crée un conteneur nommé `mydisks` à l’aide de la valeur de clé de stockage de `key1` :
+Créez un conteneur dans votre compte de stockage à l’aide de la clé de stockage que vous venez d’obtenir avec [az storage container create](/cli/azure/storage/container). L’exemple suivant crée un conteneur nommé `mydisks` à l’aide de la valeur de clé de stockage de `key1` :
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
     --account-key key1 --name mydisks
 ```
 
-Enfin, chargez votre disque dur virtuel vers le conteneur que vous avez créé avec [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). Spécifiez le chemin d’accès local à votre disque dur virtuel sous `/path/to/disk/mydisk.vhd` :
+Enfin, chargez votre disque dur virtuel vers le conteneur que vous avez créé avec [az storage blob upload](/cli/azure/storage/blob). Spécifiez le chemin d’accès local à votre disque dur virtuel sous `/path/to/disk/mydisk.vhd` :
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
@@ -97,7 +97,7 @@ Pour effectuer les étapes suivantes, vous avez besoin des éléments suivants 
   * Créer un compte de stockage et un conteneur pour stocker les machines virtuelles créées et votre disque personnalisé
   * Après avoir créé toutes vos machines virtuelles, vous pouvez supprimer votre disque en toute sécurité.
 
-Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
+Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `mystorageaccount` et `mydisks`.
 
@@ -122,7 +122,7 @@ Consultez également les **[notes d’installation Linux](create-upload-generic.
 > 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-Les groupes de ressources regroupent de manière logique l’ensemble des ressources Azure afin d’assurer la prise en charge de vos machines virtuelles, par exemple le stockage et la mise en réseau virtuel. Pour plus d’informations sur les groupes de ressources, consultez [Présentation des groupes de ressources](../../azure-resource-manager/resource-group-overview.md). Avant de charger votre disque personnalisé et de créer des machines virtuelles, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create).
+Les groupes de ressources regroupent de manière logique l’ensemble des ressources Azure afin d’assurer la prise en charge de vos machines virtuelles, par exemple le stockage et la mise en réseau virtuel. Pour plus d’informations sur les groupes de ressources, consultez [Présentation des groupes de ressources](../../azure-resource-manager/resource-group-overview.md). Avant de charger votre disque personnalisé et de créer des machines virtuelles, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group).
 
 L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `westus` :
 
@@ -142,7 +142,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>Répertorier les clés de compte de stockage
-Azure génère deux clés d’accès de 512 bits pour chaque compte de stockage. Ces clés d’accès sont utilisées lors de l’authentification auprès du compte de stockage, par exemple pour effectuer des opérations d’écriture. Découvrez plus d’informations sur la [gestion de l’accès au stockage ici](../../storage/common/storage-account-manage.md#access-keys). Vous affichez les clés d’accès avec [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
+Azure génère deux clés d’accès de 512 bits pour chaque compte de stockage. Ces clés d’accès sont utilisées lors de l’authentification auprès du compte de stockage, par exemple pour effectuer des opérations d’écriture. Découvrez plus d’informations sur la [gestion de l’accès au stockage ici](../../storage/common/storage-account-manage.md#access-keys). Vous affichez les clés d’accès avec [az storage account keys list](/cli/azure/storage/account/keys).
 
 Affichez les clés d’accès au compte de stockage que vous avez créé :
 
@@ -164,7 +164,7 @@ info:    storage account keys list command OK
 Prenez note de l’élément `key1` , car vous allez l’utiliser pour interagir avec votre compte de stockage au cours des étapes suivantes.
 
 ## <a name="create-a-storage-container"></a>Créer un conteneur de stockage
-De la même façon que vous créez des répertoires différents pour organiser de manière logique votre système de fichiers local, vous créez des conteneurs dans un compte de stockage afin d’organiser vos disques. Un compte de stockage peut contenir un certain nombre de conteneurs. Créez un conteneur avec la commande [az storage container create](/cli/azure/storage/container#az_storage_container_create).
+De la même façon que vous créez des répertoires différents pour organiser de manière logique votre système de fichiers local, vous créez des conteneurs dans un compte de stockage afin d’organiser vos disques. Un compte de stockage peut contenir un certain nombre de conteneurs. Créez un conteneur avec la commande [az storage container create](/cli/azure/storage/container).
 
 L’exemple suivant permet de créer un conteneur nommé `mydisks` :
 
@@ -175,7 +175,7 @@ az storage container create \
 ```
 
 ## <a name="upload-vhd"></a>Charger un disque dur virtuel
-Chargez votre disque personnalisé avec la commande [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). Téléchargez et stockez votre disque personnalisé en tant qu’objet blob de pages.
+Chargez votre disque personnalisé avec la commande [az storage blob upload](/cli/azure/storage/blob). Téléchargez et stockez votre disque personnalisé en tant qu’objet blob de pages.
 
 Spécifiez votre clé d’accès, le conteneur que vous avez créé au cours de l’étape précédente, puis le chemin d’accès au disque personnalisé sur votre ordinateur local :
 
@@ -226,7 +226,7 @@ Dans le fournisseur `Microsoft.Compute/virtualMachines` de votre modèle, vous d
 
 Vous pouvez utiliser [ce modèle existant pour créer une machine virtuelle à partir d’une image personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) ou obtenir plus d’informations sur [la création de vos propres modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
 
-Une fois que vous disposez d’un modèle configuré, utilisez [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) pour créer vos machines virtuelles. Spécifiez l’URI de votre modèle JSON avec le paramètre `--template-uri` :
+Une fois que vous disposez d’un modèle configuré, utilisez [az group deployment create](/cli/azure/group/deployment) pour créer vos machines virtuelles. Spécifiez l’URI de votre modèle JSON avec le paramètre `--template-uri` :
 
 ```azurecli
 az group deployment create --resource-group myNewResourceGroup \

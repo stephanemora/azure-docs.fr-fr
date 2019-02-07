@@ -4,18 +4,20 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 46fc7864e25048dbf9b3db9c97e0008be55a0d03
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 224b8fac3634e5ee9e5ffadc7664bd046467d2ce
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468340"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660848"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Démarrage rapide : Créer un espace de développement Kubernetes avec Azure Dev Spaces (.NET Core et Visual Studio)
 
@@ -116,4 +118,4 @@ Actualisez l’application web dans le navigateur, puis accédez à la page À p
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Utilisation de plusieurs conteneurs et développement en équipe](team-development-netcore-visualstudio.md)
+> [Utilisation de plusieurs conteneurs et développement en équipe](multi-service-netcore-visualstudio.md)

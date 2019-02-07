@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 19a576440742684849ffc74092162be7008621ba
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9a12940f08a11b66a0d09937d5ab8fab7304734f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045016"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754334"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Basculer entre le mode d’affichage et le mode d’édition des rapports dans les collections d’espaces de travail Power BI
 
@@ -115,7 +115,7 @@ report.switchMode("edit");
 [Prise en main de l’exemple](get-started-sample.md)  
 [Embed a report](embed-report.md) (Intégrer un rapport)  
 [Authentification et autorisation dans les collections d’espaces de travail Power BI](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Référentiel Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Référentiel Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  

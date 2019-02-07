@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2017
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016646"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661239"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Stocker des informations d’identification dans Azure Key Vault
 
@@ -27,9 +27,6 @@ Actuellement, tous les types d’activité, à l’exception des activités pers
 ## <a name="prerequisites"></a>Prérequis
 
 Cette fonctionnalité repose sur l’identité de service de la fabrique de données. Découvrez comment cela fonctionne dans [Identité du service de fabrique de données](data-factory-service-identity.md) et vérifiez que votre fabrique de données est bien associée à une identité de service.
-
->[!TIP]
->Dans Azure Key Vault, lorsque vous créez un secret, **placez la valeur entière d’une propriété de secret demandée par le service lié ADF (par exemple, chaîne de connexion/mot de passe/clé du principal de service/etc.)**. Par exemple, pour le service lié Stockage Azure, placez `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` en tant que secret AKV, puis référencez-le dans le champ « connectionString » ADF ; pour le service lié Dynamics, placez `myPassword` en tant que secret AKV, puis référencez-le dans le champ « password » ADF. Reportez-vous à chaque article relatif au connecteur/calcul pour connaître les détails de propriété pris en charge.
 
 ## <a name="steps"></a>Étapes
 

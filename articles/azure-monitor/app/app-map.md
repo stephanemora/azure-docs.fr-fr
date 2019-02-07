@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 238b75681ec525187ea27f60ac8b21b05b13954d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f2bd1d863a7900b50712eb23c1088c6b271befa3
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063112"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755887"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -199,7 +199,7 @@ Si la cartographie d’application ne fonctionne pas comme prévu, essayez ces �
 
 3. Si vous utilisez Azure Functions avec C#, effectuez une mise à niveau vers [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Vérifiez que [cloud_RoleName](app-map.md#Set-cloud-RoleName) est correctement configuré.
+4. Vérifiez que [cloud_RoleName](app-map.md#set-cloudrolename) est correctement configuré.
 
 5. S’il vous manque une dépendance, vérifiez qu’elle figure dans la liste des [dépendances collectées automatiquement](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Sinon, vous pouvez toujours la suivre manuellement avec un [suivi d’appel de dépendance](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 

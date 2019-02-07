@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.openlocfilehash: 9e6ebd45f08d2479c73e0753fe1e8df3455df1e1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 381958b462b668447a6548029a1be616df7a3a4b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265292"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750220"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutoriel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 
@@ -48,7 +48,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="create-domain-users"></a>Créer des utilisateurs du domaine
 
-Consultez [Créer un cluster HDInsight avec le Pack Sécurité Entreprise](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster) pour découvrir comment créer les utilisateurs du domaine **sales_user** et **marketing_user**. Dans un scénario de production, les utilisateurs du domaine proviennent de votre locataire Active Directory.
+Consultez [Créer un cluster HDInsight avec le Pack Sécurité Entreprise](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) pour découvrir comment créer les utilisateurs du domaine **sales_user** et **marketing_user**. Dans un scénario de production, les utilisateurs du domaine proviennent de votre locataire Active Directory.
 
 ## <a name="create-ranger-policy"></a>Créer une stratégie Ranger
 
