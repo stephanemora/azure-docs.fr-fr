@@ -32,7 +32,7 @@ items:
     - name: Collecter - Ordinateur Windows
       href: learn/quick-collect-windows-computer.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Analyser des données dans Log Analytics
     href: learn/tutorial-viewdata.md
@@ -61,7 +61,7 @@ items:
 - name: Concepts
   items:
   - name: Gestion d’Azure
-    href: azure-management.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md
   - name: Supervision continue
     href: continuous-monitoring.md
   - name: Données de surveillance
@@ -135,7 +135,7 @@ items:
     - name: Alertes de journal d’activité
       href: platform/activity-log-alerts.md
   - name: Visualiser les données
-    href: visualizations.md?toc=/azure/azure-monitor/toc.json
+    href: visualizations.md
   - name: Intégrations des partenaires
     href: platform/partners.md
   - name: Forum Aux Questions
@@ -144,7 +144,8 @@ items:
       href: platform/log-faq.md
     - name: Application Insights
       href: app/troubleshoot-faq.md
-- name: Procédures
+- name: >
+    Guides pratiques
   items:
   - name: Planifier et préparer
     items:
@@ -195,12 +196,12 @@ items:
         - name: Agents Windows
           href: platform/agent-windows.md
         - name: Extension de machine virtuelle pour Windows
-          href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/windows/extensions-oms.md
         - name: Extension de machine virtuelle pour Linux
-          href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/linux/extensions-oms.md
         - name: Operations Manager
           href: platform/om-agents.md
-        - name: Passerelle OMS
+        - name: Passerelle Log Analytics
           href: platform/gateway.md
         - name: Gestion des agents
           href: platform/agent-manage.md
@@ -287,7 +288,7 @@ items:
           - name: Résolution des problèmes liés au profileur
             href: app/profiler-troubleshooting.md
         - name: Diagnostics
-          href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-azure-diagnostics.md
         - name: Versions préliminaires
           href: app/previews.md
       - name: Applications ASP.NET
@@ -354,7 +355,7 @@ items:
         - name: JavaScript
           href: app/javascript.md
       - name: Surveiller l’exécution des fonctions Azure
-        href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json
+        href: ../azure-functions/functions-monitoring.md
       - name: Traçage distribué
         items:
         - name: Redirecteur local
@@ -397,7 +398,7 @@ items:
         - name: Aucune donnée pour .NET
           href: app/asp-net-troubleshoot-no-data.md
         - name: Débogueur de capture instantanée
-          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
         - name: Analytics
           href: app/analytics-troubleshooting.md
         - name: Java
@@ -604,7 +605,7 @@ items:
       - name: Key Vault Analytics
         href: insights/azure-key-vault.md
       - name: Service Fabric Analytics
-        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md?toc=/azure/azure-monitor/toc.json
+        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
     - name: Superviser les autres ressources
       items:
       - name: Évaluer l’intégrité d’AD
@@ -653,7 +654,7 @@ items:
     - name: Exemples de graphiques Metrics Explorer
       href: platform/metric-chart-samples.md
     - name: Afficher des événements dans le journal d’activité
-      href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
+      href: ../azure-resource-manager/resource-group-audit.md
     - name: Afficher les notifications de service
       href: platform/service-notifications.md
     - name: Interroger des données de journal
@@ -819,7 +820,7 @@ items:
       - name: Mettre à l’échelle automatiquement les groupes de machines virtuelles identiques à l’aide de modèles Resource Manager
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Mettre automatiquement à l’échelle les machines d’un groupe identiques de machines virtuelles
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Configurer les webhooks et les notifications électroniques sur la mise à l’échelle automatique
         href: platform/autoscale-webhook-email.md
     - name: Notifications de service
@@ -1015,17 +1016,17 @@ items:
     href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/regions/services/
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=monitor
   - name: Modèles de démarrage rapide
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 751b6c7066a85258b7b7449969ea185cec354644
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 96f79397b16212fe0897e0d03f57ffb7248118c8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564372"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767119"

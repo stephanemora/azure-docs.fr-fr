@@ -36,7 +36,7 @@ items:
     - name: Explorer à l’aide de Postman ou de Fiddler
       href: search-fiddler.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Découvrir les API de recherche cognitive
     href: cognitive-search-tutorial-blob.md
@@ -60,7 +60,7 @@ items:
   items:
   - name: Recherche en texte intégral
     href: search-lucene-query-architecture.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Recherche cognitive (préversion)
     items:
@@ -273,6 +273,10 @@ items:
       href: cognitive-search-skill-shaper.md
     - name: Compétences déconseillées
       href: cognitive-search-skill-deprecated.md
+  - name: Compétences personnalisées (préversion)
+    items:
+    - name: API web personnalisée
+      href: cognitive-search-custom-skill-web-api.md
 - name: Ressources
   items:
   - name: Support de la communauté Azure
@@ -295,11 +299,11 @@ items:
     href: search-faq-frequently-asked-questions.md
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/search/
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 133f3e44b7efc81f13aba5db68269678ddac9554
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 07ade676f302f9a802be933bf55d686f056d386b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464226"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753756"

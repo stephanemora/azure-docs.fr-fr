@@ -53,7 +53,7 @@ items:
       href: quickstart-device-streams-proxy-nodejs.md
     - name: C
       href: quickstart-device-streams-proxy-c.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Routage des messages
     href: tutorial-routing.md
@@ -158,7 +158,7 @@ items:
       href: iot-hub-x509ca-overview.md
     - name: Concepts d’un certificat d’autorité de certification X.509
       href: iot-hub-x509ca-concept.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Développement
     items:
@@ -180,6 +180,8 @@ items:
         href: iot-hub-how-to-develop-for-mobile-devices.md
       - name: Gérer la connectivité et la messagerie fiable
         href: iot-hub-reliability-features-in-sdks.md
+      - name: Développer pour la plateforme Android Things
+        href: iot-hub-how-to-android-things.md
     - name: Interroger des données Avro à partir d’un itinéraire de concentrateur
       href: iot-hub-query-avro-data.md
     - name: Commander des événements d’état de la connexion d’appareils à partir d’Event Grid
@@ -436,15 +438,15 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: Études de cas techniques
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 84eae62600f5cb62bfd8941d90140c6150a983f0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: fe459c18d9b59b04dcf40cb313968631dc83d85c
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809120"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746980"

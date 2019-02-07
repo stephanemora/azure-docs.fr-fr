@@ -15,15 +15,17 @@ items:
   - name: Configurer la connexion - Page unique
     href: active-directory-b2c-quickstarts-spa.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: 1 - Créer un locataire B2C
     href: tutorial-create-tenant.md
-  - name: 2 - Inscrire des applications
+  - name: 2 - Inscrire une application
     href: tutorial-register-applications.md
   - name: 3 - Créer des flux d’utilisateur
     href: tutorial-create-user-flows.md
-  - name: 4 - Personnaliser l’interface utilisateur
+  - name: Ajout de fournisseurs d'identité
+    href: tutorial-add-identity-providers.md
+  - name: Personnaliser l’interface utilisateur
     href: tutorial-customize-ui.md
   - name: Authentifier des comptes
     items:
@@ -71,11 +73,15 @@ items:
     href: active-directory-b2c-reference-policies.md
   - name: Personnalisation de l’interface utilisateur
     href: customize-ui-overview.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Accéder aux journaux d’audit
     href: active-directory-b2c-reference-audit-logs.md
-  - name: Vérification de l’âge
+  - name: Ajouter une application d’API web
+    href: add-web-application.md
+  - name: Ajouter une application cliente native
+    href: add-native-application.md
+  - name: Configurer la vérification de l’âge
     href: basic-age-gating.md
   - name: Configurer des jetons
     href: active-directory-b2c-token-session-sso.md
@@ -312,15 +318,15 @@ items:
     href: https://azure.microsoft.com/updates/?product=active-directory-b2c
   - name: Solutions et formation
     href: solution-articles.md
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support
     href: active-directory-b2c-support.md
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: c7f7036e52c5c9d0f9d7c51a882474028ba63aef
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8aa1d5bf118330f6f04cfd35a59f2b60ce6e1ee8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240843"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751784"

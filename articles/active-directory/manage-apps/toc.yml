@@ -12,7 +12,7 @@ items:
   - name: Afficher les applications du client - portail
     href: view-applications-portal.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Configurer l'authentification unique - portail
     href: configure-single-sign-on-portal.md
@@ -68,11 +68,13 @@ items:
       href: manage-certificates-for-federated-single-sign-on.md
     - name: Restrictions de locataire
       href: tenant-restrictions.md
+    - name: Configurer le chiffrement de jetons SAML (préversion)
+      href: howto-saml-token-encryption.md
   - name: Authentification unique
     href: what-is-single-sign-on.md
   - name: Portails d’utilisateurs finaux
     href: end-user-experiences.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Intégration d’applications dans le cloud
     items:
@@ -100,6 +102,8 @@ items:
       href: application-proxy-configure-custom-home-page.md
     - name: Traduire les liens inclus
       href: application-proxy-configure-hard-coded-link-translation.md
+    - name: Configurer les paramètres de cookies
+      href: application-proxy-configure-cookie-settings.md
     - name: Publier en utilisant des caractères génériques
       href: application-proxy-wildcard.md
     - name: Supprimer des données personnelles
@@ -280,13 +284,13 @@ items:
     href: https://azure.microsoft.com/pricing/calculator
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=active-directory
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: c36be070b739f75760e3c7419da2aa76335a59d1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: eaf3183f7640b874fe69d2b1b80d3d0368bde555
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157001"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751308"
