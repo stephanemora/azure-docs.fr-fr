@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 13d2c1028cc712092774a3f81d8eeaa5cb109edf
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5242be4dfe1c79b8f943b3b6d240046d0e8c5181
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199679"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658761"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Visite guidée de l’interface utilisateur de Azure IoT Central
 
@@ -32,6 +32,8 @@ En tant qu’_opérateur_, vous utilisez l’interface utilisateur Azure IoT Cen
 - Configurer vos appareils.
 - Dépanner et corrige les problèmes avec vos appareils.
 - Approvisionner de nouveaux appareils.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="use-the-left-navigation-menu"></a>Utiliser le menu de navigation gauche
 

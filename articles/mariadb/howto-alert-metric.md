@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 0cf301b98e5fa530b234dbd5953746241c0021ee
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 15f280b16e362a4b39cb9fc0e4baaf67d0e31942
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244237"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661698"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Utiliser le portail Azure pour configurer des alertes sur des métriques pour Azure Database for MariaDB
 
@@ -27,7 +27,7 @@ Vous pouvez configurer une alerte pour effectuer les actions suivantes lors de s
 Vous pouvez configurer et obtenir des informations sur les règles d’alerte à l’aide des ressources suivantes :
 * [Portail Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Interface de ligne de commande Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
+* [API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Créer une règle d'alerte d'une métrique
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le serveur Azure Database pour MariaDB à surveiller.

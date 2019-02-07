@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459024"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822406"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemples de requêtes SQL pour Azure Cosmos DB
 
@@ -1365,29 +1365,29 @@ Chaque fonction mathématique effectue un calcul, basé sur les valeurs d’entr
 
 | Usage | Description |
 |----------|--------|
-| [[ABS (num_expr)](#bk_abs) | Retourne la valeur (positive) absolue de l'expression numérique spécifiée. |
-| [CEILING (num_expr)](#bk_ceiling) | Retourne le plus petit nombre entier qui est supérieur ou égal à l'expression numérique spécifiée. |
-| [FLOOR (num_expr)](#bk_floor) | Retourne le plus grand nombre entier qui est inférieur ou égal à l'expression numérique spécifiée. |
-| [EXP (num_expr)](#bk_exp) | Retourne l'exposant de l'expression numérique spécifiée. |
+| [ABS (num_expr) | Retourne la valeur (positive) absolue de l'expression numérique spécifiée. |
+| CEILING (num_expr) | Retourne le plus petit nombre entier qui est supérieur ou égal à l'expression numérique spécifiée. |
+| FLOOR (num_expr) | Retourne le plus grand nombre entier qui est inférieur ou égal à l'expression numérique spécifiée. |
+| EXP (num_expr) | Retourne l'exposant de l'expression numérique spécifiée. |
 | [LOG (num_expr [,base])](#bk_log) | Retourne le logarithme népérien de l'expression numérique spécifiée, ou le logarithme dans la base spécifiée. |
-| [LOG10 (num_expr)](#bk_log10) | Retourne le logarithme en base 10 de l'expression numérique spécifiée. |
-| [ROUND (num_expr)](#bk_round) | Retourne une valeur numérique, arrondie au nombre entier le plus proche. |
-| [TRUNC (num_expr)](#bk_trunc) | Retourne une valeur numérique, tronquée au nombre entier le plus proche. |
-| [SQRT (num_expr)](#bk_sqrt) | Retourne la racine carrée de l'expression numérique spécifiée. |
-| [SQUARE (num_expr)](#bk_square) | Retourne le carré de l'expression numérique spécifiée. |
+| LOG10 (num_expr) | Retourne le logarithme en base 10 de l'expression numérique spécifiée. |
+| ROUND (num_expr) | Retourne une valeur numérique, arrondie au nombre entier le plus proche. |
+| TRUNC (num_expr) | Retourne une valeur numérique, tronquée au nombre entier le plus proche. |
+| SQRT (num_expr) | Retourne la racine carrée de l'expression numérique spécifiée. |
+| SQUARE (num_expr) | Retourne le carré de l'expression numérique spécifiée. |
 | [POWER (num_expr, num_expr)](#bk_power) | Renvoie un nombre spécifié élevé à la puissance spécifiée. |
-| [SIGN (num_expr)](#bk_sign) | Retourne la valeur du signe (-1, 0, 1) de l'expression numérique spécifiée. |
-| [ACOS (num_expr)](#bk_acos) | Retourne l’angle, en radians, dont le cosinus est l’expression numérique spécifiée ; également appelée arccosinus. |
-| [ASIN (num_expr)](#bk_asin) | Retourne l’angle, en radians, dont le sinus est l’expression numérique spécifiée. Cette fonction est également appelée arcsinus. |
-| [ATAN (num_expr)](#bk_atan) | Retourne l’angle, en radians, dont la tangente est l’expression numérique spécifiée. Cette fonction est également appelée arctangente. |
-| [ATN2 (num_expr)](#bk_atn2) | Retourne l’angle, en radians, entre l’axe des abscisses positives et le rayon depuis l’origine vers le point (y, x), où x et y sont les valeurs des deux expressions flottantes spécifiées. |
-| [COS (num_expr)](#bk_cos) | Retourne le cosinus trigonométrique de l’angle spécifié, en radians, dans l’expression spécifiée. |
-| [COT (num_expr)](#bk_cot) | Retourne la cotangente trigonométrique de l’angle spécifié, en radians, dans l’expression numérique spécifiée. |
-| [DEGREES (num_expr)](#bk_degrees) | Retourne l’angle correspondant en degrés d’un angle spécifié en radians. |
-| [PI ()](#bk_pi) | Retourne la valeur constante de PI. |
-| [RADIANS (num_expr)](#bk_radians) | Retourne des radians lorsqu’une expression numérique, en degrés, est entrée. |
-| [SIN (num_expr)](#bk_sin) | Retourne le sinus trigonométrique de l’angle spécifié, en radians, dans l’expression spécifiée. |
-| [TAN (num_expr)](#bk_tan) | Retourne la tangente de l’expression d’entrée, dans l’expression spécifiée. |
+| SIGN (num_expr) | Retourne la valeur du signe (-1, 0, 1) de l'expression numérique spécifiée. |
+| ACOS (num_expr) | Retourne l’angle, en radians, dont le cosinus est l’expression numérique spécifiée ; également appelée arccosinus. |
+| ASIN (num_expr) | Retourne l’angle, en radians, dont le sinus est l’expression numérique spécifiée. Cette fonction est également appelée arcsinus. |
+| ATAN (num_expr) | Retourne l’angle, en radians, dont la tangente est l’expression numérique spécifiée. Cette fonction est également appelée arctangente. |
+| ATN2 (num_expr) | Retourne l’angle, en radians, entre l’axe des abscisses positives et le rayon depuis l’origine vers le point (y, x), où x et y sont les valeurs des deux expressions flottantes spécifiées. |
+| COS (num_expr) | Retourne le cosinus trigonométrique de l’angle spécifié, en radians, dans l’expression spécifiée. |
+| COT (num_expr) | Retourne la cotangente trigonométrique de l’angle spécifié, en radians, dans l’expression numérique spécifiée. |
+| DEGREES (num_expr) | Retourne l’angle correspondant en degrés d’un angle spécifié en radians. |
+| PI () | Retourne la valeur constante de PI. |
+| RADIANS (num_expr) | Retourne des radians lorsqu’une expression numérique, en degrés, est entrée. |
+| SIN (num_expr) | Retourne le sinus trigonométrique de l’angle spécifié, en radians, dans l’expression spécifiée. |
+| TAN (num_expr) | Retourne la tangente de l’expression d’entrée, dans l’expression spécifiée. |
 
 Par exemple, vous pouvez désormais exécuter des requêtes comme dans l’exemple suivant :
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 10f84a758bdb2e01793aee06cba59a29b5639775
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: df56fd00d5a5ff2f9e9000b39939d0f33b3737d5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470958"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752345"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Démarrage rapide : Exécuter votre premier travail Batch avec Azure CLI
 
@@ -139,7 +139,7 @@ La sortie de la commande inclut de nombreux détails, mais notez le `exitCode` d
 
 ## <a name="view-task-output"></a>Afficher les sorties des tâches
 
-Pour répertorier les fichiers créés par une tâche sur un nœud de calcul, utilisez la commande [az batch task file list](/cli/azure/batch/task#az-batch-task-file-list). La commande suivante répertorie les fichiers créés par *mytask1* : 
+Pour répertorier les fichiers créés par une tâche sur un nœud de calcul, utilisez la commande [az batch task file list](/cli/azure/batch/task). La commande suivante répertorie les fichiers créés par *mytask1* : 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -160,7 +160,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-Pour télécharger un des fichiers de sortie dans un répertoire local, utilisez la commande [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download). Dans cet exemple, la sortie de la tâche est au format `stdout.txt`. 
+Pour télécharger un des fichiers de sortie dans un répertoire local, utilisez la commande [az batch task file download](/cli/azure/batch/task). Dans cet exemple, la sortie de la tâche est au format `stdout.txt`. 
 
 ```azurecli-interactive
 az batch task file download \
