@@ -6,6 +6,8 @@ items:
   - name: Machine Learning Studio
     displayName: overview
     href: what-is-ml-studio.md
+  - name: Comparer nos produits ML
+    href: ../service/overview-more-machine-learning.md
   - name: Fonctionnalités ML Studio
     displayName: overview
     href: studio-overview-diagram.md
@@ -16,7 +18,7 @@ items:
     displayName: FAQ
     href: faq.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Créer votre première expérience
     displayName: quickstart
@@ -62,7 +64,7 @@ items:
   - name: Gestion des modèles
     displayName: deploy, consume, web service
     href: deploy-consume-web-service-guide.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Gérer un espace de travail
     items:
@@ -93,10 +95,6 @@ items:
     - name: Essayez des expériences dans AI Gallery
       displayName: gallery
       href: sample-experiments.md
-    - name: Choisir des algorithmes
-      href: algorithm-choice.md
-    - name: Aide-mémoire d’algorithme
-      href: algorithm-cheat-sheet.md
     - name: Évaluer et interpréter les résultats
       items:
       - name: Évaluer les performances
@@ -118,6 +116,12 @@ items:
         href: custom-r-modules.md
       - name: Exécuter des scripts Python
         href: execute-python-scripts.md
+  - name: Sélectionner un algorithme
+    items:
+    - name: Choisir des algorithmes
+      href: algorithm-choice.md
+    - name: Aide-mémoire d’algorithme
+      href: algorithm-cheat-sheet.md
   - name: Déployer des modèles
     items:
     - name: Déployer un service web
@@ -210,15 +214,11 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: Guide du développeur R
-    href: ../r-developers-guide.md
   - name: Réseaux neuronaux personnalisés (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: Comparer nos produits ML
-    href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 400e6a2e98b8d29018b135204eaefa7ae3a7d965
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d6d4020d76c8eab2418b3b7ac5d26eaf93363870
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731425"
+ms.locfileid: "55746164"

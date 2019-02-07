@@ -10,7 +10,7 @@ items:
   - name: Diffuser des fichiers vidéo en continu avec .NET
     href: stream-files-dotnet-quickstart.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Encoder le fichier distant et diffuser la vidéo – REST
     href: stream-files-tutorial-with-rest.md
@@ -29,39 +29,37 @@ items:
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: Migrer de v2 vers v3
-    href: migrate-from-v2-to-v3.md
-  - name: Entités
-    href: entities-overview.md
+  - name: Ingestion
     items:
-    - name: Filtres de comptes et d’actifs multimédias
-      href: filters-dynamic-manifest-overview.md
     - name: Éléments multimédias
       href: assets-concept.md
-    - name: Stratégies de clé de contenu
-      href: content-key-policy-concept.md
-    - name: Événements en direct et Sorties en direct
-      href: live-events-outputs-concept.md
+  - name: Encoder
+    href: encoding-concept.md
+    items:
+    - name: Transformations et travaux
+      href: transforms-jobs-concept.md
+    - name: Formats Media Encoder Standard
+      href: media-encoder-standard-formats.md
+    - name: Autogen échelle de débit adaptatif
+      href: autogen-bitrate-ladder.md
+  - name: Analyser
+    href: analyzing-video-audio-files-concept.md
+    items:
+    - name: Transformations et travaux
+      href: transforms-jobs-concept.md
+  - name: Stream
+    items:
     - name: Points de terminaison de diffusion en continu
       href: streaming-endpoint-concept.md
     - name: Localisateurs de diffusion en continu
       href: streaming-locators-concept.md
     - name: Stratégies de diffusion en continu
       href: streaming-policy-concept.md
-    - name: Transformations et travaux
-      href: transforms-jobs-concept.md
-  - name: Encodage du contenu
-    href: encoding-concept.md
-    items:
-    - name: Formats Media Encoder Standard
-      href: media-encoder-standard-formats.md
-    - name: Autogen échelle de débit adaptatif
-      href: autogen-bitrate-ladder.md
-  - name: Analyse du contenu
-    href: analyzing-video-audio-files-concept.md
-  - name: Diffusion d’événements en direct
+  - name: Diffuser en direct
     href: live-streaming-overview.md
     items:
+    - name: Événements en direct et Sorties en direct
+      href: live-events-outputs-concept.md
     - name: Encodeurs live recommandés
       href: recommended-on-premises-live-encoders.md
     - name: Utiliser un magnétoscope numérique cloud
@@ -72,13 +70,23 @@ items:
       href: live-event-states-billing.md
     - name: Latence
       href: live-event-latency.md
-  - name: Surveillance
+  - name: Remettre
+    items:
+    - name: Filtres et manifeste dynamique
+      href: filters-dynamic-manifest-overview.md
+  - name: Surveiller
     items:
     - name: Event Grid
       href: reacting-to-media-services-events.md
-  - name: Protection du contenu
+  - name: Protéger
     href: content-protection-overview.md
     items:
+    - name: Stratégies de clé de contenu
+      href: content-key-policy-concept.md
+    - name: Stratégies de diffusion en continu
+      href: streaming-policy-concept.md
+    - name: Localisateurs de diffusion en continu
+      href: streaming-locators-concept.md
     - name: Système multi-DRM avec contrôle d’accès
       href: design-multi-drm-system-with-access-control.md
   - name: Lecture
@@ -89,7 +97,11 @@ items:
       href: limits-quotas-constraints.md
     - name: Comptes de stockage
       href: storage-account-concept.md
-- name: Procédures
+  - name: Filtrer, classer et paginer des entités
+    href: entities-overview.md
+  - name: Migrer de v2 vers v3
+    href: migrate-from-v2-to-v3.md
+- name: Guides pratiques
   items:
   - name: Prise en main
     items:
@@ -149,7 +161,7 @@ items:
     href: https://aka.ms/ams-v3-rest-ref
   - name: Azure CLI
     href: https://aka.ms/ams-v3-cli-ref
-  - name: Kits de développement logiciel (SDK)
+  - name: Kits SDK
     items:
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-ref
@@ -179,9 +191,7 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/media-services/
-  - name: Disponibilité régionale
-    href: https://azure.microsoft.com/regions/services/
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
   - name: Spécification OpenAPI (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
@@ -199,15 +209,17 @@ items:
       href: https://aka.ms/ams-v3-nodejs-sdk
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
+  - name: AMSE
+    href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Notes de publication
     href: release-notes.md
   - name: Forum Aux Questions
     href: frequently-asked-questions.md
   - name: Clouds et régions Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0e748b32092ec9e27888c9fac039c27e6411b34a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e92d8c5a5d6ccf11205608a9e887b6636a584786
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693865"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819924"

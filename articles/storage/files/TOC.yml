@@ -1,10 +1,11 @@
 items:
+- name: Documentation Stockage Azure
+  href: /azure/storage/
 - name: Vue d’ensemble
   items:
   - name: Qu’est-ce qu’Azure Files ?
     href: storage-files-introduction.md
-  - name: Choisir des blobs, des fichiers ou des disques
-    href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  expanded: true
 - name: Démarrages rapides
   items:
   - name: Créer/utiliser des partages de fichiers - Windows
@@ -17,8 +18,7 @@ items:
     href: storage-how-to-use-files-cli.md
   - name: Créer des partages de fichiers - Explorateur Stockage
     href: storage-how-to-use-files-storage-explorer.md
-  expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Étendre les serveurs de fichiers Windows avec Azure File Sync
     href: storage-sync-files-extend-servers.md
@@ -77,7 +77,7 @@ items:
   - name: limites
   - name: Forum Aux Questions
     href: storage-files-faq.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Créer
     items:
@@ -209,7 +209,7 @@ items:
     href: storage-files-release-notes.md
   - name: Outils clients du stockage Azure
     href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Forum
     href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
@@ -217,7 +217,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/storage/blobs/
   - name: Calculatrice de prix
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
   - name: Explorateur de stockage Azure
     items:
@@ -253,9 +253,9 @@ items:
       href: https://github.com/Azure/azure-storage-cpp
     - name: Python
       href: https://github.com/Azure/azure-storage-python
-ms.openlocfilehash: 8b81d8c3fa17482fd5f302aed98f61d3b88f1c70
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 822e7e791818beef66bd0fab57537af6d1c1ae76
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567364"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770297"

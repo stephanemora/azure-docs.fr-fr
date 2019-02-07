@@ -7,7 +7,7 @@ items:
     href: lab-services-overview.md
   - name: Comparer des types de laboratoires
     href: compare-lab-types.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: DevTest Labs
     items:
@@ -48,7 +48,7 @@ items:
       href: devtest-lab-training-lab.md
     - name: Présentation de DevTest Labs
       href: devtest-lab-overview.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Laboratoires de salle de classe
     items:
@@ -66,12 +66,8 @@ items:
       href: classroom-labs/how-to-create-schedules.md
   - name: Laboratoires DevTest
     items:
-    - name: Création d’un laboratoire
-      href: devtest-lab-create-lab.md
-    - name: Créer une machine virtuelle dans le laboratoire
-      href: devtest-lab-create-first-vm.md
-    - name: Supprimer un laboratoire ou une machine virtuelle dans un laboratoire
-      href: devtest-lab-delete-lab-vm.md
+    - name: Spécifier un groupe de ressources pour les machines virtuelles lab
+      href: resource-group-control.md
     - name: Définir des stratégies pour le laboratoire
       href: devtest-lab-get-started-with-lab-policies.md
     - name: Stocker les secrets dans Azure Key Vault
@@ -101,6 +97,10 @@ items:
           href: devtest-lab-guidance-governance-application-migration-integration.md
     - name: Utiliser des machines virtuelles dans un laboratoire
       items:
+      - name: Création d’un laboratoire
+        href: devtest-lab-create-lab.md
+      - name: Supprimer un laboratoire ou une machine virtuelle dans un laboratoire
+        href: devtest-lab-delete-lab-vm.md
       - name: Créer des machines virtuelles
         href: devtest-lab-add-vm.md
       - name: Créer et gérer des machines virtuelles revendicables
@@ -219,13 +219,13 @@ items:
     href: https://blogs.msdn.microsoft.com/devtestlab/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-devtest-labs
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-ms.openlocfilehash: 1fc989f61f5c11e06e2651326e0e7e7f51092253
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 783aec352d79c56525751142e4e5e95697149dbc
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496718"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747279"

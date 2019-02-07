@@ -4,51 +4,55 @@ items:
 - name: Vue d’ensemble
   items:
   - name: Qu’est-ce que la Recherche d’entités Bing ?
-    href: search-the-web.md
+    href: overview.md
   - name: Comparer les API Recherche Bing
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
 - name: Démarrages rapides de l’API REST
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
+  - name: API REST
+    items:
+    - name: Utilisation de C#
+      href: quickstarts/csharp.md
+    - name: Utilisation de Java
+      href: quickstarts/java.md
+    - name: Utilisation de Node.js
+      href: quickstarts/nodejs.md
+    - name: Utilisation de PHP
+      href: quickstarts/php.md
+    - name: Utilisation de Python
+      href: quickstarts/python.md
+    - name: Utilisation de Ruby
+      href: quickstarts/ruby.md
+  - name: 'Kit SDK '
+    items:
+    - name: Utilisation de C#
+      href: quickstarts/entity-sdk-csharp-quickstart.md
+    - name: Utilisation de Node.js
+      href: quickstarts/entity-sdk-node-quickstart.md
+    - name: Utilisation de Python
+      href: quickstarts/entity-sdk-python-quickstart.md
+    - name: Utilisation de Java
+      href: quickstarts/entity-sdk-java-quickstart.md
   expanded: true
-- name: Démarrages rapides du kit de développement logiciel (SDK)
-  items:
-  - name: Vue d’ensemble des exemples de kit de développement logiciel (SDK)
-    href: sdk.md
-  - name: Démarrage rapide C# de la Recherche d’entités
-    href: entity-search-sdk-quickstart.md
-  - name: Démarrage rapide Node.js de la Recherche d’entités
-    href: entity-search-sdk-node-quickstart.md
-  - name: Démarrage rapide Python de la Recherche d’entités
-    href: entity-sdk-python-quickstart.md
-  - name: Démarrage rapide Java de la Recherche d’entités
-    href: entity-sdk-java-quickstart.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Application web à page unique
     href: tutorial-bing-entities-search-single-page-app.md
-  - name: Application web à page unique (code source)
-    href: tutorial-bing-entities-search-single-page-app-source.md
 - name: Exemples
   items:
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Redimensionner et rogner les miniatures
     href: resize-and-crop-thumbnails.md
+- name: Concepts
+  items:
+  - name: Recherche d’entités
+    href: concepts/search-for-entities.md
+  - name: Envoi de requêtes de recherche
+    href: concepts/sending-requests.md
 - name: Informations de référence
   items:
   - name: Conditions d’utilisation et d’affichage de l’API Recherche Bing
@@ -56,7 +60,7 @@ items:
     maintainContext: true
   - name: API Recherche d’entités Bing v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
-  - name: Kits de développement logiciel (SDK)
+  - name: Kits SDK
     items:
     - name: .NET
       href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet
@@ -90,9 +94,9 @@ items:
     href: entity-search-endpoint.md
   - name: Analytique pour l’API Recherche d’entités Bing
     href: bing-entity-stats.md
-ms.openlocfilehash: 919d44bbf41397cf58c06cfe2eff56867546b61e
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 6574b06a9aced43f381bcb106e0b6426bd6f4fd7
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509930"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755790"
