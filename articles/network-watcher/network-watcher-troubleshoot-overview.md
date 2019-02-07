@@ -75,7 +75,7 @@ Les tableaux suivants présentent les différents types d’erreur (« id » dan
 | ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée » |Non |
 | ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | Oui |
 | ConnectionMarkedStandby | Le service sous-jacent est identifié comme étant en veille.| Oui|
-| Authentification | Incompatibilité des clés prépartagées | Oui|
+| Authentication | Incompatibilité des clés prépartagées | Oui|
 | PeerReachability | La passerelle homologue n’est pas accessible. | Oui|
 | IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | Oui|
 | WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |Oui|

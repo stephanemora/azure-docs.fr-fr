@@ -2220,7 +2220,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Protection DDoS dans Azure</h3>
-                                                    <p>Protégez ses applications contre les attaques DDoS (Distributed Denial of Service, déni de service distribué)</p>
+                                                    <p>Protéger ses applications contre les attaques DDoS (Distributed Denial of Service, déni de service distribué)</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2277,7 +2277,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>WAN virtuel</h3>
-                                                    <p>Générez la connectivité sécurisée des branches à l’échelle mondiale</p>
+                                                    <p>Générer la connectivité sécurisée des branches à l’échelle mondiale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2453,7 +2453,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stockage File d’attente</h3>
-                                                    <p>Faites évoluer vos applications en fonction du trafic</p>
+                                                    <p>Faire évoluer vos applications en fonction du trafic</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2705,7 +2705,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Azure SignalR</h3>
-                                                    <p>Ajoutez des fonctionnalités web en temps réel en toute simplicité</p>
+                                                    <p>Ajouter des fonctionnalités web en temps réel en toute simplicité</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2824,7 +2824,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Xamarin</h3>
-                                                    <p>Créez plus rapidement de formidables applications mobiles cloud</p>
+                                                    <p>Créer plus rapidement de formidables applications mobiles cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2886,7 +2886,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Registry</h3>
-                                                    <p>Stockez et gérez les images de conteneur pour tous les types de déploiements Azure</p>
+                                                    <p>Stocker et gérer les images de conteneur pour tous les types de déploiements Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2962,7 +2962,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Web App pour conteneurs</h3>
-                                                    <p>Déployez et exécutez facilement des applications web en conteneur qui évoluent avec votre entreprise</p>
+                                                    <p>Déployer et exécuter facilement des applications web en conteneur qui évoluent avec votre entreprise</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3214,7 +3214,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Database Migration Service</h3>
-                                                    <p>Réduisez la complexité de votre migration cloud</p>
+                                                    <p>Réduire la complexité de votre migration cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3257,7 +3257,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Databricks</h3>
-                                                    <p>Créez un espace de travail Azure Databricks avec des clusters Spark</p>
+                                                    <p>Créer un espace de travail Azure Databricks avec des clusters Spark</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3588,7 +3588,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Databricks</h3>
-                                                    <p>Créez un espace de travail Azure Databricks avec des clusters Spark</p>
+                                                    <p>Créer un espace de travail Azure Databricks avec des clusters Spark</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3626,7 +3626,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Genomics</h3>
-                                                    <p>Alimentez le séquençage des génomes et les insights de recherche</p>
+                                                    <p>Alimenter le séquençage des génomes et les insights de recherche</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3645,7 +3645,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Services</h3>
-                                                    <p>Générez, déployez et gérez des modèles de Machine Learning et d’IA</p>
+                                                    <p>Générer, déployer et gérer des modèles de Machine Learning et d’IA</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3664,7 +3664,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Générez, déployez et gérez facilement des solutions d’analyse prédictive</p>
+                                                    <p>Générer, déployer et gérer facilement des solutions d’analyse prédictive</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3683,7 +3683,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cognitive Services</h3>
-                                                    <p>Intégrez des algorithmes intelligents aux applications, sites web, et robots pour voir, entendre, parler et comprendre</p>
+                                                    <p>Intégrer des algorithmes intelligents aux applications, sites web, et robots pour voir, entendre, parler et comprendre</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3702,7 +3702,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Notebooks</h3>
-                                                    <p>Hébergez et exécutez des notebooks Jupyter dans un environnement cloud préconfiguré</p>
+                                                    <p>Héberger et exécuter des notebooks Jupyter dans un environnement cloud préconfiguré</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4034,7 +4034,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Digital Twins</h3>
-                                                    <p>Créez des réplicas numériques d’espaces et d’infrastructures</p>
+                                                    <p>Créer des réplicas numériques d’espaces et d’infrastructures</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4072,7 +4072,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Time Series Insights</h3>
-                                                    <p>Explorez et analysez instantanément des données de séries chronologiques</p>
+                                                    <p>Explorer et analyser instantanément des données de séries chronologiques</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4167,7 +4167,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Services</h3>
-                                                    <p>Générez, déployez et gérez des modèles de Machine Learning et d’IA</p>
+                                                    <p>Générer, déployer et gérer des modèles de Machine Learning et d’IA</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4186,7 +4186,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Générez, déployez et gérez facilement des solutions d’analyse prédictive</p>
+                                                    <p>Générer, déployer et gérer facilement des solutions d’analyse prédictive</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4300,7 +4300,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Sphere</h3>
-                                                    <p>Créez des appareils MCU hautement sécurisés et connectés</p>
+                                                    <p>Créer des appareils MCU hautement sécurisés et connectés</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4581,7 +4581,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Module HSM dédié</h3>
-                                                    <p>Utilisez un stockage des clés de chiffrement dans Azure</p>
+                                                    <p>Utiliser un stockage des clés de chiffrement dans Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4600,7 +4600,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Protection DDoS dans Azure</h3>
-                                                    <p>Protégez vos applications contre les attaques DDoS (Distributed Denial of Service, déni de service distribué)</p>
+                                                    <p>Protéger ses applications contre les attaques DDoS (Distributed Denial of Service, déni de service distribué)</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4795,7 +4795,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Lab Services</h3>
-                                                    <p>Créez des laboratoires dans le cloud pour la classe, le développement et les tests, et d’autres scénarios (anciennement DevTest Labs)</p>
+                                                    <p>Créer des laboratoires dans le cloud pour la classe, le développement et les tests, et d’autres scénarios (anciennement DevTest Labs)</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5375,7 +5375,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Blueprints</h3>
-                                                    <p>Déployez et mettez à jour des environnements cloud de façon renouvelable à l’aide d’artefacts composables</p>
+                                                    <p>Déployer et mettre à jour des environnements cloud de façon renouvelable à l’aide d’artefacts composables</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5713,7 +5713,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Opérateur Azure Stack</h3>
-                                                    <p>Fournissez des services Azure à partir de votre propre centre de données avec cette nouvelle plateforme de Cloud hybride</p>
+                                                    <p>Fournir des services Azure à partir de votre propre centre de données avec cette nouvelle plateforme de Cloud hybride</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5731,7 +5731,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>Utilisateur Azure Stack</h3>
-                                                <p>Utilisez des services et générez des applications pour Azure Stack</p>
+                                                <p>Utiliser des services et générer des applications pour Azure Stack</p>
                                             </div>
                                         </div>
                                     </div>
@@ -5754,7 +5754,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure US Government</h3>
-                                                    <p>Créez et hébergez des applications pour les missions du gouvernement américain dans une instance dédiée d’Azure</p>
+                                                    <p>Créer et héberger des applications pour les missions du gouvernement américain dans une instance dédiée d’Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5773,7 +5773,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure Germany</h3>
-                                                    <p>Créez et hébergez des applications conformes aux réglementations allemandes et aux principales normes internationales, avec un contrôle supplémentaire par une administration des données</p>
+                                                    <p>Créer et héberger des applications conformes aux réglementations allemandes et aux principales normes internationales, avec un contrôle supplémentaire par une administration des données</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5792,7 +5792,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure China 21Vianet</h3>
-                                                    <p>Créez et hébergez des applications conformes aux stratégies et réglementations en matière de gestion des données stipulées par le gouvernement chinois</p>
+                                                    <p>Créer et héberger des applications conformes aux stratégies et réglementations en matière de gestion des données stipulées par le gouvernement chinois</p>
                                                 </div>
                                             </div>
                                         </div>
