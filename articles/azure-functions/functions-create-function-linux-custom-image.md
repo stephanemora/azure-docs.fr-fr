@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 5d03b7075b1ae590c400eb96525ab84d8487fa3e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7b7a239d6c96d1d5b257828ebd49c25c5bafc827
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840093"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700806"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Créer une fonction sur Linux en utilisant une image personnalisée (préversion)
 
@@ -65,7 +65,7 @@ Lorsque vous incluez l’option `--docker`, un fichier Docker est généré pour
 Lorsque vous y êtes invités, choisissez un worker runtime parmi les langages suivants :
 
 * `dotnet` : crée un projet de bibliothèque de classes .NET (.csproj).
-* `node` : crée un projet JavaScript.
+* `node` : créer un projet JavaScript.
 * `python` : crée un projet Python.
 
 Lorsque la commande s’exécute, une sortie similaire à la suivante s’affiche :
@@ -229,7 +229,7 @@ Le paramètre _deployment-container-image-name_ indique l’image hébergée sur
 
 La fonction a besoin que la chaîne de connexion se connecte au compte de stockage par défaut. Lorsque vous publiez votre image personnalisée sur un compte de conteneur privé, préférez plutôt définir ces paramètres d’application comme des variables d’environnement dans le Dockerfile au moyen de l’[instruction ENV](https://docs.docker.com/engine/reference/builder/#env), ou équivalent.
 
-Dans ce cas, `<storage_account>` est le nom du compte de stockage Blob que vous avez créé. Pour afficher la chaîne de connexion, exécutez la commande [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Ajoutez ces paramètres d’application dans l’application de fonction à l’aide de la commande [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+Dans ce cas, `<storage_account>` est le nom du compte de stockage Blob que vous avez créé. Pour afficher la chaîne de connexion, exécutez la commande [az storage account show-connection-string](/cli/azure/storage/account). Ajoutez ces paramètres d’application dans l’application de fonction à l’aide de la commande [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \

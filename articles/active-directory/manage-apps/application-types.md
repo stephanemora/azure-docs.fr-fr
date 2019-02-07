@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 441821ae422fb4cbddbca5b4c30d68484ce6bc1f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55632acf516198b5ad0b6430480836dcc62fd5a5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186975"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755377"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Application inattendue dans ma liste d’applications
 
@@ -63,15 +63,15 @@ Lors du filtrage avec **Toutes les applications**, la **liste** **Toutes les app
 
 4.  Lorsque vous ajoutez une inscription pour une nouvelle application en créant une application personnalisée à l’aide du [Registre d’application](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration).
 
-5.  Lorsque vous ajoutez une inscription pour une nouvelle application en créant une application personnalisée à l’aide du [Portail d’inscription des applications V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal).
+5.  Lorsque vous ajoutez une inscription pour une nouvelle application en créant une application personnalisée à l’aide du [Portail d’inscription des applications V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration).
 
 6.  Lorsque vous ajoutez une application que vous développez à l’aide des [méthodes d’authentification ASP.net](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou des [Services connectés](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx) de Visual Studio.
 
 7.  Lorsque vous créez un objet Principal de service à l’aide du [module Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-8.  Lorsque vous [donnez votre consentement à une application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) en tant qu’administrateur concernant l’utilisation des données de votre locataire.
+8.  Lorsque vous [donnez votre consentement à une application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) en tant qu’administrateur concernant l’utilisation des données de votre locataire.
 
-9.  Lorsqu’un [utilisateur donne son consentement à une application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) concernant l’utilisation des données de votre locataire.
+9.  Lorsqu’un [utilisateur donne son consentement à une application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) concernant l’utilisation des données de votre locataire.
 
 10. Lorsque vous activez certains services qui stockent des données dans votre client. Un exemple correspond à l’opération de réinitialisation du mot de passe, qui est modélisée en tant que principal de service pour stocker de façon sécurisée votre stratégie de réinitialisation du mot de passe.
 
@@ -107,7 +107,7 @@ Pour **supprimer une application**, procédez comme suit :
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Je veux désactiver toutes les futures opérations de consentement de l’utilisateur pour n’importe quelle application
 
-La désactivation du consentement de l’utilisateur pour votre annuaire entier empêche les utilisateurs finaux de donner leur consentement pour n’importe quelle application. Les administrateurs peuvent toujours donner leur consentement au nom de l’utilisateur. Pour plus d’informations sur le consentement de l’application et sur les conditions pour donner ou refuser ce consentement, consultez la section [Comprendre le consentement de l’utilisateur et de l’administrateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+La désactivation du consentement de l’utilisateur pour votre annuaire entier empêche les utilisateurs finaux de donner leur consentement pour n’importe quelle application. Les administrateurs peuvent toujours donner leur consentement au nom de l’utilisateur. Pour plus d’informations sur le consentement de l’application et sur les conditions pour donner ou refuser ce consentement, consultez la section [Comprendre le consentement de l’utilisateur et de l’administrateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
 Pour **désactiver toutes les futures opérations de consentement de l’utilisateur dans l’ensemble de votre annuaire**, procédez comme suit :
 

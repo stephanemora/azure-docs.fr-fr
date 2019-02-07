@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 6b74c81f44ee747cdd80a1106b669d89c8c7fbc3
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297138"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733635"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
 
@@ -22,7 +22,7 @@ Une limite de 1 500 machines par projet s’applique pour Azure Migrate. Cet art
 - **VMware** : les machines virtuelles à migrer doivent être gérées par vCenter Server version 5.5, 6.0, 6.5 ou 6.7. De plus, vous avez besoin d’un hôte ESXi exécutant la version 5.5 ou ultérieure pour déployer la machine virtuelle du collecteur.
 - **Compte vCenter** : vous avez besoin d’un compte en lecture seule pour accéder au serveur vCenter Server. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
 - **Autorisations** : dans vCenter Server, vous devez disposer des autorisations nécessaires pour créer une machine virtuelle en important un fichier au format OVA.
-- **Paramètres de statistiques** : cette exigence s’applique uniquement au [modèle de détection unique](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) qui est maintenant déprécié. Pour un modèle de détection unique, les paramètres de statistiques pour vCenter Server doivent être définis sur le niveau 3 avant le début du déploiement. Le niveau de statistiques doit être défini sur 3 pour chaque intervalle de collecte : jour, semaine et mois. Si le niveau appliqué est inférieur à 3 pour l’un des trois intervalles de collecte, l’évaluation est effectuée, mais les données de performances relatives au stockage et au réseau ne sont pas collectées. Dans ce cas, les recommandations de taille sont effectuées selon les données de performances du processeur et de la mémoire, et selon les données de configuration des adaptateurs de disque dur et des adaptateurs réseau.
+- **Paramètres de statistiques** : cette exigence s’applique uniquement au [modèle de détection unique](https://docs.microsoft.com/azure/migrate/concepts-collector) qui est maintenant déprécié. Pour un modèle de détection unique, les paramètres de statistiques pour vCenter Server doivent être définis sur le niveau 3 avant le début du déploiement. Le niveau de statistiques doit être défini sur 3 pour chaque intervalle de collecte : jour, semaine et mois. Si le niveau appliqué est inférieur à 3 pour l’un des trois intervalles de collecte, l’évaluation est effectuée, mais les données de performances relatives au stockage et au réseau ne sont pas collectées. Dans ce cas, les recommandations de taille sont effectuées selon les données de performances du processeur et de la mémoire, et selon les données de configuration des adaptateurs de disque dur et des adaptateurs réseau.
 
 > [!NOTE]
 > L’appliance de découverte unique est désormais dépréciée, car son utilisation dépend des paramètres de statistiques vCenter Server concernant la disponibilité des points de données de performances, et nécessite la collecte des données de compteurs de performance moyenne, ce qui a comme résultat d’attribuer une taille insuffisante aux machines virtuelles pour la migration vers Azure.

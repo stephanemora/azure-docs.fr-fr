@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b0d2a72567783ca1c127f76d94ddc9c5e007ea89
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179478"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751019"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et gérer un groupe de machines virtuelles identiques avec Azure CLI
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -41,7 +41,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, v
 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant le groupe de machines virtuelles identiques. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *eastus*. 
+Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant le groupe de machines virtuelles identiques. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group). Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *eastus*. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +66,7 @@ La création et la configuration de l’ensemble des ressources et des instances
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>Afficher les instances de machine virtuelle dans un groupe identique
-Pour afficher la liste des instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) comme suit :
+Pour afficher la liste des instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss list-instances](/cli/azure/vmss) comme suit :
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -85,7 +85,7 @@ L’exemple suivant montre deux instances de machine virtuelle dans le groupe id
 ```
 
 
-La première colonne de sortie présente un *InstanceId*. Pour afficher des informations supplémentaires sur une instance de machine virtuelle spécifique, ajoutez le paramètre `--instance-id` à la commande [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view). L’exemple suivant présente des informations sur l’instance de machine virtuelle *1* :
+La première colonne de sortie présente un *InstanceId*. Pour afficher des informations supplémentaires sur une instance de machine virtuelle spécifique, ajoutez le paramètre `--instance-id` à la commande [az vmss get-instance-view](/cli/azure/vmss). L’exemple suivant présente des informations sur l’instance de machine virtuelle *1* :
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -129,7 +129,7 @@ exit
 
 
 ## <a name="understand-vm-instance-images"></a>Comprendre les images d’instance de machine virtuelle
-Lorsque vous avez créé un groupe identique au début du didacticiel, un `--image` *UbuntuLTS* a été spécifié pour les instances de machine virtuelle. La Place de marché Azure comprend de nombreuses images qui permettent de créer des instances de machine virtuelle. Pour afficher une liste des images les plus couramment utilisées, utilisez la commande [az vm image list](/cli/azure/vm/image#az_vm_image_list).
+Lorsque vous avez créé un groupe identique au début du didacticiel, un `--image` *UbuntuLTS* a été spécifié pour les instances de machine virtuelle. La Place de marché Azure comprend de nombreuses images qui permettent de créer des instances de machine virtuelle. Pour afficher une liste des images les plus couramment utilisées, utilisez la commande [az vm image list](/cli/azure/vm/image).
 
 ```azurecli-interactive
 az vm image list --output table
@@ -243,7 +243,7 @@ az vmss create \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Modifier la capacité d’un groupe identique
 Lorsque vous avez créé un groupe identique au début de ce didacticiel, deux instances de machine virtuelle ont été déployées par défaut. Vous pouvez spécifier le paramètre `--instance-count` avec la commande [az vmss create](/cli/azure/vmss) pour modifier le nombre d’instances créées avec un groupe identique. Pour augmenter ou diminuer le nombre d’instances de machine virtuelle dans votre groupe identique existant, vous pouvez modifier manuellement la capacité. Le groupe identique crée ou supprime le nombre requis d’instances de machine virtuelle, puis configure l’équilibreur de charge pour distribuer le trafic.
 
-Pour augmenter ou diminuer manuellement le nombre d’instances de machine virtuelle dans le groupe identique, utilisez la commande [az vmss scale](/cli/azure/vmss#az_vmss_scale). L’exemple suivant fixe le nombre d’instances de machine virtuelle présentes dans votre groupe identique à *3* :
+Pour augmenter ou diminuer manuellement le nombre d’instances de machine virtuelle dans le groupe identique, utilisez la commande [az vmss scale](/cli/azure/vmss). L’exemple suivant fixe le nombre d’instances de machine virtuelle présentes dans votre groupe identique à *3* :
 
 ```azurecli-interactive
 az vmss scale \
@@ -252,7 +252,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-Quelques minutes sont nécessaires pour mettre à jour la capacité de votre groupe identique. Pour afficher le nombre d’instances désormais présentes dans le groupe identique, utilisez [az vmss show](/cli/azure/vmss#az_vmss_show) et interrogez *sku.capacity* :
+Quelques minutes sont nécessaires pour mettre à jour la capacité de votre groupe identique. Pour afficher le nombre d’instances désormais présentes dans le groupe identique, utilisez [az vmss show](/cli/azure/vmss) et interrogez *sku.capacity* :
 
 ```azurecli-interactive
 az vmss show \
@@ -267,27 +267,27 @@ az vmss show \
 Vous pouvez à présent créer un groupe identique, obtenir les informations de connexion et vous connecter aux instances de machine virtuelle. Vous avez appris à utiliser une autre image de système d’exploitation pour vos instances de machine virtuelle, sélectionner une autre taille de machine virtuelle et modifier manuellement le nombre d’instances. Dans le cadre de la gestion quotidienne, vous devrez peut-être arrêter, démarrer ou redémarrer les instances de machine virtuelle dans votre groupe identique.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Arrêter et libérer des instances de machine virtuelle dans un groupe identique
-Pour arrêter une ou plusieurs instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss stop](/cli/azure/vmss#az_vmss_stop). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs instances de machine virtuelle à arrêter. Si vous ne spécifiez pas d’ID d’instance, toutes les instances de machine virtuelle dans le groupe identique sont arrêtées. L’exemple suivant présente l’arrêt de l’instance *1* :
+Pour arrêter une ou plusieurs instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss stop](/cli/azure/vmss). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs instances de machine virtuelle à arrêter. Si vous ne spécifiez pas d’ID d’instance, toutes les instances de machine virtuelle dans le groupe identique sont arrêtées. L’exemple suivant présente l’arrêt de l’instance *1* :
 
 ```azurecli-interactive
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-Les instances de machine virtuelle arrêtées restent allouées et continuent d’occasionner des frais de calcul. Si vous préférez que les instances de machine virtuelle soient libérées et n’occasionnent que des frais de stockage, utilisez la commande [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate). L’exemple suivant présente l’arrêt et la libération de l’instance *1* :
+Les instances de machine virtuelle arrêtées restent allouées et continuent d’occasionner des frais de calcul. Si vous préférez que les instances de machine virtuelle soient libérées et n’occasionnent que des frais de stockage, utilisez la commande [az vmss deallocate](/cli/azure/vmss). L’exemple suivant présente l’arrêt et la libération de l’instance *1* :
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>Démarrer les instances de machine virtuelle dans un groupe identique
-Pour démarrer une ou plusieurs instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss start](/cli/azure/vmss#az_vmss_start). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs instances de machine virtuelle à démarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les instances de machine virtuelle dans le groupe identique sont démarrées. L’exemple suivant montre le démarrage de l’instance *1* :
+Pour démarrer une ou plusieurs instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss start](/cli/azure/vmss). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs instances de machine virtuelle à démarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les instances de machine virtuelle dans le groupe identique sont démarrées. L’exemple suivant montre le démarrage de l’instance *1* :
 
 ```azurecli-interactive
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>Redémarrer les instances de machine virtuelle dans un groupe identique
-Pour redémarrer une ou plusieurs instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss restart](/cli/azure/vmss#az_vm_restart). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs instances de machine virtuelle à redémarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les instances de machine virtuelle dans le groupe identique sont redémarrées. L’exemple suivant présente le redémarrage de l’instance *1* :
+Pour redémarrer une ou plusieurs instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss restart](/cli/azure/vmss). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs instances de machine virtuelle à redémarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les instances de machine virtuelle dans le groupe identique sont redémarrées. L’exemple suivant présente le redémarrage de l’instance *1* :
 
 ```azurecli-interactive
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 1

@@ -1,7 +1,21 @@
 ---
-titre : Déploiement et consommation titleSuffix : Description d'Azure Machine Learning Studio : Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de machine learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles de machine learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots. services : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
+title: Déploiement et consommation
+titleSuffix: Azure Machine Learning Studio
+description: Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de machine learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles de machine learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: 64276047410280f8e818cf695f1fbb0c80fdd693
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497670"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning Studio : Déploiement et consommation
 Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de machine learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles de machine learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots. Les services web, RESTful, peuvent être appelés avec divers langages et plateformes de programmation, notamment Java, .NET et des applications comme Excel.

@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f83c05f4d1dcb93bd424a733866f85edf04bbd05
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062942"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745264"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Activer les solutions Update Management, Change Tracking et Inventory sur plusieurs machines virtuelles
 
@@ -76,6 +76,7 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 |RoyaumeUniSud|RoyaumeUniSud|
 |USGovVirginie|USGovVirginie|
 |USAEst2EUAP|USACentreEUAP|
+|USA Ouest 2|USA Ouest 2|
 
 Désactivez la case à cocher en regard des machines virtuelles que vous ne souhaitez pas activer. Les machines virtuelles qui ne peuvent pas être activées sont déjà désélectionnées.
 
@@ -126,7 +127,7 @@ Lors de l’intégration de plusieurs machines, certaines machines peuvent affic
 
 **Cause** : cette erreur indique que la machine virtuelle que vous tentez d’intégrer est associée à un autre espace de travail.
 
-**Solution** : cliquez sur **Utiliser comme configuration** pour modifier le compte Automation et l’espace de travail Log Analytics ciblés.
+**Solution**: cliquez sur **Utiliser comme configuration** pour modifier le compte Automation et l’espace de travail Log Analytics ciblés.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>La machine virtuelle est associée à un espace de travail qui n’est pas disponible pour cet abonnement
 
@@ -136,7 +137,7 @@ Lors de l’intégration de plusieurs machines, certaines machines peuvent affic
 * n’existe plus, ou
 * figure dans un groupe de ressources pour lequel vous n’avez pas les autorisations d’accès
 
-**Solution** : recherchez le compte Automation lié à l’espace de travail auquel la machine virtuelle est associée, puis intégrez la machine virtuelle en modifiant la configuration de l’étendue.
+**Solution**: recherchez le compte Automation lié à l’espace de travail auquel la machine virtuelle est associée, puis intégrez la machine virtuelle en modifiant la configuration de l’étendue.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>La version ou distribution du système d’exploitation de la machine virtuelle n’est pas prise en charge
 
@@ -148,13 +149,13 @@ Lors de l’intégration de plusieurs machines, certaines machines peuvent affic
 
 **Cause** : les machines virtuelles qui utilisent le modèle de déploiement classique ne sont pas prises en charge.
 
-**Solution** : migrez la machine virtuelle vers le modèle de déploiement de Resource Manager. Pour savoir comment procéder, consultez [Migrer des ressources d’un modèle de déploiement classique](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solution**: migrez la machine virtuelle vers le modèle de déploiement de Resource Manager. Pour savoir comment procéder, consultez [Migrer des ressources d’un modèle de déploiement classique](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>La machine virtuelle est arrêtée. (désallouée)
 
 **Cause** : la machine virtuelle n’affiche pas l’état **En cours d’exécution**.
 
-**Solution** : pour intégrer une machine virtuelle à une solution, la machine virtuelle doit être en cours d’exécution. Cliquez sur le lien inline **Démarrer la machine virtuelle** pour démarrer la machine virtuelle sans quitter la page.
+**Solution**: pour intégrer une machine virtuelle à une solution, la machine virtuelle doit être en cours d’exécution. Cliquez sur le lien inline **Démarrer la machine virtuelle** pour démarrer la machine virtuelle sans quitter la page.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

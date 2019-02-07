@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/26/2018
-ms.openlocfilehash: c6e518f644e8fc43db58ef481312f44b2071a0dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 250f03809a182e541fb58f73469f46d2b281b69f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194302"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756040"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Node.js pour interroger une base de données SQL Azure
 
@@ -41,7 +41,7 @@ Pour suivre cet exemple, vérifiez que les conditions préalables ci-dessous son
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
-> Une règle de pare-feu doit être en place pour l’adresse IP publique de l’ordinateur sur lequel vous effectuez ce didacticiel. Si vous êtes sur un autre ordinateur ou si vous avez une autre adresse IP publique, créez une [règle de pare-feu au niveau du serveur à l’aide du portail Azure](sql-database-get-started-portal-firewall.md).
+> Une règle de pare-feu doit être en place pour l’adresse IP publique de l’ordinateur sur lequel vous effectuez ce didacticiel. Si vous êtes sur un autre ordinateur ou si vous avez une autre adresse IP publique, créez une [règle de pare-feu au niveau du serveur à l’aide du portail Azure](sql-database-server-level-firewall-rule.md).
 
 ## <a name="create-the-project"></a>Créer le projet
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: a5837a922f14a779260ad6719b01a9c882eb5768
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 94845573461d99fda9318f303d822abb6ca3f257
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622939"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751138"
 ---
 # <a name="restart-vms"></a>Redémarrer les machines virtuelles
 
@@ -87,12 +87,12 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Crée les machines virtuelles.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Utilisé avec `--query` pour garantir que les machines virtuelles sont configurées avant de les redémarrer, puis pour obtenir les ID des machines virtuelles pour les redémarrer. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Utilisé avec `--query` pour obtenir les ID des machines virtuelles qui utilisent l’indicateur. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Redémarre les machines virtuelles. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Crée les machines virtuelles.  |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Utilisé avec `--query` pour garantir que les machines virtuelles sont configurées avant de les redémarrer, puis pour obtenir les ID des machines virtuelles pour les redémarrer. |
+| [az resource list](https://docs.microsoft.com/cli/azure/vm) | Utilisé avec `--query` pour obtenir les ID des machines virtuelles qui utilisent l’indicateur. |
+| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Redémarre les machines virtuelles. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

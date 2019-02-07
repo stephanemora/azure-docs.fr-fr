@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 6c92b71a8f2b9fbeae9afc5f06b6d5412f6421a6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e71d92b2cf7888fd9e3c560beb6e0e7f18e7add0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021797"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822644"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Comment configurer la prise en charge de réseau virtuel pour un Cache Azure Premium pour Redis
 Le Cache Azure pour Redis offre différents types de caches permettant de choisir en toute flexibilité parmi plusieurs tailles et fonctionnalités de caches, notamment les fonctionnalités de niveau Premium telles que le clustering, la persistance et la prise en charge du réseau virtuel. Un réseau VNet est un réseau privé dans le cloud. Lorsqu’une instance de Cache Azure pour Redis est configurée avec un réseau virtuel, elle n’est pas adressable publiquement et est accessible uniquement à partir de machines virtuelles et d’applications sur le réseau virtuel. Cet article décrit comment configurer la prise en charge de réseau virtuel pour une instance Premium de Cache Azure pour Redis.
@@ -83,11 +83,11 @@ Pour vous connecter à votre instance du Cache Azure pour Redis lorsque vous uti
 ## <a name="azure-cache-for-redis-vnet-faq"></a>FAQ sur les réseaux virtuels de cache Azure pour Redis
 La liste suivante présente différentes réponses aux questions les plus fréquemment posées sur la mise à l’échelle du cache Azure pour Redis.
 
-* [Quels sont les problèmes de configuration les plus courants au niveau du Cache Azure pour Redis et des réseaux virtuels ?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* Quels sont les problèmes de configuration les plus courants au niveau du Cache Azure pour Redis et des réseaux virtuels ?
 * [Comment puis-je vérifier que mon cache fonctionne dans un réseau virtuel ?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * [Lorsque j’essaie de me connecter à mon cache Azure pour Redis dans un réseau virtuel, pourquoi je reçois un message d’erreur indiquant que le certificat distant n’est pas valide ?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [Puis-je utiliser des réseaux virtuels avec un cache De base ou Standard ?](#can-i-use-vnets-with-a-standard-or-basic-cache)
-* [Pourquoi la création d’un cache Azure pour Redis échoue-t-elle dans certains sous-réseaux mais pas d’autres ?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+* Pourquoi la création d’un cache Azure pour Redis échoue-t-elle dans certains sous-réseaux mais pas d’autres ?
 * [Quelles sont les exigences d’espace d’adressage du sous-réseau ?](#what-are-the-subnet-address-space-requirements)
 * [Toutes les fonctionnalités fonctionnent-elles lorsque vous hébergez un cache dans un réseau virtuel ?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
@@ -236,7 +236,7 @@ Pour plus d’informations sur ExpressRoute, voir [Aperçu technique d’Express
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
 
-* [Introduction au niveau Premium du Cache Azure pour Redis](cache-premium-tier-intro.md)
+* [Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md)
 
 <!-- IMAGES -->
 

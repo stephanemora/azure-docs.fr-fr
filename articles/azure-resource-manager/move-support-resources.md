@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: c16a0eeb674e712ec1c3678a2e0002a8ddcfc329
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dfed8ce93a97b31380b44f0ac7057c0cff60901e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464704"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497279"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
 Cet article indique si un type de ressource Azure donné prend en charge l’opération de déplacement. Même si un type de ressource prend en charge l’opération de déplacement, il peut exister des conditions qui empêchent la ressource d’être déplacée. Pour plus d’informations sur les conditions qui affectent les opérations de déplacement, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](resource-group-move-resources.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="find-resource-provider-and-resource-type"></a>Rechercher le fournisseur de ressources et le type de ressource
 
@@ -29,7 +31,7 @@ Pour déterminer si une ressource peut être déplacée, vous devez rechercher s
 Pour PowerShell, utilisez la commande suivante :
 
 ```azurepowershell-interactive
-Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
+Get-AzResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
 ```
 
 Pour l’interface de ligne de commande Azure, consultez :

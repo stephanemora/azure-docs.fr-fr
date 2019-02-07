@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: cca81bf3f5a46b32cc901a0ac6024eb7888685f7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0313266c9e9bf7814d4581dc04d70cf80e1f8172
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081600"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494712"
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Exporter des modèles Azure Resource Manager avec PowerShell
 
@@ -30,6 +30,8 @@ Il est important de noter qu’il existe deux façons différentes d’exporter 
 * Vous pouvez exporter un **modèle généré qui représente l’état actuel du groupe de ressources**. Le modèle exporté n’est pas basé sur un modèle utilisé pour le déploiement. Au lieu de cela, il crée un modèle qui est un « instantané » ou une « sauvegarde » du groupe de ressources. Le modèle exporté a probablement de nombreuses valeurs codées en dur et pas autant de paramètres que vous pourriez généralement définir. Cette option permet de redéployer les ressources sur le même groupe de ressources. Pour utiliser ce modèle pour un autre groupe de ressources, vous devrez peut-être le modifier de façon significative.
 
 Cette rubrique illustre les deux approches.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-a-solution"></a>Déployer une solution
 

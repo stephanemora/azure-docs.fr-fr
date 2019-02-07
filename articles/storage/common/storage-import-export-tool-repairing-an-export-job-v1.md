@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 395ff654bcacf1a4f70a9032492deb2a9d5202f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 915cf1e66ec400e0d2461873d9fb3d66be9883fb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454757"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756748"
 ---
 # <a name="repairing-an-export-job"></a>Réparation d’un travail d’exportation
 Une fois qu’un travail d’exportation est terminé, vous pouvez exécuter l’outil Microsoft Azure Import/Export local pour :  
@@ -81,7 +81,7 @@ Le fichier journal de copie indique qu’une défaillance s’est produite penda
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Utilisation de RepairExport pour valider le contenu du lecteur  
 Vous pouvez également utiliser Azure Import/Export avec l’option **RepairExport** pour vérifier que le contenu sur le lecteur est correct. Le fichier manifeste sur chaque lecteur d’exportation contient des MD5 pour le contenu du lecteur.  
   
-Le service Azure Import/Export peut également enregistrer les fichiers manifeste sur un compte de stockage pendant le processus d’exportation. L’emplacement des fichiers manifeste est disponible via l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) une fois le travail terminé. Consultez la page [Format de fichier de manifeste du service d’importation/exportation](storage-import-export-file-format-metadata-and-properties.md) pour plus d’informations sur le format d’un fichier manifeste de lecteur.  
+Le service Azure Import/Export peut également enregistrer les fichiers manifeste sur un compte de stockage pendant le processus d’exportation. L’emplacement des fichiers manifeste est disponible via l’opération [Get Job](/rest/api/storageimportexport/jobs) une fois le travail terminé. Consultez la page [Format de fichier de manifeste du service d’importation/exportation](storage-import-export-file-format-metadata-and-properties.md) pour plus d’informations sur le format d’un fichier manifeste de lecteur.  
   
 L’exemple suivant montre comment exécuter l’outil Azure Import/Export avec les paramètres **/ManifestFile** et **/CopyLogFile** :  
   

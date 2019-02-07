@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b6cc65d10fc8924686d01c02177a9cb76f7a9571
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158815"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660914"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurer un cluster HDInsight avec le pack Sécurité Entreprise en utilisant Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ Dans cet article, vous allez apprendre à configurer un cluster HDInsight avec E
 ## <a name="enable-azure-ad-ds"></a>Activer Azure AD-DS
 
 > [!NOTE]  
-> Seuls les administrateurs des locataires disposent des privilèges pour activer Azure AD-DS. Si l’espace de stockage en cluster est Azure Data Lake Storage (ADLS) Gen1 ou Gen2, vous devez désactiver l’authentification multifacteur (MFA) uniquement pour les utilisateurs qui accèdent au cluster à l’aide d’une authentification Kerberos de base. Vous pouvez utiliser des [adresses IP approuvées](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) ou l’[accès conditionnel](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) afin de désactiver l’authentification MFA pour des utilisateurs spécifiques UNIQUEMENT quand ils accèdent à la plage d’adresses IP sur le réseau virtuel du cluster HDInsight. Si vous utilisez l’accès conditionnel, vérifiez que ce point de terminaison de service AD est activé sur le réseau virtuel HDInsight.
+> Seuls les administrateurs des locataires disposent des privilèges pour activer Azure AD-DS. Si l’espace de stockage en cluster est Azure Data Lake Storage (ADLS) Gen1 ou Gen2, vous devez désactiver l’authentification multifacteur (MFA) uniquement pour les utilisateurs qui accèdent au cluster à l’aide d’une authentification Kerberos de base. Vous pouvez utiliser des [adresses IP approuvées](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) ou l’[accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) afin de désactiver l’authentification MFA pour des utilisateurs spécifiques UNIQUEMENT quand ils accèdent à la plage d’adresses IP sur le réseau virtuel du cluster HDInsight. Si vous utilisez l’accès conditionnel, vérifiez que ce point de terminaison de service AD est activé sur le réseau virtuel HDInsight.
 >
 >Si le stockage en cluster est Stockage Blob Azure (WASB), ne désactivez pas MFA.
 
@@ -87,7 +87,7 @@ Une fois les réseaux virtuels appairés, configurez le réseau virtuel HDInsigh
 
 ![Configuration des serveurs DNS personnalisés pour le réseau virtuel appairé](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-Si vous utilisez des règles de groupes de sécurité réseau (NSG) dans votre sous-réseau HDInsight, vous devez autoriser les [adresses IP nécessaires ](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) pour le trafic entrant et le trafic sortant. 
+Si vous utilisez des règles de groupes de sécurité réseau (NSG) dans votre sous-réseau HDInsight, vous devez autoriser les [adresses IP nécessaires ](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) pour le trafic entrant et le trafic sortant. 
 
 **Pour vérifier** si votre mise en réseau est correctement configurée, joignez une machine virtuelle au réseau virtuel/sous-réseau HDInsight et effectuez un test ping sur le nom de domaine (il doit être résolu en adresse IP), puis exécutez **ldp.exe** pour accéder au domaine Azure AD-DS. **Joignez ensuite cette machine virtuelle Windows au domaine pour vérifier** que tous les appels RPC requis ont abouti entre le client et le serveur. Vous pouvez également utiliser **nslookup** pour vérifier l'accès de la mise en réseau à votre compte de stockage ou à n'importe quelle base de données externe que vous pourriez utiliser (par exemple, metastore Hive ou base de données Ranger externe).
 Assurez-vous que tous les [ports requis](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) figurent dans la liste verte des règles de groupe de sécurité réseau du sous-réseau AAD-DS, si AAD-DS est sécurisé par un groupe NSG. Si la jonction de domaine de cette machine virtuelle Windows est réussie, vous pouvez passer à l’étape suivante et créer des clusters ESP.

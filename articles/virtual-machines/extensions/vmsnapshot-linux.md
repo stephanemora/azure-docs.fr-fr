@@ -10,12 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 1bcf326bde3ac5c97734393ee162b1f98d1553ce
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: aa1ef28817a2fb6ec75d3f131bac053e707c21ff
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634199"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697202"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Extension Linux de capture instantanée de machine virtuelle pour la Sauvegarde Azure
 
@@ -54,7 +54,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de capture instant
       "vmType": "microsoft.compute/virtualmachines"
     },
     "protectedSettings": {
-      "objectStr": "<blob SAS uri represenattion of VM sent by Azure Backup service to extension>",
+      "objectStr": "<blob SAS uri representation of VM sent by Azure Backup service to extension>",
       "logsBlobUri": "<blob uri where logs of command execution by extension are written to>",
       "statusBlobUri": "<blob uri where status of the command executed by extension is written>"
     }
@@ -64,7 +64,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de capture instant
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| NOM | Valeur/Exemple | Type de données |
+| Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | chaîne |

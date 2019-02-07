@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: a816542860a96a8b0dbbeaa63202b6cba4d24acc
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ff67474566737ca75206cd1237c89f873cb173a8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294976"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489850"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 
@@ -26,6 +26,9 @@ Cet article explique comment utiliser Azure PowerShell avec les modèles de Gest
 Le modèle Resource Manager que vous déployez peut être un fichier local sur votre machine, ou un fichier externe qui se trouve dans un dépôt comme GitHub. Le modèle que vous déployez dans le cadre de cet article est disponible en tant que [modèle de compte de stockage dans GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
 Si nécessaire, installez le module Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Connect-AzAccount` pour créer une connexion avec Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 <a id="deploy-local-template" />
 

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5361b93d24c66ef6ccb2f117e6e3a68de4c5f459
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e0d5e466da8804e89ffecd38dd2db6e37a3cb334
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195589"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663636"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Synchronisation d’Azure AD Connect : gérer les erreurs LargeObject provoquées par l’attribut userCertificate
 
@@ -33,7 +33,7 @@ L’erreur LargeObject peut provenir d’autres attributs AD. Pour vérifier qu�
 
 Pour obtenir la liste des objets de votre client comportant des erreurs LargeObject, appliquez l’une des méthodes suivantes :
 
- * Si votre client gère la synchronisation avec Azure AD Connect Health, vous pouvez vous référer au [rapport d’erreurs de synchronisation](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync#object-level-synchronization-error-report-preview) fourni.
+ * Si votre client gère la synchronisation avec Azure AD Connect Health, vous pouvez vous référer au [rapport d’erreurs de synchronisation](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync) fourni.
  
  * Le courrier électronique de notification des erreurs de synchronisation d’annuaires qui est envoyé à la fin de chaque cycle de synchronisation contient la liste des objets comportant des erreurs LargeObject. 
  * [L’onglet opérations de Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) affiche la liste des objets comportant des erreurs LargeObject si vous cliquez sur la dernière opération Exporter vers Azure AD.
@@ -116,7 +116,7 @@ La nouvelle règle de synchronisation doit avoir le même **filtre d’étendue*
 
     | Attribut | Valeur | Détails |
     | --- | --- | --- |
-    | NOM | *Donnez-lui un nom* | Ex. *« Out to AAD – Custom override for userCertificate »* |
+    | Nom | *Donnez-lui un nom* | Ex. *« Out to AAD – Custom override for userCertificate »* |
     | Description | *Fournissez une description* | Ex. *« Si l’attribut userCertificate comporte plus de 15 valeurs, exporter NULL »* |
     | Système connecté | *Sélectionnez le connecteur Azure AD* |
     | Type d’objet système connecté | **user** | |

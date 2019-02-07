@@ -15,12 +15,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a1ca5125162460b95c0ffcadb1551173d06b5838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1117ffa94a30a55b7b2a7477bf2770d21dcb5441
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163583"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746504"
 ---
 # <a name="azure-active-directory-risk-events"></a>Événements à risque dans Azure Active Directory
 
@@ -164,7 +164,7 @@ Cet événement à risque identifie les adresses IP, pas les appareils des utili
 
 Nous vous recommandons de contacter l’utilisateur et d’analyser tous ses appareils. Il est également possible que les appareils personnels d’un utilisateur soient infectés ou qu’une tierce personne utilisait un appareil infecté depuis la même adresse IP. Les appareils infectés le sont souvent par des logiciels malveillants qui n’ont pas encore été identifiés par les logiciels antivirus et dont la présence peut être le signe de mauvaises habitudes de la part de l’utilisateur.
 
-Pour plus d'informations sur le traitement des infections de logiciels malveillants, consultez le [Centre de protection contre les programmes malveillants](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
+Pour plus d'informations sur le traitement des infections de logiciels malveillants, consultez le [Centre de protection contre les programmes malveillants](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/).
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Connexions depuis des adresses IP avec des activités suspectes
 

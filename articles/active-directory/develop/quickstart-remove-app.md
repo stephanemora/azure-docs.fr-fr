@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 61da59fd570b9acc58dce89907eb5a1726a28de9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 55866d5ff28c707c26141683bb90c8f2873b17c8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104391"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818904"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Démarrage rapide : Supprimer une application inscrite auprès de la plateforme d’identités Microsoft (préversion)
 
@@ -29,8 +29,8 @@ Les développeurs d’entreprise et les fournisseurs SaaS qui ont inscrit des ap
 
 Dans ce guide de démarrage rapide, vous apprenez à :
 
-* [Supprimer une application créée par vous ou votre organisation](#remove-an-application-authored-by-your-organization)
-* [Supprimer une application créée par une autre organisation](#remove-an-application-authoried-by-another-organization)
+* Supprimer une application créée par vous ou votre organisation
+* Supprimer une application créée par une autre organisation
 
 ## <a name="prerequisites"></a>Prérequis
 

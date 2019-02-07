@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 643d2a5a600d018912f09d01f2e018100767f147
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8ca2def6aa6ab463e5b2be0203791da671a41745
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410123"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697801"
 ---
 # <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-dedicated-nodes"></a>Exemple CLI : Créer et gérer un cluster Batch AI de nœuds dédiés
 
@@ -57,8 +57,8 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az batchai workspace create](/cli/azure/batchai/workspace#az-batchai-workspace-create) | Crée un espace de travail Batch AI. |
 | [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) | Crée un cluster Batch AI. |
-| [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) | Affiche des informations sur un cluster Batch AI. |
-| [az batchai cluster node list](/cli/azure/batchai/cluster/node#az-batchai-cluster-show) | Liste les nœuds dans un cluster Batch AI. |
+| [az batchai cluster show](/cli/azure/batchai/cluster) | Affiche des informations sur un cluster Batch AI. |
+| [az batchai cluster node list](/cli/azure/batchai/cluster/node) | Liste les nœuds dans un cluster Batch AI. |
 | [az batchai cluster resize](/cli/azure/batchai/cluster#az-batchai-cluster-resize) | Redimensionne le cluster Batch AI.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 

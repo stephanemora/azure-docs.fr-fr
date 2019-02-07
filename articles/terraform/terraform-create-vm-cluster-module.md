@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: efeae877161b2632112938d63b6f6e31cce96ac5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d5a820da94254fe0da416d9219f7582d3a4241cb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077196"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696164"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Créer un cluster de machines virtuelles avec Terraform à l’aide du registre de modules
 
@@ -31,7 +31,7 @@ Pour plus d’informations sur Terraform, consultez la [documentation Terraform]
 ## <a name="set-up-authentication-with-azure"></a>Configurer l’authentification avec Azure
 
 > [!TIP]
-> Si vous [utilisez des variables d’environnement Terraform](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) ou exécutez ce didacticiel dans [Azure Cloud Shell](/azure/cloud-shell/overview), ignorez cette étape.
+> Si vous [utilisez des variables d’environnement Terraform](/azure/virtual-machines/linux/terraform-install-configure) ou exécutez ce didacticiel dans [Azure Cloud Shell](/azure/cloud-shell/overview), ignorez cette étape.
 
  Consultez [Installer Terraform et configurer l’accès à Azure](/azure/virtual-machines/linux/terraform-install-configure) pour créer un principal du service Azure. Utilisez ce principal du service pour renseigner un nouveau fichier `azureProviderAndCreds.tf` dans un répertoire vide avec le code suivant :
 

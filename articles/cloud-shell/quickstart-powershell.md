@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 65531b5507f9e3af3a9666074d9dcd9b7ee20271
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: df9dc7d25ff0304effadbf27751042e9961c75c0
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231183"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562026"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Démarrage rapide de PowerShell dans Azure Cloud Shell
 
@@ -27,6 +27,8 @@ Ce document explique comment utiliser PowerShell dans Cloud Shell dans le [porta
 
 > [!NOTE]
 > Un démarrage rapide de [Bash dans Azure Cloud Shell](quickstart.md) est également disponible.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="start-cloud-shell"></a>Démarrer Cloud Shell
 
@@ -48,7 +50,7 @@ PS Azure:\> Get-Date
 # Expected Output
 Friday, July 27, 2018 7:08:48 AM
 
-PS Azure:\> Get-AzureRmVM -Status
+PS Azure:\> Get-AzVM -Status
 
 # Expected Output
 ResourceGroupName       Name       Location                VmSize   OsType     ProvisioningState  PowerState
@@ -238,7 +240,7 @@ mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   We
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
 
 # You can use Azure cmdlets to Start/Stop your web apps
-PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
+PS Azure:\MySubscriptionName\WebApps> Start-AzWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
 
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
@@ -266,7 +268,7 @@ Pour vous authentifier auprès des serveurs ou machines virtuelles à l’aide d
 ### <a name="using-ssh"></a>Utilisation de SSH
 
 Suivez les instructions fournies [ici](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) pour créer une configuration de machine virtuelle à l’aide d’applets de commande AzureRM.
-Avant d’appeler `New-AzureRmVM` pour lancer le déploiement, ajoutez la clé publique SSH à la configuration de machine virtuelle.
+Avant d’appeler `New-AzVM` pour lancer le déploiement, ajoutez la clé publique SSH à la configuration de machine virtuelle.
 La machine virtuelle créée contient la clé publique à l’emplacement `~\.ssh\authorized_keys` ; vous pouvez ainsi ouvrir une session SSH sur la machine virtuelle sans recourir à des informations d’identification.
 
 ```azurepowershell-interactive
@@ -277,10 +279,10 @@ ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa
 
 # Ensure VM config is updated with SSH keys
 $sshPublicKey = Get-Content "$HOME\.ssh\id_rsa.pub"
-Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+Add-AzVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
-New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
+New-AzVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
 
 # SSH to the VM
 ssh azureuser@MyVM.Domain.Com
@@ -288,7 +290,7 @@ ssh azureuser@MyVM.Domain.Com
 
 ## <a name="list-available-commands"></a>Répertorier les commandes disponibles
 
-Sous le lecteur `Azure`, tapez `Get-AzureRmCommand` pour obtenir les commandes Azure spécifiques au contexte.
+Sous le lecteur `Azure`, tapez `Get-AzCommand` pour obtenir les commandes Azure spécifiques au contexte.
 
 Vous pouvez également continuer d’utiliser `Get-Command *azurerm* -Module AzureRM.*` pour rechercher les commandes Azure disponibles.
 
@@ -307,7 +309,7 @@ Get-Help
 Pour une commande spécifique, vous pouvez toujours exécuter `Get-Help` suivi d’une applet de commande.
 
 ```azurepowershell-interactive
-Get-Help Get-AzureRmVM
+Get-Help Get-AzVM
 ```
 
 ## <a name="use-azure-files-to-store-your-data"></a>Utiliser Azure Files pour stocker vos données

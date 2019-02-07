@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4d9a6b8bf2b6a9a50ee315d5150c15a18f37462d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974707"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696046"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 ##  <a name="introduction"></a>Introduction
@@ -344,7 +344,7 @@ Le déploiement Azure comporte plusieurs couches d’isolation réseau. Le sché
 
 **Isolation du trafic :** Un [réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) est la limite d’isolation du trafic sur la plateforme Azure. Les machines virtuelles dans un réseau virtuel ne peuvent pas communiquer directement avec les machines virtuelles dans un autre réseau virtuel, même si les deux réseaux virtuels sont créés par le même client. Cet isolement est une propriété critique qui garantit que les machines virtuelles et les communications du client restent privées dans un réseau virtuel.
 
-Le [sous-réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) offre une couche d’isolation supplémentaire dans le réseau virtuel en fonction de la plage d’adresses IP. Avec la plage d’adresses IP appartenant au réseau virtuel, vous pouvez diviser un réseau virtuel en plusieurs sous-réseaux pour l’organisation et la sécurité. Les machines virtuelles et les instances de rôle PaaS déployées sur des sous-réseaux (identiques ou différents) au sein d’un réseau virtuel peuvent communiquer entre elles sans qu’il y ait besoin de configuration supplémentaire. Vous pouvez également configurer un [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) pour autoriser ou refuser le trafic réseau vers une instance de machine virtuelle en fonction des règles configurées dans la liste de contrôle d’accès du groupe de sécurité réseau. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau.
+Le [sous-réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) offre une couche d’isolation supplémentaire dans le réseau virtuel en fonction de la plage d’adresses IP. Avec la plage d’adresses IP appartenant au réseau virtuel, vous pouvez diviser un réseau virtuel en plusieurs sous-réseaux pour l’organisation et la sécurité. Les machines virtuelles et les instances de rôle PaaS déployées sur des sous-réseaux (identiques ou différents) au sein d’un réseau virtuel peuvent communiquer entre elles sans qu’il y ait besoin de configuration supplémentaire. Vous pouvez également configurer un [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) pour autoriser ou refuser le trafic réseau vers une instance de machine virtuelle en fonction des règles configurées dans la liste de contrôle d’accès du groupe de sécurité réseau. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

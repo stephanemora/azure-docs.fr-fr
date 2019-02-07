@@ -11,16 +11,16 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: aahi
-ms.openlocfilehash: 1ff4b7aa804dc3576462b3a30b94fdab8e1945e1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e46c3c5722be6448999c4ed7f98b8babe609cd2c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164280"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734366"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Découvrez comment naviguer dans les résultats de la recherche à partir de l’API Recherche Web Bing.
 
-Lorsque vous appelez l’API Recherche Web Bing, Bing retourne une liste de résultats. La liste est un sous-ensemble du nombre total de résultats susceptibles d’être en rapport avec la requête. Pour obtenir une estimation du nombre total de résultats disponibles, accédez au champ [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) de l’objet de la réponse.  
+Lorsque vous appelez l’API Recherche Web Bing, Bing retourne une liste de résultats. La liste est un sous-ensemble du nombre total de résultats susceptibles d’être en rapport avec la requête. Pour obtenir une estimation du nombre total de résultats disponibles, accédez au champ [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) de l’objet de la réponse.  
 
 L’exemple suivant illustre le champ `totalEstimatedMatches` qui est inclus dans une réponse web.  
 

@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: routlaw
-ms.openlocfilehash: bbbaa4c44a7c0d6da189f0c49d73adfa6142cdee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6e4bd5977eb1761a065d5583675e6fd405b4610a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095789"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750356"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obtenir des événements d’intégrité des ressources Azure à l’aide de l’API REST 
 
@@ -42,9 +42,9 @@ Les en-têtes suivants sont requis :
 
 ### <a name="uri-parameters"></a>Paramètres URI
 
-| NOM | Description |
+| Nom | Description |
 | :--- | :---------- |
-| subscriptionId | L’ID d’abonnement d’un abonnement Azure. Si vous avez plusieurs abonnements, consultez [Utilisation de plusieurs abonnements](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
+| subscriptionId | L’ID d’abonnement d’un abonnement Azure. Si vous avez plusieurs abonnements, consultez [Utilisation de plusieurs abonnements](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | Version de l’API à utiliser pour la requête.<br /><br /> Ce document aborde la version d’API `2015-04-01`, incluse dans l’URL ci-dessus.  |
 | $filter | Option de filtrage pour réduire le jeu de résultats retournés. Les modèles autorisés pour ce paramètre sont disponibles [dans les informations de référence sur les journaux d’activité](/rest/api/monitor/activitylogs/list#uri-parameters). L’exemple montre la capture de tous les événements dans l’intervalle de temps 2018-05-16/2018-06-20 |
 | &nbsp; | &nbsp; |

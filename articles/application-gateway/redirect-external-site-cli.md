@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: bdbaa9154f12c8b66a4c1d801671e7b21756e0f7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1ddbc84004622c2a5fa9dc08d4396e1f300474f2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412731"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728382"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Créer une passerelle d’application avec redirection externe à l’aide de l’interface CLI Azure
 
@@ -38,7 +38,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Créez un groupe de ressources à l’aide de la commande [az group create](/cli/azure/group#create).
+Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Créez un groupe de ressources à l’aide de la commande [az group create](/cli/azure/group).
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroupAG* à l’emplacement *eastus*.
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Créer des ressources réseau 
 
-Créez le réseau virtuel nommé *myVNet* et le sous-réseau nommé *myAGSubnet* à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az-net). Créez l’adresse IP publique nommée *myAGPublicIPAddress* à l’aide de la commande [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create). Ces ressources sont utilisées pour fournir la connectivité réseau à la passerelle d’application et à ses ressources associées.
+Créez le réseau virtuel nommé *myVNet* et le sous-réseau nommé *myAGSubnet* à l’aide de la commande [az network vnet create](/cli/azure/network/vnet). Créez l’adresse IP publique nommée *myAGPublicIPAddress* à l’aide de la commande [az network public-ip create](/cli/azure/network/public-ip). Ces ressources sont utilisées pour fournir la connectivité réseau à la passerelle d’application et à ses ressources associées.
 
 ```azurecli-interactive
 az network vnet create \
@@ -65,7 +65,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
-Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/network/application-gateway#create) pour créer la passerelle d’application nommée *myAppGateway*. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est assignée aux *myAGSubnet* et *myPublicIPAddress* que vous avez créés. 
+Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/network/application-gateway) pour créer la passerelle d’application nommée *myAppGateway*. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est assignée aux *myAGSubnet* et *myPublicIPAddress* que vous avez créés. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -93,7 +93,7 @@ La création de la passerelle d’application peut prendre plusieurs minutes. Un
 
 ### <a name="add-the-redirection-configuration"></a>Ajouter la configuration de redirection
 
-Ajoutez la configuration de redirection qui envoie le trafic de *www.consoto.org* à l’écouteur de *www.contoso.com* à la passerelle d’application avec la commande [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create).
+Ajoutez la configuration de redirection qui envoie le trafic de *www.consoto.org* à l’écouteur de *www.contoso.com* à la passerelle d’application avec la commande [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Ajouter un écouteur et une règle de routage
 
-Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée. Créez l’écouteur à l’aide de [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) et du port frontal créé avec [az network application-gateway frontend-port create](/cli/azure/network/application-gateway). Une règle est requise pour que l’écouteur sache vers où rediriger le trafic entrant. Créez une règle de base nommée *redirectRule* avec la commande [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
+Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée. Créez l’écouteur à l’aide de [az network application-gateway http-listener create](/cli/azure/network/application-gateway) et du port frontal créé avec [az network application-gateway frontend-port create](/cli/azure/network/application-gateway). Une règle est requise pour que l’écouteur sache vers où rediriger le trafic entrant. Créez une règle de base nommée *redirectRule* avec la commande [az network application-gateway rule create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -131,7 +131,7 @@ az network application-gateway rule create \
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Pour obtenir l’adresse IP publique de la passerelle d’application, vous pouvez utiliser la commande [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur.
+Pour obtenir l’adresse IP publique de la passerelle d’application, vous pouvez utiliser la commande [az network public-ip show](/cli/azure/network/public-ip). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur.
 
 Le site *bing.com* devrait s’afficher dans votre navigateur.
 

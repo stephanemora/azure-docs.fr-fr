@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: eb6f1624a3fefbad829600d2280d4eaeedd188bc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 107c844051ab396fe467a1a629883746b2903125
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179971"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731816"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Activer et télécharger les journaux de requêtes lentes d’un serveur Azure Database pour PostgreSQL à l’aide d’Azure CLI
 Cet exemple de script CLI montre comment activer et télécharger les journaux de requêtes lentes d’un seul serveur Azure Database pour PostgreSQL.
@@ -35,13 +35,13 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 
 | **Commande** | **Remarques** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az postgres server create](/cli/azure/postgres/server#az_msql_server_create) | Crée un serveur PostgreSQL qui héberge les bases de données. |
+| [az group create](/cli/azure/group) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az postgres server create](/cli/azure/postgres/server) | Crée un serveur PostgreSQL qui héberge les bases de données. |
 | [az postgres server configuration list](/cli/azure/postgres/server/configuration) | Répertoriez les valeurs de configuration pour un serveur. |
-| [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Mettez à jour la configuration d’un serveur. |
-| [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) | Répertoriez les fichiers journaux pour un serveur. |
-| [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) | Téléchargez les fichiers journaux. |
-| [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az postgres server configuration set](/cli/azure/postgres/server/configuration) | Mettez à jour la configuration d’un serveur. |
+| [az postgres server-logs list](/cli/azure/postgres/server-logs) | Répertoriez les fichiers journaux pour un serveur. |
+| [az postgres server-logs download](/cli/azure/postgres/server-logs) | Téléchargez les fichiers journaux. |
+| [az group delete](/cli/azure/group) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez-en plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure).

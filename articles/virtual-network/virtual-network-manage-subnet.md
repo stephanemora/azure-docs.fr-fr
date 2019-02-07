@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: d835a4150016ad2b658cd95d1f84c421f83937c0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1810c92eb98a78510db79cb72ca2e8209768fc89
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434816"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660899"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ajouter, modifier ou supprimer un sous-réseau de réseau virtuel
 
@@ -55,7 +55,7 @@ Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azur
 
 **Commandes**
 
-- Azure CLI : [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)
+- Azure CLI : [az network vnet subnet create](/cli/azure/network/vnet/subnet)
 - PowerShell : [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)
 
 ## <a name="change-subnet-settings"></a>Modifier les paramètres de sous-réseau
@@ -96,7 +96,7 @@ Vous pouvez supprimer un sous-réseau uniquement si aucune ressource ne s’y tr
 
 Pour effectuer des tâches sur des sous-réseaux, votre compte doit avoir le rôle de [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou avoir un rôle [personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) assigné aux actions appropriées répertoriées dans le tableau suivant :
 
-|Action                                                                   |   NOM                                       |
+|Action                                                                   |   Nom                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   Lire un sous-réseau de réseau virtuel              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   Créer ou mettre à jour un sous-réseau de réseau virtuel  |

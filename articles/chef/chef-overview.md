@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: be1e7ab953c55581645a9702fc4759cb603e7ecc
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: c0ec8b98ff711f8e5746d6d4731266ed4b09cc8f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54357859"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658842"
 ---
 # <a name="using-chef-with-azure"></a>Utilisation de Chef avec Azure
 [Chef](http://www.chef.io) est une plateforme d’automatisation puissante qui transforme une infrastructure de machine virtuelle Azure en code. Chef automatise la façon dont l’infrastructure est configurée, déployée et gérée sur votre réseau, quelle que soit sa taille.
@@ -21,7 +21,7 @@ ms.locfileid: "54357859"
 Cet article décrit les avantages de l’utilisation de Chef pour gérer une infrastructure Azure.
 
 ## <a name="chef-extension-on-azure"></a>Extension Chef sur Azure
-Approvisionnez une machine virtuelle avec un client Chef en cours d’exécution en tant que service en arrière-plan avec l'[extension Chef](https://docs.microsoft.com/en-us/azure/chef/chef-extension-portal) dans le portail Azure. Une fois approvisionnées, ces machines virtuelles sont prêtes à être gérées par un serveur Chef.
+Approvisionnez une machine virtuelle avec un client Chef en cours d’exécution en tant que service en arrière-plan avec l'[extension Chef](https://docs.microsoft.com/azure/chef/chef-extension-portal) dans le portail Azure. Une fois approvisionnées, ces machines virtuelles sont prêtes à être gérées par un serveur Chef.
 
 ## <a name="chef-cloud-shell"></a>Cloud Shell Chef
 Utilisez la station de travail Chef directement dans Azure Cloud Shell. Exécutez tous les utilitaires Chef et InSpec à partir de Cloud Shell. Vous pouvez utiliser les commandes Chef à partir de :

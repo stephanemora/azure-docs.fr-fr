@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
-ms.openlocfilehash: a2e42b165596d26672ee22813e53d02ca0e3a7e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4c17128f07475b6aeaef9ae15a13bc4863d7e663
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195662"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699888"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant Azure CLI
 
@@ -82,7 +82,7 @@ Pour activer l’identité managée affectée par le système sur une machine vi
    az login
    ```
 
-2. Utilisez [az vm identity assign](/cli/azure/vm/identity/#az-vm-identity-assign) avec la commande `identity assign` pour activer l’identité affectée par le système sur une machine virtuelle existante :
+2. Utilisez [az vm identity assign](/cli/azure/vm/identity/) avec la commande `identity assign` pour activer l’identité affectée par le système sur une machine virtuelle existante :
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
@@ -107,7 +107,7 @@ Si vous disposez d’une machine virtuelle qui n’a plus besoin d’identité a
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Pour supprimer l’extension de machine virtuelle d’identité managée pour ressources Azure (qui sera obsolète en janvier 2019), utilisez les commutateurs `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` (en fonction du type de machine virtuelle) avec la commande [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) :
+Pour supprimer l’extension de machine virtuelle d’identité managée pour ressources Azure (qui sera obsolète en janvier 2019), utilisez les commutateurs `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` (en fonction du type de machine virtuelle) avec la commande [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/) :
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -186,7 +186,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    }
    ```
 
-2. Attribuez l’identité managée affectée par l’utilisateur à votre machine virtuelle en utilisant la commande [az vm identity assign](/cli/azure/vm#az-vm-identity-assign). N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<VM NAME>` par vos propres valeurs. `<USER ASSIGNED IDENTITY NAME>` est la propriété `name` de ressource de l’identité managée affectée par l’utilisateur, telle que créée à l’étape précédente :
+2. Attribuez l’identité managée affectée par l’utilisateur à votre machine virtuelle en utilisant la commande [az vm identity assign](/cli/azure/vm). N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<VM NAME>` par vos propres valeurs. `<USER ASSIGNED IDENTITY NAME>` est la propriété `name` de ressource de l’identité managée affectée par l’utilisateur, telle que créée à l’étape précédente :
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>

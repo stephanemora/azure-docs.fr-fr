@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
-ms.openlocfilehash: 7617b19fe4f59b582b878d5dfe365810963ff51e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b27553e16225a7bc0d9ca74c7ec013a231d64e6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158092"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755466"
 ---
-# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder au Stockage Azure par une clé d’accès
+# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder au Stockage Azure par une clé d’accès
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -198,4 +198,4 @@ Réponse :
 Dans ce didacticiel, vous avez appris à utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder au Stockage Azure à l’aide d’une clé d’accès.  Pour en savoir plus sur les clés d’accès du stockage Azure, consultez :
 
 > [!div class="nextstepaction"]
->[Gérer vos clés d’accès de stockage](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Gérer vos clés d’accès de stockage](/azure/storage/common/storage-create-storage-account)

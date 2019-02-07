@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 manager: mmontwil
-ms.openlocfilehash: c448521d7e1ce70a44ca23f58d0034ca2041cbed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 24bb5a044db813e1ee3cf2c9ff3e36a9b9ff86d7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453428"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657057"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>Démarrage rapide : Créer un espace de développement Kubernetes avec Azure Dev Spaces (Java et VS Code)
 
@@ -27,7 +27,7 @@ Dans ce guide, vous allez apprendre à :
 - Déboguer le code dans votre espace de développement à partir de VS Code.
 
 > [!Note]
-> **Si vous êtes bloqué**, consultez la section [Résolution des problèmes](troubleshooting.md) ou postez un commentaire sur cette page. Vous pouvez aussi essayer ce [didacticiel](get-started-netcore.md) plus détaillé.
+> **Si vous êtes bloqué**, consultez la section [Résolution des problèmes](troubleshooting.md) ou postez un commentaire sur cette page. Vous pouvez aussi essayer ce [didacticiel](get-started-java.md) plus détaillé.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -137,4 +137,4 @@ Actualisez l’application web dans le navigateur. Votre message personnalisé d
 Découvrez comment Azure Dev Spaces vous aide à développer des applications plus complexes sur des conteneurs multiples, et comment il vous est possible de simplifier le développement collaboratif en utilisant différentes versions ou branches de votre code dans différents espaces.
 
 > [!div class="nextstepaction"]
-> [Utilisation de plusieurs conteneurs et développement en équipe](team-development-java.md)
+> [Utilisation de plusieurs conteneurs et développement en équipe](multi-service-java.md)

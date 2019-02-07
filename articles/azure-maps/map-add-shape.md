@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 583223ccfd30468c047fc77c3b6598ce7b0a1973
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 3023d5d4010108d46424bba284029b58f5fd279c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214604"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658740"
 ---
 # <a name="add-a-shape-to-a-map"></a>Ajouter une forme à une carte
 
@@ -108,7 +108,7 @@ Le premier bloc de code ci-dessus construit un objet carte. Vous pouvez consulte
 
 Un point est une [fonctionnalité](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) de la classe [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest). Le deuxième bloc de code initialise la valeur du rayon de l’élément de curseur HTML, puis construit et encapsule un objet de point dans un objet de classe [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest).
 
-Le troisième bloc de code crée une fonction qui prend la valeur de l’élément du curseur de plage HTML et modifie la valeur de rayon à l’aide de la méthode [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#addproperty) de la classe Shape.
+Le troisième bloc de code crée une fonction qui prend la valeur de l’élément du curseur de plage HTML et modifie la valeur de rayon à l’aide de la méthode [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) de la classe Shape.
 
 Dans le quatrième bloc de code, un objet source de données est créé à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Le point est alors ajouté à la source de données.
 

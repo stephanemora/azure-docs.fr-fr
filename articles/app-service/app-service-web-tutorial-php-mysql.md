@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d26f51d05ef97e15c47183e87f44aecec247723c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8c3ba3a077920d58a94fe3f4df1b0a81039439d5
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722326"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747643"
 ---
-# <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Didacticiel : Créer une application PHP et MySQL dans Azure
+# <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Tutoriel : Créer une application PHP et MySQL dans Azure
 
 > [!NOTE]
 > Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer une application PHP et MySQL dans Azure App Service sur Linux](./containers/tutorial-php-mysql-app.md).
@@ -361,7 +361,7 @@ La commande suivante configure les paramètres d’application `DB_HOST`, `DB_DA
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-Vous pouvez utiliser la méthode PHP [getenv](http://www.php.net/manual/function.getenv.php) pour accéder aux paramètres. Votre code Laravel utilise un wrapper [env](https://laravel.com/docs/5.4/helpers#method-env) sur le PHP `getenv`. Par exemple, la configuration MySQL dans _config/database.php_ ressemble au code suivant :
+Vous pouvez utiliser la méthode PHP [getenv](http://www.php.net/manual/en/function.getenv.php) pour accéder aux paramètres. Votre code Laravel utilise un wrapper [env](https://laravel.com/docs/5.4/helpers#method-env) sur le PHP `getenv`. Par exemple, la configuration MySQL dans _config/database.php_ ressemble au code suivant :
 
 ```php
 'mysql' => [
@@ -608,7 +608,7 @@ Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl`+`C`.
 
 Accédez au [portail Azure](https://portal.azure.com) pour gérer l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
+Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 8552a22db1518fe41be78d67f91d74f0370abd93
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d880615d0d132403c935fe39e8478d7b3fc48dbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479144"
+ms.locfileid: "55490071"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Mettre à jour ou faire pivoter les informations d’identification d’un principal du service dans Azure Kubernetes Service (AKS)
 
@@ -44,7 +44,7 @@ SP_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalP
 Avec un jeu de variables contenant l’ID du principal du service, réinitialisez les informations d’identification à l’aide de [az ad sp credential reset][az-ad-sp-credential-reset]. L’exemple suivant permet à la plateforme Azure de générer un nouveau secret sécurisé pour le principal du service. Ce nouveau secret sécurisé est également stocké dans une variable.
 
 ```azurecli-interactive
-SP_SECRET=$(az ad sp credential reset --name $AKS_SP --query password -o tsv)
+SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
 Passez maintenant à [mettre à jour le cluster AKS avec les nouvelles informations d’identification](#update-aks-cluster-with-new-credentials).

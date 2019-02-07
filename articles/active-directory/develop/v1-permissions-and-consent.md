@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 887134f7d790e5ed7e878a94caa9ef2fb9356ae3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 28d1387e5c1efd85ab0b944f7cffc4fe215eb73f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102153"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734485"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorisations et consentement dans le point de terminaison Azure Active Directory v1.0
 
@@ -36,7 +36,7 @@ Les *autorisations*, également appelées *étendues*, facilitent l’autorisati
 
 Azure AD définit deux types d’autorisations :
 
-* **Autorisations déléguées** : utilisées par les applications qui ont un utilisateur connecté présent. Pour ces applications, l’utilisateur ou un administrateur accorde les autorisations que l’application demande. Ensuite, l’application se voit déléguer une autorisation d’agir en tant qu’utilisateur connecté lors des appels à une API. En fonction de l’API, l’utilisateur peut ne pas être en mesure de donner son consentement à l’API directement et [avoir besoin d’un « consentement de l’administrateur »](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+* **Autorisations déléguées** : utilisées par les applications qui ont un utilisateur connecté présent. Pour ces applications, l’utilisateur ou un administrateur accorde les autorisations que l’application demande. Ensuite, l’application se voit déléguer une autorisation d’agir en tant qu’utilisateur connecté lors des appels à une API. En fonction de l’API, l’utilisateur peut ne pas être en mesure de donner son consentement à l’API directement et [avoir besoin d’un « consentement de l’administrateur »](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 * **Autorisations d’application** : utilisées par les applications qui s’exécutent sans utilisateur connecté présent ; par exemple, les applications qui s’exécutent en tant que services ou démons en arrière-plan. Les autorisations d’application peuvent uniquement être [consenties par un administrateur](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant), car elles sont généralement puissantes et permettent d’accéder à des données situées au-delà des limites de l’utilisateur ou à des données normalement réservées aux seuls administrateurs.
 
 Les autorisations effectives sont celles qu’a votre application lors des requêtes faites à une API. 

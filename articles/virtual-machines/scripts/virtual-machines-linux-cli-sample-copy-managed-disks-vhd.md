@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 66dcb8d38f8c469656d36ff1da1ac03f900069b2
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6252049c2258c391aa4483dd51ec0d9ee766bed0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583134"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727132"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exporter/copier un disque managé vers un compte de stockage à l’aide d’Azure CLI
 
@@ -44,7 +44,7 @@ Ce script utilise les commandes suivantes afin de générer l’URI SAS pour un 
 | Commande | Notes |
 |---|---|
 | [az disk grant-access](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Génère l’URI SAP en lecture seule qui est utilisé pour copier le fichier de VHD sous-jacent vers un compte de stockage ou le télécharger en local  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | Copie un objet blob de façon asynchrone à partir d’un compte de stockage vers un autre. |
+| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | Copie un objet blob de façon asynchrone à partir d’un compte de stockage vers un autre. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

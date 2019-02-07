@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 29b76620494fbb325f8c43bf90a07c9df0faff56
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 21b44b1c739818206fdba9d10250a2976f1d90db
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266331"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746861"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Rassembler des informations sur votre infrastructure DNS avec la solution DNS Analytics (préversion)
 
@@ -105,7 +105,7 @@ Le tableau de bord de la solution affiche les panneaux suivants :
 
 ![Panneau Sécurité DNS](./media/dns-analytics/dns-security-blade.png)
 
-Lorsque vous cliquez sur une adresse IP de client dans la liste, la fonctionnalité Recherche dans les journaux s’ouvre et affiche les détails de la recherche de la requête respective. Dans l’exemple suivant, DNS Analytics a détecté que la communication a été effectuée avec un [IRCbot](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=Win32/IRCbot) :
+Lorsque vous cliquez sur une adresse IP de client dans la liste, la fonctionnalité Recherche dans les journaux s’ouvre et affiche les détails de la recherche de la requête respective. Dans l’exemple suivant, DNS Analytics a détecté que la communication a été effectuée avec un [IRCbot](https://www.microsoft.com/wdsi/threats/threat-search?query=Win32/IRCbot) :
 
 ![Résultats de recherche dans les journaux affichant un ircboot](./media/dns-analytics/ircbot.png)
 

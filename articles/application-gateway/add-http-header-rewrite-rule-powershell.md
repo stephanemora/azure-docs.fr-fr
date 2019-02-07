@@ -7,19 +7,19 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: cb3af5dc8368dc7e598bd0b05653b8ae921a5097
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 68da63bcad3c670c5e8bda62dda656e29c41f899
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452307"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692914"
 ---
 # <a name="rewrite-http-headers-in-an-existing-application-gateway"></a>Réécrire les en-têtes HTTP dans une Application Gateway existante
 
 Vous pouvez utiliser Azure PowerShell pour configurer des [règles de réécriture d’en-têtes de requête et de réponse HTTP](rewrite-http-headers.md) dans une [référence SKU de passerelle d’application se mettant à l’échelle automatiquement et redondante dans la zone](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) existante
 
-> [!IMPORTANT] 
-> La référence SKU de la passerelle d’application redondante interzone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> [!IMPORTANT]
+> La référence SKU de la passerelle d’application redondante interzone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -48,15 +48,15 @@ Configurez les nouveaux objets requis pour réécrire les en-têtes HTTP :
 
 - **RequestHeaderConfiguration** : cet objet est utilisé pour spécifier les champs d’en-tête de requête que vous souhaitez réécrire et la nouvelle valeur de réécriture des en-têtes d’origine.
 - **ResponseHeaderConfiguration** : cet objet est utilisé pour spécifier les champs d’en-tête de réponse que vous souhaitez réécrire et la nouvelle valeur de réécriture des en-têtes d’origine.
-- **ActionSet** : cet objet contient les configurations des en-têtes de requête et de réponse spécifiés ci-dessus. 
-- **RewriteRule** : cet objet contient tous les *actionSets* spécifiés ci-dessus. 
+- **ActionSet** : cet objet contient les configurations des en-têtes de requête et de réponse spécifiés ci-dessus.
+- **RewriteRule** : cet objet contient tous les *actionSets* spécifiés ci-dessus.
 - **RewriteRuleSet** : cet objet contient toutes les *rewriteRules* et devra être attaché à une règle de routage des demandes, de base ou basée sur un chemin d’accès.
 
 ```azurepowershell
 $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -HeaderValue "max-age=31536000"
-$actionSet = New-AzApplicationGatewayRewriteRuleActionSet -RequestHeaderConfiguration $requestHeaderConfiguration -ResponseHeaderConfiguration $responseHeaderConfiguration    
-$rewriteRule = New-AzApplicationGatewayRewriteRule -Name rewriteRule1 -ActionSet $actionSet    
+$actionSet = New-AzApplicationGatewayRewriteRuleActionSet -RequestHeaderConfiguration $requestHeaderConfiguration -ResponseHeaderConfiguration $responseHeaderConfiguration
+$rewriteRule = New-AzApplicationGatewayRewriteRule -Name rewriteRule1 -ActionSet $actionSet
 $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name rewriteRuleSet1 -RewriteRule $rewriteRule
 ```
 
@@ -84,10 +84,10 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ```azurepowershell
 $appgw = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
-Remove-AzApplicationGatewayRewriteRuleSet -Name "rewriteRuleSet1" -ApplicationGateway $appgw 
+Remove-AzApplicationGatewayRewriteRuleSet -Name "rewriteRuleSet1" -ApplicationGateway $appgw
 $requestroutingrule= Get-AzApplicationGatewayRequestRoutingRule -Name "rule1" -ApplicationGateway $appgw
 $requestroutingrule.RewriteRuleSet= $null
-set-AzApplicationGateway -ApplicationGateway $appgw 
+set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

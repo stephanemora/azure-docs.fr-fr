@@ -11,12 +11,12 @@ ms.subservice: qna-maker`
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 428aea5775c1777f38d7ea563cfe3af700c27f02
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1e1152f810bffb2ab4dfe230c2d3b3c2a8198492
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211829"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811917"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Tutoriel : Créer un bot QnA avec Azure Bot Service v3
 
@@ -96,9 +96,6 @@ Le bot répond « Please set QnAKnowledgebaseId and QnASubscriptionKey in App Se
     - **Publiez** votre base de connaissances, si ce n’est pas déjà fait
 
     ![Valeurs QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
-
-> [!NOTE]
-> Si vous souhaitez connecter la préversion de la base de connaissances au bot QnA, définissez la valeur de **Ocp-Apim-Subscription-Key** sur **QnAAuthKey**. Laissez le champ **QnAEndpointHostName** vide.
 
 ## <a name="test-the-bot"></a>Tester le bot
 

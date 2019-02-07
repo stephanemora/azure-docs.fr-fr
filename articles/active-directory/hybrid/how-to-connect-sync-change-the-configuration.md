@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8c6fe9952beb8daeb9b96cf9244cccf85d9c2203
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ebc32f59539e4e4e94f7f68d5d164cf2b04cc4c2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165453"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488524"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronisation Azure AD Connect : modifier la configuration par défaut
 L’objectif de cet article est d’expliquer comment apporter des modifications à la configuration par défaut dans la synchronisation Azure Active Directory (Azure AD) Connect. Elle explique pas à pas la procédure pour les scénarios courants. À la fin, vous serez capable d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.
@@ -267,7 +267,7 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
 
     | Attribut | Valeur | Détails |
     | --- | --- | --- |
-    | NOM | *Donnez-lui un nom* | Par exemple, *Entrant à partir d’AD – User UserType*. |
+    | Nom | *Donnez-lui un nom* | Par exemple, *Entrant à partir d’AD – User UserType*. |
     | Description | *Fournissez une description* |  |
     | Système connecté | *Sélectionnez le connecteur AD local* |  |
     | Type d’objet système connecté | **Utilisateur** |  |
@@ -309,7 +309,7 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
 
     | Attribut | Valeur | Détails |
     | ----- | ------ | --- |
-    | NOM | *Donnez-lui un nom* | Par exemple, *Entrant à partir d’AAD – User UserType*. |
+    | Nom | *Donnez-lui un nom* | Par exemple, *Entrant à partir d’AAD – User UserType*. |
     | Description | *Fournissez une description* ||
     | Système connecté | *Sélectionnez le connecteur AAD* ||
     | Type d’objet système connecté | **Utilisateur** ||

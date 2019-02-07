@@ -1,10 +1,22 @@
 ---
-titre : Création d’un espace de travail - titleSuffix : Description d'Azure Machine Learning Studio : Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace de travail Machine Learning Studio. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 07/12/2017
+title: Créer un espace de travail
+titleSuffix: Azure Machine Learning Studio
+description: Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace de travail Machine Learning Studio. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 12/07/2017
+ms.openlocfilehash: 16c67c217c8ef33a360fd479a45317d6c42af494
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486315"
 ---
-
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Créer et partager un espace de travail Azure Machine Learning Studio
 
 Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace de travail Machine Learning Studio. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.

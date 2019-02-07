@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 9992d93f689663e859315dd55d248866d88b4a25
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 67cfa45d602b6bf9de27a0b559c58e28b79d1c84
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903598"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732819"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Créer et gérer des réplicas en lecture dans Azure Database pour MySQL à l’aide de l'interface de ligne de commande Azure
 
@@ -67,7 +67,7 @@ La commande `az mysql server replica stop` requiert les paramètres suivants :
 
 ## <a name="delete-a-replica-server"></a>Supprimer un serveur réplica
 
-La suppression d’un serveur réplica en lecture peut être effectuée en exécutant la commande **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)**.
+La suppression d’un serveur réplica en lecture peut être effectuée en exécutant la commande **[az mysql server delete](/cli/azure/mysql/server)**.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver
@@ -78,7 +78,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserv
 > [!IMPORTANT]
 > La suppression d’un serveur maître arrête la réplication vers tous les serveurs réplicas et supprime le serveur maître lui-même. Les serveurs réplicas deviennent des serveurs autonomes qui prennent désormais en charge la lecture et les écritures.
 
-Pour supprimer un serveur maître, vous pouvez exécuter la commande **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)**.
+Pour supprimer un serveur maître, vous pouvez exécuter la commande **[az mysql server delete](/cli/azure/mysql/server)**.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

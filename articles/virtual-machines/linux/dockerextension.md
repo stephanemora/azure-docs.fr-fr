@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: f30305374b1fcaabfb36533195a098073d33b6c3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1bc250ac70e48a548d393c3bc6025868948dc022
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197600"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699157"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Création d’un environnement Docker dans Azure à l’aide de l’extension Docker VM
 
@@ -39,15 +39,15 @@ Pour plus d’informations sur les différentes méthodes de déploiement, y com
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Déployer un modèle avec l’extension de machine virtuelle Azure Docker
-Nous allons utiliser un modèle de démarrage rapide existant pour créer une machine virtuelle Ubuntu qui utilise l’extension Azure Docker VM pour installer et configurer l’hôte Docker. Vous pouvez voir le modèle ici : [Déploiement simple d’une machine virtuelle Ubuntu avec Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Vous devez avoir la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et être connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
+Nous allons utiliser un modèle de démarrage rapide existant pour créer une machine virtuelle Ubuntu qui utilise l’extension Azure Docker VM pour installer et configurer l’hôte Docker. Vous pouvez voir le modèle ici : [Déploiement simple d’une machine virtuelle Ubuntu avec Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Vous devez avoir la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et être connecté à un compte Azure avec [az login](/cli/azure/reference-index).
 
-Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
+Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Ensuite, déployez une machine virtuelle avec la commande [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) qui inclut l’extension de machine virtuelle Azure Docker de [ce modèle Azure Resource Manager sur GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). À l’invite, renseignez vos propres valeurs uniques pour *newStorageAccountName*, *adminUsername*, *adminPassword* et *dnsNameForPublicIP* :
+Ensuite, déployez une machine virtuelle avec la commande [az group deployment create](/cli/azure/group/deployment) qui inclut l’extension de machine virtuelle Azure Docker de [ce modèle Azure Resource Manager sur GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). À l’invite, renseignez vos propres valeurs uniques pour *newStorageAccountName*, *adminUsername*, *adminPassword* et *dnsNameForPublicIP* :
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 160509a5a82b71b281d57d97e103bb4190605b7c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ac58886225221677aa003833167ff58cd578255d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847809"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693919"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Créer un compte de stockage et faire tourner ses clés d’accès
 
@@ -48,10 +48,10 @@ Ce script utilise les commandes suivantes pour créer le compte de stockage, ré
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage Azure dans le groupe de ressources spécifié. |
-| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Affiche les clés de l’accès au compte de stockage spécifié. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Régénère la clé d’accès au compte de stockage principal ou secondaire. |
+| [az group create](/cli/azure/group) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az storage account create](/cli/azure/storage/account) | Crée un compte de stockage Azure dans le groupe de ressources spécifié. |
+| [az storage account keys list](/cli/azure/storage/account/keys) | Affiche les clés de l’accès au compte de stockage spécifié. |
+| [az storage account keys renew](/cli/azure/storage/account/keys) | Régénère la clé d’accès au compte de stockage principal ou secondaire. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

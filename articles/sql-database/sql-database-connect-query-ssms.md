@@ -4,7 +4,7 @@ description: Découvrez comment vous connecter à Base de données SQL sur Azu
 keywords: connexion à une base de données sql, sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 095d7cf43d071d3857160d05e721bf7ac165cba2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461744"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756782"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Démarrage rapide : Utilisez SQL Server Management Studio pour se connecter et interroger une base de données Azure SQL
 
@@ -30,7 +30,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-* règle de pare-feu au niveau du serveur. Pour plus d’informations, consultez [Créer une règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md).
+* règle de pare-feu au niveau du serveur. Pour plus d’informations, consultez [Créer une règle de pare-feu au niveau du serveur](sql-database-server-level-firewall-rule.md).
 
 ## <a name="install-the-latest-ssms"></a>Installer la dernière version de SSMS
 

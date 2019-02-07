@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: dc87079083b8f07ad18f5f871bff64de8d492ebd
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285644"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701180"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>Les parties d’un schéma de modèle d’appareil
 
@@ -105,7 +105,7 @@ La section `Properties` du schéma définit les valeurs de propriété que l’a
 }
 ```
 
-Lorsque la solution démarre, elle interroge tous les appareils simulés pour générer une liste de valeurs `Type` à utiliser dans l’interface utilisateur. La solution utilise les propriétés `Latitiude` et `Longitude` pour ajouter l’emplacement de l’appareil à la carte sur le tableau de bord.
+Lorsque la solution démarre, elle interroge tous les appareils simulés pour générer une liste de valeurs `Type` à utiliser dans l’interface utilisateur. La solution utilise les propriétés `Latitude` et `Longitude` pour ajouter l’emplacement de l’appareil à la carte sur le tableau de bord.
 
 ## <a name="telemetry"></a>Télémétrie
 
@@ -145,7 +145,7 @@ Actuellement, vous ne pouvez utiliser que des schémas de message JSON. Les cham
 * Booléen
 * Entier 
 * Double
-* Datetime
+* DateTime
 
 Pour envoyer des messages de télémétrie à des intervalles différents, ajoutez plusieurs types de données de télémétrie au tableau `Telemetry`. L’exemple suivant envoie les données de température et d’humidité toutes les 10 secondes et l’état de la lumière toutes les minutes :
 

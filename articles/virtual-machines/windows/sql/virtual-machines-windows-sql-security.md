@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 61cfc458ed965fd4f1446ff8cfb5e9a6e244f246
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332385"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731714"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure
 
@@ -54,7 +54,7 @@ Les options sélectionnées dans le portail utilisent les règles de sécurité 
 
 Outre les règles de groupe de sécurité réseau pour limiter le trafic réseau, vous pouvez utiliser le Pare-feu Windows sur la machine virtuelle.
 
-Lorsque vous utilisez des points de terminaison avec le modèle de déploiement classique, supprimez-les sur la machine virtuelle si vous n’en avez pas besoin. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint) Cela n’est pas nécessaire pour les machines virtuelles qui utilisent le Gestionnaire des ressources.
+Lorsque vous utilisez des points de terminaison avec le modèle de déploiement classique, supprimez-les sur la machine virtuelle si vous n’en avez pas besoin. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint) Cela n’est pas nécessaire pour les machines virtuelles qui utilisent le Gestionnaire des ressources.
 
 Enfin, pensez à activer l’option de connexion chiffrée pour l’instance du moteur de base de données SQL Server dans votre machine virtuelle Azure. Configurez l’instance SQL Server avec un certificat signé. Pour plus d’informations, voir [Activation des connexions chiffrées dans le moteur de base de données](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) et [Syntaxe de la chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
 

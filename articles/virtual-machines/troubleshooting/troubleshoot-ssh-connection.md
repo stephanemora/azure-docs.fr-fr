@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 1454eb5dbf8c80dcf7024c150dbff6a2082dbd02
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d84881d4c86fd91fce430956705791097e200937
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100272"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753416"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée
 Cet article vous aide à trouver et corriger les problèmes qui se produisent en raison d’erreurs SSH (Secure Shell), d’échecs de connexion SSH ou de refus SSH quand vous essayez de vous connecter à une machine virtuelle Linux. Vous pouvez utiliser le portail Azure, l’interface de ligne de commande Azure ou l’extension d’accès aux machines virtuelles pour Linux pour dépanner et résoudre des problèmes de connexion.
@@ -78,20 +78,20 @@ Utilisez la [vérification des flux IP](../../network-watcher/network-watcher-ch
 Utilisez la fonction [Tronçon suivant](../../network-watcher/network-watcher-check-next-hop-portal.md) de Network Watcher pour confirmer qu’un itinéraire n’empêche pas le trafic d’être routé vers ou à partir d’une machine virtuelle. Vous pouvez également examiner les itinéraires effectifs pour voir tous les itinéraires effectifs pour une interface réseau. Pour plus d’informations, consultez [Utilisation d’itinéraires effectifs pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
-Si ce n’est pas déjà fait, installez la dernière version d’[Azure CLI](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
+Si ce n’est pas déjà fait, installez la dernière version d’[Azure CLI](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec [az login](/cli/azure/reference-index).
 
 Si vous avez créé et téléchargé une image de disque Linux personnalisée, assurez-vous que le [Microsoft Azure Linux Agent](../extensions/agent-windows.md) version 2.0.5 ou ultérieure est installé. Pour les machines virtuelles créées à l’aide d’images de la galerie, cette extension de l’accès est déjà installée et configurée.
 
 ### <a name="reset-ssh-configuration"></a>Réinitialisation de la configuration SSH
 Vous pouvez initialement essayer de réinitialiser la configuration SSH aux valeurs par défaut et de redémarrer le serveur SSH sur la machine virtuelle. Cela ne change pas le nom du compte d’utilisateur, le mot de passe, ni les clés SSH.
-L’exemple suivant utilise [az vm user reset-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh) pour réinitialiser la configuration SSH sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+L’exemple suivant utilise [az vm user reset-ssh](/cli/azure/vm/user) pour réinitialiser la configuration SSH sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
 az vm user reset-ssh --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Réinitialisation des informations d’identification SSH d’un utilisateur
-L’exemple suivant utilise [az vm user update](/cli/azure/vm/user#az_vm_user_update) pour réinitialiser les informations d’identification pour `myUsername` à la valeur spécifiée dans `myPassword`, sur la machine virtuelle `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+L’exemple suivant utilise [az vm user update](/cli/azure/vm/user) pour réinitialiser les informations d’identification pour `myUsername` à la valeur spécifiée dans `myPassword`, sur la machine virtuelle `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
 az vm user update --resource-group myResourceGroup --name myVM \
@@ -117,7 +117,7 @@ Créez un fichier nommé `settings.json` avec le contenu suivant :
 }
 ```
 
-À l’aide de l’interface de ligne de commande Azure, appelez ensuite l’extension `VMAccessForLinux` pour réinitialiser votre connexion SSHD en spécifiant votre fichier json. L’exemple suivant utilise [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) pour réinitialiser SSHD sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+À l’aide de l’interface de ligne de commande Azure, appelez ensuite l’extension `VMAccessForLinux` pour réinitialiser votre connexion SSHD en spécifiant votre fichier json. L’exemple suivant utilise [az vm extension set](/cli/azure/vm/extension) pour réinitialiser SSHD sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
 az vm extension set --resource-group philmea --vm-name Ubuntu \
@@ -191,7 +191,7 @@ Pour redémarrer une machine virtuelle à l’aide du portail Azure, sélectionn
 ![Redémarrage d’une machine virtuelle dans le portail Azure](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
-L’exemple suivant utilise [az vm restart](/cli/azure/vm#az_vm_restart) pour redémarrer la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+L’exemple suivant utilise [az vm restart](/cli/azure/vm) pour redémarrer la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -218,7 +218,7 @@ Pour redéployer une machine virtuelle à l’aide du portail Azure, sélectionn
 ![Redéploiement de la machine virtuelle dans le portail Azure](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
-L’exemple suivant utilise [az vm redeploy](/cli/azure/vm#az_vm_redeploy) pour redéployer la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+L’exemple suivant utilise [az vm redeploy](/cli/azure/vm) pour redéployer la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM

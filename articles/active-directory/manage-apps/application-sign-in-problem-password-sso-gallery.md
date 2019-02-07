@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5ae7643123552eaa17d51e6cd1ed9c0293292ed0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734169a0bce546ee2492d100b2abcb2ba8b6ffc9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184969"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822525"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problèmes de connexion à une application de la galerie Azure AD configurée pour l’authentification unique par mot de passe
 
@@ -88,7 +88,7 @@ Consultez le guide [Troubleshoot the Access Panel Extension for Internet Explore
 
 Pour configurer une application à partir de la galerie Azure AD, vous devez effectuer les opérations suivantes :
 
--   [Ajouter une application à partir de la galerie Azure AD](#_Add_an_application)
+-   Ajouter une application à partir de la galerie Azure AD
 
 -   [Configurer l’application pour l’authentification unique basée sur un mot de passe](#configure-the-application-for-password-single-sign-on)
 
@@ -140,7 +140,7 @@ Pour configurer l’authentification unique pour une application, procédez comm
 
 8.  Sélectionnez le mode **Authentification par mot de passe.**
 
-9.  [Affectez des utilisateurs à l’application](#_How_to_assign).
+9.  Affectez des utilisateurs à l’application.
 
 10. En outre, vous pouvez également fournir des informations d’identification pour le compte de l’utilisateur en sélectionnant les lignes des utilisateurs, en cliquant sur **Mettre à jour les informations d’identification** et en entrant le nom d’utilisateur et le mot de passe à la place des utilisateurs. Autrement, les utilisateurs devront entrer les informations d’identification eux-mêmes lors du lancement.
 

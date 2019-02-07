@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 840c230ae3b2fc167c0d59a4a9a0155fe5deb661
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3e838f932299a9ea7f837570f9d15725230eb4f8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238235"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660083"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Préparer l’hôte d’extension pour Azure Stack
 
@@ -141,7 +141,7 @@ L’article [Intégration au centre de données Azure Stack : publier des point
 
 ### <a name="publish-new-endpoints"></a>Publier les nouveaux points de terminaison
 
-Il existe deux nouveaux points de terminaison requis pour être publiés via votre pare-feu. Les adresses IP allouées à partir du pool d’adresses IP virtuelles peuvent être récupérées à l'aide du code suivant qui doit être exécuté via le [point de terminaison privilégié de votre environnement](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-privileged-endpoint) Azure Stack.
+Il existe deux nouveaux points de terminaison requis pour être publiés via votre pare-feu. Les adresses IP allouées à partir du pool d’adresses IP virtuelles peuvent être récupérées à l'aide du code suivant qui doit être exécuté via le [point de terminaison privilégié de votre environnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) Azure Stack.
 
 ```PowerShell
 # Create a PEP Session

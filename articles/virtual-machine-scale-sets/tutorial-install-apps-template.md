@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 81ab41518fea81b577738d30970d83f6d6d6f2bc
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883991"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750390"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutoriel : Installer des applications dans des groupes de machines virtuelles identiques avec un modèle Azure
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Didacticiel : Installer des applications dans des groupes de machines virtuelles identiques avec un modèle Azure
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -77,13 +77,13 @@ Pour obtenir l’exemple complet d’un modèle Azure qui déploie un groupe ide
 
 
 ## <a name="create-a-scale-set"></a>Créer un groupe identique
-Nous allons utiliser le modèle exemple pour créer un groupe identique et appliquer l’extension de script personnalisé. Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
+Nous allons utiliser le modèle exemple pour créer un groupe identique et appliquer l’extension de script personnalisé. Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez à présent un groupe identique de machines virtuelles avec [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Lorsque vous y êtes invité, fournissez votre propre nom d’utilisateur et mot de passe utilisés comme informations d’identification pour chaque instance de machine virtuelle :
+Créez à présent un groupe identique de machines virtuelles avec [az group deployment create](/cli/azure/group/deployment). Lorsque vous y êtes invité, fournissez votre propre nom d’utilisateur et mot de passe utilisés comme informations d’identification pour chaque instance de machine virtuelle :
 
 ```azurecli-interactive
 az group deployment create \
@@ -97,7 +97,7 @@ Chaque instance de machine virtuelle dans le groupe identique télécharge et ex
 
 
 ## <a name="test-your-scale-set"></a>Tester votre groupe identique
-Pour voir votre serveur web en action, obtenez l’adresse IP publique de votre équilibreur de charge avec [az network public-ip show](/cli/azure/network/public-ip#show). L’exemple suivant obtient l’adresse IP pour *myScaleSetPublicIP* qui a été créée dans le cadre du groupe identique :
+Pour voir votre serveur web en action, obtenez l’adresse IP publique de votre équilibreur de charge avec [az network public-ip show](/cli/azure/network/public-ip). L’exemple suivant obtient l’adresse IP pour *myScaleSetPublicIP* qui a été créée dans le cadre du groupe identique :
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ Pour mettre à jour la définition de l’extension de script personnalisé, mod
 }
 ```
 
-Appliquez la configuration de l’extension de script personnalisé aux instances de machine virtuelle dans votre groupe identique de nouveau avec [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Ce modèle *azuredeployv2.json* est utilisé pour appliquer la version mise à jour de l’application. Dans la pratique, vous modifiez le modèle *azuredeploy.json* existant pour faire référence au script d’installation mis à jour, comme indiqué dans la section précédente. Lorsque vous y êtes invité, entrez le nom d’utilisateur et mot de passe utilisés lors de la création du groupe identique :
+Appliquez la configuration de l’extension de script personnalisé aux instances de machine virtuelle dans votre groupe identique de nouveau avec [az group deployment create](/cli/azure/group/deployment). Ce modèle *azuredeployv2.json* est utilisé pour appliquer la version mise à jour de l’application. Dans la pratique, vous modifiez le modèle *azuredeploy.json* existant pour faire référence au script d’installation mis à jour, comme indiqué dans la section précédente. Lorsque vous y êtes invité, entrez le nom d’utilisateur et mot de passe utilisés lors de la création du groupe identique :
 
 ```azurecli-interactive
 az group deployment create \
@@ -155,7 +155,7 @@ Toutes les instances de machine virtuelle dans le groupe identique sont automati
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group#az_group_delete). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
+Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2d184cc849eb3da60bbf0c387655da9fdf878853
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091604"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749212"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurer le basculement entre plusieurs points de terminaison Azure CDN avec Azure Traffic Manager
 
@@ -42,7 +42,7 @@ Créez au moins deux points de terminaison et profils Azure CDN avec des fournis
 ## <a name="set-up-azure-traffic-manager"></a>Configurer Azure Traffic Manager
 Créez un profil Azure Traffic Manager et configurez l’équilibrage de charge sur vos points de terminaison CDN. 
 
-1. Créez un profil Azure Traffic Manager en suivant les étapes décrites pour la [création d’un profil Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#create-a-traffic-manager-profile-1). 
+1. Créez un profil Azure Traffic Manager en suivant les étapes décrites pour la [création d’un profil Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile). 
 
     Pour **Méthode de routage**, sélectionnez **Priorité**.
 

@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: f12d73904b547da6531e24a899277eca7dd46660
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a19da45d849facc8fe7ed18d95862ab9e79eaace
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998759"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744379"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Didacticiel : Guide pratique pour utiliser Azure Key Vault avec une machine virtuelle Windows Azure dans .NET
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Tutoriel : Guide pratique pour utiliser Azure Key Vault avec une machine virtuelle Windows Azure dans .NET
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données nécessaires pour accéder à vos applications, services et ressources.
 
@@ -189,7 +189,7 @@ Ensuite, modifiez le fichier de classe pour contenir le code ci-dessous. Il s’
 
         static string FetchSecretValueFromKeyVault(string token)
         {
-            WebRequest kvRequest = WebRequest.Create("https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01");
+            WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();
             return ParseWebResponse(kvResponse, "value");

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ada579af44d1d0b4ea08a8ae9eadbec386e44f08
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 20616adf649924a13e80411aa5135889a175f442
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823008"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750186"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obtenir des informations à partir d’une coordonnée
 
@@ -33,7 +33,7 @@ La ligne du deuxième bloc de code instancie un service client.
 
 Le troisième bloc de code change le style du curseur de la souris en pointeur et en objet de [fenêtre contextuelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open). Pour plus d’instructions, consultez la section relative à l’[ajout d’une fenêtre contextuelle sur la carte](./map-add-popup.md).
 
-Le quatrième bloc de code ajoute un [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour les clics de souris. En cas de clic de souris, il crée une requête de recherche avec les coordonnées du point activé. Il utilise ensuite le point de terminaison [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchaddressreverse) de la carte pour interroger l’adresse afin d’obtenir les coordonnées.
+Le quatrième bloc de code ajoute un [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour les clics de souris. En cas de clic de souris, il crée une requête de recherche avec les coordonnées du point activé. Il utilise ensuite le point de terminaison [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest) de la carte pour interroger l’adresse afin d’obtenir les coordonnées.
 
 Pour une réponse correcte, il collecte l’adresse de l’emplacement activé, et définit le contenu et la position de la fenêtre contextuelle via la fonction [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) de la classe popup.
 

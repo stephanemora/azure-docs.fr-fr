@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: d077f64081ff7ca53a0ec569ea99658d29654cda
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0c2ff94d65e775a12fd76b3115aa8b69ae9a405f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429342"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815011"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Acheminer le trafic réseau avec une table de routage à l’aide de PowerShell
 
@@ -248,7 +248,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 Bien que tracert soit utilisé pour tester le routage dans cet article, il n’est pas recommandé d’autoriser le protocole IMCP dans le pare-feu Windows lors de déploiements en production.
 
-Vous avez activé le transfert d’IP dans Azure pour l’interface réseau de la machine virtuelle dans [Activer le transfert IP](#enable-ip-forwarding). Sur la machine virtuelle, le système d’exploitation ou une application exécutée dans la machine virtuelle, doit également pouvoir transférer le trafic réseau. Activez le transfert IP au sein du système d’exploitation de la machine virtuelle *myVmNva*.
+Vous avez activé le transfert d’IP dans Azure pour l’interface réseau de la machine virtuelle dans [Activer le transfert IP](#enable-ip-forwarding). Sur la machine virtuelle, le système d’exploitation ou une application exécutée dans la machine virtuelle, doit également pouvoir transférer le trafic réseau. Activez le transfert IP au sein du système d’exploitation de la machine virtuelle *myVmNva*.
 
 À partir d’une invite de commandes sur la machine virtuelle *myVmPrivate*, connectez le Bureau à distance à la machine virtuelle *myVmNva* :
 

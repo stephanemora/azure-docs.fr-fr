@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 1ae352a0292e75eb9a5bf07e3ddca79ca687dea2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 417772b2e955b1a3664dd495f292a76ab2819165
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687382"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734519"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Chiffrer des disques de système d’exploitation et de données attachés dans un groupe de machines virtuelles identiques avec l’interface Azure CLI (préversion)
 
@@ -42,13 +42,13 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, v
 
 ## <a name="register-for-disk-encryption-preview"></a>S’inscrire à la fonctionnalité de chiffrement de disque en préversion
 
-Pour utiliser la préversion d’Azure Disk Encryption pour les groupes de machines virtuelles identiques, vous devez inscrire votre abonnement avec [az feature register](/cli/azure/feature#az_feature_register). Effectuez uniquement les étapes suivantes quand vous utilisez la fonctionnalité de chiffrement de disque en préversion pour la première fois :
+Pour utiliser la préversion d’Azure Disk Encryption pour les groupes de machines virtuelles identiques, vous devez inscrire votre abonnement avec [az feature register](/cli/azure/feature). Effectuez uniquement les étapes suivantes quand vous utilisez la fonctionnalité de chiffrement de disque en préversion pour la première fois :
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-La demande d’inscription peut prendre jusqu’à 10 minutes pour aboutir. Pour vérifier l’état de l’inscription, utilisez [az feature show](/cli/azure/feature#az_feature_show). Quand `State` indique *Inscrit*, réinscrivez le fournisseur *Microsoft.Compute* avec [az provider register](/cli/azure/provider#az_provider_register) :
+La demande d’inscription peut prendre jusqu’à 10 minutes pour aboutir. Pour vérifier l’état de l’inscription, utilisez [az feature show](/cli/azure/feature). Quand `State` indique *Inscrit*, réinscrivez le fournisseur *Microsoft.Compute* avec [az provider register](/cli/azure/provider) :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -56,13 +56,13 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="create-a-scale-set"></a>Créer un groupe identique
 
-Pour pouvoir créer un groupe identique, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
+Pour pouvoir créer un groupe identique, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez à présent un groupe de machines virtuelles identiques avec [az vmss create](/cli/azure/vmss#az_vmss_create). L’exemple suivant crée un groupe identique nommé *myScaleSet* qui est définit pour une mise à jour automatique lorsque des modifications sont appliquées, et qui génère des clés SSH s’il n’en existe pas dans *~/.ssh/id_rsa*. Un disque de données de 32 Go est attaché à chaque instance de machine virtuelle, et [l’extension de script personnalisé](../virtual-machines/linux/extensions-customscript.md) Azure est utilisée pour préparer les disques de données avec [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) :
+Créez à présent un groupe de machines virtuelles identiques avec [az vmss create](/cli/azure/vmss). L’exemple suivant crée un groupe identique nommé *myScaleSet* qui est définit pour une mise à jour automatique lorsque des modifications sont appliquées, et qui génère des clés SSH s’il n’en existe pas dans *~/.ssh/id_rsa*. Un disque de données de 32 Go est attaché à chaque instance de machine virtuelle, et [l’extension de script personnalisé](../virtual-machines/linux/extensions-customscript.md) Azure est utilisée pour préparer les disques de données avec [az vmss extension set](/cli/azure/vmss/extension) :
 
 ```azurecli-interactive
 # Create a scale set with attached data disk

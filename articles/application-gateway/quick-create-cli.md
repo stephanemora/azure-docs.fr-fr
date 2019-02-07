@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d14b8c9c752c9d41a42f092662c5f3aa88840dc5
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0ba18b1ef0ba6c0a73759577c83ab80550baa6f8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157715"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754742"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Azure CLI
 
@@ -39,7 +39,7 @@ az group create --name myResourceGroupAG --location eastus
 
 Quand vous créez un réseau virtuel, la passerelle d’application peut communiquer avec d’autres ressources. Vous pouvez créer un réseau virtuel en même temps que la passerelle d’application. Vous créez deux sous-réseaux dans cet exemple : un pour la passerelle d’application et l’autre pour les machines virtuelles. Le sous-réseau de passerelle d’application peut contenir uniquement des passerelles d’application. Aucune autre ressource n’est autorisée.
 
-Pour créer le réseau virtuel et le sous-réseau, utilisez [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Exécutez [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create) pour créer l’adresse IP publique.
+Pour créer le réseau virtuel et le sous-réseau, utilisez [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Exécutez [az network public-ip create](/cli/azure/network/public-ip) pour créer l’adresse IP publique.
 
 ```azurecli-interactive
 az network vnet create \
@@ -59,7 +59,7 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-backend-servers"></a>Créer des serveurs back-end
+## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
 Dans cet exemple, vous créez deux machines virtuelles qu’Azure va utiliser comme serveurs back-end pour la passerelle d’application. 
 
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
 
-Créez une passerelle d’application à l’aide de la commande [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. Azure ajoute ensuite les adresses IP privées des interfaces réseau en tant que serveurs dans le pool de back-ends de la passerelle d’application.
+Créez une passerelle d’application à l’aide de la commande [az network application-gateway create](/cli/azure/network/application-gateway). Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. Azure ajoute ensuite les adresses IP privées des interfaces réseau en tant que serveurs dans le pool de back-ends de la passerelle d’application.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

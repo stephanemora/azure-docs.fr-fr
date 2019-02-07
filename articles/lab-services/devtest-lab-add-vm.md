@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 05e68e13ab5aa526362e71413c105340ad07426f
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 69c0ce73fa5c29a2d0e49d9c4bb15a855fadc75b
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082076"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746784"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Ajouter une machine virtuelle à un laboratoire dans Azure DevTest Labs
-Si vous avez déjà [créé votre première machine virtuelle](devtest-lab-create-first-vm.md), vous l’avez probablement fait à partir d’une [image de la Place de marché](devtest-lab-configure-marketplace-images.md) préchargée. Maintenant, si vous souhaitez ajouter d’autres machines virtuelles à votre laboratoire, vous pouvez également choisir une *base* qui est soit une [image personnalisée](devtest-lab-create-template.md) soit une [formule](devtest-lab-manage-formulas.md). Ce didacticiel vous guide tout au long de l’utilisation du Portail Azure pour ajouter une machine virtuelle à un laboratoire dans DevTest Labs.
+Si vous avez déjà [créé votre première machine virtuelle](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), vous l’avez probablement fait à partir d’une [image de la Place de marché](devtest-lab-configure-marketplace-images.md) préchargée. Maintenant, si vous souhaitez ajouter d’autres machines virtuelles à votre laboratoire, vous pouvez également choisir une *base* qui est soit une [image personnalisée](devtest-lab-create-template.md) soit une [formule](devtest-lab-manage-formulas.md). Ce didacticiel vous guide tout au long de l’utilisation du Portail Azure pour ajouter une machine virtuelle à un laboratoire dans DevTest Labs.
 
 Cet article vous montre également comment gérer les artefacts d’une machine virtuelle dans votre laboratoire.
 
@@ -41,6 +41,8 @@ Cet article vous montre également comment gérer les artefacts d’une machine 
     2. Entrez un **nom d’utilisateur** qui obtient les privilèges d’administrateur sur la machine virtuelle. Le **nom d’utilisateur** de la machine est prérenseigné avec un nom unique généré automatiquement. Le nom correspond au nom d’utilisateur de votre adresse e-mail. Cette fonctionnalité vous évite d’avoir à penser à un nom d’utilisateur chaque fois que vous créez une machine. Là encore, vous pouvez remplacer cette valeur renseignée automatiquement par un nom d’utilisateur de votre choix si vous le souhaitez. Pour remplacer le nom d’utilisateur renseigné automatiquement, entrez une valeur dans la zone de texte **Nom d’utilisateur**. Cet utilisateur obtient des privilèges d’**administrateur** sur la machine virtuelle.
     3. Si vous créez la première machine virtuelle dans le laboratoire, entrez un **mot de passe** pour l’utilisateur. Pour enregistrer ce mot de passe comme mot de passe par défaut dans le coffre de clés Azure associé au laboratoire, sélectionnez **Enregistrer comme mot de passe par défaut**. Le mot de passe par défaut est enregistré dans le coffre de clés sous le nom : **VmPassword**. Quand vous essaierez de créer d’autres machines virtuelles dans le laboratoire, **VmPassword** sera sélectionné automatiquement comme **mot de passe**. Pour remplacer la valeur, décochez la case **Utiliser un secret enregistré**, puis entrez un mot de passe. 
 
+        ![Choisir une base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+
         Vous pouvez également enregistrer d’abord les secrets dans le coffre de clés, puis les utiliser lors de la création d’une machine virtuelle dans le laboratoire. Pour plus d’informations, consultez [Stocker des secrets dans un coffre de clés](devtest-lab-store-secrets-in-key-vault.md). Pour utiliser le mot de passe stocké dans le coffre de clés, sélectionnez **Utiliser un secret enregistré** et spécifiez une valeur de clé correspondant à votre secret (mot de passe).
     4. Dans la section **Autres options**, sélectionnez **Modifier la taille**. Sélectionnez l’un des éléments prédéfinis qui spécifient les cœurs du processeur, la taille de la RAM et la taille du disque dur de la machine virtuelle à créer.
     5. Sélectionnez **Ajouter ou supprimer des artefacts**. Sélectionnez et configurez les artefacts que vous souhaitez ajouter à l’image de base.
@@ -52,9 +54,13 @@ Cet article vous montre également comment gérer les artefacts d’une machine 
     4. Pour supprimer automatiquement la machine virtuelle, spécifiez **la date et l’heure d’expiration**. 
     5. Pour rendre la machine virtuelle revendicable par un utilisateur de laboratoire, sélectionnez **Oui** pour l’option **Make this machine claimable** (Rendre cette machine revendicable). 
     6. Spécifiez le nombre d’**instances de machine virtuelle** que vous souhaitez rendre disponibles aux utilisateurs de votre laboratoire. 
-3. Sélectionnez **Créer** pour ajouter la machine virtuelle spécifiée au laboratoire.
+
+        ![Choisir une base](./media/tutorial-create-custom-lab/new-vm-advanced-settings.png)
+1. Sélectionnez **Créer** pour ajouter la machine virtuelle spécifiée au laboratoire.
 
    La page du laboratoire affiche l’état de la création de la machine virtuelle, tout d’abord sous la forme **Création en cours**, puis sous la forme **En cours d’exécution** après le démarrage de la machine virtuelle.
+
+    ![État de la création de la machine virtuelle](./media/tutorial-create-custom-lab/vm-creation-status.png)
 
 ## <a name="add-an-existing-artifact-to-a-vm"></a>Ajout d’un artefact existant à une machine virtuelle
 Au cours de la création d’une machine virtuelle, vous pouvez ajouter des artefacts existants. Chaque laboratoire comprend des artefacts provenant du dépôt d’artefacts DevTest Labs public, ainsi que les artefacts que vous avez créés et ajoutés à votre propre dépôt d’artefacts.

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9a394c0dff74ec5f926356a3d700c5bbba4c0e4f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b36db929d1ed6487f0da72bea5415d6ca4223b92
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478285"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756039"
 ---
 # <a name="in-memory-sample"></a>Exemple en mémoire
 
@@ -46,7 +46,7 @@ Pour une démonstration plus simple mais intéressante des performances de l’O
 
 #### <a name="installation-steps"></a>Procédure d’installation :
 
-1. Dans le [portail Azure](https://portal.azure.com/), créez une base de données Premium ou Critique pour l’entreprise sur un serveur. Définissez comme valeur **Source** l’exemple de base de données AdventureWorksLT. Pour obtenir des instructions détaillées, consultez [Créer votre première base de données SQL Azure](sql-database-get-started-portal.md).
+1. Dans le [portail Azure](https://portal.azure.com/), créez une base de données Premium ou Critique pour l’entreprise sur un serveur. Définissez comme valeur **Source** l’exemple de base de données AdventureWorksLT. Pour obtenir des instructions détaillées, consultez [Créer votre première base de données SQL Azure](sql-database-single-database-get-started.md).
 
 2. Connectez-vous à la base de données avec [SQL Server Management Studio (SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 

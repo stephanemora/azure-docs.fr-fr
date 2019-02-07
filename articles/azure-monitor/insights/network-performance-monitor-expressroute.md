@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188773"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747456"
 ---
 # <a name="expressroute-monitor"></a>Moniteur ExpressRoute
 
@@ -118,23 +118,12 @@ Vous pouvez afficher les codes de notification et définir des alertes avec **Lo
 
 | Code de notification (journaux) | Description |
 | --- | --- |
-| 5101 | Les sous-interfaces Microsoft Edge présentent une latence élevée |
-| 5102 | Les sous-interfaces Microsoft Edge suppriment le package | 
-| 5103 | La passerelle ExpressRoute est défectueuse | 
-| 5201 | Le lien du fournisseur de services présente une latence élevée |
-| 5202 | Les paquets ne proviennent pas du circuit ExpressRoute prévu |
-| 5301 | Le routeur de périphérie du client présente une latence élevée | 
-| 5302 | La latence est due à l’appareil/au lien dans l’environnement du client. Le problème ne semble pas se trouver dans le circuit ExpressRoute | 
 | 5501 | Impossible de passer par la connexion secondaire du circuit ExpressRoute |
 | 5502 | Impossible de passer par la connexion principale du circuit ExpressRoute |
 | 5503 | Aucun circuit trouvé pour l’abonnement lié à l’espace de travail | 
-| 5506 | L’utilisation atteint sa capacité maximale | 
-| 5507 | L’utilisation est faible |
 | 5508 | Impossible de déterminer si le trafic passe par un ou des circuits pour le chemin d’accès |
 | 5510 | Le trafic ne passe pas par le circuit prévu | 
 | 5511 | Le trafic ne passe pas par le réseau virtuel prévu | 
-| 5512 | Impossible de déterminer si le trafic passe par le circuit prévu |
-
 
 **Le circuit est arrêté.** Network Performance Monitor vous informe dès que la connectivité entre vos ressources locales et les réseaux virtuels Azure est perdue. Cette notification vous permet d’agir de façon proactive avant de recevoir les remontées des utilisateurs et de réduire le temps d’arrêt.
 

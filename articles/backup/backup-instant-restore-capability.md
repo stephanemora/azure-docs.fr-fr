@@ -2,19 +2,18 @@
 title: Fonctionnalité de restauration instantanée Azure
 description: Présentation de la fonctionnalité de restauration instantanée et questions fréquentes (FAQ) sur la pile de sauvegarde de machine virtuelle et le modèle de déploiement Resource Manager
 services: backup
-author: trinadhk
+author: sogup
 manager: vijayts
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: trinadhk
-ms.openlocfilehash: a5afdd0dca55a5df075acb99e488c932196d95c5
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.author: sogup
+ms.openlocfilehash: cc4f559efecec3f024ce995dcf8f8757eb9cb4fb
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092292"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489686"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 

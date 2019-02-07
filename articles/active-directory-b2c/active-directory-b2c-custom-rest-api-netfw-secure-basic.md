@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 061987105eac976e40a003a8108921ed0008630d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71a5ca62dc5d21e30a4944f8be57a77040f4f204
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169159"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733686"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Sécuriser vos services RESTful à l’aide de l’authentification de base HTTP
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dans un [article connexe sur Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md), vous créez un service RESTful (API web) qui s’intègre sans authentification aux parcours utilisateur Azure Active Directory B2C (Azure AD B2C). 
+Dans un [article connexe sur Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md), vous créez un service RESTful (API web) qui s’intègre sans authentification aux parcours utilisateur Azure Active Directory B2C (Azure AD B2C).
 
-Dans cet article, vous ajoutez l’authentification HTTP de base à votre service RESTful, afin que seuls les utilisateurs validés, y compris B2C, puissent accéder à votre API. Grâce à l’authentification HTTP de base, définissez les informations d’identification de l’utilisateur (ID d’application et secret d’application) dans votre stratégie personnalisée. 
+Dans cet article, vous ajoutez l’authentification HTTP de base à votre service RESTful, afin que seuls les utilisateurs validés, y compris B2C, puissent accéder à votre API. Grâce à l’authentification HTTP de base, définissez les informations d’identification de l’utilisateur (ID d’application et secret d’application) dans votre stratégie personnalisée.
 
 Pour plus d’informations, consultez [Authentification de base dans l’API web ASP.NET](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
@@ -33,7 +33,7 @@ Effectuez les étapes de l’article [Procédure pas à pas : intégration des �
 ## <a name="step-1-add-authentication-support"></a>Étape 1 : Ajouter le support de l’authentification
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Étape 1.1 : Ajouter des paramètres d’application au fichier web.config de votre projet
-1. Ouvrez le projet Visual Studio que vous avez créé. 
+1. Ouvrez le projet Visual Studio que vous avez créé.
 
 2. Ajoutez les paramètres d’application suivants au fichier web.config, sous l’élément `appSettings` :
 
@@ -205,7 +205,7 @@ Ajoutez à l’API une classe de démarrage OWIN nommée `Startup.cs`. Pour ce f
         {
             public void Configuration(IAppBuilder app)
             {
-                    app.Use<ClientAuthMiddleware>();
+                app.Use<ClientAuthMiddleware>();
             }
         }
     }
@@ -220,7 +220,7 @@ Ouvrez le fichier Controllers\IdentityController.cs, puis ajoutez la balise `[Au
 Pour publier votre projet, dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **Contoso.AADB2C.API**, puis sélectionnez **Publier**.
 
 ## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Étape 3 : Ajouter le secret d’application et l’ID d’application des services RESTful à Azure AD B2C
-Une fois que votre service RESTful est protégé par l’ID client (nom d’utilisateur) et le secret, vous devez stocker les informations d’identification dans votre locataire Azure AD B2C. Votre stratégie personnalisée fournit les informations d’identification quand elle appelle les services RESTful. 
+Une fois que votre service RESTful est protégé par l’ID client (nom d’utilisateur) et le secret, vous devez stocker les informations d’identification dans votre locataire Azure AD B2C. Votre stratégie personnalisée fournit les informations d’identification quand elle appelle les services RESTful.
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>Étape 3.1 : Ajouter un ID client des services RESTful
 1. Dans votre locataire Azure AD B2C, sélectionnez **Paramètres Azure AD B2C** > **Infrastructure d’expérience d’identité**.
@@ -275,7 +275,7 @@ Une fois que votre service RESTful est protégé par l’ID client (nom d’util
     <Item Key="AuthenticationType">Basic</Item>
     ```
 
-5. Immédiatement après l’élément `<Metadata>` fermant, ajoutez l’extrait de code XML suivant : 
+5. Immédiatement après l’élément `<Metadata>` fermant, ajoutez l’extrait de code XML suivant :
 
     ```xml
     <CryptographicKeys>

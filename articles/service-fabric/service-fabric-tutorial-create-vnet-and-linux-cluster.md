@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 265e99d18d8660f149d33b1b4a37a7d32eae794d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101803"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755193"
 ---
-# <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Tutoriel : Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
+# <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Didacticiel : Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
 
 Ce tutoriel est la première partie d’une série d’étapes. Vous découvrirez comment déployer un cluster Service Fabric Linux dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) à l’aide de l’interface Azure CLI et d’un modèle. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications. Pour créer un cluster Windows à l’aide de PowerShell, consultez la section relative à la [création d’un cluster Windows sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
@@ -137,7 +137,7 @@ Puis, configurez la topologie de réseau et déployez le cluster Service Fabric.
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Créer un cluster à l’aide d’un certificat existant
 
-Le script suivant utilise la commande [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) et le modèle pour déployer un nouveau cluster sécurisé à l’aide d’un certificat existant. La commande crée aussi un coffre de clés dans Azure et charge votre certificat.
+Le script suivant utilise la commande [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) et le modèle pour déployer un nouveau cluster sécurisé à l’aide d’un certificat existant. La commande crée aussi un coffre de clés dans Azure et charge votre certificat.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -163,7 +163,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Créer un cluster à l’aide d’un nouveau certificat auto-signé
 
-Le script suivant utilise la commande [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) et un modèle pour déployer un nouveau cluster dans Azure. La commande crée aussi un coffre de clés dans Azure, ajoute un nouveau certificat autosigné dans le coffre de clés, puis télécharge le fichier de certificat localement.
+Le script suivant utilise la commande [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) et un modèle pour déployer un nouveau cluster dans Azure. La commande crée aussi un coffre de clés dans Azure, ajoute un nouveau certificat autosigné dans le coffre de clés, puis télécharge le fichier de certificat localement.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

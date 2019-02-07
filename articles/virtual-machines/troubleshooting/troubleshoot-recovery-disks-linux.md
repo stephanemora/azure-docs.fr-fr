@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: e6d6c47726b21a241b379366bd1fde6c6b90e223
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 76a29ce05aab39d9460dcf068ec8a7f60d1e8fac
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462010"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753280"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Résoudre les problèmes d’une machine virtuelle Linux en attachant le disque de système d’exploitation à une machine virtuelle de récupération avec Azure CLI
 Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons une entrée non valide dans `/etc/fstab` qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser l’interface de ligne de commande Azure pour connecter votre disque dur virtuel à une autre machine virtuelle Linux pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine. 
@@ -43,7 +43,7 @@ Dans les exemples suivants, remplacez les noms de paramètres avec vos propres v
 ## <a name="determine-boot-issues"></a>Identifier les problèmes de démarrage
 Examinez la sortie en série afin d’identifier la raison pour laquelle votre machine virtuelle ne démarre pas correctement. Comme exemple courant, citons une entrée non valide dans `/etc/fstab`, ou le disque dur virtuel en cours de suppression ou de déplacement.
 
-Accédez aux journaux du démarrage avec [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log). L’exemple suivant récupère la sortie en série de la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
+Accédez aux journaux du démarrage avec [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics). L’exemple suivant récupère la sortie en série de la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
@@ -55,7 +55,7 @@ Examinez la sortie en série afin d’identifier la raison pour laquelle le dém
 ## <a name="view-existing-virtual-hard-disk-details"></a>Afficher les détails du disque dur virtuel existant
 Avant de pouvoir associer votre disque dur virtuel à une autre machine virtuelle, vous devez identifier l’URI du disque du système d’exploitation. 
 
-Pour afficher des informations sur votre machine virtuelle, utilisez la commande [az vm show](/cli/azure/vm#az_vm_show). Utilisez l’indicateur `--query` pour extraire l’URI du disque du système d’exploitation. L’exemple suivant récupère des informations de disque pour la machine virtuelle `myVM` dans le groupe de ressources `myResourceGroup` :
+Pour afficher des informations sur votre machine virtuelle, utilisez la commande [az vm show](/cli/azure/vm). Utilisez l’indicateur `--query` pour extraire l’URI du disque du système d’exploitation. L’exemple suivant récupère des informations de disque pour la machine virtuelle `myVM` dans le groupe de ressources `myResourceGroup` :
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM \
@@ -81,7 +81,7 @@ Attendez la suppression définitive de la machine virtuelle avant d’associer l
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Associer un disque dur virtuel existant à une autre machine virtuelle
 Pour les prochaines étapes, vous utilisez une autre machine virtuelle à des fins de résolution des problèmes. Vous associez le disque dur virtuel existant à cette machine virtuelle de dépannage et modifiez le contenu du disque. Ce processus vous permet de corriger les éventuelles erreurs de configuration ou d’examiner des fichiers journaux supplémentaires de système ou d’application, par exemple. Sélectionnez ou créez une autre machine virtuelle à des fins de résolution des problèmes.
 
-Attachez le disque dur virtuel existant avec la commande [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_attach). Lorsque vous associez le disque dur virtuel existant, spécifiez l’URI du disque obtenu dans la commande `az vm show` précédente. L’exemple suivant associe un disque dur virtuel existant à la machine virtuelle de dépannage nommée `myVMRecovery` dans le groupe de ressources nommé `myResourceGroup` :
+Attachez le disque dur virtuel existant avec la commande [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk). Lorsque vous associez le disque dur virtuel existant, spécifiez l’URI du disque obtenu dans la commande `az vm show` précédente. L’exemple suivant associe un disque dur virtuel existant à la machine virtuelle de dépannage nommée `myVMRecovery` dans le groupe de ressources nommé `myResourceGroup` :
 
 ```azurecli
 az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -147,7 +147,7 @@ Une fois les erreurs résolues, vous démontez et dissociez le disque dur virtue
     sudo umount /dev/sdc1
     ```
 
-2. Dissociez le disque dur virtuel de la machine virtuelle. Quittez la session SSH vers votre machine virtuelle de dépannage. Utilisez la commande [az vm unmanaged-disk list](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_list) pour répertorier les disques de données associés à votre machine virtuelle de dépannage. L’exemple suivant répertorie les disques de données associés à la machine virtuelle nommée `myVMRecovery` dans le groupe de ressources nommé `myResourceGroup` :
+2. Dissociez le disque dur virtuel de la machine virtuelle. Quittez la session SSH vers votre machine virtuelle de dépannage. Utilisez la commande [az vm unmanaged-disk list](/cli/azure/vm/unmanaged-disk) pour répertorier les disques de données associés à votre machine virtuelle de dépannage. L’exemple suivant répertorie les disques de données associés à la machine virtuelle nommée `myVMRecovery` dans le groupe de ressources nommé `myResourceGroup` :
 
     ```azurecli
     azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -156,7 +156,7 @@ Une fois les erreurs résolues, vous démontez et dissociez le disque dur virtue
 
     Notez le nom de votre disque dur virtuel existant. Par exemple, le nom d’un disque ayant comme URI **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** est **myVHD**. 
 
-    Détachez le disque de données de votre machine virtuelle à l’aide de la commande [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_detach). L’exemple suivant supprime la machine virtuelle nommée `myVHD` du groupe de ressources `myVMRecovery` dans le groupe de ressources `myResourceGroup` :
+    Détachez le disque de données de votre machine virtuelle à l’aide de la commande [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk). L’exemple suivant supprime la machine virtuelle nommée `myVHD` du groupe de ressources `myVMRecovery` dans le groupe de ressources `myResourceGroup` :
 
     ```azurecli
     az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -169,7 +169,7 @@ Pour créer une machine virtuelle à partir de votre disque dur d’origine, uti
 
 - https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
-Le modèle déploie une machine virtuelle à l’aide de l’URI du disque dur virtuel, à partir de la commande précédente. Déployez ensuite le modèle avec la commande [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Indiquez l’URI de votre disque dur virtuel d’origine, puis spécifiez le type de système d’exploitation, la taille de la machine virtuelle et son nom, comme suit :
+Le modèle déploie une machine virtuelle à l’aide de l’URI du disque dur virtuel, à partir de la commande précédente. Déployez ensuite le modèle avec la commande [az group deployment create](/cli/azure/group/deployment). Indiquez l’URI de votre disque dur virtuel d’origine, puis spécifiez le type de système d’exploitation, la taille de la machine virtuelle et son nom, comme suit :
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \
@@ -181,7 +181,7 @@ az group deployment create --resource-group myResourceGroup --name myDeployment 
 ```
 
 ## <a name="re-enable-boot-diagnostics"></a>Réactiver les diagnostics de démarrage
-Lorsque vous créez votre machine virtuelle à partir du disque dur virtuel existant, les diagnostics de démarrage peuvent ne pas être automatiquement activés. Activez les diagnostics de démarrage avec la commande [az vm boot-diagnostics enable](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). L’exemple suivant active l’extension de diagnostic sur la machine virtuelle nommée `myDeployedVM`, dans le groupe de ressources nommé `myResourceGroup` :
+Lorsque vous créez votre machine virtuelle à partir du disque dur virtuel existant, les diagnostics de démarrage peuvent ne pas être automatiquement activés. Activez les diagnostics de démarrage avec la commande [az vm boot-diagnostics enable](/cli/azure/vm/boot-diagnostics). L’exemple suivant active l’extension de diagnostic sur la machine virtuelle nommée `myDeployedVM`, dans le groupe de ressources nommé `myResourceGroup` :
 
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM

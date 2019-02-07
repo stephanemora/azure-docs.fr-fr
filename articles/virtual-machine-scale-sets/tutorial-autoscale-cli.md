@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4064816ae932a0f26fd3478420c69f3e8fba8732
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170706"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751274"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Effectuer une mise à l’échelle automatique d’un groupe de machines virtuelles identiques avec Azure CLI
 
@@ -62,7 +62,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Définir un profil de mise à l’échelle automatique
 
-Pour activer la mise à l’échelle automatique sur un groupe identique, vous devez d’abord définir un profil de mise à l’échelle automatique. Ce profil définit les capacités par défaut, minimale et maximale du groupe identique. Ces limites vous permettent de contrôler le coût en évitant de créer des instances de machine virtuelle en continu et d’équilibrer les performances acceptables sur un nombre minimal d’instances qui restent dans un événement de diminution du nombre d’instances. Créez un profil de mise à l’échelle automatique [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). L’exemple suivant définit les capacités par défaut et minimale de *2* instances de machine virtuelle, et la capacité maximale de *10* :
+Pour activer la mise à l’échelle automatique sur un groupe identique, vous devez d’abord définir un profil de mise à l’échelle automatique. Ce profil définit les capacités par défaut, minimale et maximale du groupe identique. Ces limites vous permettent de contrôler le coût en évitant de créer continuellement des instances de machine virtuelle et d’équilibrer les performances acceptables sur un nombre minimal d’instances qui restent dans un événement de diminution du nombre d’instances. Créez un profil de mise à l’échelle automatique [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). L’exemple suivant définit les capacités par défaut et minimale de *2* instances de machine virtuelle, et la capacité maximale de *10* :
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -107,7 +107,7 @@ az monitor autoscale rule create \
 
 Pour tester les règles de mise à l’échelle automatique, générez des charges du processeur sur les instances de machine virtuelle dans le groupe identique. Cette charge du processeur simulée provoque la mise à l’échelle automatique afin d’entraîner une montée en puissance et l’augmentation du nombre d’instances de machine virtuelle. Comme la charge du processeur simulée est ensuite diminuée, les règles de mise à l’échelle automatique réduisent le nombre d’instances de machine virtuelle.
 
-Tout d’abord, affichez l’adresse et les ports à connecter aux instances de machine virtuelle d’un groupe identique avec la commande [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) :
+Tout d’abord, affichez l’adresse et les ports à connecter aux instances de machine virtuelle d’un groupe identique avec la commande [az vmss list-instance-connection-info](/cli/azure/vmss) :
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -141,7 +141,7 @@ Lorsque **stress** affiche une sortie du type *stress: info: [2688] dispatching 
 
 Pour vérifier que **stress** génère une charge d’UC, examinez la charge du système actif avec l’utilitaire **top** :
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -152,7 +152,7 @@ Ctrl-c
 exit
 ```
 
-Connectez-vous à la deuxième instance de machine virtuelle avec le numéro de port indiqué à partir de la commande [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) précédente :
+Connectez-vous à la deuxième instance de machine virtuelle avec le numéro de port indiqué à partir de la commande [az vmss list-instance-connection-info](/cli/azure/vmss) précédente :
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003
@@ -208,7 +208,7 @@ Fermez *watch* avec `Ctrl-c`. Le groupe identique continue à diminuer toutes le
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group#az_group_delete). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
+Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27744110"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497738"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utiliser l’outil de diagnostic StorSimple pour résoudre les problèmes des appareils de la gamme 8000
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’outil de diagnostic StorSimple permet de détecter les problèmes liés au système, aux performances, au réseau et à l’intégrité des composants matériels sur un appareil StorSimple. L’outil de diagnostic peut être utilisé dans différents scénarios. Ces scénarios incluent la planification de la charge de travail, le déploiement d’un appareil StorSimple, l’évaluation de l’environnement réseau et la détermination des performances d’un appareil opérationnel. Cet article offre une vue d’ensemble de l’outil de diagnostic et explique comment utiliser cet outil avec un appareil StorSimple.
 
@@ -289,7 +289,7 @@ HCS Vnic Resource             Online HCS Cluster Group
 hcs_cloud_connectivity_...    Online HCS Cluster Group
 hcs_controller_replacement    Online HCS Cluster Group
 hcs_datapath_service          Online HCS Cluster Group
-hcs_management_servic         Online HCS Cluster Group
+hcs_management_service        Online HCS Cluster Group
 hcs_nvram_service             Online HCS Cluster Group
 hcs_passive_datapath          Online HCS Passive Cluster Group
 hcs_platform_service          Online HCS Cluster Group
@@ -417,7 +417,7 @@ Le tableau ci-dessous décrit les différents paramètres Windows PowerShell dan
 | Paramètre PowerShell    | Description  |
 |-------------------------|------------------|
 | ID de l’instance             | Un identificateur unique ou un GUID est associé à chaque contrôleur.|
-| NOM                    | Nom convivial configuré pour l’appareil via le portail Azure lors du déploiement de l’appareil. Le nom convivial par défaut est le numéro de série de l’appareil. |
+| Nom                    | Nom convivial configuré pour l’appareil via le portail Azure lors du déploiement de l’appareil. Le nom convivial par défaut est le numéro de série de l’appareil. |
 | Modèle                   | Modèle de votre appareil de la gamme StorSimple 8000. Il peut s’agir du modèle 8100 ou 8600.|
 | SerialNumber            | Le numéro de série de l’appareil est attribué en usine et comprend 15 caractères. Par exemple, 8600-SHX0991003G44HT indique :<br> 8600 : modèle de l’appareil.<br>SHX : site de fabrication.<br> 0991003 : produit spécifique. <br> G44HT : les 5 derniers chiffres sont incrémentés pour créer des numéros de série uniques. Il ne s’agit pas nécessairement d’une suite.|
 | TimeZone                | Fuseau horaire configuré pour l’appareil dans le portail Azure lors du déploiement de l’appareil.|
@@ -434,11 +434,11 @@ Le tableau ci-dessous décrit les différents paramètres Windows PowerShell dan
 | CisAgentVersion         | Version de l’agent Cis exécuté sur votre appareil StorSimple. Cet agent permet de communiquer avec le service StorSimple Manager exécuté dans Azure.|
 | MdsAgentVersion         | Version correspondant à l’agent Mds exécuté sur votre appareil StorSimple. Cet agent transfère des données au service de surveillance et de diagnostics (Monitoring and Diagnostics Service, ou MDS).|
 | Lsisas2Version          | Version correspondant aux pilotes LSI exécutés sur votre appareil StorSimple.|
-| Capacity                | Capacité totale de l’appareil en octets.|
+| Capacité                | Capacité totale de l’appareil en octets.|
 | RemoteManagementMode    | Indique si l’appareil peut être géré à distance via son interface Windows PowerShell. |
 | FipsMode                | Indique si le mode FIPS (Federal Information Processing Standard) est activé sur votre appareil. La norme FIPS 140 définit les algorithmes de chiffrement qui sont approuvés pour une utilisation sur les systèmes informatiques du gouvernement fédéral américain dans le but de protéger les données sensibles. Pour les appareils exécutant Update 4 ou version ultérieure, le mode FIPS est activé par défaut. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez la [syntaxe de l’applet de commande Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 

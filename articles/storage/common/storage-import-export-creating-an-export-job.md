@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 935af10c2ebcdc5273671ed058fdf72099059da3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 33234c03a3e691a95e61f825a0351cf481431294
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475616"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731392"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Création d’un travail d’exportation pour le service Azure Import/Export
 La création d’un travail d’exportation pour le service Microsoft Azure Import/Export à l’aide de l’API REST implique les étapes suivantes :
@@ -45,21 +45,21 @@ La création d’un travail d’exportation pour le service Microsoft Azure Impo
 
 -   Vous pouvez exporter tous les blobs et les captures instantanées dans le compte de stockage.
 
- Pour plus d’informations sur la spécification des blobs à exporter, consultez l’opération [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate).
+ Pour plus d’informations sur la spécification des blobs à exporter, consultez l’opération [Put Job](/rest/api/storageimportexport/jobs).
 
 ## <a name="obtaining-your-shipping-location"></a>Obtention de votre emplacement d’expédition
 Avant de créer un travail d’exportation, vous devez obtenir un nom et une adresse d’emplacement d’expédition en appelant l’opération [Get Location](https://portal.azure.com) ou [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` renvoie une liste d’emplacements et leurs adresses postales. Vous pouvez sélectionner un emplacement dans la liste renvoyée et expédier vos disques durs à cette adresse. Vous pouvez également utiliser l’opération `Get Location` pour obtenir directement l’adresse d’expédition relative à un emplacement spécifique.
 
 Suivez les étapes ci-dessous pour obtenir l’emplacement d’expédition :
 
--   Identifiez le nom de l’emplacement de votre compte de stockage. Cette valeur se trouve sous le champ **Emplacement** sur le **Tableau de bord** du compte de stockage dans le portail Azure. Elle peut également être obtenue en utilisant l’opération de l’API Gestion des services [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Identifiez le nom de l’emplacement de votre compte de stockage. Cette valeur se trouve sous le champ **Emplacement** sur le **Tableau de bord** du compte de stockage dans le portail Azure. Elle peut également être obtenue en utilisant l’opération de l’API Gestion des services [Get Storage Account Properties](/rest/api/storagerp/storageaccounts).
 
 -   Récupérez l’emplacement disponible pour traiter ce compte de stockage en appelant l’opération `Get Location`.
 
 -   Si la propriété `AlternateLocations` de l’emplacement contient l’emplacement lui-même, alors il est possible d’utiliser cet emplacement. Sinon, appelez une nouvelle fois l’opération `Get Location` en utilisant l’un des autres emplacements. L’emplacement d’origine peut être fermé temporairement pour maintenance.
 
 ## <a name="creating-the-export-job"></a>Création du travail d’exportation
- Pour créer le travail d’exportation, appelez l’opération [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Vous devez fournir les informations suivantes :
+ Pour créer le travail d’exportation, appelez l’opération [Put Job](/rest/api/storageimportexport/jobs). Vous devez fournir les informations suivantes :
 
 -   Nom du travail.
 
@@ -82,10 +82,10 @@ Suivez les étapes ci-dessous pour obtenir l’emplacement d’expédition :
 >  Vous devez expédier vos disques via un service de transport pris en charge, qui vous fournira un numéro de suivi pour votre colis.
 
 ## <a name="updating-the-export-job-with-your-package-information"></a>Mise à jour du travail d’exportation avec vos informations de colis
- Dès que vous avez votre numéro de suivi, appelez l’opération [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) pour mettre à jour le numéro de suivi et le nom du transporteur correspondant au travail. Vous pouvez éventuellement spécifier le nombre de disques, l’adresse de retour et la date d’expédition.
+ Dès que vous avez votre numéro de suivi, appelez l’opération [Update Job Properties](/rest/api/storageimportexport/jobs) pour mettre à jour le numéro de suivi et le nom du transporteur correspondant au travail. Vous pouvez éventuellement spécifier le nombre de disques, l’adresse de retour et la date d’expédition.
 
 ## <a name="receiving-the-package"></a>Réception du package
- Une fois votre travail d’exportation traité, vos disques vous sont renvoyés avec vos données chiffrées. Vous pouvez récupérer la clé BitLocker pour chacun des disques en appelant l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). Cette clé vous permettra de déverrouiller le disque. Le fichier manifeste de disque sur chaque disque contient la liste des fichiers sur le disque, ainsi que l’adresse du blob d’origine pour chaque fichier.
+ Une fois votre travail d’exportation traité, vos disques vous sont renvoyés avec vos données chiffrées. Vous pouvez récupérer la clé BitLocker pour chacun des disques en appelant l’opération [Get Job](/rest/api/storageimportexport/jobs). Cette clé vous permettra de déverrouiller le disque. Le fichier manifeste de disque sur chaque disque contient la liste des fichiers sur le disque, ainsi que l’adresse du blob d’origine pour chaque fichier.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

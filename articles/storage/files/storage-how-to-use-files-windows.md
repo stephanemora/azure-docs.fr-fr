@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: e3b0773da49499e2eaa8c9b9f59ced4ed26276ba
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4361ec72f5f9cff924900ddd712aa1aa029c5ef4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465161"
+ms.locfileid: "55509018"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
@@ -45,7 +45,7 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 
 * **Clé du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
 
-* **Vérifiez que le port 445 est ouvert** : Le protocole SMB nécessite que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. La code PowerShell suivant suppose que vous avez installé le module AzureRM PowerShell, consultez [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installer un module Azure PowerShell) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resoure-group-name>` avec les noms appropriés de votre compte de stockage.
+* **Vérifiez que le port 445 est ouvert** : Le protocole SMB nécessite que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. La code PowerShell suivant suppose que vous avez installé le module AzureRM PowerShell, consultez [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installer un module Azure PowerShell) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -83,7 +83,7 @@ Contrairement à d’autres partages SMB que vous pourriez avoir manipulé (par 
 Un modèle commun pour délester et déplacer les applications métier (LOB) qui attendent un partage de fichiers SMB vers Azure consiste à utiliser un partage de fichiers Azure comme alternative pour l’exécution d’un serveur de fichiers Windows dédié dans une machine virtuelle Azure. Pour réussir la migration d’une application métier afin qu’elle utilise un partage de fichiers Azure, il est important de considérer que de nombreuses applications métier s’exécutent dans le contexte d’un compte de service dédié avec des autorisations système limitées, plutôt que le compte administrateur de la machine virtuelle. Par conséquent, vous devez vous assurer que vous montez/enregistrez les informations d’identification pour le partage de fichiers Azure à partir du contexte du compte de service plutôt que de votre compte d’administration.
 
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Persistance des informations d’identification du partage de fichiers Azure dans Windows  
-L’utilitaire [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) vous permet de stocker vos informations d’identification de compte de stockage dans Windows. Cela signifie que lorsque vous essayez d’accéder à un partage de fichiers Azure via son chemin d’accès UNC ou de monter le partage de fichiers Azure, vous n’aurez pas à spécifier les informations d’identification. Pour enregistrer les informations d’identification de votre compte de stockage, exécutez les commandes PowerShell suivantes, en remplaçant `<your-storage-account-name>` et `<your-resoure-group-name>` lorsque cela est approprié.
+L’utilitaire [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) vous permet de stocker vos informations d’identification de compte de stockage dans Windows. Cela signifie que lorsque vous essayez d’accéder à un partage de fichiers Azure via son chemin d’accès UNC ou de monter le partage de fichiers Azure, vous n’aurez pas à spécifier les informations d’identification. Pour enregistrer les informations d’identification de votre compte de stockage, exécutez les commandes PowerShell suivantes, en remplaçant `<your-storage-account-name>` et `<your-resource-group-name>` lorsque cela est approprié.
 
 ```PowerShell
 $resourceGroupName = "<your-resource-group-name>"

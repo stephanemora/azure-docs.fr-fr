@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bace15a89f0dd820c69d51bee0a6b669cdf5ff73
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7fd671c77b4c0897134457f5aacaabc11d568694
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885585"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756408"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Didacticiel : Créer et déployer des machines virtuelles hautement disponibles avec Azure CLI
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutoriel : Créer et déployer des machines virtuelles hautement disponibles avec Azure CLI
 
 Ce didacticiel explique comment améliorer la disponibilité et la fiabilité de vos solutions de machine virtuelle sur Azure en utilisant une fonctionnalité appelée Groupes à haute disponibilité. Les groupes à haute disponibilité veillent à ce que les machines virtuelles que vous déployez sur Azure soient distribuées sur plusieurs clusters matériels isolés. Leur utilisation garantit qu’en cas de défaillance matérielle ou logicielle dans Azure, seul un sous-ensemble de vos machines virtuelles est affecté et que votre solution globale reste disponible et opérationnelle.
 
@@ -49,7 +49,7 @@ Utilisez des groupes à haute disponibilité quand vous souhaitez déployer des 
 
 ## <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 
-Vous pouvez créer un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). Dans cet exemple, le nombre de domaines de mise à jour et d’erreur est défini sur *2* pour le groupe à haute disponibilité nommé *myAvailabilitySet* au sein du groupe de ressources *myResourceGroupAvailability*.
+Vous pouvez créer un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/vm/availability-set). Dans cet exemple, le nombre de domaines de mise à jour et d’erreur est défini sur *2* pour le groupe à haute disponibilité nommé *myAvailabilitySet* au sein du groupe de ressources *myResourceGroupAvailability*.
 
 Commencez par créer un groupe de ressources avec [az group create](/cli/azure/group#az-group-create), puis créez le groupe à haute disponibilité :
 

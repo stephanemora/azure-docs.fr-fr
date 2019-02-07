@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 0f7660e8534a74eabe32611c4c01ae5587af7cee
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c0a5e8695b712ca95952ea839fa829dab2c48824
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188871"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700092"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
 Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
@@ -54,7 +54,7 @@ Les configurations WALA de machines virtuelles ont une durée limitée, ceci pou
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Déploiement d’une machine virtuelle compatible cloud-init
 Il est aussi simple de déployer une machine virtuelle cloud-init que de référencer une distribution compatible cloud-init durant le déploiement.  Les gestionnaires de la distribution Linux doivent décider d’activer cloud-init et de l’intégrer dans leurs images publiées Azure. Une fois que vous avez confirmé que l’image que vous souhaitez déployer est compatible cloud-init, vous pouvez utiliser l’interface de ligne de commande Azure pour le déploiement. 
 
-La première étape du déploiement de cette image est la création d’un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
+La première étape du déploiement de cette image est la création d’un groupe de ressources avec la commande [az group create](/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
@@ -71,7 +71,7 @@ packages:
 ```
 Appuyez sur `ctrl-X` pour quitter le fichier, saisissez `y` pour l’enregistrer, puis appuyez sur `enter` pour confirmer le nom lors de la sortie.
 
-Enfin, vous devez créer une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). 
+Enfin, vous devez créer une machine virtuelle avec la commande [az vm create](/cli/azure/vm). 
 
 L’exemple suivant crée une machine virtuelle nommée *centos74* et des clés SSH si elles n’existent pas déjà dans un emplacement de clé par défaut. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`.  Utilisez le paramètre `--custom-data` à transmettre dans votre fichier de configuration cloud-init. Indiquez le chemin complet vers la configuration *cloud-init.txt* si vous avez enregistré le fichier en dehors de votre répertoire de travail actuel. L’exemple suivant crée une machine virtuelle nommée *centos74* :
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 44509e43ff3275c7e223be1b1a641b4ca279222c
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 571190324c5a0844624bd8a838cd103317fb53ca
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088287"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729147"
 ---
 # <a name="deploy-okd-in-azure"></a>Déployer OKD dans Azure
 
@@ -33,7 +33,7 @@ Vous pouvez utiliser l’une des deux manières de déployer OKD (anciennement O
 
 Pour déployer à l’aide du modèle Resource Manager, vous utilisez un fichier de paramètres pour fournir les paramètres d’entrée. Pour personnaliser davantage le déploiement, dupliquez (fork) le dépôt GitHub et changez les éléments appropriés.
 
-Certaines options de personnalisation courantes sont notamment :
+Voici une liste non exhaustive d’options de personnalisation courantes :
 
 - Taille de machine virtuelle bastion (variable dans azuredeploy.json)
 - Conventions de nommage (variables dans azuredeploy.json)
@@ -156,7 +156,7 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, le cluster OpenShift et toutes les ressources associées quand vous n’en avez plus besoin.
+Utilisez la commande [az group delete](/cli/azure/group) pour supprimer le groupe de ressources, le cluster OpenShift et toutes les ressources associées quand vous n’en avez plus besoin.
 
 ```azurecli 
 az group delete --name openshiftrg

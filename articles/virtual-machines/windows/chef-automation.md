@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: d57a7baafc533aee52ec8012d410d5f25b510b60
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 5378151d01418a81977f2fc2f562a6540bbb665d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359950"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663185"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatisation du déploiement de machine virtuelle Azure avec Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -57,7 +57,7 @@ Tout d’abord, préparez votre station de travail en créant un répertoire pou
 
 Créez un répertoire nommé C:\chef.
 
-Téléchargez vos [paramètres de publication](https://docs.microsoft.com/en-us/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information) Azure PowerShell.
+Téléchargez vos [paramètres de publication](https://docs.microsoft.com/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information) Azure PowerShell.
 
 ## <a name="setup-chef-server"></a>Configurer le serveur Chef
 

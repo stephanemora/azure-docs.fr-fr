@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 2448d941db7f27a87fbb5e2267847165f84ede3d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 4b977a2fe9dadfe42e02063fa4fa291b9be484ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881696"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733133"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Déployer votre application sur des groupes de machines virtuelles identiques
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Cet article présente des méthodes pour créer une image de machine virtuelle personnalisée d’un groupe identique, ou pour exécuter automatiquement des scripts d’installation sur des instances de machine virtuelle existantes. Vous apprendrez également à gérer des applications ou des mises à jour du système d’exploitation sur un groupe identique.
@@ -97,7 +97,7 @@ Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vou
 
 Pour plus d’informations, y compris un exemple de fichier *cloud-init.txt*, consultez [Utiliser cloud-init pour personnaliser des machines virtuelles Azure](../virtual-machines/linux/using-cloud-init.md).
 
-Pour créer un groupe identique et utiliser un fichier cloud-init, ajoutez le paramètre `--custom-data` à la commande [az vmss create](/cli/azure/vmss#az_vmss_create) et spécifiez le nom d’un fichier cloud-init. L’exemple suivant crée un groupe identique nommé *myScaleSet* dans *myResourceGroup* et configure des instances de machine virtuelle avec un fichier nommé *cloud-init.txt*. Entrez vos propres noms, comme suit :
+Pour créer un groupe identique et utiliser un fichier cloud-init, ajoutez le paramètre `--custom-data` à la commande [az vmss create](/cli/azure/vmss) et spécifiez le nom d’un fichier cloud-init. L’exemple suivant crée un groupe identique nommé *myScaleSet* dans *myResourceGroup* et configure des instances de machine virtuelle avec un fichier nommé *cloud-init.txt*. Entrez vos propres noms, comme suit :
 
 ```azurecli
 az vmss create \

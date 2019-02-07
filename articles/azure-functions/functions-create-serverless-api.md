@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001462"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698230"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Créer une API sans serveur à l’aide d’Azure Functions
 
@@ -53,7 +53,7 @@ Par défaut, votre fonction déclenchée par HTTP est configurée pour accepter 
 
 1. Cliquez sur **Enregistrer**.
 
-Pour en savoir plus sur la personnalisation des fonctions HTTP, consultez [Liaisons HTTP Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+Pour en savoir plus sur la personnalisation des fonctions HTTP, consultez [Liaisons HTTP Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
 ### <a name="test-your-api"></a>Tester l’API
 
@@ -103,7 +103,7 @@ Répétez les étapes de la page [Créer une application de fonction](https://do
 
     | Champ | Exemple de valeur | Description |
     |---|---|---|
-    | NOM | HelloProxy | Nom convivial utilisé uniquement à des fins de gestion. |
+    | Nom | HelloProxy | Nom convivial utilisé uniquement à des fins de gestion. |
     | Modèle d’itinéraire | /api/remotehello | Détermine l’itinéraire utilisé pour appeler ce proxy. |
     | URL principale | https://%HELLO_HOST%/api/hello | Spécifie le point de terminaison vers lequel la demande doit être redirigée via proxy. |
     
@@ -176,7 +176,7 @@ Vous allez maintenant ajouter votre API factice. Remplacez votre fichier proxies
 }
 ```
 
-Cela ajoute un nouveau proxy, « GetUserByName », sans la propriété backendUri. Au lieu d’appeler une autre ressource, il modifie la réponse par défaut des proxys par substitution de réponse. Les substitutions de demandes et de réponses peuvent également être utilisées en association avec une URL principale. C’est particulièrement utile pour la redirection via proxy vers un système hérité, où vous devrez peut-être modifier les en-têtes, interroger des paramètres, etc. Pour en savoir plus sur les substitutions de demandes et de réponses, consultez la page [Modifier les demandes et les réponses dans les proxys](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
+Cela ajoute un nouveau proxy, « GetUserByName », sans la propriété backendUri. Au lieu d’appeler une autre ressource, il modifie la réponse par défaut des proxys par substitution de réponse. Les substitutions de demandes et de réponses peuvent également être utilisées en association avec une URL principale. C’est particulièrement utile pour la redirection via proxy vers un système hérité, où vous devrez peut-être modifier les en-têtes, interroger des paramètres, etc. Pour en savoir plus sur les substitutions de demandes et de réponses, consultez la page [Modifier les demandes et les réponses dans les proxys](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 Testez votre API factice en appelant le point de terminaison `<YourProxyApp>.azurewebsites.net/api/users/{username}` à l’aide d’un navigateur ou du client REST de votre choix. Veillez à remplacer _{username}_ par une valeur de chaîne représentant un nom d’utilisateur.
 

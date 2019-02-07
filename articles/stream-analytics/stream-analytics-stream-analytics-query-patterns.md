@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: ffcf81ee8637c2ce01b3a7822d179609bd9dbfaa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2aba399a45a4118dcc80e188b2d03b62b7fcbfac
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794530"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663500"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 
@@ -687,7 +687,7 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**Explication** : [COUNT(DISTINCT Time)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) retourne le nombre de valeurs distinctes de la colonne Time dans une fenêtre de temps. Vous pouvez ensuite utiliser la sortie de cette étape pour calculer la moyenne par appareil en ignorant les doublons.
+**Explication** : [COUNT(DISTINCT Time)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) retourne le nombre de valeurs distinctes de la colonne Time dans une fenêtre de temps. Vous pouvez ensuite utiliser la sortie de cette étape pour calculer la moyenne par appareil en ignorant les doublons.
 
 ## <a name="get-help"></a>Obtenir de l’aide
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)

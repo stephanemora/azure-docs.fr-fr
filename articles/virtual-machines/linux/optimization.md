@@ -17,18 +17,18 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 61f4237756d7a808bcc8a5983508d72fa49f4cbd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e983ae549664abf46de256e987e09191a2a44c0f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459167"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728518"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimiser votre machine virtuelle Linux sur Azure
 Il est simple de créer une machine virtuelle Linux à partir de la ligne de commande ou du portail. Ce didacticiel vous explique comment configurer votre machine virtuelle de manière à en optimiser les performances sur la plateforme Microsoft Azure. Dans cette rubrique, une machine virtuelle de serveur Ubuntu est utilisée, mais vous pouvez également créer des machines virtuelles Linux en utilisant vos [propres images en tant que modèles](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Prérequis
-Cet article repose sur l’hypothèse que vous disposez déjà d’un abonnement Azure actif ([s’inscrire pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)) et que vous avez déjà approvisionné une machine virtuelle dans votre abonnement Azure. Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous vous êtes connecté à votre abonnement Azure avec la commande [az login](/cli/azure/reference-index#az_login) avant de [créer une machine virtuelle](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Cet article repose sur l’hypothèse que vous disposez déjà d’un abonnement Azure actif ([s’inscrire pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)) et que vous avez déjà approvisionné une machine virtuelle dans votre abonnement Azure. Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous vous êtes connecté à votre abonnement Azure avec la commande [az login](/cli/azure/reference-index) avant de [créer une machine virtuelle](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disque de système d’exploitation Azure
 Lorsque vous créez une machine virtuelle Linux dans Azure, deux disques lui sont associés. **/dev/sda** est le disque de votre système d’exploitation, et **/dev/sdb** est votre disque temporaire.  Le disque de système d’exploitation principal (**/dev/sda**) est exclusivement destiné au système d’exploitation, car il est optimisé pour le démarrage rapide des machines virtuelles et ne délivre pas de performances adéquates pour vos charges de travail. Vous pouvez attacher un ou plusieurs disques à votre machine virtuelle afin de bénéficier d’un stockage persistant et optimisé pour vos données. 

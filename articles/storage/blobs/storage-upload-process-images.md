@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 882a43a75fa720b13d931740818e5ee6e893bcab
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 7c32a572f1090783e5da53ae2b6103ac8c9a8b77
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753334"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752549"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutoriel : Charger des données d’image dans le cloud avec le Stockage Azure
 
@@ -48,7 +48,7 @@ Pour installer et utiliser l’interface CLI localement, ce tutoriel vous demand
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources 
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.  
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.  
 
 L’exemple suivant crée un groupe de ressources nommé `myResourceGroup`.
 
@@ -58,7 +58,7 @@ az group create --name myResourceGroup --location southeastasia
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-L’exemple charge des images sur un conteneur Blob dans un compte de stockage Azure. Le compte de stockage Azure fournit un espace de noms unique pour stocker les objets de données de Stockage Azure et y accéder. Créez un compte de stockage dans le groupe de ressources que vous avez créé à l’aide de la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+L’exemple charge des images sur un conteneur Blob dans un compte de stockage Azure. Le compte de stockage Azure fournit un espace de noms unique pour stocker les objets de données de Stockage Azure et y accéder. Créez un compte de stockage dans le groupe de ressources que vous avez créé à l’aide de la commande [az storage account create](/cli/azure/storage/account).
 
 > [!IMPORTANT]
 > Dans la deuxième partie de ce tutoriel, vous utiliserez Azure Event Grid avec le stockage Blob. Veillez à créer votre compte de stockage dans une région Azure qui prend en charge Event Grid. Pour obtenir la liste des régions prises en charge, consultez [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
@@ -75,7 +75,7 @@ az storage account create --name <blob_storage_account> \
 
 L’application utilise deux conteneurs dans le compte de stockage Blob. Les conteneurs s’apparentent à des dossiers où sont stockés les objets blob. C’est dans le conteneur *images* que l’application charge les images pleine résolution. Dans l’une des parties suivantes de la série, une application de fonction Azure charge les miniatures d’images redimensionnées dans le conteneur *thumbnails*.
 
-Récupérez la clé du compte de stockage avec la commande [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Ensuite, utilisez cette clé pour créer deux conteneurs avec la commande [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
+Récupérez la clé du compte de stockage avec la commande [az storage account keys list](/cli/azure/storage/account/keys). Ensuite, utilisez cette clé pour créer deux conteneurs avec la commande [az storage container create](/cli/azure/storage/container).  
 
 Dans ce cas, `<blob_storage_account>` est le nom du compte de stockage Blob que vous avez créé. L’accès public du conteneur *Images* est défini sur `off`. L’accès public du conteneur *Miniatures* est défini sur `container`. Le paramètre d’accès public `container` permet aux utilisateurs qui visitent la page web de voir les miniatures.
 
@@ -101,7 +101,7 @@ Notez le nom et la clé de votre compte de stockage Blob. L’exemple d’applic
 
 Un [plan App Service](../../app-service/overview-hosting-plans.md) spécifie l’emplacement, la taille et les fonctionnalités de la batterie de serveurs web qui héberge votre application.
 
-Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
+Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan).
 
 L’exemple suivant crée un plan App Service nommé `myAppServicePlan` dans le niveau tarifaire **Gratuit** :
 
@@ -111,7 +111,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>Créer une application web
 
-L’application web offre un espace d’hébergement au code de l’exemple d’application qui est déployé à partir du dépôt d’exemples GitHub. Créez une [application web](../../app-service/overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#az_webapp_create).  
+L’application web offre un espace d’hébergement au code de l’exemple d’application qui est déployé à partir du dépôt d’exemples GitHub. Créez une [application web](../../app-service/overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp).  
 
 Dans la commande suivante, remplacez `<web_app>` par un nom unique. Les caractères valides sont `a-z`, `0-9` et `-`. Si `<web_app>` n’est pas unique, le message d’erreur suivant s'affiche : _Un site web avec ce nom `<web_app>` existe déjà._ L’URL par défaut de l’application web est `https://<web_app>.azurewebsites.net`.  
 
@@ -123,12 +123,12 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Remplacez `<web_app>` par le nom de l’application web que vous avez créée à l’étape précédente.
+App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source). Remplacez `<web_app>` par le nom de l’application web que vous avez créée à l’étape précédente.
 
 L’exemple de projet contient une application [ASP.NET MVC](https://www.asp.net/mvc). Cette application accepte une image, l’enregistre dans un compte de stockage et affiche des images à partir d’un conteneur de miniatures. L’application web utilise les espaces de noms [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet)et [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) de la bibliothèque de client du stockage Azure pour interagir avec le stockage Azure.
 
 # <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
-App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Remplacez `<web_app>` par le nom de l’application web que vous avez créée à l’étape précédente.
+App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source). Remplacez `<web_app>` par le nom de l’application web que vous avez créée à l’étape précédente.
 
 ---
 
@@ -140,7 +140,7 @@ az webapp deployment source config --name <web_app> \
 
 ## <a name="configure-web-app-settings"></a>Configurer les paramètres de l’application web
 
-L’exemple d’application web utilise la [bibliothèque de client du Stockage Azure](/dotnet/api/overview/azure/storage?view=azure-dotnet) pour demander des jetons d’accès de requête, qui servent à charger des images. Les informations d’identification du compte de stockage utilisées par le SDK Stockage sont définies dans les paramètres de l’application web. Ajoutez des paramètres d’application à l’application déployée avec la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
+L’exemple d’application web utilise la [bibliothèque de client du Stockage Azure](/dotnet/api/overview/azure/storage?view=azure-dotnet) pour demander des jetons d’accès de requête, qui servent à charger des images. Les informations d’identification du compte de stockage utilisées par le SDK Stockage sont définies dans les paramètres de l’application web. Ajoutez des paramètres d’application à l’application déployée avec la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
 Dans la commande suivante, remplacez `<blob_storage_account>` par le nom de votre compte de stockage Blob, et `<blob_storage_key>` par la clé associée. Remplacez `<web_app>` par le nom de l’application web que vous avez créée à l’étape précédente.
 

@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9120e5f283f8d8da8da2c80959a335965a643409
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: c0875861a90080c649596880804fe6538c04bc51
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903891"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497608"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modes de déploiement Azure Resource Manager
 
 Lorsque vous déployez vos ressources, vous spécifiez que le déploiement est soit une mise à jour incrémentielle, soit une mise à jour complète.  La principale différence entre ces deux modes réside dans la manière dont le Gestionnaire des ressources gère les ressources existantes dans le groupe de ressources qui ne se trouvent pas dans le modèle. Le mode par défaut est incrémentiel.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="incremental-and-complete-deployments"></a>Déploiements incrémentiels et complets
 
@@ -64,7 +66,7 @@ Lors du déploiement en mode **complet**, la ressource C est supprimée. Le gro
 Pour définir le mode de déploiement lors du déploiement avec PowerShell, utilisez le paramètre `Mode`.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Mode Complete `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleResourceGroup `

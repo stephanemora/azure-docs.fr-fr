@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e8ac6b7bef06eae16224f9db8e216f13c21f13a1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b10dc9fd96a1e4c06fbd153a2f1dc4e92e58906
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161390"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491857"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Déterminer les exigences de réponse aux incidents pour votre solution d'identité hybride
 Les organisations de taille moyenne ou grande auront probablement mis en place une [réponse aux incidents de sécurité](https://technet.microsoft.com/library/cc700825.aspx) pour aider les services informatiques à agir en fonction du niveau de l'incident. Le système de gestion des identités est un composant important du processus de réponse aux incidents. Il peut en effet être utilisé pour aider à identifier l'auteur d’une action spécifique dirigée contre la cible. La solution d'identité hybride doit être en mesure de fournir des capacités de surveillance et de création de rapports pouvant être exploitées par les services informatiques pour prendre des mesures permettant d'identifier et d'atténuer la menace. Un plan de réponse aux incidents typique devra comprendre les phases suivantes :

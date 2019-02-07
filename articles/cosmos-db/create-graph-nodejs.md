@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 11eec492501f7ead639aa928fe0ddaafb2f1d1bc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 400784fbc34a877b91ad0bdc2203b1992a537555
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033670"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509964"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB : Créer une application Node.js à l’aide de l’API Gremlin
 
@@ -78,7 +78,7 @@ Tous les extraits de code suivants proviennent du fichier app.js.
 
 * Le client Gremlin est créé.
 
-    ```nodejs
+    ```javascript
     const client = Gremlin.createClient(
         443, 
         config.endpoint, 
@@ -94,7 +94,7 @@ Tous les extraits de code suivants proviennent du fichier app.js.
 
 * Plusieurs fonctions sont définies pour exécuter différentes opérations Gremlin. Voici l’une d’entre elles :
 
-    ```nodejs
+    ```javascript
     function addVertex1(callback)
     {
         console.log('Running Add Vertex1'); 
@@ -108,7 +108,7 @@ Tous les extraits de code suivants proviennent du fichier app.js.
 
 * Chaque fonction exécute une méthode `client.execute` avec un paramètre de chaîne de requête Gremlin. Voici un exemple d’exécution de `g.V().count()` :
 
-    ```nodejs
+    ```javascript
     console.log('Running Count'); 
     client.execute("g.V().count()", { }, (err, results) => {
         if (err) return console.error(err);
@@ -119,7 +119,7 @@ Tous les extraits de code suivants proviennent du fichier app.js.
 
 * À la fin du fichier, toutes les méthodes sont appelées à l’aide de la méthode `async.waterfall()`. Le code suivant va les exécuter les unes après les autres :
 
-    ```nodejs
+    ```javascript
     try{
         async.waterfall([
             dropGraph,
@@ -158,7 +158,7 @@ Tous les extraits de code suivants proviennent du fichier app.js.
 
 Voici un exemple de ce à quoi votre fichier config.js terminé doit ressembler :
 
-```nodejs
+```javascript
 var config = {}
 
 // Note that this must not have HTTPS or the port number

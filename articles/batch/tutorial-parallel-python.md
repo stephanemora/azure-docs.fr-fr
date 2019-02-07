@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f537ccfd18685cd5aa8ee06910fc80ac3d2056c9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306333"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750407"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutoriel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API Python
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Didacticiel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API Python
 
 Utilisez Azure Batch pour exécuter des programmes de traitement par lots de calcul haute performance (HPC) en parallèle, efficacement et à grande échelle dans Azure. Ce didacticiel vous permet de découvrir un exemple d’exécution Python d’une charge de travail parallèle utilisant Batch. Vous découvrez un workflow d’application Batch courant et comment interagir par programme avec les ressources de stockage et Batch. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -170,7 +170,7 @@ Le nombre de nœuds et la taille de machine virtuelle sont définis à l’aide 
 
 En plus des propriétés du nœud physique, cette configuration de pool inclut un objet [StartTask](/python/api/azure.batch.models.starttask). La tâche StartTask s’exécute sur chacun des nœuds rejoignant le pool, ainsi qu’à chaque redémarrage d’un nœud. Dans cet exemple, StartTask exécute les commandes de l’interpréteur de commandes Bash pour installer le package ffmpeg et les dépendances sur les nœuds.
 
-La méthode [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) soumet le pool au service Batch.
+La méthode [pool.add](/python/api/azure.batch.operations.pooloperations) soumet le pool au service Batch.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -200,7 +200,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>Création d’un travail
 
-Un programme de traitement par lots spécifie un pool pour exécuter des tâches et des paramètres facultatifs tels qu’une priorité et un calendrier pour le travail. L’exemple crée un travail avec un appel à `create_job`. Cette fonction définie utilise la classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) pour créer un travail sur votre pool. La méthode [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) soumet le pool au service Batch. Dans un premier temps, le travail n’a aucune tâche.
+Un programme de traitement par lots spécifie un pool pour exécuter des tâches et des paramètres facultatifs tels qu’une priorité et un calendrier pour le travail. L’exemple crée un travail avec un appel à `create_job`. Cette fonction définie utilise la classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) pour créer un travail sur votre pool. La méthode [job.add](/python/api/azure.batch.operations.joboperations) soumet le pool au service Batch. Dans un premier temps, le travail n’a aucune tâche.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -216,7 +216,7 @@ L’application crée des tâches dans le travail avec un appel à `add_tasks`. 
 
 L’exemple crée un objet [OutputFile](/python/api/azure.batch.models.outputfile) pour le fichier MP3 après l’exécution de la ligne de commande. Les fichiers de sortie de chaque tâche (un, dans ce cas) sont chargés sur un conteneur dans le compte de stockage lié, à l’aide de la propriété `output_files` de la tâche.
 
-Ensuite, l’application ajoute des tâches au travail avec la méthode [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection), qui les met en file d’attente afin de les exécuter sur les nœuds de calcul. 
+Ensuite, l’application ajoute des tâches au travail avec la méthode [task.add_collection](/python/api/azure.batch.operations.taskoperations), qui les met en file d’attente afin de les exécuter sur les nœuds de calcul. 
 
 ```python
 tasks = list()

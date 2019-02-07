@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8548fe53288b2f9c486c9ccdc42afa08f40b4ae1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e90880aeaae17c80d6714f917f2ea849c953711f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181590"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755406"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutoriel : Créer et gérer des réseaux virtuels Azure pour des machines virtuelles Linux avec Azure CLI
 
@@ -60,7 +60,7 @@ Lorsque vous suivez ce didacticiel, les ressources du réseau virtuel suivantes 
 
 Pour ce didacticiel, un seul réseau virtuel est créé avec deux sous-réseaux. Un sous-réseau frontal pour l’hébergement d’une application web et un sous-réseau principal pour l’hébergement d’un serveur de base de données.
 
-Avant de pouvoir créer un réseau virtuel, créez un groupe de ressources avec [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myRGNetwork* à l’emplacement eastus.
+Avant de pouvoir créer un réseau virtuel, créez un groupe de ressources avec [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *myRGNetwork* à l’emplacement eastus.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -68,7 +68,7 @@ az group create --name myRGNetwork --location eastus
 
 ### <a name="create-virtual-network"></a>Création d’un réseau virtuel
 
-Utilisez la commande [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) pour créer un réseau virtuel. Dans cet exemple, le réseau est nommé *mvVNet* et le préfixe d’adresse *10.0.0.0/16* lui est affecté. Un sous-réseau est également créé avec le nom *myFrontendSubnet* et le préfixe d’adresse *10.0.1.0/24*. Plus loin dans ce didacticiel, une machine virtuelle frontale est connectée à ce sous-réseau. 
+Utilisez la commande [az network vnet create](/cli/azure/network/vnet) pour créer un réseau virtuel. Dans cet exemple, le réseau est nommé *mvVNet* et le préfixe d’adresse *10.0.0.0/16* lui est affecté. Un sous-réseau est également créé avec le nom *myFrontendSubnet* et le préfixe d’adresse *10.0.1.0/24*. Plus loin dans ce didacticiel, une machine virtuelle frontale est connectée à ce sous-réseau. 
 
 ```azurecli-interactive 
 az network vnet create \
@@ -81,7 +81,7 @@ az network vnet create \
 
 ### <a name="create-subnet"></a>Créer un sous-réseau
 
-Un nouveau sous-réseau est ajouté au réseau virtuel à l’aide de la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Dans cet exemple, le réseau est nommé *myBackendSubnet* et le préfixe d’adresse *10.0.2.0/24* lui est affecté. Ce sous-réseau est utilisé avec tous les services principaux.
+Un nouveau sous-réseau est ajouté au réseau virtuel à l’aide de la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet). Dans cet exemple, le réseau est nommé *myBackendSubnet* et le préfixe d’adresse *10.0.2.0/24* lui est affecté. Ce sous-réseau est utilisé avec tous les services principaux.
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -103,11 +103,11 @@ La méthode d’allocation peut être définie comme étant statique, ce qui gar
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
 ```
 
-Quand vous créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create), la méthode d’allocation des adresse IP publiques par défaut est dynamique. Lors de la création d’une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create), incluez l’argument `--public-ip-address-allocation static` pour affecter une adresse IP publique. Cette opération n’est pas montrée dans ce didacticiel, mais dans la section suivante, une adresse IP dynamique est changée en adresse statique. 
+Quand vous créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm), la méthode d’allocation des adresse IP publiques par défaut est dynamique. Lors de la création d’une machine virtuelle avec la commande [az vm create](/cli/azure/vm), incluez l’argument `--public-ip-address-allocation static` pour affecter une adresse IP publique. Cette opération n’est pas montrée dans ce didacticiel, mais dans la section suivante, une adresse IP dynamique est changée en adresse statique. 
 
 ### <a name="change-allocation-method"></a>Changer la méthode d’allocation
 
-La méthode d’allocation d’adresse IP peut être changée avec la commande [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update). Dans cet exemple, la méthode de l’allocation de l’adresse IP de la machine virtuelle frontale est changée en statique.
+La méthode d’allocation d’adresse IP peut être changée avec la commande [az network public-ip update](/cli/azure/network/public-ip). Dans cet exemple, la méthode de l’allocation de l’adresse IP de la machine virtuelle frontale est changée en statique.
 
 Désallouez d’abord la machine virtuelle.
 
@@ -115,7 +115,7 @@ Désallouez d’abord la machine virtuelle.
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-Utilisez la commande [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) pour mettre à jour la méthode d’allocation. Dans ce cas, la `--allocation-method` est définie sur *statique*.
+Utilisez la commande [az network public-ip update](/cli/azure/network/public-ip) pour mettre à jour la méthode d’allocation. Dans ce cas, la `--allocation-method` est définie sur *statique*.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
@@ -133,7 +133,7 @@ Souvent, une machine virtuelle ne doit pas être accessible sur Internet. Pour c
 
 ## <a name="create-a-front-end-vm"></a>Créer une machine virtuelle frontale
 
-Utilisez la commande [az vm create](/cli/azure/vm#az_vm_create) pour créer la machine virtuelle nommée *myFrontendVM* à l’aide de *myPublicIPAddress*.
+Utilisez la commande [az vm create](/cli/azure/vm) pour créer la machine virtuelle nommée *myFrontendVM* à l’aide de *myPublicIPAddress*.
 
 ```azurecli-interactive 
 az vm create \
@@ -165,7 +165,7 @@ Les règles par défaut pour les groupes de sécurité réseau sont :
 
 ### <a name="create-network-security-groups"></a>Créer des groupes de sécurité réseau
 
-Un groupe de sécurité réseau peut être créé en même temps qu’une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). Dans ce cas, le groupe de sécurité réseau est associé à l’interface réseau des machines virtuelles et une règle de groupe de sécurité réseau est créée automatiquement pour autoriser le trafic sur le port *22* depuis n’importe quelle source. Plus tôt dans ce didacticiel, le groupe de sécurité réseau frontal a été créé automatiquement avec la machine virtuelle frontale. Une règle de groupe de sécurité réseau a également été créée automatiquement pour le port 22. 
+Un groupe de sécurité réseau peut être créé en même temps qu’une machine virtuelle avec la commande [az vm create](/cli/azure/vm). Dans ce cas, le groupe de sécurité réseau est associé à l’interface réseau des machines virtuelles et une règle de groupe de sécurité réseau est créée automatiquement pour autoriser le trafic sur le port *22* depuis n’importe quelle source. Plus tôt dans ce didacticiel, le groupe de sécurité réseau frontal a été créé automatiquement avec la machine virtuelle frontale. Une règle de groupe de sécurité réseau a également été créée automatiquement pour le port 22. 
 
 Dans certains cas, il peut être utile de créer au préalable un groupe de sécurité réseau, par exemple quand des règles SSH par défaut ne doivent pas être créées ou quand le groupe de sécurité réseau doit être attaché à un sous-réseau. 
 
@@ -191,7 +191,7 @@ az network vnet subnet update \
 
 Quand la machine virtuelle frontale a été créée, une règle de groupe de sécurité réseau a été créée pour autoriser le trafic entrant sur le port 22. Cette règle autorise les connexions SSH à la machine virtuelle. Pour cet exemple, le trafic doit également être autorisé sur le port *80*. Cette configuration rend accessible une application web sur la machine virtuelle.
 
-Utilisez la commande [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) pour créer une règle pour le port *80*.
+Utilisez la commande [az network nsg rule create](/cli/azure/network/nsg/rule) pour créer une règle pour le port *80*.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -218,7 +218,7 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG -
 
 Les règles de groupe de sécurité réseau peuvent également s’appliquer entre les machines virtuelles. Pour cet exemple, la machine virtuelle frontale doit communiquer avec la machine virtuelle principale sur les ports *22* et *3306*. Cette configuration autorise les connexions SSH à partir de la machine virtuelle frontale et permet aussi à une application sur la machine virtuelle frontale de communiquer avec une base de données MySQL principale. Tout autre trafic doit être bloqué entre la machine virtuelle frontale et la machine virtuelle principale.
 
-Utilisez la commande [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) pour créer une règle pour le port 22. Notez que l’argument `--source-address-prefix` spécifie la valeur *10.0.1.0/24*. Cette configuration garantit que seul le trafic provenant du sous-réseau frontal est autorisé à travers le groupe de sécurité réseau.
+Utilisez la commande [az network nsg rule create](/cli/azure/network/nsg/rule) pour créer une règle pour le port 22. Notez que l’argument `--source-address-prefix` spécifie la valeur *10.0.1.0/24*. Cette configuration garantit que seul le trafic provenant du sous-réseau frontal est autorisé à travers le groupe de sécurité réseau.
 
 ```azurecli-interactive 
 az network nsg rule create \

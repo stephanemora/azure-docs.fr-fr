@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 32b532cab7e970d01c3963729658c32ac4a020b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7d1f11abbe88bff5a7e16984aacd4953ad4f9e12
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465042"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751189"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Créer et gérer des serveurs et bases de données uniques SQL Database dans Azure SQL Database
 
@@ -53,7 +53,7 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
 > [!IMPORTANT]
 > Pour configurer les propriétés de performance d’une base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
 > [!TIP]
-> Pour un démarrage rapide du portail Azure, consultez la page[Créer une base de données SQL Azure à l’aide du portail Azure](sql-database-get-started-portal.md).
+> Pour un démarrage rapide du portail Azure, consultez la page[Créer une base de données SQL Azure à l’aide du portail Azure](sql-database-single-database-get-started.md).
 
 ## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell : Gérer des serveurs et bases de données uniques SQL Database
 
@@ -141,7 +141,7 @@ Pour créer et gérer un serveur, des bases de données et des pare-feux Azure S
 
 | Commande | Description |
 | --- | --- |
-|[Servers - Create ou Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crée ou met à jour un serveur.|
+|[Servers - Create or update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crée ou met à jour un serveur.|
 |[Serveurs - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Supprime un serveur SQL.|
 |[Serveurs - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Obtient un serveur.|
 |[Serveurs - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Retourne la liste des serveurs d’un abonnement.|

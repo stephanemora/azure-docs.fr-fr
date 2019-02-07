@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454842"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697830"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Format de fichier journal du service Azure Import/Export
 Lorsque le service Microsoft Azure Import/Export exécute une action sur un lecteur dans le cadre d’un travail d’importation ou d’exportation, les journaux sont écrits pour bloquer des objets blob dans le compte de stockage associé à ce travail.  
@@ -22,7 +22,7 @@ Il existe deux journaux pouvant être écrits par le service d’importation/exp
   
 -   Le journal d’erreurs est toujours généré en cas d’erreur.  
   
--   Le journal détaillé n’est pas activé par défaut, mais il peut être activé en définissant la propriété `EnableVerboseLog` sur une opération [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).  
+-   Le journal détaillé n’est pas activé par défaut, mais il peut être activé en définissant la propriété `EnableVerboseLog` sur une opération [Put Job](/rest/api/storageimportexport/jobs) ou [Update Job Properties](/rest/api/storageimportexport/jobs).  
   
 ## <a name="log-file-location"></a>Emplacement du fichier journal  
 Les journaux sont écrits pour bloquer des objets blob dans le conteneur ou le répertoire virtuel spécifié par le paramètre `ImportExportStatesPath`, que vous pouvez définir sur une opération `Put Job`. L’emplacement dans lequel les journaux sont écrits dépend de la façon dont l’authentification est spécifiée pour le travail, ainsi que de la valeur spécifiée pour `ImportExportStatesPath`. L’authentification du travail peut être spécifiée via une clé de compte de stockage ou une SAP (signature d’accès partagé) de conteneur.  
@@ -38,7 +38,7 @@ Le tableau ci-dessous présente les options possibles :
 |SAP de conteneur|Valeur par défaut|Un répertoire virtuel nommé `waimportexport`, qui est le nom par défaut, sous le conteneur spécifié dans la SAP.<br /><br /> Par exemple, si la SAP spécifiée pour le travail est `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, l’emplacement du journal serait alors `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |SAP de conteneur|Valeur spécifiée par l’utilisateur|Un répertoire virtuel nommé par l’utilisateur, sous le conteneur spécifié dans la SAP.<br /><br /> Par exemple, si la SAP spécifiée pour le travail est `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue` et le répertoire virtuel spécifié est nommé `mylogblobs`, l’emplacement du journal serait `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-Vous pouvez récupérer l’URL de l’erreur et les journaux détaillés en appelant l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Les journaux sont disponibles dès que le traitement du lecteur est terminé.  
+Vous pouvez récupérer l’URL de l’erreur et les journaux détaillés en appelant l’opération [Get Job](/rest/api/storageimportexport/jobs). Les journaux sont disponibles dès que le traitement du lecteur est terminé.  
   
 ## <a name="log-file-format"></a>Format de fichier journal  
 Le format de ces deux journaux est le même : un objet blob contenant des descriptions XML des événements qui se sont produits lors de la copie des objets blob entre le disque dur et le compte du client.  

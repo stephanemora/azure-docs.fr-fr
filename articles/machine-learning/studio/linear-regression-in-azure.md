@@ -1,7 +1,21 @@
 ---
-titre : Migrer l’analytique d’Excel vers Azure Machine Learning Studio titleSuffix : Description d'Azure Machine Learning Studio : Comparaison des modèles de régression linéaire dans Excel et dans les services Azure Machine Learning Studio : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
+title: Migrer l’analytique d’Excel vers Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Une comparaison des modèles de régression linéaire dans Excel et dans Azure Machine Learning Studio
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/20/2017
+ms.openlocfilehash: 12c82d440613078e9f0593ddb9fb6c7fe7b8c362
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488351"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrer l’analytique d’Excel vers Azure Machine Learning Studio
 

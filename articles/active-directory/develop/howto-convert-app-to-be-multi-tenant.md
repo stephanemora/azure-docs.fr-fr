@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1b303fb66e71ffb1834c5b5fb4796867a0944
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097042"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819414"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Activation Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 
@@ -38,7 +38,7 @@ Il existe quatre étapes simples pour convertir votre application en une applica
 1. [Convertir votre application d’inscription en application mutualisée](#update-registration-to-be-multi-tenant)
 2. [Mettre à jour votre code pour envoyer des demandes au point de terminaison /common](#update-your-code-to-send-requests-to-common)
 3. [Mettre à jour votre code pour gérer plusieurs valeurs issuer](#update-your-code-to-handle-multiple-issuer-values)
-4. [Comprendre le consentement de l’utilisateur et de l’administrateur et apporter des modifications de code appropriées](#understanding-user-and-admin-consent)
+4. Comprendre le consentement de l’utilisateur et de l’administrateur et application des modifications de code appropriées
 
 Examinons chaque étape en détail. Vous pouvez également accéder directement à [cette liste d’exemples d’architectures mutualisées][AAD-Samples-MT].
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 412727d79c194172f2855d014d1eaf18f44167f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 6a7f7943e9d567a953c0e21697dfe4fdedd6e8f0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159347"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744787"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites d’Azure Data Box Disk
 
@@ -66,8 +66,8 @@ Voici les tailles des objets Azure qui peuvent être écrits. Assurez-vous que t
 
 | Type d’objet Azure | Limite par défaut                                             |
 |-------------------|-----------------------------------------------------------|
-| Objet blob de blocs        | ~ 8 To                                                 |
-| Objet blob de pages         | 1 To <br> (Chaque fichier chargé dans le format d’objet blob de pages doit être de 512 octets alignés [un multiple entier], sinon le chargement échoue. <br> Les disques VHD et VHDX sont de 512 octets alignés.) |
+| Objet blob de blocs        | ~4.75 Tio                                                 |
+| Objet blob de pages         | 8 Tio <br> (Chaque fichier chargé dans le format d’objet blob de pages doit être de 512 octets alignés [un multiple entier], sinon le chargement échoue. <br> Les disques VHD et VHDX sont de 512 octets alignés.) |
 
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Conventions de nommage des objets blob de blocs et des objets blob de pages Azure

@@ -11,18 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: d86a1591c81c6343ec376c080945b4bf1f97638a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471774"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744396"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
 
 En règle générale, vous déployez des ressources Azure sur un groupe de ressources dans votre abonnement Azure. Toutefois, vous pouvez également créer des groupes de ressources Azure et créer des ressources Azure au niveau de l’abonnement. Pour déployer des modèles au niveau de l’abonnement, vous utilisez Azure CLI et Azure PowerShell. Le portail Azure ne prend pas en charge le déploiement dans le niveau de l’abonnement.
 
-Pour créer un groupe de ressources dans un modèle Azure Resource Manager, définissez une ressource [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions.md) avec un nom et un emplacement pour le groupe de ressources. Vous pouvez créer un groupe de ressources et déployer des ressources sur ce groupe de ressources dans le même modèle. Les ressources que vous pouvez déployer au niveau de l’abonnement sont les suivantes : [Stratégies](../azure-policy/azure-policy-introduction.md) et [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
+Pour créer un groupe de ressources dans un modèle Azure Resource Manager, définissez une ressource [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) avec un nom et un emplacement pour le groupe de ressources. Vous pouvez créer un groupe de ressources et déployer des ressources sur ce groupe de ressources dans le même modèle. Les ressources que vous pouvez déployer au niveau de l’abonnement sont les suivantes : [Stratégies](../azure-policy/azure-policy-introduction.md) et [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
 
@@ -99,7 +101,7 @@ Le modèle suivant crée un groupe de ressources vide.
 }
 ```
 
-Vous trouverez le schéma de modèle [ici](/azure/templates/microsoft.resources/allversions.md). Vous trouverez des modèles similaires dans [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
+Vous trouverez le schéma de modèle [ici](/azure/templates/microsoft.resources/allversions). Vous trouverez des modèles similaires dans [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 
 ## <a name="create-multiple-resource-groups"></a>Créer plusieurs groupes de ressources
 

@@ -16,12 +16,12 @@ ms.date: 01/31/2017
 ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: d766465f8319b83cd614bfcf24018ef901923429
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b8994d4c1eabf4381bf8364c76f7328d225f7e1a
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329688"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732054"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Connexion à une machine virtuelle SQL Server dans Azure (déploiement classique)
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ La méthode utilisée par un client pour se connecter à un serveur SQL Server e
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>se connecter à SQL Server dans le même service de cloud computing
-Plusieurs machines virtuelles peuvent être créées dans le même service cloud. Pour comprendre ce scénario impliquant des machines virtuelles, consultez la page [Connexion d’ordinateurs virtuels à un réseau virtuel ou un service cloud](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Dans ce scénario, un client sur une machine virtuelle tente de se connecter à une instance SQL Server en cours d’exécution sur une autre machine virtuelle dans le même service cloud.
+Plusieurs machines virtuelles peuvent être créées dans le même service cloud. Pour comprendre ce scénario impliquant des machines virtuelles, consultez la page [Connexion d’ordinateurs virtuels à un réseau virtuel ou un service cloud](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service). Dans ce scénario, un client sur une machine virtuelle tente de se connecter à une instance SQL Server en cours d’exécution sur une autre machine virtuelle dans le même service cloud.
 
 Dans ce scénario, vous pouvez vous connecter à l’aide de la machine virtuelle **nom** (représentée par **nom de l’ordinateur** ou **nom d’hôte** dans le portail). Il s’agit du nom que vous avez fourni pour la machine virtuelle lors de sa création. Par exemple, si vous avez nommé votre machine virtuelle SQL **mysqlvm**, une machine virtuelle cliente dans le même service cloud peut utiliser la chaîne de connexion suivante pour se connecter :
 
@@ -64,7 +64,7 @@ Prenons par exemple une machine virtuelle classique nommée **mysqlvm** avec com
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Même si cette méthode permet aux clients de se connecter via Internet, cela ne signifie pas que tout le monde peut se connecter à votre serveur SQL Server. Les clients externes doivent entrer les nom d’utilisateur et mot de passe corrects. Pour renforcer la sécurité, n’utilisez pas le port commun 1433 pour le point de terminaison de la machine virtuelle publique. Dans la mesure du possible, vous pouvez également envisager d’ajouter une liste de contrôle d’accès réseau (ACL) sur votre point de terminaison pour limiter le trafic uniquement aux clients que vous autorisez. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)
+Même si cette méthode permet aux clients de se connecter via Internet, cela ne signifie pas que tout le monde peut se connecter à votre serveur SQL Server. Les clients externes doivent entrer les nom d’utilisateur et mot de passe corrects. Pour renforcer la sécurité, n’utilisez pas le port commun 1433 pour le point de terminaison de la machine virtuelle publique. Dans la mesure du possible, vous pouvez également envisager d’ajouter une liste de contrôle d’accès réseau (ACL) sur votre point de terminaison pour limiter le trafic uniquement aux clients que vous autorisez. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)
 
 > [!NOTE]
 > Il est important de noter que lorsque vous utilisez cette technique pour communiquer avec SQL Server, toutes les données sortantes depuis le centre de données sont sujettes à la [tarification sur les transferts de données sortantes](https://azure.microsoft.com/pricing/details/data-transfers/)standard.

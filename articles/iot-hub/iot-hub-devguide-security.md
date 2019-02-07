@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: ecde1c19a56a7f99284fe738a19eac07322c2dae
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f347c9ca3d56bedcc838d72ca15793bd13ee19ad
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826171"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563930"
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
 
@@ -57,7 +57,7 @@ Par exemple, dans une solution IoT classique :
 > [!NOTE]
 > Pour plus d’informations, consultez la page [Autorisations](#iot-hub-permissions).
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Azure IoT Hub accorde l’accès aux points de terminaison en vérifiant un jeton par rapport aux stratégies d’accès partagé et aux informations d’identification de sécurité du registre des identités.
 
@@ -146,7 +146,7 @@ Voici les valeurs attendues :
 
 L’extrait de code Node.js suivant illustre une fonction appelée **generateSasToken** qui calcule le jeton à partir des entrées `resourceUri, signingKey, policyName, expiresInMins`. Les sections suivantes décrivent en détail comment initialiser les différentes entrées pour les différents cas d’utilisation des jetons.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -260,7 +260,7 @@ Par exemple, un jeton créé pour accéder à toutes les fonctionnalités de l�
 
 Un exemple d’utilisation de la fonction Node.js précédente serait :
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var deviceKey ="...";
 
@@ -294,7 +294,7 @@ Par exemple, un service de jeton utilisant la stratégie d’accès partagé pr�
 
 Un exemple d’utilisation de la fonction Node.js précédente serait :
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var policyName = 'device';
 var policyKey = '...';
@@ -328,7 +328,7 @@ Par exemple, un service qui génère à l’aide de la stratégie d’accès par
 * nom de la stratégie : `registryRead`,
 * n’importe quelle heure d’expiration.
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices";
 var policyName = 'registryRead';
 var policyKey = '...';

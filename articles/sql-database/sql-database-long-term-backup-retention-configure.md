@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 44797227c0bff745575318fcb5c19cb187862ac0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 01/07/2019
+ms.openlocfilehash: 8f88579a5fcdb96622a32c5b55bf8fee744d916e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299399"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567177"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la rétention des sauvegardes à long terme Azure SQL Database
 
@@ -27,6 +27,7 @@ Dans Azure SQL Database, vous pouvez configurer une base de données simple ou e
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md) ne prend pas en charge actuellement la rétention des sauvegardes à long terme.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Utiliser le portail Azure pour configurer des stratégies de rétention à long terme et restaurer des sauvegardes
+
 Les sections suivantes vous montrent comment utiliser le portail Azure pour configurer la rétention à long terme, afficher des sauvegardes dans une rétention à long terme et restaurer la sauvegarde à partir d’une rétention à long terme.
 
 ### <a name="configure-long-term-retention-policies"></a>Configurer des stratégies de rétention à long terme

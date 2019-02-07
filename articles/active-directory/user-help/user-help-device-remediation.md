@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 97d35eb3442b63736b40d51dda57b872813293ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 668d69921fd2001cd52bc864e5ee272d179a7bbc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164059"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770467"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Raisons potentielles du message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
 Lorsque vous accédez aux applications ou services web internes de votre organisation, le message d’erreur **Vous ne pouvez pas y accéder à partir d’ici** peut s’afficher. Ce message signifie que votre organisation a mis en place une stratégie qui empêche votre appareil d’accéder à ses ressources. Avant de contacter votre service d’assistance pour résoudre le problème, voici un certain nombre de choses que vous pouvez essayer préalablement.
@@ -68,4 +68,4 @@ Si votre appareil n’est pas joint au réseau de votre organisation, vous pouve
 ## <a name="next-steps"></a>Étapes suivantes
 - [Qu’est-ce que le portail MyApps ?](active-directory-saas-access-panel-introduction.md)
 
-- [Connectez-vous avec votre téléphone, et non votre mot de passe](microsoft-authenticator-app-phone-signin-faq.md)
+- [Connectez-vous avec votre téléphone, et non votre mot de passe](user-help-auth-app-sign-in.md)

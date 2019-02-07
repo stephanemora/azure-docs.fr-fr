@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 54eefc9c488718dae25e35ef0c5f0f5c50dea16c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041739"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661086"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Authentification et autorisation avec Collections d’espaces de travail Power BI
 
@@ -84,7 +84,7 @@ Body
 
 ```
 
-Des méthodes disponibles dans les SDK facilitent la création des jetons d’application. Par exemple, pour .NET vous pouvez consulter la classe [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) et les méthodes [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_).
+Des méthodes disponibles dans les SDK facilitent la création des jetons d’application. Par exemple, pour .NET vous pouvez consulter la classe [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) et les méthodes [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN).
 
 Pour le Kit de développement logiciel (SDK) .NET, vous pouvez vous référer à [Étendues](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
@@ -170,13 +170,13 @@ Body
    
    ![Flux de jeton d’application : le service envoie le rapport à l’utilisateur](media/get-started-sample/token-6.png)
 
-Une fois que **Collections d’espaces de travail Power BI** a envoyé un rapport à l’utilisateur, celui-ci peut afficher le rapport dans votre application personnalisée. Par exemple, si vous avez importé [l’exemple PBIX Analyse des données de vente](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), l’exemple d’application a l’aspect suivant :
+Une fois que **Collections d’espaces de travail Power BI** a envoyé un rapport à l’utilisateur, celui-ci peut afficher le rapport dans votre application personnalisée. Par exemple, si vous avez importé [l’exemple PBIX Analyse des données de vente](https://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), l’exemple d’application a l’aspect suivant :
 
 ![Exemple de rapport incorporé dans l’application](media/get-started-sample/sample-web-app.png)
 
 ## <a name="see-also"></a>Voir aussi
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Bien démarrer avec les exemples Collections d’espaces de travail Microsoft Power BI](get-started-sample.md)  
 [Scénarios courants pour Collections d’espaces de travail Microsoft Power BI](scenarios.md)  
 [Prise en main des collections d’espaces de travail Power BI](get-started.md)  

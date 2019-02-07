@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 3a2e48697efbe0f4969a8fae20c050a38645ed6f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9ede1b48d1b69c738e335676f10233af72e8564e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462077"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754419"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Démarrage rapide : Exécuter votre premier programme de traitement par lots avec l’API Python
 
@@ -153,7 +153,7 @@ Pour créer un pool Batch, l’application utilise la classe [PoolAddParameter](
 
 Le nombre de nœuds (`_POOL_NODE_COUNT`) et la taille de machine virtuelle (`_POOL_VM_SIZE`) sont des constantes définies. L’exemple par défaut crée un pool de 2 nœuds de taille *Standard_A1_v2*. La taille suggérée offre un bon compromis entre performances et coûts pour cet exemple rapide.
 
-La méthode [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) soumet le pool au service Batch.
+La méthode [pool.add](/python/api/azure.batch.operations.pooloperations) soumet le pool au service Batch.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -187,7 +187,7 @@ batch_service_client.job.add(job)
 
 L’application crée une liste d’objets de tâches à l’aide de la classe [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter). Chaque tâche traite un objet d’entrée `resource_files` à l’aide d’un paramètre `command_line`. Dans l’exemple, la ligne de commande exécute la commande `cat` de l’interpréteur de commandes Bash afin d’afficher le fichier texte. Cette commande est un exemple simple à des fins de démonstration. Lorsque vous utilisez Azure Batch, la ligne de commande se trouve là où vous spécifiez votre application ou votre script. Azure Batch fournit plusieurs façons de déployer des applications et des scripts sur des nœuds de calcul.
 
-Ensuite, l’application ajoute des tâches au travail avec la méthode [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection), qui les met en file d’attente afin de les exécuter sur les nœuds de calcul. 
+Ensuite, l’application ajoute des tâches au travail avec la méthode [task.add_collection](/python/api/azure.batch.operations.taskoperations), qui les met en file d’attente afin de les exécuter sur les nœuds de calcul. 
 
 ```python
 tasks = list()

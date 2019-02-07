@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 8f3cdf366830549c3ebb9c5680ecf36d1053d1d9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: df6330827a4fb8bb8e80af89855c3ea104584295
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075292"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662283"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Enregistrement en toute sécurité des paramètres d’application de secret d’une application web
 
@@ -32,7 +32,7 @@ Pour garantir la sécurité des processus de développement, des bibliothèques 
 ## <a name="aspnet-and-net-core-applications"></a>Applications ASP.NET et .NET Core
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Enregistrer les paramètres de secret dans le magasin de secrets utilisateur qui se trouve en dehors du dossier de contrôle de code source
-Si vous créez un prototype rapide ou que vous n’avez pas accès à Internet, commencez par déplacer vos paramètres de secret du dossier de contrôle de code source vers le magasin de secrets utilisateur. Le magasin de secrets utilisateur est un fichier enregistré sous le dossier du générateur de profils utilisateur ; les secrets ne sont donc pas archivés dans le contrôle de code source. Le diagramme suivant illustre le fonctionnement du [Secret utilisateur](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager).
+Si vous créez un prototype rapide ou que vous n’avez pas accès à Internet, commencez par déplacer vos paramètres de secret du dossier de contrôle de code source vers le magasin de secrets utilisateur. Le magasin de secrets utilisateur est un fichier enregistré sous le dossier du générateur de profils utilisateur ; les secrets ne sont donc pas archivés dans le contrôle de code source. Le diagramme suivant illustre le fonctionnement du [Secret utilisateur](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio).
 
 ![Le secret utilisateur stocke les paramètres de secret en dehors du contrôle de code source](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 

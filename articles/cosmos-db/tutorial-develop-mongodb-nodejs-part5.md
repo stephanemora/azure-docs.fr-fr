@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: b550107056ec22af3a18ce0396559ad4ef8d245b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4e7aa9931ffb268f787882729341fbe860255f70
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034282"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767857"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Créer une application Angular avec l’API Azure Cosmos DB pour MongoDB - Utiliser Mongoose pour établir la connexion à Cosmos DB
 
@@ -234,7 +234,7 @@ Ensuite, exécutez l’application en procédant comme suit :
 
 1. Dans Visual Studio Code, enregistrez toutes les modifications. Sur le côté gauche, cliquez sur le bouton **Déboguer** ![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png), puis cliquez sur le bouton **Démarrer le débogage** ![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-1. Ensuite, basculez vers le navigateur. Ouvrez les **outils de développement** et **l’onglet Réseau**. Accédez à http://localhost:3000, où vous pouvez voir l’application.
+1. Ensuite, basculez vers le navigateur. Ouvrez les **outils de développement** et **l’onglet Réseau**. Accédez à `http://localhost:3000`, où vous pouvez voir l’application.
 
     ![Nouveau compte Azure Cosmos DB dans le portail Azure](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

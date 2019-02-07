@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f02d511c5afa6d515f29b9fc557be3b49223c501
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4291f6083cfe07d689ef9377df57c3e9a41772fc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243281"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812206"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformer des données avec le SDK de préparation des données Azure Machine Learning
 
@@ -25,7 +25,7 @@ Dans cet article, vous découvrez les différentes méthodes de chargement de do
 
 Il existe actuellement des fonctions pour les tâches suivantes :
 
-- [Ajouter une colonne à l’aide d’une expression](#column)
+- Ajouter une colonne à l’aide d’une expression
 - [Imputer des valeurs manquantes](#impute-missing-values)
 - [Dériver une colonne par un exemple](#derive-column-by-example)
 - [Filtering](#filtering)

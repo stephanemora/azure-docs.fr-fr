@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 180e38146911b15e95828bf033cbcaefae22d094
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b2c5e2d54c0323e984a48f2540a7df9a3b64b49b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241387"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511171"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Télécharger de grandes quantités de données aléatoires depuis le stockage Azure
 
@@ -104,7 +104,7 @@ Le tableau suivant présente les [BlobRequestOptions](/dotnet/api/microsoft.wind
 |Propriété|Valeur|Description|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Cette propriété désactive la vérification du hachage MD5 du contenu chargé. La désactivation de la validation MD5 entraîne un transfert plus rapide. Toutefois, elle ne confirme pas la validité ou l’intégrité des fichiers transférés. |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Cette propriété détermine si un hachage MD5 est calculé et stocké.   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Cette propriété détermine si un hachage MD5 est calculé et stocké.   |
 
 La tâche `DownloadFilesAsync` est illustrée dans l’exemple suivant :
 

@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 040f073cc410911ea88112b3206623e90cece0ca
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464253"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756171"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Didacticiel : En savoir plus sur la gouvernance des machines virtuelles Linux avec Azure CLI
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutoriel : En savoir plus sur la gouvernance des machines virtuelles Linux avec Azure CLI
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -57,7 +57,7 @@ Pour gérer les solutions de machine virtuelle, il existe trois rôles de ressou
 
 Au lieu d’assigner des rôles à des utilisateurs, il est souvent plus facile d’utiliser un groupe Azure Active Directory hébergeant les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour cet article, utilisez un groupe existant pour la gestion de la machine virtuelle, ou utilisez le portail pour [créer un groupe Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Après avoir créé un groupe ou trouvé un groupe existant, utilisez la commande [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour assigner le nouveau groupe Azure Active Directory au rôle Contributeur de machine virtuelle pour le groupe de ressources.
+Après avoir créé un groupe ou trouvé un groupe existant, utilisez la commande [az role assignment create](/cli/azure/role/assignment) pour assigner le nouveau groupe Azure Active Directory au rôle Contributeur de machine virtuelle pour le groupe de ressources.
 
 ```azurecli-interactive
 adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
@@ -71,7 +71,7 @@ En règle générale, vous répétez ce processus pour *Contributeur de réseaux
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](../../azure-policy/azure-policy-introduction.md) vous permet de vous assurer que toutes les ressources de l’abonnement répondent aux normes de l’entreprise. Votre abonnement comprend déjà plusieurs définitions de stratégie. Pour afficher les définitions de stratégie disponibles, utilisez la commande [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) :
+[Azure Policy](../../azure-policy/azure-policy-introduction.md) vous permet de vous assurer que toutes les ressources de l’abonnement répondent aux normes de l’entreprise. Votre abonnement comprend déjà plusieurs définitions de stratégie. Pour afficher les définitions de stratégie disponibles, utilisez la commande [az policy definition list](/cli/azure/policy/definition) :
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table
@@ -83,7 +83,7 @@ Vous voyez les définitions de stratégie existantes. Le type de stratégie est 
 * Limitent les références SKU pour les machines virtuelles
 * Auditent les machines virtuelles qui n’utilisent pas de disques managés
 
-L’exemple suivant vous permet de récupérer trois définitions de stratégie basées sur le nom d’affichage. La commande [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) sert à assigner ces définitions au groupe de ressources. Pour certaines stratégies, vous devez fournir des valeurs de paramètre pour définir les valeurs autorisées.
+L’exemple suivant vous permet de récupérer trois définitions de stratégie basées sur le nom d’affichage. La commande [az policy assignment create](/cli/azure/policy/assignment) sert à assigner ces définitions au groupe de ressources. Pour certaines stratégies, vous devez fournir des valeurs de paramètre pour définir les valeurs autorisées.
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -145,7 +145,7 @@ Les [verrous de ressources](../../azure-resource-manager/resource-group-lock-res
 
 Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux actions `Microsoft.Authorization/locks/*`. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l'accès utilisateur** peuvent effectuer ces actions.
 
-Pour verrouiller la machine virtuelle et le groupe de sécurité réseau, utilisez la commande [az lock create](/cli/azure/lock#az_lock_create) :
+Pour verrouiller la machine virtuelle et le groupe de sécurité réseau, utilisez la commande [az lock create](/cli/azure/lock) :
 
 ```azurecli-interactive
 # Add CanNotDelete lock to the VM
@@ -206,7 +206,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Vous ne pouvez pas supprimer le groupe de sécurité réseau verrouillé tant que vous n’avez pas supprimé le verrou. Pour supprimer le verrou, récupérez les ID des verrous et fournissez-les à la commande [az lock delete](/cli/azure/lock#az_lock_delete) :
+Vous ne pouvez pas supprimer le groupe de sécurité réseau verrouillé tant que vous n’avez pas supprimé le verrou. Pour supprimer le verrou, récupérez les ID des verrous et fournissez-les à la commande [az lock delete](/cli/azure/lock) :
 
 ```azurecli-interactive
 vmlock=$(az lock show --name LockVM \
@@ -220,7 +220,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Quittez la session SSH sur votre machine virtuelle, puis supprimez les ressources suivantes :
+Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Quittez la session SSH sur votre machine virtuelle, puis supprimez les ressources suivantes :
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

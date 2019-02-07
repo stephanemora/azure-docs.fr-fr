@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 2c981d33c8108386e0287d4c2a800f065c9dc431
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452853"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754598"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configurer une identité commune sur la Data Science Virtual Machine
 
@@ -31,7 +31,7 @@ Active Directory est un fournisseur d’identité courant qui est pris en charge
 
 Si vous disposez déjà d’un annuaire Active Directory pour gérer les identités, vous pouvez l’utiliser en tant que fournisseur d’identité commun. Si vous n’en n’avez pas, vous pouvez exécuter une instance Active Directory gérée dans Azure via un service appelé [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/)(Azure AD DS). 
 
-La documentation sur [Azure AD](https://docs.microsoft.com/azure/active-directory/) fournit des [instructions de gestion](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity) détaillées, notamment pour connecter Azure AD à votre répertoire local si vous en avez un. 
+La documentation sur [Azure AD](https://docs.microsoft.com/azure/active-directory/) fournit des [instructions de gestion](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution) détaillées, notamment pour connecter Azure AD à votre répertoire local si vous en avez un. 
 
 Cet article décrit les étapes pour configurer un service de domaine Active Directory entièrement géré sur Azure à l’aide d’Azure AD DS. Vous pouvez ensuite joindre vos DSVM au domaine Active Directory géré pour permettre aux utilisateurs d’accéder à un pool de DSVM (et autres ressources Azure) à l’aide d’un compte d’utilisateur et d’informations d’identification communs. 
 
