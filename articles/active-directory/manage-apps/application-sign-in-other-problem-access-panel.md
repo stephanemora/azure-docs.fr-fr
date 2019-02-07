@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 529191cf867b6003b0c2eab5ed919087277c7095
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6dfc0f80285dfd7da6e78d7cbf9c993fed388a2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178033"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813532"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problèmes de connexion à une application à partir du volet d’accès
 
@@ -104,7 +104,7 @@ Un didacticiel pas à pas est disponible pour toutes les applications de la gale
 
 Pour configurer une application à partir de la galerie Azure AD, vous devez effectuer les opérations suivantes :
 
--   [Ajouter une application à partir de la galerie Azure AD](#add-an-application)
+-   Ajouter une application à partir de la galerie Azure AD
 
 -   [Configurer les valeurs de métadonnées de l’application dans Azure AD (URL de connexion, identificateur, URL de réponse)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
@@ -114,7 +114,7 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
 -   [Configurer les valeurs de métadonnées Azure AD dans l’application (URL de connexion, émetteur, URL de déconnexion et certificat)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [Affecter des utilisateurs à l’application](#assign-users-to-the-application)
+-   Affecter des utilisateurs à l’application
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Ajouter une application à partir de la galerie Azure AD
 
@@ -362,9 +362,9 @@ Pour télécharger les métadonnées ou le certificat de l’application à part
 
 Pour configurer une application à partir de la galerie Azure AD, vous devez effectuer les opérations suivantes :
 
--   [Ajouter une application à partir de la galerie Azure AD](#add-an-application)
+-   Ajouter une application à partir de la galerie Azure AD
 
--   [Configurer l’application pour l’authentification unique basée sur un mot de passe](#configure-the-application)
+-   Configurer l’application pour l’authentification unique par mot de passe
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Ajouter une application à partir de la galerie Azure AD
 

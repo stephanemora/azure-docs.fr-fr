@@ -12,16 +12,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: reference
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5ccfab71edf9f5fd61191ae8bd4ef5421a055e23
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e7f2ae5e62c5b310a1491caa362807a561f6f961
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164620"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490173"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect dans Microsoft Cloud Germany - Version préliminaire
 ## <a name="introduction"></a>Introduction
@@ -37,7 +37,7 @@ Actuellement, la plupart des scénarios dans [Microsoft Cloud Germany](https://a
 * Lorsque vous vous connectez à votre annuaire Azure AD, vous devez utiliser un compte du domaine onmicrosoft.de.
 
  
-## <a name="download"></a>Download
+## <a name="download"></a>Téléchargement
 Vous pouvez télécharger Azure AD Connect à partir du panneau Azure AD Connect dans le portail.  Utilisez les instructions ci-dessous pour localiser le panneau Azure AD Connect.
 
 ### <a name="the-azure-ad-connect-blade"></a>Panneau Azure AD Connect

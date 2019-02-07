@@ -1,5 +1,5 @@
 ---
-title: 'Créer une passerelle VPN Azure basée sur des itinéraires : Interface CLI| Microsoft Docs'
+title: 'Créez une passerelle VPN Azure basée sur une route : CLI | Microsoft Docs'
 description: Apprenez rapidement à créer une passerelle VPN à l’aide de l’interface de ligne de commande (CLI).
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: b8ca2d74012418dbd8ca9e878f133a250ebb5991
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f5f62a6bfa1baa205e0496dd901f1f1eef660079
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465098"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698188"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide de l’interface CLI
 
@@ -26,7 +26,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
 
 
 ```azurecli-interactive 
@@ -35,7 +35,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="vnet"></a>Créer un réseau virtuel
 
-Utilisez la commande [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) pour créer un réseau virtuel. L’exemple suivant crée un réseau virtuel nommé **VNet1** à l’emplacement **EastUS** :
+Utilisez la commande [az network vnet create](/cli/azure/network/vnet) pour créer un réseau virtuel. L’exemple suivant crée un réseau virtuel nommé **VNet1** à l’emplacement **EastUS** :
 
 ```azurecli-interactive 
 az network vnet create \
@@ -56,7 +56,7 @@ az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
   -g TestRG1 \
-  --address-prefix 10.1.255.0/27 
+  --address-prefix 10.1.255.0/27 
 ```
 
 ## <a name="PublicIP"></a>Demander une adresse IP publique
@@ -67,12 +67,12 @@ Une passerelle VPN doit présenter une adresse IP publique allouée dynamiquemen
 az network public-ip create \
   -n VNet1GWIP \
   -g TestRG1 \
-  --allocation-method Dynamic 
+  --allocation-method Dynamic 
 ```
 
 ## <a name="CreateGateway"></a>Créer la passerelle VPN
 
-Créez la passerelle VPN à l’aide de la commande [az network vnet-gateway create](/cli/azure/group#az_network_vnet_gateway_create).
+Créez la passerelle VPN à l’aide de la commande [az network vnet-gateway create](/cli/azure/group).
 
 Si vous exécutez cette commande à l’aide du paramètre `--no-wait`, vous ne voyez aucun commentaire ni sortie. Le paramètre `--no-wait` permet à la passerelle d’être créée à l’arrière-plan. Cela ne signifie pas que la passerelle VPN est immédiatement créée.
 
@@ -172,7 +172,7 @@ Exemple de réponse :
 ```
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’avez plus besoin des ressources créées, utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources. Ce faisant, vous supprimez le groupe de ressources et l’ensemble des ressources qu’il contient.
+Lorsque vous n’avez plus besoin des ressources créées, utilisez la commande [az group delete](/cli/azure/group) pour supprimer le groupe de ressources. Ce faisant, vous supprimez le groupe de ressources et l’ensemble des ressources qu’il contient.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes

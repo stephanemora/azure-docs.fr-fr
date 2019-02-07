@@ -13,12 +13,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9c7560dc6c3c5237a056a9468d3ab4f440e8e6dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc726f63ea5c8473601623024e18c1402cbebb51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190783"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820315"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
 
@@ -49,8 +49,6 @@ Le rapport de journaux d’audit regroupe les rapports suivants :
 
 Vous pouvez appliquer le filtrage avancé au rapport d’audit pour accéder à une catégorie spécifique de données d’audit, en spécifiant celle-ci dans le filtre **Catégorie d’activité**. Par exemple, pour afficher toutes les activités en lien avec la réinitialisation de mot de passe en libre-service, sélectionnez la catégorie **Gestion de mot de passe en libre-service**. 
 
-    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
-
 Les catégories d’activités sont les suivantes :
 
 - Annuaire principal
@@ -62,8 +60,6 @@ Les catégories d’activités sont les suivantes :
 ## <a name="sign-ins-report"></a>Rapport de connexions 
 
 La vue **Connexions** inclut toutes les connexions utilisateur ainsi que le rapport **Utilisation des applications**. Vous pouvez également afficher des informations sur l’utilisation des applications dans la section **Gérer** de la vue d’ensemble **Applications d’entreprise**.
-
-    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
 
 Pour accéder au rapport de connexions :
 

@@ -4,17 +4,17 @@ description: Cet article vous explique comment créer et gérer des stratégies 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/26/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101785"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510824"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Créer des stratégies et afficher les données de conformité par programmation avec Azure Policy
 
@@ -96,8 +96,9 @@ Pour une meilleure visibilité de vos ressources, la première chose à faire es
    Remplacez _ContosoRG_ par le nom de votre groupe de ressources prévu.
 
    Le paramètre **Étendue** sur `New-AzPolicyAssignment` fonctionne également avec les abonnements et les groupes d’administration. Le paramètre utilise un chemin d’accès de ressource complet, que la propriété **ResourceId** renvoie sur `Get-AzResourceGroup`. Pour chaque conteneur, le modèle **Étendue** est le suivant.
-   Remplacez `{rgName}`, `{subId}`, et `{mgName}` par le nom de votre groupe de ressources, l’ID d’abonnement et le nom du groupe d’administration, respectivement.
+   Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement. `{rType}` est remplacé par le **type de la ressource**, comme `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
 
+   - Ressource : `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Groupe de ressources : `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Abonnement : `/subscriptions/{subId}/`
    - Groupe d'administration : `/providers/Microsoft.Management/managementGroups/{mgName}`

@@ -13,12 +13,12 @@ caps.latest.revision: 17
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 71c791c9ac6f679f0f67b014c8fb5dd915d1a3e3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004402"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821678"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schéma NetworkTrafficRules de définition des services cloud Azure
 Le nœud `NetworkTrafficRules` est un élément facultatif dans le fichier de définition de service, qui spécifie comment les rôles communiquent entre eux. Il limite les rôles qui peuvent accéder aux points de terminaison internes du rôle spécifique. Le `NetworkTrafficRules` n’est pas un élément autonome ; il est associé à deux ou plusieurs rôles dans un fichier de définition de service.
@@ -58,7 +58,7 @@ Le nœud `NetworkTrafficRules` du fichier de définition de service inclut ces �
 
 [Élément RoleEndpoint](#RoleEndpoint)
 
-[Élément AllowAllTraffic](#AllowAllTraffic)
+Élément AllowAllTraffic
 
 [Élément WhenSource](#WhenSource)
 
@@ -76,7 +76,7 @@ L’élément `Destinations` décrit une collection de RoleEndpoint qui peuvent 
 ##  <a name="RoleEndpoint"></a> Élément RoleEndpoint
 L’élément `RoleEndpoint` décrit un point de terminaison sur un rôle qui permet de communiquer avec lui. Vous pouvez spécifier plusieurs éléments `RoleEndpoint` s’il existe plus d’un point de terminaison sur le rôle.
 
-| Attribut      | type     | Description |
+| Attribut      | Type     | Description |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Requis. Le nom du point de terminaison vers lequel autoriser le trafic.|
 | `roleName`     | `string` | Requis. Le nom du rôle web vers lequel autoriser la communication.|
@@ -87,14 +87,14 @@ L’élément `AllowAllTraffic` est une règle qui autorise tous les rôles à c
 ##  <a name="WhenSource"></a> Élément WhenSource
 L’élément `WhenSource` décrit une collection de rôles qui peuvent communiquer avec les points de terminaison définis dans le nœud `Destinations`.
 
-| Attribut | type     | Description |
+| Attribut | Type     | Description |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Requis. Spécifie la règle à appliquer lorsque vous autorisez les communications. Actuellement, la seule valeur possible est `AnyRule`.|
   
 ##  <a name="FromRole"></a> Élément FromRole
 L’élément `FromRole` spécifie les rôles qui peuvent communiquer avec les points de terminaison définis dans le nœud `Destinations`. Vous pouvez spécifier plusieurs éléments `FromRole` s’il existe plus d’un rôle capable de communiquer avec les points de terminaison.
 
-| Attribut  | type     | Description |
+| Attribut  | Type     | Description |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Requis. Nom du rôle à partir duquel autoriser la communication.|
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c197ead3a7b0f61b9dd5f1e3ea0bd197c23a2778
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180762"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568173"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -97,7 +97,7 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | OutputClaimsTransformations | 0:1 | Liste des références précédemment définies aux transformations de revendications qui doivent être exécutées après la réception des revendications provenant du fournisseur de revendications. |
 | ValidationTechnicalProfiles | 0:n | Liste des références à d’autres profils techniques que le profil technique utilise à des fins de validation. Pour plus d’informations, voir [Profil technique de validation](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Contrôle la production du nom du sujet dans les jetons où le nom du sujet est spécifié séparément à partir de revendications. Par exemple, OAuth ou SAML.  |
-| IncludeClaimsFromTechnicalProfile | 0:1 | Identificateur d’un profil technique à partir duquel vous souhaitez que toutes les revendications d’entrée et de sortie soient ajoutées à ce profil technique. Le profil technique référencé doit être défini dans le même fichier de stratégie. | 
+| IncludeClaimsFromTechnicalProfile | 0:1 | Identificateur d’un profil technique à partir duquel vous souhaitez que toutes les revendications d’entrée et de sortie soient ajoutées à ce profil technique. Le profil technique référencé doit être défini dans le même fichier de stratégie. |
 | IncludeTechnicalProfile |0:1 | Identificateur d’un profil technique à partir duquel vous souhaitez que toutes les sonnées soient ajoutées à ce profil technique. Le profil technique référencé doit exister dans le même fichier de stratégie. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Autre profil technique à utiliser pour la gestion de session. |
 |EnabledForUserJourneys| 0:1 |Contrôle si le profil technique est exécuté dans un parcours utilisateur.  |
@@ -168,7 +168,7 @@ L’élément **InputClaims** contient l’élément suivant :
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Type de revendication d’entrée attendu. |
 
-#### <a name="inputclaim"></a>InputClaim 
+#### <a name="inputclaim"></a>InputClaim
 
 L’élément **InputClaim** contient les attributs suivants :
 
@@ -186,7 +186,7 @@ L’élément **PersistedClaims** contient les éléments suivants :
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | Type de revendication à conserver. |
 
-#### <a name="persistedclaim"></a>PersistedClaim 
+#### <a name="persistedclaim"></a>PersistedClaim
 
 L’élément **PersistedClaim** contient les attributs suivants :
 
@@ -204,7 +204,7 @@ L’élément **OutputClaims** contient l’élément suivant :
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | Type de revendication de sortie attendu. |
 
-#### <a name="outputclaim"></a>OutputClaim 
+#### <a name="outputclaim"></a>OutputClaim
 
 L’élément **OutputClaim** contient les attributs suivants :
 
@@ -275,9 +275,9 @@ L’élément **UseTechnicalProfileForSessionManagement** contient l’attribut 
 L’élément **ClaimsProviderSelections** dans un parcours utilisateur définit la liste et l’ordre des options de sélection de fournisseur de revendications. Avec l’élément **EnabledForUserJourneys**, vous filtrez le fournisseur de revendications disponible pour l’utilisateur. L’élément **EnabledForUserJourneys** contient l’une des valeurs suivantes :
 
 - **Always**, exécuter le profil technique.
-- **Never**, ignorer le profil technique. 
-- **OnClaimsExistence**, exécuter seulement s’il existe une certaine revendication spécifiée dans le profil technique. 
-- **OnItemExistenceInStringCollectionClaim**, exécuter uniquement s’il existe un élément dans une revendication de collection de chaîne. 
+- **Never**, ignorer le profil technique.
+- **OnClaimsExistence**, exécuter seulement s’il existe une certaine revendication spécifiée dans le profil technique.
+- **OnItemExistenceInStringCollectionClaim**, exécuter uniquement s’il existe un élément dans une revendication de collection de chaîne.
 - **OnItemAbsenceInStringCollectionClaim**, exécuter uniquement s’il n’existe pas d’élément dans une revendication de collection de chaîne.
 
 L’utilisation de **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** ou **OnItemAbsenceInStringCollectionClaim**, requiert que vous fournissez les métadonnées suivantes : **ClaimTypeOnWhichToEnable** spécifie le type de la revendication à évaluer, **ClaimValueOnWhichToEnable** spécifie la valeur à comparer.
@@ -289,22 +289,10 @@ Le profil technique suivant est exécuté uniquement si la collection de chaîne
   <DisplayName>Unlink Facebook</DisplayName>
 ...
     <Metadata>
-        <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
-        <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
-    </Metadata>        
+      <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
+      <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
+    </Metadata>
 ...
   <EnabledForUserJourneys>OnItemExistenceInStringCollectionClaim</EnabledForUserJourneys>
-</TechnicalProfile>  
+</TechnicalProfile>
 ```
-
-
-
-
-
-
-
-
-
-
-
-

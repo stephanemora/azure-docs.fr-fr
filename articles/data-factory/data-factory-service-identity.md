@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a42f5f441dd63f8d6a7f5bd1cfdf0452d025816e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 068929bbde8e4c1411004b45fc77f0188de43ff8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017682"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814198"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identité de service Azure Data Factory
 
@@ -44,7 +44,7 @@ Si vous constatez que votre fabrique de données n’est pas associée à une id
 
 - [Générer l’identité de service à l’aide de PowerShell](#generate-service-identity-using-powershell)
 - [Générer l’identité de service à l’aide de l’API REST](#generate-service-identity-using-rest-api)
-- [Générer l’identité du service avec un modèle Azure Resource Manager](#generate-service-identity-using-azure-resource-manager-template)
+- Générer l’identité du service avec un modèle Azure Resource Manager
 - [Générer l’identité de service à l’aide du SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -192,4 +192,4 @@ Consultez les rubriques suivantes qui expliquent quand et comment utiliser l’i
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory](connector-azure-data-lake-store.md)
 
-Pour plus d’informations sur les identités managées des ressources Azure, sur lesquelles l’identité du service de fabrique de données est basée, consultez [Que sont les identités gérées pour les ressources Azure ?](~/articles/active-directory/msi-overview.md). 
+Pour plus d’informations sur les identités managées des ressources Azure, sur lesquelles l’identité du service de fabrique de données est basée, consultez [Que sont les identités gérées pour les ressources Azure ?](/azure/active-directory/managed-identities-azure-resources/overview). 

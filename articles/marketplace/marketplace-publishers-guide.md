@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 43badaada3de352ec7bafeb422965a047261a1e4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753963"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656832"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guide de publication de la Place de marché Azure et AppSource
 
 Le guide de publication de la Place de marché a été conçu pour aider les nouveaux éditeurs et ceux qui le sont déjà à utiliser les vitrines de la [Place de marché Azure](https://azuremarketplace.microsoft.com) et [Microsoft AppSource](https://appsource.microsoft.com) afin de développer leur partenariat commercial avec Microsoft en proposant des applications et des services.
 
 >[!Note]
->La Place de marché fait ici référence à la fois à la Place de marché Azure et à AppSource.  Pour plus d’informations, consultez [Une Place de marché, deux vitrines](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace).
+>La Place de marché fait ici référence à la fois à la Place de marché Azure et à AppSource.  Pour plus d’informations, consultez [Une Place de marché, deux vitrines](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 
 Ce guide aborde les thèmes suivants : 
 *   Ce qu’est la Place de marché et comment elle fonctionne 

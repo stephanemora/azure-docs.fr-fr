@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/01/2019
+ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546910"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660722"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
@@ -83,7 +83,7 @@ Quand le Magasin des requêtes est activé, il enregistre les données dans des 
 Les options suivantes sont disponibles pour la configuration des paramètres du Magasin des requêtes.
 | **Paramètre** | **Description** | **Par défaut** | **Plage**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Définit les instructions qui sont suivies. | top | none, top, all |
+| pg_qs.query_capture_mode | Définit les instructions qui sont suivies. | Aucun | none, top, all |
 | pg_qs.max_query_text_length | Définit la longueur maximale de requête qui peut être enregistrée. Les requêtes les plus longues sont tronquées. | 6000 | 100 - 10 000 |
 | pg_qs.retention_period_in_days | Définit la période de conservation. | 7 | 1 - 30 |
 | pg_qs.track_utility | Définit si les commandes d’utilitaire sont suivies | sur | on, off |
@@ -116,8 +116,8 @@ Cette vue retourne toutes les données du Magasin des requêtes. Il existe une l
 |query_id   |bigint  || Code de hachage interne, calculé à partir de l’arborescence d’analyse de l’instruction|
 |query_sql_text |Varchar(10000)  || Texte d’une instruction représentative. Différentes requêtes ayant la même structure sont regroupées en clusters ; ce texte est le texte de la première des requêtes du cluster.|
 |plan_id    |bigint |   |ID du plan correspondant à cette requête, pas encore disponible|
-|start_time | timestamp  ||  Les requêtes sont agrégées par intervalle de planification : la durée d’un compartiment est de 15 minutes par défaut. Il s’agit de l’heure de début correspondant à l’intervalle de planification pour cette entrée.|
-|end_time   | timestamp  ||  Heure de fin correspondant à l’intervalle de planification pour cette entrée.|
+|start_time |timestamp  ||  Les requêtes sont agrégées par intervalle de planification : la durée d’un compartiment est de 15 minutes par défaut. Il s’agit de l’heure de début correspondant à l’intervalle de planification pour cette entrée.|
+|end_time   |timestamp  ||  Heure de fin correspondant à l’intervalle de planification pour cette entrée.|
 |calls  |bigint  || Nombre de fois où la requête s’est exécutée|
 |total_time |double précision   ||  Durée totale d’exécution de la requête, en millisecondes|
 |min_time   |double précision   ||  Durée minimale d’exécution de la requête, en millisecondes|

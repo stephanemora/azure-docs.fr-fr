@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dc2b38f8e8065b8d8763365bf0cbad56ae00cd4b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462197"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565426"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personnaliser l’accélérateur de solution de surveillance à distance
 
@@ -84,7 +84,7 @@ Chaque page de la solution de surveillance à distance est composée d’un ense
 * permuter les positions des panneaux Carte et les Télémétrie ;
 * modifier les largeurs relatives des panneaux Carte et Analyse.
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -156,7 +156,7 @@ Chaque page de la solution de surveillance à distance est composée d’un ense
 
 Vous pouvez également ajouter plusieurs instances du même panneau, ou plusieurs versions si vous [dupliquez et personnalisez un panneau](#duplicate-and-customize-an-existing-control). L’exemple suivant montre comment ajouter deux instances du panneau Télémétrie. Pour effectuer ces modifications, modifiez le fichier `src/components/pages/dashboard/dashboard.js` :
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -247,19 +247,19 @@ Les étapes suivantes expliquent comment dupliquer un panneau existant, le modif
 
 1. Dans le dossier **cust_alerts** du fichier **alertsPanel.js**, remplacez le nom de la classe par **CustAlertsPanel** :
 
-    ```nodejs
+    ```javascript
     export class CustAlertsPanel extends Component {
     ```
 
 1. Ajoutez la ligne suivante au fichier `src/components/pages/dashboard/panels/index.js` :
 
-    ```nodejs
+    ```javascript
     export * from './cust_alerts';
     ```
 
 1. Remplacez `alertsPanel` par `CustAlertsPanel` dans le fichier `src/components/pages/dashboard/dashboard.js` :
 
-    ```nodejs
+    ```javascript
     import {
       OverviewPanel,
       CustAlertsPanel,
@@ -287,7 +287,7 @@ Le panneau **Alertes** d’origine a été remplacé par une copie appelée **Cu
 
 1. Modifiez les définitions de colonnes comme illustré dans l’extrait de code suivant :
 
-    ```nodejs
+    ```javascript
     this.columnDefs = [
       rulesColumnDefs.severity,
       {
@@ -312,7 +312,7 @@ Les fichiers du dossier `src/components/pages/dashboard/panels/telemtry` défini
 
 1. Dans le fichier `src/services/telemetryService.js`, recherchez la fonction appelée **getTelemetryByDeviceIdP15M**. Effectuez une copie de cette fonction et modifiez la copie comme suit :
 
-    ```nodejs
+    ```javascript
     static getTelemetryByDeviceIdP5M(devices = []) {
       return TelemetryService.getTelemetryByMessages({
         from: 'NOW-PT5M',
@@ -325,7 +325,7 @@ Les fichiers du dossier `src/components/pages/dashboard/panels/telemtry` défini
 
 1. Pour utiliser cette nouvelle fonction afin de remplir le graphique de télémétrie, ouvrez le fichier `src/components/pages/dashboard/dashboard.js`. Recherchez la ligne qui initialise le flux de données de télémétrie et modifiez-la comme suit :
 
-    ```node.js
+    ```javascript
     const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
@@ -339,7 +339,7 @@ La page **Tableau de bord** affiche les indicateurs de performance clés dans le
 
 1. Ouvrez le fichier `src/components/pages/dashboard/dashboard.js` . Modifiez l’objet **initialState** en lui ajoutant une propriété **warningAlertsChange** :
 
-    ```nodejs
+    ```javascript
     const initialState = {
       ...
 
@@ -359,7 +359,7 @@ La page **Tableau de bord** affiche les indicateurs de performance clés dans le
 
 1. Modifiez l’objet **currentAlertsStats** en lui ajoutant une propriété **totalWarningCount** :
 
-    ```nodejs
+    ```javascript
     return {
       openWarningCount: (acc.openWarningCount || 0) + (isWarning && isOpen ? 1 : 0),
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
@@ -371,7 +371,7 @@ La page **Tableau de bord** affiche les indicateurs de performance clés dans le
 
 1. Calculez le nouvel indicateur de performance clé. Recherchez le calcul du nombre d’alertes critiques. Dupliquez le code et modifiez la copie comme suit :
 
-    ```nodejs
+    ```javascript
     // ================== Warning Alerts Count - START
     const currentWarningAlerts = currentAlertsStats.totalWarningCount;
     const previousWarningAlerts = previousAlerts.reduce(
@@ -384,7 +384,7 @@ La page **Tableau de bord** affiche les indicateurs de performance clés dans le
 
 1. Ajoutez le nouvel indicateur de performance clé **warningAlertsChange** au flux d’indicateurs :
 
-    ```nodejs
+    ```javascript
     return ({
       analyticsIsPending: false,
       analyticsVersion: this.state.analyticsVersion + 1,
@@ -402,7 +402,7 @@ La page **Tableau de bord** affiche les indicateurs de performance clés dans le
 
 1. Ajoutez le nouvel indicateur de performance clé **warningAlertsChange** aux données d’état utilisées pour restituer l’interface utilisateur :
 
-    ```nodejs
+    ```javascript
     const {
       ...
 
@@ -421,7 +421,7 @@ La page **Tableau de bord** affiche les indicateurs de performance clés dans le
 
 1. Mettez à jour les données passées au panneau Indicateurs de performance clés :
 
-    ```node.js
+    ```javascript
     <AnalyticsPanel
       timeSeriesExplorerUrl={timeSeriesParamUrl}
       topAlerts={topAlertsWithName}
@@ -439,13 +439,13 @@ Vous avez apporté toutes les modifications nécessaires au fichier `src/compone
 
 1. Modifiez la ligne de code suivante pour récupérer la nouvelle valeur d’indicateur de performance clé comme suit :
 
-    ```nodejs
+    ```javascript
     const { t, isPending, criticalAlertsChange, warningAlertsChange, alertsPerDeviceId, topAlerts, timeSeriesExplorerUrl, error } = this.props;
     ```
 
 1. Modifiez le balisage pour afficher la nouvelle valeur d’indicateur de performance clé comme suit :
 
-    ```nodejs
+    ```javascript
     <div className="analytics-cell">
       <div className="analytics-header">{t('dashboard.panels.analytics.criticalAlerts')}</div>
       <div className="critical-alerts">

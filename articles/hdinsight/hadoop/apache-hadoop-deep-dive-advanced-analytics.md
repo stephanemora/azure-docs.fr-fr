@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: c6a47448fc99c2f58b315898c1b6af65f894da8d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0e17fa877bc2e1e4f72891315d940546a11e674d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436685"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812494"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondissement - Analytique avancée
 
@@ -56,10 +56,10 @@ Une fois que vous avez sélectionné l’algorithme le mieux adapté, vous devez
 
 HDInsight dispose de plusieurs options Machine Learning pour un flux de travail d’analytique avancée :
 
-* [Machine Learning et Apache Spark](#machine-learning-and-spark)
-* [R et ML Services](#r-and-r-server)
-* [Azure Machine Learning et Apache Hive](#azure-machine-learning-and-hive)
-* [Apache Spark et Deep Learning](#spark-and-deep-learning)
+* Machine Learning et Apache Spark
+* R et ML Services
+* Azure Machine Learning et Apache Hive
+* Apache Spark et Deep Learning
 
 ### <a name="machine-learning-and-apache-spark"></a>Machine Learning et Apache Spark
 

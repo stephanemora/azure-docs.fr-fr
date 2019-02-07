@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017097"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751920"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Recommandations relatives à l’initiative Trusted Internet Connections
 
@@ -49,7 +49,7 @@ Il existe plusieurs façons de remplir les exigences de l’Annexe H du programm
 
 Pour connecter le **Département ou l’Agence (D/A)** à Azure ou à Office 365 sans router le trafic via le TIC du D/A, le D/A doit utiliser un tunnel chiffré ou une connexion dédiée au fournisseur de services cloud (CSP, Cloud Service Provider). Les services CSP peuvent garantir que la connectivité aux ressources cloud du D/A n’est pas offerte à l’Internet public pour l’accès direct du personnel de l’agence.
 
-Office 365 se conforme à l’Annexe H du programme TIC 2.0 en utilisant ExpressRoute avec l’[homologation Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) activée ou une connexion Internet qui chiffre tout le trafic à l’aide de TLS 1.2. Les utilisateurs finaux du D/A sur le réseau D/A peuvent se connecter par le biais du réseau de leur agence et de l’infrastructure TIC via internet. Tout l’accès Internet à distance à Office 365 est bloqué et transite par l’agence. Le D/A peut également se connecter à Office 365 sur une connexion ExpressRoute avec une homologation Microsoft (un type d’homologation publique) activée.  
+Office 365 se conforme à l’Annexe H du programme TIC 2.0 en utilisant ExpressRoute avec l’[homologation Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) activée ou une connexion Internet qui chiffre tout le trafic à l’aide de TLS 1.2. Les utilisateurs finaux du D/A sur le réseau D/A peuvent se connecter par le biais du réseau de leur agence et de l’infrastructure TIC via internet. Tout l’accès Internet à distance à Office 365 est bloqué et transite par l’agence. Le D/A peut également se connecter à Office 365 sur une connexion ExpressRoute avec une homologation Microsoft (un type d’homologation publique) activée.  
 
 Pour Azure uniquement, la deuxième option (VPN) et la troisième option (ExpressRoute) peuvent remplir ces exigences quand elles sont utilisées conjointement avec des services qui limitent l’accès à Internet.
 
