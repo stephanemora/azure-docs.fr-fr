@@ -16,7 +16,7 @@ items:
     - name: MySQL Workbench
       href: connect-workbench.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: 1 - Concevoir une base de données
     items:
@@ -72,7 +72,7 @@ items:
     items:
     - name: Réplication de données entrantes
       href: concepts-data-in-replication.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Règles de pare-feu
     items:
@@ -130,6 +130,10 @@ items:
       href: howto-manage-vnet-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-cli.md
+  - name: Redémarrer le serveur
+    items:
+    - name: Portail Azure
+      href: howto-restart-server-portal.md
 - name: Informations de référence
   items:
   - name: API REST
@@ -148,7 +152,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/mariadb/
   - name: Forum MSDN
     href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Demander une fonctionnalité
     href: https://feedback.azure.com/forums/915439-azure-database-for-mariadb
@@ -156,9 +160,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Options de support
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: be43ebf5bf400b671f45f4ab6d8e3a75d85c4714
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 4df6cff8267964899cbeede6f505f6a04e405dd5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190141"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895192"
