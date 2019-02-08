@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 952dd97a06718d0c29f9c6f5abc79da592e6f3ae
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 55cbca97d369bea80ea9caece14754e81b5738a1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117808"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661511"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 Apprenez-en plus sur les performances et l’utilisation de votre page web ou de votre application. Ajoutez [Application Insights](../../azure-monitor/app/app-insights-overview.md) à votre script de page pour obtenir le minutage des chargements de page et des appels AJAX, le nombre d’exceptions du navigateur et d’échecs d’AJAX et leurs détails, ainsi que le nombre d’utilisateurs et de sessions. Toutes ces données peuvent être segmentées par page, par version de système d’exploitation ou de navigateur client, par emplacement géographique et en fonction d’autres aspects. Vous pouvez définir des alertes en cas de dépassement d’un certain nombre d’échecs ou de ralentissement du chargement des pages. Et en insérant des suivis d’appel dans votre code JavaScript, vous pouvez suivre l’utilisation des différentes fonctionnalités de votre application de page web.
@@ -206,7 +206,7 @@ Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la
 > 
 > 
 
-Vous pouvez également utiliser le puissant [langage de requête Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) pour effectuer des recherches dans les vues de pages.
+Vous pouvez également utiliser le puissant [langage de requête Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour) pour effectuer des recherches dans les vues de pages.
 
 ### <a name="page-view-properties"></a>Propriétés d'affichage de la page
 * **Durée d’affichage de la page** 

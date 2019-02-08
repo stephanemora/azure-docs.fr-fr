@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 32679e37062fbf77ce6ab03b6ea708c0d5eeea30
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886235"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816235"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
 
@@ -65,7 +65,7 @@ Quand vous créez un groupe identique dans une zone unique, vous contrôlez la z
 Pour utiliser les zones de disponibilité, votre groupe identique doit être créé dans une [région Azure prise en charge](../availability-zones/az-overview.md#regions-that-support-availability-zones). Vous pouvez créer un groupe identique qui utilise des zones de disponibilité avec l’une des méthodes suivantes :
 
 - [Portail Azure](#use-the-azure-portal)
-- [Interface de ligne de commande Azure](#use-the-azure-cli-20)
+- Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Modèles Microsoft Azure Resource Manager](#use-azure-resource-manager-templates)
 
@@ -81,7 +81,7 @@ Le groupe identique et les ressources prises en charge, notamment l’équilibre
 
 Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans [l’article de prise en main](quick-create-cli.md). Pour utiliser les zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge.
 
-Ajoutez le paramètre `--zones` à la commande [az vmss create](/cli/azure/vmss#az_vmss_create), puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*). L’exemple suivant crée un groupe identique dans une zone unique, nommé *myScaleSet* dans la zone *1* :
+Ajoutez le paramètre `--zones` à la commande [az vmss create](/cli/azure/vmss), puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*). L’exemple suivant crée un groupe identique dans une zone unique, nommé *myScaleSet* dans la zone *1* :
 
 ```azurecli
 az vmss create \

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 20894a74bf0cc3911272385721da74871df95ade
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ea83d061f7160db04c847be66e79da60da78634d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913218"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662905"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Personnaliser des clusters HDInsight Linux à l’aide d’actions de script
 
@@ -40,7 +40,7 @@ Pour plus d’informations sur l’utilisation des autorisations avec un cluster
 
 Si vous n’êtes pas l’administrateur ou le propriétaire de votre abonnement Azure, votre compte doit avoir au minimum un accès Contributeur au groupe de ressources qui contient le cluster HDInsight.
 
-Si vous créez un cluster HDInsight, une personne ayant au minimum un accès Contributeur à l’abonnement Azure doit avoir préalablement inscrit le fournisseur pour HDInsight. L’inscription du fournisseur se produit quand un utilisateur disposant d’un accès Contributeur à l’abonnement crée une ressource pour la première fois sur l’abonnement. Cela peut également se faire sans avoir à créer une ressource si vous [inscrivez un fournisseur à l’aide de REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+Si vous créez un cluster HDInsight, une personne ayant au minimum un accès Contributeur à l’abonnement Azure doit avoir préalablement inscrit le fournisseur pour HDInsight. L’inscription du fournisseur se produit quand un utilisateur disposant d’un accès Collaborateur à l’abonnement crée une ressource pour la première fois sur l’abonnement. Cela peut également se faire sans avoir à créer une ressource si vous [inscrivez un fournisseur à l’aide de REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 Obtenez plus d’informations sur le fonctionnement de la gestion des accès :
 
@@ -141,7 +141,7 @@ Quand vous appliquez un script à un cluster, le cluster passe de l’état **En
 > [!IMPORTANT]  
 > Si vous changez le mot de passe, l’utilisateur ou l’administrateur du cluster après la création de ce dernier, les actions de script exécutées sur ce cluster risquent d’échouer. Si des actions de script persistantes ciblent des nœuds worker, ces scripts risquent d’échouer au moment d’une mise à l’échelle du cluster.
 
-## <a name="example-script-action-scripts"></a>Exemples de scripts d’action de script
+## <a name="example-script-action-scripts"></a>Exemple de script d’action de script
 
 Des scripts d’action de script peuvent être utilisés par les utilitaires suivants :
 
@@ -224,7 +224,7 @@ Obtenez plus d’informations sur le déploiement d’un modèle :
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Utiliser une action de script lors de la création d’un cluster à partir d’Azure PowerShell
 
-Dans cette section, vous allez utiliser l’applet de commande [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) pour appeler des scripts afin de personnaliser un cluster. Avant de commencer, assurez-vous que vous avez installé et configuré Azure PowerShell. Pour plus d’informations sur la configuration d’une station de travail qui exécutera des applets de commande HDInsight PowerShell, consultez [Vue d’ensemble d’Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Dans cette section, vous allez utiliser l’applet de commande [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) pour appeler des scripts afin de personnaliser un cluster. Avant de commencer, assurez-vous que vous avez installé et configuré Azure PowerShell. Pour plus d’informations sur la configuration d’une station de travail qui exécutera des applets de commande HDInsight PowerShell, consultez [Vue d’ensemble d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 Le script suivant montre comment appliquer une action de script quand vous créez un cluster à l’aide de PowerShell :
 
@@ -276,7 +276,7 @@ Accédez au [portail Azure](https://portal.azure.com) :
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Appliquer une action de script à un cluster en cours d’exécution à partir d’Azure PowerShell
 
-Avant de commencer, assurez-vous que vous avez installé et configuré Azure PowerShell. Pour plus d’informations sur la configuration d’une station de travail qui exécutera des applets de commande HDInsight PowerShell, consultez [Vue d’ensemble d’Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Avant de commencer, assurez-vous que vous avez installé et configuré Azure PowerShell. Pour plus d’informations sur la configuration d’une station de travail qui exécutera des applets de commande HDInsight PowerShell, consultez [Vue d’ensemble d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 L’exemple suivant montre comment appliquer une action de script à un cluster en cours d’exécution :
 

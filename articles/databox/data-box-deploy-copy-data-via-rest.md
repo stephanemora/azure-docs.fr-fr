@@ -8,14 +8,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 85c9eeb60027ba44fd5e65d056864aa76a6e720a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 412bf66902f156c6c8720a720973f97d1d7b1d8f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900882"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751614"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutoriel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST  
+# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Didacticiel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST  
 
 Ce tutoriel explique comment se connecter au stockage Blob Azure Data Box par le biais des API REST sur *http* ou *https*. Une fois connecté, les étapes nécessaires pour copier les données dans le stockage Blob Data Box et préparer la Data Box pour l’expédition sont également décrites.
 
@@ -154,7 +154,7 @@ La première étape consiste à créer un conteneur, car les objets blob sont to
 
    ![Création de conteneurs d’objets blob - Menu contextuel](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. Une zone de texte apparaît sous le dossier **Conteneurs d’objets blob**. Entrez le nom de votre conteneur d’objets blob. Pour obtenir des informations sur les règles et restrictions applicables aux noms de conteneurs d’objets blob, consultez [Créer le conteneur et définir les autorisations](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions).
+4. Une zone de texte apparaît sous le dossier **Conteneurs d’objets blob**. Entrez le nom de votre conteneur d’objets blob. Pour obtenir des informations sur les règles et restrictions applicables aux noms de conteneurs d’objets blob, consultez [Créer le conteneur et définir les autorisations](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 5. Appuyez sur **Entrée** pour créer le conteneur d’objets blob, ou sur **ÉCHAP** pour annuler. Une fois le conteneur créé, il apparaît sous le dossier **Conteneurs d’objets blob** correspondant au compte de stockage sélectionné.
 
    ![Conteneur d’objets blob créé](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : utiliser l’API REST pour créer un pipeline Azure Data Factory | Microsoft Docs'
+title: 'Didacticiel : utiliser l’API REST pour créer un pipeline Azure Data Factory | Microsoft Docs'
 description: Dans ce didacticiel, vous utilisez l’API REST pour créer un pipeline Azure Data Factory avec une activité de copie afin de copier des données d’un stockage Blob Azure dans une base de données Azure SQL.
 services: data-factory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b12df3e31b46fa29f5726946be1d7509018fcbf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 92bd80135d2ce0c72537240a12e6c0788443abe8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025842"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700177"
 ---
-# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutoriel : utiliser l’API REST pour créer un pipeline Azure Data Factory afin de copier des données 
+# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Didacticiel : utiliser l’API REST pour créer un pipeline Azure Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
@@ -118,7 +118,7 @@ Créez les fichiers JSON suivants dans le dossier où se trouve le fichier curl.
 
 Pour plus d’informations sur les propriétés JSON, consultez [Service lié Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 
-### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
+### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.json
 > [!IMPORTANT]
 > Remplacez **servername**, **databasename**, **username** et **password** par le nom de votre serveur SQL Azure, le nom de la base de données SQL, le compte d’utilisateur et le mot de passe de ce compte.  
 > 

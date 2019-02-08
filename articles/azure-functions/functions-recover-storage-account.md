@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000017"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732156"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Comment résoudre les messages « functions runtime is unreachable »
 
@@ -71,7 +71,7 @@ Dans l’étape précédente, si vous ne disposiez pas d’une chaîne de connex
 
 ## <a name="storage-account-credentials-invalid"></a>Informations d’identification du compte de stockage invalides
 
-Les chaînes de connexion de compte de stockage ci-dessus doivent être mises à jour si vous régénérez les clés de stockage. [En savoir plus sur la gestion des clés de stockage ici](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+Les chaînes de connexion de compte de stockage ci-dessus doivent être mises à jour si vous régénérez les clés de stockage. [En savoir plus sur la gestion des clés de stockage ici](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
 
 ## <a name="storage-account-inaccessible"></a>Compte de stockage inaccessible
 
