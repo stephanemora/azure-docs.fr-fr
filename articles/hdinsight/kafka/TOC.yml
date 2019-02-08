@@ -17,9 +17,9 @@ items:
     href: apache-kafka-get-started.md
   - name: Créer un cluster Apache Kafka - PowerShell
     href: apache-kafka-quickstart-powershell.md
-  - name: Créer un cluster Apache Kafka - Modèle
+  - name: Créer un cluster Apache kafka - Modèle Resource Manager
     href: apache-kafka-quickstart-resource-manager-template.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: 1 - Utiliser Apache Spark Structured Streaming
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
@@ -116,6 +116,8 @@ items:
       maintainContext: true
     - name: Bring Your Own Key (BYOK)
       href: apache-kafka-byok.md
+    - name: Authentification et chiffrement SSL
+      href: apache-kafka-ssl-encryption-authentication.md
     - name: RBAC Apache Kafka avec Apache Ranger
       href: ../domain-joined/apache-domain-joined-run-kafka.md
       maintainContext: true
@@ -276,9 +278,9 @@ items:
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9e70f019902634c3edaeed274a2687c21605658c
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 11468d52eb07180abc6624772d69a3c0cd122ae7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319594"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814297"
