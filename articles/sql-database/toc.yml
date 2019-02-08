@@ -191,6 +191,8 @@ items:
       href: sql-database-automated-backups.md
     - name: Rétention des sauvegardes à long terme
       href: sql-database-long-term-retention.md
+    - name: Événements de maintenance planifiée
+      href: sql-database-planned-maintenance.md
     - name: Groupes de basculement et géoréplication
       items:
       - name: Géoréplication active
@@ -295,8 +297,6 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: Transactions élastiques
       href: sql-database-elastic-transactions-overview.md
-  - name: Comparaison des fonctionnalités SQL
-    href: sql-database-features.md
   - name: Analyse et réglage
     items:
     - name: Présentation de l’analyse et du réglage
@@ -321,24 +321,28 @@ items:
         href: sql-database-performance.md
       - name: Recommandations relatives aux performances de Database Advisor
         href: sql-database-advisor.md
-  - name: Charger et déplacer des données
-    items:
-    - name: SQL Data Sync
-      href: sql-database-sync-data.md
-    - name: Réplication transactionnelle
-      href: sql-database-managed-instance-transactional-replication.md
   - name: Fonctionnalités de bases de données
     items:
-    - name: Fonctionnalités de bases de données
-      href: sql-database-develop-overview.md
+    - name: Comparaison des fonctionnalités SQL
+      href: sql-database-features.md
     - name: Fonctionnalités multimodèles
       href: sql-database-multi-model-features.md
     - name: En mémoire
       href: sql-database-in-memory.md
+    - name: Réplication transactionnelle
+      href: sql-database-managed-instance-transactional-replication.md
+    - name: SQL Data Sync
+      href: sql-database-sync-data.md
     - name: Tables temporelles
       href: sql-database-temporal-tables.md
     - name: Automatisation de travaux
       href: sql-database-job-automation-overview.md
+    - name: Machine learning
+      items:
+      - name: Vue d’ensemble du machine learning
+        href: sql-database-machine-learning-services-overview.md
+      - name: Différences clés
+        href: sql-database-machine-learning-services-differences.md
 - name: Guides pratiques
   items:
   - name: Vue d’ensemble
@@ -523,8 +527,8 @@ items:
       href: sql-database-manage-automation.md
   - name: Développement d’applications
     items:
-    - name: Connectivité
-      href: sql-database-libraries.md
+    - name: Vue d’ensemble
+      href: sql-database-develop-overview.md
     - name: Utilisation de données JSON
       href: sql-database-json-features.md
     - name: Utiliser Spark Connector
@@ -712,9 +716,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Désinstaller une tâche élastique (déconseillé)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9a04e463a7324b1021594a8fbefc5988ad8471f2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1b32688e6e9ed6b826dd9191c8d58e85b1b2b128
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756731"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813672"

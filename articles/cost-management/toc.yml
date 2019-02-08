@@ -11,7 +11,7 @@ items:
     - name: Démarrer l’analyse des coûts
       href: quick-acm-cost-analysis.md
     expanded: true
-  - name: Didacticiels
+  - name: Tutoriels
     items:
     - name: '1 : Créer et gérer des budgets'
       href: tutorial-acm-create-budgets.md
@@ -23,10 +23,14 @@ items:
     items:
     - name: Meilleures pratiques de Azure Cost Management
       href: cost-mgt-best-practices.md
-  - name: Procédures
+    - name: Comprendre les données Cost Management
+      href: understand-cost-mgt-data.md
+  - name: Guides pratiques
     items:
     - name: Assigner l’accès aux données
       href: assign-access-acm-data.md
+    - name: Utiliser les alertes de coût
+      href: cost-mgt-alerts-monitor-usage-spending.md
   - name: Informations de référence
     items:
     - name: API REST d’Azure Cost Management
@@ -61,7 +65,7 @@ items:
         href: quick-register-ea.md
       - name: Afficher les données de coût - CSP
         href: quick-register-csp.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1- Examiner l’utilisation et les coûts
         href: tutorial-review-usage.md
@@ -77,7 +81,7 @@ items:
       items:
       - name: Compréhension des rapports sur les coûts
         href: understanding-cost-reports.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
       - name: Activer des abonnements et comptes Azure
         href: activate-subs-accounts.md
@@ -109,9 +113,9 @@ items:
         href: cost-mgt-faq.md
       - name: Contacter le support technique Cloudyn
         href: support-request-cost-management.md
-ms.openlocfilehash: 3e37e0d145b50326b8c7f878216ead0bc4a665e3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ae9155548a839db18fc80f40c12e5264643cea9d
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120391"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769013"

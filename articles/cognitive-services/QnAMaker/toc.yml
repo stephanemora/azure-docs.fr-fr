@@ -55,7 +55,7 @@ items:
         href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
       - name: Python
         href: Quickstarts/get-answer-from-knowledge-base-python.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Créer et répondre à partir de la base de connaissances
     displayName: curl, publish, chit-chat, chit chat
@@ -77,7 +77,7 @@ items:
     href: Concepts/confidence-score.md
   - name: Sources de données prises en charge
     href: Concepts/data-sources-supported.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Gérer une base de connaissances
     items:
@@ -85,7 +85,7 @@ items:
       href: Quickstarts/create-publish-knowledge-base.md
     - name: Ajouter un échange à une base de connaissances
       href: How-to/chit-chat-knowledge-base.md
-    - name: Migrer une base de connaissances à partir de la préversion
+    - name: Migrer une base de connaissances
       href: Tutorials/migrate-knowledge-base.md
     - name: Modifier une base de connaissances
       href: How-To/edit-knowledge-base.md
@@ -144,7 +144,7 @@ items:
   - name: Codes de réponse HTTP
     displayName: 200, 2xx, 400, 401, 403, 404
     href: http-response-codes.md
-  - name: Kits de développement logiciel (SDK)
+  - name: Kits SDK
     items:
     - name: C#
       items:
@@ -152,7 +152,7 @@ items:
         href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
     - name: Go
       items:
-      - name: Foundation
+      - name: 'Kit SDK '
         href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker
     - name: Node.js
       items:
@@ -176,7 +176,7 @@ items:
     href: https://aka.ms/qnamaker-pricing
   - name: Prise en charge de la région et de la langue
     href: Overview/language-support.md
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/QnAMaker
   - name: UserVoice
     href: https://aka.ms/qnamaker-uservoice
@@ -184,9 +184,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: 5c62ae1762a9e86a3fb57bda8347bda57df72484
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bf02f89a0a3269552f53d1f17adad3f6003dbbee
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091958"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818564"
