@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a2e835f074ac2f5d1eede9f68e77774938da6af
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 28c0ddbb735de041497b6705759d03c881b7e87e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181739"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494355"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Fédération avec Azure AD Connect
 Azure Active Directory (Azure AD) Connect vous permet de configurer la fédération avec Active Directory Federation Services (AD FS) et Azure AD au niveau local. Avec l’authentification de fédération, vous pouvez autoriser les utilisateurs à se connecter aux services Azure AD avec leurs mots de passe locaux sans avoir à les saisir de nouveau, et ce, alors qu’ils sont sur le réseau d’entreprise. En utilisant l’option de fédération AD FS, vous pouvez déployer un nouveau service AD FS ou spécifier une installation existante dans une batterie de serveurs Windows Server 2012 R2.
