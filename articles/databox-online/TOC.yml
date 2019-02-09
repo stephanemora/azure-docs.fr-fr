@@ -8,7 +8,7 @@ items:
     items:
     - name: Qu’est-ce que Data Box Gateway ?
       href: data-box-gateway-overview.md
-  - name: Didacticiels
+  - name: Tutoriels
     items:
     - name: '1 : Préparer'
       href: data-box-gateway-deploy-prep.md
@@ -44,7 +44,7 @@ items:
       href: data-box-gateway-troubleshoot.md
   - name: Notes de publication
     items:
-    - name: Préversion
+    - name: VERSION PRÉLIMINAIRE
       href: data-box-gateway-release-notes.md
 - name: Data Box Edge
   items:
@@ -52,7 +52,7 @@ items:
     items:
     - name: Qu’est-ce qu’Azure Data Box Edge ?
       href: data-box-edge-overview.md
-  - name: Didacticiels
+  - name: Tutoriels
     items:
     - name: '1 : Préparer'
       href: data-box-edge-deploy-prep.md
@@ -68,6 +68,8 @@ items:
     items:
     - name: Examiner les conditions requises
       href: data-box-edge-system-requirements.md
+    - name: Comprendre les limites
+      href: data-box-edge-limits.md
   - name: Procédures
     items:
     - name: Développer un module C#
@@ -80,9 +82,9 @@ items:
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-ms.openlocfilehash: d34e932f6a51db203bdf28672216838e50a970b4
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 447696a07ca7decc2d07d3752e3e6dfe6b6c688b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390805"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963741"
