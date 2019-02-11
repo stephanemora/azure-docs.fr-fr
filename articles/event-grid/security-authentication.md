@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: ec34b9c5f78b4d0ea59382f616fab88e0e1dedc9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382917"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730932"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -29,7 +29,7 @@ Un Webhook constitue l’un des nombreux moyens de recevoir des événements pro
 
 Comme de nombreux autres services qui prennent en charge les Webhooks, Event Grid vous demande de prouver que vous êtes propriétaire de votre point de terminaison Webhook avant de démarrer la diffusion d'événements vers ce point de terminaison. Cette condition empêche tout utilisateur malveillant d'inonder votre point de terminaison d'événements. Lorsque vous utilisez un des trois services Azure répertoriés ci-dessous, l'infrastructure Azure gère automatiquement cette validation :
 
-* Azure Logic Apps avec [connecteur Event Grid](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Azure Logic Apps avec [connecteur Event Grid](https://docs.microsoft.com/connectors/azureeventgrid/)
 * Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 * Azure Functions avec [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid.md)
 
@@ -50,7 +50,7 @@ Si vous utilisez un autre type de point de terminaison, comme une fonction Azure
 * Le corps de l’événement dispose du même schéma que les autres événements Event Grid.
 * La propriété eventType de l’événement correspond à `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * La propriété de données de l’événement inclut une propriété `validationCode` avec une chaîne générée de façon aléatoire, par exemple « validationCode: acb13… ».
-* Si vous utilisez la version d’API 2018-05-01-preview, les données d’événement incluent également une propriété `validationUrl` avec une URL pour la validation manuelle de l’abonnement.
+* Les données d’événement incluent une propriété `validationUrl` avec une URL pour la validation manuelle de l’abonnement.
 * Le tableau contient uniquement l’événement de validation. Les autres événements sont envoyés dans une requête distincte, une fois que vous avez renvoyé le code de validation.
 * Les kits de développement logiciel DataPlane EventGrid possèdent des classes correspondant aux données d’événement de validation d’abonnement et à la réponse de validation d’abonnement.
 

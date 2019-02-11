@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f4da0f992914037f5c95050324af5762e90a2ca4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015285"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696820"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Créer, changer ou supprimer un préfixe d’adresse IP publique
 
@@ -50,7 +50,7 @@ Les préfixes d’adresse IP publique ont un coût. Pour en savoir plus, consult
    |---|---|---|
    |Abonnement|Oui|Doit exister dans le même [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que la ressource à laquelle vous voulez associer l’adresse IP publique.|
    |Groupe de ressources|Oui|Peut exister dans un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) identique ou différent de celui de la ressource à laquelle vous voulez associer l’adresse IP publique.|
-   |NOM|OUI|Le nom doit être unique au sein du groupe de ressources que vous avez sélectionné.|
+   |Nom|OUI|Le nom doit être unique au sein du groupe de ressources que vous avez sélectionné.|
    |Région|Oui|Il doit exister dans la même [région](https://azure.microsoft.com/regions) que les adresses IP publiques auxquelles vous attribuez des adresses de la plage. Le préfixe est actuellement en préversion dans les régions USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre, Europe Nord, Europe Ouest et Asie Sud-Est.|
    |Taille de préfixe|Oui| Taille du préfixe dont vous avez besoin. La valeur par défaut est une adresse IP A/28 ou 16. 
 
@@ -72,7 +72,7 @@ Une fois que vous avez créé un préfixe, vous devez créer des adresses IP sta
 
    |Paramètre|Requis ?|Détails|
     |---|---|---|
-    |NOM|Oui|Le nom de l’adresse IP publique doit être unique au sein du groupe de ressources sélectionné.|
+    |Nom|Oui|Le nom de l’adresse IP publique doit être unique au sein du groupe de ressources sélectionné.|
    |Délai d’inactivité (minutes)|Non |Durée (en minutes) de maintien d’une connexion TCP ou HTTP ouverte sans utiliser les clients pour envoyer des messages keep-alive. |
    |Étiquette du nom DNS|Non |Elle doit être unique dans la région Azure où vous créez le nom (pour tous les abonnements et tous les clients). Azure inscrit automatiquement le nom et l’adresse IP dans son DNS pour que vous puissiez vous connecter à une ressource avec le nom. Azure ajoute un sous-réseau par défaut de type *emplacement.cloudapp.azure.com* (où emplacement est l’emplacement que vous fournissez) pour créer le nom DNS complet. Pour plus d’informations, consultez [Utiliser Azure DNS avec une adresse IP publique Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
@@ -95,7 +95,7 @@ Une fois que vous avez créé un préfixe, vous devez créer des adresses IP sta
 
 Pour effectuer des tâches sur les préfixes d’adresse IP publique, votre compte doit avoir le rôle de [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un rôle [personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) associé aux actions appropriées listées dans le tableau suivant :
 
-| Action                                                                   | NOM                                                           |
+| Action                                                                   | Nom                                                           |
 | ---------                                                                | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | Lire un préfixe d’adresse IP publique                                |
 | Microsoft.Network/publicIPPrefixes/write                          | Créer ou mettre à jour un préfixe d’adresse IP publique                    |

@@ -2,18 +2,18 @@
 title: Gérer les sauvegardes d’une machine virtuelle déployée via Resource Manager
 description: Découvrez comment gérer et surveiller les sauvegardes d’une machine virtuelle déployée via Resource Manager
 services: backup
-author: trinadhk
-manager: shreeshd
+author: sogup
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk
-ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.author: sogup
+ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635763"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564134"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestion des sauvegardes de machines virtuelles Azure
 
@@ -137,10 +137,12 @@ Pour déclencher une sauvegarde à la demande d’une machine virtuelle :
 ## <a name="stop-protecting-virtual-machines"></a>Arrêt de la protection des machines virtuelles
 Si vous décidez d’arrêter la protection d’une machine virtuelle, vous devrez indiquer si vous souhaitez conserver les points de récupération. Il existe deux façons de suspendre la protection des machines virtuelles :
 
-* arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération, ou
-* arrêter tous les travaux de sauvegarde à venir en conservant les points de récupération 
+* Arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération, ou
+* Arrêter tous les travaux de sauvegarde à venir en conservant les points de récupération
 
 La conservation des points de récupération dans le stockage présente un coût, mais elle a l’avantage de vous permettre de restaurer ultérieurement la machine virtuelle, si vous le souhaitez. Pour plus d’informations sur les coûts de conservation des points de récupération, consultez la [tarification](https://azure.microsoft.com/pricing/details/backup/). Si vous choisissez de supprimer tous les points de récupération, vous ne pourrez pas restaurer la machine virtuelle.
+
+Lorsque vous arrêtez une sauvegarde avec conservation des données, les points de récupération expirent conformément à la stratégie de rétention. Toutefois, la Sauvegarde Azure conserve le dernier point de récupération jusqu’à ce que vous supprimiez explicitement les données de sauvegarde. De même, si vous supprimez une source de données sans effectuer un arrêt de sauvegarde, les nouvelles sauvegardes échoueront et les anciens points de récupération expireront conformément à la stratégie de rétention. Toutefois, le dernier point de récupération sera conservé jusqu’à ce que vous arrêtiez une sauvegarde avec suppression des données.
 
 Pour arrêter la protection d’une machine virtuelle :
 

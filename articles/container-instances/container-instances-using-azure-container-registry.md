@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064642"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727906"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
 
@@ -29,7 +29,7 @@ ms.locfileid: "54064642"
 
 Dans les scénarios de production, l’accès à un registre de conteneur Azure doit être fourni à l’aide de [principaux de service](../container-registry/container-registry-auth-service-principal.md). Les principaux du service vous permettent de fournir un [contrôle d’accès en fonction du rôle](../container-registry/container-registry-roles.md) à vos images de conteneur. Par exemple, vous pouvez configurer un principal de service avec uniquement un accès d’extraction à un registre.
 
-Dans cette section, vous créez un coffre de clés Azure et un principal de service et vous stockez des informations d’identification du principal de service dans le coffre.
+Dans la section suivante, vous créez un coffre de clés Azure et un principal de service et vous stockez des informations d’identification du principal de service dans le coffre. 
 
 ### <a name="create-key-vault"></a>Création d’un coffre de clés
 
@@ -134,9 +134,11 @@ Pour plus d’informations sur le référencement des secrets de Azure Key Vault
 
 ## <a name="deploy-with-azure-portal"></a>Déploiement avec le Portail Azure
 
-Si vous gérez des images de conteneur dans le registre Azure Container Registry, vous pouvez facilement créer un conteneur dans Azure Container Instances via le portail Azure.
+Si vous gérez des images de conteneur dans un registre Azure Container Registry, vous pouvez facilement créer un conteneur dans Azure Container Instances via le portail Azure. Lorsque vous utilisez le portail pour déployer une instance de conteneur à partir d’un registre de conteneurs, vous devez activer le [compte administrateur](../container-registry/container-registry-authentication.md#admin-account) du registre. Le compte d’administrateur est conçu pour permettre à un seul utilisateur d’accéder au registre, principalement à des fins de test. 
 
 1. Dans le portail Azure, accédez à votre registre de conteneurs.
+
+1. Pour confirmer que le compte administrateur est activé, sélectionnez **Touches d’accès**, et, sous **Utilisateur administrateur**, sélectionnez **Activer**.
 
 1. Sélectionnez **Référentiels**, puis le référentiel dont proviendra le déploiement, cliquez avec le bouton droit sur la balise de l’image conteneur que vous souhaitez déployer et sélectionnez **Exécuter l’instance**.
 

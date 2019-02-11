@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 9270c3290bd7be0bbb79d30aff8becc04dcfc603
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/01/2019
+ms.openlocfilehash: 270231b2ad7d94789595cfa4e681cf6c2b0f0541
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903993"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657873"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Réplicas en lecture dans Azure Database pour PostgreSQL
 
@@ -20,7 +20,9 @@ ms.locfileid: "54903993"
 
 La fonctionnalité de réplica en lecture vous permet de répliquer des données d’un serveur Azure Database pour PostgreSQL (maître) sur jusqu’à cinq serveurs en lecture seule (réplicas en lecture) dans la même région Azure. Les réplicas en lecture sont mis à jour de manière asynchrone à l’aide de la technologie de réplication native du moteur MySQL.
 
-Les réplicas sont de nouveaux serveurs qui peuvent être gérés de la même manière que les serveurs autonomes Azure Database pour PostgreSQL. Pour chaque réplica en lecture, vous êtes facturé pour la capacité de calcul approvisionnée dans les vCores et le stockage approvisionné en Go/mois.
+Les réplicas sont de nouveaux serveurs qui peuvent être gérés de la même manière que les serveurs autonomes Azure Database pour PostgreSQL. Pour chaque réplica en lecture, vous êtes facturé pour la capacité de calcul provisionnée dans les vCores et le stockage provisionné en Go/mois.
+
+Visitez la [page de procédure pour apprendre à créer et gérer des réplicas](howto-read-replicas-portal.md).
 
 ## <a name="when-to-use-read-replicas"></a>Quand utiliser des réplicas en lecture
 La fonction de réplica en lecture vise à améliorer les performances et l'échelle des charges de travail nécessitant beaucoup de lecture. Par exemple, les charges de travail de lecture pourraient être isolées sur les réplicas, alors que les charges de travail d’écriture peuvent être dirigées vers le serveur maître.
@@ -56,7 +58,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 et quand vous y êtes invité, entrez le mot de passe du compte d’utilisateur.
 
 ## <a name="monitoring-replication"></a>Surveillance (réplication)
-La métrique **Max Lag across Replicas** (Retard maximum entre réplicas) est disponible dans Azure Monitor. Cette métrique est disponible sur le serveur maître uniquement. La métrique représente le retard entre le master et le réplica le plus en retard. 
+La métrique **Max Lag across Replicas** (Retard maximum entre réplicas) est disponible dans Azure Monitor. Cette métrique est disponible sur le serveur maître uniquement. La métrique représente le décalage en octets entre le master et le réplica le plus éloigné. 
 
 Azure Monitor fournit également une métrique **Retard du réplica**. Cette métrique est disponible pour les réplicas uniquement. 
 
@@ -101,7 +103,7 @@ Vous pouvez [apprendre à arrêter une réplique dans la documentation du guide 
 **azure.replication_support** doit être défini sur REPLICA sur le serveur maître avant de pouvoir créer un réplica. La modification de ce paramètre nécessite un redémarrage du serveur pour prendre effet. Ce paramètre s’applique aux niveaux De base, Usage général et À mémoire optimisée uniquement.
 
 ### <a name="stopped-replicas"></a>Réplicas arrêtés
-Lorsque vous choisissez d’arrêter la réplication entre un maître et un réplica, le réplica redémarre pour appliquer ces modifications. Par la suite, il ne peut pas être à nouveau transformé en réplica.
+Si vous choisissez d’arrêter la réplication entre un maître et un réplica, le réplica redémarre pour appliquer cette modification. Le réplica deviendra ensuite un serveur en lecture-écriture. Par la suite, il ne peut pas être à nouveau transformé en réplica.
 
 ### <a name="replicas-are-new-servers"></a>Les réplicas sont de nouveaux serveurs
 Les réplicas sont créés comme de nouveaux serveurs Azure Database pour PostgreSQL. Les serveurs existants ne peuvent pas être transformés en réplicas.

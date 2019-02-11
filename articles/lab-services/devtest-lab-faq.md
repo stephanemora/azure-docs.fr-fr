@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 370700f8d146dd626e6e13deceb09dcaea34a9f3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 23066339ffcb0b8b3c7885ad24c6c3d136629ab2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983948"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700020"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.
@@ -58,14 +58,14 @@ DevTest Labs est un service gratuit. La création de laboratoires et la configur
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quels sont les différents niveaux de sécurité dans DevTest Labs ?
 L’accès à la sécurité est déterminé par le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/built-in-roles.md). Pour savoir comment l’accès est déterminé, vous devez saisir les différences entre une autorisation, un rôle et une étendue, comme défini par RBAC.
 
-* **Autorisation** : une autorisation est un accès défini pour une action spécifique. Par exemple, une autorisation peut être en lecture seule pour toutes les machines virtuelles.
-* **Rôle** : un rôle est un jeu d’autorisations qui peuvent être regroupées et assignées à un utilisateur. Par exemple, un utilisateur détenteur du rôle propriétaire de l’abonnement a accès à toutes les ressources au sein d’un abonnement.
-* **Étendue** : une étendue est un niveau dans la hiérarchie d’une ressource Azure. Par exemple, une étendue peut être un groupe de ressources, un même laboratoire ou l’ensemble de l’abonnement.
+* **Permission** : Une autorisation est un accès défini pour une action spécifique. Par exemple, une autorisation peut être en lecture seule pour toutes les machines virtuelles.
+* **Rôle** : Un rôle est un jeu d’autorisations qui peuvent être regroupées et attribuées à un utilisateur. Par exemple, un utilisateur détenteur du rôle propriétaire de l’abonnement a accès à toutes les ressources au sein d’un abonnement.
+* **Étendue** : Une étendue est un niveau dans la hiérarchie d’une ressource Azure. Par exemple, une étendue peut être un groupe de ressources, un même laboratoire ou l’ensemble de l’abonnement.
 
 Dans l’étendue de DevTest Labs, il existe deux types de rôles qui définissent des autorisations utilisateur :
 
-* **Propriétaire de laboratoire** : un propriétaire de laboratoire a accès à toutes les ressources du laboratoire. Le propriétaire d’un laboratoire peut modifier les stratégies, lire et écrire sur toutes les machines virtuelles, changer le réseau virtuel et ainsi de suite.
-* **Utilisateur de laboratoire** : un utilisateur de laboratoire peut afficher toutes les ressources de laboratoire, telles que les machines virtuelles, les stratégies et les réseaux virtuels. Toutefois, il ne peut pas modifier les stratégies ou les machines virtuelles créées par d’autres utilisateurs. 
+* **Propriétaire de laboratoire** : Un propriétaire de laboratoire a accès à toutes les ressources du laboratoire. Le propriétaire d’un laboratoire peut modifier les stratégies, lire et écrire sur toutes les machines virtuelles, changer le réseau virtuel et ainsi de suite.
+* **Utilisateur de laboratoire** : Un utilisateur de laboratoire peut afficher toutes les ressources de laboratoire, telles que les machines virtuelles, les stratégies et les réseaux virtuels. Toutefois, il ne peut pas modifier les stratégies ou les machines virtuelles créées par d’autres utilisateurs. 
 
 Vous pouvez également créer des rôles personnalisés dans DevTest Labs. Pour découvrir comment créer des rôles personnalisés dans DevTest Labs, consultez [Accorder des autorisations à des utilisateurs sur des stratégies de laboratoire spécifiques](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -100,7 +100,7 @@ Les billets de blog suivants offrent des conseils et des informations sur l’ut
 * [Deploy a new VM in an existing DevTest Labs lab from Azure DevOps Services](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS) (Déploiement d’une nouvelle machine virtuelle dans un labo DevTest Labs à partir d’Azure DevOps Services)
 * [Using Azure DevOps Services release management for continuous deployments to DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs) (Utilisation de la gestion des mises en production Azure DevOps Services pour des déploiements en continu vers DevTest Labs)
 
-Pour d’autres chaînes d’outils d’intégration continue (CI)/livraison continue (CD), vous pouvez réaliser les mêmes scénarios en déployant des [modèles Azure Resource Manager](https://aka.ms/dtlquickstarttemplate) à l’aide des [applets de commande Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) et des [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). De plus, vous pouvez utiliser les [API REST pour DevTest Labs](http://aka.ms/dtlrestapis) pour une intégration à votre chaîne d’outils.  
+Pour d’autres chaînes d’outils d’intégration continue (CI)/livraison continue (CD), vous pouvez réaliser les mêmes scénarios en déployant des [modèles Azure Resource Manager](https://aka.ms/dtlquickstarttemplate) à l’aide des [applets de commande Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) et des [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). De plus, vous pouvez utiliser les [API REST pour DevTest Labs](https://aka.ms/dtlrestapis) pour une intégration à votre chaîne d’outils.  
 
 
 **Machines virtuelles**
@@ -141,7 +141,7 @@ Pour automatiser le chargement des fichiers de VHD afin de créer des images per
 
 Pour trouver le compte de stockage de destination associé à votre laboratoire :
 
-1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Dans le menu de gauche, sélectionnez **Groupes de ressources**.
 3. Recherchez et sélectionnez le groupe de ressources associé à votre laboratoire.
 4. Sous **Vue d’ensemble**, sélectionnez l’un des comptes de stockage.
@@ -217,7 +217,7 @@ Un compte Microsoft est un compte que vous utilisez pour la plupart des opérati
 >
 
 
-**Résolution des problèmes**
+**Dépannage**
 ## <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>Mon artefact a échoué lors de la création d’une machine virtuelle. Comment puis-je résoudre ce problème ?
 Pour savoir comment récupérer les journaux relatifs à l’échec d’un artefact, consultez [Guide pratique pour diagnostiquer les échecs d’artefacts dans DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md).
 
@@ -227,7 +227,7 @@ Il se peut que votre nom de réseau virtuel contienne des points. Dans ce cas, e
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Pourquoi l’erreur signalant que la ressource parente est introuvable s’affiche-t-elle quand j’approvisionne une machine virtuelle à partir de PowerShell ?
 Quand une ressource est parent d’une autre ressource, la ressource parente doit exister pour que vous puissiez créer la ressource enfant. Si la ressource parente n’existe pas, vous voyez un message **ParentResourceNotFound**. Si vous ne spécifiez pas de dépendance sur la ressource parente, la ressource enfant peut être déployée avant cette dernière.
 
-Les machines virtuelles sont des ressources enfants se trouvant dans un laboratoire d’un groupe de ressources. Quand vous utilisez des modèles Resource Manager pour déployer des machines virtuelles à l’aide de PowerShell, le nom du groupe de ressources fourni dans le script PowerShell doit être le nom du groupe de ressources du laboratoire. Pour plus d’informations, consultez la rubrique [Résolution des erreurs courantes dans des déploiements Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Les machines virtuelles sont des ressources enfants se trouvant dans un laboratoire d’un groupe de ressources. Quand vous utilisez des modèles Resource Manager pour déployer des machines virtuelles à l’aide de PowerShell, le nom du groupe de ressources fourni dans le script PowerShell doit être le nom du groupe de ressources du laboratoire. Pour plus d’informations, consultez la rubrique [Résolution des erreurs courantes dans des déploiements Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Où puis-je trouver plus d’informations d’erreur si le déploiement d’une machine virtuelle échoue ?
 Les erreurs de déploiement de machine virtuelle sont capturées dans des journaux d’activité. Vous pouvez trouver les journaux d’activité des machines virtuelles du laboratoire sous **Journaux d’audit** ou **Diagnostics de machine virtuelle** dans le menu de la ressource dans le panneau Machine virtuelle du laboratoire (le panneau s’affiche une fois que vous sélectionnez la machine virtuelle dans la liste **Mes machines virtuelles**).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967927"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746725"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Comment autoriser des comptes de développeurs à l'aide de OAuth 2.0 dans Gestion des API Azure
 
@@ -51,9 +51,9 @@ Ce guide explique comment configurer votre instance de service Gestion des API p
 
     ![Nouveau serveur OAuth 2.0](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. La section suivante du formulaire inclut les paramètres **Types d’accès accordé aux codes d’autorisation**, **URL de point de terminaison d’autorisation** et **Méthode de demande d’autorisation**.
+4. La section suivante du formulaire inclut les paramètres **Types d’accès accordé aux autorisations**, **URL de point de terminaison d’autorisation** et **Méthode de demande d’autorisation**.
 
-    Spécifiez le paramètre **Types d'accès accordé aux codes d'autorisation** en sélectionnant les types souhaités. **code d'autorisation** est spécifié par défaut.
+    Spécifiez le paramètre **Types d’accès accordé aux autorisations** en sélectionnant les types souhaités. **code d'autorisation** est spécifié par défaut.
 
     Entrez l' **URL de point de terminaison d'autorisation**. Pour Azure Active Directory, cette URL est similaire à l’URL suivante, où `<client_id>` est remplacé par l’ID client qui identifie votre application sur le serveur OAuth 2.0.
 
@@ -75,7 +75,7 @@ Ce guide explique comment configurer votre instance de service Gestion des API p
 
     ![Nouveau serveur OAuth 2.0](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Si le paramètre **Types d’accès accordés aux codes d’autorisation** est défini sur **Mot de passe du propriétaire des ressources**, la section **Informations d’identification du mot de passe du propriétaire des ressources** permet de spécifier ces informations d’identification ; sinon, vous pouvez la laisser vide.
+    Si le paramètre **Types d’accès accordés aux autorisations** est défini sur **Mot de passe du propriétaire des ressources**, la section **Informations d’identification du mot de passe du propriétaire des ressources** permet de spécifier ces informations d’identification ; sinon, vous pouvez la laisser vide.
 
     Une fois le formulaire complété, cliquez sur **Créer** pour enregistrer la configuration du serveur d’autorisation OAuth 2.0 de Gestion des API. Après l'enregistrement de la configuration du serveur, vous pouvez configurer les API pour utiliser cette configuration, tel qu'expliqué dans la section suivante.
 

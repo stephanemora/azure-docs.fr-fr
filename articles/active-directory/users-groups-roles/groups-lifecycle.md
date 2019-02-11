@@ -1,5 +1,5 @@
 ---
-title: Expiration des groupes Office 365 dans Azure Active Directory | Microsoft Docs
+title: Définir l’expiration des groupes Office 365 - Azure Active Directory | Microsoft Docs
 description: Comment configurer l’expiration des groupes Office 365 dans Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 070e86f2d5d37823f1596cf04735b199289f3d75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 12b23b8a062859da111a067b2655425a611b6c20
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166167"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658247"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Office 365
 
@@ -53,15 +53,16 @@ Pour plus d’informations sur les autorisations nécessaires pour restaurer un 
   
   ![Panneau Expiration](./media/groups-lifecycle/expiration-settings.png)
 
-4. Dans le panneau **Expiration**, vous pouvez :
+3. Dans le panneau **Expiration**, vous pouvez :
 
   * Définir la durée de vie du groupe en jours. Vous pouvez sélectionner l’une des valeurs prédéfinies ou une valeur personnalisée (31 jours ou plus). 
   * Spécifier une adresse de messagerie à laquelle les notifications de renouvellement et d’expiration doivent être envoyées lorsqu’un groupe n’a pas de propriétaire. 
   * Sélectionnez les groupes Office 365 qui expirent. Vous pouvez activer l’expiration pour  **tous** les groupes Office 365, vous pouvez choisir d’activer les groupes Office 365 **sélectionnés** uniquement, ou vous pouvez sélectionner  **Aucun**  pour désactiver l’expiration de tous les groupes.
   * Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
+## <a name="email-notifications"></a>Notifications par e-mail
 
-Les notifications par e-mail comme celle-ci sont envoyées aux propriétaires de groupes Office 365 30 jours, 15 jours et 1 jour avant l’expiration du groupe.
+Les notifications par e-mail comme celle-ci sont envoyées aux propriétaires de groupes Office 365 30 jours, 15 jours et 1 jour avant l’expiration du groupe. La langue de l’e-mail est fonction de la langue préférée du propriétaire du groupe ou la langue du locataire. Si le propriétaire du groupe a défini une langue préférée ou si plusieurs propriétaires ont la même langue préférée, alors cette langue est utilisée. Dans tous les autres cas, la langue du locataire est utilisée.
 
 ![Notification par e-mail de l’expiration](./media/groups-lifecycle/expiration-notification.png)
 

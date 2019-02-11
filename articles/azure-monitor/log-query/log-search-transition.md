@@ -12,24 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: bwren
-ms.openlocfilehash: 89811e95ec24eb354020dd6384f6fdab6cee8c8f
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: dc3a754bd1a9f689f4b24b9ee2c1e4cbc0611684
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392570"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751359"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Passer de la recherche dans les journaux Log Analytics aux journaux Azure Monitor
 La recherche dans les journaux Log Analytics vient d’être remplacée par une nouvelle expérience d’analyse des journaux Azure Monitor. Actuellement, la page de recherche dans les journaux est toujours accessible par le biais de l’élément de menu **Journaux (classiques)** de la page **Espaces de travail Log Analytics** dans le portail Azure, mais elle sera supprimée le 15 février 2019. Cet article décrit les différences entre les deux expériences pour vous aider à remplacer la recherche dans les journaux. 
-
-## <a name="extract-custom-fields"></a>Extraire des champs personnalisés 
-Avec la recherche dans les journaux, vous extrayez des [champs personnalisés](../platform/custom-fields.md) à partir de la vue Liste, où le menu d’un champ inclut l’action _Extraire des champs de Table_.
-
-![Extraction de champs avec la recherche dans les journaux](media/log-search-transition/extract-fields-log-search.png)
-
-Avec les journaux Azure Monitor, vous extrayez des champs personnalisés à partir de la vue Table. Développez un enregistrement en cliquant sur la flèche à sa gauche, puis cliquez sur le bouton de sélection pour accéder à l’action _Extraire des champs_.
-
-![Extraction de champs avec les journaux](media/log-search-transition/extract-fields-logs.png)
 
 ## <a name="filter-results-of-a-query"></a>Filtrer les résultats d’une requête
 Avec la recherche dans les journaux, une liste de filtres apparaît à mesure que les résultats de la recherche sont fournis. Sélectionnez un filtre et cliquez sur **Appliquer** pour exécuter la requête avec le filtre sélectionné.
@@ -40,19 +31,37 @@ Dans les journaux Azure Monitor, sélectionnez *Filtre (préversion)* pour affic
 
 ![Filtre avec les journaux](media/log-search-transition/filter-logs.png)
 
+## <a name="extract-custom-fields"></a>Extraire des champs personnalisés 
+Avec la recherche dans les journaux, vous extrayez des [champs personnalisés](../platform/custom-fields.md) à partir de la vue Liste, où le menu d’un champ inclut l’action _Extraire des champs de Table_.
+
+![Extraction de champs avec la recherche dans les journaux](media/log-search-transition/extract-fields-log-search.png)
+
+Avec les journaux Azure Monitor, vous extrayez des champs personnalisés à partir de la vue Table. Développez un enregistrement en cliquant sur la flèche à sa gauche, puis cliquez sur le bouton de sélection pour accéder à l’action _Extraire des champs_.
+
+![Extraction de champs avec les journaux](media/log-search-transition/extract-fields-logs.png)
+
 ## <a name="functions-and-computer-groups"></a>Fonctions et groupes d’ordinateurs
 Pour enregistrer une recherche avec la recherche dans les journaux, sélectionnez **Recherches enregistrées** et **Ajouter** pour indiquer un nom, une catégorie et le texte de la requête. Créez un [groupe d’ordinateurs](../platform/computer-groups.md) en ajoutant un alias de fonction.
 
 ![Enregistrer la recherche dans les journaux](media/log-search-transition/save-search-log-search.png)
 
-Pour enregistrer la requête actuelle dans les journaux Azure Monitor, sélectionnez **Enregistrer**. Remplacez **Enregistrer sous** par _Fonction_ et indiquez un **alias de fonction** pour créer une [fonction](functions.md).
+Pour enregistrer la requête actuelle dans les journaux Azure Monitor, sélectionnez **Enregistrer**. Remplacez **Enregistrer sous** par _Fonction_ et indiquez un **alias de fonction** pour créer une [fonction](functions.md). Sélectionnez _Enregistrer cette requête comme groupe d’ordinateurs_ pour utiliser l’alias de fonction d’un [groupe d’ordinateurs](../platform/computer-groups.md).
 
 ![Enregistrer une requête de journal](media/log-search-transition/save-query-logs.png)
 
-## <a name="saved-searches"></a>Recherches enregistrées
-Avec la recherche dans les journaux, vos recherches enregistrées sont disponibles par le biais de l’élément de barre d’action **Recherches enregistrées**. Dans les journaux Azure Monitor, accédez aux requêtes enregistrées à partir de l’**Explorateur de requêtes**.
+## <a name="saved-queries"></a>Requêtes enregistrées
+Avec la recherche dans les journaux, vos requêtes enregistrées sont disponibles par le biais de l’élément de barre d’action **Recherches enregistrées**. Dans les journaux Azure Monitor, accédez aux requêtes enregistrées à partir de l’[Explorateur de requêtes](../log-query/get-started-portal.md#save-queries).
 
 ![Explorateur de requêtes](media/log-search-transition/query-explorer.png)
+
+## <a name="drill-down-on-summarized-rows"></a>Examen approfondi de lignes résumées
+Dans Recherche dans les journaux, vous pouvez cliquer sur une ligne d’une requête résumée pour lancer une autre requête qui dresse la liste des enregistrements détaillés dans cette ligne.
+
+![Examen approfondi dans Recherche dans les journaux](media/log-search-transition/drilldown-search.png)
+
+Dans les journaux Azure Monitor, vous devez modifier la requête pour retourner ces enregistrements. Développez l’une des lignes des résultats et cliquez sur **+** en regard de la valeur pour l’ajouter à la requête. Ensuite, mettez la commande **summarize** en commentaire, puis relancez la requête.
+
+![Examen approfondi des journaux Azure Monitor](media/log-search-transition/drilldown-logs.png)
 
 ## <a name="take-action"></a>Effectuer une action
 Avec la recherche dans les journaux, vous pouvez [démarrer un runbook](take-action.md) à partir d’un résultat de recherche en sélectionnant **Effectuer une action**.

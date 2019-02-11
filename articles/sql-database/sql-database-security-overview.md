@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462016"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728400"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -35,27 +35,27 @@ Les règles de pare-feu IP octroient l’accès à la base de données en foncti
 
 ### <a name="virtual-network-firewall-rules"></a>Règles de pare-feu de réseau virtuel
 
-Les [points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) étendent la connectivité de votre réseau virtuel sur la dorsale principale d'Azure et permettent à Azure SQL Database d'identifier le sous-réseau de réseau virtuel d'où provient le trafic. Pour permettre au trafic d'atteindre Azure SQL Database, utilisez les [balises de service](../virtual-network/security-overview.md) SQL et autorisez le trafic sortant via les groupes de sécurité réseau.
+Les [points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) étendent la connectivité de votre réseau virtuel sur la dorsale principale d’Azure et permettent à Azure SQL Database d’identifier le sous-réseau de réseau virtuel d’où provient le trafic. Pour permettre au trafic d'atteindre Azure SQL Database, utilisez les [balises de service](../virtual-network/security-overview.md) SQL et autorisez le trafic sortant via les groupes de sécurité réseau.
 
-Les [règles de réseau virtuel](sql-database-vnet-service-endpoint-rule-overview.md) permettent à Azure SQL Database de n'accepter que les communications provenant de sous-réseaux sélectionnés à l’intérieur d’un réseau virtuel.
+Les [règles de réseau virtuel](sql-database-vnet-service-endpoint-rule-overview.md) permettent à Azure SQL Database de n’accepter que les communications provenant de sous-réseaux sélectionnés à l’intérieur d’un réseau virtuel.
 
 > [!NOTE]
-> Le contrôle d’accès avec des règles de pare-feu ne s’applique *pas* à **Azure SQL Database Managed Instance**. Pour plus d'informations sur la configuration de la mise en réseau requise, consultez [Connexion à une instance Managed Instance](sql-database-managed-instance-connect-app.md).
+> Le contrôle d’accès avec des règles de pare-feu ne s’applique *pas* à une **instance gérée**. Pour plus d’informations sur la configuration de la mise en réseau requise, consultez [Connexion à une instance gérée](sql-database-managed-instance-connect-app.md).
 
 ## <a name="access-management"></a>gestion de l’accès
 
 > [!IMPORTANT]
 > La gestion des bases de données et des serveurs de bases de données dans Azure est contrôlée par les attributions de rôle de votre compte d’utilisateur du portail. Pour en savoir plus à ce sujet, consultez [Contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 
 L’authentification est le processus consistant à prouver que l’utilisateur est bien celui qu’il prétend être. Azure SQL Database prend en charge deux types d’authentification :
 
-- **Authentification SQL** :
+- **Authentification SQL** :
 
     L’authentification SQL Database fait référence à l’authentification d’un utilisateur qui se connecte à [Azure SQL Database](sql-database-technical-overview.md) à l'aide d'un nom d'utilisateur et d'un mot de passe. Lors de la création d'un serveur de base de données pour la base de données, une connexion « Administrateur de serveur » avec nom d’utilisateur et mot de passe doit être spécifiée. À l’aide de ces informations d’identification, un « administrateur de serveur » peut s'authentifier auprès de n’importe quelle base de données sur ce serveur en tant que propriétaire de la base de données. Ensuite, des connexions SQL et utilisateurs supplémentaires peuvent être créés par l'administrateur de serveur, ce qui permet aux utilisateurs de se connecter à l'aide d'un nom d'utilisateur et d'un mot de passe.
 
-- **Authentification Azure Active Directory** :
+- **Authentification Azure Active Directory** :
 
     L’authentification Azure Active Directory est un mécanisme servant à se connecter aux services Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure Active Directory (Azure AD). L’authentification Azure AD permet aux administrateurs de gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. Cela permet de réduire le stockage des mots de passe et d'activer des stratégies de rotation centralisée des mots de passe.
 
@@ -64,7 +64,7 @@ L’authentification est le processus consistant à prouver que l’utilisateur 
     Les autres options d’authentification Azure AD disponibles correspondent aux connexions d'[authentification universelle Active Directory pour SQL Server Management Studio](sql-database-ssms-mfa-authentication.md), avec [authentification multifacteur](../active-directory/authentication/concept-mfa-howitworks.md) et [accès conditionnel](sql-database-conditional-access.md).
 
 > [!IMPORTANT]
-> La gestion des bases de données et des serveurs dans Azure est contrôlée par les attributions de rôle de votre compte d’utilisateur du portail. Pour en savoir plus à ce sujet, consultez [Contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md). Le contrôle d’accès avec des règles de pare-feu ne s’applique *pas* à **Azure SQL Database Managed Instance**. Consultez l’article suivant sur la [connexion à une instance Managed Instance](sql-database-managed-instance-connect-app.md) pour en savoir plus sur la configuration réseau nécessaire.
+> La gestion des bases de données et des serveurs dans Azure est contrôlée par les attributions de rôle de votre compte d’utilisateur du portail. Pour en savoir plus à ce sujet, consultez [Contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md). Le contrôle d’accès avec des règles de pare-feu ne s’applique *pas* à une **instance gérée**. Consultez l’article suivant sur la [connexion à une instance gérée](sql-database-managed-instance-connect-app.md) pour en savoir plus sur la configuration réseau nécessaire.
 
 L'autorisation fait référence aux autorisations accordées à un utilisateur au sein d’une base de données Azure SQL Database, et détermine ce que l’utilisateur est autorisé à faire. Les autorisations sont contrôlées en ajoutant des comptes d’utilisateur à des [rôles de base de données](/sql/relational-databases/security/authentication-access/database-level-roles), qui définissent des autorisations au niveau de la base de données ou l’octroi à l’utilisateur de certaines [autorisations au niveau des objets](/sql/relational-databases/security/permissions-database-engine). Pour plus d’informations, consultez [Connexions et utilisateurs](sql-database-manage-logins.md).
 
@@ -86,11 +86,11 @@ SQL Database sécurise les données client en fournissant des fonctionnalités d
 
 ### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>Audit SQL dans Log Analytics et Event Hubs
 
-L’audit SQL Database suit les activités de base de données et permet d'assurer la conformité avec les normes de sécurité en enregistrant les événements de base de données dans un journal d’audit d'un compte de stockage Azure client. L’audit permet aux utilisateurs de surveiller les activités de base de données en cours, d’analyser et d’examiner l’historique des activités pour identifier les menaces potentielles ou les violations de sécurité et abus présumés. Pour plus d'informations, consultez [Prise en main de l’audit SQL Database](sql-database-auditing.md).  
+L’audit SQL Database suit les activités de base de données et permet d’assurer la conformité avec les normes de sécurité en enregistrant les événements de base de données dans un journal d’audit d’un compte de stockage Azure client. L’audit permet aux utilisateurs de surveiller les activités de base de données en cours, d’analyser et d’examiner l’historique des activités pour identifier les menaces potentielles ou les violations de sécurité et abus présumés. Pour plus d'informations, consultez [Prise en main de l’audit SQL Database](sql-database-auditing.md).  
 
-### <a name="sql-threat-detection"></a>Détection des menaces SQL
+### <a name="threat-detection"></a>Détection de menaces
 
-La détection des menaces améliore l'audit en analysant les journaux d'audit afin d'y détecter d'éventuels comportements inhabituels ou tentatives d'accès ou d'exploitation potentiellement dangereuses. Des alertes sont créées pour les activités suspectes ou schémas d'accès anormaux comme les attaques par injection de code SQL, l'infiltration potentielle de données et les attaques par recherche exhaustive de mot de passe. Les alertes de détection des menaces s'affichent dans [Azure Security Center](https://azure.microsoft.com/services/security-center/), où des détails relatifs aux activités suspectes sont fournies et des suggestions d'examen approfondis formulées, de même que des actions visant à atténuer les menaces. La fonctionnalité Threat Detection coûte 15 USD/serveur/mois. Elle est gratuite pendant les 60 premiers jours. Pour en savoir plus, consultez [Prise en main de Threat Detection pour la base de données SQL](sql-database-threat-detection.md).
+La détection des menaces améliore l’audit en analysant les journaux d’audit afin d’y détecter d’éventuels comportements inhabituels ou tentatives d’accès ou d’exploitation potentiellement dangereuses. Des alertes sont créées pour les activités suspectes ou schémas d'accès anormaux comme les attaques par injection de code SQL, l'infiltration potentielle de données et les attaques par recherche exhaustive de mot de passe. Les alertes de détection des menaces s’affichent dans [Azure Security Center](https://azure.microsoft.com/services/security-center/), où des détails relatifs aux activités suspectes sont fournies et des suggestions d’examen approfondis formulées, de même que des actions visant à atténuer les menaces. La fonctionnalité Threat Detection coûte 15 USD/serveur/mois. Elle est gratuite pendant les 60 premiers jours. Pour en savoir plus, consultez [Prise en main de Threat Detection pour la base de données SQL](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -137,9 +137,9 @@ Le [Masquage des données statiques](/sql/relational-databases/security/static-d
 
 ## <a name="security-management"></a>Gestion de la sécurité
 
-### <a name="sql-vulnerability-assessment"></a>Évaluation des vulnérabilités SQL
+### <a name="vulnerability-assessment"></a>Évaluation des vulnérabilités
 
-[L’évaluation des vulnérabilités SQL](sql-vulnerability-assessment.md) est un service simple à configurer, qui vous permet de découvrir, suivre et vous aide à corriger des vulnérabilités de base de données potentielles, avec pour objectif d'améliorer de manière proactive la sécurité globale des bases de données. L'évaluation des vulnérabilités (VA) fait partie de l’offre SQL Advanced Data Security (ADS), qui est un package unifié de fonctionnalités de sécurité SQL avancées. L’évaluation des vulnérabilités peut être accessible et gérée via le portail SQL ADS central.
+[L’évaluation des vulnérabilités ](sql-vulnerability-assessment.md) est un service simple à configurer, qui vous permet de découvrir, suivre et vous aide à corriger des vulnérabilités de base de données potentielles, avec pour objectif d’améliorer de manière proactive la sécurité globale des bases de données. L’évaluation des vulnérabilités (VA) fait partie de l’offre Advanced Data Security (ADS), qui est un package unifié de fonctionnalités de sécurité SQL avancées. L’évaluation des vulnérabilités peut être accessible et gérée via le portail SQL Advanced Data Security central.
 
 ### <a name="data-discovery--classification"></a>Découverte et classification des données
 
@@ -149,7 +149,7 @@ Découverte et classification des données (actuellement en préversion) offre d
 - Contrôler l’accès et renforcer la sécurité des bases de données contenant des données sensibles.
 - Aider à répondre aux normes de confidentialité des données et aux exigences de conformité aux normes.
 
-Pour plus d’informations, consultez [Bien démarrer avec Découverte et classification des données SQL Database](sql-database-data-discovery-and-classification.md).
+Pour plus d’informations, consultez [Bien démarrer avec Découverte et classification des données](sql-database-data-discovery-and-classification.md).
 
 ### <a name="compliance"></a>Conformité
 

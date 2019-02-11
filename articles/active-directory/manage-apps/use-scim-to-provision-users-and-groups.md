@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 140391b02dab8ce6b47d5350d6d40a9673b29e11
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161764"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732581"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications
 
@@ -120,7 +120,7 @@ Pour faciliter ce processus, des [exemples de code](https://github.com/Azure/Azu
 ### <a name="getting-started"></a>Mise en route
 Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut accepter des demandes de configuration d’Azure AD consiste à générer et déployer l’exemple de code qui génère les utilisateurs configurés dans un fichier de valeurs séparées par des virgules (CSV).
 
-**Pour créer un exemple de point de terminaison SCIM :**
+#### <a name="to-create-a-sample-scim-endpoint"></a>Pour créer un exemple de point de terminaison SCIM
 
 1. Télécharger le package d’exemples de code à l’emplacement [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Décompressez le package et placez-le sur votre machine Windows à un emplacement tel que C:\AzureAD-BYOA-Provisioning-Samples\.
@@ -142,7 +142,7 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
 8. Dans Windows, sous **Paramètres Windows > Paramètres Internet & réseau**, sélectionnez **Pare-feu Windows > Paramètres avancés**, et créez une **règle de trafic entrant** qui autorise l’accès entrant au port 9000.
 9. Si l’ordinateur Windows est placé derrière un routeur, ce dernier doit être configuré pour exécuter une traduction NAT entre son port 9000 présenté à Internet et le port 9000 sur l’ordinateur Windows. Cette configuration est obligatoire si l’on veut qu’Azure AD puisse accéder à ce point de terminaison dans le cloud.
 
-**Pour enregistrer le point de terminaison SCIM exemple dans Azure AD :**
+#### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Pour enregistrer le point de terminaison SCIM exemple dans Azure AD
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 2. Accédez à **Azure Active Directory > Applications d’entreprise**, puis sélectionnez **Nouvelle application > Toutes > Application ne figurant pas dans la galerie**.
