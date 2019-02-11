@@ -5,7 +5,7 @@ items:
   items:
   - name: À propos d’Azure Migrate
     href: migrate-overview.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Découvrir et évaluer des machines virtuelles VMware
     href: tutorial-assessment-vmware.md
@@ -19,7 +19,7 @@ items:
     href: concepts-assessment-calculation.md
   - name: À propos de la visualisation de dépendance
     href: concepts-dependency-visualization.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Bonnes pratiques en matière de migration
     items:
@@ -71,6 +71,8 @@ items:
     href: how-to-modify-assessment.md
   - name: Migrer des machines après évaluation
     href: how-to-get-migration-tool.md
+  - name: Automatiser la migration d’un grand nombre de machines virtuelles
+    href: how-to-migrate-at-scale.md
   - name: Résoudre les problèmes d’Azure Migrate
     href: troubleshooting-general.md
 - name: Ressources
@@ -93,9 +95,9 @@ items:
     href: https://azure.microsoft.com/migrate
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: d61f4c8d27e9b70d035f8e54051402a24b795555
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: ae2719e97bd23496ab861457549a845713001162
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200377"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893661"

@@ -13,7 +13,7 @@ items:
     href: stream-analytics-quick-create-powershell.md
   - name: Créer un travail - Visual Studio
     href: stream-analytics-quick-create-vs.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: 1 - Créer/gérer un travail
     href: stream-analytics-manage-job.md
@@ -47,6 +47,8 @@ items:
       href: stream-analytics-sql-output-perf.md
     - name: Modèles de chemin d’accès personnalisé BLOB
       href: stream-analytics-custom-path-patterns-blob-storage-output.md
+  - name: États d’un travail
+    href: job-states.md
   - name: Fonctions Windows
     href: stream-analytics-window-functions.md
   - name: Fonctions géospatiales
@@ -421,17 +423,17 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=stream-analytics
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Études de cas clients
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Livre blanc - Traitement d’événements en temps réel
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 63ca98d968397f7626341e9cfdece664bdde971e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d2038b8a663db50f4b2341ae3b2c39b499bb00c2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695302"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882344"

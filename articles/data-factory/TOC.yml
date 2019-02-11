@@ -26,7 +26,7 @@ items:
   - name: Créer une fabrique de données - Modèle Resource Manager
     href: quickstart-create-data-factory-resource-manager-template.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Copier les données dans le Cloud
     items:
@@ -123,7 +123,7 @@ items:
     href: pricing-concepts.md
   - name: Règles d’affectation des noms
     href: naming-rules.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Auteur
     items:
@@ -304,6 +304,8 @@ items:
     items:
     - name: Copier des données à l’aide de l’activité de copie
       href: copy-activity-overview.md
+    - name: Supprimer des fichiers à l’aide de l’activité de suppression
+      href: delete-activity.md
     - name: Outil Copier des données
       href: copy-data-tool.md
     - name: Charger Data Lake Storage Gen2
@@ -458,8 +460,22 @@ items:
       href: how-to-create-schedule-trigger.md
     - name: Créer un déclencheur de fenêtre bascule
       href: how-to-create-tumbling-window-trigger.md
+    - name: Créer une dépendance de déclencheur de fenêtre bascule
+      href: tumbling-window-trigger-dependency.md
     - name: Créer un déclencheur basé sur des événements
       href: how-to-create-event-trigger.md
+  - name: Modèles
+    items:
+    - name: Présentation des modèles
+      href: solution-templates-introduction.md
+    - name: Copie de fichiers à partir de plusieurs conteneurs
+      href: solution-template-copy-files-multiple-containers.md
+    - name: Copie en bloc avec une table de contrôles
+      href: solution-template-bulk-copy-with-control-table.md
+    - name: Copie delta avec une table de contrôles
+      href: solution-template-delta-copy-with-control-table.md
+    - name: Transformer des données avec Databricks
+      href: solution-template-databricks-notebook.md
 - name: Informations de référence
   items:
   - name: .NET
@@ -490,9 +506,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Options de support
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: fd664db6e5f4bfbf0a86d9984559a1e5eabf262d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c73a736dadee91f344da32fb5569d5809a382f1b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567245"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960239"

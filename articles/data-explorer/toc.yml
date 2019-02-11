@@ -43,6 +43,8 @@ items:
       href: power-bi-sql-query.md
 - name: Tutoriels
   items:
+  - name: Ingérer les données sans utiliser de code
+    href: ingest-data-no-code.md
   - name: Visualiser des données dans Power BI
     href: visualize-power-bi.md
 - name: Concepts
@@ -126,9 +128,9 @@ items:
     href: http://aka.ms/adecostestimator
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: fac029da2b1adc8295f89f1cf730079659554142
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: bb323692e7f21d1cbdffb8b70ea2e9c4165678e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818547"
+ms.locfileid: "55863718"

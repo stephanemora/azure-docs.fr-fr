@@ -5,7 +5,7 @@ items:
   items:
   - name: À propos de la passerelle VPN
     href: vpn-gateway-about-vpngateways.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Créer et gérer une passerelle VPN
     href: vpn-gateway-tutorial-create-gateway-powershell.md
@@ -45,7 +45,7 @@ items:
       href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
     - name: Analyse du plan de données
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Configurer des connexions de site à site
     items:
@@ -181,6 +181,8 @@ items:
       href: vpn-gateway-3rdparty-device-config-overview.md
     - name: 'Exemple : Appareil Cisco ASA (IKEv2/pas de BGP)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+  - name: Passer à un certificat de passerelle d’autorité de certification public pour P2S
+    href: vpn-gateway-point-to-site-gateway-public-ca.md
   - name: Résolution des problèmes
     href: vpn-gateway-troubleshoot.md
     items:
@@ -250,11 +252,11 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Contrat SLA
     href: https://azure.microsoft.com/support/legal/sla
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway
-ms.openlocfilehash: 0917b0d30244cc6b00df71a3ed17ead22db35c99
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d3e9783ab898478d5f356a573458a7034c67ac0d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159527"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894873"

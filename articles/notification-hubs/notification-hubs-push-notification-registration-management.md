@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/23/2019
-ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d87cd174e3fca7ce2088ad270a74b08de4ac7cb5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817820"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566151"
 ---
 # <a name="registration-management"></a>Gestion des inscriptions
 
@@ -33,7 +33,7 @@ L’inscription d’un appareil auprès d’un hub de notification s’effectue 
 
 ### <a name="registrations"></a>Inscriptions
 
-Une inscription associe le handle PNS (Platform Notification Service, service de notification de plateforme) à des balises et éventuellement à un modèle. Le handle PNS peut être un ChannelURI, un jeton d’appareil ou un ID d’inscription GCM. Les balises permettent d’acheminer des notifications vers l’ensemble approprié de handles d’appareils. Pour plus d’informations, consultez [Routage et expressions de balises](notification-hubs-tags-segment-push-message.md). Les modèles permettent d’implémenter la transformation par inscription. Pour plus d’informations, consultez [Modèles](notification-hubs-templates-cross-platform-push-messages.md).
+Une inscription associe le handle PNS (Platform Notification Service, service de notification de plateforme) à des balises et éventuellement à un modèle. Le handle PNS peut être un ChannelURI, un jeton d’appareil ou un ID d’inscription FCM. Les balises permettent d’acheminer des notifications vers l’ensemble approprié de handles d’appareils. Pour plus d’informations, consultez [Routage et expressions de balises](notification-hubs-tags-segment-push-message.md). Les modèles permettent d’implémenter la transformation par inscription. Pour plus d’informations, consultez [Modèles](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
 > Azure Notification Hubs prend en charge un maximum de 60 balises par inscription.
@@ -295,8 +295,8 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
         case "apns":
             installation.Platform = NotificationPlatform.Apns;
             break;
-        case "gcm":
-            installation.Platform = NotificationPlatform.Gcm;
+        case "fcm":
+            installation.Platform = NotificationPlatform.Fcm;
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884943"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509907"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md).
@@ -666,6 +666,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | logDefinitions | Non  | 
 | logprofiles | Non  | 
 | logs | Non  | 
+| metricAlerts | Oui |
 | migrateToNewPricingModel | Non  | 
 | myWorkbooks | Non  | 
 | queries | Non  | 
@@ -1108,7 +1109,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | managedInstances | Oui |
-| managedInstances/databases | Oui |
+| managedInstances/databases | Oui (voir la remarque ci-dessous) |
 | managedInstances/databases/backupShortTermRetentionPolicies | Non  |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Non  |
 | managedInstances/databases/vulnerabilityAssessments | Non  |
@@ -1120,12 +1121,16 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | servers | Oui | 
 | servers/administrators | Non  | 
 | servers/communicationLinks | Non  | 
-| servers/databases | Oui | 
+| servers/databases | Oui (voir la remarque ci-dessous) | 
 | servers/encryptionProtector | Non  | 
 | servers/keys | Non  | 
 | servers/restorableDroppedDatabases | Non  | 
 | servers/serviceobjectives | Non  | 
 | servers/tdeCertificates | Non  | 
+
+> [!NOTE]
+> La base de données MASTER ne prend pas en charge les balises, à la différence d’autres bases de données.
+
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Type de ressource | Prend en charge les étiquettes |
@@ -1163,8 +1168,11 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| streamingjobs | Oui | 
+| streamingjobs | Oui (voir la remarque ci-dessous) | 
 | streamingjobs/diagnosticSettings | Non  | 
+
+> [!NOTE]
+> Vous ne pouvez pas ajouter une balise lorsque streamingjobs est en cours d’exécution. Arrêtez la ressource pour pouvoir ajouter une balise.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 | Type de ressource | Prend en charge les étiquettes |

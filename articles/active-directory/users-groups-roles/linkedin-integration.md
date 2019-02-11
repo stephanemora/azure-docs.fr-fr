@@ -1,5 +1,5 @@
 ---
-title: Activer l’intégration de LinkedIn dans Azure Active Directory | Microsoft Docs
+title: Activer l’intégration de LinkedIn dans les applications Microsoft - Azure Active Directory | Microsoft Docs
 description: Explique comment activer et désactiver l’intégration LinkedIn aux applications Microsoft dans Azure Active Director
 services: active-directory
 author: curtand
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: cccbeefd49f5374aeffcae07ac8c888f7a28690f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6b62fde7f9b01fbeb133c92b1306f70f56d71d7a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159996"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509624"
 ---
 # <a name="linkedin-integration"></a>Intégration de LinkedIn
 

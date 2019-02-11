@@ -16,7 +16,7 @@ items:
   - name: Événements avec Event Grid - CLI
     href: container-registry-event-grid-quickstart.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Générer des images de conteneur
     items:
@@ -48,7 +48,7 @@ items:
     href: container-registry-roles.md
   - name: Bonnes pratiques concernant les registres
     href: container-registry-best-practices.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Opérations du registre
     items:
@@ -56,6 +56,8 @@ items:
       href: container-registry-get-started-docker-cli.md
     - name: Afficher les référentiels
       href: container-registry-repositories.md
+    - name: Importer les images conteneur
+      href: container-registry-import-images.md
     - name: Supprimer des images de conteneur
       href: container-registry-delete.md
     - name: Approbation du contenu (préversion)
@@ -66,7 +68,7 @@ items:
       href: container-registry-webhook.md
     - name: Référentiels de graphique Helm (préversion)
       href: container-registry-helm-repos.md
-  - name: Authentification
+  - name: Authentication
     items:
     - name: Vue d’ensemble de l’authentification
       href: container-registry-authentication.md
@@ -129,13 +131,13 @@ items:
     href: https://aka.ms/acr/roadmap
   - name: Indiquer des commentaires sur le produit
     href: https://feedback.azure.com/forums/903958-azure-container-registry
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-container-registry
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: 7a4fcd5615c8ad9ffdc9cd50cc919b9e6916a70d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2f622c23a3278f202fceb177459f8cf81d334f57
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844448"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870685"

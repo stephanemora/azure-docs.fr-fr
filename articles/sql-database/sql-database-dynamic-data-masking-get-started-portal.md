@@ -1,5 +1,5 @@
 ---
-title: 'Portail Azure : masquage de données dynamiques de base de données SQL | Microsoft Docs'
+title: 'Portail Azure : Masquage de données dynamiques dans une base de donnée SQL | Microsoft Docs'
 description: Guide de prise en main du masquage des données dynamiques de base de données SQL dans le portail Azure
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 1ec0634c89148cee59f399e437b92a7d2c6b283b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/25/2018
+ms.openlocfilehash: 9ecbb65b320f64a89c8092afa8caed31c25c619d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165719"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561890"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Prise en main du masquage des données dynamiques de base de données SQL dans le portail Azure
 
