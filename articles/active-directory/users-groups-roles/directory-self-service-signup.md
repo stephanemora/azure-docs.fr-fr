@@ -1,5 +1,5 @@
 ---
-title: Inscription en libre-service ou à la version d’évaluation dans Azure Active Directory | Microsoft Docs
+title: Ajouter des utilisateurs par le biais du libre-service ou de la version d’évaluation - Azure Active Directory | Microsoft Docs
 description: Utilisez l’inscription en libre-service dans un locataire Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,19 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f02a628a55969dfbb883f53f005733482499a42b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195815"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506768"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Présentation de l’inscription en libre-service pour Azure Active Directory
+
 Cet article explique l’inscription en libre-service et comment la prendre en charge dans Azure Active Directory (Azure AD). Si vous souhaitez prendre le contrôle d’un nom de domaine d’un locataire Azure AD non géré, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-signup"></a>Pourquoi utiliser l’inscription libre-service ?
@@ -32,7 +33,7 @@ Cet article explique l’inscription en libre-service et comment la prendre en c
 
 ## <a name="terms-and-definitions"></a>Termes et définitions
 * **Inscription en libre-service** : méthode selon laquelle un utilisateur s‘abonne à un service cloud et bénéficie automatiquement d’une identité créée pour lui dans Azure AD en fonction de son domaine de messagerie.
-* **Annuaire Azure AD non managé** : annuaire dans lequel cette identité est créée. Un annuaire non managé est un annuaire qui n’a aucun administrateur général.
+* **Annuaire Azure AD non managé** : annuaire dans lequel cette identité est créée. Un répertoire non géré est un répertoire qui ne possède aucun administrateur général.
 * **Utilisateur vérifié par e-mail** : type de compte d’utilisateur dans Azure AD. Un utilisateur qui possède une identité créée automatiquement après s’être abonné à une offre libre-service est considéré comme un utilisateur vérifié par e-mail. Un utilisateur vérifié par e-mail est un membre ordinaire d'un répertoire marqué par la valeur creationmethod=EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>Comment vérifier les paramètres libre-service ?

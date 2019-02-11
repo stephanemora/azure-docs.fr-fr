@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 45dd31ecca4f09a595fbf1dae5fe61623fb2be3c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6a652b3fa834c2f29f5063f9ba72a3e3d4e75f58
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025859"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512446"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement et abonnements différents
 
@@ -71,7 +71,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
     - **Emplacement** : *USA Est*
 
 14. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetB*. Quand la mention **myVnetB** apparaît dans les résultats de recherche, cliquez dessus. Un panneau apparaît pour le réseau virtuel **myVnetB**.
-15. Dans le panneau **myVnetB** qui s’affiche, cliquez sur **Propriétés** dans la liste verticale des options sur le côté gauche du panneau. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
+15. Dans le panneau **myVnetB** qui s’affiche, cliquez sur **Propriétés** dans la liste verticale des options sur le côté gauche du panneau. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est semblable à l’exemple suivant : /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
 16. Effectuez les étapes 5 à 9 pour myVnetB, en entrant **UserA** à l’étape 8.
 17. Déconnectez-vous du portail en tant que UserB, puis connectez-vous en tant que UserA.
 18. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand la mention **myVnetA** apparaît dans les résultats de recherche, cliquez dessus. Un panneau apparaît pour le réseau virtuel **myVnet**.

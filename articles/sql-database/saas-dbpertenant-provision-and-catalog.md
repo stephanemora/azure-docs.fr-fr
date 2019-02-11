@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 1f2539ed7ea407e2a1931ab2eb5951e61e4c7b03
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056265"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565211"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment approvisionner de nouveaux locataires et les inscrire dans le catalogue
 
@@ -155,9 +155,9 @@ Le script déploie un lot de locataires supplémentaires. Il utilise un [modèle
 
 Voici d’autres modèles de provisionnement non inclus dans ce tutoriel :
 
-**Préprovisionnement des bases de données**: Le modèle de préprovisionnement exploite le fait que les bases de données d’un pool élastique n’entraînent pas de frais supplémentaires. La facturation est liée au pool élastique, et non aux bases de données. Les bases de données inactives ne consomment pas de ressources. En préprovisionnant les bases de données d’un pool et en les allouant en cas de besoin, vous pouvez réduire le délai nécessaire à l’ajout de nouveaux locataires. Le nombre de bases de données pré-approvisionnées peut être ajusté en fonction des besoins pour conserver une mémoire tampon adaptée au taux d’approvisionnement prévu.
+**Pré-approvisionnement des bases de données** : Le modèle de pré-approvisionnement exploite le fait que les bases de données d’un pool élastique n’ajoutent pas de frais supplémentaires. La facturation est liée au pool élastique, et non aux bases de données. Les bases de données inactives ne consomment pas de ressources. En préprovisionnant les bases de données d’un pool et en les allouant en cas de besoin, vous pouvez réduire le délai nécessaire à l’ajout de nouveaux locataires. Le nombre de bases de données pré-approvisionnées peut être ajusté en fonction des besoins pour conserver une mémoire tampon adaptée au taux d’approvisionnement prévu.
 
-**Provisionnement automatique** : Dans le modèle de provisionnement automatique, un service de provisionnement dédié est utilisé pour provisionner automatiquement des serveurs, pools et bases de données en fonction des besoins. Si vous le souhaitez, vous pouvez ajouter le préprovisionnement des bases de données dans les pools élastiques. Si les bases de données sont désactivées et supprimées, les écarts des pools élastiques peuvent être comblés par le service de provisionnement. Un tel service peut être simple ou complexe, comme pour la gestion du provisionnement de plusieurs zones géographiques ou la configuration de la géoréplication pour la récupération d’urgence. 
+**Provisionnement automatique** : Dans le modèle de provisionnement automatique, un service de provisionnement dédié est utilisé pour provisionner automatiquement des serveurs, pools et bases de données en fonction des besoins. Si vous le souhaitez, vous pouvez ajouter le préprovisionnement des bases de données dans les pools élastiques. Si les bases de données sont désactivées et supprimées, les écarts des pools élastiques peuvent être comblés par le service de provisionnement. Un tel service peut être simple ou complexe, comme pour la gestion du provisionnement de plusieurs zones géographiques ou la configuration de la géoréplication pour la récupération d’urgence. 
 
 Avec le modèle de provisionnement automatique, une application cliente ou un script envoie une demande de provisionnement à une file d’attente pour qu’elle soit traitée par le service de provisionnement. Il interroge ensuite le service afin de déterminer la complétion. Si le préprovisionnement est utilisé, les demandes sont traitées rapidement. Le service provisionne une base de données de remplacement en arrière-plan.
 

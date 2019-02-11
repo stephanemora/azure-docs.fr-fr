@@ -1,5 +1,5 @@
 ---
-title: 'Configurer la stratégie IPSec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel : Azure Resource Manager : PowerShell | Microsoft Docs'
+title: 'Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel : Azure Resource Manager : PowerShell | Microsoft Docs'
 description: Configurez la stratégie IPSec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel avec des passerelles VPN Azure à l’aide d’Azure Resource Manager et de PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: fa1aed76f63e500a6c2849fb9b62a918e85c9fb0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c07634e7c75e166b77ecb1defab02b2601af6bb0
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "31601149"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510100"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel
 
@@ -195,8 +195,8 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 L’exemple de script ci-dessous crée une stratégie IPsec/IKE avec les paramètres et les algorithmes suivants :
 
-* IKEv2: AES256, SHA384, DHGroup24
-* IPsec : AES256, SHA256, PFS None, SA Lifetime 14400 seconds & 102400000KB
+* IKEv2 : AES256, SHA384, DHGroup24
+* IPsec : AES256, SHA256, PFS None, SA Lifetime 14400 seconds & 102400000KB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
@@ -281,8 +281,8 @@ Comme pour la connexion VPN S2S, créez une stratégie IPsec/IKE, puis appliquez
 #### <a name="1-create-an-ipsecike-policy"></a>1. Créez une stratégie IPsec/IKE.
 
 L’exemple de script ci-dessous crée une stratégie IPsec/IKE différente avec les algorithmes et paramètres suivants :
-* IKEv2: AES128, SHA1, DHGroup14
-* IPsec : GCMAES128, GCMAES128, PFS14, SA Lifetime 14400 seconds & 102400000KB
+* IKEv2 : AES128, SHA1, DHGroup14
+* IPsec : GCMAES128, GCMAES128, PFS14, SA Lifetime 14400 seconds & 102400000KB
 
 ```powershell
 $ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000

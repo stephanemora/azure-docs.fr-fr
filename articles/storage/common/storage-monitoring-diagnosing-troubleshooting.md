@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474001"
+ms.locfileid: "55490247"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -560,7 +560,7 @@ Si l’application cliente tente d’utiliser une clé SAS qui n’inclut pas le
 
 Le tableau suivant donne un exemple de message de journal côté serveur à partir du fichier journal de journalisation du stockage :
 
-| NOM | Valeur |
+| Nom | Valeur |
 | --- | --- |
 | Heure de début de la demande | 2014-05-30T06:17:48.4473697Z |
 | Type d'opération     | GetBlobProperties            |
@@ -637,7 +637,7 @@ Le code de l’application cliente supprime puis recrée immédiatement un conte
 Chaque fois qu'elle crée des conteneurs, l'application cliente utilise des noms de conteneur uniques si le modèle de suppression/recréation est commun.
 
 ### <a name="metrics-show-low-percent-success"></a>Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d’analyse incluent des opérations avec un statut de transaction ClientOtherErrors
-La métrique **PercentSuccess** capture le pourcentage d'opérations réussies sur base de leur code d'état HTTP. Les opérations avec des codes d’état 2XX sont considérées comme réussies ; celles avec des codes d’état dans les plages 3XX, 4XX et 5XX sont considérées comme non réussies et réduisent la valeur de la métrique **PercentSucess** . Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**.
+La métrique **PercentSuccess** capture le pourcentage d'opérations réussies sur base de leur code d'état HTTP. Les opérations avec des codes d’état 2XX sont considérées comme réussies ; celles avec des codes d’état dans les plages 3XX, 4XX et 5XX sont considérées comme non réussies et réduisent la valeur de la métrique **PercentSuccess**. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**.
 
 Il est important de noter que ces opérations ont été réalisées avec succès et n'affectent donc pas d'autres métriques telles que la disponibilité. Voici quelques exemples d'opérations qui s'exécutent avec succès, mais qui génèrent des codes d'état HTTP d'échec :
 

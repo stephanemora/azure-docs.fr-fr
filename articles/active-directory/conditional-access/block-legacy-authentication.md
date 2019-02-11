@@ -1,6 +1,6 @@
 ---
 title: Comment bloquer l’authentification héritée à Azure Active Directory (Azure AD) avec l’accès conditionnel | Microsoft Docs
-description: Découvrez comment configurer une stratégie d’accès conditionnel dans Azure Active Directory (Azure AD) pour les tentatives d’accès provenant de réseaux non approuvés.
+description: Apprenez à améliorer votre approche de sécurité en bloquant l'authentification existante à l'aide de l'accès conditionnel Azure AD.
 services: active-directory
 keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
 documentationcenter: ''
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5ff4861c288b82d6ce90d85c38ef3f92eb299ea4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076841"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562978"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Activation Bloquer l’authentification héritée à Azure AD avec l’accès conditionnel   
 
 Pour permettre à vos utilisateurs d’accéder facilement à vos applications cloud, Azure Active Directory (Azure AD) prend en charge un large éventail de protocoles d’authentification, notamment l’authentification héritée. Toutefois, les protocoles hérités ne prennent pas en charge l’authentification multifacteur (MFA). L’authentification multifacteur est couramment requise dans de nombreux environnements pour lutter contre l’usurpation d’identité. 
+
 
 Si votre environnement est prêt à bloquer l’authentification héritée pour améliorer la protection de votre locataire, vous pouvez atteindre cet objectif grâce à l’accès conditionnel. Cet article explique comment configurer les stratégies d’accès conditionnel bloquant l’authentification héritée pour votre locataire.
 
@@ -119,8 +120,7 @@ L’entrée en vigueur de la stratégie peut prendre jusqu’à 24 heures.
 
 Vous pouvez sélectionner tous les contrôles d’octroi disponibles pour la condition Autre clients. Toutefois, l’expérience de l’utilisateur final est toujours la même : un accès bloqué.
 
-Vous pouvez configurer toutes les autres conditions en regard de la condition Autres clients.
-Par exemple, si vous souhaitez uniquement bloquer l’authentification héritée des appareils mobiles, définissez la condition des **plateformes d’appareils** en sélectionnant :
+Si vous bloquez l'authentification héritée à l'aide de la condition des autres clients, vous pouvez également définir la plateforme du périphérique et la condition de localisation. Par exemple, si vous souhaitez uniquement bloquer l’authentification héritée des appareils mobiles, définissez la condition des **plateformes d’appareils** en sélectionnant :
 
 - Android
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9c574d5e5cecaa4618bbd44fae8a2200930ab2e3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 09f0416e5a03527613e7c353961d81de39c4fe0e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019450"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566837"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copier des données de HBase avec Azure Data Factory 
 
@@ -42,7 +42,7 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur : **HBase** | Oui |
-| host | Adresse IP ou nom d’hôte du serveur HBase (par exemple, `[clustername].azurehdinsight.net`， `192.168.222.160)  | Oui |
+| host | Adresse IP ou nom d’hôte du serveur HBase (c.-à-d. `[clustername].azurehdinsight.net`， `192.168.222.160·)  | Yes |
 | port | Port TCP utilisé par l’instance HBase pour écouter les connexions clientes. Valeur par défaut : 9090. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | Non  |
 | httpPath | URL partielle correspondant au serveur HBase (par exemple, `/hbaserest0` lors de l’utilisation de cluster HDInsights). | Non  |
 | authenticationType | Mécanisme d’authentification à utiliser pour se connecter au serveur HBase. <br/>Les valeurs autorisées sont les suivantes : **Anonyme**, **De base** | Oui |
@@ -71,8 +71,8 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             },
             "enableSsl" : true
         },
@@ -98,8 +98,8 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             },
             "enableSsl" : true,
             "trustedCertPath" : "<trustedCertPath>",

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559040"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698220"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour PostgreSQL
 
@@ -50,5 +50,5 @@ L’autre solution consiste à utiliser la fonctionnalité de géorestauration d
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d’informations sur les sauvegardes automatisées, consultez [Sauvegardes dans Azure Database pour PostgreSQL](concepts-backup.md). 
-- Pour effectuer une restauration à un moment donné à partir du portail Azure, consultez  [Restaurer une base de données à un moment donné à partir du portail Azure](howto-restore-server-portal.md).
-- Pour effectuer une restauration à un point dans le temps à l’aide de l’interface de ligne de commande Azure, consultez  [Restaurer une base de données à un point dans le temps à l’aide de l’interface CLI](howto-restore-server-cli.md).
+- Découvrez comment effectuer une restauration à l’aide du [portail Azure](howto-restore-server-portal.md) ou de l’interface [Azure CLI](howto-restore-server-cli.md).
+- Apprenez-en davantage sur les [réplicas en lecture dans Azure Database pour PostgreSQL](concepts-read-replicas.md).

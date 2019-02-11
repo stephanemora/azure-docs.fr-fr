@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: fd2d18ea2d129729c5c3835e39a94df7166c3f11
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 4039cc7cc13f378438f2bb23c56db844267588cd
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402028"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731663"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée HTTPS dans Azure Kubernetes Service (AKS)
 
@@ -138,53 +138,6 @@ $ kubectl apply -f cluster-issuer.yaml
 clusterissuer.certmanager.k8s.io/letsencrypt-staging created
 ```
 
-## <a name="create-a-certificate-object"></a>Créer un objet certificat
-
-Il faut ensuite créer une ressource de certificat. Elle définit le certificat X.509 souhaité. Pour plus d’informations, consultez [Certificats cert-manager][cert-manager-certificates].
-
-Créez la ressource de certificat, telle que `certificates.yaml`, avec l’exemple de manifeste suivant. Mettez à jour les valeurs de *dnsNames* et de *domains* avec le nom DNS que vous avez créé à l’étape précédente. Si vous utilisez un contrôleur d’entrée interne uniquement, spécifiez le nom DNS interne pour votre service.
-
-```yaml
-apiVersion: certmanager.k8s.io/v1alpha1
-kind: Certificate
-metadata:
-  name: tls-secret
-spec:
-  secretName: tls-secret
-  dnsNames:
-  - demo-aks-ingress.eastus.cloudapp.azure.com
-  acme:
-    config:
-    - http01:
-        ingressClass: nginx
-      domains:
-      - demo-aks-ingress.eastus.cloudapp.azure.com
-  issuerRef:
-    name: letsencrypt-staging
-    kind: ClusterIssuer
-```
-
-Pour créer la ressource de certificat, utilisez la commande `kubectl apply -f certificates.yaml`.
-
-```
-$ kubectl apply -f certificates.yaml
-
-certificate.certmanager.k8s.io/tls-secret created
-```
-
-Pour vérifier que le certificat a bien été créé, utilisez la commande `kubectl describe certificate tls-secret`.
-
-Si le certificat a été émis, vous obtenez une sortie similaire à celle-ci :
-```
-Type    Reason          Age   From          Message
-----    ------          ----  ----          -------
-  Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
-  Normal  DomainVerified  10m   cert-manager  Domain "demo-aks-ingress.eastus.cloudapp.azure.com" verified with "http-01" validation
-  Normal  IssueCert       10m   cert-manager  Issuing certificate...
-  Normal  CertObtained    10m   cert-manager  Obtained certificate from ACME server
-  Normal  CertIssued      10m   cert-manager  Certificate issued successfully
-```
-
 ## <a name="run-demo-applications"></a>Exécuter des applications de démonstration
 
 Un contrôleur d’entrée et une solution de gestion de certificats ont été configurés. Maintenant, nous allons exécuter deux applications de démonstration dans le cluster AKS. Pour cet exemple, Helm est utilisé pour déployer deux instances d’une simple application « Hello World ».
@@ -249,6 +202,55 @@ Créez la ressource d’entrée avec la commande `kubectl apply -f hello-world-i
 $ kubectl apply -f hello-world-ingress.yaml
 
 ingress.extensions/hello-world-ingress created
+```
+
+## <a name="create-a-certificate-object"></a>Créer un objet certificat
+
+Il faut ensuite créer une ressource de certificat. Elle définit le certificat X.509 souhaité. Pour plus d’informations, consultez [Certificats cert-manager][cert-manager-certificates].
+
+Cert-manager a probablement créé automatiquement un objet de certificat à l’aide d’ingress-shim ; le certificat est automatiquement déployé avec cert-manager depuis la version 0.2.2. Pour plus d’informations, consultez la [documentation d’ingress-shim][ingress-shim].
+
+Pour vérifier que le certificat a bien été créé, utilisez la commande `kubectl describe certificate tls-secret`.
+
+Si le certificat a été émis, vous obtenez une sortie similaire à celle-ci :
+```
+Type    Reason          Age   From          Message
+----    ------          ----  ----          -------
+  Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
+  Normal  DomainVerified  10m   cert-manager  Domain "demo-aks-ingress.eastus.cloudapp.azure.com" verified with "http-01" validation
+  Normal  IssueCert       10m   cert-manager  Issuing certificate...
+  Normal  CertObtained    10m   cert-manager  Obtained certificate from ACME server
+  Normal  CertIssued      10m   cert-manager  Certificate issued successfully
+```
+
+Si vous devez créer une ressource de certificat supplémentaire, vous pouvez le faire avec l’exemple de manifeste suivant. Mettez à jour les valeurs de *dnsNames* et de *domains* avec le nom DNS que vous avez créé à l’étape précédente. Si vous utilisez un contrôleur d’entrée interne uniquement, spécifiez le nom DNS interne pour votre service.
+
+```yaml
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: tls-secret
+spec:
+  secretName: tls-secret
+  dnsNames:
+  - demo-aks-ingress.eastus.cloudapp.azure.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - demo-aks-ingress.eastus.cloudapp.azure.com
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+```
+
+Pour créer la ressource de certificat, utilisez la commande `kubectl apply -f certificates.yaml`.
+
+```
+$ kubectl apply -f certificates.yaml
+
+certificate.certmanager.k8s.io/tls-secret created
 ```
 
 ## <a name="test-the-ingress-configuration"></a>Tester la configuration d’entrée
@@ -332,9 +334,10 @@ Vous pouvez également :
 - [Créer un contrôleur d’entrée qui utilise Let’s Encrypt pour générer automatiquement des certificats TLS avec une adresse IP publique statique][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
 [cert-manager]: https://github.com/jetstack/cert-manager
 [cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
+[ingress-shim]: http://docs.cert-manager.io/en/latest/tasks/issuing-certificates/ingress-shim.html
 [cert-manager-cluster-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/clusterissuers.html
 [cert-manager-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/issuers.html
 [lets-encrypt]: https://letsencrypt.org/

@@ -1,8 +1,21 @@
 ---
-titre : Mettre à l’échelle un service web Machine Learning Studio titleSuffix : Description d'Azure Machine Learning Studio : Découvrez comment augmenter l’accès concurrentiel d’un service web Azure Machine Learning Studio en ajoutant des points de terminaison.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 23/01/2017
+title: Mettre à l’échelle un service web Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Découvrez comment augmenter l’accès concurrentiel d’un service web Azure Machine Learning Studio en ajoutant des points de terminaison.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 01/23/2017
+ms.openlocfilehash: c5874029e17b0ad7c9787beb0177b8211cbf6e6b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512072"
 ---
 # <a name="scaling-an-azure-machine-learning-studio-web-service-by-adding-additional-endpoints"></a>Mise à l’échelle d’un service web Azure Machine Learning Studio par l’ajout de points de terminaison
 > [!NOTE]

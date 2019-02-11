@@ -1,8 +1,21 @@
 ---
-titre : Copier des exemples de sciences des données titleSuffix : Description d’Azure Machine Learning Studio : Une pierre d’angle de la science des données : amener d’autres personnes à faire votre travail. Obtenez des exemples d’apprentissage automatique à partir d’Azure AI Gallery.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 05/01/2018
+title: Copier des exemples de sciences des données
+titleSuffix: Azure Machine Learning Studio
+description: 'Une pierre d’angle de la science des données : amener d’autres personnes à faire votre travail. Obtenez des exemples d’apprentissage automatique à partir d’Azure AI Gallery.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 01/05/2018
+ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492995"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copier le travail d’autres personnes pour des projets de science des données
 ## <a name="video-5-data-science-for-beginners-series"></a>Vidéo 5 : série Science des données pour les débutants

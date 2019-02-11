@@ -1,27 +1,31 @@
 ---
-title: Recherche de vidéos populaires sur le web - Recherche de vidéos Bing
+title: Recherche de vidéos populaires sur le web à l’aide de l’API Recherche de vidéos Bing
 titlesuffix: Azure Cognitive Services
-description: Découvrez comment utiliser l’API Recherche de vidéos Bing pour rechercher des vidéos populaires sur le web.
+description: Apprenez à utiliser l’API Recherche de vidéos Bing pour rechercher des vidéos populaires sur le web.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 71dd888199e9e630835c4916d35f6308431bab62
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55f29a31a9574c7c32e6708565e961950520593f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203553"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566071"
 ---
-# <a name="get-trending-videos"></a>Obtenir des vidéos populaires  
+# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Obtenir des vidéos tendance avec l’API Recherche de vidéos Bing 
 
-Pour obtenir des vidéos qui sont populaires à l’heure actuelle, envoyez la requête GET suivante :  
+L’API Recherche de vidéos Bing vous permet de trouver les vidéos tendance du jour sur le Web et dans différentes catégories. 
+
+## <a name="get-request"></a>Requête GET
+
+Pour obtenir des vidéos qui sont populaires à l’heure actuelle à l’aide de l’API Recherche de vidéos Bing, envoyez la requête GET suivante :  
   
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -30,6 +34,8 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```
+
+## <a name="market-support"></a>Support des marchés
 
 Les marchés suivants prennent en charge les vidéos populaires.  
  
@@ -47,10 +53,11 @@ Les marchés suivants prennent en charge les vidéos populaires.
 -   en-ZA (anglais, Afrique du Sud)  
 -   zh-CN (chinois, Chine)
 
-  
-L’exemple illustre une réponse comportant les vidéos populaires.  
+## <a name="example-json-response"></a>Exemple de réponse JSON  
 
-```  
+L’exemple suivant montre une réponse d’API qui contient des vidéos les plus populaires, qui sont répertoriées par catégorie et sous-catégorie. La réponse contient également les vidéos bannières, qui correspondent aux vidéos populaires les plus regardées et peuvent émaner d’une ou de plusieurs catégories.  
+
+```json
 {  
     "_type" : "TrendingVideos",  
     "bannerTiles" : [
@@ -112,8 +119,9 @@ L’exemple illustre une réponse comportant les vidéos populaires.
     ]  
 }  
   
-```  
-La réponse contient une liste de vidéos classées par catégorie et sous-catégorie. Par exemple, si la liste de catégories contient une catégorie de vidéos musicales et que l’une de ses sous-catégories correspond aux vidéos les plus regardées, vous pouvez créer une catégorie correspondant aux vidéos musicales les plus regardées dans votre expérience utilisateur. Ensuite, vous pouvez utiliser les champs `thumbnailUrl`, `displayText`, et `webSearchUrl` pour créer une vignette interactive sous chaque catégorie (par exemple, vidéos musicales les plus regardées). Lorsque l’utilisateur clique sur la vignette, il accède au navigateur de vidéo Bing où il peut regarder la vidéo.
+```
 
-La réponse contient également les vidéos bannières, qui correspondent aux vidéos populaires les plus regardées. Les vidéos bannières peuvent provenir d’une ou plusieurs catégories.  
-  
+## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+[Obtenez des insights de vidéos](video-insights.md)

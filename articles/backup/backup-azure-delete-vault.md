@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/6/2018
+ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d7617ce96181a0708dfa4731c07d581e332bdff4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873099"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492281"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Supprimer un coffre Recovery Services
 
-Cet article explique comment supprimer tous les éléments d’un coffre Recovery Services, puis comment supprimer celui-ci. Vous ne pouvez pas supprimer un coffre Recovery Services s’il est inscrit sur un serveur et conserve des données de sauvegarde. Si vous essayez de supprimer un coffre, sans y parvenir, le coffre est encore configuré pour recevoir des données de sauvegarde.
+Cet article décrit la façon de supprimer tous les éléments d’un coffre Recovery Services, puis de supprimer celui-ci. Vous ne pouvez pas supprimer un coffre Recovery Services s’il est inscrit sur un serveur et conserve des données de sauvegarde. Si vous essayez de supprimer un coffre, sans y parvenir, le coffre est encore configuré pour recevoir des données de sauvegarde.
 
 Pour savoir comment supprimer un coffre, consultez la section [Supprimer un coffre à partir du portail Azure](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Si vous ne souhaitez pas conserver les données dans le coffre Recovery Services et souhaitez supprimer le coffre, consultez la section [Forcer la suppression du coffre](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Si vous ne savez pas ce qui est dans le coffre, et souhaitez vous assurer que vous pouvez le supprimer, consultez la section [Supprimer les dépendances du coffre et supprimer le coffre](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 

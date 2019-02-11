@@ -4,17 +4,17 @@ description: Découvrez le cycle de vie d’un blueprint et les détails de chaq
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309804"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563709"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Présentation du cycle de vie d’un blueprint Azure
 
@@ -33,8 +33,7 @@ Pour bien comprendre ce qu’est un blueprint et quelles sont les phases de son 
 
 ## <a name="creating-and-editing-a-blueprint"></a>Création et modification d’un blueprint
 
-Quand vous créez un blueprint, vous y ajoutez des artefacts, vous l’enregistrez dans un groupe d’administration, et vous spécifiez un nom unique et une version unique. Le blueprint est à présent en mode **Brouillon** et ne peut pas encore être affecté.
-Pendant qu’il est en mode **Brouillon**, il peut continuer d’être mis à jour et modifié.
+Quand vous créez un blueprint, vous y ajoutez des artefacts, vous l’enregistrez dans un groupe d’administration ou un abonnement, et vous spécifiez un nom unique et une version unique. Le blueprint est à présent en mode **Brouillon** et ne peut pas encore être affecté. Pendant qu’il est en mode **Brouillon**, il peut continuer d’être mis à jour et modifié.
 
 Un blueprint en mode **Brouillon** qui n’a jamais été publié affiche une icône dans la page **Définitions de blueprint** qui est différente de ceux qui ont été **publiés**. Le champ **Dernière version** indique également **Brouillon** pour les blueprints qui n’ont jamais été publiés.
 

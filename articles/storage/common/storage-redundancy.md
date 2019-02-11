@@ -1,29 +1,29 @@
 ---
-title: Réplication de données dans le stockage Azure | Microsoft Docs
-description: Les données de votre compte Stockage Microsoft Azure sont répliquées à des fins de durabilité et de haute disponibilité. Les options de réplication incluent le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant avec accès en lecture (RA-GRS).
+title: Redondance de données dans le stockage Azure | Microsoft Docs
+description: Les données de votre compte Stockage Microsoft Azure sont répliquées à des fins de durabilité et de haute disponibilité. Les options de redondance incluent le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant avec accès en lecture (RA-GRS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455505"
+ms.locfileid: "55506785"
 ---
-# <a name="azure-storage-replication"></a>Réplication Azure Storage
+# <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
-Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour en garantir la durabilité et la haute disponibilité. La réplication Stockage Azure copie vos données afin qu’elles soient protégées contre les événements planifiés ou non, notamment les défaillances matérielles temporaires, les pannes de réseau ou de courant, les catastrophes naturelles massives, etc. Vous pouvez choisir de répliquer vos données dans le même centre de données, dans des centres de données zonaux d’une même région, voire entre des régions.
+Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour en garantir la durabilité et la haute disponibilité. Stockage Azure copie vos données afin qu’elles soient protégées contre les événements planifiés ou non, notamment les défaillances matérielles temporaires, les pannes de réseau ou de courant et les catastrophes naturelles massives. Vous pouvez choisir de répliquer vos données dans le même centre de données, dans des centres de données zonaux d’une même région ou entre des régions géographiques différentes.
 
 La réplication garantit que votre compte de stockage répond aux exigences du [contrat de niveau de service (SLA) pour le stockage](https://azure.microsoft.com/support/legal/sla/storage/) même en cas de panne. Pour plus d’informations sur les garanties de durabilité et de disponibilité du stockage Azure, consultez le contrat de niveau de service.
 
-## <a name="choosing-a-replication-option"></a>Choix d’une option de réplication
+## <a name="choosing-a-redundancy-option"></a>Choix d’une option de redondance
 
-Lorsque vous créez un compte de stockage, vous pouvez sélectionner une des options de réplication suivantes :
+Lorsque vous créez un compte de stockage, vous pouvez sélectionner une des options de redondance suivantes :
 
 * [Stockage localement redondant (LRS)](storage-redundancy-lrs.md)
 * [Stockage redondant interzone (ZRS)](storage-redundancy-zrs.md)

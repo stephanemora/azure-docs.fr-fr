@@ -1,26 +1,21 @@
 ---
-title: Recommandations du conseiller Azure en matière de haute disponibilité | Microsoft Docs
+title: Améliorer la disponibilité de votre application avec Azure Advisor | Microsoft Docs
 description: Utilisez le conseiller Azure pour améliorer la haute disponibilité de vos déploiements Azure.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: carmonm
-editor: ''
-ms.assetid: ''
+ms.author: kasparks
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
-ms.author: kasparks
-ms.openlocfilehash: 928fb5421297fedbffabc45db35a89a74026477e
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/29/2019
+ms.openlocfilehash: 6ffe051c019184d5ce1a32af50dbf3e7faa06675
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305069"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490309"
 ---
-# <a name="advisor-high-availability-recommendations"></a>Recommandations du conseiller en matière de haute disponibilité
+# <a name="improve-availability-of-your-application-with-azure-advisor"></a>Améliorer la disponibilité de votre application avec Azure Advisor
 
 Azure Advisor vous aide à garantir et à améliorer la continuité de vos applications stratégiques. Vous pouvez obtenir des recommandations en matière de haute disponibilité auprès du conseiller à partir de l’onglet **Haute disponibilité** du tableau de bord du conseiller.
 
@@ -31,16 +26,17 @@ Pour assurer la redondance de votre application, nous vous recommandons de regro
 > [!NOTE]
 > Si vous choisissez de créer un groupe à haute disponibilité, vous devez y ajouter au moins une machine virtuelle supplémentaire. Nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité pour garantir qu’au moins une d’elles reste disponible en cas de panne.
 
-## <a name="ensure-availability-set-fault-tolerance"></a>Assurer la tolérance de panne d’un groupe à haute disponibilité 
+## <a name="ensure-availability-set-fault-tolerance"></a>Assurer la tolérance de panne d’un groupe à haute disponibilité
 
 Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Advisor identifie les groupes à haute disponibilité contenant une seule machine virtuelle et recommande d’y ajouter au moins une machine virtuelle. Cette configuration assure qu’au moins une des machines virtuelles est disponible pendant un événement de maintenance planifié ou non et répond au contrat de niveau de service Azure. Vous pouvez créer une machine virtuelle ou ajouter une machine virtuelle existante au groupe à haute disponibilité.  
 
 ## <a name="use-managed-disks-to-improve-data-reliability"></a>Utiliser Managed Disks pour améliorer la fiabilité des données
+
 Les machines virtuelles situées dans un groupe à haute disponibilité avec disques partageant des comptes de stockage ou des unités d'échelle de stockage ne sont pas résistantes aux échecs des unités d'échelle de stockage en cas de pannes. Advisor identifie ces groupes à haute disponibilité et conseille de migrer vers Azure Managed Disks. Cela permet de s’assurer que les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés pour éviter un point de défaillance unique. 
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Assurer la tolérance de panne d’une passerelle
 
-Pour garantir la continuité métier des applications stratégiques qui sont alimentées par des passerelles d’application, Advisor identifie les instances de passerelle d’application qui ne sont pas configurées pour la tolérance de panne, et suggère des mesures de mise à jour que vous pouvez prendre. Advisor identifie les passerelles d’application de moyenne ou grande taille à instance unique, et recommande d’ajouter au moins une instance de plus. Il identifie également les petites passerelles d’application à une ou plusieurs instances et recommande de migrer vers des références de moyenne ou grande taille. Advisor recommande ces actions pour assurer que vos instances de passerelle d’application sont configurées pour satisfaire les exigences actuelles du contrat de niveau de service pour ces ressources.
+Cette recommandation garantit la continuité métier des applications stratégiques qui sont alimentées par des passerelles d’application. Advisor identifie les instances de passerelle d’application qui ne sont pas configurées pour la tolérance de panne, et suggère des mesures de mise à jour que vous pouvez prendre. Advisor identifie les passerelles d’application de moyenne ou grande taille à instance unique, et recommande d’ajouter au moins une instance de plus. Il identifie également les petites passerelles d’application à une ou plusieurs instances et recommande de migrer vers des références de moyenne ou grande taille. Advisor recommande ces actions pour assurer que vos instances de passerelle d’application sont configurées pour satisfaire les exigences actuelles du contrat de niveau de service pour ces ressources.
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Protégez les données de vos machines virtuelles d’une suppression accidentelle
 
@@ -58,13 +54,13 @@ Vous recommandons de configurer des alertes Azure Service Health pour recevoir u
 
 Les profils Traffic Manager avec plusieurs points de terminaison offrent une meilleure disponibilité en cas d’échec d’un point de terminaison donné. Le placement de points de terminaison dans différentes régions améliore la fiabilité du service. Advisor identifie les profils Traffic Manager où il n’existe qu’un seul point de terminaison et recommande d’ajouter au moins un point de terminaison dans une autre région.
 
-Si tous les points de terminaison d’un profil Traffic Manager configuré pour le routage de proximité se trouvent dans la même région, les utilisateurs des autres régions peuvent subir des retards de connexion. L’ajout ou le déplacement d’un point de terminaison vers une autre région améliorera les performances globales et offrira une meilleure disponibilité si tous les points de terminaison d’une région échouent. Advisor identifie les profils Traffic Manager configurés pour le routage de proximité où les points de terminaison se trouvent dans la même région et vous recommande d’ajouter ou de déplacer un point de terminaison dans une autre région Azure.
+Si tous les points de terminaison d’un profil Traffic Manager configuré pour le routage de proximité se trouvent dans la même région, les utilisateurs des autres régions peuvent subir des retards de connexion. L’ajout ou le déplacement d’un point de terminaison vers une autre région améliorera les performances globales et offrira une meilleure disponibilité si tous les points de terminaison d’une région échouent. Advisor identifie les profils Traffic Manager configurés pour le routage de proximité où les points de terminaison se trouvent dans la même région. Il vous recommande d’ajouter ou de déplacer un point de terminaison dans une autre région Azure.
 
-Si un profil Traffic Manager est configuré pour le routage géographique, le trafic est acheminé vers les points de terminaison selon les régions définies. En cas d’échec d’une région, il n’existe aucun basculement prédéfini. Le fait de disposer d’un point de terminaison où le regroupement régional est configuré pour « Tous (monde) » permet d’éviter les pertes de trafic et améliore la disponibilité du service. Advisor identifie les profils Traffic Manager configurés pour le routage géographique où il n’existe aucun point de terminaison configuré avec le regroupement régional « Tous (monde) » et recommande cette modification de configuration.
+Si un profil Traffic Manager est configuré pour le routage géographique, le trafic est acheminé vers les points de terminaison selon les régions définies. En cas d’échec d’une région, il n’existe aucun basculement prédéfini. Le fait de disposer d’un point de terminaison où le regroupement régional est configuré pour « Tous (monde) » permet d’éviter les pertes de trafic et améliore la disponibilité du service. Advisor identifie les profils Traffic Manager configurés pour le routage géographique où il n’existe aucun point de terminaison configuré avec le regroupement régional « Tous (monde) ». Il recommande cette modification de configuration.
 
-## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Utilisez la suppression réversible sur votre compte de stockage Azure pour enregistrer et récupérer des données en cas de suppression ou de remplacement accidentels
+## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Utilisez la suppression réversible sur votre compte de stockage Azure pour enregistrer et récupérer des données après une suppression ou un remplacement accidentel
 
-Activez la [suppression réversible](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) sur votre compte de stockage afin que les blobs supprimés passent dans un état de suppression réversible au lieu d’être supprimés de façon permanente. Quand les données sont remplacées, un instantané du blob supprimé de manière réversible est généré pour enregistrer l’état des données remplacées. Cela vous permet de le récupérer en cas de suppression ou de remplacement accidentel. Advisor identifie les comptes de stockage Azure pour lesquels l’option de suppression réversible n’est pas activée et vous suggère de l’activer.
+Activez la [suppression réversible](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) sur votre compte de stockage afin que les blobs supprimés passent dans un état de suppression réversible au lieu d’être supprimés de façon permanente. Quand les données sont remplacées, un instantané du blob supprimé de manière réversible est généré pour enregistrer l’état des données remplacées. La suppression réversible vous permet de récupérer les données supprimées en cas de suppression ou d’écrasement accidentel. Advisor identifie les comptes de stockage Azure pour lesquels l’option de suppression réversible n’est pas activée et vous suggère de l’activer.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurer votre passerelle VPN en mode actif/actif à des fins de résilience de connexion
 

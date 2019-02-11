@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 1f7a02f66a8d87f33d7bac9068628dbd29e5bd7c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3d6464f3e69868b4903d999e52a37b0520018c6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635693"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659454"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Informations conceptuelles sur les certificats de l’autorité de certification X.509 dans l’industrie IoT
 
@@ -26,7 +26,7 @@ Cet article aborde les points suivants :
 * Comment configurer une chaîne logistique de fabrication pour l’authentification basée sur l’autorité de certification X.509
 * Comment les appareils approuvés par l’autorité de certification X.509 se connectent à IoT Hub
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’authentification par l’autorité de certification X.509 est une approche permettant d’authentifier les appareils dans IoT Hub à l’aide d’une méthode qui simplifie considérablement la création d’une identité d’appareil et la gestion du cycle de vie dans la chaîne logistique.
 
@@ -108,7 +108,7 @@ Dans notre exemple, l’usine Y et le technicien Z interagissent tous deux avec 
 
 ![img-cert-mfr-chain](./media/cert-mfr-chain.png)
 
-Ce point permet d’évaluer la valeur de la méthode d’autorité de certification X.509.  Au lieu de prégénérer et de transmettre les certificats pour chaque widget Smart-X dans la chaîne logistique, l’entreprise X doit simplement effectuer une transmission unique à l’usine Y.  Plutôt que de suivre chaque appareil tout au long de son cycle de vie, l’entreprise X peut suivre et gérer les appareils via des groupes qui découlent naturellement du processus de la chaîne logistique, par exemple, les appareils installés par le technicien Z après le mois de juillet d’une année donnée.
+Ce point permet d’évaluer la valeur de la méthode d’autorité de certification X.509.  Au lieu de prégénérer et de transmettre les certificats pour chaque widget Smart-X dans la chaîne logistique, l’entreprise X doit simplement effectuer une transmission unique à l’usine Y.  Plutôt que de suivre chaque appareil tout au long de son cycle de vie, l’entreprise X peut à présent suivre et gérer les appareils via des groupes qui découlent naturellement du processus de la chaîne logistique, par exemple, les appareils installés par le technicien Z après le mois de juillet d’une année donnée.
 
 Dernier point mais pas des moindres, la méthode d’authentification par l’autorité de certification ajoute la comptabilité sécurisée à la chaîne logistique de fabrication de l’appareil. Du fait du processus de la chaîne d’approbation, les actions de chaque membre de la chaîne sont enregistrées sous forme chiffrée et peuvent être vérifiées.
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c14bf7c108251a4ec00f5e2f0b1254f83121866e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 1bc2277b4100fe7571dc27758de12f1ca00020a1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321107"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656506"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copier des données de MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,7 +51,7 @@ Les propriétés prises en charge pour le service lié MySQL sont les suivantes�
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur : **MySql** | Oui |
-| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL.<br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md) pour plus de détails. | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 Une chaîne de connexion par défaut typique est `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Plus de propriétés que vous pouvez définir pour votre cas :
@@ -72,6 +72,35 @@ Une chaîne de connexion par défaut typique est `Server=<server>;Port=<port>;Da
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemple : stockage du mot de passe dans Azure Key Vault**
+
+```json
+{
+    "name": "MySQLLinkedService",
+    "properties": {
+        "type": "MySql",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {

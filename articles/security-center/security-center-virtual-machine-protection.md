@@ -3,7 +3,7 @@ title: Protection de vos machines et de vos applications dans Azure Security Cen
 description: Ce document traite des recommandations de Security Center qui peuvent vous aider à protéger vos machines virtuelles, vos ordinateurs, vos applications web et vos environnements App Service.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 411fc025f5a25e961f69f5e6f66a9f6d115689a7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181467"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487741"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protection de vos machines et de vos applications dans Azure Security Center
 Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires. Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles et ordinateurs, applications, mise en réseau, SQL et Identité et accès.
@@ -42,7 +42,7 @@ Sous **Compute et applications**, figurent les onglets suivants :
 - **Vue d’ensemble** : la surveillance et les recommandations identifiées par Security Center.
 - **Machines virtuelles et ordinateurs** : liste de vos machines virtuelles et ordinateurs, et état actuel de leur sécurité.
 - **Services cloud** : liste des rôles web et de travail contrôlés par Security Center.
-- **App Services (préversion)**: liste de vos environnements App Service et état actuel de leur sécurité.
+- **App services** : liste de vos environnements App Service et état actuel de leur sécurité.
 - **Conteneurs (préversion)**  : liste de vos conteneurs hébergés sur des machines IaaS Linux et évaluation de la sécurité de leurs configurations de Docker.
 - **Ressources Compute (préversion)**  : liste des suggestions pour vos ressources Compute, telles que des clusters Service Fabric et des Event hubs.
 
@@ -124,12 +124,11 @@ Pour voir une explication plus normative concernant cette recommandation, clique
 
 ![Mettre à jour la version du système d’exploitation](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
-### <a name="app-services-preview"></a>App Services (préversion)
+### <a name="app-services"></a>App Services
+Vous devez activer App Service dans votre abonnement pour afficher les informations App Service. Pour obtenir des instructions sur l’activation de cette fonctionnalité, consultez [Protéger App Service avec Azure Security Center](security-center-app-services.md).
+[!NOTE]
+> La surveillance d’App Service est uniquement disponible en préversion, au niveau Standard du Security Center.
 
-> [!NOTE]
-> La surveillance d’App Service est uniquement disponible en préversion, au niveau Standard du Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
->
->
 
 Sous **App Services**, vous trouverez la liste de vos environnements App Service et le résumé de l'intégrité basé sur l’évaluation effectuée par Security Center.
 
@@ -171,19 +170,9 @@ Cette liste contient trois types d’icônes :
 |App Service|10|Le débogage à distance doit être désactivé pour l'application web|Désactivez le débogage pour les applications web si vous n’en avez plus besoin. Le débogage distant requiert que des ports d’entrée soient ouverts sur une Function App.|
 |App Service|10|Le débogage à distance devrait être désactivé pour Function App|Désactivez le débogage pour Function App si vous n’en avez plus besoin. Le débogage distant requiert que des ports d’entrée soient ouverts sur une Function App.|
 |App Service|10|Configurer des restrictions d’adresse IP pour l’application web|Définissez une liste d’adresses IP autorisées à accéder à votre application. L’utilisation de restrictions d’adresse IP protège une application web contre des attaques courantes.|
-|App Service|10|Configurer les restrictions IP pour Function App| Définissez une liste d’adresses IP autorisées à accéder à votre application. L’utilisation de restrictions d’adresse IP protège une application de fonction contre des attaques courantes.|
 |App Service|10|Ne pas autoriser toutes (’*’) les ressources à accéder à votre application| Ne pas autoriser la définition du paramètre WEBSITE_LOAD_CERTIFICATES sur "". La définition du paramètre sur ‘’ signifie que tous les certificats sont chargés dans votre magasin de certificats personnels d’applications web. Cela peut conduire à un abus du principe des privilèges minimum, car il est peu probable que le site ait besoin d’accéder à tous les certificats lors de l’exécution.|
-|App Service|5.|Web Sockets doit être désactivé pour l’application web|Examinez l’utilisation de Web Sockets à l’intérieur d’applications web. Le protocole Web Sockets est vulnérable à différents types de menaces de sécurité.|
-|App Service|5.|Web Sockets devrait être désactivé pour Function App|Examinez l’utilisation de Web Sockets à l’intérieur de Function App. Le protocole Web Sockets est vulnérable à différents types de menaces de sécurité.|
-|App Service|5.|Utiliser des domaines personnalisés pour votre application web|Utilisez des domaines personnalisés pour protéger une application web contre des attaques courantes telles que l’hameçonnage et d’autres attaques liées au DNS.|
-|App Service|5.|Utiliser des domaines personnalisés pour Function App|Utilisez des domaines personnalisés pour protéger une application de fonction contre des attaques courantes telles que l’hameçonnage et d’autres attaques liées au DNS.|
 |App Service|20|CORS ne devrait pas autoriser toutes les ressources à accéder à vos applications web|Autorisez uniquement les domaines requis à interagir avec votre application web. Le partage des ressources cross-origin (CORS) ne devrait pas autoriser tous les domaines à accéder à votre application web.|
 |App Service|20|CORS ne devrait pas autoriser toutes les ressources à accéder à votre Function App| Recommande d’autoriser uniquement les domaines requis à interagir avec votre application de fonction. Le partage des ressources cross-origin (CORS) ne devrait pas autoriser tous les domaines à accéder à votre application de fonction.|
-|App Service|10|Utiliser la dernière version de .NET Framework prise en charge pour l’application web|Utilisez la dernière version de .NET Framework pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable.|
-|App Service|10|Utiliser la dernière version de Java prise en charge pour l’application web|Utilisez la dernière version de Java pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable.|
-|App Service|10|Utiliser la dernière version de PHP prise en charge pour l’application web|Utilisez la dernière version de PHP pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable.|
-|App Service|10|Utiliser la dernière version de Node.js prise en charge pour l’application web|Utilisez la dernière version de Node.js pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable.|
-|App Service|10|Utiliser la dernière version de Python prise en charge pour l'application web|Utilisez la dernière version de Python pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable.|
 |Ressources de calcul (Batch)|1|Configurer les règles d'alerte sur les métriques pour le compte Batch|Configurer les règles d'alerte pour les métriques sur le compte Batch et activer les métriques Pool Delete Complete Events et Pool Delete Start Events|
 |Ressources de calcul (Service Fabric)|10|Utiliser Azure Active Directory pour l'authentification cliente dans Service Fabric|Effectuez l'authentification cliente uniquement par le biais d'Azure Active Directory dans Service Fabric.|
 |Ressources de calcul (compte Automation)|5.| Activer le chiffrement du compte Automation|Activez le chiffrement des ressources variables du compte Automation lors du stockage de données sensibles.|

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: cbd58c0873a4a46d175c6d7cbdf2d004da304c06
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247236"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731544"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Cet article contient les problèmes connus et les limitations temporaires avec A
 
 Les API Stockage Blob et Azure Data Lake Gen2 APIs ne sont pas interopérables.
 
-Si vous devez utiliser le même outil pour travailler avec tout le contenu que vous chargez dans votre compte, alors n’activez pas les espaces de noms hiérarchiques sur votre compte de stockage Blob jusqu’à ce que ces API deviennent interopérables. L’utilisation d’un compte de stockage sans l’espace de noms hiérarchique signifie que vous n’avez alors pas accès aux fonctionnalités spécifiques de Data Lake Storage Gen2, comme les listes de contrôle d’accès au répertoire et au système de fichiers.
+Si vous disposez d’outils, d’applications ou de scripts personnalisés qui utilisent des API Blob et que vous souhaitez les utiliser pour travailler avec tout le contenu que vous téléchargez sur votre compte, n’activez pas les espaces de noms hiérarchiques sur votre compte de stockage Blob avant que les API Blob deviennent interopérables avec les API Azure Data Lake Gen2. L’utilisation d’un compte de stockage sans l’espace de noms hiérarchique signifie que vous n’avez alors pas accès aux fonctionnalités spécifiques de Data Lake Storage Gen2, comme les listes de contrôle d’accès au répertoire et au système de fichiers.
 
 ## <a name="blob-storage-apis"></a>API Stockage Blob
 
@@ -90,5 +90,3 @@ Ces stratégies sont disponibles pour les comptes de stockage qui où les espace
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
 Les journaux de diagnostic ne sont pas disponibles pour les comptes Azure Data Lake Storage Gen2.
-
-Pour demander les journaux de diagnostic, contactez le Support Azure. Fournissez le nom de votre compte et la période de temps pour laquelle vous avez besoin des journaux.

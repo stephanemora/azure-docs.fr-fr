@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b2b5d62c54fbfdef8a5e448a089800eedcb66d07
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827497"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700075"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Meilleures pratiques pour la sécurisation et la gestion des charges de travail migrées vers Azure
 
@@ -400,8 +400,7 @@ Les machines virtuelles Azure sont stockés en tant qu’objets blob de pages da
 - [Apprenez-en](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) davantage sur la création d’un instantané d’objet blob.
 - [Passez en revue un exemple de scénario](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) pour la sauvegarde de stockage d’objets blob.
 - [Apprenez-en davantage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) sur la suppression réversible.
-- [Consultez](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) Que faire en cas de panne du Stockage Azure ?
-
+- [Reprise d’activité après sinistre et basculement forcé (préversion) dans Stockage Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 #### <a name="third-party-backup"></a>Sauvegarde tierce
 
@@ -517,7 +516,7 @@ Les groupes de basculement et la géoréplication active vous offrent une tolér
 - [Lisez](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) Azure SQL Databases 101 pour en savoir plus sur la récupération d’urgence.
 - [Consultez une vue d’ensemble](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) sur la géoréplication active et les groupes de basculement.
 - [Apprenez-en davantage](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) sur la conception pour la récupération d’urgence.
-- [Adoptez les meilleures pratiques](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity) pour les groupes de basculement.
+- [Adoptez les meilleures pratiques](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) pour les groupes de basculement.
 - [Adoptez les meilleures pratiques](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config) de sécurité après la géorestauration ou le basculement.
 - [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration) sur la redondance de zone
 - [Découvrez comment](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills) effectuer une simulation de récupération d’urgence pour une base de données SQL.

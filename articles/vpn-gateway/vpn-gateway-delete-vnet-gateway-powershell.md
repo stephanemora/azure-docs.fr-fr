@@ -1,5 +1,5 @@
 ---
-title: 'Suppression d’une passerelle de réseau virtuel : PowerShell : Azure Resource Manager | Microsoft Docs'
+title: 'Supprimer une passerelle de réseau virtuel : PowerShell : Azure Resource Manager | Microsoft Docs'
 description: Supprimez une passerelle de réseau virtuel avec PowerShell dans le modèle de déploiement Resource Manager.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: cherylmc
-ms.openlocfilehash: a23a969f1381e3a10c81a903793bad2870b436f6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a0fc21c469658da637f15c820c105ec3ff31a04e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603638"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507924"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Supprimer une passerelle de réseau virtuel avec PowerShell
 > [!div class="op_single_selector"]
@@ -67,8 +67,8 @@ Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_nam
 Pour supprimer une passerelle de réseau virtuel pour une configuration S2S, vous devez d’abord supprimer chaque ressource liée à la passerelle de réseau virtuel. Les ressources doivent être supprimées dans un certain ordre en raison des dépendances. Quand vous travaillez avec les exemples ci-dessous, certaines valeurs doivent être spécifiées, tandis que d’autres sont des résultats en sortie. Nous utilisons les valeurs suivantes dans les exemples à des fins de démonstration :
 
 Nom du réseau virtuel : VNet1<br>
-Nom du groupe de ressources : RG1<br>
-Nom de la passerelle de réseau virtuel : GW1<br>
+Nom du groupe de ressources : RG1<br>
+Nom de la passerelle de réseau virtuel : GW1<br>
 
 Les étapes suivantes s’appliquent au modèle de déploiement Resource Manager.
 
@@ -150,8 +150,8 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 Si vous souhaitez supprimer une passerelle de réseau virtuel pour une configuration V2V, vous devez d’abord supprimer chaque ressource liée à la passerelle de réseau virtuel. Les ressources doivent être supprimées dans un certain ordre en raison des dépendances. Quand vous travaillez avec les exemples ci-dessous, certaines valeurs doivent être spécifiées, tandis que d’autres sont des résultats en sortie. Nous utilisons les valeurs suivantes dans les exemples à des fins de démonstration :
 
 Nom du réseau virtuel : VNet1<br>
-Nom du groupe de ressources : RG1<br>
-Nom de la passerelle de réseau virtuel : GW1<br>
+Nom du groupe de ressources : RG1<br>
+Nom de la passerelle de réseau virtuel : GW1<br>
 
 Les étapes suivantes s’appliquent au modèle de déploiement Resource Manager.
 
@@ -238,8 +238,8 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 Pour supprimer une passerelle de réseau virtuel pour une configuration P2S, vous devez d’abord supprimer chaque ressource liée à la passerelle de réseau virtuel. Les ressources doivent être supprimées dans un certain ordre en raison des dépendances. Quand vous travaillez avec les exemples ci-dessous, certaines valeurs doivent être spécifiées, tandis que d’autres sont des résultats en sortie. Nous utilisons les valeurs suivantes dans les exemples à des fins de démonstration :
 
 Nom du réseau virtuel : VNet1<br>
-Nom du groupe de ressources : RG1<br>
-Nom de la passerelle de réseau virtuel : GW1<br>
+Nom du groupe de ressources : RG1<br>
+Nom de la passerelle de réseau virtuel : GW1<br>
 
 Les étapes suivantes s’appliquent au modèle de déploiement Resource Manager.
 

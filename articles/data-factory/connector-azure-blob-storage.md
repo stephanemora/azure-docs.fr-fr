@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: d5d47856bf29ec586ed414787542a5d3ff9a6334
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bc7fdbe964269521a049fba8fcb8c37194d60f7c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080089"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664197"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copier des données vers ou depuis le stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Pour l’authentification par clé de compte de stockage, les propriétés suiva
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **AzureBlobStorage** (recommandé) ou **AzureStorage** (voir les remarques ci-dessous). |Oui |
-| connectionString | Spécifiez les informations requises pour la connexion au stockage pour la propriété connectionString. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
+| connectionString | Spécifiez les informations requises pour la connexion au stockage pour la propriété connectionString. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir une clé de compte dans Azure Key Vault et extraire la configuration `accountKey` de la chaîne de connexion. Reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md) pour plus de détails. |Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou Integration Runtime auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 >[!NOTE]
@@ -91,6 +91,35 @@ Pour l’authentification par clé de compte de stockage, les propriétés suiva
 }
 ```
 
+**Exemple : stockage de la clé de compte dans Azure Key Vault**
+
+```json
+{
+    "name": "AzureBlobStorageLinkedService",
+    "properties": {
+        "type": "AzureBlobStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;"
+            },
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }            
+    }
+}
+```
+
 ### <a name="shared-access-signature-authentication"></a>Authentification avec une signature d’accès partagé
 
 Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Vous pouvez utiliser une signature d’accès partagé pour octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée. Vous n’êtes pas obligé de partager vos clés d’accès de compte. La signature d’accès partagé est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour obtenir un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d’accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur approprié. Pour plus d’informations sur les signatures d’accès partagé, consultez [Signatures d’accès partagé : Comprendre le modèle de signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
@@ -109,7 +138,7 @@ Pour l’authentification par signature d’accès partagé, les propriétés su
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **AzureBlobStorage** (recommandé) ou **AzureStorage** (voir les remarques ci-dessous). |Oui |
-| sasUri | Spécifiez l’URI de signature d’accès partagé des ressources de stockage, telles qu’un objet blob, un conteneur ou une table. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
+| sasUri | Spécifiez l’URI de signature d’accès partagé des ressources de stockage, telles qu’un objet blob/conteneur. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également placer un jeton SAS dans Azure Key Vault pour activer la rotation automatique et supprimer la partie du jeton. Reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md) pour plus de détails. |Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou Integration Runtime auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 >[!NOTE]
@@ -125,7 +154,36 @@ Pour l’authentification par signature d’accès partagé, les propriétés su
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
-                "value": "<SAS URI of the Azure Storage resource>"
+                "value": "<SAS URI of the Azure Storage resource e.g. https://<container>.blob.core.windows.net/?sv=<storage version>&amp;st=<start time>&amp;se=<expire time>&amp;sr=<resource>&amp;sp=<permissions>&amp;sip=<ip range>&amp;spr=<protocol>&amp;sig=<signature>>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemple : stockage de la clé de compte dans Azure Key Vault**
+
+```json
+{
+    "name": "AzureBlobStorageLinkedService",
+    "properties": {
+        "type": "AzureBlobStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the Azure Storage resource without token e.g. https://<container>.blob.core.windows.net/>"
+            },
+            "sasToken": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -140,7 +198,7 @@ Lorsque vous créez un URI de signature d’accès partagé, prenez en compte le
 
 - Définissez des autorisations de lecture/écriture appropriées sur les objets en fonction de l’utilisation du service lié (lecture, écriture, lecture/écriture) dans votre fabrique de données.
 - Définissez le paramètre **Heure d’expiration** correctement. Assurez-vous que l’accès aux objets du stockage n’expire pas pendant la période active du pipeline.
-- L’URI doit être créé au niveau table ou objet blob/conteneur approprié en fonction des besoins. Un URI de signature d’accès partagé à un objet blob permet à Azure Data Factory d’accéder à cet objet blob particulier. Un URI de signature d’accès partagé à un conteneur de stockage Blob permet à Azure Data Factory d’itérer via des objets blob dans ce conteneur. Pour fournir l’accès à plus ou moins d’objets ultérieurement ou mettre à jour l’URI de signature d’accès partagé, rappelez-vous de mettre à jour le service lié avec le nouvel URI.
+- L’URI doit être créé au niveau objet blob/conteneur approprié en fonction des besoins. Un URI de signature d’accès partagé à un objet blob permet à Azure Data Factory d’accéder à cet objet blob particulier. Un URI de signature d’accès partagé à un conteneur de stockage Blob permet à Azure Data Factory d’itérer via des objets blob dans ce conteneur. Pour fournir l’accès à plus ou moins d’objets ultérieurement ou mettre à jour l’URI de signature d’accès partagé, rappelez-vous de mettre à jour le service lié avec le nouvel URI.
 
 ### <a name="service-principal-authentication"></a>Authentification d’un principal du service
 
@@ -250,7 +308,7 @@ Pour copier des données vers et depuis le stockage Blob, définissez la propri�
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du jeu de données doit être définie sur **AzureBlob**. |OUI |
-| folderPath | Chemin d'accès au conteneur et au dossier dans le stockage des objets Blobs. <br/><br/>Le filtre de caractères génériques est pris en charge pour le chemin à l’exclusion du nom du conteneur. Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de fichier contient effectivement ce caractère d’échappement ou générique. <br/><br/>Exemples : conteneur_blob/dossier_blob/ ; consultez d’autres exemples dans [Exemples de filtres de dossier et de fichier](#folder-and-file-filter-examples). |Oui pour la copie/Activité Lookup/Non pour l’activité GetMetadata |
+| folderPath | Chemin d'accès au conteneur et au dossier dans le stockage des objets Blobs. <br/><br/>Le filtre de caractères génériques est pris en charge pour le chemin à l’exclusion du nom du conteneur. Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br/><br/>Exemples : conteneur_blob/dossier_blob/ ; consultez d’autres exemples dans [Exemples de filtres de dossier et de fichier](#folder-and-file-filter-examples). |Oui pour la copie/Activité Lookup/Non pour l’activité GetMetadata |
 | fileName | **Filtre de nom ou de caractères génériques** pour les objets blob sous le "folderPath" spécifié. Si vous ne spécifiez pas de valeur pour cette propriété, le jeu de données pointe vers tous les objets blob du dossier. <br/><br/>Dans le filtre, les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plus) et `?` (correspond à zéro ou un caractère).<br/>- Exemple 1 : `"fileName": "*.csv"`<br/>- Exemple 2 : `"fileName": "???20180427.txt"`<br/>Utilisez `^` comme caractère d’échappement si votre nom de fichier réel contient des caractères génériques ou ce caractère d’échappement.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, l’activité de copie génère automatiquement le nom d’objet blob selon le modèle suivant : « *Data.[GUID d’exécution d’activité].[GUID si FlattenHierarchy].[format si configuré].[compression si configurée]* », par exemple « Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz ». Si c’est le nom de la table et non la requête qui est utilisé pour la copie à partir d’une source tabulaire, le modèle de nom est le suivant : « *[nom de la table].[format].[compression si configurée]* », par exemple « MyTable.csv ». |Non  |
 | modifiedDatetimeStart | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non  |
 | modifiedDatetimeEnd | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non  |

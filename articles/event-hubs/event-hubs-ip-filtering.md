@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268272"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507533"
 ---
 # <a name="use-firewall-rules"></a>Utiliser les règles de pare-feu
 
@@ -24,7 +24,7 @@ Pour les scénarios où Azure Event Hubs doit uniquement être accessible à par
 
 ## <a name="when-to-use"></a>Quand utiliser
 
-Si vous cherchez à configurer votre espace de noms Event Hubs de sorte qu’il puisse recevoir le trafic uniquement en provenance d’une plage spécifiée d’adresses IP et rejeter toutes les autres, vous pouvez utiliser une *règle de pare-feu* pour bloquer les points de terminaison Event Hub à partir des autres adresses IP. Par exemple, vous pouvez utiliser Event Hubs avec [Azure Express Route][express-route] pour créer des connexions privées à votre infrastructure locale.
+Si vous cherchez à configurer votre espace de noms Event Hubs de façon à ce qu’il reçoive le trafic uniquement à partir d’une plage spécifiée d’adresses IP et rejette tout le reste, vous pouvez exploiter une *règle de pare-feu* pour bloquer les points de terminaison Event Hub d’autres adresses IP. Par exemple, si vous utilisez Event Hubs avec [Azure Express Route][express-route], vous pouvez créer une *règle de pare-feu* pour restreindre le trafic des adresses IP de votre infrastructure sur site.
 
 ## <a name="how-filter-rules-are-applied"></a>Application des règles de filtre
 
@@ -49,11 +49,11 @@ Les règles de filtre IP sont appliquées dans l’ordre et la première règle
 > - Azure Monitor
 > - Azure Stream Analytics
 > - Intégration à Azure Event Grid
-> - Azure IoT Hub Routes
+> - Routes Azure IoT Hub
 > - Azure IoT Device Explorer
 > - Explorateur de données Azure
 >
-> Les services Microsoft suivants doivent être sur un réseau virtuel :
+> Les services Microsoft suivants doivent être sur un réseau virtuel
 > - Azure Web Apps 
 > - Azure Functions
 

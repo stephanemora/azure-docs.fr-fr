@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: da195f414da032b5274a9dc1a184b66094f245f2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444613"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493431"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway
 
@@ -59,13 +59,13 @@ Dans le premier exemple de configuration, toutes vos API sont gérées uniquemen
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Qu’est-ce qui est nécessaire pour créer une intégration entre le service Gestion des API et Application Gateway ?
 
-* **Pool de serveurs principaux :** adresse IP virtuelle interne du service Gestion des API.
-* **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont appliqués à tous les serveurs du pool.
-* **Port frontal :** port public ouvert sur la passerelle Application Gateway. Le trafic l’atteignant est redirigé vers l’un des serveurs principaux.
-* **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
-* **Règle :** la règle relie un écouteur à un pool de serveurs principaux.
+* **Pool de serveurs back-end :** Adresse IP virtuelle interne du service Gestion des API.
+* **Paramètres de pool de serveurs back-end :** Chaque pool dispose de paramètres tels que le port, le protocole et l’affinité en fonction des cookies. Ces paramètres sont appliqués à tous les serveurs du pool.
+* **Port front-end :** Il s’agit du port public ouvert sur la passerelle d’application. Le trafic l’atteignant est redirigé vers l’un des serveurs principaux.
+* **Écouteur :** l’écouteur a un port front-end, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
+* **Règle :** La règle relie un écouteur à un pool de serveurs principaux.
 * **Sonde d’intégrité personnalisée :** Application Gateway, par défaut, utilise des sondes basées sur des adresses IP pour déterminer les serveurs actifs dans le BackendAddressPool. Le service Gestion des API répond uniquement aux requêtes avec l’en-tête d’hôte est correct. C’est pourquoi les sondes par défaut échouent. Une sonde d’intégrité personnalisée doit être définie pour aider Application Gateway à déterminer que le service est actif et qu’il doit transférer les demandes.
-* **Certificats de domaine personnalisés :** pour accéder au service Gestion des API à partir d’Internet, vous devez créer un mappage CNAME de son nom d’hôte au nom DNS frontal d’Application Gateway. Cela garantit que l’en-tête de nom d’hôte et le certificat envoyé à Application Gateway qui est transféré au service Gestion des API peuvent être reconnus comme valides par l’APIM. Dans cet exemple, nous allons utiliser deux certificats : pour le serveur backend et pour le portail des développeurs.  
+* **Certificat de domaine personnalisé :** Pour accéder au service Gestion des API à partir d’Internet, vous devez créer un mappage CNAME de son nom d’hôte au nom DNS frontal d’Application Gateway. Cela garantit que l’en-tête de nom d’hôte et le certificat envoyé à Application Gateway qui est transféré au service Gestion des API peuvent être reconnus comme valides par l’APIM. Dans cet exemple, nous allons utiliser deux certificats : pour le serveur backend et pour le portail des développeurs.  
 
 ## <a name="overview-steps"></a> Étapes requises pour l’intégration de la gestion des API et d’Application Gateway
 
@@ -82,7 +82,7 @@ Dans le premier exemple de configuration, toutes vos API sont gérées uniquemen
 Dans ce guide, nous allons également exposer le **portail des développeurs** à un public extérieur à l’aide d’Application Gateway. Cela nécessite des étapes supplémentaires pour créer un écouteur, une sonde, des paramètres et des règles pour le portail des développeurs. Tous les détails sont fournis dans les étapes respectives.
 
 > [!WARNING]
-> Dans la configuration décrite du portail des développeurs accessible via Application Gateway, vous pouvez rencontrer des problèmes avec l’authentification AAD et tierce.
+> Si vous utilisez Azure AD ou une authentification tierce partie, veuillez activer la fonctionnalité [Affinité de session basée sur les cookies](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) dans Application Gateway.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Créer un groupe de ressources pour Resource Manager
 

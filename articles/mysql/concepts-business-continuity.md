@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: a09c1934ecb34518b191a8e730a72efecc85aa2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554535"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692715"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL
 
@@ -50,6 +50,6 @@ L’autre solution consiste à utiliser la fonctionnalité de géorestauration d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les sauvegardes automatisées, consultez [Sauvegardes dans Azure Database pour MySQL](concepts-backup.md).
-- Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez  [Restauration d’une base de données à un point dans le temps à l’aide du portail Azure](howto-restore-server-portal.md).
-- Pour effectuer une restauration à un point dans le temps à l’aide de l’interface de ligne de commande Azure, consultez  [Restaurer une base de données à un point dans le temps à l’aide de l’interface CLI](howto-restore-server-cli.md).
+- Apprenez-en davantage sur les [sauvegardes automatisées dans Azure Database pour MySQL](concepts-backup.md).
+- Découvrez comment effectuer une restauration à l’aide du [portail Azure](howto-restore-server-portal.md) ou de l’interface [Azure CLI](howto-restore-server-cli.md).
+- Apprenez-en davantage sur les [réplicas en lecture dans Azure Database pour MySQL](concepts-read-replicas.md).

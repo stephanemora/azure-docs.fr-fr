@@ -1,8 +1,21 @@
 ---
-titre : Reformer un nouveau service web Machine Learning Studio avec PowerShell - titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à reformer un modèle par programme et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning à l’aide des applets de commande PowerShell de gestion Machine Learning.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 28/03/2017
+title: Reformer un nouveau service web Machine Learning Studio avec PowerShell
+titleSuffix: Azure Machine Learning Studio
+description: Apprenez à reformer un modèle par programme et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning à l’aide des applets de commande PowerShell de gestion Machine Learning.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/28/2017
+ms.openlocfilehash: cad38d47b1fe154da9c3967e1e34ed87b9bc8988
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507788"
 ---
 # <a name="retrain-a-new-resource-manager-based-studio-web-service-using-powershell"></a>Reformer un nouveau service web Studio basé sur Resource Manager avec Powershell
 Quand vous reformez un nouveau service web, vous mettez à jour la définition de service web prédictif pour référencer le nouveau modèle formé.

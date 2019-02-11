@@ -1,5 +1,5 @@
 ---
-title: Configurer le tunneling forcé pour les connexions de site à site - Resource Manager | Microsoft Docs
+title: 'Configurer le tunneling forcé pour les connexions de site à site Azure : Azure Resource Manager | Microsoft Docs'
 description: Comment rediriger ou « forcer » tout le trafic Internet vers votre emplacement local.
 services: vpn-gateway
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
 ms.openlocfilehash: 21004c29f1baf0346cd83d8483ff1862a98fc845
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160478"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506462"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configuration du tunneling forcé à l’aide du modèle de déploiement Azure Resource Manager
 
@@ -52,16 +52,16 @@ Le tunneling forcé dans Azure est configuré via les itinéraires de réseau vi
 
 * Chaque sous-réseau du réseau virtuel dispose d’une table de routage système intégrée. La table de routage système comporte les trois groupes d’itinéraires suivants :
   
-  * **Itinéraires de réseau virtuel local :** directement vers les machines virtuelles de destination dans le même réseau virtuel.
-  * **Itinéraires locaux :** vers la passerelle VPN Azure.
-  * **Itinéraire par défaut :** directement vers Internet. Les paquets destinés aux adresses IP privées non couvertes par les deux itinéraires précédents sont supprimés.
+  * **Routes de réseau virtuel local :** directement vers les machines virtuelles de destination sur le même réseau virtuel.
+  * **Routes locales :** vers la passerelle VPN Azure.
+  * **Route par défaut :** directement vers Internet. Les paquets destinés aux adresses IP privées non couvertes par les deux itinéraires précédents sont supprimés.
 * Cette procédure utilise des itinéraires définis par l’utilisateur (UDR) pour créer une table de routage et ajouter un itinéraire par défaut, puis associer la table de routage à vos sous-réseaux de réseaux virtuels pour activer le tunneling forcé sur ces sous-réseaux.
 * Le tunneling forcé doit être associé à un réseau virtuel équipé d’une passerelle VPN avec itinéraire. Vous devez définir un « site par défaut » parmi les sites locaux intersites connectés au réseau virtuel. En outre, le périphérique VPN local doit être configuré à l’aide de 0.0.0.0/0 comme des sélecteurs de trafic. 
 * Le tunneling forcé ExpressRoute n'est pas configuré de cette manière, mais il est activé par la publication d’un itinéraire par défaut via les sessions d'homologation BGP ExpressRoute. Pour plus d’informations, consultez la [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
 ## <a name="configuration-overview"></a>Présentation de la configuration
 
-La procédure suivante vous aide à créer un groupe de ressources et un réseau virtuel. Vous créerez ensuite une passerelle VPN et configurerez le tunneling forcé. Dans cette procédure, le réseau virtuel « MultiTier-VNet » comporte trois sous-réseaux : « Frontend », « Midtier » et « Backend », ainsi que quatre connexions intersites : « DefaultSiteHQ » et trois « Branches ».
+La procédure suivante vous aide à créer un groupe de ressources et un réseau virtuel. Vous créerez ensuite une passerelle VPN et configurerez le tunneling forcé. Dans cette procédure, le réseau virtuel « MultiTier-VNet » comporte trois sous-réseaux : « Frontend », « Midtier » et « Backend », avec quatre connexions entre différents locaux : « DefaultSiteHQ » et trois branches.
 
 Les étapes de la procédure définissent « DefaultSiteHQ » comme connexion de site par défaut pour le tunneling forcé et configure les sous-réseaux « Midtier » et « Backend » de manière à utiliser le tunneling forcé.
 

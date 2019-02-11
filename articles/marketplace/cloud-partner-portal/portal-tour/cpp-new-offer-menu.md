@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e45cf028740a05fa35bcf933f727053ab82bdcfa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 04cac492fd044471a646444afc21bc70f92537d2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195068"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656849"
 ---
 # <a name="new-offer-menu"></a>Menu Nouvelle offre
 
@@ -34,6 +34,7 @@ Le menu **Nouvelle offre** permet aux partenaires de créer des instances de typ
 | ![Élément de menu Dynamics 365 for Customer Engagement](./media/new-offer-menu5.png) | [Offre Dynamics 365 for Customer Engagement](./../../cloud-partner-portal-orig/cpp-customer-engagement-offer.md) |
 | ![Élément de menu Dynamics 365 for Operations](./media/new-offer-menu6.png) | [Offre Dynamics 365 for Operations](./../../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) |
 | ![Élément de menu Modules IoT Edge](./media/new-offer-menu7.png) | [Offre de module IoT Edge](./../iot-edge-module/cpp-offer-process-parts.md) |
+| ![Élément de menu de l’application Power BI](./media/new-offer-pbi.png)   |  [Offre d’application Power BI](../power-bi/cpp-power-bi-offer.md)  |
 | ![ Élément du menu Applications SasS](./media/new-offer-menu8.png) | [Offre d’application SaaS](../saas-app/cpp-saas-offer.md) |
 | ![ Élément de menu Machines virtuelles](./media/new-offer-menu9.png) | [Offre de machine virtuelle](./../virtual-machine/cpp-virtual-machine-offer.md) |
 |  |  |

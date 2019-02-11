@@ -11,15 +11,16 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: b6fbb71a827c90abd1fac58d7975ab2f7b2a5674
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260021"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560887"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
+
 Cette rubrique décrit le comportement de connexion d’Azure SQL Database pour les clients qui utilisent ADO.NET version 4.5 ou ultérieure. 
 
 > [!IMPORTANT]
@@ -27,12 +28,15 @@ Cette rubrique décrit le comportement de connexion d’Azure SQL Database pour 
 >
 
 ## <a name="outside-vs-inside"></a>À l’extérieur et à l’intérieur
+
 Pour les connexions à Azure SQL Database, nous devons d’abord déterminer si le programme client s’exécute *à l’extérieur* ou *à l’intérieur* de la limite du cloud Azure. Les sous-sections suivantes abordent deux scénarios courants.
 
-#### <a name="outside-client-runs-on-your-desktop-computer"></a>*À l’extérieur :* le client s’exécute sur votre ordinateur de bureau
+#### <a name="outside-client-runs-on-your-desktop-computer"></a>*À l’extérieur :* Le client s’exécute sur votre ordinateur de bureau
+
 Le port 1433 est le seul port qui doit être ouvert sur votre ordinateur de bureau qui héberge votre application cliente SQL Database.
 
-#### <a name="inside-client-runs-on-azure"></a>*À l’intérieur :* le client s’exécute sur Azure
+#### <a name="inside-client-runs-on-azure"></a>*À l’intérieur :* Le client s’exécute sur Azure
+
 Quand votre client s’exécute à l’intérieur de la limite du cloud Azure, il utilise ce que nous pouvons appeler un *itinéraire direct* pour interagir avec le serveur de la base de données SQL. Une fois une connexion établie, les interactions suivantes entre le client et la base de données n’impliquent aucune passerelle Azure SQL Database.
 
 La séquence est la suivante :
@@ -76,6 +80,6 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 * [Liste des versions du protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
-* [Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
+* [Guide pratique pour Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
 
 

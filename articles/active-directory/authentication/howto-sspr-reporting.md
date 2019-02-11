@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 891ab7ce0218e3532b8e503bc9b06da04a13d2c4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d3d88c29025c1a7a40a6248d3be841a33d1b6761
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074545"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694361"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -85,7 +85,7 @@ Les types d’activités suivants s’affichent dans la catégorie d’événeme
 * [Reset password (by admin)](#activity-type-reset-password-by-admin) (Réinitialisation du mot de passe (par l’administrateur)) : indique qu’un administrateur a effectué une réinitialisation de mot de passe pour le compte d’un utilisateur à partir du portail Azure.
 * [Reset password (self-service)](#activity-type-reset-password-self-service) (Réinitialisation du mot de passe (libre-service)) : indique qu’un utilisateur a correctement réinitialisé son mot de passe à partir du [portail de réinitialisation de mot de passe Azure AD](https://passwordreset.microsoftonline.com).
 * [Self serve password reset flow activity progress](#activity-type-self-serve-password-reset-flow-activity-progress) (Progression de l’activité du flux de réinitialisation du mot de passe en libre-service) : indique chaque étape spécifique effectuée par un utilisateur, comme le passage d’un verrou d’authentification de réinitialisation de mot de passe spécifique, dans le cadre du processus de réinitialisation de mot de passe.
-* [Unlock user account (self-service)](#activity-type-unlock-user-account-self-service) (Déverrouillage du compte d’utilisateur (libre-service)) : indique qu’un utilisateur a correctement déverrouillé son compte Active Directory sans réinitialiser son mot de passe à partir du [portail de réinitialisation de mot de passe Azure AD](https://passwordreset.microsoftonline.com) à l’aide de la fonctionnalité Active Directory de déverrouillage de compte sans réinitialisation.
+* [Unlock user account (self-service)](#activity-type-unlock-a-user-account-self-service) (Déverrouillage du compte d’utilisateur (libre-service)) : indique qu’un utilisateur a correctement déverrouillé son compte Active Directory sans réinitialiser son mot de passe à partir du [portail de réinitialisation de mot de passe Azure AD](https://passwordreset.microsoftonline.com) à l’aide de la fonctionnalité Active Directory de déverrouillage de compte sans réinitialisation.
 * [User registered for self-service password reset](#activity-type-user-registered-for-self-service-password-reset) (Utilisateur inscrit pour la réinitialisation du mot de passe en libre-service) : indique qu’un utilisateur a inscrit toutes les informations nécessaires pour pouvoir réinitialiser son mot de passe conformément à la stratégie de réinitialisation de mot de passe du locataire actuellement spécifiée.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Type d’activité : Blocage suite à une réinitialisation de mot de passe en libre-service
@@ -109,7 +109,7 @@ La liste suivante explique cette activité en détail :
 * **Activity statuses** (États de l'activité) :
   * _Réussite_ : indique qu’un utilisateur a modifié son mot de passe avec succès.
   * _Échec_ : indique qu’un utilisateur n’a pas réussi à modifier son mot de passe. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
-* **Activity status failure reason** (Motif de l’état de l’activité Failure) : 
+* **Activity status failure reason** (Motif de l’état de l’activité Failure) :
   * _FuzzyPolicyViolationInvalidPassword_ : l’utilisateur a sélectionné un mot de passe qui a été automatiquement interdit, car les fonctionnalités de détection de mots de passe interdits de Microsoft l’ont jugé trop banal ou trop faible.
 
 ### <a name="activity-type-reset-password-by-admin"></a>Type d’activité : Réinitialiser un mot de passe (par l’administrateur)
@@ -133,7 +133,7 @@ La liste suivante explique cette activité en détail :
 * **Activity statuses** (États de l'activité) :
   * _Réussite_ : indique qu’un utilisateur a correctement réinitialisé son propre mot de passe.
   * _Échec_ : indique qu’un utilisateur n’a pas réussi à réinitialiser son propre mot de passe. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
-* **Activity status failure reason** (Motif de l’état de l’activité Failure) : 
+* **Activity status failure reason** (Motif de l’état de l’activité Failure) :
   * _FuzzyPolicyViolationInvalidPassword_ : l’administrateur a sélectionné un mot de passe qui a été automatiquement interdit, car les fonctionnalités de détection de mots de passe interdits de Microsoft l’ont jugé trop banal ou trop faible.
 
 ### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Type d’activité : Progression de l’activité du flux de réinitialisation de mot de passe en libre-service
@@ -146,7 +146,7 @@ La liste suivante explique cette activité en détail :
 * **Activity statuses** (États de l'activité) :
   * _Réussite_ : indique qu’un utilisateur a correctement effectué une étape spécifique du flux de réinitialisation de mot de passe.
   * _Échec_ : indique qu’une étape spécifique du flux de réinitialisation de mot de passe a échoué. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
-* **Activity status reasons** (Motif de l’état de l’activité) :   consultez le tableau suivant pour connaître [tous les motifs des états de l’activité de réinitialisation autorisés](#allowed-values-for-details-column).
+* **Activity status reasons** (Motif de l’état de l’activité) :   consultez le tableau suivant pour connaître [tous les motifs des états de l’activité de réinitialisation autorisés](#description-of-the-report-columns-in-the-azure-portal).
 
 ### <a name="activity-type-unlock-a-user-account-self-service"></a>Type d’activité : Déverrouiller un compte d’utilisateur (libre-service)
 
@@ -168,10 +168,10 @@ La liste suivante explique cette activité en détail :
 * **Activity target** (Cible de l’activité) : l’utilisateur qui s’est inscrit pour la réinitialisation de mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Allowed activity statuses** (États de l’activité autorisés) :
   * _Réussite_ : indique qu’un utilisateur s’est inscrit pour la réinitialisation de mot de passe conformément à la stratégie actuelle. 
-  * _Échec_ : indique qu’un utilisateur n’a pas réussi à s’inscrire pour la réinitialisation de mot de passe. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec. 
+  * _Échec_ : indique qu’un utilisateur n’a pas réussi à s’inscrire pour la réinitialisation de mot de passe. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
 
      >[!NOTE]
-     >Un échec ne signifie pas qu’un utilisateur ne peut pas réinitialiser son propre mot de passe. Cela signifie que processus d’inscription n’est pas terminé. Si son compte contient des données correctes non vérifiées (par exemple, un numéro de téléphone non validé), même s’il n’a pas vérifié ce numéro de téléphone, il peut toujours l’utiliser pour réinitialiser son mot de passe. Pour plus d’informations, consultez [Que se passe-t-il lorsqu’un utilisateur s’inscrit ?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).
+     >Un échec ne signifie pas qu’un utilisateur ne peut pas réinitialiser son propre mot de passe. Cela signifie que processus d’inscription n’est pas terminé. Si son compte contient des données correctes non vérifiées (par exemple, un numéro de téléphone non validé), même s’il n’a pas vérifié ce numéro de téléphone, il peut toujours l’utiliser pour réinitialiser son mot de passe.
      >
 
 ## <a name="next-steps"></a>Étapes suivantes

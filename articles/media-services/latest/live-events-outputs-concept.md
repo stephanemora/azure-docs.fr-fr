@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: b5bd08219c6e48f07e93d7704216e813d75dcd72
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099915"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659505"
 ---
 # <a name="live-events-and-live-outputs"></a>Événements en direct et Sorties en direct
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ae57fc5366e1ed99febcd9a9d08e7f95f3bbf196
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247671"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487351"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectivité des appareils dans Azure IoT Central
 
@@ -56,7 +56,7 @@ La connexion d’un appareil unique à IoT Central avec SAP est facile et ne né
 
     *   **Langage C :** si vous utilisez C, suivez cet [exemple de client d’appareil C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) pour connecter un exemple d’appareil. Utilisez les réglages suivants dans l’exemple.   
 
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -118,7 +118,7 @@ Si vous utilisez l’appareil **MxChip** pour vous connecter, suivez les [instru
 Voici les références pour d’autres langues à utiliser.
 
    *   **Langage C :** si vous utilisez C, suivez cet [exemple de client d’appareil C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) pour connecter un exemple d’appareil. Utilisez les réglages suivants dans l’exemple.   
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -211,12 +211,12 @@ Suivez les étapes selon votre choix de schéma d’authentification d’apparei
 
 1. **Connecter un appareil à IoT Central** : une fois allumés, les appareils se connectent aux services DPS/IoT Central pour l’inscription.
 
-1. **Associer un appareil à un modèle** : l’appareil connecté s’affiche sous **UnAssociated Devices** (Appareils non associés) dans **Device Explorer**. L’état d’approvisionnement de l’appareil est **Inscrit**. **Associez** l’appareil au modèle d’appareil approprié et autorisez-le à se connecter à l’application IoT Central. L’appareil reçoit ses informations de connexion à l’application IoT Central, se connecte et commence à transmettre des données. L’approvisionnement de l’appareil est maintenant terminé et l’*État de l’approvisionnement* passe à **Approvisionné**.
+1. **Associer un appareil à un modèle** : l’appareil connecté s’affiche sous **UnAssociated Devices** (Appareils non associés) dans **Device Explorer**. L’état d’approvisionnement de l’appareil est **Inscrit**. **Associez** l’appareil au modèle d’appareil approprié et autorisez-le à se connecter à l’application IoT Central. L’appareil reçoit ses informations de connexion à l’application IoT Central, puis se connecte et commence à transmettre des données. L’approvisionnement de l’appareil est maintenant terminé et l’*État de l’approvisionnement* passe à **Approvisionné**.
 
 ## <a name="device-provisioning-status"></a>État de l’approvisionnement de l’appareil
 Il y a une série d’étapes à suivre lorsqu’un appareil réel est connecté à Azure IoT Central 
 1. **Inscrit** : l’appareil est d’abord **Inscrit**, ce qui signifie qu’il est créé dans IoT Central et dispose de son ID d’appareil.
-Un appareil est Inscrit quand  
+L’appareil est inscrit quand  
     *   Un nouvel appareil réel est ajouté sur **Explorer**
     *   Un ensemble d’appareil est ajouté avec **Import** (Importer) sur **Explorer**
     *   Un appareil n’a pas été enregistré mais se connecte avec des informations d’identification valides et est visible sous les appareils **non associés**. 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099898"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507815"
 ---
 # <a name="time-series-model"></a>Modèle de série chronologique
 
@@ -152,9 +152,11 @@ Dans l’exemple précédent, ID1 et ID4 font partie de la hiérarchie H1 dans l
 
 Les instances représentent la série chronologique elle-même. Dans la plupart des cas, *deviceId* ou *assetId* est l’identificateur unique de la ressource dans l’environnement. Les instances contiennent des informations descriptives appelées propriétés d’instance. Au minimum, les propriétés d’instance incluent les informations de la hiérarchie. Elles peuvent également inclure des données utiles et des descriptifs, par exemple le fabricant, l’opérateur ou la date du dernier entretien.
 
-Les instances sont définies selon les attributs *timeSeriesId*, *typeId*, *hierarchyId* et *instanceFields*. Chaque instance est mappée à un seul *type* et à une ou plusieurs hiérarchies. Les instances héritent toutes leurs propriétés de hiérarchies, et d’autres attributs *instanceFields* peuvent être ajoutés pour affiner la définition d’une propriété d’instance.
+Les instances sont définies par *typeId*, *timeSeriesId*, *name*, *description*, *hierarchyIds* et *instanceFields*. Chaque instance est mappée à un seul *type* et à une ou plusieurs hiérarchies. Les instances héritent toutes leurs propriétés de hiérarchies, et d’autres attributs *instanceFields* peuvent être ajoutés pour affiner la définition d’une propriété d’instance.
 
 *instanceFields* représentent des propriétés d’une instance et toutes les données statiques qui définissent une instance. Ils définissent les valeurs des propriétés d’une hiérarchie ou non et prennent en charge l’indexation pour effectuer des opérations de recherche.
+
+La propriété *name* est facultative et sensible à la casse. Si *name* n’est pas disponible, la valeur par défaut est l’ID de série chronologique. Si *name* est fourni, l’ID de la série chronologique est toujours disponible dans le puits (grille sous les graphiques dans l’explorateur). 
 
 ## <a name="time-series-model-instance-json-example"></a>Exemple JSON d’une instance de modèle de série chronologique
 
@@ -164,6 +166,7 @@ Exemple :
 {
     "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
     "timeSeriesId": ["sampleTimeSeriesId"],
+    "name": "sampleName",
     "description": "Sample Instance",
     "hierarchyIds": [
         "1643004c-0a84-48a5-80e5-7688c5ae9295"

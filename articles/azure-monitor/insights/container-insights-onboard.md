@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 7f70ab407e38797aae24530ea8fa5193e4fffda1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 13da9e0d731e87b6cdd5830c9295847511c301ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260905"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567296"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Procédure d’intégration d’Azure Monitor pour les conteneurs  
 Cet article explique comment configurer Azure Monitor les conteneurs en vue de surveiller les performances des charges de travail qui sont déployées dans un environnement Kubernetes et hébergées sur [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
@@ -79,7 +79,7 @@ Une fois que vous avez activé la surveillance, 15 minutes peuvent s’écouler 
 Vous pouvez activer la supervision d’un cluster AKS déjà déployé, soit à l’aide d’Azure CLI, à partir du portail, soit à l’aide du modèle Azure Resource Manager fourni en utilisant la cmdlet PowerShell`New-AzureRmResourceGroupDeployment`. 
 
 ### <a name="enable-monitoring-using-azure-cli"></a>Activer la supervision à l’aide d’Azure CLI
-L’étape suivante permet la supervision de votre cluster AKS à l’aide d’Azure CLI. Dans cet exemple, vous n'êtes pas obligé de créer ou de spécifier un espace de travail existant. Cette commande simplifie le processus en créant un espace de travail par défaut dans le groupe de ressources par défaut de l’abonnement cluster AKS s’il n’existe pas dans la région.  L’espace de travail créé par défaut est semblable au format de *DefaultWorkspace-<GUID>-<Region>*.  
+L’étape suivante permet la supervision de votre cluster AKS à l’aide d’Azure CLI. Dans cet exemple, vous n'êtes pas obligé de créer ou de spécifier un espace de travail existant. Cette commande simplifie le processus en créant un espace de travail par défaut dans le groupe de ressources par défaut de l’abonnement cluster AKS s’il n’existe pas dans la région.  L’espace de travail créé par défaut est semblable au format de *DefaultWorkspace-\<GUID>-\<Région>*.  
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  

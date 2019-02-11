@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 534d1785336c68a771722f0f464eae278551ffc0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913567"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660236"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -60,17 +60,17 @@ Lors de cette opération, vérifiez les éléments suivants :
 * AMQP retourne des erreurs pour nombreuses conditions, tandis que MQTT met fin à la connexion. Par conséquent, votre logique de gestion des exceptions peut nécessiter certaines modifications.
 * MQTT ne prend pas en charge les opérations *reject* lors de la réception de [messages cloud-à-appareil][lnk-messaging]. Si votre application de serveur principal doit recevoir une réponse de l’application pour appareil, envisagez d’utiliser des [méthodes directes][lnk-methods].
 
-## <a name="using-the-mqtt-protocol-directly"></a>Utilisation directe du protocole MQTT
+## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Utilisation directe du protocole MQTT (en tant qu’appareil)
 
 Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se connecter aux points de terminaison d’appareil publics à l’aide du protocole MQTT sur le port 8883. Dans le paquet **CONNECT** , l’appareil doit utiliser les valeurs suivantes :
 
 * Pour le champ **ClientId**, utilisez le **deviceId**.
 
-* Dans le champ **Username**, utilisez `{iothubhostname}/{device_id}/api-version=2018-06-30`, où `{iothubhostname}` est l’enregistrement CName complet du hub IoT.
+* Dans le champ **Username**, utilisez `{iothubhostname}/{device_id}/?api-version=2018-06-30`, où `{iothubhostname}` est l’enregistrement CName complet du hub IoT.
 
     Par exemple, si le nom de votre hub IoT est **contoso.azure-devices.net** et si le nom de votre appareil est **MyDevice01**, le champ **Username** complet doit contenir :
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
+    `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
 * Dans le champ **Password**, utilisez un jeton SAP. Le format du jeton SAP est identique pour les protocoles HTTPS et AMQP :
 
@@ -108,6 +108,16 @@ Pour Device Explorer :
 Pour les paquets de connexion et de déconnexion MQTT, IoT Hub émet un événement sur le canal **Surveillance des opérations** . Cet événement comporte des informations supplémentaires qui peuvent vous aider à résoudre les problèmes de connectivité.
 
 L’application de l’appareil peut spécifier un message **Will** dans le paquet **CONNECTER**. L’application de l’appareil doit utiliser `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` comme nom de rubrique **Will** pour définir des messages **Will** à transmettre en tant que message de télémétrie. Dans ce cas, si la connexion réseau est fermée, mais qu’un paquet **DÉCONNECTER** n’a pas été préalablement reçu à partir de l’appareil, IoT Hub envoie le message **Will** fourni dans le paquet **CONNECTER** au canal de télémétrie. Le canal de télémétrie peut être soit le point de terminaison **Événements** par défaut, soit un point de terminaison personnalisé défini par le routage d’IoT Hub. Le message a la propriété **iothub-MessageType**, à laquelle une valeur de **Will** est affectée.
+
+## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Utilisation directe du protocole MQTT (en tant que module)
+
+La connexion à IoT Hub via MQTT à l’aide d’une identité de module est similaire à celle de l’appareil (décrite [ci-dessus](#using-the-mqtt-protocol-directly-as-a-device)) mais vous devez utiliser ce qui suit :
+* Définissez l’ID de client sur `{device_id}/{module_id}`.
+* Si vous vous authentifiez avec un nom d’utilisateur et un mot de passe, définissez le nom d’utilisateur sur `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` et utilisez le jeton SAS associé à l’identité du module comme mot de passe.
+* Utilisez `devices/{device_id}/modules/{module_id}/messages/events/` comme rubrique pour la publication des données de télémétrie.
+* Utilisez `devices/{device_id}/modules/{module_id}/messages/events/` comme rubrique WILL.
+* Les rubriques GET et PATCH sont identiques pour les modules et les appareils.
+* Les rubriques GET et PATCH sont identiques pour les modules et les appareils.
 
 ### <a name="tlsssl-configuration"></a>Configuration TLS/SSL
 

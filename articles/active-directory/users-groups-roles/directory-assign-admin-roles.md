@@ -1,25 +1,24 @@
 ---
-title: Autorisations des rôles d’administrateur dans Azure Active Directory | Microsoft Docs
+title: Description des rôles et des autorisations des administrateurs - Azure Active Directory | Microsoft Docs
 description: Le rôle de l’administrateur peut servir à ajouter des utilisateurs, attribuer des rôles d’administrateur, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc.
 services: active-directory
-documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
+search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 16f238114b56bd4e13358de34dfb33d93dbb1890
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 6fc85bd96294650eb2bbf9495642851ade7c7868
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301286"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731510"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -40,6 +39,20 @@ Les rôles d’administrateur disponibles sont les suivants :
   <b>Important !</b> Ce rôle permet de gérer des informations d’identification d’application. Les utilisateurs auxquels ce rôle a été attribué peuvent ajouter des informations d’identification à une application et les utiliser pour emprunter l’identité de l’application. Si l’identité de l’application a obtenu l’accès à Azure Active Directory, comme la possibilité de créer ou de mettre à jour un utilisateur ou d’autres objets, un utilisateur auquel ce rôle a été attribué peut effectuer ces actions tout en se faisant passer pour l’application. Cette capacité à emprunter l’identité de l’application peut correspondre une élévation de privilèges que l’utilisateur réalise dans ses attributions de rôle au sein d’Azure AD. Il est important de comprendre que l’affectation d’un utilisateur au rôle Administrateur d’applications lui donne la possibilité d’emprunter l’identité d’une application.
 
 * **[Développeur d’applications](#application-developer)**  : Les utilisateurs dans ce rôle peuvent créer des inscriptions d’application quand le paramètre « Les utilisateurs peuvent inscrire des applications » est défini sur Non. Ce rôle permet également aux membres de donner leur consentement pour eux-mêmes lorsque le paramètre « Les utilisateurs peuvent autoriser les applications à accéder aux données de l'entreprise en leur nom » est défini sur Non. Les membres de ce rôle sont ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
+
+* **[Administrateur d’authentification](#authentication-administrator)**  : Les utilisateurs ayant ce rôle peuvent afficher les informations de la méthode d’authentification actuelle et définir ou réinitialiser les informations d’identification sans mot de passe. Les administrateurs d’authentification peuvent forcer les utilisateurs à se réinscrire en fonction de leur mot de passe existant (par exemple, MFA, FIDO) et à révoquer l’option « remember MFA on the device » (« se souvenir de l’authentification multifacteur sur l’appareil »), en demandant aux utilisateurs non administrateurs ou aux membres des rôles suivants de se connecter lors de leur prochaine authentification multifacteur :
+  * Administrateur d’authentification
+  * Lecteurs de répertoires
+  * Inviteur
+  * Lecteur du Centre de messages
+  * Lecteur de rapports
+  
+  <b>Important !</b> Les utilisateurs auxquels ce rôle est assigné peuvent changer les informations d’identification des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer les informations d’identification d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple : 
+  * Les propriétaires d’inscription d’application et d’application d’entreprise, qui peuvent gérer les informations d’identification des applications qu’ils possèdent. Ces applications peuvent disposer d’autorisations privilégiées dans Azure AD et ailleurs qui ne sont pas accordées aux administrateurs d’authentification. Grâce à ce chemin d’accès, un administrateur d’authentification peut être en mesure d’assumer l’identité d’un propriétaire d’application, puis d’assumer l’identité d’une application privilégiée en mettant à jour les identifiants de celle-ci.
+  * Propriétaires d’abonnement Azure, qui peuvent avoir accès à des informations confidentielles ou privées ou à une configuration critique dans Azure.
+  * Propriétaires de groupe de sécurité et de groupe Office 365, qui peuvent gérer l’appartenance à un groupe. Ces groupes peuvent accorder l’accès à des informations sensibles ou privées ou à une configuration critique dans Azure AD et ailleurs.
+  * Administrateurs d’autres services en dehors d’Azure AD, tels qu’Exchange Online, le Centre de sécurité et de conformité Office et les systèmes de ressources humaines.
+  * Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
 
 * **[Administrateur de facturation](#billing-administrator)**  : Effectue les achats, gère les abonnements, gère les tickets de support et supervise l’intégrité du service.
 
@@ -275,6 +288,19 @@ Peut créer des inscriptions d’applications indépendamment du paramètre « 
 | microsoft.aad.directory/appRoleAssignments/createAsOwner | Créez des attributions de rôles d’applications dans Azure Active Directory. Le créateur est ajouté comme premier propriétaire, et l’objet créé compte dans le quota de 250 objets créés du créateur. |
 | microsoft.aad.directory/oAuth2PermissionGrants/createAsOwner | Créez des octrois d’autorisation OAuth2 dans Azure Active Directory. Le créateur est ajouté comme premier propriétaire, et l’objet créé compte dans le quota de 250 objets créés du créateur. |
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Créez des principaux de service dans Azure Active Directory. Le créateur est ajouté comme premier propriétaire, et l’objet créé compte dans le quota de 250 objets créés du créateur. |
+
+### <a name="authentication-administrator"></a>Administrateur d’authentification
+Permet d’afficher, de définir et de réinitialiser les informations de méthode d’authentification pour tout utilisateur non administrateur.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidez tous les jetons d’actualisation utilisateur dans Azure Active Directory. |
+| microsoft.aad.directory/users/strongAuthentication/update | Mettez à jour les propriétés d’authentification forte comme les informations d’identification MFA. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez les tickets de support Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 
 ### <a name="billing-administrator"></a>Administrateur de facturation
 Peut effectuer des tâches de facturation courantes, comme la mise à jour des informations de paiement.

@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3ba1f9afda1b4f7f227c996615cc17a8c604d5fb
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 33f96c67e7179104d1895cf62f834d3b592bee04
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138223"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487623"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec la commande Run
 
@@ -72,7 +72,7 @@ Ce tableau affiche la liste des commandes disponibles pour les machines virtuell
 
 ## <a name="powershell"></a>PowerShell
 
-L’exemple suivant utilise l’applet de commande [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) pour exécuter un script PowerShell sur une machine virtuelle Azure.
+L’exemple suivant utilise le cmdlet [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) pour exécuter un script PowerShell dans une machine virtuelle Azure. Pour le cmdlet, le script référencé dans la variable `ScriptPath` doit se situer au même emplacement que lui.
 
 ```azurepowershell-interactive
 Invoke-AzureRmVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
