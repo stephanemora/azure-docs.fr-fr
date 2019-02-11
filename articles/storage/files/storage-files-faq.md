@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: b3329f591d8478499b8270eb8a211d311465b020
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2a3c26c6a815cf934724fba4e8e0f9637803a4ce
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457018"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562383"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -104,7 +104,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="afs-storage-redundancy"></a>
 **Le stockage géoredondant est-il pris en charge par Azure File Sync ?**  
-    Oui, Azure Files prend en charge le stockage localement redondant (LRS) et le stockage géoredondant (GRS). En cas de basculement GRS entre des régions associées, nous vous recommandons de traiter la nouvelle région en tant que sauvegarde des données uniquement. Azure File Sync ne démarre pas automatiquement la synchronisation avec la nouvelle région principale. 
+    Oui, Azure Files prend en charge le stockage localement redondant (LRS) et le stockage géoredondant (GRS). Si vous lancez un basculement de compte de stockage entre régions appariées à partir d'un compte configuré pour GRS, Microsoft vous recommande de traiter la nouvelle région comme une sauvegarde des données uniquement. Azure File Sync ne démarre pas automatiquement la synchronisation avec la nouvelle région principale. 
 
 * <a id="sizeondisk-versus-size"></a>
 **Pourquoi la propriété *Taille* sur le disque pour un fichier ne correspond-elle pas à la propriété *Taille* après l’utilisation d’Azure File Sync ?**  
@@ -116,7 +116,6 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="afs-recall-file"></a>**Un fichier que je souhaite utiliser a été hiérarchisé. Comment puis-je rappeler le fichier sur le disque pour l’utiliser localement ?**  
  Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#afs-recall-file).
-
 
 * <a id="afs-force-tiering"></a>
 **Comment faire pour imposer la hiérarchisation d’un fichier ou répertoire ?**  
@@ -242,7 +241,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="data-compliance-policies"></a>
 **Quelles sont les stratégies de conformité des données prises en charge par Azure Files ?**  
 
-   Azure Files s’exécute sur la même architecture de stockage que d’autres services de stockage dans Stockage Azure. Azure Files applique les mêmes stratégies de conformité des données que celles utilisées dans d’autres services de stockage Azure. Pour plus d’informations sur la conformité des données de stockage Azure, vous pouvez vous référer aux [Offres de conformité du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), et accéder au [Centre de gestion de la confidentialité Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Azure Files s’exécute sur la même architecture de stockage que d’autres services de stockage dans Stockage Azure. Azure Files applique les mêmes stratégies de conformité des données que celles utilisées dans d’autres services de stockage Azure. Pour plus d’informations sur la conformité des données de stockage Azure, vous pouvez vous référer aux [Offres de conformité du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), et accéder au [Centre de gestion de la confidentialité Microsoft](https://microsoft.com/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Accès local
 * <a id="expressroute-not-required"></a>
