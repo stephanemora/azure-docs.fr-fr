@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 0e1a0919975253e24318bb8029249958cbc50d62
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473161"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811526"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schéma de configuration Azure Diagnostics 1.0
 > [!NOTE]
@@ -101,7 +101,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 Attributs :
 
-|Attribut  |type   |Obligatoire| Default | Description|  
+|Attribut  |Type   |Obligatoire| Default | Description|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Facultatif | PT1M| Spécifie l’intervalle auquel le moniteur de diagnostic s’enquiert des modifications de configuration de diagnostic.|  
 |**overallQuotaInMB**|unsignedInt|Facultatif| 4 000 Mo. La valeur indiquée ne doit pas dépasser ce montant |Quantité totale de stockage du système de fichiers allouée pour la journalisation de toutes les mémoires tampons.|  
@@ -109,11 +109,11 @@ Attributs :
 ## <a name="diagnosticinfrastructurelogs-element"></a>Élément DiagnosticInfrastructureLogs  
 Définit la configuration de la mémoire tampon pour les journaux générés par l’infrastructure de diagnostic sous-jacente.
 
-Élément parent : [Élément DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
+Élément parent : Élément DiagnosticMonitorConfiguration.  
 
 Attributs :
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
 |**scheduledTransferLogLevelFilter**|chaîne|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
@@ -122,11 +122,11 @@ Attributs :
 ## <a name="logs-element"></a>Élément Logs  
  Définit la configuration de la mémoire tampon des journaux Azure de base.
 
- Élément parent : [Élément DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
+ Élément parent : Élément DiagnosticMonitorConfiguration.  
 
 Attributs :  
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
 |**scheduledTransferLogLevelFilter**|chaîne|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
@@ -135,12 +135,12 @@ Attributs :
 ## <a name="directories-element"></a>Élément Directories  
 Définit la configuration de la mémoire tampon pour les journaux basés sur des fichiers que vous pouvez définir.
 
-Élément parent : [Élément DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
+Élément parent : Élément DiagnosticMonitorConfiguration.  
 
 
 Attributs :  
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
@@ -148,11 +148,11 @@ Attributs :
 ## <a name="crashdumps-element"></a>Élément CrashDumps  
  Définit le répertoire de vidages sur incident.
 
- Élément parent : [Élément Directories](#Directories).  
+ Élément parent : Élément Directories.  
 
 Attributs :  
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
@@ -160,11 +160,11 @@ Attributs :
 ## <a name="failedrequestlogs-element"></a>Élément FailedRequestLogs  
  Définit le répertoire de journaux des demandes ayant échoué.
 
- Élément parent : [élément Directories](#Directories).  
+ Élément parent : élément Directories.  
 
 Attributs :  
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
@@ -172,11 +172,11 @@ Attributs :
 ##  <a name="iislogs-element"></a>Élément IISLogs  
  Définit le répertoire des journaux IIS.
 
- Élément parent : [élément Directories](#Directories).  
+ Élément parent : élément Directories.  
 
 Attributs :  
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
@@ -184,16 +184,16 @@ Attributs :
 ## <a name="datasources-element"></a>Élément DataSources  
  Définit zéro ou plusieurs répertoires de journaux supplémentaires.
 
- Élément parent : [Élément Directories](#Directories).
+ Élément parent : Élément Directories.
 
 ## <a name="directoryconfiguration-element"></a>Élément DirectoryConfiguration  
  Définit le répertoire de fichiers journaux à surveiller.
 
- Élément parent : [Élément DataSources](#DataSources).
+ Élément parent : Élément DataSources.
 
 Attributs :
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
@@ -201,11 +201,11 @@ Attributs :
 ## <a name="absolute-element"></a>Élément Absolute  
  Définit un chemin d’accès absolu du répertoire à surveiller avec une extension d’environnement facultative.
 
- Élément parent : [Élément DirectoryConfiguration](#DirectoryConfiguration).  
+ Élément parent : Élément DirectoryConfiguration.  
 
 Attributs :  
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**path**|chaîne|Requis. Chemin d’accès absolu au répertoire à surveiller.|  
 |**expandEnvironment**|booléenne|Requis. Si la valeur **true** est attribuée, les variables d’environnement du chemin d’accès sont développées.|  
@@ -213,11 +213,11 @@ Attributs :
 ## <a name="localresource-element"></a>Élément LocalResource  
  Définit un chemin d’accès relatif à une ressource locale spécifiée dans la définition de service.
 
- Élément parent : [Élément DirectoryConfiguration](#DirectoryConfiguration).  
+ Élément parent : Élément DirectoryConfiguration.  
 
 Attributs :  
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**name**|chaîne|Requis. Nom de la ressource locale qui contient le répertoire à surveiller.|  
 |**relativePath**|chaîne|Requis. Chemin d’accès relatif à la ressource locale à surveiller.|  
@@ -225,12 +225,12 @@ Attributs :
 ## <a name="performancecounters-element"></a>Élément PerformanceCounters  
  Définit le chemin d’accès au compteur de performance à collecter.
 
- Élément parent : [Élément DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).
+ Élément parent : Élément DiagnosticMonitorConfiguration.
 
 
  Attributs :  
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
@@ -238,11 +238,11 @@ Attributs :
 ## <a name="performancecounterconfiguration-element"></a>Élément PerformanceCounterConfiguration  
  Définit le compteur de performance à collecter.
 
- Élément parent : [Élément PerformanceCounters](#PerformanceCounters).  
+ Élément parent : Élément PerformanceCounters.  
 
  Attributs :  
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|chaîne|Requis. Chemin d’accès au compteur de performance à collecter.|  
 |**sampleRate**|duration|Requis. Vitesse à laquelle le compteur de performance doit être collecté.|  
@@ -250,11 +250,11 @@ Attributs :
 ## <a name="windowseventlog-element"></a>Élément WindowsEventLog  
  Définit les journaux des événements à surveiller.
 
- Élément parent : [Élément DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).
+ Élément parent : Élément DiagnosticMonitorConfiguration.
 
   Attributs :
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
 |**scheduledTransferLogLevelFilter**|chaîne|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
@@ -263,11 +263,11 @@ Attributs :
 ## <a name="datasource-element"></a>Élément DataSource  
  Définit les journaux des événements à surveiller.
 
- Élément parent : [Élément WindowsEventLog](#windowsEventLog).  
+ Élément parent : Élément WindowsEventLog.  
 
  Attributs :
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**name**|chaîne|Requis. Expression XPath spécifiant le journal à collecter.|  
 

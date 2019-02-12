@@ -4,17 +4,17 @@ description: Utilisez une stratégie Azure pour appliquer des normes, se conform
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ecebeef509f1f23e34ade6a79b8ffe39d4cbb0a5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cb6f033c784832efab23c747057b1c0ef1b317fa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845620"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730269"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
@@ -322,7 +322,7 @@ Elle renvoie toutes les définitions de stratégie disponibles, y compris les st
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Créer et attribuer une définition d’initiative
 
-Avec une définition d’initiative, vous pouvez regrouper plusieurs définitions de stratégie pour atteindre un objectif global. Vous créez une définition d’initiative pour confirmer que les ressources dans l’étendue de la définition restent conformes aux définitions de stratégie qui composent la définition d’initiative. Pour plus d’informations sur les définitions d’initiative, consultez [Vue d’ensemble d’Azure Policy](../overview.md).
+Avec une définition d’initiative, vous pouvez regrouper plusieurs définitions de stratégie pour atteindre un objectif global. Une initiative vérifie si les ressources figurant dans l’étendue de l’attribution sont conformes aux stratégies incluses. Pour plus d’informations sur les définitions d’initiative, consultez [Vue d’ensemble d’Azure Policy](../overview.md).
 
 ### <a name="create-an-initiative-definition"></a>Créer une définition d’initiative
 

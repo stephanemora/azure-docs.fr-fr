@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e1dca8655c6bf609bee255f183bcd2fe9b56bc55
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437491"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813107"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Comprendre les résultats de la vérification de l’agent Linux dans Update Management
 
@@ -28,7 +28,7 @@ Voici les trois états de préparation possibles d’une machine :
 
 ## <a name="start-the-troubleshooter"></a>Démarrer l’utilitaire de résolution des problèmes
 
-Pour les machines Azure, cliquez sur le lien **Résolution des problèmes** sous la colonne **Préparation de l’agent de mise à jour** dans le portail pour ouvrir la page **Résoudre les problèmes de l’Agent de mise à jour**. Pour les machines autres qu’Azure, le lien vous dirige vers cet article. Consultez les [instructions hors connexion](#offline) pour résoudre les problèmes d’un ordinateur non-Azure.
+Pour les machines Azure, cliquez sur le lien **Résolution des problèmes** sous la colonne **Préparation de l’agent de mise à jour** dans le portail pour ouvrir la page **Résoudre les problèmes de l’Agent de mise à jour**. Pour les machines autres qu’Azure, le lien vous dirige vers cet article. Consultez les instructions hors connexion pour résoudre les problèmes d’une machine autre qu’Azure.
 
 ![vm list page](../media/update-agent-issues-linux/vm-list.png)
 
@@ -39,7 +39,7 @@ Dans la page **Agent de résolution des problèmes de mise à jour**, cliquez su
 
 ![Page de résolution des problèmes](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-Lorsque l’inspection est terminée, les résultats sont renvoyés. Les sections [vérifié](#pre-requisistes-checks) fournissent des informations sur ce que chaque vérification recherche.
+Lorsque l’inspection est terminée, les résultats sont renvoyés. Les sections de vérification fournissent des informations sur ce que chaque vérification recherche.
 
 ![Page de vérifications de l’agent de mise à jour](../media/update-agent-issues-linux/update-agent-checks.png)
 

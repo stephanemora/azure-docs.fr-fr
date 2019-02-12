@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a0800a434fdfef0002993fdae797af982391321f
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 20bf851cc9b2965a355286699e1ef255887d7650
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883277"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697086"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques complet à l’aide de PowerShell
-Ce script crée un groupe de machines virtuelles identiques exécutant Windows Server 2016. Les ressources individuelles sont configurées et créés, plutôt que d’utiliser les [options de création de ressources intégrées disponibles ici dans New-AzureRmVmss](powershell-sample-create-simple-scale-set.md). Une fois que vous avez exécuté le script, vous pouvez accéder aux instances de la machine virtuelle via RDP.
+Ce script crée un groupe de machines virtuelles identiques exécutant Windows Server 2016. Les ressources individuelles sont configurées et créées, plutôt que d’utiliser les [options de création de ressources intégrées disponibles ici dans New-AzureRmVmss](powershell-sample-create-simple-scale-set.md). Une fois que vous avez exécuté le script, vous pouvez accéder aux instances de la machine virtuelle via RDP.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

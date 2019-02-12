@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8ec180b40e52c5702495a0124bf8ae33d2dc24a1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 66e913f6d461d2671bd217745a9d128e24c1a60c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727781"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820927"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Didacticiel : Utiliser Azure Deployment Manager avec des modèles Resource Manager (préversion privée)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Didacticiel : Utiliser Azure Deployment Manager avec des modèles Resource Manager (préversion privée)
 
 Découvrez comment utiliser [Azure Deployment Manager](./deployment-manager-overview.md) pour déployer vos applications dans plusieurs régions. Pour utiliser Deployment Manager, vous devez créer deux modèles :
 
@@ -41,7 +41,7 @@ Ce tutoriel décrit les tâches suivantes :
 > * Déployer la version la plus récente
 > * Supprimer des ressources
 
-Pour consulter les informations de référence sur l’API REST Azure Deployment Manager, [cliquez ici](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Les informations de référence de l’API REST Azure Deployment Manager sont disponibles [ici](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -129,7 +129,7 @@ Les deux versions (1.0.0.0 et 1.0.0.1) servent au [déploiement de révision](#d
 
 Les artefacts du modèle sont utilisés par le modèle de topologie de service, et les artefacts binaires sont utilisés par le modèle de lancement. Le modèle de topologie et le modèle de lancement définissent une ressource Azure de source d’artefact, utilisée pour diriger Resource Manager vers le modèle et les artefacts des fichiers binaires utilisés lors du déploiement. Pour simplifier ce didacticiel, un seul compte de stockage est utilisé pour stocker les artefacts du modèle et les artefacts binaires. Les deux sources d’artefact pointent vers le même compte de stockage.
 
-1. Créez un compte de stockage Azure. Pour obtenir des instructions, consultez [Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+1. Créez un compte de stockage Azure. Pour obtenir des instructions, consultez [Démarrage rapide : Charger, télécharger et lister des objets blob à l’aide du portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 2. Créez un conteneur d’objets blob dans le compte de stockage.
 3. Copiez les deux dossiers (fichiers binaires et modèles) et leur contenu dans le conteneur d’objets blob. [Explorateur Stockage Microsoft Azure](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409) prend en charge la fonctionnalité glisser-déposer.
 4. Obtenez l’emplacement SAS du conteneur en suivant les instructions suivantes :
@@ -173,14 +173,14 @@ Le modèle contient les paramètres suivants :
 ![Paramètres de modèle de topologie de didacticiel Azure Deployment Manager](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-parameters.png)
 
 - **namePrefix** : ce préfixe est utilisé pour créer les noms des ressources Deployment Manager. Par exemple, avec le préfixe « jdoe », le nom de la topologie de service est **jdoe**ServiceTopology.  Les noms de ressource sont définis dans la section Variables de ce modèle.
-- **azureResourcelocation** : pour simplifier ce didacticiel, toutes les ressources partagent cet emplacement, sauf spécification contraire. Actuellement, les ressources Azure Deployment Manager peuvent être créées uniquement dans **USA Centre** ou **USA Est 2**.
-- **artifactSourceSASLocation** : l’URI SAS vers le conteneur d’objets blob où le modèle d’unité de service et les fichiers de paramètres sont stockés pour le déploiement.  Consultez [Préparer les artefacts](#prepare-the-artifacts).
-- **templateArtifactRoot** : le chemin d’accès de décalage à partir du conteneur d’objets blob où les modèles et les paramètres sont stockés. La valeur par défaut est **templates/1.0.0.0**. Ne modifiez pas cette valeur, sauf si vous souhaitez modifier la structure de dossiers décrite dans [Préparer les artefacts](#prepare-the-artifacts). Ce didacticiel utilise des chemins d’accès relatifs.  Le chemin d’accès complet est construit en concaténant **artifactSourceSASLocation**, **templateArtifactRoot**, et **templateArtifactSourceRelativePath** (ou **parametersArtifactSourceRelativePath**).
-- **targetSubscriptionID** : l’ID d’abonnement sur lequel les ressources Deployment Manager vont être déployées et facturées. Dans ce didacticiel, utilisez votre ID d’abonnement.
+- **azureResourcelocation** : pour simplifier ce tutoriel, toutes les ressources partagent cet emplacement, sauf spécification contraire. Actuellement, les ressources Azure Deployment Manager peuvent être créées uniquement dans **USA Centre** ou **USA Est 2**.
+- **artifactSourceSASLocation** : URI SAS vers le conteneur d’objets blob où le modèle d’unité de service et les fichiers de paramètres sont stockés pour le déploiement.  Consultez [Préparer les artefacts](#prepare-the-artifacts).
+- **templateArtifactRoot** : chemin décalé du conteneur d’objets blob où les modèles et les paramètres sont stockés. La valeur par défaut est **templates/1.0.0.0**. Ne modifiez pas cette valeur, sauf si vous souhaitez modifier la structure de dossiers décrite dans [Préparer les artefacts](#prepare-the-artifacts). Ce didacticiel utilise des chemins d’accès relatifs.  Le chemin d’accès complet est construit en concaténant **artifactSourceSASLocation**, **templateArtifactRoot**, et **templateArtifactSourceRelativePath** (ou **parametersArtifactSourceRelativePath**).
+- **targetSubscriptionID** : ID d’abonnement sur lequel les ressources Deployment Manager vont être déployées et facturées. Dans ce didacticiel, utilisez votre ID d’abonnement.
 
 ### <a name="the-variables"></a>Variables
 
-La section Variables définit les noms des ressources, les emplacements Azure pour les deux services : **Service WUS** et **Service EUS** et les chemins d’accès à l’artefact :
+La section Variables définit les noms des ressources, les emplacements Azure pour les deux services : **Service WUS** et **Service EUS** et les chemins d’artefact :
 
 ![Variables de modèle de topologie du didacticiel Azure Deployment Manager](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-variables.png)
 
@@ -212,11 +212,11 @@ Vous créez un fichier de paramètres utilisé avec le modèle de topologie.
 1. Ouvrez **\ADMTemplates\CreateADMServiceTopology.Parameters** dans Visual Studio Code ou n’importe quel éditeur de texte.
 2. Spécifiez les valeurs de paramètre :
 
-    - **namePrefix** : entrez une chaîne de 4 à 5 caractères. Ce préfixe est utilisé pour créer des noms de ressources Azure uniques.
-    - **azureResourceLocation** : si vous n’êtes pas familier des emplacements Azure, utilisez **centralus** pour ce didacticiel.
+    - **namePrefix** : entrez une chaîne de 4 à 5 caractères. Ce préfixe est utilisé pour créer des noms de ressources Azure uniques.
+    - **azureResourceLocation** : si vous ne connaissez pas bien les emplacements Azure, utilisez **centralus** pour ce tutoriel.
     - **artifactSourceSASLocation** : saisissez l’URI SAS vers le dossier racine (le conteneur d’objets blob) où le modèle d’unité de service et les fichiers de paramètres sont stockés pour le déploiement.  Consultez [Préparer les artefacts](#prepare-the-artifacts).
-    - **templateArtifactRoot** : sauf si vous modifiez la structure de dossiers des artefacts, utilisez **templates/1.0.0.0** pour ce didacticiel.
-    - **targetScriptionID** : entrez votre ID d’abonnement Azure.
+    - **templateArtifactRoot** : sauf si vous modifiez la structure de dossiers des artefacts, utilisez **templates/1.0.0.0** pour ce tutoriel.
+    - **targetScriptionID** : Entrez l’identifiant de votre abonnement Azure.
 
 > [!IMPORTANT]
 > Le modèle de topologie et le modèle de lancement partagent certains paramètres. Ces paramètres doivent avoir les mêmes valeurs. Il s’agit de : **namePrefix**, **azureResourceLocation**, et **artifactSourceSASLocation** (les deux sources d’artefact partagent le même compte de stockage dans ce didacticiel).
@@ -232,9 +232,9 @@ Le modèle contient les paramètres suivants :
 ![Paramètres de modèle de lancement de didacticiel Azure Deployment Manager](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
 - **namePrefix** : ce préfixe est utilisé pour créer les noms des ressources Deployment Manager. Par exemple, avec le préfixe « jdoe », est le nom de déploiement **jdoe**Rollout.  Les noms sont définis dans la section Variables de ce modèle.
-- **azureResourcelocation** : pour simplifier ce didacticiel, toutes les ressources Deployment Manager partagent cet emplacement, sauf spécification contraire. Actuellement, les ressources Azure Deployment Manager peuvent être créées uniquement dans **USA Centre** ou **USA Est 2**.
-- **artifactSourceSASLocation** : saisissez l’URI SAS vers le dossier racine (le conteneur d’objets blob) où le modèle d’unité de service et les fichiers de paramètres sont stockés pour le déploiement.  Consultez [Préparer les artefacts](#prepare-the-artifacts).
-- **binaryArtifactRoot** : la valeur par défaut est **binaries/1.0.0.0**. Ne modifiez pas cette valeur, sauf si vous souhaitez modifier la structure de dossiers décrite dans [Préparer les artefacts](#prepare-the-artifacts). Ce didacticiel utilise des chemins d’accès relatifs.  Le chemin d’accès complet est construit en concaténant **artifactSourceSASLocation**, **binaryArtifactRoot**, et **deployPackageUri** spécifié dans le fichier CreateWebApplicationParameters.json.  Consultez [Préparer les artefacts](#prepare-the-artifacts).
+- **azureResourcelocation** : pour simplifier ce tutoriel, toutes les ressources Deployment Manager partagent cet emplacement, sauf spécification contraire. Actuellement, les ressources Azure Deployment Manager peuvent être créées uniquement dans **USA Centre** ou **USA Est 2**.
+- **artifactSourceSASLocation** : URI SAS vers le dossier racine (le conteneur d’objets blob) où le modèle d’unité de service et les fichiers de paramètres sont stockés pour le déploiement.  Consultez [Préparer les artefacts](#prepare-the-artifacts).
+- **binaryArtifactRoot** :  La valeur par défaut est **binaries/1.0.0.0**. Ne modifiez pas cette valeur, sauf si vous souhaitez modifier la structure de dossiers décrite dans [Préparer les artefacts](#prepare-the-artifacts). Ce didacticiel utilise des chemins d’accès relatifs.  Le chemin d’accès complet est construit en concaténant **artifactSourceSASLocation**, **binaryArtifactRoot**, et **deployPackageUri** spécifié dans le fichier CreateWebApplicationParameters.json.  Consultez [Préparer les artefacts](#prepare-the-artifacts).
 - **managedIdentityID** : l’identité managée affectée à l’utilisateur qui effectue les actions de déploiement. Voir [Créer l’identité managée affectée à l'utilisateur](#create-the-user-assigned-managed-identity).
 
 ### <a name="the-variables"></a>Variables
@@ -273,11 +273,11 @@ Vous créez un fichier de paramètres à utiliser avec le modèle de lancement.
 1. Ouvrez **\ADMTemplates\CreateADMRollout.Parameters** dans Visual Studio Code ou n’importe quel éditeur de texte.
 2. Spécifiez les valeurs de paramètre :
 
-    - **namePrefix** : entrez une chaîne de 4 à 5 caractères. Ce préfixe est utilisé pour créer des noms de ressources Azure uniques.
-    - **azureResourceLocation** : actuellement, les ressources Azure Deployment Manager peuvent être créées uniquement dans **USA Centre** ou **USA Est 2**.
+    - **namePrefix** : entrez une chaîne de 4 à 5 caractères. Ce préfixe est utilisé pour créer des noms de ressources Azure uniques.
+    - **azureResourceLocation** : Actuellement, les ressources Azure Deployment Manager peuvent être créées uniquement dans **USA Centre** ou **USA Est 2**.
     - **artifactSourceSASLocation** : saisissez l’URI SAS vers le dossier racine (le conteneur d’objets blob) où le modèle d’unité de service et les fichiers de paramètres sont stockés pour le déploiement.  Consultez [Préparer les artefacts](#prepare-the-artifacts).
-    - **binaryArtifactRoot** : sauf si vous modifiez la structure des dossiers des artefacts, utilisez **binaries/1.0.0.0** dans ce didacticiel.
-    - **managedIdentityID** : entrez l’identité managée affectée à l’utilisateur. Voir [Créer l’identité managée affectée à l'utilisateur](#create-the-user-assigned-managed-identity). La syntaxe est :
+    - **binaryArtifactRoot** : sauf si vous modifiez la structure de dossiers des artefacts, utilisez **binaries/1.0.0.0** pour ce tutoriel.
+    - **managedIdentityID** : entrez l’identité managée affectée par l’utilisateur. Voir [Créer l’identité managée affectée à l'utilisateur](#create-the-user-assigned-managed-identity). La syntaxe est :
 
         ```
         "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userassignedidentities/<ManagedIdentityName>"
@@ -336,7 +336,7 @@ Azure PowerShell peut être utilisé pour déployer les modèles.
         -Name $rolloutName
     ```
 
-    Les cmdlets PowerShell de Deployment Manager doivent être installées avant de pouvoir exécuter ce cmdlet. Consultez les [Conditions préalables](#prerequisite).
+    Les cmdlets PowerShell de Deployment Manager doivent être installées avant de pouvoir exécuter ce cmdlet. Consultez les prérequis.
 
     L’exemple suivant affiche l’état d’exécution :
     

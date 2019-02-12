@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 19b485add894dbe99a524d16f891d001991c1ec7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 2cfd984129097b598c08e53b3698dc32ed616cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558377"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810658"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Activer la capture d’événements diffusés en continu par le biais d’Azure Event Hubs
 
@@ -37,6 +37,9 @@ Lors de la création d’un concentrateur d’événement, vous pouvez activer l
 La fenêtre temporelle par défaut est de cinq minutes. La valeur minimum est 1, la valeur maximum 15. La fenêtre **Taille** présente une plage de 10 à 500 Mo.
 
 ![Fenêtre de temps pour la capture][1]
+
+> [!NOTE]
+> Vous pouvez activer ou désactiver l’envoi de fichiers vides lorsqu’aucun événement ne se produit pendant la fenêtre de capture. 
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Capturer des données vers un compte Azure Data Lake Store
 

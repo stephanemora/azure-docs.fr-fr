@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 248624cc31fab0138eb8a45b5479cc8d2da6ef53
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467643"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811765"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Mesures de stockage Azure dans Azure Monitor
 
@@ -39,7 +39,7 @@ Pour les métriques prenant en charge des dimensions, vous pouvez les filtrer av
 
 ### <a name="access-metrics-with-the-rest-api"></a>Accéder aux mesures avec l’API REST
 
-Azure Monitor fournit des [API REST](/rest/api/monitor/) pour les définitions et valeurs de mesures. Cette section vous montre comment lire les mesures de stockage. L’ID de ressource est utilisé dans toutes les API REST. Pour plus d’informations, consultez [Compréhension de l’ID de ressource pour des services dans Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor fournit des [API REST](/rest/api/monitor/) pour les définitions et valeurs de mesures. Cette section vous montre comment lire les mesures de stockage. L’ID de ressource est utilisé dans toutes les API REST. Pour plus d’informations, consultez Compréhension de l’ID de ressource pour des services dans Storage.
 
 L’exemple suivant montre comment utiliser [ArmClient](https://github.com/projectkudu/ARMClient) sur la ligne de commande pour simplifier les tests avec l’API REST.
 
@@ -136,7 +136,7 @@ La réponse suivante contient des valeurs de mesures au format JSON :
 
 ### <a name="access-metrics-with-the-net-sdk"></a>Accéder aux mesures avec le kit de développement logiciel (SDK) .Net
 
-Azure Monitor fournit des [kits de développement logiciel (SDK) .Net](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) pour lire des définitions et valeurs de mesures. L’[exemple de code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) montre comment utiliser le kit de développement logiciel (SDK) avec des paramètres différents. Vous devez utiliser `0.18.0-preview` ou version ultérieure pour les mesures de stockage. L’ID de ressource est utilisé dans le kit de développement logiciel (SDK) .Net. Pour plus d’informations, consultez [Compréhension de l’ID de ressource pour des services dans Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor fournit des [kits de développement logiciel (SDK) .Net](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) pour lire des définitions et valeurs de mesures. L’[exemple de code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) montre comment utiliser le kit de développement logiciel (SDK) avec des paramètres différents. Vous devez utiliser `0.18.0-preview` ou version ultérieure pour les mesures de stockage. L’ID de ressource est utilisé dans le kit de développement logiciel (SDK) .Net. Pour plus d’informations, consultez Compréhension de l’ID de ressource pour des services dans Storage.
 
 L’exemple suivant montre comment utiliser le kit de développement logiciel (SDK) Azure Monitor .Net pour lire les mesures de stockage.
 
@@ -391,8 +391,8 @@ Stockage Azure prend en charge les dimensions suivantes pour les mesures dans Az
 | /BlobType | Type d’objet blob pour les mesures d’objet Blob uniquement. Les valeurs prises en charge sont **BlockBlob** et **PageBlob**. Append Blob est inclus dans BlockBlob. |
 | ResponseType | Type de réponse de transaction. Les valeurs disponibles incluent : <br/><br/> <li>ServerOtherError : toutes les autres erreurs côté serveur sauf celles décrites </li> <li> ServerBusyError : requête authentifiée qui a renvoyé un code d’état HTTP 503. </li> <li> ServerTimeoutError : requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Le délai d’expiration s’est produit en raison d’une erreur serveur. </li> <li> AuthorizationError : requête authentifiée qui a échoué en raison d’un accès aux données non autorisé ou d’un échec d’autorisation. </li> <li> NetworkError : requête authentifiée qui a échoué en raison d’erreurs réseau. Se produit généralement lorsqu’un client ferme une connexion avant la fin du délai d’expiration. </li> <li>    ClientThrottlingError : erreur de limitation côté client. </li> <li> ClientTimeoutError : requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Si le délai d’expiration réseau du client ou le délai d’expiration de la requête est défini sur une valeur inférieure à ce qui est attendu par le service de stockage, il s’agit d’un délai d’expiration attendu. Sinon, il est signalé comme une erreur ServerTimeoutError. </li> <li> ClientOtherError : toutes les autres erreurs côté client sauf celles décrites. </li> <li> Success : requête réussie|
 | GeoType | Transaction du cluster principal ou secondaire. Les valeurs disponibles incluent Principal et Secondaire. S’applique au stockage Géo-redondant avec accès en lecture (RA-GRS) lors de la lecture d’objets à partir du locataire secondaire. |
-| ApiName | Nom de l’opération. Par exemple :  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Pour tous les noms d’opérations, voir [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
-| Authentification | Type d’authentification utilisé dans les transactions. Les valeurs disponibles incluent : <br/> <li>AccountKey : la transaction est authentifiée avec la clé du compte de stockage.</li> <li>SAS : la transaction est authentifiée avec des signatures d’accès partagé.</li> <li>OAuth : la transaction est authentifiée avec des jetons d’accès OAuth.</li> <li>Anonymous : la transaction est demandée anonymement. Elle n’inclut pas les demandes préalables.</li> <li>AnonymousPreflight : la transaction est une requête préalable.</li> |
+| ApiName | Nom de l’opération. Par exemple :  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Pour tous les noms d’opérations, voir [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| Authentication | Type d’authentification utilisé dans les transactions. Les valeurs disponibles incluent : <br/> <li>AccountKey : la transaction est authentifiée avec la clé du compte de stockage.</li> <li>SAS : la transaction est authentifiée avec des signatures d’accès partagé.</li> <li>OAuth : la transaction est authentifiée avec des jetons d’accès OAuth.</li> <li>Anonymous : la transaction est demandée anonymement. Elle n’inclut pas les demandes préalables.</li> <li>AnonymousPreflight : la transaction est une requête préalable.</li> |
 
 Pour les mesures prenant en charge des dimensions, vous devez spécifier la valeur de la dimension pour afficher les valeurs de mesures correspondantes. Par exemple, si vous examinez la valeur **Transactions** pour des réponses réussies, vous devez filtrer la dimension **ResponseType** avec **Success**. Si vous examinez la valeur **BlobCount** pour BlockBlob, vous devez filtrer la dimension **BlobType** avec **BlockBlob**.
 
@@ -401,6 +401,10 @@ Pour les mesures prenant en charge des dimensions, vous devez spécifier la vale
 Les anciennes mesures sont disponibles en parallèle avec les mesures gérées d’Azure Monitor. La prise en charge permet de les conserver jusqu’à ce que Stockage Azure mette fin au service des anciennes mesures.
 
 ## <a name="faq"></a>Forum Aux Questions
+
+**Les nouvelles métriques prennent-elles en charge le compte de stockage classique ?**
+
+Non, les nouvelles métriques d’Azure Monitor ne prennent en charge que les comptes de stockage Azure Resource Manager. Si vous souhaitez utiliser des métriques sur les comptes de stockage, vous devez migrer vers le compte de stockage Azure Resource Manager. Voir [Migrer vers Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 **Le stockage Azure prend-il en charge les métriques de disques managés ou de disques non managés ?**
 

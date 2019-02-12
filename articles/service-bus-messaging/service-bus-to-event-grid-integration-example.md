@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 55798af8d8e2b50614a3eee51b330c5b4fa0f918
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a1c0078cf2359de7fa018af749c61880caa8fcdd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409574"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821804"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid
 
 Dans cet article, vous allez apprendre à configurer une fonction Azure et une application logique pour recevoir des messages en fonction de l’événement reçu à partir d’Azure Event Grid. Vous allez effectuer les opérations suivantes :
  
-* Créer une [fonction Azure test](#test-function-setup) simple pour déboguer et voir le flux initial d’événements à partir d’Event Grid. Effectuez cette étape indépendamment des autres.
-* Créer une [fonction Azure pour recevoir et traiter les messages Azure Service Bus](#receive-messages-using-azure-function) en fonction des événements Event Grid.
-* Utiliser la [fonctionnalité Logic Apps d’Azure App Service](#receive-messages-using-azure-logic-app).
+* Créer une fonction Azure de test simple pour déboguer et voir le flux initial d’événements à partir d’Event Grid. Effectuez cette étape indépendamment des autres.
+* Créer une fonction Azure pour recevoir et traiter les messages Azure Service Bus en fonction des événements Event Grid.
+* Utiliser la fonctionnalité Logic Apps d’Azure App Service.
 
 L’exemple que vous créez suppose que la rubrique Service Bus a deux abonnements. L’exemple part également du principe que l’abonnement Event Grid a été créé pour envoyer des événements à un seul abonnement Service Bus. 
 

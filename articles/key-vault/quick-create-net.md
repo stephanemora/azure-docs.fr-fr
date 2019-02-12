@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web Node - Azure Key Vault | Microsoft Docs'
-description: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET'
+description: Dans ce guide de démarrage rapide, vous définissez et récupérez un secret depuis Azure Key Vault à l’aide d’une application web .NET
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,31 +9,32 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002601"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565545"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET
 
-Dans ce guide de démarrage rapide, vous suivez les étapes nécessaires pour qu’une application web Azure puisse lire les informations depuis Azure Key Vault à l’aide d’identités managées pour les ressources Azure. Vous allez apprendre à effectuer les actions suivantes :
+Dans ce guide de démarrage rapide, vous suivez les étapes permettant qu’une application web Azure lise des informations depuis Azure Key Vault à l’aide d’identités managées pour les ressources Azure. L’utilisation de Key Vault permet de protéger les informations. Vous allez apprendre à effectuer les actions suivantes :
 
-> [!div class="checklist"]
-> * Création d’un coffre de clés
-> * Stockage d’un secret dans le coffre de clés.
-> * Récupération d’un secret à partir du coffre de clés.
-> * Création d’une application web Azure.
-> * Activer une [identité de service managée](../active-directory/managed-identities-azure-resources/overview.md) pour l’application web.
-> * Octroi des autorisations requises à l’application web pour lire des données venant du coffre de clés.
+* Création d’un coffre de clés
+* Stockage d’un secret dans le coffre de clés.
+* Récupération d’un secret à partir du coffre de clés.
+* Création d’une application web Azure.
+* Activer une [identité de service managée](../active-directory/managed-identities-azure-resources/overview.md) pour l’application web.
+* Octroi des autorisations requises à l’application web pour lire des données venant du coffre de clés.
 
-Avant d’aller plus loin, veuillez lire les [concepts de base](key-vault-whatis.md#basic-concepts).
+Avant d’aller plus loin, veuillez lire les [concepts de base de Key Vault](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
->Key Vault est un référentiel central pour stocker les secrets par programmation. Mais pour cela, les applications et les utilisateurs doivent d’abord s’authentifier sur Key Vault, et donc présenter un secret. Pour suivre les meilleures pratiques de sécurité, ce premier secret doit faire l’objet d’une rotation périodique. 
+>Key Vault est un référentiel central pour stocker les secrets par programmation. Mais pour cela, les applications et les utilisateurs doivent d’abord s’authentifier sur Key Vault, et donc présenter un secret. Conformément aux bonnes pratiques de sécurité, ce premier secret doit être changé régulièrement. 
 >
 >Avec les [identités de service managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md), les applications s’exécutant dans Azure bénéficient d’une identité managée automatiquement par Azure. Cela permet de résoudre le *problème d’introduction de secrets* où les utilisateurs et les applications peuvent suivre les meilleures pratiques et n’ont pas à se soucier de la rotation du premier secret.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -77,7 +78,7 @@ Le groupe de ressources que vous venez de créer est utilisé tout au long de ce
 
 Ensuite, vous créez un coffre de clés dans le groupe de ressources que vous avez créé à l’étape précédente. Fournissez les informations suivantes :
 
-* Nom du coffre de clés : le nom doit être une chaîne de 3 à 24 caractères et doit contenir uniquement (0-9, a-z, A-Z et -).
+* Nom du coffre de clés : le nom doit être une chaîne de 3 à 24 caractères, et contenir uniquement les caractères allant de 0 à 9, de a à z, de A à Z et un trait d’union (-).
 * Nom du groupe de ressources.
 * Localisation : **USA Est**.
 
@@ -119,7 +120,7 @@ Modifiez le fichier program.cs pour exécuter l’exemple avec le nom de votre c
 
 1. Naviguez jusqu’au dossier key-vault-dotnet-core-quickstart.
 2. Ouvrir le fichier de key-vault-dotnet-core-quickstart.sln dans Visual Studio 2017.
-3. Ouvrez le fichier Program.cs et remplacez l’espace réservé *YourKeyVaultName* par le nom de votre coffre de clés créé précédemment.
+3. Ouvrez le fichier Program.cs et remplacez l’espace réservé *YourKeyVaultName* par le nom du coffre de clés créé précédemment.
 
 Cette solution utilise les bibliothèques NuGet [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) et [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
@@ -143,8 +144,7 @@ Publiez cette application sur Azure pour l’afficher en direct en tant qu’app
 
 Azure Key Vault permet de stocker en toute sécurité des informations d’identification et autres clés et secrets, mais votre code doit s’authentifier sur Key Vault pour les récupérer. La [vue d’ensemble des identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) simplifie la résolution de ce problème en fournissant aux services Azure une identité managée automatiquement dans Azure AD (Azure Active Directory). Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, y compris Key Vault, sans avoir d’informations d’identification dans votre code.
 
-1. Revenez à l’interface Azure CLI.
-2. Exécutez la commande assign-identity pour créer l’identité de cette application :
+Dans Azure CLI, exécutez la commande assign-identity pour créer l’identité de cette application :
 
    ```azurecli
    az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
@@ -171,10 +171,20 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Maintenant lorsque vous exécutez l’application, vous devriez voir votre valeur secrète récupérée. Dans la commande ci-dessus, vous donnez l’identité Identity(MSI) des autorisations App Service pour effectuer des opérations **get** et **list** sur votre coffre de clés
+Maintenant lorsque vous exécutez l’application, vous devriez voir votre valeur secrète récupérée. Dans la commande précédente, vous donnez l’identité des autorisations du service d’applications pour effectuer des opérations **get** et **list** sur votre coffre de clés.
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+Supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées quand vous n’en avez plus besoin. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle et sélectionnez **Supprimer**.
+
+Supprimez le coffre de clés à l’aide de la commande [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) :
+
+```azurecli
+az keyvault delete --name
+                   [--resource-group]
+                   [--subscription]
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
-* [Kit de développement logiciel (SDK) Azure pour .NET](https://github.com/Azure/azure-sdk-for-net)
-* [Référence de l'API REST Azure](https://docs.microsoft.com/rest/api/keyvault/)
+> [!div class="nextstepaction"]
+> [En savoir plus sur Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)

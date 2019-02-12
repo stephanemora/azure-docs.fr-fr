@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ffbd785126bbc204191554e5d62d642a582a3c8d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105234"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822559"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gérer le Cache Azure pour Redis avec Azure PowerShell
 > [!div class="op_single_selector"]
@@ -125,7 +125,7 @@ Le tableau suivant contient les propriétés et les descriptions pour les param�
 
 | Paramètre | Description | Default |
 | --- | --- | --- |
-| NOM |Nom du cache | |
+| Nom |Nom du cache | |
 | Lieu |Emplacement du cache | |
 | ResourceGroupName |Nom du groupe de ressources dans lequel créer le cache | |
 | Taille |Taille du cache. Les valeurs autorisées sont : P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 Mo, 1 Go, 2,5 Go, 6 Go, 13 Go, 26 Go, 53 Go |1 Go |
@@ -260,7 +260,7 @@ Le paramètre `databases` ne peut être configuré qu’au moment de la créatio
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Pour plus d’informations sur la propriété `databases` , consultez la section [Configuration du serveur du Cache Azure pour Redis par défaut](cache-configure.md#default-redis-server-configuration). Pour plus d’informations sur la création d’un cache à l’aide de la cmdlet [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0), voir la section précédente, [Créer un Cache Azure pour Redis](#to-create-a-redis-cache).
+Pour plus d’informations sur la propriété `databases` , consultez la section [Configuration du serveur du Cache Azure pour Redis par défaut](cache-configure.md#default-redis-server-configuration). Pour plus d’informations sur la création d’un cache à l’aide de la cmdlet [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0), voir la section précédente, Créer un Cache Azure pour Redis.
 
 ## <a name="to-update-an-azure-cache-for-redis"></a>Mettre à jour un cache Azure pour Redis
 Les instances du Cache Azure pour Redis sont mises à jour à l'aide de la cmdlet [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Set-AzureRmRedisCache?view=azurermps-6.6.0) .

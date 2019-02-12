@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b4d0ee26cb9f7283cac871c70737cd701fb74c91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754065"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818581"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -62,7 +62,7 @@ Certaines des ressources suivantes (comptes, nœuds de calcul, pools, travaux et
   * [Tâche de démarrage](#start-task)
   * [Tâche du gestionnaire de travaux](#job-manager-task)
   * [Tâches de préparation et lancement](#job-preparation-and-release-tasks)
-  * [Tâche multi-instance (MPI)](#multi-instance-tasks)
+  * Tâche multi-instance (MPI)
   * [Dépendances de la tâche](#task-dependencies)
 * [Packages d’applications](#application-packages)
 
@@ -153,7 +153,7 @@ Pour les configurations requises détaillées, consultez [Utiliser une image per
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Prise en charge du conteneur dans les pools de machines virtuelles
 
-Lorsque vous créez un pool de configuration de machines virtuelles à l’aide des API de lot, vous pouvez configurer le pool pour exécuter des tâches dans des conteneurs Docker. À l’heure actuelle, vous devez créer le pool à l’aide d’une image qui prend en charge les conteneurs Docker. Utilisez Windows Server 2016 Datacenter avec l’image Containers provenant de la Place de Marché Azure ou fournissez une image de machine virtuelle personnalisée qui inclut Docker Community Edition ou Enterprise Edition et tous les pilotes requis. Les paramètres du pool doivent inclure une [configuration du conteneur](/rest/api/batchservice/pool/add#definitions_containerconfiguration) copiant des images de conteneur sur les machines virtuelles une fois le pool créé. Les tâches qui s’exécutent sur le pool peuvent ensuite référencer les images et les options d’exécution du conteneur.
+Lorsque vous créez un pool de configuration de machines virtuelles à l’aide des API de lot, vous pouvez configurer le pool pour exécuter des tâches dans des conteneurs Docker. À l’heure actuelle, vous devez créer le pool à l’aide d’une image qui prend en charge les conteneurs Docker. Utilisez Windows Server 2016 Datacenter avec l’image Containers provenant de la Place de Marché Azure ou fournissez une image de machine virtuelle personnalisée qui inclut Docker Community Edition ou Enterprise Edition et tous les pilotes requis. Les paramètres du pool doivent inclure une [configuration du conteneur](/rest/api/batchservice/pool/add) copiant des images de conteneur sur les machines virtuelles une fois le pool créé. Les tâches qui s’exécutent sur le pool peuvent ensuite référencer les images et les options d’exécution du conteneur.
 
 Pour plus d’informations, consultez [Exécutez des applications de conteneur Docker sur Azure Batch](batch-docker-container-workloads.md).
 
@@ -215,7 +215,7 @@ Vous pouvez spécifier des [packages d’applications](#application-packages) à
 
 ### <a name="network-configuration"></a>Configuration réseau
 
-Vous pouvez spécifier le sous-réseau d’un [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) Azure dans lequel les nœuds de calcul du pool doivent être créés. Pour plus d'informations, consultez [Configuration du réseau de pools](#pool-network-configuration).
+Vous pouvez spécifier le sous-réseau d’un [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) Azure dans lequel les nœuds de calcul du pool doivent être créés. Pour plus d’informations, consultez la section concernant la configuration du réseau de pools.
 
 
 ## <a name="job"></a>Travail
@@ -271,7 +271,7 @@ Outre les tâches que vous pouvez définir pour effectuer des calculs sur un nœ
 * [Tâche de démarrage](#start-task)
 * [Tâche du gestionnaire de travaux](#job-manager-task)
 * [Tâches de préparation et lancement](#job-preparation-and-release-tasks)
-* [Tâches multi-instances (MPI)](#multi-instance-tasks)
+* Tâches multi-instances (MPI)
 * [Dépendances de la tâche](#task-dependencies)
 
 ### <a name="start-task"></a>Tâche de démarrage
@@ -349,13 +349,13 @@ Vous trouverez la liste complète des variables d’environnement définies par 
 ## <a name="files-and-directories"></a>Fichiers et répertoires
 Chaque tâche possède un *répertoire de travail* sous lequel elle crée zéro ou plusieurs fichiers et répertoires. Ce répertoire de travail peut être utilisé pour stocker le programme exécuté par la tâche, les données qu’il traite et la sortie du traitement qu’il effectue. Tous les fichiers et répertoires d’une tâche sont détenus par l’utilisateur de la tâche.
 
-Le service Batch expose une partie du système de fichiers sur un nœud en tant que *répertoire racine*. Les tâches peuvent accéder au répertoire racine en référençant la variable d’environnement `AZ_BATCH_NODE_ROOT_DIR`. Pour plus d’informations sur l’utilisation de variables d’environnement, consultez la section [Paramètres d’environnement des tâches](#environment-settings-for-tasks).
+Le service Batch expose une partie du système de fichiers sur un nœud en tant que *répertoire racine*. Les tâches peuvent accéder au répertoire racine en référençant la variable d’environnement `AZ_BATCH_NODE_ROOT_DIR` . Pour plus d’informations sur l’utilisation de variables d’environnement, consultez la section [Paramètres d’environnement des tâches](#environment-settings-for-tasks).
 
 Le répertoire racine contient la structure de répertoires suivante :
 
 ![Structure de répertoire du nœud de calcul][1]
 
-* **shared** : ce répertoire fournit un accès en lecture/écriture à *toutes* les tâches qui s’exécutent sur un nœud. Les tâches qui s’exécutent sur le nœud peuvent créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Les tâches peuvent accéder à ce répertoire en référençant la variable d’environnement `AZ_BATCH_NODE_SHARED_DIR`.
+* **shared** : ce répertoire fournit un accès en lecture/écriture à *toutes* les tâches qui s’exécutent sur un nœud. Les tâches qui s’exécutent sur le nœud peuvent créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Les tâches peuvent accéder à ce répertoire en référençant la variable d’environnement `AZ_BATCH_NODE_SHARED_DIR` .
 * **startup** : ce répertoire est utilisé comme répertoire de travail par une tâche de démarrage. Tous les fichiers téléchargés vers le nœud par la tâche de démarrage sont stockés ici. La tâche de démarrage peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Les tâches peuvent accéder à ce répertoire en référençant la variable d’environnement `AZ_BATCH_NODE_STARTUP_DIR` .
 * **Tâches** : un répertoire est créé pour chaque tâche qui s’exécute sur le nœud. Il est accessible en référençant la variable d’environnement `AZ_BATCH_TASK_DIR` .
 

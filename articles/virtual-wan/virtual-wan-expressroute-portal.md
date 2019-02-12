@@ -1,21 +1,21 @@
 ---
-title: Utiliser Azure Virtual WAN pour établir des connexions ExpressRoute avec des environnements Azure et locaux | Microsoft Docs
-description: Dans ce didacticiel, vous allez découvrir comment utiliser Azure Virtual WAN pour établir des connexions ExpressRoute avec des environnements Azure et locaux.
+title: Utiliser Azure Virtual WAN pour établir des connexions ExpressRoute à des environnements Azure et locaux | Microsoft Docs
+description: Dans ce tutoriel, découvrez comment utiliser Azure Virtual WAN pour établir des connexions ExpressRoute à des environnements Azure et locaux.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 10b73843e2ca2e0ee0af766ef1ad7ee9cbf61f94
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
+ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854596"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692844"
 ---
-# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Didacticiel : Créer une association ExpressRoute avec Azure Virtual WAN (préversion)
+# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutoriel : Créer une association ExpressRoute avec Azure Virtual WAN (préversion)
 
 Ce didacticiel vous montre comment utiliser Azure Virtual WAN pour vous connecter à vos ressources dans Azure via un circuit et une association ExpressRoute. Pour plus d’informations sur le WAN virtuel, consultez [Vue d'ensemble de WAN virtuel](virtual-wan-about.md)
 
@@ -45,7 +45,7 @@ Avant de pouvoir configurer le WAN virtuel, vous devez tout d’abord inscrire a
 
 **Considérations relatives à la préversion :**
 
-* Disponibilité dans la région : USA Centre-Ouest
+* Disponibilité dans les régions : USA Centre-Ouest
 * Le circuit ExpressRoute doit être activé dans un pays qui prend en charge [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
 ## <a name="vnet"></a>1. Créez un réseau virtuel
@@ -54,7 +54,7 @@ Avant de pouvoir configurer le WAN virtuel, vous devez tout d’abord inscrire a
 
 ## <a name="openvwan"></a>2. Créer un WAN virtuel
 
-Dans un navigateur, accédez au [Portail Azure (préversion)](http://aka.ms/azurevirtualwanpreviewfeatures) et connectez-vous avec votre compte Azure.
+Dans un navigateur, accédez au [Portail Azure (préversion)](https://aka.ms/azurevirtualwanpreviewfeatures) et connectez-vous avec votre compte Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -70,12 +70,12 @@ Dans un navigateur, accédez au [Portail Azure (préversion)](http://aka.ms/azur
 
 1. Sélectionnez votre vWAN et, sous **Architecture de Virtual WAN**, sélectionnez **Circuits ExpressRoute**.
 2. Si le circuit ExpressRoute se trouve dans le même abonnement que votre vWAN, cliquez sur **Sélectionner circuit ExpressRoute** depuis votre ou vos abonnements. 
-3. Avec la liste déroulante, sélectionnez le circuit ExpressRoute que vous souhaitez associer au hub.
+3. Avec la liste déroulante, sélectionnez le circuit ExpressRoute à associer au hub.
 4. Si le circuit ExpressRoute ne se trouve pas dans le même abonnement ou que vous disposez d’[une clé d’autorisation et d’un ID d’homologue](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), sélectionnez **Trouver un circuit en échange d’une clé d’autorisation**.
 5. Entrez les informations suivantes :
 * **Clé d’autorisation** : générée par le propriétaire du circuit comme décrit ci-dessus.
 * **URI du circuit pair** : URI qui est fourni par le propriétaire du circuit et identifie le circuit de manière unique.
-* **Poids du routage** - [Poids du routage](../expressroute/expressroute-optimize-routing.md) vous permet de privilégier certains chemins d’accès lorsque plusieurs circuits provenant de différents sites d’homologation sont connectés au même hub.
+* **Poids du routage** - [Poids du routage](../expressroute/expressroute-optimize-routing.md) vous permet de privilégier certains chemins lorsque plusieurs circuits provenant de différents sites d’homologation sont connectés au même hub.
 6. Cliquez sur **Trouver le circuit** et sélectionnez le circuit qui s’affiche.
 7. Sélectionnez un ou plusieurs hubs dans la liste déroulante et cliquez sur **Enregistrer**.
 

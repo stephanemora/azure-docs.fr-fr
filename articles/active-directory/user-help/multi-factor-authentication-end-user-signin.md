@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: aafc960c0c26a94a8be672d0d72a46dfcb559013
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 13b82aa4f256bf0ec2d0805e85241d72e115d737
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157004"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810199"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Expérience de connexion avec Azure Multi-Factor Authentication
 > [!NOTE]
@@ -31,8 +31,8 @@ Votre expérience d’authentification diffère selon ce que vous choisissez d�
 | --- |
 | [Avec un appel téléphonique sur mon téléphone mobile ou de bureau](#signing-in-with-a-phone-call) |
 | [Avec un message texte sur mon téléphone mobile](#signing-in-with-a-text-message)
-| [Avec des notifications envoyées par l’application Microsoft Authenticator](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [Avec des codes de vérification envoyés par l’application Microsoft Authenticator](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| Avec des notifications envoyées par l’application Microsoft Authenticator |
+| Avec des codes de vérification envoyés par l’application Microsoft Authenticator |
 | [Avec une autre méthode, car je ne peux pas utiliser ma méthode préférée à l’heure actuelle](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Connexion avec un appel téléphonique
@@ -87,4 +87,4 @@ Si vous rencontrez des problèmes de connexion avec la vérification en deux ét
 
 Apprenez comment [gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md).
 
-Découvrez comment [prendre en main l’application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) afin que vous puissiez utiliser les notifications pour vous connecter, plutôt que des SMS et des appels téléphoniques.
+Découvrez comment [prendre en main l’application Microsoft Authenticator](user-help-auth-app-download-install.md) afin que vous puissiez utiliser les notifications pour vous connecter, plutôt que des SMS et des appels téléphoniques.

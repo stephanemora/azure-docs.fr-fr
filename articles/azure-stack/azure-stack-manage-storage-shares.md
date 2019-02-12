@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96145906d40e465d2427a8100b3ad9333eec3f29
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249093"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819516"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gérer la capacité de stockage pour Azure Stack 
 
@@ -51,7 +51,7 @@ Comme les partages de service de stockage sont destinés à l’utilisation excl
 
 Partages des volumes contenant des données de locataire. Les données de locataire incluent des objets blob de pages, des objets blob de blocs, des objets blob d’ajouts, des tables, des files d’attente, des bases de données et des magasins de métadonnées associés. Comme les objets de stockage (objets blob, etc.) sont individuellement contenus dans un seul et même partage, la taille maximale de chaque objet ne peut pas dépasser la taille d’un partage. La taille maximale des nouveaux objets dépend de la capacité restant dans un partage sous forme d’espace inutilisé lorsque ce nouvel objet est créé.
 
-Lorsqu’un partage manque d’espace libre et que les actions pour [récupérer](#reclaim-capacity) de l’espace n’aboutissent pas ou ne sont pas disponibles, l’opérateur de cloud d’Azure Stack peut [migrer](#migrate-a-container-between) les conteneurs d’objets blob d’un partage vers un autre.
+Quand un partage manque d’espace libre et que les actions pour en [récupérer](#reclaim-capacity) n’aboutissent pas ou ne sont pas disponibles, l’opérateur cloud Azure Stack peut migrer les conteneurs d’objets blob d’un partage vers un autre.
 
 - Pour plus d’informations sur les conteneurs et les objets blob, consultez la section [Stockage d’objets blob](azure-stack-key-features.md#blob-storage) dans l’article Fonctionnalités et concepts clés d’Azure Stack.
 - Pour plus d’informations sur l’utilisation du stockage d’objets blob dans Azure Stack par les utilisateurs locataires, consultez la section [Services de stockage Azure Stack](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).

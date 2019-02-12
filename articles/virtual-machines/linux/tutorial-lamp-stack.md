@@ -3,7 +3,7 @@ title: 'Didacticiel : déployer LAMP sur une machine virtuelle Linux dans Azure 
 description: Avec ce didacticiel, vous allez apprendre à installer la pile LAMP sur une machine virtuelle Linux dans Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: 5caed6fba607cb93a6168bded7531bc8bf63b9da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: c69c7055e420ffa64e547f5c3fe53d997cf90168
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970683"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753705"
 ---
-# <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Didacticiel : installer un serveur web LAMP sur une machine virtuelle Linux dans Azure
+# <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutoriel : Installer un serveur web LAMP sur une machine virtuelle Linux dans Azure
 
 Cet article vous guide à travers le déploiement d’un serveur web Apache, de celui de MySQL et de PHP (la pile LAMP) sur une machine virtuelle Ubuntu dans Azure. Si vous préférez le serveur web NGINX, consultez le didacticiel [Pile LEMP](tutorial-lemp-stack.md). Pour voir le serveur LAMP fonctionner, vous pouvez éventuellement installer et configurer un site WordPress. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -50,15 +50,12 @@ Exécutez la commande suivante pour mettre à jour les sources de package Ubuntu
 sudo apt update && sudo apt install lamp-server^
 ```
 
-
-Vous êtes invité à installer les packages et les autres dépendances. Lorsque vous y êtes invité, définissez un mot de passe racine pour MySQL, puis [Entrée] pour continuer. Suivez les invites restantes. Ce processus installe les extensions PHP minimales requises pour utiliser PHP avec MySQL. 
-
-![Page de mot de passe racine MySQL][1]
+Vous êtes invité à installer les packages et les autres dépendances. Ce processus installe les extensions PHP minimales requises pour utiliser PHP avec MySQL.  
 
 ## <a name="verify-installation-and-configuration"></a>Vérifier l’installation et la configuration
 
 
-### <a name="apache"></a>Apache
+### <a name="verify-apache"></a>Vérifier Apache
 
 Vérifiez la version d’Apache à l’aide de la commande suivante :
 ```bash
@@ -70,7 +67,7 @@ Avec Apache installé et le port 80 ouvert sur votre machine virtuelle, le serv
 ![Page par défaut d’Apache][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>Vérifier et sécuriser MySQL
 
 Vérifiez la version de MySQL avec la commande suivante (remarquez le paramètre `V` avec une majuscule) :
 
@@ -78,23 +75,23 @@ Vérifiez la version de MySQL avec la commande suivante (remarquez le paramètre
 mysql -V
 ```
 
-Pour sécuriser l’installation de MySQL, exécutez le script `mysql_secure_installation`. Si vous configurez uniquement un serveur temporaire, vous pouvez ignorer cette étape.
+Pour mieux sécuriser l’installation de MySQL, notamment en définissant un mot de passe racine, exécutez le script `mysql_secure_installation`. 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-Entrez un mot de passe racine pour MySQL et configurez les paramètres de sécurité de votre environnement.
+Vous pouvez éventuellement configurer le plug-in de validation de mot de passe (recommandé). Ensuite, définissez un mot de passe pour l’utilisateur racine MySQL et configurez les autres paramètres de sécurité pour votre environnement. Nous vous recommandons de répondre par l’affirmative à toutes les questions.
 
 Si vous souhaitez essayer des fonctionnalités de MySQL (créer une base de données MySQL, ajouter des utilisateurs ou changer des paramètres de configuration), connectez-vous à MySQL. Cette étape n’est pas nécessaire pour suivre ce didacticiel.
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 Lorsque vous avez terminé, quittez l’invite de mysql en tapant `\q`.
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>Vérifier PHP
 
 Vérifiez la version de PHP avec la commande suivante :
 
@@ -114,7 +111,6 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez déployé un serveur LAMP dans Azure. Vous avez appris à effectuer les actions suivantes :
@@ -131,6 +127,5 @@ Passez au didacticiel suivant pour savoir comment mieux protéger les serveurs S
 > [!div class="nextstepaction"]
 > [Sécuriser un serveur web avec SSL](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

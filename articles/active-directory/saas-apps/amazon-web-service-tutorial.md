@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: d5633648ee94c4db20f095619871ac5cd9cec7da
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825171"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751087"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutoriel : Intégration d’Azure Active Directory à Amazon Web Services (AWS)
+# <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Didacticiel : Intégration d’Azure Active Directory à Amazon Web Services (AWS)
 
 Dans ce tutoriel, vous allez apprendre à intégrer Amazon Web Services à Azure Active Directory (Azure AD).
 L’intégration de Amazon Web Services (AWS) dans Azure AD vous offre les avantages suivants :
@@ -148,7 +148,7 @@ Pour configurer l’authentification unique Azure AD avec Amazon Web Services
 
 7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM  | Attribut source  | Espace de noms |
+    | Nom  | Attribut source  | Espace de noms |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Rôle            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -409,7 +409,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Amazon Web Services (AWS).
+Dans cette section, vous autoriserz Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Amazon Web Services (AWS).
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **Amazon Web Services (AWS)**.
 
@@ -442,6 +442,12 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Amazon Web Services (AWS) dans le volet d’accès, vous devez être connecté automatiquement à l’application Amazon Web Services (AWS) pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="known-issues"></a>Problèmes connus
+
+ * Dans la section **Provisionnement**, la sous-section **Mappages** affiche un message « Chargement en cours... » et n’affiche jamais les mappages d’attributs. Le seul workflow de provisionnement pris en charge aujourd’hui est l’importation des rôles à partir d’AWS dans Azure AD pour la sélection lors de l’affectation de groupe/utilisateur. Pour cela, les mappages d’attributs sont prédéterminés et non configurables.
+ 
+ * La section **Provisionnement** prend uniquement en charge l’entrée d’un ensemble d’informations d’identification pour un locataire AWS à la fois. Tous les rôles importés sont écrits dans la propriété appRoles de l’[objet servicePrincipal](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) d’Azure AD pour le locataire AWS. Vous pouvez ajouter plusieurs locataires AWS (représentés par des objets servicePrincipals) à Azure AD à partir de la galerie pour le provisionnement, mais il existe un problème connu : il est impossible d’écrire automatiquement tous les rôles importés à partir des objets servicePrincipals AWS utilisés pour le provisionnement dans le servicePrincipal unique utilisé pour l’authentification unique. En guise de solution de contournement, vous pouvez utiliser l’[API Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) pour extraire tous les appRoles importés dans chaque servicePrincipal AWS où le provisionnement est configuré. Ces chaînes de rôle peuvent être ajoutées par la suite au servicePrincipal AWS où l’authentification unique est configurée.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ffd10504d496d0a46b373451a0d0400fc16c2e8d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 988e72a20fdd80e41ce8fc1ef568d90d4283a848
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186196"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813498"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
@@ -63,7 +63,7 @@ Lorsque vous avez plusieurs forêts, toutes les forêts doivent être accessible
 
 L’Assistant d’installation d’Azure AD Connect offre plusieurs options différentes pour consolider les utilisateurs qui sont représentés dans plusieurs forêts. L’objectif est de représenter un utilisateur une seule fois dans Azure AD. Il existe certaines topologies courantes que vous pouvez configurer dans le chemin d’installation personnalisé de l’Assistant d’installation. Sur la page **Identification unique de vos utilisateurs**, sélectionnez l’option correspondante qui représente votre topologie. La consolidation est configurée uniquement pour les utilisateurs. Les groupes en doublon ne sont pas consolidés avec la configuration par défaut.
 
-Des topologies courantes sont présentées dans les sections sur les [topologies distinctes](#multiple-forests-separate-topologies), le [maillage complet](#multiple-forests-full-mesh-with-optional-galsync) et la [topologie de ressources de comptes](#multiple-forests-account-resource-forest).
+Des topologies courantes sont présentées dans les sections sur les topologies distinctes, le [maillage complet](#multiple-forests-full-mesh-with-optional-galsync) et la [topologie de ressources de comptes](#multiple-forests-account-resource-forest).
 
 La configuration par défaut d’Azure AD Connect Sync suppose que :
 

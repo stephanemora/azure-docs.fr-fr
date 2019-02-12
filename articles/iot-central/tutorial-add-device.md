@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c3b8f4f8188a6a28cca8b77f169a00657b11dfc5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 695050a46df4b208205ce394cc79db891803cfa4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154809"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731527"
 ---
-# <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutoriel : Ajouter un appareil réel à votre application Azure IoT Central
+# <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Didacticiel : Ajouter un appareil réel à votre application Azure IoT Central
 
 Ce didacticiel vous indique comment ajouter et configurer un appareil réel dans votre application Microsoft Azure IoT Central.
 
@@ -109,9 +109,11 @@ La procédure ci-après vous indique comment préparer l’exemple [Node.js](htt
 
    Vous pouvez trouver plus d’informations sur l’outil en ligne de commande [ici](https://www.npmjs.com/package/dps-keygen).
 
-1. Téléchargez et décompressez (Windows) l’outil dps_cstr à partir de [GitHub](https://github.com/Azure/dps-keygen/tree/master/bin)
+1. Téléchargez et décompressez l’outil dps_cstr (Windows) à partir de [GitHub](https://github.com/Azure/dps-keygen/archive/master.zip
 
-    Veillez à choisir celui correspondant à votre plateforme. Par exemple, sur Windows, le fichiers dps_cstr.exe et les fichiers dll doivent être maintenant disponibles dans votre dossier. 
+)
+
+    Make sure you choose the one that matches your platform. For example, on Windows the dps_cstr.exe and the dll files should be now available in your folder. 
 
 1. La chaîne de connexion pour une instance d’appareil dans votre application est générée à partir des informations sur l’appareil fournies par l’IoT Central.
 

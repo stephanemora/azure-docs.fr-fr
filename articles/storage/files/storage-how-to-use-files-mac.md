@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: c393942112f42dc0d56388b8beac44b4287bca23
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 86224b90f7a93eae41c127d4ba87f685f895e15a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475702"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820400"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montage du partage de fichiers Azure via SMB avec MacOS
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés avec le protocole standard SMB 3 par macOS El Capitan 10.11 et version supérieure. Cet article expose deux méthodes de montage d’un partage de fichiers Azure sur macOS : l’une avec l’interface utilisateur Finder et l’autre avec Terminal.
@@ -38,7 +38,7 @@ ms.locfileid: "55475702"
 1. **Ouvrez Finder** : Finder est ouvert par défaut sur macOS, mais vous pouvez vérifier qu’il s’agit bien de l’application actuellement sélectionnée en cliquant sur l’icône de visage macOS dans la barre :  
     ![L’icône MacOS (visage)](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Sélectionnez « Se connecter au serveur » dans le menu « Aller »**  : En utilisant le chemin UNC des [prérequis](#preq), remplacez la double barre oblique inverse (`\\`) par `smb://` et toutes les autres barres obliques inverses (`\`) par des barres obliques normales (`/`). Votre lien doit se présenter comme suit : ![Boîte de dialogue « Se connecter au serveur »](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Sélectionnez « Se connecter au serveur » dans le menu « Aller »**  : En utilisant le chemin UNC des prérequis, remplacez la double barre oblique inverse (`\\`) par `smb://` et toutes les autres barres obliques inverses (`\`) par des barres obliques normales (`/`). Votre lien doit se présenter comme suit : ![Boîte de dialogue « Se connecter au serveur »](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Utilisez le nom du compte de stockage et la clé du compte de stockage quand un nom d’utilisateur et un mot de passe vous sont demandés** : Quand vous cliquez sur « Connexion », dans la boîte de dialogue « Se connecter au serveur », vous êtes invité à entrer le nom d’utilisateur et le mot de passe (votre nom d’utilisateur macOS est automatiquement prérempli). Vous avez la possibilité de placer le nom/la clé du compte de stockage dans votre trousseau MacOS.
 

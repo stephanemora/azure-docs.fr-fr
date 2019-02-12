@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0937ad12ad74209e84ee1316a090af8a6469a044
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151615"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813821"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
@@ -48,7 +48,7 @@ Appliquez des contrôles de stratégie plus riches avant que les connexions à v
 
 Avec [l’accès conditionnel](../conditional-access/overview.md), vous pouvez définir les restrictions sur le trafic qui est autorisé à accéder à vos applications principales. Vous pouvez créer des stratégies qui limitent les connexions en fonction de l’emplacement, de la force de l’authentification et du profil de risque de l’utilisateur.
 
-Vous pouvez également utiliser l’accès conditionnel pour configurer des stratégies Multi-Factor Authentication, qui ajoutent une couche de sécurité supplémentaire aux authentifications des utilisateurs. De plus, vos applications peuvent également être routées vers Microsoft Cloud App Security via l’accès conditionnel Azure AD pour assurer un contrôle et une surveillance en temps réel par le biais de stratégies d’[accès](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) et de [session](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad)
+Vous pouvez également utiliser l’accès conditionnel pour configurer des stratégies Multi-Factor Authentication, qui ajoutent une couche de sécurité supplémentaire aux authentifications des utilisateurs. De plus, vos applications peuvent également être routées vers Microsoft Cloud App Security via l’accès conditionnel Azure AD pour assurer un contrôle et une surveillance en temps réel par le biais de stratégies d’[accès](https://docs.microsoft.com/cloud-app-security/access-policy-aad) et de [session](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
 
 ### <a name="traffic-termination"></a>Arrêt du trafic
 
@@ -128,11 +128,11 @@ Chaque fois que le service de proxy d’application met à jour les paramètres 
 
 Lorsque les utilisateurs accèdent à une application publiée, les événements suivants se produisent entre le service de proxy d’application et le connecteur de proxy d’application :
 
-1. [Le service authentifie l’utilisateur pour l’application.](#the-service-checks-the-configuration-settings-for-the-app)
-2. [Le service place une demande dans la file d’attente du connecteur.](#The-service-places-a-request-in-the-connector-queue)
-3. [Un connecteur traite la demande provenant de la file d’attente.](#the-connector-receives-the-request-from-the-queue)
-4. [Le connecteur attend une réponse.](#the-connector-waits-for-a-response)
-5. [Le service diffuse les données à l’utilisateur.](#the-service-streams-data-to-the-user)
+1. Le service authentifie l’utilisateur pour l’application.
+2. Le service place une demande dans la file d’attente du connecteur.
+3. Un connecteur traite la demande provenant de la file d’attente
+4. Le connecteur attend une réponse
+5. Le service diffuse les données à l’utilisateur
 
 Pour plus d’informations sur ce qui se passe dans chacune de ces étapes, poursuivez votre lecture.
 

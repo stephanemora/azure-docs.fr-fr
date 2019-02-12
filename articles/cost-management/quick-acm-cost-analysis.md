@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/07/2019
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077655"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769849"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec l’analyse du coût
 
@@ -32,7 +32,9 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-L’analyse du coût est accessible à tous les clients bénéficiant d’un [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût. Pour plus d’informations sur l’attribution de l’accès aux données Cost Management, consultez [Assigner l’accès aux données](assign-access-acm-data.md).
+L’analyse des coûts prend en charge divers types de compte Azure. Pour afficher la liste complète des types de comptes pris en charge, consultez [Comprendre les données Cost Management](understand-cost-mgt-data.md). Pour afficher les données de coût, vous avez au minimum besoin d’un accès en lecture pour votre compte Azure.
+
+Pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), vous devez disposer d’au moins un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût.
 
 - Compte de facturation
 - department
@@ -41,13 +43,15 @@ L’analyse du coût est accessible à tous les clients bénéficiant d’un [Co
 - Abonnement
 - Groupe de ressources
 
+Pour plus d’informations sur l’attribution de l’accès aux données Cost Management, consultez [Assigner l’accès aux données](assign-access-acm-data.md).
+
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 - Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="review-costs-in-cost-analysis"></a>Passer en revue les coûts dans l’analyse du coût
 
-Pour passer en revue vos coûts dans l’analyse des coûts, dans le portail Azure, accédez à **Gestion des coûts + facturation** &gt; **Cost Management** &gt; **Modifier l’étendue**, choisissez une étendue, puis cliquez sur **Sélectionner**.
+Pour passer en revue vos coûts avec l’analyse des coûts, dans le portail Azure, accédez à **Cost Management + facturation** &gt; **Analyse du coût**. Sélectionner **Étendue : _ScopeName_**, choisissez une étendue, puis cliquez sur **Sélectionner**.
 
 L’étendue que vous sélectionnez est utilisée à travers Cost Management pour consolider les données et contrôler l’accès aux informations sur les coûts. Quand vous utilisez des étendues, vous n’opérez pas une sélection multiple. À la place, vous sélectionnez une étendue plus grande qui englobe d’autres étendues, puis vous appliquez un filtre pour trouver ce qui vous intéresse. Il est important de bien comprendre ceci, car certaines personnes ne doivent pas avoir accès à une étendue parente englobant des étendues enfants.
 
@@ -94,7 +98,8 @@ Voici une vue des coûts des services Azure pour le mois dernier.
 
 ![Vue cumulée quotidienne groupée présentant un exemple de coûts du service Azure pour le mois dernier](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Les graphiques croisés dynamiques sous le graphique principal affichent différents regroupements pour vous donner une vue d’ensemble de vos coûts globaux pour la période et les filtres sélectionnés. Sélectionnez une propriété ou une étiquette pour afficher les coûts agrégés d’après n’importe quelle dimension. L’ensemble complet des données pour l’affichage total est visible en bas de l’écran en développant le tiroir **Données** ou en sélectionnant **Exporter > Télécharger le fichier CSV** en haut de l’écran. Voici un exemple du tiroir de données pour les groupes de ressources.
+Les graphiques croisés dynamiques sous le graphique principal affichent différents regroupements pour vous donner une vue d’ensemble de vos coûts globaux pour la période et les filtres sélectionnés. Sélectionnez une propriété ou une étiquette pour afficher les coûts agrégés d’après n’importe quelle dimension.
+
 
 ![Données complètes pour la vue actuelle présentant les noms de groupe de ressources](./media/quick-acm-cost-analysis/full-data-set.png)
 
@@ -103,6 +108,10 @@ L’image précédente montre les noms de groupe de ressources. Bien que vous pu
 Lorsque vous regroupez les coûts en fonction d’un attribut spécifique, les dix principaux contributeurs aux coûts s’affichent dans l’ordre décroissant. S’il y a plus de dix groupes, les neuf principaux contributeurs aux coûts sont affichés. Un groupe **Autres**, qui rassemble tous les groupes restants, s’affiche également. Lors du regroupement par étiquettes, vous pouvez aussi voir un groupe **Non étiqueté** pour les coûts auxquels la clé d’étiquette n’a pas été appliquée. **Non étiqueté** est toujours mentionné en dernier, même s’il existe plus de coûts non étiquetés que de coûts étiquetés. S’il y a dix valeurs d’étiquette ou plus, les coûts non étiquetés sont inclus dans le groupe **Autres**.
 
 Les ressources de machines virtuelles, de réseau et de stockage *Classic* (Azure Service Management ou ASM) ne partagent pas de données de facturation détaillées. Elles sont fusionnées dans les **services Classic** lors du regroupement des coûts.
+
+Vous pouvez afficher le jeu de données complet pour n’importe quelle vue. Les sélections ou les filtres que vous appliquez ont une incidence sur les données présentées. Pour voir le jeu de données complet, cliquez sur la liste **Type de graphique**, puis cliquez sur l’affichage **Tableau**.
+
+![Données de l’affichage actuel présentées dans un tableau](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
 
 ## <a name="download-cost-analysis-data"></a>Télécharger les données de l’analyse du coût

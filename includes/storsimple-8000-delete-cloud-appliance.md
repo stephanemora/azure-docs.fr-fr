@@ -4,18 +4,18 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8de46fee4f93fffa669dc96ec5bb84e36842a055
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ac708eb2ac79a74b8f4e09a7306a42665b3aca94
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164458"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736116"
 ---
 #### <a name="to-delete-a-cloud-appliance"></a>Pour supprimer une appliance cloud
 
 1. Connectez-vous au portail Azure.
 2. Vous pouvez seulement supprimer un appareil désactivé qui ne contient aucune donnée. Supprimez d’abord les données sur l’appareil ou choisissez de [basculer les données](../articles/storsimple/storsimple-8000-device-failover-cloud-appliance.md) dans des conteneurs de volumes sur un autre appareil. Une fois les données supprimées, vous êtes prêt à désactiver l’appareil.
-3. Sur la page de votre service StorSimple Device Manager, cliquez sur **Appareils**, puis sélectionnez l’appareil. Faites un clic droit dessus et sélectionnez **Désactiver**.
+3. Dans la page de votre service StorSimple Device Manager, cliquez sur **Appareils**, puis sélectionnez l’appareil. Faites un clic droit dessus et sélectionnez **Désactiver**.
 4. Une fois le périphérique désactivé, faites un clic droit sur l’appareil et sélectionnez **Supprimer**.
 
     ![Sélectionnez l’appareil désactivé et cliquez sur Supprimer](./media/storsimple-8000-delete-cloud-appliance/delete-cloud-appliance1.png)

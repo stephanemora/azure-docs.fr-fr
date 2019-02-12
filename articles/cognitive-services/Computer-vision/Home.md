@@ -11,33 +11,28 @@ ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f06269b937a645a5334c1a8015528ad00adb66e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c68e50d02a27097c9fa8a699468ce679162240a1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154488"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561295"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
-Le service Vision par ordinateur basé sur le cloud offre aux développeurs un accès à des algorithmes avancés pour le traitement d’images et le renvoi d’informations. Ce service prend en charge les formats d’image courants, tels que JPEG et PNG. Pour analyser une image, vous pouvez télécharger une image ou spécifier une URL d’image. Les algorithmes du service Vision par ordinateur peuvent analyser le contenu d’une image de différentes manières, selon les composants visuels qui vous intéressent. Par exemple, le service Vision par ordinateur peut déterminer si une image contient un contenu pour adultes ou choquant, ou rechercher tous les visages dans une image.
+Le service Vision par ordinateur d’Azure offre aux développeurs un accès à des algorithmes avancés permettant de traiter des images et de retourner des informations. Pour analyser une image, vous pouvez télécharger une image ou spécifier une URL d’image. Les algorithmes de traitement d’images peuvent analyser le contenu de différentes manières, selon les composants visuels qui vous intéressent. Par exemple, le service Vision par ordinateur peut déterminer si une image contient du contenu pour adultes ou choquant, ou rechercher tous les visages humains dans une image.
 
-Vous pouvez utiliser le service Vision par ordinateur dans votre application, en utilisant nos [bibliothèques clientes](quickstarts-sdk/csharp-analyze-sdk.md) pour appeler le service, ou en appelant directement [l’API REST](vision-api-how-to-topics/howtocallvisionapi.md), pour :
+Vous pouvez utiliser le service Vision par ordinateur dans votre application en utilisant un kit SDK natif ou en appelant directement l’API REST. Cette page couvre globalement ce que vous pouvez faire avec le service Vision par ordinateur.
 
-- [Analyser des images pour obtenir des informations](#analyzing-images-for-insight)
-- [Extraire du texte à partir des images](#extracting-text-from-images)
-- [Modérer du contenu dans les images](#moderating-content-in-images)
+## <a name="analyze-images-for-insight"></a>Analyser des images pour obtenir des informations
 
-## <a name="analyzing-images-for-insight"></a>Analyser des images pour obtenir des informations
-
-Vous pouvez analyser des images à l’aide du service Vision par ordinateur pour obtenir des informations détaillées sur les composants et les caractéristiques visuels de vos images. Vous pouvez télécharger le contenu d’une image pour analyser les images locales, ou vous pouvez spécifier l’URL d’une image pour analyser des images à distance.
-
-Le service Vision par ordinateur peut exécuter les actions suivantes lors de l’analyse d’une image :
+Vous pouvez analyser des images pour obtenir des informations détaillées sur leurs composants et caractéristiques visuels. Toutes les fonctionnalités listées dans le tableau ci-dessous sont fournies par l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
 
 | Action | Description |
 | ------ | ----------- |
 |**[Identifier les composants visuels à l’aide de balises](concept-tagging-images.md)**|Identifier les composants visuels d’une image et les marquer à l’aide de balises à partir d’un ensemble de milliers d’objets, d’êtres vivants, de scènes et d’actions reconnaissables. Quand les balises sont ambigües ou inhabituelles, la réponse de l’API fournit des « conseils » pour expliquer la signification de la balise dans le contexte des paramètres connus. Le balisage ne se limite pas au sujet principal, comme une personne au premier plan, mais il inclut également le décor (intérieur ou extérieur), le mobilier, les outils, les plantes, les animaux, les accessoires, les gadgets, etc.|
 |**[Détecter des objets](concept-object-detection.md)**| La détection d’objets est similaire au balisage, mais l’API retourne les coordonnées de cadre englobant pour chaque balise appliquée. Par exemple, si une image contient un chien, un chat et une personne, l’opération de détection répertorie ces objets ainsi que leurs coordonnées dans l’image. Vous pouvez utiliser cette fonctionnalité pour traiter d’autres relations entre les objets dans une image. Elle vous permet également de savoir quand il existe plusieurs instances de la même balise dans une image.|
+|**[Détecter les marques](concept-brand-detection.md)**|Identifiez les marques commerciales dans les images ou vidéos à partir d’une base de données de milliers de logos internationaux. Vous pouvez utiliser cette fonctionnalité, par exemple, pour déterminer quelles marques sont les plus populaires sur les réseaux sociaux ou prédominants en termes de placement de produit dans les médias.|
 |**[Catégoriser une image](concept-categorizing-images.md)**|Identifier et catégoriser une image dans son ensemble en utilisant une [taxonomie des catégories](Category-Taxonomy.md) comprenant des hiérarchies héréditaires parent/enfant. Les catégories peuvent être utilisées seules ou avec nos nouveaux modèles de balisage.<br/>Actuellement, l’anglais est la seule langue prise en charge pour le balisage et la catégorisation des images.|
 |**[Décrire une image](concept-describing-images.md)**|Générer une description de l’intégralité d’une image dans un langage lisible utilisant des phrases complètes. Les algorithmes du service Vision par ordinateur génèrent différentes descriptions selon les objets identifiés dans l’image. Chacune des descriptions est évaluée, et un score de confiance est généré. Une liste est ensuite renvoyée, classée du score de confiance plus élevé au plus bas.|
 |**[Détecter les visages](concept-detecting-faces.md)** |Détecter les visages dans une image et fournir des informations sur chaque visage détecté. Le service Vision par ordinateur indique les coordonnées, le rectangle, le sexe et l’âge pour chaque visage détecté.<br/>Il fournit un sous-ensemble de fonctionnalités proposées par le service [Visage](/azure/cognitive-services/face/). Vous pouvez également utiliser le service Visage pour effectuer une analyse plus détaillée, comme l’identification faciale et la détection de la pose.|
@@ -47,17 +42,18 @@ Le service Vision par ordinateur peut exécuter les actions suivantes lors de l�
 |**[Générer une miniature](concept-generating-thumbnails.md)**|Analyser le contenu d’une image pour en générer une miniature. Le service Vision par ordinateur commence par générer une miniature de haute qualité, puis analyse les objets contenus dans l’image pour déterminer la *zone d’intérêt*. Il rogne ensuite l’image pour conserver uniquement la zone d’intérêt. La miniature générée peut être présentée à l’aide de proportions différentes de celles de l’image d’origine selon les besoins de chacun.|
 |**[Obtenir la zone d’intérêt](concept-generating-thumbnails.md#area-of-interest)**|Analyser le contenu d’une image pour retourner les coordonnées de la *zone d’intérêt*. Il s’agit de la même fonction que celle qui est utilisée pour générer une miniature mais, au lieu de rogner l’image, le service Vision par ordinateur retourne les coordonnées de cadre englobant de la région afin que l’application appelante puisse modifier l’image d’origine de la manière souhaitée.|
 
-## <a name="extracting-text-from-images"></a>Extraire du texte à partir des images
+
+## <a name="extract-text-from-images"></a>Extraire du texte à partir des images
 
 Vous pouvez utiliser le service Vision par ordinateur pour [extraire du texte via la reconnaissance optique de caractères (OCR)](concept-extracting-text-ocr.md) à partir d’une image sous forme de flux de caractères lisibles par ordinateur. Le cas échéant, la fonction OCR corrige la rotation du texte reconnu, en degrés, autour de l’axe horizontal de l’image et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte extrait.
 
 Vous pouvez également [reconnaître le texte imprimé et le texte manuscrit](concept-recognizing-text.md) à partir d’une image. Le service Vision par ordinateur peut détecter et extraire à la fois le texte imprimé et le texte manuscrit à partir d’images d’objets divers avec différents fonds et surfaces, tels que des reçus, des affiches, des cartes de visite, des courriers ou des tableaux blancs. Pour l’instant, la fonction de reconnaissance du texte manuscrit et imprimé est en préversion et prend uniquement en charge la langue Anglais.  
 
-## <a name="moderating-content-in-images"></a>Modérer du contenu dans les images
+## <a name="moderate-content-in-images"></a>Modérer du contenu dans les images
 
 Vous pouvez utiliser le service Vision par ordinateur pour [détecter du contenu pour adultes et choquant](concept-detecting-adult-content.md) dans une image, évaluer la probabilité que l’image contienne du contenu pour adultes ou choquant, et générer un score de confiance pour ces deux types de contenu. Le filtre pour la détection de contenu choquant et réservé aux adultes peut être défini sur une échelle variable afin de répondre à vos besoins spécifiques.
 
-## <a name="using-containers"></a>Utilisation de conteneurs
+## <a name="use-containers"></a>Utiliser des conteneurs
 
 [Utilisez des conteneurs Vision par ordinateur](computer-vision-how-to-install-containers.md) pour reconnaître le texte imprimé et manuscrit localement, en installant un conteneur Docker normalisé plus près de vos données.
 
@@ -67,8 +63,8 @@ Le service Vision par ordinateur peut analyser des images qui répondent aux exi
 
 - L’image doit être au format JPEG, PNG, GIF ou BMP
 - La taille de fichier de l’image doit être inférieure à 4 mégaoctets (Mo)
-- Les dimensions de l’image doivent être supérieures à 50 x 50 pixels  
-  Pour l’OCR, la taille de l’image doit être comprise entre 50 x 50 et 4200 x 4200 pixels
+- Les dimensions de l’image doivent être supérieures à 50 x 50 pixels
+  - Pour l’OCR, la taille de l’image doit être comprise entre 50 x 50 et 4200 x 4200 pixels
 
 ## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
 
@@ -76,8 +72,8 @@ Comme avec tous les services Cognitive Services, les développeurs utilisant le 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez à utiliser le service Vision par ordinateur en consultant l’un de nos guides de démarrage rapide :
+Démarrez avec le service Vision par ordinateur en suivant un guide de démarrage rapide :
 
-- [Analyser une image](quickstarts-sdk/csharp-analyze-sdk.md)
-- [Extraire le texte manuscrit](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Générer une miniature](quickstarts-sdk/csharp-thumb-sdk.md)
+- [Démarrage rapide : Analyser une image](quickstarts-sdk/csharp-analyze-sdk.md)
+- [Démarrage rapide : Extraire du texte manuscrit](quickstarts-sdk/csharp-hand-text-sdk.md)
+- [Démarrage rapide : Générer une miniature](quickstarts-sdk/csharp-thumb-sdk.md)

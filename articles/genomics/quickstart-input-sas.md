@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: db0f18f0e7028f01044cdba8a5d7b719d3fb9e23
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733495"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749016"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un workflow à Microsoft Genomics à l’aide d’un SAS plutôt que d’une clé de compte de stockage 
 
@@ -32,12 +32,12 @@ Deux ou plusieurs jetons SAP sont requis pour chaque flux de travail envoyé au 
 
 Les SAP pour les fichiers d’entrée doivent avoir les propriétés suivantes :
 1.  Portée (compte, conteneur, blob) : blob
-2.  Expiration : dans 48 heures
+2.  Expiration : 48 heures à partir de maintenant
 3.  Autorisations : lecture
 
 Les SAP pour le conteneur de sortie doivent avoir les propriétés suivantes :
 1.  Portée (compte, conteneur, blob) : conteneur
-2.  Expiration : dans 48 heures
+2.  Expiration : 48 heures à partir de maintenant
 3.  Autorisations : lecture, écriture, suppression
 
 
@@ -45,18 +45,18 @@ Les SAP pour le conteneur de sortie doivent avoir les propriétés suivantes :
 Il existe deux façons de créer un jeton SAP, à l’aide de l’Explorateur Stockage Azure ou par programme.  Si vous écrivez du code, vous pouvez construire la SAP vous-même, ou utiliser le kit de développement logiciel (SDK) Stockage Azure dans le langage de votre choix.
 
 
-### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configuration : créer une SAP à l’aide de l’Explorateur Stockage Azure
+### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configuration : Créer une SAP avec l’Explorateur Stockage Azure
 
 L’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) est un outil pour gérer les ressources que vous avez stockées dans le stockage Azure.  Vous pouvez obtenir plus d’informations sur l’utilisation de l’Explorateur Stockage Azure [ici](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-Les SAP pour les fichiers d’entrée doivent être déterminées en fonction du fichier d’entrée particulier (blob). Pour créer un jeton SAP, suivez [ces instructions](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Une fois que vous avez créé la SAP, l’URL complète avec la chaîne de requête ainsi que la chaîne de requête elle-même sont fournies et peuvent être copiées à partir de l’écran.
+Les SAP pour les fichiers d’entrée doivent être déterminées en fonction du fichier d’entrée particulier (blob). Pour créer un jeton SAP, suivez [ces instructions](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Une fois que vous avez créé la SAP, l’URL complète avec la chaîne de requête ainsi que la chaîne de requête elle-même sont fournies et peuvent être copiées à partir de l’écran.
 
  ![Explorateur de stockage SAP Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorateur de stockage SAP Genomics")
 
 
-### <a name="set-up-create-a-sas-programattically"></a>Configuration : créer une SAP par programme
+### <a name="set-up-create-a-sas-programattically"></a>Configuration : Créer une SAP par programmation
 
-Pour créer une SAP à l’aide du kit de développement logiciel (SDK) Stockage Azure, consultez la documentation existante dans plusieurs langages, notamment [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), and [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage#work-with-shared-access-signatures). 
+Pour créer une SAP à l’aide du kit de développement logiciel (SDK) Stockage Azure, consultez la documentation existante dans plusieurs langages, notamment [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), and [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
 Pour créer une SAP sans kit de développement logiciel (SDK), la chaîne de requête SAP peut être directement construite, y compris toutes les informations requises pour authentifier la SAP. Ces [instructions](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) décrivent en détail les composants de la chaîne de requête SAP et comment la générer. La signature SAP requise est créée en générant un HMAC à l’aide des informations d’authentification du blob/conteneur, comme décrit dans ces [instructions](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
 

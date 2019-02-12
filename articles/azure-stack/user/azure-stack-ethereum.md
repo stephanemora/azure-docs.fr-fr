@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/02/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.lastreviewed: 11/02/2018
-ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/04/2019
+ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239228"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697470"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Déployer un réseau de blockchain Ethereum sur Azure Stack
 
@@ -25,7 +25,7 @@ Le modèle de solution Ethereum est conçu pour faciliter et accélérer le dép
 
 En quelques entrées d’utilisateur et avec un déploiement par simple clic via le portail client Azure Stack, chaque membre peut fournir son empreinte réseau. L’empreinte réseau de chaque membre se compose d’un ensemble de nœuds de transaction avec équilibrage de charge grâce auquel une application ou un utilisateur peut interagir pour soumettre des transactions, un ensemble de nœuds d’exploration de données pour enregistrer les transactions et appliance de réseau virtuel (NVA). Une étape suivante connecte les NVA pour créer un réseau blockchain de plusieurs membres entièrement configuré.
 
-Pour effectuer cette configuration, procédez comme suit :
+Pour configurer :
 
 - Choix d’une architecture de déploiement
 - Déploiement d’un réseau autonome, de leader de consortium ou de membre de consortium
@@ -157,7 +157,7 @@ Pour vérifier le déploiement du membre, parcourez le site d’administration d
 
 ![Résumé du déploiement du membre](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-Comme indiqué dans l’image, les nœuds du membre ne sont **pas en cours d’exécution**. En effet, la connexion entre le membre et leader n’est pas établie. La connexion entre le membre et le leader est une connexion bidirectionnelle. Lorsque vous déployez le membre, le modèle crée automatiquement la connexion du membre au leader. Pour créer la connexion du leader au membre, passez à l’étape suivante.
+Comme indiqué dans l’image, les nœuds du membre ne sont **pas en cours d’exécution**. En effet, la connexion entre le membre et le leader n’est pas établie. La connexion entre le membre et le leader est une connexion bidirectionnelle. Lorsque vous déployez le membre, le modèle crée automatiquement la connexion du membre au leader. Pour créer la connexion du leader au membre, passez à l’étape suivante.
 
 ### <a name="connect-member-and-leader"></a>Connecter le membre et le leader
 

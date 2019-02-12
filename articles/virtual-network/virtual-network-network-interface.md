@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 381c9a2af0f1743509db4495603c0e26da5c1736
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: deca97b0749ceab9f2dfaf3c3940ac6b02b9c104
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474517"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822185"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Créer, modifier ou supprimer une interface réseau
 
@@ -46,13 +46,13 @@ Lorsque vous créez une machine virtuelle par le biais du portail Azure, ce dern
 
     |Paramètre|Requis ?|Détails|
     |---|---|---|
-    |NOM|OUI|Le nom doit être unique au sein du groupe de ressources que vous avez sélectionné. Au fil du temps, vous accumulerez probablement plusieurs interfaces réseau dans votre abonnement Azure. Pour obtenir des suggestions lors de la création d’une convention d’affectation de noms et ainsi faciliter la gestion de plusieurs interfaces réseau, consultez [Conventions d’affectation de noms](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Il est impossible de modifier le nom une fois que l’interface réseau a été créée.|
+    |Nom|OUI|Le nom doit être unique au sein du groupe de ressources que vous avez sélectionné. Au fil du temps, vous accumulerez probablement plusieurs interfaces réseau dans votre abonnement Azure. Pour obtenir des suggestions lors de la création d’une convention d’affectation de noms et ainsi faciliter la gestion de plusieurs interfaces réseau, consultez [Conventions d’affectation de noms](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Il est impossible de modifier le nom une fois que l’interface réseau a été créée.|
     |Réseau virtuel|OUI|Sélectionnez le réseau virtuel pour l’interface réseau. Vous pouvez uniquement attribuer une interface réseau à un réseau virtuel qui existe dans le même abonnement et le même emplacement que l’interface réseau. Après la création d’une interface réseau, vous ne pouvez pas modifier le réseau virtuel auquel elle est assignée. La machine virtuelle à laquelle vous ajoutez l’interface réseau doit également exister dans le même emplacement et le même abonnement que l’interface réseau.|
     |Sous-réseau|OUI|Sélectionnez un sous-réseau dans le réseau virtuel que vous avez sélectionné. Vous pouvez modifier le sous-réseau auquel l’interface réseau est assignée après sa création.|
     |Affectation d’adresses IP privées|OUI| Dans ce paramètre, vous choisissez la méthode d’affectation de l’adresse IPv4. Choisissez parmi les méthodes d’affectation suivantes : **Dynamique :** quand vous sélectionnez cette option, Azure affecte automatiquement une adresse disponible de l’espace d’adressage du sous-réseau sélectionné. **Statique :** quand vous sélectionnez cette option, vous devez affecter manuellement une adresse IP disponible de l’espace d’adressage du sous-réseau sélectionné. Les adresses statiques et dynamiques ne changent que si vous les modifiez ou si l’interface réseau est supprimée. Vous pouvez modifier la méthode d’affectation après la création de l’interface réseau. Le serveur DHCP Azure assigne cette adresse à l’interface réseau au sein du système d’exploitation de la machine virtuelle.|
     |Groupe de sécurité réseau|Non | Conservez la valeur **Aucune**, puis sélectionnez un [groupe de sécurité réseau](security-overview.md) ou [créez un groupe de sécurité réseau](tutorial-filter-network-traffic.md). Les groupes de sécurité réseau vous permettent de filtrer le trafic réseau entrant et sortant d’une interface réseau. Vous pouvez appliquer zéro ou un groupe de sécurité réseau à une interface réseau. Zéro ou un groupe de sécurité réseau peut également être appliqué au sous-réseau auquel l’interface réseau est assignée. Lorsqu’un groupe de sécurité réseau est appliqué à une interface réseau et au sous-réseau auquel l’interface réseau est assignée, des résultats inattendus peuvent se produire. Pour résoudre les problèmes relatifs aux groupes de sécurité réseau appliqués aux interfaces réseau et aux sous-réseaux, consultez l’article [Résoudre les problèmes relatifs aux groupes de sécurité réseau](diagnose-network-traffic-filter-problem.md).|
     |Abonnement|OUI|Sélectionnez l’un de vos [abonnements](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) Azure. La machine virtuelle à laquelle vous attachez une interface réseau et le réseau virtuel auquel vous la connectez doivent être dans le même abonnement.|
-    |Adresse IP privée (IPv6)|Non | Si vous cochez cette case, une adresse IPv6 est assignée à l’interface réseau, en plus de l’adresse IPv4 assignée à l’interface réseau. Consultez la section [IPv6](#IPv6) de cet article pour obtenir des informations importantes sur l’utilisation du protocole IPv6 avec des interfaces réseau. Vous ne pouvez pas sélectionner de méthode d’attribution pour l’adresse IPv6. Si vous choisissez d’assigner une adresse IPv6, c’est la méthode dynamique qui est sélectionnée.
+    |Adresse IP privée (IPv6)|Non | Si vous cochez cette case, une adresse IPv6 est assignée à l’interface réseau, en plus de l’adresse IPv4 assignée à l’interface réseau. Consultez la section IPv6 de cet article pour obtenir des informations importantes sur l’utilisation du protocole IPv6 avec des interfaces réseau. Vous ne pouvez pas sélectionner de méthode d’attribution pour l’adresse IPv6. Si vous choisissez d’assigner une adresse IPv6, c’est la méthode dynamique qui est sélectionnée.
     |Nom IPv6 (apparaît uniquement lorsque la case **Adresse IP privée (IPv6)** est cochée) |Oui, si la case **Adresse IP privée (IPv6)** est cochée.| Ce nom est assigné à une configuration IP secondaire pour l’interface réseau. Pour en savoir plus sur les configurations IP, consultez la section [Afficher les paramètres d’interface réseau](#view-network-interface-settings).|
     |Groupe de ressources|OUI|Sélectionnez un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) ou créez-en un. Une interface réseau peut se trouver ou non dans le même groupe de ressources que celui de la machine virtuelle à laquelle vous l’attachez ou du réseau virtuel auquel vous la connectez.|
     |Lieu|OUI|La machine virtuelle à laquelle vous attachez une interface réseau et le réseau virtuel auquel vous la connectez doivent être dans le même [emplacement](https://azure.microsoft.com/regions), également appelé région.|
@@ -68,7 +68,7 @@ Le portail ne permet pas d’affecter l’interface réseau aux groupes de sécu
 
 |Outil|Commande|
 |---|---|
-|Interface de ligne de commande|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
+|Interface de ligne de commande|[az network nic create](/cli/azure/network/nic)|
 |PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Afficher les paramètres d’interface réseau
@@ -85,7 +85,7 @@ Vous pouvez afficher et modifier la plupart des paramètres d’une interface r�
     - **Propriétés :** affiche des paramètres clés concernant l’interface réseau, dont son adresse MAC (vide si l’interface réseau n’est pas attachée à une machine virtuelle), ainsi que l’abonnement dans lequel elle existe.
     - **Obtenir les règles de sécurité effectives :**  les règles de sécurité sont listées si l’interface réseau est attachée à une machine virtuelle en cours d’exécution, tandis qu’un groupe de sécurité réseau est associé à l’interface réseau et/ou au sous-réseau auquel il est assigné. Pour en savoir plus sur ce qui est affiché, consultez [Voir les règles de sécurité effectives](#view-effective-security-rules). Pour en savoir plus sur les groupes de sécurité réseau, consultez [Groupes de sécurité réseau](security-overview.md).
     - **Obtenir les routages effectifs :** les routes sont listées si l’interface réseau est attachée à une machine virtuelle en cours d’exécution. Les itinéraires sont une combinaison d’itinéraires par défaut d’Azure, d’itinéraires définis par l’utilisateur et de tous les itinéraires BGP existants pour le sous-réseau auquel l’interface réseau est assignée. Pour en savoir plus sur ce qui est affiché, consultez [Voir les itinéraires effectifs](#view-effective-routes). Pour plus d’informations sur les itinéraires par défaut Azure et les itinéraires définis par l’utilisateur, consultez [Vue d’ensemble du routage](virtual-networks-udr-overview.md).
-    - **Paramètres courants d’Azure Resource Manager :**  Pour en savoir plus sur les paramètres courants d’Azure Resource Manager, consultez les articles [Journal d’activité](../azure-monitor/platform/activity-logs-overview.md), [Contrôle d’accès (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Balises](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Verrous](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Script Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Paramètres courants d’Azure Resource Manager :**  Pour en savoir plus sur les paramètres courants d’Azure Resource Manager, consultez les articles [Journal d’activité](../azure-monitor/platform/activity-logs-overview.md), [Contrôle d’accès (IAM)](../role-based-access-control/overview.md), [Balises](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Verrous](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Script Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Commandes**
 
@@ -93,7 +93,7 @@ Si une adresse IPv6 est assignée à une interface réseau, la sortie PowerShell
 
 |Outil|Commande|
 |---|---|
-|Interface de ligne de commande|[az network nic list](/cli/azure/network/nic#az_network_nic_list) pour afficher les interfaces réseau dans l’abonnement ; [az network nic show](/cli/azure/network/nic#az_network_nic_show) pour afficher les paramètres d’une interface réseau|
+|Interface de ligne de commande|[az network nic list](/cli/azure/network/nic) pour afficher les interfaces réseau dans l’abonnement ; [az network nic show](/cli/azure/network/nic) pour afficher les paramètres d’une interface réseau|
 |PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) pour afficher les interfaces réseau dans l’abonnement ou afficher les paramètres d’une interface réseau|
 
 ## <a name="change-dns-servers"></a>Modifier les serveurs DNS
@@ -153,7 +153,7 @@ Vous pouvez modifier le sous-réseau, mais pas le réseau virtuel auquel une int
 
 |Outil|Commande|
 |---|---|
-|Interface de ligne de commande|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|Interface de ligne de commande|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Ajouter une interface aux groupes de sécurité d’application ou la supprimer de ces derniers
@@ -244,7 +244,7 @@ La fonctionnalité de tronçon suivant d’Azure Network Watcher peut également
 
 Pour effectuer des tâches sur des interfaces réseau, votre compte doit posséder le rôle de [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un rôle [personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées qui sont répertoriées dans le tableau suivant :
 
-| Action                                                                     | NOM                                                      |
+| Action                                                                     | Nom                                                      |
 | ---------                                                                  | -------------                                             |
 | Microsoft.Network/networkInterfaces/read                                   | Obtenir l’interface réseau                                     |
 | Microsoft.Network/networkInterfaces/write                                  | Création ou mise à jour d’une interface réseau                        |

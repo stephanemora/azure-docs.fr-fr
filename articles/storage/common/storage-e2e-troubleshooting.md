@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473202"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746301"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Résolution des problèmes de bout en bout avec les métriques et la journalisation Stockage Azure, AzCopy et Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -98,10 +98,10 @@ Pour configurer la journalisation et les métriques pour votre compte de stockag
 
 Pour commencer à utiliser PowerShell pour Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
-1. Utilisez l'applet de commande [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) pour ajouter votre compte d'utilisateur Azure dans la fenêtre PowerShell :
+1. Utilisez l’applet de commande [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) pour ajouter votre compte d’utilisateur Azure dans la fenêtre PowerShell :
    
     ```powershell
-    Add-AzureAccount
+    Add-AzAccount
     ```
 
 2. Dans la fenêtre **Connectez-vous à Microsoft Azure** , tapez l'adresse électronique et le mot de passe associés à votre compte. Azure authentifie et enregistre les informations d’identification, puis ferme la fenêtre.
@@ -110,7 +110,7 @@ Pour commencer à utiliser PowerShell pour Azure, consultez la page [Installatio
     ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount'
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
 4. Activez la journalisation du stockage pour le service d'objets blob :

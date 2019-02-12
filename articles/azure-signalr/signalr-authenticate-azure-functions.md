@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 0cd0dcaf200b1248204efc2d2c0011a94d3c41d3
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b66d4c9fb3bce03248f5696d5a7b2b7b62b7ffd3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720966"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746368"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutoriel : Authentification d'Azure SignalR Service auprès d'Azure Functions
 
@@ -54,7 +54,7 @@ Vous générez et testez l’application Azure Functions localement. L’applica
 
 1. Entrez les informations ci-après.
 
-    | NOM | Valeur |
+    | Nom | Valeur |
     |---|---|
     | Nom de la ressource | Nom unique pour l’instance de service SignalR |
     | Groupe de ressources | Création d’un groupe de ressources |
@@ -134,11 +134,11 @@ Lorsque l’application de conversation s’ouvre pour la première fois dans le
 
 1. À l’invite, fournissez les informations suivantes.
 
-    | NOM | Valeur |
+    | Nom | Valeur |
     |---|---|
     | Dossier d’application de fonction | Sélectionnez le dossier de projet principal |
     | Modèle | Déclencheur HTTP |
-    | NOM | SignalRInfo |
+    | Nom | SignalRInfo |
     | Niveau d’autorisation | Anonyme |
 
     Un dossier nommé **SignalRInfo** est créé : il contient la nouvelle fonction.
@@ -194,11 +194,11 @@ L’application web nécessite également une API HTTP pour envoyer des messages
 
 1. À l’invite, fournissez les informations suivantes.
 
-    | NOM | Valeur |
+    | Nom | Valeur |
     |---|---|
     | Dossier d’application de fonction | sélectionnez le dossier de projet principal |
     | Modèle | Déclencheur HTTP |
-    | NOM | SendMessage |
+    | Nom | SendMessage |
     | Niveau d’autorisation | Anonyme |
 
     Un dossier nommé **SendMessage** est créé : il contient la nouvelle fonction.
@@ -302,7 +302,7 @@ Jusqu’ici, l’application de conversation fonctionne de façon anonyme. Dans 
 
 Lors de l’envoi d’un message, l’application peut décider de l’envoyer à tous les clients connectés ou uniquement aux clients qui ont été authentifiés conformément à un utilisateur donné.
 
-1. Dans VS Code, ouvrez **SendMessage/function.json**.
+1. Dans VS Code, ouvrez **SignalRInfo/function.json**.
 
 1. Insérez une [expression de liaison](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns) dans la propriété *userId* de la liaison *SignalRConnectionInfo* : `{headers.x-ms-client-principal-name}`. Elle définit la valeur du nom d’utilisateur de l’utilisateur authentifié. L’attribut devrait maintenant ressembler à ceci.
 
@@ -324,7 +324,7 @@ Lors de l’envoi d’un message, l’application peut décider de l’envoyer �
 
 1. À l’invite, fournissez les informations suivantes.
 
-    | NOM | Valeur |
+    | Nom | Valeur |
     |---|---|
     | Dossier à déployer | Sélectionnez le dossier de projet principal |
     | Abonnement | Sélectionnez votre abonnement |
@@ -345,7 +345,7 @@ Lors de l’envoi d’un message, l’application peut décider de l’envoyer �
 
 1. À l’invite, fournissez les informations suivantes.
 
-    | NOM | Valeur |
+    | Nom | Valeur |
     |---|---|
     | Fichier de paramètres locaux | local.settings.json |
     | Abonnement | Sélectionnez votre abonnement |
@@ -403,9 +403,9 @@ L’application web est hébergée à l’aide de la fonctionnalité de sites we
 
 1. Entrez les informations ci-après.
 
-    | NOM | Valeur |
+    | Nom | Valeur |
     |---|---|
-    | NOM | Nom unique pour le compte de stockage blob |
+    | Nom | Nom unique pour le compte de stockage blob |
     | Type de compte | StorageV2 (usage général v2) |
     | Lieu | Sélectionnez la même région que vos autres ressources |
     | Réplication | Stockage localement redondant (LRS) |

@@ -1,6 +1,6 @@
 ---
-title: Comment gérer le cycle de vie des appareils dans Azure AD | Microsoft Docs
-description: Découvrez comment la gestion des appareils peut vous aider à contrôler les appareils qui accèdent aux ressources de votre environnement.
+title: Guide pratique pour gérer les appareils obsolètes dans Azure AD | Microsoft Docs
+description: En raison de la perte, du vol, de la casse d’appareils ou de réinstallations de système d’exploitation, vous comptez généralement des appareils obsolètes dans votre environnement. Découvrez comment supprimer des appareils obsolètes de votre base de données d’appareils inscrits dans Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 20bfa4cf02c86922836a70f8885f910814eafb22
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d6d0ee1c9a77006df2239f4e0e0457c0c0aa2c28
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092154"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493309"
 ---
-# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
 Dans l’idéal, pour compléter le cycle de vie, vous devez annuler l’inscription des appareils dont vous n’avez plus besoin. Toutefois, lorsque des appareils sont perdus, volés ou défectueux par exemple, ou lorsque des réinstallations de système d’exploitation sont nécessaires, votre environnement inclut généralement des appareils obsolètes. En tant qu’administrateur informatique, vous avez probablement besoin d’une méthode pour supprimer les appareils obsolètes et ainsi pouvoir consacrer vos ressources à la gestion des appareils qui en ont réellement besoin.
 

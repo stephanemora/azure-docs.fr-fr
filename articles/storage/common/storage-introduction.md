@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a82ea1e7f584cd9cab794d147c3f19f04e23732b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 953615a9c6b716db1db0c7bfb993f3d47aefd7a9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474800"
+ms.locfileid: "55507771"
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 
@@ -130,13 +130,13 @@ Les bibliothèques clientes de stockage ont des méthodes que vous pouvez appele
 
 Pour plus d’informations sur le chiffrement côté client, consultez [Chiffrement côté client avec .NET pour Stockage Microsoft Azure](storage-client-side-encryption.md).
 
-## <a name="replication"></a>Réplication
+## <a name="redundancy"></a>Redondance
 
-Pour assurer la durabilité de vos données, le Stockage Azure réplique plusieurs copies de vos données. Lorsque vous configurez votre compte de stockage, vous choisissez un type de réplication. Dans la plupart des cas, ce paramètre peut être modifié après avoir créé le compte de stockage. 
+Pour assurer la durabilité de vos données, le Stockage Azure réplique plusieurs copies de vos données. Quand vous configurez votre compte de stockage, vous sélectionnez une option de redondance. 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-Pour en savoir plus sur la récupération d’urgence, consultez [Que faire en cas de panne de stockage Azure](storage-disaster-recovery-guidance.md).
+Pour plus d’informations sur la reprise d’activité, consultez [Reprise d’activité et basculement de compte de stockage (préversion) dans Stockage Azure](storage-disaster-recovery-guidance.md).
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Transfert de données vers et depuis Azure Storage
 

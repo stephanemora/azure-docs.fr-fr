@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
-ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.reviewer: trbye
+ms.date: 02/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1e2746ef55f5c50ce9452b7a9d1ab060c69830db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a293389b8175406d9036cd95c14748e5a626fb91
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244266"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752532"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutoriel : Utiliser le Machine Learning automatisé pour générer votre modèle de régression
 
@@ -34,7 +34,6 @@ Dans ce tutoriel, vous avez appris à effectuer les tâches suivantes :
 > * Entraîner automatiquement un modèle de régression
 > * Exécuter le modèle localement avec des paramètres personnalisés
 > * Explorer les résultats
-> * Inscrire le meilleur modèle
 
 Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree).
 
@@ -43,36 +42,74 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 ## <a name="prerequisites"></a>Prérequis
 
-> * [Avoir suivi le tutoriel sur la préparation des données](tutorial-data-prep.md)
-> * Un environnement configuré pour le machine learning automatisé. Par exemple [Azure Notebooks](https://notebooks.azure.com/), un environnement Python local ou une image Data Science Virtual Machine. [Configurez le machine learning automatisé](samples-notebooks.md)
+Passez à la section [Configurer votre environnement de développement](#start) pour lire les étapes relatives aux notebooks, ou utilisez les instructions ci-dessous pour obtenir le notebook et l’exécuter sur Azure Notebooks ou votre propre serveur de notebooks. Pour exécuter le notebook, vous devez disposer des éléments suivants :
 
-## <a name="get-the-notebook"></a>Obtenir le bloc-notes
+* [Avoir suivi le tutoriel sur la préparation des données](tutorial-data-prep.md)
+* Un serveur de notebooks Python 3.6 sur lequel les éléments suivants sont installés :
+    * Le SDK Azure Machine Learning pour Python avec les suppléments `automl` et `notebooks`
+    * `matplotlib`
+* Le notebook du tutoriel
+* Un espace de travail Machine Learning
+* Le fichier de configuration pour l’espace de travail dans le même répertoire que le notebook
 
-Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Exécutez le notebook `regression-part2-automated-ml.ipynb` dans [Azure Notebooks](https://notebooks.azure.com/) ou sur votre propre serveur Jupyter Notebook.
+Obtenir tous ces prérequis à partir de l’une des sections ci-dessous.
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* Utiliser [Azure Notebooks](#azure)
+* Utiliser [votre propre serveur de notebooks](#server)
 
-## <a name="import-packages"></a>Importer des packages
+### <a name="azure"></a>Utiliser Azure Notebooks : Notebooks Jupyter gratuits dans le cloud
+
+La prise en main d’Azure Notebooks est simple. Le [kit SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) est déjà installé et configuré dans [Azure Notebooks](https://notebooks.azure.com/). L’installation et les futures mises à jour sont gérées automatiquement par le biais des services Azure.
+
+Après avoir terminé les étapes ci-dessous, exécutez le notebook **tutorials/regression-part2-automated-ml.ipynb** dans votre projet **Bien démarrer**.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+### <a name="server"></a>Utiliser votre propre serveur de notebooks Jupyter
+
+Utilisez ces étapes pour créer une instance locale de serveur de notebooks Jupyter sur votre ordinateur.  Après avoir terminé les étapes, exécutez le notebook **tutorials/regression-part2-automated-ml.ipynb**.
+
+1. Suivez le [Guide de démarrage rapide Python d’Azure Machine Learning](quickstart-create-workspace-with-python.md) pour créer un environnement Miniconda et un espace de travail.
+1. Installez les suppléments `automl` et `notebooks` dans votre environnement à l’aide de `pip install azureml-sdk[automl,notebooks]`.
+1. Installez `maplotlib` à l’aide de `pip install maplotlib`.
+1. Clonez le [référentiel GitHub](https://aka.ms/aml-notebooks).
+
+    ```
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+
+1. Démarrez le serveur de blocs-notes de votre répertoire cloné.
+
+    ```shell
+    jupyter notebook
+
+## <a name="start"></a>Set up your development environment
+
+All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+* Install the SDK
+* Import Python packages
+* Configure your workspace
+
+### Install and import packages
+
+If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+
+```shell
+pip install azureml-sdk[automl,notebooks] matplotlib
+```
+
 Importez les packages Python dont vous avez besoin dans ce tutoriel :
-
 
 ```python
 import azureml.core
 import pandas as pd
 from azureml.core.workspace import Workspace
-from azureml.train.automl.run import AutoMLRun
-import time
 import logging
 import os
 ```
 
-Si vous suivez le tutoriel dans votre propre environnement Python, utilisez le code suivant pour installer les packages nécessaires.
-
-```shell
-pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
-```
-
-## <a name="configure-workspace"></a>Configurer l’espace de travail
+### <a name="configure-workspace"></a>Configurer l’espace de travail
 
 Créez un objet d’espace de travail à partir de l’espace de travail existant. Un `Workspace` est une classe qui accepte vos informations d’abonnement et de ressources Azure. Il crée également une ressource cloud pour superviser et suivre les exécutions de votre modèle.
 
@@ -743,7 +780,6 @@ for run in children:
     metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
-import pandas as pd
 rundata = pd.DataFrame(metricslist).sort_index(1)
 rundata
 ```
@@ -1177,6 +1213,5 @@ Dans ce tutoriel sur le machine learning automatisé, vous avez effectué les t�
 > * Configuration d’un espace de travail et préparation des données pour une expérience
 > * Entraînement à l’aide d’un modèle de régression automatisé local avec des paramètres personnalisés
 > * Exploration et analyse des résultats de l’entraînement
-> * Inscription du meilleur modèle
 
 [Déployez votre modèle](tutorial-deploy-models-with-aml.md) avec Azure Machine Learning.

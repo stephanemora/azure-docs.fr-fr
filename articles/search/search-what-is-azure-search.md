@@ -1,20 +1,20 @@
 ---
 title: Présentation du service Recherche Azure - Recherche Azure
-description: Recherche Azure est un service de recherche cloud hébergé intégralement géré. Passez en revue les descriptions des fonctionnalités, un flux de travail de développement, une comparaison de Recherche Azure à d’autres produits de recherche et comment le prendre en main.
+description: Recherche Azure est un service de recherche cloud hébergé complètement managé de Microsoft. Passez en revue les descriptions des fonctionnalités, un workflow de développement, une comparaison de Recherche Azure à d’autres produits de recherche Microsoft et la façon de le prendre en main.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/09/2018
+ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 884a726dbc7d7f2812f4de2228ca5adaf9b223ea
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 36d65e1ffab79c8f0866d60f4a133798d25e9dea
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630399"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562791"
 ---
 # <a name="what-is-azure-search"></a>Présentation de Recherche Azure
 La Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant du contenu privé et hétérogène dans les applications web, mobiles et d’entreprise. L’exécution d’une requête est effectué sur un index défini par l’utilisateur.

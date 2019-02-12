@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1fde06f483821b0e9958c25bf5ce37aae4c8f61d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022017"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817333"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Déplacer des données depuis Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "54022017"
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez le [Connecteur Amazon Redshift dans V2](../connector-amazon-redshift.md).
 
-Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données à partir de Amazon Redshift. L’article s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie. 
+Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données à partir de Amazon Redshift. L’article s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données d’Amazon Redshift vers une [banque de données réceptrice prise en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), et non le déplacement de données d’autres banques de données vers Amazon Redshift.
 
@@ -44,15 +44,15 @@ Vous pouvez créer un pipeline avec une activité de copie afin de déplacer les
 
 Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant de copie Azure Data Factory. Pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant de copie, consultez la page [Didacticiel : Créer un pipeline à l’aide de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md).
 
-Vous pouvez également créer un pipeline à l’aide du portail Azure, de Visual Studio, d’Azure PowerShell ou d’autres outils. Les modèles Azure Resource Manager, l’API .NET ou l’API REST peuvent également être utilisés pour créer le pipeline. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Vous pouvez également créer un pipeline à l’aide du portail Azure, de Visual Studio, d’Azure PowerShell ou d’autres outils. Les modèles Azure Resource Manager, l’API .NET ou l’API REST peuvent également être utilisés pour créer le pipeline. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes : 
+Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
 
 1. Création de services liés pour lier les magasins de données d’entrée et de sortie à votre fabrique de données.
-2. Création de jeux de données pour représenter les données d’entrée et de sortie de l’opération de copie. 
-3. Création d’un pipeline avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
+2. Création de jeux de données pour représenter les données d’entrée et de sortie de l’opération de copie.
+3. Création d’un pipeline avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie.
 
-Lorsque vous utilisez l’Assistant copie, des définitions JSON sont automatiquement créées pour ces entités Data Factory. Lorsque vous utilisez des outils ou API (à l’exception de l’API .NET), vous devez définir les entités Data Factory à l’aide du format JSON. L’[exemple JSON : copier des données d’Amazon Redshift vers Stockage Blob Azure](#json-example-copy-data-from-amazon-redshift-to-azure-blob) montre des définitions JSON pour les entités Data Factory utilisées pour copier des données d’une banque de données Amazon Redshift.
+Lorsque vous utilisez l’Assistant copie, des définitions JSON sont automatiquement créées pour ces entités Data Factory. Lorsque vous utilisez des outils ou API (à l’exception de l’API .NET), vous devez définir les entités Data Factory à l’aide du format JSON. L’exemple JSON : copier des données d’Amazon Redshift vers Stockage Blob Azure montre des définitions JSON pour les entités Data Factory utilisées pour copier des données d’une banque de données Amazon Redshift.
 
 Les sections suivantes décrivent les propriétés JSON utilisées pour définir les entités Data Factory pour Amazon Redshift.
 
@@ -139,7 +139,7 @@ Pour cet exemple de cas d’usage, l’activité de copie décharge tout d’abo
 ```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>Exemple JSON : copie de données à partir d’Amazon Redshift vers le stockage d’objets blob Azure
-Cet exemple indique comment copier des données à partir d’une base de données Amazon Redshift locale vers un système de Stockage Blob Azure. Les données peuvent être copiées directement vers n’importe quel [récepteur pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) à l’aide de l’activité de copie.  
+Cet exemple indique comment copier des données à partir d’une base de données Amazon Redshift locale vers un système de Stockage Blob Azure. Les données peuvent être copiées directement vers n’importe quel [récepteur pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) à l’aide de l’activité de copie.
 
 L’exemple contient les entités de fabrique de données suivantes :
 
@@ -162,7 +162,7 @@ L’exemple copie toutes les heures les données de résultat d’une requête d
         "typeProperties":
         {
             "server": "< The IP address or host name of the Amazon Redshift server >",
-            "port": <The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>,
+            "port": "<The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>",
             "database": "<The database name of the Amazon Redshift database>",
             "username": "<username>",
             "password": "<password>"
@@ -333,14 +333,14 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | SMALLINT |Int16 |
 | INTEGER |Int32 |
 | BIGINT |Int64 |
-| DÉCIMAL |Décimal |
+| DÉCIMAL |Decimal |
 | REAL |Single |
 | DOUBLE PRECISION |Double |
 | BOOLEAN |Chaîne |
 | CHAR |Chaîne |
 | VARCHAR |Chaîne |
-| DATE |Datetime |
-| TIMESTAMP |Datetime |
+| DATE |DateTime |
+| TIMESTAMP |DateTime |
 | TEXTE |Chaîne |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
@@ -350,7 +350,7 @@ Pour savoir comment mapper des colonnes du jeu de données source à des colonne
 Lorsque vous copiez des données à partir d’un magasin de données relationnel, gardez à l’esprit la répétabilité de l’opération, afin d’éviter des résultats imprévus. Dans Azure Data Factory, vous pouvez réexécuter une tranche manuellement. Vous pouvez également configurer la **stratégie** de nouvelles tentatives pour un jeu de données, afin qu’une tranche soit réexécutée en cas de défaillance. Assurez-vous que les mêmes données sont lues, quel que soit le nombre d’exécutions de la tranche. Assurez-vous également qu’elles sont lues quelle que soit la façon dont vous réexécutez la tranche. Pour plus d’informations, consultez [Lectures renouvelées de sources relationnelles](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
-Pour en savoir plus sur les facteurs clés affectant les performances de l’activité de copie et les différentes manières de les optimiser, consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md). 
+Pour en savoir plus sur les facteurs clés affectant les performances de l’activité de copie et les différentes manières de les optimiser, consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

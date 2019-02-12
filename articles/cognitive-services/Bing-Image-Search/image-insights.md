@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: f0f3396852720bbbb31e46f7a9913d9d1bdc4a6c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8798ecd15c673c26c5b1be0920887ff493cc6a85
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157239"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818683"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Obtenir des informations sur les images avec l’API Recherche d’images Bing
 
@@ -221,7 +221,7 @@ Les valeurs du rectangle sont relatives à la largeur et la hauteur de l’image
 -   Droite : 290 / 300 = 0,9667...  
 -   Bas : 150 / 200 = 0,75  
 
-Vous pouvez utiliser la région retournée par Bing dans les appels d’informations suivantes. Par exemple, pour obtenir des images visuellement similaires de l’entité reconnue. Pour plus d’informations, consultez [Rognage d’images à utiliser avec les modules de reconnaissance Visuellement similaires et Entités](#croppingimages). Voici le mappage entre les champs de la région et les paramètres de requête que vous utiliseriez pour rogner des images.  
+Vous pouvez utiliser la région retournée par Bing dans les appels d’informations suivantes. Par exemple, pour obtenir des images visuellement similaires de l’entité reconnue. Pour plus d’informations, consultez Rognage d’images à utiliser avec les modules de reconnaissance Visuellement similaires et Entités. Voici le mappage entre les champs de la région et les paramètres de requête que vous utiliseriez pour rogner des images.  
 
 -   Gauche correspond à [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
 -   Haut correspond à [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  

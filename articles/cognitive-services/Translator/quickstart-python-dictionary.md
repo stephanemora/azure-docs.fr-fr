@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/21/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 8dcde1231d5e2d73b868411cb22b8420843197be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4ca07416c615984b4eb6c7799ff17d9fbe43fa3b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458256"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691468"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue en utilisant Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Il y existe actuellement un point de terminaison disponible pour Translator Text, et il est défini comme des `base_url`. `path` définit le chemin des `dictionary/lookup` et reconnait que nous souhaitons atteindre la version 3 de l’API.
+Le point de terminaison global de l’API de traduction de texte Translator Text est défini sur `base_url`. `path` définit le chemin des `dictionary/lookup` et reconnait que nous souhaitons atteindre la version 3 de l’API.
 
 Les `params` servent à définir les langues source et de sortie. Dans cet exemple, nous utilisons l’anglais et l’espagnol : `en` et `es`.
 

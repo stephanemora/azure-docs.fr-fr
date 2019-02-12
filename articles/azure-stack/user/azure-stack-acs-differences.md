@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/03/2018
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 947886a96ab31150cf81ebea0a3cdd69e0273b01
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 11736b978242416bcfb95d3025975028e4148e98
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305752"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486536"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack : Différences et considérations
 
@@ -36,7 +36,7 @@ Cet article récapitule les différences connues entre le stockage Azure Stack e
 | --- | --- | --- |
 |Stockage Fichier|Partages de fichiers SMB sur le cloud pris en charge|Pas encore pris en charge
 |Chiffrement du service de stockage Azure pour les données au repos|Chiffrement AES 256 bits. Prise en charge du chiffrement à l’aide de clés gérées par le client dans Azure Key Vault.|Chiffrement AES 128 bits BitLocker. Chiffrement à l’aide de clés gérées par le client non pris en charge.
-|Type de compte de stockage|Comptes de stockage à usage général V1 et V2, et comptes de stockage d’objets blob|Comptes de stockage à usage général V1 uniquement
+|Type de compte de stockage|Comptes de stockage V1, V2 et d’objets blob universels|Comptes de stockage à usage général V1 uniquement
 |Options de réplication|Stockage localement redondant, stockage géoredondant, stockage géoredondant avec accès en lecture et stockage redondant interzone|Stockage localement redondant.
 |Stockage Premium|Entièrement pris en charge|Peut être approvisionné, mais sans limite ni garantie de performances.
 |Disques gérés|Premium et standard pris en charge|Pris en charge lorsque vous utilisez la version 1808 ou ultérieure.
@@ -67,16 +67,8 @@ API de services de Stockage Azure :
 
 Mise à jour 1811 ou plus récente :
 
- - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
- - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
-
-Mise à jour 1802 à 1809 :
-
+- [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
@@ -85,35 +77,34 @@ Mise à jour 1802 à 1809 :
 
 Versions antérieures :
 
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
 - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 API de gestion des services de Stockage Azure :
 
-- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+Mise à jour 1811 ou plus récente :
+
+- [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-12-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-05-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 Versions antérieures :
 
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- 
-## <a name="sdk-versions"></a>Versions du SDK
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
-Le stockage Azure Stack prend en charge les bibliothèques de client suivantes :
-
-| Bibliothèque cliente | Version prise en charge par Azure Stack | Lien                                                                                                                                                                                                                                                                                                                                     | Spécification du point de terminaison       |
-|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET           | De la version 6.2.0 à 8.7.0.          | Package NuGet :<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>Version de GitHub :<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | Fichier app.config              |
-| Java           | De la version 4.1.0 à 6.1.0           | Package Maven :<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>Version de GitHub :<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Configuration de la chaîne de connexion      |
-| Node.js        | De la version 1.1.0 à 2.7.0           | Lien NPM :<br>https://www.npmjs.com/package/azure-storage<br>(par exemple : exécutez « npm install azure-storage@2.7.0 »)<br> <br>Version de GitHub :<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Déclaration d’instance de service |
-| C++            | De la version 2.4.0 à 3.1.0           | Package NuGet :<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>Version de GitHub :<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Configuration de la chaîne de connexion      |
-| PHP            | De la version 0.15.0 à 1.0.0          | Version de GitHub :<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installation via Composer (voir détails ci-dessous)                                                                                                                                                                                                                  | Configuration de la chaîne de connexion      |
-| Python         | De la version 0.30.0 à 1.0.0          | Version de GitHub :<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Déclaration d’instance de service |
-| Ruby           | De la version 0.12.1 à 1.0.1          | Package RubyGems :<br>Courant :<br>https://rubygems.org/gems/azure-storage-common/<br>Objet blob : https://rubygems.org/gems/azure-storage-blob/<br>File d’attente : https://rubygems.org/gems/azure-storage-queue/<br>Table : https://rubygems.org/gems/azure-storage-table/<br> <br>Version de GitHub :<br>https://github.com/Azure/azure-storage-ruby/releases | Configuration de la chaîne de connexion      |
+Pour plus d’informations sur les bibliothèques clientes de stockage Azure Stack prises en charge, consultez : [Bien démarrer avec les outils de développement du stockage Azure Stack](azure-stack-storage-dev.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Bien démarrer avec les outils de développement du stockage Azure Stack](azure-stack-storage-dev.md)
+* [Utiliser des outils de transfert de données pour le stockage Azure Stack](azure-stack-storage-transfer.md)
 * [Présentation du stockage Azure Stack](azure-stack-storage-overview.md)

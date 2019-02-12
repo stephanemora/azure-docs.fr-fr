@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 860d24bf9de02d1b2ca46f05f1e09843a826aaf9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466827"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816643"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -325,7 +325,7 @@ Quand les séries chronologiques sont fixes et faciles à prédire, les deux app
 ### <a name="time-dependent-split"></a>Fractionnement temporel
 Cette section décrit les meilleures pratiques pour implémenter le fractionnement temporel. Un fractionnement bidirectionnel temporel entre des jeux d’apprentissage et des jeux de test est décrit ci-dessous.
 
-Supposons que nous avons un flux d'événements horodatés tels que des mesures de différents capteurs. Définissez les caractéristiques et les étiquettes des exemples d’apprentissage et de test sur des périodes contenant plusieurs événements. Par exemple, pour la classification binaire, créez des caractéristiques basées sur des événements passés et des étiquettes en fonction d’événements futurs dans « X » unités de temps (voir les sections sur l’[ingénierie des caractéristiques](#Feature-engineering) et les [techniques de modélisation](#Modeling-techniques-applied-to-PdM-use-cases)). Par conséquent, la période d’étiquetage d'un exemple intervient après la période de ses caractéristiques.
+Supposons que nous avons un flux d'événements horodatés tels que des mesures de différents capteurs. Définissez les caractéristiques et les étiquettes des exemples d’apprentissage et de test sur des périodes contenant plusieurs événements. Par exemple, pour la classification binaire, créez des caractéristiques basées sur des événements passés et des étiquettes en fonction d’événements futurs dans « X » unités de temps (voir les sections sur l’[ingénierie des caractéristiques](#Feature-engineering) et les techniques de modélisation). Par conséquent, la période d’étiquetage d'un exemple intervient après la période de ses caractéristiques.
 
 Pour le fractionnement temporel, choisissez une _limite d’apprentissage T<sub>c</sub>_ pour développer un modèle, avec des hyperparamètres réglés à l’aide des données historiques jusqu’à T<sub>c</sub>. Pour empêcher la fuite des étiquettes futures qui dépassent T<sub>c</sub> dans les données d'apprentissage, nous choisissons X unités avant T<sub>c</sub> comme dernière période pour étiqueter des exemples d’apprentissage. Dans l’exemple illustré dans la Figure 7, chaque carré représente un enregistrement dans le jeu de données, où les fonctionnalités et les étiquettes sont calculées comme décrit ci-dessus. La figure illustre les enregistrements qui doivent être placés dans des jeux d’apprentissage et de test pour X = 2 et W = 3 :
 

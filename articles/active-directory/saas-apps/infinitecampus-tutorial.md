@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 303d794e558a5e85b4dd2bca3d9bbb4c2a1ff5dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 694999048d2f1df92e6b8631953f124c4009d46c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151802"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733958"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutoriel : Intégration d’Azure Active Directory à Infinite Campus
 
@@ -111,7 +111,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](common/editconfigure.png)
 
-5. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services** (passez à l’étape **11.c**), effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**, effectuez les étapes 4.a à 4.d, mais ignorez l’étape 11.c. Si vous ne disposez pas d’un fichier de métadonnées du fournisseur de services, passez à l’étape 5.
 
     a. Cliquez sur **Charger un fichier de métadonnées**.
 
@@ -127,10 +127,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     d. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant (le domaine varie en fonction du modèle d’hébergement) : `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-    > [!NOTE]
-    > Sur la page de configuration du fournisseur du service d’authentification unique de Infinite Campus, vous obtenez le **fichier de métadonnées du fournisseur de services**, abordé plus loin dans le didacticiel. Si vous débutez avec une nouvelle configuration de fournisseur de services SAML dans Infinite Campus, passez à l’**étape 11** pour terminer l’exportation du fichier de métadonnées du fournisseur de services.
-
-6. Si vous n’avez pas de **fichier de métadonnées du fournisseur de services**, effectuez les étapes suivantes (notez que le domaine varie selon le modèle d’hébergement) :
+5. Si vous n’avez pas de **fichier de métadonnées du fournisseur de services**, effectuez les étapes suivantes (notez que le domaine varie selon le modèle d’hébergement) :
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 

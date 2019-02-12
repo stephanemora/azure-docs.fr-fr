@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422726"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756816"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 
@@ -84,12 +84,12 @@ L’Explorateur Stockage offre de nombreuses façons de se connecter à des comp
 
 De plus, vous pouvez utiliser des comptes de stockage Azure à l’échelle internationale et nationale :
 
-* [Connexion à un abonnement Azure](#connect-to-an-azure-subscription) : gérez les ressources de stockage appartenant à votre abonnement Azure.
-* [Utilisation du stockage de développement local](#work-with-local-development-storage) : gérez le stockage local à l’aide de l’émulateur de stockage Azure.
-* [Attachement au stockage externe](#attach-or-detach-an-external-storage-account) : gérez les ressources de stockage qui appartiennent à un autre abonnement Azure ou qui sont dans des clouds Azure nationaux en utilisant les points de terminaison, la clé et le nom du compte de stockage.
-* [Attachement d’un compte de stockage à l’aide d’une SAP](#attach-storage-account-using-sas) : gérez les ressources de stockage qui appartiennent à un autre abonnement Azure à l’aide d’une signature d’accès partagé (SAP).
-* [Attachement d’un service à l’aide d’une SAP](#attach-service-using-sas) : gérez un service de stockage spécifique (conteneur de blobs, file d’attente ou table) qui appartient à un autre abonnement Azure à l’aide d’une SAP.
-* [Connexion à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string) : gérez un compte Azure Cosmos DB à l’aide d’une chaîne de connexion.
+* [Connexion à un abonnement Azure](#connect-to-an-azure-subscription) : Gérez les ressources de stockage appartenant à votre abonnement Azure.
+* [Utilisation du stockage de développement local](#work-with-local-development-storage) : Gérez le stockage local à l’aide de l’émulateur de stockage Azure.
+* [Attachement au stockage externe](#attach-or-detach-an-external-storage-account) : Gérez les ressources de stockage qui appartiennent à un autre abonnement Azure ou qui sont dans des clouds Azure nationaux en utilisant les points de terminaison, la clé et le nom du compte de stockage.
+* [Attachement d’un compte de stockage à l’aide d’une SAP](#attach-a-storage-account-by-using-a-shared-access-signature-sas) : Gérez les ressources de stockage qui appartiennent à un autre abonnement Azure à l’aide d’une signature d’accès partagé (SAP).
+* [Attachement d’un service à l’aide d’une SAP](#attach-a-service-by-using-a-shared-access-signature-sas) : Gérez un service de stockage spécifique (conteneur de blobs, file d’attente ou table) qui appartient à un autre abonnement Azure à l’aide d’une SAP.
+* [Connexion à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string) : Gérez un compte Azure Cosmos DB à l’aide d’une chaîne de connexion.
 
 ## <a name="connect-to-an-azure-subscription"></a>Connexion à un abonnement Azure
 
@@ -295,7 +295,7 @@ En plus de gérer des comptes Azure Cosmos DB par le biais d’un abonnement Azu
 
     ![connexion à Azure Cosmos DB avec une chaîne de connexion][21]
 
-2. Choisissez l’API Azure Cosmos DB, collez votre **chaîne de connexion**, puis cliquez sur **OK** pour vous connecter au compte Azure Cosmos DB. Pour plus d’informations sur la récupération de la chaîne de connexion, consultez [Obtenir la chaîne de connexion](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Choisissez l’API Azure Cosmos DB, collez votre **chaîne de connexion**, puis cliquez sur **OK** pour vous connecter au compte Azure Cosmos DB. Pour plus d’informations sur la récupération de la chaîne de connexion, consultez [Obtenir la chaîne de connexion](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![connection-string][22]
 

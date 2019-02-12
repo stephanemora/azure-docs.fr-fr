@@ -9,21 +9,21 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f0e8bf922f142b795dd1a2ded4b3ec265c43481a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249992"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821284"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Didacticiel : Effectuer un basculement manuel pour un IoT hub (préversion publique)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutoriel : Effectuer un basculement manuel pour un hub IoT (préversion publique)
 
 Basculement manuel est une fonctionnalité du service IoT Hub qui permet aux clients le[basculement](https://en.wikipedia.org/wiki/Failover) des opérations de leur hub à partir d’une région primaire vers la région Azure associée géographiquement correspondante. Basculement manuel est possible en cas de sinistre régional ou une panne de service étendue. Vous pouvez également effectuer un basculement planifié pour tester vos capacités de récupération d’urgence, mais nous vous recommandons d’utiliser un IoT hub de test plutôt que celui en cours d’exécution en production. La fonctionnalité de basculement manuel est proposée aux clients sans coût supplémentaire.
 
 Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
 > [!div class="checklist"]
-> * Créez un hub IoT, à l’aide du portail Azure. 
+> * Créez un IoT hub, à l’aide du portail Azure. 
 > * Effectuer un basculement. 
 > * Consultez le hub en cours d’exécution dans l’emplacement secondaire.
 > * Effectuer une restauration automatique pour ramener les opérations d’IoT hub à l’emplacement principal. 
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
     **Région**: sélectionnez une région proche de vous fait partie de la préversion. Ce didacticiel utilise`westus2`. Un basculement ne peut être effectué entre des régions Azure géographiquement associées. La région géographiquement associée à westus2 est WestCentralUS.
     
    > [!NOTE]
-   > Le basculement manuel est actuellement en préversion publique et *pas* disponible dans les régions Azure suivantes : USA Est, USA Ouest, Europe Nord, Europe Ouest, Brésil Sud et USA Centre Sud.
+   > Le basculement manuel est actuellement disponible en préversion publique et n’est *pas* disponible dans les régions Azure suivantes : USA Est, USA Ouest, Europe Nord, Europe Ouest, Brésil Sud et USA Centre Sud.
 
    **Nom de IoT Hub** : spécifiez un nom pour votre IoT Hub. Le nom du hub doit être globalement unique. 
 
@@ -112,9 +112,9 @@ Une restauration automatique est effectuée à l’instar d’un basculement man
 
    ![Capture d’écran de la requête de restauration manuelle](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   Les bannières sont affichées comme expliqué dans la section [Effectuer un basculement](#perform-a-failover). Une fois la restauration automatique terminée, il affiche à nouveau `westus2` comme emplacement principal et `WestCentralUS` comme emplacement secondaire,comme défini à l’origine.
+   Les bannières sont affichées comme expliqué dans la section Effectuer un basculement. Une fois la restauration automatique terminée, il affiche à nouveau `westus2` comme emplacement principal et `WestCentralUS` comme emplacement secondaire,comme défini à l’origine.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources 
+## <a name="clean-up-resources"></a>Supprimer des ressources 
 
 Pour supprimer toutes les ressources que vous avez créées, supprimez le groupe de ressources. Cette opération supprime toutes les ressources contenues dans le groupe. Dans le cas présent, l’Iot hub et le groupe de ressources sont supprimés. 
 

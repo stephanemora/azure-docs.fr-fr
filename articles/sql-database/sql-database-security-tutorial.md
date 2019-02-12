@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461200"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752515"
 ---
 # <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Tutoriel : Sécuriser une base de données autonome ou en pool
 
@@ -45,7 +45,7 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Un serveur et une base de données SQL Azure
-  - Créez-les à l’aide du [portail Azure](sql-database-get-started-portal.md), de [CLI](sql-database-cli-samples.md) ou de [PowerShell](sql-database-powershell-samples.md).
+  - Créez-les à l’aide du [portail Azure](sql-database-single-database-get-started.md), de [CLI](sql-database-cli-samples.md) ou de [PowerShell](sql-database-powershell-samples.md).
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -64,7 +64,7 @@ Affectez au paramètre **Autoriser l’accès aux services Azure** la valeur **D
 
 ### <a name="set-up-sql-database-server-firewall-rules"></a>Configurer des règles de pare-feu du serveur SQL Database
 
-Les règles de pare-feu au niveau du serveur s’appliquent à toutes les bases de données au sein du même serveur SQL Database.
+Les règles de pare-feu IP au niveau du serveur s’appliquent à toutes les bases de données au sein du même serveur SQL Database.
 
 Pour configurer une règle de pare-feu au niveau du serveur :
 
@@ -231,7 +231,7 @@ Pour copier une chaîne de connexion sécurisée :
 
 ## <a name="enable-security-features"></a>Activer les fonctionnalités de sécurité
 
-Azure SQL Database fournit des fonctionnalités de sécurité accessibles à l’aide du portail Azure. Ces fonctionnalités sont disponibles à la fois pour la base de données et le serveur, à l’exception du masquage des données, qui est uniquement disponible sur la base de données. Pour plus d’informations, consultez [Advanced Data Security](sql-advanced-threat-protection.md), [Audit](sql-database-auditing.md), [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) et [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).
+Azure SQL Database fournit des fonctionnalités de sécurité accessibles à l’aide du portail Azure. Ces fonctionnalités sont disponibles à la fois pour la base de données et le serveur, à l’exception du masquage des données, qui est uniquement disponible sur la base de données. Pour plus d’informations, consultez [Advanced Data Security](sql-database-advanced-data-security.md), [Audit](sql-database-auditing.md), [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) et [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).
 
 ### <a name="advanced-data-security"></a>Advanced Data Security
 

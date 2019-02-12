@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Learning Seat LMS | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Learning Seat LMS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Learning Seat LMS.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: b41f01254e081b6ac3a9b8265bd459cf00af1838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: edc3bedaa005bb52ddbf46d9f70ddc16bf8790e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197991"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815067"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutoriel : Intégration d’Azure Active Directory à Learning Seat LMS
+# <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Didacticiel : Intégration d’Azure Active Directory à Learning Seat LMS
 
 Dans ce didacticiel, vous allez apprendre à intégrer Learning Seat LMS à Azure Active Directory (Azure AD).
 
@@ -89,7 +89,7 @@ Pour configurer et tester l'authentification unique Azure AD avec Learning Seat
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Création d’un utilisateur de test Learning Seat LMS](#creating-a-learnconnect-test-user)** : pour avoir un équivalent de Britta Simon dans Learning Seat LMS lié à la représentation de l’utilisateur Azure AD.
+1. **Création d’un utilisateur de test Learning Seat LMS** : pour avoir un équivalent de Britta Simon dans Learning Seat LMS lié à la représentation de l’utilisateur Azure AD.
 1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 

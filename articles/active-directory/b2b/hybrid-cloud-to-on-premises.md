@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ef70b9e58a669695f3bdec7ad8ea4bab93e7e4b9
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 084784af256fdf31cf1661109c0535cb91ef1db5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082042"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817409"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales
 
@@ -43,7 +43,7 @@ Pour fournir aux utilisateurs B2B l’accès aux applications locales sécurisé
 
    Dans le scénario de l’utilisateur B2B, il existe deux méthodes que vous pouvez utiliser pour créer les objets utilisateur invité requis pour l’autorisation dans le répertoire local :
 
-   - Microsoft Identity Manager (MIM) et [l’agent de gestion MIM pour Microsoft Graph](#create-b2b-guest-user-objects-through-mim-preview). 
+   - Microsoft Identity Manager (MIM) et l’agent de gestion MIM pour Microsoft Graph. 
    - [Script PowerShell](#create-b2b-guest-user-objects-through-a-script-preview). L’utilisation du script est une solution plus simple qui ne nécessite pas MIM. 
 
 Le diagramme suivant fournit une vue d’ensemble globale du Proxy d’application Azure AD et de la génération de l’objet utilisateur B2B dans le répertoire local qui permettent d’accorder l’accès aux utilisateurs B2B à vos applications IWA et KCD locales. La procédure pas à pas est décrite en détail sous le diagramme.

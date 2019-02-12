@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e4552157cab846356c57a135d4e273f5a545bce9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 619f77b6b50a005b4b5cc688bdbf32d1ce3dce26
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667215"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810812"
 ---
-# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Tutoriel : créer une application avec un service frontal API Web Java et un service principal avec état
+# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Tutoriel : Créer une application avec un service front-end d’API web Java et un service back-end avec état sur Service Fabric
 
 Ce tutoriel est la première partie d’une série d’étapes. Lorsque vous avez terminé, vous disposez d’une application Voting avec un service frontal Java qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Cette série de didacticiels nécessite une machine de développeur Mac OSX ou Linux. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source pour obtenir l’application terminée](https://github.com/Azure-Samples/service-fabric-java-quickstart) et passer directement au [Guide de l’exemple d’application de vote](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
 
@@ -85,7 +85,7 @@ Ce tableau contient une brève description de chaque élément de l’Explorateu
 
 ### <a name="add-html-and-javascript-to-the-votingweb-service"></a>Ajouter du code HTML et Javascript au service VotingWeb
 
-Pour ajouter une interface utilisateur pouvant être visible par le service sans état, ajoutez un fichier HTML dans le dossier *VotingApplication/VotingWebPkg/Code*. Ce fichier HTML est ensuite rendu par le serveur HTTP léger incorporé dans le service Java sans état.
+To add UI that can be rendered by the stateless service, add an HTML file in the *VotingApplication/VotingWebPkg/Code*. Ce fichier HTML est ensuite rendu par le serveur HTTP léger incorporé dans le service Java sans état.
 
 1. Développez le répertoire *VotingApplication* pour atteindre le répertoire *VotingApplication/VotingWebPkg/Code*.
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 L’écouteur de communication HTTP agit comme un contrôleur qui configure le serveur HTTP et expose les API de définition des actions de vote. Cliquez sur le package *statelessservice* avec le bouton droit de la souris dans le dossier *VotingWeb/src/statelessservice*, puis sélectionnez **Nouveau->Fichier**.  Nommez le fichier *HttpCommunicationListener.java* et cliquez sur **Terminer**.
 
-Remplacez le contenu du fichier par la commande suivante, puis enregistrez vos modifications.  Plus tard, dans [Mettre à jour le fichier HttpCommunicationListener.java](#updatelistener_anchor), ce fichier est modifié pour rendre, lire et écrire des données de vote à partir du service principal.  Pour l’instant, l’écouteur retourne simplement le code HTML statique de l’application Voting.
+Remplacez le contenu du fichier par la commande suivante, puis enregistrez vos modifications.  Plus tard, dans Mettre à jour le fichier HttpCommunicationListener.java, ce fichier est modifié pour rendre, lire et écrire des données de vote à partir du service back-end.  Pour l’instant, l’écouteur retourne simplement le code HTML statique de l’application Voting.
 
 ```java
 // ------------------------------------------------------------
@@ -891,7 +891,7 @@ Dans cette section, les scripts Gradle du projet sont configurés.
 
 2. Exécutez votre cluster Service Fabric local. Cette étape varie en fonction de votre environnement de développement (Mac ou Linux).
 
-    Si vous utilisez un Mac, exécutez le cluster local avec la commande suivante : remplacez la commande passée dans le paramètre **-v** par le chemin d’accès à votre propre espace de travail.
+    Sur un Mac, exécutez le cluster local à l’aide de la commande suivante : Remplacez la commande passée au paramètre **-v** par le chemin de votre espace de travail.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox

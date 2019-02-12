@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que Sauvegarde Azure ?
+title: Qu’est-ce qu’Azure Backup ?
 description: Fournit une vue d’ensemble du service Sauvegarde Azure et de la façon de le déployer dans le cadre de votre stratégie de continuité d’activité et de reprise d’activité (BCDR).
 services: backup
 author: rayne-wiselman
@@ -9,19 +9,19 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7156042243b1ba28cea712dc3722600b9fc46c42
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 298c9fabca9d1994e0b952fdf8b48b70370c3ec2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360626"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490667"
 ---
-# <a name="what-is-azure-backup"></a>Qu’est-ce que Sauvegarde Azure ?
+# <a name="what-is-azure-backup"></a>Qu’est-ce qu’Azure Backup ?
 
 Le service Sauvegarde Azure sauvegarde des données dans le cloud Microsoft Azure. Vous pouvez sauvegarder des machines et charges de travail locales, ainsi que des machines virtuelles Azure.
 
 
-## <a name="why-use-azure-backup"></a>Pourquoi utiliser Sauvegarde Azure ?
+## <a name="why-use-azure-backup"></a>Pourquoi utiliser Azure Backup ?
 
 Le service Sauvegarde Azure offre les principaux avantages suivants :
 
@@ -48,7 +48,7 @@ Les services Sauvegarde Azure et Azure Site Recovery participent tous les deux �
 Les deux services fournissent des fonctionnalités complémentaires mais différentes.
 
 - **Azure Site Recovery** : Site Recovery fournit une solution de reprise d’activité pour les machines locales et les machines virtuelles Azure. Vous répliquez des machines d’un emplacement principal vers un emplacement secondaire. Quand un incident survient, vous basculez les machines vers l’emplacement secondaire et vous y accédez à partir de cet emplacement. Quand tout est à nouveau opérationnel, vous rebasculez les machines pour les récupérer sur le site principal.
-- **Sauvegarde Azure** : Le service Sauvegarde Azure sauvegarde les données de machines locales et de machines virtuelles Azure. Les données peuvent être sauvegardées et récupérées à un niveau précis, notamment la sauvegarde de fichiers, de dossiers, de l’état du système de la machine et de la sauvegarde de données tenant compte des applications. Sauvegarde Azure gère les données à un niveau plus détaillé que Site Recovery. Par exemple, si une présentation sur votre ordinateur portable est endommagée, vous utilisez Sauvegarde Azure pour la restaurer. Si vous voulez préserver la sécurité et l’accessibilité de la configuration et des données d’une machine virtuelle, vous pouvez utiliser Site Recovery.  
+- **Sauvegarde Azure** : Le service Sauvegarde Azure sauvegarde les données de machines locales et de machines virtuelles Azure. Les données peuvent être sauvegardées et restaurées à un niveau précis, avec notamment la sauvegarde des fichiers, des dossiers, de l’état du système de la machine et des données tenant compte des applications. Sauvegarde Azure gère les données à un niveau plus détaillé que Site Recovery. Par exemple, si une présentation sur votre ordinateur portable est endommagée, vous utilisez Sauvegarde Azure pour la restaurer. Si vous voulez préserver la sécurité et l’accessibilité de la configuration et des données d’une machine virtuelle, vous pouvez utiliser Site Recovery.  
 
 Utilisez les points du tableau pour vous aider à déterminer vos besoins en continuité d’activité et de reprise d’activité (BCDR). 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel :  Configurer PHS comme sauvegarde pour AD FS dans Azure AD Connect | Microsoft Docs'
+title: 'Tutoriel :  Configurer PHS comme sauvegarde pour AD FS dans Azure AD Connect | Microsoft Docs'
 description: Explique comment activer la synchronisation de hachage de mot de passe en tant que sauvegarde et pour AD FS.
 services: active-directory
 documentationcenter: ''
@@ -7,16 +7,16 @@ author: billmath
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/30/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7e7c9ca30659fd1e99989bb77406b653a8ed9e7f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 5219241de9b18008032a3eb78c6aab25a2713370
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302934"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660406"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutoriel :  Configurer PHS en tant que sauvegarde pour AD FS dans Azure AD Connect
 
@@ -43,7 +43,7 @@ Effectuez les actions suivantes :
 10. Et voilà !  Vous avez terminé.  La synchronisation de hachage de mot de passe intervient et peut être utilisée en tant que sauvegarde si AD FS n’est plus disponible.
 
 ## <a name="switch-to-password-hash-synchronization"></a>Activer la synchronisation de hachage de mot de passe
-Nous allons maintenant vous expliquer comment basculer vers la synchronisation de hachage de mot de passe, si besoin.  Effectuez les actions suivantes :
+Nous allons maintenant vous expliquer comment basculer vers la synchronisation de hachage de mot de passe. Avant de commencer, réfléchissez aux conditions dans lesquelles vous devez effectuer le basculement. N’effectuez pas le basculement pour des raisons temporaires, par exemple en cas de panne du réseau, de problème mineur lié à AD FS ou de problème qui affecte un sous-ensemble de vos utilisateurs. Si vous décidez d’effectuer le basculement car la résolution du problème prendrait trop de temps, effectuez les étapes suivantes :
 
 1. Double-cliquez sur l’icône Azure AD Connect créée sur le bureau.
 2.  Cliquez sur **Configurer**.

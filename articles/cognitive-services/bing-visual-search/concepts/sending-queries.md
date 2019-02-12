@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: aahi
-ms.openlocfilehash: c569c44d358049605aa8bbe1cbc96d0028f7aea1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 07f471debad87a2fa2f6583db624e9ee204d02bc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189672"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821165"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envoi de requêtes de recherche à l’API Recherche visuelle Bing
 
@@ -76,7 +76,7 @@ Les requêtes doivent être envoyées uniquement en tant que requêtes HTTP POS
 
 Votre requête doit spécifier les paramètres suivants. Au minimum, vous devez inclure le paramètre de requête `mkt`.
 
-| NOM                              | Valeur                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Type   | Obligatoire |
+| Nom                              | Valeur                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Type   | Obligatoire |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|----------|
 | <a name="cc" />cc                 | Code à 2 caractères du pays d'où proviennent les résultats.<br /><br /> Si vous définissez ce paramètre, vous devez également spécifier l’en-tête [Accept-Language](#acceptlanguage). Bing utilise la première langue prise en charge qu’il trouve dans la liste et associe la langue au code de pays que vous spécifiez pour déterminer le marché à partir duquel renvoyer les résultats. Si la liste des langues n’inclut de langue prise en charge, Bing recherche la langue et le marché les plus proches qui prennent en charge la requête. Sinon, il peut utiliser un marché agrégé ou par défaut pour les résultats au lieu de celui spécifié.<br /><br /> Vous ne devez utiliser ce paramètre de requête et le paramètre de requête `Accept-Language` que si vous spécifiez plusieurs langues ; sinon, vous devez utiliser les paramètres de requête `mkt` et `setLang`.<br /><br /> Ce paramètre et le paramètre de requête [mkt](#mkt) s’excluent mutuellement &mdash; ne spécifiez pas les deux. | Chaîne | Non        |
 | <a name="mkt" />mkt               | Marché d’où proviennent les résultats. <br /><br /> **REMARQUE :** Il est recommandé de toujours spécifier le marché, s’il est connu. Le fait d’indiquer le marché aide Bing à router la requête et à renvoyer une réponse appropriée et optimale.<br /><br /> Ce paramètre et le paramètre de requête [cc](#cc) s’excluent mutuellement &mdash; ne spécifiez pas les deux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Chaîne | Oui      |
@@ -112,7 +112,7 @@ Votre requête doit spécifier les en-têtes suivants. Les en-têtes Content-Typ
 Chaque requête doit inclure l’en-tête Content-Type. L’en-tête doit être défini sur : multipart/form-data; boundary=\<chaîne de limite\>, où \<chaîne de limite\> est une chaîne opaque unique qui identifie la limite des données de formulaire. Par exemple, boundary=boundary_1234-abcd.
 
 
-Si vous envoyez à la recherche visuelle un jeton d’image ou une URL, voici les données de formulaire que vous devez inclure dans le corps de la requête POST. Les données de formulaire doivent inclure l’en-tête Content-Disposition, et le paramètre `name` doit être défini sur « knowledgeRequest ». Pour plus d’informations sur l’objet `imageInfo`, voir la [requête](#the-request).
+Si vous envoyez à la recherche visuelle un jeton d’image ou une URL, voici les données de formulaire que vous devez inclure dans le corps de la requête POST. Les données de formulaire doivent inclure l’en-tête Content-Disposition, et le paramètre `name` doit être défini sur « knowledgeRequest ». Pour plus d’informations sur l’objet `imageInfo`, voir La requête.
 
 
 ```
@@ -128,7 +128,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Si vous chargez une image locale, voici les données de formulaire que vous devez inclure dans le corps de la requête POST. Les données du formulaire doivent inclure l’en-tête Content-Disposition. Le paramètre `name` doit être défini sur « image », tandis que le paramètre `filename` peut être défini sur une chaîne quelle qu’elle soit. L’en-tête Content-Type peut être défini sur n’importe quel type de mime image couramment utilisé. Le contenu du formulaire correspond au fichier binaire de l’image. La taille maximale de l’image que vous chargez est de 1 Mo. La plus grande largeur ou hauteur doit être de 1 500 pixels ou moins.
+Si vous chargez une image enregistrée en local, voici les données de formulaire que vous devez inclure dans le corps du POST. Les données du formulaire doivent inclure l’en-tête Content-Disposition. Le paramètre `name` doit être défini sur « image », tandis que le paramètre `filename` peut être défini sur une chaîne quelle qu’elle soit. L’en-tête Content-Type peut être défini sur n’importe quel type de mime image couramment utilisé. Le contenu du formulaire correspond au fichier binaire de l’image. La taille maximale de l’image que vous chargez est de 1 Mo. La plus grande largeur ou hauteur doit être de 1 500 pixels ou moins.
 
 
 ```

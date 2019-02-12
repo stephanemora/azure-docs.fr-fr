@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 5ff2ee3ed271d8c32e2d41f40a56f71aa4c6c67c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245267"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809246"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fournir l’accès des applications à Azure Stack
 
@@ -38,10 +38,10 @@ De préférence, utilisez des principaux de service plutôt que d’exécuter l�
 
 Selon la façon dont vous avez déployé Azure Stack, commencez par créer un principal de service. Ce document décrit la création d’un principal de service pour :
 
-- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad). Azure AD est un service cloud et multilocataire de gestion des répertoires et des identités. Vous pouvez utiliser Azure AD avec une instance Azure Stack connectée.
-- [Services de fédération Active Directory (AD FS)](#create-service-principal-for-ad-fs). AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. Vous pouvez utiliser AD FS avec des instances Azure Stack connectées et déconnectées.
+- Azure Active Directory (Azure AD). Azure AD est un service cloud et multilocataire de gestion des répertoires et des identités. Vous pouvez utiliser Azure AD avec une instance Azure Stack connectée.
+- Services de fédération Active Directory (AD FS). AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. Vous pouvez utiliser AD FS avec des instances Azure Stack connectées et déconnectées.
 
-Une fois que vous avez créé le principal de service, une série d’étapes communes à AD FS et à Azure Active Directory permet de [déléguer des autorisations](#assign-role-to-service-principal) à ce rôle.
+Une fois que vous avez créé le principal de service, une série d’étapes communes à AD FS et à Azure Active Directory permet de déléguer des autorisations à ce rôle.
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Gérer un principal de service pour Azure AD
 
@@ -63,7 +63,7 @@ Si vous vous connectez par programmation, utilisez l’ID de votre application e
 
 1. Dans **Inscriptions d’applications** dans Active Directory, sélectionnez votre application.
 
-2. Copiez l’**ID d’application** et stockez-le dans votre code d’application. Les applications de la section [Exemples d’applications](#sample-applications) font référence à cette valeur en tant qu’ID de client.
+2. Copiez l’**ID d’application** et stockez-le dans votre code d’application. Les applications de la section Exemples d’applications font référence à cette valeur en tant qu’ID de client.
 
      ![ID client](./media/azure-stack-create-service-principal/image12.png)
 3. Pour générer une clé d’authentification pour une application Web / API, sélectionnez **Paramètres** > **Clés**. 
@@ -74,7 +74,7 @@ Après avoir enregistré la clé, la valeur de la clé s’affiche. Copiez cette
 
 ![Clé enregistrée](./media/azure-stack-create-service-principal/image15.png)
 
-Une fois terminé, vous pouvez [attribuer un rôle à votre application](#assign-role-to-service-principal).
+Une fois terminé, vous pouvez attribuer un rôle à votre application.
 
 ## <a name="manage-service-principal-for-ad-fs"></a>Gérer le principal de service pour AD FS
 
@@ -116,7 +116,7 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 
 |Paramètre|Description|Exemples|
 |---------|---------|---------|
-|NOM|Nom du compte SPN|MyAPP|
+|Nom|Nom du compte SPN|MyAPP|
 |ClientCertificates|Tableau d’objets de certificat|Certificat X509|
 |ClientRedirectUris<br>(facultatif)|URI de redirection de l’application|-|
 
@@ -203,7 +203,7 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 
 |Paramètre|Description|Exemples|
 |---------|---------|---------|
-|NOM|Nom du compte SPN|MyAPP|
+|Nom|Nom du compte SPN|MyAPP|
 |ApplicationIdentifier|Identificateur unique|S-1-5-21-1634563105-1224503876-2692824315-2119|
 |ClientCertificate|Tableau d’objets de certificat|Certificat X509|
 
@@ -247,7 +247,7 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 
 | Paramètre | Description | Exemples |
 |----------------------|--------------------------|---------|
-| NOM | Nom du compte SPN | MyAPP |
+| Nom | Nom du compte SPN | MyAPP |
 | GenerateClientSecret | Créer un secret |  |
 
 #### <a name="use-the-ercs-privilegedendpoint-to-create-the-service-principal"></a>Utiliser le PrivilegedEndpoint ERCS pour créer le principal de service

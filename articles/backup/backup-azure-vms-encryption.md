@@ -2,19 +2,18 @@
 title: Sauvegarder et restaurer les machines virtuelles chiffrées à l’aide de Sauvegarde Azure
 description: Cet article présente l’expérience de sauvegarde et de restauration de machines virtuelles chiffrées à l’aide d’Azure Disk Encryption (ADE).
 services: backup
-author: sogup
+author: geetha
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
-ms.author: sogup
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3a059e8edc286b2c1433c9b414dc275a433e2fd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: geetha
+ms.openlocfilehash: 676c6a45f4a3930d350bbcbdcbb1a0fb47880407
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217677"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809995"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Sauvegarder et restaurer des machines virtuelles chiffrées avec Sauvegarde Azure
 Cet article présente les étapes pour sauvegarder et restaurer des machines virtuelles à l’aide de Sauvegarde Azure. Il fournit également des détails sur les scénarios pris en charge, les composants requis et les étapes de dépannage en cas d’erreur.
@@ -37,7 +36,7 @@ Cet article présente les étapes pour sauvegarder et restaurer des machines vir
 
 * Un coffre Recovery Services a été créé et la réplication du stockage a été définie en suivant les étapes de la rubrique [Préparation de l’environnement pour la sauvegarde](backup-azure-arm-vms-prepare.md).
 
-* Des [autorisations d’accès au coffre de clés](#provide-permissions-to-backup) contenant des clés et secrets pour les machines virtuelles chiffrées ont été accordées à Sauvegarde Azure.
+* Des autorisations d’accès au coffre de clés contenant des clés et secrets pour les machines virtuelles chiffrées ont été accordées à Sauvegarde Azure.
 
 ## <a name="backup-encrypted-vm"></a>Machine virtuelle de sauvegarde chiffrée
 Utilisez les étapes suivantes pour définir un objectif de sauvegarde, définir une stratégie, configurer des éléments et déclencher une sauvegarde.
@@ -77,7 +76,7 @@ Si vous êtes un **utilisateur membre**, l’activation du processus de sauvegar
 
    ![Message Machines virtuelles chiffrées](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   Si vous êtes un **utilisateur invité**, pour que les sauvegardes fonctionnent, vous devez fournir des autorisations d’accès au coffre de clés au service de sauvegarde. Vous pouvez fournir ces autorisations en suivant les [étapes mentionnées dans la section suivante](#provide-permissions-to-backup).
+   Si vous êtes un **utilisateur invité**, pour que les sauvegardes fonctionnent, vous devez fournir des autorisations d’accès au coffre de clés au service de sauvegarde. Vous pouvez fournir ces autorisations en suivant les étapes mentionnées dans la section suivante.
 
    ![Message Machines virtuelles chiffrées](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
 

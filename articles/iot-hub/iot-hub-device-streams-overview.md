@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 426c8995e5c3d98e42d0ad334b8ae52171556dce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884960"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770786"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flux d'appareils IoT Hub (préversion)
 
@@ -82,8 +82,22 @@ Les côtés appareil et service d'un flux d'appareil doivent tous deux pouvoir �
 Les informations relatives aux points de terminaison peuvent également être obtenues à l'aide d'Azure CLI, sous la section portant sur les propriétés du hub, et plus particulièrement, les touches `property.hostname` et `property.deviceStreams`.
 
 ```azurecli-interactive
-az iot hub show --name <YourIoTHubName>
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+La sortie est un objet JSON de tous les points de terminaison auxquels l’appareil et le service de votre concentrateur doivent se connecter afin d’établir un flux d’appareils.
+
+```json
+{
+  "streamingEndpoints": [
+    "https://<YourIoTHubName>.<region-stamp>.streams.azure-devices.net"
+  ]
+}
+```
+
+> [!NOTE]
+> Assurez-vous d’avoir installé Azure CLI version 2.0.57 ou ultérieure. Vous pouvez télécharger la dernière version [ici](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> 
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Mettre sur liste verte les points de terminaison de streaming des appareils
 
@@ -92,9 +106,14 @@ Comme indiqué [précédemment](#Overview), votre appareil crée une connexion s
 Le nom d'hôte du point de terminaison de streaming de l'appareil se trouve sous l'onglet Vue d'ensemble du portail Azure IoT Hub. ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "Points de terminaison des flux d'appareils")
 
 Ces informations sont également disponibles en utilisant Azure CLI :
-```cmd/sh
-az iot hub show --name <YourIoTHubName>
+
+```azurecli-interactive
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+> [!NOTE]
+> Assurez-vous d’avoir installé Azure CLI version 2.0.57 ou ultérieure. Vous pouvez télécharger la dernière version [ici](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> 
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Détecter un problème via les journaux d'activité des flux d'appareils
 
@@ -142,7 +161,7 @@ Ces exemples sont traités plus en détail ci-dessous.
 ### <a name="echo-sample"></a>Exemple écho
 L’exemple écho illustre l’utilisation programmatique des flux d’appareils pour envoyer et recevoir des octets entre les applications de service et d’appareil. Utilisez les liens ci-dessous pour accéder aux guides de démarrage rapide. Notez que vous pouvez utiliser des programmes de service et d’appareil dans différents langages, par exemple un programme d’appareil C peut fonctionner avec un programme de service C#.
 
-| Foundation    | Programme de service                                          | Programme d'appareil                                           |
+| Kit SDK     | Programme de service                                          | Programme d'appareil                                           |
 |--------|----------------------------------------------------------|----------------------------------------------------------|
 | C#     | [Lien](quickstart-device-streams-echo-csharp.md) | [Lien](quickstart-device-streams-echo-csharp.md) |
 | Node.js | [Lien](quickstart-device-streams-echo-nodejs.md) | -                                                        |
@@ -176,7 +195,7 @@ La configuration s’appuie sur deux programmes de *proxy local* illustrés dans
 
 Utilisez les liens ci-dessous pour obtenir des instructions sur l'exécution de programmes de proxy local dans le langage de votre choix. Comme pour l’[exemple écho](#echo-sample), vous pouvez exécuter des programmes de proxy local d’appareil et de service dans différents langages, car ils sont pleinement interopérables.
 
-| Foundation    | Proxy local de service                                       | Proxy local d'appareil                                |
+| Kit SDK     | Proxy local de service                                       | Proxy local d'appareil                                |
 |--------|-----------------------------------------------------------|---------------------------------------------------|
 | C#     | [Lien](quickstart-device-streams-proxy-csharp.md)  | [Lien](quickstart-device-streams-proxy-csharp.md) |
 | NodeJS | [Lien](quickstart-device-streams-proxy-nodejs.md)         | -                                                 |

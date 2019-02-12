@@ -7,14 +7,14 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: ba4f5fcb08d671937c677d8a14c27aaec16bcb1b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e7ffd8f6f4f3aee376a09071fad0f1a36c23f1c4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288711"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694004"
 ---
-# <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Technologies et solutions de l’Internet des objets (IoT) : PaaS et SaaS
+# <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Technologies et solutions pour l’Internet des objets (IoT) : PaaS et SaaS
 
 Microsoft a développé un portefeuille qui prend en charge les besoins de tous les clients, pour permettre à tous d’accéder aux avantages de la transformation numérique. Le portefeuille de produits Azure IoT constitue une vue d’ensemble des technologies et solutions PaaS et SaaS disponibles. Il présente les deux possibilités offertes pour créer votre propre solution :
 
@@ -58,7 +58,7 @@ Les organisations comptant moins de modèles d’appareil, des scénarios plus p
 
 ### <a name="compare-azure-iot-solution-accelerators-and-azure-iot-central"></a>Comparaison entre les accélérateurs de solution Azure IoT et Azure IoT Central
 
-Pour implémenter une [architecture de solution IoT](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture) type, Azure IoT propose plusieurs options, les [accélérateurs de solution Azure IoT](/azure/iot-suite) et [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), répondant chacune à des exigences client distinctes.
+Pour implémenter une [architecture de solution IoT](/azure/iot-fundamentals/iot-introduction) type, Azure IoT propose plusieurs options, les [accélérateurs de solution Azure IoT](/azure/iot-suite) et [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), répondant chacune à des exigences client distinctes.
 
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) constitue l’offre Azure PaaS de base utilisée à la fois par Azure IoT Central et par les accélérateurs de solution Azure IoT. IoT Hub permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et une solution cloud. IoT Hub vous aide à répondre aux défis de mise en œuvre de l’IoT telles que :
 

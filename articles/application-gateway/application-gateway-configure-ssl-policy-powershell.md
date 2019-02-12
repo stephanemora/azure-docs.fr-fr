@@ -8,16 +8,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: a93a3db3010fb9e9d2270414cadeae86b70bb8d0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5f5b389c66821282668f0b4fce9e0b67af028e9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157460"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816949"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway
 
-Découvrez comment configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway. Vous pouvez effectuer votre choix dans une [liste de stratégies prédéfinies](#predefined-ssl-policies) qui contient différentes configurations de versions de stratégie SSL et suites de chiffrement activées. Vous avez également la possibilité de définir une [stratégie SSL personnalisée](#configure-a-custom-ssl-policy) en fonction de vos besoins.
+Découvrez comment configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway. Vous pouvez effectuer votre choix dans une liste de stratégies prédéfinies qui contient différentes configurations de versions de stratégie SSL et suites de chiffrement activées. Vous avez également la possibilité de définir une [stratégie SSL personnalisée](#configure-a-custom-ssl-policy) en fonction de vos besoins.
 
 ## <a name="get-available-ssl-options"></a>Obtenir les options SSL disponibles
 

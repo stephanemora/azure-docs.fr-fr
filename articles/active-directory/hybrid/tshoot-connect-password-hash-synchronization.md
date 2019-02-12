@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c87b6791ea2d90ed302d796f17727a0338104beb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5339b0c77a69a915e58118888f8b82d095a43e38
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174990"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817782"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation du hachage de mot de passe avec Azure AD Connect Sync
 Cette rubrique explique comment résoudre les problèmes de synchronisation du hachage de mot de passe. Si les mots de passe ne se synchronisent pas comme prévu, il peut s’agir d’un sous-ensemble d’utilisateurs ou de tous les utilisateurs.
@@ -237,7 +237,7 @@ Effectuez les étapes suivantes pour déterminer la raison pour laquelle aucun m
 
 5. Si vous ne voyez aucune pulsation ou que rien d’autre n’a fonctionné, exécutez [Déclencher une synchronisation complète de tous les mots de passe](#trigger-a-full-sync-of-all-passwords). Exécutez le script une seule fois.
 
-6. Consultez la section [Dépanner un objet qui bloque la synchronisation des mots de passe](#one-object-is-not-synchronizing-passwords).
+6. Consultez la section Dépanner un objet qui bloque la synchronisation des mots de passe.
 
 ### <a name="connectivity-problems"></a>Problèmes de connectivité
 
@@ -303,7 +303,7 @@ Vous pouvez résoudre facilement les problèmes de synchronisation du hachage de
 
     ![Détails d’un journal d’objet](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    Si le journal de l’objet est vide, cela signifie qu’Azure AD Connect n’a pas pu lire le hachage de mot de passe à partir d’Active Directory. Continuez la résolution des problèmes avec [Erreurs de connectivité](#connectivity-errors). Si vous voyez une valeur autre que **Réussite**, consultez le tableau dans [Journal de synchronisation de mot de passe](#password-sync-log).
+    Si le journal de l’objet est vide, cela signifie qu’Azure AD Connect n’a pas pu lire le hachage de mot de passe à partir d’Active Directory. Continuez la résolution des problèmes avec Erreurs de connectivité. Si vous voyez une valeur autre que **Réussite**, consultez le tableau dans [Journal de synchronisation de mot de passe](#password-sync-log).
 
     h. Sélectionnez l’onglet **Lignage** et vérifiez qu’au moins une règle de synchronisation dans la colonne **PasswordSync** est **True**. Dans la configuration par défaut, le nom de la règle de synchronisation est **In from AD - User AccountEnabled**.  
 

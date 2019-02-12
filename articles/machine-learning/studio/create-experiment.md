@@ -1,10 +1,22 @@
 ---
-titre : Expérience simple titleSuffix : Description d’Azure Machine Learning Studio : Ce didacticiel sur l’apprentissage automatique vous guidera tout au long d’une expérience de science des données simple. Nous allons prédire le prix d’une voiture à l’aide d’un algorithme de régression.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: tutorial
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 20/03/2017
+title: Expérience simple
+titleSuffix: Azure Machine Learning Studio
+description: Ce didacticiel sur l’apprentissage automatique vous guidera tout au long d’une expérience de science des données simple. Nous allons prédire le prix d’une voiture à l’aide d’un algorithme de régression.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: tutorial
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: be52f5fbe6c7d282a50e53c4326478b937ea8081
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488376"
 ---
-
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Didacticiel : Créer votre première expérience de science des données dans Azure Machine Learning Studio
 
 Si vous n’avez encore jamais utilisé **Azure Machine Learning Studio**, ce didacticiel est pour vous.

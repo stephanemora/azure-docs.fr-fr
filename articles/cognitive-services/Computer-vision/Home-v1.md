@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198144"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816541"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Qu’est-ce que l’API Vision par ordinateur Version 1.0 ?
 
@@ -26,17 +26,17 @@ ms.locfileid: "55198144"
 >- [API Vision par ordinateur Version 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 L’API Vision par ordinateur basée sur le cloud offre aux développeurs un accès à des algorithmes avancés pour le traitement d’images et le renvoi d’informations. En téléchargeant une image ou en spécifiant l’URL d’une image, les algorithmes Vision par ordinateur Microsoft peuvent analyser du contenu visuel de différentes façons selon les entrées et les choix de l’utilisateur. Avec l’API Vision par ordinateur, les utilisateurs peuvent analyser les images afin de :
-* [Baliser des images en fonction du contenu.](#Tagging)
-* [Classer des images.](#Categorizing)
-* [Identifier le type et la qualité des images.](#Identifying)
+* Étiqueter des images en fonction du contenu.
+* Classer des images.
+* Identifier le type et la qualité des images.
 * [Détecter des visages et renvoyer leurs coordonnées. ](#Faces)
-* [Reconnaître le contenu spécifique à un domaine.](#Domain-Specific)
-* [Générer des descriptions de contenu.](#Descriptions)
-* [Utiliser la reconnaissance optique des caractères afin d’identifier le texte imprimé trouvé dans les images.](#OCR)
-* [Reconnaître le texte manuscrit.](#RecognizeText)
-* [Distinguer des jeux de couleurs.](#Color)
-* [Signaler le contenu réservé aux adultes.](#Adult)
-* [Rogner des photos à utiliser sous forme de miniatures.](#Thumbnails)
+* Reconnaître le contenu spécifique à un domaine.
+* Générer des descriptions de contenu.
+* Utiliser la reconnaissance optique des caractères afin d’identifier le texte imprimé trouvé dans les images.
+* Reconnaître le texte manuscrit.
+* Distinguer des jeux de couleurs.
+* Signaler le contenu réservé aux adultes.
+* Rogner des photos à utiliser sous forme de miniatures.
 
 ## <a name="requirements"></a>Configuration requise
 * Méthodes d’entrée prises en charge : image Raw binaire sous forme de flux application/octet ou d’URL d’image.

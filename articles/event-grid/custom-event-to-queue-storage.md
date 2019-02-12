@@ -9,12 +9,12 @@ ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ba48473b0370c2ee0acbb7b03834eb36922db556
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474980"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728043"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Démarrage rapide : Acheminer des événements personnalisés vers le Stockage File d’attente Azure avec Azure CLI et Event Grid
 
@@ -24,9 +24,12 @@ Azure Event Grid est un service de gestion d’événements pour le cloud. Le St
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="install-preview-feature"></a>Installer la fonctionnalité d'évaluation
+Si vous utilisez Azure CLI ou Azure PowerShell sur votre machine locale au lieu d’utiliser Cloud Shell dans le portail Azure, assurez-vous de disposer des versions suivantes d’Azure CLI et d’Azure PowerShell. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+- Azure CLI version 2.0.56 ou supérieure. Pour des instructions sur l’installation de la version d’Azure CLI la plus récente, consultez [Installer l’interface Azure CLI](/cli/azure/install-azure-cli). 
+- Azure PowerShell version 1.1.0 ou supérieure. Téléchargez la dernière version d’Azure PowerShell sur votre machine Windows à partir de [Téléchargements Azure - Outils de ligne de commande](https://azure.microsoft.com/downloads/). 
+
+Cet article vous donne les commandes permettant d’utiliser Azure CLI. 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -47,10 +50,6 @@ az group create --name gridResourceGroup --location westus2
 Une rubrique de grille d’événement fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. L’exemple suivant permet de créer la rubrique personnalisée dans votre groupe de ressources. Remplacez `<topic_name>` par un nom unique pour votre rubrique personnalisée. Le nom de la rubrique de la grille d’événements doit être unique, car elle est représentée par une entrée DNS.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

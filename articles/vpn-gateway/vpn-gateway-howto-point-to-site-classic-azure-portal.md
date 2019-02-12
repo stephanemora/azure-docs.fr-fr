@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6aedfa3f0ef65fdb1b663db8637b648e685e31be
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c133ba5a95e0476c6d992e53776b384fdc8c97ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321475"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809797"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurer une connexion point à site à l'aide d'une authentification par certificat (classique)
 
@@ -89,9 +89,9 @@ Avant de commencer, vérifiez que vous disposez d'un abonnement Azure. Si vous n
 
 Si vous n'avez pas de réseau virtuel, créez-en un. Les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres. Pour créer un réseau virtuel à l’aide du portail Azure, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com) et sélectionnez **Créer une ressource**. La page **Nouvelle** s'affiche. 
+1. Connectez-vous au [portail Azure](http://portal.azure.com) et sélectionnez **Créer une ressource**. La page **Nouveau** s’ouvre. 
 
-2. Dans le champ **Rechercher dans le marketplace**, entrez *Réseau virtuel* et sélectionnez **Réseau virtuel** dans la liste renvoyée. La page **Réseau virtuel** s'ouvre.
+2. Dans le champ **Rechercher dans la Place de marché**, entrez *réseau virtuel* et sélectionnez **Réseau virtuel** dans la liste retournée. La page **Réseau virtuel** s'ouvre.
 
 3. Dans la liste **Sélectionner un modèle de déploiement**, sélectionnez **Classique**, puis **Créer**. La page **Créer un réseau virtuel** s'ouvre.
 
@@ -249,7 +249,7 @@ Vous pouvez ajouter et supprimer des certificats racines approuvés à partir d'
 
 ### <a name="to-add-a-trusted-root-certificate"></a>Ajout d’un certificat racine approuvé
 
-Vous pouvez ajouter jusqu’à 20 fichiers .cer de certificat racine approuvés dans Azure. Pour obtenir des instructions, consultez [Charger le fichier de certificat racine .cer](#upload-the-root-certificate-.cer-file).
+Vous pouvez ajouter jusqu’à 20 fichiers .cer de certificat racine approuvés dans Azure. Pour obtenir des instructions, consultez Charger le fichier de certificat racine .cer.
 
 ### <a name="to-remove-a-trusted-root-certificate"></a>Suppression d’un certificat racine approuvé
 
@@ -290,7 +290,7 @@ Une fois la mise à jour terminée, le certificat ne peut plus être utilisé po
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). 
+- Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/). 
 
 - Pour plus d'informations sur la mise en réseau et les machines virtuelles Linux, consultez [Vue d'ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/linux/network-overview.md).
 

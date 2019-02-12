@@ -4,17 +4,17 @@ description: Azure Blueprint est un service Azure qui vous permet de créer, de 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246243"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563369"
 ---
 # <a name="what-is-azure-blueprints"></a>Qu’est-ce qu’Azure Blueprint ?
 
@@ -56,17 +56,14 @@ Un blueprint est composé _d’artefacts_. Les blueprints prennent actuellement 
 
 |Ressource  | Options de hiérarchie| Description  |
 |---------|---------|---------|
-|Groupes de ressources     | Abonnement | Crée un groupe de ressources pour une utilisation par d’autres artefacts dans le blueprint.  Ces groupes de ressources réservés vous permettent d’organiser les ressources en totale conformité avec la structure souhaitée. Ils fournissent aussi un limiteur d’étendue pour les artefacts de stratégie et d’attribution de rôle inclus, et des modèles Azure Resource Manager.         |
-|Modèle Azure Resource Manager      | Abonnement, groupe de ressources | Les modèles sont utilisés pour composer des environnements complexes. Exemples d’environnements : une batterie de serveurs SharePoint, une configuration de l’état Azure Automation ou un espace de travail Log Analytics. |
-|Affectation de rôle     | Abonnement, groupe de ressources | Permet l’affectation d’une stratégie ou d’une initiative à l’abonnement auquel le blueprint est affecté. La stratégie ou l’initiative doit être dans l’étendue du blueprint (dans le groupe d’administration du blueprint ou en dessous). Si la stratégie ou l’initiative comporte des paramètres, ceux-ci sont affectés au moment de la création du blueprint ou durant son affectation.       |
-|Attribution de rôle   | Abonnement, groupe de ressources | Ajoutez un utilisateur ou un groupe existant à un rôle intégré pour vous assurer que les personnes adéquates disposent d’un accès approprié à vos ressources. Vous pouvez définir des attributions de rôle pour l’ensemble de l’abonnement ou les imbriquer dans un groupe de ressources spécifique inclus dans le blueprint. |
+|Groupes de ressources | Abonnement | Crée un groupe de ressources pour une utilisation par d’autres artefacts dans le blueprint.  Ces groupes de ressources réservés vous permettent d’organiser les ressources en totale conformité avec la structure souhaitée. Ils fournissent aussi un limiteur d’étendue pour les artefacts de stratégie et d’attribution de rôle inclus, et des modèles Azure Resource Manager. |
+|Modèle Azure Resource Manager | Abonnement, groupe de ressources | Les modèles sont utilisés pour composer des environnements complexes. Exemples d’environnements : une batterie de serveurs SharePoint, une configuration de l’état Azure Automation ou un espace de travail Log Analytics. |
+|Affectation de rôle | Abonnement, groupe de ressources | Permet l’affectation d’une stratégie ou d’une initiative à l’abonnement auquel le blueprint est affecté. La stratégie ou l’initiative doit se trouver à l’intérieur de l’étendue de l’emplacement de définition du blueprint. Si la stratégie ou l’initiative comporte des paramètres, ceux-ci sont affectés au moment de la création du blueprint ou durant son affectation. |
+|Attribution de rôle | Abonnement, groupe de ressources | Ajoutez un utilisateur ou un groupe existant à un rôle intégré pour vous assurer que les personnes adéquates disposent d’un accès approprié à vos ressources. Vous pouvez définir des attributions de rôle pour l’ensemble de l’abonnement ou les imbriquer dans un groupe de ressources spécifique inclus dans le blueprint. |
 
-### <a name="blueprints-and-management-groups"></a>Blueprints et groupes d’administration
+### <a name="blueprint-definition-locations"></a>Emplacements de définition du blueprint
 
-Quand vous créez une définition de blueprint, vous définissez l’emplacement d’enregistrement du blueprint. À l’heure actuelle, les blueprints peuvent être uniquement enregistrés dans un [groupe d’administration](../management-groups/overview.md) auquel vous avez accès en tant que **Contributeur**. Le blueprint peut être affecté à n’importe quel abonnement enfant de ce groupe d’administration.
-
-> [!IMPORTANT]
-> Si vous n’avez accès à aucun groupe d’administration ou si aucun groupe d’administration n’est configuré, vous êtes notifié de ce problème quand vous chargez la liste des définitions de blueprint. De même, le fait de cliquer sur **Étendue** ouvre une fenêtre avec un avertissement concernant la récupération des groupes d’administration. Pour résoudre ce problème, vérifiez qu’un abonnement auquel vous avez un accès approprié fait partie d’un [groupe d’administration](../management-groups/overview.md).
+Quand vous créez une définition de blueprint, vous définissez l’emplacement d’enregistrement du blueprint. Les blueprints peuvent être enregistrés dans un [groupe d’administration](../management-groups/overview.md) ou dans un abonnement auquel vous avez accès en tant que **Contributeur**. Si l’emplacement est un groupe d’administration, le blueprint peut être affecté à n’importe quel abonnement enfant de ce groupe d’administration.
 
 ### <a name="blueprint-parameters"></a>Paramètres de blueprint
 
@@ -101,7 +98,7 @@ Pour supprimer des blueprints, votre compte doit avoir les autorisations suivant
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> Comme les définitions de blueprint sont créées au niveau d’un groupe d’administration, les autorisations de définition de blueprint doivent être accordées sur une étendue de groupe d’administration ou être héritées dans une étendue de groupe d’administration.
+> Les autorisations de définition du blueprint doivent être accordées ou héritées sur l’étendue de l’abonnement ou du groupe d’administration où il est enregistré.
 
 Pour affecter ou annuler l’affectation d’un blueprint, votre compte doit avoir les autorisations suivantes :
 

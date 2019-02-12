@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Zscaler Private Access (ZPA) | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Zscaler Private Access (ZPA) | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler Private Access (ZPA).
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 8d150a91a00652d5af74253dfdf60eb728db97b5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8be5e94886237129824204ea166a2663e2f3110e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192826"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814450"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Didacticiel : Intégration d'Azure Active Directory à Zscaler Private Access (ZPA)
 
@@ -95,7 +95,7 @@ Pour configurer et tester l'authentification unique Azure AD avec Zscaler Priva
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Création d'un utilisateur de test Zscaler Private Access (ZPA)](#creating-a-zscaler-private-access-(zpa)-test-user)** pour avoir un équivalent de Zscaler Private Access (ZPA) Simon dans Moxtra lié à la représentation Azure AD associée.
+1. **Création d’un utilisateur de test Zscaler Private Access (ZPA)**  : pour avoir un équivalent de Zscaler Private Access (ZPA) Simon dans Moxtra lié à la représentation Azure AD associée.
 1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c84d876828ac96bfb44b84e99b13489d51ae3370
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474868"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694021"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Didacticiel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
@@ -33,6 +33,7 @@ Dans ce tutoriel, vous allez autoriser les utilisateurs à réinitialiser leurs 
    * [joints à Azure AD Hybride](../device-management-hybrid-azuread-joined-devices-setup.md), avec une connexion réseau à un contrôleur de domaine.
 * Vous devez activer la réinitialisation de mot de passe en libre-service Azure AD.
 * Si vos appareils Windows 10 se trouvent derrière un pare-feu ou un serveur proxy, vous devez ajouter les URL `passwordreset.microsoftonline.com` et `ajax.aspnetcdn.com` à votre liste d’URL autorisées pour le trafic HTTPS (port 443).
+* Passez en revue les limitations ci-dessous avant d’essayer cette fonctionnalité dans votre environnement.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurer le lien de réinitialisation du mot de passe à l’aide d’Intune
 
@@ -98,13 +99,15 @@ Maintenant que la stratégie est configurée et attribuée, quelles sont les mod
 
 ![Écran de connexion][LoginScreen]
 
-Lorsque les utilisateurs tentent de se connecter, ils voient maintenant un lien de réinitialisation du mot de passe qui ouvre l’expérience de réinitialisation de mot de passe libre-service au niveau de l’écran de connexion. Cette fonctionnalité permet aux utilisateurs de réinitialiser leur mot de passe sans avoir à utiliser un autre appareil pour accéder à un navigateur web.
+Quand des utilisateurs tentent de se connecter, ils voient maintenant un lien de réinitialisation du mot de passe qui ouvre l’expérience de réinitialisation de mot de passe libre-service au niveau de l’écran de connexion. Cette fonctionnalité permet aux utilisateurs de réinitialiser leur mot de passe sans avoir à utiliser un autre appareil pour accéder à un navigateur web.
 
 Pour en savoir plus sur l’utilisation de cette fonction, les utilisateurs peuvent consulter la section [Réinitialiser ou déverrouiller mon mot de passe d’un compte professionnel ou scolaire](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 Le journal d’audit Azure AD inclut des informations sur l’adresse IP et le ClientType associés à la réinitialisation de mot de passe.
 
 ![Exemple de réinitialisation du mot de passe de l’écran d’ouverture de session dans le journal d’audit Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+Quand des utilisateurs réinitialisent leur mot de passe à partir de l’écran de connexion d’un appareil Windows 10, un compte temporaire à faibles privilèges appelé « defaultuser1 » est créé. Ce compte sert à sécuriser le processus de réinitialisation du mot de passe. Le compte lui-même a un mot de passe généré de manière aléatoire, ne s’affiche pas pour la connexion à l’appareil, et est supprimé automatiquement une fois que l’utilisateur a réinitialisé son mot de passe. Il peut exister plusieurs profils « defaultuser », mais vous pouvez les ignorer sans risque.
 
 ## <a name="limitations"></a>Limites
 
@@ -116,7 +119,9 @@ Lorsque vous testez cette fonctionnalité à l’aide du Bureau à distance ou d
 
 * Actuellement, la réinitialisation du mot de passe n’est pas prise en charge à partir d’un Bureau à distance.
 
-Si Ctrl + Alt + Suppr est requis par la stratégie, ou si les notifications de verrouillage d’écran sont désactivées, **Réinitialiser le mot de passe** ne fonctionnera pas.
+Si Ctrl+Alt+Suppr est exigé par la stratégie dans les versions de Windows 10 avant 1809, **Réinitialiser le mot de passe** ne fonctionnera pas.
+
+Si les notifications sur l’écran de verrouillage sont désactivées, **Réinitialiser le mot de passe** ne fonctionnera pas.
 
 Les paramètres de stratégie suivants sont connus pour interférer avec la possibilité de réinitialiser les mots de passe
 
@@ -128,7 +133,7 @@ Les paramètres de stratégie suivants sont connus pour interférer avec la poss
 
 Cette fonctionnalité ne fonctionne pas pour les réseaux avec l’authentification de réseau 802.1x déployée et l’option « Immédiatement avant l’ouverture de session de l’utilisateur ». Pour les réseaux avec l’authentification de réseau 802.1x déployée, il est recommandé d’utiliser l’authentification de la machine pour activer cette fonctionnalité.
 
-Pour les scénarios Joint au domaine hybride, il existe un scénario dans lequel le flux de travail SSPR se termine sans contrôleur de domaine Active Directory. Une connectivité à un contrôleur de domaine est requise pour utiliser le nouveau mot de passe pour la première fois.
+Pour les scénarios Joint au domaine hybride, le workflow SSPR se déroule correctement sans qu’un contrôleur de domaine Active Directory soit nécessaire. Si l’utilisateur effectue le processus de réinitialisation du mot de passe quand la communication avec un contrôleur de domaine Active Directory n’est pas disponible, par exemple en cas de travail à distance, il ne peut pas se connecter à l’appareil tant que celui-ci ne peut pas communiquer avec un contrôleur de domaine et mettre à jour les informations d’identification mises en cache. **Une connectivité à un contrôleur de domaine est nécessaire pour utiliser le nouveau mot de passe pour la première fois.**
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

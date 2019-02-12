@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a174ae5eb31620646167f36a6f3e13605db5eac6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5ba12e48092c02f9628e15166c84e871310d7556
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052766"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816371"
 ---
 # <a name="use-data-lake-storage-with-azure-hdinsight-clusters"></a>Utiliser Data Lake Storage avec des clusters Azure HDInsight
 
@@ -69,7 +69,7 @@ Pour pouvoir utiliser Data Lake Storage comme stockage par défaut, vous devez a
 - Dossier pour tous les dossiers de cluster.  Par exemple : adl://mydatalakestore/clusters.
 - Dossier pour le cluster.  Par exemple : adl://mydatalakestore/clusters/cluster1storage.
 
-Pour plus d’informations sur la création du principal de service et l’octroi de l’accès, consultez [Configurer l’accès à Data Lake Storage](#configure-data-lake-store-access).
+Pour plus d’informations sur la création du principal de service et l’octroi de l’accès, consultez Configurer l’accès à Data Lake Storage.
 
 ### <a name="extracting-a-certificate-from-azure-keyvault-for-use-in-cluster-creation"></a>Extraction d’un certificat à partir d’Azure Key Vault pour une utilisation lors de la création du cluster
 
@@ -117,12 +117,12 @@ Pour pouvoir utiliser Data Lake Storage comme stockage supplémentaire, il suffi
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-Pour plus d’informations sur la création du principal de service et l’octroi de l’accès, consultez [Configurer l’accès à Data Lake Storage](#configure-data-lake-store-access).
+Pour plus d’informations sur la création du principal de service et l’octroi de l’accès, consultez Configurer l’accès à Data Lake Storage.
 
 
 ## <a name="use-more-than-one-data-lake-storage-accounts"></a>Utiliser plusieurs comptes Data Lake Storage
 
-L’ajout d’un compte Data Lake Storage comme compte supplémentaire et de plusieurs comptes Data Lake Storage s’effectuent en donnant au cluster HDInsight l’autorisation d’accéder aux données de plusieurs comptes Data Lake Storage. Voir [Configurer l’accès à Data Lake Storage](#configure-data-lake-store-access).
+L’ajout d’un compte Data Lake Storage comme compte supplémentaire et de plusieurs comptes Data Lake Storage s’effectuent en donnant au cluster HDInsight l’autorisation d’accéder aux données de plusieurs comptes Data Lake Storage. Voir Configurer l’accès à Data Lake Storage.
 
 ## <a name="configure-data-lake-storage-access"></a>Configurer l’accès à Data Lake Storage
 

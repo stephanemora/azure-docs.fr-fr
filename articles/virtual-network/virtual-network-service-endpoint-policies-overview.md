@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051309"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812342"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Stratégies de point de terminaison de service de réseau virtuel (préversion)
 
@@ -154,7 +154,7 @@ Aucun enregistrement centralisé n’est disponible pour les stratégies de poin
 ### <a name="troubleshooting-scenarios"></a>Scénarios de résolution des problèmes
 - Accès autorisé aux comptes de stockage non répertoriés dans les stratégies de point de terminaison
   - Les groupes de sécurité réseau peuvent autoriser l’accès à Internet ou aux comptes Stockage Azure dans d’autres régions.
-  - Les groupes de sécurité réseau doivent être configurés pour refuser tout trafic Internet sortant et autoriser uniquement le trafic vers des régions spécifiques de Stockage Azure. Pour plus d’informations, consultez [Groupes de sécurité réseau](#network-security-groups).
+  - Les groupes de sécurité réseau doivent être configurés pour refuser tout trafic Internet sortant et autoriser uniquement le trafic vers des régions spécifiques de Stockage Azure. Pour plus d’informations, consultez Groupes de sécurité réseau.
 - L’accès est refusé aux comptes répertoriés dans les stratégies de point de terminaison
   - Le filtrage des groupes de sécurité réseau ou du pare-feu peut bloquer l’accès
   - Si la suppression/nouvelle application de la stratégie entraîne la perte de la connectivité :

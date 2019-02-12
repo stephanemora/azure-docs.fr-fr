@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470533"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809515"
 ---
 # <a name="design-for-data-modification"></a>Conception pour la modification de données
-Cet article décrit les conceptions qui permettent d’optimiser les insertions, les mises à jour et les suppressions. Dans certains cas, vous devez évaluer le compromis entre les conceptions optimisées pour l'interrogation et celles optimisées pour la modification des données, comme vous le feriez dans les conceptions de bases de données relationnelles (bien que les techniques permettant de gérer les compromis de conception sont différentes dans une base de données relationnelle). La section [Modèles de conception de table](#table-design-patterns) décrit plusieurs modèles de conception détaillés pour le service de Table et apporte des informations sur certains de ces compromis. En pratique, vous constaterez que les nombreuses conceptions optimisées pour l'interrogation des entités fonctionnent aussi bien pour la modification des entités.  
+Cet article décrit les conceptions qui permettent d’optimiser les insertions, les mises à jour et les suppressions. Dans certains cas, vous devez évaluer le compromis entre les conceptions optimisées pour l'interrogation et celles optimisées pour la modification des données, comme vous le feriez dans les conceptions de bases de données relationnelles (bien que les techniques permettant de gérer les compromis de conception sont différentes dans une base de données relationnelle). La section Modèles de conception de table décrit plusieurs modèles de conception détaillés pour le service de Table et apporte des informations sur certains de ces compromis. En pratique, vous constaterez que les nombreuses conceptions optimisées pour l'interrogation des entités fonctionnent aussi bien pour la modification des entités.  
 
 ## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Optimiser les performances des opérations d'insertion, de mise à jour et de suppression
 Pour mettre à jour ou supprimer une entité, vous devez être en mesure de l’identifier à l’aide des valeurs de **PartitionKey** et de **RowKey**. À cet égard, le choix de la **PartitionKey** et de la **RowKey** pour la modification des entités doit respecter les mêmes critères que ceux déterminant votre choix de prise en charge des requêtes de pointage, afin d’identifier les entités aussi efficacement que possible. Il ne vaut mieux pas utiliser d’analyse de table ou de partition inefficace pour localiser une entité afin de découvrir les valeurs de **PartitionKey** et de **RowKey** que vous devez mettre à jour ou supprimer.  
 
-Les modèles suivants de la section [Modèles de conception de table](#table-design-patterns) permettent d’optimiser les performances ou vos opérations d’insertion, de mise à jour et de suppression :  
+Les modèles suivants de la section Modèles de conception de table permettent d’optimiser les performances ou vos opérations d’insertion, de mise à jour et de suppression :  
 
 * [Modèle de suppression de volume élevé](table-storage-design-patterns.md#high-volume-delete-pattern) : permet de supprimer un volume élevé d’entités en stockant toutes les entités en vue d’une suppression simultanée à partir de leurs propres tables distinctes. Vous supprimez les entités en supprimant la table.  
 * [Modèle de série de données](table-storage-design-patterns.md#data-series-pattern) : stocke des séries de données complètes dans une seule entité pour réduire le nombre de vos demandes.  

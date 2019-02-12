@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 6bc1255c5bbb9cf74c97b88600f34e7fcd90ae4f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343145"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811050"
 ---
 # <a name="mxchip-iot-devkit"></a>DevKit IoT MXChip
 
@@ -55,13 +55,13 @@ Vous pouvez utiliser cet exemple pour surveiller les informations relatives au W
 
 6. Un texte ressemblant à ce qui suit : *application de fonction : nom de l’application de fonction : xxx*, s’affiche. Notez le nom de l’application de fonction, qui sera utilisée ultérieurement.
 
-7. Attendez la fin du déploiement du modèle Azure Resource Manager indiquée lorsque le message *Resource Manager template deployment: Done* (Déploiement du modèle Resource Manager : terminé) s’affiche.
+7. Attendez la fin du déploiement du modèle Azure Resource Manager indiquée lorsque le message *Resource Manager template deployment: Done* s’affiche.
 
 ## <a name="deploy-function-app"></a>Déployer l’application de fonction
 
 1. Cliquez sur le menu déroulant **Tâches** dans Visual Studio Code, puis sélectionnez **Exécuter la tâche...**  - **cloud-deploy**.
 
-2. Attendez la fin du processus de téléchargement du code de l’application de fonction. Le message *function app deploys: Done* (déploiement de l’application de fonction : terminé) s’affiche.
+2. Attendez la fin du processus de téléchargement du code de l’application de fonction. Le message *function app deploys: Done* s’affiche.
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>Configurer la chaîne de connexion d’appareil Azure IoT Hub dans le Kit de développement
 
@@ -83,7 +83,7 @@ Avec l’appareil DevKit IoT MXChip connecté à votre ordinateur :
 
 ## <a name="monitor-devkit-state-in-browser"></a>Surveiller l’état du Kit de développement dans le navigateur
 
-1. Dans un navigateur Web, ouvrez le fichier `DevKitState\web\index.html`, créé au cours de l’étape [Ce dont vous avez besoin](#whatyouneed).
+1. Dans un navigateur Web, ouvrez le fichier `DevKitState\web\index.html`, créé au cours de l’étape Ce dont vous avez besoin.
 
 2. La page web suivante s’ouvre :![Indiquez le nom de l’application de fonction.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 
@@ -106,7 +106,7 @@ Avec l’appareil DevKit IoT MXChip connecté à votre ordinateur :
 ![Exemple de procédure de test](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Vous pouvez voir les données brutes du jumeau d’appareil dans le portail Azure : IoT Hub -\> Appareils IoT -\> *\<votre appareil\>* - \> Jumeau d’appareil.
+> Vous pouvez voir les données brutes du jumeau d’appareil dans le portail Azure : IoT Hub -\> Appareils IoT -\> *\<votre appareil\>* -\> Jumeau d’appareil.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

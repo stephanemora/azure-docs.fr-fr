@@ -1,43 +1,40 @@
 ---
-title: Point de terminaison de Recherche d’entités Bing
+title: Point de terminaison de l’API Recherche d’entités Bing
 titlesuffix: Azure Cognitive Services
-description: Synthèse du point de terminaison de l’API Recherche d’entités.
+description: Apprenez-en davantage sur le point de terminaison de l’API Recherche d’entités Bing et envoyez-lui des requêtes.
 services: cognitive-services
-author: aahill
+author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.author: aahi
-ms.openlocfilehash: 561c64db2b97ed8792acab6cc87de861ecc30fe9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/01/2019
+ms.author: v-gedod
+ms.openlocfilehash: cae65c8fb7deb9f68a297de2058a86249b60136b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183983"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753978"
 ---
-# <a name="entity-search-endpoints"></a>Points de terminaison Recherche d’entités
-L’**API Recherche d’entités** inclut un point de terminaison.
+# <a name="bing-entity-search-api-endpoint"></a>Point de terminaison de l’API Recherche d’entités Bing
 
-## <a name="endpoint"></a>Point de terminaison
-Pour demander les résultats de la Recherche d’entités, envoyez une requête au point de terminaison suivant. Utilisez les en-têtes et les paramètres d’URL pour définir d’autres spécifications.
 
-Point de terminaison `GET` : 
-``` 
-https://api.cognitive.microsoft.com/bing/v7.0/entities
+L’API Recherche d’entités Bing possède un point de terminaison qui renvoie des entités du Web en fonction d’une requête. Ces résultats de recherche sont retournés au format JSON.
+
+## <a name="get-entity-results-from-the-endpoint"></a>Obtenir des résultats d’entité du point de terminaison
+
+Pour obtenir des résultats d’entités à l’aide de l’**API Bing**, envoyez une requête `GET` au point de terminaison suivant. Utilisez les [en-têtes](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers) et les [ paramètres de requête](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters) pour personnaliser votre requête de recherche. Les requêtes de recherche peuvent être envoyées à l’aide du paramètre `?q=`.
+
+```cURL
+ GET https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
-
-Les paramètres d’URL suivants sont requis :
-- mkt. Marché d’où proviennent les résultats. 
-- q. Requête de recherche d’entités.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide de la recherche d’entités Bing](quickstarts/csharp.md)
+> [Qu’est-ce que l’API Recherche d’entités Bing ?](overview.md)
 
 ## <a name="see-also"></a>Voir aussi 
 
-[Vue d’ensemble sur la Recherche d’entités Bing](search-the-web.md )
-[Référence d’API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+Pour plus d’informations sur les en-têtes, les paramètres, les codes de marché, les objets de réponse, les erreurs, entre autres, voir l’article de référence sur l’[API Recherche d’entités Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference).

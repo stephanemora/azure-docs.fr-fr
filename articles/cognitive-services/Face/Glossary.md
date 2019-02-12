@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 17167271df81914c76882fc4d06717043e1befc1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 06c385b1ca43277b59c337646c41cae360ce48a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214294"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816558"
 ---
 # <a name="glossary"></a>Glossaire
 
@@ -23,14 +23,14 @@ ms.locfileid: "55214294"
 
 #### <a name="attributes"></a>Attributs
 
-Les attributs, tels que [âge](#Age-Attribute), [sexe](#Gender-Attribute), [pose de la tête](#Head-Pose-Attribute), [ pilosité faciale](#Facial-Hair-Attribute) et [sourire](#Smile-Attribute), sont facultatifs dans les résultats de [détection](#Detection-Face-Detection).
-Ils peuvent être obtenus à partir de l’API de [détection](#Detection-Face-Detection) en spécifiant les paramètres de requête : returnFaceAttributes. Les attributs fournissent des informations supplémentaires concernant les [visages](#Face) sélectionnés, en plus de l’[ID de visage](#Face-ID) et du [rectangle](#Face-Rectangle).
+Les attributs, tels que [âge](#Age-Attribute), [sexe](#Gender-Attribute), [pose de la tête](#Head-Pose-Attribute), [pilosité faciale](#Facial-Hair-Attribute) et [sourire](#Smile-Attribute).
+Ils peuvent être obtenus à partir de l’API de détection en spécifiant les paramètres de requête : returnFaceAttributes. Les attributs fournissent des informations supplémentaires concernant les [visages](#Face) sélectionnés, en plus de l’[ID de visage](#Face-ID) et du [rectangle](#Face-Rectangle).
 
 Pour plus d’informations, consultez le guide [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="age-attribute"></a>Âge (attribut)
 
-L’âge est un [attribut](#Attributes) qui décrit l’âge d’un visage particulier. L’attribut âge est facultatif dans les résultats de [détection](#Detection-Face-Detection), et il peut être contrôlé par une requête de [détection](#Detection-Face-Detection) en spécifiant le paramètre returnFaceAttributes.
+L’âge est un [attribut](#Attributes) qui décrit l’âge d’un visage particulier. L’attribut âge est facultatif dans les résultats de détection, et il peut être contrôlé par une requête de détection en spécifiant le paramètre returnFaceAttributes.
 
 Pour plus d’informations, consultez le guide [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -64,13 +64,13 @@ Pour plus d’informations, consultez le guide [Visage - Détecter](https://west
 
 #### <a name="face"></a>Face
 
-Visage est un terme unifié pour les résultats dérivés de l’API Visage associés aux visages détectés. Le visage est représenté par une identité unifiée ([ID de visage](#Face-ID)), une région donnée dans les images ([Rectangle de visage](#Face-Rectangle)) et des [attributs](#Face-Attributes-Facial-Attributes) supplémentaires liés au visage, tels que l’[âge](#Age-Attribute), le [sexe](#Gender-Attribute), les [points de repère](#Face-Landmarks-Facial-Landmarks) et la [pose de la tête](#Head-Pose-Attribute). Les visages peuvent également être retournés à partir de la [détection](#Detection-Face-Detection).
+Visage est un terme unifié pour les résultats dérivés de l’API Visage associés aux visages détectés. Le visage est représenté par une identité unifiée ([ID de visage](#Face-ID)), une région donnée dans les images ([Rectangle de visage](#Face-Rectangle)) et des attributs supplémentaires liés au visage, tels que l’[âge](#Age-Attribute), le [sexe](#Gender-Attribute), les points de repère et la [pose de la tête](#Head-Pose-Attribute). Les visages peuvent également être retournés à partir de la détection.
 
 Pour plus d’informations, consultez le guide [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="face-api"></a>API Visage
 
-L’API Visage est une API basée sur le cloud qui fournit les algorithmes les plus avancés en matière de détection et de reconnaissance de visage. La fonctionnalité principale de l’API Visage peut être divisée en deux catégories : [détection](#Detection-Face-Detection) de visage avec des [attributs](#Face-Attributes-Facial-Attributes), et [reconnaissance](#Recognition) de visage.
+L’API Visage est une API basée sur le cloud qui fournit les algorithmes les plus avancés en matière de détection et de reconnaissance de visage. La fonctionnalité principale de l’API Visage peut être divisée en deux catégories : détection de visage avec des attributs, et [reconnaissance](#Recognition) de visage.
 
 Pour plus d’informations, reportez-vous aux guides suivants : [Visage - Présentation de l’API](./Overview.md), [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Visage - Rechercher semblables](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Visage - Grouper](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Visage - Identifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Visage - Vérifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
@@ -80,13 +80,13 @@ Voir [Attributs](#Attributes).
 
 #### <a name="face-id"></a>ID de visage
 
-L’ID de visage est dérivée des résultats de [détection](#Detection-Face-Detection), dans lesquels une chaîne représente un [visage](#Face) dans l’[API Visage](#Face-API).
+L’ID de visage est dérivée des résultats de détection, dans lesquels une chaîne représente un [visage](#Face) dans l’[API Visage](#Face-API).
 
 Pour plus d’informations, consultez le guide [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="face-landmarksfacial-landmarks"></a>Points de repère de visage/points de repère faciaux
 
-Les points de repère sont facultatifs dans les résultats de [détection](#Detection-Face-Detection). Il s’agit de points faciaux sémantiques, tels que les yeux, le nez et la bouche (voir la figure ci-dessous). Les points de repère peuvent être contrôlés avec une requête de [détection](#Detection-Face-Detection) par le nombre booléen returnFaceLandmarks. Si returnFaceLandmarks a la valeur True, les visages retournés ont des attributs de points de repère.
+Les points de repère sont facultatifs dans les résultats de détection. Il s’agit de points faciaux sémantiques, tels que les yeux, le nez et la bouche (voir la figure ci-dessous). Les points de repère peuvent être contrôlés avec une requête de détection par le nombre booléen returnFaceLandmarks. Si returnFaceLandmarks a la valeur True, les visages retournés ont des attributs de points de repère.
 
 Pour plus d’informations, consultez le guide [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -94,19 +94,19 @@ Pour plus d’informations, consultez le guide [Visage - Détecter](https://west
 
 #### <a name="face-rectangle"></a>Rectangle de visage
 
-Le rectangle de visage est dérivé des résultats de [détection](#Detection-Face-Detection). Il s’agit d’un rectangle vertical (gauche, haut, largeur, hauteur) dans les images en pixels. L’angle supérieur gauche d’un [visage](#Face) (gauche, haut), en plus de la largeur et de la hauteur, indique les tailles de visage selon les axes x et y respectivement.
+Le rectangle de visage est dérivé des résultats de détection. Il s’agit d’un rectangle vertical (gauche, haut, largeur, hauteur) dans les images en pixels. L’angle supérieur gauche d’un [visage](#Face) (gauche, haut), en plus de la largeur et de la hauteur, indique les tailles de visage selon les axes x et y respectivement.
 
 Pour plus d’informations, consultez le guide [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="facial-hair-attribute"></a>Pilosité faciale (attribut)
 
-La pilosité faciale est l’un des [attributs](#Attributes) servant à décrire la longueur des cheveux et poils des visages disponibles. L’attribut pilosité faciale est facultatif dans les résultats de [détection](#Detection-Face-Detection), et il peut être contrôlé par une requête de [détection](#Detection-Face-Detection) à l’aide de returnFaceAttributes. Si returnFaceAttributes contient « facialHair », les visages retournés ont des attributs de pilosité faciale.
+La pilosité faciale est l’un des [attributs](#Attributes) servant à décrire la longueur des cheveux et poils des visages disponibles. L’attribut pilosité faciale est facultatif dans les résultats de détection, et il peut être contrôlé par une requête de détection à l’aide de returnFaceAttributes. Si returnFaceAttributes contient « facialHair », les visages retournés ont des attributs de pilosité faciale.
 
 Pour plus d’informations, consultez le guide [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="facelist"></a>FaceList
 
-FaceList est une collection de [PersistedFace](#PersistedFace). Il s’agit de l’unité de [Rechercher semblables](#Find-Similar). Un FaceList est fourni avec un [ID de FaceList](#FaceList-ID), ainsi que d’autres attributs tels que le [nom](#Name) et les [données utilisateur](#UserData-User-Data).
+FaceList est une collection de [PersistedFace](#PersistedFace). Il s’agit de l’unité de [Rechercher semblables](#Find-Similar). Un FaceList est fourni avec un [ID de FaceList](#FaceList-ID), ainsi que d’autres attributs tels que le nom et les données utilisateur.
 
 Pour plus d’informations, reportez-vous aux guides suivants : [FaceList - Créer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Obtenir](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
@@ -118,7 +118,7 @@ Pour plus d’informations, reportez-vous aux guides suivants : [FaceList - Cr�
 
 #### <a name="find-similar"></a>Rechercher semblables
 
-Cette API sert à rechercher des visages semblables parmi une collection de visages. Les visages de requêtes et les collections de visages sont représentés sous forme d’[ID de visages](#Face-ID) ou d’[ID de FaceList](#FaceList-ID)/[ID de LargeFaceList](#LargeFaceList-ID) dans la requête. Les résultats retournés sont des visages semblables recherchés, représentés par des [ID de visages](#Face-ID) ou [ID de PersistedFace](#PersistedFace-ID).
+Cette API sert à rechercher des visages semblables parmi une collection de visages. Les visages de requêtes et les collections de visages sont représentés sous forme d’[ID de visages](#Face-ID) ou d’[ID de FaceList](#FaceList-ID)/[ID de LargeFaceList](#LargeFaceList-ID) dans la requête. Les résultats retournés sont des visages semblables recherchés, représentés par des [ID de visages](#Face-ID) ou ID de PersistedFace.
 
 Pour plus d’informations, reportez-vous aux guides suivants : [Face - Rechercher semblables](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList - Créer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [FaceList - Créer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b).
 
@@ -126,7 +126,7 @@ Pour plus d’informations, reportez-vous aux guides suivants : [Face - Recherc
 
 #### <a name="gender-attribute"></a>Gender (attribut)
 
-Gender est un [attribut](#Attributes) servant à décrire le sexe des visages disponibles. L’attribut gender est facultatif dans les résultats de [détection](#Detection-Face-Detection), et il peut être contrôlé par une requête de [détection](#Detection-Face-Detection) à l’aide de returnFaceAttributes. Si returnFaceAttributes contient « gender », les visages retournés ont des attributs de sexe.
+Gender est un [attribut](#Attributes) servant à décrire le sexe des visages disponibles. L’attribut gender est facultatif dans les résultats de détection, et il peut être contrôlé par une requête de détection à l’aide de returnFaceAttributes. Si returnFaceAttributes contient « gender », les visages retournés ont des attributs de sexe.
 
 Pour plus d’informations, consultez le guide [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -146,7 +146,7 @@ Pour plus d’informations, consultez le guide [Visage - Grouper](https://westus
 
 #### <a name="head-pose-attribute"></a>Pose de la tête (attribut)
 
-La pose de la tête est un [attribut](#Attributes) qui représente l’orientation du visage dans l’espace 3D en fonction des angles de roulement, tangage et lacet, comme illustré ci-dessous. Les plages de valeurs de roulement et lacet sont [-180, 180] et [-90, 90] en degrés. Dans la version actuelle, la valeur de tangage retournée par la détection est toujours 0. L’attribut pose de la tête est facultatif dans les résultats de [détection](#Detection-Face-Detection), et il peut être contrôlé par une requête de [détection](#Detection-Face-Detection) à l’aide du paramètre returnFaceAttributes. Si le paramètre returnFaceAttributes contient « headPose », les visages retournés ont des attributs de pose de la tête.
+La pose de la tête est un [attribut](#Attributes) qui représente l’orientation du visage dans l’espace 3D en fonction des angles de roulement, tangage et lacet, comme illustré ci-dessous. Les plages de valeurs de roulement et lacet sont [-180, 180] et [-90, 90] en degrés. Dans la version actuelle, la valeur de tangage retournée par la détection est toujours 0. L’attribut pose de la tête est facultatif dans les résultats de détection, et il peut être contrôlé par une requête de détection à l’aide du paramètre returnFaceAttributes. Si le paramètre returnFaceAttributes contient « headPose », les visages retournés ont des attributs de pose de la tête.
 
 Pour plus d’informations, consultez le guide [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -182,11 +182,11 @@ Pour plus d’informations, consultez le guide [Visage - Vérifier](https://west
 
 #### <a name="landmarks"></a>Points de repère
 
-Voir [Points de repères de visage](#Face-Landmarks-Facial-Landmarks).
+Voir Points de repères de visage.
 
 #### <a name="largefacelist"></a>LargeFaceList
 
-LargeFaceList est une collection de [PersistedFace](#PersistedFace). Il s’agit de l’unité de [Rechercher semblables](#Find-Similar). Un LargeFaceList est fourni avec un [ID de LargeFaceList](#LargeFaceList-ID), ainsi que d’autres attributs tels que le [nom](#Name) et les [données utilisateur](#UserData-User-Data).
+LargeFaceList est une collection de [PersistedFace](#PersistedFace). Il s’agit de l’unité de [Rechercher semblables](#Find-Similar). Un LargeFaceList est fourni avec un [ID de LargeFaceList](#LargeFaceList-ID), ainsi que d’autres attributs tels que le nom et les données utilisateur.
 
 Pour plus d’informations, reportez-vous aux guides suivants : [LargeFaceList - Créer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - Obtenir](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce), [LargeFaceList - Répertorier visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6).
 
@@ -198,7 +198,7 @@ Pour plus d’informations, reportez-vous aux guides suivants : [LargeFaceList 
 
 #### <a name="largepersongroup"></a>LargePersonGroup
 
-LargePersonGroup est une collection de [personnes](#Person). Il s’agit de l’unité d’[Identification](#Identification). Un LargePersonGroup est fourni avec un [ID de LargePersonGroup](#LargePersonGroup-ID), ainsi que d’autres attributs tels que le [nom](#Name) et les [données utilisateur](#UserData-User-Data).
+LargePersonGroup est une collection de [personnes](#Person). Il s’agit de l’unité d’[Identification](#Identification). Un LargePersonGroup est fourni avec un [ID de LargePersonGroup](#LargePersonGroup-ID), ainsi que d’autres attributs tels que le nom et les données utilisateur.
 
 Pour plus d’informations, reportez-vous aux guides suivants : [LargePersonGroup - Créer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Obtenir](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [LargePersonGroup Person - Répertorier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1).
 
@@ -236,7 +236,7 @@ Pour plus d’informations, reportez-vous aux guides suivants : [LargePersonGro
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace est une structure de données dans l’API Visage. PersistedFace est fourni avec un [ID de PersistedFace](#PersistedFace-ID), ainsi que d’autres attributs tels que le [nom](#Name) et les [données utilisateur](#UserData-User-Data).
+PersistedFace est une structure de données dans l’API Visage. PersistedFace est fourni avec un ID de PersistedFace, ainsi que d’autres attributs tels que le nom et les données utilisateur.
 
 Pour plus d’informations, reportez-vous aux guides suivants : [LargeFaceList - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [ PersonGroup Person - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
@@ -248,7 +248,7 @@ Pour plus d’informations, reportez-vous aux guides suivants : [LargeFaceList 
 
 #### <a name="person"></a>Personne
 
-Person est une structure de données gérée dans l’API Visage. Person est fourni avec un [ID de personne](#Person-ID), ainsi que d’autres attributs tels que le [nom](#Name), une collection de [PersistedFace](#PersistedFace) et les [données utilisateur](#UserData-User-Data).
+Person est une structure de données gérée dans l’API Visage. Person est fourni avec un [ID de personne](#Person-ID), ainsi que d’autres attributs tels que le nom, une collection de [PersistedFace](#PersistedFace) et les données utilisateur.
 
 Pour plus d’informations, reportez-vous aux guides suivants : [LargePersonGroup Person - Créer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person - Obtenir](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person - Créer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup Person - Obtenir](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
@@ -260,7 +260,7 @@ Pour plus d’informations, reportez-vous aux guides suivants : [LargePersonGro
 
 #### <a name="persongroup"></a>PersonGroup
 
-PersonGroup est une collection de [personnes](#Person). Il s’agit de l’unité d’[Identification](#Identification). Un PersonGroup est fourni avec un [ID de PersonGroup](#PersonGroup-ID), ainsi que d’autres attributs tels que le [nom](#Name) et les [données utilisateur](#UserData-User-Data).
+PersonGroup est une collection de [personnes](#Person). Il s’agit de l’unité d’[Identification](#Identification). Un PersonGroup est fourni avec un [ID de PersonGroup](#PersonGroup-ID), ainsi que d’autres attributs tels que le nom et les données utilisateur.
 
 Pour plus d’informations, reportez-vous aux guides suivants : [PersonGroup - Créer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Obtenir](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246), [PersonGroup Person - Répertorier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241).
 
@@ -290,19 +290,25 @@ Voir [Rectangle visage](#Face-Rectangle).
 
 ## <a name="s"></a>S
 
-#### <a name="smile-attribute"></a>Smile (attribut)
-
-Smile est un [attribut](#Attributes) servant à décrire l’expression de sourire des visages disponibles. L’attribut smile est facultatif dans les résultats de [détection](#Detection-Face-Detection), et il peut être contrôlé par une requête de [détection](#Detection-Face-Detection) à l’aide de returnFaceAttributes. Si returnFaceAttributes contient « smile », les visages retournés ont des attributs de sourire.
-
-Pour plus d’informations, consultez le guide [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
 #### <a name="similar-face-searching"></a>Recherche de visages semblables
 
 Voir [Rechercher semblables](#Find-Similar).
 
+#### <a name="smile-attribute"></a>Smile (attribut)
+
+Smile est un [attribut](#Attributes) servant à décrire l’expression de sourire des visages disponibles. L’attribut smile est facultatif dans les résultats de détection, et il peut être contrôlé par une requête de détection à l’aide de returnFaceAttributes. Si returnFaceAttributes contient « smile », les visages retournés ont des attributs de sourire.
+
+Pour plus d’informations, consultez le guide [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+
+#### <a name="snapshot"></a>Instantané
+
+Un instantané est un stockage à distance temporaire pour certains types de données Visage. Il fonctionne comme une sorte de presse-papiers pour copier des données d’un abonnement à l’autre. L’utilisateur « prend » d’abord un instantané des données de l’abonnement source, puis les « applique » à un nouvel objet de données de l’abonnement cible. 
+
+Pour plus de détails, consultez le [Guide de migration de Visage](./face-api-how-to-topics/how-to-migrate-face-data.md) ainsi que la documentation de référence REST sur [Instantané - Prendre](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/take) et [Instantané - Appliquer](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/apply).
+
 #### <a name="status-train"></a>État (entraîner)
 
-L’état est une chaîne servant à décrire la procédure d’[entraînement de LargeFaceList/LargePersonGroups/PersonGroups](#Train), notamment « non démarré «, « en cours d’exécution », « succès », « échec ».
+L’état est une chaîne servant à décrire la procédure d’entraînement de LargeFaceList/LargePersonGroups/PersonGroups, notamment « non démarré «, « en cours d’exécution », « succès », « échec ».
 
 Pour plus d’informations, consultez le guide [LargeFaceList - Entraîner](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - Entraîner](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - Entraîner](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
 
@@ -330,7 +336,7 @@ Pour plus d’informations, reportez-vous aux guides suivants : [LargePersonGro
 
 #### <a name="verification"></a>Vérification
 
-Cette API sert à vérifier si deux visages sont identiques. Les deux visages sont représentés sous forme d’ID de visages dans la requête. Les résultats vérifiés contiennent un champ booléen ([isIdentical](#Is-Identical)) indiquant « same » si la valeur est True, et un champ numérique ([confidence](#Confidence)) indiquant le niveau de confiance.
+Cette API sert à vérifier si deux visages sont identiques. Les deux visages sont représentés sous forme d’ID de visages dans la requête. Les résultats vérifiés contiennent un champ booléen (isIdentical) indiquant « same » si la valeur est True, et un champ numérique ([confidence](#Confidence)) indiquant le niveau de confiance.
 
 Pour plus d’informations, consultez le guide [Visage - Vérifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 

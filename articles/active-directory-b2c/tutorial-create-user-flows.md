@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845593"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750288"
 ---
-# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Didacticiel : Créer des flux d’utilisateur dans Azure Active Directory B2C
+# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutoriel : Créer des flux d’utilisateur dans Azure Active Directory B2C
 
 Dans vos applications, vous pouvez avoir des [flux d’utilisateur](active-directory-b2c-reference-policies.md) qui permettent aux utilisateurs de s’inscrire, de se connecter ou de gérer leur profil. Vous pouvez créer plusieurs flux d’utilisateur de types différents dans votre locataire Azure Active Directory (Azure AD) B2C et les utiliser dans vos applications selon vos besoins. Les flux d’utilisateurs peuvent être réutilisés entre les différentes applications.
 
@@ -39,29 +39,30 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Le flux d’utilisateur Inscription et connexion gère les expériences d’inscription et de connexion avec une seule configuration. Les utilisateurs de votre application sont dirigés vers le chemin approprié en fonction du contexte.
 
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 
     ![Basculer vers l’annuaire de l’abonnement](./media/tutorial-create-user-flows/switch-directories.png)
 
-2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-3. Dans le menu de gauche, sélectionnez **Flux d’utilisateur**, puis **Nouveau flux d’utilisateur**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+4. Dans le menu de gauche, sélectionnez **Flux d’utilisateur**, puis **Nouveau flux d’utilisateur**.
 
     ![Sélectionnez Nouveau flux utilisateur](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-4. Sélectionnez le flux d’utilisateur **Inscription et connexion** sous l’onglet Recommandé.
+5. Sélectionnez le flux d’utilisateur **Inscription et connexion** sous l’onglet Recommandé.
 
     ![Sélectionner le flux d’utilisateur Inscription et connexion](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-5. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *signupsignin1*.
-6. Pour **Fournisseurs d’identité**, sélectionnez **Inscription par e-mail**.
+6. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *signupsignin1*.
+7. Pour **Fournisseurs d’identité**, sélectionnez **Inscription par e-mail**.
 
     ![Définir les propriétés de flux](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-7. Pour **Attributs utilisateur et revendications**, choisissez les revendications et les attributs à collecter et envoyer par l’utilisateur pendant l’inscription. Par exemple, sélectionnez **Afficher plus**, puis choisissez **Pays/région**, **Nom d’affichage** et **Code postal**. Cliquez sur **OK**.
+8. Pour **Attributs utilisateur et revendications**, choisissez les revendications et les attributs à collecter et envoyer par l’utilisateur pendant l’inscription. Par exemple, sélectionnez **Afficher plus**, puis choisissez **Pays/région**, **Nom d’affichage** et **Code postal**. Cliquez sur **OK**.
 
     ![Sélectionner des attributs et des revendications](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-8. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
+9. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
 
 ### <a name="test-the-user-flow"></a>Tester le flux utilisateur
 
@@ -123,4 +124,4 @@ Dans cet article, vous avez appris à effectuer les opérations suivantes :
 > * Créer un flux d’utilisateur de réinitialisation du mot de passe
 
 > [!div class="nextstepaction"]
-> [Personnaliser l’interface utilisateur de vos applications dans Azure Active Directory B2C](tutorial-customize-ui.md)
+> [Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C](tutorial-add-identity-providers.md)

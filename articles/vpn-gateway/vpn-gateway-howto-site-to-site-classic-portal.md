@@ -1,5 +1,5 @@
 ---
-title: 'Connecter votre réseau local à un réseau virtuel Azure : VPN site à site : portail Classic | Microsoft Docs'
+title: 'Connectez votre réseau local à un réseau virtuel Azure : VPN site à site (classique) : Portail | Microsoft Docs'
 description: Créez une connexion IPsec entre votre réseau local et un réseau virtuel Azure classique via l’Internet public.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e9736adfce83fc449b68a7448441ecee481ad2a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b0fa60d709c2fa6c286e44797d53e8a4a8d47d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477894"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695602"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Création d’une connexion de site à site à l’aide du portail Azure (Classic)
 
@@ -59,14 +59,14 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
   * 10.11.0.0/16
   * 10.12.0.0/16 (facultatif pour cet exercice)
 * **Sous-réseaux :**
-  * FrontEnd : 10.11.0.0/24
-  * BackEnd : 10.12.0.0/24 (facultatif pour cet exercice)
-* **Sous-réseau de passerelle :** 10.11.255.0/27
+  * Front-end : 10.11.0.0/24
+  * BackEnd : 10.12.0.0/24 (facultatif pour cet exercice)
+* **GatewaySubnet :** 10.11.255.0/27
 * **Groupe de ressources :** TestRG1
-* **Emplacement :** États-Unis de l’Est
-* **Serveur DNS :**  10.11.0.3 (facultatif pour cet exercice)
-* **Nom du site local :** Site2
-* **Espace d’adressage du client :** l’espace d’adressage situé sur votre site local.
+* **Emplacement :** USA Est
+* **Serveur DNS :** 10.11.0.3 (facultatif pour cet exercice)
+* **Nom du site local :** Site2
+* **Espace d’adressage du client :** Espace d’adressage qui se trouve sur votre site local.
 
 ## <a name="CreatVNet"></a>1. Créez un réseau virtuel
 
@@ -127,9 +127,9 @@ Le site local fait généralement référence à votre emplacement local. Il con
   ![Cliquez ici pour configurer les paramètres de la passerelle](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Cliquez ici pour configurer les paramètres de la passerelle")
 3. Sur la page **Nouvelle connexion VPN**, sélectionnez **De site à site**.
 4. Cliquez sur **Site local- Configurer les paramètres requis** pour ouvrir la page **Site local**. Configurez les paramètres, puis cliquez sur **OK** pour les enregistrer.
-  - **Nom :** créez un nom pour votre site local afin de l’identifier plus facilement.
-  - **Adresse IP de la passerelle VPN :** il s’agit de l’adresse IP publique du périphérique VPN pour votre réseau local. Le périphérique VPN requiert une adresse IP IPv4 publique. Spécifiez une adresse IP publique valide pour le périphérique VPN auquel vous souhaitez vous connecter. Il ne peut pas se trouver derrière NAT et doit être accessible par Azure. Si vous ne connaissez pas l’adresse IP de votre périphérique VPN, vous pouvez toujours placer une valeur d’espace réservé (à condition qu’elle soit au format d’une adresse IP publique valide) et la modifier ultérieurement.
-  - **Espace d’adressage du client :** spécifiez les plages d’adresses IP qui devront être acheminées vers le réseau local via cette passerelle. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne se chevauchent pas avec des plages d’adresses d’autres réseaux auxquels votre réseau virtuel se connecte, ou avec les propres plages d’adresses du réseau virtuel.
+  - **Nom :** Créez un nom pour votre site local afin de l’identifier plus facilement.
+  - **Adresse IP de la passerelle VPN :** Adresse IP publique du périphérique VPN pour votre réseau local. Le périphérique VPN requiert une adresse IP IPv4 publique. Spécifiez une adresse IP publique valide pour le périphérique VPN auquel vous souhaitez vous connecter. Il ne peut pas se trouver derrière NAT et doit être accessible par Azure. Si vous ne connaissez pas l’adresse IP de votre périphérique VPN, vous pouvez toujours placer une valeur d’espace réservé (à condition qu’elle soit au format d’une adresse IP publique valide) et la modifier ultérieurement.
+  - **Espace d’adressage du client :** Listez les plages d’adresses IP que vous voulez router vers le réseau local par le biais de cette passerelle. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne se chevauchent pas avec des plages d’adresses d’autres réseaux auxquels votre réseau virtuel se connecte, ou avec les propres plages d’adresses du réseau virtuel.
 
   ![Site local](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configurez le site local")
 
@@ -208,7 +208,7 @@ Lorsque vous utilisez PowerShell et le modèle de déploiement classique, il arr
   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
   ```
-Lorsque la connexion est créée, le message **État : réussi** s’affiche.
+Quand la connexion est créée, le résultat est : **État : Réussi**.
 
 ## <a name="verify"></a>9. Vérifier votre connexion
 
@@ -226,5 +226,5 @@ Pour obtenir la procédure permettant de modifier une référence SKU de passere
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/).
 * Pour plus d’informations sur le tunneling forcé, consultez [Configuration du tunneling forcé à l’aide du modèle de déploiement classique](vpn-gateway-about-forced-tunneling.md).

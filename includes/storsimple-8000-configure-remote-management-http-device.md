@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: b397d77b525bdb63f2531634e397ec210d4a6202
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 473bc0a58fe49c7f454c81402b57ddce7fc745b2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165314"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736014"
 ---
 #### <a name="to-configure-remote-management-on-cloud-appliance"></a>Pour configurer la gestion à distance sur l’appliance cloud
 
@@ -21,7 +21,7 @@ ms.locfileid: "50165314"
      ![Paramètres de sécurité StorSimple](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage2.png)
 
 3. Accédez à la section **Gestion à distance**. Cochez la case **Gestion à distance**.
-     ![StorSimple - Gestion à distance](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage3.png)
+     ![Gestion à distance de StorSimple](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage3.png)
 
 4. Dans le panneau **Gestion à distance** :
 

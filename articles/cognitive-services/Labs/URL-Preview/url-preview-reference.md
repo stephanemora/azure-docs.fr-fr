@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: cd99f8bce8eca622412b834b5a7b75fda3ceb1f7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222913"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812053"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informations de référence sur l’aperçu d’URL du projet v7
 
@@ -73,9 +73,9 @@ Voici les en-têtes possibles d’une demande et d’une réponse.
 ## <a name="query-parameters"></a>Paramètres de requête
 La demande peut comporter les paramètres de requête suivants. Consultez la colonne Requis pour savoir lesquels sont obligatoires. Vous devez coder au format URL les paramètres de la requête. La requête doit être une URL absolue avec un schéma de type http ou https. Nous ne prenons pas en charge les URL relatives ou autres schémas du type ftp://.
 
-|NOM|Valeur|Type|Obligatoire|
+|Nom|Valeur|Type|Obligatoire|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir [Codes de marché](#market-codes).<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|Chaîne|Oui|
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|Chaîne|Oui|
 |<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|Oui|
 |<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](http://json-ld.org/).|Chaîne|Non |
 |<a name="safesearch"/>safeSearch|Le contenu pour adultes jugé non conforme, ou le contenu piraté, est bloqué avec pour code d’erreur 400 et aucun indicateur *isFamilyFriendly* n’est renvoyé. <p>Voici par contre le comportement concernant le contenu pour adultes considéré comme légal. Le système renvoie le code d’état 200 et l’indicateur *isFamilyFriendly* est défini sur false.<ul><li>safeSearch=strict : Le titre, la description, l’URL et l’image ne seront pas renvoyés.</li><li>safeSearch=moderate : vous obtenez le titre, l’URL et la description, mais pas l’image descriptive.</li><li>safeSearch=off : vous obtenez tous les objets/éléments de la réponse (titre, URL, description et image).</li></ul> |Chaîne|Non requis. </br> La valeur par défaut est safeSearch=strict.|
@@ -102,7 +102,7 @@ Définit l’erreur qui s’est produite.
 ### <a name="errorresponse"></a>ErrorResponse
 Objet de niveau supérieur figurant dans la réponse en cas d’échec de la demande.
 
-|NOM|Valeur|Type|
+|Nom|Valeur|Type|
 |----------|-----------|----------|
 |_type|Indicateur de type.|Chaîne|
 |<a name="errors" />errors|Liste des erreurs qui décrivent les raisons pour lesquelles la demande a échoué.|[Error](#error)[]|
@@ -110,7 +110,7 @@ Objet de niveau supérieur figurant dans la réponse en cas d’échec de la dem
 ### <a name="webpage"></a>WebPage
 Définit les informations concernant la page web dans l’aperçu.
 
-|NOM|Valeur|Type|
+|Nom|Valeur|Type|
 |----------|-----------|----------|
 |Nom|Titre de la page (pas nécessairement le titre HTML).|Chaîne|
 |url|URL réellement analysée (potentiellement avec redirections de la demande).|Chaîne|
@@ -119,7 +119,7 @@ Définit les informations concernant la page web dans l’aperçu.
 |primaryImageOfPage/contentUrl|URL d’une image représentative à inclure dans l’aperçu.|Chaîne|
 
 ### <a name="identifiable"></a>Identifiable
-|NOM|Valeur|Type|
+|Nom|Valeur|Type|
 |-------------|-----------------|----------|
 |id|Identificateur de ressource.|Chaîne|
 

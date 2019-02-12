@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c9759b8900f0579ccd56d001d50d65aedce2b445
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1480032b7ff018081d9dc25038bf336740810079
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716036"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657561"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutoriel : Créer une application multiconteneur (préversion) dans Web App pour conteneurs
 
@@ -37,6 +37,11 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Résoudre les erreurs
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="preview-feature-limitations"></a>Limitations des fonctionnalités d’évaluation
+La fonctionnalité multiconteneur est actuellement en préversion, et les fonctionnalités suivantes de la plateforme App Service ne sont pas prises en charge. Nous prévoyons d’activer ces fonctionnalités pour l’application web multiconteneur avant sa disponibilité générale :
+* Authentification / Autorisation
+* Identités managées
 
 ## <a name="prerequisites"></a>Prérequis
 

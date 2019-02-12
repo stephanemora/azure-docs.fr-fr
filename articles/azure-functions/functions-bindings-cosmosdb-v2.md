@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6748998e87de7f0d5ea41a10ba16600aa7b31505
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972037"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818122"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Liaisons Azure Cosmos DB pour Azure Functions 2.x
 
@@ -57,7 +57,7 @@ Consultez l’exemple propre à un langage particulier :
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-[Ignorer les exemples de déclencheur](#trigger---attributes)
+Ignorer les exemples de déclencheur
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
@@ -93,7 +93,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Ignorer les exemples de déclencheur](#trigger---attributes)
+Ignorer les exemples de déclencheur
 
 ### <a name="trigger---c-script-example"></a>Déclencheur - exemple Script C#
 
@@ -131,7 +131,7 @@ Voici le code Script C# :
     }
 ```
 
-[Ignorer les exemples de déclencheur](#trigger---attributes)
+Ignorer les exemples de déclencheur
 
 ### <a name="trigger---javascript-example"></a>Déclencheur - exemple JavaScript
 
@@ -199,9 +199,9 @@ Voici le code Java :
 Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@CosmosDBTrigger` sur les paramètres dont la valeur proviendrait de Cosmos DB.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de Optional<T>.
 
 
-[Ignorer les exemples de déclencheur](#trigger---attributes)
+Ignorer les exemples de déclencheur
 
-### <a name="trigger---python-example"></a>Déclencheur - Exemple Python
+### <a name="trigger---python-example"></a>Déclencheur – Exemple Python
 
 L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction Python](functions-reference-python.md) qui utilise la liaison. La fonction écrit des messages de journal quand des enregistrements Cosmos DB sont modifiés.
 
@@ -1727,7 +1727,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 Dans les fonctions C# et F#, lorsque la fonction se termine correctement, toutes les modifications apportées au document d’entrée par le biais des paramètres d’entrée nommés sont automatiquement conservées.
 
-Dans les fonctions JavaScript, les mises à jour ne sont pas effectuées une fois la fonction terminée. Utilisez plutôt `context.bindings.<documentName>In` et `context.bindings.<documentName>Out` pour effectuer les mises à jour. Consultez [l’exemple JavaScript](#input---javascript-example).
+Dans les fonctions JavaScript, les mises à jour ne sont pas effectuées une fois la fonction terminée. Utilisez plutôt `context.bindings.<documentName>In` et `context.bindings.<documentName>Out` pour effectuer les mises à jour. Consultez l’exemple JavaScript.
 
 ## <a name="output"></a>Sortie
 

@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 6ec09627fb80925fef72c491936a1dd83106874b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5e9ae8fcd756619c83ebde12df9f8405f1a39bf6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211693"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812573"
 ---
 # <a name="project-answer-search-v7-reference"></a>Informations de référence sur le projet Recherche de réponses v7
 
@@ -65,7 +65,7 @@ Voici les en-têtes possibles d’une demande et d’une réponse.
 |En-tête|Description|  
 |------------|-----------------|  
 |Acceptation|En-tête de demande facultatif.<br /><br /> Le type de média par défaut est application/json. Pour spécifier que la réponse utilise [JSON-LD](http://json-ld.org/), donnez la valeur application/ld+json à l’en-tête Accept.|  
-|<a name="acceptlanguage" />Accept-Language|En-tête de demande facultatif.<br /><br /> Liste délimitée par des virgules des langues à utiliser pour les chaînes d’interface utilisateur. Elle est triée par ordre de préférence décroissant. Pour plus d’informations, notamment le format attendu, voir [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Cet en-tête et le paramètre de requête [setLang](#setlang) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Si vous définissez cet en-tête, vous devrez également spécifier le paramètre de requête [cc](#cc). Pour déterminer pour quel marché les résultats devront être retournés, Bing utilise la première langue prise en charge qu’il trouve dans la liste et la combine avec la valeur du paramètre `cc`. Si la liste ne comporte pas de langue prise en charge, Bing recherche la langue et le marché les plus proches qui prennent en charge la demande, ou utilise un marché agrégé ou par défaut pour les résultats. Pour identifier le marché utilisé par Bing, voir l’en-tête BingAPIs-Market.<br /><br /> N’utilisez cet en-tête et le paramètre de requête `cc` que si vous spécifiez plusieurs langues. Sinon, utilisez les paramètres de requête [mkt](#mkt) et [setLang](#setlang).<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. Les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée.|  
+|<a name="acceptlanguage" />Accept-Language|En-tête de demande facultatif.<br /><br /> Liste délimitée par des virgules des langues à utiliser pour les chaînes d’interface utilisateur. Elle est triée par ordre de préférence décroissant. Pour plus d’informations, notamment le format attendu, voir [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Cet en-tête et le paramètre de requête [setLang](#setlang) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Si vous définissez cet en-tête, vous devrez également spécifier le paramètre de requête cc. Pour déterminer pour quel marché les résultats devront être retournés, Bing utilise la première langue prise en charge qu’il trouve dans la liste et la combine avec la valeur du paramètre `cc`. Si la liste ne comporte pas de langue prise en charge, Bing recherche la langue et le marché les plus proches qui prennent en charge la demande, ou utilise un marché agrégé ou par défaut pour les résultats. Pour identifier le marché utilisé par Bing, voir l’en-tête BingAPIs-Market.<br /><br /> N’utilisez cet en-tête et le paramètre de requête `cc` que si vous spécifiez plusieurs langues. Sinon, utilisez les paramètres de requête [mkt](#mkt) et [setLang](#setlang).<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. Les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée.|  
 |<a name="market" />BingAPIs-Market|En-tête de réponse.<br /><br /> Marché utilisé par la demande. Le format est \<code de langue\>-\<code du pays\>. Par exemple, en-US.|  
 |<a name="traceid" />BingAPIs-TraceId|En-tête de réponse.<br /><br /> ID de l’entrée du journal contenant les détails de la demande. Lorsqu’une erreur se produit, capturez cet ID. Si vous ne parvenez pas à identifier ou à résoudre le problème, précisez cet ID avec les autres informations envoyées à l’équipe de support.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|En-tête de demande requis.<br /><br /> Clé d’abonnement reçue lors de l’inscription à ce service dans [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
@@ -83,9 +83,9 @@ Voici les en-têtes possibles d’une demande et d’une réponse.
 La demande peut comporter les paramètres de requête suivants. Consultez la colonne Requis pour savoir lesquels sont obligatoires. Vous devez encoder les paramètres de requête au format URL.  
   
   
-|NOM|Valeur|Type|Obligatoire|  
+|Nom|Valeur|Type|Obligatoire|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir [Codes de marché](#market-codes).<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|Oui|  
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|Oui|  
 |<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|Oui|  
 |<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](http://json-ld.org/).|Chaîne|Non |  
 |<a name="safesearch" />safeSearch|Filtre utilisé pour filtrer le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Retourner les pages web comportant du texte, des images ou des vidéos pour adultes.<br /><br/></li><li>Modéré &mdash; Retourner les pages web comportant du texte pour adultes, mais pas des images ou des vidéos pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas retourner de pages web comportant du texte, des images ou des vidéos pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la demande provient d’un marché où la stratégie de Bing en matière de contenu pour adultes exige que `safeSearch` ait la valeur Strict, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes. |Chaîne|Non |  
@@ -119,7 +119,7 @@ Définit l’erreur qui s’est produite.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objet de niveau supérieur figurant dans la réponse en cas d’échec de la demande.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type.|Chaîne|  
 |<a name="errors" />errors|Liste des erreurs qui décrivent les raisons pour lesquelles la demande a échoué.|[Error](#error)|  
@@ -129,7 +129,7 @@ Objet de niveau supérieur figurant dans la réponse en cas d’échec de la dem
 ### <a name="license"></a>Licence  
 Définit la licence sous laquelle il est possible d’utiliser le texte ou la photo.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |Nom|Nom de la licence.|Chaîne|  
 |url|URL vers un site web sur lequel l’utilisateur trouvera plus d’informations sur la licence.<br /><br /> Utilisez le nom et l’URL pour créer un lien hypertexte.|Chaîne|  
@@ -138,7 +138,7 @@ Définit la licence sous laquelle il est possible d’utiliser le texte ou la ph
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Définit une règle contractuelle pour l’attribution de la licence.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur LicenseAttribution.|Chaîne|  
 |license|Licence sous laquelle il est possible d’utiliser le contenu.|[License](#license)|  
@@ -150,7 +150,7 @@ Définit une règle contractuelle pour l’attribution de la licence.
 ### <a name="link"></a>Lien  
 Définit les composants d’un lien hypertexte.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type.|Chaîne|  
 |texte|Texte d’affichage.|Chaîne|  
@@ -160,7 +160,7 @@ Définit les composants d’un lien hypertexte.
 ### <a name="linkattribution"></a>LinkAttribution  
 Définit une règle contractuelle pour l’attribution du lien.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur LinkAttribution.|Chaîne|  
 |mustBeCloseToContent|Valeur booléenne qui détermine si le contenu de la règle doit être placé à proximité du champ auquel la règle s’applique. Si la valeur est **true**, le contenu doit être à proximité immédiate. Si ce champ a la valeur **false** ou n’existe pas, l’emplacement du contenu est à la discrétion de l’appelant.|Booléen|  
@@ -172,7 +172,7 @@ Définit une règle contractuelle pour l’attribution du lien.
 ### <a name="mediaattribution"></a>MediaAttribution  
 Définit une règle contractuelle pour l’attribution du média.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur MediaAttribution.|Chaîne|  
 |mustBeCloseToContent|Valeur booléenne qui détermine si le contenu de la règle doit être placé à proximité du champ auquel la règle s’applique. Si la valeur est **true**, le contenu doit être à proximité immédiate. Si ce champ a la valeur **false** ou n’existe pas, l’emplacement du contenu est à la discrétion de l’appelant.|Booléen|  
@@ -186,7 +186,7 @@ Définit un éditeur.
   
 Notez qu’un éditeur peut indiquer son nom, son site web ou les deux.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |Nom|Nom de l’éditeur.|Chaîne|  
 |url|URL du site web de l’éditeur.<br /><br /> Notez que l’éditeur peut ne pas indiquer de site web.|Chaîne|  
@@ -196,7 +196,7 @@ Notez qu’un éditeur peut indiquer son nom, son site web ou les deux.
 ### <a name="webpage"></a>WebPage  
 Définit les informations concernant la page web dans l’aperçu.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|
 |Nom|Titre de la page (pas nécessairement le titre HTML).|Chaîne|
 |url|URL réellement analysée (potentiellement avec redirections de la demande).|Chaîne|  
@@ -217,19 +217,19 @@ Définit le contexte de requête utilisé par Bing pour la demande.
 |originalQuery|Chaîne de requête telle que spécifiée dans la demande.|Chaîne|  
 
 ### <a name="identifiable"></a>Identifiable
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |-------------|-----------------|----------|
 |id|Identificateur de ressource.|Chaîne|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Définit un groupe de résultats de la recherche, par exemple, mainline.
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |-------------|-----------------|----------|
 |items|Liste de résultats de la recherche à afficher dans le groupe.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Définit un élément de résultat de recherche à afficher.
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Index base zéro de l’élément de la réponse à afficher. Si l’élément ne comporte pas ce champ, affiche tous les éléments de la réponse. Par exemple, affiche tous les articles dans la réponse Actualités.|Entier |
 |answerType|Réponse qui contient l’élément à afficher. Par exemple, Actualités.<br /><br />Utilisez le type pour trouver la réponse dans l’objet SearchResponse. Le type est le nom d’un champ SearchResponse.<br /><br /> Toutefois, n’utilisez le type de réponse que si cet objet inclut le champ de valeur ; sinon, ignorez-le.|Chaîne|
@@ -239,7 +239,7 @@ Définit un élément de résultat de recherche à afficher.
 ### <a name="rankingresponse"></a>RankingResponse  
 Définit où le contenu doit être placé sur la page de résultats de la recherche et dans quel ordre.  
   
-|NOM|Valeur|  
+|Nom|Valeur|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Résultats de la recherche à afficher dans la partie principale.|  
 |<a name="ranking-pole" />pole|Résultats de la recherche qui doivent être les plus visibles (par exemple, affichés au-dessus de la partie principale et de l’encadré).|  
@@ -251,7 +251,7 @@ Définit l’objet de niveau supérieur figurant dans la réponse en cas de réu
   
 Notez que, si le service suspecte une attaque par déni de service, la demande réussira (le code d’état HTTP est 200 OK) ; toutefois, le corps de la réponse sera vide.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur SearchResponse.|Chaîne|  
 |WebPage|Objet JSON qui définit l’aperçu.|chaîne|  
@@ -260,7 +260,7 @@ Notez que, si le service suspecte une attaque par déni de service, la demande r
 ### <a name="textattribution"></a>TextAttribution  
 Définit une règle contractuelle pour l’attribution du texte brut.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur TextAttribution.|Chaîne|  
 |texte|Texte d’attribution.<br /><br /> L’attribution du texte s’applique à l’entité dans son ensemble et devrait s’afficher juste après la présentation de l’entité. Si plusieurs règles d’attribution du texte ou du lien ne spécifient pas de cible, concaténez-les et affichez-les avec une étiquette « Données provenant de : ».|Chaîne| 

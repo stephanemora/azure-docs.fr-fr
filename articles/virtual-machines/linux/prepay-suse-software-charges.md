@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/18/2019
 ms.author: yashar
-ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 4f70a34febcf0b39d051053a6ddd9abe5c9a6726
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582188"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745977"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Prépayer des abonnements logiciels SUSE dans Azure Reservations
 
@@ -27,7 +27,7 @@ Prépayez votre utilisation de SUSE et faites des économies par rapport au paie
 Vous pouvez acheter des abonnements logiciels SUSE dans le portail Azure. Pour acheter un abonnement logiciel :
 
 - Vous devez avoir un rôle de propriétaire pour au moins un abonnement Entreprise ou Paiement à l’utilisation.
-- Pour les abonnements Entreprise, les achats de réservation doivent être activés dans le [portal EA](https://ea.azure.com).
+- Pour les abonnements Entreprise, **Add Reserved Instances** (Ajouter des instances réservées) doit être activé dans le [portal EA](https://ea.azure.com). Si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
 - Pour le programme CSP, seuls les administrateurs et les commerciaux peuvent acheter des abonnements logiciels SUSE.
 
 ## <a name="buy-a-suse-software-plan"></a>Acheter un abonnement logiciel SUSE
@@ -38,9 +38,9 @@ Vous pouvez acheter des abonnements logiciels SUSE dans le portail Azure. Pour a
 
     | Champ      | Description|
     |:------------|:--------------|
-    |NOM        |Nom de cet achat|
-    |Abonnement|Abonnement utilisé pour payer cet abonnement logiciel. Les coûts initiaux de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un contrat Entreprise (numéro de l’offre : MS-AZR-0017P) ou Paiement à l’utilisation (numéro de l’offre : MS-AZR-0003P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.|
-    |Étendue       |L’étendue peut couvrir un ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>Abonnement unique : la remise sur l’abonnement logiciel est appliquée à l’utilisation de SUSE Linux dans cet abonnement. </li><li>Partagé : la remise sur l’abonnement logiciel est appliquée à l’utilisation de SUSE Linux de tout abonnement compris dans votre contexte de facturation. Pour les clients Entreprise, l’étendue partagée correspond à l’inscription et inclut tous les abonnements (à l’exception des abonnements de développement/test) au sein de l’inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</li></ul>|
+    |Nom        |Nom de cet achat|
+    |Abonnement|Abonnement utilisé pour payer cet abonnement logiciel. Les coûts initiaux de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un Contrat Entreprise (numéro de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou un Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.|
+    |Étendue       |L’étendue peut couvrir un ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>Abonnement unique : la remise sur l’abonnement logiciel est appliquée à l’utilisation de SUSE Linux dans cet abonnement. </li><li>Partagé : la remise sur l’abonnement logiciel est appliquée à l’utilisation de SUSE Linux de tout abonnement compris dans votre contexte de facturation. Pour les clients Entreprise, l’étendue partagée correspond à l’inscription et inclut tous les abonnements au sein de l’inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</li></ul>|
     |Abonnement logiciel     |Sélectionnez l’abonnement SUSE Linux. Pour savoir quel abonnement acheter, consultez [Comprendre l’application des remises aux réservations de logiciels SUSE Linux Enterprise](../../billing/billing-understand-suse-reservation-charges.md).|
     |Taille de la machine virtuelle     |Les tarifs SUSE Linux dépendent du nombre de processeurs virtuels de la machine virtuelle. Sélectionnez l’option qui correspond au nombre de processeurs virtuels de vos machines virtuelles SUSE Linux.|
     |Terme        |Une année ou trois ans.|

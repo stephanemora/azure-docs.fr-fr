@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190286"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566089"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Démarrage rapide : Exécuter une application de conteneur dans Azure Container Instances dans le portail Azure
 
@@ -41,7 +41,7 @@ Entrez les valeurs suivantes dans les zones de texte **Nom du conteneur**, **Ima
 
 ![Configuration des paramètres de base pour une nouvelle instance de conteneur dans le portail Azure][aci-portal-03]
 
-Vous pouvez créer des conteneurs Windows et Linux dans Azure Container Instances. Pour ce guide de démarrage rapide, laissez le paramètre par défaut **Linux** pour déployer l’image Linux `microsoft/aci-helloworld`.
+Pour ce guide de démarrage rapide, conservez le paramètre par défaut de **Public** afin de déployer l’image `microsoft/aci-helloworld` à partir du registre Docker Hub public. Cette image contient une petite application web écrite en Node.js qui sert une page HTML statique.
 
 Sous **Configuration**, spécifiez une **Étiquette du nom DNS** pour votre conteneur. Le nom doit être unique au sein de la région Azure où vous créez l’instance de conteneur. Votre conteneur sera publiquement accessible avec `<dns-name-label>.<region>.azurecontainer.io`.
 

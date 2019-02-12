@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015270"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564559"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Démarrage rapide : Créer un pipeline de recherche cognitive à l’aide de compétences et d’exemples de données
 
@@ -27,7 +27,7 @@ Dans ce guide de démarrage rapide, créez votre premier pipeline d’enrichisse
 > [!div class="checklist"]
 > * Commencer avec les exemples de données dans le stockage d’objets blob Azure
 > * Configurer l’Assistant [**Importer des données**](search-import-data-portal.md) pour l’indexation et l’enrichissement cognitifs 
-> * Exécuter l’Assistant (une compétence d’entité détecte les personnes, l’emplacement et les organisations)
+> * Exécutez l’Assistant (une compétence d’entité détecte les personnes, l’emplacement et les organisations)
 > * Utiliser l’[**Explorateur de recherche**](search-explorer.md) pour interroger les données enrichies
 
 ## <a name="supported-regions"></a> Régions prises en charge
@@ -147,15 +147,19 @@ L’Assistant peut généralement déduire un index par défaut. À cette étape
 
 Pour ce guide de démarrage rapide, l’Assistant effectue un travail de qualité en termes de définition de valeurs par défaut raisonnables : 
 
-+ Le nom par défaut est *azureblob-index*.
++ Le nom par défaut est *azureblob-index* en fonction du type de source de données. 
+
++ Les champs par défaut sont basés sur le champ des données sources d’origine (`content`), ainsi que sur les champs de sortie (`people`, `organizations`, et `locations`) créés par le pipeline cognitif. Les types de données par défaut sont déduits à partir des échantillonnages de métadonnées et de données.
+
 + La clé par défaut est *metadata_storage_path* (ce champ contient des valeurs uniques).
-+ Les attributs et types de données par défaut sont valides pour les scénarios de recherche en texte intégral.
 
-Envisagez d’effacer **Récupérable** du champ `content`. Dans les objets Blob, ce champ peut s’étendre sur des milliers de lignes. Vous pouvez imaginer la difficulté d’afficher des fichiers volumineux, tels que des documents Word ou des présentations PowerPoint, au format JSON dans une liste de résultats de recherche. 
-
-Étant donné que vous avez défini un ensemble de compétences, l’Assistant suppose que vous souhaitez le champ de données sources d’origine, ainsi que les champs de sortie créés par le pipeline cognitif. Pour cette raison, le portail ajoute des champs d’index pour `content`, `people`, `organizations`, et `locations`. Notez que l’Assistant active automatiquement **Récupérable** et **Possibilité de recherche** pour ces champs. **Possibilité de recherche** indique qu’un champ peut faire l’objet d’une recherche. **Récupérable** signifie qu’il peut être renvoyé dans les résultats. 
++ Les attributs par défaut sont **Récupérable** et **PossibilitéRecherche** pour ces champs. **Possibilité de recherche** indique qu’un champ peut faire l’objet d’une recherche. **Récupérable** signifie qu’il peut être renvoyé dans les résultats. L’Assistant suppose que vous souhaitez ces champs récupérables et interrogeables, car vous les avez créés par l’intermédiaire de compétences.
 
   ![Champs d’index](media/cognitive-search-quickstart-blob/index-fields.png)
+
+Remarquez la zone barrée et le point d’interrogation sur l’attribut **Récupérable** près du champ `content`. Pour les documents d’objets blob comportant beaucoup de texte, le champ `content` contient la majeure partie du fichier qui peut atteindre des milliers de lignes. Si vous devez transmettre le contenu du fichier au code client, assurez-vous que **Récupérable** reste sélectionné. Sinon, pensez à décocher cet attribut sur `content` si les éléments extraits (`people`, `organizations`, et `locations`) sont suffisants pour vos besoins.
+
+Marquer un champ comme étant **Récupérable** ne signifie pas que le champ *doit* être présent dans les résultats de recherche. Vous pouvez contrôler avec précision la composition des résultats de recherche à l’aide du paramètre de requête **$select** pour spécifier les champs à inclure. Pour les champs comportant beaucoup de texte, tels que `content`, le paramètre **$select** constitue votre solution pour fournir aux utilisateurs humains de votre application des résultats de recherche faciles à gérer, tout en garantissant au code client l’accès à toutes les informations dont il a besoin via l’attribut **Récupérable**.
   
 Passez à la page suivante.
 

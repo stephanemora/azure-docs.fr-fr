@@ -4,17 +4,17 @@ description: Utilisez des blueprints Azure pour créer, définir et déployer de
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c6c498920d407dbbac2449d1da0d76237db0c63d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315296"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566310"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Définir et affecter un blueprint Azure dans le portail
 
@@ -42,10 +42,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
    ![Créer un blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Dans **Nom du blueprint**, entrez par exemple « MyBlueprint » (chaîne composée de lettres et de chiffres ne dépassant pas 48 caractères et ne contenant pas d’espaces ou de caractères spéciaux). Laissez **Description du blueprint** vide pour l’instant.  Dans la zone **Emplacement de définition**, cliquez sur les points de suspension à droite, sélectionnez le [groupe d’administration](../management-groups/overview.md) dans lequel enregistrer le blueprint, puis cliquez sur **Sélectionner**.
-
-   > [!NOTE]
-   > Vous pouvez uniquement enregistrer des définitions de blueprint dans des groupes d’administration. Pour créer votre premier groupe d’administration, suivez [ces étapes](../management-groups/create.md).
+1. Dans **Nom du blueprint**, entrez par exemple « MyBlueprint » (chaîne composée de lettres et de chiffres ne dépassant pas 48 caractères et ne contenant pas d’espaces ou de caractères spéciaux). Laissez **Description du blueprint** vide pour l’instant.  Dans la zone **Emplacement de définition**, cliquez sur les points de suspension à droite, sélectionnez le [groupe d’administration](../management-groups/overview.md) ou l’abonnement dans lequel enregistrer le blueprint, puis cliquez sur **Sélectionner**.
 
 1. Vérifiez que les informations contenues dans les champs **Nom du blueprint** et **Emplacement de définition** sont correctes, car vous ne pourrez pas les changer plus tard. Cliquez ensuite sur **Suivant : Artefacts** en bas de la page ou sur l’onglet **Artefacts** en haut de la page.
 
@@ -154,7 +151,7 @@ Une fois un blueprint publié, il peut être affecté à un abonnement.
 
 ## <a name="assign-a-blueprint"></a>Affecter un blueprint
 
-Une fois un blueprint publié, vous pouvez l’affecter à un abonnement. Affectez le blueprint que vous avez créé à l’un des abonnements dans votre hiérarchie de groupes d’administration.
+Une fois un blueprint publié, vous pouvez l’affecter à un abonnement. Affectez le blueprint que vous avez créé à l’un des abonnements sous votre hiérarchie de groupes d’administration. Si le blueprint est enregistré dans un abonnement, il ne peut être attribué qu’à cet abonnement.
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 

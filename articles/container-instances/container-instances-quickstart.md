@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189606"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562060"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Démarrage rapide : Exécuter une application de conteneur dans Azure Container Instances à l'aide de l'interface de ligne de commande Azure
 
@@ -39,7 +39,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Maintenant que vous avez un groupe de ressources, vous pouvez exécuter un conteneur dans Azure. Pour créer une instance de conteneur avec Azure CLI, fournissez un nom de groupe de ressources, un nom d’instance de conteneur et l’image de conteneur Docker à la commande [az container create][az-container-create]. Vous pouvez exposer vos conteneurs sur Internet en spécifiant un ou plusieurs ports à ouvrir, une étiquette de nom DNS ou les deux. Dans ce démarrage rapide, vous déployez un conteneur avec une étiquette de nom DNS qui héberge une petite application web écrite sur la plateforme Node.js.
+Maintenant que vous avez un groupe de ressources, vous pouvez exécuter un conteneur dans Azure. Pour créer une instance de conteneur avec Azure CLI, fournissez un nom de groupe de ressources, un nom d’instance de conteneur et l’image de conteneur Docker à la commande [az container create][az-container-create]. Dans ce guide de démarrage rapide, vous utilisez l’image `microsoft/aci-helloworld` à partir du registre Docker Hub public. Cette image contient une petite application web écrite en Node.js qui sert une page HTML statique.
+
+Vous pouvez exposer vos conteneurs sur Internet en spécifiant un ou plusieurs ports à ouvrir, une étiquette de nom DNS ou les deux. Dans ce guide de démarrage rapide, vous déployez un conteneur avec une étiquette de nom DNS pour que l’application web soit publiquement accessible.
 
 Pour démarrer une instance de conteneur, exécutez la commande suivante. La valeur `--dns-name-label` doit être unique au sein de la région Azure dans laquelle vous créez l’instance. Si vous recevez un message d’erreur « Étiquette de nom DNS indisponible », essayez d’utiliser une autre étiquette de nom DNS.
 
@@ -92,7 +94,7 @@ listening on port 80
 
 En plus de consulter les journaux, vous pouvez joindre vos flux de sortie locale standard et d’erreur standard à ceux du conteneur.
 
-Exécutez d’abord la commande [az container attach][az-container-attach] pour joindre votre console locale aux flux de sortie du conteneur :
+Exécutez d’abord la commande [az container attach][az-container-attach] pour joindre votre console locale aux flux de sortie du conteneur :
 
 ```azurecli-interactive
 az container attach --resource-group myResourceGroup -n mycontainer
@@ -145,7 +147,7 @@ Dans ce démarrage rapide, vous avez créé une instance de conteneur Azure à l
 > [!div class="nextstepaction"]
 > [Didacticiel Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
-Pour tester les options d’exécution des conteneurs dans un système d’orchestration sur Azure, consultez les guides de démarrage rapide [Service Fabric][service-fabric] et [Azure Kubernetes Service (AKS)][container-service].
+Pour tester les options d’exécution des conteneurs dans un système d’orchestration sur Azure, consultez les guides de démarrage rapide [Azure Kubernetes Service (AKS)][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
@@ -166,4 +168,3 @@ Pour tester les options d’exécution des conteneurs dans un système d’orche
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

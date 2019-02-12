@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5104d630e2b4e97b80a6fedfb6d863061c2722fb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111077"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810539"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Déploiement de StorSimple Virtual Array - Configuration dans Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Il décrit la configuration d’un appareil virtuel StorSimple (StorSimple Virtual Array) sur un système hôte exécutant Hyper-V sur Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. Cet article concerne le déploiement de StorSimple Virtual Array dans le portail Azure, ainsi que dans Microsoft Azure Government Cloud.
 
 Vous aurez besoin de privilèges d’administrateur pour configurer un tableau virtuel. La configuration initiale peut prendre environ 10 minutes.
@@ -37,7 +37,7 @@ Vous trouverez ici les conditions requises pour la configuration d’un tableauv
 Avant de commencer, assurez-vous que :
 
 * Vous avez terminé toutes les étapes de la rubrique [Préparation du portail pour StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
-* Vous avez téléchargé l’image du tableau virtuel pour Hyper-V à partir du portail Azure. Pour plus d’informations, consultez l’**Étape 3 : Téléchargement de l’image du tableau virtuel** de [Prepare the portal for StorSimple Virtual Array guide](storsimple-virtual-array-deploy1-portal-prep.md) (Guide de préparation du portail pour StorSimple Virtual Array).
+* Vous avez téléchargé l’image du tableau virtuel pour Hyper-V à partir du portail Azure. Pour plus d'informations, consultez **Étape 3 : Téléchargement de l’image du tableau virtuel** de [Guide de préparation du portail pour StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
 
   > [!IMPORTANT]
   > Le logiciel exécuté sur StorSimple Virtual Array peut uniquement servir en association avec le service StorSimple Device Manager.
@@ -67,7 +67,7 @@ Pour configurer et vous connecter à un tableau virtuel, vous devez effectuer le
 
 Chacune de ces étapes est expliquée dans les sections suivantes.
 
-## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements"></a>Étape 1 : Vérifier que le système hôte répond aux exigences minimales du tableau virtuel
+## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements"></a>Étape 1 : Vérifier que le système hôte répond aux exigences minimales du tableau virtuel
 Pour créer un tableau virtuel vous devez disposer des éléments suivants :
 
 * Le rôle Hyper-V installé sur Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 SP1.
@@ -118,7 +118,7 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 11. Pour répondre à la configuration minimale requise, vous avez besoin de 4 cœurs. Pour ajouter 4 processeurs virtuels, sélectionnez votre système hôte dans la fenêtre **Hyper-V Manager**. Dans le volet droit, sous la liste des **Machines virtuelles**, identifiez la machine virtuelle nouvellement créée. Sélectionnez et cliquez avec le bouton droit sur le nom de la machine, puis sélectionnez **Paramètres**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image10.png)
-12. Sur la page **Paramètres**, cliquez sur **Processeur** dans le volet gauche. Dans le volet droit, définissez le **nombre de processeurs virtuels** sur 4 (ou plus). Cliquez sur **Apply**.
+12. Sur la page **Paramètres**, cliquez sur **Processeur** dans le volet gauche. Dans le volet droit, définissez le **nombre de processeurs virtuels** sur 4 (ou plus). Cliquez sur **Appliquer**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
 13. Pour répondre à la configuration minimale requise, vous devez également ajouter un disque de données virtuel de 500 Go. Dans la page **Paramètres** :
@@ -150,7 +150,7 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image20.png)
 
-## <a name="step-3-start-the-virtual-array-and-get-the-ip"></a>Étape 3 : Démarrer le tableau virtuel et récupérer l’adresse IP
+## <a name="step-3-start-the-virtual-array-and-get-the-ip"></a>Étape 3 : Démarrer le tableau virtuel et récupérer l’adresse IP
 Procédez comme suit pour démarrer votre tableau virtuel et vous y connecter.
 
 #### <a name="to-start-the-virtual-array"></a>Pour démarrer le tableau virtuel
@@ -205,7 +205,7 @@ Procédez comme suit pour démarrer votre tableau virtuel et vous y connecter.
        >
        >
 
-Si votre appareil ne répond pas à la configuration minimale requise, une erreur apparaît dans le texte de bannière (voir ci-dessous). Modifier la configuration de l’appareil afin qu’il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise à l’ [Étape 1 : Vérifier que le système hôte répond aux exigences minimales du tableau virtuel](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Si votre appareil ne répond pas à la configuration minimale requise, une erreur apparaît dans le texte de bannière (voir ci-dessous). Modifier la configuration de l’appareil afin qu’il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise dans Étape 1 : Vérifier que le système hôte répond aux exigences minimales du tableau virtuel.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 

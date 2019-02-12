@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: cbd17ef81f5bcdf1c5c2f14f11388fd4f23e5da6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239914"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694165"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Démarrage rapide : Analyser des données dans Azure Data Lake Storage Gen2 à l’aide d’Azure Databricks
 
@@ -29,15 +29,11 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 <a id="config"/>
 
-## <a name="set-aside-storage-account-configuration"></a>Mettre de côté la configuration du compte de stockage
-
-Vous allez avoir besoin du nom de votre compte de stockage et d’un URI de point de terminaison de système de fichiers.
+## <a name="get-the-name-of-your-storage-account"></a>Obtenir le nom de votre compte de stockage
 
 Pour obtenir le nom de votre compte de stockage sur le portail Azure, choisissez **Tous les services**, puis effectuez un filtrage basé sur le terme *stockage*. Sélectionnez ensuite **Comptes de stockage**, puis localisez votre compte de stockage.
 
-Pour obtenir l’URI du point de terminaison de système de fichiers, choisissez **Propriétés**. Dans le volet des propriétés, recherchez la valeur du champ **Point de terminaison de système de fichiers ADLS principal**.
-
-Collez ces deux valeurs dans un fichier texte. Vous en aurez besoin bientôt.
+Collez ce nom dans un fichier texte. Vous en aurez besoin dans quelques instants.
 
 <a id="service-principal"/>
 
@@ -46,8 +42,6 @@ Collez ces deux valeurs dans un fichier texte. Vous en aurez besoin bientôt.
 Créez un principal du service en suivant l’aide fournie dans cette rubrique : [Guide pratique pour Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
-
-:heavy_check_mark: Au cours des étapes indiquées dans la section [Créer une application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) de l’article, veillez à affecter l’URI de point de terminaison que vous venez de collecter au champ **URL de connexion** dans la boîte de dialogue **Créer**.
 
 :heavy_check_mark: Au cours des étapes indiquées dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le **Rôle Contributeur de Stockage Blob** à votre application.
 
@@ -136,7 +130,7 @@ Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure D
     > [!NOTE]
     > Ce bloc de code accède directement au point de terminaison Data Lake Gen2 via OAuth. Toutefois, il existe d’autres moyens de connecter l’espace de travail Databricks à votre compte Data Lake Storage Gen2. Par exemple, vous pouvez monter le système de fichiers à l’aide d’OAuth ou utiliser un accès direct par clé partagée. <br>Pour voir des exemples de ces approches, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks.
 
-5. Dans ce bloc de code, remplacez les valeurs d’espace réservé `storage-account-name`, `application-id`, `authentication-id` et `tenant-id` par les valeurs que vous avez collectées quand vous avez effectué les étapes des sections [Mettre de côté la configuration du compte de stockage](#config) et [Créer un principal du service](#service-principal) décrites dans cet article.  Affectez le nom de système de fichiers de votre choix à la valeur d’espace réservé `file-system-name`.
+5. Dans ce bloc de code, remplacez les valeurs d’espace réservé `storage-account-name`, `application-id`, `authentication-id` et `tenant-id` par les valeurs que vous avez collectées quand vous avez effectué les étapes des sections [Obtenir le nom de votre compte de stockage](#config) et [Créer un principal de service](#service-principal) de cet article.  Affectez le nom de système de fichiers de votre choix à la valeur d’espace réservé `file-system-name`.
 
 6. Appuyez sur les touches **MAJ + ENTRÉE** pour exécuter le code de ce bloc.
 

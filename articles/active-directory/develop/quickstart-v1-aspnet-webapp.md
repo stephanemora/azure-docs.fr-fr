@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: aeb9f1ba460a009daacf3090c75573dd5d69b813
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095853"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816269"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application ASP.NET
 
@@ -64,9 +64,9 @@ Ces étapes montrent comment installer et configurer le pipeline d’authentific
 
 Pour télécharger le projet Visual Studio de cet exemple à la place, suivez ces étapes :
 1. [Télécharger le projet sur GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
-1. Passez à [l’étape Configuration](#configure-your-webconfig-and-register-an-application) pour configurer l’exemple de code avant son exécution.
+1. Passez à l’étape Configuration pour configurer l’exemple de code avant son exécution.
 
-## <a name="step-2-create-your-aspnet-project"></a>Étape 2 : Créer votre projet ASP.NET
+## <a name="step-2-create-your-aspnet-project"></a>Étape 2 : Créer votre projet ASP.NET
 
 1. Dans Visual Studio, accédez à **Fichier -> Nouveau > Projet**.
 2. Sous **Visual C#\Web**, sélectionnez **Application web ASP.NET (.NET Framework)**.
@@ -288,7 +288,7 @@ Sélectionnez le lien hypertexte pour afficher les revendications de l’utilisa
 
 | Propriété | Valeur | Description |
 |---|---|---|
-| NOM | {Nom complet de l’utilisateur} | Prénom et nom de l’utilisateur. |
+| Nom | {Nom complet de l’utilisateur} | Prénom et nom de l’utilisateur. |
 | Nom d’utilisateur | <span>user@domain.com</span> | Nom d’utilisateur employé pour identifier l’utilisateur connecté. |
 | Objet| {Objet} |Une chaîne pour identifier de façon unique l’ouverture de session utilisateur sur le web. |
 | ID client | {Guid} | *GUID* qui représente de manière unique l’organisation Azure AD de l’utilisateur |

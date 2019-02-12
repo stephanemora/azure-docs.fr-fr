@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8232a197b7916c069ef17393e44a4f9a512a7598
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264680"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818530"
 ---
 # <a name="requirements-by-listing-type"></a>Exigences par type de liste  
 Les exigences techniques et de contenu marketing varient en fonction de la vitrine, du type d’offre et du type de liste. Consultez les spécifications suivantes pour vous assurer que vous respectez les critères.  
@@ -64,10 +64,10 @@ Le type de référencement Liste inclut les types d’offre suivants dans les vi
 
 | Type d’offre | Vitrine | Détails |  
 |:---        |:---        |:---     |  
-| Services de conseil | AppSource | [Exigences : AppSource : Liste : Services de conseil](#requirements-appsource-list-consulting-services) |  
-| Services de conseil | Place de marché Azure | [Exigences : Place de marché Azure : Liste : Services de conseil](#requirements-azure-marketplace-list-consulting-services) |  
+| Services de conseil | AppSource | Requirements: AppSource : Liste : Services de conseil |  
+| Services de conseil | Place de marché Azure | Requirements: Place de marché Azure : Liste : Services de conseil |  
 | Me contacter | AppSource | [](#) |  
-| Me contacter | Place de marché Azure | [Exigences : AppSource : Liste : Me contacter](#requirements-azure-marketplace-list-contact-me) |  
+| Me contacter | Place de marché Azure | Requirements: AppSource : Liste : Me contacter |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Requirements: AppSource : Liste : Service de conseil  
 
@@ -91,11 +91,11 @@ Le type de référencement Liste inclut les types d’offre suivants dans les vi
 
 | Type d’offre | Vitrine | Détails |  
 |:---        |:---        |:---     |  
-| Version d’évaluation gratuite/SaaS | AppSource | [Exigences du type de liste : Version d’évaluation](#listing-type-requirements-trial) |  
-| Version d’évaluation gratuite/SaaS | Place de marché Azure | [Exigences : Place de marché Azure : Version d’évaluation : Version d’évaluation gratuite/SaaS](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Démonstration interactive | AppSource | [Exigences du type de liste : Version d’évaluation](#listing-type-requirements-trial) |  
+| Version d’évaluation gratuite/SaaS | AppSource | Exigences du type de liste : Version d’évaluation |  
+| Version d’évaluation gratuite/SaaS | Place de marché Azure | Requirements: Place de marché Azure : Version d’évaluation : Version d’évaluation gratuite/SaaS |  
+| Démonstration interactive | AppSource | Exigences du type de liste : Version d’évaluation |  
 | Démonstration interactive | Place de marché Azure | [Exigences : Place de marché Azure : Version d’évaluation : Démonstration interactive](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Test drive | AppSource | [Exigences du type de liste : Version d’évaluation](#listing-type-requirements-trial) |  
+| Test drive | AppSource | Exigences du type de liste : Version d’évaluation |  
 | Test drive | Place de marché Azure | [Exigences : Place de marché Azure : Version d’évaluation : Test drive](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Requirements: Place de marché Azure : Version d’évaluation  
@@ -133,8 +133,8 @@ Le type de référencement Liste inclut les types d’offre suivants dans les vi
 
 | Type d’offre | Vitrine | Détails |   
 |:---        |:---        | :--- |  
-| Applications Azure : application gérée | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Applications Azure : Application gérée](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Applications Azure : Modèle de solution | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Applications Azure : Modèle de solution](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Applications Azure : application gérée | Place de marché Azure | Requirements: Place de marché Azure : Transaction : Applications Azure : application gérée |  
+| Applications Azure : Modèle de solution | Place de marché Azure | Requirements: Place de marché Azure : Transaction : Applications Azure : Modèle de solution |  
 | Containers | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Conteneur](#requirements-azure-marketplace-transact-container) |  
 | Application SaaS  | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Application SaaS](#requirements-azure-marketplace-transact-saas-app) |  
 | Machine virtuelle | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Machine virtuelle](#requirements-azure-marketplace-transact-virtual-machine) |  

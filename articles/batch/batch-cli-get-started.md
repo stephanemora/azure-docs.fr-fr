@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d51052f4e04a1497ccf2e91427e3465bdc5bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5117d426ac9595dfe25828013c1bd8c7fa81f92c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476823"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812359"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
@@ -63,7 +63,7 @@ Pour utiliser Azure CLI avec Batch, vous devez vous connecter et vous authentifi
 Il existe différentes façons de se connecter à Azure, décrites en détail dans [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli) :
 
 1. [Connexion interactive](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Connectez-vous de manière interactive lorsque vous exécutez des commandes Azure CLI vous-même à partir de la ligne de commande.
-2. [Connexion avec un principal de service](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Connectez-vous avec un principal de service lorsque vous exécutez des commandes Azure CLI à partir d’un script ou d’une application.
+2. [Connexion avec un principal de service](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Connectez-vous avec un principal de service lorsque vous exécutez des commandes Azure CLI à partir d’un script ou d’une application.
 
 Dans le cadre de cet article, nous montrons comment se connecter à Azure de manière interactive. Entrez [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) dans la ligne de commande :
 
@@ -76,7 +76,7 @@ La commande `az login` renvoie un jeton pouvant vous servir lors d’authentific
 
 ![Connexion à Azure](./media/batch-cli-get-started/az-login.png)
 
-Les exemples répertoriés dans la section [Exemples de scripts de l’interpréteur de commandes](#sample-shell-scripts) montrent également comment démarrer votre session Azure CLI en vous connectant à Azure de manière interactive. Une fois que vous êtes connecté, vous pouvez appeler des commandes pour travailler avec des ressources Batch Management, y compris les comptes Batch, les clés, les packages d’applications et les quotas.  
+Les exemples listés dans la section Exemples de scripts de l’interpréteur de commandes montrent également comment démarrer votre session Azure CLI en vous connectant à Azure de manière interactive. Une fois que vous êtes connecté, vous pouvez appeler des commandes pour travailler avec des ressources Batch Management, y compris les comptes Batch, les clés, les packages d’applications et les quotas.  
 
 ### <a name="log-in-to-your-batch-account"></a>Connexion à votre compte Batch
 
@@ -110,7 +110,7 @@ Deux options s’offrent à vous pour l’authentification sur votre compte Batc
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-Les exemples répertoriés dans la section [Exemples de scripts de l’interpréteur de commandes](#sample-shell-scripts) montrent comment se connecter à votre compte Batch avec Azure CLI, à la fois via Azure AD et par clé partagée.
+Les exemples listés dans la section Exemples de scripts de l’interpréteur de commandes montrent comment se connecter à votre compte Batch avec Azure CLI, à la fois via Azure AD et par clé partagée.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Utilisez les commandes de l’extension CLI Azure Batch
 
@@ -168,7 +168,7 @@ Les conseils suivants peuvent vous aider lors de la résolution de problèmes su
 
 * Utilisez `-h` pour obtenir le **texte d’aide** d’une commande d’interface de ligne de commande.
 * Utilisez `-v` et `-vv` pour afficher la sortie de la commande **verbose**. Lorsque l’indicateur `-vv` est inclus, Azure CLI affiche les requêtes REST réelles et les réponses correspondantes. Ces commutateurs sont pratiques pour afficher une sortie complète des erreurs.
-* L’option `--json` permet d’afficher la **sortie de commande au format JSON**. Par exemple, `az batch pool show pool001 --json` affiche les propriétés de pool001 au format JSON. Vous pouvez ensuite copier et modifier cette sortie pour l’utiliser dans un `--json-file` (voir la section [Fichiers JSON](#json-files) plus haut dans cet article).
+* L’option `--json` permet d’afficher la **sortie de commande au format JSON**. Par exemple, `az batch pool show pool001 --json` affiche les propriétés de pool001 au format JSON. Vous pouvez ensuite copier et modifier cette sortie pour l’utiliser dans un `--json-file` (voir la section Fichiers JSON plus haut dans cet article).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>Étapes suivantes

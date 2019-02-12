@@ -4,15 +4,15 @@ description: Décrit comment découvrir et évaluer des machines virtuelles VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 58a4f60a5ef01f8f2757aeb04c2dd7165d68179a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298719"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730762"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -78,7 +78,7 @@ Azure Migrate crée une machine virtuelle locale connue en tant qu’appliance c
     > [!NOTE]
     > L’appliance de découverte unique est désormais dépréciée, car son utilisation dépend des paramètres de statistiques vCenter Server concernant la disponibilité des points de données de performances, et nécessite la collecte des données de compteurs de performance moyenne, ce qui a comme résultat d’attribuer une taille insuffisante aux machines virtuelles pour la migration vers Azure.
 
-    **Résultats instantanés :** avec l’application de détection continue, une fois la détection terminée (au bout de deux heures environ, en fonction du nombre de machines virtuelles), vous pouvez créer immédiatement des évaluations. Étant donné que la collecte des données de performances démarre lorsque vous lancez la découverte, si vous voulez obtenir des résultats instantanément, vous devez sélectionner le critère de dimensionnement *Localement* dans l’évaluation. Pour les évaluations de performances, il est conseillé d’attendre au moins un jour après le lancement de la découverte afin d’obtenir des recommandations de taille fiables.
+    **Évaluations rapides** : avec l’application de détection continue, une fois la détection terminée (au bout de deux heures environ, en fonction du nombre de machines virtuelles), vous pouvez créer immédiatement des évaluations. Étant donné que la collecte des données de performances démarre lorsque vous lancez la détection, si vous voulez obtenir des évaluations rapides, vous devez sélectionner le critère de dimensionnement *Localement* dans l’évaluation. Pour les évaluations de performances, il est conseillé d’attendre au moins un jour après le lancement de la découverte afin d’obtenir des recommandations de taille fiables.
 
     L’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
 
@@ -185,7 +185,7 @@ Importez le fichier téléchargé sur le serveur vCenter.
     - Si la machine virtuelle accède à internet via un proxy, cliquez sur **Proxy settings** (Paramètres du proxy) et spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification. [Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sur les conditions de connectivité Internet et la [liste des URL](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) auxquelles le collecteur accède.
 
       > [!NOTE]
-      > L’adresse proxy doit être saisie dans le formulaire http://ProxyIPAddress ou http://ProxyFQDN. Seuls les proxys HTTP sont pris en charge. Si vous disposez d’un proxy d’interception, il est possible que la connexion Internet échoue à l’origine si vous n’avez pas importé le certificat de proxy ; [apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sur la manière dont vous pouvez résoudre ce problème en important le certificat de proxy en tant que certificat approuvé sur la machine virtuelle du collecteur.
+      > L’adresse proxy doit être saisie dans le formulaire http://ProxyIPAddress ou http://ProxyFQDN. Seuls les proxys HTTP sont pris en charge. Si vous disposez d’un proxy d’interception, il est possible que la connexion Internet échoue à l’origine si vous n’avez pas importé le certificat de proxy ; [apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector) sur la manière dont vous pouvez résoudre ce problème en important le certificat de proxy en tant que certificat approuvé sur la machine virtuelle du collecteur.
 
     - Le collecteur vérifie que le service Collector est en cours d’exécution. Le service est installé par défaut sur la machine virtuelle collector.
     - Téléchargez et installez VMware PowerCLI.
@@ -196,7 +196,7 @@ Importez le fichier téléchargé sur le serveur vCenter.
     - Dans **Étendue de la collecte**, sélectionnez une étendue pour la découverte des machines virtuelles. Le collecteur peut uniquement découvrir les machines virtuelles situées dans l’étendue spécifiée. L’étendue peut être définie sur un dossier, un centre de données ou un cluster spécifique. Elle ne doit pas contenir plus de 1 500 machines virtuelles. [En savoir plus](how-to-scale-assessment.md) sur la manière dont vous pouvez découvrir un environnement plus large.
 
 7. Dans **Specify migration project** (Spécifier un projet de migration), spécifiez l’ID et la clé du projet Azure Migrate que vous avez copiés à partir du portail. Si vous ne les avez pas copiés, ouvrez le portail Azure à partir de la machine virtuelle collector. Dans la page **Vue d’ensemble** du projet, cliquez sur **Découvrir des machines**, puis copiez les valeurs.  
-8. Dans **Afficher la progression de la collecte**, surveillez l’état de la détection. [En savoir plus](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sur les données collectées par le collecteur Azure Migrate.
+8. Dans **Afficher la progression de la collecte**, surveillez l’état de la détection. [En savoir plus](https://docs.microsoft.com/azure/migrate/concepts-collector) sur les données collectées par le collecteur Azure Migrate.
 
 > [!NOTE]
 > Le collecteur prend uniquement en charge « Anglais (États-Unis) » comme langue du système d’exploitation et langue de l’interface du collecteur.

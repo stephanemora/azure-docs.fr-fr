@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: b73cdc7e55a60fbefc294a54f70daa9b2a11ced1
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452449"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817324"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure
 La connexion RDP (Remote Desktop Protocol) à votre machine virtuelle Azure Windows peut échouer pour diverses raisons, rendant votre machine virtuelle inaccessible. Le problème peut être lié au service Bureau à distance sur la machine virtuelle, à la connexion réseau ou encore au client Bureau à distance sur votre ordinateur hôte. Cet article vous guide à travers certaines des méthodes plus courantes pour résoudre les problèmes de connexion RDP. 
@@ -50,8 +50,8 @@ Si vous avez besoin de procédures plus détaillées et d’explications, poursu
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Comment résoudre les problèmes de connexion RDP
 Vous pouvez résoudre les problèmes affectant les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager en utilisant l’une des méthodes suivantes :
 
-* [Portail Azure](#using-the-azure-portal) : utile si vous devez rapidement rétablir la configuration RDP ou les informations d’identification utilisateur et que vous n’avez pas installé les outils Azure.
-* [Azure PowerShell](#using-azure-powershell) : si vous êtes familiarisé avec les invites PowerShell, réinitialisez rapidement la configuration RDP ou les informations d’identification utilisateur à l’aide des applets de commande Azure PowerShell.
+* Portail Azure : utile si vous devez rapidement rétablir la configuration RDP ou les informations d’identification utilisateur et que vous n’avez pas installé les outils Azure.
+* Azure PowerShell : si vous êtes familiarisé avec les invites PowerShell, réinitialisez rapidement la configuration RDP ou les informations d’identification utilisateur à l’aide des applets de commande Azure PowerShell.
 
 Vous trouverez également des étapes sur la résolution des problèmes affectant les machines virtuelles créées à l’aide du [modèle de déploiement classique](#troubleshoot-vms-created-using-the-classic-deployment-model).
 

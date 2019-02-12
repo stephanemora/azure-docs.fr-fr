@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 93614d4889c9c884f25c5e05cd620e8303226323
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39357764"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819142"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Options de résolution de noms DNS pour les machines virtuelles Linux dans Azure
 Azure fournit une résolution des noms DNS par défaut pour toutes les machines virtuelles d’un même réseau virtuel. Vous pouvez implémenter votre propre solution de résolution de noms DNS en configurant vos propres services DNS sur vos machines virtuelles hébergées sur Azure. Les scénarios suivants vous aideront à choisir la solution qui fonctionne dans votre situation.
@@ -33,7 +33,7 @@ Le tableau suivant montre des scénarios et les solutions de résolution de noms
 
 | **Scénario** | **Solution** | **Suffixe** |
 | --- | --- | --- |
-| Résolution de noms entre des instances de rôle ou des machines virtuelles situées dans le même réseau virtuel |[Résolution de noms fournie par Azure](#azure-provided-name-resolution) |nom d’hôte ou nom de domaine complet |
+| Résolution de noms entre des instances de rôle ou des machines virtuelles situées dans le même réseau virtuel |Résolution de noms fournie par Azure |nom d’hôte ou nom de domaine complet |
 | Résolution de noms entre des instances de rôle ou des machines virtuelles situées dans des réseaux virtuels différents |Serveurs DNS gérés par le client qui transfèrent les requêtes entre les réseaux virtuels pour une résolution par Azure (proxy DNS). Consultez [Résolution de noms à l’aide de votre propre serveur DNS](#name-resolution-using-your-own-dns-server). |Nom de domaine complet uniquement |
 | Résolution des noms de service et d’ordinateur locaux à partir des instances de rôle ou des machines virtuelles dans Azure |Serveurs DNS gérés par le client (par exemple contrôleur de domaine local, contrôleur de domaine en lecture seule local ou serveur DNS secondaire synchronisé via des transferts de zone). Consultez [Résolution de noms à l’aide de votre propre serveur DNS](#name-resolution-using-your-own-dns-server). |Nom de domaine complet uniquement |
 | Résolution de noms d’hôte Azure à partir d’ordinateurs locaux |Transfert des requêtes à un serveur proxy DNS géré par le client dans le réseau virtuel correspondant. Le serveur proxy transfère les requêtes à Azure pour résolution. Consultez [Résolution de noms à l’aide de votre propre serveur DNS](#name-resolution-using-your-own-dns-server). |Nom de domaine complet uniquement |
@@ -87,7 +87,7 @@ Plusieurs packages de mise en cache DNS sont disponibles, comme dnsmasq. Voici l
 5. Redémarrez le service réseau (« service network restart ») pour définir le cache en tant que résolveur DNS local.
 
 > [!NOTE]
-> Le package « dnsmasq » constitue l’un des nombreux caches DNS disponibles pour Linux. Avant de l’utiliser, vérifiez son adéquation à vos besoins et qu’aucun autre cache n’est installé.
+> : Le package « dnsmasq » constitue l’un des nombreux caches DNS disponibles pour Linux. Avant de l’utiliser, vérifiez son adéquation à vos besoins et qu’aucun autre cache n’est installé.
 >
 >
 

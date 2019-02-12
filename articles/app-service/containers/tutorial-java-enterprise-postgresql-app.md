@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a6e6dfb70182d8b4924a184dcebd1d06695911a5
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539719"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747006"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Didacticiel : Créer une application web Java EE et Postgres dans Azure
 
-Ce tutoriel vous explique comment créer une application web Java EE (Enterprise Edition) sur Azure App Service et comment la connecter à une base de données Postgres. À la fin de ce tutoriel, une application [WildFly](https://www.wildfly.org/about/) stocke les données dans [Azure Database pour Postgres](https://azure.microsoft.com/services/postgresql/) qui s’exécute sur [Azure App Service pour Linux](app-service-linux-intro.md).
+Ce tutoriel vous explique comment créer une application web Java EE (Enterprise Edition) sur Azure App Service et comment la connecter à une base de données Postgres. À la fin de ce tutoriel, une application [WildFly](https://www.wildfly.org/about/) stocke les données dans [Azure Database pour Postgres](https://azure.microsoft.com/services/postgresql/) qui s’exécute sur [Azure App Service sur Linux](app-service-linux-intro.md).
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -50,40 +50,24 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### <a name="update-the-maven-pom"></a>Mettre à jour le fichier POM Maven
 
-Mettez à jour le fichier POM Maven avec le nom et le groupe de ressources de votre choix pour votre instance App Service. Ces valeurs sont injectées dans le plug-in Azure qui se trouve plus bas dans le fichier _pom.xml_. Il n’est pas nécessaire de créer au préalable l’instance ou le plan App Service. Le plug-in Maven crée le groupe de ressources et l’instance App Service s’ils n’existent pas déjà.
+Mettez à jour le plug-in Maven Azure avec le nom et le groupe de ressources de votre choix pour votre instance App Service. Il n’est pas nécessaire de créer au préalable l’instance ou le plan App Service. Le plug-in Maven crée le groupe de ressources et l’instance App Service s’ils n’existent pas déjà. 
 
-Vous pouvez faire défiler vers le bas jusqu’à la section `<plugins>` du fichier _pom.xml_ pour inspecter le plug-in Azure. La section de configuration `<plugin>` du fichier _pom.xml_ pour azure-webapp-maven-plugin doit inclure la configuration suivante :
+Vous pouvez faire défiler vers le bas jusqu’à la section `<plugins>` du fichier _pom.xml_ (ligne 200) pour apporter les modifications. 
 
 ```xml
-      <!--*************************************************-->
-      <!-- Deploy to WildFly in App Service Linux           -->
-      <!--*************************************************-->
- 
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.0</version>
-        <configuration>
- 
-          <!-- Web App information -->
-          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
-          <appName>${WEBAPP_NAME}</appName>
-          <region>${REGION}</region>
- 
-          <!-- Java Runtime Stack for Web App on Linux-->
-          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
- 
-        </configuration>
-      </plugin>
+<!-- Azure App Service Maven plugin for deployment -->
+<plugin>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-webapp-maven-plugin</artifactId>
+  <version>${version.maven.azure.plugin}</version>
+  <configuration>
+    <appName>YOUR_APP_NAME</appName>
+    <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup>
+    <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+  ...
+</plugin>  
 ```
-
-Remplacez les espaces réservés par les noms des ressources de votre choix :
-```xml
-<azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
-<azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
-```
-
+Remplacez `YOUR_APP_NAME` et `YOUR_RESOURCE_GROUP` par les noms de votre instance App Service et de votre groupe de ressources.
 
 ## <a name="build-and-deploy-the-application"></a>Générer et déployer l’application
 
@@ -139,12 +123,27 @@ Nous allons maintenant apporter quelques modifications à l’application Java p
 
 ### <a name="add-postgres-credentials-to-the-pom"></a>Ajouter des informations d’identification Postgres au fichier POM
 
-Dans le fichier _pom.xml_, remplacez les valeurs d’espace réservé par le nom du serveur Postgres, le nom de connexion de l’administrateur et le mot de passe. Ces valeurs vont être injectées en tant que variables d’environnement dans votre instance App Service lors du redéploiement de l’application.
+Dans le fichier _pom.xml_, remplacez les valeurs d’espace réservé en lettres majuscules par le nom du serveur Postgres, le nom de connexion de l’administrateur et le mot de passe. Ces champs se trouvent dans le plug-in Maven Azure (veillez à remplacer `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME` et `YOUR_PG_PASSWORD` dans les balises `<value>`et non dans les balises `<name>`).
 
 ```xml
-<azure.plugin.postgres-server-name>SERVER_NAME</azure.plugin.postgres-server-name>
-<azure.plugin.postgres-username>USERNAME@FIRST_PART_OF_SERVER_NAME</azure.plugin.postgres-username>
-<azure.plugin.postgres-password>PASSWORD</azure.plugin.postgres-password>
+<plugin>
+      ...
+      <appSettings>
+      <property>
+        <name>POSTGRES_CONNECTIONURL</name>
+        <value>jdbc:postgresql://YOUR_SERVER_NAME:5432/postgres?ssl=true</value>
+      </property>
+      <property>
+        <name>POSTGRES_USERNAME</name>
+        <value>YOUR_PG_USERNAME</value>
+      </property>
+      <property>
+        <name>POSTGRES_PASSWORD</name>
+        <value>YOUR_PG_PASSWORD</value>
+      </property>
+    </appSettings>
+  </configuration>
+</plugin>
 ```
 
 ### <a name="update-the-java-transaction-api"></a>Mettre à jour l’API Java Transaction

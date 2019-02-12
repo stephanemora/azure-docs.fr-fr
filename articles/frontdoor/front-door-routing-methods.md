@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 26b4e2b1bf2dc9e59bc41e1d9f0628a1f476d402
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031477"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820842"
 ---
 # <a name="front-door-routing-methods"></a>Méthodes de routage Front Door
 
@@ -24,10 +24,10 @@ Azure Front Door Service prend en charge différentes méthodes de routage du tr
 
 Quatre concepts principaux pour le routage de trafic sont disponibles dans Front Door :
 
-* **[Latence](#latency) :** le routage basé sur la latence garantit que les requêtes sont envoyées aux backends ayant la latence la plus faible acceptables dans une plage de sensibilité. Essentiellement, vos requêtes utilisateur sont envoyées à l’ensemble de backends le plus « proche » en ce qui concerne la latence du réseau.
-* **[Priorité](#priority) :** vous pouvez attribuer des priorités à vos différents backends si vous voulez utiliser un backend de service principal pour l’ensemble du trafic et fournir une solution de secours en cas d’indisponibilité du backend principal ou des backends de secours.
-* **[Pondéré](#weighted) :** vous pouvez attribuer des pondérations à vos différents backends si vous voulez répartir le trafic entre un ensemble de backends, que ce soit de façon équitable ou selon des coefficients de pondération.
-* **[Affinité de session](#sessionaffinity) :** vous pouvez configurer l’affinité de session pour vos hôtes frontend ou domaines quand vous voulez que les requêtes suivantes d’un utilisateur soient envoyées au même backend tant que la session utilisateur est toujours active et que les sondes d’intégrité indiquent que l’instance de backend est toujours intègre. 
+* **[Latence](#latency) :** Le routage basé sur la latence garantit que les requêtes sont envoyées aux backends ayant la latence la plus faible acceptables dans une plage de sensibilité. Essentiellement, vos requêtes utilisateur sont envoyées à l’ensemble de backends le plus « proche » en ce qui concerne la latence du réseau.
+* **[Priority](#priority):** Vous pouvez attribuer des priorités à vos différents backends si vous voulez utiliser un backend de service principal pour l’ensemble du trafic et fournir une solution de secours en cas d’indisponibilité du backend principal ou des backends de secours.
+* **[Weighted](#weighted):** Vous pouvez attribuer des poids à vos différents backends si vous voulez répartir le trafic entre un ensemble de backends, que ce soit de façon équitable ou selon des coefficients de pondération.
+* **Affinité de session :** Vous pouvez configurer l’affinité de session pour vos hôtes frontend ou domaines quand vous voulez que les requêtes suivantes d’un utilisateur soient envoyées au même backend tant que la session utilisateur est toujours active et que les sondes d’intégrité indiquent que l’instance de backend est toujours intègre. 
 
 Toutes les configurations Front Door incluent la supervision de l’intégrité des backends et le basculement global instantané automatisé. Pour plus d’informations, consultez [Supervision des backends Front Door](front-door-health-probes.md). Votre porte d’entrée peut être configurée pour fonctionner en se basant sur une méthode de routage unique, ou bien vous pouvez, en fonction des besoins de votre application, utiliser plusieurs ou toutes ces méthodes de routage conjointement afin de créer une topologie de routage optimale.
 
@@ -39,7 +39,7 @@ Le backend « le plus proche » n’est pas nécessairement le plus proche en 
 
 Vous trouverez ci-dessous le flux décisionnel global :
 
-| Backends disponibles | Priorité | Signal de latence (en fonction de sonde d’intégrité) | Pondérations |
+| Backends disponibles | Priorité | Signal de latence (en fonction de sonde d’intégrité) | Weights |
 |-------------| ----------- | ----------- | ----------- |
 | Tout d’abord, sélectionnez tous les backends qui sont signalés intègres (200 OK) par la sonde d’intégrité. Imaginons qu’il y a six backends A, B, C, D, E et F, parmi lesquels C est non intègre et E est désactivé. Par conséquent, la liste des backends disponibles est A, B, D et F.  | Ensuite, les backends de priorité supérieure parmi ceux disponibles sont sélectionnés. Imaginons que les backends A, B et D ont une priorité 1 et que le backend F a une priorité 2. Les backends sélectionnés seront donc A, B et D.| Sélectionnez les backends ayant une plage de latence (latence minimale et sensibilité de latence spécifiées en millisecondes). Imaginons, si A a la valeur 15 ms, B la valeur 30 ms et D la valeur 60 ms en dehors de l’environnement Front Door où la requête est arrivée et que la sensibilité de latence est de 30 ms, le pool de latences les plus faibles se compose des backends A et B, D étant éloigné de 30 ms du backend le plus proche qui est A. | Enfin, Front Door répartira le trafic par tourniquet (Round Robin) entre le pool de backends sélectionné final dans les proportions définies par les pondérations spécifiées. Par exemple, si le backend A a une pondération de 5 et que le backend B a une pondération de 8, le trafic sera distribué dans les proportions 5:8 entre les backends A et B. |
 
@@ -66,9 +66,9 @@ Dans la liste des backends disponibles dans la sensibilité de latence acceptée
 
 La méthode pondérée permet des scénarios utiles :
 
-* **Mise à niveau progressive d’une application** : allouez un pourcentage de trafic à router vers un nouveau backend, puis augmentez progressivement le trafic au fil du temps jusqu’à ce qu’il soit au même niveau que celui des autres backends.
-* **Migration d’application vers Azure** : créez un pool de backends avec à la fois des backends Azure et des backends externes. Ajustez la pondération des backends pour privilégier les nouveaux backends. Pour effectuer progressivement ce paramétrage, commencez par désactiver les nouveaux backends, puis affectez-leur les pondérations les plus faibles, et augmentez-les lentement à des niveaux où ils prennent le plus de trafic. Enfin, désactivez les backends les moins prisés, puis supprimez-les du pool.  
-* **Extension du cloud (cloud bursting) pour une capacité supplémentaire** : étendez rapidement un déploiement local dans le cloud en le plaçant derrière Front Door. Quand vous avez besoin d’une capacité supplémentaire dans le cloud, vous pouvez ajouter ou activer des backends supplémentaires, et spécifier quelle partie du trafic est destinée à chaque backend.
+* **Mise à niveau progressive d’une application** : Allouez un pourcentage de trafic à router vers un nouveau backend, puis augmentez progressivement le trafic au fil du temps jusqu’à ce qu’il soit au même niveau que celui des autres backends.
+* **Migration d’application vers Azure** : Créez un pool de backends avec à la fois des backends Azure et des backends externes. Ajustez la pondération des backends pour privilégier les nouveaux backends. Pour effectuer progressivement ce paramétrage, commencez par désactiver les nouveaux backends, puis affectez-leur les pondérations les plus faibles, et augmentez-les lentement à des niveaux où ils prennent le plus de trafic. Enfin, désactivez les backends les moins prisés, puis supprimez-les du pool.  
+* **Extension du cloud pour une capacité supplémentaire** : Étendez rapidement un déploiement local dans le cloud en le plaçant derrière Front Door. Quand vous avez besoin d’une capacité supplémentaire dans le cloud, vous pouvez ajouter ou activer des backends supplémentaires, et spécifier quelle partie du trafic est destinée à chaque backend.
 
 ## <a name = "affinity"></a>Affinité de session
 Par défaut, sans affinité de session, Front Door transfère les requêtes provenant du même client à différents backends en fonction de la configuration d’équilibrage de charge, en particulier quand les latences relatives aux différents backends changent ou si différentes requêtes émanant du même utilisateur arrivent sur un environnement Front Door différent. Toutefois, pour certaines applications avec état ou dans certains autres scénarios, il est préférable que les requêtes suivantes du même utilisateur arrivent sur le même backend que celui qui a traité la requête initiale. La fonctionnalité d’affinité de session basée sur les cookies est utile quand vous souhaitez conserver une session utilisateur sur le même backend. En utilisant des cookies gérés de Front Door, Azure Front Door Service peut diriger le trafic suivant provenant d’une session utilisateur vers le même backend pour qu’il soit traité, tant que le backend est intègre et que la session utilisateur n’a pas expiré. 
@@ -86,5 +86,5 @@ La durée de vie du cookie est identique à celle de la session de l’utilisate
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [Créer une porte d’entrée](quickstart-create-front-door.md).
+- Découvrez comment [créer une porte d’entrée](quickstart-create-front-door.md).
 - Découvrez [comment fonctionne Front Door](front-door-routing-architecture.md).
