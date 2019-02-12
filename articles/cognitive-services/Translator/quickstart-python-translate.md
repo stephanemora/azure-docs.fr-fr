@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/17/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: b5307db01cc7242ba73876409f18d511c2516091
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f995c727f46957d663cb6a6a32ac1d4313c71e8f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458157"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697140"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour traduire une chaîne à l’aide de Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Il y existe actuellement un point de terminaison disponible pour Translator Text, et il est défini comme des `base_url`. `path` définit le chemin des `translate` et reconnait que nous souhaitons atteindre la version 3 de l’API.
+Le point de terminaison global de l’API de traduction de texte Translator Text est défini sur `base_url`. `path` définit le chemin des `translate` et reconnait que nous souhaitons atteindre la version 3 de l’API.
 
 Les `params` servent à définir les langues de sortie. Dans cet exemple nous traduisons de l’anglais vers l’italien et allemand : `it` et `de`.
 

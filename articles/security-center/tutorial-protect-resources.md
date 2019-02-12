@@ -3,7 +3,7 @@ title: Didacticiel sur Azure Security Center - Protéger vos ressources avec Azu
 description: Ce didacticiel décrit comment configurer une stratégie d’accès juste-à-temps aux machines virtuelles et une stratégie de contrôle d’applications.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -14,16 +14,16 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 19b5f6d6cb8e0e17dba9944e8b72c6938f168c70
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: monhaber
+ms.openlocfilehash: df9e804e8b8f3a9b40a18873f61ec96edee1503d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839345"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490251"
 ---
-# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Didacticiel : Protéger vos ressources avec Azure Security Center
-Security Center limite votre exposition aux menaces en utilisant des contrôles d’accès et d’applications pour bloquer les activités malveillantes. L’accès juste-à-temps aux machines virtuelles réduit votre exposition aux attaques en vous permettant de refuser l’accès persistant aux machines virtuelles. À la place, vous fournissez un accès contrôlé et audité aux machines virtuelles uniquement en cas de besoin. Les contrôles d’applications adaptatifs permettent de renforcer la protection contre les logiciels malveillants en contrôlant les applications qui peuvent s’exécuter sur les machines virtuelles. Security Center utilise le machine learning pour analyser les processus en cours d’exécution sur la machine virtuelle et exploite ces informations pour vous aider à appliquer les règles de mise en liste verte.
+# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutoriel : Protéger vos ressources avec Azure Security Center
+Security Center limite votre exposition aux menaces en utilisant des contrôles d’accès et d’applications pour bloquer les activités malveillantes. L’accès juste-à-temps (JIT) aux machines virtuelles réduit votre exposition aux attaques en vous permettant de refuser l’accès persistant aux machines virtuelles. À la place, vous fournissez un accès contrôlé et audité aux machines virtuelles uniquement en cas de besoin. Les contrôles d’applications adaptatifs permettent de renforcer la protection contre les logiciels malveillants en contrôlant les applications qui peuvent s’exécuter sur les machines virtuelles. Security Center utilise le machine learning pour analyser les processus en cours d’exécution sur la machine virtuelle et exploite ces informations pour vous aider à appliquer les règles de mise en liste verte.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Pour parcourir les fonctionnalités traitées dans ce didacticiel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
 
 ## <a name="manage-vm-access"></a>Gérer l’accès aux machines virtuelles
-L’accès juste-à-temps aux machines virtuelles peut être utilisé pour verrouiller le trafic entrant vers vos machines virtuelles Azure, ce qui réduit l’exposition aux attaques et facilite la connexion aux machines virtuelles en cas de besoin.
+L’accès JIT aux machines virtuelles peut être utilisé pour verrouiller le trafic entrant vers vos machines virtuelles Azure, réduire l’exposition aux attaques et faciliter la connexion aux machines virtuelles si nécessaire.
 
 Les ports de gestion n’ont pas besoin d’être toujours ouverts. Ils doivent uniquement être ouverts lorsque vous êtes connecté à la machine virtuelle, par exemple pour effectuer des tâches de maintenance ou de gestion. Quand la fonctionnalité juste-à-temps est activée, Security Center utilise des règles de groupe de sécurité réseau qui limitent l’accès aux ports de gestion pour qu’ils ne soient pas la cible d’attaquants.
 
@@ -45,7 +45,7 @@ Les ports de gestion n’ont pas besoin d’être toujours ouverts. Ils doivent 
 
   ![Accès juste-à-temps aux machines virtuelles][1]
 
-  **Accès Juste à temps à la machine virtuelle** fournit des informations sur l’état de vos machines virtuelles :
+  La section **Accès juste-à-temps aux machines virtuelles** fournit des informations sur l’état de vos machines virtuelles :
 
   - **Configuré** : machines virtuelles configurées pour prendre en charge l’accès Juste à temps à la machine virtuelle.
   - **Recommandé** : machines virtuelles qui peuvent prendre en charge l’accès Juste à temps à la machine virtuelle, mais n’ont pas été configurées dans cette optique.
@@ -81,9 +81,9 @@ Cette fonctionnalité est uniquement disponible pour les ordinateurs Windows.
 
   La section **Groupes de ressources** contient trois onglets :
 
-  - **Configuré** : Liste des groupes de ressources contenant les machines virtuelles qui ont été configurées avec le contrôle d’applications.
-  - **Recommandé** : Liste des groupes de ressources pour lesquels le contrôle d’applications est recommandé.
-  - **Aucune recommandation** : Liste des groupes de ressources contenant des machines virtuelles sans recommandation de contrôle d’applications. Par exemple, les machines virtuelles dont les applications sont toujours en cours de modification et qui n’ont pas atteint un état stable.
+  - **Configuré** : liste des groupes de ressources contenant les machines virtuelles qui ont été configurées avec le contrôle d’application.
+  - **Recommandée** : liste des groupes de ressources pour lesquels le contrôle d’application est recommandé.
+  - **Aucune recommandation** : liste des groupes de ressources contenant des machines virtuelles sans recommandations de contrôle d’application. Par exemple, les machines virtuelles dont les applications sont toujours en cours de modification et qui n’ont pas atteint un état stable.
 
 2. Sélectionnez l’onglet **Recommandé** pour obtenir la liste des groupes de ressources avec des recommandations de contrôle d’applications.
 
@@ -91,10 +91,10 @@ Cette fonctionnalité est uniquement disponible pour les ordinateurs Windows.
 
 3. Sélectionnez un groupe de ressources pour ouvrir l’option **Créer des règles de contrôle d’applications**. Dans **Sélectionner les machines virtuelles**, examinez la liste des machines virtuelles recommandées et décochez celles pour lesquelles vous ne souhaitez pas appliquer le contrôle d’application. Dans **Sélectionner les processus des règles de mise en liste verte**, examinez la liste des applications recommandées et décochez celles que vous ne souhaitez pas appliquer. Cette liste comprend les éléments suivants :
 
-  - **NOM** : Chemin complet de l’application
-  - **PROCESSUS** : Nombre d’applications se trouvant dans chaque chemin
-  - **COMMUN** : La valeur « Oui » indique que ces processus ont été exécutés sur la plupart des machines virtuelles de ce groupe de ressources
-  - **EXPLOITABLE** : Une icône d’avertissement indique si les applications peuvent être utilisées par un attaquant pour ignorer la liste verte d’applications. Nous vous recommandons de vérifier ces applications avant de les valider.
+  - **NOM** : chemin complet de l’application
+  - **PROCESSUS** : nombre d’applications dans chaque chemin
+  - **COMMUN** : la valeur « Oui » indique que ces processus ont été exécutés sur la plupart des machines virtuelles de ce groupe de ressources
+  - **EXPLOITABLE** : une icône d’avertissement indique si les applications peuvent être utilisées par un attaquant pour ignorer la liste verte d’applications. Nous vous recommandons de vérifier ces applications avant de les valider.
 
 4. Une fois que vous avez terminé vos sélections, sélectionnez **Créer**.
 
@@ -128,7 +128,7 @@ Dans ce didacticiel, vous avez appris à limiter votre exposition aux menaces en
 Passez au didacticiel suivant pour en savoir plus sur la façon de répondre aux incidents de sécurité.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Répondre aux incidents de sécurité](tutorial-security-incident.md)
+> [Tutoriel : Répondre aux incidents de sécurité](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

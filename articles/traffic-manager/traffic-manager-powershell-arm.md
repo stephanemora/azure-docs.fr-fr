@@ -1,6 +1,6 @@
 ---
 title: Utilisation de PowerShell pour gérer Traffic Manager dans Azure
-description: Utilisation de PowerShell pour Traffic Manager avec Azure Resource Manager
+description: Utilisation de Powershell pour Traffic Manager avec Azure Resource Manager
 services: traffic-manager
 documentationcenter: na
 author: kumudd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: fe647f96d8b992d8d5c1682d588bbdbba0ddf43b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055130"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816205"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Utilisation de PowerShell pour gérer Traffic Manager
 
@@ -57,7 +57,7 @@ Le tableau suivant décrit les paramètres :
 
 | Paramètre | Description |
 | --- | --- |
-| NOM |Nom de la ressource de profil Traffic Manager. Les profils d’un même groupe de ressources doivent avoir un nom unique. Ce nom est différent du nom DNS utilisé pour les requêtes DNS. |
+| Nom |Nom de la ressource de profil Traffic Manager. Les profils d’un même groupe de ressources doivent avoir un nom unique. Ce nom est différent du nom DNS utilisé pour les requêtes DNS. |
 | ResourceGroupName |Nom du groupe de ressources contenant la ressource de profil. |
 | TrafficRoutingMethod |Spécifie la méthode de routage du trafic utilisée pour identifier le point de terminaison qui est retourné en réponse à une requête DNS. Les valeurs possibles sont « Performance », « Weighted » ou « Priority ». |
 | RelativeDnsName |Spécifie la partie nom d’hôte du nom DNS fourni par ce profil Traffic Manager. Cette valeur est combinée au nom de domaine DNS utilisé par Azure Traffic Manager pour former le nom de domaine complet (FQDN) du profil. Par exemple, la valeur définie « contoso » devient « contoso.trafficmanager.net ». |
@@ -66,7 +66,7 @@ Le tableau suivant décrit les paramètres :
 | MonitorPort |Spécifie le port TCP utilisé pour surveiller l’intégrité des points de terminaison. |
 | MonitorPort |Spécifie le chemin relatif du nom de domaine de point de terminaison utilisé pour évaluer l’intégrité des points de terminaison. |
 
-L’applet de commande crée un profil Traffic Manager dans Azure et retourne un objet de profil correspondant à PowerShell. À ce stade, le profil ne contient aucun point de terminaison. Pour plus d’informations sur l’ajout de points de terminaison à un profil Traffic Manager, consultez [Ajout de points de terminaison Traffic Manager](#adding-traffic-manager-endpoints).
+L’applet de commande crée un profil Traffic Manager dans Azure et retourne un objet de profil correspondant à PowerShell. À ce stade, le profil ne contient aucun point de terminaison. Pour plus d’informations sur l’ajout de points de terminaison à un profil Traffic Manager, consultez Ajout de points de terminaison Traffic Manager.
 
 ## <a name="get-a-traffic-manager-profile"></a>Récupérer un profil Traffic Manager
 

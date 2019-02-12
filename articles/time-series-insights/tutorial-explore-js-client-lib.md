@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Explorer la bibliothèque cliente JavaScript de Azure Time Series Insights | Microsoft Docs'
+title: 'Tutoriel : Explorer la bibliothèque cliente JavaScript de Azure Time Series Insights | Microsoft Docs'
 description: Obtenez des informations sur la bibliothèque cliente JavaScript de Azure Time Series Insights et le modèle de programmation associé.
 author: ashannon7
 manager: cshankar
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: f231fa7624a2babea2a3d91076ad0348b3c9e976
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540371"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812070"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Didacticiel : Explorer la bibliothèque cliente JavaScript de Azure Time Series Insights
 
@@ -101,7 +101,7 @@ Même si nous ne l’examinons pas en détail, fondamentalement, la bibliothèqu
 
 Les concepts suivants sont universels et applicables aux API de la bibliothèque du client TSI en général.
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 
 Comme mentionné précédemment, cet exemple est une SPA qui utilise la prise en charge d’OAuth 2.0 dans la bibliothèque ADAL pour l’authentification utilisateur. Voici quelques points d’intérêt propres à cette section du script :
 
@@ -147,7 +147,7 @@ Le remplissage et le rendu des contrôles de graphique suivent un modèle géné
    | `splitByObject`   | Propriété de chaîne que vous souhaitez utiliser pour le fractionnement (facultative, peut être null). | `{property: 'Station', type: 'String'}` |
    | `color`         | Couleur des objets que vous souhaitez afficher. | `'pink'` |
    | `alias`           | Nom convivial de l’expression d’agrégation. | `'Factory3Temperature'` |
-   | `contextMenuActions` | Tableau d’actions à lier aux objets de série chronologique dans une visualisation (facultatif). | Pour plus d’informations, consultez [Menus contextuels de la section Fonctionnalités avancées.](#popup-context-menus) |
+   | `contextMenuActions` | Tableau d’actions à lier aux objets de série chronologique dans une visualisation (facultatif). | Pour plus d’informations, consultez Menus contextuels de la section Fonctionnalités avancées. |
 
 3. Appelez une requête TSI à l’aide d’API `TsiClient.Server` pour demander les données d’agrégation :
 
@@ -260,7 +260,7 @@ La capture d’écran montre les graphiques avec leurs menus contextuels respect
 
 Les pinceaux sont utilisés pour délimiter une plage de temps afin de définir des actions telles que le zoom et l’exploration.
 
-Le code utilisé pour illustrer les pinceaux apparaît également dans l’exemple précédent « Graphique en courbes avec menu contextuel pour créer le graphique à secteurs/barres », décrivant les [menus contextuels](#popup-context-menus-section).
+Le code utilisé pour illustrer les pinceaux apparaît également dans l’exemple précédent « Graphique en courbes avec menu contextuel pour créer le graphique à secteurs/barres », décrivant les menus contextuels.
 
 1. Les actions de pinceau sont semblables à un menu contextuel dans le sens où elles définissent une série d’actions personnalisées pour le pinceau. Chaque action contient un tableau avec un ou plusieurs éléments. Chaque élément définit un élément de menu contextuel :
    - `name`: texte utilisé pour l’élément de menu : « Paramètres d’impression dans la console. »

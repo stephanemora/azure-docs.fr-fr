@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469190"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821357"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -73,7 +73,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 
 * [Modèle d’index secondaire entre les partitions](#inter-partition-secondary-index-pattern)
 * [Modèle de clé composée](#compound-key-pattern)
-* [Transactions de groupe d’entités](#entity-group-transactions)
+* Transactions de groupe d’entités
 * [Utilisation des types d’entités hétérogènes](#working-with-heterogeneous-entity-types)
 
 ## <a name="inter-partition-secondary-index-pattern"></a>Modèle d’index secondaire entre les partitions
@@ -128,7 +128,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 * [Modèle de transactions cohérentes](#eventually-consistent-transactions-pattern)  
 * [Modèle d’index secondaire intra-partition](#intra-partition-secondary-index-pattern)  
 * [Modèle de clé composée](#compound-key-pattern)  
-* [Transactions de groupe d’entités](#entity-group-transactions)  
+* Transactions de groupe d’entités  
 * [Utilisation des types d’entités hétérogènes](#working-with-heterogeneous-entity-types)  
 
 ## <a name="eventually-consistent-transactions-pattern"></a>Modèle de transactions cohérentes
@@ -172,7 +172,7 @@ Utilisez ce modèle lorsque vous souhaitez maintenir une cohérence entre des en
 ### <a name="related-patterns-and-guidance"></a>Conseils et modèles connexes
 Les modèles et les conseils suivants peuvent également être pertinents lors de l'implémentation de ce modèle :  
 
-* [Transactions de groupe d’entités](#entity-group-transactions)  
+* Transactions de groupe d’entités  
 * [Fusion ou remplacement](#merge-or-replace)  
 
 > [!NOTE]
@@ -212,7 +212,7 @@ La propriété **EmployeeIDs** contient une liste des ID d’employés pour les 
 Les étapes suivantes décrivent le processus à suivre lorsque vous ajoutez un nouvel employé si vous utilisez la deuxième option. Dans cet exemple, nous ajoutons au service des ventes un employé ayant l'ID 000152 et dont le nom de famille est Jones :  
 
 1. Récupérez l’entité de l’index par la valeur de **PartitionKey** « Sales » et la valeur de **RowKey** « Jones ». Enregistrez l'ETag de cette entité pour l'utiliser lors de l'étape 2.  
-2. Créez une transaction de groupe d’entités (c’est-à-dire une opération par lots) qui insère la nouvelle entité d’employé (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « 000152 ») et met à jour l’entité d’index (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « Jones ») en ajoutant l’ID d’employé à la liste du champ EmployeeIDs. Pour plus d’informations sur les transactions de groupe d’entités, consultez [Transactions de groupe d’entités](#entity-group-transactions).  
+2. Créez une transaction de groupe d’entités (c’est-à-dire une opération par lots) qui insère la nouvelle entité d’employé (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « 000152 ») et met à jour l’entité d’index (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « Jones ») en ajoutant l’ID d’employé à la liste du champ EmployeeIDs. Pour plus d’informations sur les transactions de groupe d’entités, consultez Transactions de groupe d’entités.  
 3. Si la transaction de groupe d’entités échoue en raison d’une erreur d’accès concurrentiel optimiste (quelqu’un d’autre vient de modifier l’entité d’index), vous devez recommencer à l’étape 1.  
 
 Vous pouvez utiliser une approche similaire pour supprimer un employé si vous utilisez la deuxième option. La modification du nom d’un employé est légèrement plus complexe, car vous devrez exécuter une transaction de groupe d’entités qui met à jour trois entités : l’entité d’employé, l’entité d’index pour l’ancien nom et l’entité d’index pour le nouveau nom. Vous devez récupérer chaque entité avant d'apporter des modifications afin de récupérer les valeurs ETag que vous pouvez ensuite utiliser pour effectuer les mises à jour à l'aide de l'accès concurrentiel optimiste.  
@@ -251,7 +251,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 
 * [Modèle de clé composée](#compound-key-pattern)  
 * [Modèle de transactions cohérentes](#eventually-consistent-transactions-pattern)  
-* [Transactions de groupe d’entités](#entity-group-transactions)  
+* Transactions de groupe d’entités  
 * [Utilisation des types d’entités hétérogènes](#working-with-heterogeneous-entity-types)  
 
 ## <a name="denormalization-pattern"></a>Modèle de dénormalisation
@@ -282,7 +282,7 @@ Utilisez ce modèle lorsque vous devez fréquemment rechercher des informations 
 Les modèles et les conseils suivants peuvent également être pertinents lors de l'implémentation de ce modèle :  
 
 * [Modèle de clé composée](#compound-key-pattern)  
-* [Transactions de groupe d’entités](#entity-group-transactions)  
+* Transactions de groupe d’entités  
 * [Utilisation des types d’entités hétérogènes](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>Modèle de clé composée
@@ -325,7 +325,7 @@ Utilisez ce modèle lorsque vous devez stocker une ou plusieurs entités connexe
 ### <a name="related-patterns-and-guidance"></a>Conseils et modèles connexes
 Les modèles et les conseils suivants peuvent également être pertinents lors de l'implémentation de ce modèle :  
 
-* [Transactions de groupe d’entités](#entity-group-transactions)  
+* Transactions de groupe d’entités  
 * [Utilisation des types d’entités hétérogènes](#working-with-heterogeneous-entity-types)  
 * [Modèle de transactions cohérentes](#eventually-consistent-transactions-pattern)  
 
@@ -394,7 +394,7 @@ Utilisez ce modèle lorsque vous avez un volume élevé d'entités, que vous dev
 ### <a name="related-patterns-and-guidance"></a>Conseils et modèles connexes
 Les modèles et les conseils suivants peuvent également être pertinents lors de l'implémentation de ce modèle :  
 
-* [Transactions de groupe d’entités](#entity-group-transactions)
+* Transactions de groupe d’entités
 * [Modification des entités](#modifying-entities)  
 
 ## <a name="data-series-pattern"></a>Modèle de série de données
@@ -454,7 +454,7 @@ Utilisez ce modèle lorsque vous avez besoin de stocker des entités dont la tai
 ### <a name="related-patterns-and-guidance"></a>Conseils et modèles connexes
 Les modèles et les conseils suivants peuvent également être pertinents lors de l'implémentation de ce modèle :  
 
-* [Transactions de groupe d’entités](#entity-group-transactions)
+* Transactions de groupe d’entités
 * [Fusion ou remplacement](#merge-or-replace)
 
 ## <a name="large-entities-pattern"></a>Modèle d’entités volumineuses
@@ -556,7 +556,7 @@ Prenez en compte les points suivants lorsque vous décidez de la manière de sto
 Cette section décrit certaines des considérations à prendre en compte lorsque vous implémentez les modèles décrits dans les sections précédentes. La plupart de cette section utilise des exemples rédigés en C#, ainsi que la bibliothèque cliente de stockage (version 4.3.0 au moment de la rédaction).  
 
 ## <a name="retrieving-entities"></a>Récupération des entités
-Comme indiqué dans la section [Conception pour l’interrogation](#design-for-querying), la requête la plus efficace est une requête de pointage. Toutefois, dans certains scénarios, vous devrez peut-être récupérer plusieurs entités. Cette section décrit certaines des approches courantes pour récupérer des entités à l'aide de la bibliothèque cliente de stockage.  
+Comme indiqué dans la section Conception pour l’interrogation, la requête la plus efficace est une requête de pointage. Toutefois, dans certains scénarios, vous devrez peut-être récupérer plusieurs entités. Cette section décrit certaines des approches courantes pour récupérer des entités à l'aide de la bibliothèque cliente de stockage.  
 
 ### <a name="executing-a-point-query-using-the-storage-client-library"></a>Exécution d'une requête de pointage à l'aide de la bibliothèque cliente de stockage
 La méthode la plus simple pour exécuter une requête de pointage consiste à utiliser l’opération de table **Retrieve** (récupération), comme indiqué dans l’extrait de code C# suivant, qui récupère une entité avec une **PartitionKey** dont la valeur est « Sales » et une **RowKey** dont la valeur est « 212 » :  

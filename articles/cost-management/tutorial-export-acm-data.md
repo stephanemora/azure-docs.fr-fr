@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053532"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766404"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -30,8 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Vérifier que les données sont collectées
 
 ## <a name="prerequisites"></a>Prérequis
-
-L’exportation de données est disponible pour tous les clients détenant un [Accord Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Les autorisations Azure suivantes sont prises en charge par abonnement chaque pour l’exportation de données par utilisateur et par groupe :
+L’exportation des données est disponible pour divers types de comptes Azure, notamment pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Pour voir la liste complète des types de comptes pris en charge, consultez [Comprendre les données Cost Management](understand-cost-mgt-data.md). Les autorisations Azure suivantes sont prises en charge par abonnement chaque pour l’exportation de données par utilisateur et par groupe :
 
 - Propriétaire : peut créer, modifier ou supprimer des exportations planifiées pour un abonnement.
 - Contributeur : peut créer, modifier ou supprimer ses propres exportations planifiées. Peut modifier le nom d’exportations planifiées créées par d’autres utilisateurs.

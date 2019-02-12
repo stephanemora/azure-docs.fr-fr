@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 05f6b32fad4f0a449f0d801c1c7cc6a28be6f940
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685347"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745807"
 ---
-# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutoriel : utiliser un appareil simulé pour tester la connectivité avec votre Hub IoT
+# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutoriel : Utiliser un appareil simulé pour tester la connectivité avec votre hub IoT
 
 Dans ce tutoriel, vous utilisez les outils du portail Azure IoT Hub et les commandes Azure CLI pour tester la connectivité de l’appareil. Ce tutoriel utilise également un simulateur d’appareil simple que vous exécutez sur votre ordinateur de bureau.
 
@@ -75,7 +75,7 @@ Pour récupérer la chaîne de connexion de **MyTestDevice**, cliquez dessus dan
 
 Pour simuler l’envoi de données de télémétrie de **MyTestDevice** à votre Hub IoT, exécutez l’application d’appareil simulé Node.js que vous avez téléchargée précédemment.
 
-Dans une fenêtre de terminal sur votre machine de développement, accédez au dossier racine de l’exemple de projet Node.js que vous avez téléchargé. Puis accédez au dossier **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
+Dans une fenêtre de terminal sur votre machine de développement, accédez au dossier racine de l’exemple de projet Node.js que vous avez téléchargé. Accédez ensuite au dossier **iot-hub\Tutorials\ConnectivityTests**.
 
 Dans la fenêtre de terminal, exécutez les commandes suivantes pour installer les bibliothèques requises et exécuter l’application d’appareil simulé. Utilisez la chaîne de connexion de l’appareil que vous avez notée lorsque vous avez ajouté l’appareil dans le portail.
 

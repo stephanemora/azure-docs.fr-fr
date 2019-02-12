@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 4110b8f1b336a604c89180ac44ad470132765830
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620521"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820672"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Communication à distance des services en C# avec Reliable Services
 
@@ -239,7 +239,7 @@ Cette étape vérifie que le service écoute uniquement sur l’écouteur V2.
 
 ## <a name="use-the-remoting-v2-interface-compatible-stack"></a>Utiliser la pile V2 de communication à distance (compatible avec l’interface)
 
- La pile V2 de communication à distance (compatible avec l’interface, appelée V2_1) a toutes les fonctionnalités de la pile de communication à distance V2. Sa pile d’interface est compatible avec la pile V1 de communication à distance, mais elle ne présente pas de compatibilité descendante avec les piles V1 et V2. Pour mettre à niveau de V1 à V2_1 sans affecter la disponibilité du service, suivez les étapes décrites dans l’article [Mettre à niveau de la version V1 vers la version V2 (compatible avec l’interface)](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible).
+ La pile V2 de communication à distance (compatible avec l’interface, appelée V2_1) a toutes les fonctionnalités de la pile de communication à distance V2. Sa pile d’interface est compatible avec la pile V1 de communication à distance, mais elle ne présente pas de compatibilité descendante avec les piles V1 et V2. Pour mettre à niveau de V1 à V2_1 sans affecter la disponibilité du service, suivez les étapes décrites dans l’article Mettre à niveau de la version V1 vers la version V2 (compatible avec l’interface).
 
 
 ### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>Utilisation d’un attribut d’assembly pour se servir de la pile V2 de communication à distance (compatible avec l’interface)

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: juliako
-ms.openlocfilehash: 8eb49010d89c3039f46e5c84cd305b7d0b5ca025
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306965"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767450"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Clouds et régions dans lesquels Azure Media Services v3 existe
 
@@ -33,9 +33,16 @@ Azure Media Services v3 est disponible via le manifeste Azure Resource Manager d
 | [LiveEvents](live-streaming-overview.md) | Disponible | Disponible | Disponible | Disponible |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Disponible | Disponible | Disponible | Disponible |
 
-## <a name="regions"></a>Régions 
+## <a name="regionsgeographieslocations"></a>Régions/zones géographiques/emplacements
 
-S'il vous faut fournir le paramètre **location**, vous devez fournir le nom de code de la région comme valeur **location**. Pour obtenir le nom de code de la région dans laquelle se trouve votre compte et vers laquelle votre appel doit être routé, vous pouvez exécuter la ligne suivante dans [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) :
+* [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Produit par région](https://azure.microsoft.com/global-infrastructure/services/)
+* [Zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/)
+
+## <a name="region-code-name"></a>Nom de code de la région 
+
+S'il vous faut fournir le paramètre **location**, vous devez fournir le nom de code de la région comme valeur **location**. Pour obtenir le nom de code de la région dans laquelle se trouve votre compte et vers laquelle votre appel doit être routé, vous pouvez exécuter la ligne suivante dans l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ```bash
 az account list-locations

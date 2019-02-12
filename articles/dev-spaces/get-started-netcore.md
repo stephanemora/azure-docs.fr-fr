@@ -1,5 +1,5 @@
 ---
-title: Créer un espace de développement Kubernetes dans le cloud à l’aide de .NET Core et VS Code | Microsoft Docs
+title: Créer un espace de développement Kubernetes dans le cloud à l’aide de .NET Core et de VS Code | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -10,14 +10,14 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: b51bf83d2e44239ebd6bc17e25efaa2fe94250f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5cecb11494926444249c8061f1ec93622e4d6c78
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467133"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700694"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Prise en main d’Azure Dev Spaces avec .NET Core
+# <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Bien démarrer avec l’utilisation d’Azure Dev Spaces conjointement à .NET Core
 
 Dans ce guide, vous allez apprendre à :
 
@@ -99,13 +99,7 @@ Des fonctionnalités puissantes comme le débogage Kubernetes sont disponibles p
 Dans cette section, vous allez apprendre à créer une application web ASP.NET Core et à l’exécuter dans un conteneur dans Kubernetes.
 
 ### <a name="create-an-aspnet-core-web-app"></a>Créez une application web ASP.NET Core
-Si vous avez installé [.NET Core](https://www.microsoft.com/net), vous pouvez rapidement créer une application web ASP.NET Core dans un dossier nommé `webfrontend`.
-    
-```cmd
-dotnet new mvc --name webfrontend
-```
-
-Une autre possibilité consiste à **télécharger un exemple de code à partir de GitHub** en accédant à https://github.com/Azure/dev-spaces, puis à sélectionner **Clone or Download** pour télécharger le référentiel GitHub dans votre environnement local. Le code de ce guide est disponible dans `samples/dotnetcore/getting-started/webfrontend`.
+Clonez ou téléchargez l’[exemple d’application Azure Dev Spaces](https://github.com/Azure/dev-spaces). Cet article utilise le code du répertoire *samples/dotnetcore/getting-started/webfrontend*.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Préparation de code pour le développement Docker et Kubernetes
 Pour l’heure, vous disposez d’une application web de base qui peut s’exécuter localement. Vous allez maintenant la mettre en conteneur en créant des ressources qui définissent le conteneur de l’application et la façon dont il sera déployé dans Kubernetes. Azure Dev Spaces permet d’effectuer facilement cette tâche : 
@@ -245,4 +239,4 @@ Actualisez l’application web dans le navigateur, puis accédez à la page À p
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Découvrir le développement en équipe](team-development-netcore.md)
+> [En savoir plus sur le développement multiservice](multi-service-netcore.md)

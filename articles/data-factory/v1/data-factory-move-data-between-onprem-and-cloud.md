@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015829"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822423"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
 > [!NOTE]
@@ -172,7 +172,7 @@ Dans cette étape, vous créez deux services liés : **AzureStorageLinkedServic
       4. Dans la boîte de dialogue **Définition des informations d’identification**, spécifiez le type d’authentification, le nom d’utilisateur et le mot de passe, puis cliquez sur **OK**. Si la connexion est réussie, les informations d’identification chiffrées sont stockées dans le JSON, et la boîte de dialogue se ferme.
       5. Fermez l’onglet de navigateur vide qui a lancé la boîte de dialogue s’il ne se ferme pas automatiquement, puis revenez à l’onglet du portail Azure.
 
-         Sur la machine passerelle, ces informations d’identification sont **chiffrées** à l’aide d’un certificat appartenant au service Data Factory. Si vous préférez utiliser le certificat qui est associé à la passerelle de gestion des données, consultez [Set credentials securely](#set-credentials-and-security)(Configuration des informations d’identification de manière sécurisée).    
+         Sur la machine passerelle, ces informations d’identification sont **chiffrées** à l’aide d’un certificat appartenant au service Data Factory. Si vous préférez utiliser le certificat qui est associé à la passerelle de gestion des données, consultez Set credentials securely (Configuration des informations d’identification de manière sécurisée).    
    3. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié SQL Server. Vous devez voir le service lié dans l’arborescence.
 
       ![Service lié SQL Server dans l’arborescence](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    

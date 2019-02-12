@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 7f629ceb9fe5bd19c0558d1fde45d0bddcee744e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458871"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813005"
 ---
 # <a name="modeling-relationships"></a>Modélisation des relations
 Cet article décrit le processus de modélisation pour vous aider à concevoir vos solutions de Stockage Table Azure.
@@ -101,7 +101,7 @@ Les modèles de domaines peuvent inclure des relations un à un entre les entit�
 Certaines considérations sur l’implémentation peuvent vous conduire à implémenter des relations un à un dans le service de Table :  
 
 * Gestion des entités volumineuses (pour plus d’informations, consultez [Modèle d’entités volumineuses](table-storage-design-patterns.md#large-entities-pattern))  
-* L’implémentation de contrôles d’accès (pour plus d’informations, consultez [Contrôle d’accès avec des signatures d’accès partagé](#controlling-access-with-shared-access-signatures))  
+* L’implémentation de contrôles d’accès (pour plus d’informations, consultez Contrôle d’accès avec des signatures d’accès partagé).  
 
 ## <a name="join-in-the-client"></a>Joindre le client
 Bien qu'il existe des façons de modéliser des relations dans le service de Table, n'oubliez pas que les deux principaux motifs pour utiliser le service de Table sont l'évolutivité et les performances. Si vous devez modéliser plusieurs relations pouvant compromettre les performances et la scalabilité de votre solution, demandez-vous s’il est nécessaire de générer toutes les relations de données dans votre conception de table. Vous pouvez peut-être simplifier la conception et améliorer l'évolutivité et les performances de votre solution si vous laissez votre application cliente effectuer les jointures nécessaires.  
@@ -117,7 +117,7 @@ Vous pouvez conserver les instances de deux classes concrètes dans le service d
 
 ![Table Person](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-Pour plus d’informations sur l’utilisation de plusieurs types d’entités dans la même table dans le code client, consultez la section [Utilisation des types d’entités hétérogènes](#working-with-heterogeneous-entity-types) plus loin dans ce guide. Vous y trouverez des exemples montrant comment reconnaître le type d'entité dans le code client.  
+Pour plus d’informations sur l’utilisation de plusieurs types d’entités dans la même table dans le code client, consultez la section Utilisation des types d’entités hétérogènes plus loin dans ce guide. Vous y trouverez des exemples montrant comment reconnaître le type d'entité dans le code client.  
 
 
 ## <a name="next-steps"></a>Étapes suivantes

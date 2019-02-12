@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356033"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819445"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Résolution des erreurs de passerelle incorrecte dans Application Gateway
 
 Découvrez comment résoudre les erreurs de passerelle incorrecte (502) reçues lors de l’utilisation d’Application Gateway.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Après avoir configuré une passerelle Application Gateway, les utilisateurs peuvent rencontrer l’erreur « Erreur serveur 502 : le serveur Web a reçu une réponse erronée lors de son utilisation en tant que passerelle ou serveur proxy ». Cette erreur peut se produire pour les raisons suivantes :
+Après avoir configuré une passerelle Application Gateway, les utilisateurs peuvent rencontrer l’erreur « Erreur serveur 502 : 502 - Le serveur Web a reçu une réponse erronée lors de son utilisation en tant que passerelle ou serveur proxy », Cette erreur peut se produire pour les raisons suivantes :
 
 * Un groupe de sécurité réseau, un routage défini par l’utilisateur ou un DNS personnalisé bloque l’accès aux membres du pool principal.
-* Les machines virtuelles principales ou les instances du groupe de machines virtuelles identiques [ne répondent pas à la sonde d’intégrité par défaut](#problems-with-default-health-probe.md).
-* [Configuration non valide ou incorrecte des sondes d’intégrité personnalisées](#problems-with-custom-health-probe.md).
+* Les machines virtuelles principales ou les instances du groupe de machines virtuelles identiques ne répondent pas à la sonde d’intégrité par défaut.
+* Configuration non valide ou incorrecte des sondes d’intégrité personnalisées.
 * Le [pool principal d’Azure Application Gateway n’est pas configuré ou est vide](#empty-backendaddresspool).
 * Aucune des machines virtuelles ou des instances du [groupe de machines virtuelles identiques](#unhealthy-instances-in-backendaddresspool) n’est intègre.
 * [Problèmes de connectivité ou d’expiration](#request-time-out) des requêtes d’utilisateur.
@@ -103,7 +103,7 @@ Les sondes d’intégrité personnalisées apportent davantage de flexibilité a
 
 | Propriétés de la sonde | Description |
 | --- | --- |
-| NOM |Nom de la sonde. Ce nom est utilisé pour désigner la sonde dans les paramètres HTTP du serveur principal. |
+| Nom |Nom de la sonde. Ce nom est utilisé pour désigner la sonde dans les paramètres HTTP du serveur principal. |
 | Protocole |Protocole utilisé pour envoyer la sonde. La sonde utilise le protocole défini dans les paramètres HTTP du serveur principal |
 | Host |Nom d’hôte pour l’envoi de la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway. Ce nom est différent du nom d’hôte de la machine virtuelle. |
 | path |Chemin relatif de la sonde. Le chemin valide commence par « / ». La sonde est envoyée à \<protocole\>://\<hôte\>:\<port\>\<chemin d’accès\> |

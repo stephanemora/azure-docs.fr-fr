@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 6302ae3bbb97f8f40733074b9d9dc708d10641ca
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: d2b34fa12836416f68d57f0147dd0364a1501c13
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322591"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698016"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-cli"></a>Tutoriel : Créer un rôle personnalisé à l’aide d’Azure CLI
+# <a name="tutorial-create-a-custom-role-using-azure-cli"></a>Tutoriel : Créer un rôle personnalisé à l’aide d’Azure CLI
 
 Si les [rôles intégrés](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Pour ce tutoriel, vous allez créer un rôle personnalisé nommé Reader Support Tickets à l’aide d’Azure CLI. Le rôle personnalisé permet à l’utilisateur de consulter tous les éléments de l’abonnement et d’ouvrir des tickets de support.
 
@@ -38,10 +38,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-- Autorisations nécessaires pour créer des rôles personnalisés, tels que [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator)
-- [Azure CLI](/cli/azure/install-azure-cli) installé localement
+- autorisations nécessaires pour créer des rôles personnalisés, par exemple, [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ;
+- [Azure CLI](/cli/azure/install-azure-cli) installé en local.
 
-## <a name="sign-in-to-azure-cli"></a>Se connecter à Azure CLI
+## <a name="sign-in-to-azure-cli"></a>Connectez-vous à Azure CLI
 
 Connectez-vous à [Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -65,24 +65,16 @@ Pour créer un rôle personnalisé, le plus simple consiste à débuter avec un 
 
     ```json
     {
-        "Name":  "",
-        "IsCustom":  true,
-        "Description":  "",
-        "Actions":  [
-    
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/{subscriptionId1}"
-                             ]
+      "Name": "",
+      "IsCustom": true,
+      "Description": "",
+      "Actions": [],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/{subscriptionId1}"
+      ]
     }
     ```
     
@@ -109,25 +101,19 @@ Pour créer un rôle personnalisé, le plus simple consiste à débuter avec un 
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
     
@@ -221,26 +207,20 @@ Pour mettre à jour le rôle personnalisé, mettez à jour le fichier JSON puis 
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*",
-                        "Microsoft.Resources/deployments/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
         

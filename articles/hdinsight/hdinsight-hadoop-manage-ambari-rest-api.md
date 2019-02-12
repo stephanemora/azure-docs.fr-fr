@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 03b4cc919086ff2a8eb038ad9c4f45200e9a6246
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 79bc9310eb3f7c8dd2b295405cea70c514d343d3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715103"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820863"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari
 
@@ -60,7 +60,7 @@ L’URI de base pour l’API REST Ambari sur HDInsight est https://CLUSTERNAME.a
 >
 > `https://MyCluster.azurehdinsight.net/api/v1/clusters/mycluster`
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 
 Une connexion à Ambari sur HDInsight requiert HTTPS. Utilisez le nom du compte Administrateur (la valeur par défaut est **admin**) et le mot de passe fournis lors de la création du cluster.
 
@@ -132,7 +132,7 @@ $respObj.Clusters.health_report
 ```
 
 > [!NOTE]  
-> Alors que la plupart des exemples de ce document utilisent `ConvertFrom-Json` pour afficher les éléments du document de réponse, l’exemple [Mise à jour de la configuration Ambari](#example-update-ambari-configuration) utilise jq. Jq est utilisé dans cet exemple pour construire un nouveau modèle à partir du document de réponse JSON.
+> Alors que la plupart des exemples de ce document utilisent `ConvertFrom-Json` pour afficher les éléments du document de réponse, l’exemple Mise à jour de la configuration Ambari utilise jq. Jq est utilisé dans cet exemple pour construire un nouveau modèle à partir du document de réponse JSON.
 
 Pour obtenir une référence complète de l’API REST, consultez la page [Référence V1 de l’API d’Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 

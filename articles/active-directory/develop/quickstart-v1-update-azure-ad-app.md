@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 437217bdd3cc2ae8724d6bf24134d8fe725daac7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093306"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819091"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Démarrage rapide : Mettre à jour une application dans Azure Active Directory
 
@@ -156,7 +156,7 @@ Lorsque vous inscrivez une application dans Azure AD, vous pouvez choisir de ren
 Il est important de noter les différences entre une application à locataire unique et une application multilocataire :  
 
 - Une application à locataire unique est prévue pour une utilisation dans une seule organisation. Il s’agit généralement d’une application métier écrite par un développeur de l’entreprise. Une application à locataire unique est uniquement accessible par les utilisateurs disposant de comptes dans le même locataire que l’inscription de l’application. Par conséquent, elle doit être approvisionnée dans un seul répertoire.
-- Une application multilocataire est prévue pour une utilisation dans plusieurs organisations. Il s’agit d’une application SaaS (software-as-a-service) web généralement écrite par un éditeur de logiciels indépendant. Les applications multilocataires doivent être approvisionnées dans chaque locataire où les utilisateurs doivent avoir accès. Pour les locataires autres que celui où l’application est inscrite, un consentement de l’utilisateur ou de l’administrateur est nécessaire pour les inscrire. Notez que les applications clientes natives sont multilocataires par défaut lorsqu’elles sont installées sur l’appareil du propriétaire de la ressource. Consultez la section [Vue d’ensemble de l’infrastructure de consentement](#overview-of-the-consent-framework) pour plus d’informations sur l’infrastructure de consentement.
+- Une application multilocataire est prévue pour une utilisation dans plusieurs organisations. Il s’agit d’une application SaaS (software-as-a-service) web généralement écrite par un éditeur de logiciels indépendant. Les applications multilocataires doivent être approvisionnées dans chaque locataire où les utilisateurs doivent avoir accès. Pour les locataires autres que celui où l’application est inscrite, un consentement de l’utilisateur ou de l’administrateur est nécessaire pour les inscrire. Notez que les applications clientes natives sont multilocataires par défaut lorsqu’elles sont installées sur l’appareil du propriétaire de la ressource. Consultez la section précédente Vue d’ensemble de l’infrastructure de consentement pour plus d’informations sur l’infrastructure de consentement.
 
 Rendre une application multilocataire nécessite des modifications de l’inscription de l’application ainsi que des modifications au niveau de l’application web elle-même. Les sections suivantes couvrent ces deux points.
 
@@ -184,7 +184,7 @@ La prise en charge des applications multilocataires s’appuie en grande partie 
 Votre application web peut également offrir :
 
 - La possibilité pour les administrateurs « d’inscrire ma société ». Cette expérience, appelée « consentement d’administrateur », donne à un administrateur la possibilité de donner son consentement au nom de *tous les utilisateurs* dans leur organisation. Seul l’utilisateur qui s’authentifie avec un compte appartenant au rôle Administrateur général peut fournir son consentement d’administrateur ; les autres utilisateurs reçoivent un message d’erreur.
-- Une expérience d’inscription pour les utilisateurs. Il est prévu que l’utilisateur dispose d’un bouton « inscription » qui redirige le navigateur vers le point de terminaison `/authorize` OAuth2.0 de Azure AD ou un point de terminaison `/userinfo` OpenID Connect. Ces points de terminaison permettent à l'application d’obtenir des informations sur le nouvel utilisateur en inspectant l'id_token. Après la phase d’inscription, l’utilisateur reçoit une invite de consentement similaire à celle illustrée dans la section [Vue d’ensemble de l’infrastructure de consentement](#overview-of-the-consent-framework).
+- Une expérience d’inscription pour les utilisateurs. Il est prévu que l’utilisateur dispose d’un bouton « inscription » qui redirige le navigateur vers le point de terminaison `/authorize` OAuth2.0 de Azure AD ou un point de terminaison `/userinfo` OpenID Connect. Ces points de terminaison permettent à l'application d’obtenir des informations sur le nouvel utilisateur en inspectant l'id_token. Après la phase d’inscription, l’utilisateur reçoit une invite de consentement similaire à celle illustrée dans la section Vue d’ensemble de l’infrastructure de consentement.
 
 Pour plus d’informations sur les modifications d’application requises pour prendre en charge l’accès multilocataire et les expériences de connexion/inscription, consultez :
 

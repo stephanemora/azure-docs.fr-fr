@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 9e06e53f83dd05d53b76a2a07e465133f052dba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157701"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664027"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory
 L’authentification unique (SSO) est plus sûre et plus pratique quand les utilisateurs s’authentifient auprès d’applications dans Azure Active Directory (Azure AD). Cet article décrit les différentes méthodes d’authentification unique et vous aide à choisir la méthode SSO la plus appropriée lors de la configuration de vos applications.
@@ -49,9 +49,7 @@ Le tableau suivant récapitule les méthodes d’authentification unique et cont
 | [Basée sur l’en-tête](#header-based-sso) | Locales uniquement | Utilisez l’authentification unique basée sur l’en-tête quand l’application utilise des en-têtes pour l’authentification. L’authentification unique basée sur l’en-tête nécessite PingAccess pour Azure AD. Le proxy d’application utilise Azure AD pour authentifier l’utilisateur, puis transmet le trafic via le service du connecteur.  | 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect et OAuth
-Avec OpenID Connect et OAuth, vous activez une expérience d’authentification unique qui simplifie le processus d’ajout d’une application d’entreprise à Azure AD. L’administrateur de l’application n’a pas besoin de configurer l’authentification unique. Azure AD ajoute l’application lorsque l’administrateur [autorise le consentement de l’utilisateur](configure-user-consent.md). 
-
-Les [kits SDK](../develop/reference-v2-libraries.md) pour OpenID Connect et OAuth sont faciles à adopter, et votre application est prête à utiliser MS Graph. 
+Lors du développement de nouvelles applications, utilisez des protocoles modernes comme OpenID Connect et OAuth afin de bénéficier de la meilleure expérience d’authentification unique pour votre application sur plusieurs plateformes de périphériques. OAuth permet aux utilisateurs ou aux administrateurs de [donner leur consentement](configure-user-consent.md) pour des ressources protégées comme [MS Graph](/graph/overview). Nos [SDK](../develop/reference-v2-libraries.md) sont faciles à adopter pour votre application, laquelle est prête à utiliser [MS Graph](/graph/overview).
 
 Pour plus d'informations, consultez les pages suivantes :
 

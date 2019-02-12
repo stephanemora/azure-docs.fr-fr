@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 02129fbddae2e3a82299eb3b03d6e73030b44c4d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6fb8166893f0dada019ca633933833d17b95fee9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477877"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811458"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux Batch pour l’évaluation de diagnostic et la surveillance
 
@@ -37,7 +37,7 @@ Ces métriques :
 
 * sont activées par défaut dans chaque compte Batch sans configuration supplémentaire ;
 * sont générées toutes les minutes ;
-* ne sont pas conservées automatiquement, mais ont un historique propagé de 30 jours. Vous pouvez conserver les métriques d’activité dans le cadre de la [journalisation des diagnostics](#work-with-diagnostic-logs).
+* ne sont pas conservées automatiquement, mais ont un historique propagé de 30 jours. Vous pouvez conserver les métriques d’activité dans le cadre de la journalisation des diagnostics.
 
 ### <a name="view-metrics"></a>Afficher les mesures
 

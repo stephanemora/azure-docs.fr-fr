@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 3e460df8c4841a23c76ef8d7b254938ce46a2b45
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380561"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819108"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de mise à l’échelle des applications dans AKS (Azure Kubernetes Service)
 
@@ -23,7 +23,7 @@ Cet article présente les concepts fondamentaux qui vous aident à mettre à l�
 - [Mise à l’échelle manuelle](#manually-scale-pods-or-nodes)
 - [Autoscaler de pods élastique](#horizontal-pod-autoscaler)
 - [Autoscaler de cluster](#cluster-autoscaler)
-- [Intégration d’Azure Container Instances (ACI) à AKS](#burst-to-azure-container-instance)
+- Intégration d’Azure Container Instances (ACI) à AKS
 
 ## <a name="manually-scale-pods-or-nodes"></a>Mettre à l’échelle des pods ou des nœuds manuellement
 
@@ -65,7 +65,7 @@ Si les ressources de calcul d’un nœud sont insuffisantes pour l’exécution 
 
 Lorsque l’autoscaler de cluster remarque que des pods ne sont pas panifiables en raison de contraintes liées aux ressources du pool de nœuds, le nombre de nœuds à l’intérieur de ce pool est augmenté pour fournir les ressources de calcul supplémentaires. Lorsque ces nœuds supplémentaires sont correctement déployés et utilisables au sein du pool de nœuds, les pods sont alors planifiés pour s’exécuter sur eux.
 
-Si votre application doit rapidement se mettre à l'échelle, il est possible que certains pods restent en état d’attente de planification, jusqu’à ce que les nœuds supplémentaires déployés par l’autoscaler de cluster puissent accepter les pods planifiés. Pour les applications qui présentent des demandes de croissance extrêment forte et rapide, vous pouvez [mettre à l’échelle au moyen de nœuds virtuels et d’Azure Container Instances](#burst-to-azure-container-instance).
+Si votre application doit rapidement se mettre à l'échelle, il est possible que certains pods restent en état d’attente de planification, jusqu’à ce que les nœuds supplémentaires déployés par l’autoscaler de cluster puissent accepter les pods planifiés. Pour les applications qui présentent des demandes de croissance extrêmement forte et rapide, vous pouvez mettre à l’échelle au moyen de nœuds virtuels et d’Azure Container Instances.
 
 ### <a name="scale-down-events"></a>Scale-down d’événements
 

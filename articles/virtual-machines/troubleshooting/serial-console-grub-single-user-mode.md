@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103307"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814467"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur
 GRUB, acronyme de GRand Unified Bootloader, est probablement la première chose que vous voyez quand vous démarrez une machine virtuelle. Parce qu’il s’affiche avant que le système d’exploitation ne démarre, il n’est pas accessible par le biais du protocole SSH. Un GRUB vous permet de modifier votre configuration d’amorçage, notamment pour démarrer en mode mono-utilisateur.
@@ -44,7 +44,7 @@ Le redémarrage de votre machine virtuelle est également possible avec une comm
 ![Redémarrage de la console série Linux](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>Accès général au mode mono-utilisateur
-Un accès manuel au mode mono-utilisateur peut être nécessaire dans les situations où vous n’avez pas configuré de compte avec authentification par mot de passe. Vous devez modifier la configuration du GRUB pour passer manuellement en mode mono-utilisateur. Une fois cela fait, voir [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](#-Use-Single-User-Mode-to-reset-or-add-a-password) pour obtenir des instructions supplémentaires.
+Un accès manuel au mode mono-utilisateur peut être nécessaire dans les situations où vous n’avez pas configuré de compte avec authentification par mot de passe. Vous devez modifier la configuration du GRUB pour passer manuellement en mode mono-utilisateur. Une fois cela fait, voir Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur pour obtenir des instructions supplémentaires.
 
 Dans les cas où la machine virtuelle ne parvient pas à démarrer, les distributions vous ramènent souvent automatiquement au mode mono-utilisateur ou au mode urgence. Toutefois, certaines distributions nécessitent une configuration supplémentaire (telle que la définition d’un mot de passe racine) pour pouvoir vous ramener automatiquement au mode mono-utilisateur ou au mode urgence.
 

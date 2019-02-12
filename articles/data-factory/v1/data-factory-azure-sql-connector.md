@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 13e00acaf287a9e153aaa8e5ce7d630f8d198f02
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a7789f9a3f3da46305a9d8cd7cda24019658f2ad
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330413"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811477"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -186,7 +186,7 @@ L’exemple définit les entités de fabrique de données suivantes :
 
 L’exemple copie toutes les heures les données temporelles (horaire, journalière, etc.) d’une table Azure SQL Database vers un objet blob. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
-**Service lié Azure SQL Database :**
+**Service lié pour Azure SQL Database :**
 
 ```JSON
 {
@@ -199,7 +199,7 @@ L’exemple copie toutes les heures les données temporelles (horaire, journali�
   }
 }
 ```
-Consultez la section [Service lié SQL Azure](#linked-service) pour obtenir la liste des propriétés prises en charge par ce service lié.
+Consultez la section Service lié SQL Azure pour obtenir la liste des propriétés prises en charge par ce service lié.
 
 **Service lié Azure Blob Storage :**
 
@@ -248,7 +248,7 @@ La définition de « external » : « true» informe le service Azure Data Facto
 }
 ```
 
-Consultez la section [Propriétés de type du jeu de données SQL Azure](#dataset) pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.
+Consultez la section Propriétés de type du jeu de données SQL Azure pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.
 
 **Jeu de données de sortie d'objet Blob Azure :**
 
@@ -391,7 +391,7 @@ L’exemple copie toutes les heures les données temporelles (horaire, journali�
   }
 }
 ```
-Consultez la section [Service lié SQL Azure](#linked-service) pour obtenir la liste des propriétés prises en charge par ce service lié.
+Consultez la section Service lié SQL Azure pour obtenir la liste des propriétés prises en charge par ce service lié.
 
 **Service lié Azure Blob Storage :**
 
@@ -499,7 +499,7 @@ L'exemple copie les données dans une table nommée « MyTable » dans SQL Azu
   }
 }
 ```
-Consultez la section [Propriétés de type du jeu de données SQL Azure](#dataset) pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.
+Consultez la section Propriétés de type du jeu de données SQL Azure pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.
 
 **Activité de copie dans un pipeline avec une source blob et un récepteur SQL :**
 
@@ -641,29 +641,29 @@ Lors du déplacement des données vers et à partir de Microsoft Azure SQL Da
 | binaire |Byte[] |
 | bit |Booléen |
 | char |String, Char[] |
-| date |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
-| Datetimeoffset |DatetimeOffset |
-| Décimal |Décimal |
+| date |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
+| Datetimeoffset |DateTimeOffset |
+| Decimal |Decimal |
 | Attribut FILESTREAM (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |Décimal |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numérique |Décimal |
+| numérique |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Décimal |
+| smallmoney |Decimal |
 | sql_variant |Objet * |
 | texte |String, Char[] |
-| time |intervalle de temps |
-|  timestamp |Byte[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |

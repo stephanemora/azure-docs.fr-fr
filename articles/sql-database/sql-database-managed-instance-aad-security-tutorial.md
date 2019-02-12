@@ -1,6 +1,6 @@
 ---
-title: Sécurité d’Azure SQL Database Managed Instance à l’aide de connexions Azure AD | Microsoft Docs
-description: Découvrir les techniques et fonctionnalités permettant de sécuriser une instance managée dans Azure SQL Database à l’aide de connexions Azure AD
+title: Sécurité des instances managées Azure SQL Database à l’aide de connexions Azure AD | Microsoft Docs
+description: Découvrez les techniques et fonctionnalités permettant de sécuriser une instance managée dans Azure SQL Database à l’aide de connexions Azure AD.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: f96b2853b887836a94091dcba0ceaf6f8dd43d12
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/04/2019
+ms.openlocfilehash: 32d1be97405624fe929a9e9e1ff486f6a31200aa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229133"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732768"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Tutoriel : Sécurité des instances managées dans Azure SQL Database à l’aide de connexions Azure AD
 
-Azure SQL Database Managed Instance fournit quasiment toutes les fonctionnalités de sécurité du dernier moteur de base de données SQL Server (Édition Entreprise) local :
+Une instance managée offre quasiment toutes les fonctionnalités de sécurité du dernier moteur de base de données SQL Server (Édition Entreprise) local :
 
 - Limitation de l’accès dans un environnement isolé
 - Utiliser des mécanismes d’authentification nécessitant une identité (Azure AD, Authentification SQL)
@@ -29,8 +29,8 @@ Azure SQL Database Managed Instance fournit quasiment toutes les fonctionnalité
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> - Créer une connexion Azure AD (Active Directory) pour les instances managées
-> - Accorder des autorisations aux connexions Azure AD dans les instances managées
+> - Créer une connexion Azure AD (Active Directory) pour une instance managée
+> - Accorder des autorisations aux connexions Azure AD dans une instance managée
 > - Créer des utilisateurs Azure AD à partir de connexions Azure AD
 > - Affecter des autorisations aux utilisateurs Azure AD et à la sécurité de base de données managée
 > - Utiliser l’emprunt d’identité avec des utilisateurs Azure AD
@@ -38,9 +38,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > - Découvrir les fonctionnalités de sécurité, notamment la protection contre les menaces, l’audit, le masquage des données et le chiffrement
 
 > [!NOTE]
-> Les connexions Azure AD pour SQL Database Managed Instance sont en **préversion publique**.
+> Les connexions AD Azure pour les instances managées sont en **préversion publique**.
 
-Pour en savoir plus, consultez les articles sur la [présentation d’Azure SQL Database Managed Instance](sql-database-managed-instance-index.yml) et ses [fonctionnalités](sql-database-managed-instance.md).
+Pour en savoir plus, consultez les articles sur la [vue d’ensemble des instances managées Azure SQL Database](sql-database-managed-instance-index.yml) et leurs [fonctionnalités](sql-database-managed-instance.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,30 +48,30 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 - [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio)
 - Une instance managée Azure SQL Database
-    - Suivez cet article : [Démarrage rapide : Créer une instance managée Azure SQL Database](sql-database-managed-instance-get-started.md)
-- Accès à votre instance managée Azure SQL Database et [provisionnement d’un administrateur Azure AD pour l’instance managée](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Pour plus d'informations, consultez les rubriques suivantes :
-    - [Connecter votre application à Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md) 
-    - [Architecture de la connectivité d’Azure SQL Database Managed Instance](sql-database-managed-instance-connectivity-architecture.md)
+  - Suivez cet article : [Démarrage rapide : Créer une instance managée Azure SQL Database](sql-database-managed-instance-get-started.md)
+- Accès à votre instance managée et [provisionnement d’un administrateur Azure AD pour l’instance managée](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) Pour plus d'informations, consultez les rubriques suivantes :
+    - [Connecter votre application à une instance managée](sql-database-managed-instance-connect-app.md) 
+    - [Architecture de connectivité d’une instance managée](sql-database-managed-instance-connectivity-architecture.md)
     - [Configurer et gérer l’authentification Azure Active Directory avec SQL](sql-database-aad-authentication-configure.md)
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Limitation de l’accès à votre instance managée
 
-Les instances managées sont accessibles uniquement via une adresse IP privée. Aucun point de terminaison de service n’est disponible pour la connexion à une instance managée en dehors du réseau d’instances managées. Tout comme dans un environnement local SQL Server isolé, les applications ou les utilisateurs doivent avoir accès au réseau d’instances managées (VNet) pour pouvoir établir une connexion. Pour plus d’informations, consultez l’article suivant : [Connecter votre application à Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md).
+Les instances managées sont accessibles uniquement par le biais d’une adresse IP privée. Aucun point de terminaison de service n’est disponible pour la connexion à une instance managée en dehors du réseau d’instances managées. Tout comme dans un environnement local SQL Server isolé, les applications ou les utilisateurs doivent avoir accès au réseau (virtuel) d’instances managées pour pouvoir établir une connexion. Pour plus d’informations, consultez l’article suivant : [Connecter votre application à une instance managée](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
-> Dans la mesure où les instances managées sont accessibles uniquement au sein de leur réseau virtuel (VNET), les [règles de pare-feu SQL Database](sql-database-firewall-configure.md) ne s’appliquent pas. Les instances managées ont leur propre [pare-feu intégré](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Dans la mesure où les instances managées sont accessibles uniquement au sein de leur réseau virtuel, les [règles de pare-feu SQL Database](sql-database-firewall-configure.md) ne s’appliquent pas. Une instance managée a son propre [pare-feu intégré](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 ## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>Créer une connexion Azure AD pour une instance managée à l’aide de SSMS
 
 La première connexion Azure AD doit être créée par le compte SQL Server standard (non Azure AD) de type `sysadmin`. Consultez les articles suivants pour obtenir des exemples de connexion à votre instance managée :
 
-- [Démarrage rapide : Configurer une machine virtuelle Azure pour qu’elle se connecte à une instance managée Azure SQL Database](sql-database-managed-instance-configure-vm.md)
-- [Démarrage rapide : Configurer une connexion point à site à une instance managée Azure SQL Database à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md)
+- [Démarrage rapide : Configurer une machine virtuelle Azure pour se connecter à une instance managée](sql-database-managed-instance-configure-vm.md)
+- [Démarrage rapide : Configurer une connexion point à site à une instance managée en local](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
 > Le compte Administrateur Azure AD utilisé pour configurer l’instance managée ne peut pas être utilisé pour créer une connexion Azure AD au sein de l’instance managée. Vous devez créer la première connexion Azure AD à l’aide d’un compte SQL Server `sysadmin`. Il s’agit d’une limitation temporaire qui sera levée une fois que les connexions Azure AD deviendront des comptes en disponibilité générale. L’erreur suivante s’affiche si vous essayez d’utiliser un compte Administrateur Azure AD pour créer la connexion : `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
-1. Connectez-vous à votre instance managée à l’aide d’un compte SQL Server standard (non Azure AD) de type `sysadmin`, via [ SQL Server Management Studio ](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Connectez-vous à votre instance managée à l’aide d’un compte SQL Server standard (non-Azure AD) de type `sysadmin`, à l’aide de [SQL Server Management Studio ](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
 2. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 
@@ -124,7 +124,7 @@ Pour créer d’autres connexions Azure AD, des rôles ou des autorisations SQL 
 
 Pour ajouter la connexion au rôle serveur `sysadmin` :
 
-1. Reconnectez-vous à l’instance managée, ou utilisez la connexion `sysadmin` existante au principal SQL.
+1. Reconnectez-vous à l’instance managée ou utilisez la connexion `sysadmin` existante au principal SQL.
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 
@@ -146,7 +146,7 @@ Pour ajouter la connexion au rôle serveur `sysadmin` :
 
 Une fois la connexion Azure AD créée et dotée des privilèges `sysadmin`, elle peut créer des connexions supplémentaires à l’aide de la clause **FROM EXTERNAL PROVIDER** et de **CREATE LOGIN**.
 
-1. Connectez-vous au serveur d’instances managées avec la connexion Azure AD, à l’aide de SQL Server Management Studio. Entrez le nom de votre serveur d’instances managées. Pour l’authentification dans SSMS, vous avez le choix entre trois options quand vous vous connectez avec un compte Azure AD :
+1. Connectez-vous à l’instance managée avec la connexion Azure AD, à l’aide de SQL Server Management Studio. Entrez le nom d’hôte de votre instance managée. Pour l’authentification dans SSMS, vous avez le choix entre trois options quand vous vous connectez avec un compte Azure AD :
 
     - Active Directory - Authentification universelle avec MFA
     - Active Directory - Authentification par mot de passe
@@ -203,7 +203,7 @@ Une fois la connexion Azure AD créée et dotée des privilèges `sysadmin`, ell
     GO
     ```
 
-1. À des fins de test, connectez-vous à l’instance managée à l’aide de la connexion ou du groupe créé. Ouvrez une nouvelle connexion à l’instance managée, puis utilisez le nouveau nom de connexion au moment de l’authentification.
+1. À des fins de test, connectez-vous à l’instance managée à l’aide de la connexion ou du groupe que vous venez de créer. Ouvrez une nouvelle connexion à l’instance managée, puis utilisez le nouveau nom de connexion au moment de l’authentification.
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** pour la nouvelle connexion.
 1. Consultez les autorisations du serveur pour la connexion Azure AD créée en exécutant la commande suivante :
 
@@ -213,11 +213,11 @@ Une fois la connexion Azure AD créée et dotée des privilèges `sysadmin`, ell
     ```
 
 > [!NOTE]
-> Les utilisateurs invités Azure AD sont pris en charge pour les connexions d’instances managées uniquement quand ils sont ajoutés en tant que membres d’un groupe Azure AD. Un utilisateur invité Azure AD est un compte invité dans le domaine Azure AD auquel appartient l’instance managée, à partir d’un autre domaine Azure AD. Par exemple, joe@contoso.com (compte Azure AD) ou steve@outlook.com (compte MSA) peuvent être ajoutés à un groupe dans le domaine Azure AD aadsqlmi. Une fois les utilisateurs ajoutés à un groupe, vous pouvez créer une connexion dans la base de données **MASTER** de l’instance managée pour le groupe à l’aide de la syntaxe **CREATE LOGIN**. Les utilisateurs invités membres de ce groupe peuvent se connecter à l’instance managée à l’aide de leurs connexions actuelles (par exemple joe@contoso.com ou steve@outlook.com).
+> Les utilisateurs invités Azure AD sont pris en charge pour les connexions d’instances managée uniquement quand ils sont ajoutés en tant que membres d’un groupe Azure AD. Un utilisateur invité Azure AD est un compte invité dans le domaine Azure AD auquel appartient l’instance managée, à partir d’un autre domaine Azure AD. Par exemple, joe@contoso.com (compte Azure AD) ou steve@outlook.com (compte MSA) peuvent être ajoutés à un groupe dans le domaine Azure AD aadsqlmi. Une fois les utilisateurs ajoutés à un groupe, vous pouvez créer une connexion dans la base de données **MASTER** de l’instance managée pour le groupe à l’aide de la syntaxe **CREATE LOGIN**. Les utilisateurs invités membres de ce groupe peuvent se connecter à l’instance managée à l’aide de leurs connexions actuelles (par exemple joe@contoso.com ou steve@outlook.com).
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-login-and-give-permissions"></a>Créer un utilisateur Azure AD à partir de la connexion Azure AD et accorder des autorisations
 
-L’octroi d’autorisations pour des bases de données individuelles fonctionne sensiblement de la même façon dans Managed Instance que dans une instance SQL Server locale. Vous pouvez créer un utilisateur à partir d’une connexion existante dans une base de données, et lui octroyer des autorisations pour cette base de données, ou l’ajouter à un rôle de base de données.
+L’octroi d’autorisations pour des bases de données individuelles fonctionne sensiblement de la même façon dans une instance managée que dans une instance SQL Server locale. Vous pouvez créer un utilisateur à partir d’une connexion existante dans une base de données, et lui octroyer des autorisations pour cette base de données, ou l’ajouter à un rôle de base de données.
 
 Nous avons créé une base de données appelée **MyMITestDB** ainsi qu’une connexion qui a uniquement des autorisations par défaut. La prochaine étape consiste à créer un utilisateur à partir de cette connexion. Pour le moment, le compte de connexion peut se connecter à l’instance managée et voir toutes les bases de données, mais il ne peut pas interagir avec les bases de données. Si vous vous connectez avec le compte Azure AD disposant des autorisations par défaut, et si vous tentez de développer la base de données créée, le message d’erreur suivant s’affiche :
 
@@ -227,7 +227,7 @@ Pour plus d’informations sur l’octroi d’autorisations de base de données,
 
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Créer un utilisateur Azure AD et un exemple de table
 
-1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` via SQL Server Management Studio.
+1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` à l’aide de SQL Server Management Studio.
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 1. Dans la fenêtre de requête, utilisez la syntaxe suivante pour créer un utilisateur Azure AD à partir d’une connexion Azure AD :
 
@@ -292,7 +292,7 @@ Pour plus d’informations sur l’octroi d’autorisations de base de données,
 
 Pour que les utilisateurs puissent voir les données de la base de données, nous pouvons leur attribuer des [rôles de base de données](/sql/relational-databases/security/authentication-access/database-level-roles).
 
-1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` via SQL Server Management Studio.
+1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` à l’aide de SQL Server Management Studio.
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 
@@ -340,11 +340,11 @@ Pour que les utilisateurs puissent voir les données de la base de données, nou
 
 ## <a name="impersonating-azure-ad-server-level-principals-logins"></a>Emprunter l’identité des principaux au niveau du serveur Azure AD (connexions)
 
-Managed Instance prend en charge l’emprunt d’identité des principaux au niveau du serveur Azure AD (connexions).
+Une instance managée prend en charge l’emprunt d’identité des principaux au niveau du serveur Azure AD (connexions).
 
 ### <a name="test-impersonation"></a>Tester l’emprunt d’identité
 
-1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` via SQL Server Management Studio.
+1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` à l’aide de SQL Server Management Studio.
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 
@@ -381,11 +381,11 @@ Managed Instance prend en charge l’emprunt d’identité des principaux au niv
 > - EXECUTE AS USER
 > - EXECUTE AS LOGIN
 
-## <a name="using-cross-database-queries-in-managed-instances"></a>Utilisation de requêtes de bases de données croisées dans Managed Instances
+## <a name="using-cross-database-queries-in-managed-instances"></a>Utilisation de requêtes de bases de données croisées dans des instances managées
 
 Les requêtes de bases de données croisées sont prises en charge pour les comptes Azure AD avec des connexions Azure AD. Pour tester une requête de base de données croisée avec un groupe Azure AD, nous devons créer une autre base de données et une autre table. Vous pouvez ignorer la création d’une autre base de données et d’une autre table, si elles existent déjà.
 
-1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` via SQL Server Management Studio.
+1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` à l’aide de SQL Server Management Studio.
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 1. Dans la fenêtre de requête, utilisez la commande suivante pour créer une base de données nommée **MyMITestDB2** et une table nommée **TestTable2** :
 
@@ -439,18 +439,18 @@ Les requêtes de bases de données croisées sont prises en charge pour les comp
 
 ### <a name="enable-security-features"></a>Activer les fonctionnalités de sécurité
 
-Consultez l’article sur la [sécurité des fonctionnalités de Managed Instance](sql-database-managed-instance.md#azure-sql-database-security-features) pour obtenir une liste complète des moyens permettant de sécuriser votre base de données. Les fonctionnalités de sécurité suivantes sont présentées :
+Consultez l’article sur les [fonctionnalités de sécurité des instances managées](sql-database-managed-instance.md#azure-sql-database-security-features) pour obtenir la liste complète des moyens de sécuriser votre base de données. Les fonctionnalités de sécurité suivantes sont présentées :
 
-- [Audit de Managed Instance](sql-database-managed-instance-auditing.md) 
-- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+- [Audit d’une instance managée](sql-database-managed-instance-auditing.md) 
+- [Toujours chiffré](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Détection de menaces](sql-database-managed-instance-threat-detection.md) 
 - [Masquage des données dynamiques](/sql/relational-databases/security/dynamic-data-masking)
 - [Sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) 
 - [Chiffrement transparent des données (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
-### <a name="managed-instance-capabilities"></a>Fonctionnalités de Managed Instance
+### <a name="managed-instance-capabilities"></a>Fonctionnalités des instances managées
 
-Pour une présentation complète des fonctionnalités d’Azure SQL Database Managed Instance, consultez :
+Pour obtenir une vue d’ensemble des fonctionnalités d’une instance managée, consultez :
 
 > [!div class="nextstepaction"]
 > [Fonctionnalités de Managed Instance](sql-database-managed-instance.md)

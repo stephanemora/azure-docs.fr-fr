@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332640"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822253"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copier des données vers ou à partir d’une instance locale d’Oracle à l’aide d’Azure Data Factory
 
@@ -92,7 +92,7 @@ Que vous utilisiez des outils ou des API, effectuez les étapes suivantes pour c
 3. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. Dans l’exemple de l’étape précédente, vous créez un jeu de données pour spécifier la table de votre base de données Oracle qui doit contenir les données d’entrée. Créez un autre jeu de données pour spécifier le conteneur d’objets blob et le dossier qui contient les données copiées à partir de la base de données Oracle. Pour plus d’informations sur les propriétés de jeu de données qui sont propres à Oracle, consultez [Propriétés du jeu de données](#dataset-properties).
 4. Créez un **pipeline** comprenant une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. Dans l’exemple précédent, vous utilisez **OracleSource** comme source et **BlobSink** comme récepteur pour l’activité de copie. De la même façon, si vous copiez des données du Stockage Blob Azure vers une base de données Oracle, vous devez utiliser **BlobSource** et **OracleSink** dans l’activité de copie. Pour connaître les propriétés d’activité de copie qui sont propres à une base de données Oracle, consultez [Propriétés de l’activité de copie](#copy-activity-properties). Pour plus d’informations sur l’utilisation d’un magasin de données comme source ou comme récepteur, sélectionnez le lien de la section précédente correspondant à votre magasin de données.
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées. Lorsque vous utilisez les outils ou API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory à l’aide du format JSON. Pour obtenir des exemples comportant des définitions JSON d’entités Data Factory utilisées dans le but de copier des données vers ou à partir d’une base de données Oracle locale, consultez [Exemples JSON](#json-examples-for-copying-data-to-and-from-oracle-database).
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées. Lorsque vous utilisez les outils ou API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory à l’aide du format JSON. Pour obtenir des exemples comportant des définitions JSON d’entités Data Factory utilisées dans le but de copier des données vers ou à partir d’une base de données Oracle locale, consultez Exemples JSON.
 
 Les sections suivantes fournissent des informations sur les propriétés JSON qui sont utilisées pour définir les entités Data Factory.
 
@@ -601,7 +601,7 @@ Quand vous déplacez des données à partir d’Oracle, les mappages suivants so
 | BLOB |Byte[]<br/>(uniquement pris en charge sur Oracle 10g et versions ultérieures lorsque vous utilisez le pilote Microsoft) |
 | CHAR |Chaîne |
 | CLOB |Chaîne |
-| DATE |Datetime |
+| DATE |DateTime |
 | FLOAT |Décimale, chaîne (si précision > 28) |
 | INTEGER |Décimale, chaîne (si précision > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
@@ -614,9 +614,9 @@ Quand vous déplacez des données à partir d’Oracle, les mappages suivants so
 | NVARCHAR2 |Chaîne |
 | RAW |Byte[] |
 | ROWID |Chaîne |
-| TIMESTAMP |Datetime |
-| TIMESTAMP WITH LOCAL TIME ZONE |Datetime |
-| TIMESTAMP WITH TIME ZONE |Datetime |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |Chaîne |
 | XML |Chaîne |

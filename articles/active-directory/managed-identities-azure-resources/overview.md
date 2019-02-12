@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: priyamo
-ms.openlocfilehash: 7cd599ff75827ca8b0c6f7683cae01210a8fc8ab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 34f6a03fc091fb4d86739af9d56993943ce44956
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183405"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662106"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Que sont les identités gérées pour les ressources Azure ?
 
@@ -102,6 +102,9 @@ Le diagramme suivant illustre le fonctionnement des identités de service admini
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Comment puis-je utiliser des identités managées pour les ressources Azure ?
 
 Pour découvrir comment utiliser les identités managées pour accéder aux différentes ressources Azure, essayez ces didacticiels.
+
+> [!NOTE]
+> Consultez le cours [Implementing Managed Identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing) pour plus d’informations sur les identités managées, y compris des vidéos de procédures détaillées relatives à plusieurs scénarios pris en charge.
 
 Découvrez comment utiliser une identité managée avec une machine virtuelle Windows :
 

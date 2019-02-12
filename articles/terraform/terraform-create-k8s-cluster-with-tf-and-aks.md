@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 3ccba82e626882a99deaca2f12be3d2f96869b81
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0ef206cf4407c6392ae5d9a70ba156f5635715e9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078947"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814790"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) gère votre environnement Kubernetes hébergé, ce qui vous permet de déployer et de gérer de manière simple et rapide des applications en conteneur sans avoir à maîtriser l’orchestration de conteneurs. Il élimine également la charge des opérations en cours et la maintenance par configuration, la mise à niveau et la mise à l’échelle des ressources à la demande, sans déconnecter vos applications.
@@ -352,7 +352,7 @@ Dans cette section, vous voyez comment utiliser la commande `terraform init` pou
 
     ![Exemple de résultats « terraform plan »](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
-1. Exécutez la commande `terraform apply` pour appliquer le plan servant à créer le cluster Kubernetes. Le processus de création d’un cluster Kubernetes peut prendre plusieurs minutes, ce qui peut aboutir à l’expiration de la session Cloud Shell. Si la session Cloud Shell expire, vous pouvez suivre les étapes de la section [« Récupérer suite à l’expiration de Cloud Shell »](#recover-from-a-dloud-shell-timeout) pour vous permettre de poursuivre le tutoriel.
+1. Exécutez la commande `terraform apply` pour appliquer le plan servant à créer le cluster Kubernetes. Le processus de création d’un cluster Kubernetes peut prendre plusieurs minutes, ce qui peut aboutir à l’expiration de la session Cloud Shell. Si la session Cloud Shell expire, vous pouvez suivre les étapes de la section « Récupérer suite à l’expiration de Cloud Shell » pour poursuivre le tutoriel.
 
     ```bash
     terraform apply out.plan

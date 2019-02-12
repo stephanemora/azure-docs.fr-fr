@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429087"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815844"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -164,7 +164,7 @@ Sélectionnez les options suivantes, comme indiqué dans l’image :
 2. Sélectionnez un compte de stockage existant dans lequel conserver les journaux de flux. Si vous souhaitez stocker les données indéfiniment, définissez la valeur sur *0*. Des frais de stockage Azure peuvent s’appliquer pour le compte de stockage.
 3. Définissez **Rétention** sur le nombre de jours durant lequel vous souhaitez stocker les données.
 4. Sélectionnez *Activé* pour **Traffic Analytics Status** (État Traffic Analytics).
-5. Sélectionnez un espace de travail Log Analytics existant ou cliquez sur **Créer un espace de travail** pour en créer un. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les [régions prises en charge](#traffic-analytics-supported-regions) et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Sélectionnez un espace de travail Log Analytics existant ou cliquez sur **Créer un espace de travail** pour en créer un. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les régions prises en charge et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     L’espace de travail Log Analytics qui héberge la solution Traffic Analytics et les groupes de sécurité réseau ne doivent pas nécessairement se trouver dans la même région. Par exemple, Traffic Analytics se trouve peut-être dans un espace de travail de la région Europe Ouest, tandis que vos groupes de sécurité réseau sont hébergés dans les régions USA Est et USA Ouest. Plusieurs groupes de sécurité réseau peuvent être configurés dans le même espace de travail.
 6. Sélectionnez **Enregistrer**.

@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c42abf043c528f86db7af164c21c45b21e7bf1ac
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: caff4973515d3866b94dba2e89d089ff042de43b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196274"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813243"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -36,6 +36,9 @@ Rubrique |  Détails
 Autorisations requises | Pour plus d’informations sur les autorisations requises afin d’appliquer une mise à jour, consultez [Comptes et autorisations](reference-connect-accounts-permissions.md#upgrade).
 
 Télécharger| [Télécharger Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+>[!NOTE]
+>La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect qui est disponible en mise à niveau automatique. Certaines configurations Azure AD Connect seulement sont éligibles à la mise à niveau automatique. Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="12700"></a>1.2.70.0
 
@@ -333,7 +336,7 @@ Verrouillez l’accès au compte AD DS en implémentant les changements d’auto
 *   Supprimez toutes les entrées de contrôle d'accès sur l’objet spécifique, à l’exception de celles propres à SELF. Il faut conserver les autorisations par défaut intactes quand il s’agit de SELF.
 *   Attribuez ces autorisations spécifiques :
 
-Type     | NOM                          | Access               | S'applique à
+Type     | Nom                          | Access               | S'applique à
 ---------|-------------------------------|----------------------|--------------|
 AUTORISER    | SYSTEM                        | Contrôle total         | Cet objet  |
 AUTORISER    | Administrateurs de l’entreprise             | Contrôle total         | Cet objet  |

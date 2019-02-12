@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 36e4b424cdb961920fccdf7f050e28447ccbd6cf
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1133e6b35d200ec7f855b41f3ae5d6f37949fc97
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074517"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568496"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Créer un modèle de base Terraform dans Azure à l’aide de Yeoman
 
@@ -283,4 +283,4 @@ Tous ces éléments sont préinstallés dans Cloud Shell.
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Installez et utilisez l’extension Azure Terraform Visual Studio Code.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)
+> [Installer et utiliser l’extension Azure Terraform Visual Studio Code.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cbb15ff084c3639be801458d071f3966873c2509
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300266"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815650"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles
 ## <a name="overview"></a>Vue d'ensemble
@@ -1191,7 +1191,7 @@ Si vous disposez seulement de deux serveurs SQL et que vous souhaitez en effectu
 
 Une fois que vous avez sélectionné le serveur secondaire migré et ajouté la nouvelle ressource d'adresse IP pour le nouveau service cloud avant d'effectuer le basculement du serveur principal, vous devez suivre ces étapes dans le gestionnaire de basculement du cluster :
 
-Pour ajouter l'adresse IP, consultez l'étape 14 de [l'annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+Pour ajouter l’adresse IP, consultez l’étape 14 de l’annexe.
 
 1. Pour la ressource d’adresse IP actuelle, changez le propriétaire possible en « Serveur SQL principal existant », « dansqlams4 » dans l’exemple :
 

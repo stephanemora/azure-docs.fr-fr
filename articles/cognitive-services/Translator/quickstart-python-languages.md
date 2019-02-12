@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: c99dbdb95c4dd7a6e078fd6e9ee15a590c8c40c9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6f52df9166da371b38069138bc4389a9be6b0121
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458293"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692220"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour obtenir la liste des langues prises en charge à l’aide de Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Il y existe actuellement un point de terminaison disponible pour Translator Text, et il est défini comme des `base_url`. `path` définit le chemin des `languages` et reconnait que nous souhaitons atteindre la version 3 de l’API.
+Le point de terminaison global de l’API de traduction de texte Translator Text est défini sur `base_url`. `path` définit le chemin des `languages` et reconnait que nous souhaitons atteindre la version 3 de l’API.
 
 >[!NOTE]
 > Pour plus d’informations sur les points de terminaison, les routes et les paramètres de requête, consultez [API de traduction de texte Translator Text 3.0 : Langues](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).

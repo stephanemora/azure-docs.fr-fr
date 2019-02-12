@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/30/2019
 ms.author: jdial
-ms.openlocfilehash: f4af899be489dab2fc73bb33943882d4dc81576f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054756"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488089"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -61,22 +61,23 @@ Les adresses IP publiques sont créées avec l’une des références SKU suivan
 Toutes les adresses IP publiques créées avant l’introduction de références SKU sont des adresses IP publiques de référence SKU de base. Depuis l’introduction des références SKU, vous avez la possibilité de spécifier quelle référence SKU attribuer à l’adresse IP publique. Les adresses de référence SKU de base sont :
 
 - Sont assignées à l’aide de la méthode d’allocation statique ou dynamique.
+- Dotées d’un délai d’inactivité du flux entrant réglable de 4 à 30 minutes, avec une valeur par défaut de 4 minutes et d’un délai d’inactivité du flux sortant fixe de 4 minutes.
 - Ouvertes par défaut.  Il est recommandé d’utiliser des groupes de sécurité réseau, mais cela est facultatif pour restreindre le trafic entrant ou sortant.
 - Sont assignées aux ressources Azure acceptant une adresse IP publique, comme les interfaces réseau, les passerelles VPN, les passerelles Application Gateway et les équilibreurs de charge accessibles sur Internet.
-- Peuvent être assignées à une zone spécifique.
-- Ne sont pas redondantes dans une zone. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Ne gèrent pas les scénarios de zone de disponibilité.  Vous devez utiliser l’adresse IP publique de la référence SKU Standard pour les scénarios de zone de disponibilité. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 #### <a name="standard"></a>standard
 
 Les adresses IP publiques de référence SKU standard :
 
-- Sont assignées à l’aide de la méthode d’allocation statique uniquement.
+- Utilisent toujours la méthode d’allocation statique.
+- Ont un délai d’inactivité du flux entrant et sortant réglable de 4 à 66 minutes, avec une valeur par défaut de 4 minutes.
 - Sont sécurisées par défaut et fermées au trafic entrant. Vous devez expliciter le trafic entrant autorisé sur liste verte avec un [groupe de sécurité réseau](security-overview.md#network-security-groups).
-- Sont assignées à des interfaces réseau, des équilibreurs de charge standard publics, des passerelles d’application ou des passerelles VPN. Pour plus d’informations sur les équilibreurs de charge standard, consultez [Équilibreur de charge Azure standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Sont redondantes dans une zone par défaut. Peuvent être créées pour une zone et garanties dans une zone de disponibilité spécifique. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Sont assignées à des interfaces réseau, des équilibreurs de charge publics standard, des passerelles d’application ou des passerelles VPN. Pour plus d’informations sur Standard Load Balancer, consultez [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Sont par défaut redondantes interzones et éventuellement zonales (vous pouvez les créer zonales et les garantir dans une zone de disponibilité spécifique). Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> La communication avec la ressource de référence SKU standard est possible uniquement si vous créez et associez un [groupe de sécurité réseau](security-overview.md#network-security-groups) et que vous autorisez explicitement le trafic entrant prévu.
+> La communication entrante avec la ressource de référence SKU standard est possible uniquement si vous créez et associez un [groupe de sécurité réseau](security-overview.md#network-security-groups) et que vous autorisez explicitement le trafic entrant prévu.
 
 ### <a name="allocation-method"></a>Méthode d’allocation
 

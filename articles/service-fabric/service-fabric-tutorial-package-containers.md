@@ -13,17 +13,17 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 7d622b834cef31552cac60b359cdd8404592eda9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 135189c576c67212dac6afc1388a6ef9fb045346
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255555"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512357"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutoriel : empaqueter et déployer des conteneurs sous forme d’application Service Fabric à l’aide de Yeoman
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutoriel : Empaqueter et déployer des conteneurs sous forme d’application Service Fabric à l’aide de Yeoman
 
 Ce tutoriel est le deuxième de la série. Dans ce didacticiel, un outil de génération de modèles (Yeoman) est utilisé pour générer une définition d’application Service Fabric. Cette application peut ensuite servir à déployer des conteneurs sur Service Fabric. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -227,17 +227,42 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 ## <a name="create-a-service-fabric-cluster"></a>Créer un cluster Service Fabric
 
-Pour déployer l’application sur un cluster dans Azure, créez votre propre cluster.
+Pour déployer l’application sur Azure, vous avez besoin d’un cluster Service Fabric pour exécuter l’application. Les commandes suivantes créent un cluster à cinq nœuds dans Azure.  Elles créent également un certificat auto-signé, l’ajoutent à un coffre de clés et le téléchargent localement sous forme de fichier PEM. Le nouveau certificat est utilisé pour sécuriser le cluster déployé et pour authentifier les clients.
 
-Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. Ils sont gérés par l’équipe Service Fabric, au sein de laquelle chacun peut déployer des applications et en savoir plus sur la plateforme. Pour obtenir l’accès à un cluster tiers, [suivez ces instructions](https://aka.ms/tryservicefabric).
+```azurecli
+#!/bin/bash
 
-Pour effectuer des opérations de gestion sur le cluster tiers sécurisé, vous pouvez utiliser Service Fabric Explorer, CLI ou Powershell. Pour utiliser Service Fabric Explorer, vous devez télécharger le fichier PFX sur le site du cluster tiers et importer le certificat dans votre magasin de certificats (Windows ou Mac) ou dans le navigateur lui-même (Ubuntu). Il n’existe aucun mot de passe pour les certificats auto-signés venant cluster tiers.
+# Variables
+ResourceGroupName="containertestcluster" 
+ClusterName="containertestcluster" 
+Location="eastus" 
+Password="q6D7nN%6ck@6" 
+Subject="containertestcluster.eastus.cloudapp.azure.com" 
+VaultName="containertestvault" 
+VmPassword="Mypa$$word!321"
+VmUserName="sfadminuser"
 
-Pour effectuer des opérations de gestion avec Powershell ou CLI, vous avez besoin du fichier PFX (Powershell) ou PEM (CLI). Pour convertir le fichier PFX en un fichier PEM, exécutez la commande suivante :
+# Login to Azure and set the subscription
+az login
 
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+az account set --subscription <mySubscriptionID>
+
+# Create resource group
+az group create --name $ResourceGroupName --location $Location 
+
+# Create secure five node Linux cluster. Creates a key vault in a resource group
+# and creates a certficate in the key vault. The certificate's subject name must match 
+# the domain that you use to access the Service Fabric cluster.  
+# The certificate is downloaded locally as a PEM file.
+az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
+--certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
+
+> [!Note]
+> Le service frontal web est configuré pour écouter le trafic entrant sur le port 80. Par défaut, le port 80 est ouvert sur les machines virtuelles du cluster et sur l’équilibreur de charge Azure.
+>
 
 Pour plus d’informations sur la création de votre propre cluster, consultez [Créer un cluster Service Fabric dans Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -245,10 +270,10 @@ Pour plus d’informations sur la création de votre propre cluster, consultez [
 
 Vous pouvez déployer l’application sur le cluster Azure à l’aide de l’interface de ligne de commande (CLI) de Service Fabric. Si cette interface n’est pas installée sur votre machine, suivez les instructions [ici](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) pour l’installer.
 
-Connectez-vous au cluster Service Fabric dans Azure. Remplacez le point de terminaison exemple par votre propre point de terminaison. Il doit s’agir d’une URL complète semblable à celle présentée ci-dessous.
+Connectez-vous au cluster Service Fabric dans Azure. Remplacez le point de terminaison exemple par votre propre point de terminaison. Il doit s’agir d’une URL complète semblable à celle présentée ci-dessous.  Le fichier PEM est le certificat auto-signé créé précédemment.
 
 ```bash
-sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
 ```
 
 Utilisez le script d’installation fourni dans le répertoire **TestContainer** pour copier le package d’application dans le magasin d’images du cluster, inscrire le type d’application et créer une instance de l’application.
@@ -257,11 +282,11 @@ Utilisez le script d’installation fourni dans le répertoire **TestContainer**
 ./install.sh
 ```
 
-Ouvrez un navigateur et accédez à Service Fabric Explorer sur http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Développez le nœud Applications et constatez qu’il existe une entrée pour votre type d’application, et une entrée pour l’instance.
+Ouvrez un navigateur et accédez à Service Fabric Explorer sur http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Développez le nœud Applications et constatez qu’il existe une entrée pour votre type d’application, et une entrée pour l’instance.
 
 ![Service Fabric Explorer][sfx]
 
-Pour pouvoir vous connecter à l’application en cours d’exécution, ouvrez un navigateur web et accédez à l’URL du cluster, par exemple http://lin0823ryf2he.cloudapp.azure.com:80. L’application de vote doit s’afficher dans l’interface utilisateur web.
+Pour pouvoir vous connecter à l’application en cours d’exécution, ouvrez un navigateur web et accédez à l’URL du cluster, par exemple http://containertestcluster.eastus.cloudapp.azure.com:80. L’application de vote doit s’afficher dans l’interface utilisateur web.
 
 ![votingapp][votingapp]
 

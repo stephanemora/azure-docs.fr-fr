@@ -4,15 +4,15 @@ description: Découvrez comment acheter une capacité réservée Azure Cosmos DB
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b37aa2eb24fe79d322839b4fb5c3c3a8b1296033
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb2d57d3e119fd83d1a984fc31f29a5d93e957d1
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454095"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745943"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimiser les coûts avec une capacité réservée dans Azure Cosmos DB
 
@@ -25,7 +25,7 @@ La capacité réservée Azure Cosmos DB couvre le débit provisionné pour vos r
 Vous pouvez acheter de la capacité réservée Azure Cosmos DB sur le [portail Azure](https://portal.azure.com). Pour acheter une capacité réservée :
 
 * Vous devez disposer du rôle de propriétaire sur au moins un abonnement Entreprise ou un abonnement Paiement à l’utilisation.  
-* Concernant les abonnements Entreprise, les achats de réservation Azure doivent être activés sur le [portail EA](https://ea.azure.com/).  
+* Pour les abonnements Entreprise, **Add Reserved Instances** (Ajouter des instances réservées) doit être activé dans le [portail EA](https://ea.azure.com). Si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
 * Pour le programme Fournisseur de solutions cloud, seuls les agents d’administration ou les agents commerciaux peuvent acheter une capacité réservée Azure Cosmos DB.
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Déterminer le débit requis avant l’achat
@@ -52,9 +52,9 @@ La taille de la réservation doit être basée sur la quantité totale de débit
 
    |Champ  |Description  |
    |---------|---------|
-   |NOM   |    Nom de la réservation. Ce champ est automatiquement renseigné avec `CosmosDB_Reservation_<timeStamp>`. Vous pouvez entrer un autre nom au moment où vous créez la réservation. Sinon, vous pouvez aussi renommer la réservation après l’avoir créée.      |
-   |Abonnement  |   Abonnement utilisé pour payer la capacité réservée Azure Cosmos DB. Les coûts initiaux sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. Le type d’abonnement doit être un des types suivants : <br/><br/>  [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (référence de l’offre : MS-AZR-0017P) : Pour un abonnement Entreprise, les frais sont déduits du solde de l’engagement financier de l’inscription, ou facturés comme un dépassement. <br/><br/> [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) (référence de l’offre : MS-AZR-0003P) : Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture, défini sur l’abonnement.    |
-   |Étendue   |   Option qui contrôle le nombre d’abonnements pouvant bénéficier de la remise sur la facturation associé à la réservation. Elle contrôle également la manière dont la réservation est appliquée à des abonnements spécifiques.   <br/><br/>  Si vous sélectionnez **Abonnement unique**, la remise de réservation est appliquée aux instances Azure Cosmos DB incluses dans l’abonnement sélectionné. <br/><br/>  Si vous sélectionnez **Partagé**, la remise de réservation est appliquée aux instances Azure Cosmos DB qui sont exécutées dans tous les abonnements de votre contexte de facturation. Le contexte de facturation est basé sur la façon dont vous vous êtes inscrit dans Azure. Pour les clients Entreprise, l’étendue partagée correspond à l’inscription et inclut tous les abonnements (à l’exception des abonnements de développement/test) au sein de l’inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.  <br/><br/> Vous pouvez changer l’étendue de la réservation après l’achat de la capacité réservée.  |
+   |Nom   |    Nom de la réservation. Ce champ est automatiquement renseigné avec `CosmosDB_Reservation_<timeStamp>`. Vous pouvez entrer un autre nom au moment où vous créez la réservation. Sinon, vous pouvez aussi renommer la réservation après l’avoir créée.      |
+   |Abonnement  |   Abonnement utilisé pour payer la capacité réservée Azure Cosmos DB. Les coûts initiaux sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. Le type d’abonnement doit être un des types suivants : <br/><br/>  Contrat Entreprise (références de l’offre : MS-AZR-0017P ou MS-AZR-0148P) : Pour un abonnement Entreprise, les frais sont déduits du solde de l’engagement financier de l’inscription, ou facturés comme un dépassement. <br/><br/> Paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR-0023P) : Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture, défini sur l’abonnement.    |
+   |Étendue   |   Option qui contrôle le nombre d’abonnements pouvant bénéficier de la remise sur la facturation associé à la réservation. Elle contrôle également la manière dont la réservation est appliquée à des abonnements spécifiques.   <br/><br/>  Si vous sélectionnez **Abonnement unique**, la remise de réservation est appliquée aux instances Azure Cosmos DB incluses dans l’abonnement sélectionné. <br/><br/>  Si vous sélectionnez **Partagé**, la remise de réservation est appliquée aux instances Azure Cosmos DB qui sont exécutées dans tous les abonnements de votre contexte de facturation. Le contexte de facturation est basé sur la façon dont vous vous êtes inscrit dans Azure. Pour les clients Entreprise, l’étendue partagée correspond à l’inscription et inclut tous les abonnements au sein de l’inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.  <br/><br/> Vous pouvez changer l’étendue de la réservation après l’achat de la capacité réservée.  |
    |Type de capacité réservée   |  Débit provisionné en unités de requête.|
    |Unités de capacité réservée  |      Quantité de débit que vous souhaitez réserver. Pour calculer cette valeur, déterminez d’abord le débit nécessaire pour toutes vos ressources Cosmos DB (par exemple, les bases de données ou les conteneurs) par région. Ensuite, multipliez cette quantité par le nombre de régions à associer à votre base de données Cosmos DB.  <br/><br/> Par exemple :  Si vous avez cinq régions avec chacune 1 million d’unités de requête par seconde (RU/s), sélectionnez 5 millions de RU/s comme capacité réservée à acheter.    |
    |Terme  |   Une année ou trois ans.   |

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8effa84c9d7adc14060fb00fae9915a04c1d04cc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435513"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821216"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurer des stratégies Apache Hive dans HDInsight avec le Pack Sécurité Entreprise
 Découvrez comment configurer des stratégies Apache Ranger pour Apache Hive. Dans cet article, vous créez deux stratégies Ranger pour restreindre l’accès à hivesampletable. hivesampletable dispose de clusters HDInsight. Après avoir configuré les stratégies, vous utilisez Excel et le pilote ODBC pour vous connecter à des tables Hive dans HDInsight.
@@ -45,7 +45,7 @@ Dans cette section, vous créez deux stratégies Ranger pour accéder à hivesam
 
 **Pour créer des stratégies Ranger**
 
-1. Ouvrez l’interface utilisateur Ranger. Consultez [Connexion à l’interface utilisateur Apache Ranger](#connect-to-apache-ranager-admin-ui).
+1. Ouvrez l’interface utilisateur Ranger. Consultez Connexion à l’interface utilisateur Apache Ranger.
 2. Cliquez sur **&lt;ClusterName>_hive** sous **Hive**. Deux stratégies préconfigurées doivent s’afficher.
 3. Cliquez sur **Ajouter une nouvelle stratégie**, puis entrez les valeurs suivantes :
 

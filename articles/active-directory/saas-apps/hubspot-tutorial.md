@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à HubSpot | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à HubSpot | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HubSpot.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: bf3302f4f7323307163ec540accb4cc652512463
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2bd47c7955625eb43de40e61515bf7814a8c8355
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178798"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815827"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutoriel : Intégration d’Azure AD à HubSpot
+# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Didacticiel : Intégration d’Azure AD à HubSpot
 
 Dans ce didacticiel, vous allez apprendre à intégrer HubSpot dans Azure Active Directory (Azure AD).
 
@@ -87,7 +87,7 @@ Pour configurer et tester l’authentification unique Azure AD avec HubSpot, vo
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test HubSpot](#creating-a-hubspot-saml-test-user)** pour avoir un équivalent de Britta Simon dans HubSpot lié à la représentation Azure AD de l’utilisateur.
+3. **Création d’un utilisateur de test HubSpot** pour avoir un équivalent de Britta Simon dans HubSpot lié à la représentation Azure AD de l’utilisateur.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 

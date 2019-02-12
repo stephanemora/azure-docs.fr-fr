@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: 238999448f719ca8c95d8c170a9f2e6b6d7bc851
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 934acf44fe2c36e9f7c2f2d2fdb3b191806d0014
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814118"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769434"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutoriel : Intégration d’Azure AD à Slack
 
@@ -106,12 +106,12 @@ Pour configurer l’authentification unique Azure AD avec Slack, procédez comme
 
     ![Informations d’authentification unique dans Domaine et URL Slack](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<companyname>.slack.com`.
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.slack.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, remplacez la valeur par l’URL de connexion. Il s’agit du domaine de votre espace de travail. Par exemple : `https://contoso.slack.com`.
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://slack.com`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique de Slack](https://slack.com/help/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Pour obtenir la valeur, contactez l’[équipe de support client Allbound SSO](https://slack.com/help/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. L’application Slack attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
@@ -122,7 +122,7 @@ Pour configurer l’authentification unique Azure AD avec Slack, procédez comme
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM | Attribut source |
+    | Nom | Attribut source |
     | --- | --- |
     | first_name | user.givenname |
     | last_name | user.surname |

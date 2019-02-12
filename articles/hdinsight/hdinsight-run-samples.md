@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0a174c3de33b01f936eec599c1de68e2cebbf9c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745055"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820417"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Exécuter des exemples MapReduce dans HDInsight basé sur Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -54,7 +54,7 @@ Aujourd’hui, de nombreuses personnes choisissent Apache Hive et Apache Pig ave
 ## <a name="hdinsight-sample-wordcount"></a>Nombre de mots - Java
 Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l’emplacement du fichier jar, qui est **wasb:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments.  Le programme Wordcount MapReduce accepte deux arguments : le fichier source utilisé pour compter des mots et l’emplacement de sortie.
 
-Vous trouverez le code source dans [l'annexe A](#apendix-a---the-word-count-MapReduce-program-in-java).
+Vous trouverez le code source dans l’annexe A.
 
 Pour connaître la procédure de développement d’un programme Java MapReduce, consultez [Développer des programmes Java MapReduce pour Apache Hadoop dans HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -135,7 +135,7 @@ Entre-temps, le réducteur collecte les résultats en forme de lignes depuis le 
 
 **Pour soumettre une tâche de comptage de diffusion en continu C#**
 
-* Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java) et remplacez la définition de la tâche par la ligne suivante :
+* Suivez la procédure indiquée dans Nombre de mots - Java et remplacez la définition de la tâche par la ligne suivante :
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -157,7 +157,7 @@ Le script fourni pour cet exemple envoie une tâche Hadoop Java Archive (JAR) et
 
 **Pour soumettre une tâche d'estimateur Pi**
 
-* Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java) et remplacez la définition de la tâche par la ligne suivante :
+* Suivez la procédure indiquée dans Nombre de mots - Java et remplacez la définition de la tâche par la ligne suivante :
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -185,7 +185,7 @@ Trois tâches sont requises par l'exemple, chacune correspondant à un des progr
 
 **Pour soumettre les tâches**
 
-* Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java), puis utilisez les définitions de tâche suivantes :
+* Suivez la procédure indiquée dans Nombre de mots - Java, puis utilisez les définitions de tâche suivantes :
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `

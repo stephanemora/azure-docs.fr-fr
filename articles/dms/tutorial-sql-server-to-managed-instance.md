@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: e9baf8c838da2201fbb588d278cbf1ce5bbe6354
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 02/04/2019
+ms.openlocfilehash: 041d9b76c899c33e551b57bbbf42d0fa82b5e537
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713317"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692911"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Tutoriel : Migrer SQL Server vers Azure SQL Database Managed Instance hors connexion à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers une instance [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md). Pour des méthodes supplémentaires pouvant nécessiter un effort manuel, voir l’article [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md).
@@ -131,6 +131,9 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 4. Sur l’écran **Sélectionner la base de données source**, sélectionnez la base de données **Adventureworks2012** pour la migration.
 
    ![Sélectionner les bases de données sources](media/tutorial-sql-server-to-managed-instance/dms-source-database1.png)
+
+    > [!IMPORTANT]
+    > Si vous utilisez SQL Server Integration Services (SSIS), sachez que Database Migration Service ne prend pas en charge la migration de la base de données de catalogue de vos projets ou packages SSIS (SSISDB) entre SQL Server et Azure SQL Database Managed Instance. Toutefois, vous pouvez provisionner SSIS dans Azure Data Factory (ADF) et redéployer vos projets ou packages SSIS vers la SSISDB de destination qui est hébergée par Azure SQL Database Managed Instance. Pour plus d’informations sur la migration des packages SSIS, consultez l’article [Migrer des packages SQL Server Integration Services vers Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
 5. Sélectionnez **Enregistrer**.
 

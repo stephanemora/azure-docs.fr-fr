@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 245710d1ae3e7af4db5286a5db985fe35549ad3a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0646488c3dde4b0702d58bbd8905f4ae6bee1485
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098768"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821667"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure
 
@@ -133,7 +133,7 @@ Cet article explique comment connecter des réseaux virtuels avec une connexion 
        - **Clé partagée** : Entrez *abc123*. Vous pouvez créer la clé partagée vous-même. Lorsque vous créez la connexion entre les réseaux virtuels, les valeurs doivent correspondre.
 
 ## <a name="create-and-configure-testvnet1"></a>Créer et configurer TestVNet1
-Si vous disposez déjà d’un réseau virtuel, vérifiez que les paramètres sont compatibles avec la conception de votre passerelle VPN, avec une attention particulière pour tous les sous-réseaux qui pourraient chevaucher d’autres réseaux. Si vos sous-réseaux se chevauchent, votre connexion ne fonctionnera pas correctement. Une fois réseau virtuel correctement configuré, vous pouvez commencer à suivre les étapes de la section [Spécifier un serveur DNS](#dns).
+Si vous disposez déjà d’un réseau virtuel, vérifiez que les paramètres sont compatibles avec la conception de votre passerelle VPN, avec une attention particulière pour tous les sous-réseaux qui pourraient chevaucher d’autres réseaux. Si vos sous-réseaux se chevauchent, votre connexion ne fonctionnera pas correctement. Une fois votre réseau virtuel correctement configuré, vous pouvez commencer à suivre les étapes de la section Spécifier un serveur DNS.
 
 ### <a name="to-create-a-virtual-network"></a>Pour créer un réseau virtuel
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022536"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813838"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.
@@ -138,7 +138,7 @@ Le message d’erreur suivant peut s’afficher.
 Cette erreur se produit lorsque votre passerelle se trouve dans un environnement qui exige un proxy HTTP pour accéder aux ressources Internet ou lorsque le mot de passe d’authentification de votre serveur proxy est modifié, mais n’est pas actualisé dans votre passerelle.
 
 #### <a name="resolution"></a>Résolution :
-Suivez les instructions de la section [Considérations relatives aux serveurs proxy](#proxy-server-considerations) de cet article et configurez les paramètres de proxy à l’aide du Gestionnaire de configuration de passerelle de gestion des données.
+Suivez les instructions de la section Considérations relatives aux serveurs proxy de cet article et configurez les paramètres de proxy à l’aide du Gestionnaire de configuration de passerelle de gestion des données.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>La passerelle est en ligne avec des fonctionnalités limitées
 ### <a name="1-problem"></a>1. Problème
@@ -169,8 +169,8 @@ La passerelle ne peut pas se connecter au service cloud via Service Bus.
 Suivez ces étapes pour remettre la passerelle en ligne :
 
 1. Autorisez les règles de trafic sortant d’adresse IP sur l’ordinateur de la passerelle et le pare-feu d’entreprise. Vous pouvez trouver les adresses IP dans le journal des événements Windows (ID == 401) : Tentative d’accès à un socket de manière interdite par ses autorisations d’accès XX.XX.XX.XX:9350.
-* Configurez les paramètres de proxy de la passerelle. Pour plus d’informations, consultez la section [Considérations relatives aux serveurs proxy](#proxy-server-considerations).
-* Activez les ports sortants 5671 et 9350 à 9354 sur le pare-feu Windows de l’ordinateur passerelle et le pare-feu d’entreprise. Pour plus d’informations, consultez la section [Ports et pare-feu](#ports-and-firewall). Cette étape est facultative, mais elle est recommandée pour des questions de performances.
+* Configurez les paramètres de proxy de la passerelle. Pour plus d’informations, consultez la section Considérations relatives aux serveurs proxy.
+* Activez les ports sortants 5671 et 9350 à 9354 sur le pare-feu Windows de l’ordinateur passerelle et le pare-feu d’entreprise. Pour plus d’informations, consultez la section Ports et pare-feu. Cette étape est facultative, mais elle est recommandée pour des questions de performances.
 
 ### <a name="3-problem"></a>3. Problème
 Vous obtenez l’erreur suivante.

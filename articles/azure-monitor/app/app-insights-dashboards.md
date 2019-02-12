@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: afbf2bc32aa737eb5f6dde41035b206d6e260252
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117075"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813758"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigation et tableaux de bord dans le portail Application Insights
 Une fois que vous avez [configuré Application Insights sur votre projet](../../azure-monitor/app/app-insights-overview.md), les données de télémétrie relatives aux performances et à l’utilisation de votre application apparaissent dans les ressources Application Insights de votre projet dans le [portail Azure](https://portal.azure.com).
@@ -62,7 +62,7 @@ Le graphique est automatiquement actualisé à une fréquence qui varie selon l�
 * Intervalle de temps supérieur à 24 heures : (intervalle de temps)/60.
 
 ### <a name="pin-any-query-in-analytics"></a>Épinglez n’importe quelle requête dans Analytics
-Vous pouvez également [épingler des graphiques Analytics](../../azure-monitor/log-query/get-started-portal.md) à un tableau de bord [partagé](#share-dashboards-with-your-team). Ainsi, vous pouvez ajouter les graphiques de toute requête arbitraire en parallèle des mesures standards. 
+Vous pouvez également [épingler des graphiques Analytics](../../azure-monitor/log-query/get-started-portal.md) à un tableau de bord partagé. Ainsi, vous pouvez ajouter les graphiques de toute requête arbitraire en parallèle des mesures standards. 
 
 Les résultats sont recalculés automatiquement toutes les heures. Cliquez sur l’icône Actualiser du graphique pour recalculer immédiatement. (L’actualisation du navigateur ne permet pas de lancer un nouveau calcul.)
 

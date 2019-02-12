@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2019
+ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: d1bddc8331fc1a9ded37949a8065636947074852
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246727"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822831"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou abonnement Azure Stack
 
@@ -45,20 +45,15 @@ Pour le Kit de développement Azure Stack (ASDK), vous devez exporter le certifi
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exporter et importer le certificat Azure Stack
 
+Exportez, puis importez le certificat Azure Stack pour ASDK. Pour un système intégré, le certificat est signé publiquement. Ainsi, cette étape n’est pas nécessaire quand vous configurez la connexion Explorateur Stockage au système intégré Azure Stack.
+
 1. Ouvrez `mmc.exe` sur une machine hôte Azure Stack ou sur une machine locale avec une connexion VPN à Azure Stack. 
 
 2. Dans **Fichier**, sélectionnez **Ajouter/Supprimer un composant logiciel enfichable**, ajoutez **Certificats** pour gérer **Mon compte utilisateur**.
 
-3.  Sous **Racine de la console\Certificats (ordinateur local)\Autorités de certification racines de confiance\Certificats**.
+3.  Sous **Racine de la console\Certificats (ordinateur local)\Autorités de certification racines de confiance\Certificats**. Recherchez **AzureStackSelfSignedRootCert**.
 
-    - Pour le kit ASDK, recherchez **AzureStackSelfSignedRootCert**.
-
-        ![Charger le certificat racine Azure Stack via mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
-
-    - Pour un système intégré, recherchez le certificat racine de vos certificats externes. 
-    
-        ![Charger le certificat racine Azure Stack via mmc.exe](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
-        
+    ![Charger le certificat racine Azure Stack via mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
 4. Cliquez avec le bouton droit sur le certificat, sélectionnez **Toutes les tâches** > **Exporter**, puis suivez les instructions pour exporter le certificat avec **X.509 encodé en base 64 (.cer)**.
 

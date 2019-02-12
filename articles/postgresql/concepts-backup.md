@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: cf8cef9c715d9bbe82a0bae5c59f329f350021f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 49277fc260743d0179c40374241edeece0a0e1e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538340"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814331"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Sauvegarde et restauration dans Azure Database pour PostgreSQL
 
@@ -50,7 +50,7 @@ Deux types de restauration sont disponibles :
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
 > [!IMPORTANT]
-> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées.
+> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Pour protéger les ressources du serveur, après le déploiement, contre une suppression accidentelle ou des changements inattendus, les administrateurs peuvent utiliser [les verrous de gestion](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 

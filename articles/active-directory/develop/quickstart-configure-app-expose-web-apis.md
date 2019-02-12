@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5b72bd45299f636a208ab39be5b7eaade2730183
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095692"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814010"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Démarrage rapide : Configurer une application pour exposer les API web (préversion)
 
@@ -116,7 +116,7 @@ Pour exposer une nouvelle étendue via le manifeste de l'application vous devez.
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Vérifier que l’API web est exposée à d’autres applications
 
 1. Revenez à votre locataire Azure AD, sélectionnez **Inscriptions des applications**, puis recherchez et sélectionnez l’application cliente que vous souhaitez configurer.
-1. Répétez l’étape décrite dans la section [Configurer une application cliente pour accéder aux API web](#configure-a-client-application-to-access-web-apis).
+1. Répétez l’étape décrite dans la section Configurer une application cliente pour accéder aux API web.
 1. Lorsque vous arrivez à l’étape intitulée **Sélectionner une API**, sélectionnez votre ressource. Vous devriez voir la nouvelle étendue, disponible pour les demandes d’autorisations clientes.
 
 ## <a name="more-on-the-application-manifest"></a>Informations complémentaires concernant le manifeste d’application

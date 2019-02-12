@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 12/21/2018
-ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c60ba4f4106ddd0c3fc643288894fb55d3d27f8c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240342"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816456"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK 
  
@@ -60,7 +60,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - Correction d’un problème qui empêchait l’application de stratégies de contrôle d’accès en fonction du rôle (RBAC) à un groupe d’utilisateurs lors de l’utilisation d’ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Correction d’un problème d’échec des sauvegardes d’infrastructure en raison d’un serveur de fichiers inaccessible à partir du réseau d’adresses IP virtuelles publiques. Ce correctif replace le service de sauvegarde d’infrastructure (Infrastructure Backup) dans le réseau d’infrastructure publique. Si vous avez appliqué le dernier [correctif logiciel Azure Stack pour 1809](#azure-stack-hotfixes) qui traite ce problème, la mise à jour 1811 n’apportera pas d’autre modification. 
+- Correction d’un problème d’échec des sauvegardes d’infrastructure en raison d’un serveur de fichiers inaccessible à partir du réseau d’adresses IP virtuelles publiques. Ce correctif replace le service de sauvegarde d’infrastructure (Infrastructure Backup) dans le réseau d’infrastructure publique. Si vous avez appliqué le dernier correctif logiciel Azure Stack pour 1809 qui traite ce problème, la mise à jour 1811 n’apportera pas d’autre modification. 
 
 <!-- 2967387 – IS, ASDK --> 
 - Correction d’un problème qui avait pour effet que le compte que vous utilisiez pour vous connecter au portail administrateur ou utilisateur d’Azure Stack s’affichait en tant qu’**Utilisateur non identifié**. Ce message s’affichait quand le *prénom* ou le *nom* du compte n’étaient pas spécifiés.   

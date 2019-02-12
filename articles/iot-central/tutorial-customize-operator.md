@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 070a6ee4bc712b2dbec598cdb9be5c324895c033
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f65463b534988e0a721a1a5f816183f8dd8ebcaf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154979"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657652"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Didacticiel : Personnaliser la vue de l’opérateur d’Azure IoT Central
 
@@ -30,6 +30,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Afficher un aperçu de l’appareil en tant qu’opérateur
 > * Configurer votre page d’accueil par défaut
 > * Afficher un aperçu de la page d’accueil par défaut en tant qu’opérateur
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -64,7 +66,7 @@ En tant que générateur, vous pouvez définir les informations qui s’affichen
 
     | Paramètre     | Valeur |
     | ----------- | ----- |
-    | NOM        | Température maximale |
+    | Nom        | Température maximale |
     | Mesure | température |
     | Agrégation | Maximale |
     | Période  | 1 semaine précédente |

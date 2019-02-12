@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 5bbe0709f89ca198b0571526291f700c99e9e59f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966773"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700738"
 ---
 # <a name="public-ip-address-prefix"></a>Préfixe d’adresse IP publique
 
@@ -31,7 +31,7 @@ Les adresses IP publiques sont attribuées à partir d’un pool d’adresses d
 Vous créez un préfixe d’adresse IP publique dans une région et un abonnement Azure en spécifiant un nom et le nombre d’adresses que le préfixe doit inclure. Par exemple, si vous créez le préfixe d’adresse IP publique /28, Azure alloue automatiquement 16 adresses parmi l’une de ses plages. Vous ne savez pas quelle plage Azure attribue jusqu’à ce que vous créiez la plage, mais les adresses sont contiguës. Les préfixes d’adresses IP publiques entraînent des frais. Pour plus d’informations, consultez [Tarifs des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 > [!IMPORTANT]
-> Le préfixe d’adresse IP publique est en préversion publique dans un nombre limité de régions. Vous pouvez [découvrir ce que signifie l’état de préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le préfixe d’adresse IP publique est actuellement disponible dans les régions : USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre, Europe Nord, Europe Ouest et Asie Sud-Est. Pour obtenir la liste actualisée des régions, visitez [Mises à jour Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+> Le préfixe d’adresse IP publique est en préversion publique dans un nombre limité de régions. Vous pouvez [découvrir ce que signifie l’état de préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le préfixe d'adresse IP publique est actuellement disponible dans les régions suivantes : USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre, Europe Nord, Europe Ouest et Asie Sud-Est. Pour obtenir la liste actualisée des régions, visitez [Mises à jour Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Pourquoi créer un préfixe d’adresse IP publique ?
 
