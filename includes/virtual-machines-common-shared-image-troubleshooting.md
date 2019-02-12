@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 2902fe53e7f3ffb86dc727ebcdc2200ba02ac203
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046486"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736063"
 ---
 Si vous rencontrez des problèmes en exécutant des opérations sur les galeries d’images partagées, les définitions d’image et les versions d’image, réexécutez la commande ayant échoué en mode débogage. Le mode débogage est activé avec le commutateur **-debug** dans l’interface CLI et le commutateur **-Debug** dans PowerShell. Une fois que vous avez localisé l’erreur, suivez ce document pour corriger les erreurs.
 
@@ -52,7 +52,7 @@ Causes possibles :
 
 *Le nom de version d’image n’est pas valide.*
 
-Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format : *MajorVersion.MinorVersion.Patch*. Changez le nom de version d’image, puis réessayez.
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format : *MajorVersion.MinorVersion.Patch*. Changez le nom de version d’image, puis réessayez.
 
 *L’image managée source à partir de laquelle la version d’image est créée est introuvable.* 
 

@@ -7,19 +7,30 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449552"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770484"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Questions courantes : Réplication Azure vers Azure
 
 Cet article fournit des réponses aux questions courantes concernant le déploiement de la reprise d’activité après sinistre de machines virtuelles Azure dans une autre région Azure avec Azure Site Recovery. Si, après avoir lu cet article, vous avez des questions, posez-les sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
+## <a name="in-this-article"></a>Dans cet article 
+1.  **[Questions générales sur Azure soumises à Azure](#general)** 
+1.  **[Réplication](#replication)** 
+1.  **[Stratégie de réplication](#replication-policy)** 
+1.  **[Cohérence multimachine virtuelle](#multi-vm-consistency)** 
+1.  **[Plan de récupération](#recovery-plan)** 
+1.  **[Reprotection et restauration automatique](#reprotection-and-failback)** 
+1.  **[Sécurité](#security)** 
+
+
 ## <a name="general"></a>Généralités
+
 ### <a name="how-is-site-recovery-priced"></a>Comment les tarifs Azure Site Recovery sont-ils fixés ?
 Pour plus d’informations, consultez [Tarification Site Recovery ](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
 
@@ -198,7 +209,7 @@ Cela dépend de la situation. Par exemple, si la machine virtuelle de la région
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Combien de temps prend la restauration automatique ?
 Après la reprotection, la durée de la restauration automatique est généralement similaire à la durée du basculement de la région primaire vers une région secondaire. 
 
-## <a name="security"></a>Sécurité
+## <a name="a-namesecuritysecurity"></a><a name="security">Sécurité
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Les données de réplication sont-elles envoyées vers le service Site Recovery ?
 Non, Site Recovery n’intercepte pas les données répliquées et n’a pas d’informations sur les opérations exécutées sur vos machines virtuelles. Seules les métadonnées nécessaires pour coordonner la réplication et le basculement sont envoyées au service Site Recovery.  
 Le logiciel Site Recovery est certifié conforme aux normes ISO 27001:2013, 27018, HIPAA et DPA. Il fait actuellement l’objet d’une évaluation de conformité aux exigences SOC2 et JAB FedRAMP.

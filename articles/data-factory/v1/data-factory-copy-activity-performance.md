@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331643"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812087"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
@@ -176,7 +176,7 @@ Points à noter :
 >
 >
 
-Pour mieux utiliser ces deux propriétés et pour améliorer votre débit de déplacement de données, voir [exemples de cas d’utilisation](#case-study-use-parallel-copy). Vous n’avez pas besoin de configurer **parallelCopies** pour tirer parti du comportement par défaut. Si vous configurez **parallelCopies** et que la valeur est trop basse, plusieurs unités de déplacement de données cloud ne peuvent pas être pleinement utilisées.
+Pour mieux utiliser ces deux propriétés et pour améliorer votre débit de déplacement de données, voir les exemples de cas d’utilisation. Vous n’avez pas besoin de configurer **parallelCopies** pour tirer parti du comportement par défaut. Si vous configurez **parallelCopies** et que la valeur est trop basse, plusieurs unités de déplacement de données cloud ne peuvent pas être pleinement utilisées.
 
 ### <a name="billing-impact"></a>Impact sur la facturation
 Il est **important** de garder à l’esprit que vous êtes facturé selon la durée totale de l’opération de copie. Si un travail de copie prenait auparavant une heure avec une seule unité cloud et qu’il prend maintenant 15 minutes avec quatre unités cloud, le montant total de la facture reste identique. Par exemple, vous utilisez quatre unités cloud. La première unité cloud dépense 10 minutes, la deuxième, 10 minutes, la troisième, 5 minutes et la quatrième, 5 minutes, le tout dans une seule exécution d’activité de copie. Vous êtes facturé pour la durée (déplacement de données) de la copie totale, qui est de 10 + 10 + 5 + 5 = 30 minutes. L’utilisation de **parallelCopies** n’affecte pas la facturation.
@@ -297,7 +297,7 @@ Si vous copiez des données depuis le stockage Blob vers SQL Data Warehouse, env
 
 * **Modèle de données** : Votre schéma de table a des répercussions sur le débit de copie. Une taille de ligne importante vous donne de meilleures performances qu’une petite taille de ligne pour copier la même quantité de données. Raison : la base de données peut récupérer plus efficacement moins de lots de données contenant moins de lignes.
 * **Requête ou procédure stockée** : optimisez la logique de la requête ou de la procédure stockée que vous spécifiez dans la source d’activité de copie pour extraire les données plus efficacement.
-* Pour des **bases de données relationnelles locales**, telles que SQL Server et Oracle, qui requièrent l’utilisation d’une **passerelle de gestion des données**, voir la section [Considérations relatives à la passerelle de gestion des données](#considerations-on-data-management-gateway).
+* Pour des **bases de données relationnelles locales**, telles que SQL Server et Oracle, qui requièrent l’utilisation d’une **passerelle de gestion des données**, voir la section Considérations relatives à la passerelle de gestion des données.
 
 ## <a name="considerations-for-the-sink"></a>Considérations relatives au récepteur
 ### <a name="general"></a>Généralités

@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851012"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821386"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurer la reprise d’activité pour Active Directory et DNS
 
@@ -31,10 +31,10 @@ Cet article explique comment créer une solution de récupération d’urgence p
 
 ## <a name="replicate-the-domain-controller"></a>Répliquer le contrôleur de domaine
 
-- Vous devez configurer la [réplication Site Recovery](#enable-protection-using-site-recovery) sur au moins une machine virtuelle hébergeant un contrôleur de domaine ou DNS.
-- Si vous avez [plusieurs contrôleurs de domaine](#environment-with-multiple-domain-controllers) dans votre environnement, vous devez également configurer un [contrôleur de domaine supplémentaire](#protect-active-directory-with-active-directory-replication) sur le site cible. Le contrôleur de domaine supplémentaire peut être dans Azure ou dans un centre de données local secondaire.
+- Vous devez configurer la réplication Site Recovery sur au moins une machine virtuelle hébergeant un contrôleur de domaine ou DNS.
+- Si vous avez plusieurs contrôleurs de domaine dans votre environnement, vous devez également configurer un contrôleur de domaine supplémentaire sur le site cible. Le contrôleur de domaine supplémentaire peut être dans Azure ou dans un centre de données local secondaire.
 - Si vous n’avez que quelques applications et un seul contrôleur de domaine, vous pouvez souhaiter basculer le site entier. Dans ce cas, nous vous recommandons d’utiliser Site Recovery pour répliquer le contrôleur de domaine sur le site cible (soit dans Azure, soit dans un centre de données local secondaire). Vous pouvez utiliser le même contrôleur de domaine répliqué ou une machine virtuelle de DNS pour [tester le basculement](#test-failover-considerations).
-- - Si vous avez beaucoup d’applications et plus d’un contrôleur de domaine dans votre environnement, ou si vous envisagez de basculer plusieurs applications à la fois, outre la réplication de la machine virtuelle du contrôleur de domaine avec Site Recovery, nous vous recommandons de configurer un [contrôleur de domaine supplémentaire](#protect-active-directory-with-active-directory-replication) sur le site cible (soit dans Azure, soit dans un centre de données local secondaire). Pour [tester le basculement](#test-failover-considerations), vous pouvez utiliser le contrôleur de domaine répliqué par Site Recovery. Pour le basculement, vous pouvez utiliser le contrôleur de domaine supplémentaire sur le site cible.
+- - Si vous avez beaucoup d’applications et plus d’un contrôleur de domaine dans votre environnement, ou si vous envisagez de basculer plusieurs applications à la fois, outre la réplication de la machine virtuelle du contrôleur de domaine avec Site Recovery, nous vous recommandons de configurer un contrôleur de domaine supplémentaire sur le site cible (soit dans Azure, soit dans un centre de données local secondaire). Pour [tester le basculement](#test-failover-considerations), vous pouvez utiliser le contrôleur de domaine répliqué par Site Recovery. Pour le basculement, vous pouvez utiliser le contrôleur de domaine supplémentaire sur le site cible.
 
 ## <a name="enable-protection-with-site-recovery"></a>Activer la protection à l'aide de Site Recovery
 

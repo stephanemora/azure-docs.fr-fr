@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 1f6be45e7f53aff7f9b8957ca88efe7605e4a984
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 37e2da00ecbecdddcc8757e64c57b03774092e14
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889040"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814987"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Déployer Azure Monitor pour machines virtuelles (préversion)
 Cet article décrit comment configurer Azure Monitor pour machines virtuelles. Le service surveille l’intégrité du système d’exploitation de vos machines virtuelles Azure et de vos groupes de machines virtuelles identiques, mais aussi des machines virtuelles de votre environnement. Cette supervision inclut la détection et le mappage de dépendances d’application qui peuvent être hébergées sur ces derniers. 
@@ -62,7 +62,7 @@ L’activation de la solution pour le scénario à l’échelle exige dans un pr
 * Installez les solutions ServiceMap et InfrastructureInsights. Vous pouvez effectuer cette installation uniquement à l’aide d’un modèle Azure Resource Manager fourni dans l’article.
 * Configurez l’espace de travail Log Analytics pour collecter les compteurs de performances.
 
-Pour configurer votre espace de travail dans le scénario à l’échelle, consultez [Configurer un espace de travail Log Analytics pour un déploiement à l’échelle](#setup-log-analytics-workspace).
+Pour configurer votre espace de travail dans le scénario à l’échelle, consultez Configurer un espace de travail Log Analytics pour un déploiement à l’échelle.
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
@@ -70,6 +70,7 @@ Le tableau ci-après répertorie les systèmes d’exploitation Windows et Linux
 
 |Version du SE |Performances |Cartes |Intégrité |
 |-----------|------------|-----|-------|
+|Windows Server 2019 | X | X |  |
 |Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |
 |Windows Server 2012 R2 | X | X | |
@@ -102,6 +103,7 @@ Le tableau ci-après répertorie les systèmes d’exploitation Windows et Linux
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
@@ -117,6 +119,7 @@ Le tableau ci-après répertorie les systèmes d’exploitation Windows et Linux
 | 6.7 | 2.6.32-573 |
 | 6,8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 #### <a name="ubuntu-server"></a>Serveur Ubuntu
 

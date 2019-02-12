@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Rendre les données d’application hautement disponibles dans Azure | Microsoft Docs'
+title: 'Tutoriel : Générer une application hautement disponible avec le stockage Blob - Stockage Azure'
 description: Utiliser le stockage géoredondant avec accès en lecture pour rendre vos données d’application hautement disponibles
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 81cd6b073fb46b01b3b98543d8f92e2ef7b1ec1b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d2fef3a47cbcb4cfd8bce8978003eca1044d7de3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245378"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510631"
 ---
-# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Tutoriel : Rendre vos données d’application hautement disponibles avec Stockage Azure
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutoriel : Générer une application hautement disponible avec le stockage Blob
 
 Ce tutoriel est la première partie d’une série d’étapes. Il vous apprend à rendre vos données d’application hautement disponibles dans Azure.
 

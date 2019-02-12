@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fa154b79625fffb8174c510156b3a67df8bff785
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224239"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770428"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Sauvegarder des bases de données SQL Server sur Azure
 
@@ -202,6 +202,7 @@ Pour garantir des sauvegardes sans heurt à l’aide de Sauvegarde Azure pour SQ
 
   * Espaces au début ou à la fin
   * « ! » à la fin
+  * Crochets de fermeture « ] »
 
 Nous avons des alias pour les caractères non pris en charge dans la table Azure, mais nous vous recommandons de les éviter également. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -721,6 +722,8 @@ Si vous arrêtez la protection d’une base de données SQL Server, Sauvegarde A
 * Arrêter tous les travaux de sauvegarde à venir en conservant les points de récupération.
 
 Si vous choisissez d’arrêter la sauvegarde en conservant les données, les points de récupération sont nettoyés conformément à la stratégie de sauvegarde. Le coût de l’instance SQL protégée et l’espace de stockage utilisé vous sont facturés jusqu’à ce que tous les points de récupération soient nettoyés. Pour plus d’informations sur la tarification du service Sauvegarde Azure, consultez la [page de la tarification de la sauvegarde Azure](https://azure.microsoft.com/pricing/details/backup/).
+
+Lorsque vous arrêtez une sauvegarde avec conservation des données, les points de récupération expirent conformément à la stratégie de conservation. Toutefois, la Sauvegarde Azure conserve le dernier point de récupération jusqu’à ce que vous supprimiez explicitement les données de sauvegarde. De même, si vous supprimez une source de données sans effectuer un arrêt de sauvegarde, les nouvelles sauvegardes échoueront et les anciens points de récupération expireront conformément à la stratégie de conservation. Toutefois, le dernier point de récupération sera conservé jusqu’à ce que vous arrêtiez une sauvegarde avec suppression des données.
 
 Pour arrêter la protection de la base de données :
 

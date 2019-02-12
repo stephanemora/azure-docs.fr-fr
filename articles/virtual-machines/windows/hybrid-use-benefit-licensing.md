@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 757891a6968313c1a31ce67b399d6aa052abfa21
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bd228a01cd3841772750882d13c33459385cc21
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999949"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817714"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pour Windows Server
 Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Server permet d’utiliser les licences Windows Server locales et d’exécuter des machines virtuelles Windows sur Azure à moindre coût. Vous pouvez utiliser Azure Hybrid Benefit pour Windows Server pour déployer de nouvelles machines virtuelles avec le système d’exploitation Windows. Cet article récapitule les étapes du déploiement de nouvelles machines virtuelles avec Azure Hybrid Benefit pour Windows Server. Il explique également comment mettre à jour des machines virtuelles existantes en cours d’exécution. Pour plus d’informations sur les licences et les réductions de coût relatives à Azure Hybrid Benefit pour Windows Server, consultez la [page de gestion des licences Azure Hybrid Benefit pour Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -40,7 +40,7 @@ Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Serv
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Façons d’utiliser Azure Hybrid Benefit pour Windows Server
 Il existe plusieurs façons d’utiliser des machines virtuelles Windows avec Azure Hybrid Benefit :
 
-1. Vous pouvez déployer des machines virtuelles à partir de l’une des [images Windows Server fournies sur la Place de marché Microsoft Azure](# https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
+1. Vous pouvez déployer des machines virtuelles à partir de l’une des images Windows Server fournies sur la Place de marché Microsoft Azure
 2. Vous pouvez charger une machine virtuelle personnalisée et la déployer à l’aide d’un modèle Resource Manager ou d’Azure PowerShell.
 3. Vous pouvez convertir une machine virtuelle existante de sorte qu’elle s’exécute avec Azure Hybrid Benefit ou selon un paiement à l’utilisation pour Windows Server ou basculer entre les deux méthodes.
 4. Vous pouvez également appliquer Azure Hybrid Benefit pour Windows Server sur un groupe de machines virtuelles identiques.

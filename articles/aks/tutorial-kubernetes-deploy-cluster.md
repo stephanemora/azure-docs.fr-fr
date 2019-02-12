@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 54872a1c5a40cdb3f51c17362daed93c3892001e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720660"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754555"
 ---
-# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Didacticiel : Déployer un cluster Azure Kubernetes Service (AKS)
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutoriel : Déployer un cluster Azure Kubernetes Service (AKS)
 
 Kubernetes fournit une plateforme distribuée destinée aux applications en conteneur. Avec AKS, vous pouvez créer rapidement un cluster Kubernetes prêt pour la production. Dans ce tutoriel (troisième d’une série de sept), un cluster Kubernetes est déployé dans AKS. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -67,10 +67,10 @@ Pour commencer, obtenez l’ID de ressource ACR à l’aide de [az acr show][]. 
 az acr show --resource-group myResourceGroup --name <acrName> --query "id" --output tsv
 ```
 
-Pour accorder l’accès correct de sorte que le cluster AKS puisse utiliser des images stockées dans ACR, créez une attribution de rôle à l’aide de la commande [az role assignment create][]. Remplacez `<appId`> et `<acrId>` par les valeurs recueillies au cours des deux étapes précédentes.
+Pour accorder l’accès qui permettra au cluster AKS de tirer (pull) des images stockées dans ACR, attribuez le rôle `AcrPull` à l’aide de la commande [az role assignment create][]. Remplacez `<appId`> et `<acrId>` par les valeurs recueillies au cours des deux étapes précédentes.
 
 ```azurecli
-az role assignment create --assignee <appId> --scope <acrId> --role Reader
+az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 ```
 
 ## <a name="create-a-kubernetes-cluster"></a>Créer un cluster Kubernetes

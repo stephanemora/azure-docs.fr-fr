@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87b39c400d189c7be6ead9770fb833f7c5e3036b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 40e519495b8a245f72e51167f5807f9c585cb344
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191249"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817544"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilisation de connecteurs avec Azure AD Connect Sync Service Manager
 
@@ -42,7 +42,7 @@ L’onglet Connecteurs permet de gérer tous les systèmes auquel le moteur de s
 | Importer le connecteur |Ne pas utiliser. |
 | Mettre à jour le connecteur |Ne pas utiliser. |
 | Actualiser le schéma |Actualise le schéma mis en cache. Il est préférable d’utiliser l’option dans l’Assistant Installation, car les règles de synchronisation sont également mises à jour. |
-| [Espace de connecteur de recherche](#search-connector-space) |Permet de rechercher des objets et de [Suivre un objet et ses données dans le système](#follow-an-object-and-its-data-through-the-system). |
+| [Espace de connecteur de recherche](#search-connector-space) |Permet de rechercher des objets et de Suivre un objet et ses données dans le système. |
 
 ### <a name="delete"></a>Supprimer
 L’action de suppression est utilisée dans deux cas.  

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179835"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815233"
 ---
 # <a name="register-in-dev-center"></a>S’inscrire dans le centre de développement  
 Ouvrez une nouvelle session de navigation Internet Explorer InPrivate ou Chrome Incognito pour vérifier que vous n’êtes pas connecté à un compte de navigateur personnel.  
@@ -78,7 +78,7 @@ Ouvrez une nouvelle session de navigation Internet Explorer InPrivate ou Chrome 
     | Modèle de facturation | Étapes suivantes |  
     |:--- |:--- |  
     | Gratuit | Accédez au Portail Cloud Partner.<ul> <li>Pour publier sur la Place de marché Azure, consultez la page Portail Cloud Partner à l’adresse [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
-    | Commercial (transaction) | Mettez à jour les informations de votre compte.<ul> <li>Pour plus d’informations sur l’ajout d’informations de compte, consultez la section [Ajouter des informations fiscales et bancaires](#how-to-add-bank-and-tax-information).</li> </ul> |  
+    | Commercial (transaction) | Mettez à jour les informations de votre compte.<ul> <li>Pour plus d’informations sur l’ajout d’informations de compte, consultez la section [Ajouter des informations fiscales et bancaires](#add-bank-information).</li> </ul> |  
 
     *   Un exemple d’offre commerciale est une offre de machine virtuelle avec un modèle de facturation horaire.  
 
@@ -98,7 +98,7 @@ Si vous rencontrez des problèmes avec l’inscription dans le centre de dévelo
     
     Cliquez sur le bouton Démarrer la messagerie.  
 1.  Dans la page de connexion, connectez-vous à l’aide d’un ID Microsoft. Si vous n’en avez pas, créez-en un.  
-    *   Pour plus d’informations sur la création d’un ID Microsoft, consultez la section [Instructions pour la création d’un ID Microsoft dans le but de gérer un compte Place de marché Microsoft Azure](#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account).  
+    *   Pour plus d’informations sur la création d’un ID Microsoft, consultez la section Instructions pour la création d’un ID Microsoft dans le but de gérer un compte Place de marché Microsoft Azure.  
 2.  Remplissez les détails du problème.  
 3.  Pour envoyer le ticket, cliquez sur le bouton Envoyer. 
 
@@ -146,7 +146,7 @@ Les informations fiscales et bancaires sont requises pour toutes les offres comm
 > Les éditeurs qui publient en type de liste Transaction : machine virtuelle, applications Azure : modèles de solution et applications gérées.  
 
 *   **Pourquoi un compte de Centre de développement est-il nécessaire ?**
-> Un compte de Centre de développement est nécessaire pour que Microsoft puisse facturer le type de liste Transact au client pour le compte de l’éditeur. L’enregistrement d’un compte de Centre de développement permet à Microsoft de valider les informations juridiques, fiscales et bancaires de votre société. Cliquez [ici](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center) pour en savoir plus.
+> Un compte de Centre de développement est nécessaire pour que Microsoft puisse facturer le type de liste Transact au client pour le compte de l’éditeur. L’enregistrement d’un compte de Centre de développement permet à Microsoft de valider les informations juridiques, fiscales et bancaires de votre société. Cliquez [ici](https://docs.microsoft.com/azure/marketplace/become-publisher) pour en savoir plus.
 
 *   **Comment procéder à l’inscription au Centre de développement ?**
 > Pour éviter une duplication, vérifiez que votre entreprise ne dispose pas déjà d’un compte de Centre de développement. Vous devez être connecté avec le compte Microsoft que vous souhaitez associer à votre compte de développeur. Si vous n’avez pas de compte Microsoft, vous pouvez créer un compte [ici](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1). (exemple : contoso_marketplace@live.com) Pour se connecter et s’inscrire, accédez à https://dev.windows.com/en-us/registration?accountProgram=Azure
@@ -184,7 +184,7 @@ Les informations fiscales et bancaires sont requises pour toutes les offres comm
 > Attribuez un nom de société temporaire, contactez le support à l’adresse [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) en lui fournissant des justificatifs officiels de la création de votre société (extrait KBIS).
 
 *   **Comment ajouter mes informations fiscales et de paiement ?**
-> Vous n’êtes pas en mesure de publier des offres Transact sans avoir renseigné les informations fiscales et bancaires dans votre compte de Centre de développement.  Pour plus d’informations sur l’ajout d’informations de compte, consultez [Ajouter des informations fiscales et bancaires](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information).
+> Vous n’êtes pas en mesure de publier des offres Transact sans avoir renseigné les informations fiscales et bancaires dans votre compte de Centre de développement.  Pour plus d’informations sur l’ajout d’informations de compte, consultez [Ajouter des informations fiscales et bancaires](https://docs.microsoft.com/azure/marketplace/register-dev-center).
 
 *   **Puis-je changer de compte de connexion Microsoft pour le Centre de développement ?**
 >  Non. Après la création d’un compte de Centre de développement, le compte de propriétaire ne peut pas être modifié. Vous devez recommencer la procédure avec un tout nouveau compte de Centre de développement et le compte Microsoft souhaité.

@@ -3,7 +3,7 @@ title: Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Datab
 description: Réponses aux questions fréquemment posées par les clients sur une base de données SQL Azure dans le niveau de service Hyperscale, communément appelée « base de données Hyperscale ».
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 470a00e62aba4baf5dd13a9c80a0c72df04a81c8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 3ee952f10cebe374767e0db4a592695eeb1b4417
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478336"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810063"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Questions fréquentes (FAQ) sur les bases de données SQL Azure Hyperscale
 
@@ -222,7 +222,7 @@ Oui. Certaines des fonctionnalités d’Azure SQL Database ne sont pas prises en
 
 Oui. Vous pouvez utiliser toutes les technologies de migration existantes pour migrer vers Hyperscale, notamment BACPAC, la réplication transactionnelle et le chargement de données logique. Voir aussi [Azure Database Migration Service](../dms/dms-overview.md).
 
-### <a name="what-is-my-downtown-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Quelle est la durée du temps d’arrêt pendant la migration depuis un environnement local ou de machines virtuelles vers Hyperscale, et comment puis-je le minimiser ?
+### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Quelle est la durée du temps d’arrêt pendant la migration depuis un environnement local ou de machines virtuelles vers Hyperscale, et comment puis-je le minimiser ?
 
 Le temps d’arrêt est le même que quand vous migrez vos bases de données vers une base de données unique dans Azure SQL Database. Vous pouvez utiliser la [réplication transactionnelle](replication-to-sql-database.md#data-migration-scenario
 ) afin de réduire le temps d’arrêt dû à la migration pour les bases de données d’une taille allant jusqu’à plusieurs To. Pour une très grande base de données (plus de 10 To), vous pouvez envisager de migrer les données avec ADF, Spark ou d’autres technologies de déplacement de données.

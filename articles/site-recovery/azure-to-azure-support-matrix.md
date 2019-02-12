@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 138c5ee54d175c4bd5f727acc3375405850f86a0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 752be8270f3eb0bcc018cfcb7f87f30f5afbc60a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301592"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753093"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice de support pour la réplication à partir d’une région Azure vers une autre
 
@@ -58,9 +58,9 @@ Chine | Chine Est, Chine Nord, Chine Nord 2, Chine Est 2
 >[!NOTE]
 >
 > - Pour la région **Brésil Sud**, vous pouvez répliquer et basculer vers l'une des opérations suivantes : USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2, USA Centre Nord. Il convient de noter que Site Recovery a permis à la région Brésil Sud d’être utilisée uniquement en tant que région source à partir de laquelle les machines virtuelles peuvent être protégées. Elle **ne peut pas être utilisée comme région de reprise d'activité cible** pour une région Azure comme USA Centre Sud. En raison d’une latence observée à cause de la distance géographique, il est recommandé de sélectionner une région d’Amérique autre que Brésil Sud.
-> 
+>
 > - Si vous n'êtes **pas en mesure de voir une région** où vous souhaitez **créer un coffre**, assurez-vous que votre abonnement dispose d'un accès lui permettant de créer des ressources dans cette région. Par exemple :  Si vous n'êtes pas en mesure de créer un coffre dans la région France Sud, votre abonnement n'a pas accès à cette région. Veuillez classer le ticket de support sous « Gestion des abonnements » et « Autres questions générales », sujet « Abonnement à la liste blanche pour la région Azure XXX ».
-> 
+>
 > - Si vous n'êtes **pas en mesure de voir une région** au sein d'un cluster géographique **pendant l'activation de la réplication**, vérifiez que votre abonnement a accès à la création de machine virtuelle dans cette région. Par exemple :  Si vous essayez de protéger des machines virtuelles de France Centre vers France Sud et que vous ne voyez pas France Sud dans la liste déroulante des régions, votre abonnement n'a pas accès au déploiement des machines virtuelles dans cette région. Veuillez classer le ticket de support sous « Gestion des abonnements » et « Autres questions générales », sujet « Abonnement à la liste blanche pour la région Azure XXX ».
 > - Vous ne pouvez pas sélectionner des régions parmi les clusters géographiques mentionnés ci-dessus.
 
@@ -123,7 +123,7 @@ LTS 16.04 | 9.19 | 4.4.0-21-generic à 4.4.0-131-generic,<br/>4.8.0-34-generic �
 
 **Version release** | **Version du service Mobilité** | **Version du noyau** |
 --- | --- | --- |
-Debian 7 | 9.18, 9.19, 9.20, 9.21 | 3.2.0-4-amd64 à 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.19, 9.20, 9.21, 9.22 | 3.2.0-4-amd64 à 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
 Debian 8 | 9.20, 9.21 | 3.16.0-4-amd64 à 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0-0.bpo.8-amd64 |
 Debian 8 | 9.19 | 3.16.0-4-amd64 à 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0-0.bpo.7-amd64 |
@@ -133,10 +133,10 @@ Debian 8 | 9.18 | 3.16.0-4-amd64 à 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0
 
 **Version release** | **Version du service Mobilité** | **Version du noyau** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default à 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.21 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default à 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default à 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default à 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default à 4.4.138-94.39-default |
 
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Machines répliquées - Stockage invité/système de fichiers Linux
@@ -186,7 +186,7 @@ Disque de données - Compte de stockage Standard | Pris en charge |
 Disque de données - Compte de stockage Premium | Pris en charge | Si une machine virtuelle a des disques répartis sur des comptes de stockage Standard et Premium, vous pouvez sélectionner un compte de stockage cible différent pour chaque disque afin d’être sûr d’avoir la même configuration de stockage dans la région cible.
 Disque managé - Standard | Pris en charge dans les régions Azure dans lesquelles Azure Site Recovery est pris en charge. |
 Disque managé - Premium | Pris en charge dans les régions Azure dans lesquelles Azure Site Recovery est pris en charge. |
-SSD Standard | Non pris en charge |
+SSD Standard | Pris en charge |
 Redondance | LRS et GRS sont pris en charge.<br/><br/> ZRS n’est pas pris en charge.
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud
 Espaces de stockage | Pris en charge |
@@ -195,8 +195,8 @@ Azure Disk Encryption (ADE) pour système d’exploitation Windows | Prise en ch
 Azure Disk Encryption (ADE) pour système d’exploitation Linux | Non pris en charge |
 Ajout/suppression de disque à chaud | Non pris en charge | Si vous ajoutez ou supprimez un disque de données sur la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
 Exclure le disque | Non pris en charge|   Le disque temporaire est exclu par défaut.
-Espaces de stockage direct  | Non pris en charge|
-Serveur de fichiers avec montée en puissance parallèle  | Non pris en charge|
+Espaces de stockage direct  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
+Serveur de fichiers avec montée en puissance parallèle  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
 LRS | Prise en charge |
 GRS | Prise en charge |
 RA-GRS | Prise en charge |
