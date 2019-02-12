@@ -8,19 +8,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ebe362b89eb6ffcde006ff824fbee40b1a9175d3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394576"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733397"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Ingérer des exemples de données dans l’Explorateur de données Azure
 
 Cet article vous montre comment ingérer (charger) des exemples de données dans une base de données de l’Explorateur de données Azure. Il existe [plusieurs façons d’ingérer des données](ingest-data-overview.md) ; cet article se concentre sur une approche de base qui convient à des fins de test.
 
 > [!NOTE]
-> Vous avez déjà ces données si vous avez terminé [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure](python-ingest-data.md).
+> Vous avez déjà ces données si vous avez terminé [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure](python-ingest-data.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -57,6 +57,11 @@ L’exemple de jeu de données **StormEvents** contient des données météorolo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Écrire des requêtes](write-queries.md)
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
 
-[Ingestion des données de l’Explorateur de données Azure](ingest-data-overview.md)
+> [!div class="nextstepaction"]
+> [Écrire des requêtes](write-queries.md)
+
+> [!div class="nextstepaction"]
+> [Ingestion des données de l’Explorateur de données Azure](ingest-data-overview.md)

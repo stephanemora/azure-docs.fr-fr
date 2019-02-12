@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018534"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744839"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 
@@ -25,7 +25,7 @@ Le routage de messages vous permet d’interroger les propriétés et le corps d
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Requête de routage de messages en fonction des propriétés de message 
 
-IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour toute messagerie appareil-à-cloud, afin de favoriser l’interopérabilité entre les différents protocoles. Le message IoT Hub suppose la représentation JSON suivante du message. Les propriétés système sont ajoutées pour tous les utilisateurs et identifient le contenu du message. Les utilisateurs peuvent ajouter de façon sélective des propriétés de l’application au message. La messagerie appareil-à-cloud IoT Hub ne respectant pas la casse, nous recommandons d’utiliser des noms de propriété uniques. Par exemple, si vous avez plusieurs propriétés portant le même nom, IoT Hub n’envoie qu’une seule de ces propriétés.  
+IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour tous les envois de messages appareil-à-cloud à des fins d’interopérabilité entre les protocoles. Le message IoT Hub suppose la représentation JSON suivante du message. Les propriétés système sont ajoutées pour tous les utilisateurs et identifient le contenu du message. Les utilisateurs peuvent ajouter de façon sélective des propriétés de l’application au message. La messagerie appareil-à-cloud IoT Hub ne respectant pas la casse, nous recommandons d’utiliser des noms de propriété uniques. Par exemple, si vous avez plusieurs propriétés portant le même nom, IoT Hub n’envoie qu’une seule de ces propriétés.  
 
 ```json
 { 
@@ -51,11 +51,11 @@ IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour
 
 Les propriétés système permettent d’identifier le contenu et la source des messages. 
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | contentType | chaîne | L’utilisateur spécifie le type de contenu du message. Pour autoriser la requête sur le corps du message, cette valeur doit être définie sur application/JSON. |
 | contentEncoding | chaîne | L’utilisateur spécifie le type d’encodage du message. Les valeurs autorisées sont UTF-8, UTF-16, UTF-32 si la valeur contentType est définie sur application/JSON. |
-| connectionDeviceId | chaîne | Cette valeur est définie par IoT Hub et identifie la source des messages. Il peut s’agir de messages de télémétrie d’appareil, de notifications de modification de jumeau d’appareil ou d’événements de cycle de vie d’appareil. Elle ne peut pas faire l’objet d’une requête. |
+| iothub-connection-device-id | chaîne | Cette valeur est définie par IoT Hub et identifie l’ID de l’appareil. Pour interroger, utilisez `$connectionDeviceId`. |
 | iothub-enqueuedtime | chaîne | Cette valeur est définie par IoT Hub et représente l’heure (UTC) réelle de la mise en file d’attente du message. Pour interroger, utilisez `enqueuedTime`. |
 
 Comme expliqué dans l’article [Messages IoT Hub](iot-hub-devguide-messages-construct.md), il existe des propriétés système supplémentaires dans un message. En plus de **contentType**, **contentEncoding** et **enqueuedTime**, les propriétés **connectionDeviceId** et **connectionModuleId** peuvent également être interrogées.

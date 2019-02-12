@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265207"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766010"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unifier plusieurs ressources Application Insights Azure Monitor 
-Cet article décrit comment interroger et afficher toutes vos données du journal d’application Application Insights à partir d’un emplacement unique, même quand elles se trouvent dans différents abonnements Azure, en remplacement de la dépréciation d’Application Insights Connector.  
+Cet article décrit comment interroger et afficher toutes vos données du journal d’application Application Insights à partir d’un emplacement unique, même quand elles se trouvent dans différents abonnements Azure, en remplacement de la dépréciation d’Application Insights Connector. Le nombre de ressources Application Insights que vous pouvez inclure dans une seule requête est limité à 100.  
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Approche recommandée pour interroger plusieurs ressources Application Insights 
 Lister plusieurs ressources Application Insights dans une requête peut être une opération fastidieuse et difficile à gérer. Au lieu de cela, vous pouvez utiliser une fonction pour séparer la logique de requête de l’étendue des applications.  
@@ -51,7 +51,20 @@ app('Contoso-app5').requests
 >
 >L’opérateur parse est facultatif dans cet exemple ; il extrait le nom de l’application à partir de la propriété SourceApp. 
 
-Vous êtes maintenant prêt à utiliser la fonction applicationsScoping dans la requête interressource. L’alias de fonction retourne l’union des requêtes à partir de toutes les applications définies. Ensuite, la requête filtre les demandes ayant échoué et permet de visualiser les tendances par application. ![Exemple de résultats de requête croisée](media/unify-app-resource-data/app-insights-query-results.png)
+Vous êtes maintenant prêt à utiliser la fonction applicationsScoping dans la requête interressource :  
+
+```
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| render timechart
+```
+
+L’alias de fonction retourne l’union des requêtes à partir de toutes les applications définies. Ensuite, la requête filtre les demandes ayant échoué et permet de visualiser les tendances par application.
+
+![Exemple de résultats de requête croisée](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Interroger des ressources Application Insights et des données d’espace de travail 
 Quand vous arrêtez le connecteur et que vous devez effectuer des requêtes sur une plage de temps qui a été découpée par la conservation des données Application Insights (90 jours), vous devez effectuer des [requêtes interressources](../../azure-monitor/log-query/cross-workspace-query.md) sur l’espace de travail et les ressources Application Insights pour une période intermédiaire. C’est nécessaire jusqu’à ce que vos données d’applications s’accumulent conformément aux nouvelles exigences de conservation des données Application Insights mentionnées ci-dessus. La requête nécessite certaines manipulations, dans la mesure où les schémas dans Application Insights et l’espace de travail sont différents. Consultez le tableau, plus loin dans cette section, qui souligne les différences entre les schémas. 
@@ -88,43 +101,43 @@ Le tableau suivant montre les différences entre les schémas Log Analytics et A
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | message |
+| AvailabilityMessage | Message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
-| AvailabilityTestName | name |
-| AvailabilityTimestamp |  timestamp |
+| AvailabilityTestName | Nom |
+| AvailabilityTimestamp | timestamp |
 | Browser | client_browser |
 | City | client_city |
 | ClientIP | client_IP |
-| Computer | cloud_RoleInstance | 
-| Country | client_CountryOrRegion | 
+| Ordinateur | cloud_RoleInstance | 
+| Pays | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
-| CustomEventName | name | 
+| CustomEventName | Nom | 
 | DeviceModel | client_Model | 
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | message | 
-| ExceptionType | type |
+| ExceptionMessage | Message | 
+| ExceptionType | Type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
-| OS | client_OS | 
+| SE | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
-| PageViewName | name | 
+| PageViewName | Nom | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | duration | 
 | RequestID | id | 
-| RequestName | name | 
-| RequestSuccess | success | 
+| RequestName | Nom | 
+| RequestSuccess | réussi | 
 | ResponseCode | resultCode | 
-| Role | cloud_RoleName |
+| Rôle | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | type |
+| TelemetryTYpe | Type |
 | URL | _url |
 | UserAccountId | user_AccountId |
 

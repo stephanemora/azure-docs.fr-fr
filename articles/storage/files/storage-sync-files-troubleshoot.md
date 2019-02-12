@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471400"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752090"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -251,8 +251,8 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | Le nom de répertoire est non valide. | Renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters). |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Un fichier ne peut pas être synchronisé, car il est en cours d’utilisation. Le fichier sera synchronisé lorsqu’il ne sera plus en cours d’utilisation. | Aucune action requise. Azure File Sync crée une capture instantanée VSS temporaire une fois par jour sur le serveur pour synchroniser les fichiers qui ont des descripteurs ouverts. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Un fichier a changé, mais la modification n’a pas encore été détectée par la synchronisation. La synchronisation sera rétablie une fois cette modification détectée. | Aucune action requise. |
-| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Le fichier ne peut pas être synchronisé parce que la limite de partage de fichiers Azure est atteinte. | Pour résoudre ce problème, voir la section [Vous avez atteint la limite de stockage du partage de fichiers Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) dans le guide de dépannage. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Cette erreur peut se produire si le fichier est chiffré par une solution non prise en charge (par exemple, NTFS EFS ) ou si le fichier est en état d’attente de suppression. | Si le fichier est chiffré par une solution non prise en charge, déchiffrez-le et utilisez une solution de chiffrement prise en charge. Pour obtenir la liste des solutions prises en charge, voir la section [Solutions de chiffrement](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) du guide de planification. Si le fichier est dans un état d’attente de suppression, il sera supprimé après fermeture de tous les descripteurs de fichiers ouverts. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Le fichier ne peut pas être synchronisé parce que la limite de partage de fichiers Azure est atteinte. | Pour résoudre ce problème, voir la section [Vous avez atteint la limite de stockage du partage de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) dans le guide de dépannage. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Cette erreur peut se produire si le fichier est chiffré par une solution non prise en charge (par exemple, NTFS EFS ) ou si le fichier est en état d’attente de suppression. | Si le fichier est chiffré par une solution non prise en charge, déchiffrez-le et utilisez une solution de chiffrement prise en charge. Pour obtenir la liste des solutions prises en charge, voir la section [Solutions de chiffrement](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) du guide de planification. Si le fichier est dans un état d’attente de suppression, il sera supprimé après fermeture de tous les descripteurs de fichiers ouverts. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Un fichier ne peut pas être synchronisé, car il est en cours d’utilisation. Le fichier sera synchronisé lorsqu’il ne sera plus en cours d’utilisation. | Aucune action requise. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Un fichier a été modifié pendant la synchronisation, par conséquent, il doit être synchronisé à nouveau. | Aucune action requise. |
 
@@ -370,7 +370,7 @@ Cette erreur se produit lorsque la limite de stockage de partage de fichiers Azu
 
 5. Sélectionnez **Fichiers** pour afficher la liste des partages de fichiers.
 6. Cliquez sur les points de suspension à la fin de la ligne pour le partage de fichiers Azure référencé par le point de terminaison de cloud.
-7. Vérifiez que l’**Utilisation** est inférieure au **Quota**. Remarque : à moins qu’un autre quota n’ait été spécifié, le quota correspondra à la taille maximale [du partage de fichiers Azure](storage-files-scale-targets.md).
+7. Vérifiez que l’**Utilisation** est inférieure au **Quota**. Remarque : à moins qu’un autre quota n’ait été spécifié, le quota correspondra à la [taille maximale du partage de fichiers Azure](storage-files-scale-targets.md).
 
     ![Une capture d’écran des propriétés de partage de fichiers Azure.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
@@ -538,7 +538,7 @@ Cette erreur se produit parce qu’il y a des changements sur le partage de fich
 | **Chaîne d’erreur** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Correction requise** | Oui |
 
-Dans les cas où il y a beaucoup d’erreurs de synchronisation par fichier, les sessions de synchronisation peuvent commencer à échouer. Pour corriger cet état, consultez [Résolution des erreurs de synchronisation par fichier/répertoire](#troubleshooting-per-file-directory-sync-errors).
+Dans les cas où il y a beaucoup d’erreurs de synchronisation par fichier, les sessions de synchronisation peuvent commencer à échouer. Pour corriger cet état, consultez [Résolution des erreurs de synchronisation par fichier/répertoire]().
 
 > [!NOTE]
 > Azure File Sync crée une capture instantanée VSS temporaire une fois par jour sur le serveur pour synchroniser les fichiers qui ont des descripteurs ouverts.

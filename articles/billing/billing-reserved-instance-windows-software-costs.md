@@ -1,6 +1,6 @@
 ---
-title: Coûts des logiciels Windows pour les réservations Azure | Microsoft Docs
-description: Découvrez les compteurs de logiciels Windows qui ne sont pas inclus dans les coûts d’instance Azure Reserved VM Instance.
+title: Coûts des logiciels de réservations pour Azure | Microsoft Docs
+description: Découvrez les compteurs de logiciels qui ne sont pas inclus dans les coûts d’instance Azure Reserved VM Instance.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: de2aee36f20bd5142f398de7edb301e53ab42cae
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 63b1e850cbcea089a6a115f53ea1ef579a16886f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902659"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744978"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Coûts des logiciels Windows non inclus dans Azure Reserved VM Instances
+# <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Coûts des logiciels non inclus dans les instances Azure Reserved VM Instances
 
-Si vous n’utilisez pas Azure Hybrid Use Benefit sur vos instances de machine virtuelle réservées, vous êtes facturé pour les compteurs de logiciels Windows listés dans la section suivante.
+Si vous n’utilisez pas Azure Hybrid Use Benefit sur vos instances de machine virtuelle réservées, vous êtes facturé pour les compteurs de logiciels listés dans les sections suivantes.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Compteurs de logiciels Windows non inclus dans le coût des réservations
 
@@ -50,6 +50,22 @@ Si vous n’utilisez pas Azure Hybrid Use Benefit sur vos instances de machine v
 | 904c5c71-1eb7-43a6-961c-d305a9681624 | Réservation-Windows Server (256 cœurs) | Tout sauf la série B |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Réservation-Windows Server (96 cœurs) | Tout sauf la série B |
 
+## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>Compteurs de services cloud non inclus dans le coût des réservations
+
+| ID du compteur | Nom du compteur dans le fichier d’utilisation |
+| ------- | ------------------------|
+|ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Licence Cloud Services 1 processeur virtuel|
+|e0434559-19ee-4132-9c46-05ad4044f3f7|Licence Cloud Services 2 processeurs virtuels|
+|6ecc834e-39b3-48b3-8d10-cc5626bacb66|Licence Cloud Services 4 processeurs virtuels|
+|13103090-ca72-4825-ab12-7f16c4931d95|Licence Cloud Services 8 processeurs virtuels|
+|ecd2bb6e-45a5-49aa-a58b-3947ba21c364|Licence Cloud Services 16 processeurs virtuels|
+|de2c7f1d-06dc-4b16-bc8b-c2ec5f4c8aee|Licence Cloud Services 20 processeurs virtuels|
+|ca1af837-4b35-47f5-8d14-b1988149c4ca|Licence Cloud Services 32 processeurs virtuels|
+|dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|Licence Cloud Services 64 processeurs virtuels|
+|7a803026-244c-4659-834c-11e6b2d6b76f|Licence Cloud Services 80 processeurs virtuels|
+
+## <a name="rates-for-azure-meters"></a>Tarifs des compteurs Azure
+
 Vous pouvez obtenir le coût de chacun de ces compteurs via l’API Azure RateCard. Pour en savoir plus sur la façon de se procurer les tarifs d’un compteur Azure, consultez [Obtenir des informations sur les prix et les métadonnées des ressources utilisées dans un abonnement Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -65,6 +81,3 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-
-

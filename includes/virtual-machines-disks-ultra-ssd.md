@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285798"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736275"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Disques managés Ultra SSD (préversion) pour les charges de travail de machine virtuelle Azure
 
@@ -21,11 +21,11 @@ Les disques Ultra SSD d’Azure (préversion) fournissent un stockage de disque 
 
 ## <a name="ultra-ssd-features"></a>Caractéristiques des disques Ultra SSD
 
-**Disques managés** : Les disques Ultra SSD sont seulement disponibles sous forme de disques managés. Les disques Ultra SSD ne peuvent pas être déployés comme des disques non managés ou des objets blob de pages. Quand vous créez un disque managé, vous définissez le type de référence de disque sur UltraSSD_LRS et indiquez la taille de disque, le nombre d’IOPS et le débit dont vous avez besoin, puis Azure crée et gère le disque pour vous.  
+**Disques managés** : Les disques Ultra SSD sont disponibles uniquement en tant que disques managés. Les disques Ultra SSD ne peuvent pas être déployés comme des disques non managés ou des objets blob de pages. Quand vous créez un disque managé, vous définissez le type de référence de disque sur UltraSSD_LRS et indiquez la taille de disque, le nombre d’IOPS et le débit dont vous avez besoin, puis Azure crée et gère le disque pour vous.  
 
 **Machines virtuelles** : Les disques Ultra SSD sont conçus pour fonctionner avec toutes les références de machine virtuelle Azure compatibles avec les SSD Premium. Cela étant, dans la préversion, les tailles de machines virtuelles sont limitées aux instances de machines virtuelles ES/DS v3.
 
-**Configuration dynamique des performances** : Les disques Ultra SSD vous permettent de changer dynamiquement les performances (IOPS et débit) du disque conformément aux besoins de vos charges de travail, sans avoir à redémarrer vos machines virtuelles.
+**Configuration dynamique des performances** : Les disques Ultra SSD vous permettent de changer dynamiquement les performances (IOPS et débit) du disque conformément aux besoins de vos charges de travail, sans avoir à redémarrer vos machines virtuelles.
 
 ## <a name="scalability-and-performance-targets"></a>Cibles de performance et d’évolutivité
 
@@ -33,9 +33,9 @@ Quand vous provisionnez un disque Ultra SSD, vous pouvez configurer de manière 
 
 Voici certaines fonctionnalités clés des disques Ultra SSD :
 
-- Capacité du disque : les disques Ultra SSD existent dans différentes tailles de 4 Gio à 64 Tio.
-- IOPS du disque : les disques Ultra SSD prennent en charge des limites d’IOPS de 300 IOPS/Gio, avec un maximum de 160 K IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur au nombre d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS du disque est 100.
-- Débit du disque : Avec les disques Ultra SSD, la limite de débit d’un seul disque est 256 Kio/s pour chacune IOPS provisionné, avec un maximum de 2 000 Mbits/s par disque (où 1 Mbit/s = 10^6 octets par seconde). Le débit minimal du disque est 1 Mio.
+- Capacité du disque : Les disques SSD Ultra sont disponibles en différents tailles, de 4 Gio à 64 Tio.
+- IOPS du disque : Les disques SSD Ultra prennent en charge des limites d’IOPS de 300 IOPS/Gio, avec un maximum de 160 000 IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur au nombre d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS du disque est 100.
+- Débit du disque : Avec les disques SSD Ultra, la limite de débit d’un seul disque est de 256 Kio/s pour chaque IOPS approvisionnée, avec un maximum de 2000 Mbits/s par disque (où 1 Mbits/s = 10^6 octets par seconde). Le débit minimal du disque est 1 Mio.
 
 Le tableau suivant récapitule les différentes configurations prises en charge pour les différentes tailles de disque :  
 
@@ -64,7 +64,7 @@ Lorsque vous utilisez des disques Ultra SSD, les règles de facturation suivante
 
 ### <a name="managed-disk-size"></a>Taille des disques managés
 
-Les disques managés sont facturés en fonction des tailles de machine virtuelle choisie lors de la configuration d'une nouvelle machine virtuelle Azure. Azure fait correspondre la taille provisionnée (arrondie à la valeur supérieure) à l’offre de taille de disque la plus proche. Pour plus d’informations sur les tailles de disque proposées, consultez le tableau dans la section Objectifs de performance et de scalabilité ci-dessus. Chaque disque correspond à une taille de disque provisionnée prise en charge et est facturé en conséquence à l’heure. Par exemple, si vous avez provisionné un disque Ultra SSD de 200 Gio et que vous l’avez supprimé au bout de 20 heures, il est mappé à l’offre de taille de disque de 256 Gio et vous êtes facturé 256 Gio pendant 20 heures. Cette facturation est basée sur la consommation par heure de calcul, indépendamment du volume de données réellement écrites sur le disque.
+Les disques managés sont facturés en fonction des tailles de machine virtuelle choisie lors de la configuration d’une nouvelle machine virtuelle Azure. Azure fait correspondre la taille provisionnée (arrondie à la valeur supérieure) à l’offre de taille de disque la plus proche. Pour plus d’informations sur les tailles de disque proposées, consultez le tableau dans la section Objectifs de performance et de scalabilité ci-dessus. Chaque disque correspond à une taille de disque provisionnée prise en charge et est facturé en conséquence à l’heure. Par exemple, si vous avez provisionné un disque Ultra SSD de 200 Gio et que vous l’avez supprimé au bout de 20 heures, il est mappé à l’offre de taille de disque de 256 Gio et vous êtes facturé 256 Gio pendant 20 heures. Cette facturation est basée sur la consommation par heure de calcul, indépendamment du volume de données réellement écrites sur le disque.
 
 ### <a name="managed-disk-provisioned-iops"></a>Nombre d’IOPS provisionnées pour le disque managé
 
@@ -74,7 +74,7 @@ Le nombre d’IOPS est le nombre de demandes que votre application envoie aux di
 
 Le débit est la quantité de données que votre application envoie aux disques dans un intervalle spécifié, mesuré en octets/seconde. Si votre application effectue de grosses opérations d’entrée/sortie, elle a besoin d’un débit élevé.  
 
-La formule suivante illustre la relation entre le débit et le nombre d’IOPS : IOPS x taille d’E/S = Débit
+La formule suivante illustre la relation entre le débit et le nombre d’IOPS :  IOPS x taille des E/S = débit
 
 Par conséquent, il est important de déterminer les valeurs optimales de débit et d’E/S par seconde dont a besoin votre application. Lorsque vous essayez d’optimiser une de ces valeurs, l’autre est également affectée. Nous vous recommandons de commencer par un débit correspondant à la taille d’E/S de 16 Kio et de l’ajuster si vous avez besoin de plus de débit.
 

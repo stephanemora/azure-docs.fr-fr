@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: f690625fda07bdbff671567f0292cc8e1cabeda1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 62bda3a1c9cb9d53578c2d471b9e63d1f0873234
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078693"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663296"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Aperçu : Protection par mot de passe Azure AD en local - Questions fréquentes (FAQ)
 
@@ -28,7 +28,7 @@ ms.locfileid: "55078693"
 
 **Q : Quand la fonctionnalité de protection par mot de passe Azure AD sera-t-elle en disponibilité générale (GA) ?**
 
-Nous n’avons pas encore annoncé de date de disponibilité générale.
+La disponibilité générale est planifiée pour le premier trimestre 2019 (d’ici la fin mars 2019). Nous remercions celles et ceux qui nous ont fait part de leurs commentaires sur cette fonctionnalité !
 
 **Q : La protection par mot de passe Azure AD en local est-elle prise en charge sur les clouds non publics ?**
 

@@ -6,25 +6,25 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/24/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63dc7148904089a31ff95764898a8dac72c37049
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2a6610b5cb3f01fc70b1737fc4492e09d9a7637b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421334"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507332"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Résolution des problèmes avec la fonction Suivi des modifications et inventaire
 
 ## <a name="windows"></a> Windows
 
-### <a name="records-not-showing-windows"></a>Scénario : Les enregistrements Change Tracking n’apparaissent pas dans le portail Azure
+### <a name="records-not-showing-windows"></a>Scénario : Les enregistrements Change Tracking n’apparaissent pas pour les ordinateurs Windows
 
 #### <a name="issue"></a>Problème
 
-Vous ne voyez pas les résultats de la fonction Suivi des modifications et inventaire pour les ordinateurs qui intègrent cette fonction.
+Vous ne voyez pas les résultats de la fonction Change Tracking et inventaire pour les ordinateurs Windows qui intègrent cette fonction.
 
 #### <a name="cause"></a>Cause :
 
@@ -38,12 +38,13 @@ Cette erreur peut être due aux raisons suivantes :
 #### <a name="resolution"></a>Résolution :
 
 1. Vérifiez si **Microsoft Monitoring Agent** (HealthService.exe) est en cours d’exécution sur l’ordinateur.
-2. Pour savoir quelles adresses et quels ports doivent être autorisés pour le fonctionnement du suivi des modifications, consultez [Planification du réseau](../automation-hybrid-runbook-worker.md#network-planning).
-3. Vérifiez que les packs d'administration Suivi des modifications et inventaire suivants existent localement :
+1. Dans l’**observateur d'événements** sur la machine, recherchez les événements comportant le mot `changetracking`.
+1. Pour savoir quelles adresses et quels ports doivent être autorisés pour le fonctionnement du suivi des modifications, consultez [Planification du réseau](../automation-hybrid-runbook-worker.md#network-planning).
+1. Vérifiez que les packs d'administration Suivi des modifications et inventaire suivants existent localement :
     * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
     * Microsoft.IntelligencePacks.InventoryChangeTracking.*
     * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
-4. Si vous utilisez une image clonée, commencez par exécuter sysprep sur l’image et installez ensuite l’agent Microsoft Monitoring Agent.
+1. Si vous utilisez une image clonée, commencez par exécuter sysprep sur l’image et installez ensuite l’agent Microsoft Monitoring Agent.
 
 Si ces solutions ne résolvent pas votre problème et que vous contactez le support technique, vous pouvez exécuter les commandes suivantes pour collecter le diagnostic sur l’agent
 

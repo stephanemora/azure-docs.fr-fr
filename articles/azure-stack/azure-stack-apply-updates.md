@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: ff70b1f8eda7bd48f0fba25aa66db42c15acab54
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252130"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729932"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Effectuer des mises à jour dans Azure Stack
 
@@ -37,6 +37,9 @@ Lorsqu’une mise à jour Microsoft ou OEM pour Azure Stack est disponible, tél
 - Des fichiers `<PackageName>.bin` correspondants. Ces fichiers fournissent la compression de la charge utile qui est associée au fichier *PackageName*.exe.
 
 - Un fichier `Metadata.xml`. Ce fichier contient des informations essentielles sur la mise à jour, par exemple l’éditeur, le nom, les prérequis, la taille et l’URL du chemin d’accès au support technique.
+
+> [!IMPORTANT]  
+> Après l’application du package de mise à jour Azure Stack 1901, le format des packages de mise à jour Azure Stack passera des formats .exe, .bin(s) et .xml aux formats .zip(s) et.xml. Les opérateurs Azure Stack ayant des horodatages connectés ne seront pas concernés par ce changement. Les opérateurs Azure Stack déconnectés importeront simplement le(s) fichier(s) .xml et .zip en utilisant le même processus que décrit ci-dessous.
 
 ## <a name="import-and-install-updates"></a>Importer et installer des mises à jour
 

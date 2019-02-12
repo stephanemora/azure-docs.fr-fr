@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 1f2e136810194ad044255f9d129b5c03549221b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d50f56fe0f4428186d18195f798633baefd6d125
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128658"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732921"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Créer, modifier ou étendre JSON pour les définitions d’applications logiques dans Azure Logic Apps
 
@@ -24,7 +24,8 @@ Lorsque vous créez des solutions d’intégration d’entreprise avec des flux 
 Pour utiliser des définitions d’application logique dans JSON, ouvrez l’éditeur en mode Code lorsque vous travaillez dans le portail Azure ou dans Visual Studio ou copiez la définition dans tout éditeur de votre choix. Si vous débutez avec les applications logiques, consultez [procédure de création de votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Certaines fonctionnalités Azure Logic Apps, telle que la définition des paramètres et de plusieurs déclencheurs dans les définitions d’application logique, sont uniquement disponibles dans JSON, et pas le Concepteur d’applications logiques. Par conséquent, pour ces tâches, vous devez travailler en mode Code ou sur un autre éditeur.
+> Certaines fonctionnalités Azure Logic Apps, telle que la définition des paramètres et de plusieurs déclencheurs dans les définitions d’application logique, sont uniquement disponibles dans JSON, et pas le Concepteur d’applications logiques.
+> Par conséquent, pour ces tâches, vous devez travailler en mode Code ou sur un autre éditeur.
 
 ## <a name="edit-json---azure-portal"></a>Modifier JSON - portail Azure
 
@@ -38,7 +39,7 @@ Pour utiliser des définitions d’application logique dans JSON, ouvrez l’éd
 
 ## <a name="edit-json---visual-studio"></a>Modifier JSON - Visual Studio
 
-Avant de pouvoir travailler sur la définition de votre application logique dans Visual Studio, assurez-vous d’avoir [installé les outils requis](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Pour créer une application logique avec Visual Studio, consultez [Démarrage rapide : automatiser des tâches et des processus avec Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Avant de pouvoir travailler sur la définition de votre application logique dans Visual Studio, assurez-vous d’avoir [installé les outils requis](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Pour créer une application logique avec Visual Studio, consultez [Démarrage rapide : Automatiser des tâches et des processus avec Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment créées et déployées directement depuis le portail Azure ou en tant que projets Azure Resource Manager à partir de Visual Studio.
 
@@ -58,7 +59,7 @@ Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment 
 
 ## <a name="parameters"></a>parameters
 
-Les paramètres vous permettent de réutiliser des valeurs dans l’ensemble de votre application logique. Ils conviennent également au remplacement des valeurs que vous êtes susceptible de modifier souvent. Par exemple, si vous possédez une adresse e-mail que vous souhaitez utiliser dans plusieurs emplacements, vous devez la définir en tant que paramètre. 
+Les paramètres vous permettent de réutiliser des valeurs dans l’ensemble de votre application logique. Ils conviennent également au remplacement des valeurs que vous êtes susceptible de modifier souvent. Par exemple, si vous possédez une adresse e-mail que vous souhaitez utiliser dans plusieurs emplacements, vous devez la définir en tant que paramètre.
 
 Les paramètres sont également utiles si vous devez remplacer des paramètres dans des environnements différents. En savoir plus sur les [paramètres de déploiement](#deployment-parameters) et [la documentation de l’API REST pour Azure Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
@@ -70,13 +71,13 @@ Dans le [premier exemple d’application logique](../logic-apps/quickstart-creat
 1. En mode code, recherchez l’objet `parameters : {}` et ajoutez un objet `currentFeedUrl` :
 
    ``` json
-     "currentFeedUrl" : {
+   "currentFeedUrl" : {
       "type" : "string",
-            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
    }
    ```
 
-2. Dans l’action `When_a_feed-item_is_published`, recherchez la section `queries` et remplacez la valeur de la requête par `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
+2. Dans l’action `When_a_feed-item_is_published`, recherchez la section `queries` et remplacez la valeur de la requête par `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
 
    **Avant**
    ``` json
@@ -84,7 +85,7 @@ Dans le [premier exemple d’application logique](../logic-apps/quickstart-creat
       "queries": {
           "feedUrl": "https://s.ch9.ms/Feeds/RSS"
        }
-   },   
+   },
    ```
 
    **Après**
@@ -93,13 +94,13 @@ Dans le [premier exemple d’application logique](../logic-apps/quickstart-creat
       "queries": {
           "feedUrl": "#@{parameters('currentFeedUrl')}"
        }
-   },   
+   },
    ```
 
    Pour joindre deux chaînes ou plus, vous pouvez également utiliser la fonction `concat`. 
    Par exemple, `"@concat('#',parameters('currentFeedUrl'))"` fonctionne de la même façon que l’exemple précédent.
 
-3.  Une fois ces opérations effectuées, sélectionnez **Enregistrer**. 
+3.  Une fois ces opérations effectuées, sélectionnez **Enregistrer**.
 
 Vous pouvez maintenant modifier le flux RSS du site web en transmettant une autre URL via l’objet `currentFeedURL`.
 
@@ -107,9 +108,9 @@ Vous pouvez maintenant modifier le flux RSS du site web en transmettant une autr
 
 ## <a name="deployment-parameters-for-different-environments"></a>Paramètres de déploiement pour différents environnements
 
-En règle générale, les cycles de vie de déploiement présentent des environnements de développement, intermédiaires et de production. Par exemple, vous pouvez mettre en œuvre la même définition d’application logique dans tous ces environnements, tout en utilisant des bases de données distinctes. De même, vous pouvez vouloir utiliser la même définition dans plusieurs régions à des fins de haute disponibilité, tout en souhaitant que chaque instance de l’application logique utilise la base de données d’une région spécifique. 
+En règle générale, les cycles de vie de déploiement présentent des environnements de développement, intermédiaires et de production. Par exemple, vous pouvez mettre en œuvre la même définition d’application logique dans tous ces environnements, tout en utilisant des bases de données distinctes. De même, vous pouvez vouloir utiliser la même définition dans plusieurs régions à des fins de haute disponibilité, tout en souhaitant que chaque instance de l’application logique utilise la base de données d’une région spécifique.
 
-> [!NOTE] 
+> [!NOTE]
 > Ce scénario diffère de l’utilisation de paramètres au moment de *l’exécution* dans lequel il est conseillé d’utiliser la fonction `trigger()`.
 
 Voici une définition de base :
@@ -157,13 +158,13 @@ Puis, dans la requête `PUT` réelle pour les applications logiques, vous pouvez
     },
     "location": "westus"
 }
-``` 
+```
 
 Pour plus d’informations, consultez la [documentation de l’API REST pour Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
 
 ## <a name="process-strings-with-functions"></a>Traiter des chaînes avec des fonctions
 
-Logic Apps possède différentes fonctions permettant de manipuler des chaînes. Par exemple, supposons que vous souhaitiez transmettre un nom de société d’une commande à un autre système. Toutefois, vous n’êtes pas sûr de la gestion correcte du codage de caractères. Vous pouvez effectuer un codage base64 sur cette chaîne, mais pour éviter les séquences d’échappement dans l’URL, il est conseillé de remplacer plusieurs caractères. De même, vous avez uniquement besoin d’une sous-chaîne du nom de la société, car les cinq premiers caractères ne sont pas utilisés. 
+Logic Apps possède différentes fonctions permettant de manipuler des chaînes. Par exemple, supposons que vous souhaitiez transmettre un nom de société d’une commande à un autre système. Toutefois, vous n’êtes pas sûr de la gestion correcte du codage de caractères. Vous pouvez effectuer un codage base64 sur cette chaîne, mais pour éviter les séquences d’échappement dans l’URL, il est conseillé de remplacer plusieurs caractères. De même, vous avez uniquement besoin d’une sous-chaîne du nom de la société, car les cinq premiers caractères ne sont pas utilisés.
 
 ``` json
 {
@@ -200,7 +201,7 @@ Logic Apps possède différentes fonctions permettant de manipuler des chaînes.
 
 Les étapes suivantes décrivent la façon dont cet exemple traite cette chaîne, de l’intérieur vers l’extérieur :
 
-``` 
+```
 "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
@@ -218,7 +219,7 @@ Les étapes suivantes décrivent la façon dont cet exemple traite cette chaîne
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Mapper des éléments de liste aux valeurs de propriété, puis utiliser des mappages en tant que paramètres
 
-Pour obtenir des résultats différents en fonction de la valeur d’une propriété, vous pouvez créer un mappage qui associe chaque valeur de propriété à un résultat, puis utiliser ce mappage en tant que paramètre. 
+Pour obtenir des résultats différents en fonction de la valeur d’une propriété, vous pouvez créer un mappage qui associe chaque valeur de propriété à un résultat, puis utiliser ce mappage en tant que paramètre.
 
 Par exemple, ce flux de travail définit certaines catégories en tant que paramètres et un mappage qui associe ces catégories à une URL spécifique. Tout d’abord, le flux de travail obtient une liste d’articles. Ensuite, le flux de travail utilise le mappage pour rechercher l’URL correspondant à la catégorie de chaque article.
 
@@ -302,13 +303,13 @@ Pour obtenir des données à partir d’une source de données qui ne prend pas 
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. Dans l’action `order`, extrayez l’élément `startTime`. 
+1. Dans l’action `order`, extrayez l’élément `startTime`.
 2. Obtenez l’heure en cours avec l’élément `utcNow()`.
 3. Soustrayez une seconde :
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
 
-   Vous pouvez utiliser d’autres unités de temps, par exemple `minutes` ou `hours`. 
+   Vous pouvez utiliser d’autres unités de temps, par exemple `minutes` ou `hours`.
 
 3. À présent, vous pouvez comparer ces deux valeurs. 
 
@@ -365,7 +366,6 @@ Pour mettre en forme les dates, vous pouvez utiliser des formateurs de chaîne. 
   "outputs": {}
 }
 ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

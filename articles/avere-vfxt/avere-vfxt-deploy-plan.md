@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298923"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744654"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planifier votre système Avere vFXT
 
@@ -37,6 +37,9 @@ Suivez ces instructions pour planifier l’infrastructure réseau de votre syst�
 * Recherchez les systèmes de calcul clients qui sont proches du cluster vFXT. Le stockage back-end, quant à lui, peut être plus distant.  
 
 * Par souci de simplicité, placez le cluster vFXT et la machine virtuelle du contrôleur de cluster dans le même réseau virtuel et dans le même groupe de ressources. Ils doivent également utiliser le même compte de stockage. (Le contrôleur de cluster crée le cluster et peut aussi être utilisé pour la gestion du cluster par le biais de la ligne de commande.)  
+
+  > [!NOTE] 
+  > Le modèle de création de cluster peut créer un nouveau groupe de ressources et un nouveau compte de stockage pour le cluster. Vous pouvez spécifier un groupe de ressources existant à condition qu’il soit vide.
 
 * Le cluster doit se trouver dans son propre sous-réseau afin d’éviter tout conflit d’adresses IP avec des clients ou des ressources de calcul. 
 
@@ -117,7 +120,7 @@ Pour plus d’informations sur ces options, lisez la [documentation des réseaux
 
 Si vous définissez une adresse IP publique sur le contrôleur de cluster, vous pouvez l’utiliser en tant qu’hôte de saut (« jump host ») pour contacter le cluster Avere vFXT à partir d’un emplacement en dehors du sous-réseau privé. Toutefois, ce contrôleur disposant de privilèges d’accès pour modifier des nœuds de cluster, cela crée un faible risque de sécurité.  
 
-Pour améliorer la sécurité avec une adresse IP publique, utilisez un groupe de sécurité réseau afin d’autoriser l’accès entrant uniquement par le biais du port 22.
+Pour améliorer la sécurité avec une adresse IP publique, utilisez un groupe de sécurité réseau afin d’autoriser l’accès entrant uniquement par le biais du port 22. Le cas échéant, vous pouvez renforcer la protection du système en verrouillant l’accès à votre plage d’adresses IP sources, c’est-à-dire autoriser uniquement les connexions des machines que vous avez l’intention d’utiliser pour l’accès au cluster.
 
 Quand vous créez le cluster, vous pouvez choisir s’il faut créer une adresse IP publique sur le contrôleur de cluster. 
 

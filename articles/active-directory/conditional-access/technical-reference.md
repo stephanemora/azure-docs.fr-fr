@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9677f6e7f78f241c863fdd9cc88fcfb7298d9164
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302102"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563733"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -150,7 +150,7 @@ Pour déployer automatiquement cette extension sur les navigateurs Chrome, crée
 |    |    |
 |--- | ---|
 |path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-|NOM | 1 |
+|Nom | 1 |
 |Type | REG_SZ (String) |
 |Données | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
@@ -159,7 +159,7 @@ Pour la prise en charge de Chrome dans **Windows 8.1 et 7**, créez la clé de R
 |    |    |
 |--- | ---|
 |path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-|NOM | 1 |
+|Nom | 1 |
 |Type | REG_SZ (String) |
 |Données | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
@@ -177,24 +177,27 @@ Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Appli
 Ce paramètre a un impact sur les tentatives d’accès provenant des applications mobiles et des clients de bureau suivants : 
 
 
-|Applications clientes|Service cible|Plateforme|
-|---|---|---|
-|Application distante Azure|Service Application distante Azure|Windows 10, Windows 8.1, Windows 7, iOS, Android et MAC OS X|
-|Application Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, iOS et Android|
-|Application de messagerie/calendrier/contacts, Outlook 2016, Outlook 2013 |Office 365 Exchange Online|Windows 10|
-|Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge. |Tout service d’application Mes applications|Android et iOS|
-|Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS |
-|Client de synchronisation OneDrive, Office 2013, applications Office 2016 (voir [notes](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Applications Office 2016, applications Universal Office, Office 2013, client de synchronisation OneDrive (voir [notes](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), prise en charge à venir des groupes Office et de l’application SharePoint|Office 365 SharePoint Online|Windows 10|
-|Office 2016 pour Mac OS (Word, Excel, PowerPoint, OneNote uniquement). Prise en charge de OneDrive Entreprise prévue|Office 365 SharePoint Online|Mac OS X|
-|Applications mobiles Office|Office 365 SharePoint Online|Android, iOS|
-|Application Yammer Office|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016 (Office pour Mac OS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013, Skype Entreprise|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Application Outlook Mobile|Office 365 Exchange Online|Android, iOS|
-|Application PowerBI|Service PowerBI|Windows 10, Windows 8.1, Windows 7, Android et iOS|
-|Skype Entreprise|Office 365 Exchange Online|Android, IOS |
-|Application Azure DevOps|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS, Android|
+| Applications clientes| Service cible| Plateforme |
+| --- | --- | --- |
+| Application distante Azure| Service Application distante Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS|
+| Application Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, iOS et Android|
+| Application de messagerie/calendrier/contacts, Outlook 2016, Outlook 2013 (avec l’authentification moderne)| Office 365 Exchange Online| Windows 10|
+| Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge.| Tout service d’application Mes applications| Android et iOS|
+| Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS|
+| Applications Office 2016, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Applications Office 2016, applications Universal Office, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), prise en charge à venir des groupes Office et de l’application SharePoint| Office 365 SharePoint Online| Windows 10|
+| Office 2016 (Word, Excel, PowerPoint, OneNote uniquement). Prise en charge de OneDrive Entreprise prévue| Office 365 SharePoint Online| macOS|
+| Office 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Applications mobiles Office| Office 365 SharePoint Online| Android, iOS|
+| Application Yammer Office| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Outlook 2016 (Office pour Mac OS)| Office 365 Exchange Online| macOS|
+| Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Application Outlook Mobile| Office 365 Exchange Online| Android, iOS|
+| Application PowerBI| Service PowerBI| Windows 10, Windows 8.1, Windows 7, Android et iOS|
+| Skype Entreprise| Office 365 Exchange Online| Android, IOS|
+| Application Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, Android|
+
 
 
 ## <a name="support-for-legacy-authentication"></a>Prise en charge de l’authentification héritée
@@ -214,27 +217,33 @@ Dans votre stratégie d’accès conditionnel, vous pouvez exiger que toute tent
 Ce paramètre s’applique aux applications clientes suivantes :
 
 
-- Microsoft Intune Managed Browser
-- Microsoft PowerBI
-- Microsoft Invoicing
-- Microsoft Launcher
+
 - Microsoft Azure Information Protection
+- Microsoft Edge
 - Microsoft Excel
+- Microsoft Flow
+- Microsoft Intune Managed Browser
+- Microsoft Invoicing
 - Microsoft Kaizala 
+- Microsoft Launcher
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
 - Planificateur Microsoft
+- Microsoft PowerApps
+- Microsoft PowerBI
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype Entreprise
 - Microsoft StaffHub
+- Microsoft Stream
 - Microsoft Teams
+- Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
-- Microsoft To-Do
-- Microsoft Stream
-- Microsoft Edge
+- Microsoft Yammer
+
+
 
 
 

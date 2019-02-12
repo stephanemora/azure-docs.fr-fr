@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c2cc0c0ffaae11bd7bf5113c942cdb98397201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550779"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752770"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Exigences relatives au stockage Blob Azure Data Box
 
@@ -30,7 +30,7 @@ Nous vous recommandons de lire attentivement les informations suivantes avant de
 |    Service Encryption pour les données au repos                  |    Chiffrement AES 256 bits                             |    Chiffrement AES 256 bits |
 |    Type de compte de stockage                                 |    Comptes de stockage à usage général et comptes de stockage d’objets blob Azure    |    Comptes de stockage à usage général v1 uniquement|
 |    Nom de l’objet blob                                            |    1 024 caractères (2 048 octets)                     |    880 caractères (1 760 octets)|
-|    Taille maximale des objets blob de blocs                              |    4,75 To (100 Mo X 50 000 blocs)                   |    4,75 To (100 Mo x 50 000 blocs) pour Azure Data Box v 1.7 et versions ultérieures.|
+|    Taille maximale des objets blob de blocs                              |    4,75 To (100 Mo X 50 000 blocs)                   |    4,75 To (100 Mo x 50 000 blocs) pour Azure Data Box v 1.8 et versions ultérieures.|
 |    Taille maximale des objets blob de pages                               |    8 To                                               |    1 To                   |
 |    Taille de page d’un objet blob de pages                                  |    512 octets                                          |    4 Ko                   |
 
@@ -38,8 +38,10 @@ Nous vous recommandons de lire attentivement les informations suivantes avant de
 
 Les versions suivantes des API du service de stockage Azure sont prises en charge avec le stockage Blob Data Box :
 
-Publication de la préversion publique (Azure Data Box 1.7 et versions ultérieures)
+Publication de la préversion publique (Azure Data Box 1.8 et versions ultérieures)
 
+- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
@@ -60,11 +62,9 @@ Publication de la préversion publique (Azure Data Box 1.7 et versions ultérie
 
 ## <a name="supported-azure-client-libraries"></a>Bibliothèques clientes Azure prises en charge
 
-Des bibliothèques clientes spécifiques, de même que des exigences spécifiques en matière de suffixe de point de terminaison, s'appliquent au stockage Blob Data Box.
+Des bibliothèques clientes spécifiques, de même que des exigences spécifiques en matière de suffixe de point de terminaison, s'appliquent au stockage Blob Data Box. Les points de terminaison du stockage Blob Data Box n’ont pas de parité complète avec la dernière version de l’API REST du stockage Blob Azure. Consultez la liste des [versions prises en charge pour Azure Data Box v 1.8 et versions ultérieures](#supported-api-versions). Par conséquent, pour les bibliothèques clientes de stockage, vous devez connaître la version compatible avec l’API REST.
 
-Les versions des API REST prises en charge pour le stockage Blob Data Box sont les suivantes : 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08 et 2015-04-05 à partir de la version 1.7 d'Azure Data Box. Les points de terminaison du stockage Blob Data Box n'ont pas de parité complète avec la dernière version de l'API REST du stockage Blob Azure. Par conséquent, pour les bibliothèques clientes de stockage, vous devez connaître la version compatible avec l’API REST.
-
-### <a name="azure-data-box-17-onwards"></a>Azure Data Box 1.7 et versions ultérieures
+### <a name="azure-data-box-18-onwards"></a>Azure Data Box 1.8 et versions ultérieures
 
 | Bibliothèque cliente     |Versions prises en charge du stockage Blob Data Box     | Lien   |     Spécification du point de terminaison      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
