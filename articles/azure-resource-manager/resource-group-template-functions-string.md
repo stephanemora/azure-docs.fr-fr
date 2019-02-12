@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: e32e972be4e355f01a760b45905404b70a1450bd
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 04a82d1ed8735954072f9549f3b2676df0935449
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300861"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489459"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
 
@@ -58,6 +58,8 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 
 <a id="base64" />
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="base64"></a>base64
 `base64(inputString)`
 
@@ -65,7 +67,7 @@ Retourne la représentation en base 64 de la chaîne d'entrée.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | chaîne_entrée |Oui |chaîne |La valeur à retourner sous la forme d’une représentation en base64. |
 
@@ -116,7 +118,7 @@ Une chaîne contenant la représentation en base64.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | base64Output | Chaîne | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Chaîne | one, two, three |
@@ -131,7 +133,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
 <a id="base64tojson" />
@@ -143,7 +145,7 @@ Convertit une représentation en base64 en un objet JSON.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | base64Value |Oui |chaîne |La représentation en base64 à convertir en un objet JSON. |
 
@@ -194,7 +196,7 @@ Un objet JSON.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | base64Output | Chaîne | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Chaîne | one, two, three |
@@ -209,7 +211,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
 <a id="base64tostring" />
@@ -221,7 +223,7 @@ Convertit une représentation en base64 en une chaîne.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | base64Value |Oui |chaîne |La représentation en base64 à convertir en une chaîne. |
 
@@ -272,7 +274,7 @@ Une chaîne de la valeur base64 convertie.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | base64Output | Chaîne | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Chaîne | one, two, three |
@@ -287,7 +289,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
 <a id="concat" />
@@ -299,7 +301,7 @@ Combine plusieurs valeurs de chaîne et retourne la chaine concaténée, ou comb
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |chaîne ou tableau |La première valeur pour la concaténation. |
 | arguments supplémentaires |Non  |chaîne |Valeurs supplémentaires en ordre séquentiel pour la concaténation. |
@@ -333,7 +335,7 @@ Chaîne ou tableau de valeurs concaténées.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | concatOutput | Chaîne | prefix-5yj4yjf5mbg72 |
 
@@ -346,7 +348,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) suivant montre comment combiner deux tableaux.
@@ -386,7 +388,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | return | Tableau | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -399,7 +401,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
 <a id="contains" />
@@ -411,7 +413,7 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | conteneur |Oui |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
 | itemToFind |Oui |chaîne ou entier |La valeur à trouver. |
@@ -475,7 +477,7 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -493,7 +495,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
 <a id="datauri" />
@@ -505,7 +507,7 @@ Convertit une valeur en un URI de données.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToConvert |Oui |chaîne |Valeur à convertir en URI de données. |
 
@@ -547,7 +549,7 @@ Une chaîne formatée en tant qu’URI de données.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | dataUriOutput | Chaîne | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | Chaîne | Hello, World! |
@@ -561,7 +563,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
 ```
 
 <a id="datauritostring" />
@@ -573,7 +575,7 @@ Convertit une valeur formatée en URI de données en chaîne.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |Oui |chaîne |Valeur d’URI de données à convertir. |
 
@@ -615,7 +617,7 @@ Chaîne contenant la valeur convertie.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | dataUriOutput | Chaîne | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | Chaîne | Hello, World! |
@@ -629,7 +631,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
 ```
 
 <a id="empty" /> 
@@ -641,7 +643,7 @@ Détermine si un tableau, un objet ou une chaîne est vide.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Oui |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
 
@@ -692,7 +694,7 @@ Retourne **True** si la valeur est vide ; sinon, **False**.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -707,7 +709,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
 <a id="endswith" />
@@ -719,7 +721,7 @@ Détermine si une chaîne se termine par une valeur. La comparaison respecte la 
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Oui |chaîne |La valeur qui contient l’élément à rechercher. |
 | stringToFind |Oui |chaîne |La valeur à trouver. |
@@ -768,7 +770,7 @@ Détermine si une chaîne se termine par une valeur. La comparaison respecte la 
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | true |
@@ -786,7 +788,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
 ```
 
 <a id="first" />
@@ -798,7 +800,7 @@ Retourne le premier caractère de la chaîne ou le premier élément du tableau.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
 
@@ -837,7 +839,7 @@ Chaîne du premier caractère ou type (chaîne, entier, tableau ou objet) du pre
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Chaîne | one |
 | stringOutput | Chaîne | O |
@@ -851,7 +853,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
 ## <a name="guid"></a>GUID
@@ -862,7 +864,7 @@ Crée une valeur sous la forme d’un identificateur global unique basé sur les
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |Oui |chaîne |Valeur utilisée dans la fonction de hachage pour créer le GUID. |
 | paramètres supplémentaires le cas échéant |Non  |chaîne |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
@@ -934,7 +936,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
 ```
 
 <a id="indexof" />
@@ -946,7 +948,7 @@ Retourne la première position d’une valeur dans une chaîne. La comparaison r
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Oui |chaîne |La valeur qui contient l’élément à rechercher. |
 | stringToFind |Oui |chaîne |La valeur à trouver. |
@@ -991,7 +993,7 @@ Entier qui représente la position de l’élément à rechercher. La valeur est
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | int | 3 |
@@ -1008,7 +1010,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
 ```
 
 <a id="last" />
@@ -1020,7 +1022,7 @@ Retourne le dernier caractère de la chaîne ou le dernier élément du tableau.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
 
@@ -1059,7 +1061,7 @@ Chaîne du dernier caractère ou type (chaîne, entier, tableau ou objet) du der
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Chaîne | three |
 | stringOutput | Chaîne | e |
@@ -1073,7 +1075,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
 <a id="lastindexof" />
@@ -1085,7 +1087,7 @@ Retourne la dernière position d’une valeur dans une chaîne. La comparaison r
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Oui |chaîne |La valeur qui contient l’élément à rechercher. |
 | stringToFind |Oui |chaîne |La valeur à trouver. |
@@ -1130,7 +1132,7 @@ Entier qui représente la dernière position de l’élément à rechercher. La 
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | int | 3 |
@@ -1147,7 +1149,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
 ```
 
 <a id="length" />
@@ -1159,7 +1161,7 @@ Retourne le nombre de caractères dans une chaîne ou le nombre d’éléments d
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
 
@@ -1205,7 +1207,7 @@ Un entier.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1219,7 +1221,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
 <a id="padleft" />
@@ -1231,7 +1233,7 @@ Renvoie une chaîne alignée à droite en lui ajoutant des caractères sur la ga
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | valeur_à_remplir |Oui |chaîne ou entier |Valeur à aligner à droite. |
 | longueur_totale |Oui |int |Nombre total de caractères de la chaîne renvoyée. |
@@ -1269,7 +1271,7 @@ Chaîne avec au moins le nombre de caractères spécifié.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | stringOutput | Chaîne | 0000000123 |
 
@@ -1282,7 +1284,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
 ```
 
 <a id="replace" />
@@ -1294,7 +1296,7 @@ Renvoie une nouvelle chaîne dans laquelle toutes les instances d’une chaîne 
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | chaîne_initiale |Oui |chaîne |La valeur qu’ont toutes les instances d’une chaîne ont été remplacées par une autre. |
 | oldString |Oui |chaîne |Chaîne à supprimer de la chaîne initiale. |
@@ -1334,7 +1336,7 @@ Chaîne contenant les caractères remplacés.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | firstOutput | Chaîne | 1231231234 |
 | secodeOutput | Chaîne | 123-123-xxxx |
@@ -1348,7 +1350,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
 ```
 
 <a id="skip" />
@@ -1360,7 +1362,7 @@ Retourne une chaîne avec tous les caractères après le nombre spécifié de ca
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
 | numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
@@ -1415,7 +1417,7 @@ Tableau ou chaîne.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Tableau | ["three"] |
 | stringOutput | Chaîne | two three |
@@ -1429,7 +1431,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
 <a id="split" />
@@ -1441,7 +1443,7 @@ Renvoie un tableau de chaînes qui contient les sous-chaînes de la chaîne d’
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | chaîne_entrée |Oui |chaîne |Chaîne à fractionner. |
 | delimiter |Oui |chaîne ou tableau de chaînes |Le séparateur à utiliser pour fractionner la chaîne. |
@@ -1487,7 +1489,7 @@ Tableau de chaînes.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | firstOutput | Tableau | ["one", "two", "three"] |
 | secondOutput | Tableau | ["one", "two", "three"] |
@@ -1501,7 +1503,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
 ```
 
 <a id="startswith" />
@@ -1513,7 +1515,7 @@ Détermine si une chaîne commence par une valeur. La comparaison respecte la ca
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Oui |chaîne |La valeur qui contient l’élément à rechercher. |
 | stringToFind |Oui |chaîne |La valeur à trouver. |
@@ -1562,7 +1564,7 @@ Détermine si une chaîne commence par une valeur. La comparaison respecte la ca
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | true |
@@ -1580,7 +1582,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
 ```
 
 <a id="string" />
@@ -1592,7 +1594,7 @@ Convertit la valeur spécifiée en chaîne.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Oui | Quelconque |Valeur à convertir en chaîne. N’importe quel type de valeur peut être converti, y compris les objets et des tableaux. |
 
@@ -1649,7 +1651,7 @@ Chaîne de la valeur convertie.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | objectOutput | Chaîne | {"valueA":10,"valueB":"Example Text"} |
 | arrayOutput | Chaîne | ["a","b","c"] |
@@ -1664,7 +1666,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
 ```
 
 <a id="substring" />
@@ -1676,7 +1678,7 @@ Retourne une sous-chaîne qui commence à la position de caractère spécifiée 
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | chaîne_à_analyser |Oui |chaîne |La chaîne d’origine de laquelle la sous-chaîne est extraite. |
 | index_début |Non  |int |La position de caractère (commençant à zéro) de la sous-chaîne. |
@@ -1688,7 +1690,7 @@ Sous-chaîne. Ou une chaîne vide si la longueur est égale à zéro.
 
 ### <a name="remarks"></a>Remarques
 
-La fonction échoue lorsque la sous-chaîne s’étend au-delà de la fin de la chaîne ou lorsque la longueur est inférieure à zéro. L’exemple suivant échoue avec l’erreur « Les paramètres d’index et de longueur doivent correspondre à un emplacement au sein de la chaîne. Paramètre d’index : « 0 », paramètre de longueur : « 11 », paramètre de longueur de la chaîne : « 10 ».
+La fonction échoue lorsque la sous-chaîne s’étend au-delà de la fin de la chaîne ou lorsque la longueur est inférieure à zéro. L’exemple suivant échoue avec l’erreur « Les paramètres d’index et de longueur doivent correspondre à un emplacement au sein de la chaîne. Le paramètre d'index : '0', le paramètre de longueur : '11', le paramètre de longueur de la chaîne : '10' ».
 
 ```json
 "parameters": {
@@ -1725,7 +1727,7 @@ La fonction échoue lorsque la sous-chaîne s’étend au-delà de la fin de la 
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | substringOutput | Chaîne | two |
 
@@ -1738,7 +1740,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
 ```
 
 <a id="take" />
@@ -1750,7 +1752,7 @@ Retourne une chaîne avec le nombre spécifié de caractères à partir du débu
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
 | numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
@@ -1805,7 +1807,7 @@ Tableau ou chaîne.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Tableau | ["one", "two"] |
 | stringOutput | Chaîne | sur |
@@ -1819,7 +1821,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
 <a id="tolower" />
@@ -1831,7 +1833,7 @@ Convertit la chaîne spécifiée en minuscules.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | chaîne_à_modifier |Oui |chaîne |La valeur à convertir en minuscules. |
 
@@ -1869,7 +1871,7 @@ Chaîne convertie en minuscules.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | toLowerOutput | Chaîne | one two three |
 | toUpperOutput | Chaîne | ONE TWO THREE |
@@ -1883,7 +1885,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
 ```
 
 <a id="toupper" />
@@ -1895,7 +1897,7 @@ Convertit la chaîne spécifiée en majuscules.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | chaîne_à_modifier |Oui |chaîne |La valeur à convertir en majuscules. |
 
@@ -1933,7 +1935,7 @@ Chaîne convertie en majuscules.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | toLowerOutput | Chaîne | one two three |
 | toUpperOutput | Chaîne | ONE TWO THREE |
@@ -1947,7 +1949,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
 ```
 
 <a id="trim" />
@@ -1959,7 +1961,7 @@ Supprime tous les espaces de début et de fin de la chaîne indiquée.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |Oui |chaîne |La valeur à supprimer. |
 
@@ -1993,7 +1995,7 @@ Chaîne sans les premiers et derniers caractères d’espace.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | return | Chaîne | one two three |
 
@@ -2006,7 +2008,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
 ```
 
 <a id="uniquestring" />
@@ -2018,7 +2020,7 @@ Crée une chaîne de hachage déterministe basée sur les valeurs fournies en ta
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |Oui |chaîne |La valeur utilisée dans la fonction de hachage pour créer une chaîne unique. |
 | paramètres supplémentaires le cas échéant |Non  |chaîne |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
@@ -2095,7 +2097,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
 ```
 
 <a id="uri" />
@@ -2107,7 +2109,7 @@ Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseUri |Oui |chaîne |La chaîne d’URI de base. |
 | relativeUri |Oui |chaîne |La chaîne d’URI relatif à ajouter à la chaîne d’URI de base. |
@@ -2157,7 +2159,7 @@ L’exemple suivant montre comment créer un lien vers un modèle imbriqué en f
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2172,7 +2174,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
 <a id="uricomponent" />
@@ -2184,7 +2186,7 @@ Encode un URI.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Oui |chaîne |Valeur à encoder. |
 
@@ -2225,7 +2227,7 @@ Chaîne de la valeur encodée de l’URI.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2240,7 +2242,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
 <a id="uricomponenttostring" />
@@ -2252,7 +2254,7 @@ Retourne une chaîne de la valeur encodée de l’URI.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |Oui |chaîne |Valeur encodée de l’URI à convertir en une chaîne. |
 
@@ -2293,7 +2295,7 @@ Chaîne décodée de la valeur encodée de l’URI.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| NOM | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2308,7 +2310,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

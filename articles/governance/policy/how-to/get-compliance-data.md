@@ -4,17 +4,17 @@ description: Les évaluations et les effets d’Azure Policy déterminent la con
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853627"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766406"
 ---
 # <a name="getting-compliance-data"></a>Obtention de données de conformité
 
@@ -45,6 +45,8 @@ Différents événements permettent d’évaluer les stratégies et initiatives 
 - Déploiement d’une ressource dans une étendue avec une assignation via le Gestionnaire des ressources, REST, Azure CLI ou Azure PowerShell. Dans ce scénario, l’événement d’effet (ajout, audit, refus, déploiement) et l’état de conformité deviennent disponibles dans le portail et les Kits de développement logiciel (SDK) environ 15 minutes plus tard. Cet événement n’entraîne pas une évaluation des autres ressources.
 
 - Cycle d’évaluation de conformité standard. Les affectations sont automatiquement réévaluées une fois par tranche de 24 heures. L’évaluation d’une stratégie ou d’une initiative volumineuse peut prendre un temps. Il est donc impossible de déterminer à l’avance à quel moment s’achèvera le cycle d’évaluation. Une fois le cycle terminé, les résultats de conformité à jour sont disponibles dans le portail et dans les kits de développement logiciel.
+
+- Le fournisseur de ressources [Configuration d'invité](../concepts/guest-configuration.md) est mis à jour avec les détails de conformité par une ressource managée.
 
 - Analyse de la demande
 
@@ -139,6 +141,26 @@ Les événements (ajouter, effectuer un audit, refuser, déployer) déclenchés 
 Cliquez avec le bouton droit sur la ligne de l’événement pour lequel vous souhaitez obtenir plus de détails et sélectionnez **Afficher les journaux d’activité**. La page Journal d’activité s’ouvre et les critères de recherche sont préfiltrés pour montrer les détails de l’affectation et des événements. Le journal d’activité fournit davantage de contexte ainsi que des informations supplémentaires sur ces événements.
 
 ![Journal d’activité de la stratégie de conformité](../media/getting-compliance-data/compliance-activitylog.png)
+
+### <a name="change-history-preview"></a>Historique des changements (préversion)
+
+Dans le cadre d'une nouvelle **préversion publique**, l'historique des modifications des quatorze derniers jours est disponible pour une ressource non conforme. L'historique des modifications indique quand une modification a été détectée et fournit un _différentiel visuel_ pour chaque modification. Une détection de modification est déclenchée lorsque les propriétés Resource Manager d'une ressource non conforme sont ajoutées, supprimées ou modifiées.
+
+1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
+
+1. Sur la page **Vue d'ensemble** ou **Conformité**, sélectionnez une stratégie _Non conforme_.
+
+1. Sous l'onglet **Conformité des ressources** de la page **Conformité à la stratégie**, sélectionnez une ressource _Non conforme_.
+
+1. Sélectionnez l'onglet **Historique des modifications (préversion)** de la page **Conformité des ressources**. La liste des modifications détectées, le cas échéant, s'affiche.
+
+   ![Historique des modifications de la stratégie - Onglet](../media/getting-compliance-data/change-history-tab.png)
+
+1. Sélectionnez une des modifications détectées. Le _différentiel visuel_ de la ressource non conforme est présenté sur la page **Historique des modifications**.
+
+   ![Historique des modifications de la stratégie - Différentiel visuel](../media/getting-compliance-data/change-history-visual-diff.png)
+
+Le _différentiel visuel_ aide à identifier les modifications apportées à une ressource. Les modifications détectées peuvent ne pas être liées à la raison pour laquelle la ressource n'est pas conforme à la stratégie sélectionnée.
 
 ## <a name="command-line"></a>Ligne de commande
 

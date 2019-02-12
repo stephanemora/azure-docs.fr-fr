@@ -1,21 +1,18 @@
 ---
-ms.assetid: ''
 title: Azure Key Vault - Utilisation de la suppression réversible avec PowerShell
 description: Exemples d’utilisation de la suppression réversible avec extraits de code PowerShell
-services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 02/01/2018
 ms.author: bryanla
-ms.openlocfilehash: 99f81e14ca631eccee154a5658bf717cbe07b3da
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: c979d6eccd5c185d89252302b40fdd674e3c5916
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364368"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657499"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Utilisation de la suppression réversible Key Vault avec l’interface PowerShell
 
@@ -80,7 +77,7 @@ Pour vérifier que la suppression réversible est activée pour un coffre de cl�
 Get-AzureRmKeyVault -VaultName "ContosoVault"
 ```
 
-## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>Suppression d’un coffre de clés protégé par la suppression réversible
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>Suppression d'un coffre de clés protégé par la suppression réversible
 
 Le comportement de la commande pour supprimer un coffre de clés varie selon que la suppression réversible est activée ou non.
 
@@ -97,7 +94,7 @@ Quand la suppression réversible est activée :
 
 - Un coffre de clés supprimé est enlevé de son groupe de ressources et placé dans un espace de noms réservé, associé à l’emplacement où il a été créé. 
 - Les objets supprimés, tels que les clés, les secrets et les certificats, sont inaccessibles tant que leur coffre de clés conteneur est à l’état supprimé. 
-- Le nom DNS d’un coffre de clés supprimé est réservé, empêchant toute création d’un coffre de clés avec le même nom.  
+- Le nom DNS d’un coffre de clés supprimé est réservé, empêchant toute création d’un coffre de clés avec le même nom.  
 
 Vous pouvez afficher les coffres de clé associés à votre abonnement qui sont à l’état supprimé en exécutant la commande suivante :
 
@@ -119,7 +116,7 @@ Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG
 
 Quand un coffre de clés est récupéré, une ressource est créée avec l’ID de ressource d’origine du coffre de clés. Si le groupe de ressources d’origine est supprimé, un groupe de ressources doit être créé avec le même nom avant la tentative de récupération.
 
-## <a name="key-vault-objects-and-soft-delete"></a>Objets de coffre de clés et suppression réversible
+## <a name="deleting-and-purging-key-vault-objects"></a>Suppression et vidage d'objets du coffre de clés
 
 La commande suivante supprime la clé nommée « ContosoFirstKey » dans un coffre de clés nommé « ContosoVault » pour lequel la suppression réversible est activée :
 
@@ -201,17 +198,22 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
-## <a name="purging-and-key-vaults"></a>Vidage et coffres de clé
+## <a name="purging-a-soft-delete-protected-key-vault"></a>Vidage d'un coffre de clés protégé par la suppression réversible
 
-### <a name="key-vault-objects"></a>Objets de coffre de clés
+> [!IMPORTANT]
+> Le vidage d'un coffre de clés ou d'un des objets qui y est contenu entraîne sa suppression définitive, ce qui signifie que vous ne pourrez pas le récupérer !
 
-Le vidage d’une clé, d’un secret ou d’un certificat entraîne sa suppression définitive ; vous ne pourrez pas le récupérer. Le coffre de clés qui contenait l’objet supprimé sera toutefois conservé, de même que tous les autres objets dans le coffre de clés. 
+La fonction de vidage permet de supprimer définitivement un objet du coffre de clés ou un coffre de clés tout entier précédemment supprimé de façon réversible. Comme démontré à la section précédente, les objets stockés dans un coffre de clés et pour lesquels la fonction de suppression réversible est activée peuvent passer par différents états :
 
-### <a name="key-vaults-as-containers"></a>Coffres de clé en tant que conteneurs
-Quand un coffre de clés est vidé, tout son contenu est supprimé définitivement, notamment les clés, les secrets et les certificats. Pour vider un coffre de clés, utilisez la commande `Remove-AzureRmKeyVault` avec l’option `-InRemovedState` et spécifiez l’emplacement du coffre de clés supprimé avec l’argument `-Location location`. Vous pouvez déterminer l’emplacement d’un coffre supprimé à l’aide de la commande `Get-AzureRmKeyVault -InRemovedState`.
+- **Actif** : avant la suppression.
+- **Supprimé de manière réversible** : après la suppression ; l'objet peut être répertorié et rétabli à l'état Actif.
+- **Supprimé définitivement** : après le vidage ; il impossible de récupérer l'objet.
 
->[!IMPORTANT]
->Le vidage d’un coffre de clés entraîne sa suppression définitive, ce qui signifie que vous ne pourrez pas le récupérer !
+Cela s'applique également au coffre de clés. Pour supprimer définitivement un coffre de clés supprimé de manière réversible et son contenu, vous devez vider le coffre de clés.
+
+### <a name="purging-a-key-vault"></a>Vidage d'un coffre de clés
+
+Quand un coffre de clés est vidé, tout son contenu est supprimé définitivement, notamment les clés, les secrets et les certificats. Pour vider un coffre de clés supprimé de manière réversible, utilisez la commande `Remove-AzureRmKeyVault` avec l'option `-InRemovedState` et spécifiez l'emplacement du coffre de clés supprimé avec l'argument `-Location location`. Vous pouvez déterminer l’emplacement d’un coffre supprimé à l’aide de la commande `Get-AzureRmKeyVault -InRemovedState`.
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus

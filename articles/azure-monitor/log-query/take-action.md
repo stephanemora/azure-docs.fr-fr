@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8730070e1b235324a53ad81957339f4ef17db6dc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193688"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809627"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Utilisation d’un runbook Automation sur un résultat de recherche dans les journaux Log Analytics
 
-À partir d’un résultat de recherche de journal dans Azure Log Analytics, vous pouvez maintenant sélectionner **Agir** pour exécuter un runbook Automation.  Le runbook peut être utilisé pour résoudre le problème ou effectuer une autre action telle que la collecte d’informations de résolution de problèmes, l’envoi d’un e-mail ou la création d’une demande de service. 
+À partir d’un résultat de recherche de journal dans Azure Log Analytics, vous pouvez maintenant sélectionner **Agir** pour exécuter un runbook Automation. Le runbook peut être utilisé pour résoudre le problème ou effectuer une autre action telle que la collecte d’informations de résolution de problèmes, l’envoi d’un e-mail ou la création d’une demande de service. 
 
 ## <a name="components-and-features-used"></a>Composants et fonctionnalités utilisés
 * [Compte Azure Automation](../../automation/automation-quickstart-create-account.md)
@@ -30,11 +30,11 @@ ms.locfileid: "53193688"
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Lancement d’un runbook à partir d’une recherche dans les journaux
 
-Pour agir sur un événement et lancer un runbook à partir des résultats de votre recherche dans les journaux, vous créez une recherche dans les journaux, et à partir des résultats, vous devez appeler un runbook à la demande.  Vous pouvez réaliser ces opérations à partir de la fonctionnalité de recherche dans les journaux dans le [portail Azure](../../azure-monitor/log-query/log-query-overview.md).  Dans cet exemple, nous effectuons une recherche dans les journaux à partir du portail Azure avec une démonstration de base de cette fonctionnalité.
+Pour agir sur un événement et lancer un runbook à partir des résultats de votre recherche dans les journaux, vous créez une recherche dans les journaux, et à partir des résultats, vous devez appeler un runbook à la demande. Vous pouvez réaliser ces opérations à partir de la fonctionnalité de recherche dans les journaux (classiques) du [portail Azure](../../azure-monitor/log-query/log-query-overview.md). Dans cet exemple, nous effectuons une recherche dans les journaux à partir du portail Azure avec une démonstration de base de cette fonctionnalité.
 
 1. Dans le portail Azure, cliquez sur **Tous les services** et sélectionnez **Log Analytics**.  
 2. Sélectionnez votre espace de travail Log Analytics.
-3. Dans l’espace de travail, sélectionnez **Recherche dans les journaux**.  
+3. Dans l'espace de travail, sélectionnez **Journaux (classiques)**.  
 4. Dans la page Recherche dans les journaux, effectuez une recherche dans les journaux.  
 5. À partir des résultats de la recherche dans les journaux, cliquez sur l’ellipse à gauche de l’un des champs, et dans le menu contextuel, sélectionnez **Agir sur**.<br><br> ![Sélectionner Agir à partir des résultats de recherche](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Sélectionnez **Exécuter un runbook** et sélectionnez un runbook à exécuter.  Vous pouvez sélectionner n’importe quel runbook dans le compte Automation qui est lié à l’espace de travail Log Analytics.  Notez les points suivants :

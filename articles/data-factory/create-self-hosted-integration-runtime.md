@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331807"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493587"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
@@ -141,6 +141,9 @@ Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuris
 - Nous vous déconseillons d’utiliser des certificats SAN, car seul le dernier élément SAN est utilisé et tous les autres sont ignorés en raison des limitations actuelles. Par exemple, si vous avez un certificat SAN dont les noms SAN sont **node1.domain.contoso.com** et **node2.domain.contoso.com**, vous pouvez utiliser ce certificat uniquement sur une machine dont le nom de domaine complet est **node2.domain.contoso.com**.
 - Le certificat prend en charge toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats SSL.
 - Les certificats qui utilisent des clés CNG ne sont pas pris en charge.  
+
+> [!NOTE]
+> Ce certificat permet de chiffrer les ports sur le nœud IR auto-hébergé, utilisé pour la **communication entre nœuds** (à des fins de synchronisation d'état) et lors de l'**utilisation de la cmdlet PowerShell pour le paramètre d'informations d'identification du service lié** au sein du réseau local. Nous vous conseillons d'utiliser ce certificat si votre environnement de réseau privé n'est pas sécurisé ou si vous souhaitez également sécuriser la communication entre les nœuds de votre réseau privé. Le déplacement des données en transit d'un runtime d'intégration auto-hébergé vers d'autres magasins de données se fait toujours via un canal chiffré, que ce certificat soit défini ou non. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Partage du runtime d’intégration auto-hébergé avec plusieurs fabriques de données
 

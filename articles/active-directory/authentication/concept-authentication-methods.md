@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7951044f850d93659ca458d3bcc46376e7e6b34a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2720d239c31a0cbfab215c7e297627c9f0d8c781
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077353"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510236"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
@@ -171,6 +171,8 @@ Une fois que le fichier a été correctement mis en forme au format CSV, l’adm
 L’opération peut prendre plusieurs minutes selon la taille du fichier CSV. Cliquez sur le bouton **Actualiser** pour obtenir l’état actuel. Si le fichier contient des erreurs, vous pouvez télécharger un fichier CSV de toutes les erreurs pour les résoudre plus facilement.
 
 Une fois que toutes les erreurs ont été résolues, l’administrateur peut activer chaque clé en cliquant sur **Activer** pour activer le jeton et en entrant l’OTP affiché sur le jeton.
+
+Les utilisateurs peuvent combiner jusqu'à 5 jetons matériels OATH ou des applications d'authentification, comme l'application Microsoft Authenticator, configurées pour une utilisation à tout moment.
 
 ## <a name="mobile-phone"></a>Téléphone mobile
 

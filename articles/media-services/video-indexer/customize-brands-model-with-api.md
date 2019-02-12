@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: anzaman
-ms.openlocfilehash: f970f535f83bc3b3c2a850ec126a7afff2af739f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6c6f2890cf9bd3c8cb412b3fa2f28d8ea3b6f72
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827582"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734315"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personnaliser un modèle de marques avec l’API Video Indexer
 
@@ -26,17 +26,17 @@ Vous pouvez utiliser les API Video Indexer pour créer, utiliser et modifier des
 
 ## <a name="create-a-brand"></a>Créer une marque
 
-Cela crée une marque personnalisée et l’ajoute au modèle de marques personnalisé pour le compte spécifié. 
+Cela crée une marque personnalisée et l’ajoute au modèle de marques personnalisé pour le compte spécifié.
 
 ### <a name="request-url"></a>URL de la demande
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand).
 
-### <a name="request-parameters"></a>Paramètres de la demande 
+### <a name="request-parameters"></a>Paramètres de la demande
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -95,7 +95,7 @@ Supprime une marque du modèle de marques personnalisé pour le compte spécifi�
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?).
 
 ### <a name="request-parameters"></a>Paramètres de la demande
@@ -117,17 +117,17 @@ Aucun contenu n’est retourné en cas de suppression effective de la marque.
 
 ## <a name="get-a-specific-brand"></a>Obtenir une marque spécifique
 
-Cela vous permet de rechercher les détails d’une marque dans le modèle de marques personnalisé pour le compte spécifié à l’aide de l’ID de marque. 
+Cela vous permet de rechercher les détails d’une marque dans le modèle de marques personnalisé pour le compte spécifié à l’aide de l’ID de marque.
 
 ### <a name="request-url"></a>URL de la demande
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?).
 
-### <a name="request-parameters"></a>Paramètres de la demande 
+### <a name="request-parameters"></a>Paramètres de la demande
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -167,14 +167,14 @@ La réponse fournit des informations sur la marque que vous avez recherchée (à
 
 ## <a name="update-a-specific-brand"></a>Mettre à jour une marque spécifique
 
-Cela vous permet de rechercher les détails d’une marque dans le modèle de marques personnalisé pour le compte spécifié à l’aide de l’ID de marque. 
+Cela vous permet de rechercher les détails d’une marque dans le modèle de marques personnalisé pour le compte spécifié à l’aide de l’ID de marque.
 
 ### <a name="request-url"></a>URL de la demande
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
 
 ### <a name="request-parameters"></a>Paramètres de la demande
@@ -188,7 +188,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-body"></a>Corps de la demande
 
-Outre ces paramètres, vous devez fournir un objet JSON de corps de demande qui fournit des informations actualisées sur la marque à mettre à jour au format de l’exemple ci-dessous.
+Outre ces paramètres, vous devez fournir un objet JSON du corps de la demande comportant des informations actualisées sur la marque à mettre à jour au format de l'exemple ci-dessous.
 
 ```json
 {
@@ -237,7 +237,7 @@ Cela renvoie toutes les marques du modèle de marques personnalisé pour le comp
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?).
 
 ### <a name="request-parameters"></a>Paramètres de la demande
@@ -270,7 +270,7 @@ La réponse renvoie une liste de toutes les marques de votre compte et les déta
         "description": "This is an example",
         "tags": ["Tag1", "Tag2"]
     },
-        {
+    {
         "ReferenceUrl": null,
         "id": 97975,
         "name": "Example2",
@@ -297,7 +297,7 @@ Cela retourne les paramètres du modèle de marques du compte spécifié. Les pa
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands).
 
 ### <a name="request-parameters"></a>Paramètres de la demande
@@ -330,14 +330,14 @@ La réponse indique si les marques de Bing sont activées au format de l’exemp
 
 Cela met à jour les paramètres du modèle de marques du compte spécifié. Les paramètres du modèle de marques indiquent si la détection depuis la base de données de marques de Bing est activée ou non. Si les marques de Bing ne sont pas activées, Video Indexer détectera uniquement les marques définies dans le modèle de marques personnalisé du compte spécifié.
 
-### <a name="request-url"></a>URL de requête : 
+### <a name="request-url"></a>URL de requête :
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
 ```
- 
+
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?).
 
-### <a name="request-parameters"></a>Paramètres de la demande 
+### <a name="request-parameters"></a>Paramètres de la demande
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|

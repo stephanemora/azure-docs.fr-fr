@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff214460d919eff5c3c1a2e608958673867ddc55
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492831"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822542"
 ---
 # <a name="disaster-recovery-principles"></a>Principes de la récupération d’urgence
 
@@ -48,7 +48,7 @@ Lorsque vous utilisez la réplication de système HANA en tant que fonctionnalit
 
 
 >[!NOTE]
->La fonctionnalité de réplication de stockage des grandes instances HANA met en miroir et réplique les captures instantanées de stockage. Si vous n’effectuez pas de captures instantanées de stockage comme indiqué dans la section [Sauvegarde et restauration](#backup-and-restore) de cet article, aucune réplication sur le site de récupération d’urgence ne peut avoir lieu. L’exécution de captures instantanées de stockage est un prérequis pour la réplication de stockage vers le site de récupération d’urgence.
+>La fonctionnalité de réplication de stockage des grandes instances HANA met en miroir et réplique les captures instantanées de stockage. Si vous n'effectuez pas de captures instantanées de stockage comme indiqué à la section Sauvegarde et restauration de cet article, aucune réplication ne peut avoir lieu sur le site de récupération d'urgence. L’exécution de captures instantanées de stockage est un prérequis pour la réplication de stockage vers le site de récupération d’urgence.
 
 
 
@@ -81,7 +81,7 @@ Ensuite, définissez ou ajustez la planification des sauvegardes de capture inst
 - Pour le volume de sauvegarde de fichier journal (type **logs** de capture instantanée), configurez la réplication toutes les 3 minutes vers les cibles de volume de stockage équivalents sur le site de récupération d’urgence.
 
 Pour réduire l’objectif de point de récupération, effectuez le paramétrage suivant :
-- Effectuez une capture instantanée de stockage de type **hana** (voir « Étape 7 : Effectuer des captures instantanées ») toutes les 30 à 60 minutes.
+- Effectuez une capture instantanée de stockage de type **hana** (voir « Étape 7 : Effectuer des captures instantanées ») à intervalles de 30 minutes à 1 heure.
 - Effectuez des sauvegardes de fichier journal SAP HANA toutes les 5 minutes.
 - Effectuez une capture instantanée de stockage de type **logs** toutes les 5 à 15 minutes. Avec cet intervalle, vous obtenez un RPO d’environ 15 à 25 minutes.
 

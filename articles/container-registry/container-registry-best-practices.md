@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: e22acc6e698d9b14a55145d8f23f5f773e6c39fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857701"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810760"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Meilleures pratiques pour Azure Container Registry
 
@@ -46,15 +46,15 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>Groupe de ressources dédié
 
-Étant donné que les registres de conteneur sont des ressources utilisées sur plusieurs hôtes de conteneur, il est préférable qu’un registre réside dans son propre groupe de ressources.
+Étant donné que les registres de conteneurs sont des ressources utilisées sur plusieurs hôtes de conteneur, il est préférable qu'un registre réside dans son propre groupe de ressources.
 
 Bien qu’il soit possible de tester un type d’hôte spécifique, par exemple Azure Container Instances, vous souhaiterez probablement supprimer l’instance de conteneur une fois l’opération terminée. Mais vous trouverez peut-être également judicieux de conserver la collection d’images que vous avez transmise à Azure Container Registry. En plaçant votre registre dans son propre groupe de ressources, vous réduisez le risque de supprimer accidentellement la collection d’images dans le registre lorsque vous supprimez le groupe de ressources de l’instance de conteneur.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Lorsque vous vous authentifiez avec Azure Container Registry, vous pouvez vous trouver dans deux cas de figure : une authentification individuelle et une authentification de service (ou « sans affichage »). Le tableau suivant fournit une brève vue d’ensemble de ces scénarios et décrit la méthode d’authentification recommandée pour chacun.
 
-| type | Exemple de scénario | Méthode recommandée |
+| Type | Exemple de scénario | Méthode recommandée |
 |---|---|---|
 | Identité individuelle | Un développeur qui extrait des images ou transmet des images à partir de son ordinateur de développement. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Identité de service / sans affichage | Pipelines de génération et de déploiement dans lequel l’utilisateur n’intervient pas directement. | [Principal du service](container-registry-authentication.md#service-principal) |
@@ -63,7 +63,7 @@ Pour obtenir des informations détaillées sur l’authentification Azure Contai
 
 ## <a name="manage-registry-size"></a>Gérer la taille du registre
 
-Les contraintes de stockage de chaque [référence SKU de registres de conteneurs][container-registry-skus] sont destinées à s’aligner avec un scénario classique : **De base** pour la prise en main, **Standard** pour la plupart des applications de production, et **Premium** pour des performances à très grande échelle et la [géoréplication][container-registry-geo-replication]. Pendant toute la durée de vie de votre registre, vous devez gérer sa taille en supprimant régulièrement le contenu inutilisé.
+Les contraintes de stockage de chacune des [références SKU du registre de conteneurs][container-registry-skus] s'appliquent à un scénario spécifique : **De base** pour la mise en route, **Standard** pour la majorité des applications de production et **Premium** pour les performances à très grande échelle et la [géoréplication][container-registry-geo-replication]. Pendant toute la durée de vie de votre registre, vous devez gérer sa taille en supprimant régulièrement le contenu inutilisé.
 
 Utilisez la commande Azure CLI [az acr show-usage][az-acr-show-usage] pour afficher la taille actuelle de votre registre :
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021575"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822746"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "54021575"
 
 Cet article décrit une architecture d’un exemple de solution qui déplace et traite des jeux de données volumineux de manière automatique et planifiée. Il fournit également une procédure de bout en bout pour implémenter la solution à l’aide d’Azure Data Factory et d’Azure Batch.
 
-Cet article est plus long que nos articles habituels, car il contient une procédure pas à pas avec un exemple de solution complète. Si vous débutez avec Azure Batch et Azure Data Factory, vous découvrirez ces services et comment ils fonctionnent ensemble. Si vous connaissez un peu ces services et que vous concevez/élaborez une solution, vous pouvez vous concentrer sur la [section Architecture](#architecture-of-sample-solution) de l’article. Si vous développez un prototype ou une solution, vous souhaiterez peut-être essayer les instructions pas à pas dans la [procédure](#implementation-of-sample-solution). N’hésitez pas à nous faire part de vos commentaires sur ce contenu et son utilisation.
+Cet article est plus long que nos articles habituels, car il contient une procédure pas à pas avec un exemple de solution complète. Si vous débutez avec Azure Batch et Azure Data Factory, vous découvrirez ces services et comment ils fonctionnent ensemble. Si vous connaissez un peu ces services et que vous concevez/élaborez une solution, vous pouvez vous concentrer sur la section Architecture de l'article. Si vous développez un prototype ou une solution, vous pourrez suivre les instructions détaillées de la procédure pas à pas. N’hésitez pas à nous faire part de vos commentaires sur ce contenu et son utilisation.
 
 Tout d’abord, examinons comment les services Data Factory et Batch permettent de traiter des jeux de données volumineux dans le cloud.     
 

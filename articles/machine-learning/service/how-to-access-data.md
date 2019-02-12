@@ -1,7 +1,7 @@
 ---
-title: Accéder aux données contenues dans des banques de données pour l’entraînement
+title: Accéder aux données contenues dans des magasins de données / blobs à des fins de formation
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser des magasins de données pour accéder au stockage de données durant l’entraînement avec le service Azure Machine Learning
+description: Apprendre à utiliser des magasins de données pour accéder au stockage de données blob pendant la formation avec Azure Machine Learning service
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: a4960f3e29011948ec30fbc24222d8a6dccf6b8a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252113"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769893"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>Accéder aux données durant l’entraînement à partir de vos banques de données
 Utiliser une banque de données pour accéder à vos données et interagir avec elles dans des flux de travail Azure Machine Learning.
@@ -76,8 +76,8 @@ ds = Datastore.get(ws, datastore_name='your datastore name')
 
 Vous pouvez également obtenir toutes les banques de données pour un espace de travail :
 ```Python
-datastores = ws.datastores()
-for name, ds in datastores.items(),
+datastores = ws.datastores
+for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 
@@ -101,7 +101,7 @@ ds.upload(src_dir='your source directory',
 
 Ou chargez une liste de fichiers individuels dans la banque de données par le biais de la méthode `upload_files()` de la banque de données.
 
-### <a name="download"></a>Download
+### <a name="download"></a>Téléchargement
 De même, téléchargez des données d’une banque de données vers votre système de fichiers local.
 
 ```Python

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: c911a53f16e07b67a1ec22a9e0592df06c192325
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e5b23269c8c9d5aecd7ef8ba58100f17cc7973c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188182"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809417"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Didacticiel : Intégration d’Azure Active Directory à Lessonly.com
+# <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Tutoriel : Intégration d’Azure Active Directory à Lessonly.com
 
 Dans ce tutoriel, vous allez apprendre à intégrer Lessonly.com à Azure Active Directory (Azure AD).
 
@@ -90,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Lessonly.com
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Création d’un utilisateur de test Lessonly.com](#creating-a-lessonly-test-user)** pour avoir un équivalent de Britta Simon dans Lessonly.com qui soit lié à la représentation Azure AD de l’utilisateur.
+1. **Création d'un utilisateur de test Lessonly.com** pour disposer d'un équivalent de Britta Simon dans Lessonly.com qui soit lié à la représentation Azure AD de l'utilisateur.
 1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 

@@ -1,23 +1,26 @@
 ---
-title: Guide pratique pour créer un objet blob dans Stockage Azure avec le kit Java Storage SDK v7 | Microsoft Docs
+title: Guide pratique pour créer un objet blob dans Stockage Azure à l'aide de la bibliothèque de client pour Java v7 | Microsoft Docs
 description: Créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, utilisez la bibliothèque de client Stockage Azure pour Java v7 afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de lister les objets blob dans un conteneur.
 services: storage
 author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: be994c9b3c9ee4f3c6ccd5c01e762c05f740be09
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469642"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753212"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Guide pratique pour charger, télécharger et lister des objets blob avec Java SDK v7
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Guide pratique pour charger, télécharger et lister des objets blob à l'aide de la bibliothèque de client pour Java v7
 
-Dans ce guide pratique, vous apprenez à utiliser Java pour charger, télécharger et lister des objets blob de blocs dans un conteneur dans Stockage Blob Azure.
+Dans ce guide pratique, vous allez apprendre à utiliser la bibliothèque de client pour Java v7 afin de charger, télécharger et lister des objets blob de blocs dans un conteneur de Stockage Blob Azure.
+
+> [!TIP]
+> La dernière version de la bibliothèque de client pour Java du service Stockage Azure est la version 10. Si possible, Microsoft vous recommande d'utiliser la dernière version de la bibliothèque de client. Pour vous familiariser avec la version 10, reportez-vous à [Démarrage rapide : Charger, télécharger et lister des objets blob à l'aide du kit de développement logiciel (SDK) Stockage Java V10](storage-quickstart-blobs-java-v10.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -130,7 +133,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Charger des objets blob dans le conteneur
 
-Pour charger un fichier dans un objet blob de blocs, obtenez une référence à l’objet blob dans le conteneur cible. Une fois que vous avez la référence d’objet blob, vous pouvez y charger des données à l’aide de [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long). Cette opération crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
+Pour charger un fichier dans un objet blob de blocs, obtenez une référence à l’objet blob dans le conteneur cible. Une fois que vous avez la référence d’objet blob, vous pouvez y charger des données à l’aide de [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Cette opération crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
 
 L’exemple de code crée un fichier local à utiliser pour le chargement et le téléchargement, en stockant le fichier à charger comme **source** et le nom de l’objet blob dans **blob**. L’exemple suivant charge le fichier sur votre conteneur nommé **quickstartcontainer**.
 
@@ -156,7 +159,7 @@ Les objets blob de blocs peuvent être n’importe quel type de fichier texte ou
 
 ### <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 
-Vous pouvez obtenir la liste des fichiers du conteneur à l’aide de [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs#com_microsoft_azure_storage_blob__cloud_blob_container_listBlobs). Le code suivant récupère la liste des objets blob, puis effectue une itération sur ces derniers pour montrer les URI des objets blob rencontrés. Vous pouvez copier l’URI à partir de la fenêtre Commande et la coller dans un navigateur pour afficher le fichier.
+Vous pouvez obtenir la liste des fichiers du conteneur à l’aide de [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs). Le code suivant récupère la liste des objets blob, puis effectue une itération sur ces derniers pour montrer les URI des objets blob rencontrés. Vous pouvez copier l’URI à partir de la fenêtre Commande et la coller dans un navigateur pour afficher le fichier.
 
 ```java
 //Listing contents of container
@@ -182,7 +185,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez plus besoin des objets blob que vous avez chargés, vous pouvez supprimer le conteneur entier à l’aide de [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). Cette méthode permet de supprimer les fichiers du conteneur également.
+Si vous n’avez plus besoin des objets blob que vous avez chargés, vous pouvez supprimer le conteneur entier à l’aide de [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Cette méthode permet de supprimer les fichiers du conteneur également.
 
 ```java
 try {
@@ -206,8 +209,6 @@ sourceFile.deleteOnExit();
 Dans cet article, vous avez appris à transférer des fichiers entre un disque local et le Stockage Blob Azure avec Java. Pour en savoir plus sur l’utilisation de Java, accédez à notre dépôt de code source GitHub.
 
 > [!div class="nextstepaction"]
-> [Kit de développement logiciel Stockage Azure pour Java](https://github.com/azure/azure-storage-java) 
-> [Référence API](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
+> [Kit de développement logiciel (SDK) Stockage Microsoft Azure v10 pour Java](https://github.com/azure/azure-storage-java) 
+> [Référence API Java](https://docs.microsoft.com/java/azure/)
 > [Exemples de code pour Java](../common/storage-samples-java.md)
-
-* Pour plus d’informations sur l’Explorateur Stockage et les objets blob, consultez [Gérer les ressources de stockage Blob Azure avec l’Explorateur Stockage](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

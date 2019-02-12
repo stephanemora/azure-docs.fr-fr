@@ -11,22 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247202"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656717"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Préparer des certificats PKI Azure Stack à utiliser dans le cadre du déploiement ou de la rotation
+
 Les fichiers de certificat [obtenus auprès de l’autorité de certification de votre choix](azure-stack-get-pki-certs.md) doivent être importés et exportés avec des propriétés correspondant aux exigences de certificat d’Azure Stack.
 
-
 ## <a name="prepare-certificates-for-deployment"></a>Préparer les certificats pour le déploiement
+
 Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack qui seront utilisés pour déployer un nouvel environnement Azure Stack ou effectuer la rotation de secrets dans un environnement Azure Stack existant : 
 
 ### <a name="import-the-certificate"></a>Importer le certificat
@@ -83,7 +84,9 @@ Ouvrez la console MMC du Gestionnaire de certificats et connectez-vous au magasi
     
     ![Assistant Exportation du certificat avec options sélectionnées](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. Sélectionnez **Mot de passe** et indiquez un mot de passe pour les certificats. N’oubliez pas ce mot de passe car il sera utilisé comme paramètre de déploiement. Sélectionnez **Suivant**.
+1. Sélectionnez **Mot de passe** et indiquez un mot de passe pour les certificats. Créez un mot de passe qui répond aux exigences suivantes en matière de complexité des mots de passe. Longueur minimale de huit caractères. Le mot de passe contient au moins trois des éléments suivants : majuscules, minuscules, chiffres de 0 à 9, caractères spéciaux, caractères alphabétiques autres que des majuscules ou des minuscules. Notez ce mot de passe. Vous l'utiliserez comme paramètre de déploiement.
+
+1. Sélectionnez **Suivant**.
 
 1. Choisissez un nom de fichier et l’emplacement du fichier pfx à exporter. Sélectionnez **Suivant**.
 

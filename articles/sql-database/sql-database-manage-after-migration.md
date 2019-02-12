@@ -3,7 +3,7 @@ title: Gérer après la migration - Azure SQL Database | Microsoft Docs
 description: Découvrez comment gérer votre base de données après la migration vers Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478472"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751937"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud – Gestion de votre base de données dans Azure SQL Database
 
@@ -108,7 +108,7 @@ Il existe plusieurs techniques à votre disposition pour garantir une organisati
 
 Un pare-feu empêche l’accès à votre serveur à partir d’une entité externe en autorisant uniquement l’accès à votre serveur SQL Database à des entités spécifiques. Par défaut, toutes les connexions et bases de données sont refusées au sein du serveur SQL Database, à l’exception des connexions provenant d’autres services Azure. Avec une règle de pare-feu, vous pouvez ouvrir l’accès à votre serveur à certaines entités uniquement (par exemple, un ordinateur de développeur) que vous approuvez, en autorisant l’adresse IP correspondante à traverser le pare-feu. Une règle vous permet également de spécifier une plage d’adresses IP auxquelles vous autorisez l’accès au serveur SQL Database. Par exemple, vous pouvez rapidement ajouter toutes les adresses IP des ordinateurs de développeur de votre organisation en spécifiant une plage dans la page des paramètres du pare-feu.
 
-Vous pouvez créer des règles de pare-feu au niveau du serveur ou de la base de données. Des règles de pare-feu de niveau serveur peuvent être créées à l’aide du portail Azure ou avec SSMS. Pour en savoir plus sur la façon de définir une règle de pare-feu au niveau du serveur et de la base de données, consultez : [Créer des règles de pare-feu dans SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
+Vous pouvez créer des règles de pare-feu au niveau du serveur ou de la base de données. Des règles de pare-feu IP de niveau serveur peuvent être créées à l'aide du portail Azure ou avec SSMS. Pour en savoir plus sur la façon de définir une règle de pare-feu au niveau du serveur et de la base de données, consultez : [Créer des règles de pare-feu IP dans SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Points de terminaison de service
 
@@ -132,9 +132,9 @@ Port 1433. SQL Database communique par le biais de ce port. Pour vous connecter
 
 Avec SQL Database, vous pouvez activer l’audit pour suivre les événements de la base de données. [L’audit SQL Database](sql-database-auditing.md) enregistre les événements de base de données et les écrit dans un fichier journal d’audit de votre compte de stockage Azure. L’audit s’avère particulièrement utile si vous voulez obtenir un aperçu des violations potentielles de la sécurité et des stratégies, assurer une mise en conformité avec les réglementations applicables, etc. Il vous permet de définir et configurer certaines catégories d’événements à auditer. Ainsi, vous pouvez obtenir des rapports préconfigurés et un tableau de bord pour obtenir une vue d’ensemble des événements qui se produisent sur votre base de données. Vous pouvez appliquer ces stratégies d’audit au niveau de la base de données ou au niveau du serveur. Pour savoir comment activer l’audit pour votre serveur/base de données, consultez : [Activer l’audit SQL Database](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Détection des menaces
+#### <a name="threat-detection"></a>Détection de menaces
 
-Avec la [détection des menaces](sql-database-threat-detection.md), vous avez la possibilité de réagir aux violations de stratégie ou de sécurité découvertes par l’audit très facilement. Nul besoin d’être un expert en matière de sécurité pour traiter les menaces ou violations potentielles dans votre système. La détection des menaces propose également des fonctions intégrées comme la détection d’injection de code SQL. Une injection de code SQL est une tentative de modifier ou de compromettre les données et une manière très courante d’attaquer une application de base de données de façon générale. La détection des menaces de SQL Database exécute plusieurs ensembles d’algorithmes qui détectent les vulnérabilités potentielles et les attaques par injection de code SQL, ainsi que les modèles anormaux d’accès aux bases de données (par exemple, les accès à partir d’un emplacement inhabituel ou par un principal inconnu). Les responsables sécurité ou les administrateurs désignés reçoivent une notification par e-mail si une menace est détectée sur la base de données. Chaque notification fournit des détails sur l’activité suspecte, ainsi que des recommandations sur l’analyse et l’atténuation de la menace. Pour savoir comment activer la détection des menaces, consultez : [Activer la détection des menaces SQL Database](sql-database-security-tutorial.md#enable-security-features).
+Avec la [détection des menaces](sql-database-threat-detection.md), vous avez la possibilité de réagir aux violations de stratégie ou de sécurité découvertes par l’audit très facilement. Nul besoin d’être un expert en matière de sécurité pour traiter les menaces ou violations potentielles dans votre système. La détection des menaces propose également des fonctions intégrées comme la détection d’injection de code SQL. Une injection de code SQL est une tentative de modifier ou de compromettre les données et une manière très courante d’attaquer une application de base de données de façon générale. La détection des menaces exécute plusieurs ensembles d'algorithmes qui détectent les vulnérabilités potentielles et les attaques par injection de code SQL, ainsi que les modèles anormaux d'accès aux bases de données (par exemple, les accès à partir d'un emplacement inhabituel ou par un principal inconnu). Les responsables sécurité ou les administrateurs désignés reçoivent une notification par e-mail si une menace est détectée sur la base de données. Chaque notification fournit des détails sur l’activité suspecte, ainsi que des recommandations sur l’analyse et l’atténuation de la menace. Pour savoir comment activer la détection des menaces, consultez : [Activer la détection des menaces](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Comment protéger mes données de façon générale sur SQL Database
 
@@ -220,7 +220,7 @@ avec Query Performance Insight, vous pouvez obtenir des recommandations sur mesu
 
 ### <a name="security-optimization"></a>Optimisation de la sécurité
 
-SQL Database fournit des recommandations de sécurité pratiques pour vous aider à sécuriser vos données. De plus, la détection des menaces vous permet d’identifier et d’analyser les activités de base de données suspectes qui constituent une menace potentielle pour la base de données. L’[évaluation des vulnérabilités SQL](sql-vulnerability-assessment.md) est un service d’analyse et de rapport de base de données qui vous permet de surveiller l’état de sécurité de vos bases de données à grande échelle, et d’identifier les risques de sécurité et les dérives par rapport à la base de référence que vous avez définie pour la sécurité. Après chaque analyse, une liste personnalisée d’étapes à entreprendre et de scripts de correction est proposée, ainsi qu’un rapport d’évaluation qui peut vous aider à répondre aux exigences de conformité.
+SQL Database fournit des recommandations de sécurité pratiques pour vous aider à sécuriser vos données. De plus, la détection des menaces vous permet d'identifier et d'analyser les activités de base de données suspectes qui constituent une menace potentielle pour la base de données. L'[évaluation des vulnérabilités](sql-vulnerability-assessment.md) est un service d'analyse et de rapport de base de données qui vous permet de surveiller l'état de sécurité de vos bases de données à grande échelle, et d'identifier les risques de sécurité et les dérives par rapport à la base de référence que vous avez définie pour la sécurité. Après chaque analyse, une liste personnalisée d’étapes à entreprendre et de scripts de correction est proposée, ainsi qu’un rapport d’évaluation qui peut vous aider à répondre aux exigences de conformité.
 
 Avec Azure Security Center, vous identifiez les recommandations en matière de sécurité dans le tableau de bord et vous les appliquez en un seul clic.
 

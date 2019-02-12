@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3468f9341e0a8406733877a05798e427dd454fff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 93ce86a438fca47100a34da2524515b46bcad574
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167561"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567160"
 ---
 # <a name="object-detection"></a>Détection d’objets
 
@@ -87,6 +87,15 @@ La réponse JSON suivante illustre ce que retourne Vision par ordinateur lors de
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="limitations"></a>Limites
 
-Découvrez les concepts de [classement d’images](concept-categorizing-images.md) et de [description des images](concept-describing-images.md).
+Les limites de la fonctionnalité de détection d'objet doivent impérativement être prises en compte afin d'éviter ou d'atténuer les effets des faux négatifs (objets manqués) et des détails limités.
+* Les tout petits objets (moins de 5 % de l'image) ne sont généralement pas détectés.
+* Les objets très proches les uns des autres (piles d'assiettes, par exemple) ne sont généralement pas détectés.
+* Les objets ne sont pas différenciés par marque ou nom de produit (différents types de sodas sur une étagère de magasin, par exemple). Toutefois, vous pouvez obtenir des informations sur les marques figurant sur une image à l'aide de la fonctionnalité [Détection de marque](concept-brand-detection.md).
+
+## <a name="use-the-api"></a>Utilisation de l’API
+La fonctionnalité de détection d'objet fait partie de l'API [Analyser l'image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un kit de développement logiciel (SDK) natif ou via des appels REST. Lorsque vous obtenez la réponse JSON complète, analysez simplement la chaîne de contenu de la section `"objects"`.
+
+* [Démarrage rapide : Analyser une image (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)

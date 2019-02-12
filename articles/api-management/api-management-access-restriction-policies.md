@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 59562d0571486a4bcbc96be4cb7dcddb4dfb0a44
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 39f23cd0b0b6081d8e54524a0eedc9cce1fd4571
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095717"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493422"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -56,14 +56,14 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|Description|Obligatoire|  
+|Nom|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |check-header|Élément racine.|Oui|  
 |value|Valeur autorisée de l’en-tête HTTP. Lorsque plusieurs éléments de valeurs sont spécifiés, la vérification est considérée comme réussie si l’une des valeurs correspond.|Non |  
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |failed-check-error-message|Message d’erreur à renvoyer dans le corps de la réponse HTTP si l’en-tête n’existe pas ou a une valeur non valide. Les éventuels caractères spéciaux de ce message doivent être correctement placés dans une séquence d’échappement.|Oui|N/A|  
 |failed-check-httpcode|Code d’état HTTP à renvoyer si l’en-tête n’existe pas ou a une valeur non valide.|Oui|N/A|  
@@ -111,7 +111,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|Description|Obligatoire|  
+|Nom|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |set-limit|Élément racine.|Oui|  
 |api|Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux API au sein du produit. Les limites de débit d’appels au niveau du produit et de l’API s’appliquent indépendamment les unes des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.|Non |  
@@ -119,7 +119,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |Nom|Nom de l’API à laquelle la limite de débit s’applique.|Oui|N/A|  
 |calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Oui|N/A|  
@@ -171,13 +171,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|Description|Obligatoire|  
+|Nom|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |set-limit|Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Oui|N/A|  
 |counter-key|Clé à utiliser pour la stratégie de limite de débit.|Oui|N/A|  
@@ -214,7 +214,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|Description|Obligatoire|  
+|Nom|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |ip-filter|Élément racine.|Oui|  
 |address|Spécifie une adresse IP unique à filtrer.|Au moins un élément `address` ou `address-range` est requis.|  
@@ -222,7 +222,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|Plage d'adresses IP pour lesquelles autoriser ou refuser l'accès.|Obligatoire lorsque l’élément `address-range` est utilisé.|N/A|  
 |ip-filter action="allow &#124; forbid"|Spécifie si les appels doivent être autorisés ou non pour les adresses IP et plages spécifiées.|Oui|N/A|  
@@ -267,7 +267,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|Description|Obligatoire|  
+|Nom|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |quota|Élément racine.|Oui|  
 |api|Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux API au sein du produit. Les quotas d’appel au niveau du produit et de l’API s’appliquent indépendamment les uns des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.|Non |  
@@ -275,7 +275,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |Nom|Nom de l’API ou de l’opération à laquelle s’applique le quota.|Oui|N/A|  
 |bandwidth|Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux.|N/A|  
@@ -329,13 +329,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|Description|Obligatoire|  
+|Nom|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |quota|Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |bandwidth|Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux.|N/A|  
 |calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux.|N/A|  
@@ -355,7 +355,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 > [!IMPORTANT]
 >  La stratégie `validate-jwt` exige que la revendication inscrite `exp` soit incluse dans le jeton JWT, sauf si l’attribut `require-expiration-time` est spécifié et a la valeur `false`.  
 > La stratégie `validate-jwt` prend en charge les algorithmes de signature HS256 et RS256. Pour HS256, la clé doit être fournie en ligne au sein de la stratégie au format encodé en base 64. Pour RS256, la clé doit être fournie par le biais d’un point de terminaison de configuration Open ID.
-> La stratégie `validate-jwt` prend en charge les jetons chiffrés avec des clés symétriques à l’aide des algorithmes de chiffrement suivants : A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+> La stratégie `validate-jwt` prend en charge les jetons chiffrés avec des clés symétriques à l'aide des algorithmes de chiffrement suivants : A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
   
@@ -504,7 +504,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |clock-skew|Intervalle de temps. Permet de spécifier l’écart maximal de durée estimée entre les horloges système de l’émetteur du jeton et l’instance de gestion des API.|Non |0 seconde|  
 |failed-validation-error-message|Message d’erreur à renvoyer dans le corps de la réponse HTTP si le JWT n’est pas validé. Les éventuels caractères spéciaux de ce message doivent être correctement placés dans une séquence d’échappement.|Non |Le message d’erreur par défaut dépend du problème de validation, par exemple « JWT absent ».|  
@@ -512,7 +512,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |header-name|Nom de l’en-tête HTTP contenant le jeton.|Soit `header-name`, soit `query-parameter-name` doit être spécifié, mais pas les deux.|N/A|  
 |id|L’attribut `id` sur l’élément `key` vous permet de spécifier la chaîne qui sera comparée à la revendication `kid` dans le jeton (le cas échéant) pour déterminer la clé appropriée à utiliser pour la validation de la signature.|Non |N/A|  
 |match|L’attribut `match` sur l’élément `claim` spécifie si toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse. Les valeurs possibles sont les suivantes :<br /><br /> -                          `all` : toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse.<br /><br /> -                          `any` : au moins une valeur de revendication doit être présente dans le jeton pour que la validation réussisse.|Non |tout|  
-|query-paremeter-name|Nom du paramètre de la requête contenant le jeton.|Soit `header-name`, soit `query-paremeter-name` doit être spécifié, mais pas les deux.|N/A|  
+|query-parameter-name|Nom du paramètre de la requête contenant le jeton.|Soit `header-name`, soit `query-parameter-name` doit être spécifié, mais pas les deux.|N/A|  
 |require-expiration-time|Booléen. Spécifie si une revendication d’expiration est requise dans le jeton.|Non |true|
 |require-scheme|Le nom du schéma de jeton, par ex. « Support ». Lorsque cet attribut est défini, la stratégie garantit que le schéma spécifié est présent dans la valeur d’en-tête d’autorisation.|Non |N/A|
 |require-signed-tokens|Booléen. Spécifie si un jeton doit être signé.|Non |true|  

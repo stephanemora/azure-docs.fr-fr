@@ -6,19 +6,19 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 5d55879a5a8487636e2252abd359accf07e60ce6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669476"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809160"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Monter le cluster Avere vFXT  
 
 Suivez ces instructions pour connecter des ordinateurs clients à votre cluster vFXT.
 
 1. Décidez comment équilibrer la charge du trafic client entre vos nœuds de cluster. Pour plus d’informations, lisez [Équilibrer la charge du client](#balance-client-load), ci-dessous. 
-1. Identifiez [l’adresse IP et le chemin de jonction](#identify-ip-addresses-and-paths-to-mount) sur lesquels effectuer le montage.
+1. Identifiez l'adresse IP et le chemin de jonction sur lesquels effectuer le montage.
 1. Émettez la [commande mount](#mount-command-arguments) avec les arguments appropriés.
 
 ## <a name="balance-client-load"></a>Équilibrer la charge du client
@@ -68,7 +68,7 @@ La fonction ci-dessus fait partie de l’exemple Batch disponible sur le site [E
 
 La commande mount comprend trois éléments : 
 
-* chemin vFXT : combinaison d’une adresse IP et d’un chemin de jonction d’espace de noms décrite [ci-dessous](#junction-and-ip-address)
+* chemin vFXT : combinaison d'une adresse IP et d'un chemin de jonction d'espaces de noms décrite ci-dessous
 * chemin local : chemin sur le client 
 * options de la commande mount : répertoriées dans [Arguments de commande mount](#mount-command-arguments)
 

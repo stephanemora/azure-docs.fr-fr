@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9002ab7396cd9beda767b4a9f81d9983ec74923d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163413"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812297"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Activer la fonctionnalité « Maintenir la connexion » dans Azure Active Directory B2C
 
@@ -150,7 +150,7 @@ Mettez à jour le fichier de partie de confiance qui lance le parcours utilisate
 2. Ouvrez le nouveau fichier et définissez une valeur unique pour l’attribut **PolicyId** de **TrustFrameworkPolicy**. Il s’agit du nom de votre stratégie. Par exemple : `SignUpOrSignInWithKmsi`.
 3. Remplacez l’attribut **ReferenceId** par l’élément **DefaultUserJourney** pour correspondre à l’identificateur du nouveau parcours utilisateur que vous avez créé. Par exemple : `SignUpOrSignInWithKmsi`.
 
-    L’option Maintenir la connexion est configurée à l’aide de l’élément **UserJourneyBehaviors**. L’attribut **KeepAliveInDays** contrôle la durée pendant laquelle l’utilisateur reste connecté. Dans l’exemple suivant, la session Maintenir la connexion expire automatiquement après `7` jours, quelle que soit la fréquence à laquelle l’utilisateur effectue une authentification silencieuse. Si vous définissez la valeur **KeepAliveInDays** sur `0`, vous désactivez la fonctionnalité Maintenir la connexion. Par défaut, cette valeur est définie sur `0`. Si la valeur de **SessionExpiryType** est `Rolling`, la session Maintenir la connexion est prolongée de `7` jours chaque fois que l’utilisateur effectue une authentification silencieuse.  Si `Rolling` est sélectionné, le nombre de jours doit être minimal. 
+    KMSI est configuré à l'aide de l'élément **UserJourneyBehaviors** avec **SingleSignOn**, **SessionExpiryType** et **SessionExpiryInSeconds** comme premiers éléments enfants. L’attribut **KeepAliveInDays** contrôle la durée pendant laquelle l’utilisateur reste connecté. Dans l’exemple suivant, la session Maintenir la connexion expire automatiquement après `7` jours, quelle que soit la fréquence à laquelle l’utilisateur effectue une authentification silencieuse. Si vous définissez la valeur **KeepAliveInDays** sur `0`, vous désactivez la fonctionnalité Maintenir la connexion. Par défaut, cette valeur est définie sur `0`. Si la valeur de **SessionExpiryType** est `Rolling`, la session Maintenir la connexion est prolongée de `7` jours chaque fois que l’utilisateur effectue une authentification silencieuse.  Si `Rolling` est sélectionné, le nombre de jours doit être minimal. 
 
     La valeur de **SessionExpiryInSeconds** correspond au délai d’expiration d’une session SSO. Elle est utilisée en interne par Azure AD B2C pour vérifier si la session Maintenir la connexion a expiré ou non. La valeur de **KeepAliveInDays** détermine la valeur d’expiration ou d’âge maximal du cookie d’authentification unique dans le navigateur web. Contrairement à **SessionExpiryInSeconds**, **KeepAliveInDays** est utilisé pour empêcher le navigateur d’effacer le cookie au moment de sa fermeture. Un utilisateur peut se connecter en mode silencieux uniquement en présence d’un cookie de session SSO, ce qui est contrôlé par **KeepAliveInDays**, et uniquement s’il n’a pas expiré, ce qui est contrôlé par **SessionExpiryInSeconds**. 
     

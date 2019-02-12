@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597604"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55513995"
 ---
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
@@ -48,6 +48,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Serveurs DNS par réseau virtuel |20 |
 | Adresses IP privées par réseau virtuel |65536 |
 | Adresses IP privées par interface réseau |256 |
+| Adresses IP privées par machine virtuelle |256 |
 | Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500K |
 | Interfaces réseau (NIC) |65536 |
 | Groupes de sécurité réseau (NSG) |5 000 |
@@ -69,6 +70,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Adresses IP publiques (dynamiques) |(De base) 1 000 |contacter le support |
 | Adresses IP publiques (statiques) |(De base) 200 |contacter le support |
 | Adresses IP publiques (statiques) |(Standard) 200 |contacter le support |
+| Taille du préfixe de l'adresse IP publique (préversion) | /28 | /28 |
 
 #### <a name="load-balancer"></a>Limites de l’équilibreur de charge
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md)

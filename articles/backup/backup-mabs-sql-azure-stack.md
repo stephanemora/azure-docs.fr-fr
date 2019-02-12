@@ -2,18 +2,18 @@
 title: Sauvegarder des charges de travail SQL Server sur Azure Stack
 description: Utilisez le serveur de sauvegarde Azure pour protéger une charge de travail SQL Server sur Azure Stack.
 services: backup
-author: pvrk
-manager: Shivamg
+author: adigan
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
-ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: adigan
+ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751795"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493505"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Sauvegarder SQL Server sur Stack
 Utilisez cet article pour configurer Microsoft Azure Backup Server (MABS) afin de protéger des bases de données SQL Server sur Azure Stack.
@@ -68,7 +68,7 @@ La gestion de sauvegarde et de récupération de base de données SQL Server dan
 
     ![Méthode de réplication initiale](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copie de sauvegarde initiale nécessite le transfert de la source de données complète (base de données SQL Server) à partir du serveur de production (ordinateur SQL Server) vers le serveur de sauvegarde Azure. Ces données peuvent être volumineuses et leur transfert sur le réseau peut dépasser la bande passante. Pour cette raison, vous pouvez choisir de transférer la sauvegarde initiale : **Manuellement** (à l’aide d’un support amovible) afin d’éviter la congestion de la bande passante, ou **Automatiquement sur le réseau** (à un moment précis).
+    La copie de sauvegarde initiale nécessite le transfert de la source de données complète (base de données SQL Server) à partir du serveur de production (ordinateur SQL Server) vers le serveur de sauvegarde Azure. Ces données peuvent être volumineuses et leur transfert sur le réseau peut dépasser la bande passante. C'est la raison pour laquelle vous pouvez choisir de transférer la sauvegarde initiale : **Manuellement** (à l'aide d'un support amovible) afin d'éviter toute congestion de la bande passante, ou **Automatiquement sur le réseau** (à un moment précis).
 
     Une fois la sauvegarde initiale terminée, le reste des sauvegardes se compose de sauvegardes incrémentielles sur la copie de sauvegarde initiale. Les sauvegardes incrémentielles sont en général très limitées et sont faciles à transférer sur le réseau.
 
@@ -93,7 +93,7 @@ La gestion de sauvegarde et de récupération de base de données SQL Server dan
     >
     >
 
-    **Meilleures pratiques** : si vous planifiez des sauvegardes dans Azure qui démarreront à la fin des sauvegardes sur disque local, les dernières sauvegardes sur disque sont toujours copiées vers Azure.
+    **Meilleure pratique** : si vous planifiez des sauvegardes sur Azure qui démarreront au terme des sauvegardes sur disque local, les dernières sauvegardes sur disque sont toujours copiées vers Azure.
 
 12. Cliquez sur la planification de stratégie de rétention. Les détails du fonctionnement de la stratégie de rétention sont fournis dans la section [Utilisation d'Azure Backup pour remplacer votre infrastructure sur bande](backup-azure-backup-cloud-as-tape.md).
 

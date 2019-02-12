@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165742"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736078"
 ---
 <!--author=SharS last changed: 06/22/2016-->
 
@@ -63,7 +63,7 @@ ms.locfileid: "50165742"
 11. Pour des raisons de sécurité, le mot de passe administrateur de l’appareil expire après la première session, et vous devez le modifier maintenant. Lorsque vous y êtes invité, fournissez un mot de passe administrateur de l’appareil. Un mot de passe administrateur d’appareil valide doit comprendre entre 8 et 15 caractères. Le mot de passe doit contenir trois des éléments suivants : caractères en minuscules, en majuscules, numériques et spéciaux.
     
     <br/>![Inscription de l’appareil StorSimple 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. La dernière étape de l’Assistant Installation inscrit votre appareil auprès du service StorSimple Device Manager. Pour cela, vous avez besoin de la clé d’inscription de service que vous avez obtenue à [l’étape 2 : obtention de la clé d’inscription](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Après avoir entré la clé d’inscription, vous devrez peut-être attendre 2 à 3 minutes avant que l’appareil ne soit inscrit.
+12. La dernière étape de l’Assistant Installation inscrit votre appareil auprès du service StorSimple Device Manager. Pour cela, vous devez disposer de la clé d'inscription au service obtenue à l'[Étape 2 : Obtenir la clé d’inscription du service](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Après avoir entré la clé d’enregistrement, vous devrez peut-être attendre 2 à 3 minutes avant que l’appareil ne soit inscrit.
     
     > [!NOTE]
     > Vous pouvez appuyer sur Ctrl + C à tout moment pour quitter l’Assistant Installation. Si vous avez entré tous les paramètres réseau (adresse IP pour Data 0, masque de sous-réseau et passerelle), vos entrées sont conservées.
@@ -81,7 +81,7 @@ ms.locfileid: "50165742"
 15. Revenez au portail Azure Government et procédez comme suit :
     
     1. Accédez à votre service StorSimple Device Manager.
-    2. Cliquez sur **Appareils**. Dans la liste des appareils, identifiez l’appareil que vous déployez. Vérifiez que l’appareil s’est bien connecté au service en vérifiant son état. L’état de l’appareil doit être **En ligne**.
+    2. Cliquez sur **Appareils**. Dans la liste des appareils, identifiez l'appareil que vous déployez. Vérifiez que l’appareil s’est bien connecté au service en vérifiant son état. L’état de l’appareil doit être **En ligne**.
             
         Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
        

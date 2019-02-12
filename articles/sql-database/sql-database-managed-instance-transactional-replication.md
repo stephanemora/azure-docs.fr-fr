@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 548bc9afb37f8c4a1c6c208a8741d1e3da0a784c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469394"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814110"
 ---
 # <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Réplication transactionnelle avec des bases de données autonomes, regroupées et d’instance dans Azure SQL Database
 
-La réplication transactionnelle est une fonctionnalité d’Azure SQL Database, de Managed Instance et de SQL Server qui vous permet de répliquer les données d’une table dans Azure SQL Database ou SQL Server sur des tables placées dans des bases de données distantes. Cette fonctionnalité vous permet de synchroniser plusieurs tables dans différentes bases de données.
+La réplication transactionnelle est une fonctionnalité d'Azure SQL Database et de SQL Server qui vous permet de répliquer les données d'une table d'Azure SQL Database ou d'une instance de SQL Server dans les tables placées sur des bases de données distantes. Cette fonctionnalité vous permet de synchroniser plusieurs tables dans différentes bases de données.
 
 ## <a name="when-to-use-transactional-replication"></a>Quand utiliser la réplication transactionnelle
 
@@ -38,15 +38,15 @@ Les composants clés de la réplication transactionnelle sont présentés dans l
 ![réplication avec SQL Database](media/replication-to-sql-database/replication-to-sql-database.png)
 
 
-Le **serveur de publication** est une instance ou un serveur qui publie les changements apportés à des tables (articles) en envoyant les mises à jour au serveur de distribution. La publication sur une base de données SQL Azure à partir d’un serveur SQL Server local est prise en charge sur les versions suivantes de SQL Server :
+Le **serveur de publication** est une instance ou un serveur qui publie les changements apportés à des tables (articles) en envoyant les mises à jour au serveur de distribution. La publication dans une base de données SQL Azure à partir d'une instance locale de SQL Server est prise en charge sur les versions suivantes de SQL Server :
 
-    - SQL Server 2019 (préversion)
-    - SQL Server 2016 à SQL 2017
-    - SQL Server 2014 SP1 CU3 ou ultérieur (12.00.4427)
-    - SQL Server 2014 RTM CU10 (12.00.2556)
-    - SQL Server 2012 SP3 ou ultérieur (11.0.6020)
-    - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-    - Pour les autres versions de SQL Server qui ne prennent pas en charge la publication sur des objets dans Azure, il est possible d’utiliser la méthode de [republication des données](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) pour déplacer des données vers des versions plus récentes de SQL Server. 
+   - SQL Server 2019 (préversion)
+   - SQL Server 2016 à SQL 2017
+   - SQL Server 2014 SP1 CU3 ou ultérieur (12.00.4427)
+   - SQL Server 2014 RTM CU10 (12.00.2556)
+   - SQL Server 2012 SP3 ou ultérieur (11.0.6020)
+   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
+   - Pour les autres versions de SQL Server qui ne prennent pas en charge la publication sur des objets dans Azure, il est possible d’utiliser la méthode de [republication des données](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) pour déplacer des données vers des versions plus récentes de SQL Server. 
 
 Le **serveur de distribution** est une instance ou un serveur qui collecte les changements apportés aux articles à partir d’un serveur de publication et qui les distribue aux Abonnés. Le serveur de distribution peut être Azure SQL Database Managed Instance ou SQL Server (n’importe quelle version, tant qu’elle est égale ou supérieure à la version du serveur de publication). 
 

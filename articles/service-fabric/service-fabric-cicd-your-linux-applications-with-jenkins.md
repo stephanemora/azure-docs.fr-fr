@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: f381285d29d70d6f5da6a6cd319c682cd0c6a235
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7abc15264a44c969f57071e84ffcedca30d326fb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444536"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766314"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Utiliser Jenkins pour générer et déployer vos applications Linux
 Jenkins est un outil populaire pour l’intégration et le déploiement en continu de vos applications. Voici comment générer et déployer votre application Azure Service Fabric à l’aide de Jenkins.
@@ -229,11 +229,11 @@ Les étapes de cette section vous montrent comment configurer un travail Jenkins
 1. Dans l’onglet **Build Triggers** (Générer des déclencheurs) de Jenkins, sélectionnez l’option de génération souhaitée. Pour cet exemple, vous souhaitez déclencher une génération à chaque envoi (push au référentiel. Par conséquent, sélectionnez **GitHub hook trigger for GITScm polling**. (Cette option s’appelait auparavant **Build when a change is pushed to GitHub** (Générer lorsqu’une modification est envoyée à GitHub).)
 1. Dans l’onglet **Build** (Générer), effectuez l’une des opérations suivantes selon que vous générez une application Java ou une application .NET Core :
 
-   * **Pour les applications Java :** dans la liste déroulante **Add build step** (Ajouter une étape de génération), sélectionnez **Invoke Gradle Script** (Appeler le script Gradle). Cliquez sur **Avancé**. Dans le menu Avancé, spécifiez le chemin d’accès à **Root build script** (Script de génération racine) de votre application. Il récupère le Gradle de la génération à partir du chemin spécifié et fonctionne en conséquence. Pour l’[application ActorCounter](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), il s’agit de : `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
+   * **Pour les applications Java :** dans la liste déroulante **Add build step** (Ajouter une étape de génération), sélectionnez **Invoke Gradle Script** (Appeler le script Gradle). Cliquez sur **Avancé**. Dans le menu Avancé, spécifiez le chemin d’accès à **Root build script** (Script de génération racine) de votre application. Il récupère le Gradle de la génération à partir du chemin spécifié et fonctionne en conséquence. Pour l’[application ActorCounter](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), il s’agit de : `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
      ![Action de génération Jenkins de Service Fabric][build-step]
 
-   * **Pour les applications .NET Core :** dans la liste déroulante **Add build step** (Ajouter une étape de génération), sélectionnez **Execute Shell** (Exécuter le Shell). Dans la zone de commande qui apparaît, le répertoire doit d'abord être remplacé par le chemin d'accès au fichier build.sh. Une fois le répertoire modifié, le script build.sh peut être exécuté et va générer l’application.
+   * **Pour les applications .NET Core :** dans la liste déroulante **Add build step** (Ajouter une étape de génération), sélectionnez **Execute Shell** (Exécuter le Shell). Dans la zone de commande qui apparaît, le répertoire doit d'abord être remplacé par le chemin d'accès au fichier build.sh. Une fois le répertoire modifié, le script build.sh peut être exécuté et va générer l’application.
 
       ```sh
       cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
@@ -246,13 +246,13 @@ Les étapes de cette section vous montrent comment configurer un travail Jenkins
 
 1. Pour configurer Jenkins pour déployer votre application sur un cluster Service Fabric lors des actions post-génération, vous devez connaître l’emplacement du certificat de ce cluster dans votre conteneur Jenkins. Choisissez une des options suivantes selon que votre conteneur Jenkins est en cours d’exécution dans ou en dehors de votre cluster et notez l’emplacement du certificat de cluster :
 
-   * **Jenkins exécuté dans votre cluster :** pour trouver le chemin du certificat, vous pouvez faire écho à la variable d’environnement *Certificates_JenkinsOnSF_Code_MyCert_PEM* à partir du conteneur.
+   * **Jenkins exécuté dans votre cluster :** Pour trouver le chemin du certificat, vous pouvez faire écho à la variable d'environnement *Certificates_JenkinsOnSF_Code_MyCert_PEM* à partir du conteneur.
 
       ```sh
       echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
       ```
    
-   * **Jenkins exécuté en dehors de votre cluster :** procédez comme suit pour copier le certificat de cluster sur votre conteneur :
+   * **Jenkins exécuté en dehors de votre cluster :** procédez comme suit pour copier le certificat de cluster sur votre conteneur :
       1. Votre certificat doit être au format PEM. Si vous n’avez pas de fichier PEM, vous pouvez en créer à partir du fichier PFX de certificat. Si votre fichier PFX n’est pas protégé par un mot de passe, exécutez la commande suivante à partir de votre hôte :
 
          ```sh
@@ -298,10 +298,10 @@ Pour les environnements de développement et de test, vous pouvez configurer des
 
 1. Pour créer un principal du service Azure Active Directory et lui affecter des autorisations dans votre abonnement Azure, suivez les étapes de [Use the portal to create an Azure Active Directory application and service principal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Utiliser le portail pour créer une application et un principal du service Azure Active Directory). Prenez note des points suivants :
 
-   * Lorsque vous suivez les étapes décrites dans la rubrique, veillez à copier et enregistrer les valeurs suivantes : *ID d’application*, *Clé d’application*, *ID d’annuaire ID (ID de locataire)* et *ID d’abonnement*. Vous en avez besoin pour configurer les informations d’identification Azure dans Jenkins.
+   * Suivez les étapes décrites dans la rubrique en veillant à copier et enregistrer les valeurs suivantes : *ID de l'application*, *Clé de l'application*, *ID du répertoire (ID du locataire)* et *ID de l'abonnement*. Vous en avez besoin pour configurer les informations d’identification Azure dans Jenkins.
    * Si vous ne disposez pas des [autorisations requises](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) sur votre annuaire, vous devez demander à un administrateur de vous accorder les autorisations ou de créer le principal du service pour vous, ou vous devez configurer le point de terminaison de gestion pour votre cluster dans les **actions post-génération** de votre projet dans Jenkins.
    * Dans la section [Create an Azure Active Directory application](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) (Créer une application Azure Active Directory), vous pouvez entrer n’importe quelle URL correcte pour l’**URL de connexion**.
-   * Dans la section [Assign application to a Role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) (Affecter un rôle à l’application), vous pouvez affecter à votre application le rôle *Lecteur* sur le groupe de ressources de votre cluster.
+   * Dans la section [Assign application to a Role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Affecter un rôle à l’application), vous pouvez affecter à votre application le rôle *Lecteur* sur le groupe de ressources de votre cluster.
 
 1. De retour dans le travail Jenkins, cliquez sur l’onglet **Post-Build Actions** (Actions post-génération).
 1. Dans la liste déroulante **Post-Build Actions** (Actions post-génération), sélectionnez **Deploy Service Fabric Project** (Déployer le projet Service Fabric). 
@@ -309,10 +309,10 @@ Pour les environnements de développement et de test, vous pouvez configurer des
 1. Dans le fournisseur d’informations d’identification Jenkins, sélectionnez **Microsoft Azure Service Principal** (Principal du service Microsoft Azure) dans la liste déroulante **Kind** (Type).
 1. Utilisez les valeurs que vous avez enregistrées lors de la configuration de votre principal du service à l’étape 1 pour définir les champs suivants :
 
-   * **ID client** : *ID d’application*
-   * **Clé secrète client** : *Clé d’application*
-   * **ID de locataire** : *ID de répertoire*
-   * **ID d’abonnement** : *ID d’abonnement*
+   * **ID client** : *ID de l'application*
+   * **Clé secrète client** : *Clé de l'application*
+   * **ID du locataire** : *ID du répertoire*
+   * **ID de l'abonnement** : *Identifiant d’abonnement*
 1. Entrez un **ID** descriptif que vous utilisez pour sélectionner les informations d’identification Jenkins et une brève **Description**. Cliquez ensuite sur **Verify Service Principal** (Vérifier le principal du service). Si la vérification réussit, cliquez sur **Ajouter**.
 
    ![Service Fabric Jenkins, entrer les informations d’identification Azure](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)

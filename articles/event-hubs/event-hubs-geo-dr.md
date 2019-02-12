@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091344"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562186"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
@@ -102,12 +102,12 @@ Notez les points suivants pour cette version :
 
 4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute.
 
-## <a name="availability-zones-preview"></a>Zones de disponibilité (préversion)
+## <a name="availability-zones"></a>Zones de disponibilité 
 
-La référence SKU Event Hubs Standard prend également en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant des emplacements isolés des défaillances au sein d’une région Azure. 
+La référence SKU Event Hubs Standard prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant ainsi des emplacements isolés des défaillances au sein d'une région Azure. 
 
 > [!NOTE]
-> La préversion des Zones de disponibilité est prise en charge uniquement dans les régions **USA Centre**, **USA Est 2** et **France Centre**.
+> Pour Azure Event Hubs Standard, la prise en charge des zones de disponibilité s'applique uniquement aux [régions Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones) où des zones de disponibilité sont déjà présentes.
 
 Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms uniquement, à l’aide du portail Azure. Event Hubs ne prend pas en charge la migration des espaces de noms existants. Vous ne pouvez pas désactiver la redondance de zone après l’avoir activée sur votre espace de noms.
 

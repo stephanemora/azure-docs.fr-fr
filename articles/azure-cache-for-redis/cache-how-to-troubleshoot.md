@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: 58c1af860c5ccc87f4396c698b432f47f0ea7c65
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d513825cad397763792fdc9ffb833ba54e957e7d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096957"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822661"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Résolution des problèmes du cache Azure pour Redis
 Cet article fournit des conseils permettant de résoudre les catégories suivantes de problèmes liés au cache Azure pour Redis.
@@ -131,7 +131,7 @@ Consultez la page [What happened to my data in Redis?](https://gist.github.com/J
 Cette section traite des problèmes qui surviennent en raison d’un souci sur le serveur du cache.
 
 * [Saturation de la mémoire sur le serveur](#memory-pressure-on-the-server)
-* [Utilisation élevée du processeur / charge importante du serveur](#high-cpu-usage-server-load)
+* Utilisation élevée du processeur / charge importante du serveur
 * [Bande passante dépassée côté serveur](#server-side-bandwidth-exceeded)
 
 ### <a name="memory-pressure-on-the-server"></a>Saturation de la mémoire sur le serveur
@@ -230,7 +230,7 @@ Ce message d’erreur contient des mesures qui peuvent vous aider à identifier 
 5. Le traitement de certaines commandes est-il trop long sur le serveur ? Les commandes qui prennent beaucoup de temps sur le serveur redis peuvent entraîner des délais d’expiration. Les commandes `mget` avec un nombre important de clés, `keys *` ou des scripts mal rédigés prennent notamment beaucoup de temps pour s’exécuter. Vous pouvez vous connecter à votre instance de cache Azure pour Redis à l’aide du client redis-cli, ou utiliser la [Console Redis](cache-configure.md#redis-console) et exécuter la commande [SlowLog](https://redis.io/commands/slowlog) pour identifier les demandes prenant davantage de temps que prévu. Le serveur Redis et StackExchange.Redis sont optimisés pour traiter un grand nombre de petites requêtes plutôt qu’un nombre réduit de demandes volumineuses. Fractionner vos données en segments plus petits peut améliorer les choses. 
    
     Pour plus d’informations sur la connexion au point de terminaison SSL du cache Azure pour Redis à l’aide de redis-cli et de stunnel, consultez le billet de blog [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx). Pour plus d’informations, consultez [SlowLog](https://redis.io/commands/slowlog).
-6. Une charge élevée du serveur Redis peut provoquer des délais d’expiration. Vous pouvez surveiller la charge du serveur à l’aide de la `Redis Server Load` [mesure des performances du cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Une charge serveur de 100 (valeur maximale) signifie que le serveur redis a été occupé à plein temps à traiter des demandes. Pour voir si certaines demandes monopolisent les capacités du serveur, exécutez la commande SlowLog comme indiqué dans le paragraphe précédent. Pour plus d’informations, consultez [Utilisation élevée du processeur / charge importante du serveur](#high-cpu-usage-server-load).
+6. Une charge élevée du serveur Redis peut provoquer des délais d’expiration. Vous pouvez surveiller la charge du serveur à l’aide de la `Redis Server Load` [mesure des performances du cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Une charge serveur de 100 (valeur maximale) signifie que le serveur redis a été occupé à plein temps à traiter des demandes. Pour voir si certaines demandes monopolisent les capacités du serveur, exécutez la commande SlowLog comme indiqué dans le paragraphe précédent. Pour plus d’informations, consultez Utilisation élevée du processeur / charge importante du serveur.
 7. Un autre événement côté client a-t-il pu causer un blocage du réseau ? Sur le client (web, rôle de travail ou MV IaaS), vérifiez si un événement comme la mise à l'échelle du nombre d'instances du client, le déploiement d'une nouvelle version du client ou l'activation de la mise à l'échelle automatique a eu lieu. Lors de notre test, nous avons constaté que la mise à l'échelle automatique ou l'augmentation/la réduction de la taille des instances peut entraîner une perte de connectivité réseau sortante pendant quelques secondes. Le code de StackExchange.Redis résiste à de tels événements et rétablit la connexion. Pendant ce temps de reconnexion, toutes les demandes dans la file d’attente peuvent expirer.
 8. Une demande volumineuse précédant plusieurs petites demandes dans le cache Azure pour Redis a-t-elle expiré ? Le paramètre `qs` du message d’erreur vous indique le nombre de requêtes envoyées du client au serveur, mais qui n’ont pas encore traité une réponse. Cette valeur peut continuer d’augmenter car StackExchange.Redis utilise une seule connexion TCP et ne peut lire qu’une réponse à la fois. L’expiration de la première opération n’empêche pas l’échange des données avec le serveur, et les autres demandes sont bloquées jusqu’à ce que la demande volumineuse soit terminée, ce qui provoque des délais d’expiration. Une solution pour réduire le risque de délais d’expiration consiste à vérifier que le cache est assez grand pour votre charge de travail et à fractionner les valeurs importantes en valeurs plus petites. Une autre solution consiste à utiliser un pool d’objets `ConnectionMultiplexer` dans votre client et à choisir le `ConnectionMultiplexer` le moins chargé lors de l’envoi d’une nouvelle demande. Ceci doit empêcher un délai de faire expirer les autres demandes.
 9. Si vous utilisez `RedisSessionStateProvider`, vérifiez que vous avez configuré correctement le délai d’expiration de nouvelle tentative. `retryTimeoutInMilliseconds` doit être supérieur à `operationTimeoutInMilliseconds`, sans quoi aucune nouvelle tentative ne se produit. Dans l’exemple suivant, `retryTimeoutInMilliseconds` est réglé sur 3 000. Pour plus d’informations, consultez la page [Fournisseur d’état de session ASP.NET pour cache Azure pour Redis](cache-aspnet-session-state-provider.md) et [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration) (Comment utiliser les paramètres de configuration du fournisseur d’état de session et du fournisseur de caches de sortie).

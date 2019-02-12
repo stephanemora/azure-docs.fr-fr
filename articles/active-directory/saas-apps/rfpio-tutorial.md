@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à RFPIO | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à RFPIO | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RFPIO.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b216d8a8a2c6e1ab7c7b71eedfca9cbd6dbd5cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 23d745e084bf3439d8400b0cd6ac43bac75c7751
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197345"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Tutoriel : Intégration d’Azure Active Directory à RFPIO
 
@@ -88,11 +88,11 @@ Dans RFPIO, affectez la valeur du **nom d’utilisateur** dans Azure AD comme v
 
 Pour configurer et tester l’authentification unique Azure AD avec RFPIO, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Créer un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur de test RFPIO](#creating-a-rfpio-test-user)** pour avoir un équivalent de Britta Simon dans RFPIO lié à la représentation Azure AD de l’utilisateur.
-1. **[Affecter l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Tester l’authentification unique](#testing-single-sign-on)** pour vérifier que la configuration fonctionne.
+1. **Configurer l'authentification unique Azure AD** pour permettre à vos utilisateurs d'utiliser cette fonctionnalité.
+1. **Créer un utilisateur de test Azure AD** pour tester l'authentification unique Azure AD avec Britta Simon.
+1. **Créer un utilisateur de test RFPIO** pour disposer dans RFPIO d'un équivalent de Britta Simon qui soit lié à la représentation Azure AD de l'utilisateur.
+1. **Affecter l'utilisateur de test Azure AD** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
+1. **Tester l'authentification unique** pour vérifier que la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 

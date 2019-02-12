@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004881"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658112"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 
@@ -23,6 +23,8 @@ Cet article explique comment gérer, en tant qu’opérateur, des appareils dans
 - Tenir à jour un inventaire de vos appareils.
 - Maintenir à jour les métadonnées de votre appareil en modifiant les valeurs stockées dans les propriétés de l’appareil.
 - Contrôler le comportement de vos appareils en mettant à jour un paramètre sur un appareil spécifique à partir de la page **Paramètres**.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="view-your-devices"></a>Voir vos appareils
 
@@ -116,7 +118,7 @@ Pour exporter en bloc des appareils à partir de votre application :
 
     [![Exportation réussie](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. Le fichier CSV exporté dispose des informations de colonnes suivantes : **Id de l’appareil, nom de l’appareil, clé primaire/secondaire de l’appareil, et thumbprints de certificat primaire/secondaire**
+1. Le fichier CSV exporté contient les colonnes suivantes : **ID de l'appareil, nom de l'appareil, clé primaire/secondaire de l'appareil et empreinte numérique de certificat primaire/secondaire**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

@@ -11,33 +11,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6020aa0a770075526d8d07c94b847b5933a26c2a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 26e5b33504ff543e8442108e4368ce3b04f25df4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428118"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696747"
 ---
 # <a name="create-custom-roles-using-azure-powershell"></a>Créer des rôles personnalisés à l’aide d’Azure PowerShell
 
 Si les [rôles intégrés](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment créer et gérer des rôles personnalisés avec Azure PowerShell.
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour créer des rôles personnalisés, vous avez besoin des éléments suivants :
 
 - Autorisations nécessaires pour créer des rôles personnalisés, tels que [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) installé localement
+- [Azure PowerShell](/powershell/azure/install-az-ps) installé localement
 
 ## <a name="list-custom-roles"></a>Répertorier les rôles personnalisés
 
-Pour répertorier les rôles pouvant être attribués dans une étendue, utilisez la commande [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition). L’exemple suivant répertorie tous les rôles pouvant être affectés dans l’abonnement sélectionné.
+Pour répertorier les rôles qui peuvent être attribués à une étendue, utilisez la commande [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). L’exemple suivant répertorie tous les rôles pouvant être affectés dans l’abonnement sélectionné.
 
 ```azurepowershell
-Get-AzureRmRoleDefinition | FT Name, IsCustom
+Get-AzRoleDefinition | FT Name, IsCustom
 ```
 
 ```Example
@@ -54,7 +56,7 @@ API Management Service Contributor                   False
 L’exemple suivant répertorie les rôles personnalisés pouvant être attribués dans l’abonnement sélectionné.
 
 ```azurepowershell
-Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
 ```
 
 ```Example
@@ -67,20 +69,20 @@ Si l’abonnement sélectionné ne se trouve pas dans le `AssignableScopes` du r
 
 ## <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 
-Pour créer un rôle personnalisé, utilisez la commande [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition). Il existe deux méthodes pour structurer le rôle : avec un objet `PSRoleDefinition` ou un modèle JSON. 
+Pour créer un rôle personnalisé, utilisez la commande [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition). Il existe deux méthodes pour structurer le rôle : avec un objet `PSRoleDefinition` ou un modèle JSON. 
 
 ### <a name="get-operations-for-a-resource-provider"></a>Obtenir les opérations d’un fournisseur de ressources
 
 Si vous créez des rôles personnalisés, il est important d’obtenir toutes les opérations possibles auprès des fournisseurs de ressources.
-Vous pouvez afficher la liste des [opérations du fournisseur de ressources](resource-provider-operations.md) ou utiliser la commande [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) pour obtenir ces informations.
+Pour obtenir ces informations, vous pouvez afficher la liste des [opérations du fournisseur de ressources](resource-provider-operations.md) ou utiliser la commande [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation).
 Par exemple, si vous souhaitez vérifier toutes les opérations disponibles pour des machines virtuelles, utilisez cette commande :
 
 ```azurepowershell
-Get-AzureRMProviderOperation <operation> | FT OperationName, Operation, Description -AutoSize
+Get-AzProviderOperation <operation> | FT OperationName, Operation, Description -AutoSize
 ```
 
 ```Example
-PS C:\> Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation, Description -AutoSize
+PS C:\> Get-AzProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation, Description -AutoSize
 
 OperationName                                  Operation                                                      Description
 -------------                                  ---------                                                      -----------
@@ -98,7 +100,7 @@ Lorsque vous utilisez PowerShell pour créer un rôle personnalisé, vous pouvez
 L’exemple suivant commence par le rôle intégré [Contributeur de machines virtuelles](built-in-roles.md#virtual-machine-contributor) et l’utilise pour créer un rôle personnalisé appelé *Opérateur de machines virtuelles*. Le nouveau rôle accorde l’accès à toutes les opérations des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network*, ainsi que l’accès pour démarrer, redémarrer et surveiller des machines virtuelles. Le rôle personnalisé peut être utilisé dans deux abonnements.
 
 ```azurepowershell
-$role = Get-AzureRmRoleDefinition "Virtual Machine Contributor"
+$role = Get-AzRoleDefinition "Virtual Machine Contributor"
 $role.Id = $null
 $role.Name = "Virtual Machine Operator"
 $role.Description = "Can monitor and restart virtual machines."
@@ -115,7 +117,7 @@ $role.Actions.Add("Microsoft.Support/*")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/00000000-0000-0000-0000-000000000000")
 $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111")
-New-AzureRmRoleDefinition -Role $role
+New-AzRoleDefinition -Role $role
 ```
 
 L’exemple suivant montre une autre méthode pour créer le rôle personnalisé *Opérateur de machines virtuelles*. Il illustre d’abord la création d’un objet `PSRoleDefinition`. Les opérations d’action sont spécifiées dans la variable `perms` et sont définies sur la propriété `Actions`. La propriété `NotActions` est définie en lisant les `NotActions` dans le rôle intégré [Contributeur de machines virtuelles](built-in-roles.md#virtual-machine-contributor). Étant donné que le [Contributeur de machines virtuelles](built-in-roles.md#virtual-machine-contributor) ne contient pas de `NotActions`, cette ligne n’est pas nécessaire. Toutefois, elle montre comment les informations peuvent être récupérées à partir d’un autre rôle.
@@ -130,10 +132,10 @@ $perms += 'Microsoft.Compute/virtualMachines/start/action','Microsoft.Compute/vi
 $perms += 'Microsoft.Authorization/*/read','Microsoft.Resources/subscriptions/resourceGroups/read'
 $perms += 'Microsoft.Insights/alertRules/*','Microsoft.Support/*'
 $role.Actions = $perms
-$role.NotActions = (Get-AzureRmRoleDefinition -Name 'Virtual Machine Contributor').NotActions
+$role.NotActions = (Get-AzRoleDefinition -Name 'Virtual Machine Contributor').NotActions
 $subs = '/subscriptions/00000000-0000-0000-0000-000000000000','/subscriptions/11111111-1111-1111-1111-111111111111'
 $role.AssignableScopes = $subs
-New-AzureRmRoleDefinition -Role $role
+New-AzRoleDefinition -Role $role
 ```
 
 ### <a name="create-a-custom-role-with-json-template"></a>Créer un rôle personnalisé avec le modèle JSON
@@ -151,8 +153,7 @@ Un modèle JSON peut servir de définition source pour le rôle personnalisé. L
     "Microsoft.Storage/*/read",
     "Microsoft.Support/*"
   ],
-  "NotActions": [
-  ],
+  "NotActions": [],
   "AssignableScopes": [
     "/subscriptions/00000000-0000-0000-0000-000000000000",
     "/subscriptions/11111111-1111-1111-1111-111111111111"
@@ -163,7 +164,7 @@ Un modèle JSON peut servir de définition source pour le rôle personnalisé. L
 Pour ajouter le rôle aux abonnements, exécutez la commande PowerShell suivante :
 
 ```azurepowershell
-New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+New-AzRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
 
 ## <a name="update-a-custom-role"></a>Mettre à jour un rôle personnalisé
@@ -172,20 +173,20 @@ Comme pour la création d’un rôle personnalisé, vous pouvez modifier un rôl
 
 ### <a name="update-a-custom-role-with-the-psroledefinition-object"></a>Mettre à jour un rôle personnalisé avec l’objet PSRoleDefinition
 
-Pour modifier un rôle personnalisé, utilisez d’abord la commande [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) pour récupérer la définition du rôle. Apportez ensuite les modifications souhaitées à la définition de rôle. Enfin, utilisez la commande [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) pour enregistrer la définition de rôle modifiée.
+Pour modifier un rôle personnalisé, commencez par récupérer sa définition à l'aide de la commande [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Apportez ensuite les modifications souhaitées à la définition de rôle. Enfin, utilisez la commande [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) pour enregistrer la définition de rôle modifiée.
 
 L’exemple suivant ajoute l’opération `Microsoft.Insights/diagnosticSettings/*` au rôle personnalisé *Opérateur de machine virtuelle* .
 
 ```azurepowershell
-$role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+$role = Get-AzRoleDefinition "Virtual Machine Operator"
 $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
-Set-AzureRmRoleDefinition -Role $role
+Set-AzRoleDefinition -Role $role
 ```
 
 ```Example
-PS C:\> $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"
 PS C:\> $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
-PS C:\> Set-AzureRmRoleDefinition -Role $role
+PS C:\> Set-AzRoleDefinition -Role $role
 
 Name             : Virtual Machine Operator
 Id               : 88888888-8888-8888-8888-888888888888
@@ -201,24 +202,24 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
 L’exemple suivant ajoute un abonnement Azure aux étendues attribuables du rôle personnalisé *Opérateur de machine virtuelle* .
 
 ```azurepowershell
-Get-AzureRmSubscription -SubscriptionName Production3
+Get-AzSubscription -SubscriptionName Production3
 
-$role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+$role = Get-AzRoleDefinition "Virtual Machine Operator"
 $role.AssignableScopes.Add("/subscriptions/22222222-2222-2222-2222-222222222222")
-Set-AzureRmRoleDefinition -Role $role
+Set-AzRoleDefinition -Role $role
 ```
 
 ```Example
-PS C:\> Get-AzureRmSubscription -SubscriptionName Production3
+PS C:\> Get-AzSubscription -SubscriptionName Production3
 
 Name     : Production3
 Id       : 22222222-2222-2222-2222-222222222222
 TenantId : 99999999-9999-9999-9999-999999999999
 State    : Enabled
 
-PS C:\> $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"
 PS C:\> $role.AssignableScopes.Add("/subscriptions/22222222-2222-2222-2222-222222222222")
-PS C:\> Set-AzureRmRoleDefinition -Role $role
+PS C:\> Set-AzRoleDefinition -Role $role
 
 Name             : Virtual Machine Operator
 Id               : 88888888-8888-8888-8888-888888888888
@@ -234,7 +235,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
 
 ### <a name="update-a-custom-role-with-a-json-template"></a>Mettre à jour un rôle personnalisé avec un modèle JSON
 
-À l’aide du modèle JSON précédent, vous pouvez facilement modifier un rôle personnalisé existant pour ajouter ou supprimer des actions. Mettez à jour le modèle JSON et ajoutez l’action de lecture pour la mise en réseau, comme l’indique l’exemple suivant. Les définitions figurant dans le modèle ne sont pas cumulativement appliquées à une définition existante, ce qui veut dire que le rôle s’affiche exactement comme vous le spécifiez dans le modèle. Vous devez aussi mettre à jour le champ ID avec l’ID du rôle. Si vous n’êtes pas certain de cette valeur, vous pouvez utiliser l’applet de commande [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) pour obtenir ces informations.
+À l’aide du modèle JSON précédent, vous pouvez facilement modifier un rôle personnalisé existant pour ajouter ou supprimer des actions. Mettez à jour le modèle JSON et ajoutez l’action de lecture pour la mise en réseau, comme l’indique l’exemple suivant. Les définitions figurant dans le modèle ne sont pas cumulativement appliquées à une définition existante, ce qui veut dire que le rôle s’affiche exactement comme vous le spécifiez dans le modèle. Vous devez aussi mettre à jour le champ ID avec l’ID du rôle. Si nécessaire, utilisez la cmdlet [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) pour obtenir cette valeur.
 
 ```json
 {
@@ -248,8 +249,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
     "Microsoft.Network/*/read",
     "Microsoft.Support/*"
   ],
-  "NotActions": [
-  ],
+  "NotActions": [],
   "AssignableScopes": [
     "/subscriptions/00000000-0000-0000-0000-000000000000",
     "/subscriptions/11111111-1111-1111-1111-111111111111"
@@ -260,22 +260,22 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
 Pour mettre à jour le rôle existant, exécutez la commande PowerShell suivante :
 
 ```azurepowershell
-Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+Set-AzRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
 
 ## <a name="delete-a-custom-role"></a>Supprimer un rôle personnalisé
 
-Pour supprimer un rôle personnalisé, utilisez la commande [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/remove-azurermroledefinition).
+Pour supprimer un rôle personnalisé, utilisez la commande [Remove-AzRoleDefinition](/powershell/module/az.resources/remove-azroledefinition).
 
 L’exemple suivant supprime le rôle personnalisé *Opérateur de machine virtuelle* .
 
 ```azurepowershell
-Get-AzureRmRoleDefinition "Virtual Machine Operator"
-Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinition
+Get-AzRoleDefinition "Virtual Machine Operator"
+Get-AzRoleDefinition "Virtual Machine Operator" | Remove-AzRoleDefinition
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleDefinition "Virtual Machine Operator"
+PS C:\> Get-AzRoleDefinition "Virtual Machine Operator"
 
 Name             : Virtual Machine Operator
 Id               : 88888888-8888-8888-8888-888888888888
@@ -287,7 +287,7 @@ NotActions       : {}
 AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/11111111-1111-1111-1111-111111111111}
 
-PS C:\> Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinition
+PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | Remove-AzRoleDefinition
 
 Confirm
 Are you sure you want to remove role definition with name 'Virtual Machine Operator'.

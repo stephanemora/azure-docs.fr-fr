@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3c3b7d73de9a0e7e72351687af16b98b11f9581b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188489"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818870"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -86,7 +86,7 @@ Pour créer un conteneur public dans le stockage Blob, procédez comme suit :
 5. Cliquez sur **$root** pour ouvrir le nouveau conteneur.
 6. Cliquez sur **Télécharger**.
 7. Cliquez sur l’icône de dossier en regard du champ **Sélectionner un fichier**.
-8. Accédez au fichier **customize-ui.html** que vous avez créé en appliquant la procédure de la section [Personnalisation de l’interface utilisateur de la page](#the-page-ui-customization-feature).
+8. Accédez au fichier **customize-ui.html** que vous avez précédemment créé en appliquant la procédure de la section Personnalisation de l'interface utilisateur de la page.
 9. Cliquez sur **Télécharger**.
 10. Sélectionnez le blob customize-ui.html que vous venez de charger.
 11. Cliquez sur le bouton **Copier** situé en regard du champ **URL**.
@@ -175,7 +175,7 @@ Le dossier sample_templates/wingtip contient les fichiers HTML suivants :
 | *unified.html* | Utilisez ce fichier en tant que modèle pour une page de connexion ou d’inscription unifiée. |
 | *updateprofile.html* | Utilisez ce fichier en tant que modèle pour une page de mise à jour de profil. |
 
-Dans la section [Modifier votre stratégie personnalisée d’inscription ou de connexion](#modify-your-sign-up-or-sign-in-custom-policy), vous avez configuré la définition du contenu pour `api.idpselections`. L’ensemble des identifiants de définition du contenu reconnus par l’infrastructure d’expérience d’identité Azure AD B2C et leurs descriptions sont regroupés dans le tableau suivant :
+À la section Modifier votre stratégie personnalisée d'inscription ou de connexion, vous avez configuré la définition de contenu de `api.idpselections`. L’ensemble des identifiants de définition du contenu reconnus par l’infrastructure d’expérience d’identité Azure AD B2C et leurs descriptions sont regroupés dans le tableau suivant :
 
 | ID de définition du contenu | Description | 
 |-----------------------|-------------|

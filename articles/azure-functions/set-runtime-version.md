@@ -8,16 +8,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6e8142e391dd02e78be42e1f16ae2626b74c41c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498394"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734468"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Comment cibler des versions du runtime Azure Functions
 
-Une application de fonction s’exécute sur une version spécifique du runtime Azure Functions. Il existe deux versions majeures : [1.x et 2.x](functions-versions.md). Par défaut, les applications de fonction sont créées avec version 2.x du runtime. Cet article explique comment configurer une application de fonction dans Azure pour qu’elle s’exécute sur la version de votre choix. Pour plus d’informations sur la façon de configurer un environnement de développement local pour une version spécifique, consultez [Coder et tester Azure Functions localement](functions-run-local.md).
+Une application de fonction s’exécute sur une version spécifique du runtime Azure Functions. Deux versions majeures sont disponibles : [1.x et 2.x](functions-versions.md). Par défaut, les applications de fonction sont créées avec version 2.x du runtime. Cet article explique comment configurer une application de fonction dans Azure pour qu’elle s’exécute sur la version de votre choix. Pour plus d’informations sur la façon de configurer un environnement de développement local pour une version spécifique, consultez [Coder et tester Azure Functions localement](functions-run-local.md).
 
 > [!NOTE]
 > Vous ne pouvez pas modifier la version du runtime pour une application de fonction qui a une ou plusieurs fonctions. Vous devez utiliser le portail Azure pour modifier la version du runtime.
@@ -49,7 +49,7 @@ Vous pouvez aussi afficher et définir l’élément `FUNCTIONS_EXTENSION_VERSIO
 >[!NOTE]
 >Étant donné que la version du runtime peut influer sur les autres paramètres, vous devez modifier la version dans le portail. Le portail crée automatiquement les mises à jour nécessaires (par exemple, pile runtime et version de Node.js) lorsque vous modifiez des versions du runtime.  
 
-À l’aide de l’interface de ligne de commande Azure, affichez la version actuelle du runtime avec la commande [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+À l’aide de l’interface de ligne de commande Azure, affichez la version actuelle du runtime avec la commande [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
@@ -83,7 +83,7 @@ Observez `FUNCTIONS_EXTENSION_VERSION` dans la sortie suivante, tronquée pour u
 ]
 ```
 
-Vous pouvez mettre à jour le paramètre `FUNCTIONS_EXTENSION_VERSION` dans l’application de fonction à l’aide de la commande [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+Vous pouvez mettre à jour le paramètre `FUNCTIONS_EXTENSION_VERSION` dans l’application de fonction à l’aide de la commande [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \

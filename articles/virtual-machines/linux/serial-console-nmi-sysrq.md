@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: ac3e01756ad66dcb44869556bb103eb20bc2658c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6ca4156c19adbeea72ae268fe62638d40919b08f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221483"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699614"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utiliser la console série pour les appels SysRq et NMI
 
@@ -63,7 +63,7 @@ Dans le guide administrateur SysRq ci-dessus :
 |``h``  |   Affiche l’aide (les touches qui ne sont pas mentionnées ici affichent aussi l’aide, mais il est facile de mémoriser ``h`` :-)
 |``i``  |    Envoie un SIGKILL à tous les processus, sauf init.
 |``j``  |    Forçage de « Just thaw it » (simple libération) - systèmes de fichiers gelés par l’ioctl FIFREEZE.
-|``k``  |    La clé d’accès sécurisée (SAK) arrête tous les programmes de la console virtuelle en cours. REMARQUE : consultez les commentaires importants ci-dessous dans la section SAK.
+|``k``  |    La clé d’accès sécurisée (SAK) arrête tous les programmes de la console virtuelle en cours. REMARQUE :  consultez les commentaires importants disponibles ci-dessous, à la section SAK.
 |``l``  |    Affiche un historique des piles de tous les processeurs actifs.
 |``m``  |    Sauvegarde les informations de la mémoire actuelle sur votre console.
 |``n``  |    Utilisé pour que les tâches RT soient agréables
@@ -76,7 +76,7 @@ Dans le guide administrateur SysRq ci-dessus :
 |``u``  |    Tente de remonter tous les systèmes de fichiers montés en lecture seule.
 |``v``  |    Force la restauration de la console framebuffer
 |``v``  |    Lance la copie de sauvegarde de la mémoire tampon ETM [spécifique à l’ARM]
-|``w``  |    Sauvegarde les tâches en état ininterrompu (bloqué).
+|``w``  |    Vide les tâches dont l'état est ininterrompu (bloqué).
 |``x``  |    Utilisé par l’interface xmon sur les plateformes ppc/powerpc. Affiche les registres PMU globaux sur sparc64. Sauvegarde toutes les entrées TLB sur MIPS.
 |``y``  |    Affiche les registres CPU globaux [spécifique à SPARC-64]
 |``z``  |    Sauvegarde la mémoire tampon ftrace
@@ -111,7 +111,7 @@ Pour les systèmes Linux qui prennent en charge sysctl pour configurer les param
 1. Redémarrage ou mise à jour de sysctl en exécutant <br>
     `sysctl -p`
 
-Pour plus d’informations sur les configurations du noyau Linux, notamment `unknown_nmi_panic`, `panic_on_io_nmi` et `panic_on_unrecovered_nmi`, consultez la [documentation de /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Pour obtenir de la documentation propre à la distribution sur NMI et les étapes de configuration de Linux pour créer un vidage sur incident à la réception d’une NMI, consultez les liens ci-dessous :
+Pour plus d'informations sur les configurations du noyau Linux, notamment `unknown_nmi_panic`, `panic_on_io_nmi` et `panic_on_unrecovered_nmi`, consultez ce qui suit : [Documentation de /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Pour obtenir de la documentation propre à la distribution sur NMI et les étapes de configuration de Linux pour créer un vidage sur incident à la réception d’une NMI, consultez les liens ci-dessous :
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Vidage sur incident du noyau](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

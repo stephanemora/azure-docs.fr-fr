@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7505715641462f4a07d999ea419632bd91e925fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438913"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822440"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Créer, changer ou supprimer un groupe de sécurité réseau
 
@@ -66,7 +66,7 @@ Dans la zone de recherche située en haut du portail, entrez *groupes de sécuri
 2. Dans la liste, sélectionnez le groupe de sécurité réseau dont vous souhaitez voir les détails. Sous **PARAMÈTRES** vous pouvez voir les **Règles de sécurité de trafic entrant**, les **Règles de sécurité de trafic sortant**, les **Interfaces réseau** et les **Sous-réseaux** auxquels le groupe de sécurité réseau est associé. Vous pouvez également activer ou désactiver les **Journaux de diagnostic** et afficher les **Règles de sécurité effectives**. Pour plus d’informations, consultez [Journaux de diagnostic](virtual-network-nsg-manage-log.md) et [Afficher les règles de sécurité effectives](diagnose-network-traffic-filter-problem.md).
 3. Pour en savoir plus sur les paramètres Azure courants répertoriés, consultez les articles suivants :
     *   [Journal d’activité](../azure-monitor/platform/activity-logs-overview.md)
-    *   [Contrôle d’accès (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [Contrôle d’accès (IAM)](../role-based-access-control/overview.md)
     *   [Balises](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Verrous](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
@@ -92,7 +92,7 @@ Pour associer un groupe de sécurité réseau à une interface réseau ou l’en
 
 ### <a name="delete-a-network-security-group"></a>Supprimer un groupe de sécurité réseau
 
-Si un groupe de sécurité réseau est associé à des sous-réseaux ou à des interfaces réseau, il ne peut pas être supprimé. [Dissociez](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) un groupe de sécurité réseau de tous les sous-réseaux et interfaces réseau avant de tenter de le supprimer.
+Si un groupe de sécurité réseau est associé à des sous-réseaux ou à des interfaces réseau, il ne peut pas être supprimé. Dissociez un groupe de sécurité réseau de tous les sous-réseaux et interfaces réseau avant de tenter de le supprimer.
 
 1. Dans la zone de recherche située en haut du portail, entrez *groupes de sécurité réseau*. Quand la mention **groupes de sécurité réseau** apparaît dans les résultats de recherche, sélectionnez-la.
 2. Dans la liste, sélectionnez le groupe de sécurité réseau que vous souhaitez supprimer.
@@ -125,7 +125,7 @@ Le nombre de règles par groupe de sécurité réseau que vous pouvez créer par
     |Protocole     | Sélectionnez **Tout**, **TCP** ou **UDP**.        |         |
     |Action     | Sélectionnez **Autoriser** ou **Refuser**.        |         |
     |Priorité     | Entrez une valeur comprise entre 100 et 4096 qui est unique pour toutes les règles de sécurité au sein du groupe de sécurité réseau. |Les règles sont traitées par ordre de priorité. Plus le numéro est faible, plus la priorité est élevée. Nous vous recommandons de laisser un écart entre les numéros de priorité quand vous créez des règles, par exemple, 100, 200, 300. Cela permet par la suite d’intercaler de nouvelles règles.         |
-    |NOM     | Nom unique de la règle au sein du groupe de sécurité réseau.        |  Le nom peut comprendre jusqu’à 80 caractères. Il doit commencer par une lettre ou un chiffre, se terminer par une lettre, un chiffre ou un trait de soulignement, et ne peut contenir que des lettres, des chiffres, des traits de soulignement, des points ou des tirets.       |
+    |Nom     | Nom unique de la règle au sein du groupe de sécurité réseau.        |  Le nom peut comprendre jusqu’à 80 caractères. Il doit commencer par une lettre ou un chiffre, se terminer par une lettre, un chiffre ou un trait de soulignement, et ne peut contenir que des lettres, des chiffres, des traits de soulignement, des points ou des tirets.       |
     |Description     | Description facultative.        |         |
 
 **Commandes**
@@ -192,7 +192,7 @@ Un groupe de sécurité d’application contient zéro interface réseau, ou plu
 
     | Paramètre        | Valeur                                                   |
     | ---            | ---                                                     |
-    | NOM           | Le nom doit être unique au sein d’un groupe de ressources.        |
+    | Nom           | Le nom doit être unique au sein d’un groupe de ressources.        |
     | Abonnement   | Sélectionnez votre abonnement.                               |
     | Groupe de ressources | Sélectionnez un groupe de ressources existant ou créez-en un. |
     | Lieu       | Sélectionner un emplacement                                       |
@@ -252,7 +252,7 @@ Pour exécuter des tâches sur des groupes de sécurité réseau, des règles de
 
 ### <a name="network-security-group"></a>Groupe de sécurité réseau
 
-| Action                                                        |   NOM                                                                |
+| Action                                                        |   Nom                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   Obtenir un groupe de sécurité réseau                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   Créer ou mettre à jour un groupe de sécurité réseau                             |
@@ -262,7 +262,7 @@ Pour exécuter des tâches sur des groupes de sécurité réseau, des règles de
 
 ### <a name="network-security-group-rule"></a>Règle de groupe de sécurité réseau
 
-| Action                                                        |   NOM                                                                |
+| Action                                                        |   Nom                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/rules/read            |   Obtenir une règle                                                            |
 | Microsoft.Network/networkSecurityGroups/rules/write           |   Créer ou mettre à jour une règle                                               |
@@ -270,7 +270,7 @@ Pour exécuter des tâches sur des groupes de sécurité réseau, des règles de
 
 ### <a name="application-security-group"></a>Groupe de sécurité d’application
 
-| Action                                                                     | NOM                                                     |
+| Action                                                                     | Nom                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Joindre une configuration IP aux groupes de sécurité d’application|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Joindre une règle de sécurité aux groupes de sécurité d’application    |

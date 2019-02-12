@@ -1,8 +1,21 @@
 ---
-titre : Création des points de terminaison de service Web TitleSuffix : Description d’Azure Machine Learning Studio : Création de points de terminaison de service web dans Azure Machine Learning. Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante.
-services : machine-learning ms.service : machine-learning ms.subservice : studio ms.topic : article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/10/2016
+title: Création de points de terminaison de service Web
+titleSuffix: Azure Machine Learning Studio
+description: Création de points de terminaison de service web dans Azure Machine Learning. Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 10/04/2016
+ms.openlocfilehash: fc3a92aaf13f13682cfc56333618436ffe3d65ef
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493369"
 ---
 # <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Création de points de terminaison pour les services web Azure Machine Learning Studio déployés
 > [!NOTE]

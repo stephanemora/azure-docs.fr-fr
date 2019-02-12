@@ -1,27 +1,28 @@
 ---
-title: Gestion des éléments multimédias Media Services sur plusieurs comptes de stockage | Microsoft Docs
-description: Cet article vous donne des conseils sur la gestion des éléments multimédias Media Services dans plusieurs comptes de stockage.
+title: Gestion des ressources Media Services sur plusieurs comptes de stockage | Microsoft Docs
+description: Cet article vous donne des conseils sur la gestion des ressources Media Services sur plusieurs comptes de stockage.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 01/31/2018
 ms.author: juliako
-ms.openlocfilehash: 8c67ce4fd9597c66e795269972d2048ddd5a60c1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d43adf7009fcd668299f018b6308765bb115b237
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886337"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565902"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestion des éléments multimédias Media Services sur plusieurs comptes de stockage
-À partir de Microsoft Azure Media Services 2.2, vous pouvez associer plusieurs comptes de stockage à un seul compte Media Services. L’option d’association de plusieurs comptes de stockage à un compte Media Services offre les avantages suivants :
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestion des ressources Media Services sur plusieurs comptes de stockage
+
+Vous pouvez associer plusieurs comptes de stockage à un même compte Media Services. L’option d’association de plusieurs comptes de stockage à un compte Media Services offre les avantages suivants :
 
 * Gestion de vos éléments multimédias sur plusieurs comptes de stockage.
 * Mais aussi, mise à l'échelle de Media Services pour traiter de grandes quantités de contenu (car actuellement un compte de stockage unique est limité à un maximum de 500 To). 
@@ -29,12 +30,13 @@ ms.locfileid: "54886337"
 Cet article montre comment associer plusieurs comptes de stockage à un compte Media Services à l’aide des [API Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) et de [PowerShell](/powershell/module/azurerm.media). Elle montre également comment spécifier différents comptes de stockage lors de la création d'éléments multimédias à l'aide du Kit de développement logiciel (SDK) Media Services. 
 
 ## <a name="considerations"></a>Considérations
+
 Quand vous associez plusieurs comptes de stockage à votre compte Media Services, tenez compte des points suivants :
 
-* Tous les comptes de stockage associés à un compte Media Services doivent être dans le même centre de données que le compte Media Services.
-* Actuellement, une fois qu'un compte de stockage est associé au compte Media Services spécifié, il ne peut pas en être dissocié.
+* Le compte Media Services et tous les comptes de stockage associés doivent être faire partie du même abonnement Azure. Il est recommandé d'utiliser des comptes de stockage situés au même emplacement que le compte Media Services.
+* Une fois qu'un compte de stockage est associé au compte Media Services spécifié, il ne peut pas en être dissocié.
 * Le compte de stockage principal est celui indiqué au moment de la création du compte Media Services. Actuellement, vous ne pouvez pas modifier le compte de stockage par défaut. 
-* À l’heure actuelle, si vous souhaitez ajouter au compte AMS un compte de stockage froid, celui-ci doit être de type Blob et ne doit pas être défini comme compte principal.
+* Si vous souhaitez ajouter au compte AMS un compte de stockage froid, ce dernier doit être de type Blob et ne doit pas être défini comme compte principal.
 
 Autres points à considérer :
 

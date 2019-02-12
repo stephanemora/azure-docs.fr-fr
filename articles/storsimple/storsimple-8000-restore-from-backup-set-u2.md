@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 55a4b150471b87289cdd67dc8fbce92336850364
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568816"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496480"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
 
@@ -71,7 +71,7 @@ Dans Update 4, les cmdlets Windows PowerShell peuvent être utilisées pour int
 
 Pour plus d’informations sur les cmdlets de rafraîchissement, consultez le [document de référence sur les cmdlets Windows PowerShell pour StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
-En général, avec le rafraîchissement automatique, des performances de lecture temporaires plus élevées sont attendues. La véritable magnitude des améliorations dépend de divers facteurs tels que le modèle d’accès, l’évolution des données et le type de données. 
+Avec le rafraîchissement automatique, les performances de lecture temporaires sont généralement plus élevées. L'ampleur des améliorations dépend de divers facteurs, tels que le modèle d'accès, le taux d'activité des données et le type de données. 
 
 Pour annuler un travail de rafraîchissement vous pouvez utiliser la cmdlet PowerShell. Si vous souhaitez désactiver définitivement les travaux de rafraîchissement pour toutes les restaurations futures, [contactez le Support Microsoft](storsimple-8000-contact-microsoft-support.md).
 

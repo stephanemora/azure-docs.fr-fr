@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8330b63f218108930c5eb66eaa6c8ff6dca67316
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973126"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694266"
 ---
 # <a name="azure-storage-security-overview"></a>Présentation de la sécurité du Stockage Azure
 
@@ -47,7 +47,7 @@ En savoir plus :
 
 ## <a name="delegated-access-to-storage-objects"></a>Accès délégué aux objets de stockage
 
-Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. La SAP vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Vous pouvez accorder ces autorisations limitées sans partager les clés d’accès de votre compte. 
+Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. La SAP vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Vous pouvez accorder ces autorisations limitées sans partager les clés d’accès de votre compte.
 
 La SAP est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour obtenir un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d’accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur appropriés.
 
@@ -73,7 +73,7 @@ En savoir plus sur le chiffrement côté client :
 
 Pour de nombreuses organisations, le [chiffrement des données au repos](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Trois fonctionnalités Azure fournissent un chiffrement des données au repos :
 
-* [Storage Service Encryption](../storage/common/storage-security-guide.md#encryption-at-rest) vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans le Stockage Azure.
+* [Storage Service Encryption](../storage/common/storage-security-guide.md#encryption-at-rest) est toujours activé et chiffre automatiquement les données du service de stockage lors de leur écriture dans le Stockage Azure.
 * Le [chiffrement côté client](../storage/common/storage-security-guide.md#client-side-encryption) fournit également la fonctionnalité de chiffrement au repos.
 * [Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS.
 
@@ -114,9 +114,9 @@ En savoir plus :
 
 ## <a name="advanced-threat-protection"></a>Protection avancée contre les menaces
 
-Le service Stockage Azure inclut la protection avancée contre les menaces, offrant une couche supplémentaire de sécurité intelligente qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de votre compte de stockage. La protection avancée contre les menaces analyse les journaux de diagnostic de Stockage Azure pour détecter les requêtes suspectes de lecture, d’écriture ou de suppression de données dans le stockage Blob. 
+Le service Stockage Azure inclut la protection avancée contre les menaces, offrant une couche supplémentaire de sécurité intelligente qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de votre compte de stockage. La protection avancée contre les menaces analyse les journaux de diagnostic de Stockage Azure pour détecter les requêtes suspectes de lecture, d’écriture ou de suppression de données dans le stockage Blob.
 
-Les alertes de la protection avancée contre les menaces sont consultables dans [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center fournit des détails sur chaque activité suspecte détectée et suggère des actions pour examiner et corriger la menace potentielle. 
+Les alertes de la protection avancée contre les menaces sont consultables dans [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center fournit des détails sur chaque activité suspecte détectée et suggère des actions pour examiner et corriger la menace potentielle.
 
 En savoir plus :
 

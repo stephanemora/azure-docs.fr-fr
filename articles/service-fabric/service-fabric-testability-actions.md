@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 70ed1561af6dc06b4d1db89e6449540dd76b67be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757619"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815879"
 ---
 # <a name="testability-actions"></a>Actions de testabilité
 Pour simuler une infrastructure non fiable, Azure Service Fabric procure aux développeurs, autrement dit à vous, des moyens d’intégrer des défaillances et des transitions d’état réalistes. Elles sont exposées en tant qu’actions de testabilité. Les actions sont les API de bas niveau provoquant l’injection des erreurs, la transition entre les états ou la validation. En combinant ces actions, vous êtes en mesure d’écrire des scénarios de test complets pour vos services.
@@ -31,8 +31,8 @@ Les implémentations C# de ces actions sont accessibles sur l’assembly System.
 ## <a name="graceful-vs-ungraceful-fault-actions"></a>Actions d’erreurs avec et sans perte de données
 Les actions de testabilité sont répertoriées en deux groupes principaux :
 
-* Erreurs avec perte de données : ces erreurs simulent des défaillances comme les redémarrages de machines ou les incidents de processus. Dans de tels cas, le contexte d’exécution du processus s’interrompt abruptement. Ici, aucun nettoyage d’état ne peut être exécuté avant le redémarrage de l’application.
-* Erreurs sans perte de données : ces erreurs simulent des actions comme des déplacements ou des abandons de réplicas provoqués par l’équilibrage de la charge. Le cas échéant, le service reçoit une notification de fermeture et peut nettoyer l’état avant de quitter.
+* Erreurs avec perte de données : ces erreurs simulent des défaillances telles que des redémarrages de machines et des blocages de processus. Dans de tels cas, le contexte d’exécution du processus s’interrompt abruptement. Ici, aucun nettoyage d’état ne peut être exécuté avant le redémarrage de l’application.
+* Erreurs sans perte de données : ces erreurs simulent des actions sans perte de données telles que des déplacements ou des abandons de réplicas provoqués par l'équilibrage de charge. Le cas échéant, le service reçoit une notification de fermeture et peut nettoyer l’état avant de quitter.
 
 Pour une qualité améliorée de validation, exécutez le service et la charge de travail métier pendant l’introduction des erreurs avec et sans perte de données. Les erreurs avec perte de données enrichissent les scénarios où le service s’interrompt soudainement au milieu d’un flux de travail. Cela permet de tester le chemin de récupération, une fois que le réplica de service est restauré par Service Fabric. Ici, la cohérence des données est examinée, et vous évaluez si l’état du service est stabilisé efficacement après les défaillances. L’autre ensemble de défaillance (erreurs sans perte de données) évalue la réaction du service aux déplacements des réplicas par Service Fabric. Cela permet de tester le traitement de l’annulation dans la méthode RunAsync. Le service doit vérifier le jeton d’annulation défini, enregistrer son état de manière appropriée et quitter la méthode RunAsync.
 
@@ -90,7 +90,7 @@ La capture suivante représente la commande de testabilité **Restart-ServiceFab
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-La sortie de la première commande **Get-ServiceFabricNode** (du module Service Fabric PowerShell) indique que le cluster local comporte cinq nœuds : de Node.1 à Node.5. Après avoir exécuté l’action de testabilité (applet de commande) **Restart-ServiceFabricNode** sur le nœud appelé Node.4, nous constatons que le temps d’activité du nœud a été redéfini.
+La sortie de la première commande **Get-ServiceFabricNode** (cmdlet du module Service Fabric PowerShell) indique que le cluster local comporte cinq nœuds : Node.1 à Node.5. Après avoir exécuté l’action de testabilité (applet de commande) **Restart-ServiceFabricNode** sur le nœud appelé Node.4, nous constatons que le temps d’activité du nœud a été redéfini.
 
 ### <a name="run-an-action-against-an-azure-cluster"></a>Exécuter une action dans un cluster Microsoft Azure
 L’exécution d’une action de testabilité (à l’aide de PowerShell) dans un cluster Azure est similaire à l’exécution de la même action dans un cluster local. Seule différence : avant d’exécuter l’action, au lieu de vous connecter au cluster local, vous devez vous connecter au cluster Azure.
@@ -111,7 +111,7 @@ Explications de paramètres :
 
 Au lieu de spécifier directement le nœud par son nom, vous pouvez effectuer la définition via une clé de partition et le type de réplica.
 
-Pour plus d’informations, consultez la section [Sélecteur de partitions et sélecteur de réplicas](#partition_replica_selector).
+Pour plus d'informations, consultez la section Sélecteur de partitions et sélecteur de réplicas.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll

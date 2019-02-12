@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à N2F - Note de frais | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à N2F - Note de frais | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et N2F - Note de frais.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 27fb299bc3bbbbf75bdf40ae02eac627763ce6d4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d8d3d9c14ee1eaa5e5d6dc3245c0d4071306f12a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007306"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811628"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Didacticiel : Intégration d’Azure Active Directory à N2F - Note de frais
+# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutoriel : Intégration d'Azure Active Directory à N2F - Note de frais
 
 Dans le cadre de ce didacticiel, vous allez apprendre à intégrer N2F - Note de frais à Azure Active Directory (Azure AD).
 
@@ -31,7 +31,7 @@ L’intégration de N2F - Note de frais à Azure AD vous offre les avantages sui
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à N2F - Note de frais (par le biais de l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -87,7 +87,7 @@ Pour configurer et tester l’authentification unique Azure AD avec N2F - Note d
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test N2F - Note de frais](#create-a-n2f---expense-reports-test-use)** pour avoir dans N2F - Note de frais un équivalent de Britta Simon lié à la représentation Azure AD associée.
+3. **Créer un utilisateur de test N2F - Note de frais** pour disposer dans N2F - Note de frais d'un équivalent de Britta Simon qui soit lié à la représentation Azure AD de l'utilisateur.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 

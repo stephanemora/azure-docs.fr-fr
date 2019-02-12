@@ -3,21 +3,21 @@ title: Configurer un modèle d’appareil dans une application Azure IoT Central
 description: Découvrez comment configurer un modèle d’appareil avec des mesures, des paramètres, des propriétés, des règles et un tableau de bord.
 author: viv-liu
 ms.author: viviali
-ms.date: 04/16/2018
+ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a076ee5275a4d053613902a1980542590263385c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034267"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657737"
 ---
 # <a name="set-up-a-device-template"></a>Configurer un modèle d’appareil
 
-Un modèle d’appareil est un blueprint qui définit les caractéristiques et les comportements d’un type d’appareil qui se connecte à une application Microsoft Azure IoT Central.
+Un modèle d’appareil est un blueprint qui définit les caractéristiques et les comportements d’un type d’appareil se connectant à une application Azure IoT Central.
 
 Par exemple, un concepteur peut créer un modèle d’appareil pour un ventilateur connecté à IoT qui a :
 
@@ -40,13 +40,15 @@ Par exemple, un concepteur peut créer un modèle d’appareil pour un ventilate
 > [!NOTE]
 > Seuls les concepteurs et les administrateurs peuvent créer, modifier et supprimer des modèles d’appareils. Tous les utilisateurs peuvent créer des appareils dans la page **Device Explorer** à partir de modèles d’appareils existants.
 
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+
 ## <a name="create-a-device-template"></a>Créer un modèle d’appareil
 
 1. Accédez à la page **Concepteur d’applications**.
 
 2. Pour créer un modèle vierge, sélectionnez **Créer un modèle d’appareil**, puis **Personnalisé**.
 
-3. Attribuez un nom à votre nouveau modèle d’appareil, puis sélectionnez **Créer**.
+3. Attribuez un nom à votre nouveau modèle d’appareil (par exemple, Refrigerator-1), puis sélectionnez **Créer**.
 
    ![Page de détails de l’appareil ayant « Réfrigérateur » comme nom de modèle](./media/howto-set-up-template/devicedetailspage.png)
 
@@ -66,23 +68,31 @@ Les mesures sont les données qui proviennent de votre appareil. Vous pouvez ajo
 Pour ajouter une nouvelle mesure de télémétrie, sélectionnez **Modifier le modèle**, puis cliquez sur le bouton **+ Nouvelle mesure**. Sélectionnez **Télémétrie** comme type de mesure, puis entrez les détails dans le formulaire **Créer une télémétrie**.
 
 > [!NOTE]
-> Quand un appareil réel est connecté, soyez attentif au nom de la mesure signalée par l’appareil. Le nom doit correspondre exactement à l’entrée **Nom du champ** d’une mesure.
+> Les noms de champs du modèle d’appareil doivent correspondre aux noms de propriétés du code d’appareil correspondant, pour que les données de télémétrie soient affichées dans l’application quand un appareil physique y est connecté. Vous devrez faire de même lorsque vous configurerez les paramètres, les propriétés de l’appareil et les commandes dans les sections qui suivent.
 
 Par exemple, vous pouvez ajouter une nouvelle mesure de télémétrie de température :
+| Nom d’affichage        | Nom du champ    |  Units    | Min   |max|
+| --------------------| ------------- |-----------|-------|---|
+| Température         | temp          |  degC     |  0    |100|
 
 ![Formulaire « Créer une télémétrie » contenant des détails sur la mesure de température](./media/howto-set-up-template/measurementsform.png)
 
-Une fois que vous avez sélectionné **Terminé**, la mesure **Température** figure dans la liste des mesures. Un opérateur peut afficher la visualisation des données de température recueillies par l’appareil.
+Une fois que vous avez sélectionné **Terminé**, la mesure **Température** figure dans la liste des mesures. Au bout de quelques instants, vous pouvez voir la visualisation des données de température que l’appareil simulé a générée. La création d’un modèle d’appareil entraîne la génération d’un appareil simulé, qui vous permet de tester le comportement de votre application avant qu’un appareil physique y soit connecté.
+
 
 > [!NOTE]
-  Le type de données de la mesure de télémétrie est « double ».
+  La mesure de télémétrie est représentée par un nombre à virgule flottante.
 
 ### <a name="create-an-event-measurement"></a>Créer une mesure d’événement
 Pour ajouter une nouvelle mesure d’événement, sélectionnez **Modifier le modèle**, puis cliquez sur le bouton **+ Nouvelle mesure**. Sélectionnez **Événement** comme type de mesure, puis entrez les détails dans le formulaire **Créer un événement**.
 
-Indiquez les détails de l’événement dans les champs **Nom d’affichage**, **Nom du champ** et **Gravité**. Vous pouvez choisir parmi les trois niveaux de gravité disponibles : **Erreur**, **Avertissement** et **Information**.  
+Indiquez les détails de l’événement dans les champs **Nom d’affichage**, **Nom du champ** et **Gravité**. Vous pouvez choisir un des trois niveaux de gravité disponibles : **Erreur**, **Avertissement** et **Information**.  
 
 Par exemple, vous pouvez ajouter un nouvel événement **Erreur du moteur du ventilateur**.
+
+| Nom d’affichage        | Nom du champ    |  Gravité par défaut | 
+| --------------------| ------------- |-----------|
+| Erreur du moteur du ventilateur     | fanmotorerror |  Error    | 
 
 ![Formulaire « Créer un événement » contenant des détails sur un événement du moteur du ventilateur](./media/howto-set-up-template/eventmeasurementsform.png)
 
@@ -104,6 +114,11 @@ Indiquez les détails de l’état dans les champs **Nom d’affichage**, **Nom 
 
 Par exemple, vous pouvez ajouter un nouvel état **Mode du ventilateur**, dont les deux valeurs possibles que peut envoyer l’appareil sont **En fonctionnement** et **Arrêté**.
 
+
+| Nom d’affichage | Nom du champ    |  Valeur 1   | Nom d’affichage | Valeur 2    |Nom d’affichage  | 
+| -------------| ------------- |----------- | -------------| -----------| -------------|
+| Mode du ventilateur     | fanmode       |  1         | En fonctionnement    |     0      | Arrêté      |
+
 ![Formulaire « Modifier l’état » contenant des détails sur le mode du ventilateur](./media/howto-set-up-template/statemeasurementsform.png)
 
 Une fois que vous avez sélectionné **Terminé**, la mesure d’état **Mode du ventilateur** figure dans la liste des mesures. L’opérateur peut afficher la visualisation des données d’état envoyées par l’appareil.
@@ -117,42 +132,44 @@ Si l’appareil envoie un trop grand nombre de points de données sur une courte
 
 ## <a name="settings"></a>Paramètres
 
-Les paramètres contrôlent un appareil. Ils permettent aux opérateurs de votre application de fournir des entrées à l’appareil. Vous pouvez ajouter plusieurs paramètres à votre modèle d’appareil qui apparaissent sous forme de vignettes sous l’onglet **Paramètres**, que les opérateurs peuvent utiliser. Vous pouvez ajouter six types de paramètres : nombre, texte, date, bascule, liste de choix et étiquette de section.
-
-> [!NOTE]
-> Quand un appareil réel est connecté, soyez attentif au nom du paramètre signalé par l’appareil. Le nom doit correspondre exactement à l’entrée **Nom du champ** d’un paramètre.
+Les paramètres contrôlent un appareil. Ils permettent aux opérateurs de votre application de fournir des entrées à l’appareil. Vous pouvez ajouter plusieurs paramètres à votre modèle d’appareil qui apparaissent sous forme de vignettes sous l’onglet **Paramètres**, que les opérateurs peuvent utiliser. Vous pouvez ajouter six types de paramètres : nombre, texte, date, bascule, liste de choix et étiquette de section. 
 
 Les paramètres peuvent avoir un parmi trois états. L’appareil signale ces états.
 
-- **Synchronisé** : l’appareil a changé pour refléter la valeur du paramètre.
+- **Synchronisé** : l'appareil a changé pour refléter la valeur du paramètre.
 
-- **En attente** : l’appareil est en train de prendre la valeur du paramètre.
+- **Pending** : l'appareil est en train de prendre la valeur du paramètre.
 
-- **Erreur** : l’appareil a retourné une erreur.
+- **Erreur** : l'appareil a renvoyé une erreur.
 
-Par exemple, vous pouvez ajouter un nouveau paramètre de vitesse du ventilateur en sélectionnant **Modifier le modèle** et en entrant le nouveau paramètre :
+Par exemple, vous pouvez ajouter un nouveau paramètre de vitesse du ventilateur en sélectionnant **Modifier le modèle** et en entrant le nouveau paramètre **Nombre** :
+
+| Nom d’affichage  | Nom du champ    |  Units  | Décimales |Initial|
+| --------------| ------------- |---------| ---------|---- |
+| Vitesse du ventilateur     | fanSpeed      | TR/MIN     | 2        | 0   |
 
 ![Formulaire « Configurer le nombre » contenant des détails sur les paramètres de vitesse](./media/howto-set-up-template/settingsform.png)
 
 Une fois que vous avez sélectionné **Enregistrer**, le paramètre **Vitesse du ventilateur** apparaît sous forme de vignette et peut être utilisé pour changer la vitesse du ventilateur de l’appareil.
 
-Après avoir créé une vignette, vous pouvez essayer votre nouveau paramètre. Tout d’abord, sélectionnez **Terminé** en haut à droite de l’écran.
+Après avoir créé la vignette, sélectionnez **Terminé** en haut à droite de l’écran. Une fois que l’appareil physique est connecté à l’application, la valeur du paramètre passe à Synchronisé.
 
 ![Onglet « Paramètres » avec le commutateur « Mode Conception » pour la vignette](./media/howto-set-up-template/settingstile.png)
 
 ## <a name="properties"></a>properties
 
-Les propriétés sont les métadonnées associées à l’appareil, comme l’emplacement et le numéro de série de l’appareil. Vous pouvez ajouter plusieurs propriétés à votre modèle d’appareil qui apparaissent sous forme de vignettes sous l’onglet **Propriétés**. Un opérateur peut spécifier les valeurs des propriétés quand il crée un appareil et les modifier à tout moment. Vous pouvez ajouter six types de propriété : nombre, texte, date, bascule, propriété d’appareil et étiquette.
+Les propriétés sont les métadonnées associées à l’appareil, comme l’emplacement et le numéro de série de l’appareil. Vous pouvez ajouter plusieurs propriétés à votre modèle d’appareil qui apparaissent sous forme de vignettes sous l’onglet **Propriétés**. Vous pouvez ajouter de nombreux types de propriétés : nombre, texte, date, bascule, propriété d’appareil, étiquette et emplacement. Un opérateur peut spécifier les valeurs des propriétés quand il crée un appareil et les modifier à tout moment. Cependant, les propriétés d’appareil sont en lecture seule. Elles sont envoyées par l’appareil à l’application et ne peuvent pas être modifiées par l’opérateur. Quand l’appareil physique est connecté, la vignette de propriété d’appareil est mise à jour dans l’application. 
 
 Il existe deux catégories de propriété :
 
-- Les propriétés de type **Appareil** qui sont signalées par l’appareil.
-- Les propriétés de type **Application** qui sont stockées seulement dans l’application. L’appareil ne reconnaît pas les propriétés d’application.
+- Les propriétés de type **Appareil**, que l’appareil signale à l’application IoT Central. Ces valeurs en lecture seule sont signalées par l’appareil et actualisées dans l’application quand l’appareil physique est connecté. 
+- Les propriétés de type **Application**, qui sont stockées uniquement dans l’application et qui peuvent être modifiées par l’opérateur. L’appareil ne reconnaît pas les propriétés d’application.
 
-> [!NOTE]
-> Pour les propriétés d’appareil, quand un appareil réel est connecté, soyez attentif au nom de la propriété signalée par l’appareil. Le nom doit correspondre exactement à l’entrée **Nom du champ** de la propriété. Pour les propriétés d’application, le nom du champ est à votre libre choix dès lors qu’il est unique dans le modèle d’appareil.
+Par exemple, vous pouvez ajouter un emplacement d’appareil comme une nouvelle propriété **Texte** (une propriété d’application), en sélectionnant **Modifier le modèle** et en entrant la nouvelle propriété :
 
-Par exemple, vous pouvez ajouter un emplacement d’appareil comme nouvelle propriété en sélectionnant **Modifier le modèle** et en entrant la nouvelle propriété :
+| Nom d’affichage  | Nom du champ | Supprimer les espaces à gauche  | Supprimer les espaces à droite  | Respect de la casse| Longueur mini | Longueur max |
+| --------------| -----------|---------| ---------|---- |----|----|
+| Lieu      | loc        | Off     |  Off     | mixte  | 0 | 100|
 
 ![Formulaire « Configurer le texte » sous l’onglet « Propriétés »](./media/howto-set-up-template/propertiesform.png)
 
@@ -160,14 +177,14 @@ Une fois que vous avez sélectionné **Enregistrer**, l’emplacement de l’app
 
 ![Vignette Emplacement](./media/howto-set-up-template/propertiestile.png)
 
-Après avoir créé une vignette, vous pouvez changer la valeur de la propriété. Tout d’abord, sélectionnez **Terminé** en haut à droite de l’écran.
+Après avoir créé la vignette, vous pouvez modifier la valeur de la propriété d’application. Tout d’abord, sélectionnez **Terminé** en haut à droite de l’écran.
 
 ### <a name="create-a-location-property-through-azure-maps"></a>Créer une propriété d’emplacement via Azure Maps
 Vous pouvez indiquer le contexte géographique des données d’emplacement dans Azure IoT Central et cartographier les coordonnées de latitude et de longitude d’une adresse postale. Vous pouvez aussi simplement cartographier les coordonnées de latitude et de longitude. Azure Maps active cette fonctionnalité dans IoT Central.
 
 Vous pouvez ajouter deux types de propriété d’emplacement :
 - L’**emplacement en tant que propriété d’application**, qui est stockée uniquement dans l’application. L’appareil ne reconnaît pas les propriétés d’application.
-- L’**emplacement en tant que propriété d’appareil**, qui est signalée par l’appareil.
+- L’**emplacement en tant que propriété d’appareil**, qui est signalée par l’appareil à l’application.
 
 #### <a name="add-location-as-an-application-property"></a>Ajouter un emplacement en tant que propriété d’application 
 Vous pouvez créer une propriété d’emplacement sous forme de propriété d’application en utilisant Azure Maps dans votre application Azure IoT Central. Par exemple, vous pouvez ajouter l’adresse d’installation de l’appareil. 
@@ -178,6 +195,10 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
 
 2. Dans la bibliothèque, sélectionnez **Emplacement**.
 3. Configurez les champs **Nom d’affichage**, **Nom du champ** et éventuellement **Valeur initiale** pour l’emplacement. 
+
+    | Nom d’affichage  | Nom du champ | Valeur initiale |
+    | --------------| -----------|---------| 
+    | Adresse de l’installation | insta_address | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
    ![Formulaire « Configurer l’emplacement » contenant les détails de l’emplacement](./media/howto-set-up-template/locationcloudproperty2.png)
 
@@ -198,12 +219,16 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
 2. Cliquez **Propriété de l’appareil** dans la bibliothèque.
 3. Configurez le nom d’affichage et le nom du champ, puis sélectionnez **Emplacement** comme type de données. 
 
+    | Nom d’affichage  | Nom du champ | Type de données |
+    | --------------| -----------|-----------| 
+    | Emplacement de l’appareil | deviceLoc| location  |
+
    > [!NOTE]
-   > Le nom du champ doit correspondre exactement au nom de la propriété signalée par l’appareil. 
+   > Les noms de champs doivent correspondre aux noms de propriétés situés dans le code d’appareil correspondant.
 
    ![Formulaire « Configurer les propriétés de l’appareil » contenant les détails de l’emplacement](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Maintenant que vous avez configuré votre propriété d’emplacement, vous pouvez [ajouter une carte pour visualiser l’emplacement dans le tableau de bord de l’appareil](#add-an-azure-maps-location-in-the-dashboard).
+Une fois que l’appareil physique est connecté, l’emplacement que vous avez ajouté en tant que propriété d’appareil est mis à jour avec la valeur envoyée par l’appareil. L’adresse d’installation, c’est-à-dire l’emplacement que vous avez ajouté en tant que propriété d’application, est une vignette modifiable. Maintenant que vous avez configuré votre propriété d’emplacement, vous pouvez [ajouter une carte pour visualiser l’emplacement dans le tableau de bord de l’appareil](#add-an-azure-maps-location-in-the-dashboard).
 
 ## <a name="commands"></a>Commandes
 
@@ -211,19 +236,21 @@ Les commandes permettent de gérer un appareil à distance. Cela permet aux opé
 
 En quoi une commande est-elle différente d’un paramètre ? 
 
-* **Paramètre** : un paramètre est une configuration que vous souhaitez appliquer à un appareil et que celui-ci doit conserver jusqu’à ce que vous décidiez de le modifier. Par exemple, vous pouvez définir la température de votre congélateur et faire en sorte que ce réglage reste actif même quand le congélateur redémarre. 
+* **Paramètre** : un paramètre est une configuration que vous appliquez à un appareil, et que celui-ci doit conserver jusqu'à ce que vous décidiez de le modifier. Par exemple, vous pouvez définir la température de votre congélateur et faire en sorte que ce réglage reste actif même quand le congélateur redémarre. 
 
-* **Commande** : les commandes vous permettent d’exécuter instantanément une commande sur l’appareil à distance à partir d’IoT Central. Si aucun appareil n’est connecté, la commande expire et échoue. Tel peut être le cas si vous souhaitez redémarrer un appareil.  
+* **Commande** : les commandes vous permettent d'exécuter instantanément une commande sur l'appareil à distance à partir d'IoT Central. Si aucun appareil n’est connecté, la commande expire et échoue. Tel peut être le cas si vous souhaitez redémarrer un appareil.  
 
-Quand vous exécutez une commande, vous pouvez obtenir trois états différents, selon que l’appareil a reçu la commande ou non.
 
 Par exemple, vous pouvez ajouter une nouvelle commande **Echo** en sélectionnant **Modifier le modèle**, en cliquant sur **+ Nouvelle commande**, puis en entrant la nouvelle commande :
 
+| Nom d’affichage  | Nom du champ | Délai d’expiration par défaut | Type de données |
+| --------------| -----------|---------------- | --------- | 
+| Commande echo  | echo       |  30             | texte      |
+
 ![Formulaire « Configurer la commande » contenant les détails de l’écho](./media/howto-set-up-template/commandsecho.png)
 
-Une fois que vous avez sélectionné **Enregistrer** et **Terminé**, la commande **Echo** s’affiche sous forme de vignette et est prête à être utilisée pour envoyer un écho à l’appareil.
+Une fois que vous avez sélectionné **Enregistrer** et **Terminé**, la commande **Echo** s’affiche sous forme de vignette, et peut être utilisée pour envoyer un écho à l’appareil physique, une fois celui-ci connecté. Pour que les commandes puissent être exécutées correctement, les noms de champs doivent correspondre aux noms de propriétés situés dans le code d’appareil correspondant.
 
-Après avoir créé une vignette, vous pouvez essayer votre nouvelle commande.
 
 ## <a name="rules"></a>Règles
 
@@ -233,7 +260,7 @@ Les règles permettent aux opérateurs de surveiller des appareils quasi en temp
 
 ## <a name="dashboard"></a>tableau de bord
 
-Le tableau de bord est l’endroit où un opérateur peut accéder à des informations sur un appareil. Comme concepteur, vous pouvez ajouter des vignettes à cette page pour aider les opérateurs à comprendre comment l’appareil se comporte. Vous pouvez ajouter plusieurs vignettes de tableau de bord à votre modèle d’appareil. Vous pouvez ajouter six types de vignette de tableau de bord : image, graphique en courbes, graphique à barres, indicateur de performance clé (KPI), paramètres et propriétés, puis étiquette.
+Le tableau de bord est l’endroit où un opérateur peut accéder à des informations sur un appareil. Comme concepteur, vous pouvez ajouter des vignettes à cette page pour aider les opérateurs à comprendre comment l’appareil se comporte. Vous pouvez ajouter plusieurs vignettes de tableau de bord à votre modèle d’appareil. Vous pouvez ajouter de nombreux types de vignettes de tableau de bord : image, graphique en courbes, graphique à barres, indicateur de performance clé (KPI), paramètre, propriété et étiquette.
 
 Par exemple, vous pouvez ajouter une vignette **Paramètres et propriétés** pour montrer une sélection des valeurs actuelles de paramètres et de propriétés en sélectionnant **Modifier le modèle** et la vignette dans la bibliothèque :
 
@@ -252,7 +279,7 @@ Si vous avez configuré une propriété d’emplacement précédemment dans la s
    ![Onglet « Tableau de bord » avec le mode Conception activé](./media/howto-set-up-template/locationcloudproperty4map.png)
 
 2. Dans le tableau de l’appareil, sélectionnez **Carte** dans la bibliothèque. 
-3. Donnez-lui un titre et choisissez la propriété d’emplacement que vous avez configurée dans les propriétés de votre appareil.
+3. Donnez-lui un titre. L’exemple ci-dessous a pour titre Installation Location (Emplacement d’installation). Choisissez la propriété d’emplacement que vous avez précédemment configurée sous l’onglet Propriétés. Dans l’exemple ci-dessous, **Installation address** (Adresse d’installation) est sélectionné.
 
    ![Formulaire « Configurer la carte » contenant les détails de la vignette et les propriétés](./media/howto-set-up-template/locationcloudproperty5map.png)
 

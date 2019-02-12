@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2a366a9030104c885adb1a4f773de04cdc439044
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099730"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694633"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Diffuser en continu des données en tant qu’entrées dans Stream Analytics
 
@@ -26,7 +26,7 @@ Stream Analytics possède une intégration de première classe avec des flux de 
 Ces ressources d’entrée peuvent résider dans le même abonnement Azure que votre travail Stream Analytics ou un autre abonnement.
 
 ### <a name="compression"></a>Compression
-Stream Analytics prend en charge la compression pour toutes les sources d’entrée de flux de données. Les types de référence actuellement pris en charge sont : Aucun, GZip et Compression Deflate. La prise en charge de la compression n’est pas disponible pour les données de référence. Si le format d’entrée est des données Avro compressées, celles-ci sont gérées de façon transparente. Vous n’avez pas besoin de spécifier le type de compression avec la sérialisation Avro. 
+Stream Analytics prend en charge la compression pour toutes les sources d’entrée de flux de données. Les types de compression actuellement pris en charge sont les suivants : Aucun, GZip et Compression Deflate. La prise en charge de la compression n’est pas disponible pour les données de référence. Si le format d’entrée est des données Avro compressées, celles-ci sont gérées de façon transparente. Vous n’avez pas besoin de spécifier le type de compression avec la sérialisation Avro. 
 
 ## <a name="create-edit-or-test-inputs"></a>Créer, modifier ou tester les entrées
 Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour [créer des entrées](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) et afficher ou modifier des entrées existantes de votre travail de diffusion en continu. Vous pouvez également tester les connexions d’entrée et [tester les requêtes](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) à partir d’exemples de données. Lorsque vous écrivez une requête, vous répertoriez l’entrée dans la clause FROM. Vous pouvez obtenir la liste des entrées disponibles à partir de la page **Requête** du portail. Si vous souhaitez utiliser plusieurs entrées, vous pouvez les `JOIN` ou écrire plusieurs requêtes `SELECT`.
@@ -75,7 +75,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> Lorsque vous utilisez le concentrateur d’événements comme un point de terminaison pour les itinéraires IoT Hub, vous pouvez accéder à la métadonnée IoT Hub en utilisant la [fonction GetMetadataPropertyValue](https://msdn.microsoft.com/library/azure/mt793845.aspx).
+> Lorsque vous utilisez Event Hub comme point de terminaison pour les itinéraires IoT Hub, vous pouvez accéder aux métadonnées IoT Hub via la [fonction GetMetadataPropertyValue](https://msdn.microsoft.com/library/azure/mt793845.aspx).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Diffuser en continu des données depuis IoT Hub
@@ -171,7 +171,7 @@ FROM Input
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md)
+> [Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

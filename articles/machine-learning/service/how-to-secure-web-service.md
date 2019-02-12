@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 10/02/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c82c39de9b403e2e35f40c0290c8642c702790f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248059"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769319"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Utiliser SSL pour sécuriser des services web avec Azure Machine Learning service
 
@@ -103,5 +103,6 @@ Vous devez ensuite mettre à jour votre DNS afin qu’il pointe vers le service 
 L'utilisation de SSL avec services déployés sur FPGA n’est actuellement pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Découvrez comment [utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md).
+Découvrez comment :
++ [Utiliser un modèle Machine Learning déployé en tant que service web](how-to-consume-web-service.md)
++ [Exécuter en toute sécurité des expériences et des inférences à l'intérieur d'un réseau virtuel Azure](how-to-enable-virtual-network.md)

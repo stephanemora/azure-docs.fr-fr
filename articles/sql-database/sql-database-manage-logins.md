@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7cb2e4214e868bdf9f585d6b0f4468a6c8375191
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 81ec99c5de94736d68392cc7cf0bc3e305e0ce7d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459229"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754011"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Contrôle et autorisation d’accès aux bases de données SQL Database et SQL Data Warehouse
 
@@ -49,13 +49,13 @@ Les comptes d’**administrateur de serveur** et d’**administrateur Azure AD**
 - Ces comptes accèdent aux bases de données utilisateur en tant qu’`dbo` utilisateur et possèdent toutes les autorisations dans les bases de données utilisateur. (Le propriétaire d’une base de données utilisateur accède également à la base de données en tant qu’utilisateur `dbo`.) 
 - Ces comptes n’ont pas accès à la base de données `master` en tant qu’utilisateur `dbo` et ils ont des autorisations limitées dans MASTER. 
 - Ces comptes **ne sont pas** membres du rôle serveur fixe SQL standard `sysadmin`, qui n’est pas disponible dans la base de données SQL.  
-- Ces comptes peuvent créer, modifier et supprimer des bases de données, des connexions, des utilisateurs de MASTER et des règles de pare-feu au niveau du serveur.
+- Ces comptes peuvent créer, modifier et supprimer des bases de données, des connexions, des utilisateurs de MASTER et des règles de pare-feu IP au niveau du serveur.
 - Ces comptes peuvent ajouter et supprimer des membres aux rôles `dbmanager` et `loginmanager`.
 - Ces comptes peuvent afficher la table système `sys.sql_logins`.
 
 ### <a name="configuring-the-firewall"></a>Configuration du pare-feu
 
-Quand le pare-feu au niveau du serveur est configuré pour une plage d’adresses IP ou une adresse IP individuelle, l’**administrateur de serveur SQL** et l’**administrateur Azure Active Directory** peuvent se connecter à la base de données MASTER et à toutes les bases de données utilisateur. Le pare-feu au niveau du serveur initial peut être configuré via le [portail Azure](sql-database-get-started-portal.md), à l’aide de [PowerShell](sql-database-powershell-samples.md) ou de [l’API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Une fois la connexion établie, les règles supplémentaires de pare-feu au niveau du serveur peuvent également être configurées à l’aide de [Transact-SQL](sql-database-configure-firewall-settings.md).
+Quand le pare-feu au niveau du serveur est configuré pour une plage d’adresses IP ou une adresse IP individuelle, l’**administrateur de serveur SQL** et l’**administrateur Azure Active Directory** peuvent se connecter à la base de données MASTER et à toutes les bases de données utilisateur. Le pare-feu au niveau du serveur initial peut être configuré via le [portail Azure](sql-database-single-database-get-started.md), à l’aide de [PowerShell](sql-database-powershell-samples.md) ou de [l’API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Une fois la connexion établie, des règles supplémentaires de pare-feu IP au niveau du serveur peuvent également être configurées à l'aide de [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Chemin d’accès administrateur
 
@@ -67,7 +67,7 @@ Lorsque vous utilisez un port ouvert dans le pare-feu au niveau du serveur, les 
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Connexion à la base de données à l’aide de SQL Server Management Studio
 
-Pour une procédure détaillée sur la création d’un serveur, d’une base de données, de règles de pare-feu au niveau du serveur et sur l’utilisation de SQL Server Management Studio pour interroger une base de données, consultez [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio (Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio)](sql-database-get-started-portal.md).
+Pour savoir comment créer un serveur, une base de données, des règles de pare-feu IP au niveau du serveur et utiliser SQL Server Management Studio pour interroger une base de données, consultez [Prise en main des serveurs, des bases de données et des règles de pare-feu Azure SQL Database à l'aide du portail Azure et de SQL Server Management Studio](sql-database-single-database-get-started.md).
 
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).

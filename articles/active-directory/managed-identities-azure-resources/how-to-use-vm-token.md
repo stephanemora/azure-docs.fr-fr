@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
-ms.openlocfilehash: b7ccdcf1cb1e75ab9a8113adc05b02196a0a2023
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: eebc19f5bd14e835b8174695b2d0d87fe8ddc4bc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166575"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822049"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 
@@ -55,7 +55,7 @@ Une application cliente peut demander un [jeton d’accès pour l’application 
 | [Obtenir un jeton par Go](#get-a-token-using-go) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client Go |
 | [Obtenir un jeton par Azure PowerShell](#get-a-token-using-azure-powershell) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client PowerShell |
 | [Obtenir un jeton par CURL](#get-a-token-using-curl) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client Bash/CURL |
-| [Gestion de la mise en cache des jetons](#handling-token-caching) | Conseils pour la gestion des jetons d’accès expirés |
+| Gestion de la mise en cache des jetons | Conseils pour la gestion des jetons d’accès expirés |
 | [Gestion des erreurs](#error-handling) | Conseils pour la gestion des erreurs HTTP retournées par le point de terminaison de jeton d’identités managées pour ressources Azure |
 | [ID de ressource pour les services Azure](#resource-ids-for-azure-services) | Où obtenir les ID de ressource pour les services Azure pris en charge |
 
@@ -373,14 +373,14 @@ Cette section documente les réponses possibles aux erreurs. Un état « 200 OK 
 | Code d’état | Error | Description de l’erreur | Solution |
 | ----------- | ----- | ----------------- | -------- |
 | 400 Demande incorrecte | invalid_resource | AADSTS50001 : L’application nommée *\<URI\>* est introuvable dans le tenant nommé *\<TENANT-ID\>*. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.\ | (Linux uniquement) |
-| 400 Demande incorrecte | bad_request_102 | En-tête de métadonnées requis non spécifié | Le champ d’en-tête de métadonnées `Metadata` est absent de votre requête, ou bien il n’est pas correctement formaté. La valeur spécifiée doit être `true`, en minuscules. Consultez « Exemple de requête » dans la [section REST précédente](#rest) pour avoir un exemple.|
-| 401 Non autorisé | unknown_source | *\<URI\>* de source inconnue | Vérifiez que votre URI de requête HTTP GET est correctement mise en forme. La partie `scheme:host/resource-path` doit être spécifiée comme `http://localhost:50342/oauth2/token`. Consultez « Exemple de requête » dans la [section REST précédente](#rest) pour avoir un exemple.|
+| 400 Demande incorrecte | bad_request_102 | En-tête de métadonnées requis non spécifié | Le champ d’en-tête de métadonnées `Metadata` est absent de votre requête, ou bien il n’est pas correctement formaté. La valeur spécifiée doit être `true`, en minuscules. Un « Exemple de requête » est disponible à la section REST précédente.|
+| 401 Non autorisé | unknown_source | *\<URI\>* de source inconnue | Vérifiez que votre URI de requête HTTP GET est correctement mise en forme. La partie `scheme:host/resource-path` doit être spécifiée comme `http://localhost:50342/oauth2/token`. Un « Exemple de requête » est disponible à la section REST précédente.|
 |           | invalid_request | Il manque un paramètre nécessaire à la requête, elle comprend une valeur de paramètre non valide, plus d’un paramètre à la fois, ou bien elle est incorrecte. |  |
 |           | unauthorized_client | Le client n’est pas autorisé à demander un jeton d’accès avec cette méthode. | Occasionné par une demande n’ayant pas utilisé de bouclage local pour appeler l’extension, ou sur une machine virtuelle dont les identités managées pour ressources Azure ne sont pas correctement configurées. Si vous avez besoin d’aide pour configurer une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md). |
 |           | access_denied | Le propriétaire de la ressource ou le serveur d’autorisation a refusé la requête. |  |
 |           | unsupported_response_type | Le serveur d’autorisation ne prend pas en charge l’obtention d’un jeton d’accès par cette méthode. |  |
 |           | invalid_scope | L’étendue demandée est incorrecte, inconnue ou non valide. |  |
-| Erreur interne 500 du serveur | unknown | Impossible de récupérer le jeton depuis Active Directory. Pour plus d’informations, consultez les journaux dans *\<Chemin d’accès de fichier\>* | Vérifiez que les identités managées pour ressources Azure ont été activées sur la machine virtuelle. Si vous avez besoin d’aide pour configurer une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md).<br><br>Vérifiez également que votre URI de requête HTTP GET est correctement mise en forme, en particulier l’URI de la ressource spécifiée dans la chaîne de requête. Consultez « l’exemple de demande » dans la [section REST précédente](#rest) pour obtenir un exemple, ou les [services Azure prenant en charge l’authentification Azure AD](services-support-msi.md) pour obtenir une liste des services et leur ID de ressource respectif.
+| Erreur interne 500 du serveur | unknown | Impossible de récupérer le jeton depuis Active Directory. Pour plus d’informations, consultez les journaux dans *\<Chemin d’accès de fichier\>* | Vérifiez que les identités managées pour ressources Azure ont été activées sur la machine virtuelle. Si vous avez besoin d’aide pour configurer une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md).<br><br>Vérifiez également que votre URI de requête HTTP GET est correctement mise en forme, en particulier l’URI de la ressource spécifiée dans la chaîne de requête. Un « Exemple de requête » est disponible à la section REST précédente. Pour obtenir la liste des services et leur ID de ressource respectif, consultez [Services Azure prenant en charge l'authentification Azure AD](services-support-msi.md).
 
 ## <a name="retry-guidance"></a>Conseils sur les nouvelles tentatives 
 

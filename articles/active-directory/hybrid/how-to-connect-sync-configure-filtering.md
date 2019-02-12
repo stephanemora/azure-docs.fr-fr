@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 28f35fd1098e055b22dada703cd7e68de591eea7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6198d16b25330fb02cf5642addba0093ec437cab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192619"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811484"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronisation d’Azure AD Connect : Configurer le filtrage
 L’utilisation du filtrage vous permet de contrôler les objets de votre annuaire local qui doivent apparaître dans Azure Active Directory (Azure AD). La configuration par défaut concerne l’ensemble des objets présents dans tous les domaines des forêts configurées. En général, il s’agit de la configuration recommandée. Les utilisateurs qui utilisent les charges de travail Office 365, telles qu’Exchange Online et Skype Entreprise, peuvent tirer parti d’une liste d’adresses globale complète pour envoyer des courriers électroniques et appeler tout le monde. La configuration par défaut leur offre la même expérience qu’une implémentation locale d’Exchange ou de Lync.
@@ -93,8 +93,8 @@ Vous ne devez suivre ces étapes que si vous ne parvenez pas à exécuter l’As
 
 Configuration de filtrage basé sur un domaine se compose des étapes suivantes :
 
-1. [Sélectionnez les domaines](#select-domains-to-be-synchronized) que vous souhaitez inclure dans la synchronisation.
-2. Pour chaque domaine ajouté et supprimé, réglez les [profils d’exécution](#update-run-profiles).
+1. Sélectionnez les domaines que vous souhaitez inclure dans la synchronisation.
+2. Pour chaque domaine ajouté et supprimé, ajustez les profils d'exécution.
 3. [Appliquer et vérifier les modifications](#apply-and-verify-changes)
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Sélectionner les domaines à synchroniser
@@ -110,7 +110,7 @@ Pour définir le filtre de domaine, procédez comme suit :
    Si vous avez modifié votre infrastructure Active Directory locale et ajouté ou supprimé des domaines dans la forêt, cliquez sur le bouton **Actualiser** pour obtenir une liste mise à jour. Lorsque vous actualisez les données, des informations d’identification vous sont demandées. Fournissez des informations d’identification disposant d’un accès en lecture à Windows Server Active Directory. Il ne s’agit pas nécessairement de l’utilisateur déjà renseigné dans la boîte de dialogue.  
    ![Actualisation requise](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Quand vous avez terminé, fermez la boîte de dialogue **Propriétés** en cliquant sur **OK**. Si vous avez supprimé des domaines de la forêt, un message contextuel vous indique qu’un domaine a été supprimé et que la configuration va être nettoyée.
-7. Continuez à ajuster les [profils d’exécution](#update-run-profiles).
+7. Continuez à ajuster les profils d'exécution.
 
 ### <a name="update-the-run-profiles"></a>Mettre à jour les profils d’exécution
 Si vous avez mis à jour votre filtre de domaine, vous devez également procéder à la mise à jour des profils d’exécution.

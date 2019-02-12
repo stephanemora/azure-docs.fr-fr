@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: d8140966f3ba8674938a4e21b0990371390d3516
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 8a711596140340b5e6e69d04959abfef36332869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070926"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813787"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows affiche « CRITICAL SERVICE FAILED » sur écran bleu lors du démarrage d’une machine virtuelle Azure
 Cet article décrit l’erreur « CRITICAL SERVICE FAILED » que vous pouvez rencontrer lorsque vous démarrez une machine virtuelle Windows dans Microsoft Azure. Il fournit des étapes de dépannage pour vous aider à résoudre les problèmes. 
 
 > [!NOTE] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement Resource Manager que nous recommandons pour les nouveaux déploiements à la place du modèle de déploiement classique.
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement Resource Manager que nous recommandons pour les nouveaux déploiements à la place du modèle de déploiement classique.
 
 ## <a name="symptom"></a>Symptôme 
 
 Une machine virtuelle Windows ne démarre pas. Quand vous vérifiez les captures d’écran de démarrage de la fenêtre [Diagnostics de démarrage](./boot-diagnostics.md), vous voyez l’un des messages d’erreur suivants sur un écran bleu :
 
-- « Votre PC a rencontré un problème et doit redémarrer. Vous pouvez le redémarrer. Pour plus d’informations sur ce problème et les solutions possibles, visitez http://windows.com/stopcode. Si vous appelez une personne du support technique, donnez-lui cette information : code d’arrêt : CRITICAL SERVICE FAILED » 
-- « Votre PC a rencontré un problème et doit redémarrer. Nous collectons simplement quelques informations sur l’erreur, puis nous vous aiderons à redémarrer. Si vous souhaitez en savoir plus, vous pouvez ultérieurement rechercher en ligne cette erreur : CRITICAL_SERVICE_FAILED »
+- « Votre PC a rencontré un problème et doit redémarrer. Vous pouvez le redémarrer. Pour plus d’informations sur ce problème et les solutions possibles, visitez http://windows.com/stopcode. Si vous appelez un agent du support technique, fournissez-lui l'information suivante : Code d'arrêt : ÉCHEC DU SERVICE CRITIQUE » 
+- « Votre PC a rencontré un problème et doit redémarrer. Nous collectons simplement quelques informations sur l’erreur, puis nous vous aiderons à redémarrer. Si vous souhaitez en savoir plus, vous pourrez ultérieurement rechercher cette erreur en ligne : CRITICAL_SERVICE_FAILED »
 
 ## <a name="cause"></a>Cause :
 
@@ -93,7 +93,7 @@ Pour activer les journaux de vidage et la console série, exécutez le script su
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Détachez le disque du système d’exploitation et rattachez-le à la machine virtuelle affectée](troubleshoot-recovery-disks-portal-windows.md). La machine virtuelle démarre en mode sans échec. Si l’erreur persiste, passez à l’[étape facultative](#optional-analysis-the-dump-logs-in-boot-debug-mode).
+2. [Détachez le disque du système d’exploitation et rattachez-le à la machine virtuelle affectée](troubleshoot-recovery-disks-portal-windows.md). La machine virtuelle démarre en mode sans échec. Si l'erreur persiste, passez à l'étape facultative.
 3. Ouvrez la zone **Exécuter** et exécutez le **vérificateur** pour démarrer l’outil Driver Verifier Manager.
 4. Sélectionnez **Sélectionner automatiquement les pilotes non signés**, puis cliquez sur **suivant**.
 5. Vous obtiendrez la liste des fichiers du pilote qui ne sont pas signés. N’oubliez pas les noms des fichiers.
@@ -104,7 +104,7 @@ Pour activer les journaux de vidage et la console série, exécutez le script su
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  Redémarrez la machine virtuelle. 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Facultatif : analyser les journaux de vidage en mode Dump Crash
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Facultatif : Analyser les journaux de vidage en mode Vidage sur incident
 
 Pour analyser vous-même les journaux de vidage, procédez comme suit :
 
@@ -138,7 +138,7 @@ Pour analyser vous-même les journaux de vidage, procédez comme suit :
 9. [Détachez le disque du système d’exploitation et rattachez-le à la machine virtuelle affectée](troubleshoot-recovery-disks-portal-windows.md).
 10. Démarrez la machine virtuelle pour voir si elle affiche l’analyse de vidage. Recherchez le fichier qui ne peut pas être chargé. Vous devez remplacer ce fichier par un fichier de la machine virtuelle qui fonctionne. 
 
-    Voici un exemple d’analyse de vidage. Vous pouvez voir que **FAILURE** se trouve sur filecrypt.sys : « FAILURE_BUCKET_ID : 0x5A_c0000428_IMAGE_filecrypt.sys ».
+    Voici un exemple d’analyse de vidage. Vous pouvez constater que l'échec (**FAILURE**) figure dans le fichier filecrypt.sys : « FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys ».
 
     ```
     kd> !analyze -v 

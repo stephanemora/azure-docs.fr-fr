@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826477"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816320"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Utilisation d’Azure DNS pour les domaines privés
 
@@ -32,7 +32,7 @@ Azure DNS offre les avantages suivants :
 
 * **Évite d’avoir à utiliser des solutions DNS personnalisées**. Auparavant, un grand nombre de clients devaient créer des solutions DNS personnalisées pour gérer les zones DNS dans leur réseau virtuel. Vous pouvez désormais gérer les zones DNS à l’aide de l’infrastructure native d’Azure, ce qui supprime la lourde tâche de créer et gérer des solutions DNS personnalisées.
 
-* **Prise en charge de tous les types d’enregistrements DNS courants**. Azure DNS prend en charge les enregistrements A, AAAA, CNAME, MX, NS, PTR, SOA, SRV et TXT.
+* **Prise en charge de tous les types d’enregistrements DNS courants**. Azure DNS prend en charge les enregistrements A, AAAA, CNAME, MX, PTR, SOA, SRV et TXT.
 
 * **Gestion automatique des enregistrements de noms d’hôte**. En plus d’héberger vos enregistrements DNS personnalisés, Azure gère automatiquement les enregistrements de noms d’hôte pour les machines virtuelles dans les réseaux virtuels spécifiés. Dans ce scénario, vous pouvez optimiser les noms de domaine que vous utilisez sans avoir à créer de solutions DNS personnalisées ni modifier les applications.
 

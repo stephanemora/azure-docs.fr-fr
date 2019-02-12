@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 4df96d0c3d1ec9cb64f2394fb97d46178906d916
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b1fc52ac46a6cdb73b9210833e437765398781ef
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434815"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819125"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gérer des clusters HDInsight avec le pack Sécurité Entreprise
 Découvrez les utilisateurs et les rôles du pack Sécurité Entreprise (ESP) HDInsight et apprenez à gérer des clusters ESP.
@@ -215,7 +215,7 @@ Le pack Sécurité Entreprise HDInsight contient les rôles suivants :
 6. Cliquez sur **Add User** (Ajouter un utilisateur) ou **Add Group** (Ajouter un groupe), puis spécifiez les utilisateurs ou les groupes que peuvent utiliser les affichages Hive.
 
 ## <a name="configure-users-for-the-roles"></a>Configuration des utilisateurs pour les rôles
- Pour afficher la liste des rôles et leurs autorisations, consultez [Rôles des clusters HDInsight avec ESP](#roles-of-domain---joined-hdinsight-clusters).
+ Pour afficher la liste des rôles et de leurs autorisations, consultez Rôles des clusters HDInsight avec ESP.
 
 1. Ouvrez l’interface utilisateur de gestion Ambari.  Reportez-vous à [Ouverture de l’interface utilisateur de gestion Ambari](#open-the-ambari-management-ui).
 2. Dans le menu de gauche, cliquez sur **Rôles**.

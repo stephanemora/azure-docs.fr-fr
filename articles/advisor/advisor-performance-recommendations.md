@@ -1,26 +1,21 @@
 ---
-title: Recommandations Azure Advisor en matière de performances | Microsoft Docs
+title: Améliorer les performances des applications Azure avec Azure Advisor | Microsoft Docs
 description: Utilisez Advisor pour optimiser les performances de vos déploiements Azure.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266743"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491577"
 ---
-# <a name="advisor-performance-recommendations"></a>Recommandations Azure Advisor en matière de performances
+# <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Améliorer les performances des applications Azure avec Azure Advisor
 
 Les recommandations d’Azure Advisor en matière de performances vous aident à optimiser la vitesse et la réactivité de vos applications stratégiques. Vous pouvez obtenir des recommandations en matière de performances à l’aide d’Advisor dans l’onglet **Performances** du tableau de bord d’Advisor.
 
@@ -49,7 +44,7 @@ Pour plus d’informations sur les recommandations App Services, consultez [Meil
 
 ## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Utiliser Managed Disks pour éviter la limitation des E/S de disque
 
-Advisor identifie les machines virtuelles appartenant à un compte de stockage qui atteint sa cible de scalabilité. C’est un état qui le rend sensible à la limitation des E/S. Advisor recommande l’utilisation par ces machines virtuelles de Managed Disks, afin d’éviter une altération des performances.
+Advisor identifie les machines virtuelles appartenant à un compte de stockage qui atteint sa cible de scalabilité. Cette condition rend les machines virtuelles sensibles à la limitation des E/S. Advisor recommande l'utilisation de Managed Disks pour prévenir toute détérioration des performances.
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Améliorer les performances et la fiabilité des disques de machine virtuelle en utilisant le stockage Premium
 
@@ -63,11 +58,11 @@ L’asymétrie des données peut provoquer des déplacement des données ou des 
 
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Créer ou mettre à jour les statistiques de table obsolètes sur votre table d’entrepôt de données SQL pour augmenter les performances de requête
 
-Advisor identifie les tables qui n’ont pas de [statistiques de table](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) à jour et recommande la création ou mise à jour des statistiques de table. L’optimiseur de requête d’entrepôt de données SQL utilise des statiques à jour pour estimer la cardinalité ou le nombre de lignes dans le résultat de requête qui permet à l’optimiseur de requête de créer un plan de requête de haute qualité pour de meilleures performances.
+Advisor identifie les tables qui n’ont pas de [statistiques de table](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) à jour et recommande la création ou mise à jour des statistiques de table. L'optimiseur de requête de SQL Data Warehouse utilise des statiques à jour pour estimer la cardinalité ou le nombre de lignes du résultat de la requête, ce qui permet à l'optimiseur de requête de créer un plan de requête de haute qualité pour des performances optimales.
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Effectuer un scale-up pour optimiser l’utilisation du cache sur vos tables SQL Data Warehouse et ainsi améliorer les performances de requête
 
-Azure Advisor détecte si votre instance SQL Data Warehouse enregistre un pourcentage élevé d’utilisation du cache avec un faible pourcentage d’accès. Cet état indique une éviction élevée du cache, ce qui peut avoir une incidence sur les performances de votre instance SQL Data Warehouse. Advisor suggère d’effectuer un scale-up de votre instance SQL Data Warehouse, pour garantir l’allocation d’une capacité suffisante du cache pour votre charge de travail.
+Azure Advisor détecte si votre instance SQL Data Warehouse enregistre un pourcentage élevé d’utilisation du cache avec un faible pourcentage d’accès. Cette condition indique une éviction élevée du cache, ce qui peut avoir une incidence sur les performances de votre instance SQL Data Warehouse. Advisor suggère d’effectuer un scale-up de votre instance SQL Data Warehouse, pour garantir l’allocation d’une capacité suffisante du cache pour votre charge de travail.
 
 ## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Convertir les tables SQL Data Warehouse en tables répliquées pour augmenter les performances de requête
 
@@ -75,10 +70,10 @@ Advisor identifie les tables qui ne sont pas des tables répliquées, mais qui p
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrer votre compte de stockage vers Azure Resource Manager pour obtenir toutes les dernières fonctionnalités Azure
 
-Migrez le modèle de déploiement de votre compte de stockage vers Azure Resource Manager (ARM) pour tirer parti des déploiements de modèles, d’options de sécurité supplémentaires, et de la possibilité de mettre à niveau votre compte vers GPv2 pour bénéficier des dernières fonctionnalités de Stockage Azure. Advisor identifie les comptes de stockage autonomes utilisant le modèle de déploiement classique et recommande une migration vers le modèle de déploiement ARM.
+Migrez le modèle de déploiement de votre compte de stockage vers Azure Resource Manager (Resource Manager) afin de tirer parti des déploiements de modèles, d'options de sécurité supplémentaires et de la possibilité de mettre à niveau votre compte vers GPv2 pour bénéficier des dernières fonctionnalités de Stockage Azure. Advisor identifie les comptes de stockage autonomes qui utilisent le modèle de déploiement classique et recommande une migration vers le modèle de déploiement Resource Manager.
 
 > [!NOTE]
-> Les alertes classiques d'Azure Monitor seront mises hors service en juin 2019. Il vous est conseillé de procéder à la mise à niveau de votre compte de stockage classique vers ARM pour conserver la fonctionnalité d’alerte avec la nouvelle plateforme. Pour plus d’informations, consultez [Suppression des alertes classiques](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+> Les alertes classiques d'Azure Monitor seront mises hors service en juin 2019. Nous vous recommandons de mettre à niveau votre compte de stockage classique pour utiliser Resource Manager afin de conserver la fonctionnalité d'alerte sur la nouvelle plateforme. Pour plus d’informations, consultez [Suppression des alertes classiques](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans le conseiller
 

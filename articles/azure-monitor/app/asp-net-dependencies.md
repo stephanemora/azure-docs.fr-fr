@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d86df171de807c23aad6dd2cb8e2128098dede81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119983"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812450"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurer Application Insights : Suivi des dépendances
 Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mesure combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue. Vous pouvez examiner des appels spécifiques et les associer à des demandes et des exceptions.
@@ -52,7 +52,7 @@ Les informations sur les dépendances partielles sont collectées automatiquemen
 * [Mise en correspondance d’applications](#application-map) visualise les dépendances entre votre application et les composants voisins.
 * [Les panneaux de performances, de navigateurs et d’échecs](#performance-and-blades) affichent les données sur les dépendances de serveur.
 * [Les panneaux de navigateurs](#ajax-calls) montrent les appels AJAX provenant des navigateurs de vos utilisateurs.
-* [Parcourez les requêtes lentes ou ayant échoué](#diagnose-slow-requests) pour vérifier leurs appels de dépendances.
+* Parcourez les requêtes lentes ou ayant échoué pour vérifier leurs appels de dépendance.
 * Vous pouvez utiliser [Analytics](#analytics) pour interroger des données de dépendances.
 
 ## <a name="application-map"></a>Mise en correspondance d'applications

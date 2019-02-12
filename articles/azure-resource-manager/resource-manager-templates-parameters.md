@@ -4,21 +4,19 @@ description: Décrit la section des paramètres des modèles Azure Resource Mana
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc817302ab39d12ccd1d1a20d4dd72f94352c796
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722140"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695630"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Section des paramètres des modèles Azure Resource Manager
 C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Ces valeurs de paramètre vous permettent de personnaliser le déploiement grâce à des valeurs adaptées à un environnement particulier (par exemple développement, test et production). Vous n’êtes pas obligé de fournir des paramètres dans votre modèle, mais sans paramètres, votre modèle déploie toujours les mêmes ressources avec les mêmes noms, emplacements et propriétés.
@@ -93,7 +91,7 @@ L’exemple précédent a seulement illustré quelques-unes des propriétés que
 | maxValue |Non  |Valeur maximale pour les paramètres de type int. Cette valeur est inclusive. |
 | minLength |Non  |Valeur minimale pour les paramètres de type string, secure string et array. Cette valeur est inclusive. |
 | maxLength |Non  |Valeur maximale pour les paramètres de type string, secure string et array. Cette valeur est inclusive. |
-| description |Non  |Description du paramètre qui apparaît aux utilisateurs dans le portail. |
+| description |Non  |Description du paramètre qui apparaît aux utilisateurs dans le portail. Pour plus d'informations, consultez [Commentaires dans les modèles](resource-group-authoring-templates.md#comments). |
 
 ## <a name="template-functions-with-parameters"></a>Fonctions de modèle avec des paramètres
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: cdda4b0951edd0d1471113c48a4082dfa7407211
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719080"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729317"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -77,7 +77,7 @@ Si le déploiement Git sur votre application web Linux échoue, choisissez l’u
 
 - Utilisez la fonctionnalité Livraison continue (préversion) : Vous pouvez stocker le code source de votre application dans un dépôt Git Azure DevOps ou un dépôt GitHub pour utiliser la livraison continue Azure. Pour plus d’informations, consultez [Configurer la livraison continue pour une application web Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Utilisez [l’API de déploiement ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) : Pour utiliser cette API, [connectez-vous via SSH à votre application web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) et accédez au dossier où vous souhaitez déployer votre code. Exécutez le code suivant :
+- Utilisez [l’API de déploiement ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) : Pour utiliser cette API, [connectez-vous via SSH à votre application web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) et accédez au dossier où vous souhaitez déployer votre code. Exécutez le code suivant :
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -132,7 +132,7 @@ Nous ne prenons pas en charge actuellement l’exposition de plusieurs ports.
 
 **Puis-je apporter mon propre système de stockage ?**
 
-Nous ne prenons pas en charge actuellement l’utilisation de votre propre stockage.
+Oui, le mode [Bring Your Own Storage](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) est disponible en préversion.
 
 **Pourquoi est-il impossible de parcourir le système de fichiers de mon conteneur personnalisé à partir du site SCM ?**
 

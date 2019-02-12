@@ -4,17 +4,17 @@ description: Explique comment Azure Policy utilise une définition de stratégie
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296655"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698290"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -46,7 +46,8 @@ Par exemple, le code JSON suivant illustre une stratégie qui limite les emplace
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "westus2"
             }
         },
         "displayName": "Allowed locations",
@@ -87,8 +88,7 @@ Les paramètres permettent de simplifier la gestion des stratégies en réduisan
 Les paramètres fonctionnent de manière identique durant la création de stratégies. En incluant des paramètres dans une définition de stratégie, vous pouvez réutiliser cette stratégie pour différents scénarios avec des valeurs différentes.
 
 > [!NOTE]
-> La définition de paramètres pour une définition de stratégie ou d’initiative ne peut être configurée que pendant la création initiale de la stratégie ou de l’initiative. La définition de paramètres ne peut être modifiée ultérieurement.
-> Cela empêche les affectations de stratégie ou d’initiative déjà existantes d’être indirectement invalidées.
+> Des paramètres peuvent être ajoutés à une définition existante et attribuée. Le nouveau paramètre doit inclure la propriété **defaultValue**. Cela empêche les affectations de stratégie ou d’initiative déjà existantes d’être indirectement invalidées.
 
 Par exemple, vous pouvez définir une stratégie qui limite les emplacements sur lesquels les ressources peuvent être déployées.
 Vous déclarez les paramètres suivants quand vous créez votre stratégie :
@@ -101,7 +101,8 @@ Vous déclarez les paramètres suivants quand vous créez votre stratégie :
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "westus2"
     }
 }
 ```
@@ -221,7 +222,7 @@ Les champs suivants sont pris en charge :
 - `location`
   - Utilisez **global** pour les ressources indépendantes de l’emplacement. Pour obtenir un exemple, voir [Exemples – Emplacements autorisés](../samples/allowed-locations.md).
 - `identity.type`
-  - Retourne le type [d’Identité managée](../../../active-directory/managed-identities-azure-resources/overview.md) activée sur la ressource.
+  - Renvoie le type d'[identité managée](../../../active-directory/managed-identities-azure-resources/overview.md) activé sur la ressource.
 - `tags`
 - `tags.<tagName>`
   - Où **\<tagName\>** est le nom de l’étiquette pour laquelle vérifier la condition.

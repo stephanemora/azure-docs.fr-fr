@@ -1,8 +1,21 @@
 ---
-titre : Tutoriel de démarrage rapide sur le langage R - titleSuffix : Description d'Azure Machine Learning Studio : Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 06/01/2017
+title: Tutoriel de démarrage rapide sur le langage R
+titleSuffix: Azure Machine Learning Studio
+description: Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/06/2017
+ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822372"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Tutoriel de démarrage rapide pour le langage de programmation R pour Azure Machine Learning Studio
 
@@ -732,7 +745,7 @@ La fonction `ts.detrend()` présentée ci-dessous effectue ces deux opérations.
 
 Il se passe pas mal de choses dans la fonction `ts.detrend()` . La majeure partie de ce code recherche des problèmes potentiels au niveau des arguments ou gère les exceptions qui peuvent toujours survenir pendant les calculs. En fait, seules quelques lignes de ce code effectuent les calculs.
 
-Nous avons déjà vu un exemple de programmation défensive dans la section [Transformations de valeurs](#valuetransformations). Les deux blocs de calcul sont circonscrits à `tryCatch()`. Pour certaines erreurs, il est judicieux de renvoyer le vecteur d'entrée d'origine. Dans d'autres cas, je renvoie un vecteur de zéros.  
+Nous avons déjà vu un exemple de programmation défensive dans la section Transformations de valeurs. Les deux blocs de calcul sont circonscrits à `tryCatch()`. Pour certaines erreurs, il est judicieux de renvoyer le vecteur d'entrée d'origine. Dans d'autres cas, je renvoie un vecteur de zéros.  
 
 Notez que la régression linéaire utilisée pour éliminer la tendance est une régression chronologique. La variable explicative est un objet de série chronologique.  
 

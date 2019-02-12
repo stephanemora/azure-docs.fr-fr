@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e37bc5f46a1a56357e3dff9d1f67de7dcc2537b0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055303"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562893"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionner et inscrire dans un catalogue de nouveaux locataires dans une application SaaS utilisant une base de données Azure SQL Database multilocataire
 
@@ -28,7 +28,7 @@ Cet article comprend deux parties principales :
 - [Présentation du concept](#goto_2_conceptual) d’approvisionnement et d’inscription de nouveaux locataires.
 
 - [Didacticiel](#goto_1_tutorial) qui définit le code de script PowerShell responsable de l’approvisionnement et de l’inscription.
-    - Le didacticiel utilise l’application SaaS Wingtip Tickets, adaptée au modèle de base de données partitionnée multilocataire.
+  - Le didacticiel utilise l’application SaaS Wingtip Tickets, adaptée au modèle de base de données partitionnée multilocataire.
 
 <a name="goto_2_conceptual"/>
 
@@ -143,12 +143,12 @@ Dans cette section figure une liste des principales actions liées à l’approv
 
 Voici des étapes clés du flux de travail de provisionnement :
 
-- **Calculer la nouvelle clé de locataire** : une fonction de hachage est utilisée pour créer la clé de locataire à partir du nom du locataire.
-- **Vérifier si la clé de locataire existe déjà** : le catalogue est examiné pour vérifier que la clé n’a pas déjà été inscrite.
-- **Initialiser le locataire dans la base de données par défaut du locataire** : la base de données du locataire est mise à jour avec l’ajout des nouvelles informations relatives au locataire.  
-- **Inscrire le locataire dans le catalogue** : le mappage entre la clé du nouveau locataire et la base de données tenants1 existante est ajouté au catalogue. 
-- **Ajouter le nom du locataire à une table d’extension de catalogue** : le nom du lieu est ajouté à la table Tenants dans le catalogue.  Voici comment la base de données de catalogues peut être étendue pour prendre en charge des données supplémentaires spécifiques de l’application.
-- **Ouvrir la page des événements pour le nouveau locataire** : la page des événements *Bushwillow Blues* est ouverte dans le navigateur.
+- **Calculer la clé du nouveau locataire** : Une fonction de hachage est utilisée pour créer la clé de locataire à partir du nom du locataire.
+- **Vérifier si la clé de locataire existe déjà** : Le catalogue est examiné pour vérifier que la clé n’a pas déjà été inscrite.
+- **Initialiser le locataire dans la base de données de locataire par défaut** : La base de données de locataire est mise à jour pour ajouter les informations du nouveau locataire.  
+- **Inscrire le locataire dans le catalogue** : Le mappage entre la clé du nouveau locataire et la base de données tenants1 existante est ajouté au catalogue. 
+- **Ajouter le nom du locataire à la table des extensions d'un catalogue** : Le nom du lieu est ajouté à la table Tenants dans le catalogue.  Voici comment la base de données de catalogues peut être étendue pour prendre en charge des données supplémentaires spécifiques de l’application.
+- **Ouvrir la page Événements du nouveau locataire** : La page des événements *Bushwillow Blues* est ouverte dans le navigateur.
 
    ![événements](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
@@ -161,7 +161,7 @@ Pour comprendre comment l’application Wingtip implémente le provisionnement d
    - **$VenueType** = **blues**, l’un des types prédéfinis de lieux : blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minuscules, sans espace).
    - **$DemoScenario** = **1**, pour provisionner un locataire dans une base de données partagée avec d’autres locataires.
 
-2. Ajoutez un point d’arrêt en plaçant votre curseur n’importe où sur la ligne 38 qui indique *New-Tenant `*, puis appuyez sur **F9**.
+2. Ajoutez un point d'arrêt en plaçant votre curseur n'importe où sur la ligne 38, qui indique : *New-Tenant `*, puis appuyez sur **F9**.
 
    ![point d’arrêt](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -181,14 +181,14 @@ Pour plus d’informations sur le débogage des scripts PowerShell, consultez [C
 
 Voici des étapes clés du flux de travail pendant le suivi de script :
 
-- **Calculer la nouvelle clé de locataire** : une fonction de hachage est utilisée pour créer la clé de locataire à partir du nom du locataire.
-- **Vérifier si la clé de locataire existe déjà** : le catalogue est examiné pour vérifier que la clé n’a pas déjà été inscrite.
-- **Créer une base de données de locataire** : la base de données est créée en copiant la base de données *basetenantdb* à l’aide d’un modèle Resource Manager.  Le nom de la nouvelle base de données est basé sur le nom du locataire.
-- **Ajouter la base de données au catalogue** : la nouvelle base de données de locataire est inscrite sous forme de partition dans le catalogue.
-- **Initialiser le locataire dans la base de données par défaut du locataire** : la base de données du locataire est mise à jour avec l’ajout des nouvelles informations relatives au locataire.  
-- **Inscrire le locataire dans le catalogue** : le mappage entre la clé du nouveau locataire et la base de données *sequoiasoccer* est ajouté au catalogue.
-- **Le nom du locataire est ajouté au catalogue** : le nom du lieu est ajouté à la table d’extension Tenants dans le catalogue.
-- **Ouvrir la page des événements pour le nouveau locataire** : la page des événements *Sequoia Soccer* est ouverte dans le navigateur.
+- **Calculer la clé du nouveau locataire** : Une fonction de hachage est utilisée pour créer la clé de locataire à partir du nom du locataire.
+- **Vérifier si la clé de locataire existe déjà** : Le catalogue est examiné pour vérifier que la clé n’a pas déjà été inscrite.
+- **Créer une base de données de locataire** : La base de données est créée en copiant la base de données *basetenantdb* à l’aide d’un modèle Resource Manager.  Le nom de la nouvelle base de données est basé sur le nom du locataire.
+- **Ajouter la base de données au catalogue** : La nouvelle base de données de locataire est inscrite sous forme de partition dans le catalogue.
+- **Initialiser le locataire dans la base de données de locataire par défaut** : La base de données de locataire est mise à jour pour ajouter les informations du nouveau locataire.  
+- **Inscrire le locataire dans le catalogue** : Le mappage entre la clé du nouveau locataire et la base de données *sequoiasoccer* existante est ajouté au catalogue.
+- **Le nom du locataire est ajouté au catalogue** : Le nom du lieu est ajouté à la table d’extension Tenants dans le catalogue.
+- **Ouvrir la page Événements du nouveau locataire** : La page des événements *Sequoia Soccer* est ouverte dans le navigateur.
 
    ![événements](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 

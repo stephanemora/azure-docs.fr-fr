@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 9c463740acf6ef464880a43e0e68de683b97f64f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912031"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813417"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtres et manifestes dynamiques
 
@@ -34,13 +34,13 @@ Les filtres sont des règles côté serveur qui permettent à vos clients d’ef
 - Distribuer uniquement les rendus spécifiés et/ou les pistes de langue spécifiées qui sont prises en charge par l’appareil utilisé pour lire le contenu (« filtrage de rendu »). 
 - Ajustez la fenêtre de présentation (DVR) afin de fournir une longueur limitée de la fenêtre du DVR dans le lecteur (« ajustement de la fenêtre de présentation »).
 
-Cette rubrique décrit [les concepts](#concepts) et [présente les définitions des filtres](#definitions). Elle fournit ensuite des précisions sur [les scénarios courants](#common-scenarios). À la fin de l’article, vous trouverez des liens montrant comment créer des filtres par programmation.  
+Cette rubrique décrit les [concepts](#concepts) et présente les définitions des filtres. Elle fournit ensuite des précisions sur les scénarios les plus courants. À la fin de l’article, vous trouverez des liens montrant comment créer des filtres par programmation.  
 
 ## <a name="concepts"></a>Concepts
 
 ### <a name="dynamic-manifests"></a>Manifestes dynamiques
 
-Media Services propose des **manifestes dynamiques** basés sur des [filtres](#filters)prédéfinis. Une fois que vous avez défini les filtres, vos clients peuvent les utiliser pour diffuser un rendu spécifique ou des sous-clips de votre vidéo. Ils peuvent spécifier des filtres dans l'URL de diffusion en continu. Il serait possible d’appliquer des filtres à des protocoles de streaming à débit adaptatif : HLS (HTTP Live Streaming) Apple, MPEG-DASH et Smooth Streaming. 
+Media Services propose des **manifestes dynamiques** basés sur des filtres prédéfinis. Une fois que vous avez défini les filtres, vos clients peuvent les utiliser pour diffuser un rendu spécifique ou des sous-clips de votre vidéo. Ils peuvent spécifier des filtres dans l'URL de diffusion en continu. Il serait possible d’appliquer des filtres à des protocoles de streaming à débit adaptatif : HLS (HTTP Live Streaming) Apple, MPEG-DASH et Smooth Streaming. 
 
 Le tableau suivant présente des exemples d’URL utilisant des filtres :
 
@@ -110,7 +110,7 @@ Selon votre scénario, vous choisissez le type de filtre le plus adapté (filtre
 
 Utilisez les propriétés suivantes pour décrire les filtres. 
 
-|NOM|Description|
+|Nom|Description|
 |---|---|
 |firstQuality|Première qualité de vitesse de transmission du filtre.|
 |presentationTimeRange|Plage horaire de présentation. Cette propriété sert à filtrer les points de début/fin du manifeste, la durée de la fenêtre de présentation, et la position de départ du flux en direct. <br/>Pour plus d’informations, consultez [PresentationTimeRange](#PresentationTimeRange).|
@@ -120,7 +120,7 @@ Utilisez les propriétés suivantes pour décrire les filtres.
 
 Utilisez cette propriété avec les **filtres d’élément multimédia**. Il n’est pas recommandé de définir la propriété avec des **filtres de compte**.
 
-|NOM|Description|
+|Nom|Description|
 |---|---|
 |**endTimestamp**|Limite absolue de l’heure de fin. Applicable à la vidéo à la demande (VoD). Pour la présentation en direct, cette propriété est ignorée (mode silencieux) puis appliquée lorsque la présentation se termine et que le flux est transmis en VoD.<br/><br/>La valeur représente un point de fin absolu du flux. Elle est arrondie au début GOP suivant le plus proche.<br/><br/>Utilisez StartTimestamp et EndTimestamp pour ajuster la sélection (manifeste). Par exemple, StartTimestamp=40000000 et EndTimestamp = 100000000 généreront une sélection contenant les éléments multimédia situés entre StartTimestamp et EndTimestamp. Si un fragment approche la limite, le fragment entier sera inclus dans le manifeste.<br/><br/>Consultez également la définition **forceEndTimestamp** qui suit.|
 |**forceEndTimestamp**|S’applique aux filtres en direct.<br/><br/>**forceEndTimestamp** est une valeur booléenne qui indique si **endTimestamp** a été défini sur une valeur valide. <br/><br/>Si la valeur est **true**, la valeur **endTimestamp** doit être spécifiée. Si elle n’est pas spécifiée, une demande incorrecte est retournée.<br/><br/>Si, par exemple, vous souhaitez définir un filtre commençant à 5 minutes dans la vidéo en entrée, et qui reste valable jusqu'à la fin du flux de données, définissez **forceEndTimestamp** sur la valeur false et omettez le paramètre **endTimestamp**.|
@@ -135,7 +135,7 @@ Vous spécifiez une liste de conditions de propriétés de suivi de filtre (Filt
 
 Les conditions de propriétés de suivi de filtre décrivent les types de suivi, les valeurs (spécifiées dans le tableau suivant) et les opérations (Equal, NotEqual). 
 
-|NOM|Description|
+|Nom|Description|
 |---|---|
 |**Bitrate**|Utilisez la vitesse de transmission de la piste pour le filtrage.<br/><br/>La valeur recommandée est une plage de vitesses de transmission, en bits par seconde. Par exemple, « 0-2427000 ».<br/><br/>Remarque : vous pouvez utiliser une valeur de vitesse de transmission spécifique, comme 250000 (bits par seconde), mais cette approche n'est pas recommandée car les vitesses de transmission exacts peuvent varier d’un élément multimédia à un autre.|
 |**FourCC**|Utilisez la valeur FourCC de la piste pour le filtrage.<br/><br/>La valeur est le premier élément du format de codecs, tel que spécifié dans [RFC 6381](https://tools.ietf.org/html/rfc6381). À l’heure actuelle, les codecs suivants sont pris en charge : <br/>Pour la vidéo : « avc1 », « hev1 », « hvc1 »<br/>Pour l’audio : « mp4a », « ec-3 »<br/><br/>Pour déterminer les valeurs FourCC des pistes d’un élément multimédia, [obtenez et examinez le fichier manifest](#get-and-examine-manifest-files).|

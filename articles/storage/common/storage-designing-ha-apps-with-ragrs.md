@@ -1,22 +1,22 @@
 ---
-title: Conception d’applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture (RA-GRS) Azure | Microsoft Docs
+title: Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS) | Microsoft Docs
 description: Comment utiliser le stockage RA-GRS Azure pour concevoir une application hautement disponible suffisamment flexible pour gérer les interruptions.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454941"
+ms.locfileid: "55512242"
 ---
-# <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d’applications hautement disponibles à l’aide du stockage RA-GRS
+# <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS)
 
 La fourniture d’une plateforme hautement disponible comme Stockage Azure pour l’hébergement des applications est une caractéristique courante des infrastructures basées sur le cloud. Les développeurs d’applications cloud doivent bien réfléchir à la façon de tirer parti de cette plateforme pour proposer des applications hautement disponibles à leurs utilisateurs. Cet article porte sur la façon dont les développeurs peuvent utiliser le stockage géoredondant avec accès en lecture (RA-GRS) pour garantir la haute disponibilité de leurs applications Stockage Azure.
 
@@ -43,9 +43,7 @@ Gardez à l’esprit ces points clés pendant la conception de votre application
 
 * Vous pouvez utiliser la bibliothèque cliente de stockage pour interagir avec les données de la région primaire ou secondaire. Vous pouvez également rediriger les demandes de lecture automatiquement vers la région secondaire si une demande de lecture adressée à la région primaire arrive à expiration.
 
-* Si un problème majeur affecte l’accessibilité des données dans la région primaire, l’équipe Azure peut déclencher un basculement géographique, à partir duquel les entrées DNS pointant vers la région primaire seront modifiées afin de pointer vers la région secondaire.
-
-* En cas de basculement géographique, Azure sélectionne un nouvel emplacement secondaire, réplique les données à cet emplacement, puis fait pointer les entrées DNS secondaires vers celui-ci. Le point de terminaison secondaire est indisponible jusqu’à ce que le compte de stockage ait terminé la réplication. Pour plus d’informations, consultez [Que faire en cas de panne du stockage Azure](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
+* Si la région primaire devient indisponible, vous pouvez initier un basculement de compte. Lorsque vous basculez vers la région secondaire, les entrées DNS pointant vers la région primaire sont modifiées pour pointer vers la région secondaire. Au terme du basculement, l'accès en écriture est restauré pour les comptes GRS et RA-GRS. Pour plus d'informations, consultez [Récupération d'urgence et basculement de compte de stockage (préversion) dans Stockage Azure](storage-disaster-recovery-guidance.md).
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>Considérations relatives à la conception d’applications avec le stockage RA-GRS
 

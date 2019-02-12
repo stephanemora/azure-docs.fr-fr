@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185807"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510321"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Fonctionnalités Application Insights prises en charge pour Azure Functions
 
@@ -32,6 +32,7 @@ Azure Functions offre une [intégration prédéfinie](https://docs.microsoft.com
 | **Collecte automatique de**        |                 |                   |               
 | &bull; Requêtes                     | Oui             | Oui               | 
 | &bull; Exceptions                   | Oui             | Oui               | 
+| &bull; Compteurs de performances         | Oui             |                   |
 | &bull; Dépendances                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Oui               | 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Oui               | 
@@ -50,6 +51,11 @@ Azure Functions offre une [intégration prédéfinie](https://docs.microsoft.com
 | | | | 
 | **Configurable**                      |                   |                   |           
 | &bull; Entièrement configurable.<br/>Consultez [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) pour obtenir des instructions.<br/>Consultez [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) pour connaître toutes les options.               |                   | Oui                   | 
+
+
+## <a name="performance-counters"></a>Compteurs de performance
+
+La collecte automatique des compteurs de performances fonctionne uniquement sur les machines Windows.
 
 
 ## <a name="live-metrics--secure-control-channel"></a>Métriques en temps réel et canal de contrôle sécurisé

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 727cf523f2a505729377f36738657fc5489134a7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 18fceca51ed67f5beca344160a73ae3f3d1a4b62
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025988"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491652"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utiliser le service StorSimple Device Manager pour modifier la configuration de votre appareil StorSimple
 
@@ -65,7 +65,7 @@ Votre appareil doit synchroniser l’heure pour s’authentifier auprès du four
 
  Sélectionnez votre fuseau horaire dans la liste déroulante. Vous pouvez spécifier jusqu’à deux serveurs NTP (Network Time Protocol) :
 
- - **Serveur NTP principal** - Sa configuration est obligatoire. Il est spécifié durant la configuration de l’appareil dans Windows PowerShell pour StorSimple. Vous pouvez choisir le serveur NTP par défaut de Windows Server, **time.windows.com**. Vous pouvez consulter la configuration du serveur NTP principal dans le portail Azure, mais vous devez utiliser l’interface Windows PowerShell pour la modifier. Utilisez l’applet de commande `Set-HcsNTPClientServerAddress` pour modifier le serveur NTP principal de votre appareil. Pour plus d’informations, accédez à la page décrivant la syntaxe de la cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
+ - **Serveur NTP principal** - Sa configuration est obligatoire. Il est spécifié durant la configuration de l’appareil dans Windows PowerShell pour StorSimple. Vous pouvez choisir le serveur NTP par défaut de Windows Server, **time.windows.com**. Vous pouvez consulter la configuration du serveur NTP principal dans le portail Azure, mais vous devez utiliser l’interface Windows PowerShell pour la modifier. Utilisez l’applet de commande `Set-HcsNTPClientServerAddress` pour modifier le serveur NTP principal de votre appareil. Pour plus d'informations, accédez à la page décrivant la syntaxe de la cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
 
 - **Serveur NTP secondaire** - Sa configuration est facultative. Vous pouvez utiliser le portail Azure pour configurer un serveur NTP secondaire.
 
@@ -85,7 +85,7 @@ Un serveur DNS est utilisé au moment où votre appareil tente de communiquer av
 
 Pour bénéficier d’une haute disponibilité, vous devez configurer à la fois le serveur DNS principal et le serveur DNS secondaire pendant le déploiement initial de l’appareil.
 
-**Serveur DNS principal** - Vous le spécifiez pour la première fois lors de la configuration initiale dans l’interface Windows PowerShell pour StorSimple. Vous pouvez reconfigurer le serveur DNS principal uniquement via l’interface Windows PowerShell. Utilisez l’applet de commande `Set-HcsDNSClientServerAddress` pour modifier le serveur DNS principal de votre appareil. Pour plus d’informations, accédez à la page décrivant la syntaxe de l’applet de commande [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
+**Serveur DNS principal** - Vous le spécifiez pour la première fois lors de la configuration initiale dans l’interface Windows PowerShell pour StorSimple. Vous pouvez reconfigurer le serveur DNS principal uniquement via l’interface Windows PowerShell. Utilisez l’applet de commande `Set-HcsDNSClientServerAddress` pour modifier le serveur DNS principal de votre appareil. Pour plus d'informations, accédez à la page décrivant la syntaxe de la cmdlet [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
 
 **Serveur DNS secondaire** - Pour modifier le serveur DNS secondaire, utilisez l’applet de commande `Set-HcsDNSClientServerAddress` dans l’interface Windows PowerShell de l’appareil ou dans le panneau **Paramètres réseau** de votre appareil StorSimple dans le portail Azure.
 
@@ -95,7 +95,7 @@ Pour modifier le serveur DNS secondaire dans le portail Azure, procédez comme s
 
 2. Dans le panneau **Paramètres**, accédez à **Paramètres de l’appareil > Réseau**. Le panneau **Paramètres réseau** s’ouvre. Cliquez sur la vignette **Paramètres DNS**. Modifiez l’adresse IP du serveur DNS secondaire.
 
-    ![Modifier l’adresse IP du serveur DNS secondaire](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
+    ![Modifier l'adresse IP du serveur DNS secondaire](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
 
 4. Dans la barre de commande, cliquez sur **Enregistrer** puis, lorsque vous êtes invité à confirmer l’opération, cliquez sur **OK**.
 

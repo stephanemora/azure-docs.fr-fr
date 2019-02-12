@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e3e60a7ee435cb23bd6a7f78d409691c94d6c49e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153264"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562434"
 ---
-# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Activer la vérification de l’âge dans Azure Active Directory B2C
+# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Activer la vérification de l'âge dans Azure Active Directory B2C
 
 >[!IMPORTANT]
 >Cette fonctionnalité est en version préliminaire publique. N’utilisez pas cette fonctionnalité pour les applications de production. 
@@ -103,7 +103,7 @@ Une fois que votre locataire est configuré pour utiliser la vérification de l�
 1. Créez un flux utilisateur dans lequel la vérification de l’âge est activée.
 2. Après avoir créé le flux utilisateur, sélectionnez **Propriétés** dans le menu.
 3. Dans la section **Vérification de l’âge**, sélectionnez **Activée**.
-4. Vous pouvez ensuite choisir la façon dont vous souhaitez gérer les utilisateurs qui s’identifient comme étant mineurs. Pour **Stratégies d’inscription ou de connexion**, sélectionnez `Allow minors to access your application` ou `Block minors from accessing your application`. Si le blocage de mineurs est sélectionné, sélectionnez `Send a JSON bcak to the application` ou `Show an error message`. 
+4. Vous pouvez ensuite choisir la façon dont vous souhaitez gérer les utilisateurs qui s’identifient comme étant mineurs. Pour **Stratégies d’inscription ou de connexion**, sélectionnez `Allow minors to access your application` ou `Block minors from accessing your application`. Si le blocage de mineurs est sélectionné, sélectionnez `Send a JSON back to the application` ou `Show an error message`. 
 
 
 

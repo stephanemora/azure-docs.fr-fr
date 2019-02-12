@@ -1,14 +1,30 @@
 ---
-titre : Service Azure Batch pour les travaux Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Vue d’ensemble du service Azure Batch pour les travaux Machine Learning. Le traitement par pool Batch vous permet de créer des pools dans lesquels vous pouvez soumettre des programmes de traitement par lots.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs' ms.date: 19/04/2017
+title: Service Azure Batch pour les travaux Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Vue d’ensemble du service Azure Batch pour les travaux Machine Learning. Le traitement par pool Batch vous permet de créer des pools dans lesquels vous pouvez soumettre des programmes de traitement par lots.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.date: 04/19/2017
+ms.openlocfilehash: 55961895dde7cb2770f2180911a78f1e31c741e3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697498"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Service Azure Batch pour les travaux Azure Machine Learning Studio
 
 Le traitement par pool Batch de Machine Learning utilise une échelle gérée par le client pour le service d’exécution de lot d’Azure Machine Learning. Le traitement par lots classique pour Machine Learning a lieu dans un environnement multi-clients, qui limite le nombre de travaux simultanés que vous pouvez soumettre. Les travaux sont mis en file d’attente d’après le principe premier entré, premier sorti. Cette incertitude signifie que vous ne pouvez pas prédire précisément à quel moment votre travail sera exécuté.
 
 Le traitement par pool Batch vous permet de créer des pools dans lesquels vous pouvez soumettre des programmes de traitement par lots. Vous contrôlez la taille du pool ainsi que le pool auquel le travail est soumis. Le travail du service d’exécution de lot s’exécute dans son propre espace de traitement fournissant ainsi des performances de traitement prévisibles et la possibilité de créer des pools de ressources qui correspondent à la charge de traitement que vous soumettez.
+
+> [!NOTE]
+> Pour créer un pool, vous devez disposer d'un service web Machine Learning basé sur un nouveau Resource Manager. Une fois créé, vous pouvez exécuter n'importe quel service web du service d'exécution de lot, classique ou basé sur le nouveau Resource Manager, dans le pool.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Comment utiliser le traitement par pool Batch
 
@@ -23,7 +39,7 @@ Une fois votre compte créé, vous utilisez l’URL de service du pool et une cl
 
 ![Architecture de service du pool Batch.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-Créez des pools en appelant l’opération Créer un pool dans l’URL de service du pool qui vous a été fournie par CSS. Lorsque vous créez un pool, spécifiez le nombre de machines virtuelles et l’URL du fichier swagger.json d’un service web Machine Learning basé sur un nouveau Resource Manager. Ce service web est fourni pour établir l’association de facturation. Le service du pool Batch utilise le fichier swagger.json pour associer le pool à un plan de facturation. Vous pouvez exécuter n’importe quel service web du service d’exécution de lot, classique ou basé sur le nouveau Resource Manager, que vous choisissez dans le pool.
+Créez des pools en appelant l’opération Créer un pool dans l’URL de service du pool qui vous a été fournie par CSS. Lorsque vous créez un pool, spécifiez le nombre de machines virtuelles et l’URL du fichier swagger.json d’un service web Machine Learning basé sur un nouveau Resource Manager. Ce service web est fourni pour établir l’association de facturation. Le service du pool Batch utilise le fichier swagger.json pour associer le pool à un plan de facturation. Vous pouvez exécuter n'importe quel service web du service d'exécution de lot, classique ou basé sur le nouveau Resource Manager, dans le pool.
 
 Vous pouvez utiliser n’importe quel service web basé sur le nouveau Resource Manager, mais sachez que la facturation correspondant aux travaux est établie par rapport au plan de facturation associé à ce service. Vous pouvez créer un service web et un plan de facturation spécialement pour l’exécution des travaux du pool Batch.
 

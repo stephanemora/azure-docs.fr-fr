@@ -15,17 +15,17 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081226"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699259"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) a plusieurs définitions de rôles intégrés que vous pouvez affecter aux utilisateurs, groupes et principaux de service. Les attributions de rôles vous permettent de contrôler l’accès aux ressources dans Azure. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés](custom-roles.md).
 
-Les rôles intégrés sont en constante évolution. Pour obtenir les dernières définitions de rôle, utilisez la commande [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) ou [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+Les rôles intégrés sont en constante évolution. Pour obtenir les dernières définitions de rôle, utilisez la commande [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Descriptions des rôles intégrés
 Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cliquez sur le nom d’un rôle pour voir la liste de `Actions`, `NotActions`, `DataActions` et `NotDataActions` concernant ce rôle.
@@ -149,8 +149,8 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Actions** |  |
 > | * | Créer et gérer les ressources de tous les types |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | Ne peut pas supprimer des rôles ni des attributions de rôles. |
-> | Microsoft.Authorization/*/Write | Ne peut pas créer des rôles ni des attributions de rôles. |
+> | Microsoft.Authorization/*/Delete | Supprimer des rôles et des attributions de rôles |
+> | Microsoft.Authorization/*/Write | Créer des rôles et des attributions de rôles |
 > | Microsoft.Authorization/elevateAccess/Action | Accorde à l’appelant un accès Administrateur de l’accès utilisateur au niveau de la portée du client |
 > | Microsoft.Blueprint/blueprintAssignments/write | Créer ou mettre à jour tous les artefacts de blueprint |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Supprimer tous les artefacts de blueprint |
@@ -1600,15 +1600,15 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossible de modifier les stratégies d’audit |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Impossible de modifier les paramètres d’audit |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Modifier les stratégies d'audit |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Modifier les paramètres d'audit |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Récupère les enregistrements d’audit d’objet blob de base de données. |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Impossible de modifier les stratégies de connexion |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Impossible de modifier les stratégies de masquage des données |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Modifier les stratégies de connexion |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Modifier les stratégies de masquage des données |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Impossible de modifier les stratégies d’alerte de sécurité |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Impossible de modifier les mesures de sécurité |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Modifier les stratégies d'alerte de sécurité |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Modifier les mesures de sécurité |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
@@ -1676,23 +1676,23 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/auditingPolicies/* | Impossible de modifier les stratégies d’audit de serveur SQL |
-> | Microsoft.Sql/servers/auditingSettings/* | Impossible de modifier les paramètres d’audit de serveur SQL |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossible de modifier les stratégies d’audit de base de données de serveur SQL |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Impossible de modifier les paramètres d’audit de base de données de serveur SQL |
-> | Microsoft.Sql/servers/databases/auditRecords/read | Impossible de lire les enregistrements d’audit |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Impossible de modifier les stratégies de connexion de base de données de serveur SQL |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Impossible de modifier les stratégies de masquage de données de base de données de serveur SQL |
+> | Microsoft.Sql/servers/auditingPolicies/* | Modifier les stratégies d'audit d'un serveur SQL |
+> | Microsoft.Sql/servers/auditingSettings/* | Modifier les paramètres d'audit d'un serveur SQL |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Modifier les stratégies d'audit d'une base de données de serveur SQL |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Modifier les paramètres d'audit d'une base de données de serveur SQL |
+> | Microsoft.Sql/servers/databases/auditRecords/read | Lire les enregistrements d’audit |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Modifier les stratégies de connexion d'une base de données de serveur SQL |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Modifier les stratégies de masquage de données d'une base de données de serveur SQL |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Impossible de modifier les stratégies d’alerte de sécurité de base de données de serveur SQL |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Impossible de modifier les mesures de sécurité de base de données de serveur SQL |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Modifier les stratégies d'alerte de sécurité d'une base de données de serveur SQL |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Modifier les mesures de sécurité d'une base de données de serveur SQL |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/securityAlertPolicies/* | Impossible de modifier les stratégies d’alerte de sécurité de serveur SQL |
+> | Microsoft.Sql/servers/securityAlertPolicies/* | Modifier les stratégies d'alerte de sécurité du serveur SQL |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>Contributeur de compte de stockage

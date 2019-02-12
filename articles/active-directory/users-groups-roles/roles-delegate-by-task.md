@@ -1,5 +1,5 @@
 ---
-title: Déléguer des rôles moins privilégiés par tâche dans Azure Active Directory | Microsoft Docs
+title: Déléguer des rôles moins privilégiés par tâche administrateur - Azure Active Directory | Microsoft Docs
 description: Rôles à déléguer pour des tâches d’identité dans Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 3b6c5b08fa3f915c541837abe5f52c7ec3d9b87e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6307fe4875d9fd5f55db8078ab9440f989fb58f3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185201"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508213"
 ---
-# <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Rôles d’administrateur par tâche d’identité dans Azure Active Directory
+# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
 Dans cet article, vous trouverez les informations nécessaires pour restreindre les autorisations d’administrateur d’un utilisateur en attribuant des rôles moins privilégiés dans Azure Active Directory (Azure AD). Il contient des tâches d’administrateur organisées par domaine de fonctionnalités et le rôle moins privilégié nécessaire pour effectuer chaque tâche, ainsi que d’autres rôles non-administrateur général qui peuvent effectuer la tâche.
 

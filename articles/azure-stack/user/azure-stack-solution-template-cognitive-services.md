@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 331a71d4f807e1e596a91c1463064e3f6dcbd1e1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7d719ee6bdb8ce1f4131b474fe7602b492e69cd3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247032"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810668"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Déployer Azure Cognitive Services sur Azure Stack
 
@@ -144,7 +144,7 @@ Détails concernant les principaux champs :
 | ImageLocation | Indique l’emplacement de l’image conteneur de service cognitif spécifique dans ACR. Par exemple, le service Visage : `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |URL de point de terminaison notée à l’étape [Créer une ressource Azure](#create-azure-resources). |
 | ApiKey | Clé d’abonnement notée à l’étape [Créer une ressource Azure](#create-azure-resources). |
-| SecretName | Nom du secret noté à l’étape [Créer un secret pour accéder au registre de conteneurs privé](#create-secrete-to-access-the-private-container-registry). |
+| SecretName | Nom du secret noté à l'étape Créer un secret pour accéder au registre de conteneurs privé |
 
 ## <a name="deploy-the-cognitive-service"></a>Déployer le service cognitif
 

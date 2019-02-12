@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/31/2019
 ms.author: juliako
-ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402045"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567272"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -102,6 +102,10 @@ Votre contenu vidéo ou audio, pour lequel vous avez défini le paramètre de co
 
 Selon les [Conditions d’utilisation des services en ligne Azure](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), votre contenu vous appartient en intégralité, et Microsoft accède uniquement à ce contenu ainsi qu’aux métadonnées et aux insights que Video Indexer extrait à partir de votre contenu, conformément aux Conditions d’utilisation des services en ligne et à la Déclaration de confidentialité de Microsoft.
 
+### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>Les modèles personnalisés que je crée dans sur mon compte Video Indexer sont-ils disponibles pour d'autres comptes ?
+
+ Non, les modèles personnalisés que vous créez sur votre compte ne sont disponibles pour aucun autre compte. Actuellement, Video Indexer vous permet de créer les modèles personnalisés suivants sur votre compte : [marques](customize-brands-model-overview.md), [langue](customize-language-model-overview.md) et [personne](customize-person-model-overview.md). Ces modèles sont uniquement disponibles sur le compte sur lequel vous les avez créés.
+  
 ### <a name="is-the-content-indexed-by-video-indexer-kept-within-the-azure-region-where-i-am-using-video-indexer"></a>Le contenu indexé par Video Indexer est-il conservé au sein de la région Azure où j’utilise Video Indexer ?
 
 Oui. Le contenu et les insights associés sont conservés dans la région Azure, sauf s’il existe une configuration manuelle dans votre abonnement Azure qui utilise plusieurs régions Azure. 

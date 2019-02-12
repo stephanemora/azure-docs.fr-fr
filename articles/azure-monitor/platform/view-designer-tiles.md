@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186801"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817383"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guide de référence des vignettes du Concepteur de vues dans Log Analytics
 Grâce au Concepteur de vues d’Azure Log Analytics, vous pouvez créer des vues personnalisées dans le portail Azure qui présentent différentes visualisations de données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.
@@ -36,7 +36,7 @@ Les vignettes du Concepteur de vues disponibles sont décrites dans le tableau s
 | [Nombre](#number-tile) |Nombre d’enregistrements retournés par une requête. |
 | [Deux nombres](#two-numbers-tile) |Nombre d’enregistrements retournés par deux requêtes différentes. |
 | [Anneau](#donut-tile) | Graphique basé sur une requête, avec une valeur de synthèse au centre. |
-| [Graphique en courbes et légende](#line-chart-amp-callout-tile) | Graphique en courbes basé sur une requête, et légende avec une valeur de synthèse. |
+| Graphique en courbes et légende | Graphique en courbes basé sur une requête, et légende avec une valeur de synthèse. |
 | [Graphique en courbes](#line-chart-tile) |Graphique en courbes basé sur une requête. |
 | [Deux chronologies](#two-timelines-tile) | Histogramme avec deux séries basées chacune sur une requête distincte. |
 
@@ -49,7 +49,7 @@ La vignette **Nombre** affiche à la fois le nombre d’enregistrements retourn�
 
 | Paramètre | Description |
 |:--- |:--- |
-| NOM |Texte affiché en haut de la vignette. |
+| Nom |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Vignette** | |
 | Légende |Texte affiché sous la valeur. |
@@ -67,7 +67,7 @@ Cette vignette affiche le nombre d’enregistrements retournés par deux requêt
 
 | Paramètre | Description |
 |:--- |:--- |
-| NOM |Texte affiché en haut de la vignette. |
+| Nom |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Première vignette** | |
 | Légende |Texte affiché sous la valeur. |
@@ -88,7 +88,7 @@ La vignette **Anneau** affiche un nombre unique qui résume une colonne de valeu
 
 | Paramètre | Description |
 |:--- |:--- |
-| NOM |Texte affiché en haut de la vignette. |
+| Nom |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Anneau** | |
 | Requête |Requête exécutée pour l’anneau. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. |
@@ -97,7 +97,7 @@ La vignette **Anneau** affiche un nombre unique qui résume une colonne de valeu
 | Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique.<ul><li>Somme : additionner les valeurs de tous les enregistrements avec la valeur de propriété.</li><li>Pourcentage : pourcentage des valeurs additionnées des enregistrements avec la valeur de propriété, comparé aux valeurs additionnées de tous les enregistrements.</li></ul> |
 | Valeurs de résultat utilisées dans l’opération relative au centre |Vous pouvez sélectionner le signe plus (+) pour ajouter une ou plusieurs valeurs. Les résultats de la requête sont alors limités aux enregistrements dont vous avez spécifié les valeurs de propriété. Si aucune valeur n’est ajoutée, tous les enregistrements sont inclus dans la requête. |
 | **Anneau** |**&gt; Options supplémentaires** |
-| Couleurs |Couleur affichée pour chacune des trois premières propriétés. Pour spécifier d’autres couleurs pour des valeurs de propriété spécifiques, utilisez l’option *Mappage avancé des couleurs*. |
+| Couleurs |Couleur affiché pour chacune des trois premières propriétés. Pour spécifier d’autres couleurs pour des valeurs de propriété spécifiques, utilisez l’option *Mappage avancé des couleurs*. |
 | Mappage avancé des couleurs |Affiche une couleur qui représente des valeurs de propriété spécifiques. Si la valeur spécifiée figure parmi les trois premières, l’autre couleur s’affiche au lieu de la couleur standard. Si la propriété ne figure pas parmi les trois premières, la couleur ne s’affiche pas. |
 | **Avancée** |**&gt; Vérification du flux de données** |
 | activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
@@ -112,7 +112,7 @@ Cette vignette est un graphique en courbes qui affiche plusieurs séries à part
 
 | Paramètre | Description |
 |:--- |:--- |
-| NOM |Texte affiché en haut de la vignette. |
+| Nom |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Graphique en courbes** | |
 | Requête |Requête exécutée pour le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) utilise cet intervalle de temps. Si la requête n’utilise pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
@@ -133,7 +133,7 @@ Cette vignette contient à la fois un graphique en courbes avec plusieurs série
 
 | Paramètre | Description |
 |:--- |:--- |
-| NOM |Texte affiché en haut de la vignette. |
+| Nom |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Graphique en courbes** | |
 | Requête |Requête exécutée pour le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) utilise cet intervalle de temps. Si la requête n’utilise pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
@@ -158,7 +158,7 @@ La vignette **Deux chronologies** affiche les résultats de deux requêtes de jo
 
 | Paramètre | Description |
 |:--- |:--- |
-| NOM |Texte affiché en haut de la vignette. |
+| Nom |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | Premier graphique | |
 | Légende |Texte affiché sous la légende de la première série. |

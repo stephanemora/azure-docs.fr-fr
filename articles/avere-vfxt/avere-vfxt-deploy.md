@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: da329b5c50fe7c39d9773743b40c2f990e298963
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296373"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745433"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Déployer le cluster vFXT
 
@@ -39,11 +39,11 @@ Pour plus d’informations sur la planification du déploiement du cluster et le
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Créer le déploiement Avere vFXT pour Azure
 
-Sur le portail Azure, accédez au modèle de création en recherchant Avere et en sélectionnant « Déploiement Avere vFXT pour Azure ». <!-- xxx update if that name changes xxx --> 
+Sur le portail Azure, accédez au modèle de création en recherchant Avere et en sélectionnant « Déploiement Avere vFXT ARM ». 
 
-<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
+![Fenêtre du navigateur affichant le portail Azure avec « Nouveau > Place de marché > Tout ». Sur la page Tout, le champ de recherche contient le terme « avere » et le deuxième résultat, « Déploiement Avere vFXT ARM », est surligné en rouge pour le mettre en évidence.](media/avere-vfxt-template-choose.png)
 
-Cliquez sur **Créer** pour commencer. 
+Après avoir lu les détails de la page Déploiement Avere vFXT ARM, cliquez sur **Créer** pour commencer. 
 
 ![Place de marché Azure sur laquelle est affichée la première page de du modèle de déploiement](media/avere-vfxt-deploy-first.png)
 
@@ -80,7 +80,7 @@ Renseignez les informations suivantes :
 
 * **Abonnement** : sélectionnez l'abonnement correspondant au déploiement Avere vFXT. 
 
-* **Groupe de ressources** : sélectionnez le groupe de ressources du déploiement Avere vFXT, ou cliquez sur « Créer nouveau » et entrez un nouveau nom de groupe de ressources. 
+* **Groupe de ressources** : sélectionnez un groupe de ressources vide existant pour le déploiement Avere vFXT, ou cliquez sur « Créer nouveau » et entrez un nouveau nom de groupe de ressources. 
 
 * **Emplacement** : sélectionnez l'emplacement Azure de votre cluster et de vos ressources.
 
@@ -123,9 +123,11 @@ La deuxième page du modèle de déploiement vous permet de définir la taille d
 
 * **Sous-réseau** : choisissez un sous-réseau de votre réseau virtuel existant, ou créez-en un. 
 
-* **Utiliser le stockage d'objets blob** : choisissez de créer ou non un nouveau conteneur d'objets Blob Azure et configurez-le en tant que stockage principal pour le nouveau cluster Avere vFXT. Si vous choisissez de créer un nouveau conteneur, vous devez fournir le compte de stockage de celui-ci. Si vous choisissez de ne pas créer de nouveau conteneur d'objets blob, vous devez joindre un stockage après la création du cluster (pour obtenir des instructions, reportez-vous à [Configurer le stockage](avere-vfxt-add-storage.md)). Définissez ce champ sur **false** si vous ne souhaitez pas créer de nouveau conteneur.
+* **Utiliser le stockage d'objets blob** : choisissez **true** afin de créer un nouveau conteneur d'objets Blob Azure et configurez-le en tant que stockage principal pour le nouveau cluster Avere vFXT. Cette option crée également un nouveau compte de stockage dans le même groupe de ressources que le cluster. 
 
-* **Compte de stockage** : si vous créez un nouveau conteneur d'objets Blob Azure, entrez le nom du compte de stockage. Le compte de stockage doit être un compte V2 standard à usage général configuré avec un stockage localement redondant et le niveau d'accès chaud. L'article [Configurer le stockage](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer) contient des informations détaillées sur les exigences du compte de stockage.
+  Définissez ce champ sur **false** si vous ne souhaitez pas créer de nouveau conteneur. Dans ce cas, vous devez joindre et configurer le stockage après la création du cluster. Pour obtenir des instructions, consultez [Configurer le stockage](avere-vfxt-add-storage.md). 
+
+* **Compte de stockage** : si vous créez un nouveau conteneur d'objets Blob Azure, entrez un nom pour le nouveau compte de stockage. 
 
 ## <a name="validation-and-purchase"></a>Validation et achat
 
@@ -161,7 +163,7 @@ Pour accéder à ces informations, procédez comme suit :
 
 ## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Créer un point de terminaison de stockage (si vous utilisez Stockage Blob Azure)
 
-Si vous utilisez Stockage Blob Azure pour le stockage de vos données back-end, vous devez créer un point de terminaison de service de stockage dans votre réseau virtuel. Ce [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) conserve le trafic des objets blob Azure au niveau local au lieu de l’acheminer par Internet.
+Si vous utilisez Stockage Blob Azure pour le stockage de vos données back-end, vous devez créer un point de terminaison de service de stockage dans votre réseau virtuel. Ce [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) conserve le trafic des objets blob Azure au niveau local au lieu de l'acheminer à l'extérieur du réseau virtuel.
 
 1. Dans le portail, cliquez sur **Réseaux virtuels** à gauche.
 1. Sélectionnez le réseau virtuel pour votre contrôleur. 
