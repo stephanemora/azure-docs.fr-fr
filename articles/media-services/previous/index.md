@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 02/08/2018
 ms.author: carolz
-ms.openlocfilehash: 742e6a556045874d57c810373f2297582ca8140e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: dce69041176840765817d561f61a0d5f3d2b9a66
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979664"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998023"
 ---
-# <a name="media-services-documentation-legacy"></a>Documentation Media Services (existante)
+# <a name="media-services-documentation"></a>Documentation Media Services  
 
 Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la plateforme cloud extensible Media Services. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs.
 

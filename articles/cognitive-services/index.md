@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 389dd4e8b6f2157c1c53528506435a97a07a493e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ceb5bb59f65e0f01d04d1aa9726b2494384b4a67
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872932"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998934"
 ---
 <h1>Documentation Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Découvrez comment générer des algorithmes intelligents dans vos applications, sites web et bots pour voir, écouter, énoncer, et comprendre les besoins de vos utilisateurs au moyen de méthodes naturelles de communication. Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.</p>
@@ -316,7 +316,6 @@ ms.locfileid: "55872932"
                         <p><a href="/azure/cognitive-services/speech-service">API Speech Service</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Reconnaissance de l’orateur&nbsp;<sup style="font-size:70%">PRÉVERSION</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>API Reconnaissance vocale Bing&nbsp;<sup style="font-size:70%">RETRAIT</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Custom Speech Service&nbsp;<sup style="font-size:70%">RETRAIT</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/translator-speech/"><span>Traduction de conversation Translator Speech&nbsp;<sup style="font-size:70%">RETRAIT</sup></span></a></p>
                      </div>
                 </div>
