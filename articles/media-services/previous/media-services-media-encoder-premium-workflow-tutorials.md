@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f0290a5f04a396c1d66e2dd1873eb313dcb3f66d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811962"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818394"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Didacticiels de workflows avancés Media Encoder Premium
 ## <a name="overview"></a>Vue d’ensemble
@@ -44,12 +44,12 @@ Cet article contient les rubriques suivantes :
   * [Ajout d’une piste audio distincte](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
   * [Ajout du fichier SMIL ISM](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [Encodage du fichier MXF en fichiers MP4 multidébit : plan optimisé](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
-  * [Vue d’ensemble du workflow à améliorer](#workflow-overview-to-enhance)
+  * Vue d’ensemble du workflow à améliorer
   * [Conventions d’appellation de fichiers](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
   * [Publication des propriétés du composant sur la racine du workflow](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [Utilisation des valeurs de propriété publiées pour les noms de fichiers de sortie générés](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
 * [Ajout de miniatures au fichier de sortie MP4 multidébit](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
-  * [Vue d’ensemble du workflow auquel ajouter des miniatures](#workflow-overview-to-add-thumbnails-to)
+  * Vue d’ensemble du workflow auquel ajouter des miniatures
   * [Ajout d’un encodage JPG](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [Conversion de l’espace colorimétrique](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
   * [Écriture des miniatures](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)

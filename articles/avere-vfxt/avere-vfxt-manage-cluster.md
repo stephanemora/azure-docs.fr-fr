@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0eb5941bfecc023429556434a45460c8727056ec
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300181"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745552"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gérer le cluster Avere vFXT
 
@@ -202,7 +202,7 @@ Outre la suppression des nœuds du cluster, vous pouvez supprimer ces composants
 
 ### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>Supprimer un groupe de ressources du cluster à partir du portail Azure
 
-Si vous avez créé un groupe de ressources spécifiquement pour le cluster, vous pouvez détruire toutes les ressources associées au cluster en détruisant le groupe de ressources. 
+Si vous avez créé un groupe de ressources spécifiquement pour héberger le cluster, vous pouvez détruire toutes les ressources associées au cluster en détruisant le groupe de ressources. 
 
 > [!Caution] 
 > Détruisez le groupe de ressources uniquement si vous êtes certain qu’il ne contient pas de données importantes. Par exemple, assurez-vous que vous avez déplacé les données nécessaires se trouvant dans les conteneurs de stockage dans le groupe de ressources.  

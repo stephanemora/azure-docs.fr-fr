@@ -15,7 +15,7 @@ items:
     displayName: DSC, state configuration, config, node configuration, node
     href: automation-quickstart-dsc-configuration.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Suivre les fichiers mis à jour avec les tâches d’observateur
     displayName: hybrid runbook worker, hybrid worker, trigger
@@ -31,7 +31,7 @@ items:
   - name: Résoudre les modifications sur une machine virtuelle
     displayName: inventory
     href: automation-tutorial-troubleshoot-changes.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Démarrer/arrêter des machines virtuelles pendant les heures creuses
     href: automation-solution-vm-management.md
@@ -192,6 +192,8 @@ items:
       href: automation-variables.md
     - name: Mettre à jour les modules Azure PowerShell
       href: automation-update-azure-modules.md
+    - name: Modules Az dans les runbooks
+      href: az-modules.md
   - name: Scénarios
     items:
     - name: galerie de runbooks
@@ -286,13 +288,13 @@ items:
     href: https://azure.microsoft.com/updates/?product=automation
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=automation
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-automation
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: 4d46e7d2d58f864c6fb4650a34e74a57070fa832
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a5886c5af9db6945fe33efd8198b5527f580d297
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661273"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004569"

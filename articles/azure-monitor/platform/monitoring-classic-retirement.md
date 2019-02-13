@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 3c1896dc756675b838b97d978cec40b4650760fe
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9164c335eb85676a419c1cb805b2217ea73c40fe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298960"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497823"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>La gestion des alertes et la supervision unifiées dans Azure Monitor remplace la gestion des alertes et la supervision classiques
 
@@ -63,7 +63,7 @@ Fin 2019 juin, dans Azure Monitor :
 - Les règles d'alerte migrées vers la nouvelle plateforme d'alertes fourniront la même supervision qu'auparavant, mais déclencheront une notification avec de nouvelles charges utiles. Toute adresse e-mail, tout point de terminaison webhook ou tout lien d'application logique associé à une règle d'alerte classique sera reporté lors de la migration, mais avec un risque de comportement incorrect car la charge utile de l'alerte sera différente sur la nouvelle plateforme.
 
 > [!IMPORTANT]
-> Microsoft Azure Monitor permettra aux clients de migrer automatiquement leurs règles d'alerte classiques vers la nouvelle plateforme. Et à partir de juillet 2019, il sera possible de forcer son exécution pour toutes les règles d'alerte classiques qui subsisteront. Les clients devront veiller à ce que la charge utile des règles d'alerte classiques qui ont recours à l'automatisation soit adaptée à la gestion de la nouvelle charge utile à partir de [Métriques et alertes unifiées dans Application Insights](#unified-metrics-and-alerts-in-application-insights) ou [Métriques et alertes unifiées pour d'autres ressources Azure](#unified-metrics-and-alerts-for-other-azure-resources), après la migration des règles d'alerte classiques. 
+> Microsoft Azure Monitor permettra aux clients de migrer automatiquement leurs règles d’alerte classiques vers la nouvelle plateforme. Et à partir de juillet 2019, il sera possible de forcer son exécution pour toutes les règles d'alerte classiques qui subsisteront. Les clients devront veiller à ce que la charge utile des règles d'alerte classiques qui ont recours à l'automatisation soit adaptée à la gestion de la nouvelle charge utile à partir de [Métriques et alertes unifiées dans Application Insights](#unified-metrics-and-alerts-in-application-insights) ou [Métriques et alertes unifiées pour d'autres ressources Azure](#unified-metrics-and-alerts-for-other-azure-resources), après la migration des règles d'alerte classiques. 
 
 Nous vous fournirons bientôt les outils vous permettant de migrer délibérément vos alertes de la [section Alertes (classiques)](../../azure-monitor/platform/alerts-classic.overview.md) du portail Azure vers les nouvelles alertes Azure. Toutes les règles configurées dans Alertes (classiques) qui sont migrées vers la nouvelle instance Azure Monitor resteront gratuites et ne seront pas facturées. Les règles d’alerte classique migrées ne seront soumises à aucun frais pour l’envoi (push) des notifications par e-mail, webhook ou LogicApp. Toutefois, l’utilisation de nouveaux types de notification ou d’action (par exemple, les SMS, les appels vocaux, l’intégration ITSM, etc.) sera soumise à facturation, qu’ils soient ajoutés à une alerte migrée ou nouvelle. Pour plus d’informations, consultez [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 

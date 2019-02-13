@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 0d6879c6b9be06af4bb289761cc8f26b7e56d18e
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355128"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658706"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Offres des places de marché Azure et AppSource
 
@@ -47,6 +47,7 @@ Le tableau suivant répertorie les types d’offre actuels pris en charge par le
 | [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Package qui étend ce système CRM (Customer Resource Management), par le biais de ses modules de ventes, de service, de service de projet et de service sur le terrain.  |
 | [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Package qui étend ce service ERP (Enterprise Resource Planning) qui gère les aspects avancés de la finance, des opérations, de la fabrication et de la gestion de la chaîne logistique. |
 | [Module IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Conteneur compatible Docker qui s’exécute sur un appareil IoT Edge.  Il contient de petits modules de calculs qui utilisent une combinaison de code personnalisé, d’autres services Azure et de services tiers. |
+| [Application Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Package utilisant des flux de données pour relier les rapports et tableaux de bord aux données dans l’espace de stockage des données communes. |
 | [Application SaaS](./saas-app/cpp-saas-offer.md) | Azure | La solution est un abonnement SaaS, gérée par l’éditeur, à laquelle les utilisateurs se connectent via une interface personnalisée qui tire parti d’Azure Active Directory. |
 | [Machine virtuelle](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | La solution est contenue dans une seule machine virtuelle déployée sur l’abonnement du client.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |

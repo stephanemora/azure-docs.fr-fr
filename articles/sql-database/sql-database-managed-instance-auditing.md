@@ -13,17 +13,17 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456032"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728995"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
 
-L’audit [d’Azure SQL Database Managed Instance](sql-database-managed-instance.md) suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. Par ailleurs, l’audit :
+[L’audit Managed Instance](sql-database-managed-instance.md) suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. Par ailleurs, l’audit :
 
 - peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données ainsi qu’à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité ;
 - permet et facilite le respect de normes de conformité, même s’il ne garantit pas cette conformité. Pour plus d’informations sur les programmes Azure prenant en charge la conformité aux normes, voir le [Centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/compliance/).
@@ -38,7 +38,7 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
    1. Accédez au stockage Azure où vous souhaitez stocker vos journaux d’audit.
 
       > [!IMPORTANT]
-      > Utilisez un compte de stockage dans la même région que le serveur Managed Instance afin d’éviter des lectures/écritures entre régions.
+      > Utilisez un compte de stockage dans la même région que l’instance gérée afin d’éviter des lectures/écritures entre régions.
 
    1. Dans le compte de stockage, accédez à **Vue d’ensemble**, puis cliquez sur **Objets blob**.
 
@@ -154,15 +154,15 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
 Pour toute information supplémentaire :
 
-- [Audit des différences entre Managed Instance, Azure SQL DB et SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Audit des différences entre les bases de données uniques, pools élastiques et instances gérées dans Azure SQL Database et les bases de données dans SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 ## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Configurer l’audit de votre serveur sur Event Hub ou Log Analytics
 
-Les journaux d’audit d’une Managed Instance peuvent être envoyés à Event Hubs ou à Log Analytics à l’aide d’Azure Monitor. Cette section décrit comment configurer cela :
+Les journaux d’audit d’une instance gérée peuvent être envoyés à Event Hubs ou à Log Analytics à l’aide d’Azure Monitor. Cette section décrit comment configurer cela :
 
-1. Accédez dans le [portail Azure](https://portal.azure.com/) à SQL Managed Instance.
+1. Accédez dans le [portail Azure](https://portal.azure.com/) à l’instance gérée.
 
 2. Cliquez sur **Paramètres de diagnostic**.
 
@@ -176,7 +176,7 @@ Les journaux d’audit d’une Managed Instance peuvent être envoyés à Event 
 
     ![Configurer les paramètres de diagnostic](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
-7. Connectez-vous à l’instance gérée à l’aide **SQL Server Management Studio (SSMS)** ou de tout autre client pris en charge.
+7. Connectez-vous à l’instance gérée à l’aide de **SQL Server Management Studio (SSMS)** ou de tout autre client pris en charge.
 
 8. Exécutez l’instruction T-SQL suivante pour créer un audit du serveur :
 
@@ -209,9 +209,6 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 
 - Pour obtenir la liste complète des méthodes de consommation du journal d’audit, reportez-vous à l’article [Bien démarrer avec l’audit de bases de données SQL](sql-database-auditing.md).
 
-  > [!IMPORTANT]
-  > L’affichage des enregistrements d’audit du portail Azure (volet « Enregistrements d’audit ») n’est pas actuellement disponible pour Managed Instance.
-
 ### <a name="consume-logs-stored-in-event-hub"></a>Utiliser les journaux stockés dans Event Hub
 
 Pour utiliser les données des journaux d’audit à partir d’un hub d’événements, vous devez configurer un flux de données destiné à consommer les événements et à les écrire dans une cible. Pour plus d’informations, voir la Documentation concernant Azure Event Hubs.
@@ -222,21 +219,21 @@ Si les journaux d’audit sont écrits dans Log Analytics, ils sont disponibles 
 
 Log Analytics fournit des insights opérationnels en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs. Pour plus d’informations sur le langage et les commandes de recherche Log Analytics, consultez [Référence sur les recherches Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
-## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Audit des différences entre Managed Instance, Azure SQL DB et SQL Server
+## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Audit des différences entre les bases de données dans Azure SQL Database et les bases de données dans SQL Server
 
-Les principales différences entre SQL Audit dans Managed Instance, Azure SQL Database et SQL Server en local sont :
+Principales différences entre l’audit des bases de données dans Azure SQL Database et des bases de données dans SQL Server :
 
-- Dans Managed Instance, SQL Audit fonctionne au niveau du serveur et stocke les fichiers journaux `.xel` dans le compte de stockage Blob Azure.
-- Dans Azure SQL Database, SQL Audit fonctionne au niveau de la base de données.
-- Dans SQL Server (en local ou dans les machines virtuelles), SQL Audit fonctionne au niveau du serveur, mais stocke les événements dans les journaux des événements du système de fichiers/Windows.
+- Avec cette option de déploiement Managed Instance dans Azure SQL Database, l’audit s’effectue au niveau du serveur et stocke les fichiers journaux `.xel` dans le compte de stockage Blob Azure.
+- Avec les options de base de données unique et de pool élastique dans Azure SQL Database, l’audit fonctionne au niveau de la base de données.
+- Dans SQL Server (en local ou dans les machines virtuelles), l’audit fonctionne au niveau du serveur, mais stocke les événements dans les journaux des événements du système de fichiers/Windows.
 
-L’audit XEvent sur Managed Instance prend en charge les cibles de Stockage Blob Azure. Les journaux de fichiers et de Windows ne sont **pas pris en charge**.
+L’audit XEvent sur l’instance gérée prend en charge les cibles de Stockage Blob Azure. Les journaux de fichiers et de Windows ne sont **pas pris en charge**.
 
 Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azures sont :
 
 - Une nouvelle syntaxe `TO URL` est fournie et vous permet de spécifier l’URL du conteneur du Stockage Blob Azure où les fichiers `.xel` sont placés.
 - Une nouvelle syntaxe `TO EXTERNAL MONITOR` est fournie pour activer les cibles Event Hub et Log Analytics.
-- La syntaxe `TO FILE` **n’est pas prise en charge**, car Managed Instance ne peut pas accéder aux partages de fichiers Windows.
+- La syntaxe `TO FILE` **n’est pas prise en charge**, car SQL Database ne peut pas accéder aux partages de fichiers Windows.
 - L’option d’arrêt n’est **pas prise en charge**.
 - La valeur 0 du paramètre `queue_delay` n’est **pas prise en charge**.
 

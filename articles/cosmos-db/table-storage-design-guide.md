@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913595"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820961"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de tables de Stockage Azure : concevoir des tables scalables et performantes
 
@@ -207,7 +207,7 @@ Les exemples suivants supposent que le service de Table stocke les entités rela
 | **Age** |Entier  |
 | **EmailAddress** |Chaîne |
 
-La section précédente [Présentation du service de Table Azure](#overview) décrit quelques-unes des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. La syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+La section précédente Présentation du service de Table Azure décrit quelques-unes des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. La syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * Une ***requête de pointage*** constitue la méthode de recherche la plus efficace. Elle est recommandée pour les recherches sur de gros volumes ou des recherches nécessitant la latence la plus faible. Une telle requête peut utiliser les index pour localiser une entité individuelle efficacement en spécifiant les valeurs de **PartitionKey** et de **RowKey**. Par exemple : $filter=(PartitionKey eq ’Sales’) and (RowKey eq ’2’)  
 * La deuxième méthode conseillée consiste à utiliser une ***requête de plage*** de données qui utilise la valeur de **PartitionKey** et des filtres sur une plage de valeurs de **RowKey** pour retourner plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique, tandis que la valeur de **RowKey** identifie un sous-ensemble des entités de cette partition. Par exemple : $filter=PartitionKey eq ’Sales’ and RowKey ge ’S’ and RowKey lt ’T’  
@@ -1294,7 +1294,7 @@ Chaque entité doit toujours avoir les valeurs **PartitionKey**, **RowKey** et *
 
 La première option, qui consiste à ajouter un préfixe de type d’entité à la **RowKey**, est utile au cas où deux entités de types différents se retrouvent avec la même valeur de clé. Il regroupe également les entités du même type dans la partition.  
 
-Les techniques présentées dans cette section sont particulièrement adaptées à la discussion [Relations d’héritage](#inheritance-relationships) plus haut dans ce guide, dans la section [Modélisation des relations](#modelling-relationships).  
+Les techniques présentées dans cette section sont particulièrement adaptées à la discussion [Relations d’héritage](#inheritance-relationships) plus haut dans ce guide, dans la section Modélisation des relations.  
 
 > [!NOTE]
 > Pensez à inclure un numéro de version dans la valeur de type d'entité pour permettre aux applications clientes de faire évoluer des objets POCO et de travailler avec différentes versions.  

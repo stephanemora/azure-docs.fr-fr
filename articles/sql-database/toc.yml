@@ -67,23 +67,23 @@ items:
   expanded: true
 - name: Tutoriels
   items:
-  - name: Concevoir une base de données SQL Azure
+  - name: Concevoir une base de données dans SQL Database
     items:
     - name: Concevoir une base de données avec SSMS
       href: sql-database-design-first-database.md
     - name: Concevoir une base de données avec .NET
       href: sql-database-design-first-database-csharp.md
-  - name: Migrer vers Azure SQL Database
+  - name: Migrer vers SQL Database
     items:
     - name: Migrer vers une base de données unique/en pool avec DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migrer vers une instance managée avec DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Sécurité dans Azure SQL Database
+  - name: Sécurité dans SQL Database
     items:
-    - name: Sécurité d’une base de données unique
+    - name: Sécurité des bases de données uniques et en pool
       href: sql-database-security-tutorial.md
-    - name: Sécurité des instances managées avec des connexions Azure AD
+    - name: Sécurité de l’instance gérée
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implémenter une base de données géo-distribuée
     href: sql-database-implement-geo-distributed-database.md
@@ -104,10 +104,10 @@ items:
   - name: Modèles d’achat
     items:
     - name: Vue d’ensemble
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: Modèle vCore
       href: sql-database-service-tiers-vcore.md
-    - name: Modèle DTU
+    - name: Niveaux de service DTU
       href: sql-database-service-tiers-dtu.md
     - name: Prépayer pour une capacité de réserve
       href: sql-database-reserved-capacity.md
@@ -351,8 +351,8 @@ items:
     items:
     - name: Vue d’ensemble
       href: sql-database-howto-single-database.md
-    - name: Migrer vers SQL Database
-      href: sql-database-cloud-migrate.md
+    - name: Migrer vers une base de données unique/en pool
+      href: sql-database-single-database-migrate.md
     - name: Gérer une base de données SQL après sa migration
       href: sql-database-manage-after-migration.md
     - name: Configurer la réplication
@@ -421,7 +421,7 @@ items:
         href: sql-database-elastic-query-horizontal-partitioning.md
       - name: Interroger des tables de schémas différents
         href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Tâches de base de données élastique
+    - name: Tâches élastiques
       items:
       - name: Créer et gérer (PowerShell)
         href: elastic-jobs-powershell.md
@@ -461,7 +461,7 @@ items:
     items:
     - name: Copier une base de données dans Azure
       href: sql-database-copy.md
-    - name: Importer une base de données depuis un fichier BACPAC
+    - name: Importer une base de données à partir d’un fichier BACPAC
       href: sql-database-import.md
     - name: Exporter une base de données vers un fichier BACPAC
       href: sql-database-export.md
@@ -605,9 +605,9 @@ items:
             href: saas-tenancy-cross-tenant-reporting.md
           - name: Analyse des clients
             items:
-            - name: Avec SQL DB
+            - name: Avec SQL Database
               href: saas-tenancy-tenant-analytics.md
-            - name: Avec SQL DW
+            - name: Avec SQL Data Warehouse
               href: saas-tenancy-tenant-analytics-adf.md
         - name: Récupération d’urgence à l’aide de la géo-restauration
           href: saas-dbpertenant-dr-geo-restore.md
@@ -714,9 +714,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Désinstaller une tâche élastique (déconseillé)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9b11a1bd8cc68aabc8881636d5fcdfe5cbaec034
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: bf8a32ede6ce782bc0ff5ac58cd12ba70283289e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960545"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100038"

@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7dd2b60a985291311328407b07ef290e962f147b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 110397e8399d153356a574b00d34a4cb781ec1b5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080563"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811560"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Jetons d’accès Azure Active Directory
 
@@ -239,6 +239,8 @@ Les jetons d’actualisation peuvent être rendus non valides ou révoqués à t
 > Une connexion « non basée sur mot de passe » est une connexion où l’utilisateur n’a pas saisi un mot de passe. Par exemple, l’utilisation de votre visage avec Windows Hello, une clé FIDO ou un code PIN. 
 >
 > Il existe un problème connu avec le jeton d’actualisation principal de Windows. Si le jeton d’actualisation principal est obtenu via un mot de passe, puis que l’utilisateur se connecte via Hello, cela ne modifie pas l’origine du jeton d’actualisation principal, et il sera révoqué si l’utilisateur modifie son mot de passe.
+>
+> Les jetons d’actualisation ne sont pas invalidés ou révoqués lorsqu’ils sont utilisés pour récupérer un nouveau jeton d’accès et un jeton d’actualisation.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 038c273806188d04223f1e455c158249a3e17718
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 72b7bd722bc7634a707e10cbcd45768140ed527a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165508"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757573"
 ---
 | Ressource | Partages de fichiers Standard | Partages de fichiers Premium (préversion) |
 |----------|---------------|------------------------------------------|
@@ -22,3 +22,5 @@ ms.locfileid: "50165508"
 | Débit cible pour un partage de fichier unique | Jusqu’à 60 Mio/seconde | Jusqu'à 612 Mio/s (approvisionné) |
 | Nombre maximal de descripteurs ouverts par fichier | 2 000 descripteurs ouverts | 2 000 descripteurs ouverts |
 | Nombre maximal d’instantanés de partage | 200 instantanés de partage | 200 instantanés de partage |
+| Longueur maximale du nom de l’objet (répertoires et fichiers) | 2 048 caractères | 2 048 caractères |
+| Nombre maximal de caractères des composants de nom de chemin d’accès (dans le chemin d’accès \A\B\C\D, chaque lettre est un composant) | 255 caractères | 255 caractères |

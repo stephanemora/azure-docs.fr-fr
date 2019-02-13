@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 12a11e444372ad7004e566851532a98be63af8e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 15d5b824525bc19d83abfbf2c08e068bd3837350
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195356"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821199"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect : Effectuer une mise à niveau à partir de DirSync
 Azure AD Connect est le successeur de DirSync. Cette rubrique explique les différentes façons de procéder à une mise à niveau à partir de DirSync. Ces étapes ne fonctionnent pas pour la mise à niveau à partir d’une autre version d’Azure AD Connect ou d’Azure AD Sync.
@@ -34,7 +34,7 @@ Avant de commencer l’installation d’Azure AD Connect, veillez à [téléchar
 > [!NOTE]
 > Une fois que vous avez activé votre nouveau serveur Azure AD Connect pour démarrer la synchronisation des modifications à Azure AD, vous ne devez pas restaurer à l’aide de DirSync ou Azure AD Sync. La rétrogradation à partir d’Azure AD Connect pour les clients hérités, notamment DirSync et Azure AD Sync n’est pas prise en charge et peut entraîner des problèmes tels que la perte de données dans Azure AD.
 
-Si vous n’effectuez pas une mise à niveau à partir de DirSync, consultez la section [Documentation connexe](#related-documentation) pour d’autres scénarios.
+Si vous n’effectuez pas une mise à niveau à partir de DirSync, consultez la section Documentation connexe pour d’autres scénarios.
 
 ## <a name="upgrade-from-dirsync"></a>Effectuer une mise à niveau à partir de DirSync
 Selon votre déploiement DirSync actuel, il existe différentes options pour la mise à niveau. Si la durée de mise à niveau attendue est inférieure à 3 heures, nous vous recommandons de l’effectuer sur place. Si elle est supérieure à 3 heures, nous vous recommandons d’effectuer un déploiement en parallèle sur un autre serveur. Nos estimations montrent que, si vous avez plus de 50 000 objets, la mise à niveau prendra plus de 3 heures.
@@ -127,7 +127,7 @@ Pour effectuer un déploiement en parallèle, vous devez effectuer les opératio
 
 * Cliquez sur le bouton **Paramètres d'exportation** . Lorsque vous installez Azure AD Connect sur un autre serveur, ces paramètres sont migrés de votre installation DirSync vers votre nouvelle installation Azure AD Connect.
 
-Une fois vos paramètres exportés, vous pouvez quitter l’Assistant Azure AD Connect sur le serveur de synchronisation d’annuaires. Passez à l'étape suivante pour [installer Azure AD Connect sur un serveur distinct](#installation-of-azure-ad-connect-on-separate-server)
+Une fois vos paramètres exportés, vous pouvez quitter l’Assistant Azure AD Connect sur le serveur de synchronisation d’annuaires. Passez à l’étape suivante pour installer Azure AD Connect sur un serveur distinct.
 
 **Déploiement en parallèle avec moins de 50 000 objets**
 
@@ -141,7 +141,7 @@ Si vous avez moins de 50 000 objets mais que vous souhaitez effectuer un déploi
 
 ![Analyse terminée](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
 
-Une fois vos paramètres exportés, vous pouvez quitter l’Assistant Azure AD Connect sur le serveur de synchronisation d’annuaires. Passez à l’étape suivante pour [installer Azure AD Connect sur un serveur distinct](#installation-of-azure-ad-connect-on-separate-server).
+Une fois vos paramètres exportés, vous pouvez quitter l’Assistant Azure AD Connect sur le serveur de synchronisation d’annuaires. Passez à l’étape suivante pour installer Azure AD Connect sur un serveur distinct.
 
 ### <a name="install-azure-ad-connect-on-separate-server"></a>Installation d'Azure AD Connect sur un serveur distinct
 Lorsque vous installez Azure AD Connect sur un nouveau serveur, le système présuppose que vous voulez effectuer une nouvelle installation d’Azure AD Connect. Comme vous souhaitez utiliser la configuration de DirSync, quelques étapes supplémentaires sont nécessaires :

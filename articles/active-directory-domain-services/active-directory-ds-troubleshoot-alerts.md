@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 494acc55001bd3180d345801ef8d62800dd5e837
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174028"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817527"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services : dépannage des alertes
 Cet article fournit des guides de dépannage pour les alertes que vous pouvez rencontrer sur votre domaine géré.
@@ -42,7 +42,7 @@ Choisissez les étapes de résolution qui correspondent à l’ID ou au message 
 | AADDS108 | *L’abonnement utilisé par Azure AD Domain Services a été déplacé dans un autre répertoire. Azure AD Domain Services nécessite un abonnement actif dans le même répertoire pour continuer à fonctionner correctement.* | [Annuaires déplacés d’abonnements](#aadds108-subscription-moved-directories) |
 | AADDS109 | *Une ressource utilisée pour votre domaine managé a été supprimée. Cette ressource est requise pour qu’Azure AD Domain Services fonctionne correctement.* | [Une ressource a été supprimée](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *Le sous-réseau sélectionné pour le déploiement d’Azure AD Domain Services est plein et n’a pas l’espace nécessaire pour le contrôleur de domaine supplémentaire qui doit être créé.* | [Le sous-réseau est plein](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | *Un principal de service qu’Azure AD Domain Services utilise pour gérer votre domaine n’est pas autorisé à gérer les ressources de l’abonnement Azure. Le principal du service doit obtenir les autorisations nécessaires pour gérer votre domaine managé. * | [Principal du service non autorisé](#aadds111-service-principal-unauthorized) |
+| AADDS111 | *Un principal de service qu’Azure AD Domain Services utilise pour gérer votre domaine n’est pas autorisé à gérer les ressources de l’abonnement Azure. Le principal du service doit obtenir les autorisations nécessaires pour gérer votre domaine managé. * | Principal du service non autorisé |
 | AADDS112 | *Nous avons détecté que le sous-réseau du réseau virtuel dans ce domaine n’a peut-être pas suffisamment d’adresses IP. Azure AD Domain Services a besoin d’au moins deux adresses IP disponibles au sein du sous-réseau où il est activé. Nous vous recommandons d’avoir au moins 3 à 5 adresses IP auxiliaires au sein de ce sous-réseau. Cela peut se produire si d’autres machines virtuelles sont déployées au sein du sous-réseau, épuisant ainsi le nombre d’adresses IP disponibles, ou s’il existe une restriction sur le nombre d’adresses IP disponibles dans le sous-réseau.* | [Nombre insuffisant d’adresses IP](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *Les ressources utilisées par Azure AD Domain Services ont été détectées dans un état inattendu et ne peuvent pas être récupérées.* | [Des ressources sont irrécupérables](#aadds113-resources-are-unrecoverable) |
 | AADDS114 | *Le sous-réseau sélectionné pour le déploiement d’Azure AD Domain Services n’est pas valide et ne peut pas être utilisé. * | [Sous-réseau non valide](#aadds114-subnet-invalid) |
@@ -201,7 +201,7 @@ Nos principaux de service ont besoin d’un accès pour pouvoir gérer et créer
 
 **Résolution :**
 
-1. [Supprimez votre domaine managé](#active-directory-ds-disable-aadds.md) de votre locataire.
+1. Supprimez votre domaine managé de votre locataire.
 2. Corrigez la plage d’adresses IP pour le sous-réseau
   1. Accédez à la [page Réseaux virtuels sur le portail Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
   2. Sélectionnez le réseau virtuel que vous envisagez d’utiliser pour les services de domaine Azure AD.

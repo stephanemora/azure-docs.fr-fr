@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 37ee9fec8940231a01b0014b020ca3f0dffb53bf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5be6f99067f1209fcd131dfc33c46995b2a537f8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467099"
+ms.locfileid: "55498299"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -31,11 +31,11 @@ Dans l’interface CLI, vous pouvez générer plus d’informations pendant l’
 
 ## <a name="debugging-services-with-multiple-instances"></a>Débogage de services avec plusieurs instances
 
-À ce stade, Azure Dev Spaces fonctionne mieux lors du débogage d’une seule instance (pod). Le fichier azds.yaml contient un paramètre, replicaCount, qui indique le nombre de pods qui seront exécutés pour votre service. Si vous modifiez le paramètre replicaCount pour configurer votre application afin d’exécuter plusieurs pods pour un service donné, le débogueur s’attache au premier pod (quand l’ordre est alphabétique). Si ce pod est recyclé pour une raison quelconque, le débogueur s’attache à un pod différent, ce qui peut provoquer un comportement inattendu.
+Actuellement, Azure Dev Spaces fonctionne mieux lors du débogage d’une seule instance ou d’un seul pod. Le fichier azds.yaml contient un paramètre, *replicaCount*, qui indique le nombre de pods que Kubernetes exécute pour votre service. Si vous changez le paramètre replicaCount pour configurer votre application afin d’exécuter plusieurs pods pour un service donné, le débogueur s’attache au premier pod, quand l’ordre est alphabétique. Le débogueur s’attache à un autre pod une fois que le pod d’origine est recyclé, ce qui peut provoquer un comportement inattendu.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Erreur « Échec de la création du contrôleur Azure Dev Spaces »
 
-Vous pouvez voir cette erreur lorsqu’il y a un problème de création du contrôleur. Dans le cas d’une erreur temporaire, la suppression puis la recréation du contrôleur suffisent pour la corriger.
+Vous pouvez voir cette erreur lorsqu’il y a un problème de création du contrôleur. Dans le cas d’une erreur temporaire, supprimez et recréez le contrôleur pour la corriger.
 
 ### <a name="try"></a>Essayez de procéder comme suit :
 
@@ -75,11 +75,11 @@ Dans Visual Studio :
 
     ![Capture d’écran de la boîte de dialogue Outils Options](media/common/VerbositySetting.PNG)
     
-### <a name="multi-stage-dockerfiles"></a>Dockerfiles à plusieurs étapes :
-Cette erreur peut s’afficher si vous tentez d’utiliser un fichier Dockerfile à plusieurs étapes. La sortie détaillée se présente ainsi :
+### <a name="multi-stage-dockerfiles"></a>Fichiers Dockerfile multiphases :
+Vous recevez un message d’erreur *Impossible de démarrer le service* lors de l’utilisation d’un fichier Dockerfile multiphase. Dans ce cas, la sortie détaillée contient le texte suivant :
 
 ```cmd
-$ azds up
+$ azds up -v
 Using dev space 'default' with target 'AksClusterName'
 Synchronizing files...6s
 Installing Helm chart...2s
@@ -91,10 +91,10 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-Ceci est dû au fait que les nœuds AKS exécutent une version antérieure de Docker qui ne prend pas en charge les builds à plusieurs étapes. Vous devrez réécrire votre fichier Dockerfile pour éviter les builds à plusieurs étapes.
+Cette erreur est due au fait que les nœuds AKS exécutent une version antérieure de Docker qui ne prend pas en charge les builds multiphases. Pour éviter les builds multiphases, réécrivez votre fichier Dockerfile.
 
-### <a name="re-running-a-service-after-controller-re-creation"></a>Réexécution d’un service après la recréation d’un contrôleur
-Cette erreur peut s’afficher lorsque vous essayez de réexécuter un service après avoir supprimé puis recréé le contrôleur Azure Dev Spaces associé à ce cluster. La sortie détaillée se présente ainsi :
+### <a name="rerunning-a-service-after-controller-re-creation"></a>Réexécution d’un service après la recréation d’un contrôleur
+Vous recevez un message d’erreur *Impossible de démarrer le service*  lorsque vous essayez de réexécuter un service après avoir supprimé, puis recréé le contrôleur Azure Dev Spaces associé à ce cluster. Dans ce cas, la sortie détaillée contient le texte suivant :
 
 ```cmd
 Installing Helm chart...
@@ -104,13 +104,13 @@ Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" do
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
 ```
 
-En effet, la suppression du contrôleur Dev Spaces ne supprime pas les services précédemment installés par ce contrôleur. La recréation du contrôleur suivie de la tentative d’exécution des services à l’aide du nouveau contrôleur se solde par un échec car les anciens services sont toujours en place.
+Cette erreur est due au fait que la suppression du contrôleur Dev Spaces ne supprime pas les services précédemment installés par ce contrôleur. La recréation du contrôleur suivie de la tentative d’exécution des services à l’aide du nouveau contrôleur se solde par un échec car les anciens services sont toujours en place.
 
-Pour y remédier, utilisez la commande `kubectl delete` afin de supprimer manuellement les anciens services de votre cluster, puis réexécutez Dev Spaces pour installer les nouveaux services.
+Pour remédier à ce problème, utilisez la commande `kubectl delete` afin de supprimer manuellement les anciens services de votre cluster, puis réexécutez Dev Spaces pour installer les nouveaux services.
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Échec de la résolution de nom DNS pour une URL publique associée à un service Dev Spaces
 
-En cas d’échec de la résolution de nom DNS, vous pouvez voir une erreur « Impossible d’afficher cette page » ou « Impossible d’atteindre le site » dans votre navigateur web lors d’une tentative de connexion à l’URL publique associée à un service Dev Spaces.
+Vous pouvez configurer un point de terminaison d’URL publique pour votre service en spécifiant le commutateur `--public` dans la commande `azds prep` ou en cochant la case `Publicly Accessible` dans Visual Studio. Le nom DNS public est automatiquement inscrit lorsque vous exécutez votre service dans Dev Spaces. Si ce nom DNS n’est pas inscrit, vous voyez un message d’erreur *Impossible d’afficher la page* ou *Impossible d’accéder au site* dans votre navigateur web lors de la connexion à l’URL publique.
 
 ### <a name="try"></a>Essayez de procéder comme suit :
 
@@ -122,7 +122,7 @@ azds list-uris
 
 Si une URL est à l’état *En attente*, cela signifie que Dev Spaces attend toujours que l’inscription DNS se termine. L’inscription peut parfois prendre quelques minutes. Dev Spaces ouvre également un tunnel localhost pour chaque service, vous pouvez utiliser pendant l’attente d’inscription DNS.
 
-Si une URL reste à l’état *En attente* pendant plus de 5 minutes, cela peut indiquer un problème lié au pod DNS externe créant le point de terminaison public et/ou au pod du contrôleur d’entrée nginx assurant l’acquisition du point de terminaison public. Vous pouvez utiliser les commandes suivantes pour supprimer ces pods. Ils seront automatiquement recréés.
+Si une URL reste à l’état *En attente* pendant plus de 5 minutes, cela peut indiquer un problème lié au pod DNS externe créant le point de terminaison public ou au pod du contrôleur d’entrée nginx assurant l’acquisition du point de terminaison public. Vous pouvez utiliser les commandes suivantes pour supprimer ces pods. AKS recrée automatiquement les pods supprimés.
 
 ```cmd
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
@@ -166,10 +166,10 @@ Vous risquez de voir cette erreur si azds.exe n’est pas installé ou configur�
 ## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Avertissement « Impossible de générer Dockerfile en raison d’un langage non pris en charge »
 Azure Dev Spaces fournit une prise en charge native de C# et Node.js. Quand vous exécutez *azds prep* dans un répertoire contenant du code écrit dans l’un de ces langages, Azure Dev Spaces crée automatiquement le fichier Dockerfile approprié pour vous.
 
-Vous pouvez toujours utiliser Azure Dev Spaces avec du code écrit dans d’autres langages, mais vous devez créer le fichier Dockerfile vous-même avant d’exécuter *azds up* pour la première fois.
+Vous pouvez toujours utiliser Azure Dev Spaces avec du code écrit dans d’autres langages, mais vous devez créer manuellement le fichier Dockerfile avant d’exécuter *azds up* pour la première fois.
 
 ### <a name="try"></a>Essayez de procéder comme suit :
-Si votre application est écrite dans un langage qu’Azure Dev Spaces ne prend pas nativement en charge, vous devez fournir un fichier Dockerfile approprié pour générer une image conteneur qui exécute votre code. Docker fournit la [liste des bonnes pratiques pour écrire des fichiers Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) ainsi que des [informations de référence sur Dockerfile](https://docs.docker.com/engine/reference/builder/) qui peuvent vous aider à écrire un fichier Dockerfile qui répond à vos besoins.
+Si votre application est écrite dans un langage qu’Azure Dev Spaces ne prend pas nativement en charge, vous devez fournir un fichier Dockerfile approprié pour générer une image conteneur qui exécute votre code. Docker fournit la [liste des bonnes pratiques pour écrire des fichiers Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) et des [informations de référence sur Dockerfile](https://docs.docker.com/engine/reference/builder/) qui peuvent vous aider à écrire un fichier Dockerfile qui répond à vos besoins.
 
 Une fois que vous avez le fichier Dockerfile approprié, vous pouvez exécuter *azds up* pour exécuter votre application dans Azure Dev Spaces.
 
@@ -183,7 +183,7 @@ Le port du conteneur n’est pas disponible. Ce problème peut se produire, car�
 
 ### <a name="try"></a>Essayez de procéder comme suit :
 1. Si le conteneur est en cours de génération et/ou de déploiement, vous pouvez patienter 2 à 3 secondes avant d’essayer à nouveau d’accéder au service. 
-1. Vérifiez la configuration du port. Les numéros de port spécifiés doivent être **identiques** dans toutes les ressources ci-dessous :
+1. Vérifiez la configuration du port. Les numéros de port spécifiés doivent être **identiques** dans toutes les ressources suivantes :
     * **Dockerfile :** Spécifié par l’instruction `EXPOSE`.
     * **[Graphique Helm](https://docs.helm.sh) :** Spécifié par les valeurs `externalPort` et `internalPort` d’un service (souvent situées dans un fichier `values.yml`),
     * Ports ouverts dans le code d’application, par exemple dans Node.js : `var server = app.listen(80, function () {...}`
@@ -247,7 +247,7 @@ Tâches à effectuer :
 Vous trouverez un exemple à l’adresse https://github.com/sgreenmsft/buildcontextsample
 
 ## <a name="microsoftdevspacesregisteraction-authorization-error"></a>Erreur d’autorisation « Microsoft.DevSpaces/register/action »
-L’erreur suivante peut s’afficher quand vous gérez un espace Azure Dev Spaces et que vous travaillez dans un abonnement Azure pour lequel vous ne bénéficiez pas d’un accès Propriétaire ou Contributeur.
+Vous avez besoin d’un accès *Propriétaire* ou *Contributeur* dans votre abonnement Azure pour gérer Azure Dev Spaces. Vous pouvez voir cette erreur si vous tentez de gérer Dev Spaces alors que vous n’avez pas d’accès *Propriétaire* ou *Contributeur* à l’abonnement Azure associé.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### <a name="reason"></a>Motif
@@ -260,6 +260,28 @@ Une personne bénéficiant d’un accès Propriétaire ou Contributeur à l’ab
 az provider register --namespace Microsoft.DevSpaces
 ```
 
+## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Dev Spaces expire à l’étape *En attente de la build de l’image conteneur...* avec des nœuds virtuels AKS
+
+### <a name="reason"></a>Motif
+Ce problème se produit quand vous essayez d’utiliser Dev Spaces afin d’exécuter un service configuré pour s’exécuter sur un [nœud virtuel AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Actuellement, Dev Spaces ne gère pas les services de build ou de débogage sur des nœuds virtuels.
+
+Si vous exécutez `azds up` avec le commutateur `--verbose` ou si vous activez la journalisation détaillée dans Visual Studio, vous obtenez des informations supplémentaires :
+
+```cmd
+Installed chart in 2s
+Waiting for container image build...
+pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
+Streaming build container logs for service 'mywebapi' failed with: Timed out after 601.3037572 seconds trying to start build logs streaming operation. 10m 1s
+Container image build failed
+```
+
+Celles-ci indiquent que le pod du service a été assigné à *virtual-node-aci-linux*, qui est un nœud virtuel.
+
+### <a name="try"></a>Essayez de procéder comme suit :
+Mettez à jour le graphique Helm du service pour supprimer toutes les valeurs *nodeSelector* et/ou *tolerations* qui permettent au service de s’exécuter sur un nœud virtuel. Ces valeurs sont généralement définies dans le fichier `values.yaml` du graphique.
+
+Vous pouvez quand même utiliser un cluster AKS avec la fonctionnalité des nœuds virtuels activée, si le service que vous voulez générer/déboguer par le biais de Dev Spaces s’exécute sur un nœud de machine virtuelle. Il s’agit de la configuration par défaut.
+
 ## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>« Error: could not find a ready tiller pod» (Erreur : Aucun pod Tiller prêt n’a été trouvé) lors du lancement de Dev Spaces
 
 ### <a name="reason"></a>Motif
@@ -271,20 +293,18 @@ Le fait de redémarrer les nœuds d’agent de votre cluster permet généraleme
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Le proxy Azure Dev Spaces peut interférer avec d'autres pods en cours d’exécution dans un espace de développement
 
 ### <a name="reason"></a>Motif
-Lorsque vous activez Dev Spaces sur un espace de noms de votre cluster AKS, un conteneur supplémentaire appelé _mindaro-proxy_ est installé dans chaque pod en cours d'exécution dans cet espace de noms. Ce conteneur intercepte les appels vers les services du pod, ce qui fait partie intégrante des fonctionnalités de développement de l'équipe Dev Spaces.
-
-Malheureusement, cela peut interférer avec certains services en cours d’exécution dans ces pods. Plus précisément, cela interfère avec les pods exécutant Cache Azure pour Redis, ce qui crée des erreurs de connexion et des échecs en termes de communication maître/esclave.
+Lorsque vous activez Dev Spaces sur un espace de noms de votre cluster AKS, un conteneur supplémentaire appelé _mindaro-proxy_ est installé dans chaque pod en cours d'exécution dans cet espace de noms. Ce conteneur intercepte les appels aux services dans le pod, ce qui fait partie intégrante des fonctionnalités de développement en équipe de Dev Spaces. Toutefois, il peut interférer avec certains services en cours d’exécution dans ces pods. Il est connu pour interférer avec les pods exécutant Cache Azure pour Redis, ce qui crée des erreurs de connexion et des échecs en termes de communication maître/esclave.
 
 ### <a name="try"></a>Essayez de procéder comme suit :
-Vous pouvez déplacer les pods concernés vers un espace de noms à l’intérieur du cluster pour lequel Dev Spaces n'est _pas_ activé, tout en continuant à exécuter le reste de votre application à l’intérieur d’un espace de noms prenant en charge Dev Spaces. Dev Spaces n’installe pas le conteneur _mindaro-proxy_ dans les espaces de noms qui ne le prennent pas en charge.
+Vous pouvez déplacer les pods concernés vers un espace de noms situé à l’intérieur du cluster dans lequel Dev Spaces n’est _pas_ activé. Le reste de votre application peut continuer à s’exécuter à l’intérieur d’un espace de noms où Dev Spaces est activé. Dev Spaces n’installe pas le conteneur _mindaro-proxy_ dans les espaces de noms qui ne le prennent pas en charge.
 
-## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces ne semble pas utiliser mon fichier Dockerfile existant pour créer un conteneur 
+## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces ne semble pas utiliser mon fichier Dockerfile existant pour créer un conteneur
 
 ### <a name="reason"></a>Motif
-Azure Dev Spaces peut être configuré pour pointer vers un fichier _Dockerfile_ spécifique de votre projet. S’il s’avère qu’Azure Dev Spaces n’utilise pas le fichier _Dockerfile_ attendu pour générer vos conteneurs, vous devrez peut-être lui indiquer explicitement son emplacement. 
+Azure Dev Spaces peut être configuré pour pointer vers un fichier _Dockerfile_ spécifique de votre projet. S’il s’avère qu’Azure Dev Spaces n’utilise pas le fichier _Dockerfile_ attendu pour générer vos conteneurs, vous devrez peut-être indiquer explicitement à Azure Dev Spaces quel fichier Dockerfile utiliser. 
 
 ### <a name="try"></a>Essayez de procéder comme suit :
-Ouvrez le fichier _azds.yaml_ qui a été généré par Azure Dev Spaces dans votre projet. Utilisez la directive `configurations->develop->build->dockerfile` pour pointer vers le fichier Dockerfile que vous voulez utiliser :
+Ouvrez le fichier _azds.yaml_ qui a été généré par Azure Dev Spaces dans votre projet. Utilisez la directive *configurations->develop->build->dockerfile* pour pointer vers le fichier Dockerfile à utiliser :
 
 ```
 ...

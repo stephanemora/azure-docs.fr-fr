@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251977"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810284"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -32,6 +32,8 @@ Le déplacement d’une ressource consiste uniquement en sa translation vers un 
 > * Pour mettre à niveau votre essai gratuit, consultez [Passer d’un essai gratuit ou d’un abonnement Azure Microsoft Imagine au paiement à l’utilisation](..//billing/billing-upgrade-azure-subscription.md).
 > * Pour changer un compte de paiement à l’utilisation, consultez [Remplacer votre abonnement Paiement à l’utilisation Azure par une autre offre](../billing/billing-how-to-switch-azure-offer.md).
 > * Si vous ne pouvez pas convertir l’abonnement, [créez une demande de support Azure](../azure-supportability/how-to-create-azure-support-request.md). Sélectionnez **Gestion des abonnements** comme type de problème.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="when-to-call-azure-support"></a>Quand contacter le support Azure
 
@@ -237,7 +239,7 @@ Lors du déplacement de ressources d’un groupe de ressources vers un autre au 
 * Un seul compte de stockage (classique) peut être déplacé à la fois.
 * Vous ne pouvez pas déplacer un compte de stockage (classique) dans la même opération avec une machine virtuelle ou un service cloud.
 
-Pour déplacer des ressources classiques vers un nouveau groupe de ressources dans le même abonnement, les opérations de déplacement standard via le [portail](#use-portal), [Azure PowerShell](#use-powershell), [l’interface CLI Azure](#use-azure-cli) ou [l’API REST](#use-rest-api). Vous utilisez les mêmes opérations que vous celles que vous utilisez pour déplacer des ressources Resource Manager.
+Pour déplacer des ressources classiques vers un nouveau groupe de ressources dans le même abonnement, utilisez les opérations de déplacement standard via le [portail](#use-portal), Azure PowerShell, l’interface CLI Azure ou l’API REST. Vous utilisez les mêmes opérations que vous celles que vous utilisez pour déplacer des ressources Resource Manager.
 
 #### <a name="new-subscription"></a>Nouvel abonnement
 

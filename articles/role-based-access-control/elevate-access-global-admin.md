@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d6778e1749493a04a73d0ac210c1557b89343d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437468"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695578"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
@@ -83,12 +83,14 @@ Effectuez les étapes suivantes pour élever l’accès d’un administrateur g�
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ### <a name="list-role-assignment-at-the-root-scope-"></a>Répertorier une attribution de rôle dans l’étendue racine (/)
 
-Pour répertorier l’attribution de rôle Administrateur de l’accès utilisateur pour un utilisateur dans l’étendue racine (`/`), utilisez la commande [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Pour répertorier l’attribution de rôle Administrateur de l’accès utilisateur pour un utilisateur dans l’étendue racine (`/`), utilisez la commande [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
   -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
@@ -111,10 +113,10 @@ Pour supprimer l’attribution de rôle Administrateur de l’accès utilisateur
 1. Connectez-vous en tant qu’utilisateur pouvant supprimer l’accès élevé. Il peut s’agir du même utilisateur que celui utilisé pour élever l’accès ou d’un autre administrateur général disposant d’un accès élevé au niveau de l’étendue racine.
 
 
-1. Utilisez la commande [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) pour supprimer l’attribution de rôle Administrateur de l’accès utilisateur.
+1. Utilisez la commande [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) pour supprimer l’attribution de rôle Administrateur de l’accès utilisateur.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+    Remove-AzRoleAssignment -SignInName <username@example.com> `
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 

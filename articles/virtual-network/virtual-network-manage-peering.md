@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 10f8b6b2b1ab6249eff4776c8cba869d72f448c5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fcd1d8c4dd1f9684db85514a80fea7022f52b0fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851672"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817085"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer une homologation de réseau virtuel
 
@@ -39,7 +39,7 @@ Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azur
 
 ## <a name="create-a-peering"></a>Créer une homologation
 
-Avant de créer une homologation, familiarisez-vous avec les [exigences et contraintes](#requirements-and-contstraints) ainsi qu’avec les [autorisations nécessaires](#permissions).
+Avant de créer une homologation, familiarisez-vous avec les exigences et contraintes ainsi qu’avec les [autorisations nécessaires](#permissions).
 
 1. Dans la zone de recherche située en haut du Portail Azure, entrez *réseaux virtuels*. Quand la mention **Réseaux virtuels** apparaît dans les résultats de recherche, sélectionnez-la. Ne sélectionnez pas **Réseaux virtuels (classiques)** si cette option apparaît dans la liste, car vous ne pouvez pas créer une homologation à partir d’un réseau virtuel déployé via le modèle de déploiement classique.
 2. Sélectionnez dans la liste le réseau virtuel pour lequel vous souhaitez créer une homologation.
@@ -70,12 +70,12 @@ Pour obtenir des instructions pas à pas sur l’implémentation de l’homologa
 
 ### <a name="commands"></a>Commandes
 
-- **Azure CLI** : [az network vnet peering create](/cli/azure/network/vnet/peering#create)
+- **Azure CLI** : [az network vnet peering create](/cli/azure/network/vnet/peering)
 - **PowerShell** : [Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering)
 
 ## <a name="view-or-change-peering-settings"></a>Afficher ou modifier les paramètres d’homologation
 
-Avant de modifier une homologation, familiarisez-vous avec les [exigences et contraintes](#requirements-and-contstraints) ainsi qu’avec les [autorisations nécessaires](#permissions).
+Avant de modifier une homologation, familiarisez-vous avec les exigences et contraintes ainsi qu’avec les [autorisations nécessaires](#permissions).
 
 1. Dans la zone de recherche située en haut du portail, entrez *réseaux virtuels*. Quand la mention **Réseaux virtuels** apparaît dans les résultats de recherche, sélectionnez-la. Ne sélectionnez pas **Réseaux virtuels (classiques)** si cette option apparaît dans la liste, car vous ne pouvez pas créer une homologation à partir d’un réseau virtuel déployé via le modèle de déploiement classique.
 2. Sélectionnez dans la liste le réseau virtuel dont vous souhaitez modifier les paramètres d’homologation.
@@ -87,7 +87,7 @@ Avant de modifier une homologation, familiarisez-vous avec les [exigences et con
 
 **Commandes**
 
-- **Azure CLI** : [az network vnet peering list](/cli/azure/network/vnet/peering) pour afficher la liste des homologations d’un réseau virtuel, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) pour afficher les paramètres d’une homologation spécifique et [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) pour modifier les paramètres de l’homologation.|
+- **Azure CLI** : [az network vnet peering list](/cli/azure/network/vnet/peering) pour afficher la liste des homologations d’un réseau virtuel, [az network vnet peering show](/cli/azure/network/vnet/peering) pour afficher les paramètres d’une homologation spécifique et [az network vnet peering update](/cli/azure/network/vnet/peering) pour modifier les paramètres de l’homologation.|
 - **PowerShell** : [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) pour afficher les paramètres d’homologation et [Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) pour modifier les paramètres.
 
 ## <a name="delete-a-peering"></a>Supprimer une homologation
@@ -96,7 +96,7 @@ Avant de supprimer une homologation, vérifiez que votre compte possède les [au
 
 En cas de suppression d’une homologation, le trafic en provenance d’un réseau virtuel n’est plus acheminé vers le réseau virtuel homologué. Lorsque des réseaux virtuels déployés via le Gestionnaire de ressources sont homologués, chaque réseau virtuel a une homologation à l’autre réseau virtuel. Si la suppression de l’homologation d’un réseau virtuel désactive la communication entre les réseaux virtuels, elle ne supprime pas l’homologation de l’autre réseau virtuel. L’état d’homologation pour l’homologation existant dans l’autre réseau virtuel est **Déconnectée**. Vous ne pouvez pas recréer l’homologation tant que vous n’avez pas recréé l’homologation dans le premier réseau virtuel et que l’état d’homologation des deux réseaux virtuels n’est pas *Connectée*. 
 
-Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au lieu de supprimer une homologation, vous pouvez définir le paramètre **Autoriser l’accès au réseau virtuel** sur **Désactivé**. Pour savoir comment procéder, voir l’étape 6 de la section [Créer une homologation](#create-peering) dans cet article. Il se peut que vous trouviez plus facile de désactiver et activer l’accès réseau que de supprimer et recréer des homologations.
+Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au lieu de supprimer une homologation, vous pouvez définir le paramètre **Autoriser l’accès au réseau virtuel** sur **Désactivé**. Pour savoir comment procéder, voir l’étape 6 de la section [Créer une homologation](#create-a-peering) dans cet article. Il se peut que vous trouviez plus facile de désactiver et activer l’accès réseau que de supprimer et recréer des homologations.
 
 1. Dans la zone de recherche située en haut du portail, entrez *réseaux virtuels*. Quand la mention **Réseaux virtuels** apparaît dans les résultats de recherche, sélectionnez-la. Ne sélectionnez pas **Réseaux virtuels (classiques)** si cette option apparaît dans la liste, car vous ne pouvez pas créer une homologation à partir d’un réseau virtuel déployé via le modèle de déploiement classique.
 2. Sélectionnez dans la liste le réseau virtuel pour lequel vous souhaitez supprimer une homologation.
@@ -113,10 +113,10 @@ Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au l
 ## <a name="requirements-and-constraints"></a>Exigences et contraintes 
 
 - <a name="cross-region"></a>Vous pouvez appairer des réseaux virtuels dans la même région ou dans différentes régions. Le Peering de réseaux virtuels dans des régions différentes est également appelé *Peering mondial*. 
-- Lors de la création d’un Peering mondial, les réseaux virtuels appairés peuvent se trouver dans n’importe quelle région de clouds publics Azure, mais pas dans les clouds nationaux Azure. Vous pouvez appairer des réseaux virtuels dans la même région dans des clouds nationaux uniquement.
+- Lors de la création d’un Peering mondial, les réseaux virtuels appairés peuvent se trouver dans n’importe quelle région de clouds publics Azure ou dans des régions de clouds en Chine, mais pas dans des régions de clouds Azure Government. Vous pouvez uniquement appairer des réseaux virtuels dans la même région dans des régions de clouds Azure Government.
 - Les ressources situées dans un réseau virtuel ne peuvent pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne Azure dans un réseau virtuel appairé à l’échelle mondiale. L’équilibreur de charge et les ressources qui communiquent avec lui doivent être dans un réseau virtuel situé dans la même région. Toutefois, si les réseaux virtuels appairés sont dans la même région, les ressources situées dans l’un ou l’autre de ces réseaux peuvent communiquer avec l’adresse IP frontale d’un équilibreur de charge interne Azure dans un réseau virtuel du Peering.
 - Vous ne pouvez pas utiliser de passerelle distante ou autoriser un transit par passerelle dans des réseaux virtuels appairés à l’échelle mondiale. Pour utiliser des passerelles distantes ou autoriser un transit par passerelle, les réseaux virtuels appairés doivent appartenir à la même région.
-- Les réseaux virtuels peuvent être dans des abonnements identiques ou différents. Quand vous appairez des réseaux virtuels de différents abonnements, les deux abonnements peuvent être associés au même locataire Azure Active Directory ou à un locataire différent. Si vous n’avez pas encore de client Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). La prise en charge du peering entre réseaux virtuels à partir d’abonnements associés à différents locataires Azure Active Directory n’est pas disponible dans le portail. Vous pouvez utiliser l’interface CLI, PowerShell ou des modèles.
+- Les réseaux virtuels peuvent être dans des abonnements identiques ou différents. Quand vous appairez des réseaux virtuels de différents abonnements, les deux abonnements peuvent être associés au même locataire Azure Active Directory ou à un locataire différent. Si vous n’avez pas encore de client Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). La prise en charge du peering entre réseaux virtuels à partir d’abonnements associés à différents locataires Azure Active Directory n’est pas disponible dans le portail. Vous pouvez utiliser l’interface CLI, PowerShell ou des modèles.
 - Les réseaux virtuels que vous homologuez doivent avoir des espaces d’adressage IP qui ne se chevauchent pas.
 - Il n’est pas possible d’ajouter ou de supprimer des plages d’adresses dans l’espace d’adressage d’un réseau virtuel après que celui-ci a été homologué avec un autre réseau virtuel. Pour ajouter ou supprimer des plages d’adresses, supprimez l’homologation, ajoutez ou supprimez les plages d’adresses, puis recréez l’homologation. Pour ajouter ou supprimer des plages d’adresses dans des réseaux virtuels, voir [Gérer les réseaux virtuels](manage-virtual-network.md).
 - Vous pouvez homologuer deux réseaux virtuels déployés via le Gestionnaire de ressources, ou homologuer un réseau virtuel déployé via le Gestionnaire de ressources avec un réseau virtuel déployé via le modèle de déploiement classique. Vous ne pouvez pas homologuer deux réseaux virtuels créés via le modèle de déploiement classique. Si vous n’êtes pas familiarisé avec les modèles de déploiement Azure, lisez l’article [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) pour connecter deux réseaux virtuels créés via le modèle de déploiement classique.
@@ -144,7 +144,7 @@ Les comptes pouvant être utilisés avec l’appairage de réseaux virtuels doiv
 
 Si votre compte n’a pas l’un des rôles ci-dessus, il doit avoir un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) auquel sont assignées les actions appropriées répertoriées dans le tableau suivant :
 
-| Action | NOM |
+| Action | Nom |
 |---|---|
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Action requise pour créer un appairage entre un réseau virtuel A et un réseau virtuel B. Le réseau virtuel A doit être un réseau virtuel (Resource Manager)                            |
 | Microsoft.Network/virtualNetworks/peer/action                   | Action requise pour créer un appairage entre un réseau virtuel B (Resource Manager) et un réseau virtuel A                                                                                |

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: fa7deb8a1ef536ef0c2b7fbb0a184a950821aebf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 95a0d1b8afba71f6c8226dfe1ad5268d9e6f24e1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477334"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816915"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrer des événements pour Event Grid
 
@@ -20,7 +20,7 @@ Cet article montre comment filtrer des événements lors de la création d’un 
 
 ## <a name="filter-by-event-type"></a>Filtrer par type d’événement
 
-Quand vous créez un abonnement Event Grid, vous pouvez spécifier quels [types d’événements](event-schema.md) envoyer au point de terminaison. Les exemples de cette section créent des abonnements à des événements d’un groupe de ressources, mais limitent les événements qui sont envoyés à `Microsoft.Resources.ResourceWriteFailure` et `Microsoft.Resources.ResourceWriteSuccess`. Si vous avez besoin de davantage de souplesse lors du filtrage d’événements par type d’événement, consultez [Filtrer avec des opérateurs avancés et sur des champs de données](#filter-by-advanced-operators-and-data-fields).
+Quand vous créez un abonnement Event Grid, vous pouvez spécifier quels [types d’événements](event-schema.md) envoyer au point de terminaison. Les exemples de cette section créent des abonnements à des événements d’un groupe de ressources, mais limitent les événements qui sont envoyés à `Microsoft.Resources.ResourceWriteFailure` et `Microsoft.Resources.ResourceWriteSuccess`. Si vous avez besoin de davantage de souplesse lors du filtrage d’événements par type d’événement, consultez Filtrer avec des opérateurs avancés et sur des champs de données.
 
 Pour PowerShell, utilisez le paramètre `-IncludedEventType` lors de la création de l’abonnement.
 
@@ -77,7 +77,7 @@ Pour un modèle Resource Manager, utilisez la propriété `includedEventTypes`.
 
 ## <a name="filter-by-subject"></a>Filtrer par objet
 
-Vous pouvez filtrer des événements par l’objet indiqué dans les données d’événement. Vous pouvez spécifier une valeur à faire correspondre pour le début ou la fin de l’objet. Si vous avez besoin de davantage de souplesse lors du filtrage d’événements par objet, consultez [Filtrer avec des opérateurs avancés et sur des champs de données](#filter-by-advanced-operators-and-data-fields).
+Vous pouvez filtrer des événements par l’objet indiqué dans les données d’événement. Vous pouvez spécifier une valeur à faire correspondre pour le début ou la fin de l’objet. Si vous avez besoin de davantage de souplesse lors du filtrage d’événements par objet, consultez Filtrer avec des opérateurs avancés et sur des champs de données.
 
 Dans l’exemple PowerShell suivant, vous créez un abonnement à un événement qui filtre sur le début de l’objet. Vous utilisez le paramètre `-SubjectBeginsWith` pour limiter les événements à ceux d’une ressource spécifique. Vous transmettez l’ID de ressource d’un groupe de sécurité réseau.
 

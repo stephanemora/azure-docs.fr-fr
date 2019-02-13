@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8fee1e29ab3a267d77e4e43beb2c42587da5314d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103857"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770212"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Afficher les opérations de déploiement avec Azure Resource Manager
 
@@ -26,7 +26,10 @@ Vous pouvez afficher les opérations d’un déploiement via le portail Azure. V
 
 Vous pouvez dépanner votre déploiement en examinant les journaux d'audit ou les opérations de déploiement. Cet article illustre les deux méthodes. Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="portal"></a>Portail
+
 Pour afficher les opérations de déploiement, procédez comme suit :
 
 1. Pour le groupe de ressources impliqué dans le déploiement, notez l'état du dernier déploiement. Vous pouvez sélectionner cet état pour obtenir plus de détails.
@@ -53,28 +56,28 @@ Pour afficher les opérations de déploiement, procédez comme suit :
     ![voir les événements](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## <a name="powershell"></a>PowerShell
-1. Pour obtenir l’état global d’un déploiement, utilisez la commande **Get-AzureRmResourceGroupDeployment** . 
+1. Pour obtenir l’état global d’un déploiement, utilisez la commande **Get-AzResourceGroupDeployment** . 
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
   ```
 
    Sinon, vous pouvez filtrer les résultats en les restreignant aux déploiements qui ont échoué.
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
 1. Pour obtenir l’ID de corrélation, utilisez :
 
   ```powershell
-  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. Chaque déploiement comprend plusieurs opérations. Chaque opération représente une étape dans le processus de déploiement. Pour découvrir la cause du problème rencontré lors d’un déploiement, vous devez généralement afficher les détails concernant les opérations de déploiement. Vous pouvez afficher l'état des opérations avec **Get-AzureRmResourceGroupDeploymentOperation**.
+1. Chaque déploiement comprend plusieurs opérations. Chaque opération représente une étape dans le processus de déploiement. Pour découvrir la cause du problème rencontré lors d’un déploiement, vous devez généralement afficher les détails concernant les opérations de déploiement. Vous pouvez afficher l’état des opérations avec **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
-  Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
     Cette requête retourne plusieurs opérations, chacune au format suivant :
@@ -92,7 +95,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
 1. Pour obtenir plus d’informations sur les opérations ayant échoué, récupérez les propriétés des opérations dont l’état est **Failed** .
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
     Cette requête retourne toutes les opérations ayant échoué, chacune au format suivant :
@@ -115,7 +118,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
 1. Pour obtenir le message d’état d’une opération ayant échoué, utilisez la commande suivante :
 
   ```powershell
-  ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
   ```
 
     Résultat :
@@ -130,9 +133,9 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   Vous obtenez ces informations à partir du journal et les enregistrez localement en utilisant les commandes PowerShell suivantes :
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
   ```
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -157,7 +160,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
 
 ## <a name="rest"></a>REST
 
-1. Récupérez des informations sur un déploiement avec l’opération [Obtenir des informations sur le déploiement d’un modèle](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) .
+1. Récupérez des informations sur un déploiement avec l’opération [Obtenir des informations sur le déploiement d’un modèle](https://docs.microsoft.com/rest/api/resources/deployments) .
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -180,7 +183,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   }
   ```
 
-2. Pour obtenir des informations sur les déploiements, voir [Répertorier toutes les opérations de déploiement de modèle](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
+2. Pour obtenir des informations sur les déploiements, voir [Répertorier toutes les opérations de déploiement de modèle](https://docs.microsoft.com/rest/api/resources/deployments). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

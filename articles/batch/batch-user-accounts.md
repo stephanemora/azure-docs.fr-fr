@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542830"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813906"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Exécuter des tâches sous des comptes d’utilisateur dans Azure Batch
 
@@ -66,7 +66,7 @@ Le niveau d’élévation du compte d’utilisateur indique si une tâche s’ex
 
 Par défaut, les tâches s’exécutent dans Batch sous un compte d’utilisateur automatique, en tant qu’utilisateur standard qui ne dispose pas d’un accès avec élévation de privilèges, et avec une étendue de tâche bien définie. Lorsque la spécification d’utilisateur automatique est configurée pour l’étendue de la tâche, le service Batch crée un compte d’utilisateur automatique pour cette tâche uniquement.
 
-L’étendue de la tâche peut être remplacée par une étendue de pool. Lorsque la spécification d’utilisateur automatique d’une tâche est configurée pour l’étendue du pool, la tâche s’exécute sous un compte d’utilisateur automatique disponible pour n’importe quelle tâche dans le pool. Pour plus d’informations sur l’étendue du pool, consultez la section intitulée [Exécution d’une tâche en tant qu’utilisateur automatique avec une étendue de pool](#run-a-task-as-the-autouser-with-pool-scope).   
+L’étendue de la tâche peut être remplacée par une étendue de pool. Lorsque la spécification d’utilisateur automatique d’une tâche est configurée pour l’étendue du pool, la tâche s’exécute sous un compte d’utilisateur automatique disponible pour n’importe quelle tâche dans le pool. Pour plus d’informations sur l’étendue du pool, consultez la section intitulée Exécution d’une tâche en tant qu’utilisateur automatique avec une étendue de pool.   
 
 L’étendue par défaut est différente sur les nœuds Windows et Linux :
 

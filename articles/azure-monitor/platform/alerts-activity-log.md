@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579326"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816575"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d'activité avec Azure Monitor  
 
@@ -93,7 +93,7 @@ Procédez comme suit :
 
     La nouvelle règle d’alerte de journal d’activité est créée et un message de confirmation s’affiche en haut à droite de la fenêtre.
 
-    Vous pouvez activer, désactiver, modifier ou supprimer une règle. [En savoir plus](#view-and-manage-activity-log-alert-rules-in-azure-portal) sur la gestion des règles de journal d’activité.
+    Vous pouvez activer, désactiver, modifier ou supprimer une règle. En savoir plus sur la gestion des règles de journal d’activité.
 
 
 Sinon, pour bien comprendre les conditions dans lesquelles des règles d’alerte peuvent être créées sur le journal d’activité, il est possible d’explorer ou de filtrer les événements par le biais du [Journal d’activité dans le portail Azure](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). Dans Azure Monitor - Journal d’activité, il est possible de filtrer ou de rechercher l’événement requis, puis de créer une alerte à l’aide du bouton **Ajouter une alerte de journal d’activité**. Poursuivez ensuite jusqu’à l’étape 4 comme indiqué dans le didacticiel ci-dessus.
@@ -203,14 +203,14 @@ L’exemple json ci-dessus peut par exemple être enregistré en tant que sample
 L’[API Azure Monitor - Alertes du journal d'activité](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) est une API REST entièrement compatible avec l’API REST Azure Resource Manager. Elle peut donc être utilisée par le biais de Powershell à l’aide d’applets de commande Resource Manager en plus d’Azure CLI.
 
 ## <a name="powershell"></a>PowerShell
-Vous trouverez ci-dessous une illustration de l’utilisation par le biais de l’applet de commande Azure Resource Manager PowerShell pour l’exemple de modèle de ressource présenté plus haut (sampleActivityLogAlert.json) dans la [section Modèle de ressource](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
+Vous trouverez ci-dessous une illustration de l’utilisation par le biais de l’applet de commande Azure Resource Manager PowerShell pour l’exemple de modèle de ressource présenté plus haut (sampleActivityLogAlert.json) dans la section Modèle de ressource :
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 Où sampleActivityLogAlert.parameters.json contient les valeurs communiquées pour les paramètres requis pour la création d’une règle d’alerte.
 
 ## <a name="cli"></a>Interface de ligne de commande
-Vous trouverez ci-dessous une illustration de l’utilisation par le biais de la commande Azure Resource Manager dans Azure CLI pour l’exemple de modèle de ressource présenté plus haut (sampleActivityLogAlert.json) dans la [section Modèle de ressource](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
+Vous trouverez ci-dessous une illustration de l’utilisation par le biais de la commande Azure Resource Manager dans Azure CLI pour l’exemple de modèle de ressource présenté plus haut (sampleActivityLogAlert.json) dans la section Modèle de ressource :
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json

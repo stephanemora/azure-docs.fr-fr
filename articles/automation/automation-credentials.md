@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9884138127d62e2dc524dc1b6d9e827d1ee0fac8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0454bc211d2ae8497babc808f9794fae4d22c47e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439185"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498163"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ressources d’informations d’identification dans Azure Automation
 
@@ -73,10 +73,9 @@ La fonction dans le tableau suivant est utilisée pour accéder aux informations
 
 ### <a name="to-create-a-new-credential-asset-with-the-azure-portal"></a>Pour créer une ressource d’informations d’identification avec le portail Azure
 
-1. À partir de votre compte Automation, cliquez sur la partie **Ressources** afin d’ouvrir le panneau **Ressources**.
-2. Cliquez sur la partie **Informations d’identification** afin d’ouvrir le panneau **Informations d’identification**.
-3. Cliquez sur **Ajouter des informations d’identification** en haut du panneau.
-4. Remplissez le formulaire, puis cliquez sur **Créer** pour enregistrer les nouvelles informations d’identification.
+1. Dans votre compte Automation, sélectionnez **Informations d’identification** sous **Ressources partagées**.
+1. Cliquez sur **+ Ajouter des informations d’identification**.
+1. Remplissez le formulaire, puis cliquez sur **Créer** pour enregistrer les nouvelles informations d’identification.
 
 > [!NOTE]
 > Les comptes d’utilisateurs qui ont recours à l’authentification multifacteur ne sont pas pris en charge pour une utilisation dans Azure Automation.

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b2e87b2855ac1d76fe2ad544c17c33bfa14f635a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282201"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812376"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Vue d’ensemble des certificats pour Azure Cloud Services
-Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificats et vous explique comment les [créer](#create) et les [déployer](#deploy) dans Azure.
+Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificats et vous explique comment les [créer](#create) et les déployer dans Azure.
 
 Les certificats utilisés dans Azure sont des certificats x.509 v3 et peuvent être signés par un autre certificat approuvé ou être auto-signés. Un certificat auto-signé est signé par son propre créateur et n’est donc pas approuvé par défaut. La plupart des navigateurs peuvent ignorer ce problème. Les certificats auto-signés ne doivent être utilisés que par vous au moment où vous développez et testez vos services cloud. 
 
@@ -64,7 +64,7 @@ Vous pouvez créer un certificat auto-signé au moyen de n’importe quel outil 
     > Vous ne pouvez pas acquérir un certificat SSL pour le domaine cloudapp.net (ou pour tout domaine lié à Azure). Le nom d'objet du certificat doit correspondre au nom de domaine personnalisé utilisé pour accéder à votre application. Par exemple, **contoso.net**, mais pas **contoso.cloudapp.net**.
 
 * Chiffrement à 2 048 bits au minimum.
-* **Certificat de service uniquement**: le certificat côté client doit résider dans le magasin de certificats *personnel* .
+* **Certificat de service uniquement** : le certificat côté client doit résider dans le magasin de certificats *personnel* .
 
 Vous disposez de deux méthodes simples pour créer un certificat sur Windows : avec l’utilitaire `makecert.exe` ou avec IIS.
 

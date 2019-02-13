@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: faea1cc7c45393c10a240de2c92757ff8f2ac5c3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468391"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694085"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guide de rési=olution des problèmes Azure Disk Encryption
 
@@ -87,7 +87,8 @@ Lorsque la connectivité est limitée par un pare-feu, une exigence de proxy ou 
 Les paramètres de groupe de sécurité réseau appliqués doivent permettre au point de terminaison de remplir les [conditions requises](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) de configuration réseau indiquées pour le chiffrement de disque.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault derrière un pare-feu
-Lorsque le chiffrement est activé avec les [informations d’identification Azure AD](azure-security-disk-encryption-prerequisites-aad.md), la machine virtuelle cible doit avoir accès aux points de terminaison d’authentification Azure AD, ainsi qu’aux points de terminaison Key Vault.  Pour plus d’informations sur ce processus, reportez-vous aux conseils sur l’accès au coffre de clés derrière un pare-feu géré par l’équipe [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md). 
+
+Lorsque le chiffrement est activé avec des [informations d’identification Azure AD](azure-security-disk-encryption-prerequisites-aad.md), la machine virtuelle cible doit autoriser la connectivité aux points de terminaison Azure Active Directory et à ceux de Key Vault. Les points de terminaison d’authentification Azure Active Directory actuels sont gérés dans les sections 56 et 59 de la documentation [URL et plages d’adresses IP Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). Des instructions relatives à Key Vault sont fournies dans la documentation sur l’[accès à Azure Key Vault derrière un pare-feu](../key-vault/key-vault-access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure 
 La machine virtuelle doit pouvoir accéder au point de terminaison [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) qui utilise une adresse IP non routable bien connue (`169.254.169.254`), accessible uniquement à partir de la machine virtuelle.

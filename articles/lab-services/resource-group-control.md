@@ -1,0 +1,100 @@
+---
+title: Spécifier un groupe de ressources pour les machines virtuelles dans Azure DevTest Labs | Microsoft Docs
+description: Découvrez comment spécifier un groupe de ressources pour les machines virtuelles dans Azure DevTest Labs.
+services: devtest-lab, lab-services
+documentationcenter: na
+author: spelluru
+manager: femila
+ms.service: lab-services
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/05/2019
+ms.author: spelluru
+ms.openlocfilehash: ddda9ef2b9bb716f7cdd33aa8fe9233f6c7d8e82
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55748998"
+---
+# <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Spécifier un groupe de ressources pour les machines virtuelles de labo dans Azure DevTest Labs
+En tant que propriétaire de labo, vous pouvez configurer les machines virtuelles de votre labo de manière à ce qu’elles soient créées dans un groupe de ressources en particulier. Utilisez cette fonctionnalité pour éviter d’atteindre les limites de groupe de ressources de votre abonnement Azure. Cette fonctionnalité vous permet également de consolider toutes vos ressources de labo au sein d’un groupe de ressources unique. Cela simplifie également le suivi de ces ressources et l’application de [stratégies](../governance/policy/overview.md) en vue de leur gestion au niveau du groupe de ressources.
+
+Avec cette fonctionnalité, vous pouvez utiliser un script afin de spécifier un nouveau groupe de ressources ou un groupe de ressources existant dans votre abonnement Azure pour toutes les machines virtuelles de votre labo. Pour le moment, DevTest Labs prend en charge cette fonctionnalité par le biais d’une API. 
+
+## <a name="api-to-configure-a-resource-group-for-labs-vms"></a>API de configuration d’un groupe de ressources pour des machines virtuelles de labo
+Nous allons étudier les options dont vous disposez en tant que propriétaire d’un labo lors de l’utilisation de cette API : 
+
+- Vous pouvez choisir le **groupe de ressources du labo** pour toutes les machines virtuelles.
+- Vous pouvez choisir un **groupe de ressources existant** différent du groupe de ressources du labo pour toutes les machines virtuelles.
+- Vous pouvez entre un nom de **nouveau groupe de ressources** pour toutes les machines virtuelles.
+- Vous pouvez utiliser le comportement existant par défaut, dans lequel un groupe de ressources est créé pour chaque machine virtuelle du labo.
+ 
+Ce paramètre s’applique aux nouvelles machines virtuelles créées dans le labo. Les anciennes machines virtuelles de votre labo qui ont été créées dans leurs propres groupes de ressources ne sont pas affectées par ces modifications. Toutefois, vous pouvez migrer ces machines virtuelles entre leurs groupes de ressources individuels et le groupe de ressources commun afin que toutes les machines virtuelles de votre labo résident dans le même groupe de ressources. Pour plus d’informations, consultez la page [Déplacer des ressources vers un nouveau groupe de ressources](../azure-resource-manager/resource-group-move-resources.md). Les environnements créés dans votre labo demeurent dans leurs groupes de ressources.
+
+### <a name="how-to-use-this-api"></a>Comment utiliser cette API :
+- Utilisez la version **2018_10_15_preview** de cette API. 
+- Si vous spécifiez un nouveau groupe de ressources, assurez-vous de disposer des **autorisations d’écriture sur les groupes de ressources** dans votre abonnement. Sans autorisations d’écriture, la création de nouvelles machines virtuelles dans le groupe de ressources spécifié entraîne un échec. 
+- Lors de l’utilisation de l’API, passez l’**ID complet du groupe de ressources**. Par exemple : `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Assurez-vous que le groupe de ressources fait partie du même abonnement que le labo. 
+
+## <a name="use-powershell"></a>Utiliser PowerShell 
+L’exemple suivant décrit la procédure de création de toutes les machines virtuelles du labo dans un nouveau groupe de ressources à l’aide d’un script PowerShell.
+
+```PowerShell
+[CmdletBinding()]
+Param(
+    $subId,
+    $labRg,
+    $labName,
+    $vmRg
+)
+
+az login | out-null
+
+az account set --subscription $subId | out-null
+
+$rgId = "/subscriptions/"+$subId+"/resourceGroups/"+$vmRg
+
+"Updating lab '$labName' with vm rg '$rgId'..."
+
+az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/labs" --api-version 2018-10-15-preview --set properties.vmCreationResourceGroupId=$rgId
+
+"Done. New virtual machines will now be created in the resource group '$vmRg'."
+```
+
+Appelez le script à l’aide de la commande suivante (ResourceGroup.ps1 est le fichier qui contient le script précédent) : 
+
+```PowerShell
+.\ResourceGroup.ps1 -subId <subscriptionID> -labRg <labRGNAme> -labName <LanName> -vmRg <RGName> 
+```
+
+## <a name="use-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
+Si vous utilisez le modèle Azure Resource Manager pour créer un laboratoire, utilisez la propriété **vmCreationResourceResourceGroupId** dans la section propriétés du labo de votre modèle Resource Manager comme indiqué dans l’exemple suivant :
+
+```json
+        {
+            "type": "microsoft.devtestlab/labs",
+            "name": "[parameters('lab_name')]",
+            "apiVersion": "2018_10_15_preview",
+            "location": "eastus",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "vmCreationResourceGroupId": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>",
+                "labStorageType": "Premium",
+                "premiumDataDisks": "Disabled",
+                "provisioningState": "Succeeded",
+                "uniqueIdentifier": "6e6f668f-992b-435c-bac3-d328b745cd25"
+            },
+            "dependsOn": []
+        },
+```
+
+
+## <a name="next-steps"></a>Étapes suivantes
+Consultez les articles suivants : 
+
+- [Définir des stratégies pour un laboratoire](devtest-lab-get-started-with-lab-policies.md)
+- [Forum Aux Questions](devtest-lab-faq.md)

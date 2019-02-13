@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a59a7610a067a292d9b5dd7bb1a611b4bade05e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5e8d45a9bf9fdffc824994238add2b8541a878a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193809"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812717"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Synchronisation d’Azure AD Connect : Présentation de l’approvisionnement déclaratif
 Cette rubrique présente le modèle de configuration dans Azure AD Connect. Ce modèle est appelé « approvisionnement déclaratif » et vous permet de modifier la configuration en toute simplicité. De nombreux éléments décrits dans cette rubrique sont des éléments avancés, non indispensables pour la plupart des scénarios clients.
@@ -37,7 +37,7 @@ Le pipeline a plusieurs modules. Chacun d’eux est responsable d’un concept d
 * Source, l’objet source
 * [Scope](#scope), recherche toutes les règles de synchronisation dans la portée
 * [Join](#join), détermine la relation entre l’espace de connecteur et le métaverse
-* [Transform](#transform), calcule comment les attributs doivent être transformés et flux
+* Transform, calcule comment les attributs doivent être transformés et circuler
 * [Precedence](#precedence), résout les contributions d’attribut conflictuelles
 * Target, l’objet cible
 

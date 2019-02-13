@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480952"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811196"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Présentation de StorSimple Virtual Array
 
@@ -52,7 +52,7 @@ Le tableau suivant récapitule les fonctionnalités importantes de StorSimple V
 | Mobilité des données |Peut restaurer sur le même appareil ou effectuer une récupération au niveau de l'élément (serveur de fichiers) |
 | Niveaux de stockage |Cloud et stockage sur l'hyperviseur local |
 | Taille du partage |À plusieurs niveaux : jusqu'à 20 To ; épinglé localement : jusqu'à 2 To |
-| Taille du volume |Hiérarchisé : de 500 Go à 5 To ; épinglé localement : de 50 Go à 200 Go <br> Réservation locale maximale de 200 Go pour les volumes hiérarchisés. |
+| Taille du volume |Hiérarchisé : 500 Go à 5 To ; épinglé localement : 50 Go à 200 Go <br> Réservation locale maximale de 200 Go pour les volumes hiérarchisés. |
 | Instantanés |Cohérence en cas d’incident |
 | Récupération au niveau de l'élément |Oui. Les utilisateurs peuvent restaurer à partir de partages |
 
@@ -169,7 +169,7 @@ En plus de Virtual Array et d’autres composants, la solution StorSimple util
 
 * [Hiérarchisation automatique du stockage](#automatic-storage-tiering) 
 * [Partages et volumes épinglés localement](#locally-pinned-shares-and-volumes)
-* [Déduplication et compression des données à plusieurs niveaux ou sauvegardées dans le cloud](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+* Déduplication et compression des données à plusieurs niveaux ou sauvegardées dans le cloud 
 * [Sauvegardes à la demande et planifiées](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>Hiérarchisation automatique du stockage

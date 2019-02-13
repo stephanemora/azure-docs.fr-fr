@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473807"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822134"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
 Cet article contient des informations de dépannage pour les diagnostics Microsoft Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](diagnostics-extension-overview.md).
@@ -105,7 +105,7 @@ Le plus souvent, quand aucune donnée d’événement ne s’affiche, le problè
 
 Solution : corrigez la configuration du plug-in Diagnostics et réinstallez-le.
 
-Si le compte de stockage est configuré correctement, accédez à distance à la machine, puis vérifiez que les fichiers DiagnosticsPlugin.exe et MonAgentCore.exe sont bien en cours d’exécution. Dans le cas contraire, suivez les étapes décrites dans la section [Azure Diagnostics ne démarre pas](#azure-diagnostics-is-not-starting).
+Si le compte de stockage est configuré correctement, accédez à distance à la machine, puis vérifiez que les fichiers DiagnosticsPlugin.exe et MonAgentCore.exe sont bien en cours d’exécution. Dans le cas contraire, suivez les étapes décrites dans la section Azure Diagnostics ne démarre pas.
 
 Si ces processus sont en cours d’exécution, reportez-vous à la section [La capture des données intervient-elle en local ?](#is-data-getting-captured-locally), puis suivez les instructions fournies.
 
@@ -119,7 +119,7 @@ La configuration des diagnostics contient des instructions pour un type bien pr�
 - **Compteurs de performances** : ouvrez PerfMon et vérifiez le compteur.
 
 - **Journaux des traces** :  accédez à distance à la machine virtuelle, puis ajoutez un élément TextWriterTraceListener dans le fichier de configuration de l’application.  Consultez https://msdn.microsoft.com/library/sk36c28t.aspx pour configurer l’écouteur de texte.  Vérifiez que l’élément `<trace>` a la valeur `<trace autoflush="true">`.<br />
-Si aucun journal de suivi n’a été généré, voir [En savoir plus sur les journaux de suivi manquants](#more-about-trace-logs-missing).
+Si aucun journal de suivi n’a été généré, voir En savoir plus sur les journaux de suivi manquants.
 
 - **Traces ETW** : accédez à distance à la machine virtuelle, puis installez PerfView.  Dans PerfView, exécutez **Fichier** > **Commande utilisateur** > **Écouter etwprovder1** > **etwprovider2**, etc. Notez que la commande **Écouter** est sensible à la casse et que les espaces ne sont pas autorisés entre les listes de fournisseurs ETW séparées par des virgules. En cas d’échec de l’exécution de la commande, vous pouvez cliquer sur le bouton **Journal** dans l’angle inférieur droit de l’outil PerfView pour voir l’exécution qui était attendue et le résultat final de celle-ci.  Partons du principe que l’entrée est correcte. Une nouvelle fenêtre s’ouvre alors. En quelques secondes, vous commencer à voir les traces ETW.
 
@@ -127,13 +127,13 @@ Si aucun journal de suivi n’a été généré, voir [En savoir plus sur les jo
 
 #### <a name="is-data-getting-captured-locally"></a>La capture des données intervient-elle en local ?
 À présent, vérifiez que les données sont bien capturées en local.
-Les données sont stockées localement dans les fichiers `*.tsf` dans [le magasin local des données de diagnostic](#log-artifacts-path). Différents types de journaux sont collectés dans différents fichiers `.tsf`. Les noms sont semblables à ceux des tables dans le stockage Microsoft Azure.
+Les données sont stockées localement dans les fichiers `*.tsf` dans le magasin local des données de diagnostic. Différents types de journaux sont collectés dans différents fichiers `.tsf`. Les noms sont semblables à ceux des tables dans le stockage Microsoft Azure.
 
 Par exemple, les valeurs `Performance Counters` sont collectées dans `PerformanceCountersTable.tsf`. Les journaux des événements sont collectés dans `WindowsEventLogsTable.tsf`. Suivez les instructions indiquées dans la section [Extraction locale des journaux](#local-log-extraction) pour ouvrir les fichiers de la collecte locale, puis assurez-vous qu’ils sont bien collectés sur le disque.
 
 Si vous ne voyez pas les journaux collectés en local et si vous avez déjà vérifié que l’hôte génère des données, vous rencontrez probablement un problème de configuration. Passez au crible vos paramètres de configuration.
 
-Analysez également la configuration qui a été générée pour MonitoringAgent [MaConfig.xml](#log-artifacts-path). Vérifiez qu’il existe bien une section décrivant la source des journaux. Vérifiez ensuite qu’elle n’a pas disparu entre le moment de la configuration des diagnostics et celui de la configuration de l’agent de surveillance.
+Analysez également la configuration qui a été générée pour MonitoringAgent MaConfig.xml. Vérifiez qu’il existe bien une section décrivant la source des journaux. Vérifiez ensuite qu’elle n’a pas disparu entre le moment de la configuration des diagnostics et celui de la configuration de l’agent de surveillance.
 
 #### <a name="is-data-getting-transferred"></a>Les données sont-elles transférées ?
 Si vous avez vérifié que les données sont bien capturées en local, mais qu’elles n’apparaissent toujours pas dans votre compte de stockage, envisagez les étapes suivantes :
@@ -142,10 +142,10 @@ Si vous avez vérifié que les données sont bien capturées en local, mais qu�
 
 - Vérifiez que le compte de stockage fourni est bien correct. Assurez-vous qu’aucune restriction réseau n’empêche les composants d’atteindre les points de terminaison de stockage public. Pour ce faire, vous pouvez accéder à distance à la machine, puis essayer d’écrire quelque chose par vous-même dans le même compte de stockage.
 
-- Enfin, vous pouvez essayer d’étudier les échecs signalés par l’agent de surveillance. Les journaux de l’agent de surveillance se trouvent dans le fichier `maeventtable.tsf`, dans [le magasin local des données de diagnostic](#log-artifacts-path). Pour ouvrir ce fichier, suivez les instructions figurant dans la section [Extraction locale des journaux](#local-log-extraction). Essayez ensuite de déterminer si des `errors` signalent un échec de lecture au niveau des fichiers locaux sachant que ces fichiers écrivent des données dans le stockage.
+- Enfin, vous pouvez essayer d’étudier les échecs signalés par l’agent de surveillance. Les journaux de l’agent de surveillance se trouvent dans le fichier `maeventtable.tsf`, dans le magasin local des données de diagnostic. Pour ouvrir ce fichier, suivez les instructions figurant dans la section [Extraction locale des journaux](#local-log-extraction). Essayez ensuite de déterminer si des `errors` signalent un échec de lecture au niveau des fichiers locaux sachant que ces fichiers écrivent des données dans le stockage.
 
 ### <a name="capturing-and-archiving-logs"></a>Capture et archivage des journaux
-Si vous envisagez de contacter le support technique, sachez que vous devrez fournir en premier les journaux générés par votre machine. Vous pouvez gagner du temps en effectuant vous-même cette procédure. Exécutez l’utilitaire `CollectGuestLogs.exe` ([chemin d’accès de l’utilitaire de collecte des journaux](#log-artifacts-path)). Il génère un fichier .zip qui regroupe dans un même dossier tous les journaux Azure pertinents.
+Si vous envisagez de contacter le support technique, sachez que vous devrez fournir en premier les journaux générés par votre machine. Vous pouvez gagner du temps en effectuant vous-même cette procédure. Exécutez l’utilitaire `CollectGuestLogs.exe` (chemin d’accès de l’utilitaire de collecte des journaux). Il génère un fichier .zip qui regroupe dans un même dossier tous les journaux Azure pertinents.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Les tables de données de diagnostic sont introuvables
 Les tables de stockage Azure qui contiennent les événements ETW utilisent le code suivant dans leur nom :
@@ -213,7 +213,7 @@ Ce code génère les quatre tables :
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Comment vérifier la configuration de l’extension Diagnostics
 Pour vérifier la configuration de l’extension, le plus simple est d’accéder à [Azure Resource Explorer](http://resources.azure.com), puis à la machine virtuelle ou au service cloud sur lesquels se trouve l’extension Azure Diagnostics (IaaSDiagnostics/PaaDiagnostics).
 
-Vous pouvez également activer le Bureau à distance sur la machine, puis regarder le fichier de configuration Azure Diagnostics qui est décrit dans la [section des chemins d’accès des artefacts de journaux](#log-artifacts-path).
+Vous pouvez également activer le Bureau à distance sur la machine, puis regarder le fichier de configuration Azure Diagnostics qui est décrit dans la section des chemins d’accès des artefacts de journaux.
 
 Dans les deux cas, recherchez **Microsoft.Azure.Diagnostics**, puis le champ **xmlCfg** ou **WadCfg**.
 

@@ -11,14 +11,14 @@ ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381664"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822700"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurer Service Map dans Azure
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Cette solution permet d’afficher les serveurs comme on se les représente, c’est-à-dire comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée par TCP, sans configuration requise autre que l’installation d’un agent.
@@ -72,6 +72,7 @@ La section suivante répertorie les systèmes d’exploitation pris en charge po
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 ### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
@@ -87,6 +88,7 @@ La section suivante répertorie les systèmes d’exploitation pris en charge po
 | 6.7 | 2.6.32-573 |
 | 6,8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 ### <a name="ubuntu-server"></a>Serveur Ubuntu
 
@@ -132,8 +134,8 @@ Service Map obtient ses données à partir de l’agent de dépendances Microsof
 
 | Source connectée | Prise en charge | Description |
 |:--|:--|:--|
-| Agents Windows | Oui | Service Map analyse et collecte des données à partir des ordinateurs Windows. <br><br>Outre [l’agent Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md), les agents Windows nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
-| Agents Linux | Oui | Service Map analyse et collecte des données à partir des ordinateurs Linux. <br><br>Outre [l’agent Log Analytics pour Linux](../../azure-monitor/platform/log-analytics-agent.md), les agents Linux nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
+| Agents Windows | Oui | Service Map analyse et collecte des données à partir des ordinateurs Windows. <br><br>Outre [l’agent Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md), les agents Windows nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page Systèmes d’exploitation pris en charge. |
+| Agents Linux | Oui | Service Map analyse et collecte des données à partir des ordinateurs Linux. <br><br>Outre [l’agent Log Analytics pour Linux](../../azure-monitor/platform/log-analytics-agent.md), les agents Linux nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page Systèmes d’exploitation pris en charge. |
 | Groupe d’administration Microsoft System Center Operations Manager | Oui | Service Map analyse et collecte des données provenant des agents Windows et Linux dans un [groupe d’administration System Center Operations Manager](../../azure-monitor/platform/om-agents.md) connecté. <br><br>Une connexion directe entre l’ordinateur agent System Center Operations Manager et Log Analytics est requise. |
 | Compte Azure Storage | Non  | Service Map collecte des données provenant des ordinateurs agents. Aucune donnée n’est donc recueillie à partir du Stockage Azure. |
 
@@ -383,11 +385,11 @@ Si votre installation de l’agent de dépendances a réussi mais que vous ne vo
 **Windows** : recherchez le service nommé « Microsoft Dependency Agent ».<br>
 **Linux** : recherchez « microsoft-dependency-agent » dans les processus en cours d’exécution.
 
-* Utilisez-vous le [niveau tarifaire Gratuit d’Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers) ? Le forfait Gratuit autorise jusqu'à cinq serveurs de carte de service uniques. Les serveurs suivants ne s’afficheront pas dans la carte de service, même si les cinq précédents n’envoient plus de données.
+* Utilisez-vous le [niveau tarifaire Gratuit d’Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) ? Le forfait Gratuit autorise jusqu'à cinq serveurs de carte de service uniques. Les serveurs suivants ne s’afficheront pas dans la carte de service, même si les cinq précédents n’envoient plus de données.
 
 * Votre serveur envoie-t-il des données de journal et de performances à Log Analytics ? Accédez à la recherche dans les journaux et exécutez la requête suivante sur votre ordinateur : 
 
-    Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
 Avez-vous reçu divers événements dans les résultats ? Les données sont-elles récentes ? Dans ce cas, votre agent Log Analytics fonctionne correctement et communique avec Log Analytics. Si ce n’est pas le cas, vérifiez l’agent sur votre serveur : [Résolution des problèmes de l’agent Log Analytics pour Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) ou [Résolution des problèmes de l’agent Log Analytics pour Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 

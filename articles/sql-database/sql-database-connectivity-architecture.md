@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469109"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809978"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -25,8 +25,7 @@ Cet article décrit l'architecture de la connectivité Azure SQL Database et SQL
 
 > [!IMPORTANT]
 > **[Changement à venir] Pour les connexions des points de terminaison de service avec les serveurs Azure SQL, le comportement de connectivité `Default` est remplacé par `Redirect`.**
->
-> La modification est effective pour toutes les régions au 2 janvier 2019.
+> Les clients sont invités à créer de nouveaux serveurs et à configurer les serveurs existants avec un type de connexion défini explicitement sur Redirection (recommandé) ou Proxy selon l’architecture de leur connectivité.
 >
 > Pour éviter que ce changement n'entraîne une interruption lorsque la connectivité s'effectue via un point de terminaison de service dans les environnements existants, nous utilisons la télémétrie suivante :
 > - Pour les serveurs détectés auxquels on accédait auparavant par l'intermédiaire de points de terminaison de service, nous passons au type de connexion `Proxy`.
@@ -38,7 +37,7 @@ Cet article décrit l'architecture de la connectivité Azure SQL Database et SQL
 >
 > Si les connexions des points de terminaison de service n'ont pas pu être établies avec Azure SQL Server et que vous pensez être affecté par ce changement, vérifiez que le type de connexion est explicitement défini sur `Redirect`. Si tel est le cas, vous devez ouvrir les règles de pare-feu VM et les groupes de sécurité réseau (NSG) à toutes les adresses IP Azure de la région qui appartiennent à la [balise de service​​](../virtual-network/security-overview.md#service-tags) SQL pour les ports 11000-12000. Si cette option ne vous convient pas, basculez explicitement le serveur vers `Proxy`.
 > [!NOTE]
-> Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
+> Cette rubrique s’applique aux serveurs Azure SQL Database qui hébergent des bases de données uniques et des pools élastiques, ainsi que des bases de données SQL Data Warehouse. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
 
 ## <a name="connectivity-architecture"></a>Architecture de connectivité
 

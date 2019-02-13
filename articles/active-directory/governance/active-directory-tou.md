@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: be8a6ba83de81c5a82797ecf3d30c7a7fcaa65fa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162767"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822508"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main les conditions d’utilisation.
@@ -337,7 +337,7 @@ Vous pouvez configurer une stratégie d’accès conditionnel pour l’applicati
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 **Q : Comment déterminer si un utilisateur a accepté les conditions d’utilisation et quand ?**<br />
-R : Dans le panneau Conditions d’utilisation, cliquez sur le numéro sous **Accepté**. Vous pouvez également afficher ou rechercher l’activité d’acceptation dans les journaux d’audit Azure AD. Pour plus d’informations, consultez [Afficher le rapport des utilisateurs ayant accepté et refusé les conditions d’utilisation](#view-who-has-accepted-and-declined) et [Afficher les journaux d’audit Azure AD](#view-azure-ad-audit-logs).
+R : Dans le panneau Conditions d’utilisation, cliquez sur le numéro sous **Accepté**. Vous pouvez également afficher ou rechercher l’activité d’acceptation dans les journaux d’audit Azure AD. Pour plus d’informations, consultez Afficher le rapport des utilisateurs ayant accepté et refusé les conditions d’utilisation et [Afficher les journaux d’audit Azure AD](#view-azure-ad-audit-logs).
 
 **Q : Combien de temps sont stockées les informations ?**<br />
 R : Le nombre d’utilisateurs ayant accepté et refusé les conditions d’utilisation est stocké pour la durée de vie des conditions d’utilisation. Les journaux d’audit Azure AD sont stockés pendant 30 jours.

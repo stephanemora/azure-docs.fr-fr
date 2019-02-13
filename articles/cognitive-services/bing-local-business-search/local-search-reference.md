@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 22d83eb617c544a374f1f6b502803d4ead214492
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a55a4e3f25bc5afef30e325ccdd38615ba7cc2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182232"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820740"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informations de référence sur l’API Recherche d’entreprises locales Bing v7
 
@@ -53,7 +53,7 @@ Voici les en-têtes possibles d’une demande et d’une réponse.
 |En-tête|Description|  
 |------------|-----------------|  
 |Acceptation|En-tête de demande facultatif.<br /><br /> Le type de média par défaut est application/json. Pour spécifier que la réponse utilise [JSON-LD](http://json-ld.org/), donnez la valeur application/ld+json à l’en-tête Accept.|  
-|<a name="acceptlanguage" />Accept-Language|En-tête de demande facultatif.<br /><br /> Liste délimitée par des virgules des langues à utiliser pour les chaînes d’interface utilisateur. Elle est triée par ordre de préférence décroissant. Pour plus d’informations, notamment le format attendu, voir [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Cet en-tête et le paramètre de requête [setLang](#setlang) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Si vous définissez cet en-tête, vous devrez également spécifier le paramètre de requête [cc](#cc). Pour déterminer pour quel marché les résultats devront être retournés, Bing utilise la première langue prise en charge qu’il trouve dans la liste et la combine avec la valeur du paramètre `cc`. Si la liste ne comporte pas de langue prise en charge, Bing recherche la langue et le marché les plus proches qui prennent en charge la demande, ou utilise un marché agrégé ou par défaut pour les résultats. Pour identifier le marché utilisé par Bing, voir l’en-tête BingAPIs-Market.<br /><br /> N’utilisez cet en-tête et le paramètre de requête `cc` que si vous spécifiez plusieurs langues. Sinon, utilisez les paramètres de requête [mkt](#mkt) et [setLang](#setlang).<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. Les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée.|  
+|<a name="acceptlanguage" />Accept-Language|En-tête de demande facultatif.<br /><br /> Liste délimitée par des virgules des langues à utiliser pour les chaînes d’interface utilisateur. Elle est triée par ordre de préférence décroissant. Pour plus d’informations, notamment le format attendu, voir [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Cet en-tête et le paramètre de requête [setLang](#setlang) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Si vous définissez cet en-tête, vous devrez également spécifier le paramètre de requête cc. Pour déterminer pour quel marché les résultats devront être retournés, Bing utilise la première langue prise en charge qu’il trouve dans la liste et la combine avec la valeur du paramètre `cc`. Si la liste ne comporte pas de langue prise en charge, Bing recherche la langue et le marché les plus proches qui prennent en charge la demande, ou utilise un marché agrégé ou par défaut pour les résultats. Pour identifier le marché utilisé par Bing, voir l’en-tête BingAPIs-Market.<br /><br /> N’utilisez cet en-tête et le paramètre de requête `cc` que si vous spécifiez plusieurs langues. Sinon, utilisez les paramètres de requête [mkt](#mkt) et [setLang](#setlang).<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. Les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée.|  
 |<a name="market" />BingAPIs-Market|En-tête de réponse.<br /><br /> Marché utilisé par la demande. Le format est \<code de langue\>-\<code du pays\>. Par exemple, en-US.|  
 |<a name="traceid" />BingAPIs-TraceId|En-tête de réponse.<br /><br /> ID de l’entrée du journal contenant les détails de la demande. Lorsqu’une erreur se produit, capturez cet ID. Si vous ne parvenez pas à identifier ou à résoudre le problème, précisez cet ID avec les autres informations envoyées à l’équipe de support.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|En-tête de demande requis.<br /><br /> Clé d’abonnement reçue lors de l’inscription à ce service dans [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
@@ -71,11 +71,11 @@ Voici les en-têtes possibles d’une demande et d’une réponse.
 La demande peut comporter les paramètres de requête suivants. Consultez la colonne Requis pour savoir lesquels sont obligatoires. Vous devez encoder les paramètres de requête au format URL.  
   
   
-|NOM|Valeur|Type|Obligatoire|  
+|Nom|Valeur|Type|Obligatoire|  
 |----------|-----------|----------|--------------|
 |<a name="count" />count|Nombre de résultats à retourner, en commençant par l’index spécifié par le paramètre `offset`.|Chaîne|Non |   
 |<a name="localCategories" />localCategories|Liste des options qui définissent la recherche par catégorie d’entreprise.  Voir [Recherche par catégories d’entreprises locales](local-categories.md).|Chaîne|Non |  
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir [Codes de marché](#market-codes).<br /><br /> **REMARQUE :** Actuellement, l’API Recherche d’entreprises locales ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|Oui|
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API Recherche d’entreprises locales ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|Oui|
 |<a name="offset"/>offset|Index de début des résultats spécifiés par le paramètre `count`.|Entier |Non |  
 |<a name="query" />q|Critère de recherche de l’utilisateur.|Chaîne|Non |  
 |<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](http://json-ld.org/).|Chaîne|Non |  
@@ -108,7 +108,7 @@ Définit l’erreur qui s’est produite.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objet de niveau supérieur figurant dans la réponse en cas d’échec de la demande.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type.|Chaîne|  
 |<a name="errors" />errors|Liste des erreurs qui décrivent les raisons pour lesquelles la demande a échoué.|[Error](#error)[]|  
@@ -118,7 +118,7 @@ Objet de niveau supérieur figurant dans la réponse en cas d’échec de la dem
 ### <a name="license"></a>License  
 Définit la licence sous laquelle il est possible d’utiliser le texte ou la photo.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |Nom|Nom de la licence.|Chaîne|  
 |url|URL vers un site web sur lequel l’utilisateur trouvera plus d’informations sur la licence.<br /><br /> Utilisez le nom et l’URL pour créer un lien hypertexte.|Chaîne|  
@@ -127,7 +127,7 @@ Définit la licence sous laquelle il est possible d’utiliser le texte ou la ph
 ### <a name="link"></a>Lien  
 Définit les composants d’un lien hypertexte.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type.|Chaîne|  
 |texte|Texte d’affichage.|Chaîne|  
@@ -141,7 +141,7 @@ Définit un éditeur.
   
 Notez qu’un éditeur peut indiquer son nom, son site web ou les deux.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |Nom|Nom de l’éditeur.|Chaîne|  
 |url|URL du site web de l’éditeur.<br /><br /> Notez que l’éditeur peut ne pas indiquer de site web.|Chaîne|  
@@ -151,11 +151,11 @@ Notez qu’un éditeur peut indiquer son nom, son site web ou les deux.
 ### <a name="place"></a>Emplacement  
 Informations relatives à une entreprise locale, comme un restaurant ou un hôtel.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, qui peut avoir les valeurs suivantes :<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurant</ul><li>|Chaîne|  
-|address|Adresse postale où se trouve l’entité.|[PostalAddress](#postaladdress)|  
-|entityPresentationInfo|Informations supplémentaires sur l’entité (par exemple, indicateurs permettant de déterminer le type de l’entité : restaurant, hôtel, etc.). Le champ `entityScenario` est défini sur ListItem.|[EntityPresentationInfo](#entitypresentationinfo)|  
+|address|Adresse postale où se trouve l’entité.|PostalAddress|  
+|entityPresentationInfo|Informations supplémentaires sur l’entité (par exemple, indicateurs permettant de déterminer le type de l’entité : restaurant, hôtel, etc.). Le champ `entityScenario` est défini sur ListItem.|EntityPresentationInfo|  
 |Nom|Nom de l’entité.|Chaîne|  
 |telephone|Numéro de téléphone de l’entité.|Chaîne|  
 |url|URL du site web de l’entité.<br /><br /> Utilisez-la avec le nom de l’entité pour créer un lien hypertexte qui amène l’utilisateur sur le site web de l’entité.|Chaîne|  
@@ -174,19 +174,19 @@ Définit le contexte de requête utilisé par Bing pour la demande.
 |originalQuery|Chaîne de requête telle que spécifiée dans la demande.|Chaîne|  
 
 ### <a name="identifiable"></a>Identifiable
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |-------------|-----------------|----------|
 |id|Identificateur de ressource.|Chaîne|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Définit un groupe de résultats de la recherche, par exemple, mainline.
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |-------------|-----------------|----------|
 |items|Liste de résultats de la recherche à afficher dans le groupe.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Définit un élément de résultat de recherche à afficher.
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Index base zéro de l’élément de la réponse à afficher. Si l’élément ne comporte pas ce champ, affiche tous les éléments de la réponse. Par exemple, affiche tous les articles dans la réponse Actualités.|Entier |
 |answerType|Réponse qui contient l’élément à afficher. Par exemple, Actualités.<br /><br />Utilisez le type pour trouver la réponse dans l’objet SearchResponse. Le type est le nom d’un champ SearchResponse.<br /><br /> Toutefois, n’utilisez le type de réponse que si cet objet inclut le champ de valeur ; sinon, ignorez-le.|Chaîne|
@@ -196,7 +196,7 @@ Définit un élément de résultat de recherche à afficher.
 ### <a name="rankingresponse"></a>RankingResponse  
 Définit où le contenu doit être placé sur la page de résultats de la recherche et dans quel ordre.  
   
-|NOM|Valeur|  
+|Nom|Valeur|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Résultats de la recherche à afficher dans la partie principale.|  
 |<a name="ranking-pole" />pole|Résultats de la recherche qui doivent être les plus visibles (par exemple, affichés au-dessus de la partie principale et de l’encadré).|  
@@ -207,7 +207,7 @@ Définit l’objet de niveau supérieur figurant dans la réponse en cas de réu
   
 Notez que, si le service suspecte une attaque par déni de service, la demande réussira (le code d’état HTTP est 200 OK) ; toutefois, le corps de la réponse sera vide.  
   
-|NOM|Valeur|Type|  
+|Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur SearchResponse.|Chaîne|  
 |places|Liste d’entités pertinentes pour la requête de recherche.|Objet JSON|  

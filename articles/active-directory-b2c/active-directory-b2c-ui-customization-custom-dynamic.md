@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7e0064495cfb3d82c349a23d914195c5f211dc19
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 54d98c02ee9e5202c09e333843f8c16955f4e2d4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187077"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819245"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
 
@@ -155,7 +155,7 @@ Localisez l’élément `<img>` contenant la valeur `ID` *background_background_
     La fenêtre **Créer App Service** s’ouvre. Vous pouvez commencer à y créer toutes les ressources Azure nécessaires pour exécuter l’application web ASP.NET dans Azure.
 
     > [!NOTE]
-    > Pour plus d’informations sur la publication, consultez : [Création d’une application web ASP.NET dans Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Pour plus d’informations sur la publication, consultez : [Création d’une application web ASP.NET dans Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. Dans la zone **Nom de l’application web**, tapez un nom d’application unique (les caractères autorisés sont les plages a-z, A-Z, 0-9, et le trait d’union (-)). L’URL de l’application web est `http://<app_name>.azurewebsites.NET`, où `<app_name>` correspond au nom de votre application web. Vous pouvez accepter le nom généré automatiquement, qui est unique.
 
@@ -247,16 +247,18 @@ Changez l’arrière-plan en fonction d’un paramètre de chaîne de requête n
 Ajoutez l’élément `ContentDefinitionParameters` en effectuant les opérations suivantes :
 1. Ouvrez le fichier *SignUpOrSignin* de votre stratégie (par exemple, *SignUpOrSignin.xml*).
 
-2. Recherchez le nœud `<DefaultUserJourney>`. 
-
-3. Dans le nœud `<DefaultUserJourney>`, ajoutez l’extrait de code XML suivant :  
+2. Sous le nœud `<DefaultUserJourney>`, ajoutez le nœud `UserJourneyBehaviors` :  
 
     ```XML
-    <UserJourneyBehaviors>
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <UserJourneyBehaviors>
         <ContentDefinitionParameters>
-            <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
+          <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
         </ContentDefinitionParameters>
-    </UserJourneyBehaviors>
+      </UserJourneyBehaviors>
+      ...
+    </RelyingParty>
     ```
 
 ### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Étape 8.2 : Changer votre code pour accepter le paramètre de chaîne de requête et remplacer l’image d’arrière-plan

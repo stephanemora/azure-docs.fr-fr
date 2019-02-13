@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 141caeb180fd0f5663c0fd51aadb0a397665c6d3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168615"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815402"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Comment configurer l’authentification unique par mot de passe pour une application de la galerie Azure AD
 
-Lorsque vous ajoutez une application à partir de la [Galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery), vous pouvez choisir la façon dont vous souhaitez que vos utilisateurs s’y connectent. Vous pouvez configurer ce choix à tout moment en sélectionnant l’élément de navigation **Authentification unique** sur une application d’entreprise dans le [portail Azure](https://portal.azure.com/).
+Lorsque vous ajoutez une application à partir de la [Galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), vous pouvez choisir la façon dont vous souhaitez que vos utilisateurs s’y connectent. Vous pouvez configurer ce choix à tout moment en sélectionnant l’élément de navigation **Authentification unique** sur une application d’entreprise dans le [portail Azure](https://portal.azure.com/).
 
-L’une des méthodes d’authentification unique disponibles est l’option [Authentification unique par mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work). Ceci est un excellent moyen pour commencer à intégrer rapidement des applications dans Azure AD et vous permet d’effectuer les opérations suivantes :
+L’une des méthodes d’authentification unique disponibles est l’option [Authentification unique par mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Ceci est un excellent moyen pour commencer à intégrer rapidement des applications dans Azure AD et vous permet d’effectuer les opérations suivantes :
 
 -   activer **l’authentification unique pour vos utilisateurs** par le stockage et la relecture en toute sécurité des noms d’utilisateur et mots de passe pour l’application que vous avez intégrée à Azure AD ;
 
@@ -41,7 +41,7 @@ L’une des méthodes d’authentification unique disponibles est l’option [Au
 
 -   autoriser un **administrateur** à spécifier les noms d’utilisateur et mots de passe partagés utilisés par un groupe de personnes à l’aide de la fonctionnalité Mettre à jour les informations d'identification lors de [l’affectation d’un groupe à une application](#assign-an-application-to-a-group-directly).
 
-La section ci-après décrit la procédure d’activation de la fonctionnalité [Authentification unique avec mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) pour une application qui figure déjà dans la [galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+La section ci-après décrit la procédure d’activation de la fonctionnalité [Authentification unique avec mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) pour une application qui figure déjà dans la [galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="overview-of-steps-required"></a>Vue d’ensemble des étapes requises
 Pour configurer une application à partir de la galerie Azure AD, vous devez effectuer les opérations suivantes :
@@ -50,7 +50,7 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
 -   [Configurer l’application pour l’authentification unique basée sur un mot de passe](#configure-the-application-for-password-single-sign-on)
 
--   [Affecter l’application à un utilisateur ou à un groupe](#assign-the-application-to-a-user-or-a-group)
+-   Affecter l’application à un utilisateur ou à un groupe
 
     -   [Affecter un utilisateur directement à une application](#assign-a-user-to-an-application-directly)
 

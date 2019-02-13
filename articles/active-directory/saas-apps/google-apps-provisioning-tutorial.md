@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 515b21c6854620a6bd1af53af8b1778d70613622
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1dd1cf143d66fec2ab8c12ee28a61bb3b8a83ade
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203944"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821821"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutoriel : Configurer G Suite pour l’attribution automatique d’utilisateurs
 
@@ -127,7 +127,7 @@ Cette section vous guide tout au long du processus de connexion d’Azure AD à 
     e. Répétez la procédure précédente pour tous les domaines supplémentaires que vous souhaitez ajouter à Google Apps.
      
      > [!WARNING]
-     > Si vous changez le domaine principal pour votre locataire G Suite tout en ayant déjà configuré l’authentification unique avec Azure AD, vous devez répéter l’étape 3 sous [Étape 2 : Activer l’authentification unique](#step-two-enable-single-sign-on).
+     > Si vous changez le domaine principal pour votre locataire G Suite tout en ayant déjà configuré l’authentification unique avec Azure AD, vous devez répéter l’étape 3 sous Étape 2 : Activer l’authentification unique.
        
 1. Dans la [Console d’administration de Google Apps](https://admin.google.com/), sélectionnez **Rôles d’administrateur**.
    

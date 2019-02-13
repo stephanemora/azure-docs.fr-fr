@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034470"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816626"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -71,8 +71,8 @@ Familiarisons-nous avec le pilote ODBC.
     - **Nombre de tentatives** : entrez le nombre de tentatives d’une opération si la demande initiale n’aboutit pas en raison d’une limitation du débit service.
     - **Fichier de schéma** : Vous avez plusieurs possibilités.
         - Par défaut, si vous ne modifiez pas cette entrée (vide), le pilote analyse la première page des données de toutes les collections afin de déterminer le schéma de chaque collection. Cette opération est appelée Mappage de la collection. Si aucun fichier de schéma n’est défini, le pilote doit effectuer l’analyse pour chaque session de pilote, ce qui peut allonger le délai de démarrage d’une application avec le DSN. Nous vous recommandons de toujours associer un fichier de schéma à un DSN.
-        - Si vous disposez déjà d’un fichier de schéma (peut-être un fichier que vous avez créé à l’aide de [l’Éditeur de schéma](#schema-editor)), cliquez sur **Parcourir**, recherchez votre fichier, cliquez sur **Enregistrer**, puis sur **OK**.
-        - Si vous souhaitez créer un nouveau schéma, cliquez sur **OK**, puis sur **Éditeur de schéma** dans la fenêtre principale. Accédez ensuite à l’[Éditeur de schéma](#schema-editor) pour plus d’informations. Après la création du nouveau fichier de schéma, pensez à revenir à la fenêtre **Options avancées** pour l’inclure.
+        - Si vous disposez déjà d’un fichier de schéma (peut-être un fichier que vous avez créé à l’aide de l’Éditeur de schéma), cliquez sur **Parcourir**, recherchez votre fichier, cliquez sur **Enregistrer**, puis sur **OK**.
+        - Si vous souhaitez créer un nouveau schéma, cliquez sur **OK**, puis sur **Éditeur de schéma** dans la fenêtre principale. Accédez ensuite à l’Éditeur de schéma pour plus d’informations. Après la création du nouveau fichier de schéma, pensez à revenir à la fenêtre **Options avancées** pour l’inclure.
 
 1. Une fois que vous avez terminé et fermé la fenêtre de **configuration DSN du pilote ODBC Azure Cosmos DB**, le DSN du nouvel utilisateur est ajouté à l’onglet DSN utilisateur.
 

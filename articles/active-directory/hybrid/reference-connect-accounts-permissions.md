@@ -12,16 +12,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7234c1a5f7914ad3ce0ff415b387bfee386198c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: abfdf75c6460efe50dcc9959ffb297f77a72f8c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169601"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813209"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect : Comptes et autorisations
 
@@ -67,10 +67,10 @@ Le compte de l’administrateur d’entreprise AD DS est utilisé pour configure
 Si vous effectuez une mise à niveau à partir de DirSync, les informations d’identification d’administrateur d’entreprise AD DS sont utilisées pour réinitialiser le mot de passe pour le compte utilisé par DirSync. Vous avez également besoin de vos informations d’identification d’administrateur général Azure AD.
 
 ### <a name="azure-ad-global-admin-credentials"></a>Informations d’identification de l’administrateur général Azure AD
-Ces informations d’identification ne sont utilisées que pendant l’installation. Elles permettent de créer le [compte de connecteur Azure AD](#azure-ad-service-account) utilisé pour la synchronisation des modifications sur Azure AD. En outre, le compte active la synchronisation en tant que fonctionnalité dans Azure AD.
+Ces informations d’identification ne sont utilisées que pendant l’installation. Elles permettent de créer le compte de connecteur Azure AD utilisé pour la synchronisation des modifications sur Azure AD. En outre, le compte active la synchronisation en tant que fonctionnalité dans Azure AD.
 
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>Autorisations nécessaires du compte de connecteur AD DS pour la configuration rapide
-Le [compte de connecteur AD DS](#active-directory-account) est destiné à la lecture et à l’écriture sur Windows Server AD, il dispose des autorisations suivantes s’il a été créé par le biais de la configuration rapide :
+Le compte de connecteur AD DS est destiné à la lecture et à l’écriture sur Windows Server AD, il dispose des autorisations suivantes s’il a été créé par le biais de la configuration rapide :
 
 | Autorisation | Utilisé pour |
 | --- | --- |
@@ -89,9 +89,9 @@ Voici un résumé des pages de l’Assistant Installation rapide, des informatio
 
 | Page de l’Assistant | Informations d’identification collectées | Autorisations requises | Utilisation |
 | --- | --- | --- | --- |
-| N/A |Utilisateur exécutant l’Assistant d’installation |Administrateur du serveur local |<li>Crée le [compte de service ADSync](#azure-ad-connect-sync-service-account) à utiliser pour exécuter le service de synchronisation. |
-| Se connecter à Azure AD |Informations d’identification Azure Active Directory |Rôle Administrateur général dans Azure AD |<li>Activation de la synchronisation dans l’annuaire Azure AD.</li>  <li>Création du [compte de connecteur Azure AD](#azure-ad-service-account) à utiliser pour les opérations de synchronisation continue dans Azure AD.</li> |
-| Connexion à AD DS |Informations d’identification Active Directory locales |Membre du groupe Administrateurs de l’entreprise dans Active Directory |<li>Crée le [compte de connecteur AD DS](#active-directory-account) dans Active Directory et octroie des autorisations à celui-ci. Ce compte permet de lire et d’écrire les informations d’annuaire pendant la synchronisation.</li> |
+| N/A |Utilisateur exécutant l’Assistant d’installation |Administrateur du serveur local |<li>Crée le compte de service ADSync à utiliser pour exécuter le service de synchronisation. |
+| Se connecter à Azure AD |Informations d’identification Azure Active Directory |Rôle Administrateur général dans Azure AD |<li>Activation de la synchronisation dans l’annuaire Azure AD.</li>  <li>Création du compte de connecteur Azure AD à utiliser pour les opérations de synchronisation continue dans Azure AD.</li> |
+| Connexion à AD DS |Informations d’identification Active Directory locales |Membre du groupe Administrateurs de l’entreprise dans Active Directory |<li>Crée le compte de connecteur AD DS dans Active Directory et octroie des autorisations à celui-ci. Ce compte permet de lire et d’écrire les informations d’annuaire pendant la synchronisation.</li> |
 
 
 ## <a name="custom-installation-settings"></a>Paramètres de l’installation personnalisée
@@ -106,10 +106,10 @@ Voici un résumé des pages de l’Assistant Installation personnalisée, des in
 
 | Page de l’Assistant | Informations d’identification collectées | Autorisations requises | Utilisation |
 | --- | --- | --- | --- |
-| N/A |Utilisateur exécutant l’Assistant d’installation |<li>Administrateur du serveur local</li><li>Si vous utilisez un serveur SQL Server complet, l’utilisateur doit être administrateur système dans SQL</li> |Par défaut, crée le compte local à utiliser comme [compte de service de moteur de synchronisation](#azure-ad-connect-sync-service-account). Le compte n’est créé que si l’administrateur ne spécifie pas de compte particulier. |
+| N/A |Utilisateur exécutant l’Assistant d’installation |<li>Administrateur du serveur local</li><li>Si vous utilisez un serveur SQL Server complet, l’utilisateur doit être administrateur système dans SQL</li> |Par défaut, crée le compte local à utiliser comme compte de service de moteur de synchronisation. Le compte n’est créé que si l’administrateur ne spécifie pas de compte particulier. |
 | Installation des services de synchronisation, option Compte de service |Informations d’identification du compte d’utilisateur local ou AD |Utilisateur, les autorisations sont accordées par l’Assistant d’installation |Si l’administrateur spécifie un compte, ce dernier est utilisé comme compte de service pour le service de synchronisation. |
-| Se connecter à Azure AD |Informations d’identification Azure Active Directory |Rôle Administrateur général dans Azure AD |<li>Activation de la synchronisation dans l’annuaire Azure AD.</li>  <li>Création du [compte de connecteur Azure AD](#azure-ad-service-account) à utiliser pour les opérations de synchronisation continue dans Azure AD.</li> |
-| Connexion de vos annuaires |Informations d’identification Active Directory locales pour chaque forêt connectée à Azure AD |Les autorisations varient selon les fonctionnalités que vous activez et se trouvent dans [Créer le compte de connecteur AD DS](#create-the-ad-dso-connector-account) |Ce compte permet de lire et d’écrire les informations d’annuaire pendant la synchronisation. |
+| Se connecter à Azure AD |Informations d’identification Azure Active Directory |Rôle Administrateur général dans Azure AD |<li>Activation de la synchronisation dans l’annuaire Azure AD.</li>  <li>Création du compte de connecteur Azure AD à utiliser pour les opérations de synchronisation continue dans Azure AD.</li> |
+| Connexion de vos annuaires |Informations d’identification Active Directory locales pour chaque forêt connectée à Azure AD |Les autorisations varient selon les fonctionnalités que vous activez et se trouvent dans Créer le compte de connecteur AD DS |Ce compte permet de lire et d’écrire les informations d’annuaire pendant la synchronisation. |
 | Serveurs AD FS |Pour chaque serveur de la liste, l’Assistant recueille des informations d’identification si celles de l’utilisateur exécutant l’Assistant sont insuffisantes pour se connecter |Administrateur de domaine |Installation et configuration du rôle de serveur AD FS. |
 | Serveurs proxy d’application web |Pour chaque serveur de la liste, l’Assistant recueille des informations d’identification si celles de l’utilisateur exécutant l’Assistant sont insuffisantes pour se connecter |Administrateur local sur l’ordinateur cible |Installation et configuration du rôle de serveur WAP |
 | Informations d’identification de confiance du proxy |Informations d’identification de confiance du service de fédération (informations d’identification que le proxy utilise pour obtenir un certificat d’approbation à partir de FS) |Compte de domaine qui est un administrateur local du serveur AD FS |Inscription initiale du certificat d’approbation FS-WAP. |
@@ -157,7 +157,7 @@ Si vous utilisez la configuration rapide, un compte à utiliser pour la synchron
 
 ![Compte AD](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
-Si vous utilisez des paramètres personnalisés, vous devez créer le compte vous-même avant de commencer l’installation.  Consultez [Créer le compte de connecteur AD DS](#create-the-ad-dso-connector-account).
+Si vous utilisez des paramètres personnalisés, vous devez créer le compte vous-même avant de commencer l’installation.  Consultez Créer le compte de connecteur AD DS.
 
 ### <a name="adsync-service-account"></a>Compte de service ADSync
 Le service de synchronisation peut s’exécuter sous des comptes différents. Il peut s’exécuter sous un **Compte de service virtuel** (VSA), un **Compte de service géré de groupe** (gMSA/sMSA), ou un compte d’utilisateur normal. Les options prises en charge ont été modifiées avec la version d’avril 2017 de Connect, lorsque vous effectuez une nouvelle installation. Si vous mettez à niveau depuis une version antérieure d’Azure AD Connect, ces options supplémentaires ne sont pas disponibles.
@@ -198,7 +198,7 @@ Un compte de service virtuel est un type spécial de compte qui ne dispose pas d
 
 ![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
-VSA est destiné à être utilisé dans les scénarios où le moteur de synchronisation et SQL sont sur le même serveur. Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un [compte de service géré de groupe](#managed-service-account) à la place.
+VSA est destiné à être utilisé dans les scénarios où le moteur de synchronisation et SQL sont sur le même serveur. Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un compte de service géré de groupe à la place.
 
 Cette fonctionnalité nécessite Windows Server 2008 R2 ou version ultérieure. Si vous installez Azure AD Connect sur Windows Server 2008, l’installation bascule sur l’utilisation d’un [compte d’utilisateur](#user-account) à la place.
 

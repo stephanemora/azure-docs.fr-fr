@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bbbcc1b3b505aae4bcc6869359ca27a8cd3fd1be
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: edebd2efda7d8217c9b554f2d1f54135203502cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638103"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821556"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI
 
@@ -31,8 +31,8 @@ Cet article vous explique comment charger un disque dur virtuel (VHD) personnali
 Pour créer plusieurs machines virtuelles à partir de votre disque personnalisé, commencez par créer une image à partir de votre machine virtuelle ou VHD. Pour plus d’informations, consultez l’article [Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI](tutorial-custom-images.md).
 
 Pour créer un disque personnalisé, vous disposez de deux méthodes :
-* [Charger un disque dur virtuel](#option-1-upload-a-specialized-vhd)
-* [Copier une machine virtuelle Azure existante](#option-2-copy-an-existing-azure-vm)
+* Télécharger un disque dur virtuel
+* Copier une machine virtuelle Azure existante
 
 ## <a name="quick-commands"></a>Commandes rapides
 
@@ -73,7 +73,7 @@ Azure prend en charge diverses distributions de Linux (voir [Distributions Lin
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES et openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Autres - Distributions non approuvées](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Autres : Distributions non approuvées](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Consultez également les [notes d’installation Linux](create-upload-generic.md#general-linux-installation-notes) pour obtenir d’autres conseils généraux sur la préparation d’images Linux pour Azure.
 
@@ -82,7 +82,7 @@ Consultez également les [notes d’installation Linux](create-upload-generic.md
 > 
 > 
 
-## <a name="option-1-upload-a-vhd"></a>Option 1 : charger un disque dur virtuel
+## <a name="option-1-upload-a-vhd"></a>Option 1 : Télécharger un disque dur virtuel
 
 Vous pouvez charger un disque dur virtuel personnalisé s’exécutant sur un ordinateur local ou que vous avez exporté à partir d’un autre cloud. Pour utiliser un VHD afin de créer une machine virtuelle Azure, vous devez le charger dans un compte de stockage et créer un disque managé à partir de ce VHD. Pour plus d’informations, voir la page [Azure Managed Disks overview](../windows/managed-disks-overview.md) (Vue d’ensemble d’Azure Managed Disks).
 
@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Créez un compte de stockage pour votre disque personnalisé et vos machines virtuelles avec la commande [az storage account create](/cli/azure/storage/account#az-storageaccount-create). L’exemple suivant crée un compte de stockage nommé *mystorageaccount* dans le groupe de ressources que vous avez créé :
+Créez un compte de stockage pour votre disque personnalisé et vos machines virtuelles avec la commande [az storage account create](/cli/azure/storage/account). L’exemple suivant crée un compte de stockage nommé *mystorageaccount* dans le groupe de ressources que vous avez créé :
 
 ```azurecli
 az storage account create \
@@ -172,7 +172,7 @@ az disk create \
     --name myManagedDisk \
   --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
-## <a name="option-2-copy-an-existing-vm"></a>Option 2 : copier une machine virtuelle existante
+## <a name="option-2-copy-an-existing-vm"></a>Option 2 : Copier une machine virtuelle existante
 
 Vous pouvez également créer une machine virtuelle personnalisée dans Azure, puis copier le disque du système d’exploitation et l’attacher à une nouvelle machine virtuelle pour créer une autre copie. Cette approche est bien adaptée à un test, mais si vous souhaitez utiliser une machine virtuelle Azure existante comme modèle pour plusieurs nouvelles machines virtuelles, créez plutôt une *image*. Pour plus d’informations sur la création d’une image à partir d’une machine virtuelle Azure existante, consultez l’article [Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI](tutorial-custom-images.md).
 

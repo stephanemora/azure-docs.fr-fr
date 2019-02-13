@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26578871"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822304"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utiliser le service StorSimple Device Manager pour gérer des volumes (Update 3 ou versions ultérieures)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel explique comment utiliser le service StorSimple Device Manager pour créer et gérer des volumes sur les appareils de la gamme 8000 StorSimple exécutant Update 3 et versions ultérieures.
 
@@ -33,8 +33,8 @@ Le service StorSimple Device Manager est une extension dans le portail Azure 
 
 Les volumes StorSimple peuvent être les suivants :
 
-* **Volumes épinglés localement**: les données de ces volumes restent en permanence sur l’appareil StorSimple local.
-* **Volumes hiérarchisés**: les données de ces volumes peuvent se disperser dans le cloud.
+* **Volumes épinglés localement** : les données de ces volumes restent en permanence sur l’appareil StorSimple local.
+* **Volumes hiérarchisés** : les données de ces volumes peuvent se disperser dans le cloud.
 
 Un volume d’archivage est un type de volume hiérarchisé. La grande taille des blocs de déduplication utilisée pour les volumes d’archivage permet à l’appareil de transférer des segments de données plus importants vers le cloud.
 
@@ -120,9 +120,9 @@ Vous [avez créé un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6
       
        Si vous configurez un volume épinglé localement de 8,5 To (taille maximale autorisée) sur votre appareil 8100, vous avez utilisé tout l’espace local disponible sur l’appareil. Vous ne pourrez donc pas créer de volume à plusieurs niveaux, puisque l’espace local de l’appareil sera insuffisant pour héberger la plage de travail du volume en question. Les volumes à plusieurs niveaux existants affectent également l’espace disponible. Par exemple, si vous avez un appareil 8100 qui possède déjà des volumes à plusieurs niveaux de 106 To, seuls 4 To d’espace sont disponibles pour les volumes épinglés localement.
 
-    6. Cliquez sur la flèche du champ **Hôtes connectés**. Dans le panneau **Hôtes connectés**, sélectionnez un ACR existant ou ajoutez un nouvel ACR. Si vous choisissez un nouvel ACR, indiquez un **nom** pour votre ACR, ainsi que le **nom complet iSCSI** (IQN) de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à [Obtenir le nom qualifié d’un hôte Windows Server](#get-the-iqn-of-a-windows-server-host). Cliquez sur **Create**. Un volume est créé avec les paramètres spécifiés.
+    6. Cliquez sur la flèche du champ **Hôtes connectés**. Dans le panneau **Hôtes connectés**, sélectionnez un ACR existant ou ajoutez un nouvel ACR. Si vous choisissez un nouvel ACR, indiquez un **nom** pour votre ACR, ainsi que le **nom complet iSCSI** (IQN) de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à Obtenir le nom qualifié d’un hôte Windows Server. Cliquez sur **Créer**. Un volume est créé avec les paramètres spécifiés.
 
-        ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
+        ![Cliquez sur Create.](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
 Le nouveau volume est maintenant prêt à l’emploi.
 
@@ -303,7 +303,7 @@ Pour supprimer un volume, procédez comme indiqué ci-dessous.
    > [!NOTE]
    > Si vous supprimez un volume épinglé localement, l'espace disponible pour les nouveaux volumes ne sera peut-être pas mis à jour immédiatement. Le service StorSimple Device Manager met à jour l’espace local disponible régulièrement. Nous vous recommandons de patienter quelques minutes avant d’essayer de créer le volume.
    >
-   > En outre, les tâches de suppression de volume s’exécutent de façon séquentielle si vous supprimez un volume épinglé localement, puis un autre volume du même type immédiatement après. La première tâche de suppression de volume doit se terminer pour que la deuxième puisse commencer.
+   >  En outre, les tâches de suppression de volume s’exécutent de façon séquentielle si vous supprimez un volume épinglé localement, puis un autre volume du même type immédiatement après. La première tâche de suppression de volume doit se terminer pour que la deuxième puisse commencer.
 
 ## <a name="monitor-a-volume"></a>Analyse d’un volume
 

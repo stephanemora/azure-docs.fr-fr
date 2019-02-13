@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/15/2018
-ms.openlocfilehash: cd7c4014752fb5fa014fd8b5204206cd4efbfdce
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 230c5a50efe762b8f27e6a0a84c36c74403b8ecc
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818521"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663874"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utiliser les Azure HDInsight Tools pour Visual Studio Code
 
@@ -31,6 +31,7 @@ Avant de poursuivre cet article, vérifiez que vous avez les éléments nécessa
 - Un cluster HDInsight. Pour créer un cluster, consultez [Prise en main de HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono est nécessaire uniquement pour les plateformes Linux et MacOS.
+- [Extension de compte Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) VS Code
 
 ## <a name="install-the-hdinsight-tools"></a>Installer HDInsight Tools
    

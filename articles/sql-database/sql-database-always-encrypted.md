@@ -12,15 +12,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 343782448d4b508e678108ece268f2ce57b6ac1d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/07/2018
+ms.openlocfilehash: a54fa92e248cb75be315327f7389e62904c7c777
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868137"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754866"
 ---
-# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Chiffrement intégral : protéger les données sensibles et stocker les clés de chiffrement dans le magasin de certificats Windows
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted : Protéger les données sensibles et stocker les clés de chiffrement dans le magasin de certificats Windows
 
 Cet article montre comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de base de données en utilisant [l’Assistant Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) dans [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Il montre également comment stocker vos clés de chiffrement dans le magasin de certificats Windows.
 
@@ -47,7 +47,7 @@ Pour ce didacticiel, vous devez disposer des éléments suivants :
 ## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Créer une ressource** > **Données + Stockage** > **SQL Database**.
-3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données SQL Azure](sql-database-get-started-portal.md).
+3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données SQL Azure](sql-database-single-database-get-started.md).
    
     ![Créer une base de données vide](./media/sql-database-always-encrypted/create-database.png)
 
@@ -98,7 +98,7 @@ SSMS intègre un Assistant permettant de configurer facilement le chiffrement in
    
     ![Chiffrer les colonnes](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-L’Assistant Chiffrement intégral comprend les sections suivantes : **Sélection de la colonne**, **Configuration de la clé principale** (CMK), **Validation** et **Résumé**.
+L’Assistant Always Encrypted comprend les sections suivantes : **Sélection de la colonne**, **Configuration de la clé principale**, **Validation** et **Résumé**.
 
 ### <a name="column-selection"></a>Sélection de colonnes
 Dans la page **Introduction**, cliquez sur **Suivant** pour ouvrir la page **Sélection de colonne**. Dans cette page, sélectionnez les colonnes à chiffrer, [le type de chiffrement et la clé de chiffrement de colonne (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) à utiliser.
@@ -514,5 +514,5 @@ Après avoir créé une base de données utilisant le chiffrement intégral, vou
 * [Chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Chiffrement SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Blog Chiffrement intégral.](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

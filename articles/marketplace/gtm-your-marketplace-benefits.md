@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: bf73c3226af5b2480d52d5010058f24d912bdab5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355111"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747524"
 ---
 # <a name="your-marketplace-benefits"></a>Vos avantages sur la Place de marché
 
@@ -54,14 +54,14 @@ Les nouvelles annonces dans la Place de marché et AppSource sont habilitées à
 | Vitrine | Avantages supplémentaires disponibles |
 |:--- |:--- |
 | AppSource |  Partenaires Microsoft Gold <br> Applications d’évaluation |
-| Place de marché Azure | Offres de transaction <br> Offres d’essai |
+| Place de marché Azure | Offres de transaction <br> Offres d’évaluation |
 
 Votre support commercial GTM inclut des modèles, du contenu web, des formations et des outils pour promouvoir votre entreprise.
 
 Pour accéder à ces avantages, vous devez :
 
 1. Publier une offre sur la Place de marché ou AppSource.
-2. Vérifier que vous avez entré un contact marketing dans la partie **Informations de contact** de votre offre. Ce doit être une ressource marketing dédiée, et non un alias fourre-tout. (autrement dit, évitez d’utiliser « support@ », « info@ », « marketing@ », etc.)
+2. Vérifier que vous avez entré un contact marketing dans la partie **Informations de contact** de votre offre. Ce doit être une ressource marketing dédiée, et non un alias fourre-tout. (autrement dit, évitez d’utiliser « support\@ », « info\@ », « marketing\@ », etc.)
 
 Selon l’état de votre solution, vous recevez un e-mail avec les ressources d’auto-assistance, ou une invitation à un appel de consultation avec un responsable de l’engagement client dédié. Vous n’avez rien à faire pour lancer l’appel : l’équipe d’intégration de la place de marché vous contacte en fonction des informations que vous fournissez dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/).
 

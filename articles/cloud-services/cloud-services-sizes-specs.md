@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 78a073ec7ee8432ba7804daef150afcbbca23ef6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a2af7ffde336016ae89a1ab03d753ed11b901e05
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095567"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818700"
 ---
 # <a name="sizes-for-cloud-services"></a>Tailles de services cloud
 Cette rubrique décrit les tailles et options disponibles pour les instances de rôle de Cloud Services (rôles web et rôles de travail). Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l'utilisation de ces ressources. Chaque taille a un identifiant que vous placez dans votre [fichier de définition de service](cloud-services-model-and-package.md#csdef). Les prix pour chaque taille sont disponibles sur la page de [tarification des Services Cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -44,7 +44,7 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 * Les tailles A8 à A11 et celles de la série H sont également appelées *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. La série A8-A11 utilise un processeur Intel Xeon E5-2670 cadencé à 2,6 GHZ, et la série H un processeur Intel Xeon E5-2667 v3 cadencé à 3,2 GHz. Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez [Tailles de machines virtuelles de calcul haute performance](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Les séries Dv3, Dv2, D et G sont idéales pour les applications qui exigent des processeurs plus rapides, de meilleures performances de disque local, ou qui ont des exigences de mémoire plus élevées. Elles offrent une combinaison puissante pour de nombreuses applications professionnelles.
-* Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle {nom de la machine}** ou **Échec de la création de la machine virtuelle {nom de la machine}** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une nouvelle machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, consultez [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d'assistance.
+* Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle {nom de la machine}** ou **Échec de la création de la machine virtuelle {nom de la machine}** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une nouvelle machine virtuelle à un service cloud existant. Consultez [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d’assistance pour découvrir les solutions de contournement pour chaque scénario de déploiement.
 * Il se peut également que votre abonnement limite le nombre de cœurs que vous pouvez déployer dans certaines familles de taille. Pour augmenter un quota, contactez le support technique Azure.
 
 ## <a name="performance-considerations"></a>Considérations relatives aux performances
@@ -82,7 +82,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 * La bande passante réseau maximale est la bande passante maximale agrégée allouée et affectée par type de machine virtuelle. La bande passante maximale fournit des recommandations pour la sélection du bon type de machine virtuelle afin de garantir une capacité réseau adéquate. Lorsque vous évoluez entre Faible, Modéré, Élevé et Très élevé, le débit augmente en conséquence. Les performances réseau réelles dépendent de nombreux facteurs, notamment les charges du réseau et de l’application, ainsi que les paramètres réseau de l’application.
 
 ## <a name="a-series"></a>Série A
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Très petite      | 1         | 0,768        | 20                   | 1 / Faible |
 | Petite           | 1         | 1,75         | 225                  | 1 / Modérée |
@@ -96,7 +96,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 ## <a name="a-series---compute-intensive-instances"></a>Série A - Instances de calcul intensif
 Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez [Tailles de machines virtuelles de calcul haute performance](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | A8*             |8          | 56           | 1817                 | 2 / Élevée |
 | A9*             |16         | 112          | 1817                 | 4 / Très élevée |
@@ -107,7 +107,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 ## <a name="av2-series"></a>Série Av2
 
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_A1_v2  | 1         | 2            | 10                   | 1 / Modérée                 |
 | Standard_A2_v2  | 2         | 4            | 20                   | 2 / Modérée                 |
@@ -119,7 +119,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 
 ## <a name="d-series"></a>Série D
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | D1 standard     | 1         | 3,5          | 50                   | 1 / Modérée |
 | D2 standard     | 2         | 7            | 100                  | 2 / Élevée |
@@ -131,7 +131,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 | D14 standard    | 16        | 112          | 800                  | 8 / Très élevée |
 
 ## <a name="dv2-series"></a>Série Dv2
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1_v2  | 1         | 3,5          | 50                   | 1 / Modérée |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2 / Élevée |
@@ -146,7 +146,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 ## <a name="dv3-series"></a>Série Dv3
 
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio   | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio   | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_D2_v3  | 2         | 8             | 50                   | 2 / Modérée |
 | Standard_D4_v3  | 4         | 16            | 100                  | 2 / Élevée |
@@ -157,7 +157,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 ## <a name="ev3-series"></a>Série Ev3
 
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio   | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio   | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_E2_v3  | 2         | 16            | 50                   | 2 / Modérée |
 | Standard_E4_v3  | 4         | 32            | 100                  | 2 / Élevée |
@@ -168,7 +168,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 
 ## <a name="g-series"></a>Série G
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1 / Élevée |
 | Standard_G2     | 4         | 56           | 768                  |2 / Élevée |
@@ -181,7 +181,7 @@ Les machines virtuelles de la série H sont des machines virtuelles de calcul h
 
 En plus de la puissance substantielle du processeur, la série H offre différentes options pour des réseaux RDMA à faible latence, en utilisant FDR InfiniBand et plusieurs configurations de mémoire pouvant satisfaire des exigences de calcul nécessitant une mémoire conséquente.
 
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_H8     | 8         | 56           | 1 000                 | 8 / Élevée |
 | Standard_H16    | 16        | 112          | 2000                 | 8 / Très élevée |
@@ -195,7 +195,7 @@ En plus de la puissance substantielle du processeur, la série H offre différe
 ## <a name="configure-sizes-for-cloud-services"></a>Configurer les tailles pour les Cloud Services
 Vous pouvez spécifier la taille de l’ordinateur virtuel d’une instance de rôle dans le cadre du modèle de service décrit par le [fichier de définition de service](cloud-services-model-and-package.md#csdef). La taille du rôle détermine le nombre de cœurs du processeur, la capacité de mémoire et la taille du système de fichiers local qui lui est allouée. Choisissez la taille du rôle en fonction des besoins en ressources de votre application.
 
-Voici un exemple qui montre comment configurer un rôle avec la taille [Standard_D2](#general-purpose-d) pour une instance de rôle web :
+Voici un exemple qui montre comment configurer un rôle avec la taille Standard_D2 pour une instance de rôle web :
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">

@@ -10,12 +10,12 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301439"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487232"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -111,7 +111,7 @@ Utilisez les étapes suivantes pour configurer le suivi des fichiers sur des ord
 La récursivité vous permet de spécifier des caractères génériques pour simplifier le suivi entre les répertoires, et des variables d’environnement pour vous permettre d’effectuer le suivi de fichiers entre les environnements avec plusieurs noms de lecteurs ou des noms de lecteurs dynamiques. La liste suivante répertorie les informations courantes que vous devez connaître lors de la configuration de la récursivité :
 
 * Les caractères génériques sont requis pour effectuer le suivi de plusieurs fichiers
-* Si vous utilisez des caractères génériques, ceux-ci ne peuvent être utilisés que dans le dernier segment du chemin d’accès. (par exemple C:\dossier\\**fichier** ou /etc/*.conf)
+* Si vous utilisez des caractères génériques, ceux-ci ne peuvent être utilisés que dans le dernier segment du chemin d’accès. (par exemple, `c:\folder\*file*` ou `/etc/*.conf`)
 * Si le chemin d’accès d’une variable d’environnement n’est pas valide, la validation réussit, mais ce chemin d’accès échoue lors de l’exécution de l’inventaire.
 * Évitez les chemins d’accès généraux comme `c:\*.*` lors de la définition du chemin d’accès, auquel cas un trop grand nombre de dossiers sont parcourus.
 
@@ -132,9 +132,9 @@ Utilisez les étapes suivantes pour configurer le suivi des clés de Registre su
 |Propriété  |Description  |
 |---------|---------|
 |activé     | Détermine si le paramètre est appliqué.        |
-|Item Name     | Nom convivial du fichier à suivre.        |
-|Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Clé de Registre Windows   | Chemin dans lequel rechercher le fichier. Par exemple :  « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
+|Item Name     | Nom convivial de la clé de Registre à suivre.        |
+|Groupe     | Nom de groupe pour le regroupement logique des clés de Registre.        |
+|Clé de Registre Windows   | Chemin dans lequel rechercher la clé de Registre. Par exemple :  « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
 
 ## <a name="limitations"></a>Limites
 
@@ -278,13 +278,13 @@ Dans l'exemple suivant, la capture d'écran montre que le fichier `C:\windows\sy
 
 ![Graphique montrant la modification du fichier Hosts](./media/automation-change-tracking/changes.png)
 
-Pour analyser cette modification plus en détail, accédez à Recherche dans les journaux en cliquant sur **Log Analytics**. Une fois dans Recherche dans les journaux, recherchez les modifications apportées au contenu du fichier Hosts à l'aide de la requête `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Cette requête permet de rechercher les modifications apportées au contenu des fichiers dont le chemin d'accès complet contient le mot « hosts ». Vous pouvez également rechercher un fichier spécifique en remplaçant le chemin d'accès par sa forme complète (par exemple, `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+Pour analyser cette modification plus en détail, accédez à Recherche dans les journaux en cliquant sur **Log Analytics**. Une fois dans Recherche dans les journaux, recherchez les modifications apportées au contenu du fichier Hosts à l'aide de la requête `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Cette requête permet de rechercher les modifications apportées au contenu des fichiers dont le chemin d'accès complet contient le mot « hosts ». Vous pouvez également rechercher un fichier spécifique en remplaçant le chemin d'accès par sa forme complète (par exemple, `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 Une fois que la requête a renvoyé les résultats souhaités, cliquez sur le bouton **Nouvelle règle d'alerte** de l'expérience Recherche dans les journaux pour ouvrir la page de création d'alerte. Vous pouvez également accéder à cette expérience via **Azure Monitor** sur le portail Azure. Dans l'expérience de création d'alerte, vérifiez à nouveau notre requête et modifiez la logique d'alerte. Pour cet exemple, vous souhaitez que l'alerte soit déclenchée à la moindre modification détectée sur l'ensemble des machines de l'environnement.
 
 ![Image illustrant la requête de modification pour le suivi des modifications apportées au fichier Hosts](./media/automation-change-tracking/change-query.png)
 
-Une fois la logique de condition définie, attribuez des groupes d'actions pour répondre à l'alerte déclenchée. J'ai ici configuré les actions suivantes : envoi d'e-mails et création d'un ticket ITSM.  De nombreuses autres actions utiles peuvent également être prises, telles que le déclenchement d'une fonction Azure, d'un runbook Automation, d'un webhook ou d'une application logique.
+Une fois la logique de condition définie, attribuez des groupes d'actions pour répondre à l'alerte déclenchée. J'ai ici configuré les actions suivantes : envoi d'e-mails et création d'un ticket ITSM.  De nombreuses autres actions utiles peuvent également être entreprises, telles que le déclenchement d’une fonction Azure, d’un runbook Automation, d’un webhook ou d’une application logique.
 
 ![Image illustrant la configuration d'un groupe d'actions pour alerter de la modification](./media/automation-change-tracking/action-groups.png)
 

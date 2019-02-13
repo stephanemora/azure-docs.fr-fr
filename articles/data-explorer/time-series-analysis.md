@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: dd9314b8c61a98e6bc080503bcdd6b5c6257bd49
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636675"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750560"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analyse des séries chronologiques dans Azure Data Explorer
 
@@ -64,7 +64,7 @@ demo_make_series1
     - `byOsVer` : partitionne par système d’exploitation
 - La structure de données d’une série chronologique réelle est un tableau numérique de la valeur agrégée par compartiment de temps. Nous utilisons `render timechart` pour la visualisation.
 
-Dans le tableau ci-dessus, nous avons trois partitions. Nous pouvons créer une série chronologique distincte (Windows 10 en rouge, Windows 7 en bleu et Windows 8.1 en vert) pour chaque version du système d’exploitation, comme dans le graphique ci-dessous :
+Dans le tableau ci-dessus, nous avons trois partitions. Nous pouvons créer une série chronologique distincte : Windows 10 (en rouge), Windows 7 (en bleu) et Windows 8.1 (en vert) pour chaque version du système d’exploitation, comme dans le graphique ci-dessous :
 
 ![Partition de série chronologique](media/time-series-analysis/time-series-partition.png)
 
@@ -77,8 +77,8 @@ Une fois qu’un ensemble de séries chronologiques est créé, Azure Data Explo
 
 Le filtrage est une pratique courante dans le traitement de signal, utile pour les tâches de traitement de séries chronologiques (par exemple, lissage d’un signal bruyant, détection de modifications).
 - Il existe deux fonctions de filtrage génériques :
-    - [`series_fir()`](/azure/kusto/query/series-firfunction) : appliquant un filtre FIR. Utilisée pour effectuer un calcul simple de moyenne mobile et de différenciation des séries chronologiques pour la détection des modifications.
-    - [`series_iir()`](/azure/kusto/query/series-iirfunction) : appliquant un filtre IIR. Utilisée pour effectuer un lissage exponentiel et calculer une somme cumulée.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction) : appliquant un filtre FIR. Utilisée pour effectuer un calcul simple de moyenne mobile et de différenciation des séries chronologiques pour la détection des modifications.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction) : appliquant un filtre IIR. Utilisée pour effectuer un lissage exponentiel et calculer une somme cumulée.
 - Étendre (`Extend`) l’ensemble de séries chronologiques en ajoutant une nouvelle série de moyennes mobiles de 5 compartiments (nommée *ma_num*) à la requête :
 
 ```kusto
@@ -103,7 +103,7 @@ Exemple de fonctions `series_fit_line()` et `series_fit_2lines()` dans une requ�
 ```kusto
 demo_series2
 | extend series_fit_2lines(y), series_fit_line(y)
-| render linechart
+| render linechart with(xcolumn=x)
 ```
 
 ![Régression de série chronologique](media/time-series-analysis/time-series-regression.png)
@@ -206,7 +206,7 @@ let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h)
-| render timechart 
+| render timechart with(ymin=0) 
 ```
 
 ![Série chronologique à grande échelle](media/time-series-analysis/time-series-at-scale.png)
@@ -217,13 +217,13 @@ Combien de séries chronologiques pouvons-nous créer ?
 
 ```kusto
 demo_many_series1
-| summarize by Loc, anonOp, DB
+| summarize by Loc, Op, DB
 | count
 ```
 
 |   |   |
 | --- | --- |
-|   | Count |
+|   | Nombre |
 |   | 23115 |
 
 Nous allons à présent créer un ensemble de 23115 séries chronologiques de la métrique du nombre de lectures. Nous ajoutons la clause `by` à l’instruction make-series, appliquons une régression linéaire, et sélectionnons les deux premières séries chronologiques en termes de tendance décroissante la plus significative :
@@ -232,7 +232,7 @@ Nous allons à présent créer un ensemble de 23115 séries chronologiques de la
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
 | render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
@@ -246,17 +246,17 @@ Afficher les instances :
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc
-| project Loc, anonOp, DB, slope 
+| project Loc, Op, DB, slope 
 ```
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Loc | anonOp | DB | slope |
-|   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
-|   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
+|   | Loc | Op | DB | slope |
+|   | Loc 15 | 37 | 1151 | -102743.910227889 |
+|   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
 En moins de deux minutes, Azure Data Explorer a analysé plus de 20 000 séries chronologiques et détecté deux séries chronologiques anormales dans lesquelles le nombre de lectures chutait soudainement.
 

@@ -1,6 +1,6 @@
 ---
-title: Ajouter des schémas de validation XML - Azure Logic Apps | Microsoft Docs
-description: Créer des schémas qui valident des documents XML dans Azure Logic Apps avec Enterprise Integration Pack
+title: Valider des documents XML avec des schémas - Azure Logic Apps | Microsoft Docs
+description: Ajouter des schémas pour valider les documents XML dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,124 +9,185 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
-ms.date: 07/29/2016
-ms.openlocfilehash: e03346da1c2b77f885c39d5329f990684979c56e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 02/06/2019
+ms.openlocfilehash: 03ac2e0f42ff05165aa2313d823710a71c7dffec
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123071"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768303"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Valider des documents XML avec des schémas dans Azure Logic Apps avec Enterprise Integration Pack
 
-Les schémas confirment que les documents XML que vous recevez sont valides et contiennent les données attendues dans un format prédéfini. Les schémas aident également à valider les messages échangés dans un scénario d’entreprise à entreprise (B2B).
+Pour vérifier que les documents utilisent du code XML valide et qu’ils contiennent les données attendues au format prédéfini pour les scénarios d’intégration entreprise dans Azure Logic Apps, votre application logique peut utiliser des schémas. Un schéma peut également valider des messages que les applications logiques échangent dans les scénarios B2B.
 
-## <a name="add-a-schema"></a>Ajout d’un schéma
+Pour connaître les limites associées aux comptes d’intégration et aux artefacts tels que les schémas, consultez [Limites et informations de configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-1. Dans le portail Azure, sélectionnez **Tous les services**.
+## <a name="prerequisites"></a>Prérequis
 
-    ![Portail Azure, « Tous les services »](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+* Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez <a href="https://azure.microsoft.com/free/" target="_blank">vous inscrire pour obtenir un compte Azure gratuitement</a>.
 
-2. Entrez **intégration** dans la zone de recherche de filtre et sélectionnez **Integration Accounts** (Comptes d’intégration) dans la liste des résultats.
+* [Compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) où vous stockez vos schémas et autres artefacts pour les solutions d’intégration d’entreprise et les solutions B2B. 
 
-    ![Zone de recherche de filtre](media/logic-apps-enterprise-integration-schemas/overview-21.png)
+  Si la taille de votre schéma est [inférieure ou égale à 2 Mo](#smaller-schema), vous pouvez ajouter votre schéma à votre compte d’intégration directement dans le portail Azure. Toutefois, si la taille de votre schéma est supérieure à 2 Mo, mais qu’elle ne dépasse pas la [taille limite des schémas](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), vous pouvez charger votre schéma dans un compte de stockage Azure. 
+  Pour ajouter ce schéma à votre compte d’intégration, vous pouvez associer votre compte de stockage à votre compte d’intégration. 
+  Pour cette tâche, voici les éléments dont vous avez besoin : 
 
-3. Sélectionnez le **compte d’intégration** auquel vous souhaitez ajouter le schéma.
+  * Un [compte de stockage Azure](../storage/common/storage-account-overview.md) dans lequel vous créez un conteneur d’objets blob pour votre schéma. Découvrez comment [créer un compte de stockage](../storage/common/storage-quickstart-create-account.md). 
 
-    ![Liste des comptes d’intégration](media/logic-apps-enterprise-integration-schemas/overview-31.png)
+  * Un conteneur d’objets blob pour stocker votre schéma. Découvrez comment [créer un conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md). 
+  Vous aurez besoin de l’URI du contenu de votre conteneur plus tard, lorsque vous ajouterez le schéma à votre compte d’intégration.
 
-4. Choisissez la mosaïque **Schémas**.
+  * L’[Explorateur Stockage Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md), que vous pouvez utiliser pour gérer les comptes de stockage et les conteneurs d’objets blob. 
+  Pour utiliser l’Explorateur Stockage, choisissez l’une de ces options :
+  
+    * Dans le portail Azure, sélectionnez votre compte de stockage. 
+    Dans le menu de votre compte de stockage, sélectionnez **Explorateur Stockage**.
 
-    ![Exemple de compte d’intégration, « Schémas »](media/logic-apps-enterprise-integration-schemas/schema-11.png)
+    * Pour la version de bureau, [téléchargez et installez l’Explorateur Stockage Azure](https://www.storageexplorer.com/). 
+    Ensuite, connectez l’Explorateur Stockage à votre compte de stockage en suivant les étapes décrites dans [Prise en main de l’Explorateur Stockage](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
+    Pour en savoir plus, consultez [Démarrage rapide : Créer un objet blob dans le stockage d’objets avec l’Explorateur Stockage Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
-### <a name="add-a-schema-file-smaller-than-2-mb"></a>Ajout d’un fichier de schéma d’une taille inférieure à 2 Mo
+Vous n’avez pas besoin d’une application logique pour créer et ajouter des schémas. Toutefois, pour utiliser un schéma, votre application logique doit être associée au compte d’intégration dans lequel vous stockez ce schéma. Découvrez comment [lier des applications logiques à des comptes d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Si vous n’avez pas encore d’application logique, découvrez [comment créer des applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Dans le panneau **Schémas** qui s’affiche (après les étapes précédentes), sélectionnez **Ajouter**.
+## <a name="add-schemas"></a>Ajouter des schémas
 
-    ![Panneau Schémas, « Ajouter »](media/logic-apps-enterprise-integration-schemas/schema-21.png)
+1. Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azure</a> avec les informations d’identification de votre compte Azure.
 
-2. Saisissez un nom pour votre schéma. Téléchargez le fichier de schéma en sélectionnant l’icône de dossier à côté de la zone **Schéma**. Une fois le processus de téléchargement terminé, sélectionnez **OK**.
+1. Pour rechercher et ouvrir votre compte d’intégration, dans le menu Azure principal, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « compte d’intégration ». Sélectionnez **Comptes d’intégration**.
 
-    ![Capture d’écran d’« Ajouter un schéma » avec « Fichier de petite taille » mis en surbrillance](media/logic-apps-enterprise-integration-schemas/schema-31.png)
+   ![Chercher le compte d’intégration](./media/logic-apps-enterprise-integration-schemas/find-integration-account.png)
 
-### <a name="add-a-schema-file-larger-than-2-mb-up-to-8-mb-maximum"></a>Ajout d’un fichier de schéma d’une taille supérieure à 2 Mo (jusqu’à un maximum de 8 Mo)
+1. Sélectionnez le compte d’intégration dans lequel vous souhaitez ajouter votre schéma, par exemple :
 
-Ces étapes varient selon le niveau d’accès du conteneur d’objets blob : **Public** ou **No anonymous access** (Aucun accès anonyme).
+   ![Sélectionner le compte d’intégration](./media/logic-apps-enterprise-integration-schemas/select-integration-account.png)
 
-**Pour déterminer ce niveau d’accès**
+1. Dans la page **Vue d’ensemble** de votre compte d’intégration, sous **Composants**, sélectionnez la vignette **Schémas**.
 
-1.  Ouvrez **l’Explorateur de stockage Azure**. 
+   ![Sélectionner « Schémas »](./media/logic-apps-enterprise-integration-schemas/select-schemas.png)
 
-2.  Sous **Conteneurs d’objets Blob**, sélectionnez le conteneur d’objets blob de votre choix. 
+1. Une fois que la page **Schémas** est ouverte, choisissez **Ajouter**.
 
-3.  Sélectionnez **Sécurité**, **Niveau d’accès**.
+   ![Choisir « Ajouter »](./media/logic-apps-enterprise-integration-schemas/add-schema.png)
 
-Si le niveau d’accès de sécurité d’objet blob est **Public**, procédez comme suit.
+En fonction de la taille de votre schéma (.xsd), suivez les étapes de chargement pour les schémas de taille [inférieure ou égale à 2 Mo](#smaller-schema) ou pour les schémas dont la taille est comprise entre [2 Mo et 8 Mo](#larger-schema).
 
-![Explorateur de stockage Azure, avec « Conteneurs d’objets Blob », « Sécurité » et « Public » mis en surbrillance](media/logic-apps-enterprise-integration-schemas/blob-public.png)
+<a name="smaller-schema"></a>
 
-1. Téléchargez le schéma vers votre compte de stockage, puis copiez l’URI.
+### <a name="add-schemas-up-to-2-mb"></a>Ajouter des schémas de taille inférieure ou égale à 2 Mo
 
-    ![Compte de stockage avec l’URI mis en surbrillance](media/logic-apps-enterprise-integration-schemas/schema-blob.png)
+1. Sous **Ajouter un schéma**, saisissez un nom pour votre schéma. 
+   L’option **Fichier de petite taille** doit rester cochée. À côté de la zone **Schéma**, choisissez l’icône de dossier. Recherchez puis sélectionnez le schéma à charger, par exemple :
 
-2. Sélectionnez **Fichier volumineux** dans **Ajouter un schéma** et indiquez l’URI dans la zone de texte **URI du contenu**.
+   ![Charger un schéma plus petit](./media/logic-apps-enterprise-integration-schemas/upload-smaller-schema-file.png)
 
-    ![Schémas, avec le bouton « Ajouter » et « Fichier volumineux » mis en surbrillance](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
+1. Lorsque vous êtes prêt, choisissez **OK**.
 
-Si le niveau de sécurité de l’accès aux objets blob est défini sur **Pas d’accès anonyme**.
+   Lorsque le chargement de votre schéma est terminé, celui-ci s’affiche dans la liste **Schémas**.
 
-![Explorateur de stockage Azure, avec « Conteneurs d’objets Blob », « Sécurité » et « No anonymous access » (Aucun accès anonyme) mis en surbrillance](media/logic-apps-enterprise-integration-schemas/blob-1.png)
+<a name="larger-schema"></a>
 
-1. Téléchargez le schéma vers votre compte de stockage.
+### <a name="add-schemas-more-than-2-mb"></a>Ajouter des schémas de taille supérieure à 2 Mo
 
-    ![Compte de stockage](media/logic-apps-enterprise-integration-schemas/blob-3.png)
+Pour ajouter des schémas plus volumineux, vous pouvez charger votre schéma dans un conteneur d’objets blob Azure de votre compte de stockage Azure. Les étapes pour ajouter des mappages varient selon que votre conteneur d’objets blob dispose ou non d’un accès en lecture public. Effectuez donc les étapes suivantes pour vérifier si votre conteneur d’objets blob dispose d’un accès en lecture public : [Définir le niveau d’accès public pour le conteneur d’objets blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
-2. Générez un URI de signature d’accès partagé pour le schéma.
+#### <a name="check-container-access-level"></a>Vérifier le niveau d’accès du conteneur
 
-    ![Compte de stockage, avec l’onglet des signatures d’accès partagé mis en surbrillance](media/logic-apps-enterprise-integration-schemas/blob-2.png)
+1. Ouvrez l’Explorateur de stockage Azure. Dans la fenêtre de l’Explorateur, développez votre abonnement Azure, si ce n’est déjà fait.
 
-3. Sélectionnez **Fichier volumineux** dans **Ajouter un schéma** et indiquez l’URI de signature d’accès partagé dans la zone de texte **URI du contenu**.
+1. Développez **Comptes de stockage** > {*votre compte de stockage*} > **Conteneurs d’objets blob**. Sélectionnez votre conteneur blob.
 
-    ![Schémas, avec le bouton « Ajouter » et « Fichier volumineux » mis en surbrillance](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
+1. Dans le menu contextuel de votre conteneur d’objets blob, sélectionnez **Définir le niveau d’accès public**.
 
-4. Dans le panneau **Schémas** de votre compte d’intégration, votre nouveau schéma doit maintenant s’afficher.
+   * Si votre conteneur d’objets blob dispose au minimum d’un accès public, choisissez **Annuler**, puis suivez les étapes fournies plus loin dans cette page : [Charger dans les conteneurs avec accès public](#public-access)
 
-    ![Votre compte d’intégration, avec « Schémas » et le nouveau schéma mis en surbrillance](media/logic-apps-enterprise-integration-schemas/schema-41.png)
+     ![Accès public](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
+
+   * Si votre conteneur d’objets blob ne dispose pas d’un accès public, choisissez **Annuler**, puis suivez les étapes fournies plus loin dans cette page : [Charger dans les conteneurs sans accès public](#public-access)
+
+     ![Aucun accès public](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
+
+<a name="public-access"></a>
+
+#### <a name="upload-to-containers-with-public-access"></a>Charger dans les conteneurs avec accès public
+
+1. Téléchargez le schéma vers votre compte de stockage. 
+   Dans la fenêtre de droite, choisissez **Charger**.
+
+1. Une fois son chargement terminé, sélectionnez votre schéma. Dans la barre d’outils, choisissez **Copier l’URL** pour copier l’URL du schéma.
+
+1. Retournez au portail Azure où le volet **Ajouter un schéma** est ouvert. 
+   Entrez un nom pour votre assembly. 
+   Choisissez **Fichier de grande taille (plus de 2 Mo)**. 
+
+   La zone **URI de contenu** s’affiche à la place de la zone **Schéma**.
+
+1. Dans la zone **URI de contenu**, collez l’URL de votre schéma. 
+   Terminez l’ajout de votre schéma.
+
+Lorsque le chargement de votre schéma est terminé, celui-ci s’affiche dans la liste **Schémas**. Dans la page **Vue d’ensemble** de votre compte d’intégration, sous **Composants**, la vignette **Schémas** doit afficher le nombre de schémas chargés.
+
+<a name="no-public-access"></a>
+
+#### <a name="upload-to-containers-without-public-access"></a>Charger dans les conteneurs sans accès public
+
+1. Téléchargez le schéma vers votre compte de stockage. 
+   Dans la fenêtre de droite, choisissez **Charger**.
+
+1. Une fois le chargement terminé, générez une signature d’accès partagé (SAP) pour votre schéma. 
+   Dans le menu contextuel de votre schéma, sélectionnez **Obtenir une signature d’accès partagé**.
+
+1. Dans le volet **Signature d’accès partagé**, sélectionnez **Generate container-level shared access signature URI (Générer un URI de signature d’accès partagé au niveau du conteneur)** > **Créer**. 
+   Une fois que vous avez généré l’URI de signature d’accès partagé, à côté de la zone **URL**, sélectionnez **Copier**.
+
+1. Retournez au portail Azure où le volet **Ajouter un schéma** est ouvert. Choisissez **Fichier de grande taille**.
+
+   La zone **URI de contenu** s’affiche à la place de la zone **Schéma**.
+
+1. Dans la zone **URI de contenu**, collez l’URI de signature d’accès partagé généré précédemment. Terminez l’ajout de votre schéma.
+
+Lorsque le chargement de votre schéma est terminé, celui-ci s’affiche dans la liste **Schémas**. Dans la page **Vue d’ensemble** de votre compte d’intégration, sous **Composants**, la vignette **Schémas** doit afficher le nombre de schémas chargés.
 
 ## <a name="edit-schemas"></a>Modification de schémas
 
-1. Choisissez la mosaïque **Schémas**.
+Pour mettre à jour un schéma existant, vous devez charger un nouveau fichier de schéma qui comporte les modifications souhaitées. Cependant, vous pouvez d’abord télécharger le schéma existant pour le modifier.
 
-2. Dans le panneau **Schémas** qui s’affiche, sélectionnez le schéma que vous souhaitez modifier.
+1. Dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, ouvrez votre compte d’intégration, s’il n’est pas déjà ouvert.
 
-3. Dans le panneau **Schémas**, sélectionnez **Modifier**.
+1. Dans le menu principal Azure, sélectionnez **Tous les services**. 
+   Dans la zone de recherche, entrez « compte d’intégration ». 
+   Sélectionnez **Comptes d’intégration**.
 
-    ![Panneau Schémas](media/logic-apps-enterprise-integration-schemas/edit-12.png)
+1. Sélectionnez le compte d’intégration dans lequel vous souhaitez mettre à jour le schéma.
 
-4. Sélectionnez le fichier de schéma que vous souhaitez modifier, puis cliquez sur **Ouvrir**.
+1. Dans la page **Vue d’ensemble** de votre compte d’intégration, sous **Composants**, sélectionnez la vignette **Schémas**.
 
-    ![Ouvrir le fichier de schéma à modifier](media/logic-apps-enterprise-integration-schemas/edit-31.png)
+1. Une fois que la page **Schémas** est ouverte, sélectionnez votre schéma. 
+   Pour d’abord télécharger et modifier le schéma, choisissez **Télécharger**, puis enregistrez le schéma.
 
-Azure affiche un message indiquant que le schéma a été téléchargé avec succès.
+1. Lorsque vous êtes prêt à charger le schéma mis à jour, dans la page **Schémas**, sélectionnez le schéma que vous souhaitez mettre à jour, puis choisissez **Mettre à jour**.
+
+1. Recherchez puis sélectionnez le schéma mis à jour que vous souhaitez charger. 
+   Lorsque le chargement du schéma mis à jour est terminé, celui-ci s’affiche dans la liste **Schémas**.
 
 ## <a name="delete-schemas"></a>Suppression de schémas
 
-1. Choisissez la mosaïque **Schémas**.
+1. Dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, ouvrez votre compte d’intégration, s’il n’est pas déjà ouvert.
 
-2. Dans le panneau **Schémas** qui s’affiche, sélectionnez le schéma que vous souhaitez supprimer.
+1. Dans le menu principal Azure, sélectionnez **Tous les services**. 
+   Dans la zone de recherche, entrez « compte d’intégration ». 
+   Sélectionnez **Comptes d’intégration**.
 
-3. Dans le panneau **Schémas**, sélectionnez **Supprimer**.
+1. Sélectionnez le compte d’intégration dans lequel vous souhaitez supprimer le schéma.
 
-    ![Panneau Schémas](media/logic-apps-enterprise-integration-schemas/delete-12.png)
+1. Dans la page **Vue d’ensemble** de votre compte d’intégration, sous **Composants**, sélectionnez la vignette **Schémas**.
 
-4. Pour confirmer que vous souhaitez supprimer le schéma sélectionné, cliquez sur **Oui**.
+1. Une fois que la page **Schémas** est ouverte, sélectionnez votre schéma, puis choisissez **Supprimer**.
 
-    ![Message de confirmation « Supprimer le schéma »](media/logic-apps-enterprise-integration-schemas/delete-21.png)
-
-    Dans le panneau **Schémas**, la liste des schémas est actualisée et n’inclut plus le schéma que vous avez supprimé.
-
-    ![Votre compte d’intégration, avec « Schémas » mis en surbrillance](media/logic-apps-enterprise-integration-schemas/delete-31.png)
+1. Pour confirmer que vous souhaitez supprimer le schéma sélectionné, choisissez **Oui**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack").  
 
+* [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+* [En savoir plus sur les mappages](../logic-apps/logic-apps-enterprise-integration-maps.md)
+* [En savoir plus sur les transformations](../logic-apps/logic-apps-enterprise-integration-transform.md)

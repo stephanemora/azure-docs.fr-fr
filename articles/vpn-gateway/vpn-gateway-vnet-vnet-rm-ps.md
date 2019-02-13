@@ -1,5 +1,5 @@
 ---
-title: 'Connecter un réseau virtuel Azure à un autre réseau virtuel à l’aide d’une connexion de réseau virtuel à réseau virtuel : PowerShell | Microsoft Docs'
+title: 'Connecter un réseau virtuel Azure à un autre réseau virtuel à l’aide d’une connexion de réseau virtuel à réseau virtuel : PowerShell | Microsoft Docs'
 description: Connectez des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel et PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6624c28d686a584017d703889e57ef1a7126b16d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686957"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695506"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
 
@@ -68,11 +68,11 @@ La différence essentielle entre ces deux ensembles est que vous devez utiliser 
 
 Pour cet exercice, vous pouvez combiner des configurations ou choisir simplement celle que vous voulez utiliser. Toutes les configurations utilisent la connexion de réseau virtuel à réseau virtuel. Le trafic circule entre les réseaux virtuels connectés directement entre eux. Dans cet exercice, le trafic du réseau TestVNet4 n’est pas acheminé jusqu’au réseau TestVNet5.
 
-* [Réseaux virtuels qui se trouvent dans le même abonnement](#samesub) : les étapes de cette configuration utilisent les réseaux TestVNet1 et TestVNet4.
+* [Réseaux virtuels situés dans le même abonnement](#samesub) : Les étapes à suivre pour cette configuration utilisent les réseaux virtuels TestVNet1 et TestVNet4.
 
   ![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [Réseaux virtuels qui se trouvent dans des abonnements différents](#difsub) : les étapes de cette configuration utilisent les réseaux TestVNet1 et TestVNet5.
+* [Réseaux virtuels situés dans des abonnements différents](#difsub) : Les étapes à suivre pour cette configuration utilisent les réseaux virtuels TestVNet1 et TestVNet5.
 
   ![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -92,32 +92,32 @@ Nous utilisons les valeurs suivantes dans les exemples :
 
 * Nom du réseau virtuel : TestVNet1
 * Groupe de ressources : TestRG1
-* Emplacement : USA Est
+* Localisation : USA Est
 * TestVNet1 : 10.11.0.0/16 et 10.12.0.0/16
-* FrontEnd : 10.11.0.0/24
+* Front-end : 10.11.0.0/24
 * BackEnd : 10.12.0.0/24
 * GatewaySubnet : 10.12.255.0/27
 * GatewayName : VNet1GW
-* Adresse IP publique : VNet1GWIP
-* Type de VPN : RouteBased
+* Adresse IP publique : VNet1GWIP
+* VPNType : RouteBased
 * Connection(1to4) : VNet1toVNet4
-* Connection(1to5) : VNet1toVNet5 (pour les réseaux virtuels se trouvant dans des abonnements différents)
-* Type de connexion : VNet2VNet
+* Connection(1to5) : VNet1toVNet5 (pour les réseaux virtuels se trouvant dans des abonnements différents)
+* ConnectionType : VNet2VNet
 
 **Valeurs pour TestVNet4 :**
 
 * Nom du réseau virtuel : TestVNet4
 * TestVNet2 : 10.41.0.0/16 et 10.42.0.0/16
-* Serveur frontal : 10.41.0.0/24
-* Serveur principal : 10.42.0.0/24
-* Sous-réseau de passerelle : 10.42.255.0/27
+* Front-end : 10.41.0.0/24
+* BackEnd : 10.42.0.0/24
+* GatewaySubnet : 10.42.255.0/27
 * Groupe de ressources : TestRG4
-* Emplacement : USA Ouest
-* Nom de la passerelle : VNet4GW
-* Adresse IP publique : VNet4GWIP
-* Type de VPN : RouteBased
+* Localisation : USA Ouest
+* GatewayName : VNet4GW
+* Adresse IP publique : VNet4GWIP
+* VPNType : RouteBased
 * Connexion : VNet4toVNet1
-* Type de connexion : VNet2VNet
+* ConnectionType : VNet2VNet
 
 
 ### <a name="Step2"></a>Étape 2 : créez et configurez TestVNet1
@@ -305,16 +305,16 @@ Il est important de s’assurer que l’espace d’adressage IP du nouveau rés
 
 * Nom du réseau virtuel : TestVNet5
 * Groupe de ressources : TestRG5
-* Emplacement : Japon Est
+* Localisation : Japon Est
 * TestVNet5 : 10.51.0.0/16 et 10.52.0.0/16
-* Serveur frontal : 10.51.0.0/24
-* Serveur principal : 10.52.0.0/24
-* Sous-réseau de passerelle : 10.52.255.0.0/27
-* Nom de la passerelle : VNet5GW
-* Adresse IP publique : VNet5GWIP
-* Type de VPN : RouteBased
+* Front-end : 10.51.0.0/24
+* BackEnd : 10.52.0.0/24
+* GatewaySubnet : 10.52.255.0.0/27
+* GatewayName : VNet5GW
+* Adresse IP publique : VNet5GWIP
+* VPNType : RouteBased
 * Connexion : VNet5toVNet1
-* Type de connexion : VNet2VNet
+* ConnectionType : VNet2VNet
 
 ### <a name="step-7---create-and-configure-testvnet5"></a>Étape 7 : créez et configurez TestVNet5
 
@@ -476,5 +476,5 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) .
+* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles](https://docs.microsoft.com/azure/) .
 * Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md).

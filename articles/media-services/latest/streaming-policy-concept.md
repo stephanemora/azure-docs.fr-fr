@@ -9,99 +9,66 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: d74ce913a2189dd1062b30f9def919cbbabe7b64
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742522"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746742"
 ---
 # <a name="streaming-policies"></a>Stratégies de diffusion en continu
 
-Dans Azure Media Services v3, les stratégies de streaming vous permettent de définir les protocoles de streaming et les options de chiffrement pour vos StreamingLocators. Vous pouvez spécifier le nom de la stratégie de streaming que vous avez créée ou utiliser l’une des stratégies de streaming prédéfinies. Les stratégies de streaming prédéfinies actuellement disponibles sont les suivantes : « Predefined_DownloadOnly », « Predefined_ClearStreamingOnly », « Predefined_DownloadAndClearStreaming », « Predefined_ClearKey », ’Predefined_MultiDrmCencStreaming » et « Predefined_ MultiDrmStreaming ».
+Dans Azure Media Services v3, les [stratégies de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingpolicies) vous permettent de définir les protocoles de diffusion en continu et les options de chiffrement pour vos [StreamingLocators](streaming-locators-concept.md). Vous pouvez utiliser l’une des stratégies de diffusion en continu prédéfinies ou en créer une personnalisée. Voici les stratégies de diffusion en continu prédéfinies disponibles actuellement : « Predefined_DownloadOnly », « Predefined_ClearStreamingOnly », « Predefined_DownloadAndClearStreaming », « Predefined_ClearKey », « Predefined_MultiDrmCencStreaming » et « Predefined_MultiDrmStreaming ».
 
 > [!IMPORTANT]
-> Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie de streaming. Vous ne devez pas créer une stratégie de streaming pour chaque localisateur de streaming.
+> * Les propriétés des **stratégies de diffusion en continu** de type DateHeure sont toujours au format UTC.
+> * Vous devez concevoir un ensemble limité de stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes options sont nécessaires. 
 
-## <a name="streamingpolicy-definition"></a>Définition d’une stratégie StreamingPolicy
+## <a name="examples"></a>Exemples
 
-Le tableau suivant présente les propriétés d’une stratégie StreamingPolicy et en donne la définition.
+### <a name="not-encrypted"></a>Non chiffré
 
-|NOM|Description|
-|---|---|
-|id|ID de ressource complet pour la ressource.|
-|Nom|Nom de la ressource.|
-|properties.commonEncryptionCbcs|Configuration de CommonEncryptionCbcs|
-|properties.commonEncryptionCenc|Configuration de CommonEncryptionCenc|
-|properties.created |Heure de création de la stratégie de streaming|
-|properties.defaultContentKeyPolicyName |Clé de contenu (ContentKey) par défaut utilisée par la stratégie de streaming active|
-|properties.envelopeEncryption  |Configuration de EnvelopeEncryption|
-|properties.noEncryption|Configurations de NoEncryption|
-|Type|Type de la ressource.|
+Si vous souhaitez diffuser votre fichier en clair (sans chiffrement), configurez la stratégie de diffusion en continu en clair prédéfinie : « Predefined_ClearStreamingOnly » (dans .NET, vous pouvez utiliser PredefinedStreamingPolicy.ClearStreamingOnly).
 
-Pour obtenir la définition complète, consultez [Stratégies de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies).
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
+    });
+```
+
+### <a name="encrypted"></a>Chiffré 
+
+Si vous devez chiffrer votre contenu avec un chiffrement d’enveloppe ou CENC, définissez votre stratégie sur « Predefined_MultiDrmCencStreaming ». Cette stratégie indique que vous souhaitez que deux clés de contenu (enveloppe et CENC) soient générées et définies sur le localisateur. Par conséquent, les chiffrements d’enveloppe, de PlayReady et de Widevine sont appliqués (la clé est envoyée au client de la lecture en fonction des licences DRM configurées).
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
+        DefaultContentKeyPolicyName = contentPolicyName
+    });
+```
+
+Si vous voulez aussi chiffrer votre flux avec CBCS (FairPlay), utilisez la stratégie « Predefined_MultiDrmStreaming ».
 
 ## <a name="filtering-ordering-paging"></a>Filtrage, tri, pagination
 
-Media Services prend en charge les options de requête OData suivantes pour les stratégies de streaming : 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Description des opérateurs :
-
-* Eq = est égal à
-* Ne = n’est pas égal à
-* Ge = est supérieur ou égal à
-* Le = est inférieur ou égal à
-* Gt = est supérieur à
-* Lt = est inférieur à
-
-### <a name="filteringordering"></a>Filtrage/ordonnancement
-
-Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de StreamingPolicy : 
-
-|NOM|Filtrer|Ordre|
-|---|---|---|
-|id|||
-|Nom|Eq, ne, ge, le, gt, lt|Croissant et décroissant|
-|properties.commonEncryptionCbcs|||
-|properties.commonEncryptionCenc|||
-|properties.created |Eq, ne, ge, le, gt, lt|Croissant et décroissant|
-|properties.defaultContentKeyPolicyName |||
-|properties.envelopeEncryption|||
-|properties.noEncryption|||
-|Type|||
-
-### <a name="pagination"></a>Pagination
-
-La pagination est prise en charge pour chacun des quatre ordres de tri activés. Actuellement, la taille de page est de 10.
-
-> [!TIP]
-> Vous devez toujours utiliser le lien suivant pour énumérer la collection et ne pas dépendre d’une taille de page particulière.
-
-Si une réponse de requête contient un grand nombre d’éléments, le service retourne une propriété « \@odata.nextLink » pour obtenir la page de résultats suivante. Celle-ci peut être utilisés pour parcourir le jeu de résultats entier. Vous ne pouvez pas configurer la taille de page. 
-
-Si des stratégies StreamingPolicy sont créées ou supprimées pendant la pagination de la collection, les changements sont répercutés dans les résultats retournés (si ces changements concernent la partie de la collection qui n’a pas été téléchargée). 
-
-L’exemple C# suivant montre comment énumérer toutes les stratégies StreamingPolicy dans le compte.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-Pour obtenir des exemples REST, consultez [Stratégies de streaming - Liste](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+Consultez [Filtrage, tri et pagination des entités Media Services](entities-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Diffuser un fichier](stream-files-dotnet-quickstart.md)
+* [Diffuser un fichier](stream-files-dotnet-quickstart.md)
+* [Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés](protect-with-aes128.md)
+* [Utilisation du chiffrement dynamique DRM et du service de remise des licences](protect-with-drm.md)

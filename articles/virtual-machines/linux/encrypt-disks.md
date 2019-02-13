@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 2a057c311a8b080b695492664df0eaabc5609b35
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 15bd3cf2ab6ea5285662610c2c0a850bb180e2f8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856789"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658763"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Chiffrement d’une machine virtuelle Linux dans Azure
 
@@ -107,7 +107,7 @@ Créez une machine virtuelle avec [az vm create](/cli/azure/vm#az-vm-create) et 
 az vm create \
     --resource-group $resourcegroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
     --admin-username azureuser \
     --generate-ssh-keys \
     --data-disk-sizes-gb 5
@@ -119,7 +119,7 @@ Connectez-vous avec SSH à votre machine virtuelle à l’aide de la valeur *pub
 ## <a name="encrypt-the-virtual-machine"></a>Chiffrer la machine virtuelle
 
 
-Chiffrez votre machine virtuelle avec [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable). L’exemple suivant utilise les variables *$sp_id* et *$sp_password* de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) :
+Chiffrez votre machine virtuelle avec [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) :
 
 ```azurecli-interactive
 az vm encryption enable \

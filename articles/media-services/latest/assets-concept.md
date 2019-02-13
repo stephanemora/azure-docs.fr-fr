@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/01/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8507d51f0d4d49d89fc24b38ed73df7488261daa
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969573"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745994"
 ---
 # <a name="assets"></a>Éléments multimédias
 
@@ -27,25 +27,8 @@ Un actif multimédia est mappé à un conteneur d’objets blob dans le [compte 
 
 Le niveau de stockage **Archive** est recommandé uniquement pour les fichiers sources très volumineux qui ont déjà été encodés et dont la sortie de travail d’encodage a été placée dans un conteneur d’objets blob de sortie. Les objets blob présents dans le conteneur de sortie que vous voulez associer à un actif multimédia et utiliser pour diffuser en continu ou analyser votre contenu doivent exister dans un niveau de stockage **Chaud** ou **Froid**.
 
-## <a name="asset-definition"></a>Définition d’actif multimédia
-
-Le tableau suivant présente les propriétés de l’actif multimédia ainsi que leurs définitions.
-
-|NOM|Description|
-|---|---|
-|id|ID de ressource complet pour la ressource.|
-|Nom|Nom de la ressource.|
-|properties.alternateId |Autre ID de l’actif multimédia.|
-|properties.assetId |ID de l’actif multimédia.|
-|properties.container |Nom du conteneur d’objets blob d’actifs multimédias.|
-|properties.created |Date de création de l’actif multimédia.<br/> La valeur date/heure est toujours au format UTC.|
-|properties.description|Description de l’actif multimédia.|
-|properties.lastModified |Date de dernière modification de l’actif multimédia. <br/> La valeur date/heure est toujours au format UTC.|
-|properties.storageAccountName |Nom du compte de stockage.|
-|properties.storageEncryptionFormat |Format de chiffrement de l’actif multimédia. None ou MediaStorageEncryption.|
-|Type|Type de la ressource.|
-
-Pour obtenir la définition complète, consultez [Actifs multimédias](https://docs.microsoft.com/rest/api/media/assets).
+> [!NOTE]
+> Les propriétés d’élément multimédia de type DateHeure sont toujours au format UTC.
 
 ## <a name="upload-digital-files-into-assets"></a>Charger des fichiers numériques dans des actifs multimédias
 
@@ -104,113 +87,7 @@ Pour obtenir un exemple complet, consultez [Créer une entrée de travail à par
 
 ## <a name="filtering-ordering-paging"></a>Filtrage, tri, pagination
 
-Media Services prend en charge les options de requête OData suivantes pour les actifs multimédias : 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Description des opérateurs :
-
-* Eq = est égal à
-* Ne = n’est pas égal à
-* Ge = est supérieur ou égal à
-* Le = est inférieur ou égal à
-* Gt = est supérieur à
-* Lt = est inférieur à
-
-### <a name="filteringordering"></a>Filtrage/ordonnancement
-
-Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés d’actifs multimédias : 
-
-|NOM|Filtrer|Ordre|
-|---|---|---|
-|id|||
-|Nom|Prend en charge : Eq, Gt, Lt|Prend en charge : croissant et décroissant|
-|properties.alternateId |Prend en charge : Eq||
-|properties.assetId |Prend en charge : Eq||
-|properties.container |||
-|properties.created|Prend en charge : Eq, Gt, Lt| Prend en charge : croissant et décroissant|
-|properties.description |||
-|properties.lastModified |||
-|properties.storageAccountName |||
-|properties.storageEncryptionFormat | ||
-|Type|||
-
-L’exemple C# suivant filtre sur la date de création :
-
-```csharp
-var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```
-
-### <a name="pagination"></a>Pagination
-
-La pagination est prise en charge pour chacun des quatre ordres de tri activés. Actuellement, la taille de page est de 1 000.
-
-> [!TIP]
-> Vous devez toujours utiliser le lien suivant pour énumérer la collection et ne pas dépendre d’une taille de page particulière.
-
-Si une réponse de requête contient un grand nombre d’éléments, le service retourne une propriété « \@odata.nextLink » pour obtenir la page de résultats suivante. Celle-ci peut être utilisés pour parcourir le jeu de résultats entier. Vous ne pouvez pas configurer la taille de page. 
-
-Si des actifs multimédias sont créés ou supprimés pendant la pagination de la collection, les changements sont reflétés dans les résultats retournés (si ces changements concernent la partie de la collection qui n’a pas été téléchargée). 
-
-#### <a name="c-example"></a>Exemple en code C#
-
-L’exemple C# suivant montre comment énumérer tous les actifs multimédias dans le compte.
-
-```csharp
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-#### <a name="rest-example"></a>Exemple REST
-
-Prenons l’exemple suivant où $skiptoken est utilisé. Veillez à remplacer *amstestaccount* par le nom de votre compte et à définir la valeur *api-version* avec la version la plus récente.
-
-Si vous demandez une liste d’actifs multimédias comme suit :
-
-```
-GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
-x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
-Content-Type: application/json; charset=utf-8
-```
-
-Vous devez obtenir une réponse similaire à celle-ci :
-
-```
-HTTP/1.1 200 OK
- 
-{
-"value":[
-{
-"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-},
-// lots more assets
-{
-"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-}
-],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
-}
-```
-
-Vous devez ensuite demander la page suivante en envoyant une requête GET pour :
-
-```
-https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
-```
-
-Pour obtenir des exemples REST, consultez [Actifs multimédias - Liste](https://docs.microsoft.com/rest/api/media/assets/list).
+Consultez [Filtrage, tri et pagination des entités Media Services](entities-overview.md).
 
 ## <a name="storage-side-encryption"></a>Chiffrement côté stockage
 
@@ -228,6 +105,6 @@ Pour protéger vos éléments au repos, les ressources doivent être chiffrées 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Diffuser un fichier](stream-files-dotnet-quickstart.md)
-
-[Différences entre Media Services v2 et v3](migrate-from-v2-to-v3.md)
+* [Diffuser un fichier](stream-files-dotnet-quickstart.md)
+* [Utiliser un magnétoscope numérique cloud](live-event-cloud-dvr.md)
+* [Différences entre Media Services v2 et v3](migrate-from-v2-to-v3.md)

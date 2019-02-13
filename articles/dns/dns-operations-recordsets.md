@@ -14,19 +14,19 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: b89b7885989a5e93d3d292e5cdcff733fed657af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c60dded96df091b1a715fb7b972e9d7a23608d44
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990176"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818819"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gérer les enregistrements et jeux d’enregistrements DNS dans Azure DNS à l’aide d’Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](dns-operations-recordsets-portal.md)
 > * [Azure Classic CLI](dns-operations-recordsets-cli-nodejs.md)
-> * [interface de ligne de commande Azure](dns-operations-recordsets-cli.md)
+> * [Interface de ligne de commande Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Cet article explique comment gérer les enregistrements DNS pour votre zone DNS avec Azure PowerShell. Vous pouvez également gérer les enregistrements DNS à l’aide de l’[interface de ligne de commande Azure (Azure CLI)](dns-operations-recordsets-cli.md) multiplateforme ou via le [portail Azure](dns-operations-recordsets-portal.md).
@@ -50,7 +50,7 @@ Si votre nouvel enregistrement porte le même nom et est du même type qu’un e
 
 Vous pouvez utiliser l’applet de commande `New-AzureRmDnsRecordSet` pour créer des jeux d’enregistrements. Lors de la création d’un jeu d’enregistrements, vous devez en spécifier le nom, la zone et la durée de vie (TTL), ainsi que les enregistrements à créer et leur type.
 
-Les paramètres pour ajouter des enregistrements à un jeu d'enregistrements varient selon le type de jeu d'enregistrements. Par exemple, si vous utilisez un jeu d’enregistrements de type « A », vous devez spécifier l’adresse IP à l’aide du paramètre `-IPv4Address`. D’autres paramètres sont utilisés pour d’autres types d’enregistrements. Pour plus d’informations, voir les [autres exemples de types d’enregistrements](#additional-record-type-examples).
+Les paramètres pour ajouter des enregistrements à un jeu d'enregistrements varient selon le type de jeu d'enregistrements. Par exemple, si vous utilisez un jeu d’enregistrements de type « A », vous devez spécifier l’adresse IP à l’aide du paramètre `-IPv4Address`. D’autres paramètres sont utilisés pour d’autres types d’enregistrements. Pour plus d’informations, voir les autres exemples de types d’enregistrements.
 
 L’exemple suivant crée un jeu d’enregistrements avec le nom relatif « www » dans la zone DNS « contoso.com ». Le nom complet du jeu d’enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie est de 3 600 secondes. Le jeu d’enregistrements ne contient qu’un seul enregistrement, dont l’adresse IP est « 1.2.3.4 ».
 
@@ -108,7 +108,7 @@ New-AzureRmDnsRecordSet -Name "test-caa" -RecordType CAA -ZoneName "contoso.com"
 ### <a name="create-a-cname-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements CNAME avec un seul enregistrement
 
 > [!NOTE]
-> Les normes DNS n’autorisent pas la présence d’enregistrements CNAME ou de jeux d’enregistrements contenant plusieurs enregistrements à l’apex (sommet) d’une zone (`-Name '@'`).
+> Les standards DNS n’autorisent pas la présence d’enregistrements CNAME ou de jeux d’enregistrements contenant plusieurs enregistrements à l’apex (sommet) d’une zone (`-Name '@'`).
 > 
 > Pour plus d’informations, voir [Enregistrements CNAME](dns-zones-records.md#cname-records).
 
@@ -236,7 +236,7 @@ Vous pouvez également *canaliser* cette séquence d’opérations, c’est-à-d
 Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Les exemples ci-dessus montrent comment ajouter un enregistrement « A » à un jeu existant d’enregistrements de type « A ». Une séquence similaire d’opérations est utilisée pour ajouter des enregistrements à des jeux d’enregistrements d’autres types, en remplaçant le paramètre `-Ipv4Address` de l’applet de commande `Add-AzureRmDnsRecordConfig` par d’autres paramètres spécifiques de chaque type d’enregistrement. Les paramètres pour chaque type d’enregistrement sont identiques à ceux de l’applet de commande `New-AzureRmDnsRecordConfig`, comme indiqué dans les [autres exemples de types d’enregistrements](#additional-record-type-examples) ci-dessus.
+Les exemples ci-dessus montrent comment ajouter un enregistrement « A » à un jeu existant d’enregistrements de type « A ». Une séquence similaire d’opérations est utilisée pour ajouter des enregistrements à des jeux d’enregistrements d’autres types, en remplaçant le paramètre `-Ipv4Address` de l’applet de commande `Add-AzureRmDnsRecordConfig` par d’autres paramètres spécifiques de chaque type d’enregistrement. Les paramètres pour chaque type d’enregistrement sont identiques à ceux de l’applet de commande `New-AzureRmDnsRecordConfig`, comme indiqué dans les autres exemples de types d’enregistrements ci-dessus.
 
 Les jeux d’enregistrements de type « CNAME » ou « SOA » ne peuvent pas contenir plusieurs enregistrements. Cette contrainte résulte des normes DNS. Il ne s’agit pas d’une limitation d’Azure DNS.
 
@@ -270,7 +270,7 @@ Comme pour l’ajout d’enregistrements à un jeu d’enregistrements, vous pou
 Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Différents types d’enregistrements sont pris en charge en transmettant les paramètres spécifiques du type approprié à `Remove-AzureRmDnsRecordSet`. Les paramètres pour chaque type d’enregistrement sont identiques à ceux de l’applet de commande `New-AzureRmDnsRecordConfig`, comme indiqué dans les [autres exemples de types d’enregistrements](#additional-record-type-examples) ci-dessus.
+Différents types d’enregistrements sont pris en charge en transmettant les paramètres spécifiques du type approprié à `Remove-AzureRmDnsRecordSet`. Les paramètres pour chaque type d’enregistrement sont identiques à ceux de l’applet de commande `New-AzureRmDnsRecordConfig`, comme indiqué dans les autres exemples de types d’enregistrements ci-dessus.
 
 
 ## <a name="modify-an-existing-record-set"></a>Modifier un jeu d’enregistrements

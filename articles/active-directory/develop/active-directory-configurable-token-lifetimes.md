@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 5dd5920eae97399bae03c6917bb610103bd556c2
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ecdeca5e6dae5fa60afdce499dc4eea022c4564c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912712"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817629"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (préversion)
 
@@ -48,7 +48,8 @@ Vous pouvez définir les stratégies de durée de vie des jetons pour les jetons
 Les clients utilisent des jetons d’accès pour accéder à une ressource protégée. Un jeton d’accès peut uniquement être utilisé pour une combinaison spécifique d’utilisateur, de client et de ressource. Les jetons d’accès ne peuvent pas être révoqués et sont valides jusqu’à leur expiration. Un acteur malveillant qui a obtenu un jeton d’accès peut l’utiliser pour prolonger sa durée de vie. L’ajustement de la durée de vie des jetons d’accès représente un compromis entre l’amélioration des performances du système et l’augmentation de la durée pendant laquelle le client conserve un accès une fois son compte désactivé. Les performances du système sont améliorées en réduisant le nombre de fois où un client doit acquérir un nouveau jeton d’accès.  La valeur par défaut est 1 heure. Après 1 heure, le client doit utiliser le jeton d’actualisation pour acquérir (généralement en mode silencieux) un nouveau jeton d’actualisation et un jeton d’accès. 
 
 ### <a name="refresh-tokens"></a>Jetons d’actualisation
-Lorsqu’un client acquiert un jeton d’accès pour accéder à une ressource protégée, il reçoit aussi un jeton d’actualisation. Le jeton d’actualisation permet d’obtenir de nouvelles paires de jetons d’accès/actualisation à l’expiration du jeton d’accès actuel. Un jeton d’actualisation est lié à une combinaison d’utilisateur et de client. Un jeton d’actualisation peut être [révoqué à tout moment](access-tokens.md#token-revocation), et la validité du jeton est vérifiée à chaque fois qu’il est utilisé.  
+
+Lorsqu’un client acquiert un jeton d’accès pour accéder à une ressource protégée, il reçoit aussi un jeton d’actualisation. Le jeton d’actualisation permet d’obtenir de nouvelles paires de jetons d’accès/actualisation à l’expiration du jeton d’accès actuel. Un jeton d’actualisation est lié à une combinaison d’utilisateur et de client. Un jeton d’actualisation peut être [révoqué à tout moment](access-tokens.md#token-revocation), et la validité du jeton est vérifiée à chaque fois qu’il est utilisé.  Les jetons d’actualisation ne sont pas révoqués lorsqu’ils sont utilisés pour récupérer de nouveaux jetons d’accès. Il est cependant fortement recommandé de supprimer l’ancien jeton lorsque vous en obtenez un nouveau. 
 
 Il est important de distinguer les clients confidentiels des clients publics, car cela a un impact sur la durée d’utilisation des jetons d’actualisation. Pour plus d’informations sur les différents types de client, consultez [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 

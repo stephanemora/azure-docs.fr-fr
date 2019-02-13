@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123170"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817748"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Appeler des points de terminaison REST avec le connecteur HTTP + Swagger dans Azure Logic Apps
 
@@ -40,7 +40,7 @@ Voici un exemple d’utilisation de l’opération HTTP + Swagger en tant qu’a
 4. Entrez l’URL d'un document Swagger :
    
    * Pour fonctionner à partir du concepteur d'applications logiques, l’URL doit être un point de terminaison HTTPS et avoir CORS activé.
-   * Si le document Swagger ne répond pas à ce critère, vous pouvez utiliser [Azure Storage avec CORS activé](#hosting-swagger-from-storage) pour stocker le document.
+   * Si le document Swagger ne répond pas à ce critère, vous pouvez utiliser Stockage Azure avec CORS activé pour stocker le document.
 5. Cliquez sur **Suivant** pour lire et effectuer le rendu du document Swagger.
 6. Ajoutez tout paramètre nécessaire à l’appel HTTP.
    
@@ -72,14 +72,14 @@ Voici les étapes pour créer, configurer et stocker des documents swagger dans 
 Vous trouverez ci-dessous les détails des déclencheurs et des actions que ce connecteur HTTP + Swagger prend en charge.
 
 ## <a name="http--swagger-triggers"></a>Déclencheurs HTTP + Swagger
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs.](connectors-overview.md) Le connecteur HTTP + Swagger a un déclencheur.
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs.](connectors-overview.md)  Le connecteur HTTP + Swagger a un déclencheur.
 
 | Déclencheur | Description |
 | --- | --- |
 | HTTP + Swagger |Exécuter un appel HTTP et obtenir le contenu de la réponse |
 
 ## <a name="http--swagger-actions"></a>Actions HTTP + Swagger
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions.](connectors-overview.md) Le connecteur HTTP + Swagger a une action possible.
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions.](connectors-overview.md)  Le connecteur HTTP + Swagger a une action possible.
 
 | Action | Description |
 | --- | --- |
@@ -98,7 +98,7 @@ Un astérisque (*) signifie un champ obligatoire.
 | URI* |URI |URI de la requête HTTP. |
 | headers |headers |Un objet JSON d’en-têtes HTTP à inclure. |
 | body |body |Le texte de la requête HTTP. |
-| Authentification |Authentification |Authentification à utiliser pour la requête. Pour plus d’informations, consultez la page [Connecteur HTTP](connectors-native-http.md#authentication). |
+| Authentication |Authentification |Authentification à utiliser pour la requête. Pour plus d’informations, consultez la page [Connecteur HTTP](connectors-native-http.md#authentication). |
 
 **Détails des résultats**
 
@@ -113,7 +113,7 @@ Réponse HTTP
 ### <a name="http-responses"></a>Réponses HTTP
 Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certaines réponses. La table ci-dessous indique les réponses correspondantes et leurs descriptions.
 
-| NOM | Description |
+| Nom | Description |
 | --- | --- |
 | 200 |OK |
 | 202 |Acceptée |

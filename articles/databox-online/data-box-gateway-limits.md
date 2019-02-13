@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: acf455bff739666712917008dc8090c6a95c6dc4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388422"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815642"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Limites d’Azure Data Box Gateway (préversion)
 
@@ -26,7 +26,7 @@ Tenez compte de ces limites quand vous déployez et utilisez votre solution Micr
 
 ## <a name="data-box-gateway-service-limits"></a>Limites de service Data Box Gateway
 
-- Dans cette version, le service est disponible uniquement dans certaines régions des États-Unis, d’Europe et d’Asie-Pacifique. Pour plus d’informations, consultez [Region availability](#data-box-gateway-overview#region-availability) (Disponibilité des régions). Le compte de stockage doit être physiquement plus proche de la région où l’appareil est déployé (qui peut être différente de la zone géographique du service).
+- Dans cette version, le service est disponible uniquement dans certaines régions des États-Unis, d’Europe et d’Asie-Pacifique. Pour plus d’informations, consultez la disponibilité par région. Le compte de stockage doit être physiquement plus proche de la région où l’appareil est déployé (qui peut être différente de la zone géographique du service).
 - Le déplacement d’une ressource Data Box Gateway vers un abonnement ou groupe de ressources différent n’est pas pris en charge. Pour plus d’informations, consultez [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="data-box-gateway-device-limits"></a>Limites d’appareil Data Box Gateway

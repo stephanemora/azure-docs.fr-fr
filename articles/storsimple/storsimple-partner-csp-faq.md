@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259936"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814280"
 ---
-# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>Programme StorSimple pour les fournisseurs de solutions cloud : Forum aux questions
+# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions (FAQ)
 
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -31,7 +31,7 @@ Les questions/réponses sont organisées en plusieurs catégories :
 
  - [Modèle StorSimple et programme des fournisseurs de solutions cloud](#storsimple-and-csp-model)
  - [Déployer et gérer un tableau virtuel en tant que partenaire](#deploy-and-manage-storsimple-as-a-partner)
- - [Prise en charge des partenaires pour le programme des fournisseurs de solutions cloud](#support-for-storsimple-partners)
+ - Prise en charge des partenaires StorSimple pour le programme des fournisseurs de solutions cloud
 
 ## <a name="storsimple-and-csp-model"></a>Modèle StorSimple et programme des fournisseurs de solutions cloud
 
@@ -50,7 +50,7 @@ Oui. Le modèle est un programme de remise en gros, à l’instar d’autres ser
 Il s’agit des références disponibles avec les services StorSimple autonomes. 
 
 ### <a name="is-there-any-difference-between-the-storsimple-directly-purchased-from-microsoft-under-ea-and-storsimple-as-a-part-of-csp"></a>Existe-t-il une différence entre le service StorSimple acheté directement auprès de Microsoft, par le biais du Contrat Entreprise, et StorSimple dans le cadre du programme des fournisseurs de solutions cloud ?
-Non. Dans le cadre du programme des fournisseurs de solutions cloud, les clients peuvent également acheter d’autres services proposés par le partenaire, en parallèle de StorSimple Virtual Array (SVA), sous une seule facture. Notez toutefois que pour se doter de l’appareil physique StorSimple gamme 8000, les clients doivent opter pour le Contrat Entreprise. 
+ Non. Dans le cadre du programme des fournisseurs de solutions cloud, les clients peuvent également acheter d’autres services proposés par le partenaire, en parallèle de StorSimple Virtual Array (SVA), sous une seule facture. Notez toutefois que pour se doter de l’appareil physique StorSimple gamme 8000, les clients doivent opter pour le Contrat Entreprise. 
 
 ### <a name="in-which-markets-is-storsimple-available-for-csp-at-launch"></a>Dans quels marchés puis-je trouver StorSimple disponible au lancement pour le programme des fournisseurs de solutions cloud ?
 StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud est disponible dans tous les marchés dans lesquels StorSimple est disponible à ce jour. Pour plus d’informations, accédez à la [liste des régions dans lesquelles StorSimple est disponible](https://azure.microsoft.com/regions/services/).
@@ -75,7 +75,7 @@ Vous pouvez ajouter des abonnements StorSimple Virtual Array aux comptes de vos 
 Oui. Avec StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud, le meilleur moyen pour les partenaires d’accéder au portail Azure est de transiter par l’[Espace Partenaires](https://partnercenter.microsoft.com/), à partir duquel ils peuvent gérer les clients et les abonnements. Pour gérer les abonnements StorSimple, le partenaire ou le client (en fonction des autorisations accordées) doit se connecter sur le portail Azure. 
 
 ### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>La société Microsoft propose-t-elle un nouveau portail pour StorSimple pour le programme des fournisseurs de solutions cloud ? 
-Non. Vous pourrez gérer StorSimple Virtual Array dans le programme des fournisseurs de solutions cloud via le portail Azure.
+ Non. Vous pourrez gérer StorSimple Virtual Array dans le programme des fournisseurs de solutions cloud via le portail Azure.
 
 ### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>J’ai configuré un abonnement StorSimple autonome pour mon client. Dois-je utiliser le portail Azure pour gérer mon appareil ? 
 Oui. 

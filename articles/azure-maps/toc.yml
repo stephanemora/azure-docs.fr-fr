@@ -11,7 +11,7 @@ items:
   items:
   - name: Créer une application de carte
     href: quick-demo-map-app.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: 1 - Rechercher un point d’intérêt
     href: tutorial-search-location.md
@@ -21,10 +21,14 @@ items:
     href: tutorial-prioritized-routes.md
   - name: 4 - Créer un localisateur de magasin
     href: tutorial-create-store-locator.md
+  - name: 5 - Définir une limite géographique
+    href: tutorial-geofence.md
 - name: Concepts
   items:
   - name: Niveaux de zoom et grille mosaïque
     href: zoom-levels-and-tile-grid.md
+  - name: Intégration d’Azure Maps Event Grid
+    href: azure-maps-event-grid-integration.md
   - name: Choisir le niveau tarifaire approprié
     href: choose-pricing-tier.md
   - name: Couverture
@@ -41,7 +45,7 @@ items:
     href: supported-languages.md
   - name: Styles de mappage pris en charge
     href: supported-map-styles.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Gérer les comptes Maps
     items:
@@ -103,6 +107,8 @@ items:
       href: consumption-model.md
     - name: Étendre le format geoJSON
       href: extend-geojson.md
+    - name: Format geoJSON de limite géographique
+      href: geofence-geojson.md
     - name: Catégories de recherche prise en charge
       href: supported-search-categories.md
   - name: REST
@@ -171,15 +177,15 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-maps
   - name: Études de cas techniques
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: vidéos
+  - name: Videos
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: ae2a50b68465bae422b27f1eaa6b5bf0fed10971
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0fb1d864dd18a781d0eeba4c8dea610e3ccb07f2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199887"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999451"

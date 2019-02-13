@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f6e0d2dece791ac4ece73acdf2e15e3c9be412f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477593"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812840"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
@@ -91,7 +91,7 @@ L’ID client identifie le client Azure AD qui fournit des services d’authenti
 
 Pour l’authentification avec l’authentification intégrée, vous devez autoriser votre application à se connecter à l’API de service Batch. Cette étape permet à votre application d’authentifier des appels de l’API de service Batch avec Azure AD.
 
-Une fois que vous avez [inscrit votre application](#register-your-application-with-an-azure-ad-tenant), procédez comme suit dans le portail Azure pour lui accorder l’accès au service Batch :
+Une fois que vous avez inscrit votre application, procédez comme suit dans le portail Azure pour lui accorder l’accès au service Batch :
 
 1. Dans le volet de navigation de gauche du portail Azure, choisissez **Tous les services**. Cliquez sur **Inscriptions des applications**.
 2. Recherchez le nom de votre application dans la liste des inscriptions d’application :

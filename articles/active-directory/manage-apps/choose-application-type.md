@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: e10784957365df62e64c306c97ea17fb6a5e7c49
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ef752d2f9d57ee8674d91fd14b56b804ccf50d22
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55202924"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814184"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Choix du type d’application lors de l’ajout d’une application dans Azure Active Directory
 Découvrez les quatre types d’applications que vous pouvez ajouter dans Azure Active Directory (Azure AD). Lorsque vous ajoutez une application dans Azure Active Directory, vous êtes invité à choisir l’un des quatre types d’application. 
@@ -42,7 +42,7 @@ Les fonctionnalités ci-après sont prises en charge par les quatre types d’ap
 
 -   **Démarrage rapide** : commencez rapidement à utiliser une application en suivant des [étapes de déploiement simple](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started).
 
--   **Gestion des propriétés générales** : obtenez un [lien direct ciblé](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users) vers une application, [personnalisez la marque](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) d’une application, ou [désactivez l’application](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) pour tous les utilisateurs.
+-   **Gestion des propriétés générales** : obtenez un [lien direct ciblé](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) vers une application, [personnalisez la marque](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) d’une application, ou [désactivez l’application](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) pour tous les utilisateurs.
 
 -   **Gestion des utilisateurs et des groupes** : [affectez](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) des utilisateurs et des groupes à une application ou [supprimez](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal)-les, et attribuez éventuellement les rôles d’application spécifiques auxquels ces utilisateurs et groupes ont accès.
 
@@ -95,7 +95,7 @@ Vous trouverez ci-après les modes **d’authentification unique** pris en charg
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modes d’authentification unique pour les applications personnalisées
 
-Les applications que vous avez développées de manière personnalisée par le biais de la fonction [d’application personnalisée](#_Custom-Developed_Applications) prennent également en charge des modes d’authentification unique supplémentaires non répertoriés précédemment, comprenant :
+Les applications que vous avez développées de manière personnalisée par le biais de la fonction d’application personnalisée prennent également en charge des modes d’authentification unique supplémentaires non répertoriés précédemment, comprenant :
 
 -   Authentification basée sur [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)
 
@@ -134,7 +134,7 @@ Pour définir le mode **d’authentification unique** d’une application, proc�
 -   **Approvisionnement automatique** : choisissez le **mode d’approvisionnement**[automatique](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) si vous souhaitez activer l’approvisionnement automatique basé sur les API et/ou l’annulation d’approvisionnement des comptes utilisateur pour cette application. 
 
    >[!NOTE]
-   >Cette option est disponible uniquement pour les applications de la catégorie **Applications à la une** de la [galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery).
+   >Cette option est disponible uniquement pour les applications de la catégorie **Applications à la une** de la [galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
    >
    >
 

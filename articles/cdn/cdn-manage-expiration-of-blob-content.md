@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: a0f89a272fa300f6acced2de02ba5465ab282079
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 29e9bee5f7712252d95b9416ad5523b4dfdd4b94
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765634"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814314"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gérer l’expiration du stockage Blob Azure dans Azure CDN
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "33765634"
 
 Le [service Stockage Blob](../storage/common/storage-introduction.md#blob-storage) dans Stockage Azure fait partie des différentes origines Azure intégrées à Azure Content Delivery Network (CDN). Tout contenu d’objet BLOB publiquement accessible peut être mis en cache dans Azure CDN jusqu’à l’expiration de sa durée de vie. La durée de vie est déterminée par l’en-tête `Cache-Control`dans la réponse HTTP du serveur d’origine. Cet article décrit plusieurs façons de définir l’en-tête `Cache-Control` d’un blob dans Stockage Azure.
 
-Vous pouvez également contrôler les paramètres de cache à partir du portail Azure, en définissant les [règles de mise en cache CDN](#setting-cache-control-headers-by-using-caching-rules). Si vous créez une règle de mise en cache, puis définissez son comportement sur **Remplacer** ou **Ignorer le cache**, les paramètres de mise en cache fournis à l’origine décrits dans cet article sont ignorés. Pour plus d’informations sur les concepts généraux de mise en cache, consultez la section [Fonctionnement de la mise en cache](cdn-how-caching-works.md).
+Vous pouvez également contrôler les paramètres de cache à partir du portail Azure, en définissant les règles de mise en cache CDN. Si vous créez une règle de mise en cache, puis définissez son comportement sur **Remplacer** ou **Ignorer le cache**, les paramètres de mise en cache fournis à l’origine décrits dans cet article sont ignorés. Pour plus d’informations sur les concepts généraux de mise en cache, consultez la section [Fonctionnement de la mise en cache](cdn-how-caching-works.md).
 
 > [!TIP]
 > Vous pouvez choisir de ne pas définir de durée de vie sur un objet blob. Dans ce cas, Azure CDN applique automatiquement une durée de vie par défaut de sept jours, sauf si vous avez configuré des règles de mise en cache dans le portail Azure. Cette valeur TTL par défaut s’applique uniquement aux optimisations de remise web générales. Pour optimiser les fichiers volumineux, la durée de vie par défaut est de 1 jour, et pour les optimisations du streaming multimédia, la durée de vie par défaut est de 1 an.

@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 6ac5a44f941f8ebcecc3a1d7e6b5e9dccf5704de
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242203"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813158"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Permettre à des applications d’accéder à des ressources Azure Stack en créant des principaux de service
 
@@ -73,7 +73,7 @@ Si vous vous connectez par programmation, utilisez l’ID de votre application e
 
 1. Dans **Inscriptions d’applications** dans Active Directory, sélectionnez votre application.
 
-2. Copiez l’**ID d’application** et stockez-le dans votre code d’application. Les [exemples d’applications](#sample-applications) utilisent un **ID de client** pour faire référence à l’**ID d’application**.
+2. Copiez l’**ID d’application** et stockez-le dans votre code d’application. Les exemples d’applications utilisent un **ID de client** pour faire référence à l’**ID d’application**.
 
      ![ID d’application pour l’application](./media/azure-stack-create-service-principal/image12.png)
 3. Pour générer une clé d’authentification, sélectionnez **Clés**.

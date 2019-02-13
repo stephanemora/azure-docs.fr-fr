@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d437c6e2327fc9771f9567a37bfbf8ad82713b2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452641"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817272"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
@@ -46,7 +46,7 @@ ms.locfileid: "55452641"
 
 1. Une fois la configuration de la surveillance terminée, sélectionnez **Enregistrer**.
 
-Un ensemble de métriques par défaut s’affiche dans des graphiques sur le panneau du compte de stockage, ainsi que les panneaux des services individuels (blob, file d’attente, table et fichier). Une fois que vous avez activé les métriques d’un service, l’affichage des données dans les graphiques peut prendre jusqu’à une heure. Vous pouvez sélectionner **Modifier** sur n’importe quel graphique de métrique pour [configurer les métriques](#how-to-customize-metrics-charts) qui sont affichées dans le graphique.
+Un ensemble de métriques par défaut s’affiche dans des graphiques sur le panneau du compte de stockage, ainsi que les panneaux des services individuels (blob, file d’attente, table et fichier). Une fois que vous avez activé les métriques d’un service, l’affichage des données dans les graphiques peut prendre jusqu’à une heure. Vous pouvez sélectionner **Modifier** sur n’importe quel graphique de métrique pour configurer les métriques qui sont affichées dans le graphique.
 
 Vous pouvez désactiver la collecte de métriques et la journalisation en définissant **l’état** sur **Off**.
 
@@ -116,7 +116,7 @@ Vous pouvez ajouter des graphiques de métriques Stockage Azure pour l’un de v
    ![Galerie de vignettes dans le portail Azure](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Sélectionnez **Personnalisation terminée** en haut du tableau de bord lorsque vous avez terminé d’ajouter des graphiques.
 
-Une fois que vous avez ajouté des graphiques à votre tableau de bord, vous pouvez les personnaliser davantage comme décrit dans [Personnaliser les graphiques de métrique](#how-to-customize-metrics-charts).
+Une fois que vous avez ajouté des graphiques à votre tableau de bord, vous pouvez les personnaliser davantage comme décrit dans Personnaliser les graphiques de métrique.
 
 ## <a name="configure-logging"></a>Configuration de la journalisation
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1671a068611d9f5842c2cb09f3b83b18dd483921
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820680"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512208"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride
 
@@ -51,13 +51,13 @@ Examinez les [informations de planification de votre réseau](#network-planning)
 Vous pouvez supprimer un ou plusieurs Runbooks Workers hybrides d’un groupe, ou supprimer le groupe, selon vos besoins. Pour supprimer un Runbook Worker hybride à partir d’un ordinateur local, suivez ces étapes :
 
 1. Dans le portail Azure, accédez à votre compte Automation.
-2. Sous **Paramètres**, sélectionnez **Clés**, puis notez les valeurs des champs **URL** et **Clé d’accès primaire**. Vous aurez besoin de ces informations dans l’étape suivante.
+2. Sous **Paramètres du compte**, sélectionnez **Clés**, puis notez les valeurs des champs **URL** et **Clé d’accès primaire**. Vous aurez besoin de ces informations dans l’étape suivante.
 
 ### <a name="windows"></a> Windows
 
 Ouvrez une session PowerShell en mode administrateur et exécutez la commande suivante. Utilisez le commutateur **-Verbose** pour afficher un journal détaillé du processus de suppression.
 
-```powershell
+```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 ```
 
@@ -68,6 +68,8 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 ```
 
 ### <a name="linux"></a>Linux
+
+Vous pouvez utiliser la commande `ls /var/opt/microsoft/omsagent` sur le Runbook Worker hybride pour obtenir l’ID d’espace de travail. Dans le répertoire se trouve un dossier dont le nom est l’ID d’espace de travail.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
@@ -81,11 +83,11 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 Pour supprimer un groupe, vous devez tout d’abord supprimer les Runbooks Workers hybrides de chaque ordinateur membre du groupe à l’aide de la procédure indiquée plus haut. Ensuite, suivez les étapes ci-dessous pour supprimer le groupe :
 
 1. Dans le portail Azure, ouvrez le compte Automation.
-1. Sous **Automatisation de processus**, sélectionnez **Groupes de Workers hybrides**. Sélectionnez le groupe à supprimer. La page Propriétés du groupe s’affiche.
+2. Sous **Automatisation de processus**, sélectionnez **Groupes de Workers hybrides**. Sélectionnez le groupe à supprimer. La page Propriétés du groupe s’affiche.
 
    ![Page Propriétés](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. Dans la page Propriétés du groupe sélectionné, cliquez sur **Supprimer**. Un message vous invite à confirmer cette action. Si vous êtes sûr de vouloir continuer, sélectionnez **Oui**.
+3. Dans la page Propriétés du groupe sélectionné, cliquez sur **Supprimer**. Un message vous invite à confirmer cette action. Si vous êtes sûr de vouloir continuer, sélectionnez **Oui**.
 
    ![Message de confirmation](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 
@@ -101,7 +103,7 @@ Si vous utilisez un serveur proxy pour la communication entre l’agent et le se
 
 Les port et URL suivants sont requis pour que le rôle Runbook Worker hybride communique avec Automation :
 
-* Port : seul TCP 443 est nécessaire pour l’accès Internet sortant.
+* Port : seul le port TCP 443 est nécessaire pour l’accès Internet sortant.
 * URL globale : *.azure-automation.net
 * URL globale d’US Gov Virginie : *.azure-automation.us
 * Service de l’agent : https://\<ID_espace_de_travail\>.agentsvc.azure-automation.net

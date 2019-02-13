@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3b5c277f51b8ff1b2d3babf23329dcde829573a9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070417"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813957"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST
 > [!div class="op_single_selector"]
@@ -41,7 +41,6 @@ Dans ce didacticiel, vous allez apprendre à charger un fichier et une autre op�
 > * Créer des métadonnées dans l’élément multimédia pour le fichier multimédia que vous avez chargé
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 - [Créez un compte Azure Media Services avec le portail Azure](media-services-portal-create-account.md).
@@ -89,7 +88,7 @@ Pour savoir comment configurer Postman pour ce didacticiel, consultez [Configure
     ```
 4. À gauche de la fenêtre **Postman**, cliquez sur **1. Obtenir un jeton d’authentification AAD** -> **Obtenir un jeton Azure AD pour le principal du service**.
 
-    La partie de l’URL est remplie avec la variable d’environnement **AzureADSTSEndpoint** (plus haut dans ce tutoriel, vous avez défini les valeurs des [variables d’environnement](#configure-the-environment) prenant en charge la [collection](#configure-the-collection)).
+    La partie de l’URL est remplie avec la variable d’environnement **AzureADSTSEndpoint** (plus haut dans ce tutoriel, vous avez défini les valeurs des variables d’environnement prenant en charge la collection).
 
     ![Charger un fichier](./media/media-services-rest-upload-files/postment-get-token.png)
 
@@ -97,11 +96,11 @@ Pour savoir comment configurer Postman pour ce didacticiel, consultez [Configure
 
     Vous pouvez voir la réponse qui contient « access_token ». Le script de « test » prend cette valeur et définit la variable d’environnement **AccessToken** (comme décrit ci-dessus). Si vous examinez vos variables d’environnement, vous voyez que cette variable contient à présent la valeur de jeton d’accès (jeton du porteur) qui est utilisée dans le reste des opérations. 
 
-    Si le jeton expire, effectuez à nouveau l’étape « Obtenir un jeton Azure AD pour le principal du service ». 
+    Si le jeton expire, effectuez à nouveau l’étape « Obtenir un jeton Azure AD pour le principal du service ». 
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Créer une stratégie d’accès avec autorisation d’écriture
 
-### <a name="overview"></a>Vue d'ensemble 
+### <a name="overview"></a>Vue d’ensemble 
 
 >[!NOTE]
 >Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cet](media-services-dotnet-manage-entities.md#limit-access-policies) article.
@@ -119,13 +118,13 @@ Avant de télécharger des fichiers dans le stockage blob, définissez les droit
 
 ## <a name="create-an-asset"></a>Créer une ressource
 
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 
 Une [ressource](https://docs.microsoft.com/rest/api/media/operations/asset) est un conteneur pour plusieurs types ou ensembles d’objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des sous-titres. Dans l’API REST, la création d’une ressource nécessite d’envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
 
 L’une des propriétés que vous pouvez ajouter lors de la création d’un élément multimédia est **Options**. Vous pouvez spécifier l’une des options de chiffrement suivantes : **Aucun** (valeur par défaut, aucun chiffrement n’est utilisé), **StorageEncrypted** (pour le contenu qui a été déjà chiffré avec le chiffrement du stockage côté client), **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. Lorsque vous disposez d’un élément multimédia chiffré, vous devez configurer une stratégie de remise. Pour plus d'informations, consultez [Configuration des stratégies de distribution de ressources](media-services-rest-configure-asset-delivery-policy.md).
 
-Si votre élément multimédia est chiffré, vous devez créer une **ContentKey** et la lier à votre élément multimédia, comme le décrit l’article [Création de clés de contenu avec REST](media-services-rest-create-contentkey.md). Après avoir chargé les fichiers dans l’élément multimédia, vous devez mettre à jour les propriétés de chiffrement sur l’entité **AssetFile** avec les valeurs obtenues pendant le chiffrement **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE** . 
+Si votre élément multimédia est chiffré, vous devez créer une **ContentKey** et la lier à votre élément multimédia, comme le décrit l’article : [Création de clés de contenu avec REST](media-services-rest-create-contentkey.md). Après avoir chargé les fichiers dans l’élément multimédia, vous devez mettre à jour les propriétés de chiffrement sur l’entité **AssetFile** avec les valeurs obtenues pendant le chiffrement **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE** . 
 
 Dans cet exemple, vous allez créer un élément multimédia déchiffré. 
 
@@ -140,7 +139,7 @@ Dans cet exemple, vous allez créer un élément multimédia déchiffré.
 
 ## <a name="create-a-sas-locator-and-create-the-upload-url"></a>Créer un localisateur SAS et créer l’URL de chargement
 
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 
 Après avoir défini AccessPolicy et Locator, le fichier réel est téléchargé vers un conteneur de stockage d’objets blob Microsoft Azure à l’aide des API REST Azure Storage. Vous devez télécharger les fichiers en tant qu’objets blob de blocs. Les objets blob de pages ne sont pas pris en charge par Azure Media Services.  
 
@@ -157,7 +156,7 @@ Une URL SAS a le format suivant :
 Certaines considérations s’appliquent :
 
 * Vous ne pouvez avoir plus de cinq localisateurs uniques associés à une ressource donnée. Pour plus d’informations, consultez la rubrique Localisateur.
-* Si vous avez besoin de télécharger vos fichiers immédiatement, vous devez définir la valeur StartTime sur cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre votre ordinateur client et Media Services. De même, la valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).    
+* Si vous avez besoin de télécharger vos fichiers immédiatement, vous devez définir la valeur StartTime sur cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre votre ordinateur client et Media Services. Votre valeur StartTime doit être au format DateHeure suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).    
 * Il peut y avoir un délai de 30 à 40 secondes après la création d’un localisateur avant qu’il soit disponible.
 
 ### <a name="create-a-sas-locator"></a>Créer un localisateur SAS
@@ -171,7 +170,7 @@ Certaines considérations s’appliquent :
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Charger un fichier vers le stockage d’objets blob à l’aide de l’URL de chargement
 
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 
 Maintenant que vous avez l’URL de chargement, vous devez écrire du code avec les API d’objet blob Azure directement pour charger votre fichier dans le conteneur SAS. Pour plus d’informations, consultez les articles suivants :
 
@@ -189,7 +188,7 @@ Créer et configurer une nouvelle demande :
 1. Appuyez sur **+** pour créer un onglet de demande.
 2. Sélectionnez l’opération **PUT** et collez **{{UploadURL}}** dans l’URL.
 2. Ne modifiez pas l’onglet **Autorisation** (ne le définissez pas sur **Jetons du porteur**).
-3. Dans l’onglet **En-têtes**, définissez **Clé** sur « x-ms-objet blob-type » et **Valeur** sur « BlockBlob ».
+3. Dans l’onglet **En-têtes**, spécifiez : **Clé** : « x-ms-blob-type » et **Valeur** : « BlockBlob ».
 2. Sous l’onglet **Corps**, cliquez sur **Binaire**.
 4. Sélectionnez le fichier portant le nom que vous avez spécifié dans la variable d’environnement **MediaFileName**.
 5. Appuyez sur **Envoyer**.

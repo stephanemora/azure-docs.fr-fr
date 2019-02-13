@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 02/06/2019
 ms.author: banders
-ms.openlocfilehash: 4133d78ccff1fa4eb712d8928cefa604ca2f52ca
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: a93bfd8f71c515bdd5112170f27336a0df62c6e5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902055"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818853"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -38,19 +38,23 @@ Si vous avez des machines virtuelles, Azure Cosmos DB ou des bases de données S
 
 - Instance de machine virtuelle réservée : une réservation couvre uniquement les coûts de calcul de machine virtuelle. Une réservation ne couvre pas les frais de logiciels, de mise en réseau ou de stockage.
 - vCore réservé de SQL Database : seuls les coûts de calcul sont inclus dans une réservation. La licence est facturée séparément.
-- Capacité réservée Azure Cosmos DB : une réservation couvre le débit provisionné pour vos ressources, mais pas les frais de stockage et de réseau. 
+- Capacité réservée Azure Cosmos DB : une réservation couvre le débit provisionné pour vos ressources, mais pas les frais de stockage et de réseau.
 
 Pour les machines virtuelles Windows et SQL Database, vous pouvez couvrir les coûts de licence avec [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-## <a name="whos-eligible-to-purchase-a-reservation"></a>Qui peut acheter une réservation ?
+## <a name="whos-eligible-to-purchase-a-reservation"></a>Qui peut acheter une réservation ?
 
 Peuvent acheter une réservation les clients Azure ayant souscrit les types d’abonnements suivants :
 
-- Offre d’abonnement de type contrat Entreprise (MS-AZR-0017P).
-- Offre d’abonnement de type [paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P). Pour pouvoir acheter une réservation, vous devez avoir le rôle « Propriétaire » sur l’abonnement.
+- Offre d’abonnement de type contrat Entreprise (MS-AZR-0017P ou MS-AZR-0148P).
+- Offre d’abonnement de type paiement à l’utilisation (MS-AZR-003P ou MS-AZR-0023P).
 - Les partenaires fournisseurs de solutions cloud (CSP) peuvent utiliser le portail Azure ou l’[Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations) pour acheter des réservations Azure.
 
 Une remise sur réservation s’applique uniquement aux ressources associées aux types d’abonnements CSP, Entreprise ou avec paiement à l’utilisation.
+
+ Pour acheter un abonnement logiciel :
+
+- Vous devez avoir un rôle de propriétaire pour au moins un abonnement Entreprise ou Paiement à l’utilisation.
 
 ## <a name="how-is-a-reservation-billed"></a>Comment une réservation est-elle facturée ?
 
@@ -60,11 +64,11 @@ La réservation est facturée selon le mode de paiement associé à l’abonneme
 
 La remise sur réservation s’applique à l’utilisation de ressource correspondant aux attributs que vous sélectionnez lorsque vous achetez la réservation. Ces attributs englobent l’étendue dans laquelle les machines virtuelles, les bases de données SQL, Azure Cosmos DB ou d’autres ressources correspondantes s’exécutent. Par exemple, si vous voulez une remise sur réservation pour quatre machines virtuelles Standard D2 de la région USA Ouest, sélectionnez l’abonnement dans le cadre duquel ces machines virtuelles s’exécutent. Si elles s’exécutent dans différents abonnements au sein de votre compte/inscription, sélectionnez l’étendue alors définie comme partagée. Cette étendue partagée permet d’appliquer la remise de réservation à différents abonnements. Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour plus d’informations, voir [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md).
 
-Une remise sur réservation s’applique uniquement aux ressources associées aux types d’abonnements CSP, Entreprise ou avec paiement à l’utilisation. Les ressources opérant dans le cadre d’un abonnement relevant d’autres types d’offres ne bénéficient d’aucune remise sur réservation. En ce qui concerne les inscriptions d’entreprise, les abonnements de Dev/Test ne peuvent pas bénéficier des avantages de réservation.
+Une remise sur réservation s’applique uniquement aux ressources associées aux types d’abonnements CSP, Entreprise ou avec paiement à l’utilisation. Les ressources opérant dans le cadre d’un abonnement relevant d’autres types d’offres ne bénéficient d’aucune remise sur réservation.
 
 Pour mieux comprendre l’incidence des réservations sur la facturation, voir les rubriques suivantes :
 
--  [Comprendre la remise sur Azure Reserved VM Instances](billing-understand-vm-reservation-charges.md)
+- [Comprendre la remise sur Azure Reserved VM Instances](billing-understand-vm-reservation-charges.md)
 - [Comprendre la remise sur réservation Azure](billing-understand-vm-reservation-charges.md)
 - [Comprendre la remise sur réservation Azure Cosmos DB](billing-understand-cosmosdb-reservation-charges.md)
 - [Comprendre la remise sur réservation Azure et son usage pour SUSE](billing-understand-suse-reservation-charges.md)
@@ -82,18 +86,16 @@ Quand vous achetez une réservation, la remise peut être appliquée à d’autr
 - Capacité réservée SQL Database : la couverture de remise dépend du niveau de performance que vous choisissez. Pour plus d’informations, consultez [Comprendre comment une remise de réservation Azure est appliquée aux bases de données SQL](billing-understand-reservation-charges.md).
 - Capacité réservée Azure Cosmos DB : la couverture de remise dépend du débit provisionné. Pour plus d’informations, consultez [Comprendre comment une remise de réservation Azure Cosmos DB est appliquée](billing-understand-cosmosdb-reservation-charges.md).
 
-## <a name="next-steps"></a>Étapes suivantes
-
-Commencez à économiser sur vos machines virtuelles en achetant une [instance de machine virtuelle réservée](../virtual-machines/windows/prepay-reserved-vm-instances.md), une [capacité réservée SQL Database](../sql-database/sql-database-reserved-capacity.md) ou une [capacité réservée Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md).
-
-Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
-
-- [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)
-- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
-- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
-- [Coûts des logiciels Windows non inclus dans les réservations](billing-reserved-instance-windows-software-costs.md)
-- [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
-
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Commencez à économiser sur vos machines virtuelles en achetant une [instance de machine virtuelle réservée](../virtual-machines/windows/prepay-reserved-vm-instances.md), une [capacité réservée SQL Database](../sql-database/sql-database-reserved-capacity.md) ou une [capacité réservée Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md).
+- Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
+    - [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)
+    - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+    - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
+    - [Coûts des logiciels Windows non inclus dans les réservations](billing-reserved-instance-windows-software-costs.md)
+    - [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)

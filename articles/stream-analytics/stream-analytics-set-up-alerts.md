@@ -1,22 +1,22 @@
 ---
-title: Configurer la surveillance et les alertes pour les travaux Azure Stream Analytics
-description: Cet article explique comment utiliser le portail Azure pour configurer la surveillance, ainsi que des alertes pour les travaux Azure Stream Analytics.
+title: Configurer la surveillance et les alertes pour les tâches Azure Stream Analytics
+description: Cet article explique comment utiliser le portail Azure pour configurer la surveillance, ainsi que des alertes pour les tâches Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d32a201da5befbc8b68148f0b051e283ec289
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412386"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769484"
 ---
-# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuration d’alertes pour des travaux Azure Stream Analytics
+# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuration d’alertes pour des tâches Azure Stream Analytics
 
 Vous devez superviser votre travail Azure Stream Analytics pour assurer la continuité de l’exécution du travail sans problème. Cet article décrit comment configurer des alertes pour les scénarios courants qui doivent être supervisés. 
 
@@ -46,17 +46,17 @@ L’exemple suivant montre comment configurer des alertes quand votre travail en
 
    ![Configuration d’une alerte pour un travail Azure Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. Les champs **RESSOURCE**, **CONDITION** et **GROUPES D’ACTIONS** doivent chacun avoir une entrée.
+7. Les champs **RESSOURCE**, **CONDITION** et **GROUPES D’ACTIONS** doivent chacun avoir une entrée. Notez que pour que les alertes se déclenchent, les conditions définies doivent être respectées. Par exemple, vous pouvez mesurer la valeur moyenne d’une métrique sur les 15 dernières minutes, toutes les 5 minutes.
 
    ![Créer une règle d’alerte Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    Ajoutez un **nom de règle d’alerte**, une **description** et votre **groupe de ressources** aux **DÉTAILS DE L’ALERTE** et cliquez sur **Créer une règle d’alerte** pour créer la règle de votre travail Stream Analytics.
 
    ![Créer une règle d’alerte Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
-
+   
 ## <a name="scenarios-to-monitor"></a>Scénarios à superviser
 
-Les alertes suivantes sont recommandées pour superviser les performances de votre travail Stream Analytics. Ces métriques doivent être évaluées toutes les minutes sur les 5 dernières minutes. Si votre travail rencontre des problèmes de performances, vous pouvez utiliser la parallélisation de requête pour le rendre plus optimal et essayer d’augmenter le nombre d’unités de streaming.
+Les alertes suivantes sont recommandées pour superviser les performances de votre travail Stream Analytics. Ces métriques doivent être évaluées toutes les minutes sur les 5 dernières minutes.
 
 |Métrique|Condition|Agrégation de temps|Seuil|Actions correctives|
 |-|-|-|-|-|

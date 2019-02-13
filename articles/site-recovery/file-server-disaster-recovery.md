@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: c6db0b9dda9f383ddc062c41bae0be0b56f7e69d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794088"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508366"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protéger un serveur de fichiers avec Azure Site Recovery 
 
@@ -94,7 +94,7 @@ Azure Files peut être utilisé pour remplacer complètement ou compléter les 
 
 Les étapes suivantes décrivent brièvement comment utiliser la synchronisation de fichiers :
 
-1. [Créez un compte de stockage dans Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture pour vos comptes de stockage, vous obtenez un accès en lecture à vos données à partir de la région secondaire, en cas d’urgence. Pour plus d’informations, consultez [Stratégies de récupération d’urgence des partages de fichiers Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Créez un compte de stockage dans Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture pour vos comptes de stockage, vous obtenez un accès en lecture à vos données à partir de la région secondaire, en cas d’urgence. Pour plus d’informations, consultez [Récupération d’urgence et basculement forcé (préversion) dans Stockage Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Créer un partage de fichiers](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Démarrer la synchronisation de fichiers](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) sur votre serveur de fichiers Azure.
 4. Créez un groupe de synchronisation. Les points de terminaison dans un groupe de synchronisation sont synchronisés entre eux. Un groupe de synchronisation doit contenir au moins un point de terminaison cloud, qui représente un partage de fichiers Azure. Un groupe de synchronisation doit également contenir un point de terminaison de serveur, qui représente un chemin d’accès sur un serveur Windows.
@@ -143,7 +143,7 @@ Pour intégrer la synchronisation de fichiers avec Site Recovery :
 
 Procédez comme suit pour utiliser la synchronisation de fichiers :
 
-1. [Créez un compte de stockage dans Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture (recommandé) pour vos comptes de stockage, vous bénéficiez d’un accès en lecture à vos données à partir de la région secondaire en cas d’urgence. Pour plus d’informations, consultez [Stratégies de récupération d’urgence des partages de fichiers Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Créez un compte de stockage dans Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture (recommandé) pour vos comptes de stockage, vous bénéficiez d’un accès en lecture à vos données à partir de la région secondaire en cas d’urgence. Pour plus d’informations, consultez [Récupération d’urgence et basculement forcé (préversion) dans Stockage Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Créer un partage de fichiers](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Déployer la synchronisation de fichiers](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) dans votre serveur de fichiers local.
 4. Créez un groupe de synchronisation. Les points de terminaison dans un groupe de synchronisation sont synchronisés entre eux. Un groupe de synchronisation doit contenir au moins un point de terminaison cloud, qui représente un partage de fichiers Azure. Un groupe de synchronisation doit également contenir un point de terminaison de serveur, qui représente un chemin d’accès sur un serveur Windows local.

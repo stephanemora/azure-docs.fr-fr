@@ -10,20 +10,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 9fc6bd6e7196d442f46e364a9d5816c5056f34f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184374"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812461"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique avec mot de passe pour une application ne relevant pas de la galerie
 
-Outre les options présentes dans la galerie d’applications Azure AD, vous avez également la possibilité d’ajouter une **application ne relevant pas de la galerie** lorsque l’application souhaitée n’y est pas répertoriée. À l’aide de cette fonctionnalité, vous pouvez ajouter n’importe quelle application qui existe déjà dans votre organisation, ou n’importe quelle application tierce d’un fournisseur qui ne fait pas déjà partie de la [Galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+Outre les options présentes dans la galerie d’applications Azure AD, vous avez également la possibilité d’ajouter une **application ne relevant pas de la galerie** lorsque l’application souhaitée n’y est pas répertoriée. À l’aide de cette fonctionnalité, vous pouvez ajouter n’importe quelle application qui existe déjà dans votre organisation, ou n’importe quelle application tierce d’un fournisseur qui ne fait pas déjà partie de la [Galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 Une fois que vous avez ajouté une application ne relevant pas de la galerie, vous pouvez ensuite configurer la méthode d’authentification unique que cette application utilise en sélectionnant l’élément de navigation **Authentification unique** sur une application d’entreprise dans le [portail Azure](https://portal.azure.com/).
 
-L’une des méthodes d’authentification unique disponibles est l’option [Authentification unique par mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work). Avec l’expérience **d’ajout d’une application ne relevant pas de la galerie**, vous pouvez intégrer n’importe quelle application qui affiche un champ d’entrée HTML de nom d’utilisateur et de mot de passe, même si elle ne figure pas dans notre jeu d’applications pré-intégrées.
+L’une des méthodes d’authentification unique disponibles est l’option [Authentification unique par mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Avec l’expérience **d’ajout d’une application ne relevant pas de la galerie**, vous pouvez intégrer n’importe quelle application qui affiche un champ d’entrée HTML de nom d’utilisateur et de mot de passe, même si elle ne figure pas dans notre jeu d’applications pré-intégrées.
 
 Cela fonctionne grâce à la technologie de récupération de pages qui fait partie de l’extension du volet d’accès qui permet de détecter automatiquement les champs d’entrée de nom d’utilisateur et de mot de passe, et de les stocker en toute sécurité pour votre instance d’application spécifique. Puis, en toute sécurité, les noms d’utilisateur et mots de passe sont relus et transmis à ces champs lorsqu’un utilisateur accède à cette application sur le volet d’accès de l’application.
 
@@ -43,11 +43,11 @@ Ceci est un excellent moyen pour commencer à intégrer rapidement tout type d�
 
 -   autoriser un **membre du groupe d’entreprise** à spécifier les noms d’utilisateur et mots de passe affectés à un utilisateur à l’aide de la fonctionnalité [Accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) ;
 
--   autoriser un **administrateur** à spécifier les noms d’utilisateur et mots de passe affectés à un utilisateur à l’aide de la fonctionnalité Mettre à jour les informations d'identification lors de [l’affectation d’un utilisateur à une application](#_How_to_configure_1) ;
+-   autoriser un **administrateur** à spécifier les noms d’utilisateur et mots de passe affectés à un utilisateur à l’aide de la fonctionnalité Mettre à jour les informations d’identification lors de l’affectation d’un utilisateur à une application ;
 
 -   autoriser un **administrateur** à spécifier les noms d’utilisateur et mots de passe partagés utilisés par un groupe de personnes à l’aide de la fonctionnalité Mettre à jour les informations d'identification lors de [l’affectation d’un groupe à une application](#assign-an-application-to-a-group-directly).
 
-La section ci-après décrit la procédure d’activation de la fonctionnalité [Authentification unique avec mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) pour n’importe quelle application que vous ajoutez à l’aide de l’expérience **d’ajout d’une application ne relevant pas de la galerie**.
+La section ci-après décrit la procédure d’activation de la fonctionnalité [Authentification unique avec mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) pour n’importe quelle application que vous ajoutez à l’aide de l’expérience **d’ajout d’une application ne relevant pas de la galerie**.
 
 ## <a name="overview-of-steps-required"></a>Vue d’ensemble des étapes requises
 
@@ -55,9 +55,9 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
 -   [Ajouter une application ne figurant pas dans la galerie](#add-a-non-gallery-application)
 
--   [Configurer l’application pour l’authentification unique avec mot de passe](#configure-the-application-for-password-single-sign-on)
+-   [Configurer l’application pour l’authentification unique basée sur un mot de passe](#configure-the-application-for-password-single-sign-on)
 
--   [Affecter l’application à un utilisateur ou à un groupe](#assign-the-application-to-a-user-or-a-group)
+-   Affecter l’application à un utilisateur ou à un groupe
 
     -   [Affecter un utilisateur directement à une application](#assign-a-user-to-an-application-directly)
 

@@ -6,16 +6,17 @@
 # Démarrages rapides
 ## [Créer un service - Portail](quickstart-create-data-migration-service-portal.md)
 
-# Didacticiels
+# Tutoriels
 ## [Migration de SQL Server vers Azure SQL DB hors connexion](tutorial-sql-server-to-azure-sql.md)
 ## [Migration de SQL Server vers Azure SQL DB en ligne](tutorial-sql-server-azure-sql-online.md)
 ## [Migration de SQL Server vers une instance Azure SQL Database Managed Instance](tutorial-sql-server-to-managed-instance.md)
 ## [Migration de SQL Server vers une instance Azure SQL DB Managed Instance en ligne](tutorial-sql-server-managed-instance-online.md)
+## [Migration de RDS SQL Server vers Azure SQL DB ou Azure SQL DB Managed Instance en ligne](tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md)
 ## [Migration de MySQL vers Azure DB pour MySQL en ligne](tutorial-mysql-azure-mysql-online.md)
 ## [Migrer PostgreSQL vers Azure DB pour PostgreSQL en ligne](tutorial-postgresql-azure-postgresql-online.md)
 ## [Migrer MongoDB vers l’API Mongo Azure Cosmos DB hors connexion](tutorial-mongodb-cosmos-db.md)
 
-# Procédures
+# Guides pratiques
 ## [Utiliser PowerShell pour la migration de SQL Server vers Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)
 ## [Utiliser PowerShell pour la migration de SQL Server vers Azure SQL DB MI](howto-sql-server-to-azure-sql-mi-powershell.md)
 ## [Surveiller l’activité de migration](how-to-monitor-migration-activity.md)
@@ -29,7 +30,7 @@
 ### [Problèmes connus - Migration en ligne vers Azure SQL DB](known-issues-azure-sql-online.md)
 ### [Problèmes connus - Migration en ligne vers Azure SQL DB pour MySQL](known-issues-azure-mysql-online.md)
 ### [Problèmes connus - Migration en ligne vers Azure DB pour PostgreSQL](known-issues-azure-postgresql-online.md)
-## vidéos
+## Videos
 ### [Utiliser le guide de migration des bases données](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/)
 ### [Processus de migration et outils/services recommandés](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
 ### [Répondre aux prérequis et créer une instance DMS](https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/)

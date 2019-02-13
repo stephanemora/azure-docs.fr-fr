@@ -1,65 +1,181 @@
 ---
-title: Que faire en cas de panne d’Azure Storage | Microsoft Docs
-description: Que faire en cas de panne d’Azure Storage
+title: Reprise d’activité après sinistre et basculement de compte de stockage (préversion) - Stockage Azure
+description: Stockage Azure prend en charge le basculement de compte (préversion) pour les comptes de stockage géoredondants. Avec le basculement de compte, vous pouvez lancer le processus de basculement pour votre compte de stockage si le point de terminaison principal devient indisponible.
 services: storage
 author: tamram
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 02/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c9d949b32fb298c22142a35b939860bae240c803
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454808"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753586"
 ---
-# <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Que faire en cas de panne d’Azure Storage
-Microsoft s’engage à déployer tous les efforts nécessaires pour garantir en permanence la disponibilité de ses services. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiés dans une ou plusieurs régions. Pour vous aider à faire face à ces rares occurrences, vous trouverez ici quelques conseils généraux pour les services Azure Storage.
+# <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Reprise d’activité après sinistre et basculement de compte de stockage (préversion) dans Stockage Azure
 
-## <a name="how-to-prepare"></a>Préparation
-Il est essentiel que chaque client veille à élaborer son propre plan de récupération d’urgence. L’effort de récupération suite à une panne de stockage implique généralement l’intervention du personnel opérationnel ainsi que l’application de procédures automatisées afin de rétablir le bon fonctionnement de vos applications. Reportez-vous à la documentation Azure ci-dessous pour créer votre propre plan de récupération d’urgence :
+Microsoft s’efforce de faire en sorte que les services Azure soient toujours disponibles. Toutefois, des interruptions de service non planifiées peuvent se produire. Si votre application nécessite la résilience, Microsoft vous recommande d’utiliser le stockage géoredondant, afin que vos données soient répliquées dans une seconde région. De plus, les clients doivent disposer d’un plan de reprise d’activité après sinistre afin de gérer toute interruption de service régionale. Une partie importante du plan de reprise d’activité consiste à préparer le basculement vers le point de terminaison secondaire, au cas où le point de terminaison principal deviendrait indisponible. 
 
-* [Liste de contrôle de disponibilité](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [Conception d’applications résilientes pour Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
-* [Service Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
-* [Réplication Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
-* [Service Azure Backup](https://azure.microsoft.com/services/backup/)
+Stockage Azure prend en charge le basculement de compte (préversion) pour les comptes de stockage géoredondants. Avec le basculement de compte, vous pouvez lancer le processus de basculement pour votre compte de stockage si le point de terminaison principal devient indisponible. Le basculement met à jour le point de terminaison secondaire pour qu’il devienne le point de terminaison principal pour votre compte de stockage. Une fois le basculement terminé, les clients peuvent commencer à écrire dans le nouveau point de terminaison principal.
 
-## <a name="how-to-detect"></a>Mode de détection
-Pour déterminer l’état du service Azure, il est recommandé de s’abonner au [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/).
+Cet article décrit les concepts et les processus impliqués dans un basculement de compte, et explique comment préparer votre compte de stockage pour la reprise avec le moins d’impact possible sur le client. Pour découvrir comment lancer un basculement de compte dans le portail Azure ou PowerShell, consultez [Lancer un basculement de compte (préversion)](storage-initiate-account-failover.md).
 
-## <a name="what-to-do-if-a-storage-outage-occurs"></a>Que faire en cas de panne d’Azure Storage
-Si un ou plusieurs services Azure Storage sont provisoirement indisponibles dans une ou plusieurs régions, deux options s’offrent à vous. Si vous souhaitez un accès immédiat à vos données, envisagez l’Option 2.
+## <a name="choose-the-right-redundancy-option"></a>Choisir l’option de redondance appropriée
 
-### <a name="option-1-wait-for-recovery"></a>Option 1 : Attendre la récupération
-Dans ce cas, aucune action n’est requise de votre part. Nous travaillons assidûment à la restauration de la disponibilité du service Azure. Vous pouvez analyser l’état actuel du service dans le [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/).
+Tous les comptes de stockage sont répliqués à des fins de redondance. L’option de redondance que vous choisirez pour votre compte dépendra du degré de résilience dont vous avez besoin. Pour la protection contre les pannes régionales, choisissez le stockage géoredondant, avec ou sans l’option d’accès en lecture à partir de la région secondaire :  
 
-### <a name="option-2-copy-data-from-secondary"></a>Option 2 : Copier les données à partir de la base de données secondaire
-Si vous avez choisi le [stockage géo-redondant avec accès en lecture (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recommandé) pour vos comptes de stockage, vous bénéficierez d’un accès en lecture à vos données à partir de la région secondaire. Vous pouvez utiliser des outils tels que [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) et la [bibliothèque de déplacement des données Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) pour copier des données de la région secondaire dans un autre compte de stockage situé dans une région non compromise, puis pointer vos applications vers ce compte de stockage pour bénéficier d’un accès en lecture et en écriture.
+Le **stockage géoredondant (GRS)** réplique vos données de façon asynchrone dans deux régions géographiques distantes d’au moins plusieurs centaines de kilomètres. Si la région primaire subit une panne, la région secondaire sert de source redondante pour vos données. Vous pouvez lancer un basculement pour transformer le point de terminaison secondaire en point de terminaison principal.
 
-## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Que se passe-t-il en cas de basculement d’Azure Storage ?
-Si vous avez choisi le [stockage géo-redondant (GRS)](storage-redundancy-grs.md) ou le [stockage géo-redondant avec accès en lecture (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recommandé), Azure Storage conservera vos données dans deux régions (primaire et secondaire). Azure Storage conserve constamment plusieurs réplicas de vos données dans les deux régions.
+Le **stockage géoredondant avec accès en lecture (RA-GRS)** offre un stockage géoredondant avec en plus un accès en lecture au point de terminaison secondaire. Si une panne se produit au niveau du point de terminaison principal, les applications configurées pour RA-GRS et conçues pour la haute disponibilité peuvent continuer à lire à partir du point de terminaison secondaire. Microsoft vous recommande d’utiliser RA-GRS afin de bénéficier d’une résilience maximale pour vos applications.
 
-Quand un sinistre régional affecte votre région primaire, nous tentons d’abord de restaurer le service dans la région qui fournit la meilleure combinaison d’objectif de délai de récupération (RTO) et d’objectif de point de récupération (RPO). Selon de la nature de l’incident et son impact, il peut arriver dans de rares circonstances que ne soyons pas en mesure de restaurer la région primaire. À ce stade, nous procéderons à un basculement géographique. La réplication de données inter-régions est un processus asynchrone qui peut nécessiter un certain délai. Il est donc possible que les modifications qui n’ont pas encore été répliquées dans la région secondaire soient perdues.
+Parmi les autres options de redondance de Stockage Azure, citons le stockage redondant interzone (ZRS), qui réplique vos données dans des zones de disponibilité dans une seule région, et le stockage localement redondant (LRS), qui réplique vos données dans un centre de données unique dans une seule région. Si votre compte de stockage est configuré pour le stockage ZRS ou LRS, vous pouvez le convertir pour qu’il utilise GRS ou RA-GRS. La configuration de votre compte pour le stockage géoredondant implique un coût supplémentaire. Pour plus d’informations, consultez l’article [Réplication de Stockage Azure](storage-redundancy.md).
 
-Quelques points relatifs à l’expérience de basculement géographique du stockage :
+> [!WARNING]
+> Le stockage géoredondant comporte un risque de perte de données. Les données sont répliquées vers la région secondaire de façon asynchrone, ce qui signifie qu’il existe un délai entre l’écriture des données dans la région primaire et dans la région secondaire. En cas de panne, les opérations d’écriture sur le point de terminaison principal qui n’ont pas encore été répliquées vers le point de terminaison secondaire seront perdues. 
 
-* Le basculement géographique du stockage est déclenché uniquement par l’équipe Azure Storage et ne nécessite donc aucune intervention du client. Le basculement est déclenché lorsque l’équipe du Stockage Azure a épuisé toutes les options de restauration des données dans la région qui fournit la meilleure combinaison d’objectifs RTO et RPO.
-* Vos points de terminaison de service de stockage existant pour les objets blob, les tables, les files d’attente et les fichiers restent les mêmes après le basculement ; l’entrée DNS fournie par Microsoft devra être mise à jour pour basculer de la région primaire à la région secondaire. Microsoft effectue cette mise à jour automatiquement dans le cadre du processus de basculement géographique.
-* Avant et pendant le basculement géographique, vous n’avez pas d’accès en écriture à votre compte de stockage en raison de l’impact de l’incident, mais vous pouvez toujours lire les données à partir de la base de données secondaire si votre compte de stockage a été configuré en tant que RA-GRS.
-* Une fois le basculement géographique effectué et les modifications DNS propagées, l’accès en lecture-écriture à votre compte de stockage est restauré si vous disposez d’un stockage géoredondant (GRS) ou d’un stockage géographiquement redondant avec accès en lecture (RA-GRS). Le point de terminaison qui était jusque-là votre point de terminaison secondaire devient votre point de terminaison principal. 
-* Vous pouvez vérifier l’état de l’emplacement principal et envoyer une requête pour connaître la date et l’heure du dernier basculement géographique de votre compte de stockage. Pour plus d’informations, consultez [Comptes de stockage - Obtenir les propriétés](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/getproperties).
-* Après le basculement, votre compte de stockage est entièrement opérationnel, mais son état est « dégradé », car il est hébergé dans une région autonome sans aucune géoréplication possible. Pour atténuer ce risque, nous restaurerons la région primaire d’origine et effectuerons une géo-restauration afin de restaurer l’état d’origine. Si la région primaire d’origine est irrécupérable, nous allouerons une autre région secondaire.
+## <a name="design-for-high-availability"></a>Concevoir pour la haute disponibilité
 
-## <a name="best-practices-for-protecting-your-data"></a>Meilleures pratiques pour la protection de vos données
-Il existe des approches recommandées pour sauvegarder régulièrement vos données de stockage.
+Il est important de concevoir votre application à des fins de haute disponibilité dès le départ. Pour obtenir des conseils sur la conception de votre application et la planification de la reprise d’activité, consultez ces ressources Azure :
 
-* Disques de machine virtuelle : utilisez le [service Azure Backup](https://azure.microsoft.com/services/backup/) pour sauvegarder les disques de machine virtuelle utilisées par vos machines virtuelles Azure.
-* Objets Blob de blocs : activez la [suppression réversible](../blobs/storage-blob-soft-delete.md) pour protéger contre les suppressions et remplacements au niveau objet, ou copiez les objets blob vers un autre compte de stockage dans une autre région à l’aide d’[AzCopy](storage-use-azcopy.md), d’[Azure PowerShell](storage-powershell-guide-full.md) ou de la [bibliothèque de déplacement de données Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* Tables: utilisez [AzCopy](storage-use-azcopy.md) pour exporter les données de table vers un autre compte de stockage dans une autre région.
-* Fichiers : utilisez [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) pour copier vos fichiers vers un autre compte de stockage dans une autre région.
+* [Conception d’applications résilientes pour Azure](https://docs.microsoft.com/azure/architecture/resiliency/) : vue d’ensemble des concepts clés de l’architecture des applications hautement disponibles dans Azure.
+* [Liste de contrôle de disponibilité](https://docs.microsoft.com/azure/architecture/checklist/availability) : liste de contrôle pour vérifier que votre application implémente les bonnes pratiques de conception pour la haute disponibilité.
+* [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md) : guide de conception pour créer des applications tirant parti de RA-GRS.
+* [Tutoriel : Générer une application hautement disponible avec le stockage d’objets Blob](../blobs/storage-create-geo-redundant-storage.md) : tutoriel qui montre comment créer une application hautement disponible qui bascule automatiquement entre des points de terminaison lors de la simulation de pannes et de récupérations. 
 
-Pour plus d’informations sur la création d’applications tirant pleinement parti de la fonctionnalité RA-GRS, consultez [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](../storage-designing-ha-apps-with-ragrs.md).
+Gardez également à l’esprit ces bonnes pratiques pour maintenir une haute disponibilité pour vos données de Stockage Azure :
+
+* **Disques :** utilisez [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) pour sauvegarder les disques de machine virtuelle utilisés par vos machines virtuelles Azure. Vous pouvez aussi utiliser [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) pour protéger vos machines virtuelles en cas de sinistre régional.
+* **Objets blob de blocs :** activez la [suppression réversible](../blobs/storage-blob-soft-delete.md) pour protéger contre les suppressions et remplacements au niveau objet, ou copiez les objets blob de blocs vers un autre compte de stockage dans une région différente à l’aide d’[AzCopy](storage-use-azcopy.md), d’[Azure PowerShell](storage-powershell-guide-full.md) ou de la [bibliothèque de déplacement de données Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* **Fichiers :** utilisez [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) pour copier vos fichiers vers un autre compte de stockage dans une région différente.
+* [Tables :](storage-use-azcopy.md) utilisez **AzCopy** pour exporter les données de table vers un autre compte de stockage dans une région différente.
+
+## <a name="track-outages"></a>Effectuer le suivi des pannes
+
+Les clients peuvent s’abonner au [tableau de bord Azure Service Health](https://azure.microsoft.com/status/) pour effectuer le suivi de l’intégrité et de l’état de Stockage Azure et d’autres services Azure.
+
+Microsoft vous recommande également de concevoir votre application pour l’éventualité d’échecs d’écriture. Votre application doit exposer les échecs d’écriture d’une manière qui vous avertit de la possibilité d’une panne dans la région primaire.
+
+## <a name="understand-the-account-failover-process"></a>Comprendre le processus de basculement de compte
+
+Le basculement de compte géré par le client (préversion) vous permet de basculer votre compte de stockage entier vers la région secondaire si la région primaire devient indisponible pour une raison quelconque. Quand vous forcez un basculement vers la région secondaire, les clients peuvent commencer à écrire des données sur le point de terminaison secondaire une fois le basculement terminé. Le basculement prend généralement environ une heure.
+
+### <a name="how-an-account-failover-works"></a>Fonctionnement d’un basculement de compte
+
+Dans des circonstances normales, un client écrit des données dans un compte Stockage Azure dans la région primaire, et ces données sont répliquées de manière asynchrone vers la région secondaire. L’illustration suivante montre le scénario quand la région primaire est disponible :
+
+![Les clients écrivent des données dans le compte de stockage dans la région primaire](media/storage-disaster-recovery-guidance/primary-available.png)
+
+Si le point de terminaison principal devient indisponible pour une raison quelconque, le client ne peut plus écrire dans le compte de stockage. L’illustration suivante montre le scénario dans lequel la région primaire n’est plus disponible, mais aucune reprise n’a encore été effectuée :
+
+![La région primaire n’étant pas disponible, les clients ne peuvent pas écrire de données](media/storage-disaster-recovery-guidance/primary-unavailable-before-failover.png)
+
+Le client lance le basculement de compte vers le point de terminaison secondaire. Le processus de basculement met à jour l’entrée DNS fournie par Stockage Azure afin que le point de terminaison secondaire devienne le nouveau point de terminaison principal pour votre compte de stockage, comme illustré dans l’image suivante :
+
+![Le client lance le basculement de compte vers le point de terminaison secondaire](media/storage-disaster-recovery-guidance/failover-to-secondary.png)
+
+L’accès en écriture est restauré pour les comptes GRS et RA-GRS une fois que l’entrée DNS a été mise à jour et que les requêtes sont dirigées vers le nouveau point de terminaison principal. Les points de terminaison de service de stockage existants pour les objets blob, les tables, les files d’attente et les fichiers restent les mêmes après le basculement.
+
+> [!IMPORTANT]
+> Une fois le basculement terminé, le compte de stockage est configuré pour être localement redondant dans le nouveau point de terminaison principal. Pour reprendre la réplication vers la nouvelle région secondaire, reconfigurez le compte pour qu’il utilise le stockage géoredondant (GRS ou RA-GRS).
+>
+> N’oubliez pas que la conversion d’un compte LRS en RA-GRS ou GRS a un coût. Ce coût s’applique à la mise à jour du compte de stockage dans la nouvelle région primaire pour qu’il utilise RA-GRS ou GRS après un basculement.  
+
+### <a name="anticipate-data-loss"></a>Anticiper la perte de données
+
+> [!CAUTION]
+> Un basculement de compte entraîne généralement une certaine perte de données. Il est important de bien comprendre les implications d’un basculement de compte.  
+
+Les données étant écrites de façon asynchrone de la région primaire vers la région secondaire, il y a toujours un délai avant qu’une écriture dans la région primaire soit répliquée vers la région secondaire. Si la région primaire devient indisponible, il se peut que les écritures les plus récentes n’aient pas encore été répliquées vers la région secondaire.
+
+Quand vous forcez un basculement, toutes les données dans la région primaire sont perdues car la région secondaire devient la nouvelle région primaire et le compte de stockage est configuré pour être localement redondant. Toutes les données déjà répliquées vers la région secondaire sont conservées quand le basculement se produit. En revanche, les données écrites dans la région primaire mais qui n’ont pas encore été répliquées vers la région secondaire sont définitivement perdues. 
+
+La propriété **Dernière heure de synchronisation** indique l’heure la plus récente à laquelle il est garanti que les données de la région primaire ont été écrites dans la région secondaire. Toutes les données écrites avant la dernière heure de synchronisation sont disponibles dans la région secondaire. Quant aux données écrites après la dernière heure de synchronisation, il y a un risque qu’elles n’aient pas été écrites dans la région secondaire et qu’elles soient perdues. Utilisez cette propriété en cas de panne pour estimer la perte de données que peut entraîner un basculement de compte. 
+
+En guise de bonne pratique, concevez votre application afin de pouvoir utiliser la dernière heure de synchronisation pour évaluer la perte de données attendue. Par exemple, si vous enregistrez dans le journal toutes les opérations d’écriture, vous pouvez comparer l’heure de vos dernières opérations d’écriture à la dernière heure de synchronisation pour identifier les écritures qui n’ont pas été synchronisées dans la région secondaire.
+
+### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Faire attention lors de la restauration automatique vers la région primaire
+
+Après le basculement de la région primaire vers la région secondaire, votre compte de stockage est configuré pour être localement redondant dans la nouvelle région primaire. Vous pouvez reconfigurer le compte pour la géoredondance en le mettant à jour pour qu’il utilise GRS ou RA-GRS. Quand le compte est reconfiguré pour la géoredondance après un basculement, la nouvelle région primaire commence immédiatement la réplication des données vers la nouvelle région secondaire, qui était la région primaire avant le basculement d’origine. Toutefois, il peut s’écouler un certain temps avant que les données existantes dans la région primaire soient entièrement répliquées vers la nouvelle région secondaire.
+
+Une fois le compte de stockage reconfiguré pour la géoredondance, il est possible de lancer un autre basculement de la nouvelle région primaire vers la nouvelle région secondaire. Dans ce cas, la région primaire d’origine avant le basculement redevient la région primaire, et est configurée pour être localement redondante. Toutes les données dans la région primaire post-basculement (la région secondaire d’origine) sont alors perdues. Si la plupart des données dans le compte de stockage n’ont pas été répliquées vers la nouvelle région secondaire avant la restauration automatique, vous risquez de subir une perte de données majeure. 
+
+Pour éviter toute perte de données majeure, vérifiez la valeur de la propriété **Dernière heure de synchronisation** avant de procéder à la restauration automatique. Comparez la dernière heure de synchronisation aux dernières heures où ces données ont été écrites dans la nouvelle région primaire afin d’évaluer la perte de données attendue. 
+
+## <a name="initiate-an-account-failover"></a>Lancer un basculement de compte
+
+Vous pouvez lancer un basculement de compte à partir du portail Azure, de PowerShell, d’Azure CLI ou de l’API du fournisseur de ressources Stockage Azure. Pour plus d’informations sur la façon de lancer un basculement, consultez [Lancer un basculement de compte (préversion)](storage-initiate-account-failover.md).
+
+## <a name="about-the-preview"></a>À propos de la préversion
+
+Le basculement de compte est disponible en préversion pour tous les clients qui utilisent GRS ou RA-GRS avec des déploiements Azure Resource Manager. Les types de comptes v1 universel, v2 universel et Stockage Blob sont pris en charge. Le basculement de compte est actuellement disponible dans les régions suivantes :
+
+- USA Ouest 2
+- USA Centre-Ouest
+
+La préversion est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
+
+### <a name="register-for-the-preview"></a>S’inscrire pour la préversion
+
+Pour vous inscrire à la préversion, exécutez les commandes suivantes dans PowerShell. N’oubliez pas de remplacer l’espace réservé entre crochets par votre propre ID d’abonnement :
+
+```PowerShell
+Connect-AzureRmAccount -SubscriptionId <subscription-id>
+Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+```
+
+Vous recevrez votre approbation pour la préversion sous un à deux jours. Pour vérifier que votre inscription a été approuvée, exécutez la commande suivante :
+
+```PowerShell
+Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+```
+
+### <a name="additional-considerations"></a>Considérations supplémentaires 
+
+Passez en revue les considérations supplémentaires décrites dans cette section pour comprendre comment vos applications et services peuvent être affectés quand vous forcez un basculement pendant la période de préversion.
+
+#### <a name="azure-virtual-machines"></a>Machines virtuelles Azure
+
+Les machines virtuelles Azure ne basculent pas dans le cadre d’un basculement de compte. Si la région primaire devient indisponible et que vous basculez vers la région secondaire, vous devez recréer toutes les machines virtuelles après le basculement. 
+
+#### <a name="azure-unmanaged-disks"></a>Disques non managés Azure
+
+En guise de bonne pratique, Microsoft vous recommande de convertir les disques non managés en disques managés. Toutefois, si vous avez besoin d’effectuer le basculement d’un compte qui contient des disques non managés attachés à des machines virtuelles Azure, vous devez arrêter la machine virtuelle avant de lancer le basculement.
+
+Les disques non managés sont stockés en tant qu’objets blob de pages dans Stockage Azure. Quand une machine virtuelle s’exécute dans Azure, les disques non managés attachés à la machine virtuelle sont loués. Un basculement de compte ne peut pas continuer quand il existe un bail sur un objet blob. Pour effectuer le basculement, effectuez les étapes suivantes :
+
+1. Avant de commencer, notez les noms de tous les disques non managés, leurs numéros d’unité logique (LUN) et la machine virtuelle à laquelle ils sont attachés. Cela facilitera le réattachement des disques après le basculement. 
+2. Arrêtez la machine virtuelle.
+3. Supprimez la machine virtuelle, mais conservez les fichiers de disque dur virtuel pour les disques non managés. Notez l’heure à laquelle vous avez supprimé la machine virtuelle.
+4. Attendez que la **Dernière heure de synchronisation** ait été mise à jour et soit postérieure à l’heure à laquelle vous avez supprimé la machine virtuelle. Cette étape est importante, car si le point de terminaison secondaire n’a pas été totalement mis à jour avec les fichiers de disques durs virtuels quand le basculement se produit, la machine virtuelle risque de ne pas fonctionner correctement dans la nouvelle région primaire.
+5. Lancez le basculement de compte.
+6. Attendez que le basculement de compte soit terminé et que la région secondaire soit devenue la nouvelle région primaire.
+6. Créez un compte de stockage dans la nouvelle région primaire et copiez-y votre disque non managé.
+7. Créez une machine virtuelle dans la nouvelle région primaire et réattachez les disques durs virtuels.
+8. Démarrez la nouvelle machine virtuelle.
+
+N’oubliez pas que toutes les données stockées dans un disque temporaire sont perdues quand la machine virtuelle est arrêtée.
+
+### <a name="unsupported-features-or-services"></a>Fonctionnalités ou services non pris en charge
+Les fonctionnalités et services suivants ne sont pas pris en charge pour le basculement de compte durant la préversion :
+
+- Azure File Sync ne prend pas en charge le basculement de compte de stockage. Les comptes de stockage contenant des partages de fichiers Azure utilisés en tant que points de terminaison cloud dans Azure File Sync ne doivent pas être basculés. En effet, cela provoque l’arrêt de la synchronisation et peut également entraîner des pertes de données inattendues en cas de nouvelle hiérarchisation de fichiers.  
+- Les comptes de stockage utilisant l’espace de noms hiérarchique Azure Data Lake Storage Gen2 ne peuvent pas être basculés.
+- Un compte de stockage contenant des objets blob archivés ne peut pas être basculé. Conservez les objets blob archivés dans un compte de stockage distinct que vous ne prévoyez pas de basculer.
+- Un compte de stockage contenant des objets blob de blocs premium ne peut pas être basculé. Les comptes de stockage qui prennent en charge les objets blob de blocs premium ne prennent pas en charge la géoredondance.
+
+## <a name="copying-data-as-an-alternative-to-failover"></a>Copie de données comme alternative au basculement
+
+Si votre compte de stockage est configuré pour RA-GRS, vous disposez d’un accès en lecture à vos données à l’aide du point de terminaison secondaire. Si vous préférez ne pas effectuer de basculement en cas de panne dans la région primaire, vous pouvez utiliser des outils tels que [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) ou la [bibliothèque de déplacement de données Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) pour copier des données de votre compte de stockage dans la région secondaire vers un autre compte de stockage dans une région non affectée. Vous pouvez ensuite faire en sorte que vos applications pointent vers ce compte de stockage pour la disponibilité en lecture et en écriture.
+
+## <a name="microsoft-managed-failover"></a>Basculement géré par Microsoft
+
+Dans des circonstances extrêmes où une région est perdue suite à un sinistre majeur, Microsoft peut lancer un basculement régional. Dans ce cas, aucune action n’est requise de votre part. Tant que le basculement géré par Microsoft ne sera pas terminé, vous n’aurez pas d’accès en écriture à votre compte de stockage. Vos applications peuvent lire à partir de la région secondaire si votre compte de stockage est configuré pour RA-GRS. 
+
+## <a name="see-also"></a>Voir aussi
+
+* [Lancer un basculement de compte (préversion)](storage-initiate-account-failover.md)
+* [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+* [Tutoriel : Générer une application hautement disponible avec le stockage d’objets Blob](../blobs/storage-create-geo-redundant-storage.md) 

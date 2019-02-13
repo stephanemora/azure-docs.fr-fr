@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 25e47ecc9d9915ab618bc45f2e95f12bae68c7f0
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332606"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811084"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Un jeu de données dans la fabrique de données est défini au format JSON comme
     "name": "<name of dataset>",
     "properties": {
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "external": <boolean flag to indicate external data. only for input datasets>,
+        "external": "<boolean flag to indicate external data. only for input datasets>",
         "linkedServiceName": "<Name of the linked service that refers to a data store.>",
         "structure": [
             {
@@ -86,7 +86,7 @@ La table suivante décrit les propriétés dans le JSON ci-dessus :
 | structure |Schéma du jeu de données.<br/><br/>Pour plus d’informations, consultez [Structure d’un jeu de données](#Structure). |Non  |N/D |
 | typeProperties | Les propriétés de type sont différentes pour chaque type (par exemple : objet blob Azure, table SQL Azure). Pour plus d’informations sur les types pris en charge et leurs propriétés, consultez [Type du jeu de données](#Type). |Oui |N/D |
 | external | Indicateur booléen pour indiquer si un jeu de données est explicitement généré par un pipeline de fabrique de données ou non. Si le jeu de données d’entrée d’une activité n’est pas produit par le pipeline actuel, définissez cet indicateur sur true. Définissez cet indicateur sur true pour le jeu de données d’entrée de la première activité dans le pipeline.  |Non  |false |
-| availability | Définit la fenêtre de traitement (par exemple, horaire ou journalier) ou le modèle de découpage pour la production du jeu de données. Chaque unité de données consommée et produite pendant l’exécution d’une activité est appelée tranche de données. Si la disponibilité d’un jeu de données de sortie est journalière (fréquence : Day, intervalle : 1), une tranche est produite chaque jour. <br/><br/>Pour plus d’informations, consultez [Disponibilité du jeu de données](#Availability). <br/><br/>Pour plus d’informations sur le modèle de découpage du jeu de données, consultez l’article [Planification et exécution](data-factory-scheduling-and-execution.md). |Oui |N/D |
+| availability | Définit la fenêtre de traitement (par exemple, horaire ou journalier) ou le modèle de découpage pour la production du jeu de données. Chaque unité de données consommée et produite pendant l’exécution d’une activité est appelée tranche de données. Si la disponibilité d’un jeu de données de sortie est journalière (fréquence : Day, intervalle : 1), une tranche est produite chaque jour. <br/><br/>Pour plus d’informations, consultez Disponibilité du jeu de données. <br/><br/>Pour plus d’informations sur le modèle de découpage du jeu de données, consultez l’article [Planification et exécution](data-factory-scheduling-and-execution.md). |Oui |N/D |
 | policy |Définit les critères ou la condition que les segments du jeu de données doivent remplir. <br/><br/>Pour plus d’informations, consultez la section [Stratégie du jeu de données](#Policy). |Non  |N/D |
 
 ## <a name="dataset-example"></a>Exemple de jeu de données
@@ -316,7 +316,7 @@ Les jeux de données externes sont ceux qui ne sont pas générés par un pipeli
 
 À moins qu’un jeu de données ne soit généré par la fabrique de données, il doit être marqué comme **external**(externe). Ce paramètre s’applique généralement aux entrées de la première activité d’un pipeline, à moins que le chaînage des activités ou pipelines ne soit utilisé.
 
-| NOM | Description | Obligatoire | Valeur par défaut |
+| Nom | Description | Obligatoire | Valeur par défaut |
 | --- | --- | --- | --- |
 | dataDelay |Durée du délai de la vérification de la disponibilité des données externes pour la tranche donnée. Par exemple, vous pouvez retarder une vérification de toutes les heures à l’aide de ce paramètre.<br/><br/>Le paramètre s’applique uniquement à l’heure actuelle. Par exemple, s’il est 13 h et si cette valeur est de 10 minutes, la validation commence à 13 h 10.<br/><br/>Notez que ce paramètre n’affecte pas les tranches du passé. Les tranches avec **Slice End Time** + **dataDelay** < **Now** sont traitées sans aucun délai.<br/><br/>Les heures supérieures à 23:59 doivent être spécifiées à l’aide du format `day.hours:minutes:seconds`. Par exemple, pour spécifier 24 heures, n’utilisez pas 24:00:00. Utilisez plutôt 1.00:00:00. Si vous utilisez 24:00:00, cette valeur est traitée comme 24 jours (24.00:00:00). Pour 1 jour et 4 heures, spécifiez 1:04:00:00. |Non  |0 |
 | retryInterval |Délai d'attente entre un échec et la tentative suivante. Ce paramètre s’applique à l’heure actuelle. Si la tentative précédente a échoué, la tentative suivante est effectuée après la période **retryInterval**. <br/><br/>S’il est 13 h actuellement, la première tentative commence. Si la durée de la première vérification de validation est de 1 minute et si l’opération a échoué, la tentative suivante aura lieu à 13h + 1 min (durée) + 1 minute (intervalle avant nouvelle tentative) = 13 h 02. <br/><br/>Pour les segments dans le passé, il n’y a aucun délai. La nouvelle tentative se fait immédiatement. |Non  |00:01:00 (1 minute) |

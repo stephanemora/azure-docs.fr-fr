@@ -11,16 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e1c225eb77a76015520690916db0399487ffe9e7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353037"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822610"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Connecter des ordinateurs sans accès Internet à l’aide de la passerelle Log Analytics
+
+>[!NOTE]
+>Dans le cadre de la transition en cours depuis Microsoft Operations Management Suite (OMS) vers Azure Monitor, la passerelle OMS est maintenant appelée passerelle Log Analytics. 
+>
+
 Ce document décrit comment configurer la communication avec Azure Automation et Log Analytics à l’aide de la passerelle Log Analytics lorsqu’elle est directement connectée ou lorsque les ordinateurs analysés Operations Manager n’ont pas accès à Internet.  La passerelle Log Analytics, qui est un proxy de transfert HTP prenant en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT, peut collecter des données et les envoyer à Azure Automation et Log Analytics en son nom.  
 
 La passerelle Log Analytics prend en charge ce qui suit :
@@ -29,7 +34,7 @@ La passerelle Log Analytics prend en charge ce qui suit :
 * Runbooks Workers hybrides Azure Automation  
 * Ordinateurs Windows avec Microsoft Monitoring Agent directement connecté à un espace de travail Log Analytics
 * Ordinateurs Linux avec agent Log Analytics pour Linux directement connecté à un espace de travail Log Analytics  
-* System Center Operations Manager 2012 SP1 avec UR7, Operations Manager 2012 R2 avec UR3, Operations Manager 2016 et le groupe de gestion Operations Manager version 1801 intégré à Log Analytics.  
+* System Center Operations Manager 2012 SP1 avec UR7, Operations Manager 2012 R2 avec UR3, groupe d’administration Operations Manager 2016 ou ultérieur intégré dans Log Analytics.  
 
 Si vos stratégies de sécurité informatique ne permettent pas aux ordinateurs de votre réseau de se connecter à Internet, comme des appareils de point de vente (PDV) ou des serveurs prenant en charge des services informatiques, mais que vous devez les connecter à Azure Automation ou Log Analytics pour les gérer et les surveiller, ils peuvent être configurés pour communiquer directement avec la passerelle Log Analytics pour recevoir la configuration et faire suivre les données en leur nom.  Si ces ordinateurs sont configurés avec l’agent Log Analytics pour se connecter directement à un espace de travail Log Analytics, tous les ordinateurs communiqueront plutôt avec la passerelle Log Analytics.  La passerelle transfère directement les données des agents au service. Elle n’analyse aucune des données en transit.
 

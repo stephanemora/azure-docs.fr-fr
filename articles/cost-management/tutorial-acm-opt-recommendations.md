@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2255f14d026d406dc41802c321d0a673ee2f2f23
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077072"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766858"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Didacticiel : Optimiser les coûts à partir de recommandations
 
@@ -29,7 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Vérifier l’action pour vous assurer que la machine virtuelle a été correctement redimensionnée
 
 ## <a name="prerequisites"></a>Prérequis
-Des recommandations sont disponibles pour tous les clients détenant un [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût.
+Des recommandations sont disponibles pour divers types de comptes Azure, notamment pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Pour voir la liste complète des types de comptes pris en charge, consultez [Comprendre les données Cost Management](understand-cost-mgt-data.md). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût.
 
 - Abonnement
 - Groupe de ressources
@@ -53,7 +53,7 @@ La catégorie **Impact** ainsi que la valeur **Économies annuelles potentielles
 
 Azure Advisor supervise l’utilisation de vos machines virtuelles pendant 14 jours, puis identifie les machines virtuelles sous-utilisées. Les machines virtuelles dont l’utilisation du processeur est inférieure ou égale à 5 % et celle du réseau est inférieure ou égale à 7 Mo pendant quatre jours ou plus sont considérées comme des machines virtuelles faiblement utilisées.
 
-Le paramètre d’utilisation du processeur inférieure ou égale à 5 % est la valeur par défaut, mais vous pouvez ajuster les paramètres. Pour plus d’informations sur l’ajustement du paramètre, consultez l’article [Configurer la règle d’utilisation moyenne du processeur](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation) [pour la recommandation en cas de faible utilisation de machines virtuelles](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation).
+Le paramètre d’utilisation du processeur inférieure ou égale à 5 % est la valeur par défaut, mais vous pouvez ajuster les paramètres. Pour plus d’informations sur l’ajustement du paramètre, consultez l’article [Configurer la règle d’utilisation moyenne du processeur ou la recommandation en cas de faible utilisation de machines virtuelles](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
 
 Alors que certains scénarios peuvent, par définition, entraîner une faible utilisation, vous pouvez souvent faire des économies en remplaçant la taille de vos machines virtuelle par des tailles moins coûteuses. Vos économies réelles peuvent varier si vous choisissez une action de redimensionnement. Examinons un exemple de redimensionnement d’une machine virtuelle.
 

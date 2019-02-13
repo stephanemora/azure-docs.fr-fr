@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
-ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cbe6d04dfcf9174b15cde71f7becbb371eaee4b2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189457"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662466"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec les identités managées pour ressources Azure
 
@@ -154,8 +154,8 @@ Pour résoudre ce problème une fois que l’abonnement a été déplacé, vous 
 
 ## <a name="known-issues-with-user-assigned-managed-identities"></a>Problèmes connus en lien avec les identités managées affectées par l’utilisateur
 
-- La création d’une identité managée et affectée par l’utilisateur avec des caractères spéciaux (par exemple, traits de soulignement) dans le nom n’est pas prise en charge.
-- Les noms d’identités managées affectées par l’utilisateur sont limités à 24 caractères. Si le nom est supérieur à 24 caractères, l’identité ne pourra pas être affectée à une ressource (par exemple, une machine virtuelle.)
+- Les noms d’identité affectée par l’utilisateur doivent comporter entre 3 et 128 caractères. Si le nom comporte plus de 128 caractères, l’identité ne pourra pas être affectée à une ressource (par exemple, une machine virtuelle.)
+- Les noms d’identité affectée par l’utilisateur peuvent contenir les caractères suivants : a-z, A-Z, -, \_, 0-9. La création d’une identité managée et affectée par l’utilisateur dont le nom contient des caractères autres que ceux-là (par exemple, astérisque) n’est pas prise en charge.
 - Si vous utilisez l’extension de machine virtuelle d’identité managée (dont l’abandon est prévu en janvier 2019), la limite prise en charge est de 32 identités managées affectées par l’utilisateur. Sans l’extension de machine virtuelle d’identité managée, la prise en charge est limitée à 512 identités managées.  
 - Le déplacement d’une identité managée affectée par l’utilisateur à un autre groupe de ressources entraînera l’arrêt de l’identité. Par conséquent, vous ne pourrez plus demander des jetons pour cette identité. 
 - Le transfert d’un abonnement vers un autre répertoire arrêtera toutes les identités managées par l’utilisateur existantes. 

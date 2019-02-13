@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
-ms.openlocfilehash: 563c073e781e2a2bee88b4ecdcdc82541c21ec4f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092387"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813039"
 ---
 # <a name="how-caching-works"></a>Comment la mise en cache fonctionne
 
@@ -36,9 +36,9 @@ Les ressources dynamiques qui changent fréquemment ou sont propres à un utilis
 La mise en cache peut avoir lieu à plusieurs niveaux entre le serveur d’origine et l’utilisateur final :
 
 - Serveur web : utilise un cache partagé (pour plusieurs utilisateurs).
-- Réseau de distribution de contenu : utilise un cache partagé (plusieurs utilisateurs).
+- Réseau de distribution de contenu : utilise un cache partagé (pour plusieurs utilisateurs).
 - Fournisseur de services Internet (ISP) : utilise un cache partagé (pour plusieurs utilisateurs).
-- Navigateur Web : utilise un cache privé (pour un utilisateur).
+- Navigateur web : utilise un cache privé (pour un utilisateur).
 
 En général, chaque cache gère l’actualisation de ses propres ressources et effectue une validation lorsqu’un fichier est périmé. Ce comportement est défini dans la spécification de mise en cache HTTP, [RFC 7234](https://tools.ietf.org/html/rfc7234).
 
@@ -76,9 +76,9 @@ Azure CDN prend en charge les en-têtes de la directive de cache HTTP suivants, 
 - Lorsqu’elle est utilisée dans une réponse HTTP du client vers les emplacements POP de CDN :
      - **Azure CDN Standard/Premium de Verizon** et **Azure CDN Standard de Microsoft** prennent en charge l’ensemble des directives `Cache-Control`.
      - **Azure CDN Standard d’Akamai** prend uniquement en charge les directives `Cache-Control` suivantes ; toutes les autres sont ignorées :
-         - `max-age` : un cache peut stocker le contenu pendant le nombre de secondes spécifié. Par exemple : `Cache-Control: max-age=5`. Cette directive spécifie le maximum de temps durant lequel le contenu est considéré comme actualisé.
-         - `no-cache` : mise en cache du contenu, qui doit cependant être validé avant chaque distribution à partir du cache. Équivaut à `Cache-Control: max-age=0`.
-         - `no-store` : ne jamais mettre le contenu en cache. Supprimer le contenu s’il a été préalablement stocké.
+         - `max-age`: Un cache peut stocker le contenu pendant le nombre de secondes spécifié. Par exemple : `Cache-Control: max-age=5`. Cette directive spécifie le maximum de temps durant lequel le contenu est considéré comme actualisé.
+         - `no-cache`: Mise en cache du contenu, qui doit cependant être validé avant chaque distribution à partir du cache. Équivaut à `Cache-Control: max-age=0`.
+         - `no-store`: Ne jamais mettre le contenu en cache. Supprimer le contenu s’il a été préalablement stocké.
 
 **Expires :**
 - En-tête hérité introduit dans HTTP 1.0 ; pris en charge pour la compatibilité descendante.
@@ -116,7 +116,7 @@ Toutes les ressources ne peuvent pas être mises en cache. Le tableau suivant mo
 |-------------------|-----------------------------------|------------------------|------------------------------|
 | Codes d’état HTTP | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
 | Méthodes HTTP      | GET, HEAD                         | GET                    | GET                          |
-| Limites de taille de fichiers  | 300 Go                            | 300 Go                 | - Optimisation de la livraison web générale : 1,8 Go<br />- Optimisations de la diffusion multimédia en continu : 1,8 Go<br />- Optimisation des fichiers volumineux : 150 Go |
+| Limites de taille de fichiers  | 300 Go                            | 300 Go                 | - Optimisation de la livraison web générale : 1,8 Go<br />- Optimisation de la diffusion multimédia en continu : 1,8 Go<br />- Optimisation des fichiers volumineux : 150 Go |
 
 Pour permettre l’activation de la mise en cache d’**Azure CDN Standard de Microsoft** sur une ressource, le serveur d’origine doit prendre en charge les requêtes HTTP HEAD et GET et les valeurs content-length doivent être identiques pour l’ensemble des réponses HTTP HEAD et GET associées à la ressource. Dans le cas d’une requête HEAD, le serveur d’origine doit prendre en charge la requête et répondre avec les en-têtes qu’il aurait utilisé s’il avait reçu une requête GET.
 
@@ -124,12 +124,12 @@ Pour permettre l’activation de la mise en cache d’**Azure CDN Standard de Mi
 
 Le tableau suivant décrit le comportement de mise en cache par défaut des produits Azure CDN et de leurs optimisations.
 
-|    | Microsoft : distribution web générale | Verizon : distribution web générale | Verizon : DSA | Akamai : distribution web générale | Akamai : DSA | Akamai : téléchargement de fichiers volumineux | Akamai : diffusion multimédia en continu générale ou VOD |
+|    | Microsoft : Livraison web générale | Verizon : Livraison web générale | Verizon : DSA | Akamai : Livraison web générale | Akamai : DSA | Akamai : Téléchargement de fichiers volumineux | Akamai : diffusion multimédia en continu générale ou VOD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
 | **Honorer l’origine**       | Oui    | Oui   | Non    | Oui    | Non    | OUI   | Oui    |
 | **Durée de cache CDN** | 2 jours |7 jours | Aucun | 7 jours | Aucun | 1 jour | 1 an |
 
-**Honorer l’origine** : indique s’il faut honorer les [ en-têtes de la directive du cache prises en charges](#http-cache-directive-headers) s’il y en a dans la réponse HTTP du serveur d’origine.
+**Honorer l’origine** : indique s’il faut honorer les en-têtes de la directive du cache pris en charge s’il y en a dans la réponse HTTP du serveur d’origine.
 
 **Durée de cache du CDN** : indique le temps pendant lequel une ressource est mise en cache sur Azure CDN. Toutefois, si **Honorer l’origine** est Oui et que la réponse HTTP du serveur d’origine inclut l’en-tête de la directive de cache `Expires` ou `Cache-Control: max-age`, Azure CDN utilise la valeur de la durée spécifiée par l’en-tête à la place. 
 

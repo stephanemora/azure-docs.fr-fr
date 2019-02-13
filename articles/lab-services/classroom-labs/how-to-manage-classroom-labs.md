@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: 9576854fbad88724f3d229d239b9d3e263fb7492
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 7d311a3fa1b00a6324c9bb81a14c1a575319472f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912399"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819992"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
@@ -72,7 +72,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 
         > [!WARNING]
         > Une fois que vous publiez, vous ne pouvez pas annuler la publication. 
-    2. Pour publier ultérieurement, sélectionnez **Enregistrer pour plus tard**. Vous pouvez publier le modèle de VM une fois l’Assistant terminé. Pour plus d’informations sur la configuration et la publication après l’exécution de l’assistant, consultez la section [Publier le modèle](#publish-the-template) de l’article [Gérer des laboratoires de classe dans Azure Lab Services](how-to-manage-classroom-labs.md).
+    2. Pour publier ultérieurement, sélectionnez **Enregistrer pour plus tard**. Vous pouvez publier le modèle de VM une fois l’Assistant terminé. Pour plus d’informations sur la configuration et la publication après l’exécution de l’assistant, consultez la section Publier le modèle de l’article [Gérer des laboratoires de classe dans Azure Lab Services](how-to-manage-classroom-labs.md).
 
         ![Publier un modèle](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. La **progression de la publication** du modèle s’affiche. Ce processus peut prendre jusqu’à une heure. 

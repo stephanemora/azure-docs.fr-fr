@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 6d84c83efa194543ed10aaed82362021b7053476
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576202"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566235"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier le parcours de migration pour éviter tout heurt. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration.
@@ -88,7 +88,7 @@ Les clients les plus efficaces disposent de plans détaillés qui abordent, docu
 
 Voici quelques-uns des problèmes rencontrés dans la majorité des migrations importantes. Cette liste n’est pas exhaustive. Reportez-vous aux [fonctionnalités et configurations non prises en charge](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) pour plus de détails.  Il n’est pas certain que vous rencontriez ces problèmes techniques ; si c’est le cas, vous garantirez une meilleure expérience en résolvant ces points avant de tenter la migration.
 
-- **Effectuer un essai à blanc Valider/Préparer/Abandonner** : il s’agit sans doute de l’étape la plus importante pour garantir la réussite de la migration de Classic vers Azure Resource Manager. L’API de migration comporte trois étapes principales : valider, préparer et soumettre. L’étape Valider lit l’état de votre environnement Classic et retourne un résultat comportant tous les problèmes. Toutefois, dans la mesure où il peut exister des problèmes dans la pile Azure Resource Manager, elle n’intercepte pas tout. L’étape suivante du processus de migration, Préparer, aide à mettre en évidence ces problèmes. Elle déplace les métadonnées de Classic vers Azure Resource Manager, mais ne valide pas le déplacement et ne supprime ni ne modifie rien du côté de Classic. L’essai à blanc implique de préparer la migration, puis d’abandonner (**ne pas soumettre**) la préparation de la migration. L’essai à blanc Valider/Préparer/Abandonner a pour objectif de montrer toutes les métadonnées de la pile Azure Resource Manager, de les examiner (*par programme ou dans le portail*) et de vérifier que tous les éléments migrent correctement et viennent à bout des problèmes techniques.  Il donne également une idée de la durée de la migration de façon à permettre de planifier un temps d’arrêt adapté.  Une opération Valider/Préparer/Abandonner ne provoque pas de temps d’arrêt pour les utilisateurs ; par conséquent, elle ne perturbe pas l’utilisation des applications.
+- **Effectuer un essai à blanc Valider/Préparer/Abandonner** : il s’agit sans doute de l’étape la plus importante pour garantir la réussite de la migration de Classic vers Azure Resource Manager. L’API de migration comporte trois étapes principales : valider, préparer et soumettre. L’étape Valider lit l’état de votre environnement Classic et retourne un résultat comportant tous les problèmes. Toutefois, dans la mesure où il peut exister des problèmes dans la pile Azure Resource Manager, elle n’intercepte pas tout. L’étape suivante du processus de migration, Préparer, aide à mettre en évidence ces problèmes. Elle déplace les métadonnées de Classic vers Azure Resource Manager, mais ne valide pas le déplacement et ne supprime ni ne modifie rien du côté de Classic. L’essai à blanc implique de préparer la migration, puis d’abandonner (**ne pas soumettre**) la préparation de la migration. L’essai à blanc Valider/Préparer/Abandonner a pour objectif de montrer toutes les métadonnées de la pile Azure Resource Manager, de les examiner (*par programme ou dans le portail*) et de vérifier que tous les éléments migrent correctement et viennent à bout des problèmes techniques.  Il donne également une idée de la durée de la migration de façon à permettre de planifier un temps d’arrêt adapté.  Une opération Valider/Préparer/Abandonner ne provoque pas de temps d’arrêt pour les utilisateurs ; par conséquent, elle ne perturbe pas l’utilisation des applications.
   - Les éléments ci-dessous devront être résolus avant l’essai à blanc, mais un test d’essai à blanc éliminera également sans risque ces étapes de préparation si elles ne sont pas suivies. Nous avons conclu que l’essai à blanc représente un moyen sûr et incomparable d’assurer la préparation à la migration lors de la migration d’entreprise.
   - Au cours de la préparation, le plan de contrôle (opérations de gestion Azure) sera verrouillé pour l’ensemble du réseau virtuel ; ainsi, aucune modification ne pourra être apportée aux métadonnées de la machine virtuelle au cours de l’opération Valider/Préparer/Abandonner.  Par ailleurs, aucune fonction de l’application (bureau à distance, utilisation de la machine virtuelle, etc.) ne sera affectée.  Les utilisateurs des machines virtuelles ne sauront pas que l’essai à blanc est en cours d’exécution.
 
@@ -201,7 +201,7 @@ Points importants à prendre en compte :
 
 Ciblez les services que vous voulez activer dans Azure Resource Manager.  De nombreux clients trouvent les services ci-dessous incontournables pour leur environnement Azure :
 
-- [Contrôle d’accès en fonction du rôle](../../azure-resource-manager/resource-group-overview.md#access-control).
+- [Contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md).
 - [Modèles Azure Resource Manager, pour un déploiement plus facile et mieux contrôlé](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Tags](../../azure-resource-manager/resource-group-using-tags.md) (balises).
 - [Contrôle d’activité](../../azure-resource-manager/resource-group-audit.md)

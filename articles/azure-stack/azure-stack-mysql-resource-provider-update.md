@@ -15,12 +15,12 @@ ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: f3129c27d123aa448f8293f7e1827dc3ebc5c82e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38d27c6f82533265705ff5483bfe835c81c9ce6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239075"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817289"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Mettre à jour le fournisseur de ressources MySQL 
 
@@ -30,7 +30,7 @@ Un nouvel adaptateur de fournisseur de ressources MySQL peut être publié quand
 
 À compter de la publication de la version 1.1.33.0 du fournisseur de ressources MySQL, les mises à jour sont cumulatives et ne doivent pas être installées dans l’ordre où elles ont été publiées dès lors que vous démarrez par la version 1.1.24.0 ou ultérieure. Par exemple, si vous exécutez la version 1.1.24.0 du fournisseur de ressources MySQL, vous pouvez mettre à niveau vers la version 1.1.33.0 ou ultérieure sans devoir d’abord installer la version 1.1.30.0. Pour passer en revue les versions disponibles du fournisseur de ressources et la version d’Azure Stack sur laquelle elles sont prises en charge, reportez-vous à la liste des versions dans [Déployer les prérequis du fournisseur de ressources](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-Pour mettre à jour le fournisseur de ressources, vous utilisez le script **UpdateMySQLProvider.ps1**. Le processus est semblable au processus utilisé pour installer un fournisseur de ressources, comme décrit dans la section [Déployer le fournisseur de ressources](#deploy-the-resource-provider) de cet article. Le script est inclus avec le téléchargement du fournisseur de ressources. 
+Pour mettre à jour le fournisseur de ressources, vous utilisez le script **UpdateMySQLProvider.ps1**. Le processus est semblable au processus utilisé pour installer un fournisseur de ressources, comme décrit dans la section Déployer le fournisseur de ressources de cet article. Le script est inclus avec le téléchargement du fournisseur de ressources. 
 
  > [!IMPORTANT]
  > Avant de mettre à niveau le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
