@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: fb9725e18c53e9d42ae51418a1eb614aaa10fd12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157326"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816779"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Utilisation du client géré pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -103,7 +103,7 @@ La section suivante explique comment rechercher et récupérer les enregistremen
 * [Rechercher un enregistrement par ID](#lookingup)
 * [Traitement des requêtes non typées](#untypedqueries)
 * [Insertion de données](#inserting)
-* [Mise à jour des données](#updating)
+* Mise à jour des données
 * [Suppression de données](#deleting)
 * [Résolution des conflits et accès concurrentiel optimiste](#optimisticconcurrency)
 * [Liaison à une Interface utilisateur Windows](#binding)
@@ -624,14 +624,14 @@ Par exemple :
 Vous pouvez utiliser InvokeApiAsync pour appeler des API web, y compris si celles-ci ne sont pas définies avec Azure Mobile Apps.  Lorsque vous utilisez InvokeApiAsync(), les en-têtes appropriés, y compris les en-têtes d’authentification, sont envoyés avec la demande.
 
 ## <a name="authentication"></a>Authentification des utilisateurs
-Mobile Apps prend en charge l’authentification et l’autorisation des utilisateurs de l’application par l’intermédiaire de différents fournisseurs d’identité externes : Facebook, Google, compte Microsoft, Twitter et Azure Active Directory. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez le didacticiel [Ajout de l’authentification à votre application].
+Mobile Apps prend en charge l’authentification et l’autorisation des utilisateurs de l’application par l’intermédiaire de différents fournisseurs d’identité externes : Facebook, Google, compte Microsoft, Twitter et Azure Active Directory. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez le didacticiel [Ajout de l'authentification à votre application].
 
 Deux flux d’authentification sont pris en charge : le flux *géré par le client* et le flux *géré par le serveur*. Le flux géré par le serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. En revanche, le flux géré par le client est celui qui s'intègre le plus profondément aux fonctionnalités propres à l'appareil, car il s'appuie sur les Kits de développement logiciel (SDK) propres au fournisseur et à l'appareil.
 
 > [!NOTE]
 > Nous vous recommandons d’utiliser un flux géré par le client dans vos applications de production.
 
-Pour configurer l’authentification, vous devez inscrire votre application avec un ou plusieurs fournisseurs d’identité.  Le fournisseur d’identité génère un ID client et une clé secrète client pour votre application.  Ces valeurs sont ensuite définies dans votre backend pour activer l’authentification/autorisation d’Azure App Service.  Pour plus d’informations, suivez les instructions détaillées dans le didacticiel [Ajout de l’authentification à votre application].
+Pour configurer l’authentification, vous devez inscrire votre application avec un ou plusieurs fournisseurs d’identité.  Le fournisseur d’identité génère un ID client et une clé secrète client pour votre application.  Ces valeurs sont ensuite définies dans votre backend pour activer l’authentification/autorisation d’Azure App Service.  Pour plus d’informations, suivez les instructions détaillées dans le didacticiel [Ajout de l'authentification à votre application].
 
 Les rubriques traitées dans cette section sont les suivantes :
 
@@ -902,9 +902,9 @@ private async void InitNotificationsAsync()
 Si vous déployez vers WNS, alors vous DEVEZ [obtenir un SID de package Microsoft Store](#package-sid).  Pour plus d'informations sur les applications Windows, y compris l'enregistrement pour les inscriptions de modèle, consultez la page [Ajouter des notifications Push à votre application].
 
 La requête de balises à partir du client n’est pas prise en charge.  Les requêtes de balises sont supprimées de manière silencieuse à partir de l’inscription.
-Si vous souhaitez inscrire votre appareil avec des balises, créez une API personnalisée qui utilise l’API Notification Hubs pour effectuer l’inscription de votre part.  [Appelez l’API personnalisée](#customapi) au lieu de la méthode `RegisterNativeAsync()`.
+Si vous souhaitez inscrire votre appareil avec des balises, créez une API personnalisée qui utilise l’API Notification Hubs pour effectuer l’inscription de votre part.  Appelez l'API personnalisée au lieu de la méthode `RegisterNativeAsync()`.
 
-### <a name="package-sid"></a>Procédure : Obtention d’un SID de package Microsoft Store
+### <a name="package-sid"></a>Procédure : Obtention d’un SID de package Microsoft Store
 Un SID de package est nécessaire pour l’activation des notifications Push dans les applications Microsoft Store.  Pour recevoir un SID de package, enregistrez votre application auprès du Microsoft Store.
 
 Pour obtenir cette valeur :
@@ -1039,7 +1039,7 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Ajout de l’authentification à votre application]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Ajout de l'authentification à votre application]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Ajouter des notifications Push à votre application]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Register your app to use a Microsoft account login]: ../app-service/configure-authentication-provider-microsoft.md

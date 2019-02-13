@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412867"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694055"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -230,7 +230,7 @@ Oui. En savoir plus sur l’utilisation des éléments suivants :
 L’appairage VNet (ou appairage de réseau virtuel) permet de connecter des réseaux virtuels. Une connexion d’appairage VNet entre réseaux virtuels vous permet d’acheminer le trafic entre eux de façon privée par le biais d’adresses IPv4. Les machines virtuelles dans les réseaux virtuels appairés peuvent communiquer entre elles comme si elles se trouvaient dans le même réseau. Ces réseaux virtuels peuvent se situer dans la même région ou dans des régions différentes (Global VNet Peering). Il est également possible de créer des connexions d’appairage VNet dans les abonnements Azure.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Puis-je créer une connexion d’homologation pour un réseau virtuel dans une autre région ?
-Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet Peering est disponible dans toutes les régions publiques Azure. Vous ne pouvez pas homologuer globalement de régions publiques Azure dans des clouds nationaux. L’homologation globale n’est pas actuellement disponible dans les clouds nationaux.
+Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet Peering est disponible dans toutes les régions publiques Azure et dans les régions cloud de Chine. Vous ne pouvez pas procéder au peering mondial de régions publiques Azure avec des régions cloud nationales. Le peering mondial n'est actuellement pas disponible dans le cloud Government.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Puis-je activer l’homologation de réseau virtuel si mes réseaux virtuels font partie d’abonnements de différents locataires Azure Active Directory ?
 Oui. Il est possible d’établir une homologation de réseau virtuel (locale ou globale) si vos abonnements appartiennent à différents locataires Azure Active Directory. Vous pouvez faire cela via PowerShell ou Azure CLI. Le portail n’est pas encore pris en charge.
@@ -329,7 +329,7 @@ Par défaut, les ressources du service Azure sécurisées pour des réseaux virt
 Pour sécuriser les services Azure pour plusieurs sous-réseaux au sein d’un réseau virtuel ou sur plusieurs réseaux virtuels, activez les points de terminaison de service côté réseau sur chacun des sous-réseaux indépendamment et sécurisez les ressources de service Azure pour l’ensemble des sous-réseaux en configurant les ACL de réseau virtuel appropriées côté service Azure.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Comment puis-je filtrer le trafic sortant d’un réseau virtuel vers les services Azure en continuant d’utiliser les points de terminaison de service ?
-Si vous souhaitez inspecter ou filtrer le trafic destiné à un service Azure à partir d’un réseau virtuel, vous pouvez déployer une appliance virtuelle réseau au sein du réseau virtuel. Vous pouvez ensuite appliquer des points de terminaison de service au sous-réseau sur lequel est déployée l’appliance virtuelle réseau et sécuriser les ressources de service Azure uniquement pour ce sous-réseau via des ACL de réseau virtuel. Ce scénario peut également être utile si vous souhaitez restreindre l’accès aux services Azure à partir de votre réseau virtuel uniquement pour des ressources Azure spécifiques, à l’aide du filtrage de l’appliance virtuelle réseau. Pour plus d’informations, consultez la section relative à la [sortie avec les appliances virtuelles réseau](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Si vous souhaitez inspecter ou filtrer le trafic destiné à un service Azure à partir d’un réseau virtuel, vous pouvez déployer une appliance virtuelle réseau au sein du réseau virtuel. Vous pouvez ensuite appliquer des points de terminaison de service au sous-réseau sur lequel est déployée l’appliance virtuelle réseau et sécuriser les ressources de service Azure uniquement pour ce sous-réseau via des ACL de réseau virtuel. Ce scénario peut également être utile si vous souhaitez restreindre l’accès aux services Azure à partir de votre réseau virtuel uniquement pour des ressources Azure spécifiques, à l’aide du filtrage de l’appliance virtuelle réseau. Pour plus d’informations, consultez la section relative à la [sortie avec les appliances virtuelles réseau](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>Que se passe-t-il quand vous accédez à un compte de service Azure qui a une ACL de réseau virtuel activée depuis un emplacement extérieur au réseau virtuel ?
 L’erreur HTTP 403 ou HTTP 404 est retournée.

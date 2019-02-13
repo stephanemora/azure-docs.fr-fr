@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6ab3e918feda3dcf898928f159ebf8e317a95527
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7156249e720416161cd56af7589ed85827c6034b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331841"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812546"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Déplacer des données vers et depuis Azure Table à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -80,7 +80,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l'ac
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête de table Azure. Consultez les exemples dans la section suivante. | Non. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination. |
+| AzureTableSourceQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête de table Azure. Consultez les exemples dans la section suivante. |Non. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination. |
 | azureTableSourceIgnoreTableNotFound |Indiquer si l'exception de la table n'existe pas. |TRUE<br/>FALSE |Non  |
 
 ### <a name="azuretablesourcequery-examples"></a>Exemples azureTableSourceQuery
@@ -103,7 +103,7 @@ Si la colonne de table Azure est de type datetime:
 | azureTableDefaultPartitionKeyValue |Valeur de clé de partition par défaut qui peut être utilisée par le récepteur. |Valeur de chaîne. |Non  |
 | azureTablePartitionKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clés de partition. Si aucune valeur n'est spécifiée, AzureTableDefaultPartitionKeyValue est utilisée comme clé de partition. |Nom de colonne. |Non  |
 | azureTableRowKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. |Nom de colonne. |Non  |
-| azureTableInsertType |Le mode d’insertion des données dans une table Azure.<br/><br/>Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Consultez [Insertion ou fusion d’entité](https://msdn.microsoft.com/library/azure/hh452241.aspx) et [Insertion ou remplacement d’entité](https://msdn.microsoft.com/library/azure/hh452242.aspx) pour en savoir plus sur le fonctionnement de ces paramètres (fusion et remplacement). <br/><br>  Ce paramètre s’applique au niveau de la ligne, non au niveau de la table, et aucune option ne supprime des lignes de la table de sortie qui n’existent pas dans l’entrée. |fusionner (par défaut)<br/>remplacer |Non  |
+| azureTableInsertType |Le mode d’insertion des données dans une table Azure.<br/><br/>Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Consultez [Insertion ou fusion d’entité](https://msdn.microsoft.com/library/azure/hh452241.aspx) et [Insertion ou remplacement d’entité](https://msdn.microsoft.com/library/azure/hh452242.aspx) pour en savoir plus sur le fonctionnement de ces paramètres (fusion et remplacement). <br/><br> Ce paramètre s’applique au niveau de la ligne, non au niveau de la table, et aucune option ne supprime des lignes de la table de sortie qui n’existent pas dans l’entrée. |fusionner (par défaut)<br/>remplacer |Non  |
 | writeBatchSize |Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte. |Nombre entier (nombre de lignes) |Non (valeur par défaut : 10000) |
 | writeBatchTimeout |Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte |intervalle de temps<br/><br/>Exemple : "00:20:00" (20 minutes) |Non (Valeur par défaut du délai d'attente du stockage client par défaut : 90 secondes) |
 
@@ -137,7 +137,7 @@ L’exemple suivant montre :
 1. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (utilisé pour la table et l’objet blob).
 2. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureTable](#dataset-properties).
 3. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. Le [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [AzureTableSource](#activity-properties) et [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+4. Le [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise AzureTableSource et [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 L'exemple copie des données appartenant à la partition par défaut dans une Table Azure vers un objet Blob, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
@@ -477,7 +477,7 @@ Pendant le déplacement de données à partir de et vers Table Azure, les [mappa
 | --- | --- | --- |
 | Edm.Binary |byte[] |Tableau d’octets jusqu’à 64 Ko. |
 | Edm.Boolean |bool |Valeur booléenne. |
-| Edm.DateTime |Datetime |Valeur de 64 bits exprimée en temps universel coordonné (UTC). La plage DateHeure prise en charge commence à partir de 12:00 minuit, le 1er janvier 1601 apr. J.C. (NOTRE ÈRE), UTC. La plage se termine le 31 décembre 9999. |
+| Edm.DateTime |DateTime |Valeur de 64 bits exprimée en temps universel coordonné (UTC). La plage DateHeure prise en charge commence à partir de 12:00 minuit, le 1er janvier 1601 apr. J.C. (NOTRE ÈRE), UTC. La plage se termine le 31 décembre 9999. |
 | Edm.Double |double |Valeur à virgule flottante de 64 bits. |
 | Edm.Guid |Guid |Identificateur global unique de 128 bits. |
 | Edm.Int32 |Int32 |Nombre entier 32 bits. |
@@ -533,7 +533,7 @@ Définissez le jeu de données des objets blob source comme suit, ainsi que des 
 
 **Schéma de Table Azure :**
 
-| Nom de la colonne | type |
+| Nom de la colonne | Type |
 | --- | --- |
 | userId |Edm.Int64 |
 | Nom |Edm.String |
