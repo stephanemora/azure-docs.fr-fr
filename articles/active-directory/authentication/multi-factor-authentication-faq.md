@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: b6123407c8a9157aaf1d43b8fbdb84ef0c5b5f4d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: f004d67a84cb95316007f54521cdf63f9a82c06c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076143"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696803"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Questions fréquentes relatives à Azure Multi-Factor Authentication
 
@@ -118,7 +118,7 @@ Azure Active Directory est requis pour le modèle basé sur licence car les lice
 
 **Q : Que dois-je dire à mes utilisateurs s’ils ne reçoivent pas de réponse sur leur téléphone ?**
 
-Demandez à vos utilisateurs d’essayer jusqu’à 5 fois en 5 minutes d’obtenir un appel téléphonique ou un SMS pour l’authentification. Microsoft utilise plusieurs fournisseurs pour distribuer les appels et les SMS. Si cela ne fonctionne pas, ouvrez une demande de support auprès de Microsoft pour résoudre le problème.
+Demandez à vos utilisateurs d’essayer jusqu’à 5 fois en 5 minutes d’obtenir un appel téléphonique ou un SMS pour l’authentification. Microsoft utilise plusieurs fournisseurs pour distribuer les appels et les SMS. Si cela ne fonctionne pas, formulez une demande de support auprès de Microsoft pour résoudre le problème.
 
 Si les étapes ci-dessus ne fonctionnent pas, espérons que tous vos utilisateurs ont configuré plus d’une méthode de vérification. Encouragez-les à tenter de se reconnecter, mais sélectionnez une autre méthode de vérification sur la page de connexion.
 

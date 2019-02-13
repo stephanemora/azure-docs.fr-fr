@@ -6,28 +6,32 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312021"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751376"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurer une connexion à partir d’un indexeur Azure Search à SQL Server sur une machine virtuelle Azure
 Comme indiqué dans [Connexion d’Azure SQL Database à Recherche Azure à l’aide d’indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la création d’indexeurs dans **SQL Server sur des machines virtuelles Azure** (ou des **machines virtuelles SQL Azure** pour faire plus court) est prise en charge par le service Recherche Azure, mais il existe quelques conditions préalables liées à la sécurité qu’il faut résoudre en premier lieu. 
 
-**Durée de la tâche :** environ 30 minutes, en supposant que vous avez déjà installé un certificat sur la machine virtuelle.
+Les connexions entre Recherche Azure et SQL Server sur une machine virtuelle constituent des connexions Internet publiques. Toutes les mesures de sécurité que vous suivriez normalement pour ces connexions s'appliquent également ici :
+
++ Obtenez un certificat auprès d'un [fournisseur d'autorité de certification](https://en.wikipedia.org/wiki/Certificate_authority#Providers) pour le nom de domaine complet de l'instance SQL Server de la machine virtuelle Azure.
++ Installez le certificat sur la machine virtuelle, puis activez et configurez les connexions chiffrées sur la machine virtuelle en suivant les instructions de cet article.
 
 ## <a name="enable-encrypted-connections"></a>Activer des connexions chiffrées
 Le service Recherche Azure requiert un canal chiffré pour toutes les demandes d’indexeur via une connexion internet publique. Cette section répertorie les étapes pour y parvenir.
 
 1. Vérifiez les propriétés du certificat pour vous assurer que le nom du sujet est le nom de domaine complet (FQDN) de la machine virtuelle Azure. Vous pouvez utiliser un outil tel que CertUtils ou le composant logiciel enfichable Certificats pour afficher les propriétés. Vous pouvez obtenir le nom de domaine complet à partir de la section Essentials du panneau du service de la machine virtuelle dans le champ **Adresse IP publique/Étiquette du nom DNS** dans le [portail Azure](https://portal.azure.com/).
    
-   * Pour les machines virtuelles créées en utilisant le modèle **Resource Manager** le plus récent, le nom de domaine complet est au format `<your-VM-name>.<region>.cloudapp.azure.com`. 
-   * Pour les machines virtuelles plus anciennes créées comme machines virtuelles **Classic**, le nom de domaine complet est au format `<your-cloud-service-name.cloudapp.net>`. 
+   * Pour les machines virtuelles créées à l'aide du modèle **Resource Manager** le plus récent, le nom de domaine complet est au format `<your-VM-name>.<region>.cloudapp.azure.com`.
+   * Pour les machines virtuelles plus anciennes créées comme machines virtuelles **Classic**, le nom de domaine complet est au format `<your-cloud-service-name.cloudapp.net>`.
+
 2. Configurez SQL Server de manière à utiliser le certificat à l’aide de l’Éditeur du Registre (regedit). 
    
     Bien que le Gestionnaire de Configuration SQL Server soit souvent utilisé pour cette tâche, vous ne pouvez pas l’utiliser pour ce scénario. Il ne trouve pas le certificat importé, car le nom de domaine complet de la machine virtuelle sur Azure ne correspond pas au nom de domaine complet tel que déterminé par la machine virtuelle (il identifie le domaine en tant qu’ordinateur local ou domaine du réseau auquel il est joint). Lorsque les noms ne correspondent pas, utilisez regedit pour spécifier le certificat.
@@ -38,9 +42,11 @@ Le service Recherche Azure requiert un canal chiffré pour toutes les demandes d
    * Définissez la valeur de la clé de **Certificat** sur l’**empreinte numérique** du certificat SSL que vous avez importé sur la machine virtuelle.
      
      Il existe plusieurs manières d’obtenir l’empreinte numérique, certaines étant mieux que d’autres. Si vous la copiez à partir du composant logiciel enfichable **certificats** dans MMC, vous allez probablement choisir un caractère de début invisible [comme décrit dans cet article du support technique](https://support.microsoft.com/kb/2023869/), ce qui entraîne une erreur lors de la tentative de connexion. Il existe plusieurs solutions de contournement pour résoudre ce problème. La plus simple consiste à reculer et retaper le premier caractère de l’empreinte numérique pour supprimer le caractère de début dans le champ de la valeur de clé dans regedit. Vous pouvez également utiliser un autre outil pour copier l’empreinte numérique.
+
 3. Accordez des autorisations pour le compte de service. 
    
     Assurez-vous que le compte de service SQL Server a l’autorisation appropriée sur la clé privée du certificat SSL. Si vous ignorez cette étape, SQL Server ne démarre pas. Vous pouvez utiliser le composant logiciel enfichable **Certificats** ou **CertUtils** pour cette tâche.
+    
 4. Redémarrez le service SQL Server.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurer la connectivité SQL Server dans la machine virtuelle

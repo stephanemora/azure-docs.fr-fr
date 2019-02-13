@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 09/10/2018
-ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 20c96d1e25e0aef86d09c37ed919e61ec6058c6d
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249903"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747439"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installer le Kit de développement Azure Stack (ASDK)
 Après la [préparation de l’ordinateur hôte ASDK](asdk-prepare-host.md), le kit ASDK peut être déployé dans l’image CloudBuilder.vhdx en suivant les étapes de cet article.
@@ -59,7 +59,7 @@ Les étapes de cet article vous montrent comment déployer le kit ASDK à l’ai
     - Tapez une **adresse IP de serveur de temps** valide. Ce champ obligatoire définit le serveur de temps qui doit être utilisé par le Kit de développement. Ce paramètre doit être fourni sous la forme d’une adresse IP de serveur temps valide. Les noms de serveur ne sont pas pris en charge.
 
       > [!TIP]
-      > Pour rechercher l’adresse IP d’un serveur de temps, visitez [pool.ntp.org](http://pool.ntp.org) ou effectuez un test ping time.windows.com. 
+      > Pour rechercher l'adresse IP d'un serveur de temps, visitez [ntppool.org](https://www.ntppool.org/) ou effectuez un test ping time.windows.com. 
 
     - **Si vous le souhaitez**, vous pouvez aussi définir les valeurs suivantes :
         - **ID du réseau local virtuel** : Définit l’ID du réseau local virtuel. Utilisez cette option seulement si l’hôte et AzS-BGPNAT01 doivent configurer l’ID du réseau local virtuel pour accéder au réseau physique (et à Internet). 

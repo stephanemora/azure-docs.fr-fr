@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237849"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752294"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Résoudre les problèmes de votre déploiement Kubernetes sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!Note]  
-> Kubernetes sur Azure Stack est en préversion.
+> Kubernetes sur Azure Stack est en préversion. Le scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion.
 
 L’article suivant traite de la résolution des problèmes rencontrés avec votre cluster Kubernetes. Vous pouvez consulter l’alerte de déploiement et examiner l’état de votre déploiement par le biais des éléments requis pour ce déploiement. Vous devrez peut-être collecter les journaux de déploiement à partir du système Azure Stack ou des machines virtuelles Linux qui hébergent Kubernetes. Vous pouvez également être amené à travailler avec votre administrateur Azure Stack pour récupérer des journaux à partir d’un point de terminaison d’administration.
 
@@ -53,7 +53,7 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
 
 2. Créer la machine virtuelle de déploiement et l’extension de script personnalisé.
     -  Créer les machines virtuelles Linux de déploiement au moyen de l’image Linux de la Place de marché, **Ubuntu Server 16. 04-LTS**.
-    -  Télécharger et exécuter l’extension de script client à partir de la Place de marché. Le script est **Script personnalisé pour Linux 2.0**.
+    -  Télécharger et exécuter l'extension du script personnalisé à partir de la Place de marché. Le script est **Script personnalisé pour Linux 2.0**.
     -  Exécuter le script personnalisé DVM. Le script effectue les tâches suivantes :
         1. Obtient le point de terminaison de la galerie à partir du point de terminaison de métadonnées Azure Resource Manager.
         2. Obtient l’ID de ressource Active Directory à partir du point de terminaison des métadonnées Azure Resource Manager.
@@ -61,7 +61,7 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
         4. Déploie le moteur ACS sur le cluster Kubernetes et enregistre le profil cloud Azure Stack sur `/etc/kubernetes/azurestackcloud.json`.
 3. Créer les machines virtuelles principales.
 
-4. Télécharger et exécuter des extensions de script client.
+4. Télécharger et exécuter des extensions de scripts personnalisés.
 
 5. Exécuter le script principal.
 
@@ -75,7 +75,7 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
         3. Démarrer le service du planificateur.
 6. Créer des machines virtuelles d’agents.
 
-7. Téléchargez et exécutez l’extension de script du client.
+7. Télécharger et exécuter les extensions de scripts personnalisés.
 
 7. Exécuter le script de l’agent. Le script personnalisé de l’agent effectue les tâches suivantes :
     - Installe etcd

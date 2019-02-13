@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 11/6/2018
+ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 24cb5d7ddb1bfbb64796d871aa79109dfdfa94be
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353190"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492927"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions
 
@@ -45,7 +45,7 @@ Les attributs suivants peuvent être ajoutés aux listes d’exclusion :
    * XML
    * JSON
 
-Vous pouvez spécifier une correspondance exacte d’une demande d’en-tête, d’un corps, d’un cookie ou d’un attribut de chaîne de requête ou spécifier des correspondances partielles.
+Vous pouvez spécifier une correspondance exacte avec l'en-tête ou le corps d'une requête, un cookie ou un attribut de chaîne de requête  ou spécifier des correspondances partielles. L'exclusion porte toujours sur un champ d'en-tête, jamais sur sa valeur. Les règles d'exclusion ont une portée globale, et s'appliquent à toutes les pages et à toutes les règles.
 
 Voici les opérateurs de critères de correspondance pris en charge :
 

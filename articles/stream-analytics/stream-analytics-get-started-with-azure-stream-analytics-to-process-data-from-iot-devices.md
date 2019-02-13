@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b883dcf941683d6065c9b6ee5075d2a358f3452a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103164"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563505"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Prendre en main Azure Stream Analytics pour traiter des données à partir d’appareils IoT
 Dans ce didacticiel, vous allez apprendre à créer une logique de traitement de flux pour collecter des données à partir d’appareils IoT (Internet des objets). Nous allons recourir à un cas d’utilisation réel de l’IoT pour vous montrer comment générer votre solution rapidement et à moindre coût.
@@ -103,7 +103,7 @@ Nous allons maintenant affiner notre requête. Pour chaque type de capteur, nous
 Les résultats doivent maintenant contenir uniquement 245 lignes et répertorier les noms des capteurs pour lesquels la température moyenne est supérieure à 100 degrés. Dans cette requête, nous avons regroupé le flux d’événements en fonction du champ **dspl**, qui correspond au nom du capteur, et par valeur **Intervalle de temps** de 30 secondes. Les requêtes temporelles doivent indiquer le mode de calcul du temps. À l’aide de la clause **TIMESTAMP BY**, nous avons spécifié la colonne **OUTPUTTIME** pour associer les valeurs de temps avec l’ensemble des calculs temporels. Pour obtenir des informations détaillées, consultez les rubriques MSDN sur la [gestion du temps](https://msdn.microsoft.com/library/azure/mt582045.aspx) et les [fonctions de fenêtrage](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 ### <a name="query-detect-absence-of-events"></a>Requête : Détection de l’absence d’événements
-Comment écrire une requête pour rechercher une absence d’événements d’entrée ? Recherchons la dernière fois qu’un capteur a envoyé des données, puis qu’il n’a pas envoyé d’événements au cours des 5 secondes suivantes. La requête se trouve dans le fichier AbsenseOfEvent.txt.
+Comment écrire une requête pour rechercher une absence d’événements d’entrée ? Recherchons la dernière fois qu’un capteur a envoyé des données, puis qu’il n’a pas envoyé d’événements au cours des 5 secondes suivantes. La requête se trouve dans le fichier AbsenceOfEvent.txt.
 
 ![Détection de l’absence d’événements](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.openlocfilehash: 49c9d908970425165fcdd76171c20ab65454f42a
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.date: 02/01/2019
+ms.openlocfilehash: 8cc7d7d93f483289ab7faa3f5a7193fc218b57bc
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318576"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695025"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -129,5 +129,5 @@ Pour obtenir les dernières informations sur la tarification, veuillez consulter
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [Créer un serveur PostgreSQL dans le portail](tutorial-design-database-using-azure-portal.md).
-- Découvrez comment [Surveiller et mettre à l’échelle un serveur Azure Database pour PostgreSQL à l’aide d’Azure CLI](scripts/sample-scale-server-up-or-down.md).
-- En savoir plus sur les [limitations de service](concepts-limits.md). 
+- En savoir plus sur les [limites de service](concepts-limits.md). 
+- Apprendre à [monter en charge avec des réplicas en lecture](howto-read-replicas-portal.md).

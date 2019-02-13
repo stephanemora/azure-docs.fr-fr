@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473423"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755167"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -107,7 +107,7 @@ Les sections suivantes fournissent une vue d’ensemble des étapes de la récup
 
 Quelle que soit la fonctionnalité de continuité d’activité que vous utilisez, vous devez :
 
-- Identifier et préparer le serveur cible, y compris les règles de pare-feu au niveau du serveur, les connexions et les autorisations au niveau de la base de données MASTER
+- Identifier et préparer le serveur cible, y compris les règles de pare-feu IP au niveau du serveur, les connexions et les autorisations au niveau de la base de données MASTER
 - Déterminer comment rediriger les clients et les applications clientes vers le nouveau serveur
 - Documenter les autres dépendances, notamment les paramètres d’audit et les alertes
 
@@ -132,7 +132,7 @@ Si vous utilisez les sauvegardes automatisées avec stockage géoredondant (acti
 Après la récupération à l’aide d’un de ces mécanismes de récupération, vous devez effectuer les tâches supplémentaires suivantes afin que les utilisateurs et les applications soient de nouveau opérationnels :
 
 - Rediriger les clients et les applications clientes vers le nouveau serveur et la base de données restaurée
-- Vérifier que les règles de pare-feu appropriées au niveau du serveur sont en place pour permettre aux utilisateurs de se connecter (ou utiliser le [pare-feu au niveau de la base de données](sql-database-firewall-configure.md#creating-and-managing-firewall-rules))
+- Vérifier que les règles de pare-feu IP appropriées sont en place au niveau du serveur pour permettre aux utilisateurs de se connecter ou d'utiliser les [pare-feu au niveau de la base de données](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) afin d'activer les règles qui conviennent
 - Vérifier que les connexions et les autorisations appropriées au niveau de la base de données MASTER sont en place (ou utiliser des [utilisateurs contenus](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configurer l’audit, selon les besoins
 - Configurer les alertes, selon les besoins

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: ee695798dc8a2a19d5cd3d94cbf43e0b58065f84
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f6c2c8c49f34c707c7b0fb4d525337fbfa169a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556677"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692423"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Mise à l’échelle de votre environnement Time Series Insights
 
@@ -47,7 +47,7 @@ Les capacités sont mises à l’échelle de façon linéaire. Par conséquent, 
 ## <a name="change-the-capacity-of-your-environment"></a>Changer la capacité de votre environnement
 1. Dans le portail Azure, recherchez et sélectionnez votre environnement Time Series Insights. 
 
-2. Dans le menu de votre environnement Time Series Insighs, sélectionnez **Configurer**.
+2. Dans le menu de votre environnement Time Series Insights, sélectionnez **Configurer**.
 
    ![configure.png](media/scale-your-environment/configure.png)
 

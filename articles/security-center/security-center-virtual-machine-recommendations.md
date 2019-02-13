@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
-ms.openlocfilehash: b77e814f9f339dff4539a04ab8b492e9777abe0d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 32ca3fc87c91deba26e63a5938536d488e7dc5a8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537645"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488737"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Comprendre les recommandations sur les ressources d’Azure Security Center
 
@@ -43,7 +43,7 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations Compute
 | [Évaluation des vulnérabilités non installée](security-center-vulnerability-assessment-recommendations.md) |Recommande d’installer une solution d’évaluation des vulnérabilités sur votre machine virtuelle. |
 | [Corriger des vulnérabilités](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Vous permet de voir les vulnérabilités du système et des applications détectées par la solution d’évaluation des vulnérabilités installée sur votre machine virtuelle. |
 
-### <a name="app-services"></a>App Services
+### Services d'application <a name="app-services"></a>
 | Recommandation | Description |
 | --- | --- |
 | App Service ne doit être accessible que via HTTPS | Recommande de limiter l’accès d’App Service via HTTPS uniquement. |

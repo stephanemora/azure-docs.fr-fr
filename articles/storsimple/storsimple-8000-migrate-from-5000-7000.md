@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 23fde5fab8f223ff1d958a8fac6a31818f1fdd7c
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818914"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495851"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrer les données d’un appareil StorSimple 5000-7000 vers un appareil StorSimple 8000
 
@@ -57,7 +57,7 @@ Une migration côté hôte permet de configurer indépendamment les appareils 80
 | 3.   | Après une migration réussie, toutes les données sont locales sur l’appliance. Il n’existe pas de latence durant l’accès aux données. | La consommation du stockage Azure augmente jusqu'à ce que les données soient supprimées de l’appareil 5000/7000.                                                                                                        |
 | 4.   |                                                                                                                           | Si l’appareil 5000/7000 héberge une grande quantité de données, durant la migration, ces données doivent être téléchargées à partir d’Azure, ce qui implique des frais et des latences liés au téléchargement de données à partir d’Azure. |
 
-Cet article aborde uniquement la fonctionnalité de migration d’un appareil 5000/7000 vers un appareil 8000. Pour plus d’informations sur la migration côté hôte, consultez [Migration à partir d’autres appareils de stockage](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
+Cet article aborde uniquement la fonctionnalité de migration d’un appareil 5000/7000 vers un appareil 8000. Pour plus d’informations sur la migration côté hôte, consultez [Migration à partir d’autres appareils de stockage](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
 
 ## <a name="migration-prerequisites"></a>Prérequis pour la migration
 
@@ -125,7 +125,7 @@ Procédez comme suit pour installer l’outil de migration StorSimple sur votre 
 
     Ouvrez le fichier config de l’outil _StorSimple8000SeriesMigrationTool.exe.config_ dans le dossier. Voici l’extrait de code du fichier.
     
-    ```
+    ```xml
         <add key="UserName" value="username@xyz.com" />
         <add key="SubscriptionName" value="YourSubscriptionName" />
         <add key="SubscriptionId" value="YourSubscriptionId" />

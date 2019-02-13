@@ -117,6 +117,28 @@ items:
     href: concepts-pipeline-execution-triggers.md
   - name: Runtime d’intégration
     href: concepts-integration-runtime.md
+  - name: Mappage de flux de données
+    items:
+    - name: Concepts du mappage de flux de données
+      href: concepts-data-flow-overview.md
+    - name: Mode débogage
+      href: concepts-data-flow-debug-mode.md
+    - name: Dérive de schéma
+      href: concepts-data-flow-schema-drift.md
+    - name: Volet Inspecter
+      href: concepts-data-flow-inspect-pane.md
+    - name: Modèles de colonne
+      href: concepts-data-flow-column-pattern.md
+    - name: Supervision du flux de données
+      href: concepts-data-flow-monitoring.md
+    - name: Déplacer des nœuds
+      href: concepts-data-flow-move-nodes.md
+    - name: Onglet Optimiser
+      href: concepts-data-flow-optimize-tab.md
+    - name: Générateur d’expressions
+      href: concepts-data-flow-expression-builder.md
+    - name: Référencer des nœuds
+      href: concepts-data-flow-reference-node.md
   - name: Rôles et autorisations
     href: concepts-roles-permissions.md
   - name: Compréhension de la tarification
@@ -141,7 +163,7 @@ items:
       href: connector-amazon-redshift.md
     - name: Amazon S3
       href: connector-amazon-simple-storage-service.md
-    - name: un stockage Azure Blob
+    - name: Stockage Blob Azure
       href: connector-azure-blob-storage.md
     - name: API SQL Azure Cosmos DB
       href: connector-azure-cosmos-db.md
@@ -506,9 +528,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Options de support
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: c73a736dadee91f344da32fb5569d5809a382f1b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 535abc50cd27693da90aaaddcfdf8950d6abc59d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960239"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174416"
