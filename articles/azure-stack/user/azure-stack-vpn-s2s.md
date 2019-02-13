@@ -14,16 +14,19 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 9a14c819acbc46d8a281f73fd4f3185caa8a1e02
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 96cb07ca4ede26e9bf0e5ceba28f1549061d0bf3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478149"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815674"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN site à site
 
 Cet article décrit les étapes permettant de configurer une stratégie IPsec/IKE pour les connexions VPN site à site (S2S) dans Azure Stack.
+
+>[!NOTE]
+> Pour pouvoir utiliser cette fonctionnalité, vous devez exécuter Azure Stack **1809** ou version ultérieure.  Si vous utilisez actuellement une version antérieure à la version 1809, procédez à une mise à jour de votre système Azure Stack vers la dernière version avant de tenter d'utiliser cette fonctionnalité ou de suivre les étapes décrites dans cet article.
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>Paramètres de stratégie IPsec et IKE pour les passerelles VPN
 
@@ -116,7 +119,7 @@ Cette section vous guide tout au long des étapes de création d’une connexion
 
 ![stratégie site à site](media/azure-stack-vpn-s2s/site-to-site.png)
 
-Pour obtenir des instructions détaillées sur la création d’une connexion VPN site à site, consultez [Créer une connexion VPN site à site.](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+Pour obtenir des instructions détaillées sur la création d’une connexion VPN site à site, consultez [Créer une connexion VPN site à site](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 ### <a name="prerequisites"></a>Prérequis
 

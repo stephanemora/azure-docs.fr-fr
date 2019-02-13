@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 6b470bfbb97cb14ccb1f63b34218575b64e686de
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 85b05e50dd989ef8db737df0a43f29b20aefb596
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812588"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657754"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -61,7 +61,7 @@ Obtenez des réponses aux questions fréquemment posées sur les groupes de mach
 
 **Q.** Lorsque j’utilise plusieurs extensions dans un groupe identique, puis-je appliquer une séquence d’exécution ?
 
-**A.** Pas directement, mais pour l’extension customScript, votre script peut attendre que l’exécution d’une autre extension soit terminée. Vous trouverez des conseils supplémentaires sur le séquencement d’extensions dans ce billet de blog : [Extension Sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Séquencement d’extensions dans les groupes identiques de machines virtuelles Azure).
+**A.** Oui, vous pouvez appliquer une [séquence d'exécution](virtual-machine-scale-sets-extension-sequencing.md) au groupe identique.
 
 **Q.** Les groupes identiques fonctionnent-ils avec des ensembles haute disponibilité Azure ?
 
@@ -69,7 +69,7 @@ Obtenez des réponses aux questions fréquemment posées sur les groupes de mach
 
 **Q.** Les groupes identiques fonctionnent-ils avec des zones de disponibilité Azure ?
 
-**A.**  Oui. Pour plus d’informations, consultez le [document relatif aux zones des groupes identiques](./virtual-machine-scale-sets-use-availability-zones.md).
+**A.** Oui. Pour plus d’informations, consultez le [document relatif aux zones des groupes identiques](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale
@@ -134,7 +134,7 @@ Pour configurer la mise à l’échelle automatique sur un groupe de machines vi
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Si j’ai arrêté (libéré) une machine virtuelle, celle-ci démarre-t-elle en bénéficiant de l’opération de mise à l’échelle automatique ?
 
- Non. Si la mise à l’échelle automatique nécessite des instances de machine virtuelle supplémentaires appartenant au groupe identique, une nouvelle instance de machine virtuelle doit être créée. Les instances de machine virtuelle arrêtées (libérées) ne démarrent pas sous l’événement de mise à l’échelle automatique. Toutefois, ces machines virtuelles arrêtées (libérées) risquent d’être supprimées dans le cadre d’un événement de mise à l’échelle qui diminue le nombre d’instances, de la même façon que n’importe quelle instance de machine virtuelle peut être supprimée en fonction de l’ordre de l’ID d’instance de machine virtuelle.
+Non. Si la mise à l’échelle automatique nécessite des instances de machine virtuelle supplémentaires appartenant au groupe identique, une nouvelle instance de machine virtuelle doit être créée. Les instances de machine virtuelle arrêtées (libérées) ne démarrent pas sous l’événement de mise à l’échelle automatique. Toutefois, ces machines virtuelles arrêtées (libérées) risquent d’être supprimées dans le cadre d’un événement de mise à l’échelle qui diminue le nombre d’instances, de la même façon que n’importe quelle instance de machine virtuelle peut être supprimée en fonction de l’ordre de l’ID d’instance de machine virtuelle.
 
 
 
@@ -176,7 +176,7 @@ az sf cluster create -h
 
 Passez en revue la documentation sur les coffres de clés pour obtenir les dernières opérations sur les certificats prises en charge par l’API dans Azure.
 
-Vous ne pouvez pas utiliser de certificats auto-signés pour une approbation distribuée fournie par une autorité de certification. Vous ne pouvez pas non plus les utiliser avec un cluster Service Fabric destiné à héberger des solutions de production d’entreprise. Pour obtenir de l’aide supplémentaire sur la sécurité dans Service Fabric, passez en revue [Bonnes pratiques pour la sécurité Azure Service Fabric](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) et [Scénarios de sécurité d’un cluster Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Vous ne pouvez pas utiliser de certificats auto-signés pour une approbation distribuée fournie par une autorité de certification. Vous ne pouvez pas non plus les utiliser avec un cluster Service Fabric destiné à héberger des solutions de production d’entreprise. Pour obtenir de l’aide supplémentaire sur la sécurité dans Service Fabric, passez en revue [Bonnes pratiques pour la sécurité Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) et [Scénarios de sécurité d’un cluster Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Puis-je spécifier une paire de clés SSH à utiliser pour l’authentification SSH avec un groupe de machines virtuelles identiques Linux à partir d’un modèle Resource Manager ?
 
@@ -230,9 +230,10 @@ Vous pouvez fournir les clés publiques SSH en texte brut lorsque vous créez un
             }
         ]
     }
+}
 ```
 
-nom d’élément linuxConfiguration | Obligatoire | type | Description
+nom d’élément linuxConfiguration | Obligatoire | Type | Description
 --- | --- | --- | --- |  ---
 ssh | Non  | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
 chemin d’accès | Oui | Chaîne | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
@@ -392,13 +393,13 @@ Il existe deux principales façons de changer le mot de passe pour les machines 
 - Réinitialisez le mot de passe à l’aide des extensions d’accès aux machines virtuelles.
 
     Utilisez l’exemple PowerShell suivant :
-    
+
     ```powershell
     $vmssName = "myvmss"
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-    
+
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
     $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
@@ -630,7 +631,9 @@ Vous bénéficiez d’une certaine flexibilité dans la façon dont vous gérez 
                     }
                 ]
             }
-        ],
+        ]
+    }
+}
 ```
 
 Dans cet exemple, une alerte est envoyée à Pagerduty.com lorsqu’un seuil est atteint.

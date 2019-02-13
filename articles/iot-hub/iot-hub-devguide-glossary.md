@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320088"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817376"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -82,7 +82,7 @@ Vous utilisez des chaînes de connexion dans votre code d’application afin d�
 Vous pouvez créer des [points de terminaison](iot-hub-devguide-endpoints.md) personnalisés sur un hub IoT pour transmettre les messages envoyés à l’aide d’une [règle de routage](#routing-rules). Les points de terminaison personnalisés se connectent directement à un hub d’événements, à une file d’attente Service Bus ou à une rubrique Service Bus.
 
 ## <a name="custom-gateway"></a>Passerelle personnalisée
-Une passerelle assure la connectivité d’appareils qui ne peuvent pas se connecter directement à [IoT Hub](#iot-hub). [Azure IoT Edge](#azure-iot-edge) permet de construire des passerelles personnalisées qui implémentent une logique personnalisée pour gérer des messages, des conversions de protocole personnalisées et d’autres opérations.
+Une passerelle assure la connectivité d’appareils qui ne peuvent pas se connecter directement à [IoT Hub](#iot-hub). Azure IoT Edge permet de créer des passerelles personnalisées qui implémentent une logique personnalisée pour gérer les messages, les conversions de protocole personnalisées et d'autres opérations à la périphérie.
 
 ## <a name="data-point-message"></a>Message de point de données
 Un message de point de données est un message [appareil-à-cloud](#device-to-cloud) qui contient des données de [télémétrie](#telemetry) telles que la vitesse du vent ou la température.
@@ -224,7 +224,7 @@ Vous utilisez une stratégie de nouvelle tentative pour gérer des [erreurs temp
 Vous pouvez configurer des [règles de routage](iot-hub-devguide-messages-read-custom.md) dans votre hub IoT pour acheminer les messages appareil-à-cloud vers un [point de terminaison intégré](#built-in-endpoints) ou vers des [points de terminaison personnalisés](#custom-endpoints) afin qu’ils soient traités par votre back-end de solution.
 
 ## <a name="sasl-plain"></a>SAPL PLAIN
-SAPL PLAIN est un protocole que le protocole [AMQP](#advanced-message-queue-protocol) utilise pour transférer des jetons de sécurité.
+SASL PLAIN est un protocole utilisé par le protocole AMQP pour transférer des jetons de sécurité.
 
 ## <a name="service-rest-api"></a>API REST du service
 Vous pouvez utiliser [l’API REST du service](https://docs.microsoft.com/rest/api/iothub/service) à partir du backend de la solution pour gérer vos appareils. L’API vous permet de récupérer et de mettre à jour les propriétés de [jumeau d’appareil](#device-twin), d’appeler des [méthodes directes](#direct-method) et de planifier des [travaux](#job). En règle générale, vous devez utiliser l’un des kits [service SDK](#azure-iot-service-sdks) comme indiqué dans les didacticiels sur IoT Hub.
@@ -251,7 +251,7 @@ Dans le contexte d’un [jumeau d’appareil](iot-hub-devguide-device-twins.md),
 Dans le contexte d’un [jumeau d’appareil](iot-hub-devguide-device-twins.md), les balises sont des métadonnées d’appareil stockées et récupérées par le back-end de solution sous la forme d’un document JSON. Les balises ne sont pas visibles pour les applications sur un appareil.
 
 ## <a name="telemetry"></a>Télémétrie
-Les appareils collectent des données de télémétrie, telles que la vitesse du vent ou la température, et utilisent des [messages de point de données](#data-point-messages) pour envoyer les données de télémétrie à un hub IoT.
+Les appareils collectent des données de télémétrie, telles que la vitesse du vent ou la température, et utilisent des messages de point de données pour envoyer ces données à un hub IoT.
 
 ## <a name="token-service"></a>Service d’émission de jeton
 Vous pouvez utiliser un service d’émission de jeton pour implémenter un mécanisme d’authentification pour vos appareils. Il utilise une [stratégie d’accès partagé](#shared-access-policy) IoT Hub avec des autorisations **DeviceConnect** pour créer des jetons *device-scoped*. Ces jetons permettent à un appareil de se connecter à votre hub IoT. Un appareil utilise un mécanisme d’authentification personnalisé pour s’authentifier auprès du service d’émission de jeton. Si l’appareil est correctement authentifié, le service d’émission de jeton lui fournit un jeton SAP avec lequel il peut accéder à votre hub IoT.

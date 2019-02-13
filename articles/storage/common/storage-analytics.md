@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure Storage Analytics pour collecter les données de journaux et de mesures | Microsoft Docs
+title: Utiliser Azure Storage Analytics pour collecter les journaux et les données de mesure | Microsoft Docs
 description: Storage Analytics vous permet d’une part d’effectuer le suivi des données de métriques pour tous les services de stockage et, d’autre part, de collecter les journaux de Blob Storage, Queue Storage et Table Storage.
 services: storage
 author: roygara
@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1b27bbaa3d8e570c8431708934edee564e994487
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239772"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745654"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -43,7 +43,7 @@ Les types de demandes authentifiées suivants sont enregistrés :
 * Demandes utilisant une signature d'accès partagé (SAS), y compris les demandes ayant réussi et ayant échoué.
 * Demandes de données d'analyse.
 
-Les demandes effectuées par Storage Analytics lui-même, telles que la création ou la suppression d'un journal, ne sont pas enregistrées. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx) et [Format de journal de Storage Analytics](https://msdn.microsoft.com/library/hh343259.aspx).
+Les demandes effectuées par Storage Analytics lui-même, telles que la création ou la suppression d'un journal, ne sont pas enregistrées. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
 
 ### <a name="logging-anonymous-requests"></a>Journalisation des demandes anonymes
 Les types de demandes anonymes suivants sont enregistrés :
@@ -53,7 +53,7 @@ Les types de demandes anonymes suivants sont enregistrés :
 * Erreurs de délai d'expiration pour le client et le serveur.
 * Demandes GET ayant échoué avec le code d'erreur 304 (non modifié).
 
-Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx) et [Format de journal de Storage Analytics](https://msdn.microsoft.com/library/hh343259.aspx).
+Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
 
 ### <a name="how-logs-are-stored"></a>Mode de stockage des journaux
 Tous les journaux sont stockés dans des objets blob de blocs dans un conteneur nommé $logs, qui est automatiquement créé lorsque Storage Analytics est activé pour un compte de stockage. Le conteneur $logs se trouve dans l'espace de noms d'objets blob du compte de stockage, par exemple : `http://<accountname>.blob.core.windows.net/$logs`. Ce conteneur ne peut pas être supprimé une fois Storage Analytics activé, mais son contenu peut l'être.
@@ -61,8 +61,8 @@ Tous les journaux sont stockés dans des objets blob de blocs dans un conteneur 
 > [!NOTE]
 > Il ne s’affiche pas lorsqu'une opération d'énumération des conteneurs est en cours, comme la méthode [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) . Vous devez y accéder directement. Par exemple, vous pouvez utiliser la méthode [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) pour accéder aux objets blob dans le conteneur `$logs`.
 > À mesure que des demandes sont enregistrées, Storage Analytics télécharge les résultats intermédiaires en tant que blocs. Périodiquement, Storage Analytics valide ces blocs et les rend accessibles sous forme d'objets blob.
-> 
-> 
+>
+>
 
 Il peut exister des enregistrements en double pour les journaux créés dans la même heure. Vous pouvez déterminer si un enregistrement est un doublon en vérifiant les nombres **RequestId** et **Operation**.
 
@@ -129,9 +129,9 @@ Les métriques de transaction sont enregistrées pour les demandes utilisateur e
 
 ### <a name="capacity-metrics"></a>Métriques de capacité
 > [!NOTE]
-> Actuellement, les métriques de capacité sont disponibles uniquement pour le service BLOB. Les métriques de capacité pour le service de Table et le service de File d'attente seront disponibles dans les versions ultérieures de Storage Analytics.
-> 
-> 
+> Actuellement, les métriques de capacité sont disponibles uniquement pour le service BLOB.
+>
+>
 
 Les données de capacité sont enregistrées quotidiennement pour le service BLOB d’un compte de stockage, et deux entités de table sont écrites. Une entité fournit des statistiques sur les données utilisateur et l'autre, sur le conteneur d'objets blob `$logs` utilisé par Storage Analytics. La table `$MetricsCapacityBlob` inclut les statistiques suivantes :
 
@@ -139,14 +139,14 @@ Les données de capacité sont enregistrées quotidiennement pour le service BLO
 * **ContainerCount** : nombre de conteneurs d'objets blob dans le service BLOB du compte de stockage.
 * **ObjectCount** : nombre d'objets blob de blocs ou de pages validés et non validés dans le service BLOB du compte de stockage.
 
-Pour plus d'informations sur les métriques de capacité, consultez [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx).
+Pour plus d'informations sur les métriques de capacité, consultez [Schéma de table de métriques Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema).
 
 ### <a name="how-metrics-are-stored"></a>Stockage des métriques
 Toutes les données de métriques pour chacun des services de stockage sont stockées dans trois tables réservées à ce service : une table pour les informations sur les transactions, une autre pour les informations sur les transactions par minute et une troisième pour les informations sur la capacité. Les informations relatives aux transactions et aux transactions par minute se composent des données de demande et de réponse, et les informations de capacité se composent des données d'utilisation du stockage. Les métriques par heure, les métriques par minute et la capacité pour le service BLOB d’un compte de stockage sont accessibles dans des tables nommées comme indiqué dans le tableau ci-dessous.
 
 | Niveau de métriques | Noms de tables | Versions prises en charge |
 | --- | --- | --- |
-| Métriques toutes les heures, emplacement principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Versions antérieures à la version du 15 août 2013 uniquement. Bien que ces noms soient toujours pris en charge, il est recommandé d’utiliser les tables listées ci-dessous. |
+| Métriques toutes les heures, emplacement principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versions antérieures à la version du 15 août 2013 uniquement. Bien que ces noms soient toujours pris en charge, il est recommandé d’utiliser les tables listées ci-dessous. |
 | Métriques toutes les heures, emplacement principal |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. |
 | Métriques par minute, emplacement principal |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. |
 | Métriques toutes les heures, emplacement secondaire |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. La géo-réplication redondante avec accès en lecture doit être activée. |
@@ -163,7 +163,7 @@ Toutes les données de métriques sont écrites par les services d'un compte de 
 
 Les actions suivantes effectuées par Storage Analytics sont facturables :
 
-* Demandes de création d'objets blob pour la journalisation. 
+* Demandes de création d'objets blob pour la journalisation.
 * Demandes de création d'entités de table pour les métriques.
 
 Si vous avez configuré une stratégie de rétention des données, vous n'êtes pas facturé pour les transactions de suppression lorsque Storage Analytics supprime les anciennes données de journalisation et de métriques. Toutefois, les transactions de suppression d'un client sont facturables. Pour plus d'informations sur les stratégies de rétention, consultez [Définition d'une stratégie de rétention des données Storage Analytics](https://msdn.microsoft.com/library/azure/hh343263.aspx).
@@ -171,20 +171,9 @@ Si vous avez configuré une stratégie de rétention des données, vous n'êtes 
 ### <a name="understanding-billable-requests"></a>Présentation des demandes facturables
 Chaque demande adressée à un service de stockage d’un compte est facturable ou non. Storage Analytics enregistre chaque demande effectuée à un service, avec un message d'état qui indique comment la demande a été traitée. De même, Storage Analytics stocke des métriques pour un service et pour les opérations de l'API de ce service, y compris les pourcentages et le décompte de certains messages d'état. Conjointement, ces fonctionnalités peuvent vous aider à analyser vos demandes facturables, à améliorer votre application et à diagnostiquer les problèmes liés aux demandes à vos services. Pour plus d'informations sur la facturation, consultez [Présentation de la facturation d’Azure Storage - bande passante, transactions et capacité](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les tables de la rubrique [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/azure/hh343260.aspx) pour identifier les demandes facturables. Vous pouvez ensuite comparer vos données de journaux et de métriques aux messages d'état pour déterminer si vous avez été facturé pour une demande spécifique. Vous pouvez également utiliser les tables de la rubrique précédente pour examiner la disponibilité d'un service de stockage ou d'une opération individuelle de l'API.
+Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les tables de la rubrique [Opérations et messages d'état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) pour identifier les demandes facturables. Vous pouvez ensuite comparer vos données de journaux et de métriques aux messages d'état pour déterminer si vous avez été facturé pour une demande spécifique. Vous pouvez également utiliser les tables de la rubrique précédente pour examiner la disponibilité d'un service de stockage ou d'une opération individuelle de l'API.
 
 ## <a name="next-steps"></a>Étapes suivantes
-### <a name="setting-up-storage-analytics"></a>Configuration de Storage Analytics
 * [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md)
-* [Activation et configuration de Storage Analytics](https://msdn.microsoft.com/library/hh360996.aspx)
-
-### <a name="storage-analytics-logging"></a>Journalisation Storage Analytics
-* [À propos de la journalisation Storage Analytics](https://msdn.microsoft.com/library/hh343262.aspx)
-* [Format de journal de Storage Analytics](https://msdn.microsoft.com/library/hh343259.aspx)
-* [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)
-
-### <a name="storage-analytics-metrics"></a>Métriques de Storage Analytics
-* [À propos des métriques de Storage Analytics](https://msdn.microsoft.com/library/hh343258.aspx)
-* [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx)
-* [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)  
-
+* [Journalisation Storage Analytics](https://msdn.microsoft.com/library/hh343262.aspx)
+* [Métriques de Storage Analytics](https://msdn.microsoft.com/library/hh343258.aspx)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 095c592e53f44cb674994c440258bcca1bfa760c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77963377d322a1c70226ceb772273127bec380de
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467167"
+ms.locfileid: "55506803"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -37,7 +37,7 @@ Le script d'automatisation est conçu pour le déploiement d'Azure Resource Mana
 
 **Des frais sont-ils facturés pour la copie de données entre deux partages de fichiers sur un même compte de stockage dans la même région ?**
 
- Non. Ce processus n'entraîne aucuns frais.
+Non. Ce processus n'entraîne aucuns frais.
 
 **Comment sauvegarder la totalité de mon compte de stockage sur un autre compte de stockage ?**
 
@@ -193,7 +193,7 @@ Vous pouvez utiliser l['Explorateur de stockage](https://azure.microsoft.com/fea
 
 **Existe-t-il des conditions préalables pour modifier la réplication d'un compte de stockage d'un stockage géoredondant à un stockage localement redondant ?**
 
- Non. 
+Non. 
 
 **Comment accéder au stockage redondant Azure Files ?**
 
@@ -272,7 +272,7 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
 **Pour un compte de stockage répliqué (par exemple un stockage redondant interzone, un stockage géoredondant ou un stockage redondant avec accès en lecture), comment accéder aux données stockées dans la région secondaire ?**
 
--   Si vous utilisez un stockage redondant interzone ou un stockage géoredondant, vous ne pouvez pas accéder aux données de la région secondaire à moins qu'un basculement ne se produise. Pour plus d'informations sur le processus de basculement, voir [Que se passe-t-il en cas de basculement d’Azure Storage ?](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs)
+-   Si vous utilisez un stockage redondant interzone ou un stockage géoredondant, vous ne pouvez accéder aux données de la région secondaire qu'en procédant à un basculement vers cette région. Pour plus d'informations sur le processus de basculement, consultez [Récupération d'urgence et basculement de compte de stockage (préversion) dans Stockage Azure](storage-disaster-recovery-guidance.md).
 
 -   Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Utilisez l’une des méthodes suivantes :  
       

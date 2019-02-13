@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9f83a0cf97acfd0bed990cc832ac08eb23c29ef1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0ec099e0f210fc267a0a34f76136a517e0ae6ccc
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434456"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744515"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Résoudre les problèmes liés aux Runbooks Workers hybrides
 
@@ -46,7 +46,7 @@ Voici quelques causes possibles :
 
 * Les Runbooks ne peuvent pas s’authentifier auprès des ressources locales.
 
-* L’ordinateur configuré pour exécuter la fonctionnalité Runbook Worker hybride ne répond pas à la configuration matérielle minimale requise.
+* L'ordinateur configuré pour exécuter la fonctionnalité Runbook Worker hybride ne répond pas à la configuration matérielle minimale requise.
 
 #### <a name="resolution"></a>Résolution :
 
@@ -87,8 +87,17 @@ Le Runbook Worker hybride Linux dépend de l’agent OMS pour Linux pour communi
 
 ### <a name="oms-agent-not-running"></a>Scénario : L’agent OMS pour Linux n’est pas en cours d’exécution.
 
+#### <a name="issue"></a>Problème
 
-Si l’agent OMS pour Linux n’est pas en cours d’exécution, le Runbook Worker hybride Linux ne peut pas communiquer avec Azure Automation. Vérifiez que l’agent est en cours d’exécution en entrant la commande suivante : `ps -ef | grep python`. Vous devez voir une sortie similaire à celle qui suit, les processus python avec le compte d’utilisateur **nxautomation**. Si les solutions Update Management ou Azure Automation ne sont pas activées, aucun des processus suivants n’est activé.
+L’agent OMS pour Linux n’est pas en cours d’exécution.
+
+#### <a name="cause"></a>Cause :
+
+Si l’agent OMS pour Linux n’est pas en cours d’exécution, le Runbook Worker hybride Linux ne peut pas communiquer avec Azure Automation. L'agent peut ne pas fonctionner pour diverses raisons.
+
+#### <a name="resolution"></a>Résolution :
+
+ Vérifiez que l’agent est en cours d’exécution en entrant la commande suivante : `ps -ef | grep python`. Vous devez voir une sortie similaire à celle qui suit, les processus python avec le compte d’utilisateur **nxautomation**. Si les solutions Update Management ou Azure Automation ne sont pas activées, aucun des processus suivants n’est activé.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -115,7 +124,7 @@ Si vous recevez l’erreur : **La classe spécifiée n’existe pas.** dans `/va
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
-## <a name="windows"></a> Windows
+## <a name="windows"></a>Windows
 
 Le Runbook Worker hybride Windows dépend de l’agent Microsoft Monitoring Agent pour communiquer avec votre compte Automation, et ainsi enregistrer le Worker, recevoir des travaux de Runbook et signaler l’état. Si l’inscription du worker échoue, voici les causes possibles de l’erreur :
 

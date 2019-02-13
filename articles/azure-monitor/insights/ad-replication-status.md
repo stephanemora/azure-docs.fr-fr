@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8d597a3491f80bc09c3e0676d17971f2509ba47a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184116"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818734"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Surveiller l’état de la réplication Active Directory avec Log Analytics
 
@@ -39,7 +39,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 | plateforme | Agent direct | Agent SCOM | Stockage Azure | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | Fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Windows |&#8226; |&#8226; |  |  |&#8226; |tous les cinq jours |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |tous les cinq jours |
 
 ## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Autoriser éventuellement un ordinateur autre qu’un contrôleur de domaine à envoyer les données AD à Log Analytics
 Si vous ne souhaitez pas connecter directement un de vos contrôleurs de domaine à Log Analytics, vous pouvez utiliser n’importe quel autre ordinateur connecté à Log Analytics de votre domaine afin de collecter des données pour le pack de solution AD Replication Status et de faire en sorte qu’il les envoie.
@@ -127,9 +127,9 @@ R : Pas pour l'instant.
 R : Non, un seul contrôleur de domaine doit être ajouté. Si vous avez plusieurs contrôleurs de domaine dans votre espace de travail Log Analytics, toutes leurs données sont envoyées à Log Analytics.
 
 **Q : Je ne veux pas ajouter de contrôleurs de domaine à mon espace de travail Log Analytics. Puis-je néanmoins utiliser la solution État de la réplication AD ?**
-R : Oui. Vous pouvez définir la valeur d’une clé de Registre pour l’activer. Consultez la section [Autoriser un ordinateur autre qu’un contrôleur de domaine à envoyer les données AD à Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+R : Oui. Vous pouvez définir la valeur d’une clé de Registre pour l’activer. Consultez la section Autoriser un ordinateur autre qu'un contrôleur de domaine à envoyer les données AD à Log Analytics.
 
-**Q : Quel est le nom du processus qui effectue la collecte de données ?**
+**Q : Quel est le nom du processus qui effectue la collecte de données ?**
 R : AdvisorAssessment.exe
 
 **Q : Combien de temps la collecte de données prend-elle ?**
@@ -149,7 +149,7 @@ Pour que le pack de solution AD Replication Status puisse collecter des données
 
 Pour obtenir de l’aide sur la connexion d’un contrôleur de domaine, consultez la documentation [Connecter des ordinateurs Windows à Log Analytics](../../azure-monitor/platform/om-agents.md). Ou bien, si votre contrôleur de domaine est déjà connecté à un environnement System Center Operations Manager, vous pouvez consulter la documentation [Connexion de System Center Operations Manager à Log Analytics](../../azure-monitor/platform/om-agents.md).
 
-Si vous ne souhaitez connecter aucun de vos contrôleurs de domaine directement à Log Analytics ou à SCOM, consultez la page [Autoriser un ordinateur autre qu’un contrôleur de domaine à envoyer des données AD à Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+Si vous ne souhaitez connecter aucun de vos contrôleurs de domaine directement à Log Analytics ou à System Center Operations Manager, consultez la page Autoriser un ordinateur autre qu'un contrôleur de domaine à envoyer des données AD à Log Analytics.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Recherches de journal dans Log Analytics](../../azure-monitor/log-query/log-query-overview.md) pour afficher des données détaillées sur l’état de la réplication Active Directory.

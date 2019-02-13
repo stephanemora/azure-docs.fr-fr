@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358981"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767336"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Forum aux questions (FAQ) relatives à l’exécution de SQL Server sur les machines virtuelles Windows dans Azure
 
@@ -60,7 +60,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Est-il possible de définir des configurations non affichées dans la galerie de machines virtuelles (par exemple, Windows 2008 R2 + SQL Server 2012) ?**
 
-    Non. Pour les images de la galerie de machines virtuelles incluant SQL Server, vous devez sélectionner une des images fournies via le portail Azure ou [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+   Non. Pour les images de la galerie de machines virtuelles incluant SQL Server, vous devez sélectionner une des images fournies via le portail Azure ou [PowerShell](virtual-machines-windows-ps-sql-create.md). 
 
 
 ## <a name="creation"></a>Création
@@ -86,7 +86,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je modifier une machine virtuelle pour utiliser ma propre licence SQL Server si elle a été créée à partir de l’une des images de la galerie avec paiement à l’utilisation ?**
 
-   Oui. Vous pouvez facilement passer d’un modèle de licence à l’autre, quelle que soit l’image qui a été déployée au départ. Pour plus d’informations, consultez [Guide pratique pour changer le modèle de licence d’une machine virtuelle SQL](virtual-machines-windows-sql-ahb.md).
+   Oui. Vous pouvez facilement passer d'un modèle de licence à l'autre si vous avez initialement créé une image de la galerie avec paiement à l'utilisation. En revanche, vous ne pourrez pas basculer votre licence en mode Paiement à l'utilisation si vous avez commencé avec une image BYOL (apportez votre propre licence). Pour plus d'informations, consultez [Guide pratique pour changer le modèle de licence d'une machine virtuelle SQL Server](virtual-machines-windows-sql-ahb.md).
 
 1. **Dois-je utiliser des images BYOL ou un fournisseur de ressources de machine virtuelle SQL pour créer une nouvelle machine virtuelle SQL ?**
 
@@ -94,11 +94,11 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Est-ce que SQL Server rencontre des temps d’arrêt si je change de modèle de licence ?**
 
-   Non. Un [changement de modèle de licence](virtual-machines-windows-sql-ahb.md) n’entraîne aucun temps d’arrêt dans SQL Server, car il prend effet immédiatement et ne nécessite pas un redémarrage de la machine virtuelle. 
+   Non. Un [changement de modèle de licence](virtual-machines-windows-sql-ahb.md) n’entraîne aucun temps d’arrêt dans SQL Server, car il prend effet immédiatement et ne nécessite pas un redémarrage de la machine virtuelle. Toutefois, pour inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources de machines virtuelles SQL, vous devez disposer d'une [extension SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md). L'installation de l'extension SQL IaaS redémarre le service SQL Server. Par conséquent, si l'extension SQL IaaS doit être installée, cette installation doit être effectuée pendant une fenêtre de maintenance. 
 
 1. **Les abonnements CSP peuvent-ils activer Azure Hybrid Benefit ?**
 
-   Oui. Les [changements de modèle de licence](virtual-machines-windows-sql-ahb.md) sont disponibles pour les abonnements CSP. 
+   Oui, Azure Hybrid Benefit est disponible pour les abonnements CSP. Les clients CSP doivent d'abord déployer une image Paiement à l'utilisation, puis [remplacer le modèle de licence](virtual-machines-windows-sql-ahb.md) par BYOL (apportez votre propre licence).  
 
 1. **Est-ce que l’inscription de ma machine virtuelle auprès du nouveau fournisseur de ressources de machine virtuelle SQL engendre des frais supplémentaires ?**
 

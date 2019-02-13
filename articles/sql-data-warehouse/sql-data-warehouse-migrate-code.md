@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: f36ee3ce6a8d678cdd846474576fc049df0b4f88
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472301"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815759"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migration de votre code SQL vers SQL Data Warehouse
 Cet article vous explique les éventuelles modifications de code que vous aurez à réaliser lors de la migration de votre code depuis une autre base de données vers SQL DATA Warehouse. Certaines fonctionnalités de SQL Data Warehouse peuvent améliorer considérablement les performances, dans la mesure où elles sont conçues pour fonctionner selon un modèle distribué. Toutefois, pour maintenir des niveaux appropriés de performance et d’évolutivité, certaines fonctions ne sont pas disponibles.
@@ -32,7 +32,7 @@ La liste suivante répertorie les fonctionnalités les plus courantes que SQL Da
 * Clause OUTPUT
 * Fonctions en ligne définies par l’utilisateur
 * Fonctions à instructions multiples
-* [Expressions de table commune](#Common-table-expressions)
+* Expressions de table commune
 * [Expressions récursives de table commune (CTE)](#Expressions-récursives-de-table-commune-(CTE)
 * Fonctions et procédures CLR
 * Fonction $partition

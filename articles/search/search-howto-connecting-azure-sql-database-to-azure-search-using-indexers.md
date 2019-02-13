@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633025"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752890"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs Recherche Azure
 
@@ -210,6 +210,9 @@ Pour utiliser cette stratégie, créez ou mettez à jour votre source de donnée
 
 Si vous utilisez le suivi intégré des modifications SQL, ne spécifiez pas une stratégie de détection des lignes supprimées. Elle intègre la prise en charge de l'identification des lignes supprimées. Toutefois, pour les suppressions détectées automatiquement, la clé de document de votre index de recherche doit être identique à la clé primaire de la table SQL. 
 
+> [!NOTE]  
+> Lorsque vous utilisez [TRUNCATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) pour supprimer un grand nombre de lignes dans une table SQL, l'indexeur doit être [reset](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) pour réinitialiser l'état de suivi des modifications et récupérer les suppressions de lignes.
+
 <a name="HighWaterMarkPolicy"></a>
 
 ### <a name="high-water-mark-change-detection-policy"></a>Stratégie de détection des modifications de limite supérieure
@@ -325,7 +328,7 @@ Pas directement. La connexion directe n’est pas prise en charge, ni recommand�
 
 **Q : Puis-je utiliser l’indexeur Azure SQL avec des bases de données autres que SQL Server exécutées en IaaS sur Azure ?**
 
- Non. Ce cas de figure n’est pas pris en charge, car nous n’avons pas testé l’indexeur avec des bases de données autres que SQL Server.  
+Non. Ce cas de figure n’est pas pris en charge, car nous n’avons pas testé l’indexeur avec des bases de données autres que SQL Server.  
 
 **Q : Puis-je créer plusieurs indexeurs qui s’exécutent selon une planification ?**
 
