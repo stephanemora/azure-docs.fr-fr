@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: c749a9dedef3970002c4f0672ffcc67aeaea422a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2990ce7a555fae54b8628f11cd90124860a5b983
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457426"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656734"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault
 
@@ -47,7 +47,7 @@ Si vous souhaitez activer des clés pour SSE par programmation gérée par le cl
 Pour utiliser des clés gérée par le client avec SSE, vous devez attribuer une identité de compte de stockage au compte de stockage. Vous pouvez définir l’identité en exécutant la commande PowerShell ou Azure CLI suivante :
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName $resourceGroup -Name $accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
@@ -60,16 +60,14 @@ az storage account \
 Vous pouvez activer les fonctionnalités « Suppression réversible » et « Ne pas vider » en exécutant les commandes PowerShell ou Azure CLI suivantes :
 
 ```powershell
-($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
-$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
-enableSoftDelete -Value 'True'
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName $vaultName).ResourceId).Properties `
+    | Add-Member -MemberType NoteProperty -Name enableSoftDelete -Value 'True'
 
 Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
-$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
-enablePurgeProtection -Value 'True'
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName $vaultName).ResourceId).Properties `
+    | Add-Member -MemberType NoteProperty -Name enablePurgeProtection -Value 'True'
 
 Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
@@ -126,8 +124,16 @@ Vous pouvez associer la clé ci-dessus à un compte de stockage existant à l’
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
 $keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy `
+    -VaultName $keyVault.VaultName `
+    -ObjectId $storageAccount.Identity.PrincipalId `
+    -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVersion $key.Version `
+    -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Étape 5 : Copier les données dans le compte de stockage
@@ -162,7 +168,7 @@ Oui, vous pouvez révoquer l’accès à tout moment. Il existe plusieurs façon
 Non, le compte de stockage, Azure Key Vault et la clé doivent être dans la même région.
 
 **Puis-je activer des clés gérées par le client pour SSE lors de la création du compte de stockage ?**  
- Non. Lorsque vous créez le compte de stockage, seules les clés gérées par Microsoft sont disponibles pour SSE. Pour utiliser des clés gérées par le client, vous devez mettre à jour les propriétés du compte de stockage. Vous pouvez utiliser REST ou l’une des bibliothèques clientes de stockage pour mettre à jour votre compte de stockage par programmation, ou mettre à jour les propriétés du compte de stockage à l’aide du portail Azure après la création du compte.
+Non. Lorsque vous créez le compte de stockage, seules les clés gérées par Microsoft sont disponibles pour SSE. Pour utiliser des clés gérées par le client, vous devez mettre à jour les propriétés du compte de stockage. Vous pouvez utiliser REST ou l’une des bibliothèques clientes de stockage pour mettre à jour votre compte de stockage par programmation, ou mettre à jour les propriétés du compte de stockage à l’aide du portail Azure après la création du compte.
 
 **Puis-je désactiver le chiffrement lorsque j’utilise des clés gérées par le client avec SSE ?**  
 Non, vous ne pouvez pas désactiver le chiffrement. Le chiffrement est activé par défaut pour le stockage d’objets blob Azure, Azure Files, le stockage File d’attente Azure et le stockage de tables Azure. Vous pouvez éventuellement passer de l’utilisation de clés gérées par Microsoft à l’utilisation de clés gérées par le client, et vice versa.

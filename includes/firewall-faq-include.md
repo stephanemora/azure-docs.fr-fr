@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 12/14/2018
+ms.date: 2/4/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 3d76f25fc4382c8f03fac682fa7286a4a329a1db
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8fd8cd93015fdb5cdcf657ecbcbb9a7cc870525a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54300697"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747745"
 ---
 ### <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -34,6 +34,8 @@ Pare-feu Azure est un service de sécurité réseau informatique géré qui prot
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Qu’est le modèle de déploiement type de Pare-feu Azure ?
 
 Vous pouvez déployer Pare-feu Azure sur n’importe quel réseau virtuel, mais en général, les clients le déploient sur un réseau virtuel central et appairent les autres réseaux virtuels à celui-ci dans un modèle hub-and-spoke. Vous pouvez ensuite définir l’itinéraire par défaut des réseaux virtuels appairés pour qu’il pointe vers ce réseau virtuel de pare-feu central.
+
+L'avantage de ce modèle est qu'il permet d'exercer un contrôle centralisé sur plusieurs réseaux virtuels spoke pour différents abonnements. Il permet également de réaliser des économies de coûts puisqu'il n'est pas nécessaire de déployer un pare-feu au sein de chaque réseau virtuel. Les économies doivent être mesurées par rapport aux coûts de peering associés en fonction des modèles de trafic du client.
 
 ### <a name="how-can-i-install-the-azure-firewall"></a>Comment installer Pare-feu Azure ?
 
@@ -120,7 +122,7 @@ Oui, vous pouvez utiliser Pare-feu Azure dans un réseau virtuel de hub pour ach
 
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Pare-feu Azure peut-il envoyer et filtrer le trafic réseau entre des sous-réseaux d’un même réseau virtuel ou réseau virtuel appairé ?
 
-Le trafic entre sous-réseaux dans le même réseau virtuel ou dans un réseau virtuel appairé est acheminé directement, même si la route définie par l’utilisateur pointe vers le Pare-feu Azure en tant que passerelle par défaut. La méthode recommandée pour la segmentation interne d’un réseau est d’utiliser des groupes de sécurité réseau. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, la route définie par l’utilisateur doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.
+Oui. Toutefois, la configuration des UDR pour rediriger le trafic entre les sous-réseaux d'un même réseau virtuel nécessite une attention supplémentaire. Bien que l'utilisation de la plage d'adresses du réseau virtuel comme préfixe cible pour l'UDR soit suffisante, celle-ci achemine également tout le trafic d'une machine vers une autre au sein du même sous-réseau via l'instance du Pare-feu Azure. Pour éviter cela, incluez l'itinéraire du sous-réseau dans l'UDR, avec **VNET** comme type de tronçon suivant. La gestion de ces itinéraires peut être lourde et sujette à erreur. La méthode recommandée pour la segmentation interne du réseau consiste à utiliser des groupes de sécurité réseau, qui ne requièrent pas d'UDR.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Les groupes de ressources de pare-feu font-ils l’objet de restrictions ?
 
@@ -128,4 +130,4 @@ Oui. Le pare-feu, le sous-réseau, le réseau virtuel et l’adresse IP publique
 
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Lorsque je configure DNAT pour le trafic réseau entrant, dois-je également configurer une règle de réseau correspondante pour autoriser ce trafic ?
 
- Non. Les règles NAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](../articles/firewall/rule-processing.md).
+Non. Les règles NAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](../articles/firewall/rule-processing.md).

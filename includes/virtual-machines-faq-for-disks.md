@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2018
+ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841412"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648630"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -51,7 +51,7 @@ Oui.
 
 **Puis-je utiliser un fichier VHD dans un compte de stockage Azure pour créer un disque géré dans une région différente ?**
 
- Non.
+Non.
 
 **Existe-t-il des restrictions de mise à l’échelle pour les clients utilisant des disques gérés ?**
 
@@ -59,11 +59,11 @@ Managed Disks élimine les restrictions associées aux comptes de stockage. Tout
 
 **Puis-je prendre une capture instantanée incrémentielle d’un disque géré ?**
 
- Non. La fonctionnalité actuelle de capture instantanée crée une copie complète d’un disque géré.
+Non. La fonctionnalité actuelle de capture instantanée crée une copie complète d’un disque géré.
 
 **Les machines virtuelles d’un groupe à haute disponibilité peuvent-elles consister en une combinaison de disques gérés et non gérés ?**
 
- Non. Les machines virtuelles d’un groupe à haute disponibilité doivent utiliser exclusivement des disques gérés ou non gérés. Lorsque vous créez un groupe à haute disponibilité, vous pouvez définir le type de disques à utiliser.
+Non. Les machines virtuelles d’un groupe à haute disponibilité doivent utiliser exclusivement des disques gérés ou non gérés. Lorsque vous créez un groupe à haute disponibilité, vous pouvez définir le type de disques à utiliser.
 
 **Les disques gérés sont-ils l’option par défaut dans le portail Azure ?**
 
@@ -103,7 +103,7 @@ Oui, les disques managés et non managés sont pris en charge. Nous vous recomma
 
 **Puis-je localiser conjointement des disques managés et non sur la même machine virtuelle ?**
 
- Non.
+Non.
 
 **Si je crée un disque de 128 Gio et que j’augmente la taille à 130 Gio, suis-je facturé en fonction de la taille de disque supérieure (256 Gio) ?**
 
@@ -115,15 +115,15 @@ Actuellement, Azure Managed Disks prend uniquement en charge les disques gérés
 
 **Puis-je réduire la taille de mes disques gérés ?**
 
- Non. Cette fonctionnalité n’est pas prise en charge pour l’instant. 
+Non. Cette fonctionnalité n’est pas prise en charge pour l’instant. 
 
 **Puis-je résilier un bail sur mon disque ?**
 
- Non. Cela n’est pas possible actuellement car un bail est présent pour empêcher une suppression accidentelle lorsque le disque est utilisé.
+Non. Cela n’est pas possible actuellement car un bail est présent pour empêcher une suppression accidentelle lorsque le disque est utilisé.
 
 **Puis-je modifier la propriété de nom d’ordinateur lorsqu’un disque du système d’exploitation spécialisé (n’ayant pas été créé via l’outil de préparation système ou généralisé) est utilisé pour configurer une machine virtuelle ?**
 
- Non. Vous ne pouvez pas mettre à jour la propriété de nom d’ordinateur. La nouvelle machine virtuelle a hérité cette particularité de la machine virtuelle parente qui a été utilisée pour créer le disque de système d’exploitation. 
+Non. Vous ne pouvez pas mettre à jour la propriété de nom d’ordinateur. La nouvelle machine virtuelle a hérité cette particularité de la machine virtuelle parente qui a été utilisée pour créer le disque de système d’exploitation. 
 
 **Où trouver des exemples de modèles Azure Resource Manager pour créer des machines virtuelles avec des disques gérés ?**
 * [Liste de modèles utilisant des disques gérés](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
@@ -175,7 +175,7 @@ L’exemple suivant illustre la section *properties.storageProfile.osDisk* d’u
 Si vous souhaitez un exemple de modèle complet de création d’un disque SSD Standard, consultez [Créer une machine virtuelle à partir d’une image Windows avec des disques de données SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 **Puis-je convertir mes disques existants en disques SSD standard ?**
- Oui, vous pouvez. Reportez-vous à [Convertir le stockage Managed Disks Azure de standard en premium, et vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) pour des recommandations générales relatives à la conversion des disques gérés. Et utilisez la valeur suivante pour mettre à jour le type de disque vers un disque SSD standard.
+Oui, vous pouvez. Reportez-vous à [Convertir le stockage Managed Disks Azure de standard en premium, et vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) pour des recommandations générales relatives à la conversion des disques gérés. Et utilisez la valeur suivante pour mettre à jour le type de disque vers un disque SSD standard.
 -AccountType StandardSSD_LRS
 
 **Quel est l’avantage d’utiliser des disques SSD Standard au lieu des disques HDD ?**
@@ -207,11 +207,11 @@ Aucune modification n’est nécessaire.
 
 **La migration automatisée d’un groupe de machines virtuelles identiques existant à partir de disques non managés vers Managed Disks est-elle prise en charge ?**
 
- Non. Vous pouvez créer un groupe de machines virtuelles identiques à l’aide de l’image de votre ancien groupe de machines virtuelles identiques avec des disques non managés.
+Non. Vous pouvez créer un groupe de machines virtuelles identiques à l’aide de l’image de votre ancien groupe de machines virtuelles identiques avec des disques non managés.
 
 **Puis-je créer un disque managé à partir d’un instantané d’objet blob de pages antérieur à la migration vers Managed Disks ?**
 
- Non. Vous pouvez exporter un instantané d’objet blob de pages en tant qu’objet blob de pages, puis créer un disque managé à partir de l’objet blob de pages exporté.
+Non. Vous pouvez exporter un instantané d’objet blob de pages en tant qu’objet blob de pages, puis créer un disque managé à partir de l’objet blob de pages exporté.
 
 **Puis-je basculer mes machines locales protégées par Azure Site Recovery vers une machine virtuelle avec Managed Disks ?**
 
@@ -237,11 +237,11 @@ Microsoft gère les clés de chiffrement.
 
 **Puis-je désactiver Storage Service Encryption pour mes disques gérés ?**
 
- Non.
+Non.
 
 **Storage Service Encryption est-il disponible dans toutes les régions ?**
 
- Non. Il est disponible dans toutes les régions où Managed Disks est disponible. Managed Disks est disponible dans toutes les zones publiques et en Allemagne. Il est également disponible en Chine, mais uniquement pour les clés gérées par Microsoft, pas pour les clés gérées par le client.
+Non. Il est disponible dans toutes les régions où Managed Disks est disponible. Managed Disks est disponible dans toutes les zones publiques et en Allemagne. Il est également disponible en Chine, mais uniquement pour les clés gérées par Microsoft, pas pour les clés gérées par le client.
 
 **Comment puis-je savoir si mon disque géré est chiffré ?**
 
@@ -264,7 +264,7 @@ Oui
 
 **Un disque dur virtuel exporté à partir d’un disque géré ou un instantané seront-ils également chiffrés ?**
 
- Non. Mais si vous exportez un disque dur virtuel vers un compte de stockage chiffré depuis un disque géré chiffré ou un instantané, il sera chiffré. 
+Non. Mais si vous exportez un disque dur virtuel vers un compte de stockage chiffré depuis un disque géré chiffré ou un instantané, il sera chiffré. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Disques Premium : gérés et non gérés
 
@@ -274,7 +274,7 @@ Oui.
 
 **Puis-je attacher des disques de données Standard et Premium à une taille qui ne prend pas en charge les disques SSD Premium, comme les séries D, Dv2, G ou F ?**
 
- Non. Vous ne pouvez joindre que des disques de données Standard aux machines virtuelles n’utilisant pas une gamme de taille qui prend en charge les disques SSD Premium.
+Non. Vous ne pouvez joindre que des disques de données Standard aux machines virtuelles n’utilisant pas une gamme de taille qui prend en charge les disques SSD Premium.
 
 **Si je crée un disque de données Premium à partir d’un disque dur virtuel existant de 80 Go, combien cela me coûte-t-il ?**
 
@@ -347,7 +347,7 @@ Pour atteindre un débit de disques SSD standard et de disques durs HDD standard
 
 **Dans quelles régions les tailles de disques managés supérieures à 4 Tio sont-elles prises en charge ?**
 
-À ce stade dans la préversion, les tailles de disque managé sont prises en charge dans la région USA Centre Ouest uniquement.
+À ce stade de l'évaluation, ces tailles de disques managés sont prises en charge dans les régions suivantes : USA Centre-Ouest, Europe Nord, Europe Ouest, USA Ouest 2, USA Est 2 et USA Est.
 
 **Prenez-vous en charge l’activation de la mise en cache de l’hôte sur les tailles de disque plus récentes ?**
 

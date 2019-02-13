@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aafa1acdf6cca58ea0cfbc968f73ce13eb65bf91
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256219"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700500"
 ---
 # <a name="azure-operational-security"></a>Azure Operational Security
 ## <a name="introduction"></a>Introduction
@@ -135,31 +135,31 @@ Azure Security Center collecte les données de vos machines virtuelles afin d’
 
 - Pour assurer une visibilité sur l’état de la sécurité, identifier les vulnérabilités, recommander des mesures d’atténuation et détecter les menaces actives, Azure Security Center analyse les données provenant des sources suivantes :
 
--   Services Azure : utilise les informations relatives à la configuration des services Azure que vous avez déployés en communiquant avec le fournisseur de ressources de ce service.
+-   Services Azure : utilise les informations relatives à la configuration des services Azure que vous avez déployés en communiquant avec le fournisseur de ressources de ce service.
 
-- Trafic réseau : tire parti des métadonnées de trafic réseau échantillonnées provenant de l’infrastructure de Microsoft, telles que l’IP/le port source/de destination, la taille de paquet et le protocole réseau.
+- Trafic réseau : tire parti des métadonnées de trafic réseau échantillonnées provenant de l'infrastructure de Microsoft, telles que l'IP/le port source/de destination, la taille de paquet et le protocole réseau.
 
 -   Solutions de partenaires : collecte les alertes de sécurité des solutions de partenaires intégrées, telles que les solutions de pare-feu et anti-programme malveillant.
 
--   Vos machines virtuelles : utilise les informations de configuration et les données relatives à des événements de sécurité, telles que des événements Windows et des journaux d’audit, des journaux IIS, des messages syslog et des fichiers de vidage sur incident, sur vos machines virtuelles.
+-   Vos machines virtuelles : utilise les informations de configuration et les données relatives aux événements de sécurité, telles que les événements Windows ainsi que les journaux d'audit, les journaux IIS, les messages syslog et les fichiers de vidage sur incident, de vos machines virtuelles.
 
 ### <a name="data-protection"></a>Protection des données
 
 Pour aider les clients à prévenir, détecter et contrer les menaces, Azure Security Center collecte et traite des données de sécurité, notamment des informations de configuration, des métadonnées, des journaux d’événements et des fichiers de vidage sur incident. Microsoft adhère aux recommandations strictes de conformité et de sécurité, du codage jusqu'à l'exploitation d'un service.
 
--   **Ségrégation des données :** les données client sont maintenues séparées logiquement sur chaque composant, dans l’ensemble du service. Toutes les données sont balisées en fonction de l'organisation. Ce balisage est conservé tout au long du cycle de vie des données, et il est appliqué dans chaque couche du service.
+-   **Ségrégation des données :** les données client sont maintenues séparées logiquement sur chaque composant, dans l'ensemble du service. Toutes les données sont balisées en fonction de l'organisation. Ce balisage est conservé tout au long du cycle de vie des données, et il est appliqué dans chaque couche du service.
 
 -   **Accès aux données** : pour fournir des recommandations en matière de sécurité et enquêter sur les éventuelles menaces de sécurité, le personnel de Microsoft peut accéder aux informations collectées ou analysées par les services Azure, notamment les fichiers de vidage sur incident, les événements de création de processus, les captures instantanées et artefacts de disque de machine virtuelle, qui peuvent involontairement exposer des données client ou personnelles provenant de vos machines virtuelles. Nous respectons les [Conditions d’utilisation et la Déclaration de confidentialité de Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), qui indiquent que Microsoft n’utilise pas les données client ou ne tire pas d’informations de ces dernières à des fins commerciales, publicitaires ou similaires.
 
--   **Utilisation des données** : Microsoft utilise des modèles et des informations sur les menaces observées auprès de multiples locataires pour améliorer ses fonctionnalités de prévention et de détection. Cette utilisation s’effectue en accord avec les engagements de confidentialité décrits dans la [Déclaration de confidentialité](https://www.microsoft.com/en-us/privacystatement/OnlineServices/) de Microsoft.
+-   **Utilisation des données** : Microsoft utilise des modèles et des informations sur les menaces observées auprès de multiples locataires pour améliorer ses fonctionnalités de prévention et de détection. Cette utilisation s'effectue en accord avec les engagements de confidentialité décrits dans la [Déclaration de confidentialité](https://www.microsoft.com/en-us/privacystatement/OnlineServices/) de Microsoft.
 
 ### <a name="data-location"></a>Emplacement des données
 
 Le Centre de sécurité Azure collecte des copies éphémères de vos fichiers de vidage sur incident et les analyse pour obtenir des preuves de tentatives d’attaque par le biais de code malveillant exploitant une faille de sécurité et de compromis ayant abouti. Azure Security Center effectue cette analyse dans la même région géographique que l’espace de travail, puis supprime les copies éphémères une fois l’analyse terminée. Les artefacts des ordinateurs sont stockés de manière centralisée dans la même région que la machine virtuelle.
 
--   **Vos comptes de stockage** : un compte de stockage est spécifié pour chaque région où des machines virtuelles fonctionnent. Cela vous permet de stocker des données dans la même région que la machine virtuelle à partir de laquelle les données sont collectées.
+-   **Vos comptes de stockage** : un compte de stockage est spécifié pour chacune des régions où des machines virtuelles sont exécutées. Cela vous permet de stocker des données dans la même région que la machine virtuelle à partir de laquelle les données sont collectées.
 
--   **Stockage Azure Security Center** : les informations relatives aux alertes de sécurité, notamment les alertes des partenaires, les recommandations et le statut d’intégrité de la sécurité, sont stockées de manière centralisée (actuellement aux États-Unis). Ces informations peuvent inclure des informations de configuration associées et des événements de sécurité collectés à partir de vos machines virtuelles, le cas échéant, pour vous fournir l’alerte de sécurité, la recommandation ou l’état d’intégrité de la sécurité.
+-   **Stockage Azure Security Center** : les informations relatives aux alertes de sécurité, notamment les alertes des partenaires, les recommandations et l'état d'intégrité de la sécurité, sont stockées de manière centralisée (actuellement aux États-Unis). Ces informations peuvent inclure des informations de configuration associées et des événements de sécurité collectés à partir de vos machines virtuelles, le cas échéant, pour vous fournir l’alerte de sécurité, la recommandation ou l’état d’intégrité de la sécurité.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -218,7 +218,7 @@ Cette fonctionnalité Azure active la collecte de données de diagnostic dans un
 
 L’audit de sécurité de votre réseau est essentiel pour détecter ses vulnérabilités et assurer la conformité avec votre modèle de gouvernance réglementaire et de sécurité informatique. Avec l’affichage du groupe de sécurité, vous pouvez récupérer le groupe de sécurité réseau et les règles de sécurité configurés, ainsi que les règles de sécurité en vigueur. Avec la liste des règles appliquées, vous pouvez identifier les ports ouverts et évaluer la vulnérabilité du réseau.
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un réseau dans, vers et depuis Azure. Les outils de visualisation et de diagnostic réseau disponibles avec Network Watcher vous aident à comprendre, diagnostiquer et obtenir des informations sur votre réseau dans Azure. Ce service inclut la capture de paquets, le tronçon saut suivant, la vérification des flux IP, l’affichage de groupe de sécurité, les journaux de flux de groupe de sécurité réseau. La surveillance basée sur des scénarios fournit une vue de bout en bout des ressources réseau, à l’inverse de la surveillance des ressources réseau qui s’intéresse à chaque ressource spécifique.
+[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un réseau dans, vers et depuis Azure. Les outils de visualisation et de diagnostic réseau disponibles avec Network Watcher vous aident à comprendre, diagnostiquer et obtenir des informations sur votre réseau dans Azure. Ce service inclut la capture de paquets, le tronçon saut suivant, la vérification des flux IP, l’affichage de groupe de sécurité, les journaux de flux de groupe de sécurité réseau. La surveillance basée sur des scénarios fournit une vue de bout en bout des ressources réseau, à l’inverse de la surveillance des ressources réseau qui s’intéresse à chaque ressource spécifique.
 
 ![Azure Network Watcher](./media/azure-operational-security/azure-operational-security-fig8.png)
 
