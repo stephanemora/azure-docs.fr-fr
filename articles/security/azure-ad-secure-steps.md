@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165643"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750322"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -38,7 +38,7 @@ Les suggestions faites dans ce document sont alignées sur [Identity Secure Scor
 
 ![Identity Secure Score](media/azure-ad/azure-ad-sec-steps0.png)
 
-## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Avant de commencer : protéger des comptes privilégiés avec l’authentification multifacteur (MFA)
+## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Avant de commencer : Protéger des comptes privilégiés avec l'authentification multifacteur (MFA)
 
 Avant de commencer, assurez-vous de ne pas être compromis pendant que vous lisez cette liste de vérification. Vous devez d’abord protéger vos comptes privilégiés.
 
@@ -99,7 +99,7 @@ Les applications utilisant leurs propres méthodes héritées pour s’authentif
 
 1. Bloquez [l’authentification héritée, si vous utilisez AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configurez [SharePoint Online et Exchange Online pour utiliser l’authentification moderne](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
-3. Utilisez [des stratégies d’accès conditionnel pour bloquer l’authentification héritée](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication).
+3. Utilisez [des stratégies d’accès conditionnel pour bloquer l’authentification héritée](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloquer les points d’entrée d’authentification non valide
 

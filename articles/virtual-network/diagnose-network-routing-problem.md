@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee807387b5fc7c8a9d42564cdb6cee7d59db2508
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429632"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819788"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnostiquer un problème de routage sur une machine virtuelle
 
@@ -116,7 +116,7 @@ En règle générale, la résolution des problèmes de routage englobe les solut
 - Vérification de l’association de la table de routage qui contient les itinéraires personnalisés définis, au sous-réseau dans lequel se trouve l’interface réseau. Découvrez comment [associer une table de routage à un sous-réseau](manage-route-table.md#associate-a-route-table-to-a-subnet).
 - Vérification du bon fonctionnement des dispositifs, tels qu’une passerelle VPN Azure ou des appliances virtuelles de réseau déployées. Utilisez la fonctionnalité [Diagnostics VPN](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Network Watcher pour déterminer les problèmes rencontrés avec une passerelle VPN Azure.
 
-Si des problèmes de communication subsistent, consultez [Considérations](#considerations) et [Diagnostic supplémentaire](#additional-dignosis).
+Si des problèmes de communication subsistent, consultez [Considérations](#considerations) et Diagnostic supplémentaire.
 
 ## <a name="considerations"></a>Considérations
 

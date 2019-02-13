@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e32d3fe30796015c8189eee819a0cc3dd4581e22
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118760"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700908"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Guide de dépannage : Application Insights pour .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Certaines de mes données télémétriques manquent
@@ -184,7 +184,53 @@ Le 5 février 2018, nous avons annoncé la suppression de la journalisation de
 Les dimensions de la ville, de la région et des pays proviennent des adresses IP et ne sont pas toujours précises. Ces adresses IP sont d’abord traitées pour la localisation, puis sont changées en 0.0.0.0 pour être stockées.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exception « méthode introuvable » lors de l’exécution dans Services cloud Azure
-Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiquement pris en charge dans les rôles Azure Cloud Services. [Installez la version 4.6 sur chaque rôle](../../cloud-services/cloud-services-dotnet-install-dotnet.md) avant d’exécuter votre application.
+Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiquement pris en charge dans les rôles Azure Cloud Services. [Installez 4.6 sur chaque rôle](../../cloud-services/cloud-services-dotnet-install-dotnet.md) avant d’exécuter votre application.
+
+## <a name="troubleshooting-logs"></a>Journaux de dépannage
+
+Suivez ces instructions pour capturer les journaux de dépannage de votre infrastructure.
+
+### <a name="net-framework"></a>.NET Framework
+
+1. Installez le package [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) à partir de NuGet. La version que vous installez doit correspondre à la version actuellement installée de `Microsoft.ApplicationInsighs`
+
+2. Modifiez votre fichier applicationinsights.config pour inclure les éléments suivants :
+
+   ```xml
+   <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+        <Severity>Verbose</Severity>
+        <LogFileName>mylog.txt</LogFileName>
+        <LogFilePath>C:\\SDKLOGS</LogFilePath>
+      </Add>
+   </TelemetryModules>
+   ```
+   Votre application doit disposer des autorisations d'écriture sur l'emplacement configuré
+ 
+ 3. Redémarrez le processus pour que ces nouveaux paramètres soient récupérés par le kit de développement logiciel (SDK)
+ 
+ 4. Dès que vous avez terminé, annulez ces modifications.
+  
+### <a name="net-core"></a>.Net Core
+
+1. Installez le package [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) à partir de NuGet. La version que vous installez doit correspondre à la version actuellement installée de `Microsoft.ApplicationInsighs`
+
+2. Modifiez la méthode `ConfigureServices` dans votre classe `Startup.cs` :
+
+    ```csharp
+    services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
+    services.ConfigureTelemetryModule<FileDiagnosticsTelemetryModule>( (module, options) => {
+        module.LogFilePath = "C:\\SDKLOGS";
+        module.LogFileName = "mylog.txt";
+        module.Severity = "Verbose";
+    } );
+    ```
+   Votre application doit disposer des autorisations d'écriture sur l'emplacement configuré
+ 
+ 3. Redémarrez le processus pour que ces nouveaux paramètres soient récupérés par le kit de développement logiciel (SDK)
+ 
+ 4. Dès que vous avez terminé, annulez ces modifications.
+  
 
 ## <a name="still-not-working"></a>Ne fonctionne toujours pas...
 * [Forum Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

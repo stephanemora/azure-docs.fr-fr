@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b5f0a2a418c53a5049ebff9bba9188219a9aeb13
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321175"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815068"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de Hyper-V sur Azure
 
 Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) du planificateur de déploiement Site Recovery dans l’un des quatre modes suivants : 
--   [Accéder à la liste de machines virtuelles](#get-vm-list-for-profiling-hyper-v-vms)
+-   Accéder à la liste de machines virtuelles
 -   [Profil](#profile-hyper-v-vms)
--   [Générer un rapport](#generate-report)
+-   Générer un rapport
 -   [Obtenir le débit](#get-throughput)
 
 Exécutez tout d’abord l’outil pour obtenir la liste des machines virtuelles à partir d’un ou plusieurs hôtes Hyper-V. Exécutez ensuite l’outil en mode profilage pour rassembler l’activité des données de machine virtuelle et les E/S par seconde. Ensuite, exécutez l’outil pour générer le rapport afin de déterminer les besoins en bande passante réseau et en stockage.
@@ -74,7 +74,7 @@ L’outil interroge l’hôte Hyper-V toutes les 15 secondes pour garantir l’e
 L’outil gère parfaitement la migration des machines virtuelles d’un nœud vers un autre nœud du cluster et la migration du stockage au sein d’un hôte.
 
 ### <a name="getting-the-vm-list-to-profile"></a>Obtenir la liste des machines virtuelles à profiler
-Pour créer une liste de machines virtuelles à profiler, reportez-vous à l’opération [GetVMList](#get-vm-list-for-profiling-hyper-v-vms).
+Pour créer une liste de machines virtuelles à profiler, reportez-vous à l'opération GetVMList.
 
 Après avoir établi la liste des machines virtuelles à profiler, vous pouvez exécuter l’outil en mode profilage. 
 

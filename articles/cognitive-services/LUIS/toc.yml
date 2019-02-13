@@ -36,7 +36,7 @@ items:
         href: luis-get-started-node-add-utterance.md
       - name: Python
         href: luis-get-started-python-add-utterance.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Créer une application
     items:
@@ -144,7 +144,7 @@ items:
       href: luis-concept-security.md
     - name: Clés de création et de point de terminaison
       href: luis-concept-keys.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Démarrer une nouvelle application
     href: luis-how-to-start-new-app.md
@@ -226,7 +226,7 @@ items:
     - name: Gérer les versions
       href: luis-how-to-manage-versions.md
     - name: Gérer les créateurs et collaborateurs
-      displayName: access, transfer, AAD, tenant, Azure AD, consent
+      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership
       href: luis-how-to-collaborate.md
     - name: Gérer la clé de création
       href: luis-how-to-account-settings.md
@@ -298,7 +298,7 @@ items:
     - name: Codes HTTP
       displayName: 400, 401, 403, 409, 410, 414, 429
       href: luis-reference-response-codes.md
-  - name: Kits de développement logiciel (SDK)
+  - name: Kits SDK
     items:
     - name: C#
       items:
@@ -376,7 +376,7 @@ items:
     href: luis-resources-faq.md
   - name: Tarification et limites
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/LUIS
   - name: UserVoice
     href: https://aka.ms/luis-uservoice-forum
@@ -386,9 +386,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de connaissances
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 5c4f7435f08632a7e4d01708a1fff3a64239faab
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 905a208980407c6456d8ad36ed4e952a12f50435
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428713"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200579"

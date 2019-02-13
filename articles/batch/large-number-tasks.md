@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: b2daba1e20431edae5aacc8295fdc542d1e73d33
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460503"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809297"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envoyer un grand nombre de tâches dans un travail Batch
 
@@ -37,8 +37,8 @@ La taille maximale de la collection de tâches qu’il est possible d’ajouter 
 * Dans les API Batch suivantes, les collections sont limitées à **100 tâches**. Cette limite peut être inférieure selon la taille des tâches (par exemple, si les tâches comprennent un grand nombre de fichiers de ressources ou de variables d’environnement).
 
     * [API REST](/rest/api/batchservice/task/addcollection)
-    * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#azure_batch_operations_TaskOperations_add_collection)
-    * [API Node.js](/javascript/api/azure-batch/task?view=azure-node-latest#addcollection)
+    * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
+    * [API Node.js](/javascript/api/azure-batch/task?view=azure-node-latest)
 
   Lorsque vous utilisez ces API, vous devez fournir une logique permettant de diviser le nombre de tâches afin de respecter la limite et de gérer les erreurs et nouvelles tentatives si l’ajout de tâches échoue. Si une collection de tâches est trop volumineuse, la requête génère une erreur et doit être retentée avec une collection contenant moins de tâches.
 
@@ -55,7 +55,7 @@ L’ajout d’une collection de tâches volumineuse à un travail peut prendre u
 
 * **La taille de la tâche** : l’ajout de tâches volumineuses prend plus de temps que l’ajout de tâches plus petites. Pour réduire la taille de chaque tâche d’une collection, vous pouvez simplifier la ligne de commande des tâches, réduire le nombre de variables d’environnement ou gérer plus efficacement les exigences d’exécution des tâches. Par exemple, au lieu d’utiliser un grand nombre de fichiers de ressources, installez les dépendances des tâches à l’aide d’une [tâche de démarrage](batch-api-basics.md#start-task) dans le pool. Vous pouvez également utiliser un [package d’application](batch-application-packages.md) ou un [conteneur Docker](batch-docker-container-workloads.md).
 
-* **Le nombre d’opérations parallèles** : selon l’API Batch, vous pouvez augmenter le débit en augmentant le nombre maximal d’opérations simultanées que peut exécuter le client Batch. Configurez ce paramètre à l’aide de la propriété [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) dans l’API .NET, ou du paramètre `threads` des méthodes telles que [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection)dans l’extension du SDK Python pour Batch (cette propriété n’est pas disponible dans la version native du SDK Python pour Batch). Par défaut, cette propriété est définie sur 1. Toutefois, vous pouvez définir une valeur supérieure pour améliorer le débit des opérations. L’inconvénient d’un débit élevé est la grande consommation de bande passante réseau et la baisse des performances de l’UC. Le débit des tâches peut augmenter jusqu’à 100 fois le `MaxDegreeOfParallelism` ou les `threads`. Dans la pratique, le nombre d’opérations simultanées doit être inférieur à 100. 
+* **Le nombre d’opérations parallèles** : selon l’API Batch, vous pouvez augmenter le débit en augmentant le nombre maximal d’opérations simultanées que peut exécuter le client Batch. Configurez ce paramètre à l’aide de la propriété [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) dans l’API .NET, ou du paramètre `threads` des méthodes telles que [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)dans l’extension du SDK Python pour Batch (cette propriété n’est pas disponible dans la version native du SDK Python pour Batch). Par défaut, cette propriété est définie sur 1. Toutefois, vous pouvez définir une valeur supérieure pour améliorer le débit des opérations. L’inconvénient d’un débit élevé est la grande consommation de bande passante réseau et la baisse des performances de l’UC. Le débit des tâches peut augmenter jusqu’à 100 fois le `MaxDegreeOfParallelism` ou les `threads`. Dans la pratique, le nombre d’opérations simultanées doit être inférieur à 100. 
  
   L’extension Batch d’Azure CLI et les modèles Batch augmentent automatiquement le nombre d’opérations simultanées en fonction du nombre de cœurs disponibles. Cependant, cette propriété n’est pas configurable dans l’interface CLI. 
 
@@ -155,7 +155,7 @@ tasks=list()
 
 ```
 
-Ajoutez la collection de tâches à l’aide de [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection). Définissez le paramètre `threads` pour augmenter le nombre d’opérations simultanées :
+Ajoutez la collection de tâches à l’aide de [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Définissez le paramètre `threads` pour augmenter le nombre d’opérations simultanées :
 
 ```python
 try:
@@ -164,7 +164,7 @@ except Exception as e:
     raise e
 ```
 
-L’extension du SDK Python pour Batch permet également d’ajouter des paramètres de tâche à l’aide d’une spécification JSON pour une fabrique de tâches. Par exemple, configurez les paramètres d’un travail de balayage paramétrique similaire à celui de l’exemple précédent de [modèle d’interface CLI pour Batch](#example-batch-cli-template) :
+L’extension du SDK Python pour Batch permet également d’ajouter des paramètres de tâche à l’aide d’une spécification JSON pour une fabrique de tâches. Par exemple, configurez les paramètres d'un travail de balayage paramétrique semblable à celui de l'exemple précédent de modèle d'interface CLI pour Batch :
 
 ```python
 parameter_sweep = {

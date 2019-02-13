@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50210ebeed30bdb58698d0e878667b92dcc73609
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38bb0840269d4b7bacbb0101590b389c8542a9b1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167085"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814229"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Office 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les fonctionnalités multigéographiques dans Office 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Office 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
@@ -125,7 +125,7 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
 
     | Attribut | Valeur | Détails |
     | --- | --- | --- |
-    | NOM | *Donnez-lui un nom* | Par exemple, « Entrant depuis AD – Utilisateur preferredDataLocation » |
+    | Nom | *Donnez-lui un nom* | Par exemple, « Entrant depuis AD – Utilisateur preferredDataLocation » |
     | Description | *Fournissez une description personnalisée* |  |
     | Système connecté | *Sélectionnez le connecteur Active Directory local* |  |
     | Type d’objet système connecté | **Utilisateur** |  |
@@ -154,7 +154,7 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
 
     | Attribut | Valeur | Détails |
     | ----- | ------ | --- |
-    | NOM | *Donnez-lui un nom* | Par exemple, « Sortant vers Azure AD – Utilisateur preferredDataLocation » |
+    | Nom | *Donnez-lui un nom* | Par exemple, « Sortant vers Azure AD – Utilisateur preferredDataLocation » |
     | Description | *Fournissez une description* ||
     | Système connecté | *Sélectionnez le connecteur Azure AD* ||
     | Type d’objet système connecté | **Utilisateur** ||
@@ -238,8 +238,8 @@ Réactivez le planificateur de synchronisation intégré :
 ## <a name="step-8-verify-the-result"></a>Étape 8 : Vérifier le résultat
 Il est maintenant temps de vérifier la configuration et de l’activer pour vos utilisateurs.
 
-1. Ajoutez la zone géographique à l’attribut sélectionné sur un utilisateur. Vous trouverez la liste des zones géographiques disponibles dans [ce tableau](#enable-synchronization-of-preferreddatalocation).  
-![Capture d’écran de l’attribut AD ajouté à un utilisateur](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
+1. Ajoutez la zone géographique à l’attribut sélectionné sur un utilisateur. Vous trouverez la liste des zones géographiques disponibles dans ce tableau.  
+![Capture d'écran de l'attribut AD ajouté à un utilisateur](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Attendez que l’attribut soit synchronisé avec Azure AD.
 3. À l’aide d’Exchange Online PowerShell, vérifiez que la région de boîte aux lettres a été correctement définie.  
 ![Capture d’écran d’Exchange Online PowerShell](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  

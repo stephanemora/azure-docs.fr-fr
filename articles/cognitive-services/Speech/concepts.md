@@ -10,12 +10,12 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219768"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816207"
 ---
 # <a name="basic-concepts"></a>Concepts de base
 
@@ -75,8 +75,8 @@ Les étapes que vous suivez pour activer l’entrée vocale dans votre applicati
 
 Le service de reconnaissance vocale Microsoft fournit aux développeurs deux façons d’ajouter des fonctionnalités vocales à leurs applications.
 
-- [API REST](GetStarted/GetStartedREST.md) : les développeurs peuvent utiliser des appels HTTP au service à partir de leurs applications pour la reconnaissance vocale.
-- [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) : pour bénéficier de fonctionnalités avancées, les développeurs peuvent télécharger les bibliothèques clientes Microsoft Speech et les lier dans leurs applications.  Les bibliothèques clientes sont disponibles sur différentes plateformes (Windows, Android, iOS) dans différents langages (C#, Java, JavaScript, ObjectiveC).
+- [API REST](GetStarted/GetStartedREST.md) : Les développeurs peuvent utiliser des appels HTTP au service à partir de leurs applications pour la reconnaissance vocale.
+- [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) : Pour bénéficier de fonctionnalités avancées, les développeurs peuvent télécharger les bibliothèques clientes Microsoft Speech et les lier dans leurs applications.  Les bibliothèques clientes sont disponibles sur différentes plateformes (Windows, Android, iOS) dans différents langages (C#, Java, JavaScript, ObjectiveC).
 
 | Cas d'utilisation | [API REST](GetStarted/GetStartedREST.md) | [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
@@ -92,7 +92,7 @@ Le service de reconnaissance vocale Microsoft fournit aux développeurs deux fa�
 Il existe trois modes de reconnaissance : `interactive`, `conversation` et `dictation`. Le mode de reconnaissance ajuste la reconnaissance vocale en fonction de la façon dont les utilisateurs sont susceptibles de parler. Choisissez le mode de reconnaissance approprié pour votre application.
 
 > [!NOTE]
-> Les modes de reconnaissance peuvent avoir des comportements différents dans le [protocole REST](#rest-speech-recognition-api) de ceux qu’ils ont dans le [protocole WebSocket](#webSocket-speech-recognition-api). Par exemple, l’API REST ne prend pas en charge la reconnaissance continue, même en mode de conversation ou de dictée.
+> Selon le protocole utilisé, REST ou WebSocket, les comportements des modes de reconnaissance peuvent être différents. Par exemple, l’API REST ne prend pas en charge la reconnaissance continue, même en mode de conversation ou de dictée.
 > [!NOTE]
 > Ces modes sont applicables lorsque vous utilisez directement le protocole REST ou WebSocket. Les [bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) utilisent des paramètres différents pour spécifier le mode de reconnaissance. Pour plus d’informations, consultez la bibliothèque cliente de votre choix.
 

@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712056"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701010"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Créer des planifications et des périodicités avancées pour les travaux dans Azure Scheduler
 
@@ -24,13 +24,13 @@ ms.locfileid: "51712056"
 
 La planification constitue le cœur d’un travail [Azure Scheduler](../scheduler/scheduler-intro.md), car elle détermine quand et comment Azure Scheduler exécute le travail. Avec Scheduler, vous pouvez créer plusieurs planifications ponctuelles et récurrentes pour un travail. Les planifications ponctuelles se déclenchent une seule fois à un moment précis. Il s’agit en fait de planifications récurrentes qui ne s’exécutent qu’une seule fois. Les planifications récurrentes se déclenchent selon une fréquence définie. Cette flexibilité vous permet d’utiliser Scheduler dans divers scénarios d’entreprise, comme les exemples ci-après :
 
-* **Nettoyage périodique des données** : créez un travail quotidien qui supprime tous les tweets qui datent de plus de trois mois.
+* **Nettoyage périodique des données** : créez un travail quotidien qui supprime tous les tweets datant de plus de trois mois.
 
-* **Archivage des données** : créez un travail mensuel qui envoie (push) l’historique de facturation vers un service de sauvegarde.
+* **Archivage des données** : créez un travail mensuel qui envoie (push) l'historique de facturation vers un service de sauvegarde.
 
-* **Demande de données externes** : créez un travail qui s’exécute toutes les 15 minutes et tire (pull) un nouveau rapport météo de la NOAA.
+* **Demande de données externes** : créez un travail qui s'exécute toutes les 15 minutes et tire (pull) un nouveau rapport météo de la NOAA.
 
-* **Traitement des images** : créez un travail qui s’exécute tous les jours ouvrables, pendant les heures creuses, et utilise le cloud computing pour compresser les images chargées pendant la journée.
+* **Traitement des images** : créez un travail qui s'exécute tous les jours ouvrables, pendant les heures creuses, et utilise le cloud computing pour compresser les images chargées pendant la journée.
 
 Cet article décrit des exemples de travaux que vous pouvez créer à l’aide de Scheduler et de l’[API REST Azure Scheduler](/rest/api/scheduler). Il fournit également la définition JSON (JavaScript Object Notation) de chaque planification. 
 
@@ -53,9 +53,9 @@ Ces scénarios sont décrits plus en détail plus loin dans cet article.
 
 Pour créer une planification de base avec [l’API REST Azure Scheduler](/rest/api/scheduler), effectuez les étapes suivantes :
 
-1. Inscrivez votre abonnement Azure auprès d’un fournisseur de ressources à l’aide de [l’opération Inscrire dans l’API REST Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). Le nom du fournisseur pour le service Azure Scheduler est **Microsoft.Scheduler**. 
+1. Inscrivez votre abonnement Azure auprès d’un fournisseur de ressources à l’aide de [l’opération Inscrire dans l’API REST Resource Manager](https://docs.microsoft.com/rest/api/resources/providers). Le nom du fournisseur pour le service Azure Scheduler est **Microsoft.Scheduler**. 
 
-1. Créez une collection de travaux en utilisant [l’opération Créer ou Mettre à jour pour les collections de travaux](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) dans l’API REST Scheduler. 
+1. Créez une collection de travaux en utilisant [l’opération Créer ou Mettre à jour pour les collections de travaux](https://docs.microsoft.com/rest/api/scheduler/jobcollections) dans l’API REST Scheduler. 
 
 1. Créez un travail à l’aide de [l’opération Créer ou Mettre à jour pour les travaux](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 
@@ -67,7 +67,7 @@ Ce tableau fournit une vue d’ensemble des principaux éléments JSON que vous 
 |---------|----------|-------------|
 | **startTime** | Non  | Valeur de chaîne DateHeure au [format ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) qui spécifie quand le travail démarre la première fois dans une planification de base. <p>Pour les planifications complexes, le travail ne démarre pas avant **startTime**. | 
 | **recurrence** | Non  | Spécifie les règles de périodicité selon lesquelles le travail est exécuté. L’objet **recurrence** prend en charge les éléments suivants : **frequency**, **interval**, **schedule**, **count** et **endTime**. <p>Si vous définissez l’élément **recurrence**, vous devez également définir l’élément **frequency**. Les autres éléments **recurrence** sont facultatifs. |
-| **frequency** | Oui, si vous définissez **recurrence** | Unité de temps entre les occurrences. Les valeurs prises en charge sont : « Minute », « Hour », « Day », « Week », « Month » et « Year ». | 
+| **frequency** | Oui, si vous définissez **recurrence** | Unité de temps entre les occurrences. Les valeurs prises en charge sont : « Minute », « Hour », « Day », « Week », « Month » et « Year » | 
 | **interval** | Non  | Entier positif qui détermine le nombre d’unités de temps entre les occurrences, en fonction de l’élément **frequency**. <p>Par exemple, si **interval** a la valeur 10 et que **frequency** est défini sur « Week », le travail se répète toutes les 10 semaines. <p>Voici le plus grand nombre d’intervalles pour chaque fréquence : <p>- 18 mois <br>- 78 semaines <br>- 548 jours <br>- Pour les heures et les minutes, la plage est 1 <= <*interval*> <= 1 000. | 
 | **schedule** | Non  | Définit les changements de périodicité selon les minutes, heures, jours de la semaine et jours du mois spécifiés. | 
 | **count** | Non  | Entier positif qui spécifie le nombre de fois où le travail s’exécute avant de finir. <p>Par exemple, quand un travail quotidien a une valeur **count** égale à 7 et une date de début définie au lundi, le travail finit de s’exécuter le dimanche. Si la date de début est passée, la première exécution est calculée d’après l’heure de création. <p>Si la valeur **endTime** ou **count** n’est pas spécifiée, le travail s’exécute indéfiniment. Vous ne pouvez pas utiliser à la fois **count** et **endTime** dans le même travail, mais la règle qui finit en premier est appliquée. | 

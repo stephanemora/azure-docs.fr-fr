@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: e91b4e881c0f39304e3042d556f111db2089f7de
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c9b4a27ff1b5467eb752e8cfc09f697ca1a966ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334480"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820383"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Référence ACR Tasks : YAML
 
@@ -83,10 +83,10 @@ az configure --defaults acr=myregistry
 
 Les propriétés de tâche apparaissent généralement dans la partie supérieure d’un fichier `acr-task.yaml` et sont des propriétés globales qui s’appliquent lors de l’exécution complète de la tâche. Certaines de ces propriétés globales peuvent être remplacées au sein d’une étape individuelle.
 
-| Propriété | type | Facultatif | Description | Remplacement pris en charge | Valeur par défaut |
+| Propriété | Type | Facultatif | Description | Remplacement pris en charge | Valeur par défaut |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | chaîne | Non  | Version du fichier `acr-task.yaml` analysé par le service ACR Tasks. Si ACR Tasks s’efforce de maintenir la compatibilité descendante, cette valeur permet à ACR Tasks d’assurer la compatibilité au sein d’une version définie. | Non  | Aucun |
-| `stepTimeout` | int (secondes) | Oui | Nombre maximal de secondes pendant lesquelles une étape peut être exécutée. Cette propriété peut être substituée dans une étape en définissant la propriété [timeout](#timeout) de l’étape. | Oui | 600 (10 minutes) |
+| `stepTimeout` | int (secondes) | Oui | Nombre maximal de secondes pendant lesquelles une étape peut être exécutée. Cette propriété peut être substituée dans une étape en définissant la propriété timeout de l'étape. | Oui | 600 (10 minutes) |
 | `totalTimeout` | int (secondes) | Oui | Nombre maximal de secondes pendant lesquelles une tâche peut s’exécuter. Une « exécution » inclut l’exécution et l’achèvement de toutes les étapes de la tâche, correctement ou non. Est également incluse la sortie de tâche d’impression, telle que les dépendances d’image détectées et l’état d’exécution de la tâche. | Non  | 3 600 (1 hour) |
 
 ## <a name="task-step-types"></a>Types d’étape de tâche
@@ -315,7 +315,7 @@ steps:
 
 Chaque type d’étape prend en charge plusieurs propriétés appropriées pour son type. Le tableau suivant définit toutes les propriétés d’étape disponibles. Certains types d’étape ne prennent pas en charge toutes les propriétés. Pour connaître les propriétés disponibles pour chaque type d’étape, consultez les sections de référence sur les types d’étape [cmd](#cmd), [build](#build) et [push](#push).
 
-| Propriété | type | Facultatif | Description |
+| Propriété | Type | Facultatif | Description |
 | -------- | ---- | -------- | ----------- |
 | `detach` | bool | Oui | Indique si le conteneur doit être détaché lors de l’exécution. |
 | `entryPoint` | chaîne | Oui | Remplace le `[ENTRYPOINT]` du conteneur d’une étape. |
@@ -328,7 +328,7 @@ Chaque type d’étape prend en charge plusieurs propriétés appropriées pour 
 | [`when`](#example-when) | [chaîne, chaîne,...] | Oui | Configure les dépendances d’une étape sur une ou plusieurs autres étapes au sein de la tâche. |
 | `workingDirectory` | chaîne | Oui | Définit le répertoire de travail pour une étape. Par défaut, ACR Tasks crée un répertoire racine comme répertoire de travail. Toutefois, si votre build dispose de plusieurs étapes, les étapes précédentes peuvent partager des artefacts avec étapes suivantes en spécifiant le même répertoire de travail. |
 
-### <a name="examples-task-step-properties"></a>Exemples : propriétés d’étape de tâche
+### <a name="examples-task-step-properties"></a>Exemples : Propriétés d’étape de tâche
 
 #### <a name="example-id"></a>Exemple : id
 

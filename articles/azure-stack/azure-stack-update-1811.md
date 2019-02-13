@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246532"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766093"
 ---
 # <a name="azure-stack-1811-update"></a>Mise à jour 1811 d’Azure Stack
 
@@ -152,7 +152,10 @@ Cette mise à jour inclut les nouvelles fonctionnalités et améliorations suiva
 - Correction d’un problème qui avait pour effet que, quand vous utilisiez le portail pour créer un groupe de machines virtuelles identiques (VMSS), la liste déroulante **Taille d’instance** ne se chargeait pas correctement dans Internet Explorer. Ce navigateur fonctionne désormais correctement.  
 
 <!-- 3190553 - IS ASDK -->
-- Correction d’un problème qui générait des alertes bruyantes indiquant qu’une instance de rôle d’infrastructure était indisponible qu’un nœud d’unité d’échelle était hors connexion.
+- Correction d’un problème qui générait des alertes bruyantes indiquant qu’une instance de rôle d’infrastructure était indisponible ou qu’un nœud d’unité d’échelle était hors connexion.
+
+<!-- 2724961 - IS ASDK -->
+- Correction d'un problème qui empêchait la page de présentation des machines virtuelles d'afficher correctement le graphique des métriques des machines virtuelles. 
 
 ## <a name="changes"></a>Changements
 
@@ -297,11 +300,6 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
 <!-- 1662991 IS ASDK --> 
 - Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic.  
-
-<!-- 2724961- IS ASDK --> 
-- Quand vous inscrivez le fournisseur de ressources **Microsoft.Insight** dans les paramètres d’abonnement, puis créez une machine virtuelle Windows en ayant activé les diagnostics du système d’exploitation invité, le graphique Pourcentage UC dans la page de vue d’ensemble de la machine virtuelle n’affiche pas les données de métriques.
-
-   Pour trouver les données de métriques, comme le graphique Pourcentage UC, accédez à la fenêtre **Métriques**, puis affichez toutes les métriques d’invité de machine virtuelle Windows prises en charge.
 
 <!-- 3507629 - IS, ASDK --> 
 - Managed Disks crée deux nouveaux [types de quotas de calcul](azure-stack-quota-types.md#compute-quota-types) pour limiter la capacité maximale des disques managés qui peuvent être provisionnés. Par défaut, 2 048 Gio sont alloués pour chaque type de quota de disques managés. Toutefois, vous pouvez rencontrer les problèmes suivants :

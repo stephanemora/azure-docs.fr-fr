@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ec3fcc0301083e6cd5eff34c111586ef6463f8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189997"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821505"
 ---
 # <a name="outbound-connections-classic"></a>Connexions sortantes (Classic)
 
@@ -54,9 +54,9 @@ Les différents déploiements dans Classic offrent des fonctionnalités différe
 
 Les [stratégies de prévention](#snatexhaust) présentent également les mêmes différences.
 
-L’[algorithme utilisé pour la préaffectation de ports éphémères](#ephemeralports) en lien avec la traduction d’adresse de port pour les déploiements Azure Classic est le même que pour les déploiements de ressources Azure Resource Manager.
+L'algorithme utilisé pour la préaffectation de ports éphémères en lien avec PAT pour les déploiements classiques est le même que pour les déploiements de ressources Azure Resource Manager.
 
-### <a name="ilpip"></a>Scénario 1 : machine virtuelle avec adresse IP publique de niveau d’instance
+### <a name="ilpip"></a>Scénario 1 : Machine virtuelle avec adresse IP publique de niveau d’instance
 
 Dans ce scénario, une adresse IP publique de niveau d’instance (ILPIP) est affectée à la machine virtuelle. En ce qui concerne les connexions sortantes, il importe peu que la machine virtuelle ait un point de terminaison à charge équilibrée ou non. Ce scénario prend le pas sur les autres. En cas d’utilisation d’une adresse IP publique de niveau d’instance, la machine virtuelle utilise celle-ci pour tous les flux sortants.  
 
@@ -74,13 +74,13 @@ Les ports éphémères du frontend d’adresse IP publique de l’équilibreur 
 
 Les ports SNAT sont préaffectés comme décrit dans la section [Présentation de la traduction d’adresses réseau sources et de la traduction d’adresse de port](#snat). Il s’agit d’une ressource limitée sujette à épuisement. Il est important de comprendre comment ils sont [consommés](#pat). Pour savoir comment concevoir en fonction de cette consommation et d’en atténuer éventuellement les effets, consultez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust).
 
-Quand il existe [plusieurs points de terminaison à charge équilibrée publics](load-balancer-multivip.md), l’une de ces adresses IP publiques est [candidate aux flux sortants](#multivipsnat) et sélectionnée au hasard.  
+Lorsqu'il existe [plusieurs points de terminaison à charge équilibrée publics](load-balancer-multivip.md), n'importe laquelle de ces adresses IP publiques peut être utilisée pour les flux sortants, et l'une d'elles est sélectionnée au hasard.  
 
 ### <a name="defaultsnat"></a>Scénario 3 : aucune adresse IP publique associée
 
 Dans ce scénario, la machine virtuelle ou le rôle de travail web ne fait pas partie d’un point de terminaison à charge équilibrée public.  Et, dans le cas d’une machine virtuelle, aucune adresse ILPIP ne lui est affectée. Lorsque la machine virtuelle crée un flux sortant, Azure convertit l’adresse IP source privée du flux sortant en une adresse IP source publique. L’adresse IP publique utilisée pour ce flux sortant n’est pas configurable et n’entre pas en compte dans la limite de ressource IP publique de l’abonnement.  Azure alloue automatiquement cette adresse.
 
-Pour exécuter cette fonction, Azure utilise la traduction d’adresses réseau sources avec masquage de port ([traduction d’adresse de port](#pat)). Ce scénario est similaire au [scénario 2](#lb), sauf qu’il n’existe aucun contrôle de l’adresse IP utilisée. Il s’agit d’un scénario de secours quand les scénarios 1 et 2 n’existent pas. Nous vous déconseillons ce scénario si vous voulez exercer un contrôle sur l’adresse sortante. Si les connexions sortantes sont un élément essentiel de votre application, il est préférable de choisir un autre scénario.
+Pour exécuter cette fonction, Azure utilise la traduction d’adresses réseau sources avec masquage de port ([traduction d’adresse de port](#pat)). Ce scénario est semblable au scénario 2, sauf que l'adresse IP utilisée n'est pas contrôlée. Il s’agit d’un scénario de secours quand les scénarios 1 et 2 n’existent pas. Nous vous déconseillons ce scénario si vous voulez exercer un contrôle sur l’adresse sortante. Si les connexions sortantes sont un élément essentiel de votre application, il est préférable de choisir un autre scénario.
 
 Les ports SNAT sont préaffectés comme décrit dans la section [Présentation de la traduction d’adresses réseau sources et de la traduction d’adresse de port](#snat).  Le nombre de machines virtuelles ou de rôles de travail web qui partage l’adresse IP publique détermine le nombre de ports éphémères préalloués.   Il est important de comprendre comment ils sont [consommés](#pat). Pour savoir comment concevoir en fonction de cette consommation et d’en atténuer éventuellement les effets, consultez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust).
 
@@ -104,7 +104,7 @@ Pour découvrir des modèles permettant d’atténuer les conditions qui aboutis
 
 Azure utilise un algorithme pour déterminer le nombre de ports de traduction d’adresses réseau sources préaffectés disponibles en fonction de la taille du pool principal lorsque vous utilisez une traduction d’adresses réseau sources ([traduction d’adresse de port](#pat)) pour le masquage de port. Les ports SNAT sont des ports éphémères disponibles pour une adresse IP publique source donnée.
 
-Azure préalloue les ports SNAT lors du déploiement d’une instance en fonction du nombre d’instances de machine virtuelle ou de rôle de travail web qui partagent une adresse IP publique donnée.  Au moment où les flux sortants sont créés, la [traduction d’adresse de port](#pat) consomme (jusqu’à la limite préaffectée) et libère dynamiquement ces ports quand le flux se ferme ou en cas de [délais d’inactivité](#ideltimeout).
+Azure préalloue les ports SNAT lors du déploiement d’une instance en fonction du nombre d’instances de machine virtuelle ou de rôle de travail web qui partagent une adresse IP publique donnée.  Au moment où les flux sortants sont créés, le [PAT](#pat) consomme dynamiquement (jusqu'à la limite préaffectée) et libère ces ports lorsque le flux se ferme ou en cas de délais d'expiration.
 
 Le tableau suivant présente les préaffectations de ports SNAT pour les différents niveaux de tailles de pool backend :
 

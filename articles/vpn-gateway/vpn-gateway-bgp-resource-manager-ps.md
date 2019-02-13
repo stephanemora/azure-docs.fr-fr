@@ -1,5 +1,5 @@
 ---
-title: 'Configurer BGP sur des passerelles VPN Azure : Resource Manager : PowerShell | Microsoft Docs'
+title: 'Configurer le protocole BGP sur des passerelles VPN Azure : Resource Manager : PowerShell | Microsoft Docs'
 description: Cet article vous guide dans la configuration de BGP avec des passerelles VPN Azure à l’aide d’Azure Resource Manager et de PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b48382c8f429576a3d15c624c9c9028cffec3872
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632583"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813022"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Configurer BGP sur des passerelles VPN Azure à l’aide de PowerShell
 Cet article vous guide pas à pas dans l’activation de BGP sur une connexion VPN de site à site (S2S) et une connexion de réseau virtuel à réseau virtuel, à l’aide du modèle de déploiement de Resource Manager et de PowerShell.
@@ -35,7 +35,7 @@ Pour plus d’informations sur les avantages de BGP et les exigences techniques 
 Cet article détaille les étapes permettant d’effectuer les tâches suivantes :
 
 * [Partie 1 - Activer BGP sur votre passerelle VPN Azure](#enablebgp)
-* [Partie 2 - Établir une connexion intersite avec BGP](#crossprembgp)
+* Partie 2 - Établir une connexion intersite avec BGP
 * [Partie 3 - Établir une connexion de réseau virtuel à réseau virtuel avec BGP](#v2vbgp)
 
 Chaque partie des instructions constitue un bloc de base pour activer BGP dans votre connectivité réseau. Si vous terminez ces trois parties, vous générez la topologie comme sur le diagramme suivant :
@@ -174,7 +174,7 @@ Avant de continuer, assurez-vous que vous êtes toujours connecté à l’abonne
 
 #### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Créer la passerelle de réseau local pour le site 5
 
-Veillez à créer le groupe de ressources (si ce n’est déjà fait) avant la passerelle de réseau local. Remarquez les deux paramètres supplémentaires pour la passerelle de réseau local : Asn et BgpPeerAddress.
+Veillez à créer le groupe de ressources (si ce n’est déjà fait) avant la passerelle de réseau local. Remarquez les deux paramètres supplémentaires pour la passerelle de réseau local : ASN et BgpPeerAddress.
 
 ```powershell
 New-AzureRmResourceGroup -Name $RG5 -Location $Location5

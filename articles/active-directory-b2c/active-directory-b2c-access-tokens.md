@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86c62c021c6668783b3f843a908f4b17845f8c72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172984"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768340"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C : Demande de jetons d'accès
 
@@ -78,8 +78,15 @@ Lorsque vous demandez un jeton d’accès, l’application cliente doit spécifi
 > [!NOTE]
 > Actuellement, les domaines personnalisés ne sont pas pris en charge avec les jetons d’accès. Vous devez utiliser votre domaine tenantName.onmicrosoft.com dans l’URL de la requête.
 
+Dans l'exemple suivant, vous remplacez ces valeurs :
+
+- `<tenant-name>` - Nom de votre locataire Azure AD B2C.
+- `<policy-name>` - Nom de votre stratégie personnalisée ou de votre flux d'utilisateurs.
+- `<application-ID>` - Identificateur de l'application cliente que vous avez inscrite.
+- `<redirect-uri>` - **URI de redirection** que vous avez entré lorsque vous avez inscrit l'application cliente.
+
 ```
-https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 Pour acquérir plusieurs autorisations dans la même requête, vous pouvez ajouter plusieurs entrées séparées par des espaces dans le même paramètre d’**étendue**. Par exemple : 
@@ -114,7 +121,7 @@ Si le paramètre `response_type` dans une requête `/authorize` inclut `token`, 
 
 Dans un jeton d’accès (**access\_token**) correctement configuré (à partir du point de terminaison `/authorize` ou `/token`), les revendications suivantes sont présentes :
 
-| NOM | Revendication | Description |
+| Nom | Revendication | Description |
 | --- | --- | --- |
 |Audience |`aud` |L’**ID d’application** de la ressource unique à laquelle le jeton accorde l’accès. |
 |Étendue |`scp` |Les autorisations accordées à la ressource. Plusieurs autorisations octroyées doivent être séparées par une espace. |

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
-ms.openlocfilehash: acc8929dc3476e9590e8e4d9526b38b7c0719570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd207eaad1a3e821724d51a890d0882bfffda131
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108197"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809059"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Basculer votre appareil physique StorSimple vers le même appareil
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel décrit les étapes requises pour basculer un appareil physique de la gamme StorSimple 8000 vers un autre appareil physique StorSimple en cas d’incident.Ce didacticiel décrit les étapes requises pour basculer un appareil physique de la gamme StorSimple 8000 vers lui-même en cas d’incident. StorSimple utilise l’option de basculement d’appareil pour migrer les données d’un appareil physique source dans le centre de données vers un autre appareil physique. Les instructions de ce didacticiel s’appliquent aux appareils physiques de la gamme StorSimple 8000 exécutant le logiciel Update 3 et versions ultérieures.
 
@@ -32,7 +32,7 @@ Pour plus d’informations sur le basculement d’appareil et son utilisation à
 Pour basculer un appareil physique StorSimple vers un autre appareil physique, accédez à [Fail over to the same StorSimple physical device](storsimple-8000-device-failover-physical-device.md) (Basculer votre appareil physique StorSimple vers lui-même). Pour basculer un appareil physique StorSimple vers une instance StorSimple Cloud Appliance, accédez à [Fail over to your StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md) (Basculement vers votre StorSimple Cloud Appliance).
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Assurez-vous d’avoir passé en revue les considérations relatives au basculement d’appareil. Pour plus d’informations, accédez à [Considérations courantes relatives au basculement d’appareil](storsimple-8000-device-failover-disaster-recovery.md).
 
@@ -50,7 +50,7 @@ Si vous avez besoin d’effectuer un basculement vers le même appareil, procéd
 4. Configurez votre appareil et réinscrivez-le auprès de votre service StorSimple Device Manager. L’appareil nouvellement inscrit doit présenter l’état **Prêt pour la configuration**. Le nom du nouvel appareil est le même que celui de l’ancien, mais il est suivi d’un chiffre pour indiquer que ses paramètres d’usine ont été rétablis et qu’il a été inscrit à nouveau.
 
     ![Appareil nouvellement inscrit prêt pour la configuration](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev3.png)
-5. Terminez l’installation du nouvel appareil. Pour plus d’informations, accédez à [Étape 4 : Fin de l’installation minimale de l’appareil](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup). Dans le panneau **Appareils**, l’appareil présente maintenant l’état **En ligne**.
+5. Terminez l’installation du nouvel appareil. Pour plus d'informations, accédez à [Étape 4 : Mener à bien l'installation minimale de l'appareil](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup). Dans le panneau **Appareils**, l’appareil présente maintenant l’état **En ligne**.
 
    > [!IMPORTANT]
    > **Effectuez tout d’abord la configuration minimale. Sinon, la récupération d’urgence risque d’échouer.**
@@ -61,7 +61,7 @@ Si vous avez besoin d’effectuer un basculement vers le même appareil, procéd
 
     ![Synthèse du basculement](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev11.png)
 
-    Pour obtenir des instructions détaillées, reportez-vous à la section [Basculer vers un autre appareil physique](#fail-over-to-another-physical-device).
+    Pour obtenir des instructions détaillées, reportez-vous à la section Basculer vers un autre appareil physique.
 
 7. Un travail de restauration de l’appareil est créé. Vous pouvez suivre sa progression à partir du panneau **Travaux** .
 

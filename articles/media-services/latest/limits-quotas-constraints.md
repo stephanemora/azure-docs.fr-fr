@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 5c0fbf396faa0e07ecca4ae16c775a39404c6fc9
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 1bada751ffac45b36faad6e978567233901adc7d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376514"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700313"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas et limitations dans Azure Media Services v3
 
@@ -33,14 +33,14 @@ Cet article décrit les quotas et les limitations dans Azure Media Services v3.
 | Travaux par compte Media Services | 500 000 <sup>(2)</sup> (fixe)|
 | Énumération des transformations|Pagination de la réponse avec 1 000 transformations par page|
 | Énumération des travaux|Pagination de la réponse avec 500 travaux par page|
-| LiveEvents par compte Media Services |5.|
+| Événements en temps réel par compte Media Services |5.|
 | Comptes Media Services dans un même abonnement | 25 (fixe) |
-| LiveOutputs à l’état En cours d’exécution par LiveEvent |3|
+| Sorties en cours d'exécution par événement en temps réel |3|
 | Comptes de stockage | 100<sup>(4)</sup> (fixe) |
 | Points de terminaison de diffusion en continu en cours d’exécution par compte Media Services|2|
-| StreamingPolicies | 100 <sup>(3)</sup> |
+| Stratégies de diffusion en continu | 100 <sup>(3)</sup> |
 | Transformations par compte Media Services | 100 (fixe)|
-| StreamingLocators uniques associés à un élément multimédia à un moment donné | 100<sup>(5)</sup> (fixe) |
+| Localisateurs de streaming uniques associés à une ressource à un moment donné | 100<sup>(5)</sup> (fixe) |
 
 <sup>1</sup> La taille maximale prise en charge pour un objet blob est actuellement de 5 To dans Stockage Blob Azure. Toutefois, des limites supplémentaires sont applicables dans Azure Media Services en fonction des tailles de machine virtuelle utilisées par le service. Si votre fichier source est supérieur à 260 Go, votre travail échouera probablement. Si vous avez du contenu 4K qui dépasse la limite de 260 Go, contactez-nous à l’adresse amshelp@microsoft.com afin d’identifier des solutions d’atténuation potentielles permettant de prendre en charge votre scénario.
 
@@ -48,11 +48,11 @@ Cet article décrit les quotas et les limitations dans Azure Media Services v3.
 
 Les enregistrements de travaux de votre compte qui ont plus de 90 jours sont automatiquement supprimés, même si le nombre total d’enregistrements est inférieur au quota maximal. 
 
-<sup>3</sup> Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Vous ne devez pas créer une stratégie StreamingPolicy pour chaque élément StreamingLocator.
+<sup>3</sup> Lorsque vous utilisez une [stratégie de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Vous ne devez pas créer une stratégie de diffusion en continu pour chaque localisateur de diffusion en continu.
 
 <sup>4</sup> Les comptes de stockage doivent provenir du même abonnement Azure.
 
-<sup>5</sup> Les StreamingLocators ne sont pas conçus pour gérer le contrôle d’accès par utilisateur. Pour accorder différents droits d’accès aux utilisateurs, utilisez les solutions de gestion des droits numériques (DRM).
+<sup>5</sup> Les localisateurs de streaming ne sont pas conçus pour gérer le contrôle d'accès par utilisateur. Pour accorder différents droits d’accès aux utilisateurs, utilisez les solutions de gestion des droits numériques (DRM).
 
 ## <a name="support-ticket"></a>Ticket de support
 

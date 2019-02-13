@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185968"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765674"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Collecter des données de journal avec l'agent Azure Log Analytics
 
-L’agent Azure Log Analytics (OMS), précédemment appelé Microsoft Monitoring Agent (MMA) ou agent OMS Linux, a été développé fournir une gestion complète sur plusieurs machines en local, ordinateurs surveillés par [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) et machines virtuelles dans un cloud. Les agents Windows et Linux accèdent à un espace de travail Log Analytics pour collecter des données à partir de différentes sources, ainsi qu'à des journaux ou métriques uniques tels que définis dans une solution de surveillance. 
+L'agent Azure Log Analytics, précédemment appelé Microsoft Monitoring Agent (MMA) ou agent OMS Linux, a été développé fournir une gestion complète sur plusieurs machines locales, ordinateurs surveillés par [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) et machines virtuelles situées dans un cloud. Les agents Windows et Linux accèdent à un espace de travail Log Analytics pour collecter des données à partir de différentes sources, ainsi qu'à des journaux ou métriques uniques tels que définis dans une solution de surveillance. 
 
 Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.   
 
@@ -41,7 +41,7 @@ L’agent pour Linux et Windows ne sert pas seulement à la connexion à Log Ana
 ## <a name="supported-windows-operating-systems"></a>Systèmes d’exploitation Windows pris en charge
 Les versions suivantes du système d’exploitation Windows sont officiellement prises en charge pour l’agent Windows :
 
-* Windows Server 2008 Service Pack 1 (SP1) (ou version ultérieure) ;
+* Windows Server 2008 R2 ou version ultérieure
 * Windows 7 SP1 (ou version ultérieure).
 
 ## <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424640"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821862"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle
 
@@ -175,13 +175,13 @@ Si vous utilisez le [portail](#diagnose-using-azure-portal) Azure, [PowerShell](
 | Protocole                | TCP                                                                                |
 | Action                  | AUTORISER                                                                              |
 | Priorité                | 100                                                                                |
-| NOM                    | Allow-HTTP-All                                                                     |
+| Nom                    | Allow-HTTP-All                                                                     |
 
 Après avoir créé la règle, le port 80 autorise le trafic entrant à partir d’internet, étant donné que la priorité de la règle est supérieure à la règle de sécurité par défaut nommée *DenyAllInBound*, qui interdit le trafic. Apprenez à [créer une règle de sécurité](manage-network-security-group.md#create-a-security-rule). Si différents groupes de sécurité réseau sont associés à l’interface réseau et au sous-réseau, vous devez créer la même règle dans chaque groupe de sécurité réseau.
 
 Lorsque Azure traite le trafic entrant, il traite les règles dans le groupe de sécurité réseau associé au sous-réseau (s’il existe un groupe de sécurité réseau associé) et il traite ensuite les règles dans le groupe de sécurité réseau associé à l’interface réseau. S’il existe un groupe de sécurité réseau associé à l’interface réseau et au sous-réseau, le port doit être ouvert dans chaque groupe de sécurité réseau, pour que le trafic atteigne la machine virtuelle. Pour faciliter les problèmes d’administration et de communication, nous vous recommandons d’associer un groupe de sécurité réseau à un sous-réseau, plutôt que des interfaces réseau individuelles. Si des machines virtuelles au sein d’un sous-réseau ont besoin de règles de sécurité différentes, vous pouvez rendre les interfaces réseau membres d’un groupe de sécurité d’application (ASG) et spécifier un ASG comme source et destination d’une règle de sécurité. Pour en savoir plus sur les [groupes de sécurité d’application](security-overview.md#application-security-groups).
 
-Si des problèmes de communication subsistent, consultez [Considérations](#considerations) et [Diagnostic supplémentaire](#additional-dignosis).
+Si des problèmes de communication subsistent, consultez [Considérations](#considerations) et Diagnostic supplémentaire.
 
 ## <a name="considerations"></a>Considérations
 

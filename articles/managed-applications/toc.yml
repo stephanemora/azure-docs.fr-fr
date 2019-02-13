@@ -12,7 +12,7 @@ items:
   - name: Déployer une application de catalogue de services
     href: deploy-service-catalog-quickstart.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Créer les fichiers de définition
     href: publish-service-catalog-app.md
@@ -26,7 +26,7 @@ items:
     href: powershell-samples.md
   - name: Solutions d’applications managées
     href: sample-projects.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Éditeurs
     items:
@@ -49,7 +49,7 @@ items:
   - name: Azure CLI
     href: /cli/azure/managedapp
   - name: PowerShell
-    href: /powershell/module/azurerm.resources
+    href: /powershell/module/az.resources
   - name: REST
     href: /rest/api/resources/
   - name: Fonctions de l’interface utilisateur
@@ -103,11 +103,11 @@ items:
     href: https://azure.microsoft.com/pricing/details/managed-applications/
   - name: Calculatrice de prix
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-managedapps
-ms.openlocfilehash: b74cfed4f0208a1b70980d34284fd7f9ff207ca4
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c378a969f181baa25729a8dfa1967769159d937e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801555"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110130"
