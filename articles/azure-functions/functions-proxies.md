@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 4bfe4f9f97587b6791e73c2f04055b2dcf5d0f0d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: da46d33e05a6f76687d3b8982855d477cbabfe86
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766212"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895616"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
@@ -94,7 +94,7 @@ Les paramètres de réponse peuvent être utilisés lors de la modification de l
 
 ### <a name="use-appsettings"></a>Référencement des paramètres de l’application
 
-Vous pouvez également référencer les [paramètres de l’application définis pour la Function App](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop) en mettant le nom du paramètre entre signes de pourcentage (%).
+Vous pouvez également référencer les [paramètres de l’application définis pour la Function App](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) en mettant le nom du paramètre entre signes de pourcentage (%).
 
 Par exemple, dans une URL de serveur principal de *https://%ORDER_PROCESSING_HOST%/api/orders*, « %ORDER_PROCESSING_HOST% » sera remplacé par la valeur du paramètre ORDER_PROCESSING_HOST.
 

@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 29/10/2018
+ms.date: 02/08/2019
 ms.author: anilmur;juliako;
-ms.openlocfilehash: f6c853648b138763675e016d8de6eaff6377f166
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 34db659232a27a18344ed492897641b92c0c1fa9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229598"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001331"
 ---
-# <a name="crop-videos-with-media-encoder-standard"></a>Rogner des vidéos avec l’encodeur multimédia standard
+# <a name="crop-videos-with-media-encoder-standard"></a>Rogner des vidéos avec l’encodeur multimédia standard  
+
 Vous pouvez utiliser Media Encoder Standard (MES) pour rogner votre vidéo d’entrée. Le rognage consiste à sélectionner une fenêtre rectangulaire dans l’image vidéo et à encoder uniquement les pixels dans cette fenêtre. Le schéma suivant permet d’illustrer le processus.
 
 ![Rogner une vidéo](./media/media-services-crop-video/media-services-crop-video01.png)

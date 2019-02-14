@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer BlueJeans pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer BlueJeans pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour attribuer et retirer automatiquement des utilisateurs dans BlueJeans.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: 91271888adf8e467e807c409f445fe85e9c3aa22
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3c2006b025c4bcf54ee2ab131e0d6a105f9f4e9f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169890"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178173"
 ---
-# <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutoriel : Configurer BlueJeans pour le provisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Didacticiel : Configurer BlueJeans pour le provisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à suivre dans BlueJeans et Azure Active Directory (Azure AD) permettant de configurer Azure AD pour l’attribution et le retrait automatiques d’utilisateurs et/ou de groupes sur BlueJeans.
 

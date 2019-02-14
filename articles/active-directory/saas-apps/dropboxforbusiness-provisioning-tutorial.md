@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 31b7d64e98c67cab8fea92a709a1452c1798a749
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0d53d10b036a37489be0b7aae6208880044b766a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203740"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211799"
 ---
-# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Didacticiel : Configurer Dropbox for Business pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutoriel : Configurer Dropbox for Business pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Dropbox for Business et Azure AD permettant d’approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Dropbox for Business.
 

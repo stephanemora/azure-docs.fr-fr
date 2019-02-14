@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 6cd42675fa70f338fd4e1223d6a48bf8c6773915
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 1a8bfbe12156156944d4527ebb11fa6f1a1de544
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579309"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977233"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Mise à l’échelle verticale avec des groupes de machines virtuelles identiques
+
 Cet article décrit comment mettre à l’échelle verticalement des [jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/) Azure avec ou sans réapprovisionnement. Pour mettre à l’échelle verticalement des machines virtuelles qui n’appartiennent pas à des groupes de machines virtuelles identiques, consultez [Mettre à l’échelle verticalement une machine virtuelle Azure avec Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 La mise à l’échelle verticale, également appelée *montée en puissance* ou *descente en puissance* consiste à augmenter ou diminuer la taille de machines virtuelles en réponse à une charge de travail. Ne confondez pas ce comportement avec la [mise à l’échelle horizontale](virtual-machine-scale-sets-autoscale-overview.md), également appelée *augmentation du nombre* ou *diminution du nombre*, dans laquelle c’est le nombre de machines virtuelles qui est adapté à la charge de travail.
@@ -87,8 +88,8 @@ Une fois que vous avez importé les runbooks, ajoutez un webhook au runbook afin
 Voici un script PowerShell qui décrit comment ajouter une alerte dans un groupe de machines virtuelles identiques. Pour obtenir le nom de la métrique déclenchant l’alerte, voir l’article [Métriques courantes de la mise à l’échelle automatique Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```
-$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
-$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
+$actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
+$actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
 $rg = <resource-group-name>
 $id = <resource-id-to-add-the-alert-to>
@@ -99,7 +100,7 @@ $timeWindow = <time-window-in-hh:mm:ss-format>
 $condition = <condition-for-the-threshold> # Other valid values are LessThanOrEqual, GreaterThan, GreaterThanOrEqual
 $description = <description-for-the-alert>
 
-Add-AzureRmMetricAlertRule  -Name  $alertName `
+Add-AzMetricAlertRule  -Name  $alertName `
                             -Location  $location `
                             -ResourceGroup $rg `
                             -TargetResourceId $id `

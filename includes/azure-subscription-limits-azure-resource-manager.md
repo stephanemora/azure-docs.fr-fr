@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 4cc115d068736f61f9edb4ec609ac592607e7fa0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458840"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246866"
 ---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "49458840"
 
 <sup>2</sup>Cela inclut à la fois les comptes de stockage Standard et Premium. Si vous avez besoin de plus de 200 comptes de stockage, sollicitez le [Support Azure](https://azure.microsoft.com/support/faq/)pour obtenir une assistance. L’équipe Azure Storage examinera votre cas d’entreprise et pourra approuver jusqu’à 250 comptes de stockage.
 
-<sup>3</sup>Vous pouvez appliquer un nombre illimité de balises par abonnement. Le nombre de balises par ressource ou groupe de ressources est limité à 15. Le Gestionnaire des ressources retourne uniquement une [liste comportant le nom et les valeurs de balise unique](/rest/api/resources/tags#Tags_List) dans l’abonnement lorsque le nombre de balises est inférieur ou égal à 10 000. Toutefois, vous pouvez toujours trouver une ressource par balise lorsque le nombre de balises est supérieur à 10 000.  
+<sup>3</sup>Vous pouvez appliquer un nombre illimité de balises par abonnement. Le nombre de balises par ressource ou groupe de ressources est limité à 15. Le Gestionnaire des ressources retourne uniquement une [liste comportant le nom et les valeurs de balise unique](/rest/api/resources/tags) dans l’abonnement lorsque le nombre de balises est inférieur ou égal à 10 000. Toutefois, vous pouvez toujours trouver une ressource par balise lorsque le nombre de balises est supérieur à 10 000.  
 
 <sup>4</sup>Ces fonctionnalités ne sont plus nécessaires avec les groupes de ressources Azure et Azure Resource Manager.
 

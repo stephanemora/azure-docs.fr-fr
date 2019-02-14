@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Démarrez avec le kit SDK Speech Devices. Les services Speech fonctionnent avec une large gamme d’appareils et de sources audio. Vous pouvez maintenant faire passer vos applications de reconnaissance vocale au niveau supérieur en y associant du matériel et des logiciels. Le SDK Speech Devices est une bibliothèque préconfigurée qui est associée à des kits de développement de réseau de microphones sur mesure.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 17c1d3044374ae0ba5a90c256cfc44eeacfd4aac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d7ef018b376b96f967a065857839761fc5822239
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214991"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876295"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>À propos du kit de développement logiciel (SDK) Speech Devices (préversion)
 

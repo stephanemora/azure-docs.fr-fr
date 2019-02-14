@@ -13,14 +13,16 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fbf94d0430685ea5791aaaa83669a730986e665c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770212"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111303"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Afficher les opérations de déploiement avec Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Vous pouvez afficher les opérations d’un déploiement via le portail Azure. Voir les opérations est plus particulièrement intéressant quand vous avez reçu une erreur lors du déploiement : cet article se concentre donc sur la visualisation des opérations qui ont échoué. Le portail fournit une interface qui vous permet de rechercher facilement les erreurs et de déterminer des corrections potentielles.
 
@@ -68,13 +70,13 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-1. Pour obtenir l’ID de corrélation, utilisez :
+2. Pour obtenir l’ID de corrélation, utilisez :
 
   ```powershell
   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. Chaque déploiement comprend plusieurs opérations. Chaque opération représente une étape dans le processus de déploiement. Pour découvrir la cause du problème rencontré lors d’un déploiement, vous devez généralement afficher les détails concernant les opérations de déploiement. Vous pouvez afficher l’état des opérations avec **Get-AzResourceGroupDeploymentOperation**.
+3. Chaque déploiement comprend plusieurs opérations. Chaque opération représente une étape dans le processus de déploiement. Pour découvrir la cause du problème rencontré lors d’un déploiement, vous devez généralement afficher les détails concernant les opérations de déploiement. Vous pouvez afficher l’état des opérations avec **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -92,7 +94,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-1. Pour obtenir plus d’informations sur les opérations ayant échoué, récupérez les propriétés des opérations dont l’état est **Failed** .
+4. Pour obtenir plus d’informations sur les opérations ayant échoué, récupérez les propriétés des opérations dont l’état est **Failed** .
 
   ```powershell
   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -115,7 +117,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   ```
 
     Notez le serviceRequestId et le trackingId de l’opération. L’élément serviceRequestId peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement. Vous utiliserez le trackingId à l’étape suivante afin de vous concentrer sur une opération en particulier.
-1. Pour obtenir le message d’état d’une opération ayant échoué, utilisez la commande suivante :
+5. Pour obtenir le message d’état d’une opération ayant échoué, utilisez la commande suivante :
 
   ```powershell
   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -128,7 +130,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-1. Chaque opération de déploiement dans Azure inclut le contenu de la demande et de la réponse. Le contenu de la demande représente ce que vous avez envoyé à Azure pendant le déploiement (par exemple, la création d’une machine virtuelle, le disque de système d’exploitation et d’autres ressources). Le contenu de la réponse représente ce qu’Azure a renvoyé depuis votre demande de déploiement. Au cours du déploiement, vous pouvez utiliser le paramètre **DeploymentDebugLogLevel** pour spécifier que la demande et/ou la réponse doivent être conservées dans le journal. 
+6. Chaque opération de déploiement dans Azure inclut le contenu de la demande et de la réponse. Le contenu de la demande représente ce que vous avez envoyé à Azure pendant le déploiement (par exemple, la création d’une machine virtuelle, le disque de système d’exploitation et d’autres ressources). Le contenu de la réponse représente ce qu’Azure a renvoyé depuis votre demande de déploiement. Au cours du déploiement, vous pouvez utiliser le paramètre **DeploymentDebugLogLevel** pour spécifier que la demande et/ou la réponse doivent être conservées dans le journal. 
 
   Vous obtenez ces informations à partir du journal et les enregistrez localement en utilisant les commandes PowerShell suivantes :
 
@@ -146,13 +148,13 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-1. Une des valeurs retournées est **correlationId**. Cette valeur est utilisée pour effectuer le suivi des événements connexes et peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement.
+2. Une des valeurs retournées est **correlationId**. Cette valeur est utilisée pour effectuer le suivi des événements connexes et peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement.
 
   ```azurecli
   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-1. Pour voir les opérations d’un déploiement, utilisez :
+3. Pour voir les opérations d’un déploiement, utilisez :
 
   ```azurecli
   az group deployment operation list -g ExampleGroup -n ExampleDeployment

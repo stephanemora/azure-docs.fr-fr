@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e0ad6b212e328612d2934562e1292b5c36546478
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965103"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990255"
 ---
 # <a name="azure-management---monitoring"></a>Gestion et surveillance Azure
 
@@ -52,13 +52,3 @@ La protection consiste à s’assurer que vos applications et données sont touj
 ## <a name="migrate"></a>Migrer 
 La migration fait référence à la transition des charges de travail exécutées actuellement en local vers le cloud Azure.  [Azure Migrate](../migrate/migrate-overview.md) est un service qui vous aide à évaluer la pertinence d’une migration de machines virtuelles locales vers Azure, en fournissant notamment le dimensionnement en fonction des performances et l’estimation des coûts.  Azure Site Recovery peut vous aider à mettre en œuvre la migration de machines virtuelles [locales](../site-recovery/migrate-tutorial-on-premises-azure.md) ou [depuis Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  [Azure Database Migration](../dms/dms-overview.md) vous aide lors de la migration de plusieurs sources de bases de données vers les plateformes de données Azure.
 
-
-## <a name="operations-management-suite"></a>Operations Management Suite
-La documentation technique précédente liée à la gestion d’Azure comprenait Operations Management Suite (OMS), qui est un regroupement des services de gestion Azure suivants :
-
-- Azure Automation
-- Sauvegarde Azure
-- Log Analytics
-- Site Recovery
-
-Nous ne décrivons plus ce regroupement dans notre documentation technique, car la gestion complète dans Azure s’est développée pour inclure d’autres services. Aucun des services faisant partie d’OMS n’a été modifié, et chacun joue toujours un rôle essentiel dans la gestion de vos applications et ressources Azure. Votre attention devrait porter sur les tâches de gestion que vous devez accomplir et sur les différents services Azure qui fonctionnent ensemble pour chaque tâche.

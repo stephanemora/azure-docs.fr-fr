@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/30/2018
+ms.date: 02/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 75ed9a3c2a9f2c5418af5d024cfcf979e3552035
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9f5ccccaffbd11b482ed04875563fc33fb054d03
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812044"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995151"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>Diffusion en continu de PlayReady en mode hors connexion pour Windows 10
+# <a name="offline-playready-streaming-for-windows-10"></a>Diffusion en continu de PlayReady en mode hors connexion pour Windows 10  
 
 Azure Media Services prend en charge le téléchargement/la lecture hors connexion avec la protection DRM. Cet article décrit la prise en charge hors connexion d’Azure Media Services pour les clients Windows 10/PlayReady. Pour en savoir plus sur la prise en charge du mode hors connexion pour les appareils iOS/FairPlay et Android/Widevine, consultez les articles suivants :
 

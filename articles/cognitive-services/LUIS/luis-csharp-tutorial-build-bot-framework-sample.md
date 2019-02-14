@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: À l’aide de C#, créez un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot conversationnel utilise le domaine HomeAutomation prédéfini pour implémenter rapidement une solution de bot.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c39faa72c844a3bdbf6f1367351be382533179a6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d1534f76c4ef0c1edd8d83522f2d0855def48f25
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210010"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880871"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot LUIS en C# avec Bot Framework 3.x et bot d’application web Azure
 

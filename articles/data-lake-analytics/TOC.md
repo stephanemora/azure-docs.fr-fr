@@ -17,7 +17,7 @@
 ### Ligne de commande
 #### [Interface de ligne de commande Azure](data-lake-analytics-manage-use-cli.md)
 #### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### Kits de développement logiciel (SDK)
+### Kits SDK
 #### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
@@ -69,7 +69,7 @@
 ### [Kit de développement logiciel (SDK) U-SQL](data-lake-analytics-u-sql-sdk.md)
 
 # Informations de référence
-## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
+## [Azure PowerShell](/powershell/module/az.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
@@ -85,6 +85,6 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=data-lake-analytics)
-## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)

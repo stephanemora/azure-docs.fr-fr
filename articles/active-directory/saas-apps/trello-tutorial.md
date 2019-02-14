@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: fd97321c638dd95f811ff772a4163ce3c2fd682c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5ad65cbbe16b66e71b67a3c61d3265f0e3a6729e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813404"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205441"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-trello"></a>Didacticiel : Intégration d’Azure Active Directory à Trello
+# <a name="tutorial-azure-active-directory-integration-with-trello"></a>Tutoriel : Intégration d’Azure Active Directory à Trello
 
 Dans ce didacticiel, vous allez apprendre à intégrer Trello à Azure Active Directory (Azure AD).
 L’intégration de Trello dans Azure AD vous offre les avantages suivants :
@@ -128,7 +129,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
 7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM |  Attribut source|
+    | Nom |  Attribut source|
     | --- | --- |
     | User.Email | user.mail |
     | User.FirstName | user.givenname |

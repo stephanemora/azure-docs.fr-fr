@@ -4,18 +4,18 @@ description: Apprenez à ajouter une entité de liste pour aider LUIS à étique
 services: cognitive-services
 author: diberry
 titleSuffix: Azure
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: fe9276cb0af96baa8d818b1f2e965c83cb6b26c2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fc6d68e862f6a2f3c95f5ca6d130e42c96649eb1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211489"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874613"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Utiliser une entité de liste pour améliorer la détection d’entité 
 Ce didacticiel détaille l’utilisation d’une [entité de liste](luis-concept-entity-types.md) afin d’améliorer la détection d’entité. Les entités de liste n’ont pas besoin d’être étiquetées car elles correspondent parfaitement aux termes.  

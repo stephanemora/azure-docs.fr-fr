@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Opal | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Opal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Opal.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: cacfa736a91d47abb91b40b1c549aba884d16ec0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9878e120a3456383812cca44e054a48759f683a3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168955"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202840"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-opal"></a>Didacticiel : Intégration d’Azure Active Directory à Opal
+# <a name="tutorial-azure-active-directory-integration-with-opal"></a>Tutoriel : Intégration d’Azure Active Directory à Opal
 
 Dans ce didacticiel, vous allez apprendre à intégrer Opal à Azure Active Directory (Azure AD).
 

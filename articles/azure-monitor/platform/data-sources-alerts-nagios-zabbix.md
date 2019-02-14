@@ -1,6 +1,6 @@
 ---
-title: Collecte d’alertes Nagios et Zabbix dans Log Analytics | Microsoft Docs
-description: Nagios et Zabbix sont des outils de surveillance open source. Vous pouvez collecter des alertes à partir de ces outils dans Log Analytics afin de les analyser avec des alertes provenant d’autres sources.  Cet article décrit comment configurer l’agent Log Analytics pour Linux pour la collecte d’alertes à partir de ces systèmes.
+title: Collecte d’alertes Nagios et Zabbix dans Azure Monitor| Microsoft Docs
+description: Nagios et Zabbix sont des outils de surveillance open source. Vous pouvez collecter des alertes à partir de ces outils dans Azure Monitor, afin de les analyser avec des alertes provenant d’autres sources.  Cet article décrit comment configurer l’agent Log Analytics pour Linux pour la collecte d’alertes à partir de ces systèmes.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 1ae719237cb1afee6d2340e1734d008799da8a86
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ac8e214df6b6990e2b27b5897350c85e0a944e0c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107529"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997955"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Collecte d’alertes de Nagios et Zabbix dans Azure Monitor à partir de l’agent Log Analytics pour Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) et [Zabbix](http://www.zabbix.com/) sont des outils de surveillance open source. Vous pouvez collecter des alertes à partir de ces outils dans Log Analytics, afin de les analyser avec des données de journal provenant d’autres sources.  Cet article décrit comment configurer l’agent Log Analytics pour Linux pour la collecte d’alertes à partir de ces systèmes.
+[Nagios](https://www.nagios.org/) et [Zabbix](http://www.zabbix.com/) sont des outils de surveillance open source. Vous pouvez collecter des alertes à partir de ces outils dans Azure Monitor, afin de les analyser avec des données de journal provenant d’autres sources.  Cet article décrit comment configurer l’agent Log Analytics pour Linux pour la collecte d’alertes à partir de ces systèmes.
 
 
 > [!NOTE]
-> Les [alertes créées par Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) sont stockées séparément des données de journal ; elles ne sont pas accessibles à partir des requêtes de journal.
+> Les [alertes créées par Azure Monitor](alerts-overview.md) sont stockées séparément des données de journal ; elles ne sont pas accessibles à partir des requêtes de journal.
 
  
 ## <a name="prerequisites"></a>Prérequis
@@ -84,7 +84,7 @@ Procédez comme suit sur le serveur Nagios pour collecter les alertes.
 
 
 ## <a name="alert-records"></a>Enregistrements d’alerte
-Vous pouvez récupérer les enregistrements d’alerte de Nagios et Zabbix à l’aide des [requêtes dans les journaux](../log-query/log-query-overview.md) dans Log Analytics.
+Vous pouvez récupérer les enregistrements d’alerte de Nagios et Zabbix à l’aide des [requêtes dans les journaux](../log-query/log-query-overview.md) dans Azure Monitor.
 
 ### <a name="nagios-alert-records"></a>Enregistrements d’alerte Nagios
 
@@ -92,7 +92,7 @@ Pour les enregistrements d’alerte collectés par Nagios, le **type** est **Ale
 
 | Propriété | Description |
 |:--- |:--- |
-| type |*Alert* |
+| Type |*Alert* |
 | SourceSystem |*Nagios* |
 | AlertName |Nom de l’alerte. |
 | AlertDescription | Description de l’alerte. |
@@ -108,7 +108,7 @@ Pour les enregistrements d’alerte collectés par Zabbix, le **type** est **Ale
 
 | Propriété | Description |
 |:--- |:--- |
-| type |*Alert* |
+| Type |*Alert* |
 | SourceSystem |*Zabbix* |
 | AlertName | Nom de l’alerte. |
 | AlertPriority | Gravité de l’alerte.<br><br>non classée<br>information<br>Avertissement<br>average<br>élevée<br>urgence  |
@@ -122,5 +122,5 @@ Pour les enregistrements d’alerte collectés par Zabbix, le **type** est **Ale
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur les [alertes](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) dans Azure Monitor.
+* En savoir plus sur les [alertes](alerts-overview.md) dans Azure Monitor.
 * Découvrez les [requêtes dans les journaux](../log-query/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions. 

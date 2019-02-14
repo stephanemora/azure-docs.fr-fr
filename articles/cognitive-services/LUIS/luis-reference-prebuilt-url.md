@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie URL dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: f9e331abd31ef37e9214214118748ebda3eb9470
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 3e5f6edf213838345c21598213b4fc2065e66335
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225790"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884135"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie URL pour une application LUIS
 L’entité URL extrait des URL avec des noms de domaine ou des adresses IP. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des URL à l’application. L’entité URL est prise en charge uniquement dans la culture `en-us`. 

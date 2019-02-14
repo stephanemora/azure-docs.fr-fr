@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736078"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888564"
 ---
-<!--author=SharS last changed: 06/22/2016-->
-
 ### <a name="to-configure-and-register-the-device"></a>Configuration et inscription de l’appareil
 1. Accédez à l’interface Windows PowerShell sur la console série de votre appareil StorSimple. Consultez la page [Utilisation de PuTTY pour se connecter à la console en série de l’appareil](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) pour obtenir des instructions. **Veillez à suivre la procédure pas à pas, sans quoi vous ne pourrez pas accéder à la console.**
 2. Dans la session qui s’ouvre, appuyez une fois sur **Entrée** pour lancer une invite de commandes.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 413473b856d76f9ebeff9669eb1facc54d89b509
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 68f640f6962802c45ca369786c4e5d0d4f785fa6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382519"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105075"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
@@ -81,27 +81,29 @@ Les étapes suivantes vous guident dans la création d’une application web à 
 
 ### <a name="using-azure-powershell"></a>Utilisation de Microsoft Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Les étapes suivantes vous guident dans la création d’une application web à laquelle vous attribuez une identité en utilisant Azure PowerShell :
 
-1. Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
+1. Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
 2. Créez une application web avec Azure PowerShell. Pour plus d’exemples sur l’utilisation d’Azure PowerShell avec App Service, consultez [Exemples App Service PowerShell](../app-service/samples-powershell.md) :
 
     ```azurepowershell-interactive
     # Create a resource group.
-    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+    New-AzResourceGroup -Name myResourceGroup -Location $location
     
     # Create an App Service plan in Free tier.
-    New-AzureRmAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
     
     # Create a web app.
-    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. Exécutez la commande `Set-AzureRmWebApp -AssignIdentity` pour créer l’identité de cette application :
+3. Exécutez la commande `Set-AzWebApp -AssignIdentity` pour créer l’identité de cette application :
 
     ```azurepowershell-interactive
-    Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
     ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager

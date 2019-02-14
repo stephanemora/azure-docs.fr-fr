@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 95bec451c556ff9f3c5bcccee68f900543639733
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631893"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978083"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personnaliser et redéployer un microservice
 
@@ -123,13 +123,13 @@ Vous devez maintenant mettre à jour le fichier docker-compose.yml local pour ex
 2. Ouvrez docker-compose.yml dans n’importe quel éditeur de texte ou IDE voulu.
 3. Recherchez le code suivant :
 
-    ```docker
+    ```yml
     image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     modifiez-le pour ressembler à l’image ci-dessous et enregistrez-le.
 
-    ```cmd/sh
+    ```yml
     image: [docker ID]/iothub-manager-dotnet:testing
     ```
 

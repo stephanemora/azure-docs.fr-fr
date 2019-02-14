@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: a4b528e912fe267d5988080fb15b85db0c87fdfd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 013504fefd927d2e970c5b07a0e9c61afc715d7c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193736"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186911"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Tutoriel : Intégration d’Azure Active Directory à QuickHelp
+# <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Didacticiel : Intégration d’Azure Active Directory à QuickHelp
 
 Dans ce didacticiel, vous allez apprendre à intégrer QuickHelp avec Azure Active Directory (Azure AD).
 

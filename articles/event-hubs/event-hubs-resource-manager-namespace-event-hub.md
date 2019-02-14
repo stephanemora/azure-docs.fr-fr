@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 39c92c870991ce2398b27efd189f1219777afdd7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8664b431239f7b288deccedeadff0806ab600bcd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425320"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232511"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>Démarrage rapide : Créer un hub d’événements à l’aide d’un modèle Azure Resource Manager
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
@@ -30,9 +30,12 @@ Dans ce démarrage rapide, vous créez un Event Hub à l’aide d’un modèle A
 > Pour le modèle complet, consultez [Modèle d’Event Hub et de groupe de consommateurs][Event Hub and consumer group template] sur GitHub. Ce modèle créé un groupe de consommateurs en plus d’un espace de noms Event Hub ainsi qu’un Event Hub. Pour rechercher les derniers modèles, recherchez Event Hubs dans la galerie de [modèles de démarrage rapide Azure][Azure Quickstart Templates].
 
 ## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Si vous souhaitez utiliser **Azure PowerShell** pour déployer le modèle Resource Manager, [installez Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
+Si vous souhaitez utiliser **Azure PowerShell** pour déployer le modèle Resource Manager, [installez Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 Si vous souhaitez utiliser **Azure CLI** pour déployer le modèle Resource Manager, [installez Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -117,12 +120,12 @@ Créez un fichier JSON nommé MyEventHub-Parameters.json contenant les paramètr
 2. Exécutez la commande ci-après pour vous connecter à Azure :
 
    ```azurepowershell
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 3. Si vous avez exécuté les commandes suivantes pour définir le contexte de l’abonnement actuel :
 
    ```azurepowershell
-   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
+   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
    ```
 
 ### <a name="provision-resources"></a>Provisionner les ressources
@@ -135,10 +138,10 @@ Pour déployer/provisionner les ressources à l’aide d’Azure PowerShell, bas
 $resourceGroupName = "<Specify a name for the Azure resource group>"
 
 # Create an Azure resource group
-New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+New-AzResourceGroup $resourceGroupName -location 'East US'
 
 # Deploy the Resource Manager template. Specify the names of deployment itself, resource group, JSON file for the template, JSON file for parameters
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
 ```
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Utiliser Azure CLI pour déployer le modèle

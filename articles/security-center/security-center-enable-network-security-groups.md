@@ -4,7 +4,7 @@ description: Ce document vous montre comment implémenter la recommandation d’
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: f53ed853-ffaf-4530-a019-1906ba6f341b
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: f10365f4acf62ba4719e89932f18433e70925ebf
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 14b7cc8f8162574380ca21ac515af8b7d3d5ded9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341760"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111694"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Activation de groupes de sécurité réseau dans Azure Security Center
 Azure Security Center vous recommande d’activer un groupe de sécurité réseau si aucun n’est encore activé. Les groupes de sécurité réseau contiennent des règles de liste de contrôle d’accès qui autorisent ou rejettent le trafic réseau vers vos instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle. Pour en savoir plus, consultez l’article [Présentation du groupe de sécurité réseau](../virtual-network/security-overview.md)

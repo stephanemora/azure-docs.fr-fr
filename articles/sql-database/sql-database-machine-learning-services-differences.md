@@ -12,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 01/31/2019
-ms.openlocfilehash: adc303e9b375aaa6f37e9e79ea5434675c75523d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824896"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237482"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Principales différences entre Machine Learning Services dans Azure SQL Database et Machine Learning Services dans SQL Server
 
@@ -25,7 +25,7 @@ Le fonctionnement de Machine Learning Services (avec R) dans Azure SQL Database 
 
 ## <a name="language-support"></a>Support multilingue
 
-SQL Server prend en charge R et Python grâce à [Extensibility Framework](https://docs.microsoft.com/en-us/sql/advanced-analytics/concepts/extensibility-framework), tandis que SQL Database ne gère pas les deux langages :
+SQL Server prend en charge R et Python grâce à [Extensibility Framework](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework), tandis que SQL Database ne gère pas les deux langages :
 
 - R est le seul langage pris en charge dans SQL Database. Il n’existe aucune prise en charge de Python pour l’instant.
 - La version de R est 3.4.4.

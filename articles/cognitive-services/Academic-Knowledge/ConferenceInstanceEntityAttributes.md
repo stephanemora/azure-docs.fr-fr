@@ -4,24 +4,24 @@ titlesuffix: Azure Cognitive Services
 description: Découvrez les attributs que vous pouvez utiliser avec l’entité Instance de conférence de l’API Connaissances universitaires.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: db025f377a3fab2f788252db0c8e3555837a6de8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 183a307159adb5dfdb248eb0cf4862462a626db6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196104"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879188"
 ---
 # <a name="conference-instance-entity"></a>Entité Instance de conférence
 
 <sub> * Les attributs suivants sont spécifiques à l’entité Instance de conférence. (Ty = '4') </sub>
 
-NOM    |Description                            |Type       | Opérations
+Nom    |Description                            |Type       | Opérations
 ------- | ------------------------------------- | --------- | ----------------------------
 ID      |L’ID d’entité                              |Int64      |Égal à
 CIN     |Nom normalisé de l’instance de conférence ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |Chaîne     |Égal à
@@ -43,6 +43,6 @@ ECC     |Estimation du nombre total de citations de l’instance de conférence 
 
 ## <a name="extended-metadata-attributes"></a>Attributs de métadonnées étendues ##
 
-NOM    | Description               
+Nom    | Description               
 --------|---------------------------    
 FN      | Nom complet de l’instance de conférence

@@ -4,19 +4,19 @@ titleSuffix: QnA Maker - Azure Cognitive Services
 description: La publication de votre base de connaissances est l’étape finale de la mise à disposition de votre base de connaissances comme point de terminaison de question et de réponse. Lorsque vous publiez une base de connaissances, ses contenus QnA se déplacent à partir de l’index de test vers un index de production dans la recherche Azure.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 2db8a87f28905ab03fb45d56943ae40d01908527
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 585e5f8f955a405b08bef42588ab5caff71c7bba
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225378"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865911"
 ---
 # <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>Publier une base de connaissances à partir du portail QnA Maker
 

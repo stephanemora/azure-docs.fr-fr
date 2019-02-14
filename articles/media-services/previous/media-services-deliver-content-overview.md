@@ -4,7 +4,7 @@ description: Cette rubrique donne une vue d’ensemble de ce qu’implique la di
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3e968c71b87f7227dc4bd2e3f4ee486719b65e40
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 4c48e0d6c2b9d7ff2ff82da64a240e1bf0aacd39
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388151"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998249"
 ---
 # <a name="deliver-content-to-customers"></a>Fournir du contenu aux clients
 Quand vous distribuez votre contenu de diffusion en continu ou de vidéo à la demande aux clients, votre objectif est de fournir une vidéo de haute qualité à divers appareils dans différentes conditions de réseau.
@@ -134,7 +134,7 @@ Pour télécharger progressivement du contenu, utilisez le type de localisateur 
 
 Vous devez déchiffrer les ressources à chiffrement de stockage que vous souhaitez diffuser en continu à partir du service d’origine pour permettre le téléchargement progressif.
 
-## <a name="download"></a>Download
+## <a name="download"></a>Téléchargement
 Pour télécharger votre contenu sur un appareil client, vous devez créer un localisateur SAP. Le localisateur SAP vous donne accès au conteneur Azure Storage où votre fichier est stocké. Pour créer l’URL de téléchargement, vous devez inclure le nom du fichier entre l’hôte et la signature SAP.
 
 L’exemple suivant illustre l’URL basée sur le localisateur SAP :

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455063"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993630"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights
 
@@ -237,7 +237,7 @@ Pour plus d’informations, consultez [Introduction aux tables à mémoire optim
 
 Ce modèle de performances détectables indique une détérioration des performances de la charge de travail de la base de données actuelle par rapport à la base de référence des sept jours précédents. Cela est dû à un manque de DTU disponibles dans le pool élastique de votre abonnement. 
 
-Les ressources de SQL Database sont généralement appelées [ressources DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) et consistent en une mesure fusionnée des ressources d’UC et d’E/S (E/S des journaux de données et des transactions). Les [ressources du pool élastique Azure](sql-database-elastic-pool.md) sont utilisées comme pool de ressources eDTU disponibles partagées entre plusieurs bases de données à des fins de mise à l’échelle. Quand les ressources eDTU disponibles dans le pool élastique ne sont pas suffisantes pour prendre en charge toutes les bases de données du pool, un problème de performances lié à une pénurie de DTU dans le pool élastique est détecté par le système.
+Les ressources de SQL Database sont généralement appelées [ressources DTU](sql-database-purchase-models.md#dtu-based-purchasing-model) et consistent en une mesure fusionnée des ressources d’UC et d’E/S (E/S des journaux de données et des transactions). Les [ressources du pool élastique Azure](sql-database-elastic-pool.md) sont utilisées comme pool de ressources eDTU disponibles partagées entre plusieurs bases de données à des fins de mise à l’échelle. Quand les ressources eDTU disponibles dans le pool élastique ne sont pas suffisantes pour prendre en charge toutes les bases de données du pool, un problème de performances lié à une pénurie de DTU dans le pool élastique est détecté par le système.
 
 ### <a name="troubleshooting"></a>Résolution de problèmes
 

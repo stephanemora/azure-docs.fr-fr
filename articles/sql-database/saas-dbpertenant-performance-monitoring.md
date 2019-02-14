@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459483"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004629"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 
 Ce didacticiel aborde plusieurs scénarios de gestion de performance clés utilisés dans les applications SaaS. Les fonctionnalités intégrées de surveillance et d’alerte de base de données de SQL Database, ainsi que les pools élastiques sont illustrés à l’aide d’un générateur de charge destiné à simuler l’activité de toutes les bases de données client.
 
-L’application de base de données Wingtip Tickets SaaS par client utilise un modèle de données par locataire, où chaque lieu (locataire) possède sa propre base de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation de base de données typique, les bases de données de locataire sont déployées dans des pools élastiques. Les pools élastiques optimisent le coût d’une solution en partageant des ressources entre de nombreuses bases de données. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données et des pools pour veiller à ce que les charges soient raisonnablement équilibrées entre les pools. Vous devez également vous assurer que les bases de données ont des ressources appropriées et que les pools n’atteignent pas les limites d’[eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Ce didacticiel explore plusieurs moyens de surveiller et de gérer des bases de données et des pools et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
+L’application de base de données Wingtip Tickets SaaS par client utilise un modèle de données par locataire, où chaque lieu (locataire) possède sa propre base de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation de base de données typique, les bases de données de locataire sont déployées dans des pools élastiques. Les pools élastiques optimisent le coût d’une solution en partageant des ressources entre de nombreuses bases de données. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données et des pools pour veiller à ce que les charges soient raisonnablement équilibrées entre les pools. Vous devez également vous assurer que les bases de données ont des ressources appropriées et que les pools n’atteignent pas les limites d’[eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model). Ce didacticiel explore plusieurs moyens de surveiller et de gérer des bases de données et des pools et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 

@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Reflektive | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Reflektive | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Reflektive.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jeedes
-ms.openlocfilehash: bfa763abb43b4bde1b36eb611b0929448feda8c5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3a4b94b158a566533d6461b282e9de30360e102c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172049"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200817"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Didacticiel : Intégration d'Azure Active Directory à Reflektive
+# <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Tutoriel : Intégration d'Azure Active Directory à Reflektive
 
 Dans ce didacticiel, vous allez apprendre à intégrer Reflektive à Azure Active Directory (Azure AD).
 

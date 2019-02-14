@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d274642c8e35374dee2d584e6285165a15cd3128
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 0d67571024c9ace3618f7ae6172122ac48b57faa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747031"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106718"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -49,7 +49,6 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 |RoyaumeUniSud|RoyaumeUniSud|
 |USGovVirginie|USGovVirginie|
 |USAEst2EUAP|USACentreEUAP|
-|USA Ouest 2|USA Ouest 2|
 
 La solution Change Tracking et Inventory fournit la possibilité de [suivre les changements](automation-vm-change-tracking.md) et de [faire l’inventaire](automation-vm-inventory.md) de vos machines virtuelles. Dans cette étape, vous activez la solution sur une machine virtuelle.
 

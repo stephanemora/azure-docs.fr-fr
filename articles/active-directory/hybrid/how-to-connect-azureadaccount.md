@@ -16,12 +16,13 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c542ba1c105d2fcdb74d5f8b1af1ecddade65a20
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488730"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196348"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Synchronisation d’Azure AD Connect : Comment gérer le compte de service Azure AD
 Le compte de service utilisé par le connecteur Azure AD est censé être proposé en libre-service. Si vous devez réinitialiser les informations d’identification, cette rubrique vous concerne. Par exemple, un administrateur général peut avoir réinitialisé par erreur le mot de passe du compte de service à l’aide de PowerShell.

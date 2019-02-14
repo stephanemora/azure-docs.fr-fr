@@ -6,17 +6,18 @@ keywords: clip;sous-clip;encodage;média
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0894c3677b87fe48c130d648253dadd0d43429f4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 585cb88ca853954b23369c8e097583e7e8656355
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821445"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002137"
 ---
-# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Envoyer des travaux de détourage d’Azure Media Clipper
+# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Envoyer des travaux de détourage d’Azure Media Clipper 
+
 Azure Media Clipper nécessite une méthode **submitSubclipCallback** d’implémentation pour gérer la soumission de travaux de détourage. Cette fonction sert à implémenter une requête HTTP POST de la sortie Clipper à un service web. C’est dans ce service web que vous pouvez soumettre le travail d’encodage. La sortie du Clipper peut être une présélection d’encodage Media Encoder Standard pour les travaux rendus ou la charge utile API REST pour les appels filtrés du manifeste dynamique. Ce modèle de transmission directe est nécessaire, car les informations d’identification du compte Media Services ne sont pas sécurisées dans le navigateur du client.
 
 Le diagramme de séquences suivant illustre le flux de travail entre le navigateur client, votre service Web et Azure Media Services : ![diagramme de séquences Azure Media Clipper](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)

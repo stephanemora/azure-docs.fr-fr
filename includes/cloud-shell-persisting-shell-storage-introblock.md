@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886349"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246856"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Conserver des fichiers dans Azure Cloud Shell
 Cloud Shell utilise le stockage de fichiers Azure pour conserver les fichiers entre les sessions. Lors du premier démarrage, Cloud Shell vous invite à associer un partage de fichiers nouveau ou existant afin de conserver les fichiers entre les sessions.
@@ -40,7 +40,7 @@ L’option Avancé vous permet d’associer des ressources existantes. Lorsque v
 Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Afficher les paramètres avancés** pour visualiser des options supplémentaires. Les options de stockage renseignées filtrent les comptes de stockage localement redondant (LRS), de stockage géoredondant (GRS) et de stockage redondant interzone (ZRS). 
 
 > [!NOTE]
-> Il est recommandé d’utiliser des comptes de stockage GRS ou ZRS afin d’offrir une résilience supplémentaire pour votre partage de fichiers de sauvegarde. Le type de redondance dépend de vos objectifs et de votre budget. [En savoir plus sur les options de réplication pour les comptes de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
+> Il est recommandé d’utiliser des comptes de stockage GRS ou ZRS afin d’offrir une résilience supplémentaire pour votre partage de fichiers de sauvegarde. Le type de redondance dépend de vos objectifs et de votre budget. [En savoir plus sur les options de réplication pour les comptes de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
 ![Paramètre Groupe de ressources](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 

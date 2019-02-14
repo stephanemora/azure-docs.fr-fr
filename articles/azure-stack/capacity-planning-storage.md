@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 5d9d01a482483d030569a4dcad03c9ecef7cffc0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245148"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176345"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Planification de la capacité de stockage Azure Stack
 Les sections suivantes fournissent des informations relatives à la planification de la capacité de stockage Azure Stack pour vous aider à planifier selon les besoins de stockage de la solution.
@@ -49,10 +49,7 @@ Voici un bref résumé de la configuration des espaces de stockage direct et du 
 
 Voici les disques virtuels créés automatiquement et leurs capacités :
 
-
-
-
-|NOM|Calcul de la capacité|Description|
+|Nom|Calcul de la capacité|Description|
 |-----|-----|-----|
 |Appareil local/de démarrage|Minimum de 340 Go<sup>1</sup>|Stockage serveur individuel pour les images du système d’exploitation et les machines virtuelles de l’infrastructure « locale »|
 |Infrastructure|3,5 To|Toutes les utilisations de l’infrastructure Azure Stack|

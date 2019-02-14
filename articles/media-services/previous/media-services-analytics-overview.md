@@ -4,7 +4,7 @@ description: Présentation de la version préliminaire publique de Media Analyti
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c
 ms.service: media-services
@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0ac8b9fad35267ceaec5b5acec4722b6005f68a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c60fd90adda4c362b15fe2e324aa55a581c9e59a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783588"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003762"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics sur la plateforme Media Services
-## <a name="overview"></a>Vue d'ensemble
+# <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics sur la plateforme Media Services 
+
+## <a name="overview"></a>Vue d’ensemble
 Les organisations sont de plus en plus nombreuses à privilégier les supports vidéo pour former leurs employés, susciter l’intérêt de leurs clients et présenter leurs activités commerciales. Le cloud computing offre un moyen de stocker, diffuser et accéder à ces fichiers multimédias volumineux. Mais lorsque la bibliothèque de contenu vidéo d’une société augmente, elle nécessite des moyens tout aussi efficaces d’extraire des analyses du contenu. 
 
 Pour répondre à ce besoin croissant, Azure Media Services propose Azure Media Analytics. Media Analytics est une collection de composants visuels et vocaux qui aident les organisations et les entreprises à extraire des connaissances exploitables de leurs fichiers vidéo. Reposant sur les principaux composants de la plateforme Azure Media Services, Media Analytics est à même de traiter les données multimédias à l’échelle souhaitée.

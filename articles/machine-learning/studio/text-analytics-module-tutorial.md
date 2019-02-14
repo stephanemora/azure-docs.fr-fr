@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 431aa2d379639b8daea2519ed643c9949102e117
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511358"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242666"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Créer un modèle d’analyse des sentiments dans Azure Machine Learning Studio
 
@@ -33,9 +33,9 @@ Dans ce tutoriel, vous allez vous familiariser avec ces étapes au cours de l’
 
 Vous trouverez les expériences traitées dans ce didacticiel dans la galerie Azure AI :
 
-[Predict Book Reviews](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[Predict Book Reviews](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
 
-[Predict Book Reviews - Predictive Experiment](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+[Predict Book Reviews - Predictive Experiment](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## <a name="step-1-clean-and-preprocess-text-dataset"></a>Étape 1 : nettoyer et pré-traiter un jeu de données de texte ;
 Nous commençons l’expérience en divisant les notes de critiques de livres en compartiments faible et élevé pour formuler le problème sous forme de classification à deux classes. Nous utilisons les modules [Modifier les métadonnées](https://msdn.microsoft.com/library/azure/dn905986.aspx) et [Regrouper les valeurs catégoriques](https://msdn.microsoft.com/library/azure/dn906014.aspx).

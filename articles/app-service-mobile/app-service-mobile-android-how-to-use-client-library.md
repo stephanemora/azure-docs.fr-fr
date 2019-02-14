@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: c0e6aa34b80389689e49ac6ad3566a3a109a96e1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 803c9af7b6c40f7deee2b81fb7ff0ae82ef6778a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158160"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965152"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure Mobile Apps pour Android
 
@@ -55,7 +55,7 @@ Modifiez les deux fichiers **build.gradle** :
 
 1. ajoutez ce code au fichier de niveau *projet* **build.gradle** à l’intérieur de la balise *buildscript* :
 
-    ```text
+    ```gradle
     buildscript {
         repositories {
             jcenter()
@@ -65,7 +65,7 @@ Modifiez les deux fichiers **build.gradle** :
 
 2. Ajoutez ce code au fichier de niveau *Module app* **build.gradle** à l’intérieur de la balise *dependencies* :
 
-    ```text
+    ```gradle
     compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
@@ -496,7 +496,7 @@ La mise en page est définie par plusieurs éléments de code XML. En nous basan
 
 Dans le code précédent, l'attribut *listitem* spécifie l'ID de la mise en page de chaque ligne dans la liste. Ce code spécifie une case à cocher ainsi que le texte associé, et il est instancié une fois pour chaque élément dans la liste. Cette mise en page n’affiche pas le champ **id** ; une mise en page plus complexe spécifierait d’autres champs dans l’affichage. Le code se trouve dans le fichier **row_list_to_do.xml**.
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -520,7 +520,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 Ignorez la méthode **getView** de l'adaptateur. Par exemple : 
 
-```
+```java
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -959,7 +959,7 @@ Vous devez également configurer le projet pour customtabs.  Commencez par spéc
 
 Ajoutez **redirectUriScheme** au fichier `build.gradle` de votre application :
 
-```text
+```gradle
 android {
     buildTypes {
         release {
@@ -976,7 +976,7 @@ android {
 
 Enfin, ajoutez `com.android.support:customtabs:23.0.1` à la liste des dépendances dans le fichier `build.gradle` :
 
-```text
+```gradle
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.google.code.gson:gson:2.3'
@@ -1076,7 +1076,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 1. Si vous souhaitez configurer le serveur d’applications mobiles back-end pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory][22]. Bien que cette étape soit facultative, veillez à inscrire une application cliente native.
 2. Installez la bibliothèque ADAL en modifiant votre fichier build.gradle pour inclure les définitions suivantes :
 
-    ```
+    ```gradle
     repositories {
         mavenCentral()
         flatDir {

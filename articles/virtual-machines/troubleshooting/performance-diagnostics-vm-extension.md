@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3430ff2b292a3e5fe675c3a5f332a12a88d4bfbf
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 415cf34a8b19400091807005e1e9943aa025f244
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096787"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980021"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extension de diagnostic de performance des machines virtuelles Azure pour Windows
 
@@ -210,7 +210,7 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
 ```
 
 ## <a name="powershell-deployment"></a>Déploiement PowerShell
-Vous pouvez utiliser la commande `Set-AzureRmVMExtension` pour déployer l’extension de machine virtuelle Diagnostics des performances Azure sur une machine virtuelle existante.
+Vous pouvez utiliser la commande `Set-AzVMExtension` pour déployer l’extension de machine virtuelle Diagnostics des performances Azure sur une machine virtuelle existante.
 
 PowerShell
 
@@ -218,7 +218,7 @@ PowerShell
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
-Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
+Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Microsoft.Azure.Performance.Diagnostics" `

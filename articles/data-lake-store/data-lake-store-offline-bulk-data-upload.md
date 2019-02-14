@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 43b482324f0244baf52edbb8989a56dd12833331
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 98cad0873c4ba687948dc404abc19655319bdc36
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104390"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232265"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Utiliser le service Azure Import/Export pour copier les données dans Azure Data Lake Storage Gen1 hors connexion
 Dans cet article, vous allez découvrir comment copier de grands jeux de données (> 200 Go) dans Azure Data Lake Storage Gen1 à l’aide de méthodes de copie hors connexion, comme le [service Azure Import/Export](../storage/common/storage-import-export-service.md). Plus précisément, la taille du fichier utilisé comme exemple dans cet article est de 339 420 860 416 octets ou environ 319 Go sur disque. Appelons ce fichier 319GB.tsv.
@@ -190,21 +190,24 @@ Dans cette section, nous vous fournissons les définitions JSON grâce auxquelle
 Pour plus d’informations, consultez [Move data from Azure Storage blob to Azure Data Lake Storage Gen1 using Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) (Déplacer des données à partir d’un objet blob Stockage Azure vers Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-storage-gen1"></a>Reconstruire les fichiers de données dans Azure Data Lake Storage Gen1
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Nous avons commencé avec un fichier de 319 Go, que nous avons scindé en fichiers de plus petite taille afin de pouvoir le transférer à l’aide du service Azure Import/Export. Les données se trouvant désormais dans Azure Data Lake Storage Gen1, nous pouvons reconstruire le fichier à sa taille d’origine. Pour ce faire, vous pouvez utiliser les applets de commande Azure PowerShell suivante.
 
 ```
 # Login to our account
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # List your subscriptions
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # Switch to the subscription you want to work with
-Set-AzureRmContext -SubscriptionId
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+Set-AzContext -SubscriptionId
+Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
-Join-AzureRmDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
+Join-AzDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

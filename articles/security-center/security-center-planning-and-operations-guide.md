@@ -4,7 +4,7 @@ description: Ce document vous aide à planifier au préalable l’utilisation du
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: b3d6f30aa2a7858d673199e55090e96fb9aba915
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1532c863a7906e7f3c1e0bc98d2080513263b9f8
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337627"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105092"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises prévoient d’utiliser le Centre de sécurité Azure.

@@ -10,17 +10,17 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: de809ef1455e4c8c4c2284c2139e962f1829770b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 55cf124baf7614813620602212856cc586b721df
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510168"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244332"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-Quand vous créez un espace de travail dans Azure Machine Learning, vous disposez par défaut d’un certain nombre d’exemples de jeux de données et d’expériences. Plusieurs de ces exemples de jeux de données sont utilisés par les exemples de modèles [d’Azure AI Gallery](http://gallery.cortanaintelligence.com/). D’autres sont inclus comme exemples des différents types de données généralement utilisées dans Machine Learning.
+Quand vous créez un espace de travail dans Azure Machine Learning, vous disposez par défaut d’un certain nombre d’exemples de jeux de données et d’expériences. Plusieurs de ces exemples de jeux de données sont utilisés par les exemples de modèles [d’Azure AI Gallery](http://gallery.azure.ai/). D’autres sont inclus comme exemples des différents types de données généralement utilisées dans Machine Learning.
 
 Certains de ces jeux de données sont disponibles dans le Stockage Blob Azure. Le tableau ci-dessous fournit un lien direct vers ces jeux de données. Vous pouvez utiliser ces jeux de données dans vos expériences à l’aide du module [Importer les données][import-data].
 

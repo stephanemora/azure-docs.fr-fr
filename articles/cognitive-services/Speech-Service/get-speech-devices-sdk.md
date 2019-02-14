@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Le service Speech fonctionne avec une large gamme d’appareils et de sources audio. Vous pouvez maintenant faire passer vos applications de reconnaissance vocale au niveau supérieur en y associant du matériel et des logiciels. Dans cet article, vous allez découvrir comment accéder au kit SDK Speech Devices et commencer à développer.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f8861b581c0e02bb78d80817cb2242a38e8aac40
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 905f3dde7c9c728c2a57858578cef8cff2777d81
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733465"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872150"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obtenir le kit de développement logiciel (SDK) Speech Devices de Cognitive Services
 

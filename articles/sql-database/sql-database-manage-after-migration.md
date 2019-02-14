@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751937"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099732"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud – Gestion de votre base de données dans Azure SQL Database
 
@@ -310,7 +310,7 @@ SQL Database utilise des techniques intelligentes pour gérer certaines classes 
 Il existe plusieurs méthodes :
 
 - La fonctionnalité **[Data Sync](sql-database-sync-data.md)** vous permet de synchroniser les données de façon bidirectionnelle entre plusieurs bases de données SQL Server locales et SQL Database. Pour synchroniser des bases de données SQL Server locales, vous devez installer et configurer l’agent de synchronisation sur un ordinateur local et ouvrir le port TCP sortant 1433.
-- La fonctionnalité **[Réplication transactionnelle](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** vous permet de synchroniser vos données locales avec Azure SQL Azure, le serveur de publication étant la base de données locale et l’abonné étant Azure SQL Database. Pour l’instant, seule cette configuration est prise en charge. Pour plus d’informations sur la façon de migrer vos données locales vers Azure SQL Database avec un temps d’arrêt minime, consultez : [Utiliser la réplication transactionnelle](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- La fonctionnalité **[Réplication transactionnelle](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** vous permet de synchroniser vos données locales avec Azure SQL Azure, le serveur de publication étant la base de données locale et l’abonné étant Azure SQL Database. Pour l’instant, seule cette configuration est prise en charge. Pour plus d’informations sur la façon de migrer vos données locales vers Azure SQL Database avec un temps d’arrêt minime, consultez : [Utiliser la réplication transactionnelle](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,14 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 58eca4c73a6e1fd0941e100a55bdad763b986590
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491465"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114346"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Fonctions de déploiement pour les modèles Azure Resource Manager 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à partir des sections du modèle et de valeurs associées au déploiement :
 
@@ -167,7 +169,7 @@ Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être d�
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| nom_paramètre |Oui |chaîne |Nom du paramètre à retourner. |
+| nom_paramètre |OUI |chaîne |Nom du paramètre à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -283,7 +285,7 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| variableName |Oui |Chaîne |Nom de la variable à retourner. |
+| variableName |OUI |Chaîne |Nom de la variable à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 

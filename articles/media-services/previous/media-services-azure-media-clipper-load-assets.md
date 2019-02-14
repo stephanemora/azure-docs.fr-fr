@@ -6,17 +6,18 @@ keywords: clip;sous-clip;encodage;média
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 415f58d9c6880bc7ef9ba6b6ba3f575fae382f04
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 016238305e12435b740da45da4ad600152cf04ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54806883"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003837"
 ---
-# <a name="loading-assets-into-azure-media-clipper"></a>Chargement d’actifs dans Azure Media Clipper
+# <a name="loading-assets-into-azure-media-clipper"></a>Chargement d’actifs dans Azure Media Clipper  
+
 Il existe deux méthodes pour charger des actifs dans Azure Media Clipper :
 1. Transmission d’une bibliothèque d’actifs de manière statique
 2. Génération d’une liste d’actifs de manière dynamique par le biais d’une API

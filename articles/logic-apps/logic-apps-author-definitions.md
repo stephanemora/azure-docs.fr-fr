@@ -10,16 +10,16 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: d50f56fe0f4428186d18195f798633baefd6d125
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5c51fe4e3d8b432e80a2d437c299b33af557d936
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732921"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245811"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Créer, modifier ou étendre JSON pour les définitions d’applications logiques dans Azure Logic Apps
 
-Lorsque vous créez des solutions d’intégration d’entreprise avec des flux de travail automatisés dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), les définitions d’application logique sous-jacentes utilisent le JavaScript Object Notation (JSON) avec le [schéma Langue de la définition du flux de travail (WDL)](../logic-apps/logic-apps-workflow-definition-language.md) pour leur description et validation. Ces formats simplifient la lecture et la compréhension des définitions d’application sans en savoir beaucoup sur le code. Lorsque vous désirez automatiser la création et le déploiement des applications logiques, vous pouvez inclure des définitions d’application logique en tant que [Ressources Azure](../azure-resource-manager/resource-group-overview.md) dans des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment). Pour créer, gérer et déployer des applications logiques, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) ou les [API REST Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
+Lorsque vous créez des solutions d’intégration d’entreprise avec des flux de travail automatisés dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), les définitions d’application logique sous-jacentes utilisent le JavaScript Object Notation (JSON) avec le [schéma Langue de la définition du flux de travail (WDL)](../logic-apps/logic-apps-workflow-definition-language.md) pour leur description et validation. Ces formats simplifient la lecture et la compréhension des définitions d’application sans en savoir beaucoup sur le code. Lorsque vous désirez automatiser la création et le déploiement des applications logiques, vous pouvez inclure des définitions d’application logique en tant que [Ressources Azure](../azure-resource-manager/resource-group-overview.md) dans des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment). Pour créer, gérer et déployer des applications logiques, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) ou les [API REST Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
 
 Pour utiliser des définitions d’application logique dans JSON, ouvrez l’éditeur en mode Code lorsque vous travaillez dans le portail Azure ou dans Visual Studio ou copiez la définition dans tout éditeur de votre choix. Si vous débutez avec les applications logiques, consultez [procédure de création de votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

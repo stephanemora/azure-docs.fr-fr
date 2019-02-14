@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: QnAMaker comprend des composants hébergés dans le compte d’utilisateur Azure. Pour les besoins du débogage, les utilisateurs peuvent avoir à manipuler leurs ressources Azure QnAMaker ou à fournir à l’équipe du support technique QnAMaker des informations supplémentaires sur leur installation.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: e607ca75f12cf81ac8ca177083ba8678aed02207
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6a84ecff04381b6dcc9706105df92ecc96dc8b1c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223797"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882088"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>Conseils de dépannage pour prendre en charge le service et le runtime QnA Maker
 QnAMaker comprend des composants hébergés dans le compte d’utilisateur Azure. Pour les besoins du débogage, les utilisateurs peuvent avoir à manipuler leurs ressources Azure QnAMaker ou à fournir à l’équipe du support technique QnAMaker des informations supplémentaires sur leur installation.

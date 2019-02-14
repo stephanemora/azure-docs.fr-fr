@@ -12,12 +12,13 @@ ms.date: 01/29/2019
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5780090f155b3e09792aeb78c4e1d573808028ca
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f29331ccdde7db56639ed443e5dca7336f5e9dbd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299348"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181590"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?
 Dans Azure Active Directory (Azure AD), tous les utilisateurs bénéficient d’un jeu d’autorisations par défaut. L’accès d’un utilisateur se compose du type d’utilisateur, de ses [appartenances aux rôles](active-directory-users-assign-role-azure-portal.md) et de sa possession d’objets individuels. Cet article décrit ces autorisations par défaut et compare celles des utilisateurs membres et celles des utilisateurs invités.

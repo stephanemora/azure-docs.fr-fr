@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie number dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 12b5daec94b894f0fcd171963737d99ca670b77d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5628c0fa3d6b3554fe096a323899770f3a14f97b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225935"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857190"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie number pour une application LUIS
 Des valeurs numériques sont utilisées de plusieurs façons pour quantifier, exprimer et décrire des éléments d’information. Cet article ne couvre que certains exemples possibles. LUIS interprète les variantes des énoncés des utilisateurs, et renvoie des valeurs numériques cohérentes. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant un nombre aux intentions de l’application. 

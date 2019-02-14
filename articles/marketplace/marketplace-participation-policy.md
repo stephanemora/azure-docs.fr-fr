@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 1/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: ef7b4377da541068cef7cdd2de5a98d33c3b80ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 88ffa70f7ac21a2c28af994f1e2ed3b6939f6ad9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198644"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567415"
 ---
 # <a name="azure-marketplace-participation-policies"></a>Politiques concernant la participation à la Place de marché Azure
 
@@ -35,7 +35,7 @@ Ces politiques s'appliquent à l'ensemble des éditeurs et offres disponibles da
 
 1. Les éditeurs doivent résider dans un pays expéditeur pris en charge par la Place de marché Azure. À l'heure actuelle, les pays expéditeurs autorisés sont les suivants :  Afghanistan, Albanie, Algérie, Angola, Antigua-et-Barbuda, Argentine, Arménie, Australie, Autriche, Azerbaïdjan, Bahreïn, Bangladesh, Bélarus, Belgique, Bénin, Bolivie, Bosnie-Herzégovine, Botswana, Brésil, Bulgarie, Burkina Faso, Burundi, Cambodge, Cameroun, Canada, République centrafricaine, Tchad, Chili, Colombie, Comores, Congo (DRC), République démocratique du Congo, Costa Rica, Côte D’Ivoire, Croatie, Chypre, République Tchèque, Danemark, Dominique, République dominicaine, Équateur, Égypte, El Salvador, Érythrée, Estonie, Éthiopie, Fidji, Finlande, France, Géorgie, Allemagne, Ghana, Grèce, Guatemala, Guinée, Haïti, Honduras, Hong Kong (R.A.S.), Hongrie, Islande, Inde, Indonésie, Irak, Irlande, Israël, Italie, Jamaïque, Japon, Jordanie, Kazakhstan, Kenya, Corée du Sud, Koweït, Laos, Lettonie, Liban, Libéria, Liechtenstein, Lituanie, Luxembourg, Madagascar, Malawi, Malaisie, Mali, Malte, Maurice, Mexique, Monaco, Mongolie, Monténégro, Maroc, Mozambique, Népal, Pays-Bas, Nouvelle-Zélande, Nicaragua, Niger, Nigéria, Norvège, Oman, Pakistan, Panama, Paraguay, Pérou, Philippines, Pologne, Portugal, Qatar, Roumanie, Russie, Rwanda, Arabie saoudite, Sénégal, Serbie, Sierra Leone, Singapour, Slovaquie, Slovénie, Somalie, Afrique du Sud, Espagne, Sri Lanka, Suède, Suisse, Tadjikistan, Tanzanie, Thaïlande, Timor-Leste, Togo, Tonga, Trinité-et-Tobago, Tunisie, Turquie, Turkménistan, Ouganda, Ukraine, Émirats arabes unis, Royaume-Uni, États-Unis, Uruguay, Ouzbékistan, Venezuela, Vietnam, Zambie, Zimbabwe.
 
-1. Pour chaque offre, les éditeurs doivent permettre l'achat dans un des pays récepteurs pris en charge par la Place de marché Azure. À l'heure actuelle, les pays récepteurs autorisés sont les suivants :  Afrique du Sud, Algérie, Allemagne, Arabie Saoudite, Argentine, Australie, Autriche, Bahreïn, Belarus, Belgique, Brésil, Bulgarie, Canada, Chili, Colombie, Corée du Sud, Costa Rica, Croatie, Danemark, Égypte, Émirats arabes unis, El Salvador, Équateur, Espagne, Estonie, États-Unis, Finlande, France, République de Chypre, République tchèque, République dominicaine, Grèce, Guatemala, Hong Kong R.A.S., Hongrie, Inde, Indonésie, Irlande, Islande, Israël, Italie, Japon, Jordanie, Kazakhstan, Kenya, Koweït, Lettonie, Liechtenstein, Lituanie, Luxembourg, République de Macédoine, Malaisie, Malte, Maroc, Mexique, Monténégro, Nigéria, Norvège, Nouvelle-Zélande, Pakistan, Panama, Paraguay, Pays-Bas, Pérou, Philippines, Pologne, Porto Rico, Portugal, Oman, Qatar, Roumanie, Royaume-Uni, Russie, Serbie, Singapour, Slovaquie, Slovénie, Sri Lanka, Suède, Suisse, Thaïlande, Taïwan, Trinité-et-Tobago, Tunisie, Turquie, Ukraine, Uruguay, Venezuela. 
+1. Pour chaque offre, les éditeurs doivent permettre l'achat dans un des pays récepteurs pris en charge par la Place de marché Azure. À l'heure actuelle, les pays récepteurs autorisés sont les suivants : Afrique du Sud, Algérie, Allemagne, Arabie Saoudite, Argentine, Australie, Autriche, Bahreïn, Belarus, Belgique, Brésil, Bulgarie, Canada, Chili, Colombie, Corée du Sud, Costa Rica, Croatie, Danemark, Égypte, Émirats arabes unis, El Salvador, Équateur, Espagne, Estonie, États-Unis, Finlande, France, République de Chypre, République tchèque, République dominicaine, Grèce, Guatemala, Hong Kong R.A.S., Hongrie, Inde, Indonésie, Irlande, Islande, Israël, Italie, Japon, Jordanie, Kazakhstan, Kenya, Koweït, Lettonie, Liechtenstein, Lituanie, Luxembourg, République de Macédoine, Malaisie, Malte, Maroc, Mexique, Monténégro, Nigéria, Norvège, Nouvelle-Zélande, Pakistan, Panama, Paraguay, Pays-Bas, Pérou, Philippines, Pologne, Porto Rico, Portugal, Oman, Qatar, Roumanie, Royaume-Uni, Russie, Serbie, Singapour, Slovaquie, Slovénie, Sri Lanka, Suède, Suisse, Thaïlande, Taïwan, Trinité-et-Tobago, Tunisie, Turquie, Ukraine, Uruguay, Venezuela.
 
 1. Les éditeurs doivent rester en bonne santé financière.
 
@@ -47,7 +47,7 @@ Ces politiques s'appliquent à l'ensemble des éditeurs et offres disponibles da
 
 1. Les éditeurs doivent préciser la disponibilité de leur offre dans la Place de marché Azure sur leur site web et doivent inclure des liens hypertexte vers la ou les pages de l'offre à l'adresse : [https://azuremarketplace.microsoft.com/marketplace/](https://azuremarketplace.microsoft.com/marketplace/).
 
-1. Les éditeurs doivent classifier chaque offre en fonction d'un ou de plusieurs critères taxonomiques fournis par Microsoft, notamment les catégories décrites à la Section 4 du présent document. Microsoft se réserve le droit de modifier la classification des offres s'il considère qu'une classification sélectionnée par un éditeur est inexacte.
+1. Les éditeurs doivent classifier chaque offre en fonction d’un ou de plusieurs critères taxonomiques fournis par Microsoft, notamment les catégories décrites dans la section **Définitions de la classification des offres** du présent document. Microsoft se réserve le droit de modifier la classification des offres s'il considère qu'une classification sélectionnée par un éditeur est inexacte.
 
 1. Si l'offre d'un éditeur obtient la certification Microsoft Azure Certified et qu'elle ne s'exécute pas principalement sous Microsoft Azure, l'éditeur doit proposer une version payante dans les 90 jours suivant la publication d'une version gratuite ou BYOL (avec apport de sa propre licence).
 
@@ -122,7 +122,7 @@ Après avoir publié une offre de services sur la Place de marché, les éditeur
     * L'offre fait l'objet de nombreux tickets de support important ; ou
     * L’éditeur n’a pas respecté les termes et les conditions stipulés dans le Contrat d’éditeur de la Place de marché Microsoft, les règles de publication sur la Place de marché ou le présent document.
 
-1. Vous pouvez décider de supprimer votre offre de la Place de marché pour diverses raisons. La suppression de l’offre permet de faire en sorte que les nouveaux clients ne puissent plus acheter ou déployer votre offre, mais elle n’a aucun impact sur les clients existants. L’arrêt de l’offre est le processus d’arrêt de l’accord de service et/ou de licence entre vos clients actuels et vous. Les instructions et les règles relatives au retrait et à la résiliation de l’offre sont régies par le Contrat d’éditeur de la Place de marché Microsoft (voir Section 7). Vous pouvez formuler une demande de retrait ou de résiliation en enregistrant un ticket de support.
+1. Vous pouvez décider de supprimer votre offre de la Place de marché pour diverses raisons. La suppression de l’offre permet de faire en sorte que les nouveaux clients ne puissent plus acheter ou déployer votre offre, mais elle n’a aucun impact sur les clients existants. L’arrêt de l’offre est le processus d’arrêt de l’accord de service et/ou de licence entre vos clients actuels et vous. Les instructions et les règles relatives au retrait et à la résiliation de l’offre sont régies par le Contrat d’éditeur de la Place de marché Microsoft (voir la section « Conditions de paiement »). Vous pouvez formuler une demande de retrait ou de résiliation en enregistrant un ticket de support.
 
 ## <a name="payment-terms"></a>Conditions de paiement
 
@@ -138,19 +138,35 @@ Microsoft autorise les éditeurs à intégrer les produits logiciels Microsoft s
 
 ## <a name="taxes"></a>Taxes
 
-1. **Pays d’envoi de fonds Microsoft.**
+1. **Responsabilité concernant les taxes sur les ventes réalisées auprès de clients finaux.**
 
-    1. Les pays cités ci-dessous correspondent aux pays d’envoi de fonds Microsoft, tels que définis dans le Contrat d’éditeur de la Place de marché Microsoft : Union européenne, Canada, Inde, Irlande, Liechtenstein, Monaco, Nouvelle-Zélande, Norvège, Porto Rico, Corée du Sud, Suisse, États-Unis. L'Australie, l'Arabie Saoudite, Taïwan et les Émirats Arabes Unis sont des pays d’envoi de fonds Microsoft pour les ventes Web Direct uniquement.
+    1. En général, les responsabilités de Microsoft et de l’éditeur concernant les taxes sur les ventes réalisées auprès de clients finaux dépendent du pays et du scénario d’achat dans lesquels les offres sont vendues.
 
-    1. En Irlande, Microsoft facture la TVA irlandaise à tous les clients irlandais (à moins que ceux-ci communiquent les détails d’une attestation 56B de TVA valide). Pour les clients professionnels ressortissants de l’Union européenne ou de Norvège (hors Irlande), Microsoft applique le taux de TVA de 0 % sur présentation d’un numéro de TVA valide. Faute de présentation d’un tel numéro, les clients se voient facturer la TVA au taux en vigueur dans leur pays/juridiction.
+    1. Dans certains pays (**Pays gérés par Microsoft**), Microsoft assume la responsabilité de la gestion de la taxation des clients finaux, ce qui peut inclure la validation du statut commercial des clients par l’obtention des numéros d’immatriculation fiscale ou des certificats d’exonération, des relations mieux gérées avec les clients et le calcul, la collecte et/ou le versement des taxes.  Dans les cas où les ventes sont réalisées par l’intermédiaire de partenaires, Microsoft part du principe que tous les partenaires sont des entreprises qui s’acquittent de façon appropriée de leurs obligations fiscales.  Pour plus d’informations, consultez le [FAQ](https://automaticbillingspec.blob.core.windows.net/spec/FAQ%20for%20ISV%20Azure%20Marketplace%20Updates%20March%202019.pdf).
 
-    1. Les clients basés en Suisse ou au Liechtenstein sont facturés en fonction du taux de TVA en vigueur en Suisse.
+    1. Pour tous les pays qui ne sont pas des Pays gérés par Microsoft (**Pays gérés par les éditeurs de logiciels indépendants**), les éditeurs reconnaissent et conviennent que les éditeurs sont seuls responsables de la détermination et de la gestion de la taxation des clients finaux, notamment l’enregistrement, le calcul des taxes, la collecte et le versement, la validation du statut commercial des clients et la fourniture de factures fiscales aux clients, pour toutes les offres que ces éditeurs choisissent de mettre à disposition dans les Pays gérés par les éditeurs de logiciels indépendants.  Les éditeurs reconnaissent que Microsoft peut ne pas être en mesure de réaliser certaines ventes dans l’un des Pays gérés par les éditeurs de logiciels indépendants
 
-1. **Pays d'envoi de fonds ISV.**
+    1. Les clients finaux peuvent acheter des offres directement auprès de Microsoft ou de partenaires Microsoft auxquels l’éditeur octroie une licence de son produit.  Il existe plusieurs programmes de licence.  Dans certains cas, des Pays gérés Microsoft peuvent devenir des Pays gérés par les éditeurs de logiciels indépendants et inversement (voir la section **Pays gérés par Microsoft** ci-dessous). Vous trouverez des informations sur les scénarios d’achat client dans le [FAQ sur la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide).
 
-    1. Les pays d’envoi de fonds ISV englobent tous les pays récepteurs tels que définis dans la Section 1 (3) des présentes règles qui ne correspondent pas à des pays d’envoi de fonds Microsoft. De plus, les ventes conclues pour l'Australie, l'Arabie Saoudite, Taïwan et les Émirats Arabes Unis par le biais du canal Entreprise sont considérées comme des ventes avec envoi de fonds ISV. Toutefois, en ce qui concerne les éditeurs de Taïwan, Microsoft ne peut pas confirmer que ces éditeurs taïwanais collectent et reversent les taxes applicables.
+1. **Pays gérés par Microsoft.**
 
-    1. Si les éditeurs proposent leurs offres dans un pays d'envoi de fonds ISV, ils auront la responsabilité exclusive de déterminer leurs obligations fiscales dans ces pays, le cas échéant.  En outre, ils reconnaissent que Microsoft n'est pas actuellement en mesure de fournir les détails de transactions requis par les éditeurs pour établir leurs factures avec TVA.
+    1. Les pays suivants sont des Pays gérés par Microsoft pour les ventes réalisées dans tous les scénarios d’achat client : Arabie saoudite, Arménie, Biélorussie, Canada, Corée du Sud, Émirats arabes unis, États-Unis, Inde, Irlande, Liechtenstein, Monaco, Nouvelle-Zélande, Norvège, Porto Rico, Russie, Serbie, Suisse, Taïwan, Turquie et Union européenne. 
+
+    1. L’Australie est un Pays géré par Microsoft pour les ventes réalisées dans tous les scénarios d’achat client, à l’exception du scénario d’achat client Contrat Entreprise.
+
+    1. Microsoft gère la taxation des clients finaux pour les éditeurs pour des raisons pratiques et a adopté les scénarios les plus courants pour déterminer les pays et les stratégies de gestion de la taxation des clients finaux.
+
+    1. Microsoft ne garantit pas que ses actions répondront entièrement aux obligations des éditeurs dans les Pays gérés par Microsoft.  Pour tous les Pays gérés par Microsoft, Microsoft recommande vivement aux éditeurs de collaborer avec leurs propres conseillers en fiscalité afin de déterminer si le versement de la taxe dans les Pays gérés par Microsoft répond suffisamment à leurs exigences en matière de conformité.  Cela est particulièrement important pour les Pays gérés par Microsoft dans lesquels les éditeurs vendent leurs produits.  Par exemple, un éditeur établi et vendant des offres en Arabie saoudite peut déterminer que le fait de s’en remettre à Microsoft pour gérer ses taxes peut ne pas suffire à satisfaire à ses obligations en matière de conformité.
+
+1. **Pays gérés par les éditeurs de logiciels indépendants.**
+
+    1. Les Pays gérés par les éditeurs de logiciels indépendants incluent l’Australie pour toutes les ventes réalisées dans le scénario d’achat client Accord d’entreprise ainsi que tous les pays non mentionnés dans la section **Pays gérés par Microsoft**.
+
+1. **Cas particuliers.**
+
+    1. *Brésil*.  Pour les ventes réalisées au Brésil dans tous les scénarios d’achat client sauf Fournisseur de solutions cloud, le Brésil est un Pays géré par Microsoft où Microsoft agit en tant que revendeur et non en tant qu’agent d’éditeur.  Pour les ventes réalisées au Brésil dans le scénario d’achat client Fournisseur de solutions cloud, Microsoft agit en tant qu’agent d’éditeur et passe par une entité brésilienne pour vendre à des fournisseurs de solutions cloud brésiliens qui, selon Microsoft, sont conformes à la législation fiscale. 
+
+    1. *Mexique*.  Pour les ventes réalisées au Mexique dans le scénario d’achat client Contrat Entreprise, le Mexique est un Pays géré par Microsoft où Microsoft agit en tant que revendeur et non en tant qu’agent d’éditeur.  Pour les ventes réalisées au Mexique dans tous les scénarios d’achat client sauf Contrat Enterprise, le Mexique est un Pays géré par les éditeurs de logiciels indépendants où Microsoft agit en tant qu’agent d’éditeur.
 
 ## <a name="security-events"></a>Événements de sécurité
 

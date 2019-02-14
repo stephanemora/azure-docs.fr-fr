@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Apprenez à reconnaître des intentions vocales à partir d’un fichier ou à partir d’un micro à l’aide du kit de développement logiciel (SDK) Speech pour C++.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 18ca9fc819431f11f0f1fcb67881a35a55c5a33c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8298f5e3b4f04574d7123da4a6c55f169a0ab299
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214277"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867951"
 ---
 # <a name="recognize-intents-from-speech-by-using-the-speech-sdk-for-c"></a>Effectuer une reconnaissance des intentions vocales à l’aide du kit de développement logiciel (SDK) Speech pour C++
 

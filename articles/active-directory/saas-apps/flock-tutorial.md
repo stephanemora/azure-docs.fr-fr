@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Flock | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Flock | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Flock.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: d12180ef14c8a91893a4a158ff1b1c5cac06f0e1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 44204813e44dc725db774eec2cbecb35852cffde
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176027"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198645"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutoriel : Intégration d’Azure Active Directory à Flock
+# <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutoriel : Intégration d’Azure Active Directory à Flock
 
 Dans ce tutoriel, vous allez apprendre à intégrer Flock Suite à Azure Active Directory (Azure AD).
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: 0d27ae79ab2c14cc5fd5ca81b8b7f089e7fa294e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126222"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233046"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrer Azure Data Lake Storage Gen1 entre les régions
 
@@ -46,7 +46,7 @@ D’autres informations importantes à prendre en compte lorsque vous planifiez 
 
 * **Frais liés à la bande passante**. Des [frais liés à la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/) s’appliquent, car les données sont transférées en dehors d’une région Azure.
 
-* **Listes de contrôle d’accès sur vos données**. Sécurisez vos données dans la nouvelle région en appliquant des listes de contrôle d’accès aux fichiers et dossiers. Pour plus d’informations, consultez [Sécurisation des données stockées dans Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). Nous vous recommandons de profiter de la migration pour mettre à jour et ajuster vos listes de contrôle d’accès. Vous pouvez utiliser des paramètres similaires à vos paramètres actuels. Vous pouvez afficher les listes de contrôle d’accès dans n’importe quel fichier à l’aide du portail Azure, des [applets de commande PowerShell](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission) ou des Kits de développement logiciel (SDK).  
+* **Listes de contrôle d’accès sur vos données**. Sécurisez vos données dans la nouvelle région en appliquant des listes de contrôle d’accès aux fichiers et dossiers. Pour plus d’informations, consultez [Sécurisation des données stockées dans Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). Nous vous recommandons de profiter de la migration pour mettre à jour et ajuster vos listes de contrôle d’accès. Vous pouvez utiliser des paramètres similaires à vos paramètres actuels. Vous pouvez afficher les listes de contrôle d’accès dans n’importe quel fichier à l’aide du portail Azure, des [applets de commande PowerShell](/powershell/module/az.datalakestore/get-azdatalakestoreitempermission) ou des Kits de développement logiciel (SDK).  
 
 * **Emplacement des services d’analyse**. Pour des performances optimales, vos services d’analyse, tels qu’Azure Data Lake Analytics ou Azure HDInsight, doivent se situer dans la même région que vos données.  
 

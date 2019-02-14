@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3d5d0d4b17bcdc5e0461b977c4c832762a46b99b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bd863a8ddd9e2277b628673d2146efd8c458c319
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456185"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979494"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Extension du lecteur de système d’exploitation d’une machine virtuelle
 
@@ -37,6 +37,10 @@ Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en d
 > Après avoir étendu les disques, vous devez [étendre le volume dans le système d’exploitation](#expand-the-volume-within-the-os) pour tirer parti du disque plus volumineux.
 > 
 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
+
 ## <a name="resize-a-managed-disk"></a>Redimensionner un disque managé
 
 Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et suivez les étapes ci-dessous :
@@ -44,8 +48,8 @@ Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et
 1. Connectez-vous à votre compte Microsoft Azure en mode de gestion des ressources et sélectionnez votre abonnement comme suit :
    
    ```powershell
-   Connect-AzureRmAccount
-   Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
+   Connect-AzAccount
+   Select-AzSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Définissez le nom du groupe de ressources et le nom de la machine virtuelle comme suit :
    
@@ -56,19 +60,19 @@ Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et
 3. Obtenez une référence à votre machine virtuelle comme suit :
    
    ```powershell
-   $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
    ```
 4. Arrêtez la machine virtuelle avant de redimensionner le disque comme suit :
    
     ```Powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 5. Obtenez une référence vers le disque de système d’exploitation managé. Définissez la taille du disque du système d’exploitation managé sur la valeur souhaitée et mettez à jour le disque comme suit :
    
    ```Powershell
-   $disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
+   $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
    $disk.DiskSizeGB = 1023
-   Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
+   Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
    ```   
    > [!WARNING]
    > La nouvelle taille doit être supérieure à la taille du disque actuelle. Le maximum autorisé est de 2 048 Go pour les disques du système d’exploitation. (Il est possible d’étendre la taille de l’objet blob du disque virtuel, mais le système d’exploitation ne peut utiliser que l’espace des premiers 2 048 Go.)
@@ -77,7 +81,7 @@ Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et
 6. La mise à jour de la machine virtuelle peut prendre quelques secondes. Une fois que l’exécution de la commande est terminée, redémarrez la machine virtuelle comme suit :
    
    ```Powershell
-   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   Start-AzVM -ResourceGroupName $rgName -Name $vmName
    ```
 
 Vous avez terminé. Connectez-vous via RDP à la machine virtuelle, ouvrez Gestion de l’ordinateur (ou Gestion des disques) et développez le lecteur à l’aide de l’espace qui vient d’être alloué.
@@ -89,8 +93,8 @@ Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et
 1. Connectez-vous à votre compte Microsoft Azure en mode de gestion des ressources et sélectionnez votre abonnement comme suit :
    
    ```Powershell
-   Connect-AzureRmAccount
-   Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
+   Connect-AzAccount
+   Select-AzSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Définissez le nom du groupe de ressources et le nom de la machine virtuelle comme suit :
    
@@ -101,18 +105,18 @@ Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et
 3. Obtenez une référence à votre machine virtuelle comme suit :
    
    ```Powershell
-   $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
    ```
 4. Arrêtez la machine virtuelle avant de redimensionner le disque comme suit :
    
     ```Powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 5. Définissez la taille du disque du système d’exploitation non managé sur la valeur souhaitée et mettez à jour la machine virtuelle comme suit :
    
    ```Powershell
    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
-   Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
+   Update-AzVM -ResourceGroupName $rgName -VM $vm
    ```
    
    > [!WARNING]
@@ -123,7 +127,7 @@ Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et
 6. La mise à jour de la machine virtuelle peut prendre quelques secondes. Une fois que l’exécution de la commande est terminée, redémarrez la machine virtuelle comme suit :
    
    ```Powershell
-   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   Start-AzVM -ResourceGroupName $rgName -Name $vmName
    ```
 
 
@@ -135,30 +139,30 @@ Voici le script complet de référence pour les disques managés et non managés
 **Disques gérés**
 
 ```Powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
-$vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-$disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
+$vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
+Stop-AzVM -ResourceGroupName $rgName -Name $vmName
+$disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
 $disk.DiskSizeGB = 1023
-Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
-Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
+Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
 **Disques non gérés**
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
-$vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+$vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
+Stop-AzVM -ResourceGroupName $rgName -Name $vmName
 $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
-Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+Update-AzVM -ResourceGroupName $rgName -VM $vm
+Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
 ## <a name="resizing-data-disks"></a>Redimensionnement des disques de données
@@ -168,7 +172,7 @@ Cet article se concentre principalement sur l’extension du disque du système 
 **Disque managé**
 
 ```powershell
-$disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
+$disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
 $disk.DiskSizeGB = 1023
 ```
 
@@ -187,7 +191,7 @@ De même, vous pouvez référencer d’autres disques de données associés à l
 **Disque managé**
 
 ```powershell
-(Get-AzureRmDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
+(Get-AzDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```
 
 **Disque non managé**

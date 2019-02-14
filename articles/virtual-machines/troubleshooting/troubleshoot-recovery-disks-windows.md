@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 1dd529b142de9815ed41f68bc9b60cdda5d47612
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 27409de144274cde4201937c47df0fd2bbfd788a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820050"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984441"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide d’Azure PowerShell
 Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrage ou de disque, vous devrez peut-être appliquer la procédure de résolution de problèmes directement sur le disque. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser Azure PowerShell pour connecter le disque à une autre machine virtuelle Windows et corriger les éventuelles erreurs, puis réparer votre machine virtuelle d’origine. 
@@ -26,6 +26,7 @@ Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrag
 > [!Important]
 > Les scripts dans cet article s’appliquent uniquement aux machines virtuelles qui utilisent [Disque managé](../windows/managed-disks-overview.md). 
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="recovery-process-overview"></a>Vue d’ensemble du processus de récupération
 Nous pouvons maintenant utiliser Azure PowerShell et changer le disque de système d’exploitation pour une machine virtuelle. Il n’est désormais plus nécessaire de supprimer et de recréer la machine virtuelle.
@@ -45,7 +46,7 @@ Vous pouvez utiliser les scripts de récupération de machine virtuelle pour aut
 Vérifiez que la [dernière version d’Azure PowerShell](/powershell/azure/overview) est installée et connectez-vous à votre abonnement :
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Dans les exemples suivants, remplacez les noms des paramètres par vos propres valeurs. 
@@ -54,7 +55,7 @@ Dans les exemples suivants, remplacez les noms des paramètres par vos propres v
 Vous pouvez afficher une capture d’écran de votre machine virtuelle dans Azure pour vous aider à résoudre les problèmes de démarrage. Cette capture d’écran peut vous aider à identifier la cause de l’échec de démarrage d’une machine virtuelle. L’exemple suivant récupère la capture d’écran de la machine virtuelle Windows nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
+Get-AzVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
     -Name myVM -Windows -LocalPath C:\Users\ops\
 ```
 
@@ -65,7 +66,7 @@ Examinez la capture d’écran afin d’identifier la raison pour laquelle le d�
 L’exemple suivant arrête la machine virtuelle nommée `myVM` dans le groupe de ressource nommé `myResourceGroup` :
 
 ```powershell
-Stop-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
 Attendez que la machine virtuelle ait terminé la suppression avant d’effectuer l’étape suivante.
@@ -82,18 +83,18 @@ $vmName = 'myVM'
 $snapshotName = 'mySnapshot'  
 
 #Get the VM
-$vm = get-azurermvm `
+$vm = get-azvm `
 -ResourceGroupName $resourceGroupName `
 -Name $vmName
 
 #Create the snapshot configuration for the OS disk
-$snapshot =  New-AzureRmSnapshotConfig `
+$snapshot =  New-AzSnapshotConfig `
 -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
 -Location $location `
 -CreateOption copy
 
 #Take the snapshot
-New-AzureRmSnapshot `
+New-AzSnapshot `
    -Snapshot $snapshot `
    -SnapshotName $snapshotName `
    -ResourceGroupName $resourceGroupName 
@@ -111,7 +112,7 @@ Ce script crée un disque managé portant le nom `newOSDisk` à partir de l’in
 
 $subscriptionId = 'yourSubscriptionId'
 
-Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+Select-AzSubscription -SubscriptionId $SubscriptionId
 
 #Provide the name of your resource group
 $resourceGroupName ='myResourceGroup'
@@ -131,14 +132,14 @@ $storageType = 'StandardLRS'
 #Provide the Azure region (e.g. westus) where Managed Disks will be located.
 #This location should be same as the snapshot location
 #Get all the Azure location using command below:
-#Get-AzureRmLocation
+#Get-AzLocation
 $location = 'eastus'
 
-$snapshot = Get-AzureRmSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
+$snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
  
-$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
  
-New-AzureRmDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
+New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
 ```
 Vous disposez maintenant d’une copie du disque de système d’exploitation d’origine. Vous pouvez monter ce disque sur une autre machine virtuelle Windows, à des fins de dépannage.
 
@@ -154,13 +155,13 @@ $rgName = "myResourceGroup"
 $vmName = "RecoveryVM"
 $location = "eastus" 
 $dataDiskName = "newOSDisk"
-$disk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
+$disk = Get-AzDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
 
-$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
 
-$vm = Add-AzureRmVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.Id
+$vm = Add-AzVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.Id
 
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
 ## <a name="connect-to-the-recovery-vm-and-fix-issues-on-the-attached-disk"></a>Se connecter à la machine virtuelle de récupération et résoudre les problèmes sur le disque attaché
@@ -168,7 +169,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 1. Effectuez une connexion Bureau à distance sur votre machine virtuelle de récupération à l’aide des informations d’identification appropriées. L’exemple suivant télécharge le fichier de connexion Bureau à distance pour la machine virtuelle nommée `RecoveryVM` dans le groupe de ressources nommé `myResourceGroup` et le télécharge vers `C:\Users\ops\Documents` »
 
     ```powershell
-    Get-AzureRMRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "RecoveryVM" `
+    Get-AzRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "RecoveryVM" `
         -LocalPath "C:\Users\ops\Documents\myVMRecovery.rdp"
     ```
 
@@ -214,9 +215,9 @@ Après avoir corrigé les erreurs, vous démontez et détachez le disque existan
 2. Quittez la session Bureau à distance. À partir de votre session Azure PowerShell, supprimez le disque nommé `newOSDisk` de la machine virtuelle nommée « RecoveryVM ».
 
     ```powershell
-    $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "RecoveryVM"
-    Remove-AzureRmVMDataDisk -VM $myVM -Name "newOSDisk"
-    Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
+    $myVM = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "RecoveryVM"
+    Remove-AzVMDataDisk -VM $myVM -Name "newOSDisk"
+    Update-AzVM -ResourceGroup "myResourceGroup" -VM $myVM
     ```
 
 ## <a name="change-the-os-disk-for-the-affected-vm"></a>Changer le disque de système d’exploitation pour la machine virtuelle affectée
@@ -227,22 +228,22 @@ Cet exemple arrête la machine virtuelle nommée `myVM` et affecte le disque nom
 
 ```powershell
 # Get the VM 
-$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM 
+$vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM 
 
 # Make sure the VM is stopped\deallocated
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name $vm.Name -Force
+Stop-AzVM -ResourceGroupName myResourceGroup -Name $vm.Name -Force
 
 # Get the new disk that you want to swap in
-$disk = Get-AzureRmDisk -ResourceGroupName myResourceGroup -Name newDisk
+$disk = Get-AzDisk -ResourceGroupName myResourceGroup -Name newDisk
 
 # Set the VM configuration to point to the new disk  
-Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -Name $disk.Name  -sto
+Set-AzVMOSDisk -VM $vm -ManagedDiskId $disk.Id -Name $disk.Name  -sto
 
 # Update the VM with the new OS disk. Possible values of StorageAccountType include: 'Standard_LRS' and 'Premium_LRS'
-Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -StorageAccountType <Type of the storage account >
+Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -StorageAccountType <Type of the storage account >
 
 # Start the VM
-Start-AzureRmVM -Name $vm.Name -ResourceGroupName myResourceGroup
+Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
 ```
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>Vérifier et activer les diagnostics de démarrage
@@ -250,9 +251,9 @@ Start-AzureRmVM -Name $vm.Name -ResourceGroupName myResourceGroup
 L’exemple suivant active l’extension de diagnostic sur la machine virtuelle nommée `myVMDeployed`, dans le groupe de ressources nommé `myResourceGroup` :
 
 ```powershell
-$myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
-Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
-Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
+$myVM = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
+Set-AzVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
+Update-AzVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

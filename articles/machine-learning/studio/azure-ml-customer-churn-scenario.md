@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 47d267a2c4c122d8acbb2d3bf40e6858b4d6b77c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244179"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243534"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analyse de l’attrition des clients à l’aide d’Azure Machine Learning Studio
 ## <a name="overview"></a>Vue d’ensemble
@@ -25,7 +25,7 @@ Cet article présente une implémentation de référence d’un projet d’analy
 Cette expérience a été développée et testée par Serge Berger, spécialiste des données chez Microsoft, et Roger Barga, anciennement chef de produits pour Microsoft Azure Machine Learning. L’équipe de documentation Azure leur sait gré de leur expertise et les remercie pour ce livre blanc.
 
 > [!NOTE]
-> Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez : [Modèle d’attrition Retail](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) dans [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
+> Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez : [Modèle d’attrition Retail](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) dans [Azure AI Gallery](http://gallery.azure.ai/)
 > 
 > 
 
@@ -106,7 +106,7 @@ Les schémas suivants illustrent les données utilisées :
  
 
 > Notez que ces données sont privées et que, par conséquent, le modèle et les données ne peuvent pas être partagés.
-> Toutefois, pour un modèle similaire utilisant des données disponibles publiquement, consultez cet exemple d’expérience dans la [galerie Azure AI](http://gallery.cortanaintelligence.com/) : [Attrition des clients Telco](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Toutefois, pour un modèle similaire utilisant des données disponibles publiquement, consultez cet exemple d’expérience dans la [galerie Azure AI](http://gallery.azure.ai/) : [Attrition des clients Telco](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Pour plus d’informations sur la façon dont vous pouvez implémenter un modèle d’analyse de l’attrition à l’aide de Cortana Intelligence Suite, nous vous recommandons également de regarder [cette vidéo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) proposée par le responsable de programme principal Wee Hyong Tok. 
 > 
@@ -219,7 +219,7 @@ Ce document détaille une approche rationnelle pour la gestion d’un problème 
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modèle d’attrition de Telco](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) dans la [galerie Azure AI](http://gallery.cortanaintelligence.com/) 
+[5] [Modèle d’attrition de Telco](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) dans la [galerie Azure AI](http://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Annexe

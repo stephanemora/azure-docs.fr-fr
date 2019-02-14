@@ -5,20 +5,20 @@ description: Utilisez des modèles pour augmenter la prédiction des intentions 
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 2b41054420f381ed4d39d35af82a464cf555cb13
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 3fe549a63f0fb4662ba5beb2e28f1ca72fcc1ee4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490887"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55855881"
 ---
-# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutoriel : Ajouter des formats d’énoncés de modèles courants
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Didacticiel : Ajouter des formats d’énoncés de modèles courants
 
 Dans ce tutoriel, vous allez utiliser des modèles pour augmenter la prédiction des intentions et des entités tout en fournissant moins d’exemples d’énoncés. Le modèle est fourni par le biais d’un exemple d’énoncé de modèle, qui inclut la syntaxe pour identifier les entités et le texte pouvant être ignoré. Un modèle est une combinaison de correspondance par expression et de machine learning.  Les exemples de modèles d’énoncés, ainsi que les énoncés de l’intention, permettent à LUIS de mieux comprendre quels énoncés correspondent à l’intention. 
 

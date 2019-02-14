@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 4ea862707c789eb705e1e9bc887b7e3db7ab7e7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181246"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163185"
 ---
-# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Didacticiel : Configurer Box pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutoriel : Configurer Box pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Box et Azure AD pour approvisionner automatiquement des comptes utilisateur Azure AD dans Box, ainsi que pour annuler leur approvisionnement.
 

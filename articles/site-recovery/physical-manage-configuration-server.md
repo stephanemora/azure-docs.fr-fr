@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 824c7c70cf3e79df3aa04bbe86674ed9486b79f2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d5ce80e44ee1a3a48443b190ea9259fe2dea0dcb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300436"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983217"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
 
@@ -130,7 +130,7 @@ Exécutez le fichier d’installation de la manière suivante :
 Le paramètre MySQLCredsFilePath accepte un fichier comme entrée. Créez le fichier au format suivant et transmettez-le comme paramètre MySQLCredsFilePath d’entrée.
 ```ini
 [MySQLCredentials]
-MySQLRootPassword = "Password>"
+MySQLRootPassword = "Password"
 MySQLUserPassword = "Password"
 ```
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>Créer le fichier d’entrée pour ProxySettingsFilePath
@@ -157,9 +157,10 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
 5. Fournissez les informations sur le nouveau proxy, puis cliquez sur le bouton **Inscrire**.
 6. Ouvrez une fenêtre de commandes PowerShell administrateur.
 7. Exécutez la commande suivante :
-  ```powershell
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+
+  ```PowerShell
+  $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
   net stop obengine
   net start obengine
   ```
@@ -177,9 +178,9 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
   6. Ouvrez une fenêtre de commandes PowerShell administrateur.
   7. Exécutez la commande suivante
 
-      ```powershell
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+      ```PowerShell
+      $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
       net stop obengine
       net start obengine
       ```
@@ -207,7 +208,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
 8. Exécutez la commande suivante
     ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
     net start obengine
     ```
@@ -273,16 +274,16 @@ Mettez à niveau le serveur comme suit :
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Configurez votre contexte de coffre.
     
-    ```powershell
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```PowerShell
+    $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. Sélectionnez votre serveur de configuration.
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Supprimez le serveur de configuration.
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force] `
 
 > [!NOTE]
 > L’option **-Force** dans Remove-AzureRmSiteRecoveryFabric peut être utilisée pour forcer la suppression du serveur de configuration.

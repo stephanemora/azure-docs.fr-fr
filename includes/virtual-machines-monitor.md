@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: a13ce8d3dc71be83e05fae5bd07f30f413ce59f2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55147937"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985416"
 ---
 Vous pouvez tirer parti de nombreuses possibilités d’analyser vos machines virtuelles en collectant, affichant et analysant les données de diagnostic et de journal. Pour [analyser](../articles/azure-monitor/overview.md) simplement votre machine virtuelle, vous pouvez utiliser l’écran Vue d’ensemble de la machine virtuelle sur le portail Azure. Vous pouvez utiliser des [extensions](../articles/virtual-machines/windows/extensions-features.md) pour configurer des diagnostics sur vos machines virtuelles afin de collecter des données de mesure supplémentaires. Vous pouvez également utiliser des options d’analyse plus avancées, telles que [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) et [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -23,7 +23,7 @@ Vous pouvez définir et analyser la collecte de [données de diagnostic](https:/
 
     Au démarrage des machines virtuelles, l’agent Diagnostics de démarrage capture la sortie du démarrage et la stocke dans le stockage Azure. Ces données peuvent être utilisées pour résoudre les problèmes de démarrage des machines virtuelles. Les diagnostics de démarrage ne sont pas activés automatiquement quand vous créez une machine virtuelle à l’aide d’outils en ligne de commande. Avant d’activer les diagnostics de démarrage, vous devez créer un compte de stockage pour stocker les journaux de démarrage. Si vous activez les diagnostics de démarrage dans le portail Azure, un compte de stockage est créé automatiquement pour vous.
 
-    Si vous n’avez pas activé les diagnostics de démarrage lors de la création de la machine virtuelle, vous pouvez toujours l’activer ultérieurement à l’aide d[Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmbootdiagnostics), ou d’un [modèle Azure Resource Manager](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
+    Si vous n’avez pas activé les diagnostics de démarrage lors de la création de la machine virtuelle, vous pouvez toujours l’activer ultérieurement à l’aide d[Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostics), ou d’un [modèle Azure Resource Manager](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
 
 - **Activer la collecte des données de diagnostics du système d’exploitation invité.** Lorsque vous créez une machine virtuelle, vous avez la possibilité d’activer les diagnostics du système d’exploitation invité sur l’écran des paramètres. Si vous activez la collecte des données de diagnostic, l’[extension IaaSDiagnostics pour Linux](../articles/virtual-machines/linux/diagnostic-extension.md) ou l’[extension IaaSDiagnostics pour Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) est ajoutée à la machine virtuelle, ce qui vous permet de collecter des données de mémoire, de processeur et de disque supplémentaires.
 

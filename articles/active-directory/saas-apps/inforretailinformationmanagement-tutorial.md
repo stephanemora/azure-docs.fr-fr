@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: ca5dc17391dd86444a43331c0b161bb375a1ab58
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 928fe956dbdc5020f273e59f4aaf3e4b690384f9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178560"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202313"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Tutoriel : Intégration d’Azure Active Directory à Infor Retail – Information Management
+# <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Didacticiel : Intégration d’Azure Active Directory à Infor Retail – Information Management
 
 Dans ce didacticiel, vous allez apprendre à intégrer Infor Retail – Information Management dans Azure Active Directory (Azure AD).
 

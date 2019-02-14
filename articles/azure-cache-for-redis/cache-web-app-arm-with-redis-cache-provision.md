@@ -3,8 +3,8 @@ title: Provisionner une application web avec le cache Azure pour Redis
 description: Utilisez un modèle Azure Resource Manager pour déployer une application web avec le cache Azure pour Redis.
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
@@ -13,15 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: wesmc
-ms.openlocfilehash: f95db9b1c8119784d2b1d9cfb9dd005fc42ac3e4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.author: yegu
+ms.openlocfilehash: 52c5fb8a6da7e3f12d621406542f0e31f7ece1de
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033789"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233283"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Créer une application web avec un cache Azure pour Redis à l’aide d’un modèle
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Manager qui déploie une application web Azure avec le cache Azure pour Redis. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
 Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Pour en savoir plus sur les propriétés et la syntaxe JSON des types de ressources de cache, consultez [Types de ressources Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
@@ -122,7 +125,7 @@ Notez que l’application web est configurée selon des paramètres qui lui perm
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+    New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
 ### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup

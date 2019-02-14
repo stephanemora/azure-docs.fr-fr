@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 4e231d1e5af2107367a6fa2b72342bf1667e9ce1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e3a2f243b1a8b891419de7e3ca949e7591f55879
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102780"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211357"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Stockage de données d’identité pour les clients européens dans Azure Active Directory
 Azure Active Directory (Azure AD) vous aide à gérer les identités des utilisateurs et à créer des stratégies d’accès basées sur des fonctionnalités d’Intelligence pour sécuriser les ressources de votre organisation. Les données d’identité sont stockées dans un emplacement basé sur l’adresse fournie par votre organisation lors de la souscription à l’abonnement au service. Par exemple, lorsque vous vous êtes inscrit à Office 365 ou à Azure. Pour obtenir des informations précises sur le lieu de stockage des données d’identité, vous pouvez utiliser la section [Où se trouvent vos données ?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) de Microsoft Trust Center.

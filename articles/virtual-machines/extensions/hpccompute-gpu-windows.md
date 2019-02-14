@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 4bb27959bb57f3d59621e5bbbfaba9aa0c331432
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200681"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977624"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extension du pilote GPU NVIDIA pour Windows
 
@@ -71,7 +71,7 @@ Le JSON suivant illustre le schéma pour l’extension.
 
 ### <a name="properties"></a>properties
 
-| NOM | Valeur/Exemple | Type de données |
+| Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | chaîne |
@@ -112,7 +112,7 @@ L’exemple suivant suppose que l’extension est imbriquée dans la ressource d
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -144,7 +144,7 @@ az vm extension set `
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure, ainsi qu’à l’aide d’Azure PowerShell et de l’interface de ligne de commande Azure. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli

@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 09/10/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.lastreviewed: 09/10/2018
-ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 0fb3e9cd193e570a965d6bbd3e16c86dc39de350
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247729"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984271"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Déployer l’ASDK à partir de la ligne de commande
 Le Kit de développement Azure Stack est un environnement de développement et de test que vous pouvez déployer pour évaluer et présenter les fonctionnalités et services Azure Stack. Pour l’installer et le rendre opérationnel, vous devez préparer l’environnement matériel nécessaire et exécuter plusieurs scripts (cette opération peut prendre plusieurs heures). Une fois que vous aurez effectué ces étapes préalables, vous pourrez vous connecter aux portails de l’administrateur et de l’utilisateur pour commencer à utiliser Azure Stack.
@@ -134,7 +134,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 Si votre environnement n’a pas de DHCP activé, vous devez inclure les paramètres supplémentaires suivants à l’une des options ci-dessus (exemple d’utilisation fourni) : 
 
 ```powershell
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1 -TimeServer 10.222.112.26
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 10.222.112.26
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>Paramètres facultatifs InstallAzureStackPOC.ps1 ASDK
@@ -146,9 +146,6 @@ Si votre environnement n’a pas de DHCP activé, vous devez inclure les paramè
 |InfraAzureDirectoryTenantAdminCredential|Facultatif|Définit le nom d’utilisateur et le mot de passe Azure Active Directory. Ces informations d’identification Azure doivent être un ID org.|
 |InfraAzureEnvironment|Facultatif|Sélectionnez l’environnement Azure avec lequel vous souhaitez enregistrer ce déploiement Azure Stack. Les options incluent Azure public, Azure - Chine, Azure - Gouvernement des États-Unis.|
 |DNSForwarder|Facultatif|Un serveur DNS est créé dans le cadre du déploiement Azure Stack. Pour permettre aux ordinateurs de la solution de résoudre les noms en dehors du marquage, spécifiez le serveur DNS de votre infrastructure existante. Le serveur DNS couvert par le marquage transfère les demandes de résolution de noms inconnus à ce serveur.|
-|NatIPv4Address|Requis pour la prise en charge NAT DHCP|Définit une adresse IP statique pour MAS-BGPNAT01. Utilisez ce paramètre uniquement si le protocole DHCP ne peut pas attribuer une adresse IP valide pour accéder à Internet.|
-|NatIPv4Subnet|Requis pour la prise en charge NAT DHCP|Préfixe de sous-réseau IP utilisé pour la prise en charge de DHCP sur NAT. Utilisez ce paramètre uniquement si le protocole DHCP ne peut pas attribuer une adresse IP valide pour accéder à Internet.|
-|PublicVlanId|Facultatif|Définit l’ID du réseau local virtuel. Utilisez ce paramètre uniquement si l’hôte et MAS-BGPNAT01 doivent configurer l’ID du réseau local virtuel pour accéder au réseau physique (et à Internet). Par exemple,.\InstallAzureStackPOC.ps1 -Verbose -PublicVLan 305|
 |Rerun|Facultatif|Utilisez cet indicateur pour réexécuter le déploiement. Toutes les entrées précédentes sont utilisées. Une nouvelle saisie des données précédemment fournies n’est pas prise en charge, car plusieurs valeurs uniques sont générées et utilisées pour le déploiement.|
 
 

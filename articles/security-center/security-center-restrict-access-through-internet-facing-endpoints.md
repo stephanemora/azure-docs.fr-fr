@@ -4,7 +4,7 @@ description: Ce document vous montre comment implémenter la recommandation du C
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a1677e2c5518fec4412adb87cd058571bd435dd4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b736bb5549b7d236e746ba7b161cde79209e927b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338482"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110521"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restreindre l’accès via des points de terminaison accessibles sur Internet dans le Centre de sécurité Azure
 Le Centre de sécurité Azure vous recommande de restreindre l’accès via les points de terminaison accessibles sur Internet si l’un de vos groupes de sécurité réseau (NSG) possède une ou plusieurs règles de trafic entrant autorisant l’accès à partir de « n’importe quelle » adresse IP source. Un accès « total » peut permettre aux pirates d’accéder à vos ressources. Le Centre de sécurité vous recommande de modifier ces règles de trafic entrant afin de restreindre l’accès aux adresses IP source qui en ont réellement besoin.

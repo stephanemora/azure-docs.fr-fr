@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à LinkedIn Sales Navigator | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à LinkedIn Sales Navigator | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LinkedIn Sales Navigator.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: ca27b0a911e179ef8447163d34ce1b06db941521
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 63e3e98c2c3dc8f99e733174c86965304fe483ce
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169635"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutoriel : Intégration d'Azure Active Directory à LinkedIn Sales Navigator
 

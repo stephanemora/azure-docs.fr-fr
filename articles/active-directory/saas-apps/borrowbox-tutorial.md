@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à BorrowBox | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à BorrowBox | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BorrowBox.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2018
 ms.author: jeedes
-ms.openlocfilehash: efb905364e5ae4736b058472e66b3a8850a99fe3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a36b87f0a440bb2bf8d8d75cf0d29dbd521ff43f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167822"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174994"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutoriel : Intégration d’Azure Active Directory à BorrowBox
+# <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutoriel : Intégration d’Azure Active Directory à BorrowBox
 
 Dans ce didacticiel, vous allez apprendre à intégrer BorrowBox dans Azure Active Directory (Azure AD).
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: c9a9b6f0127bba4efda6e691a2b7126935d81c0d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d6141c3184c8915c36f22d010db39aef2460dd1c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817697"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233538"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Sauvegarde et restauration dans Azure Database for MariaDB
 
@@ -52,7 +52,7 @@ Deux types de restauration sont disponibles :
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
 > [!IMPORTANT]
-> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées.Pour protéger les ressources du serveur, après le déploiement, contre une suppression accidentelle ou des changements inattendus, les administrateurs peuvent utiliser [les verrous de gestion](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
+> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées.Pour protéger les ressources du serveur, après le déploiement, contre une suppression accidentelle ou des changements inattendus, les administrateurs peuvent utiliser [les verrous de gestion](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 

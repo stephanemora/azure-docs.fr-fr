@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 277667bb3b4e39acbb935285e984660a3b44993d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a66584aa1cd3f335111774ef1df37cddc630f69d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047954"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233368"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Enregistrer des rapports dans les collections d’espaces de travail Power BI
 
@@ -47,9 +47,10 @@ Supposons que vous souhaitez incorporer un rapport en mode Édition à l’inté
 
 Par exemple, dans JavaScript :
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -75,6 +76,7 @@ Par exemple, dans JavaScript :
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 Un rapport est désormais incorporé dans votre application en mode d’édition.
@@ -83,7 +85,7 @@ Un rapport est désormais incorporé dans votre application en mode d’édition
 
 Après avoir incorporé le rapport en mode d’édition avec le bon jeton et les autorisations appropriées, vous pouvez enregistrer le rapport à partir du menu Fichier ou de JavaScript :
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
 
@@ -93,7 +95,7 @@ Après avoir incorporé le rapport en mode d’édition avec le bon jeton et les
 
 ## <a name="save-as"></a>Enregistrer sous
 
-```
+```javascript
 // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -110,9 +112,9 @@ Après avoir incorporé le rapport en mode d’édition avec le bon jeton et les
 
 Vous devrez ensuite charger le nouveau rapport après une opération *enregistrer sous*. Le chargement du nouveau rapport est semblable à l’incorporation de tout autre rapport.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -124,6 +126,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="see-also"></a>Voir aussi

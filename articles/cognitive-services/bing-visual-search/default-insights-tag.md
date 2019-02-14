@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Cet article donne des informations sur les insights par défaut retournés par la Recherche visuelle Bing sur une image.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 3e8e63ec6bfc67cdda9df763795c6c8f35dc6011
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4805b36c48476727938840672a9cdf82506f1d13
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168161"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862868"
 ---
 # <a name="default-insights-tag"></a>Balise insights par défaut
 

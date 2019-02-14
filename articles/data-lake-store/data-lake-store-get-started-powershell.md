@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 7a465559bd4e46777f67121e9b3c7d2b0b8a0a22
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 54d6dec6b61e4042b12cba833f4adf5d1321d1f1
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986334"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237781"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Bien démarrer avec Azure Data Lake Storage Gen1 à l’aide de PowerShell
 > [!div class="op_single_selector"]
-> * [Portail](data-lake-store-get-started-portal.md)
+> * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [interface de ligne de commande Azure](data-lake-store-get-started-cli-2.0.md)
+> * [Interface de ligne de commande Azure](data-lake-store-get-started-cli-2.0.md)
 >
 >
 
@@ -31,41 +31,43 @@ Découvrez comment utiliser Azure PowerShell pour créer un compte Azure Data La
 
 ## <a name="prerequisites"></a>Prérequis
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 ou version ultérieure**. Consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 Pour l’authentification auprès de Data Lake Storage Gen1, cet article utilise une approche plus simple où vous êtes invité à entrer les informations d’identification de votre compte Azure. Le niveau d’accès au compte et au système de fichiers Data Lake Storage Gen1 est alors régi par le niveau d’accès de l’utilisateur connecté. Cependant, il existe d’autres approches pour l’authentification sur Data Lake Storage Gen1, à savoir **l’authentification de l’utilisateur final** ou **l’authentification de service à service**. Pour obtenir des instructions et plus d’informations sur l’authentification, consultez [l’authentification de l’utilisateur final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [l’authentification de service à service](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Créer un compte Data Lake Storage Gen1
 1. Sur votre Bureau, ouvrez une nouvelle fenêtre Windows PowerShell. Entrez l’extrait de code suivant pour vous connecter à votre compte Azure, définir l’abonnement et inscrire le fournisseur Data Lake Storage Gen1. À l’invite de connexion, vérifiez que vous vous connectez en tant qu’administrateur/propriétaire de l’abonnement :
 
         # Log in to your Azure account
-        Connect-AzureRmAccount
+        Connect-AzAccount
 
         # List all the subscriptions associated to your account
-        Get-AzureRmSubscription
+        Get-AzSubscription
 
         # Select a subscription
-        Set-AzureRmContext -SubscriptionId <subscription ID>
+        Set-AzContext -SubscriptionId <subscription ID>
 
         # Register for Azure Data Lake Storage Gen1
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+        Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 2. Un compte Data Lake Storage Gen1 est associé à un groupe de ressources Azure. Commencez par créer un groupe de ressources Azure.
 
         $resourceGroupName = "<your new resource group name>"
-        New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
+        New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
 
     ![Créer un groupe de ressources Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Créer un groupe de ressources Azure")
-3. Créer un compte Data Lake Storage Gen1 Le nom que vous spécifiez doit contenir uniquement des lettres minuscules et des chiffres.
+3. Créer un compte Data Lake Storage Gen1. Le nom que vous spécifiez doit contenir uniquement des lettres minuscules et des chiffres.
 
         $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 account name>"
-        New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
+        New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
 
     ![Créer un compte Data Lake Storage Gen1](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Créer un compte Data Lake Storage Gen1")
 4. Vérifiez que le compte a bien été créé.
 
-        Test-AzureRmDataLakeStoreAccount -Name $dataLakeStorageGen1Name
+        Test-AzDataLakeStoreAccount -Name $dataLakeStorageGen1Name
 
     Le résultat de la cmdlet doit être **True**.
 
@@ -77,10 +79,10 @@ Vous pouvez créer des répertoires sous votre compte Data Lake Storage Gen1 pou
         $myrootdir = "/"
 2. Créez un répertoire appelé **mynewdirectory** sous la racine spécifiée.
 
-        New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStorageGen1Name -Path $myrootdir/mynewdirectory
+        New-AzDataLakeStoreItem -Folder -AccountName $dataLakeStorageGen1Name -Path $myrootdir/mynewdirectory
 3. Vérifiez que le répertoire a bien été créé.
 
-        Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStorageGen1Name -Path $myrootdir
+        Get-AzDataLakeStoreChildItem -AccountName $dataLakeStorageGen1Name -Path $myrootdir
 
     Ceci devrait afficher un résultat, comme illustré sur la capture d’écran suivante :
 
@@ -91,30 +93,30 @@ Vous pouvez charger des données sur Data Lake Storage Gen1 directement à la ra
 
 Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Téléchargez le fichier et stockez-le dans un répertoire local sur votre ordinateur, comme C:\sampledata\.
 
-    Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
+    Import-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
 
 ## <a name="rename-download-and-delete-data-from-your-data-lake-storage-gen1-account"></a>Renommer, télécharger et supprimer des données de votre compte Data Lake Storage Gen1
 Utilisez la commande suivante pour renommer un fichier :
 
-    Move-AzureRmDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
+    Move-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
 
 Utilisez la commande suivante pour télécharger un fichier :
 
-    Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Path $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv -Destination "C:\sampledata\vehicle1_09142014_Copy.csv"
+    Export-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Path $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv -Destination "C:\sampledata\vehicle1_09142014_Copy.csv"
 
 Utilisez la commande suivante pour supprimer un fichier :
 
-    Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
+    Remove-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
 
 Quand vous y êtes invité, entrez **Y** pour supprimer l’élément. Si vous avez plusieurs fichiers à supprimer, vous pouvez fournir tous les chemins d'accès séparés par des virgules.
 
-    Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
+    Remove-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 
 ## <a name="delete-your-data-lake-storage-gen1-account"></a>Supprimer votre compte Data Lake Storage Gen1
 Utilisez la commande suivante pour supprimer votre compte Data Lake Storage Gen1.
 
-    Remove-AzureRmDataLakeStoreAccount -Name $dataLakeStorageGen1Name
+    Remove-AzDataLakeStoreAccount -Name $dataLakeStorageGen1Name
 
 Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 

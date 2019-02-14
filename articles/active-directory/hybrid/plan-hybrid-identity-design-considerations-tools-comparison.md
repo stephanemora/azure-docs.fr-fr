@@ -14,12 +14,13 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4c26fe0e712e5b78a929ff886f5822f430feadcd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aed01ea11c1f53cb090d9c2e65ee23f521575649
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486127"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189109"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Identité hybride : Comparaison des outils d’intégration d’annuaire
 Au fil des années, les outils d’intégration de répertoire ont évolué et se sont améliorés.  Ce document procure une vue d’ensemble consolidée de ces outils et compare les fonctions disponibles dans chacun d’entre eux.

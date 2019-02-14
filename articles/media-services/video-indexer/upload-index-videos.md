@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2af3e75e3810284d9740a3d87d681d9ee31f14d3
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b399e18aa3cdd83d0c6907999f6446fd566259a1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052834"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998584"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -56,7 +56,7 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
 - Changement de l’état d’indexation : 
     - Propriétés :    
     
-        |NOM|Description|
+        |Nom|Description|
         |---|---|
         |id|L'ID de la vidéo|
         |state|État de la vidéo|  
@@ -64,7 +64,7 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
 - Personne identifiée dans la vidéo :
     - properties
     
-        |NOM|Description|
+        |Nom|Description|
         |---|---|
         |id| L'ID de la vidéo|
         |faceId|ID de visage qui apparaît dans l’index de la vidéo|

@@ -14,12 +14,13 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 2063f9fcd3e001f4f8f175bd6031c9d31313f9e6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bb89d3eee87c0796bcd21914e719784756bc288e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092162"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165737"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Obtenir de l’aide et ouvrir un ticket de support pour Azure Active Directory
 Microsoft propose des services de support pour les problèmes techniques, de prévente, de facturation et d’abonnements relatifs à Azure Active Directory (Azure AD). Le support est disponible en ligne et par téléphone pour les abonnements d’évaluation et payants Microsoft Azure. L’assistance téléphonique et le support de facturation en ligne sont disponibles dans plusieurs langues. 

@@ -1,29 +1,34 @@
 ---
 title: Pagination des vidéos disponibles - Recherche de vidéos Bing
 titlesuffix: Azure Cognitive Services
-description: Découvrez comment paginer toutes les vidéos renvoyées par Bing.
+description: Découvrez comment paginer toutes les vidéos retournées par l’API Recherche de vidéos Bing.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 26e706b054653b8f0ad1ea14d0a9c2ca97cd227f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5fd11088c84327325040a05de9616f19c3455b01
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181790"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564899"
 ---
-# <a name="paging-videos"></a>Pagination de vidéos
+# <a name="paging-through-video-search-results"></a>Pagination des résultats de recherche de vidéos
 
-Lorsque vous appelez l’API Recherche de vidéos Bing, Bing retourne une liste de résultats. La liste est un sous-ensemble du nombre total de résultats en rapport avec la requête. Pour obtenir une estimation du nombre total de résultats disponibles, accédez au champ [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) de l’objet de la réponse.  
+L’API Recherche de vidéos Bing retourne une partie de tous les résultats de recherche trouvés par votre requête. En paginant ces résultats avec des appels ultérieurs à l’API, vous pouvez les obtenir et les afficher dans votre application.
+
+> [!NOTE]
+> La pagination s’applique uniquement aux recherches de vidéos (/videos/search). Elle ne s’applique pas aux informations sur les vidéos (/videos/details) ni aux vidéos populaires (/videos/trending).
+
+## <a name="total-estimated-matches"></a>Estimation du nombre total de correspondances
+
+Pour obtenir l’estimation du nombre de résultats de recherche trouvés, utilisez le champ [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) dans la réponse JSON.   
   
-L’exemple suivant illustre le champ `totalEstimatedMatches` qui est inclus dans une réponse de vidéos.  
-  
-```  
+```json  
 {
     "_type" : "Videos",
     "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=81EF7545D56...",
@@ -32,39 +37,44 @@ L’exemple suivant illustre le champ `totalEstimatedMatches` qui est inclus dan
 }  
 ```  
   
-Pour paginer les vidéos disponibles, utilisez les paramètres de requête [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count) et [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset).  
-  
-Le paramètre `count` spécifie le nombre de résultats à retourner dans la réponse. Vous pouvez demander jusqu’à 105 résultats dans la réponse. La valeur par défaut est 35. Le nombre réel retourné peut être inférieur à ce que vous avez demandé.
+## <a name="paging-through-videos"></a>Pagination de vidéos
 
-Le paramètre `offset` spécifie le nombre de résultats à ignorer. Le paramètre `offset` est basé sur zéro et doit être inférieur à (`totalEstimatedMatches` - `count`).  
+Pour paginer les vidéos disponibles, utilisez les paramètres de requête [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count) et [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) au moment d’envoyer votre requête.  
   
-Si vous souhaitez afficher 20 vidéos par page, vous devez définir `count` sur 20 et `offset` sur 0 pour obtenir la première page de résultats. Pour chaque page suivante, vous devez incrémenter le paramètre `offset` de 20 (par exemple, 20, 40).  
 
-L’exemple suivant illustre une requête de 20 vidéos, avec un paramètre offset défini sur 40.  
+|Paramètre  |Description  |
+|---------|---------|
+|`count`     | Spécifie le nombre de résultats à renvoyer dans la réponse. Vous pouvez demander jusqu’à 100 résultats dans la réponse. La valeur par défaut est de 10. Le nombre réel renvoyé peut être inférieur à ce que vous avez demandé.        |
+|`offset`     | Spécifie le nombre de résultats à ignorer. Le paramètre `offset` est basé sur zéro et doit être inférieur à (`totalEstimatedMatches` - `count`).          |
+
+Par exemple, si vous souhaitez afficher 20 articles par page, vous devez définir `count` sur 20 et `offset` sur 0 pour obtenir la première page de résultats. Pour chaque page suivante, vous devez incrémenter le paramètre `offset` de 20 (par exemple, 20, 40).  
   
-```  
+L’exemple suivant illustre une requête de 20 vidéos avec un paramètre offset de 40.  
+  
+```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
 ```  
 
-Si la valeur par défaut `count` est adaptée à votre implémentation, vous devez uniquement spécifier le paramètre de requête `offset`.  
+Si vous utilisez la valeur par défaut pour le paramètre [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count), vous devez uniquement spécifier le paramètre de requête `offset`, comme dans l’exemple suivant.  
   
-```  
+```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
 ```  
 
-En règle générale, si vous paginez 35 vidéos à la fois, vous devez définir le paramètre de requête `offset` sur 0 pour la première requête, puis incrémenter `offset` de 35 pour chaque requête ultérieure. Toutefois, certains résultats de la réponse suivante peuvent être des doublons de la réponse précédente. Par exemple, les deux premières vidéos de la réponse peuvent être les mêmes que les deux dernières vidéos de la réponse précédente.
+Si vous paginez 35 vidéos à la fois, vous devez définir le paramètre de requête `offset` avec la valeur 0 pour la première requête, puis incrémenter `offset` de 35 pour chaque requête ultérieure. Toutefois, deux réponses successives peuvent contenir des résultats en double. Par exemple, les deux premières vidéos d’une réponse peuvent être les mêmes que les deux dernières vidéos de la réponse précédente.
 
 Pour éliminer les doublons, utilisez le champ [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-nextoffset) de l’objet `Videos`.
 
-Par exemple, si vous souhaitez paginer 30 vidéos à la fois, vous devez définir `count` sur 30 et `offset` sur 0 dans la première requête. Dans la requête suivante, vous devez définir le paramètre de requête `offset` sur la valeur `nextOffset`.
-
-
-> [!NOTE]
-> La pagination s’applique uniquement aux recherches de vidéos (/videos/search). Elle ne s’applique pas aux informations sur les vidéos (/videos/details) ni aux vidéos populaires (/videos/trending).
+Par exemple, si vous souhaitez paginer 30 vidéos à la fois, vous devez définir `count` avec la valeur 30 et `offset` avec la valeur 0 dans la première requête. Dans la requête suivante, vous devez définir le paramètre de requête `offset` avec la valeur `nextOffset`.
 
 > [!NOTE]
 > Le champ `TotalEstimatedAnswers` est une estimation du nombre total de résultats de recherche que vous pouvez obtenir pour la requête actuelle.  Quand vous définissez les paramètres `count` et `offset`, le nombre `TotalEstimatedAnswers` peut changer. 
+  
+## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+[Obtenir des insights sur les vidéos](video-insights.md)

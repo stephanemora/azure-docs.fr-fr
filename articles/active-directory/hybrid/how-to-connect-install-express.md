@@ -14,12 +14,13 @@ ms.topic: conceptual
 ms.date: 09/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 92cdcf35675a3e481c994078191a992c5912f212
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 24143f8c94a294da90be84bacfe633db0cd24f85
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491890"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205650"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Prise en main d’Azure AD Connect à l’aide de paramètres express
 La **configuration rapide** d’Azure AD Connect est utilisée lorsque vous disposez d’une topologie à une forêt unique et quand la [synchronisation de hachage du mot de passe](how-to-connect-password-hash-synchronization.md) est utilisée pour l’authentification. **configuration rapide** est l’option par défaut et s’applique à la plupart des scénarios de déploiement. L’extension de votre répertoire local dans le cloud n’est plus qu’à quelques clics.

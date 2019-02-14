@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492995"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56241442"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copier le travail d’autres personnes pour des projets de science des données
 ## <a name="video-5-data-science-for-beginners-series"></a>Vidéo 5 : série Science des données pour les débutants
@@ -52,7 +52,7 @@ L’une des pierres d’angle de la science des données est d’amener d’autr
 
 Microsoft propose un service cloud appelé [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) que vous êtes invité à essayer gratuitement. Il fournit un espace de travail dans lequel essayer différents algorithmes d’apprentissage automatique et, lorsque votre solution est en place, vous permet de la lancer en tant que service web.
 
-Une partie de ce service s’appelle **[Azure AI Gallery](https://gallery.cortanaintelligence.com/)**. Elle contient des ressources, notamment une collection d’expériences Azure Machine Learning ou encore des modèles créés et fournis par les utilisateurs. Ces expériences sont un excellent moyen d’exploiter la réflexion et les efforts d’autres personnes pour vous aider dans vos propres solutions. N’hésitez pas à aller la découvrir.
+Une partie de ce service s’appelle **[Azure AI Gallery](https://gallery.azure.ai/)**. Elle contient des ressources, notamment une collection d’expériences Azure Machine Learning ou encore des modèles créés et fournis par les utilisateurs. Ces expériences sont un excellent moyen d’exploiter la réflexion et les efforts d’autres personnes pour vous aider dans vos propres solutions. N’hésitez pas à aller la découvrir.
 
 ![Galerie Azure AI](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -82,11 +82,11 @@ Je peux cliquer dessus pour accéder directement à **Azure Machine Learning Stu
 J’ai maintenant un point de départ. Je peux remplacer leurs données par les miennes et peaufiner le modèle. Cela me donne une longueur d’avance et me permet de tirer parti du travail déjà effectué par d’autres utilisateurs expérimentés.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Découvrir des expériences qui illustrent les techniques d’apprentissage automatique
-Il existe d’autres expériences dans [Azure AI Gallery](https://gallery.cortanaintelligence.com) fournies spécifiquement pour donner des exemples de procédures aux personnes novices en matière de science des données. Par exemple, il existe une expérience dans la galerie qui montre comment gérer les valeurs manquantes ([Méthodes de gestion des valeurs manquantes](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Elle vous guide dans les 15 façons de remplacer les valeurs vides et présente les avantages de chaque méthode et quand les utiliser.
+Il existe d’autres expériences dans [Azure AI Gallery](https://gallery.azure.ai) fournies spécifiquement pour donner des exemples de procédures aux personnes novices en matière de science des données. Par exemple, il existe une expérience dans la galerie qui montre comment gérer les valeurs manquantes ([Méthodes de gestion des valeurs manquantes](https://gallery.azure.ai/Experiment/Methods-for-handling-missing-values-1)). Elle vous guide dans les 15 façons de remplacer les valeurs vides et présente les avantages de chaque méthode et quand les utiliser.
 
 ![Ouverture d’expériences de galerie dans Machine Learning Studio - Méthodes pour les valeurs manquantes](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Azure AI Gallery](https://gallery.cortanaintelligence.com) est l’endroit où trouver des expériences de travail que vous pouvez utiliser comme point de départ pour vos propres solutions.
+[Azure AI Gallery](https://gallery.azure.ai) est l’endroit où trouver des expériences de travail que vous pouvez utiliser comme point de départ pour vos propres solutions.
 
 Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
 

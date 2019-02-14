@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e9a99fcbe161e0b6cdabf1363ab3121a77869df7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024856"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111320"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Utilisation de modèles pour créer des entités Azure Data Factory
 > [!NOTE]
@@ -37,7 +37,7 @@ En outre, étant donné que l’entreprise souhaite déployer ces 10 entrepôts 
 ## <a name="templating-with-azure-resource-manager"></a>Création de modèles avec Azure Resource Manager
 Les [modèles Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md#template-deployment) constituent une excellente méthode de création de modèles dans Azure Data Factory. Les modèles Resource Manager définissent l’infrastructure et la configuration de votre solution Azure à l’aide d’un fichier JSON. Étant donné que les modèles Azure Resource Manager fonctionnent avec tous les services ou la plupart des services Azure, ils peuvent être utilisés pour gérer facilement toutes les ressources de vos actifs Azure. Pour en savoir plus sur les modèles Resource Manager en général, consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
 
-## <a name="tutorials"></a>Didacticiels
+## <a name="tutorials"></a>Tutoriels
 Reportez-vous aux didacticiels suivants pour obtenir des instructions détaillées sur la création d’entités Data Factory à l’aide de modèles Resource Manager :
 
 * [Tutoriel : Créer un pipeline pour copier des données à l’aide du modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -236,7 +236,7 @@ Pour connaître les meilleures pratiques de paramétrage, consultez [Bonnes prat
 * Les paramètres varient selon l’environnement (exemple : développement, test et production)
 * les clés secrètes (notamment les mots de passe) ;
 
-Si vous avez besoin d’extraire des clés secrètes à partir [d’Azure Key Vault](../../key-vault/key-vault-get-started.md) lors du déploiement d’entités Azure Data Factory à l’aide de modèles, spécifiez le **coffre de clés** et le **nom secret** comme indiqué dans l’exemple suivant :
+Si vous avez besoin d’extraire des clés secrètes à partir [d’Azure Key Vault](../../key-vault/key-vault-overview.md) lors du déploiement d’entités Azure Data Factory à l’aide de modèles, spécifiez le **coffre de clés** et le **nom secret** comme indiqué dans l’exemple suivant :
 
 ```JSON
 "parameters": {

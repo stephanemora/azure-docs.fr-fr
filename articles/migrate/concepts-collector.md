@@ -4,15 +4,15 @@ description: Fournit des informations sur l’appliance Collector dans Azure Mig
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262606"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813328"
 ---
 # <a name="about-the-collector-appliance"></a>À propos de l’appliance Collector
 
@@ -32,7 +32,7 @@ L’appliance collecteur est connectée en continu au projet Azure Migrate et el
 - Ce modèle ne dépend pas des paramètres de statistiques vCenter Server pour collecter les données de performances.
 - Vous pouvez arrêter à tout moment le profilage continu à partir du Collecteur.
 
-**Résultats instantanés :** avec l’application de détection en continu, une fois la détection terminée (au bout de deux heures environ, en fonction du nombre de machines virtuelles), vous pouvez créer immédiatement des évaluations. Étant donné que la collecte des données de performances démarre lorsque vous lancez la découverte, si vous voulez obtenir des résultats instantanément, vous devez sélectionner le critère de dimensionnement *Localement* dans l’évaluation. Pour les évaluations de performances, il est conseillé d’attendre au moins un jour après le lancement de la découverte afin d’obtenir des recommandations de taille fiables.
+**Évaluations rapides** : avec l’application de détection en continu, une fois la détection terminée (au bout de deux heures environ, en fonction du nombre de machines virtuelles), vous pouvez créer immédiatement des évaluations. Étant donné que la collecte des données de performances démarre lorsque vous lancez la détection, si vous voulez obtenir des évaluations rapides, vous devez sélectionner le critère de dimensionnement *Localement* dans l’évaluation. Pour les évaluations de performances, il est conseillé d’attendre au moins un jour après le lancement de la découverte afin d’obtenir des recommandations de taille fiables.
 
 L’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque, etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
 
@@ -65,7 +65,7 @@ Vous devez effectuer quelques vérifications de prérequis pour vous assurer que
 - **Vérifier la connexion Internet** : le collecteur peut se connecter à Internet directement ou par le biais d’un proxy.
     - La vérification de prérequis vérifie la connectivité aux [URL requises et facultatives](#urls-for-connectivity).
     - Si vous avez une connexion directe à Internet, aucune action spécifique n’est nécessaire à part vérifier que le collecteur peut atteindre les URL requises.
-    - Si vous vous connectez via un proxy, notez les [exigences ci-dessous](#connect-via-a-proxy).
+    - Si vous vous connectez via un proxy, notez les exigences ci-dessous.
 - **Vérifier la synchronisation de l’heure** : le collecteur doit être synchronisé avec le serveur de temps Internet pour que les requêtes envoyées au service soient authentifiées.
     - L’URL portal.azure.com doit être accessible à partir du Collecteur afin que l’heure puisse être validée.
     - Si la machine n’est pas synchronisée, vous devez changer l’heure de l’horloge sur la machine virtuelle Collecteur afin qu’elle corresponde à l’heure actuelle. Pour ce faire, ouvrez une invite d’administrateur sur la machine virtuelle, puis exécutez **w32tm /tz** pour vérifier le fuseau horaire. Exécutez **w32tm /resync** pour synchroniser l’heure.
@@ -75,7 +75,7 @@ Vous devez effectuer quelques vérifications de prérequis pour vous assurer que
     - Le service Collecteur se connecte à vCenter Server, collecte les données de performances et les métadonnées des machines virtuelles, puis les envoie au service Azure Migrate.
 - **Vérifier que VMware PowerCLI 6.5 est installé** : le module PowerShell VMware PowerCLI 6.5 doit être installé sur la machine virtuelle Collector, afin qu’elle puisse communiquer avec vCenter Server.
     - Si le collecteur peut accéder aux URL requises pour installer le module, celui-ci est installé automatiquement pendant le déploiement du collecteur.
-    - Si le collecteur ne peut pas installer le module pendant le déploiement, vous devez [l’installer manuellement](#install-vwware-powercli-module-manually).
+    - Si le collecteur ne peut pas installer le module pendant le déploiement, vous devez l’installer manuellement.
 - **Vérifier la connexion à vCenter Server** : le collecteur doit être en mesure de se connecter à vCenter Server et d’exécuter des requêtes portant sur les machines virtuelles, leurs métadonnées et leurs compteurs de performances. [Vérifiez les prérequis](#connect-to-vcenter-server) pour la connexion.
 
 
@@ -101,8 +101,6 @@ Vous devez effectuer quelques vérifications de prérequis pour vous assurer que
     ![Magasin de certificats](./media/concepts-intercepting-proxy/certificate-store.png)
 
     7. Vérifiez que le certificat a été importé normalement, et que la vérification du prérequis relatif à la connectivité Internet fonctionne comme prévu.
-
-
 
 
 ### <a name="urls-for-connectivity"></a>Adresses URL de connectivité
@@ -150,6 +148,79 @@ Le collecteur communique comme résumé dans le schéma et le tableau suivants.
 Service Azure Migrate | TCP 443 | Le Collecteur communique avec le service Azure Migrate sur le port SSL 443.
 Serveur vCenter | TCP 443 | Le collecteur doit être en mesure de communiquer avec vCenter Server.<br/><br/> Par défaut, Il se connecte à vCenter sur le port 443.<br/><br/> Si vCenter Server écoute sur un autre port, ce port doit être disponible en tant que port sortant sur le Collecteur.
 RDP | TCP 3389 |
+
+## <a name="collected-metadata"></a>Métadonnées collectées
+
+L’appliance collecteur détecte les métadonnées de configuration suivantes pour chaque machine virtuelle. Les données de configuration relatives à la machine virtuelle sont disponibles une heure après le démarrage de la détection.
+
+- Nom d’affichage de la machine virtuelle (sur vCenter Server)
+- Chemin d’inventaire de la machine virtuelle (hôte/dossier sur vCenter Server)
+- Adresse IP
+- Adresse MAC
+- Système d’exploitation
+- Nombre de cœurs, disques, cartes réseau
+- Taille de la mémoire, taille des disques
+- Compteurs de performance de la machine virtuelle, du disque et du réseau.
+
+### <a name="performance-counters"></a>Compteurs de performances
+
+ L’appliance collecteur collecte les compteurs de performances suivants pour chaque machine virtuelle à partir de l’hôte ESXi, et ce, à des intervalles de 20 secondes. Ce sont des compteurs vCenter et, bien que la terminologie indique le terme « moyenne », les exemples de 20 secondes sont des compteurs en temps réel. Les données de performances pour les machines virtuelles commencent à être disponibles sur le portail deux heures après le lancement de la détection. Il est vivement recommandé d’attendre au moins un jour avant de créer des évaluations basées sur les performances pour obtenir des recommandations de right-sizing fiables. Si vous souhaitez des résultats instantanés, vous pouvez créer des évaluations avec un critère de dimensionnement, tel que *localement*, qui ne prend pas en compte les données de performances pour le right-sizing.
+
+**Compteur** |  **Impact sur l’évaluation**
+--- | ---
+cpu.usage.average | Taille de machine virtuelle recommandée et coût  
+mem.usage.average | Taille de machine virtuelle recommandée et coût  
+virtualDisk.read.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
+virtualDisk.write.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
+virtualDisk.numberReadAveraged.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
+virtualDisk.numberWriteAveraged.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
+net.received.average | Calcule la taille de machine virtuelle                          
+net.transmitted.average | Calcule la taille de machine virtuelle     
+
+La liste complète des compteurs VMware collectés par Azure Migrate est disponible ci-dessous :
+
+**Catégorie** |  **Métadonnées** | **Point de données vCenter**
+--- | --- | ---
+Détails de la machine | ID de l'ordinateur virtuel | vm.Config.InstanceUuid
+Détails de la machine | nom de la machine virtuelle | vm.Config.Name
+Détails de la machine | ID du vCenter Server | VMwareClient.InstanceUuid
+Détails de la machine |  Description de la machine virtuelle |  vm.Summary.Config.Annotation
+Détails de la machine | Nom de produit de la licence | vm.Client.ServiceContent.About.LicenseProductName
+Détails de la machine | Type de système d'exploitation | vm.Summary.Config.GuestFullName
+Détails de la machine | Version de système d’exploitation | vm.Summary.Config.GuestFullName
+Détails de la machine | Type de démarrage | vm.Config.Firmware
+Détails de la machine | Nombre de mémoires à tores magnétiques | vm.Config.Hardware.NumCPU
+Détails de la machine | Mégaoctets de mémoire | vm.Config.Hardware.MemoryMB
+Détails de la machine | Nombre de disques | vm.Config.Hardware.Device.ToList().FindAll(x => x is VirtualDisk).count
+Détails de la machine | Liste des tailles de disque | vm.Config.Hardware.Device.ToList().FindAll(x => x is VirtualDisk)
+Détails de la machine | Liste des adaptateurs réseau | vm.Config.Hardware.Device.ToList().FindAll(x => x is VirtualEthernetCard)
+Détails de la machine | Utilisation du processeur | cpu.usage.average
+Détails de la machine | Utilisation de la mémoire | mem.usage.average
+Détails du disque (par disque) | Valeur de la clé du disque | disk.Key
+Détails du disque (par disque) | Nombre d’unités de disque | disk.UnitNumber
+Détails du disque (par disque) | Valeur de clé de contrôleur de disque | disk.ControllerKey.Value
+Détails du disque (par disque) | Gigaoctets approvisionnés | virtualDisk.DeviceInfo.Summary
+Détails du disque (par disque) | Nom du disque | Cette valeur est générée à l’aide de disk.UnitNumber, de disk.Key et de disk.ControllerKey.Value
+Détails du disque (par disque) | Nombre d’opérations de lecture par seconde | virtualDisk.numberReadAveraged.average
+Détails du disque (par disque) | Nombre d’opérations d’écriture par seconde | virtualDisk.numberWriteAveraged.average
+Détails du disque (par disque) | Débit de lecture en mégaoctets par seconde | virtualDisk.read.average
+Détails du disque (par disque) | Débit d’écriture en mégaoctets par seconde | virtualDisk.write.average
+Détails de la carte réseau (par carte réseau) | Nom de la carte réseau | nic.Key
+Détails de la carte réseau (par carte réseau) | Adresse MAC | ((VirtualEthernetCard)nic).MacAddress
+Détails de la carte réseau (par carte réseau) | Adresses IPv4 | vm.Guest.Net
+Détails de la carte réseau (par carte réseau) | Adresses IPv6 | vm.Guest.Net
+Détails de la carte réseau (par carte réseau) | Débit de lecture en mégaoctets par seconde | net.received.average
+Détails de la carte réseau (par carte réseau) | Débit d’écriture en mégaoctets par seconde | net.transmitted.average
+Détails de chemin d’accès d’inventaire | Nom | container.GetType().Name
+Détails de chemin d’accès d’inventaire | Type d’objet enfant | container.ChildType
+Détails de chemin d’accès d’inventaire | Détails de référence | container.MoRef
+Détails de chemin d’accès d’inventaire | Chemin d’accès de l’inventaire complet | container.Name with complete path
+Détails de chemin d’accès d’inventaire | Détails du parent | Container.Parent
+Détails de chemin d’accès d’inventaire | Détails de dossier pour chaque machine virtuelle | ((Folder)container).ChildEntity.Type
+Détails de chemin d’accès d’inventaire | Détails de centre de données pour chaque dossier de la machine virtuelle | ((Datacenter)container).VmFolder
+Détails de chemin d’accès d’inventaire | Détails de centre de données pour chaque dossier hôte | ((Datacenter)container).HostFolder
+Détails de chemin d’accès d’inventaire | Détails du cluster pour chaque hôte | ((ClusterComputeResource)container).Host)
+Détails de chemin d’accès d’inventaire | Détails de l’hôte pour chaque machine virtuelle | ((HostSystem)container).Vm
 
 
 ## <a name="securing-the-collector-appliance"></a>Sécurisation de l’appliance Collector
@@ -200,34 +271,6 @@ Une fois l’appliance configurée, vous pouvez exécuter la découverte. Voici 
 - Les machines virtuelles sont découvertes et leurs métadonnées et données de performances sont envoyées à Azure. Ces actions font partie d’un travail de collecte.
     - L’appliance Collector reçoit un ID de collecteur spécifique qui persiste pour une machine donnée d’une découverte à l’autre.
     - Un travail de collecte en cours d’exécution reçoit un ID de session spécifique. L’ID change pour chaque travail de collecte et peut être utilisé à des fins le dépannage.
-
-### <a name="collected-metadata"></a>Métadonnées collectées
-
-L’appliance collecteur détecte les métadonnées de configuration suivantes pour chaque machine virtuelle. Les données de configuration relatives à la machine virtuelle sont disponibles une heure après le démarrage de la détection.
-
-- Nom d’affichage de la machine virtuelle (sur vCenter Server)
-- Chemin d’inventaire de la machine virtuelle (hôte/dossier sur vCenter Server)
-- Adresse IP
-- Adresse MAC
-- Système d’exploitation
-- Nombre de cœurs, disques, cartes réseau
-- Taille de la mémoire, taille des disques
-- Compteurs de performance de la machine virtuelle, du disque et du réseau.
-
-#### <a name="performance-counters"></a>Compteurs de performances
-
- L’appliance collecteur collecte les compteurs de performances suivants pour chaque machine virtuelle à partir de l’hôte ESXi, et ce, à des intervalles de 20 secondes. Ce sont des compteurs vCenter et, bien que la terminologie indique le terme « moyenne », les exemples de 20 secondes sont des compteurs en temps réel. Les données de performances pour les machines virtuelles commencent à être disponibles sur le portail deux heures après le lancement de la détection. Il est vivement recommandé d’attendre au moins un jour avant de créer des évaluations basées sur les performances pour obtenir des recommandations de right-sizing fiables. Si vous souhaitez des résultats instantanés, vous pouvez créer des évaluations avec un critère de dimensionnement, tel que *localement*, qui ne prend pas en compte les données de performances pour le right-sizing.
-
-**Compteur** |  **Impact sur l’évaluation**
---- | ---
-cpu.usage.average | Taille de machine virtuelle recommandée et coût  
-mem.usage.average | Taille de machine virtuelle recommandée et coût  
-virtualDisk.read.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
-virtualDisk.write.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
-virtualDisk.numberReadAveraged.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
-virtualDisk.numberWriteAveraged.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
-net.received.average | Calcule la taille de machine virtuelle                          
-net.transmitted.average | Calcule la taille de machine virtuelle     
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/04/2019
 ms.author: diberry
-ms.openlocfilehash: 35f05df39a37b64c9619ef31455944207de13246
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 89d18ebd2f52467a19a76940044fea3ae254970a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216079"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770161"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Caractéristiques de liste d’expressions dans votre application LUIS
 
@@ -25,26 +25,57 @@ En Machine Learning, une *caractéristique* (« feature ») est un trait ou un a
 Ajoutez des fonctionnalités à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer. Les fonctionnalités aident LUIS à reconnaître les intentions et les entités, mais les fonctionnalités ne sont pas elles-mêmes des intentions ou des entités. Les fonctionnalités peuvent toutefois fournir des exemples de termes connexes.  
 
 ## <a name="what-is-a-phrase-list-feature"></a>Qu’est-ce qu’une fonctionnalité de liste d’expressions ?
-Une liste d’expressions inclut un groupe de valeurs (mots ou expressions) qui appartiennent à la même classe et qui doivent être traitées de la même façon (par exemple, des noms de villes ou des produits). Ce que LUIS apprend sur l’un d’entre elles s’applique automatiquement également aux autres. Cette liste n’est pas une [entité de liste](luis-concept-entity-types.md#types-of-entities) (correspondances de texte exactes) de mots correspondants.
+Une liste d’expressions est une liste de mots ou d’expressions qui sont importants pour votre application, c’est-à-dire, davantage que les autres mots énoncés. Une liste d’expressions complète le vocabulaire du domaine d’application sous la forme d’un signal supplémentaire émis vers LUIS au sujet de ces mots. Ce que LUIS apprend sur l’un d’entre elles s’applique automatiquement également aux autres. Cette liste n’est pas une [entité de liste](luis-concept-entity-types.md#types-of-entities) fermée de correspondances de texte exactes.
 
-Une liste d’expressions complète le vocabulaire du domaine d’application sous la forme d’un deuxième signal vers LUIS sur ces mots.
+Les listes d’expressions n’aident pas à la recherche de radical. Vous devez donc ajouter des exemples d’énoncés qui utilisent plusieurs types de recherches de radical pour les mots ou expressions importants.
 
 ## <a name="phrase-lists-help-all-models"></a>Les listes d’expressions aident tous les modèles
 
-Les listes d’expressions ne sont pas liées à une intention ou à une entité spécifique, mais sont ajoutées pour améliorer tous les modèles. Leur objectif est d’améliorer la détection de l’intention et la classification des entités.
+Les listes d’expressions ne sont pas liées à une intention ou à une entité spécifique. Elles sont ajoutées pour améliorer la détection de toutes les intentions et entités. Leur objectif est d’améliorer la détection de l’intention et la classification des entités.
 
 ## <a name="how-to-use-phrase-lists"></a>Comment utiliser des listes d’expressions
-Dans le [tutoriel d’entité simple](luis-quickstart-primary-and-secondary-data.md) de l’application de ressources humaines, l’application utilise une liste d’expressions **travail** de types d’emplois tels que programmeur, couvreur et secrétaire. Si vous étiquetez une des valeurs suivantes en tant qu’entité ayant bénéficié du machine-learning, LUIS apprend à reconnaître les autres. 
 
-Une liste d’expressions peut être interchangeable ou non. Une liste d’expressions *interchangeable* concerne les valeurs qui sont des synonymes, et une liste d’expressions *non interchangeable* est conçue comme une liste de vocabulaire propre à une application. À mesure que la liste d’expressions de vocabulaire croît, vous constaterez peut-être que certains termes ont de nombreuses formes (synonymes). Répartissez-les dans une autre liste d’expressions interchangeable. 
+Vous pouvez créer une liste d’expressions lorsque votre application comprend des mots ou des expressions qui sont importants pour elle, par exemple :
+
+* Terminologie du secteur
+* Argot
+* Abréviations
+* Termes propres à l’entreprise
+* Mots provenant d’une autre langue, mais qui sont fréquemment utilisés dans votre application
+* Mots clés et expressions dans vos exemples d’énoncés
+
+Une fois que vous avez entré plusieurs mots ou expressions, utilisez la caractéristique **Recommandation** pour obtenir les valeurs associées. Passez en revue ces valeurs avant de les ajouter à votre liste d’expressions.
 
 |Type de liste|Objectif|
 |--|--|
 |Interchangeable|Synonymes ou mots qui, quand ils sont remplacés par un autre mot dans la liste, ont la même intention et extraction d’entité.|
 |Non-interchangeable|Vocabulaire d’application propre à votre application (généralement plus que d’autres mots dans cette langue).|
 
-Les listes d’expressions facilitent non seulement la détection d’entité, mais également la classification d’intention où le caractère non interchangeable est plus logique, comme par exemple pour l’ajout de mots de vocabulaire qui ne sont pas connus en langue française.
+### <a name="interchangeable-lists"></a>Listes d’expressions interchangeables
 
+Une liste d’expressions *interchangeables* est constituée de synonymes. Par exemple, si vous souhaitez obtenir tous les synonymes d’étendues d’eau et que vous disposez des exemples d’énoncés suivants : 
+
+* Quelles sont les villes qui sont proches des Grands Lacs ? 
+* Quelle est la route qui longe les rives de Lake Havasu ?
+* Où naît et où se jette le Nil ? 
+
+Chaque énoncé doit être déterminé à la fois par l’intention et par les entités, quel que soit le type de l’étendue d’eau : 
+
+* Quelles sont les villes qui sont proches de [Étendue d’eau] ?
+* Quelle est la route qui longe les rives de [Étendue d’eau] ?
+* Où naît et où se jette [Étendue d’eau] ? 
+
+Puisque les mots et les expressions relatifs à l’étendue d’eau sont synonymes et peuvent être utilisés indifféremment dans les énoncés, utilisez le paramètre **Interchangeable** dans la liste d’expressions. 
+
+### <a name="non-interchangeable-lists"></a>Listes d’expressions non interchangeables
+
+Une liste d’expressions non interchangeables est un signal qui améliore la détection LUIS. La liste d’expressions indique les mots ou les expressions qui sont plus importants que les autres. Cela aide à la fois à déterminer l’intention et à détecter les entités. Par exemple, supposons que vous ayez un domaine tel que le voyage qui soit « mondial » (c’est-à-dire qui englobe plusieurs cultures, tout en restant dans une même langue). Il existe des mots et des expressions qui sont importants pour l’application, mais qui ne sont pas synonymes. 
+
+Prenons un autre exemple : l’utilisation d’une liste d’expressions non interchangeables pour les mots rares, propriétaires et étrangers. LUIS peut ne pas être en mesure de reconnaître des mots rares et propriétaires, ainsi que des mots étrangers (en dehors de la culture de l’application). Le paramètre non interchangeable indique que l’ensemble de mots rares constitue une classe que LUIS doit apprendre à reconnaître, mais que ces mots ne sont ni synonymes, ni interchangeables entre eux.
+
+N’ajoutez pas tous les mots ou expressions possibles à la liste d’expressions. N’ajoutez que quelques mots ou expressions à la fois, effectuez un nouvel entraînement, puis publiez. 
+
+À mesure que la liste d’expressions s’agrandit, vous constaterez peut-être que certains termes ont de nombreuses formes (synonymes). Répartissez-les dans une autre liste d’expressions interchangeable. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
@@ -55,14 +86,6 @@ Les listes d’expressions interchangeables sont une bonne méthode pour optimis
 Une liste d’expressions n’est pas une instruction pour que LUIS effectue une correspondance stricte ni n’étiquette exactement pareil les termes dans la liste d’expressions. Il s’agit simplement d’un conseil. Par exemple, vous pourriez avoir une liste d’expressions qui indique que « Patti » et « Selma » sont des noms, mais LUIS peut toujours utiliser des informations contextuelles pour reconnaître qu’ils signifient autre chose dans « Réserver pour 2 chez Patti’s Diner pour le dîner » et « Me trouver des itinéraires routiers pour Selma, Géorgie ». 
 
 L’ajouter d’une liste d’expressions est une alternative à l’ajout de plusieurs exemples d’énoncés à une intention. 
-
-## <a name="an-interchangeable-phrase-list"></a>Une liste d’expressions interchangeables
-Utilisez une liste d’expressions interchangeable quand la liste de mots ou d’expressions crée une classe ou un groupe. Un exemple est une liste de mois comme « Janvier », « Février », « Mars » ; ou des noms comme « John », « Mary », « Frank ».  Ces listes sont interchangeables en ce que l’énoncé serait étiqueté avec la même intention ou entité même si un autre mot de la liste d’expressions était utilisé. Par exemple, si « Afficher le calendrier de janvier » a les mêmes intentions qu’« afficher le calendrier de février », les mots doivent être sur une liste interchangeable. 
-
-## <a name="a-non-interchangeable-phrase-list"></a>Une liste d’expressions non interchangeables
-Utilisez une liste d’expressions non interchangeable pour des mots non synonymes ou des expressions qui peuvent être regroupés dans votre domaine. 
-
-Par exemple, utilisez une liste d’expressions non interchangeables pour les mots rares, propriétaires et étrangers. LUIS peut ne pas être en mesure de reconnaître des mots rares et propriétaires, ainsi que des mots étrangers (en dehors de la culture de l’application). Le paramètre non interchangeable indique que l’ensemble de mots rares constitue une classe que LUIS doit apprendre à reconnaître, mais que ces mots ne sont ni synonymes, ni interchangeables entre eux.
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Quand utiliser des listes d’expressions et des entités de liste
 Même si une liste d’expressions et des entités de liste peuvent affecter des énoncés dans toutes les intentions, chacune le fait d’une manière différente. Utilisez une liste d’expressions pour affecter le score de prédiction d’intention. Utilisez une entité de liste pour affecter l’extraction d’entité pour une correspondance texte exacte. 

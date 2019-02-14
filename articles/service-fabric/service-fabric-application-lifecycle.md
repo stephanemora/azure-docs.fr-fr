@@ -14,21 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: cb44311ecdf6a2c9284b14884184863237422f96
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1e714faa04717ac8e6687db3c074b8a77d649fb2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754538"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217205"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Cycle de vie des applications Service Fabric
 Comme pour les autres plateformes, une application sur Azure Service Fabric passe généralement par les phases suivantes : conception, développement, test, déploiement, mise à niveau, maintenance et suppression. Service Fabric offre une excellente prise en charge du cycle de vie complet des applications cloud : du développement au retrait éventuel, en passant par le déploiement, la gestion quotidienne et la maintenance. Le modèle de service permet à différents rôles de participer indépendamment au cycle de vie des applications. Cet article fournit une vue d'ensemble des API et de la façon dont elles sont utilisées par les différents rôles pendant les phases du cycle de vie des applications Service Fabric.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
-
-La vidéo suivante de la Microsoft Virtual Academy décrit comment gérer le cycle de vie de votre application :<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
-<img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ## <a name="service-model-roles"></a>Rôles de modèle de service
 Les rôles de modèle de service sont les suivants :
@@ -58,7 +54,7 @@ Pour obtenir des exemples, consultez [Déployer une application](service-fabric-
 
 ## <a name="test"></a>Test
 1. Après le déploiement sur le cluster de développement local ou sur un cluster de test, un *développeur de service* exécute le scénario de test de basculement intégré à l’aide des classes [**FailoverTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) et [**FailoverTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) ou de l’applet de commande [**Invoke-ServiceFabricFailoverTestScenario**](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). Le scénario de test de basculement exécute un service spécifié en procédant à des transitions et à des basculements intensifs pour s’assurer de sa disponibilité et de son bon fonctionnement.
-2. Le *développeur de service* exécute ensuite le scénario de test de chaos intégré à l’aide des classes [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) et [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario#System_Fabric_Testability_Scenario_ChaosTestScenario) ou de [l’applet de commande **Invoke-ServiceFabricChaosTestScenario**](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). Le scénario de test chaos provoque aléatoirement plusieurs défaillances de nœud, de package de code et de réplica dans le cluster.
+2. Le *développeur de service* exécute ensuite le scénario de test de chaos intégré à l’aide des classes [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) et [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) ou de [l’applet de commande **Invoke-ServiceFabricChaosTestScenario**](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). Le scénario de test chaos provoque aléatoirement plusieurs défaillances de nœud, de package de code et de réplica dans le cluster.
 3. Le *développeur de service* [teste la communication entre les services](service-fabric-testability-scenarios-service-communication.md) en créant des scénarios de test qui déplacent des réplicas principaux dans le cluster.
 
 Consultez la rubrique [Introduction au service d’analyse des erreurs](service-fabric-testability-overview.md) pour plus d'informations.

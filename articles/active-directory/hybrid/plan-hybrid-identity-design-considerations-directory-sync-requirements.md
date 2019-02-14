@@ -16,12 +16,13 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d3ded429e960679b6bb252bdcec67c5a1d833ac1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496004"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201701"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Déterminer les exigences de synchronisation de répertoire
 La synchronisation consiste à fournir aux utilisateurs une identité dans le cloud basée sur leur identité locale. Qu'ils comptent utiliser le compte synchronisé pour l'authentification ou pour l'authentification fédérée, les utilisateurs doivent toujours avoir une identité dans le cloud.  Cette identité devra être gérée et mise à jour de temps en temps.  Les mises à jour peuvent prendre différentes formes, des modifications de titre aux modifications de mot de passe.  

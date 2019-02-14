@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Namely | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Namely | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Namely.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 9c6cf70721169dfc35e49ec253d7aeb5deace794
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f78e978e80e27babcf8d2a2736eec06f35aa5e05
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185304"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177833"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-namely"></a>Tutoriel : Intégration d'Azure Active Directory à Namely
+# <a name="tutorial-azure-active-directory-integration-with-namely"></a>Didacticiel : Intégration d'Azure Active Directory à Namely
 
 Dans ce didacticiel, vous allez apprendre à intégrer Namely avec Azure Active Directory (Azure AD).
 

@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Découvrez comment ajouter des gabarits de modèle dans les applications Language Understanding (LUIS) pour améliorer la précision de la prédiction.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 46b7e7757c2bf1b01bebeff059f0028b9e9d189c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9d3352017723f5beac318d461a537820b6593bef
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220754"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881670"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Comment ajouter des modèles pour améliorer la précision de la prédiction
 Lorsqu’une application LUIS reçoit des énoncés de point de terminaison, utilisez le [concept](luis-concept-patterns.md) des modèles pour améliorer la précision de la prédiction des énoncés qui s’appuient sur un modèle d’ordre des mots et de choix de mot. Les modèles utilisent des [entités](luis-concept-entity-types.md) et leurs rôles pour extraire des données à l’aide de la syntaxe spécifique du modèle. 

@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: bdb89a89713c093768de3e40eda2bcbb6a311b2b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755167"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960875"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -101,6 +101,7 @@ Utilisez des groupes de basculement automatique si votre application répond à 
 
 Lorsque vous prenez une décision, le délai de la récupération et la quantité de données perdues dépendent de la façon dont vous décidez d’utiliser ces fonctionnalités de continuité d’activité dans votre application. En effet, vous pouvez choisir d’utiliser une combinaison de sauvegardes de bases de données et de géo-réplication active en fonction des besoins de votre application. Pour plus d’informations sur la conception d’applications pour des bases de données autonomes et des pools élastiques à l’aide de ces fonctionnalités de continuité d’activité, consultez les articles [Conception d’applications pour la récupération d’urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
+
 Les sections suivantes fournissent une vue d’ensemble des étapes de la récupération à l’aide de sauvegardes de bases de données ou de la géo-réplication active. Pour des instructions détaillées, y compris les exigences de planification, les étapes de post-récupération et des informations sur la simulation d’une panne pour effectuer un exercice de récupération d’urgence, voir la section [Récupérer une base de données SQL Azure en cas de défaillance](sql-database-disaster-recovery.md).
 
 ### <a name="prepare-for-an-outage"></a>Se préparer à une panne
@@ -132,7 +133,7 @@ Si vous utilisez les sauvegardes automatisées avec stockage géoredondant (acti
 Après la récupération à l’aide d’un de ces mécanismes de récupération, vous devez effectuer les tâches supplémentaires suivantes afin que les utilisateurs et les applications soient de nouveau opérationnels :
 
 - Rediriger les clients et les applications clientes vers le nouveau serveur et la base de données restaurée
-- Vérifier que les règles de pare-feu IP appropriées sont en place au niveau du serveur pour permettre aux utilisateurs de se connecter ou d'utiliser les [pare-feu au niveau de la base de données](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) afin d'activer les règles qui conviennent
+- Vérifier que les règles de pare-feu IP appropriées sont en place au niveau du serveur pour permettre aux utilisateurs de se connecter ou d'utiliser les [pare-feu au niveau de la base de données](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) afin d'activer les règles qui conviennent
 - Vérifier que les connexions et les autorisations appropriées au niveau de la base de données MASTER sont en place (ou utiliser des [utilisateurs contenus](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configurer l’audit, selon les besoins
 - Configurer les alertes, selon les besoins

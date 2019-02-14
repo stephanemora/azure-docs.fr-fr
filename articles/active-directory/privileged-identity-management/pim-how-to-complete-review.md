@@ -13,12 +13,13 @@ ms.subservice: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: fc4dcc22cf22f70fcf441c3c8a54aeda2ffd7588
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bea4f649b40298de15b8352fc8eb522da87dead5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189661"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190345"
 ---
 # <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Effectuer une révision d’accès des rôles d’annuaire Azure AD dans PIM
 Les administrateurs de rôle privilégié peuvent examiner l’accès privilégié dès le [démarrage d’une révision d’accès](pim-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) envoie automatiquement un e-mail demandant aux utilisateurs d'examiner leur accès. Si un utilisateur n’a pas reçu d’e-mail, vous pouvez lui envoyer les instructions contenues dans [Guide pratique pour effectuer une révision d’accès](pim-how-to-perform-security-review.md).

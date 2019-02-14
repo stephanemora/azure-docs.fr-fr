@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e4f8b99cfeaa35644ed51fd8ad712fe4744c0226
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751495"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890941"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service réseau virtuel en utilisant Azure CLI
 
@@ -72,7 +72,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-Créez un sous-réseau supplémentaire dans le réseau virtuel avec [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Dans cet exemple, un point de terminaison *Microsoft.Storage* est créé pour le sous-réseau : 
+Créez un sous-réseau supplémentaire dans le réseau virtuel avec [az network vnet subnet create](/cli/azure/network/vnet/subnet). Dans cet exemple, un point de terminaison *Microsoft.Storage* est créé pour le sous-réseau : 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -85,7 +85,7 @@ az network vnet subnet create \
 
 ## <a name="restrict-network-access-for-a-subnet"></a>Restreindre l’accès réseau d’un sous-réseau
 
-Créez un groupe de sécurité réseau avec la commande [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). L’exemple suivant crée un groupe de sécurité réseau nommé *myNsgPrivate*.
+Créez un groupe de sécurité réseau avec la commande [az network nsg create](/cli/azure/network/nsg). L’exemple suivant crée un groupe de sécurité réseau nommé *myNsgPrivate*.
 
 ```azurecli-interactive
 az network nsg create \
@@ -93,7 +93,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-Pour associer le groupe de sécurité réseau au sous-réseau *Private*, utilisez [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). L’exemple suivant associe le groupe de sécurité réseau *myNsgPrivate* au sous-réseau *Private* :
+Pour associer le groupe de sécurité réseau au sous-réseau *Private*, utilisez [az network vnet subnet update](/cli/azure/network/vnet/subnet). L’exemple suivant associe le groupe de sécurité réseau *myNsgPrivate* au sous-réseau *Private* :
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -156,7 +156,7 @@ Les étapes nécessaires pour restreindre l’accès réseau aux ressources cré
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Créez un compte de stockage Azure avec la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create). Remplacez `<replace-with-your-unique-storage-account-name>` par un nom qui n’existe dans aucun autre emplacement Azure. Le nom doit comprendre entre 3 et 24 caractères, correspondant à des chiffres et à des lettres en minuscules.
+Créez un compte de stockage Azure avec la commande [az storage account create](/cli/azure/storage/account). Remplacez `<replace-with-your-unique-storage-account-name>` par un nom qui n’existe dans aucun autre emplacement Azure. Le nom doit comprendre entre 3 et 24 caractères, correspondant à des chiffres et à des lettres en minuscules.
 
 ```azurecli-interactive
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -197,7 +197,7 @@ az storage share create \
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Refuser tout accès réseau au compte de stockage
 
-Par défaut, les comptes de stockage acceptent les connexions réseau provenant des clients de n’importe quel réseau. Pour limiter l’accès aux réseaux sélectionnés, définissez l’action par défaut sur *Refuser* avec [az storage account update](/cli/azure/storage/account#az_storage_account_update). Une fois l’accès réseau refusé, le compte de stockage n’est plus accessible par aucun des réseaux.
+Par défaut, les comptes de stockage acceptent les connexions réseau provenant des clients de n’importe quel réseau. Pour limiter l’accès aux réseaux sélectionnés, définissez l’action par défaut sur *Refuser* avec [az storage account update](/cli/azure/storage/account). Une fois l’accès réseau refusé, le compte de stockage n’est plus accessible par aucun des réseaux.
 
 ```azurecli-interactive
 az storage account update \
@@ -208,7 +208,7 @@ az storage account update \
 
 ### <a name="enable-network-access-from-a-subnet"></a>Activer l’accès réseau à partir d’un sous-réseau
 
-Autorisez l’accès réseau au compte de stockage à partir du sous-réseau *Private* avec [az storage account network-rule add](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add).
+Autorisez l’accès réseau au compte de stockage à partir du sous-réseau *Private* avec [az storage account network-rule add](/cli/azure/storage/account/network-rule).
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -334,7 +334,7 @@ L’accès est refusé et vous recevez une erreur indiquant que *la requête n�
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin d’un groupe de ressources, utilisez [az group delete](/cli/azure#az_group_delete) pour le supprimer, ainsi que toutes les ressources qu’il contient.
+Quand vous n’avez plus besoin d’un groupe de ressources, utilisez [az group delete](/cli/azure) pour le supprimer, ainsi que toutes les ressources qu’il contient.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

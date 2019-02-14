@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38bb0840269d4b7bacbb0101590b389c8542a9b1
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: fbe9a10c85efa2f52a04f5c2fab87421a08f0a16
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814229"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199797"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Office 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les fonctionnalités multigéographiques dans Office 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Office 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)

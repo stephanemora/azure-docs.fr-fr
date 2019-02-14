@@ -1,25 +1,25 @@
 ---
 title: Gérer le Cache Azure pour Redis à l’aide de l’interface de ligne de commande classique Azure | Microsoft Docs
 description: Découvrez comment installer l’interface de ligne de commande classique Azure sur une plateforme quelconque, comment l’utiliser pour vous connecter à votre compte Azure et comment créer et gérer un cache Azure pour Redis à partir de cette interface.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: wesmc
-ms.openlocfilehash: 9b9ad2f4fd3b0ccf928dcec58b7c55778bcbdc95
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.author: yegu
+ms.openlocfilehash: 99148332a8310428cb73287d861ef71c35d59a26
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558700"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233198"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Création et gestion du Cache Azure pour Redis à l’aide de l’interface de ligne de commande classique Azure
 > [!div class="op_single_selector"]

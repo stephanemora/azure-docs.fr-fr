@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Salesforce Sandbox | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Salesforce Sandbox | Microsoft Docs"
 description: Découvrez comment configurer une authentification unique entre Azure Active Directory et Salesforce Sandbox.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: b04e4a83862cdec26e0432eb7d8b3419e36d5a7a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: feb6cebca0fe165315215813eb939dc2d5d120cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176418"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177327"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutoriel : Intégration d'Azure Active Directory à Salesforce Sandbox
 

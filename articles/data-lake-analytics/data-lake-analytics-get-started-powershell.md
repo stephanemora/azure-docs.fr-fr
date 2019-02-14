@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: 4b4fa05164db402122efc745302dffe8c130b97b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2d1f5cc4883ce17da76eea815b42833b84031549
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048066"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56231822"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Prise en main d’Analytique Data Lake à l’aide d’Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -22,6 +22,8 @@ ms.locfileid: "43048066"
 Découvrez comment utiliser Azure PowerShell pour créer des comptes Azure Data Lake Analytics, puis envoyer et exécuter des travaux U-SQL. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -35,13 +37,13 @@ Ce didacticiel suppose que vous savez déjà utiliser Azure PowerShell. En parti
 Pour vous connecter avec un nom d’abonnement :
 
 ```
-Connect-AzureRmAccount -SubscriptionName "ContosoSubscription"
+Connect-AzAccount -SubscriptionName "ContosoSubscription"
 ```
 
 Au lieu du nom d’abonnement, vous pouvez également utiliser un ID d’abonnement pour vous connecter :
 
 ```
-Connect-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 En cas de réussite, la sortie de cette commande ressemble au texte suivant :

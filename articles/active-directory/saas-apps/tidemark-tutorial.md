@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e04f6801a8ed0343f964dbfe9eb66c8938218f3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: be130c584ae05dd9b6935fa91fc0ddf4e62f0892
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188250"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179397"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Didacticiel : Intégration d’Azure Active Directory à Tidemark
+# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutoriel : Intégration d’Azure Active Directory à Tidemark
 
 Dans ce didacticiel, vous allez apprendre à intégrer Tidemark à Azure Active Directory (Azure AD).
 

@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: ee6e393064b3dd2fbb9a27530acffb12fb5c086e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ce0ae55fdc43704670f1d74e52b55db91a20cceb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152074"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179244"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Tutoriel : Intégration d’Azure Active Directory à Hosted Graphite
+# <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Didacticiel : Intégration d’Azure Active Directory à Hosted Graphite
 
 Dans ce didacticiel, vous allez apprendre à intégrer Hosted Graphite à Azure Active Directory (Azure AD).
 

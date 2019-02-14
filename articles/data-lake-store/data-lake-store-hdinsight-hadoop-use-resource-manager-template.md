@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 5b98513625a6179585601320d45996396fca7207
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e08e7ae0a97b206a692dd47e91c4c94847cb9833
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035901"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235170"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Créer un cluster HDInsight avec Data Lake Storage Gen1 à l’aide d’un modèle Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -43,6 +43,9 @@ Voici quelques considérations importantes pour l’utilisation de HDInsight ave
 Dans cet article, nous approvisionnons un cluster Hadoop avec Data Lake Storage Gen1 comme stockage supplémentaire. Pour obtenir des instructions sur la création d’un cluster Hadoop avec Data Lake Storage Gen1 comme stockage par défaut, consultez [Créer un cluster HDInsight avec Data Lake Storage Gen1 à l’aide du portail Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -58,13 +61,13 @@ Les instructions du lien mentionné ci-dessus requièrent PowerShell. Avant de c
 
 ```
 # Log in to your Azure account
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # List all the subscriptions associated to your account
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # Select a subscription
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 Le modèle déploie ces types de ressources :

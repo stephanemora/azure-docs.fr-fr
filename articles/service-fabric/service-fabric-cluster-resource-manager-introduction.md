@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e3cf87ca49ae39966cffbb768dc1c191991d4036
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096906"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203197"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Présentation de Service Fabric Cluster Resource Manager
 Jusqu’ici, pour gérer des systèmes informatiques ou des services en ligne, il fallait dédier des machines physiques ou virtuelles spécifiques à ces services ou systèmes spécifiques. Les services étaient conçus sous forme de niveaux : un niveau « web » et un niveau « données » ou « stockage ». Les applications comportaient un niveau de messagerie où les demandes étaient transmises ou reçues, ainsi qu’un ensemble de machines dédiées à la mise en cache. Chaque niveau ou type de charge de travail recevait des machines spécifiques dédiées : quelques machines pour la base de données, quelques-unes pour les serveurs web. Si un type particulier de charge de travail entraînait la surchauffe des machines sur lesquelles il était exécuté, alors vous ajoutiez davantage de machines avec cette même configuration à ce niveau. Toutefois, il n’était pas possible d’augmenter facilement toutes les charges de travail. Avec le niveau de données en particulier, vous deviez généralement remplacer les machines par des machines plus grandes. Facile. Si une machine venait à tomber en panne, cette partie de l’application globale s’exécutait alors à une capacité inférieure jusqu’à la restauration de la machine. Toujours aussi facile (mais pas forcément très amusant).
@@ -43,10 +43,6 @@ Cluster Resource Manager est le composant système qui gère l’orchestration d
 1. Application des règles
 2. Optimisation de l’environnement
 3. Aide des autres processus
-
-Pour découvrir comment fonctionne Cluster Resource Manager, visionnez cette vidéo de la Microsoft Virtual Academy :<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
-<img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ### <a name="what-it-isnt"></a>Ce qu’il n’est pas
 Les applications de couche N traditionnelles comportent toujours d’un [équilibreur de charge](https://en.wikipedia.org/wiki/Load_balancing_(computing)). Généralement, il s’agissait d’un équilibrage de charge réseau (NLB) ou d’un équilibrage de charge d’application (ALB) suivant son emplacement dans la pile de mise en réseau. Il existe des équilibreurs de charge matériels, comme la gamme BigIP de F5, et d’autres logiciels, comme l’équilibreur de charge réseau Microsoft. Dans d’autres environnements, vous verrez un élément similaire à HAProxy, nginx, Istio ou Envoy dans ce rôle. Dans ces architectures, le travail d’équilibrage de charge consiste à garantir que les charges de travail sans état reçoivent (à peu près) la même quantité de travail. Les stratégies d’équilibrage de charge étaient variées. Certains équilibreurs de charge envoyaient chaque appel distinct vers un serveur différent. D’autres fournissaient l’épinglage/l’adhérence de session. Les équilibreurs de charge les plus avancés utilisent une estimation réelle de la charge ou la création de rapports pour acheminer un appel en fonction de son coût prévu et de la charge de la machine actuelle.

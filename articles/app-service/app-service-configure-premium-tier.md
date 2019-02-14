@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 991748c33eae607e97b3916a913b111af7b3b75a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5fe3d9369958984b76fd704583460a95868da85e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714472"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114211"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurer le niveau PremiumV2 pour Azure App Service
 
@@ -112,10 +112,12 @@ az appservice plan create \
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 La commande suivante crée un plan App Service dans _P1V2_. Les options possibles pour `-WorkerSize` sont _Small_, _Medium_ et _Large_.
 
 ```PowerShell
-New-AzureRmAppServicePlan -ResourceGroupName <resource_group_name> `
+New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Name <app_service_plan_name> `
     -Location <region_name> `
     -Tier "PremiumV2" `

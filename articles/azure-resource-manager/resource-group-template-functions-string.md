@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 04a82d1ed8735954072f9549f3b2676df0935449
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 832c7b0b2aab3cbf09b7ea5e099fcf8be7cd1906
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489459"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118035"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Resource Manager fournit les fonctions ci-après pour travailler avec des chaînes de caractères :
 
@@ -69,7 +71,7 @@ Retourne la représentation en base 64 de la chaîne d'entrée.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_entrée |Oui |chaîne |La valeur à retourner sous la forme d’une représentation en base64. |
+| chaîne_entrée |OUI |chaîne |La valeur à retourner sous la forme d’une représentation en base64. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -147,7 +149,7 @@ Convertit une représentation en base64 en un objet JSON.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Oui |chaîne |La représentation en base64 à convertir en un objet JSON. |
+| base64Value |OUI |chaîne |La représentation en base64 à convertir en un objet JSON. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -225,7 +227,7 @@ Convertit une représentation en base64 en une chaîne.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Oui |chaîne |La représentation en base64 à convertir en une chaîne. |
+| base64Value |OUI |chaîne |La représentation en base64 à convertir en une chaîne. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -303,7 +305,7 @@ Combine plusieurs valeurs de chaîne et retourne la chaine concaténée, ou comb
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |chaîne ou tableau |La première valeur pour la concaténation. |
+| arg1 |OUI |chaîne ou tableau |La première valeur pour la concaténation. |
 | arguments supplémentaires |Non  |chaîne |Valeurs supplémentaires en ordre séquentiel pour la concaténation. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -415,8 +417,8 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| conteneur |Oui |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
-| itemToFind |Oui |chaîne ou entier |La valeur à trouver. |
+| conteneur |OUI |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
+| itemToFind |OUI |chaîne ou entier |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -509,7 +511,7 @@ Convertit une valeur en un URI de données.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Oui |chaîne |Valeur à convertir en URI de données. |
+| stringToConvert |OUI |chaîne |Valeur à convertir en URI de données. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -577,7 +579,7 @@ Convertit une valeur formatée en URI de données en chaîne.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Oui |chaîne |Valeur d’URI de données à convertir. |
+| dataUriToConvert |OUI |chaîne |Valeur d’URI de données à convertir. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -645,7 +647,7 @@ Détermine si un tableau, un objet ou une chaîne est vide.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Oui |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
+| itemToTest |OUI |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -723,8 +725,8 @@ Détermine si une chaîne se termine par une valeur. La comparaison respecte la 
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |chaîne |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |chaîne |La valeur à trouver. |
+| stringToSearch |OUI |chaîne |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |chaîne |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -802,7 +804,7 @@ Retourne le premier caractère de la chaîne ou le premier élément du tableau.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
+| arg1 |OUI |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -866,7 +868,7 @@ Crée une valeur sous la forme d’un identificateur global unique basé sur les
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Oui |chaîne |Valeur utilisée dans la fonction de hachage pour créer le GUID. |
+| baseString |OUI |chaîne |Valeur utilisée dans la fonction de hachage pour créer le GUID. |
 | paramètres supplémentaires le cas échéant |Non  |chaîne |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
 
 ### <a name="remarks"></a>Remarques
@@ -950,8 +952,8 @@ Retourne la première position d’une valeur dans une chaîne. La comparaison r
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |chaîne |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |chaîne |La valeur à trouver. |
+| stringToSearch |OUI |chaîne |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |chaîne |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1024,7 +1026,7 @@ Retourne le dernier caractère de la chaîne ou le dernier élément du tableau.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
+| arg1 |OUI |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1089,8 +1091,8 @@ Retourne la dernière position d’une valeur dans une chaîne. La comparaison r
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |chaîne |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |chaîne |La valeur à trouver. |
+| stringToSearch |OUI |chaîne |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |chaîne |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1163,7 +1165,7 @@ Retourne le nombre de caractères dans une chaîne ou le nombre d’éléments d
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
+| arg1 |OUI |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1235,8 +1237,8 @@ Renvoie une chaîne alignée à droite en lui ajoutant des caractères sur la ga
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valeur_à_remplir |Oui |chaîne ou entier |Valeur à aligner à droite. |
-| longueur_totale |Oui |int |Nombre total de caractères de la chaîne renvoyée. |
+| valeur_à_remplir |OUI |chaîne ou entier |Valeur à aligner à droite. |
+| longueur_totale |OUI |int |Nombre total de caractères de la chaîne renvoyée. |
 | caractère_de_remplissage |Non  |caractère unique |Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte. La valeur par défaut est un espace. |
 
 Si la chaîne d’origine est plus longue que le nombre de caractères de remplissage, aucun caractère n’est ajouté.
@@ -1298,9 +1300,9 @@ Renvoie une nouvelle chaîne dans laquelle toutes les instances d’une chaîne 
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_initiale |Oui |chaîne |La valeur qu’ont toutes les instances d’une chaîne ont été remplacées par une autre. |
-| oldString |Oui |chaîne |Chaîne à supprimer de la chaîne initiale. |
-| newString |Oui |chaîne |Chaîne à ajouter à la place de la chaîne supprimée. |
+| chaîne_initiale |OUI |chaîne |La valeur qu’ont toutes les instances d’une chaîne ont été remplacées par une autre. |
+| oldString |OUI |chaîne |Chaîne à supprimer de la chaîne initiale. |
+| newString |OUI |chaîne |Chaîne à ajouter à la place de la chaîne supprimée. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1364,8 +1366,8 @@ Retourne une chaîne avec tous les caractères après le nombre spécifié de ca
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
-| numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
+| originalValue |OUI |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
+| numberToSkip |OUI |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1445,8 +1447,8 @@ Renvoie un tableau de chaînes qui contient les sous-chaînes de la chaîne d’
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_entrée |Oui |chaîne |Chaîne à fractionner. |
-| delimiter |Oui |chaîne ou tableau de chaînes |Le séparateur à utiliser pour fractionner la chaîne. |
+| chaîne_entrée |OUI |chaîne |Chaîne à fractionner. |
+| delimiter |OUI |chaîne ou tableau de chaînes |Le séparateur à utiliser pour fractionner la chaîne. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1517,8 +1519,8 @@ Détermine si une chaîne commence par une valeur. La comparaison respecte la ca
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |chaîne |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |chaîne |La valeur à trouver. |
+| stringToSearch |OUI |chaîne |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |chaîne |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1596,7 +1598,7 @@ Convertit la valeur spécifiée en chaîne.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Oui | Quelconque |Valeur à convertir en chaîne. N’importe quel type de valeur peut être converti, y compris les objets et des tableaux. |
+| valueToConvert |OUI | Quelconque |Valeur à convertir en chaîne. N’importe quel type de valeur peut être converti, y compris les objets et des tableaux. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1680,7 +1682,7 @@ Retourne une sous-chaîne qui commence à la position de caractère spécifiée 
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_à_analyser |Oui |chaîne |La chaîne d’origine de laquelle la sous-chaîne est extraite. |
+| chaîne_à_analyser |OUI |chaîne |La chaîne d’origine de laquelle la sous-chaîne est extraite. |
 | index_début |Non  |int |La position de caractère (commençant à zéro) de la sous-chaîne. |
 | length |Non  |int |Le nombre de caractères de la sous-chaîne. Doit faire référence à un emplacement au sein de la chaîne. Doit être égal à zéro ou supérieur. |
 
@@ -1754,8 +1756,8 @@ Retourne une chaîne avec le nombre spécifié de caractères à partir du débu
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
-| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
+| originalValue |OUI |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
+| numberToTake |OUI |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1835,7 +1837,7 @@ Convertit la chaîne spécifiée en minuscules.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_à_modifier |Oui |chaîne |La valeur à convertir en minuscules. |
+| chaîne_à_modifier |OUI |chaîne |La valeur à convertir en minuscules. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1899,7 +1901,7 @@ Convertit la chaîne spécifiée en majuscules.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_à_modifier |Oui |chaîne |La valeur à convertir en majuscules. |
+| chaîne_à_modifier |OUI |chaîne |La valeur à convertir en majuscules. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1963,7 +1965,7 @@ Supprime tous les espaces de début et de fin de la chaîne indiquée.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Oui |chaîne |La valeur à supprimer. |
+| stringToTrim |OUI |chaîne |La valeur à supprimer. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -2022,7 +2024,7 @@ Crée une chaîne de hachage déterministe basée sur les valeurs fournies en ta
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Oui |chaîne |La valeur utilisée dans la fonction de hachage pour créer une chaîne unique. |
+| baseString |OUI |chaîne |La valeur utilisée dans la fonction de hachage pour créer une chaîne unique. |
 | paramètres supplémentaires le cas échéant |Non  |chaîne |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
 
 ### <a name="remarks"></a>Remarques
@@ -2111,8 +2113,8 @@ Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Oui |chaîne |La chaîne d’URI de base. |
-| relativeUri |Oui |chaîne |La chaîne d’URI relatif à ajouter à la chaîne d’URI de base. |
+| baseUri |OUI |chaîne |La chaîne d’URI de base. |
+| relativeUri |OUI |chaîne |La chaîne d’URI relatif à ajouter à la chaîne d’URI de base. |
 
 La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez `http://contoso.com/resources/azuredeploy.json` comme paramètre baseUri, l’URI de base résultant est `http://contoso.com/resources/`.
 
@@ -2188,7 +2190,7 @@ Encode un URI.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Oui |chaîne |Valeur à encoder. |
+| stringToEncode |OUI |chaîne |Valeur à encoder. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -2256,7 +2258,7 @@ Retourne une chaîne de la valeur encodée de l’URI.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Oui |chaîne |Valeur encodée de l’URI à convertir en une chaîne. |
+| uriEncodedString |OUI |chaîne |Valeur encodée de l’URI à convertir en une chaîne. |
 
 ### <a name="return-value"></a>Valeur de retour
 

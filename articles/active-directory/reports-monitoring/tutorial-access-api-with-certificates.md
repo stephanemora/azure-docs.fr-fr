@@ -15,12 +15,13 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bf877449288b94c373a834d0bb046a1550808528
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e7b6fcdb117033e69db82d8f9bb083891794ed72
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173164"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187081"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutoriel : Obtenir des données à l’aide de l’API de création de rapports Azure Active Directory avec des certificats
 

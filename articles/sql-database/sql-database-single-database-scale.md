@@ -11,17 +11,20 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b3ee256072e5c0b5b92daac07eae5b41b194ae8a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 7afdcc402840aede1fe9678bf5f4012213edf9fa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475956"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961344"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mise à l'échelle de ressources de singletons Azure SQL Database unique
 
 Cet article décrit comment faire évoluer les ressources de calcul et de stockage disponibles pour un singleton dans Azure SQL Database.
+
+> [!IMPORTANT]
+> Vous êtes facturé pour chaque heure d’existence de la base de données avec le niveau de service le plus élevé, la taille de calcul appliquée pendant cette heure quel que soit l’usage, ou si la base de données a été active pendant moins d’une heure. Par exemple, si vous avez créé une base de données unique et que vous l’avez supprimée cinq minutes après, votre facture mentionne le coût d’une heure de base de données.
 
 ## <a name="vcore-based-purchasing-model-change-storage-size"></a>Modèle d’achat vCore : Modifier la taille de stockage
 

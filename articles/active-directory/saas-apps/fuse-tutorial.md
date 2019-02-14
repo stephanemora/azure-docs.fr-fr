@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Fuse | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Fuse | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Fuse.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: d801ba8e7e720a2ef4efd67c7e08a5a6439049b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d0054e805f4d07a92361079eeee391c8367b4117
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158534"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56208477"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Didacticiel : Intégration d’Azure Active Directory à Fuse
+# <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Tutoriel : Intégration d’Azure Active Directory à Fuse
 
 Dans ce didacticiel, vous allez apprendre à intégrer Fuse dans Azure Active Directory (Azure AD).
 

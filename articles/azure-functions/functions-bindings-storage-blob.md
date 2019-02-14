@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 2a222e66b896886d724572982626fd0bc2c277a8
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 33f79569a2478c7e234b04ba2dee4e9b8883abae
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809962"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895888"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -127,7 +127,7 @@ Pour plus d’informations sur les propriétés du fichier *function.json*, cons
 Voici le code Script C# qui lie à `Stream` :
 
 ```cs
-public static void Run(Stream myBlob, ILogger log)
+public static void Run(Stream myBlob, string name, ILogger log)
 {
    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
@@ -391,7 +391,7 @@ Si l’objet blob est nommé *{20140101}-soundfile.mp3*, la valeur de la variabl
 
 Le déclencheur d’objet blob fournit plusieurs propriétés de métadonnées. Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ces valeurs ont la même sémantique que le type [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
 
-|Propriété  |type  |Description  |
+|Propriété  |Type  |Description  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Chemin de l’objet blob déclencheur.|
 |`Uri`|`System.Uri`|URI de l’objet blob pour l’emplacement principal.|

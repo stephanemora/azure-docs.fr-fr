@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 27c074b12d2b151015e6946c483302387726dfc5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a7a34c703b9c6589679cf2035785c005f13f06cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190819"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822814"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence des types d’actions et de déclencheurs pour le langage de définition de workflow dans Azure Logic Apps
 
@@ -49,18 +49,18 @@ Les déclencheurs ont les éléments principaux suivants, bien que certains soie
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*trigger-name*> | Chaîne | Nom du déclencheur | 
 | <*trigger-type*> | Chaîne | Type de déclencheur, tel que « Http » ou « ApiConnection » | 
 | <*trigger-inputs*> | Objet JSON | Entrées qui définissent le comportement du déclencheur | 
 | <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
-| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Month : - 1-16 mois </br>- Day : 1-500 jours </br>- Hour : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
+| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*array-with-conditions*> | Tableau | Tableau qui contient une ou plusieurs [conditions](#trigger-conditions) qui déterminent s’il faut exécuter le workflow. Uniquement disponible pour les déclencheurs. | 
 | <*runtime-config-options*> | Objet JSON | Vous pouvez modifier le comportement d’exécution du déclencheur en définissant des propriétés `runtimeConfiguration`. Pour plus d’informations, consultez [Paramètres de configuration d’exécution](#runtime-config-options). | 
@@ -129,35 +129,35 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | Chaîne | Nom du déclencheur | 
 | <*connection-name*> | Chaîne | Nom de la connexion à l’API managée utilisée par le workflow | 
 | <*method-type*> | Chaîne | Méthode HTTP pour communiquer avec l’API managée : « GET », « PUT », « POST », « PATCH », « DELETE » | 
 | <*api-operation*> | Chaîne | Opération d’API à appeler | 
 | <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
-| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Month : - 1-16 mois </br>- Day : 1-500 jours </br>- Hour : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
+| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objet JSON | Paramètres de requête à inclure avec l’appel d’API. Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à l’appel. | 
 | <*max-runs*> | Entier  | Par défaut, les instances de workflows d’applications logiques s’exécutent en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entier  | Quand votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez changer en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
 | <*splitOn-expression*> | Chaîne | Pour les déclencheurs qui retournent des tableaux, cette expression référence le tableau à utiliser pour que vous puissiez créer et exécuter une instance de workflow pour chaque élément du tableau, au lieu d’utiliser une boucle « for each ». <p>Par exemple, cette expression représente un élément dans le tableau retourné dans le contenu du corps du déclencheur : `@triggerbody()?['value']` |
-| <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
+| <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). |
 ||||
 
 *Sorties*
  
-| Élément | type | Description |
-|---------|------|-------------| 
-| headers | Objet JSON | En-têtes de la réponse | 
-| body | Objet JSON | Corps de la réponse | 
-| Code d’état | Entier  | Code d’état de la réponse | 
+| Élément | Type | Description |
+|---------|------|-------------|
+| headers | Objet JSON | En-têtes de la réponse |
+| body | Objet JSON | Corps de la réponse |
+| Code d’état | Entier  | Code d’état de la réponse |
 |||| 
 
 *Exemple*
@@ -171,7 +171,7 @@ Cette définition de déclencheur vérifie tous les jours les e-mails dans la bo
       "host": {
          "connection": {
             "name": "@parameters('$connections')['office365']['connectionId']"
-         }     
+         }
       },
       "method": "get",
       "path": "/Mail/OnNewEmail",
@@ -223,7 +223,7 @@ Ce déclencheur envoie une demande d’abonnement à un point de terminaison à 
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*connection-name*> | Chaîne | Nom de la connexion à l’API managée utilisée par le workflow | 
 | <*body-content*> | Objet JSON | Tout contenu de message à envoyer en tant que charge utile à l’API managée | 
@@ -231,7 +231,7 @@ Ce déclencheur envoie une demande d’abonnement à un point de terminaison à 
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objet JSON | Paramètres de requête à inclure avec l’appel d’API <p>Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à l’appel. | 
@@ -302,17 +302,17 @@ Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’apr
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*method-type*> | Chaîne | Méthode HTTP à utiliser pour interroger le point de terminaison spécifié : « GET », « PUT », « POST », « PATCH », « DELETE » | 
 | <*endpoint-URL*> | Chaîne | URL HTTP ou HTTPS pour interroger le point de terminaison <p>Taille de chaîne maximale : 2 Ko | 
 | <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
-| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Month : - 1-16 mois </br>- Day : 1-500 jours </br>- Hour : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
+| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*header-content*> | Objet JSON | En-têtes à envoyer avec la requête <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Chaîne | Contenu du message à envoyer en tant que charge utile avec la requête | 
@@ -326,7 +326,7 @@ Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’apr
 
 *Sorties*
 
-| Élément | type | Description |
+| Élément | Type | Description |
 |---------|------|-------------| 
 | headers | Objet JSON | En-têtes de la réponse | 
 | body | Objet JSON | Corps de la réponse | 
@@ -399,7 +399,7 @@ Certaines valeurs, telles que <*-method-type*>, sont disponibles pour les objets
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*method-type*> | Chaîne | Méthode HTTP utilisée pour la requête d’abonnement : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
 | <*endpoint-subscribe-URL*> | Chaîne | URL du point de terminaison où envoyer la requête d’abonnement | 
@@ -407,7 +407,7 @@ Certaines valeurs, telles que <*-method-type*>, sont disponibles pour les objets
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*method-type*> | Chaîne | Méthode HTTP utilisée pour la requête d’annulation : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
 | <*endpoint-unsubscribe-URL*> | Chaîne | URL du point de terminaison où envoyer la requête d’annulation | 
@@ -421,7 +421,7 @@ Certaines valeurs, telles que <*-method-type*>, sont disponibles pour les objets
 
 *Sorties* 
 
-| Élément | type | Description |
+| Élément | Type | Description |
 |---------|------|-------------| 
 | headers | Objet JSON | En-têtes de la réponse | 
 | body | Objet JSON | Corps de la réponse | 
@@ -493,15 +493,15 @@ Ce déclencheur s’active en fonction de la planification de périodicité que 
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
-| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Month : - 1-16 mois </br>- Day : 1-500 jours </br>- Hour : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
+| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Chaîne | Date et heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique), ou spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne se déclenche pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
 | <*time-zone*> | Chaîne | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Spécifiez le fuseau horaire à appliquer. | 
@@ -602,7 +602,7 @@ Pour appeler ce déclencheur, vous devez utiliser l’API `listCallbackUrl`, qui
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*property-name*> | Chaîne | Nom d’une propriété dans le schéma JSON qui décrit la charge utile | 
 | <*property-type*> | Chaîne | Type de la propriété | 
@@ -610,7 +610,7 @@ Pour appeler ce déclencheur, vous devez utiliser l’API `listCallbackUrl`, qui
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*method-type*> | Chaîne | Méthode que les requêtes entrantes doivent utiliser pour appeler votre application logique : « GET », « PUT », « POST », « PATCH », « DELETE » |
 | <*relative-path-for-accepted-parameter*> | Chaîne | Chemin relatif pour le paramètre que l’URL de votre point de terminaison peut accepter | 
@@ -775,7 +775,7 @@ Les actions ont les principaux éléments suivants, bien que certains soient fac
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------|
 | <*action-name*> | Chaîne | Nom de l’action | 
 | <*action-type*> | Chaîne | Type d’action, par exemple « Http » ou « ApiConnection »| 
@@ -786,9 +786,9 @@ Les actions ont les principaux éléments suivants, bien que certains soient fac
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------|
-| <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](#retry-policies). | 
+| <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez Stratégies de relance. | 
 | <*runtime-config-options*> | Objet JSON | Pour certaines actions, vous pouvez changer le comportement de l’action au moment de l’exécution en définissant des propriétés `runtimeConfiguration`. Pour plus d’informations, consultez [Paramètres de configuration d’exécution](#runtime-config-options). | 
 | <*operation-option*> | Chaîne | Pour certaines actions, vous pouvez changer le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
@@ -888,7 +888,7 @@ Cette action envoie une requête HTTP à une [API managée par Microsoft](../con
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*action-name*> | Chaîne | Nom de l’action fournie par le connecteur | 
 | <*api-name*> | Chaîne | Nom de l’API managée par Microsoft qui est utilisée pour la connexion | 
@@ -898,7 +898,7 @@ Cette action envoie une requête HTTP à une [API managée par Microsoft](../con
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*other-action-specific-input-properties*> | Objet JSON | Toutes autres propriétés d’entrée qui s’appliquent à cette action spécifique | 
 | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
@@ -968,7 +968,7 @@ Certaines valeurs, telles que <*-method-type*>, sont disponibles pour les objets
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*action-name*> | Chaîne | Nom de l’action fournie par le connecteur | 
 | <*method-type*> | Chaîne | Méthode HTTP à utiliser pour s’abonner ou annuler l’abonnement à un point de terminaison : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
@@ -977,7 +977,7 @@ Certaines valeurs, telles que <*-method-type*>, sont disponibles pour les objets
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*api-unsubscribe-URL*> | Chaîne | URI à utiliser pour annuler l’abonnement à l’API | 
 | <*header-content*> | Objet JSON | En-têtes à envoyer dans la requête <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
@@ -1008,7 +1008,7 @@ Vous pouvez ensuite utiliser la sortie de l’action dans d’autres actions.
 
 *Obligatoire* 
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*inputs-to-compose*> | Quelconque | Entrées pour la création d’une sortie unique | 
 |||| 
@@ -1069,7 +1069,7 @@ Cette action appelle une [fonction Azure](../azure-functions/functions-create-fi
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------|  
 | <*Azure-function-ID*> | Chaîne | ID de ressource de la fonction Azure que vous souhaitez appeler. Voici le format de cette valeur :<p>"/subscriptions/<*ID_abonnement_Azure*>/resourceGroups/<*groupe_ressources_Azure*>/providers/Microsoft.Web/sites/<*nom_application_fonction_Azure*>/functions/<*nom_fonction_Azure*>" | 
 | <*method-type*> | Chaîne | Méthode HTTP à utiliser pour appeler la fonction : « GET », « PUT », « POST », « PATCH » ou « DELETE » <p>Si elle n’est pas spécifiée, la méthode par défaut est « POST ». | 
@@ -1077,7 +1077,7 @@ Cette action appelle une [fonction Azure](../azure-functions/functions-create-fi
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------|  
 | <*header-content*> | Objet JSON | En-têtes à envoyer avec l’appel <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objet JSON | Tout contenu de message à envoyer dans la requête | 
@@ -1140,7 +1140,7 @@ Cette action envoie une requête au point de terminaison spécifique et vérifie
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*method-type*> | Chaîne | Méthode à utiliser pour envoyer la requête : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | Chaîne | Point de terminaison HTTP ou HTTPS à appeler. Taille de chaîne maximale : 2 Ko | 
@@ -1148,7 +1148,7 @@ Cette action envoie une requête au point de terminaison spécifique et vérifie
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*header-content*> | Objet JSON | En-têtes à envoyer avec la requête <p>Par exemple, pour définir la langue et le type : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objet JSON | Tout contenu de message à envoyer dans la requête | 
@@ -1191,7 +1191,7 @@ Cette action crée une chaîne à partir de tous les éléments d’un tableau, 
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources. Si vous spécifiez une expression, placez l’expression entre guillemets doubles. | 
 | <*delimiter*> | Chaîne d’un seul caractère | Caractère qui sépare chaque élément dans la chaîne | 
@@ -1235,7 +1235,7 @@ Cette action crée des *jetons* ou champs conviviaux à partir des propriétés 
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*JSON-source*> | Objet JSON | Contenu JSON que vous souhaitez analyser | 
 | <*JSON-schema*> | Objet JSON | Schéma JSON qui décrit le contenu JSON sous-jacent, utilisé par l’action pour analyser le contenu JSON source. <p>**Conseil** : Dans le Concepteur d’applications logiques, vous pouvez fournir le schéma ou fournir un exemple de charge utile afin que l’action puisse générer le schéma. | 
@@ -1337,7 +1337,7 @@ Cette action crée un tableau à partir des éléments d’un autre tableau en f
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources. Si vous spécifiez une expression, placez l’expression entre guillemets doubles. |
 | <*condition-or-filter*> | Chaîne | Condition utilisée pour le filtrage des éléments dans le tableau source <p>**Remarque**: Si aucune valeur ne remplit la condition, l’action crée un tableau vide. |
@@ -1378,14 +1378,14 @@ Cette action crée la charge utile pour la réponse à une requête HTTP.
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*response-status-code*> | Entier  | Code d’état HTTP envoyé à la requête entrante. Le code par défaut est « 200 OK », mais il peut s’agir de tout code d’état valide commençant par 2xx, 4xx ou 5xx, mais pas avec 3xxx. | 
 |||| 
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*response-headers*> | Objet JSON | Un ou plusieurs en-têtes à inclure avec la réponse | 
 | <*response-body*> | Divers | Corps de réponse, qui peut être une chaîne, un objet JSON ou même du contenu binaire d’une action précédente | 
@@ -1453,7 +1453,7 @@ Cette action crée un tableau avec des objets JSON en transformant les élément
 
 *Obligatoire* 
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources. N’oubliez pas de placer une expression entre guillemets doubles. <p>**Remarque**: Si le tableau source est vide, l’action crée un tableau vide. | 
 | <*key-name*> | Chaîne | Nom de la propriété attribué au résultat à partir de <*expression*> <p>Pour ajouter une nouvelle propriété à tous les objets dans le tableau de sortie, fournissez un <*key-name*> pour cette propriété et une <*expression*> pour la valeur de propriété. <p>Pour supprimer une propriété de tous les objets dans le tableau, omettez le <*key-name*> pour cette propriété. | 
@@ -1551,7 +1551,7 @@ Cette action crée une table CSV ou HTML à partir d’un tableau. Pour les tabl
 
 *Obligatoire* 
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <CSV *ou* HTML>| Chaîne | Format de la table que vous souhaitez créer | 
 | <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources pour la table <p>**Remarque**: Si le tableau source est vide, l’action crée une table vide. | 
@@ -1561,7 +1561,7 @@ Cette action crée une table CSV ou HTML à partir d’un tableau. Pour les tabl
 
 Pour spécifier ou personnaliser des en-têtes de colonne et des valeurs, utilisez le tableau `columns`. Quand des paires `header-value` ont le même nom d’en-tête, leurs valeurs s’affichent dans la même colonne sous ce nom d’en-tête. Dans le cas contraire, chaque en-tête unique définit une colonne unique.
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*column-name*> | Chaîne | Nom d’en-tête pour une colonne | 
 | <*column-value*> | Quelconque | Valeur de la colonne | 
@@ -1664,7 +1664,7 @@ Cette action arrête l’exécution de l’instance de workflow d’application 
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*status*> | Chaîne | État à retourner pour l’exécution : « Démarré », « Échec » ou « Réussi » |
 |||| 
@@ -1673,7 +1673,7 @@ Cette action arrête l’exécution de l’instance de workflow d’application 
 
 Les propriétés de l’objet « runStatus » s’appliquent uniquement quand la propriété « runStatus » a l’état « Failed ».
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*error-code-or-name*> | Chaîne | Code ou nom de l’erreur |
 | <*error-message*> | Chaîne | Message ou texte qui décrit l’erreur et les actions que peut effectuer l’utilisateur de l’application | 
@@ -1734,7 +1734,7 @@ Cette action interrompt l’exécution du workflow pendant l’intervalle spéci
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*number-of-units*> | Entier  | Pour l’action **Delay**, il s’agit du nombre d’unités pendant lesquelles attendre | 
 | <*interval*> | Chaîne | Pour l’action **Delay**, il s’agit de l’intervalle d’attente : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
@@ -1807,7 +1807,7 @@ Le moteur Logic Apps vérifie l’accès au déclencheur que vous souhaitez appe
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*nested-logic-app-name*> | Chaîne | Nom de l’application logique que vous souhaitez appeler | 
 | <*trigger-name*> | Chaîne | Nom du déclencheur dans l’application logique imbriquée que vous souhaitez appeler | 
@@ -1818,7 +1818,7 @@ Le moteur Logic Apps vérifie l’accès au déclencheur que vous souhaitez appe
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------|  
 | <*header-content*> | Objet JSON | En-têtes à envoyer avec l’appel | 
 | <*body-content*> | Objet JSON | Tout contenu de message à envoyer avec l’appel | 
@@ -1884,7 +1884,7 @@ Cette action de bouclage effectue une itération au sein d’un tableau et exéc
 
 *Obligatoire* 
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*action-1...n*> | Chaîne | Noms des actions qui s’exécutent sur chaque élément du tableau | 
 | <*action-definition-1...n*> | Objet JSON | Définitions des actions qui s’exécutent | 
@@ -1893,7 +1893,7 @@ Cette action de bouclage effectue une itération au sein d’un tableau et exéc
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*count*> | Entier  | Par défaut, les itérations de boucle « for each » s’exécutent en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence de boucle « for each »](#change-for-each-concurrency). | 
 | <*operation-option*> | Chaîne | Pour exécuter une boucle « for each » séquentiellement plutôt qu’en parallèle, affectez la valeur `Sequential` à <*operation-option*> ou la valeur `1` à <*count*>, mais pas les deux. Pour plus d’informations, consultez [Exécuter des boucles « for each » séquentiellement](#sequential-for-each). | 
@@ -1957,7 +1957,7 @@ Cette action, qui est une *instruction conditionnelle*, évalue une expression q
 }
 ```
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*condition*> | Objet JSON | Condition, qui peut être une expression, à évaluer | 
 | <*action-1*> | Objet JSON | Action à exécuter quand <*condition*> a la valeur true | 
@@ -2047,7 +2047,7 @@ Cette action regroupe logiquement des actions en *étendues*, qui reçoivent leu
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------|  
 | <*inner-action-1...n*> | Objet JSON | Une ou plusieurs actions qui s’exécutent au sein de l’étendue |
 | <*action-inputs*> | Objet JSON | Entrées pour chaque action |
@@ -2088,7 +2088,7 @@ Cette action, également appelée *instruction switch*, organise d’autres acti
 
 *Obligatoire*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Varie | Expression, objet JSON ou jeton à évaluer | 
 | <*action-name*> | Chaîne | Nom de l’action à exécuter pour le cas correspondant | 
@@ -2098,7 +2098,7 @@ Cette action, également appelée *instruction switch*, organise d’autres acti
 
 *Facultatif*
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*default-action-name*> | Chaîne | Nom de l’action par défaut à exécuter quand il n’existe aucun cas correspondant | 
 | <*default-action-definition*> | Objet JSON | Définition de l’action à exécuter quand il n’existe aucun cas correspondant | 
@@ -2214,7 +2214,7 @@ Cette action de boucle contient des actions qui s’exécutent jusqu’à ce que
 }
 ```
 
-| Valeur | type | Description | 
+| Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*action-name*> | Chaîne | Nom de l’action que vous souhaitez exécuter à l’intérieur de la boucle | 
 | <*action-type*> | Chaîne | Type d’action à exécuter | 
@@ -2293,7 +2293,7 @@ Pour les déclencheurs et les actions, vous pouvez limiter la durée pour le mod
 
 Vous pouvez changer le comportement d’exécution par défaut pour les déclencheurs et les actions avec ces propriétés `runtimeConfiguration` dans la définition de déclencheur ou d’action.
 
-| Propriété | type | Description | Déclencheur ou action | 
+| Propriété | Type | Description | Déclencheur ou action | 
 |----------|------|-------------|-------------------| 
 | `runtimeConfiguration.concurrency.runs` | Entier  | Modifiez la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’instances d’application logique qui peuvent s’exécuter en même temps ou en parallèle. Cette valeur peut aider à limiter le nombre de requêtes reçues par les systèmes backend. <p>L’affectation de la valeur `1` à la propriété `runs` fonctionne de la même façon que l’affectation de la valeur `SingleInstance` à la propriété `operationOptions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour modifier la limite par défaut, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](#sequential-trigger). | Tous les déclencheurs | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Entier  | Modifier la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’instances d’application logique qui peuvent attendre de s’exécuter quand votre application logique exécute déjà le nombre maximal d’instances simultanées. Vous pouvez modifier la limite de concurrence dans la propriété `concurrency.runs`. <p>Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | Tous les déclencheurs | 
@@ -2306,7 +2306,7 @@ Vous pouvez changer le comportement d’exécution par défaut pour les déclenc
 
 Vous pouvez changer le comportement par défaut pour les déclencheurs et les actions avec la propriété `operationOptions` dans la définition de déclencheur ou d’action.
 
-| Option d’opération | type | Description | Déclencheur ou action | 
+| Option d’opération | Type | Description | Déclencheur ou action | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | Chaîne | Exécuter des actions basées sur HTTP de manière synchrone plutôt qu’asynchrone. <p><p>Pour définir cette option, consultez [Exécuter des actions de manière synchrone](#asynchronous-patterns). | Actions : <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Réponse](#response-action) | 
 | `OptimizedForHighThroughput` | Chaîne | Modifier la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) du nombre d’exécutions d’action par tranche de cinq minutes et affecter la [limite maximale](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Pour définir cette option, consultez [Exécuter en mode de débit élevé](#run-high-throughput-mode). | Toutes les actions | 
@@ -2557,7 +2557,7 @@ Pour une exécution d’application logique unique, le nombre d’actions qui s�
 
 <a name="connector-authentication"></a>
 
-## <a name="authenticate-triggers-or-actions"></a>Authentifier des déclencheurs ou des actions
+## <a name="authenticate-http-triggers-and-actions"></a>Authentifier les actions et déclencheurs HTTP
 
 Les points de terminaison HTTP prennent en charge différents types d’authentification. Vous pouvez configurer l’authentification pour ces actions et déclencheurs HTTP :
 
@@ -2571,22 +2571,25 @@ Voici les types d’authentification que vous pouvez configurer :
 * [Authentification par certificat client](#client-certificate-authentication)
 * [Authentification OAuth Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
 
+> [!IMPORTANT]
+> Assurez-vous que vous protégez toutes les informations confidentielles que votre définition de flux de travail d’application logique gère. Utilisez des paramètres sécurisés et encodez des données selon les besoins. Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+
 <a name="basic-authentication"></a>
 
 ### <a name="basic-authentication"></a>Authentification de base
 
-Pour ce type d’authentification, votre définition de déclencheur ou d’action peut inclure un objet JSON `authentication` qui a les propriétés suivantes :
+Pour [l’authentification de base](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) à l’aide d’Azure Active Directory, votre définition de déclencheur ou d’action peut inclure un `authentication` objet JSON, qui a les propriétés spécifiées par le tableau suivant. Pour accéder aux valeurs de paramètre en cours d’exécution, vous pouvez utiliser l’expression `@parameters('parameterName')` fournie par le [Langage de définition du flux de travail](https://aka.ms/logicappsdocs). 
 
-| Propriété | Obligatoire | Valeur | Description | 
+| Propriété | Obligatoire | Value | Description | 
 |----------|----------|-------|-------------| 
 | **type** | Oui | "Basic" | Type d’authentification à utiliser, en l’occurrence "Basic" | 
-| **nom d’utilisateur** | Oui | "@parameters('userNameParam')" | Paramètre qui passe le nom d’utilisateur nécessaire à l’authentification en vue d’accéder au point de terminaison de service cible |
-| **mot de passe** | Oui | "@parameters('passwordParam')" | Paramètre qui passe le mot de passe nécessaire à l’authentification en vue d’accéder au point de terminaison de service cible |
+| **nom d’utilisateur** | Oui | "@parameters('userNameParam')" | Nom d’utilisateur permettant d’authentifier l’accès au point de terminaison de service cible |
+| **mot de passe** | Oui | "@parameters('passwordParam')" | Mot de passe permettant d’authentifier l’accès au point de terminaison de service cible |
 ||||| 
 
-Par exemple, voici le format pour l’objet `authentication` dans votre définition de déclencheur ou action. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser les informations sensibles](#secure-info). 
+Dans cet exemple de définition d’action HTTP, la `authentication` section spécifie `Basic` l’authentification. Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
@@ -2601,112 +2604,85 @@ Par exemple, voici le format pour l’objet `authentication` dans votre définit
   "runAfter": {}
 }
 ```
+
+> [!IMPORTANT]
+> Assurez-vous que vous protégez toutes les informations confidentielles que votre définition de flux de travail d’application logique gère. Utilisez des paramètres sécurisés et encodez des données selon les besoins. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="client-certificate-authentication"></a>
 
 ### <a name="client-certificate-authentication"></a>Authentification par certificat client
 
-Pour ce type d’authentification, votre définition de déclencheur ou d’action peut inclure un objet JSON `authentication` qui a les propriétés suivantes :
+Pour [l’authentification basée sur un certificat](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) à l’aide d’Azure Active Directory, votre définition de déclencheur ou d’action peut inclure un `authentication` objet JSON, qui a les propriétés spécifiées par le tableau suivant. Pour accéder aux valeurs de paramètre en cours d’exécution, vous pouvez utiliser l’expression `@parameters('parameterName')` fournie par le [Langage de définition du flux de travail](https://aka.ms/logicappsdocs). Pour connaître les limites du nombre de certificats clients que vous pouvez utiliser, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md).
 
-| Propriété | Obligatoire | Valeur | Description | 
-|----------|----------|-------|-------------| 
-| **type** | Oui | "ClientCertificate" | Type d’authentification à utiliser pour les certificats clients SSL (Secure Sockets Layer) | 
-| **pfx** | Oui | <*fichier pfx encodé en base64*> | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) |
-| **mot de passe** | Oui | "@parameters('passwordParam')" | Paramètre avec le mot de passe pour l’accès au fichier PFX |
+| Propriété | Obligatoire | Value | Description |
+|----------|----------|-------|-------------|
+| **type** | Oui | "ClientCertificate" | Type d’authentification à utiliser pour les certificats clients SSL (Secure Sockets Layer). Alors que les certificats auto-signés sont pris en charge, des certificats auto-signés pour SSL ne sont pas pris en charge. |
+| **pfx** | Oui | "@parameters('pfxParam') | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) |
+| **mot de passe** | Oui | "@parameters('passwordParam')" | Mot de passe pour accéder au fichier PFX |
 ||||| 
 
-Par exemple, voici le format pour l’objet `authentication` dans votre définition de déclencheur ou action. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser les informations sensibles](#secure-info). 
+Dans cet exemple de définition d’action HTTP, la `authentication` section spécifie `ClientCertificate` l’authentification. Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
-```javascript
-"authentication": {
-   "password": "@parameters('passwordParam')",
-   "pfx": "aGVsbG8g...d29ybGQ=",
-   "type": "ClientCertificate"
-}
-```
-
-<a name="azure-active-directory-oauth-authentication"></a>
-
-### <a name="azure-active-directory-ad-oauth-authentication"></a>Authentification OAuth Azure Active Directory (AD)
-
-Pour ce type d’authentification, votre définition de déclencheur ou d’action peut inclure un objet JSON `authentication` qui a les propriétés suivantes :
-
-| Propriété | Obligatoire | Valeur | Description | 
-|----------|----------|-------|-------------| 
-| **type** | Oui | `ActiveDirectoryOAuth` | Type d’authentification à utiliser, qui est "ActiveDirectoryOAuth" pour Azure AD OAuth | 
-| **authority** | Non  | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’authentification |  
-| **client** | Oui | <*ID de locataire*> | Identificateur du locataire Azure AD | 
-| **public ciblé** | Oui | <*ressource à autoriser*> | Ressource que doit utiliser l’autorisation, par exemple, `https://management.core.windows.net/` | 
-| **clientId** | Oui | <*ID client*> | ID client pour l’application demandant l’autorisation | 
-| **credentialType** | Oui | "Secret" ou "Certificate" | Type d’informations d’identification que le client utilise pour la demande d’autorisation. Ces propriété et valeur n’apparaissent pas dans votre définition sous-jacente, mais elles déterminent les paramètres requis pour le type d’informations d’identification. | 
-| **mot de passe** | Oui, uniquement pour le type d’informations d’identification "Certificate" | "@parameters('passwordParam')" | Paramètre avec le mot de passe pour l’accès au fichier PFX | 
-| **pfx** | Oui, uniquement pour le type d’informations d’identification "Certificate" | <*fichier pfx encodé en base64*> | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) |
-| **secret** | Oui, uniquement pour le type d’informations d’identification "Secret" | <*secret pour l’authentification*> | Secret encodé en base64 que le client utilise pour la demande d’autorisation |
-||||| 
-
-Par exemple, voici le format pour l’objet `authentication` quand votre définition de déclencheur ou d’action utilise le type d’informations d’identification « Secret » : Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser les informations sensibles](#secure-info). 
-
-```javascript
-"authentication": {
-   "audience": "https://management.core.windows.net/",
-   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-   "type": "ActiveDirectoryOAuth"
-}
-```
-
-<a name="secure-info"></a>
-
-## <a name="secure-sensitive-information"></a>Sécuriser les informations sensibles
-
-Afin de protéger les informations sensibles que vous utilisez pour l’authentification, telles que les noms d’utilisateur et les mots de passe, dans vos définitions de déclencheur et d’action, vous pouvez utiliser des paramètres et l’expression `@parameters()` afin que ces informations ne soient pas visibles une fois que vous avez enregistré votre application logique. 
-
-Par exemple, supposons que vous utilisez l’authentification « Basic » dans votre définition de déclencheur ou d’action. Voici un exemple d’objet `authentication` qui spécifie un nom d’utilisateur et un mot de passe :
-
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "GET",
       "uri": "http://www.microsoft.com",
       "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
+         "type": "ClientCertificate",
+         "pfx": "@parameters('pfxParam')",
          "password": "@parameters('passwordParam')"
       }
-  },
-  "runAfter": {}
+   },
+   "runAfter": {}
 }
 ```
 
-Dans la section `parameters` de la définition de votre application logique, définissez les paramètres que vous avez utilisés dans votre définition de déclencheur ou d’action :
+> [!IMPORTANT]
+> Assurez-vous que vous protégez toutes les informations confidentielles que votre définition de flux de travail d’application logique gère. Utilisez des paramètres sécurisés et encodez des données selon les besoins. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
-```javascript
-"definition": {
-   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-   "actions": {
-      "HTTP": {
-      }
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Authentification OAuth Azure Active Directory (AD)
+
+Pour [l’authentification Azure AD OAuth](../active-directory/develop/authentication-scenarios.md), votre définition de déclencheur ou d’action peut inclure un `authentication` objet JSON, qui a les propriétés spécifiées par le tableau suivant. Pour accéder aux valeurs de paramètre en cours d’exécution, vous pouvez utiliser l’expression `@parameters('parameterName')` fournie par le [Langage de définition du flux de travail](https://aka.ms/logicappsdocs).
+
+| Propriété | Obligatoire | Value | Description |
+|----------|----------|-------|-------------|
+| **type** | Oui | `ActiveDirectoryOAuth` | Type d’authentification à utiliser, qui est "ActiveDirectoryOAuth" pour Azure AD OAuth |
+| **authority** | Non  | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’authentification |
+| **client** | Oui | <*ID de locataire*> | Identificateur du locataire Azure AD |
+| **public ciblé** | Oui | <*ressource à autoriser*> | Ressource à utiliser pour l’autorisation, par exemple, `https://management.core.windows.net/` |
+| **clientId** | Oui | <*ID client*> | ID client pour l’application demandant l’autorisation |
+| **credentialType** | Oui | « Certificat » ou « Secret » | Type d’informations d’identification que le client utilise pour la demande d’autorisation. Ces propriété et valeur n’apparaissent pas dans votre définition sous-jacente, mais elles déterminent les paramètres requis pour le type d’informations d’identification. |
+| **pfx** | Oui, uniquement pour le type d’informations d’identification "Certificate" | "@parameters('pfxParam') | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) |
+| **mot de passe** | Oui, uniquement pour le type d’informations d’identification "Certificate" | "@parameters('passwordParam')" | Mot de passe pour accéder au fichier PFX |
+| **secret** | Oui, uniquement pour le type d’informations d’identification "Secret" | "@parameters('secretParam')" | Clé secrète client permettant de demander une autorisation |
+|||||
+
+Dans cet exemple de définition d’action HTTP, la `authentication` section spécifie `ActiveDirectoryOAuth` l’authentification et le type d’informations d’identification « Secret ». Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "ActiveDirectoryOAuth",
+         "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+         "audience": "https://management.core.windows.net/",
+         "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+         "secret": "@parameters('secretParam')"
+     }
    },
-   "parameters": {
-      "passwordParam": {
-         "type": "securestring"
-      },
-      "userNameParam": {
-         "type": "securestring"
-      }
-   },
-   "triggers": {
-      "HTTP": {
-      }
-   },
-   "contentVersion": "1.0.0.0",
-   "outputs": {}
-},
+   "runAfter": {}
+}
 ```
 
-Si vous créez ou utilisez un modèle de déploiement Azure Resource Manager, vous devez également inclure une section `parameters` externe pour votre définition de modèle. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser l’accès à vos applications logiques](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). 
+> [!IMPORTANT]
+> Assurez-vous que vous protégez toutes les informations confidentielles que votre définition de flux de travail d’application logique gère. Utilisez des paramètres sécurisés et encodez des données selon les besoins. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
