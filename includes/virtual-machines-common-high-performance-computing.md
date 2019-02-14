@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a1a6b31c1500c51dbbc32683d9e0e911b60dcae4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440448"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246858"
 ---
 Les organisations ont des besoins informatiques à grande échelle. Ces problèmes informatiques à grande échelle comprennent l’analyse et la conception d’ingénierie, les calculs de risques financiers, le rendu d’image, la modélisation complexe, les simulations Monte Carlo, etc. 
 
@@ -25,12 +25,12 @@ Utilisez le cloud Azure pour exécuter efficacement des charges de travail de ca
     * Configurez votre environnement de cluster dans des machines virtuelles Azure ou dans des [groupes de machines virtuelles identiques](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
     * Effectuez la migration « lift-and-shift » d’un cluster local, ou déployez un nouveau cluster dans Azure pour une capacité plus importante. 
     * Utilisez les modèles Azure Resource Manager pour déployer des [gestionnaires de charge de travail](#workload-managers) principaux, des infrastructures et des [applications](#hpc-applications). 
-    * Choisissez les [tailles de HPC et de GPU de la machine virtuelle](#hpc-and-gpu-sizes), comprenant des matériels et connexions réseau spécialisés pour les charges de travail MPI et GPU. 
+    * Choisissez les [tailles de HPC et de GPU de la machine virtuelle](#hpc-and-gpu-vm-sizes), comprenant des matériels et connexions réseau spécialisés pour les charges de travail MPI et GPU. 
     * Ajoutez du [stockage de haute performance](#hpc-storage) aux charges de travail intensives d’E/S.
 * **Solutions hybrides**
     * Étendre votre solution locale à des charges de travail de déchargement en pic (« burst ») dans une infrastructure Azure
-    * Utilisez les calculs du cloud à la demande avec votre [gestionnaire de charges de travail](#workload-manager) existant.
-    * Tirez parti des [tailles de HPC et de GPU de la machine virtuelle](#hpc-and-gpu-sizes) pour les charges de travail MPI et GPU.
+    * Utilisez les calculs du cloud à la demande avec votre [gestionnaire de charges de travail](#workload-managers) existant.
+    * Tirez parti des [tailles de HPC et de GPU de la machine virtuelle](#hpc-and-gpu-vm-sizes) pour les charges de travail MPI et GPU.
 * **Solutions Big Compute en tant que service**
     * Développez des solutions Big Compute et des worklows personnalisés à l’aide d’[Azure CycleCloud](#azure-cyclecloud), [Azure Batch](#azure-batch), et autres [services Azure services](#related-azure-services) associés.
     * Exécutez des solutions de simulation et d’ingénierie pour Azure de vendeurs tels que [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/) et [Cycle Computing](https://cyclecomputing.com/) (et [Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/) depuis peu).

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Wingspan eTMF | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Wingspan eTMF | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Wingspan eTMF.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 8003794f78c3a07129ebe2373ccd58472f5d933e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3eafaf6a724b3e09c808bd20f7097f796fff4069
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167714"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166145"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Didacticiel : Intégration d’Azure Active Directory à Wingspan eTMF
+# <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Tutoriel : Intégration d’Azure Active Directory à Wingspan eTMF
 
 Dans ce didacticiel, vous découvrez comment intégrer Wingspan eTMF à Azure Active Directory (Azure AD).
 

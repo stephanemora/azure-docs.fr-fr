@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190899"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118443"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -244,7 +244,7 @@ Vous pouvez créer une tâche web planifiée à l’aide d’expressions CRON :
 
 1. Créez un fichier settings.job.
 2. Dans ce fichier JSON, incluez une propriété de planification à l’aide d’une expression CRON : 
-    ```
+    ```json
     { "schedule": "{second}
     {minute} {hour} {day}
     {month} {day of the week}" }
@@ -262,6 +262,8 @@ Pour savoir comment utiliser un nom de domaine personnalisé avec une applicatio
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>Mon certificat App Service est marqué pour une fraude. Comment résoudre ce problème ?
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Lors de la vérification du domaine d’un achat de certificat App Service, vous pouvez voir le message suivant :
 
 « Votre certificat a été marqué, car il est possible qu’il soit frauduleux. La demande est en cours de révision. Si le certificat n’est pas utilisable dans les 24 heures, consultez le support technique d’Azure. »
@@ -270,13 +272,13 @@ Comme indiqué dans le message, ce processus de vérification de fraude peut pre
 
 Si votre certificat App Service continue d’afficher ce message après 24 heures, exécutez le script PowerShell suivant. Le script contacte directement le [fournisseur de certificat](https://www.godaddy.com/) pour résoudre le problème.
 
-```
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <subId>
+```powershell
+Connect-AzAccount
+Set-AzContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"
     };
-Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
+Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
 ```
 
 ## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>Comment fonctionnent l’authentification et l’autorisation dans Azure App Service
@@ -312,10 +314,10 @@ Si aucune de ces conditions ne s’applique et que le problème persiste, envoye
 
 Pour activer la compression des contenu statiques et dynamiques, ajoutez le code suivant au fichier web.config de niveau application :
 
-```
+```xml
 <system.webServer>
-<urlCompression doStaticCompression="true" doDynamicCompression="true" />
-< /system.webServer>
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+</system.webServer>
 ```
 
 Vous pouvez également spécifier les types MIME dynamiques et statiques spécifiques que vous souhaitez compresser. Pour plus d’informations, voir notre réponse à une question posée sur le forum [httpCompression settings on a simple Azure Website](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).

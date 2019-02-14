@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
-ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 57fea889c79028e419f9a33ecbb1d8f3aede7db7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488673"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107121"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Fonctions de tableau et d’objet pour les modèles Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Resource Manager fournit les fonctions ci-après pour travailler avec des tableaux et des objets.
 
@@ -58,7 +60,7 @@ Convertit la valeur en tableau.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Oui |entier, chaîne, tableau ou objet |Valeur à convertir en tableau. |
+| convertToArray |OUI |entier, chaîne, tableau ou objet |Valeur à convertir en tableau. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -136,7 +138,7 @@ Retourne la première valeur non null à partir des paramètres. Les chaînes vi
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier, chaîne, tableau ou objet |La première valeur dans laquelle rechercher des valeurs null. |
+| arg1 |OUI |entier, chaîne, tableau ou objet |La première valeur dans laquelle rechercher des valeurs null. |
 | arguments supplémentaires |Non  |entier, chaîne, tableau ou objet |Valeurs supplémentaires dans lesquelles rechercher des valeurs null. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -224,7 +226,7 @@ Combine plusieurs tableaux et retourne le tableau concaténé, ou combine plusie
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |Le premier tableau ou la première chaîne à concaténer. |
+| arg1 |OUI |tableau ou chaîne |Le premier tableau ou la première chaîne à concaténer. |
 | arguments supplémentaires |Non  |tableau ou chaîne |Tableaux ou chaînes supplémentaires en ordre séquentiel pour la concaténation. |
 
 Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres.
@@ -338,8 +340,8 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| conteneur |Oui |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
-| itemToFind |Oui |chaîne ou entier |La valeur à trouver. |
+| conteneur |OUI |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
+| itemToFind |OUI |chaîne ou entier |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -432,7 +434,7 @@ Crée un tableau à partir des paramètres.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |Chaîne, entier, tableau ou objet |La première valeur dans le tableau. |
+| arg1 |OUI |Chaîne, entier, tableau ou objet |La première valeur dans le tableau. |
 | arguments supplémentaires |Non  |Chaîne, entier, tableau ou objet |Valeurs supplémentaires dans le tableau. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -513,7 +515,7 @@ Détermine si un tableau, un objet ou une chaîne est vide.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Oui |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
+| itemToTest |OUI |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -591,7 +593,7 @@ Retourne le premier élément du tableau ou le premier caractère de la chaîne.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
+| arg1 |OUI |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -656,8 +658,8 @@ Retourne un tableau ou un objet unique avec les éléments communs à partir des
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |objet ou tableau |La première valeur à utiliser pour rechercher des éléments communs. |
-| arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
+| arg1 |OUI |objet ou tableau |La première valeur à utiliser pour rechercher des éléments communs. |
+| arg2 |OUI |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
 | arguments supplémentaires |Non  |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -733,7 +735,7 @@ Renvoie un objet JSON.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |chaîne |La valeur à convertir au format JSON. |
+| arg1 |OUI |chaîne |La valeur à convertir au format JSON. |
 
 
 ### <a name="return-value"></a>Valeur de retour
@@ -808,7 +810,7 @@ Retourne le dernier élément du tableau ou le dernier caractère de la chaîne.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
+| arg1 |OUI |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -873,7 +875,7 @@ Retourne le nombre d’éléments contenus dans un tableau ou les caractères da
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
+| arg1 |OUI |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -956,7 +958,7 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
+| arg1 |OUI |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1020,7 +1022,7 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
+| arg1 |OUI |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1084,8 +1086,8 @@ Crée un tableau d’entiers à partir d’un entier de départ et contenant un 
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Oui |int |Premier entier du tableau. |
-| numberofElements |Oui |int |Nombre d’entiers dans le tableau. |
+| startingInteger |OUI |int |Premier entier du tableau. |
+| numberofElements |OUI |int |Nombre d’entiers dans le tableau. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1148,8 +1150,8 @@ Retourne un tableau avec tous les éléments après le nombre spécifié dans le
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
-| numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
+| originalValue |OUI |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
+| numberToSkip |OUI |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1229,8 +1231,8 @@ Retourne un tableau avec le nombre spécifié d’éléments à partir du début
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
-| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
+| originalValue |OUI |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
+| numberToTake |OUI |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1310,8 +1312,8 @@ Retourne un tableau ou un objet unique avec tous les éléments communs à parti
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |objet ou tableau |La première valeur à utiliser pour joindre des éléments. |
-| arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
+| arg1 |OUI |objet ou tableau |La première valeur à utiliser pour joindre des éléments. |
+| arg2 |OUI |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
 | arguments supplémentaires |Non  |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
 
 ### <a name="return-value"></a>Valeur de retour

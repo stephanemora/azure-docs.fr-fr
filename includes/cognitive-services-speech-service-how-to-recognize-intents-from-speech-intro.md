@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 88cb9f18002f15ea926fe5ded3a5ac9af7a99cbe
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 80bf9247bbb07fa61b7153e321b1991b82a9d616
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716177"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246863"
 ---
 <!-- N.B. no header, language-agnostic -->
 
@@ -28,4 +28,4 @@ Le [SDK Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) de M
 Consultez les extraits de code suivants pour les scénarios de reconnaissance de l’intention utilisant le SDK Speech. Remplacez les valeurs de l’exemple par votre propre clé d’abonnement LUIS (clé du point de terminaison), la [région de votre abonnement](~/articles/cognitive-services/speech-service/regions.md#intent-recognition) et l’**AppId** de votre modèle d’intention.
 
 > [!NOTE]
-> Contrairement à d’autres services pris en charge par le SDK Speech, la reconnaissance de l’intention requiert une clé d’abonnement spécifique (clé du point de terminaison LUIS). Pour plus d’informations sur la technologie de reconnaissance de l’intention, consultez le [site Web LUIS](https://www.luis.ai). Pour plus d’informations l’acquisition de la **clé du point de terminaison**, consultez l’article [Créer une clé du point de terminaison LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).
+> Contrairement à d’autres services pris en charge par le SDK Speech, la reconnaissance de l’intention requiert une clé d’abonnement spécifique (clé du point de terminaison LUIS). Pour plus d’informations sur la technologie de reconnaissance de l’intention, consultez le [site Web LUIS](https://www.luis.ai). Pour plus d’informations l’acquisition de la **clé du point de terminaison**, consultez l’article [Créer une clé du point de terminaison LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription).

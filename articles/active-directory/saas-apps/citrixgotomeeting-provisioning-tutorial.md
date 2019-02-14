@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e0250a750ff1fb72b5f15ed58d16579e9503d46d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6e3145d0faaa3aecb90b582b3b6ef0063572ff43
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166388"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175963"
 ---
-# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutoriel : Configurer GoToMeeting pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Didacticiel : Configurer GoToMeeting pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans GoToMeeting et Azure AD pour provisionner automatiquement des comptes d’utilisateur Azure AD dans GoToMeeting, ainsi que pour annuler automatiquement ce provisionnement.
 

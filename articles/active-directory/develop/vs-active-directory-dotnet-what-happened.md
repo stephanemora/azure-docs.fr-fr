@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: cc14f170a748f91289bbc644d5a9bef10697ce34
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cd57eadc2c42c17343eee6d813072866e8ea09e3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427359"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196210"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Qu'est-il arrivé à mon projet MVC (service connecté Azure Active Directory Visual Studio) ?
 
@@ -33,7 +34,7 @@ Pour plus d’informations sur l’utilisation du service connecté, consultez l
 
 Affecte les références *.NET du fichier projet et `packages.config` (références NuGet).
 
-| type | Informations de référence |
+| Type | Informations de référence |
 | --- | --- |
 | .NET ; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET ; NuGet | Microsoft.Owin |
@@ -48,7 +49,7 @@ Affecte les références *.NET du fichier projet et `packages.config` (référen
 
 Références supplémentaires si l’option **Lire les données d’annuaire** est sélectionnée :
 
-| type | Informations de référence |
+| Type | Informations de référence |
 | --- | --- |
 | .NET ; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 uniquement) |
@@ -62,7 +63,7 @@ Références supplémentaires si l’option **Lire les données d’annuaire** e
 
 Les références suivantes sont supprimées (projets ASP.NET 4 uniquement, comme dans Visual Studio 2015) :
 
-| type | Informations de référence |
+| Type | Informations de référence |
 | --- | --- |
 | .NET ; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET ; NuGet | Microsoft.AspNet.Identity.EntityFramework |

@@ -5,7 +5,7 @@ items:
   items:
   - name: À propos de Notification Hubs
     href: notification-hubs-push-notification-overview.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: 1 - Notifications push vers tous les appareils inscrits
     items:
@@ -76,7 +76,7 @@ items:
       href: notification-hubs-templates-cross-platform-push-messages.md
   - name: Modèle de sécurité
     href: notification-hubs-push-notification-security.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Changer le niveau tarifaire
     href: change-pricing-tier.md
@@ -113,7 +113,7 @@ items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: PowerShell
-    href: /powershell/module/azurerm.notificationhubs
+    href: /powershell/module/az.notificationhubs
   - name: API REST
     href: /rest/api/notificationhubs
   - name: Modèle Resource Manager
@@ -128,7 +128,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/notification-hubs/
   - name: Forum MSDN
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-notificationhub
   - name: Demander une fonctionnalité
     href: https://feedback.azure.com/forums/218849-notification-hubs
@@ -136,9 +136,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Options de support
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: ce941c63797a14d8fb629c958ad3fb741f34fc0c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b874aadd82357deff5fe6063e033c0702a49adad
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196784"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244279"

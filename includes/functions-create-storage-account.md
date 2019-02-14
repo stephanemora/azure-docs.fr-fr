@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: cf8c6f07eb38487dd29624b15be3637536be92fc
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 889b9c0cf944085f5f42ece892d5cac747a27240
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134167"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246853"
 ---
 ## <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
-Functions utilise un compte à usage général dans stockage Azure pour conserver l’état et d’autres informations sur vos fonctions. Créez un compte de stockage à usage général dans le groupe de ressources que vous avez créé à l’aide de la commande [az storage account create](/cli/azure/storage/account#create).
+Functions utilise un compte à usage général dans stockage Azure pour conserver l’état et d’autres informations sur vos fonctions. Créez un compte de stockage à usage général dans le groupe de ressources que vous avez créé à l’aide de la commande [az storage account create](/cli/azure/storage/account).
 
 Dans la commande suivante, indiquez un nom de compte de stockage global unique là où se trouve l’espace réservé `<storage_name>`. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
 

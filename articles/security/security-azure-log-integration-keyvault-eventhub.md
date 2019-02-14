@@ -3,7 +3,7 @@ title: Intégrer les journaux d’Azure Key Vault à l’aide d’Event Hubs | M
 description: Didacticiel décrivant la procédure requise pour rendre accessibles les journaux Key Vault à un système SIEM (Security Information and Event Management, système de gestion des événements et des informations de sécurité) grâce à la solution d’intégration des journaux Azure
 services: security
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: f9eb4489894632502b7df97cd1149bd027164d19
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 21a1cd6d0326c834a05681ffe98555ea52858e6e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437417"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106560"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutoriel Azure Log Integration : Traiter les événements Azure Key Vault avec Event Hubs
 

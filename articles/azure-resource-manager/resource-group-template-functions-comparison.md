@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 45ceee02c7ddeab84b1c3593c34aa04b8e7628d8
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492852"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108266"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Fonctions de comparaison pour les modèles Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dans vos modèles.
 
@@ -42,8 +44,8 @@ Vérifie si deux valeurs sont égales.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier, chaîne, tableau ou objet |Première valeur dont l’égalité est à vérifier. |
-| arg2 |Oui |entier, chaîne, tableau ou objet |Deuxième valeur dont l’égalité est à vérifier. |
+| arg1 |OUI |entier, chaîne, tableau ou objet |Première valeur dont l’égalité est à vérifier. |
+| arg2 |OUI |entier, chaîne, tableau ou objet |Deuxième valeur dont l’égalité est à vérifier. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -198,8 +200,8 @@ Vérifie si la première valeur est supérieure à la deuxième valeur.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « supérieur à ». |
-| arg2 |Oui |entier ou chaîne |Seconde valeur pour la comparaison « supérieur à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « supérieur à ». |
+| arg2 |OUI |entier ou chaîne |Seconde valeur pour la comparaison « supérieur à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -274,8 +276,8 @@ Vérifie si la première valeur est supérieure ou égale à la deuxième valeur
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « supérieur ou égal à ». |
-| arg2 |Oui |entier ou chaîne |Seconde valeur pour la comparaison « supérieur ou égal à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « supérieur ou égal à ». |
+| arg2 |OUI |entier ou chaîne |Seconde valeur pour la comparaison « supérieur ou égal à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -350,8 +352,8 @@ Vérifie si la première valeur est inférieure à la deuxième valeur.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
-| arg2 |Oui |entier ou chaîne |Deuxième valeur pour la comparaison « inférieur à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
+| arg2 |OUI |entier ou chaîne |Deuxième valeur pour la comparaison « inférieur à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -426,8 +428,8 @@ Vérifie si la première valeur est inférieure ou égale à la deuxième valeur
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
-| arg2 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur ou égal à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
+| arg2 |OUI |entier ou chaîne |Première valeur pour la comparaison « inférieur ou égal à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 

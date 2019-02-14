@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à SmartRecruiters | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à SmartRecruiters | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SmartRecruiters.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 3e316f0bf81d2ccc9ecdf86baceb641faacf074d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f2d2fc7e79e92f3a1c9e069a652b2a3c21183bf1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178441"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190107"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Tutoriel : Intégration d’Azure Active Directory à SmartRecruiters
+# <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Didacticiel : Intégration d’Azure Active Directory à SmartRecruiters
 
 Dans ce didacticiel, vous apprenez à intégrer SmartRecruiters à Azure Active Directory (Azure AD).
 

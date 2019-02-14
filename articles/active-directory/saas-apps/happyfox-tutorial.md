@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 94bd0367b8626a83fd10fc51d8b606ab38f6182c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 10185f21ea396cc90e165a5132c33a0d7e695058
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178067"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167563"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Didacticiel : Intégration d’Azure Active Directory à HappyFox
+# <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Tutoriel : Intégration d’Azure Active Directory à HappyFox
 
 Dans ce didacticiel, vous allez apprendre à intégrer HappyFox dans Azure Active Directory (Azure AD).
 

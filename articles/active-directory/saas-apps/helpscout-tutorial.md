@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Help Scout | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Help Scout | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Help Scout.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ea28b150b94b4f1ecc1bdb6095170ce6f409f27
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3f999ff396a5573e6928fd8a25e1bb634f3615c0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165606"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179279"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Didacticiel : Intégration d’Azure Active Directory à Help Scout
 

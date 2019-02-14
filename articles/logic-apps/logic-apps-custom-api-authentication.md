@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: d83a27d87ffadd15a27196a11ae3f69d84232efa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719593"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245947"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Sécuriser les appels à des API personnalisées à partir d’Azure Logic Apps
 
@@ -94,13 +94,15 @@ Votre application logique utilise cette identité d’application Azure AD pour 
 
 **Créer l’identité d’application pour votre application logique dans PowerShell**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Vous pouvez effectuer cette tâche par le biais d’Azure Resource Manager avec PowerShell. Dans PowerShell, exécutez ces commandes :
 
-1. `Add-AzureRmAccount`
+1. `Add-AzAccount`
 
 2. `$SecurePassword = Read-Host -AsSecureString` (Entrez un mot de passe et appuyez sur Entrée)
 
-3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. Veillez à copier **l’ID de locataire** (GUID pour votre locataire Azure AD), **l’ID d’application** et le mot de passe que vous avez utilisé.
 
@@ -188,11 +190,11 @@ Ouvrez votre définition d’application logique en mode code, accédez à la se
 
 | Élément | Obligatoire | Description | 
 | ------- | -------- | ----------- | 
-| locataire | Oui | GUID du locataire Azure AD | 
-| audience | Oui | GUID de la ressource cible à laquelle vous souhaitez accéder, c’est-à-dire l’ID client de l’identité de votre application web ou de votre application API | 
-| clientId | Oui | GUID du client demandant l’accès, c’est-à-dire l’ID client de l’identité de votre application logique | 
-| secret | Oui | Clé ou mot de passe de l’identité d’application pour le client qui demande le jeton d’accès | 
-| Type | Oui | Type d’authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. | 
+| locataire | OUI | GUID du locataire Azure AD | 
+| audience | OUI | GUID de la ressource cible à laquelle vous souhaitez accéder, c’est-à-dire l’ID client de l’identité de votre application web ou de votre application API | 
+| clientId | OUI | GUID du client demandant l’accès, c’est-à-dire l’ID client de l’identité de votre application logique | 
+| secret | OUI | Clé ou mot de passe de l’identité d’application pour le client qui demande le jeton d’accès | 
+| Type | OUI | Type d’authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. | 
 |||| 
 
 Par exemple : 
@@ -234,9 +236,9 @@ Dans la section **Autorisation**, ajoutez cette ligne :
 
 | Élément | Obligatoire | Description | 
 | ------- | -------- | ----------- | 
-| Type | Oui | Type d’authentification. Pour les certificats client SSL, la valeur doit être `ClientCertificate`. | 
-| password | Oui | Mot de passe pour l’accès au certificat client (fichier PFX) | 
-| pfx | Oui | Contenu codé base 64 du certificat client (fichier PFX) | 
+| Type | OUI | Type d’authentification. Pour les certificats client SSL, la valeur doit être `ClientCertificate`. | 
+| password | OUI | Mot de passe pour l’accès au certificat client (fichier PFX) | 
+| pfx | OUI | Contenu codé base 64 du certificat client (fichier PFX) | 
 |||| 
 
 <a name="basic"></a>
@@ -251,9 +253,9 @@ Dans la section **Autorisation**, ajoutez cette ligne :
 
 | Élément | Obligatoire | Description | 
 | ------- | -------- | ----------- | 
-| Type | Oui | Le type d’authentification que vous souhaitez utiliser. Pour l’authentification de base, la valeur doit être `Basic`. | 
-| username | Oui | Le nom d’utilisateur que vous souhaitez utiliser pour l’authentification. | 
-| password | Oui | Le mot de passe que vous souhaitez utiliser pour l’authentification. | 
+| Type | OUI | Le type d’authentification que vous souhaitez utiliser. Pour l’authentification de base, la valeur doit être `Basic`. | 
+| username | OUI | Le nom d’utilisateur que vous souhaitez utiliser pour l’authentification. | 
+| password | OUI | Le mot de passe que vous souhaitez utiliser pour l’authentification. | 
 |||| 
 
 <a name="azure-ad-code"></a>

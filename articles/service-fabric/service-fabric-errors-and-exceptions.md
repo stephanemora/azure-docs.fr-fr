@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/20/2018
 ms.author: ryanwi
-ms.openlocfilehash: d96da4cc53299d978f8f69acb6a92d957c4f693e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fae345530a28bc7fdb875570546b125b13a79310
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697566"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104030"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Exceptions et erreurs courantes lorsque vous travaillez avec les API FabricClient
 Les API [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) permettent aux administrateurs de clusters et d’applications d’effectuer des tâches administratives au niveau d’une application, d’un service ou d’un cluster Service Fabric. Par exemple : déploiement d’une application, mise à niveau, suppression, vérification de l'intégrité d’un cluster, ou test d’un service. Les développeurs d'applications et les administrateurs de clusters peuvent utiliser les API FabricClient pour développer des outils permettant de gérer le cluster et les applications Service Fabric.
@@ -31,7 +31,7 @@ Il existe de nombreux types d'opérations qui peuvent être effectuées à l'aid
 | [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception) |L’objet [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) est à l’état fermé. Supprimez l’objet [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) que vous utilisez et instanciez un nouvel objet [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). |
 | [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception) |L'opération a expiré. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) est renvoyé lorsque la durée de l’opération dépasse la valeur MaxOperationTimeout. |
 | [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception) |La vérification d'accès pour l'opération a échoué. E_ACCESSDENIED est renvoyée. |
-| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |Une erreur d'exécution s'est produite lors de l'opération. N’importe quelle méthode FabricClient peut potentiellement générer une exception [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception). La propriété [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception_ErrorCode) indique la cause exacte de l’exception. Les codes d’erreur sont définis dans l’énumération [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode). |
+| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |Une erreur d'exécution s'est produite lors de l'opération. N’importe quelle méthode FabricClient peut potentiellement générer une exception [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception). La propriété [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception.ErrorCode) indique la cause exacte de l’exception. Les codes d’erreur sont définis dans l’énumération [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode). |
 | [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception) |L'opération a échoué en raison d'une condition d'erreur transitoire quelconque. Par exemple, une opération peut échouer si un quorum de réplicas est temporairement inaccessible. Les exceptions temporaires correspondent à des opérations ayant échoué et qui peuvent être relancées. |
 
 Certaines erreurs [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) courantes peuvent être retournées dans une exception [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) :

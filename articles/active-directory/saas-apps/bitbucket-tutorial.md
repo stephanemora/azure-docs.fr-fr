@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 14811ef9da1a50ba3b0ec0363cede1988d386e78
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 38dceb70b763d05df304cd90958ae66c88e88598
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818147"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165754"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Didacticiel : Intégration d’Azure Active Directory à SSO SAML pour Bitbucket de resolution GmbH
+# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Tutoriel : Intégration d’Azure Active Directory à SSO SAML pour Bitbucket de resolution GmbH
 
 Dans ce didacticiel, vous allez apprendre à intégrer SSO SAML pour Bitbucket de resolution GmbH avec Azure Active Directory (Azure AD).
 L’intégration de SSO SAML pour Bitbucket de resolution GmbH avec Azure AD vous offre les avantages suivants :
