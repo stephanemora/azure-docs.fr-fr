@@ -7,14 +7,16 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: 137d8e1c1477d5b9c88cecc39316d62a79a4cab8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873918"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997377"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Comment protéger les enregistrements et zones DNS
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Les enregistrements et zones DNS sont des ressources critiques. La suppression d’une zone DNS, voire d’un seul enregistrement DNS, peut entraîner une interruption de service totale.  Il est donc important que les zones et enregistrements DNS critiques soient protégés contre toute modification non autorisée ou accidentelle.
 
@@ -38,7 +40,7 @@ Vous pouvez également [accorder des autorisations à l’aide d’Azure PowerSh
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
 
 La commande équivalente est également [disponible via l’interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md) :
@@ -62,7 +64,7 @@ Vous pouvez également [accorder des autorisations à l’aide d’Azure PowerSh
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
 La commande équivalente est également [disponible via l’interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md) :
@@ -84,7 +86,7 @@ Vous pouvez également accorder les autorisations RBAC au niveau jeu d’enregis
 
 ```azurepowershell
 # Grant permissions to a specific record set
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
 La commande équivalente est également [disponible via l’interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md) :
@@ -140,7 +142,7 @@ Il n’est actuellement pas possible de définir des rôles personnalisés via l
 
 ```azurepowershell
 # Create new role definition based on input file
-New-AzureRmRoleDefinition -InputFile <file path>
+New-AzRoleDefinition -InputFile <file path>
 ```
 
 Vous pouvez également le faire via l’interface de ligne de commande Azure :
@@ -172,7 +174,7 @@ Vous pouvez également créer des verrous de ressources au niveau zone via Azure
 
 ```azurepowershell
 # Lock a DNS zone
-New-AzureRmResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones -ResourceGroupName <resource group name>
+New-AzResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones -ResourceGroupName <resource group name>
 ```
 
 La configuration de verrous de ressources Azure n’est actuellement pas possible via l’interface de ligne de commande Azure.
@@ -188,7 +190,7 @@ Vous pouvez actuellement configurer des verrous de ressources au niveau jeu d’
 
 ```azurepowershell
 # Lock a DNS record set
-New-AzureRmResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
 ```
 
 ### <a name="protecting-against-zone-deletion"></a>Protection contre la suppression de zone
@@ -203,7 +205,7 @@ La commande PowerShell suivante crée un verrou CanNotDelete sur l’enregistrem
 
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
 ```
 
 Un autre moyen d’empêcher la suppression accidentelle d’une zone consiste à utiliser un rôle personnalisé afin que les comptes d’opérateur et de service utilisés pour gérer vos zones ne soient pas autorisés à supprimer des zones. Si vous avez besoin de supprimer une zone, vous pouvez appliquer une suppression en deux étapes : octroyer des autorisations de suppression de zone (dans l’étendue de la zone, afin d’éviter la suppression d’une zone incorrecte), puis supprimer la zone.

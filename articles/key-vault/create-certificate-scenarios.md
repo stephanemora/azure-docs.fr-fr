@@ -4,7 +4,7 @@ description: Scénarios illustrant un éventail d’options permettant de créer
 services: key-vault
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: b6c77a2e7ae9cb4c463900ec34989ebaff22e5e1
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 60095520fac55fb695f7c987d27e07a7a2af422a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55726886"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114890"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Surveiller et gérer la création de certificats
 S’applique à : Azure
@@ -419,7 +419,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Nom de l'élément|Obligatoire|Type|Version|Description|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Oui|array|\<présentation de la version>|Chaîne d’approbation X509 en tant que table de chaînes en base 64.|
+|x5c|OUI|array|\<présentation de la version>|Chaîne d’approbation X509 en tant que table de chaînes en base 64.|
 
 ### <a name="response"></a>response
 

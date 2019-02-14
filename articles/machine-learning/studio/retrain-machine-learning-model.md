@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509573"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236258"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Réentraîner un modèle Azure Machine Learning Studio
 Dans le cadre du processus de mise en œuvre opérationnelle des modèles d’apprentissage automatique d’Azure Machine Learning, votre modèle est entraîné et enregistré. Vous l’utilisez ensuite pour créer un service web prédictif. Le service web peut ensuite être utilisé dans des sites web, des tableaux de bord et des applications mobiles. 
@@ -53,8 +53,6 @@ Reformez le service web :
 * Déployez le service web de reformation
 * Utilisez le code de service d’exécution de lot pour reformer le modèle
 
-Pour une présentation détaillée des précédentes étapes, voir [Reformation des modèles Machine Learning par programme](retrain-models-programmatically.md).
-
 > [!NOTE] 
 > Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md). 
 
@@ -63,8 +61,6 @@ Si vous avez déployé un service web classique :
 * Créer un point de terminaison sur le service web prédictif
 * Obtenez l’URL et le code du CORRECTIF
 * Utilisez l’URL du CORRECTIF pour faire pointer le nouveau point de terminaison sur le modèle reformé 
-
-Pour une présentation détaillée des précédentes étapes, voir [Reformer un service web classique](retrain-a-classic-web-service.md).
 
 Si vous rencontrez des difficultés pour reformer un service web classique, voir [Dépannage de la reformation d’un service web classique Azure Machine Learning](troubleshooting-retraining-models.md).
 
@@ -76,8 +72,6 @@ Si vous avez déployé un nouveau service web :
 * Mettez à jour la référence à l’objet blob `ilearner` dans le JSON
 * Importez le JSON dans une définition du service web
 * Mettez à jour le service web avec la nouvelle définition du service web
-
-Pour une présentation détaillée des étapes précédentes, voir [Reformer un nouveau service web à l’aide des applets de commande PowerShell de gestion de Machine Learning](retrain-new-web-service-using-powershell.md).
 
 Le processus de configuration de la reformation pour un service web classique implique les étapes suivantes :
 

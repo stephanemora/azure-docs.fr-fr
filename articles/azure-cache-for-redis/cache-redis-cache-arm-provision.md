@@ -3,25 +3,28 @@ title: Approvisionner un cache Azure pour Redis avec Azure Resource Manager | Mi
 description: Utilisez un modèle Azure Resource Manager pour déployer un cache Azure pour Redis.
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
 ms.workload: web
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: wesmc
-ms.openlocfilehash: 8e0b0572f0d728474c17b41a0f92948451f4ef3f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.author: yegu
+ms.openlocfilehash: e223cb060857d45d9f25e2ee1dfca7e159225d8b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746946"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237108"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Créer un cache Azure pour Redis à l’aide d’un modèle
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Dans cette rubrique, vous apprendrez à créer un modèle Azure Resource Manager qui déploie un cache Azure pour Redis. Le cache peut être utilisé avec un compte de stockage existant pour conserver les données de diagnostic. Vous allez également apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
 Actuellement, les paramètres de diagnostic sont partagés entre tous les caches de la même région d’un abonnement. La mise à jour d’un cache dans la région affecte tous les autres caches dans la région.
@@ -127,7 +130,8 @@ Crée le cache Azure pour Redis.
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
+
+    New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
 
 ### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup

@@ -4,7 +4,7 @@ description: Ce document montre comment l’accès juste-à-temps à la machine 
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5c42c0d5597e1e14bbb7814ad635abcd086db804
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 94364a54a5a0994cc3de3a2fe014b556d438b2c2
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339040"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114907"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès juste-à-temps à la machine virtuelle
 
@@ -273,6 +273,6 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 - [Surveillance de l’intégrité de la sécurité](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 - [Gestion et résolution des alertes de sécurité](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 - [Surveillance des solutions de partenaire](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
-- [FAQ Security Center](security-center-faq.md) : découvrez les réponses aux questions le plus souvent posées à propos de l’utilisation de ce service.
+- [FAQ Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
 - [Blog sur la sécurité Azure](https://blogs.msdn.microsoft.com/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: L’API Reconnaissance vocale transcrit Les flux audio en texte que votre application peut afficher ou traiter comme entrée. Le service est disponible via le kit SDK et un point de terminaison RESTful.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4884756c50e181e5536ad93ae795543bf1edf8ba
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5012245a79295f1e05079f6c0a368ac832b8974a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220219"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978576"
 ---
 # <a name="about-the-speech-to-text-api"></a>À propos de l’API Reconnaissance vocale
 
@@ -42,19 +42,19 @@ L’API **Reconnaissance vocale** offre les fonctionnalités suivantes :
 
 Certaines des fonctionnalités de l’API **Reconnaissance vocale**, notamment concernant la personnalisation, sont disponibles par le biais de REST. Le tableau suivant récapitule les fonctionnalités de chaque méthode d’accès à l’API. Pour obtenir la liste complète des fonctionnalités et des détails de l’API, consultez [Informations de référence sur Swagger](https://westus.cris.ai/swagger/ui/index).
 
-| Cas d’utilisation | REST | Kits de développement logiciel (SDK) |
+| Cas d’utilisation | REST | Kits SDK |
 |-----|-----|-----|----|
-| Transcrire un énoncé court, tel qu’une commande (longueur < 15 s), sans résultat intermédiaire | Oui | Oui |
-| Transcrire un énoncé plus long (> 15 s) | Non  | Oui |
-| Transcrire une diffusion audio en continu avec des résultats intermédiaires facultatifs | Non  | Oui |
-| Comprendre les intentions de l’orateur via LUIS | Non\* | Oui |
-| Créer des tests de précision | Oui | Non  |
-| Charger des jeux de données pour l’adaptation de modèle | Oui | Non  |
-| Créer et gérer des modèles vocaux | Oui | Non  |
-| Créer et gérer des déploiements de modèle | Oui | Non  |
-| Gérer les abonnements | Oui | Non  |
-| Créer et gérer des déploiements de modèle | Oui | Non  |
-| Créer et gérer des déploiements de modèle | Oui | Non  |
+| Transcrire un énoncé court, tel qu’une commande (longueur < 15 s), sans résultat intermédiaire | OUI | OUI |
+| Transcrire un énoncé plus long (> 15 s) | Non  | OUI |
+| Transcrire une diffusion audio en continu avec des résultats intermédiaires facultatifs | Non  | OUI |
+| Comprendre les intentions de l’orateur via LUIS | Non\* | OUI |
+| Créer des tests de précision | OUI | Non  |
+| Charger des jeux de données pour l’adaptation de modèle | OUI | Non  |
+| Créer et gérer des modèles vocaux | OUI | Non  |
+| Créer et gérer des déploiements de modèle | OUI | Non  |
+| Gérer les abonnements | OUI | Non  |
+| Créer et gérer des déploiements de modèle | OUI | Non  |
+| Créer et gérer des déploiements de modèle | OUI | Non  |
 
 > [!NOTE]
 > L’API REST implémente une limitation des requêtes d’API à 25 toutes les cinqs secondes. Les en-têtes de messages vous informeront des limites.

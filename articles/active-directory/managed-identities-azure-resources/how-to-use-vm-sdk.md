@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
-ms.openlocfilehash: 9161b4288a10e9db7faac639fcf4cdd9d53c369d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 35498d51f9f6cd75058100189c223c0dd0f83a0c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164909"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188682"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Comment utiliser des identités managées pour ressources Azure sur une machine virtuelle Azure avec des kits de développement logiciel (SDK) Azure 
 
@@ -35,7 +36,7 @@ Cet article fournit une liste d’exemples de kits de développement logiciel (S
 
 ## <a name="sdk-code-samples"></a>Exemples de code de kit de développement logiciel
 
-| Foundation             | Exemple de code |
+| Kit SDK              | Exemple de code |
 | --------------- | ----------- |
 | .NET            | [Déployer un modèle Azure Resource Manager à partir d’une machine virtuelle Windows en utilisant des identités managées pour ressources Azure](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
 | .NET Core       | [Appeler des services Azure à partir d’une machine virtuelle Linux en utilisant des identités managées pour ressources Azure](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |

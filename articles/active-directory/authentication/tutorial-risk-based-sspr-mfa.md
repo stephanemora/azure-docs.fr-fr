@@ -10,14 +10,15 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: df3344efadbc915bba0c863979cae8b8fdff99b0
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e71247c9a6527bc7372af1a902028aae72bf4a73
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512123"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162694"
 ---
-# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutoriel : Utiliser des événements à risque pour déclencher l’authentification multifacteur et le changement du mot de passe
+# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Didacticiel : Utiliser des événements à risque pour déclencher l’authentification multifacteur et le changement du mot de passe
 
 Dans ce didacticiel, vous allez activer des fonctionnalités d’Azure Active Directory (Azure AD) Identity Protection, une fonctionnalité d’Azure AD Premium P2 qui va au-delà d’un simple outil de surveillance et de création de rapports. Pour protéger les identités de votre organisation, vous pouvez configurer des stratégies reposant sur des risques qui répondent automatiquement aux comportements à risque. Ces stratégies peuvent automatiquement déclencher un blocage ou une correction, notamment exiger des modifications de mot de passe et appliquer l’authentification multifacteur.
 

@@ -10,20 +10,17 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6e236144909fc45e0e9d49273d7aed1e3e577436
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 646d5a1aec7387d8f7ee632f5e46f988e1bc012c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161339"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882214"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passer un jeton d’accès par le biais d’un flux utilisateur à une application dans Azure Active Directory B2C
 
 > [!NOTE]
 > Cette fonctionnalité est actuellement disponible en préversion publique.
-
-> [!Important]
-> Cette fonctionnalité en préversion publique est temporairement indisponible.
 
 Un [flux utilisateur](active-directory-b2c-reference-policies.md) dans Azure Active Directory (Azure AD) B2C permet aux utilisateurs d’une application de s’inscrire ou de se connecter à un fournisseur d’identité. Au départ, Azure AD B2C reçoit un [jeton d’accès](active-directory-b2c-reference-tokens.md) du fournisseur d’identité. Azure AD B2C utilise ce jeton pour récupérer des informations sur l’utilisateur. Vous activez une revendication dans votre flux utilisateur pour passer le jeton aux applications que vous inscrivez dans Azure AD B2C.
 

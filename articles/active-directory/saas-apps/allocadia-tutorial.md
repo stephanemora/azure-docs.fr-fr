@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d6f62c683fcaf20535477b01d216de5ce9fc64b7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f02564115cd856560535bf98e8ce825dc50f7550
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457120"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175215"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Tutoriel : Intégration d’Azure Active Directory à Allocadia
+# <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Didacticiel : Intégration d’Azure Active Directory à Allocadia
 
 Dans ce didacticiel, vous allez apprendre à intégrer Allocadia à Azure Active Directory (Azure AD).
 L’intégration d’Allocadia dans Azure AD vous offre les avantages suivants :
@@ -126,7 +127,7 @@ Pour configurer l’authentification unique Azure AD auprès d’Allocadia, effe
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit : 
 
-    | NOM | Attribut source|
+    | Nom | Attribut source|
     | ------------------- | -------------------- |
     | firstname | user.givenname |
     | lastname | user.surname |

@@ -1,20 +1,20 @@
 ---
-title: Authentification
+title: Authentication
 titleSuffix: Cognitive Services - Azure
 description: 'Pour authentifier une requête auprès d’une ressource Azure Cognitive Services, trois options s’offrent à vous : une clé d’abonnement, un jeton du porteur ou un abonnement multiservice. Cet article décrit chaque méthode et explique comment adresser une requête.'
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f724bba5acdda20d31d067b850634178a0650cf7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305449"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859742"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
 

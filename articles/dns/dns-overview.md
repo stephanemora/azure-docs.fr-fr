@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 51869bcc2ee892bc150102595de09782eb01547c
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 07230b061f9b18e1efe6ce8c65abe0f7e7f73b34
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770518"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893491"
 ---
 # <a name="what-is-azure-dns"></a>Présentation d’Azure DNS
 
@@ -30,7 +30,7 @@ Les domaines DNS dans Azure DNS sont hébergés sur un réseau global de serveur
 
  Azure DNS est basé sur Azure Resource Manager, vous donnant l’accès à des fonctionnalités telles que :
 
-* [Contrôle d’accès en fonction de rôles](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) : pour déterminer les utilisateurs qui sont autorisés à accéder à des actions spécifiques pour votre organisation.
+* [Contrôle d’accès en fonction de rôles](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) : pour déterminer les utilisateurs qui sont autorisés à accéder à des actions spécifiques pour votre organisation.
 
 * [Journaux d’activité](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) : pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation a modifié une ressource.
 

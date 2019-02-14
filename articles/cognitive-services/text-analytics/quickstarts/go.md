@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Cet article contient des informations et des exemples de code pour une prise en main rapide de l’API Analyse de texte dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: c8e88066769b16cf50e3a8317d401a425bcc5d85
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5e4d3323281a71c2824962cc5ccd2c528913af6d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228268"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862392"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : Utilisation de Go pour appeler le service cognitif Analyse de texte 
 <a name="HOLTop"></a>

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 7bd228a01cd3841772750882d13c33459385cc21
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4de6e4429543ea4f691cc3a38c15b896b866075b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817714"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980718"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pour Windows Server
 Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Server permet d’utiliser les licences Windows Server locales et d’exécuter des machines virtuelles Windows sur Azure à moindre coût. Vous pouvez utiliser Azure Hybrid Benefit pour Windows Server pour déployer de nouvelles machines virtuelles avec le système d’exploitation Windows. Cet article récapitule les étapes du déploiement de nouvelles machines virtuelles avec Azure Hybrid Benefit pour Windows Server. Il explique également comment mettre à jour des machines virtuelles existantes en cours d’exécution. Pour plus d’informations sur les licences et les réductions de coût relatives à Azure Hybrid Benefit pour Windows Server, consultez la [page de gestion des licences Azure Hybrid Benefit pour Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -36,6 +36,7 @@ Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Serv
 > Pour les machines virtuelles classiques, seul le déploiement d’une nouvelle machine virtuelle à partir des images personnalisées locales est pris en charge. Pour tirer parti des fonctionnalités prises en charge dans cet article, vous devez d’abord migrer des machines virtuelles classiques vers le modèle Resource Manager.
 >
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Façons d’utiliser Azure Hybrid Benefit pour Windows Server
 Il existe plusieurs façons d’utiliser des machines virtuelles Windows avec Azure Hybrid Benefit :
@@ -53,8 +54,10 @@ Toutes les images basées sur le système d’exploitation Windows Server sont p
 Pour créer une machine virtuelle avec Azure Hybrid pour Windows Server, utilisez le bouton bascule sous la section « Faites des économies ».
 
 ### <a name="powershell"></a>PowerShell
+
+
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVM" `
     -Location "East US" `
@@ -95,17 +98,17 @@ Dans le panneau de la machine virtuelle du Portail, vous pouvez mettre à jour l
 - Convertir des machines virtuelles Windows Server existantes pour qu’elles utilisent Azure Hybrid Benefit pour Windows Server
 
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+    $vm = Get-AzVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "Windows_Server"
-    Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+    Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
 - Convertir des machines virtuelles Windows Server avec Azure Hybrid Benefit en mode paiement à l’utilisation
 
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+    $vm = Get-AzVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "None"
-    Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+    Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
 ### <a name="cli"></a>Interface de ligne de commande
@@ -124,7 +127,7 @@ Dans le panneau de machines virtuelles du portail, vous pouvez voir le bouton ba
 ### <a name="powershell"></a>PowerShell
 L’exemple suivant montre le type de licence pour une machine virtuelle unique.
 ```powershell
-Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
 Sortie :
@@ -158,7 +161,7 @@ Pour afficher et compter toutes les machines virtuelles déployées avec Azure H
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-$vms = Get-AzureRMVM 
+$vms = Get-AzVM 
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 

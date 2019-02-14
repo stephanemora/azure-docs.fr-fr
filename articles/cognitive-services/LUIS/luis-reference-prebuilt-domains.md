@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Référence pour les domaines prédéfinis, qui sont des collections prédéfinies d’intentions et d’entités de LUIS (Language Understanding Intelligent Service).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: d17b6271468a9259314876e18ff7ead288c990bc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f03efe13cdc31381cd67317879b7bd936fc35e8f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221009"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868954"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Référence de domaine prédéfinie pour votre application LUIS
 Cette référence fournit des informations sur les [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md), qui sont des collections prédéfinies d’intentions et d’entités proposées par LUIS.
@@ -103,7 +103,7 @@ Le domaine Communication fournit des intentions et entités liées à la message
 | AssignContactNickname| Attribuez un surnom à un contact.|Remplacer Isaac par papa <br/>Modifier le surnom de Jim<br/>Ajouter un surnom à Patti Owens|
 | CallVoiceMail| Connectez-vous à la messagerie vocale de l’utilisateur.|Me connecter à ma boîte de messagerie vocale <br/>Messagerie vocale<br/>Appeler la messagerie vocale|
 | CheckIMStatus| Vérifiez l’état d’un contact dans Skype.|L’état En ligne de Jim est-il défini sur Absent ? <br/>Carol est-elle disponible pour une conversation ?|
-| Confirmer| Confirmez une action.|Oui<br/>OK<br/>D’accord<br/>Je confirme que je souhaite envoyer ce courrier électronique.<br/>|
+| Confirmer| Confirmez une action.|OUI<br/>OK<br/>D’accord<br/>Je confirme que je souhaite envoyer ce courrier électronique.<br/>|
 | Composer| Effectuez un appel téléphonique.|Appeler Jim<br/>Merci de composer 311<br/>|
 | FindContact| Recherchez des informations de contact par nom.|Rechercher le numéro de Carol<br/>Me montrer le numéro de Carol<br/>|
 | FindSpeedDial| Recherchez le numéro de numérotation rapide défini pour un numéro de téléphone et vice versa.|À quoi correspond le numéro 5 ?<br/>La numérotation rapide est-elle définie ?<br/>Quel est le numéro pour 941-5555-333 ?|
@@ -179,7 +179,7 @@ Le domaine Événements fournit les intentions et entités liées à la réserva
 | Nom de l’entité | Description | Exemples |
 | ---------------- |-----------------------|----|
 | Adresse | Emplacement ou adresse de l’événement. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
-| NOM | Nom d’un événement.|Shakespeare in the Park|
+| Nom | Nom d’un événement.|Shakespeare in the Park|
 | PlaceName| Nom d’emplacement de l’événement.|Louvre<br/>Opera House<br/>Broadway|
 | PlaceType | Type de l’emplacement où l’événement se déroulera.|Café<br/>Théâtre<br/>Bibliothèque|
 | Type | Type d’un événement.|Concert<br/>Rencontre sportive|

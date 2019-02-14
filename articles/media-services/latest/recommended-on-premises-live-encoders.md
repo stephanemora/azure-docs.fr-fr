@@ -6,26 +6,26 @@ keywords: encodage;encodeurs;média
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 12/14/2018
+ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4d25e4cd94fec35f31594544b619aa054a35d58d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: c3e42ba9fe84ded8c60fc71f19de785945852116
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302338"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656666"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Encodeurs de streaming en direct recommandés
 
-Dans Media Services, un [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) (canal) représente un pipeline de traitement du contenu de streaming en direct. Un LiveEvent reçoit des flux d’entrée en direct de l’une des deux manières suivantes :
+Dans Media Services, un [Événement en temps réel](https://docs.microsoft.com/rest/api/media/liveevents) (canal) représente un pipeline de traitement du contenu de streaming en direct. L'Événement en temps réel reçoit les flux d'entrée en direct de l'une des deux manières suivantes :
 
-* Un encodeur live local envoie au LiveEvent un paquet RTMP ou Smooth Streaming (MP4 fragmenté) multidébit qui n’est pas activé pour effectuer un encodage en temps réel avec Media Services. Les flux ingérés transitent par les LiveEvents sans traitement supplémentaire. Cette méthode est appelée **pass-through**. Un encodeur live peut envoyer un flux unique à un canal de transmission directe, mais cette configuration n’est pas recommandée, car elle n’offre pas de streaming à débit adaptatif au client.
+* Un encodeur live local envoie à l'Événement en temps réel un flux RTMP ou Smooth Streaming (MP4 fragmenté) multidébit qui n'est pas activé pour effectuer un encodage en temps réel avec Media Services. Les flux ingérés transitent par les Événements en temps réel sans traitement supplémentaire. Cette méthode est appelée **pass-through**. Un encodeur live peut envoyer un flux unique à un canal de transmission directe, mais cette configuration n’est pas recommandée, car elle n’offre pas de streaming à débit adaptatif au client.
 
   > [!NOTE]
   > L’utilisation d’une méthode pass-through est le moyen le plus économique de diffuser une vidéo en flux continu.
 
-* Un encodeur live local envoie un flux à débit unique au LiveEvent activé pour effectuer un encodage en temps réel avec Media Services dans l’un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). Le LiveEvent procède ensuite à l’encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif).
+* Un encodeur live local envoie un flux à débit unique à l'Événement en temps réel activé pour effectuer un encodage en temps réel avec Media Services dans l'un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). L'Événement en temps réel procède ensuite à l'encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif).
 
 Pour des informations détaillées sur l’encodage en temps réel avec Media Services, voir [Streaming en direct avec Media Services v3](live-streaming-overview.md).
 
@@ -61,46 +61,69 @@ Media Services recommande l’utilisation d’un des encodeurs live suivants, qu
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live et Hero 4K (UHD/HEVC)
 
+## <a name="configuring-on-premises-live-encoder-settings"></a>Configuration des paramètres de l'encodeur live local
+
+Pour plus d'informations sur les paramètres valides pour votre type d'événement en temps réel, consultez [Comparaison des types d'événements en temps réel](live-event-types-comparison.md).
+
+### <a name="playback-requirements"></a>Exigences de lecture
+
+Un flux audio et vidéo doit être présent pour pouvoir lire le contenu. La lecture de flux en vidéo uniquement n'est pas prise en charge.
+
+### <a name="configuration-tips"></a>Conseils de configuration
+
+- Si possible, utilisez une connexion Internet câblée.
+- Une bonne règle pour déterminer les besoins en bande passante consiste à doubler les débits binaires de diffusion en continu. Bien qu’il ne s’agisse pas d’une obligation, cela permet de réduire l’impact de l’encombrement du réseau.
+- Lors de l’utilisation d’encodeurs logiciels, fermez tous les programmes inutiles.
+- Ne modifiez pas la configuration de votre encodeur une fois l'envoi (push) lancé. Cela nuirait à l'événement ainsi qu'à sa stabilité. 
+- Prévoyez suffisamment de temps pour configurer votre événement. Pour les événements à grande échelle, il est recommandé d'entamer la configuration une heure à l'avance.
+
 ## <a name="how-to-become-an-on-premises-encoder-partner"></a>Comment devenir un partenaire d’encodeur local
 
 En tant que partenaire d’encodeur local d’Azure Media Services, Media Services promeut votre produit en recommandant votre encodeur aux clients d’entreprise. Pour devenir un partenaire d’encodeur local, vous devez vérifier la compatibilité de votre encodeur local avec Media Services. Pour ce faire, effectuez les vérifications suivantes :
 
-### <a name="pass-through-liveevent-verification"></a>Vérification de LiveEvent pass-through
+### <a name="pass-through-live-event-verification"></a>Vérification d'un Événement en temps réel de type pass-through
 
-1. Créez ou visitez votre compte Azure Media Services
-2. Créez et démarrez un LiveEvent **pass-through**.
-3. Configurez votre encodeur pour transmettre un flux live à multidébit.
-4. Créez un événement en temps réel publié.
-5. Exécutez votre encodeur live pendant environ 10 minutes.
-6. Arrêtez l’événement en temps réel.
-7. Créez, démarrez un point de terminaison de streaming, utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour regarder l’élément multimédia archivé pour vous assurer que la lecture est dépourvue de problèmes visibles pour tous les niveaux de qualité (vous pouvez également regarder et valider du contenu via l’URL d’aperçu pendant la session active avant l’étape 6).
-8. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live.
-9. Réinitialisez l’état du LiveEvent après la création de chaque exemple.
-10. Répétez les étapes 3 à 9 pour toutes les configurations prises en charge par votre encodeur (avec et sans signalisation des annonces/légendes/différentes vitesses de codage).
+1. Accédez à votre compte Media Services et vérifiez que le **point de terminaison de streaming** est en cours d'exécution. 
+2. Créez et démarrez un Événement en temps réel de type **pass-through**. <br/> Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing.md).
+3. Récupérez les URL d'ingestion et configurez votre encodeur local de façon à ce qu'il utilise ces URL pour envoyer le flux temps réel multidébit à Media Services.
+4. Récupérez l’URL d’aperçu et utilisez-la pour vérifier que l’entrée de l’encodeur est bien reçue.
+5. Créez un objet **Asset**.
+6. Créez un objet **LiveOutput** et utilisez le nom de l’objet Asset que vous venez de créer.
+7. Créez un **localisateur de streaming**  avec les types intégrés de la **stratégie de streaming**.
+8. Listez les chemins d'accès dans le **Localisateur de streaming** pour récupérer les URL à utiliser.
+9. Récupérez le nom d’hôte du **Point de terminaison de streaming** à partir duquel vous souhaitez effectuer le streaming.
+10. Combinez l’URL de l’étape 8 avec le nom d’hôte de l’étape 9 pour obtenir l’URL complète.
+11. Exécutez votre encodeur live pendant environ 10 minutes.
+12. Arrêtez l’événement en direct. 
+13. Utilisez un lecteur, par exemple le [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour surveiller l'élément multimédia archivé et vous assurer que la lecture ne présente aucun problème visible, tous niveaux de qualité confondus (ou surveillez et validez le contenu via l'URL d'aperçu pendant la session en direct).
+14. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live.
+15. Réinitialisez l'état de l'Événement en temps réel après la création de chaque exemple.
+16. Répétez les étapes 5 à 15 pour toutes les configurations prises en charge par votre encodeur (avec et sans signalisation des annonces/légendes/vitesses d'encodage différentes).
 
-### <a name="live-encoding-liveevent-verification"></a>Vérification de LiveEvent d’encodage en temps réel
+### <a name="live-encoding-live-event-verification"></a>Vérification d'Événement en temps réel d'encodage en direct
 
-1. Créez ou visitez votre compte Azure Media Services
-2. Créer et démarrer un LiveEvent d’**encodage en temps réel**
-3. Configurez votre encodeur pour transmettre un flux live à débit unique.
-4. Créez un événement en temps réel publié.
-5. Exécutez votre encodeur live pendant environ 10 minutes.
-6. Arrêtez l’événement en temps réel.
-7. Créez, démarrez un point de terminaison de streaming, utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour regarder l’élément multimédia archivé pour vous assurer que la lecture est dépourvue de problèmes visibles pour tous les niveaux de qualité (vous pouvez également regarder et valider du contenu via l’URL d’aperçu pendant la session active avant l’étape 6).
-8. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live.
-9. Réinitialisez l’état du LiveEvent après la création de chaque exemple.
-10. Répétez les étapes 3 à 9 pour toutes les configurations prises en charge par votre encodeur (avec et sans signalisation des annonces/légendes/différentes vitesses de codage).
+1. Accédez à votre compte Media Services et vérifiez que le **point de terminaison de streaming** est en cours d'exécution. 
+2. Créez et démarrez un Événement en temps réel d'**encodage en direct**. <br/> Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing.md).
+3. Récupérez les URL d'ingestion et configurez votre encodeur de façon à ce qu'il envoie (push) un flux temps réel à débit binaire à Media Services.
+4. Récupérez l’URL d’aperçu et utilisez-la pour vérifier que l’entrée de l’encodeur est bien reçue.
+5. Créez un objet **Asset**.
+6. Créez un objet **LiveOutput** et utilisez le nom de l’objet Asset que vous venez de créer.
+7. Créez un **localisateur de streaming**  avec les types intégrés de la **stratégie de streaming**.
+8. Listez les chemins d'accès dans le **Localisateur de streaming** pour récupérer les URL à utiliser.
+9. Récupérez le nom d’hôte du **Point de terminaison de streaming** à partir duquel vous souhaitez effectuer le streaming.
+10. Combinez l’URL de l’étape 8 avec le nom d’hôte de l’étape 9 pour obtenir l’URL complète.
+11. Exécutez votre encodeur live pendant environ 10 minutes.
+12. Arrêtez l’événement en direct.
+13. Utilisez un lecteur, par exemple le [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour surveiller l'élément multimédia archivé et vous assurer que la lecture ne présente aucun problème visible, tous niveaux de qualité confondus (ou surveillez et validez le contenu via l'URL d'aperçu pendant la session en direct).
+14. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live.
+15. Réinitialisez l'état de l'Événement en temps réel après la création de chaque exemple.
+16. Répétez les étapes 5 à 15 pour toutes les configurations prises en charge par votre encodeur (avec et sans signalisation des annonces/légendes/vitesses d'encodage différentes).
 
 ### <a name="longevity-verification"></a>Vérification de longévité
 
-1. Créez ou visitez votre compte Azure Media Services
-2. Créez et démarrez un canal **pass-through**.
-3. Configurez votre encodeur pour transmettre un flux live à multidébit.
-4. Créez un événement en temps réel publié.
-5. Exécutez votre encodeur live pendant une semaine ou plus
-6. Utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour regarder de temps en temps le streaming en direct (ou l’élément multimédia archivé) afin de vous assurer que la lecture est dépourvue de problèmes visibles.
-7. Arrêtez l’événement en temps réel.
-8. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live.
+Mêmes étapes que pour la [Vérification d'un Événement en temps réel de type pass-through](#pass-through-live-event-verification), à l'exception de l'étape 11. <br/>Au lieu de 10 minutes, exécutez votre encodeur live pendant une semaine ou plus. Utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour regarder de temps en temps le streaming en direct (ou l’élément multimédia archivé) afin de vous assurer que la lecture est dépourvue de problèmes visibles.
+
+### <a name="email-your-recorded-settings"></a>Envoi par e-mail de vos paramètres enregistrés
 
 Enfin, envoyez par e-mail vos paramètres enregistrés et paramètres d’archivage en direct à Azure Media Services à l’adresse amsstreaming@microsoft.com en guise de notification indiquant que tous les contrôles de vérification automatique ont réussi. Incluez également vos informations de contact à des fins de suivi. Vous pouvez contacter l’équipe Azure Media Services pour toute question concernant ce processus.
 

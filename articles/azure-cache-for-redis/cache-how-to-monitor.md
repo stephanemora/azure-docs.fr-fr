@@ -1,25 +1,25 @@
 ---
 title: Surveillance du cache Azure pour Redis | Microsoft Docs
 description: Découvrez comment surveiller l’état et les performances de vos instances de cache Azure pour Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: wesmc
-ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 0ac6dd63d125f436f3f3f8c1174cdcce27ac2161
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105115"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237652"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Surveillance du cache Azure pour Redis
 Le cache Azure pour Redis utilise [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) afin d’offrir plusieurs possibilités de surveillance de vos instances de cache. Vous pouvez afficher les mesures, épingler des graphiques de mesure au Tableau d’accueil, personnaliser la plage de date et d’heure des graphiques de surveillance, ajouter et supprimer des mesures dans les graphiques et définir des alertes lorsque certaines conditions sont remplies. Ces outils vous permettent de surveiller l’intégrité de vos instances de cache Azure pour Redis et vous aident à gérer vos applications de mise en cache.

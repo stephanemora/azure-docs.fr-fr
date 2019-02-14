@@ -10,18 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: d8232b1e29a3d2585e79cf56d0f180a5084fd13e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3e3c456da122e33a67b2ee3377bc15cb684b896
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979064"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864857"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Bien démarrer avec Azure Data Lake Store à l’aide d’Azure CLI
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 > [!div class="op_single_selector"]
-> * [Portail](data-lake-store-get-started-portal.md)
+> * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
+> * [Interface de ligne de commande Azure](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
@@ -37,7 +40,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Azure CLI** - Voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) pour plus d’instructions.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Pour l’authentification auprès de Data Lake Storage Gen1, cet article utilise une approche plus simple où vous vous connectez en tant qu’utilisateur final. Le niveau d’accès au compte et au système de fichiers Data Lake Storage Gen1 est alors régi par le niveau d’accès de l’utilisateur connecté. Cependant, il existe d’autres approches pour l’authentification sur Data Lake Storage Gen1, à savoir **l’authentification de l’utilisateur final** ou **l’authentification de service à service**. Pour obtenir des instructions et plus d’informations sur l’authentification, consultez [l’authentification de l’utilisateur final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [l’authentification de service à service](data-lake-store-authenticate-using-active-directory.md).
 

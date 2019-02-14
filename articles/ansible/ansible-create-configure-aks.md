@@ -8,19 +8,19 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: df1efc1506fbbe51ba5afb03f147c51a57d9bbdb
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f4541bb9516855c4391188fb57e5ab64bc03c76e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727056"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890482"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Créer et configurer des clusters Azure Kubernetes Service dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer votre service Azure Kubernetes Service (AKS). Cet article vous montre comment utiliser Ansible pour créer et configurer un cluster Azure Kubernetes Service.
 
 ## <a name="prerequisites"></a>Prérequis
 - **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
-- **Principal du service Azure** : lors de la [création du principal du service](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), notez les valeurs suivantes : **appId**, **displayName**, **mot de passe** et **locataire**.
+- **Principal du service Azure** : lors de la [création du principal du service](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), notez les valeurs suivantes : **appId**, **displayName**, **mot de passe** et **locataire**.
 
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 

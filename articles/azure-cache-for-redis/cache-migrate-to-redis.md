@@ -1,25 +1,25 @@
 ---
 title: Migrer les applications du Service de cache géré vers Redis - Azure | Microsoft Docs
 description: Découvrez comment migrer les applications du Service de cache géré et d’In-Role Cache vers le Cache Azure pour Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/30/2017
-ms.author: wesmc
-ms.openlocfilehash: 27c8fce8c8eac936708dbac72ca60a1c0af286ea
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106135"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237019"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrer un Service de cache géré vers le Cache Azure pour Redis
 Vous pouvez migrer les applications qui utilisent le Service de cache géré Azure vers le Cache Azure pour Redis sans modifier outre mesure votre application. Le degré de modification dépend des fonctionnalités du Service de cache géré utilisé par votre application de mise en cache. Bien que légèrement différentes, les API présentent des similitudes. Vous pouvez ainsi réutiliser, avec un minimum de modifications, une grande partie de votre code existant qui utilise le Service de cache géré pour accéder à un cache. Cet article montre comment effectuer la configuration requise et modifier les applications pour migrer vos applications de Service de cache géré vers le Cache Azure pour Redis. Elle explique également comment utiliser certaines fonctionnalités du Cache Azure pour Redis pour implémenter les fonctionnalités d’un cache du Service de cache géré.

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 89a54d99aa47af273e5955c2103ec696a985737e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8e9d41131228c2399277e59a6d0edd78efda307b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493743"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999111"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Déployer un service web Azure Machine Learning Studio
 Microsoft Azure Machine Learning vous permet de générer, tester et déployer des solutions d’analyse prédictive.
@@ -34,7 +34,7 @@ Pour effectuer l'apprentissage d'un modèle d'analyse prédictive, utilisez Azur
 Le processus de création et gestion d’expériences d’apprentissage est traité de manière plus approfondie dans d’autres sections. Pour plus d’informations, voir les articles suivants :
 
 * [créez une expérience simple dans Azure Machine Learning Studio](create-experiment.md)
-* [développez une solution prédictive avec Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+* [développez une solution prédictive avec Azure Machine Learning](tutorial-part1-credit-risk.md)
 * [importez vos données d'apprentissage dans Azure Machine Learning Studio](import-data.md)
 * [gérez des itérations d'expériences dans Azure Machine Learning Studio](manage-experiment-iterations.md)
 

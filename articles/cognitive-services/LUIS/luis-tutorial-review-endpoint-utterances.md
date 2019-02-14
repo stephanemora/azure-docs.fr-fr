@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus par le point de terminaison HTTP de LUIS dont ce dernier n’est pas sûr. Certains énoncés peuvent devoir faire l’objet d’une vérification d’intention, d’autres d’une vérification d’entité.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 30927f4a8213f3ca8b94a2c799e6204be003e2a7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 88ac9f07fb8791ca3d64123663b0380a56220cdd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213204"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865949"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutoriel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison
 Dans ce tutoriel, améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus par le point de terminaison HTTPS de LUIS dont ce dernier n’est pas sûr. Certains énoncés peuvent devoir faire l’objet d’une vérification d’intention, d’autres d’une vérification d’entité. Vous devez examiner les énoncés de point de terminaison régulièrement dans le cadre de la maintenance LUIS planifiée. 

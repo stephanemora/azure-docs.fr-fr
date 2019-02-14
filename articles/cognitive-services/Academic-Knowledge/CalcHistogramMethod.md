@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode CalcHistogram pour calculer la distribution des valeurs d’attribut pour un ensemble d’entités de publication.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: cb47b3933ecb6e38aa7945ac7f81f7602a0c8034
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e922f1c02876f09dcf51b192bc08c4f4fccac9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192534"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879018"
 ---
 # <a name="calchistogram-method"></a>Méthode CalcHistogram
 
@@ -30,9 +30,9 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
   
 ## <a name="request-parameters"></a>Paramètres de la requête
 
-NOM  |Valeur | Requis ?  |Description
+Nom  |Valeur | Requis ?  |Description
 -----------|----------|--------|----------
-**expr**    |Chaîne de texte | Oui  |Expression de requête qui spécifie les entités sur lesquelles calculer les histogrammes.
+**expr**    |Chaîne de texte | OUI  |Expression de requête qui spécifie les entités sur lesquelles calculer les histogrammes.
 **model** |Chaîne de texte | Non  |Sélectionnez le nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).
 **attributes** | Chaîne de texte | Non <br>par défaut : | Liste délimitée par des virgules qui spécifie les valeurs d’attribut qui sont incluses dans la réponse. Les noms d’attribut sont sensibles à la casse.
 **count** |Number | Non <br>Valeur par défaut : 10 |Nombre de résultats à renvoyer.
@@ -41,7 +41,7 @@ NOM  |Valeur | Requis ?  |Description
 
 ## <a name="response-json"></a>Réponse (JSON)
 
-NOM | Description
+Nom | Description
 --------|---------
 **expr**  |Paramètre expr issu de la requête.
 **num_entities** | Nombre total d’entités correspondantes.

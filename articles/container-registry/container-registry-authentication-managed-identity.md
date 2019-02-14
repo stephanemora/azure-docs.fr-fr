@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: 46965842831673d25d636e0cfbfa3d0097b82f99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fdba8969ad326565834625fe1ca7ece5e089a904
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857362"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984203"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utiliser une identité managée Azure pour s’authentifier auprès d’un registre de conteneurs Azure 
 
@@ -178,7 +178,7 @@ az acr login --name myContainerRegistry
 
 Un message `Login succeeded` devrait apparaître. Vous pouvez maintenant exécuter des commandes `docker` sans fournir d’informations d’identification. Par exemple, exécutez [docker pull][docker-pull] pour tirer (pull) l’image `aci-helloworld:v1`, en spécifiant le nom du serveur de connexion de votre registre. Il s’agit du nom du registre de conteneurs (tout en minuscules) suivi de `.azurecr.io` (par exemple, `mycontainerregistry.azurecr.io`).
 
-```docker
+```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
@@ -230,7 +230,7 @@ az acr login --name myContainerRegistry
 
 Un message `Login succeeded` devrait apparaître. Vous pouvez maintenant exécuter des commandes `docker` sans fournir d’informations d’identification. Par exemple, exécutez [docker pull][docker-pull] pour tirer (pull) l’image `aci-helloworld:v1`, en spécifiant le nom du serveur de connexion de votre registre. Il s’agit du nom du registre de conteneurs (tout en minuscules) suivi de `.azurecr.io` (par exemple, `mycontainerregistry.azurecr.io`).
 
-```docker
+```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 

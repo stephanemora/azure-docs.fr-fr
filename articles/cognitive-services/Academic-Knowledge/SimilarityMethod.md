@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode Similarity pour calculer la similarité universitaire entre deux chaînes.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 0e42d5e05268d4a572376f2bdf25d0ce6f8f4be7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 44930ad0f941ea174d95658f220db7aa95012133
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490122"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868682"
 ---
 # <a name="similarity-method"></a>Méthode Similarity
 
@@ -30,8 +30,8 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ## <a name="request-parameters"></a>Paramètres de la requête
 Paramètre        |Type de données      |Obligatoire | Description
 ----------|----------|----------|------------
-**s1**        |Chaîne   |Oui  |Chaîne* à comparer
-**s2**        |Chaîne   |Oui  |Chaîne* à comparer
+**s1**        |Chaîne   |OUI  |Chaîne* à comparer
+**s2**        |Chaîne   |OUI  |Chaîne* à comparer
 <sub> *La longueur maximale des chaînes à comparer est de 1 Mo. </sub>
 <br>
 ## <a name="response"></a>response

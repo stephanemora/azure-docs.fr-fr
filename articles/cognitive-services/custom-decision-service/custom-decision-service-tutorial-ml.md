@@ -1,27 +1,27 @@
 ---
 title: 'Tutoriel : Caractérisation et spécification de caractéristiques - Service Décision personnalisée'
 titlesuffix: Azure Cognitive Services
-description: Tutoriel sur la caractérisation et la spécification de caractéristiques de machine learning dans le Service Custom Decision.
+description: Didacticiel sur la personnalisation et ma définition des caractéristiques de Machine Learning dans le Service Décision personnalisée.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1c701cbe1a71ed48c71a9441c05a7fb4b63e3814
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9e091d3899132509d16854ebdbe14bcbc491deec
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226058"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870229"
 ---
 # <a name="tutorial-featurization-and-feature-specification"></a>Tutoriel : Caractérisation et spécification de caractéristiques
 
-Ce didacticiel traite des fonctionnalités Machine Learning avancées du Service Décision personnalisée. Le tutoriel se compose de deux parties : [caractérisation](#featurization-concepts-and-implementation) et [spécification de caractéristiques](#feature-specification-format-and-apis). La caractérisation fait référence à la représentation de vos données en tant que « caractéristiques » pour le machine learning. La spécification de caractéristiques traite du format JSON et des API auxiliaires pour spécifier des caractéristiques.
+Ce didacticiel traite des fonctionnalités Machine Learning avancées du Service Décision personnalisée. Le didacticiel compose de deux parties : [personnalisation](#featurization-concepts-and-implementation) et [spécification de fonctionnalité](#feature-specification-format-and-apis). La personnalisation fait référence à la représentation de vos données en tant que « fonctionnalités » pour Machine Learning. La spécification de fonctionnalité traite du format JSON et des API auxiliaires pour spécifier des fonctionnalités.
 
-Par défaut, Machine Learning dans le Service Décision personnalisée est transparent pour le client. Les caractéristiques sont automatiquement extraites de votre contenu, et un algorithme d’entraînement par renforcement standard est utilisé. L’extraction de caractéristiques utilise plusieurs autres API Azure Cognitive Services : [Liaison d’entités](../entitylinking/home.md), [Analyse de texte](../text-analytics/overview.md), [Émotion](../emotion/home.md) et [Vision par ordinateur](../computer-vision/home.md). Ce didacticiel peut être ignoré si seule la fonctionnalité par défaut est utilisée.
+Par défaut, Machine Learning dans le Service Décision personnalisée est transparent pour le client. Les fonctionnalités sont automatiquement extraites de votre contenu, et un algorithme d’apprentissage par renforcement standard est utilisé. L’extraction de caractéristiques utilise plusieurs autres API Azure Cognitive Services : [Liaison d’entités](../entitylinking/home.md), [Analyse de texte](../text-analytics/overview.md), [Émotion](../emotion/home.md) et [Vision par ordinateur](../computer-vision/home.md). Ce didacticiel peut être ignoré si seule la fonctionnalité par défaut est utilisée.
 
 ## <a name="featurization-concepts-and-implementation"></a>Personnalisation : concepts et implémentation
 

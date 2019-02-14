@@ -1,21 +1,21 @@
 ---
-title: 'Tutoriel : Personnalisation des articles - Service Décision personnalisée'
+title: 'Didacticiel : Personnalisation des articles - Service Décision personnalisée'
 titlesuffix: Azure Cognitive Services
 description: Tutoriel sur la personnalisation des articles pour une prise de décision contextuelle.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: fce90c05fb2e79be23cfd7a58875f8cb6b3ddbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d8ddafe20ff93e7ae4d51e2180bbd40447729234
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819771"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983030"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Tutoriel : Personnalisation des articles pour la prise de décision contextuelle
 
@@ -50,7 +50,7 @@ Pour plus d’informations sur le format de flux, consultez les [informations de
 
 ## <a name="register-a-new-app"></a>Inscription d’une nouvelle application
 
-1. Connectez-vous à votre [compte Microsoft](https://account.microsoft.com/account). Dans le ruban, cliquez sur **My Portal** (Mon portail).
+1. Connectez-vous à votre [compte Microsoft](https://portal.ds.microsoft.com/). Dans le ruban, cliquez sur **My Portal** (Mon portail).
 
 2. Pour inscrire une nouvelle application, cliquez sur le bouton **Nouvelle application**.
 

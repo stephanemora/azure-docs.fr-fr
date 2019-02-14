@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode Languages de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 1f7590b07ccb0af867680ce86bd1c3b042f8f7dd
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2625b4807d98359b3534b8406182cd7bed194746
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694667"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882401"
 ---
 # <a name="translator-text-api-30-languages"></a>API de traduction de texte Translator Text 3.0 : Languages
 
@@ -275,7 +275,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
 </table> 
 
-Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d'erreur les plus courants sur la [page Référence de l'API de traduction de texte Translator Text v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de l’API de traduction de texte Translator Text v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exemples
 

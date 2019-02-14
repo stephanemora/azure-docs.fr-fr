@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à AppDynamics | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à AppDynamics | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AppDynamics.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b4ef3e0b85b651e7f95d507169ba94f0fa29cf52
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 212238a16a36179a63eec9f239799a716d13c57e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812265"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168967"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Didacticiel : Intégration d’Azure Active Directory à AppDynamics
+# <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutoriel : Intégration d’Azure Active Directory à AppDynamics
 
 Dans ce didacticiel, vous allez apprendre à intégrer AppDynamics à Azure Active Directory (Azure AD).
 L’intégration d’AppDynamics à Azure AD vous offre les avantages suivants :

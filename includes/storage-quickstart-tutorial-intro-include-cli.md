@@ -4,16 +4,16 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: c5cb1c5a005265950f8dcd02c8e7675918751dab
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 82b3349afd10b585a10619229a2bc6d849d71524
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166241"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246855"
 ---
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources Azure avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
+Créez un groupe de ressources Azure avec la commande [az group create](/cli/azure/group). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
 ```azurecli-interactive
 az group create \
@@ -23,7 +23,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Créez un compte de stockage à usage général avec la commande [az storage account create](/cli/azure/storage/account#create). Le compte de stockage à usage général peut être utilisé pour les quatre services : objets blob, fichiers, tables et files d’attente. 
+Créez un compte de stockage à usage général avec la commande [az storage account create](/cli/azure/storage/account). Le compte de stockage à usage général peut être utilisé pour les quatre services : objets blob, fichiers, tables et files d’attente. 
 
 ```azurecli-interactive
 az storage account create \
@@ -38,7 +38,7 @@ az storage account create \
 
 L’interface de ligne de commande Azure a besoin de vos informations d’identification de compte de stockage pour la plupart des commandes de ce didacticiel. Bien que plusieurs options s’offrent à vous, l’une des méthodes les plus simples pour fournir ces informations d’identification consiste à définir les variables d’environnement `AZURE_STORAGE_ACCOUNT` et `AZURE_STORAGE_ACCESS_KEY`.
 
-Tout d’abord, affichez les clés de votre compte de stockage à l’aide de la commande [az storage account keys list](/cli/azure/storage/account/keys#list) :
+Tout d’abord, affichez les clés de votre compte de stockage à l’aide de la commande [az storage account keys list](/cli/azure/storage/account/keys) :
 
 ```azurecli-interactive
 az storage account keys list \

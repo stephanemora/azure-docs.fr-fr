@@ -4,7 +4,7 @@ description: Découvrez comment installer le service Azure Log Integration et in
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: 53f67a7c-7e17-4c19-ac5c-a43fabff70e1
 ms.service: security
@@ -15,18 +15,18 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: bf39e22c0edc23d2e452d96103c8933e0a47af9e
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 93a4595ce0b36c8d0f447177bda69d2d8cab12c8
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304408"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117526"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration avec la journalisation Azure Diagnostics et le transfert des événements Windows
 
 
 >[!IMPORTANT]
-> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 01/06/2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
+> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 01/06/2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
 
 Nous vous conseillons d’utiliser Azure Log Integration uniquement si un connecteur [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) n’est pas disponible auprès de votre fournisseur SIEM (Security Incident and Event Management).
 

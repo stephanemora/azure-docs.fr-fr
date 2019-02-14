@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4ba25da1f356f6164137dead467bd8bc948ce3d7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6c97289cd1ad406769613621afdc16c8096f4aeb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037835"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116165"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrer des machines sur site vers Azure
 
@@ -135,7 +135,7 @@ Certaines étapes peuvent être automatisées dans le cadre du processus de migr
 - Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des chaînes de connexion de base de données et les configurations du serveur web. 
 - Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.
 - [L’agent de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) gère les interactions entre une machine virtuelle Azure et le contrôleur Azure Fabric. Il est nécessaire pour certains services Azure, comme Sauvegarde Azure, Site Recovery et Azure Security.
-    - Si vous migrez des machines VMware et des serveurs physiques, le programme d’installation du service Mobilité installe l’agent de machine virtuelle Azure disponible sur les machines Windows. Sur les machines virtuelles Linux, nous vous recommandons d’installer l’agent après le basculement. a
+    - Si vous migrez des machines VMware et des serveurs physiques, le programme d’installation du service Mobilité installe l’agent de machine virtuelle Azure disponible sur les machines Windows. Sur les machines virtuelles Linux, nous vous recommandons d’installer l’agent après le basculement.
     - Si vous migrez des machines virtuelles Azure vers une région secondaire, l’agent de machine virtuelle Azure doit être provisionné sur la machine virtuelle avant la migration.
     - Si vous migrez des machines virtuelles Hyper-V vers Azure, installez l’agent de machine virtuelle Azure sur la machine virtuelle Azure après la migration.
 - Supprimez manuellement de la machine virtuelle les éventuels fournisseurs/agents Site Recovery. Si vous migrez des machines virtuelles VMware ou des serveurs physiques, [désinstallez le service Mobilité][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] de la machine virtuelle Azure.

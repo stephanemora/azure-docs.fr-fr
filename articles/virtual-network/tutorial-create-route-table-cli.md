@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 08189522f4f73e996ed98f3996f87da8d93b5d2a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157463"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895633"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Acheminer le trafic réseau avec une table de routage à l’aide de l’interface de ligne de commande Azure
 
@@ -44,7 +44,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="create-a-route-table"></a>Créer une table de routage
 
-Avant de pouvoir créer une table de routage, créez un groupe de ressources avec [az group create](/cli/azure/group#az_group_create) pour toutes les ressources créées dans cet article. 
+Avant de pouvoir créer une table de routage, créez un groupe de ressources avec [az group create](/cli/azure/group) pour toutes les ressources créées dans cet article. 
 
 ```azurecli-interactive
 # Create a resource group.
@@ -78,7 +78,7 @@ az network route-table route create \
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associer une table de routage à un sous-réseau
 
-Avant de pouvoir associer une table de routage à un sous-réseau, vous devez créer un réseau virtuel et un sous-réseau. Créez un réseau virtuel avec un sous-réseau en utilisant la commande [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+Avant de pouvoir associer une table de routage à un sous-réseau, vous devez créer un réseau virtuel et un sous-réseau. Créez un réseau virtuel avec un sous-réseau en utilisant la commande [az network vnet create](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -107,7 +107,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-Associez la table de routage *myRouteTablePublic* au sous-réseau *Public* avec [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
+Associez la table de routage *myRouteTablePublic* au sous-réseau *Public* avec [az network vnet subnet update](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -136,7 +136,7 @@ az vm create \
 
 La création de la machine virtuelle ne nécessite que quelques minutes. Ne passez pas à l’étape suivante tant qu’Azure n’a pas terminé la création de la machine virtuelle et retourné de sortie concernant la machine virtuelle. 
 
-Pour qu’une interface réseau soit en mesure de transférer le trafic réseau qui lui est envoyé, mais qui n’est pas destiné à sa propre adresse IP, le transfert IP doit être activé pour l’interface réseau. Activez le transfert IP pour l’interface réseau avec [az network nic update](/cli/azure/network/nic#az_network_nic_update).
+Pour qu’une interface réseau soit en mesure de transférer le trafic réseau qui lui est envoyé, mais qui n’est pas destiné à sa propre adresse IP, le transfert IP doit être activé pour l’interface réseau. Activez le transfert IP pour l’interface réseau avec [az network nic update](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
@@ -145,7 +145,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-Sur la machine virtuelle, le système d’exploitation ou une application exécutée dans la machine virtuelle, doit également pouvoir transférer le trafic réseau. Activez le transfert IP sur le système d’exploitation de la machine virtuelle avec [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) :
+Sur la machine virtuelle, le système d’exploitation ou une application exécutée dans la machine virtuelle, doit également pouvoir transférer le trafic réseau. Activez le transfert IP sur le système d’exploitation de la machine virtuelle avec [az vm extension set](/cli/azure/vm/extension) :
 
 ```azurecli-interactive
 az vm extension set \
@@ -268,7 +268,7 @@ Fermez les sessions SSH sur les machines virtuelles *myVmPublic* et *myVmPrivate
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin d’un groupe de ressources, utilisez [az group delete](/cli/azure/group#az_group_delete) pour le supprimer, ainsi que toutes les ressources qu’il contient.
+Quand vous n’avez plus besoin d’un groupe de ressources, utilisez [az group delete](/cli/azure/group) pour le supprimer, ainsi que toutes les ressources qu’il contient.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

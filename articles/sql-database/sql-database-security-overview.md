@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728400"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235986"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -98,7 +98,7 @@ La détection des menaces améliore l’audit en analysant les journaux d’audi
 
 ### <a name="transport-layer-security-tls-encryption-in-transit"></a>TLS (Transport Layer Security - Chiffrement en transit)
 
-SQL Database sécurise les données client en utilisant le protocole [Transport Layer Security](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server) pour chiffrer les données en mouvement.
+SQL Database sécurise les données client en utilisant le protocole [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) pour chiffrer les données en mouvement.
 
 > [!IMPORTANT]
 > Azure SQL Database applique le chiffrement (SSL/TLS) de façon permanente pour toutes les connexions, ce qui garantit que toutes les données sont chiffrées pendant leur transit entre la base de données et le client. Et ce, quel que soit le paramétrage de **Encrypt** ou **TrustServerCertificate** dans la chaîne de connexion.

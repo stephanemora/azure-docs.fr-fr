@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Découvrez comment migrer l’API de traduction de texte Translator Text de la V2 à la V3.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 7f5dfd9488e6017acfdf66cdb7d4cee3aedd1ab3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 98d2d3a54ff2f0c4ef326f8aae26e5ba8845d603
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699922"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882334"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migration de l’API de traduction de texte Translator Text de la v2 à la v3
 
@@ -113,8 +113,8 @@ La traduction neuronale avec l'API de texte v3 ne prend pas en charge l'utilisat
 
 | |Point de terminaison|    Conformité du processeur au RGPD|  Utiliser Translator Hub| Utiliser Custom Translator (préversion)|
 |:-----|:-----|:-----|:-----|:-----|
-|API de traduction de texte Translator Text version 2| api.microsofttranslator.com|    Non   |Oui    |Non |
-|API de traduction de texte Translator Text version 3| api.cognitive.microsofttranslator.com|  Oui|    Non | Oui|
+|API de traduction de texte Translator Text version 2| api.microsofttranslator.com|    Non   |OUI    |Non |
+|API de traduction de texte Translator Text version 3| api.cognitive.microsofttranslator.com|  OUI|    Non | OUI|
 
 **API de traduction de texte Translator Text version 3**
 * Est généralement disponible et entièrement prise en charge.

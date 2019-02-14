@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Découvrez les différences entre la Reconnaissance vocale Bing et le service Speech Service du point de vue d’un développeur, et migrez votre application pour utiliser le Speech Service.
 services: cognitive-services
 author: wsturman
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: b862975cda4a73d087d9aa0d5816fdcb9e0149dc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218004"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863565"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrer de la Reconnaissance vocale Bing vers le Service Speech
 

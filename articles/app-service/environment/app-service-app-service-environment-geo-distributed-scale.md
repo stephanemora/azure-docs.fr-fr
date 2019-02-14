@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273865"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113692"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Mise à l’échelle géolocalisée avec les environnements App Service
 ## <a name="overview"></a>Vue d’ensemble
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Les scénarios d’application s’appliquant à très grande échelle peuvent dépasser la capacité de ressources de calcul disponible pour un seul déploiement d’application.  À titre d’exemple, les applications de vote, les événements sportifs et les programmes de divertissement télévisés sont des scénarios qui fonctionnent à très grande échelle. Les exigences à grande échelle peuvent être satisfaites par la mise à l’échelle horizontale des applications, avec plusieurs déploiements dans une seule ou plusieurs régions, pour gérer les charges extrêmes.
 
 Les environnements App Service sont une plate-forme idéale pour l’évolution horizontale.  Une fois que la configuration d’environnements App Service a été sélectionnée et qu’elle peut prend en charge un taux de requête connu, les développeurs peuvent déployer des environnements App Service supplémentaires en mode « découpage » pour atteindre la capacité de charge maximale souhaitée.
@@ -68,13 +71,13 @@ Le paramètre *TrafficRoutingMethod* définit la stratégie d’équilibrage de 
 
 Avec le profil créé, chaque instance de l’application est ajoutée au profil en tant que point de terminaison Azure natif.  Le code ci-dessous extrait une référence à chaque application web frontale et ajoute chaque application en tant que point de terminaison Traffic Manager au moyen du paramètre *TargetResourceId* .
 
-    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
+    $webapp1 = Get-AzWebApp -Name webfrontend1
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
+    $webapp2 = Get-AzWebApp -Name webfrontend2
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
+    $webapp3 = Get-AzWebApp -Name webfrontend3
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
 
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Permet d’obtenir des informations de référence sur le point de terminaison de l’aperçu d’URL du projet.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: cd99f8bce8eca622412b834b5a7b75fda3ceb1f7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a871048c9d75fc6ea958cfacaa3a47b11765fb0d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812053"
+ms.locfileid: "55884441"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informations de référence sur l’aperçu d’URL du projet v7
 
@@ -75,8 +75,8 @@ La demande peut comporter les paramètres de requête suivants. Consultez la col
 
 |Nom|Valeur|Type|Obligatoire|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|Chaîne|Oui|
-|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|Oui|
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|Chaîne|OUI|
+|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|OUI|
 |<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](http://json-ld.org/).|Chaîne|Non |
 |<a name="safesearch"/>safeSearch|Le contenu pour adultes jugé non conforme, ou le contenu piraté, est bloqué avec pour code d’erreur 400 et aucun indicateur *isFamilyFriendly* n’est renvoyé. <p>Voici par contre le comportement concernant le contenu pour adultes considéré comme légal. Le système renvoie le code d’état 200 et l’indicateur *isFamilyFriendly* est défini sur false.<ul><li>safeSearch=strict : Le titre, la description, l’URL et l’image ne seront pas renvoyés.</li><li>safeSearch=moderate : vous obtenez le titre, l’URL et la description, mais pas l’image descriptive.</li><li>safeSearch=off : vous obtenez tous les objets/éléments de la réponse (titre, URL, description et image).</li></ul> |Chaîne|Non requis. </br> La valeur par défaut est safeSearch=strict.|
 

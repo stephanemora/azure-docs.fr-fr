@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ce44d4c066183ff796c8efa1dceb20dff73868ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ea865fe246bcb414dd1ab3f83b7135989bc0adf3
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192390"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894902"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Sécuriser l’accès aux données d’une application dans le cloud
 
@@ -50,7 +50,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 Dans le premier volet de cette série de didacticiels, l’application web affichait des images à partir d’un conteneur public. Dans ce volet de la série, vous utilisez des jetons de [signature d’accès partagé (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) pour récupérer les images miniatures. Les jetons SAS vous permettent de fournir un accès limité à un conteneur ou un objet blob en fonction de l’adresse IP, du protocole, de l’intervalle de temps ou des droits autorisés.
 
-Dans cet exemple, le dépôt de code source utilise la branche `sasTokens`, qui a un exemple de code mis à jour. Supprimez le déploiement GitHub existant avec la commande [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Ensuite, configurez un déploiement GitHub local sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source).  
+Dans cet exemple, le dépôt de code source utilise la branche `sasTokens`, qui a un exemple de code mis à jour. Supprimez le déploiement GitHub existant avec la commande [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Ensuite, configurez un déploiement GitHub local sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source).  
 
 Dans la commande suivante, `<web-app>` est le nom de votre application web.  
 
@@ -146,7 +146,7 @@ Le chiffrement du service de stockage chiffre automatiquement les données pour 
 
 ## <a name="enable-https-only"></a>Activer HTTPS uniquement
 
-Pour vérifier que les demandes de données vers et à partir d’un compte de stockage sont sécurisées, vous pouvez limiter les demandes à HTTPS uniquement. Mettez à jour le protocole demandé par le compte de stockage à l’aide de la commande [az storage account update](/cli/azure/storage/account#az_storage_account_update).
+Pour vérifier que les demandes de données vers et à partir d’un compte de stockage sont sécurisées, vous pouvez limiter les demandes à HTTPS uniquement. Mettez à jour le protocole demandé par le compte de stockage à l’aide de la commande [az storage account update](/cli/azure/storage/account).
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez ce guide de démarrage rapide pour envoyer des requêtes de recherche de vidéos à l’API REST Recherche de vidéos Bing en Java.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 86f1458f6468228dc4106a8bd98bdd359fe2e195
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 3b0060b189dd941a8705d7e9815f69db8ea035e8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569086"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863310"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et Java
 

@@ -15,12 +15,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: b7a12494585cedd8f75fd9061f8eb29a0b5dc319
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: a075fdceaf57625280ef73499d868d5c3724426c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747422"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236479"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Déléguer des offres dans Azure Stack
 
@@ -78,7 +78,7 @@ Pour utiliser cette procédure pas à pas, vous avez besoin de deux comptes Azur
 | Utilisateur |Utilisateur |
 
  > [!NOTE]
-   > Dans le cas d'un revendeur CSP, pour créer ce fournisseur délégué, les utilisateurs devront se trouver dans le répertoire du locataire (l'utilisateur d'AAD). L'opérateur Azure Stack devra [d'abord intégrer](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-enable-multitenancy) l'instance AAD de ce locataire, puis configurer l'utilisation et la facturation en suivant [ces étapes](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-csp-howto-register-tenants).
+   > Dans le cas d'un revendeur CSP, pour créer ce fournisseur délégué, les utilisateurs devront se trouver dans le répertoire du locataire (l'utilisateur d'AAD). L'opérateur Azure Stack devra [d'abord intégrer](https://docs.microsoft.com/azure/azure-stack/azure-stack-enable-multitenancy) l'instance AAD de ce locataire, puis configurer l'utilisation et la facturation en suivant [ces étapes](https://docs.microsoft.com/azure/azure-stack/azure-stack-csp-howto-register-tenants).
 
 ### <a name="identify-the-delegated-provider"></a>Identifier les fournisseurs délégués.
 

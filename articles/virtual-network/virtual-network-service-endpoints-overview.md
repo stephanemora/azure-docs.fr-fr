@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 0f36439cba4a946fb05466f2d961e537196f0095
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 60296400c40a1e79758dc53d60d2f1c61d79fd88
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818598"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108192"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -34,7 +34,7 @@ Cette fonctionnalité est disponible pour les services et régions Azure suivant
 - **[Serveur Azure Database pour PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : mis à la disposition générale dans les régions Azure où le service de base de données est disponible.
 - **[Serveur Azure Database pour MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : mis à la disposition générale dans les régions Azure où le service de base de données est disponible.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : mis à la disposition générale dans toutes les régions de cloud public Azure.
-- **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)** : mis à la disposition générale dans toutes les régions de cloud public Azure.
+- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** : mis à la disposition générale dans toutes les régions de cloud public Azure.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : mis à la disposition générale dans toutes les régions de cloud public Azure.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : mis à la disposition générale dans toutes les régions de cloud public Azure.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Disponibilité générale dans toutes les régions Azure où ADLS Gen1 est disponible.

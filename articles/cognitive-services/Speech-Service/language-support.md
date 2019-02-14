@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Les services Azure Speech prennent en charge de nombreuses langues, que ce soit pour la reconnaissance vocale, la synthèse vocale ou la traduction vocale. Cet article fournit une liste complète des langues prise en charge par service.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: bc85de9d2d94cd325095f5f6555105a724865005
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213307"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878032"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Prise en charge de la région et de la langue pour l’API du service de reconnaissance vocale
 
@@ -28,35 +28,35 @@ L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes
 
   Code | Langage | [Adaptation acoustique](how-to-customize-acoustic-models.md) | [Adaptation de langage](how-to-customize-language-model.md) | [Adaptation de prononciation](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
- ar-EG | Arabe (Égypte), standard moderne | Non  | Oui | Non 
+ ar-EG | Arabe (Égypte), standard moderne | Non  | OUI | Non 
  ca-ES | Catalan (Espagne) | Non  | Non  | Non 
  da-DK | Danois (Danemark) | Non  | Non  | Non 
- de-DE | Allemand (Allemagne) | Oui | Oui | Non 
- en-AU | Anglais (Australie) | Non  | OUI | Oui
- en-CA | Anglais (Canada) | Non  | OUI | Oui
- en-GB | Anglais (Royaume-Uni) | Non  | OUI | Oui
- en-IN | Anglais (Inde) | Oui | OUI | Oui
- en-NZ | Anglais (Nouvelle-Zélande) | Non  | OUI | Oui  
- en-US | Anglais (États-Unis) | Oui | OUI | Oui
- es-ES | Espagnol (Espagne) | Oui | Oui | Non 
- es-MX | Espagnol (Mexique) | Non  | Oui | Non 
+ de-DE | Allemand (Allemagne) | OUI | OUI | Non 
+ en-AU | Anglais (Australie) | Non  | OUI | OUI
+ en-CA | Anglais (Canada) | Non  | OUI | OUI
+ en-GB | Anglais (Royaume-Uni) | Non  | OUI | OUI
+ en-IN | Anglais (Inde) | OUI | OUI | OUI
+ en-NZ | Anglais (Nouvelle-Zélande) | Non  | OUI | OUI  
+ en-US | Anglais (États-Unis) | OUI | OUI | OUI
+ es-ES | Espagnol (Espagne) | OUI | OUI | Non 
+ es-MX | Espagnol (Mexique) | Non  | OUI | Non 
  fi-FI | Finnois (Finlande) | Non  | Non  | Non 
- fr-CA | Français (Canada) | Non  | Oui | Non 
- fr-FR | Français (France) | Oui | Oui | Non 
- hi-IN | Hindi (Inde) | Non  | Oui | Non 
- it-IT | Italien (Italie) | Oui | Oui | Non 
- ja-JP | Japonais (Japon) | Non  | Oui | Non 
- ko-KR | Coréen (Corée) | Non  | Oui | Non 
+ fr-CA | Français (Canada) | Non  | OUI | Non 
+ fr-FR | Français (France) | OUI | OUI | Non 
+ hi-IN | Hindi (Inde) | Non  | OUI | Non 
+ it-IT | Italien (Italie) | OUI | OUI | Non 
+ ja-JP | Japonais (Japon) | Non  | OUI | Non 
+ ko-KR | Coréen (Corée) | Non  | OUI | Non 
  nb-NO | Norvégien( Bokmål) (Norvège) | Non  | Non  | Non 
- nl-NL | Néerlandais (Pays-Bas) | Non  | Oui | Non 
+ nl-NL | Néerlandais (Pays-Bas) | Non  | OUI | Non 
  pl-PL | Polonais (Pologne) | Non  | Non  | Non 
- pt-br | Portugais (Brésil) | Oui | Oui | Non 
- pt-PT | Portugais (Portugal) | Non  | Oui | Non 
- ru-RU | Russe (Russie) | Oui | Oui | Non 
+ pt-br | Portugais (Brésil) | OUI | OUI | Non 
+ pt-PT | Portugais (Portugal) | Non  | OUI | Non 
+ ru-RU | Russe (Russie) | OUI | OUI | Non 
  sv-SE | Suédois (Suède) | Non  | Non  | Non 
- zh-CN | Chinois (mandarin, simplifié) | Oui | Oui | Non 
- zh-HK | Chinois (mandarin, traditionnel) | Non  | Oui | Non 
- zh-TW | Chinois (mandarin, taïwanais) | Non  | Oui | Non 
+ zh-CN | Chinois (mandarin, simplifié) | OUI | OUI | Non 
+ zh-HK | Chinois (mandarin, traditionnel) | Non  | OUI | Non 
+ zh-TW | Chinois (mandarin, taïwanais) | Non  | OUI | Non 
  th-TH | Thaï (Thaïlande) | Non  | Non  | Non 
 
 

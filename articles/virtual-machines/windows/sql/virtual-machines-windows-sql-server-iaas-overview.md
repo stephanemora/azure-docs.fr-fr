@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 43305efc146151d131152e712869e283af65f0b2
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ddf36c97a8aebd3cd7446dca07e77c7f743afcb9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359763"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982945"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qu’est-ce que SQL Server sur les machines virtuelles Azure ? (Windows)
 
@@ -86,7 +86,7 @@ Pour utiliser votre propre licence, vous pouvez soit convertir une machine virtu
 Avec PowerShell, il est possible de déployer une image plus ancienne de SQL Server qui n’est pas disponible dans le portail Azure. Pour afficher toutes les images disponibles avec PowerShell, utilisez la commande suivante :
 
   ```PowerShell
-  Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
+  Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 
 Pour plus d’informations sur le déploiement de machines virtuelles SQL Server à l’aide de PowerShell, consultez [Guide pratique pour provisionner des machines virtuelles SQL Server à l’aide d’Azure PowerShell](virtual-machines-windows-ps-sql-create.md).

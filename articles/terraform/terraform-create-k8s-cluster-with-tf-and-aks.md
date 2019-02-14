@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 0ef206cf4407c6392ae5d9a70ba156f5635715e9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 57615ecd4c81359360004b732736bf757c0026c3
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814790"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892063"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) gère votre environnement Kubernetes hébergé, ce qui vous permet de déployer et de gérer de manière simple et rapide des applications en conteneur sans avoir à maîtriser l’orchestration de conteneurs. Il élimine également la charge des opérations en cours et la maintenance par configuration, la mise à niveau et la mise à l’échelle des ressources à la demande, sans déconnecter vos applications.
@@ -32,7 +32,7 @@ Dans ce tutoriel, découvrez comment effectuer les tâches suivantes pour créer
 
 - **Configurez Terraform** : Suivez les instructions de l’article [Terraform et configuration de l’accès à Azure ](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Principal de service Azure** : suivez les instructions de la section **Créer le principal de service** de l’article [Créer un principal de service Azure avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Notez les valeurs de l’appId, du nom d’affichage, du mot de passe et du locataire.
+- **Principal de service Azure** : suivez les instructions de la section **Créer le principal de service** de l’article [Créer un principal de service Azure avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Notez les valeurs de l’appId, du nom d’affichage, du mot de passe et du locataire.
 
 ## <a name="create-the-directory-structure"></a>Créer la structure de répertoire
 La première étape consiste à créer le répertoire qui contient vos fichiers de configuration Terraform pour l’exercice.

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous allez apprendre à rechercher des traductions alternatives et des exemples d’utilisation pour un texte spécifié à l’aide de Node.js et de l’API REST de traduction de texte Translator Text.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 502455c6302a19176b29e9e5dcbac4a9897a04ea
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e7757b05ba0e99c5c326f3c63aa6b1d3be06a365
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214039"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856969"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue en utilisant Node.js
 
@@ -92,7 +92,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 
 La manière la plus simple d’authentifier une requête consiste à transmettre votre clé d’abonnement comme `Ocp-Apim-Subscription-Key`en-tête. C’est ce que nous avons fait dans ce modèle. Vous pouvez aussi échanger votre clé d’abonnement pour un jeton d’accès et transmettre le jeton d’accès en tant qu’`Authorization`en-tête pour valider votre requête. Pour en savoir plus, consultez [Authentification](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 

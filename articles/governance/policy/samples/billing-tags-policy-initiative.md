@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: ce34e8f22faa4730089ac5b7985f04df005d0259
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 4592ac63561a59bfc0e4351cc5ad83f138955370
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852556"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242853"
 ---
 # <a name="billing-tags-policy-initiative"></a>Initiative de la stratégie de facturation en fonction d’étiquettes
 
@@ -33,7 +33,7 @@ Vous pouvez déployer ce modèle en utilisant le [portail Azure](#deploy-with-th
 
 ## <a name="deploy-with-powershell"></a>Déployer avec PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.definitions.json"

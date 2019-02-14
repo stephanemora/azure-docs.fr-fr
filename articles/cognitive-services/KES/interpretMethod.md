@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Découvrez comment utiliser la méthode Interpret dans l’API Service d’exploration des connaissances (KES).
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 4f950734081be6cf76770b1c6cb2feca7efdae70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221401"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870926"
 ---
 # <a name="interpret-method"></a>Méthode Interpret
 
@@ -25,7 +25,7 @@ La méthode *Interpret* extrait une chaîne de requête de langage naturel et re
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-NOM|Valeur| Description
+Nom|Valeur| Description
 ----|----|----
 query    | Chaîne de texte | Requête saisie par l’utilisateur.  Si le paramètre complete est défini sur 1, la requête sera interprétée en tant que préfixe pour générer des suggestions de saisie semi-automatique pour la requête.        
 terminé | 0 (valeur par défaut) ou 1 | 1 signifie que les suggestions de saisie semi-automatique sont générées en fonction des données de la grammaire et de l’index.         

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 'Le service vocal, qui fait partie de Azure Cognitive Services, réunit plusieurs services vocaux qui étaient auparavant disponibles séparément : Reconnaissance vocale Bing (incluant la reconnaissance vocale et la synthèse vocale), Custom Speech et traduction vocale.'
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: beb1382d2e076052583dd5bbc546259c8aae2f96
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d60e5f881e44f397090a3ba5e467c08f20137d72
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217966"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858826"
 ---
 # <a name="what-is-speech-services"></a>Qu’est-ce que les services Speech ?
 
@@ -55,8 +55,8 @@ Les services Speech disposent également d’une [API REST](rest-apis.md) qui fo
 
 |<br>Méthode|Speech<br>to Text|Text to<br>Speech|Speech<br>Traduction|<br>Description|
 |-|-|-|-|-|
-|[Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk.md)|Oui|Non |Oui|API natives pour C#, C++ et Java afin de simplifier le développement.|
-|[API REST](rest-apis.md)|Oui|Oui|Non |API simple basée sur HTTP qui permet d’ajouter facilement la reconnaissance vocale à votre application.|
+|[Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk.md)|OUI|Non |OUI|API natives pour C#, C++ et Java afin de simplifier le développement.|
+|[API REST](rest-apis.md)|OUI|OUI|Non |API simple basée sur HTTP qui permet d’ajouter facilement la reconnaissance vocale à votre application.|
 
 ### <a name="websockets"></a>WebSockets
 

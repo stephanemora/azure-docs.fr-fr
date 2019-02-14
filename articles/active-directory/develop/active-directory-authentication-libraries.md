@@ -17,12 +17,13 @@ ms.date: 12/01/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 09e748f39cd5c31433e30cfa60527ce082fb07c6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8e90a2fc0bb5e040e0c1a3179df1e4bef758d7ee
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080784"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173009"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliothèques d’authentification d’Azure Active Directory
 
@@ -39,7 +40,7 @@ La bibliothèque d’authentification Azure Active Directory v1.0 (ADAL, Azure 
 
 ## <a name="microsoft-supported-client-libraries"></a>Bibliothèques clientes prises en charge par Microsoft
 
-| Plateforme | Bibliothèque | Download | Code source | Exemple | Informations de référence
+| Plateforme | Bibliothèque | Téléchargement | Code source | Exemple | Informations de référence
 | --- | --- | --- | --- | --- | --- |
 | .NET Client, Windows Store, UWP, Xamarin iOS et Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Application de bureau](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Référence](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
 | .NET Client, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [Application de bureau](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
@@ -52,7 +53,7 @@ La bibliothèque d’authentification Azure Active Directory v1.0 (ADAL, Azure 
 
 ## <a name="microsoft-supported-server-libraries"></a>Bibliothèques serveur prises en charge par Microsoft
 
-| Plateforme | Bibliothèque | Download | Code source | Exemple | Informations de référence
+| Plateforme | Bibliothèque | Téléchargement | Code source | Exemple | Informations de référence
 | --- | --- | --- | --- | --- | --- |
 | .NET |OWIN pour Azure AD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[Application MVC](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
 | .NET |OWIN pour OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[Application web](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |

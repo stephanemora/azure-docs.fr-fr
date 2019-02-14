@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Informations de référence sur le point de terminaison du projet Recherche de réponses.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 5e9ae8fcd756619c83ebde12df9f8405f1a39bf6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e0d005725730680798b78acab0c90e1c0a02a7b8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812573"
+ms.locfileid: "55876350"
 ---
 # <a name="project-answer-search-v7-reference"></a>Informations de référence sur le projet Recherche de réponses v7
 
@@ -85,8 +85,8 @@ La demande peut comporter les paramètres de requête suivants. Consultez la col
   
 |Nom|Valeur|Type|Obligatoire|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|Oui|  
-|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|Oui|  
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|OUI|  
+|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|OUI|  
 |<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](http://json-ld.org/).|Chaîne|Non |  
 |<a name="safesearch" />safeSearch|Filtre utilisé pour filtrer le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Retourner les pages web comportant du texte, des images ou des vidéos pour adultes.<br /><br/></li><li>Modéré &mdash; Retourner les pages web comportant du texte pour adultes, mais pas des images ou des vidéos pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas retourner de pages web comportant du texte, des images ou des vidéos pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la demande provient d’un marché où la stratégie de Bing en matière de contenu pour adultes exige que `safeSearch` ait la valeur Strict, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes. |Chaîne|Non |  
 |<a name="setlang" />setLang|Langue à utiliser pour les chaînes de l’interface utilisateur. Spécifiez la langue en utilisant le code de langue ISO 639-1 à deux lettres. Par exemple, celui de l’anglais est EN. La valeur par défaut est EN (anglais).<br /><br /> Nous vous conseillons de toujours indiquer la langue, bien qu’elle soit facultative. En général, on définit `setLang` sur la langue spécifiée par `mkt`, sauf si l’utilisateur souhaite que les chaînes de l’interface utilisateur soient affichées dans une autre langue.<br /><br /> Ce paramètre et l’en-tête [Accept-Language](#acceptlanguage) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. En outre, les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée.|Chaîne|Non | 

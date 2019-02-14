@@ -1,23 +1,23 @@
 ---
-title: 'Didacticiel : Modérer les images de produits e-commerce - Content Moderator'
+title: 'Tutoriel : Modérer les images de produits e-commerce - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Configurez une application pour analyser et classer des images de produits avec des étiquettes spécifiées (à l’aide de l’API Azure Vision par ordinateur et du service Azure Vision personnalisée), et marquez les images répréhensibles à des fins de vérification (à l’aide d’Azure Content Moderator).
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 833aa9caed3d1fd5d39a0c15e9fc03ad32091834
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 41437933f715af092dea563b0b1be4794c71925c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218901"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863157"
 ---
-# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutoriel : Modérer les images de produits e-commerce avec Azure Content Moderator
+# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Didacticiel : Modérer les images de produits e-commerce avec Azure Content Moderator
 
 Dans ce tutoriel, vous allez apprendre à utiliser les services cognitifs Azure, notamment Content Moderator, pour classer et modérer efficacement des images de produits dans le cadre d’un scénario e-commerce. Vous allez utiliser Vision par ordinateur et Vision personnalisée pour appliquer différentes étiquettes aux images, puis créer une révision d’équipe, qui associe les technologies de Content Moderator basées sur le machine learning à des équipes de révision humaine pour fournir un système de modération intelligente.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 3821e13fd968e458e463e90ef338da6637d8d8f2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 87c55634b6502a8a0c00fe52c7740a60f3afd80d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622012"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098280"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installer .NET sur des rôles d’Azure Cloud Services
 Cet article décrit comment installer des versions de .NET Framework qui ne sont fournies avec le SE invité Azure. Vous pouvez utiliser .NET sur le SE invité pour configurer vos rôles web et rôles de travail de Cloud Services.
@@ -34,7 +34,7 @@ Pour installer .NET sur vos rôles web et rôles de travail, incluez le programm
 ## <a name="add-the-net-installer-to-your-project"></a>Ajouter le programme d'installation de .NET à votre projet
 Pour télécharger le programme d'installation web de .NET Framework, sélectionnez la version à installer :
 
-* [Programme d’installation web de.NET 4.7.2](http://go.microsoft.com/fwlink/?LinkId=863262)
+* [Programme d’installation web de.NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [Programme d’installation web de.NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Pour ajouter le programme d’installation pour un rôle *web* :
@@ -183,10 +183,11 @@ Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations av
        if %ERRORLEVEL%== 3010 goto restart
        if %ERRORLEVEL%== 1641 goto restart
        echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
-   
+       goto exit
+       
    :restart
    echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
-   EXIT /B %ERRORLEVEL%
+   shutdown.exe /r /t 5 /c "Installed .NET framework" /f /d p:2:4
    
    :installed
    echo .NET (%netfx%) is installed >> %startuptasklog%

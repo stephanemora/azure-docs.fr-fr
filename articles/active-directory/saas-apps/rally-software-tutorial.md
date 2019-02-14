@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Rally Software | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Rally Software | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Rally Software.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 5898f084ea3de4e0f947283100bae55d4499d382
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ba4f1d41497af8f57a343eacc92c5da7d2488d07
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166881"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163697"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Tutoriel : Intégration d’Azure Active Directory à Rally Software
+# <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Didacticiel : Intégration d’Azure Active Directory à Rally Software
 
 Dans ce didacticiel, vous allez apprendre à intégrer Rally Software à Azure Active Directory (Azure AD).
 

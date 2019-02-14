@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/08/2019
 ms.author: sajagtap
-ms.openlocfilehash: e44308f38a138c0e186e41fc8310f8b480cd4e09
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aba7d2ff73fc1fdca6f57742582b38662177012d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783428"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995116"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utiliser Azure Media Content Moderator pour détecter du contenu potentiellement osé et réservé aux adultes
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utiliser Azure Media Content Moderator pour détecter du contenu potentiellement osé et réservé aux adultes 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le processeur multimédia (MP) **Azure Media Content Moderator** vous permet d’utiliser la modération assistée par ordinateur pour vos vidéos. Par exemple, vous souhaiterez peut-être détecter du contenu potentiellement osé et réservé aux adultes dans des vidéos et demander à vos équipes humaines en charge de la modération d’en examiner le contenu.
 
 Le processeur multimédia **Azure Media Content Moderator** est actuellement disponible en préversion.
@@ -31,7 +31,7 @@ Le processeur multimédia **Azure Media Content Moderator** est actuellement dis
 Cet article apporte des précisions sur **Azure Media Content Moderator** et illustre son utilisation avec le kit SDK Media Services pour .NET.
 
 ## <a name="content-moderator-input-files"></a>Fichiers d’entrée de Content Moderator
-Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MOV et WMV.
+Fichiers vidéo. Actuellement, les formats suivants sont pris en charge : MP4, MOV et WMV.
 
 ## <a name="content-moderator-output-files"></a>Fichiers de sortie de Content Moderator
 La sortie modérée au format JSON inclut les images clés et les captures détectées automatiquement. Les images clés sont retournées avec des scores de confiance sur le contenu potentiellement osé ou réservé aux adultes. Elles comprennent également un indicateur booléen qui indique si un passage en revue est recommandé. Les valeurs de l’indicateur de recommandation de passage en revue sont attribuées en fonction des seuils internes pour les scores relatifs au contenu osé et réservé aux adultes.

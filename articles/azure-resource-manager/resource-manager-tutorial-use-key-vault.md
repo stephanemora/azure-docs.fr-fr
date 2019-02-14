@@ -14,14 +14,16 @@ ms.date: 01/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 0e73177ca49a9a100b45712833b1310d54852680
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 979867e7630c21b0bd724967dbc79c5f8155ca5e
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498010"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237176"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutoriel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Découvrez comment récupérer des secrets auprès d’Azure Key Vault et comment les passer en tant que paramètres lors d’un déploiement Resource Manager. La valeur n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés. Pour plus d’informations, consultez l’article [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](./resource-manager-keyvault-parameter.md).
 
@@ -166,6 +168,7 @@ Aucune modification de ce fichier de modèle n’est nécessaire.
         }
     },
     ```
+
     Remplacez la valeur **id** par l’ID de ressource du coffre de clés que vous avez créé lors de la dernière procédure.  
 
     ![Fichier de paramètres de déploiement de machine virtuelle pour l’intégration d’un coffre Key Vault à un modèle Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
@@ -180,12 +183,11 @@ Aucune modification de ce fichier de modèle n’est nécessaire.
 Suivez les instructions de la section [Déployer le modèle](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) pour déployer le modèle. Vous devez charger les fichiers **azuredeploy.json** et **azuredeploy.parameters.json** dans le service Cloud Shell, puis utiliser le script PowerShell ci-après pour déployer le modèle :
 
 ```azurepowershell
-$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile azuredeploy.json `
     -TemplateParameterFile azuredeploy.parameters.json

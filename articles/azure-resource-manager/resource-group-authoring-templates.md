@@ -10,16 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7d6b942ea8b2bf61bee472811648e5089f280354
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102412"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745587"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
+
 Cet article décrit la structure d’un modèle Azure Resource Manager. Elle présente les différentes sections d’un modèle et les propriétés disponibles dans ces sections. Le modèle se compose d’un JSON et d’expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement. Pour obtenir un didacticiel étape par étape permettant de créer un modèle, voir [Créer votre premier modèle Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Format de modèle
@@ -40,7 +41,7 @@ Dans sa structure la plus simple, un modèle a les éléments suivants :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| $schema |Oui |Emplacement du fichier de schéma JSON qui décrit la version du langage du modèle.<br><br> Pour des déploiements de groupes de ressources, utilisez `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`.<br><br>Pour des déploiements d’abonnements, utilisez `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |Oui |Emplacement du fichier de schéma JSON qui décrit la version du langage du modèle.<br><br> Pour des déploiements de groupes de ressources, utilisez : `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Pour des déploiements d’abonnements, utilisez : `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Oui |Version du modèle (par exemple, 1.0.0.0). Vous pouvez fournir n’importe quelle valeur pour cet élément. Utilisez cette valeur pour documenter les modifications importantes dans votre modèle. Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé. |
 | parameters |Non  |Valeurs fournies lors de l'exécution du déploiement pour personnaliser le déploiement des ressources. |
 | variables |Non  |Valeurs utilisées en tant que fragments JSON dans le modèle pour simplifier les expressions du langage du modèle. |
@@ -161,6 +162,7 @@ Chaque élément a des propriétés que vous pouvez définir. L’exemple suivan
 Cet article décrit les sections du modèle de manière plus approfondie.
 
 ## <a name="syntax"></a>Syntaxe
+
 La syntaxe de base du modèle est JSON. Toutefois, les expressions et fonctions étendent les valeurs JSON disponibles dans le modèle.  Les expressions sont écrites dans les littéraux de chaîne JSON dont le premier et dernier caractères sont les crochets : `[` et `]`, respectivement. La valeur de l’expression est évaluée lorsque le modèle est déployé. Bien qu’écrit sous la forme d’un littéral de chaîne, le résultat de l’évaluation de l’expression peut être d’un type différent de JSON, tel qu’un tableau ou un entier, en fonction de l’expression réelle.  Pour avoir une chaîne littérale qui commence par un crochet `[`, sans qu’elle soit interprétée comme une expression, ajoutez un crochet supplémentaire. La chaîne commence alors par `[[`.
 
 En général, vous utilisez des expressions avec des fonctions pour effectuer des opérations de configuration du déploiement. Comme en JavaScript, les appels de fonction sont formatés comme suit : `functionName(arg1,arg2,arg3)`. Pour référencer des propriétés, vous utilisez les opérateurs point et [index].
@@ -176,6 +178,7 @@ L’exemple suivant montre comment utiliser plusieurs fonctions lors de la const
 Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>parameters
+
 C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Ces valeurs de paramètre vous permettent de personnaliser le déploiement grâce à des valeurs adaptées à un environnement particulier (par exemple développement, test et production). Vous n’êtes pas obligé de fournir des paramètres dans votre modèle, mais sans paramètres, votre modèle déploie toujours les mêmes ressources avec les mêmes noms, emplacements et propriétés.
 
 L’exemple suivant illustre une définition de paramètre simple :
@@ -194,6 +197,7 @@ L’exemple suivant illustre une définition de paramètre simple :
 Pour plus d’informations sur la définition des paramètres, consultez [Section des paramètres des modèles Azure Resource Manager](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>variables
+
 Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes.
 
 L’exemple suivant montre une définition de variable simple :
@@ -294,6 +298,101 @@ Dans la section des sorties, vous spécifiez des valeurs retournées à partir d
 
 Pour plus d’informations, consultez [Section Sorties des modèles Azure Resource Manager](resource-manager-templates-outputs.md).
 
+## <a name="comments"></a>Commentaires
+
+Vous avez quelques options permettant d’ajouter des commentaires à votre modèle.
+
+Pour **parameters**, ajoutez un objet `metadata` avec une propriété `description`.
+
+```json
+"parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "User name for the Virtual Machine."
+      }
+    },
+```
+
+Lorsque vous déployez le modèle par le biais du portail, le texte que vous fournissez dans la description est automatiquement utilisé comme une info-bulle pour ce paramètre.
+
+![Afficher le paramètre conseillé](./media/resource-group-authoring-templates/show-parameter-tip.png)
+
+Pour **resources**, ajoutez un élément `comments` ou un objet de métadonnées. L’exemple suivant montre à la fois un élément de commentaires et un objet de métadonnées.
+
+```json
+"resources": [
+  {
+    "comments": "Storage account used to store VM disks",
+    "apiVersion": "2018-07-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "location": "[parameters('location')]",
+    "metadata": {
+      "comments": "These tags are needed for policy compliance."
+    },
+    "tags": {
+      "Dept": "[parameters('deptName')]",
+      "Environment": "[parameters('environment')]"
+    },
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {}
+  }
+]
+```
+
+Vous pouvez ajouter un objet `metadata` presque n’importe où dans votre modèle. Resource Manager ignore l’objet, mais votre éditeur JSON peut vous avertir que la propriété n’est pas valide. Dans l’objet, définissez les propriétés dont vous avez besoin.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
+
+Pour **outputs**, ajoutez un objet de métadonnées à la valeur de sortie.
+
+```json
+"outputs": {
+    "hostname": {
+      "type": "string",
+      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
+      "metadata": {
+        "comments": "Return the fully qualified domain name"
+      }
+    },
+```
+
+Vous ne pouvez pas ajouter un objet de métadonnées aux fonctions définies par l’utilisateur.
+
+Pour les commentaires inclus, vous pouvez utiliser `//`, mais cette syntaxe ne fonctionne pas avec tous les outils. Vous ne pouvez pas utiliser Azure CLI pour déployer le modèle avec les commentaires inclus. Et, vous ne pouvez pas utiliser l’éditeur de modèle du portail pour travailler sur des modèles avec des commentaires inclus. Si vous ajoutez ce style de commentaire, vérifiez que les outils que vous utilisez prennent en charge les commentaires JSON inclus.
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[parameters('location')]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  "dependsOn": [ // storage account and network interface must be deployed first
+      "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+      "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
+Dans VS Code, vous pouvez définir le mode de langage sur JSON avec des commentaires. Les commentaires inclus ne sont plus signalés comme étant non valides. Pour modifier le mode :
+
+1. Ouvrez la sélection du mode de langage (Ctrl + K M)
+
+1. Sélectionnez **JSON avec des commentaires**.
+
+   ![Sélectionner un mode de langage](./media/resource-group-authoring-templates/select-json-comments.png)
+
 ## <a name="template-limits"></a>Limites de modèle
 
 Limitez la taille de votre modèle à 1 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 1 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres. 
@@ -315,4 +414,4 @@ Vous pouvez dépasser certaines limites de modèle en utilisant un modèle imbri
 * Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
 * Pour combiner plusieurs modèles lors du déploiement, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 * Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles Azure Resource Manager](template-best-practices.md).
-* Pour obtenir des recommandations sur la création de modèles Resource Manager utilisables dans Azure partout dans le monde, les clouds souverains Azure et Azure Stack, consultez [Développer des modèles Azure Resource Manager pour la cohérence du cloud](templates-cloud-consistency.md).
+* Pour obtenir des suggestions sur la création de modèles Resource Manager utilisables dans tous les environnements Azure et Azure Stack, consultez [Développer des modèles Azure Resource Manager pour la cohérence du cloud](templates-cloud-consistency.md).

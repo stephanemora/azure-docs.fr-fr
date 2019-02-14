@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Documentation de référence pour l’API de traduction de conversation Translator Speech.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: e1796b2cb3efee6ff610f9dade7a10b2c2637bba
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466181"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874734"
 ---
 # <a name="translator-speech-api"></a>API de traduction de conversation Translator Speech
 
@@ -30,7 +30,7 @@ L’API de traduction de conversation Translator Speech tire parti du protocole 
 ## <a name="1-getting-started"></a>1. Prise en main
 Pour accéder à l’API de traduction de texte Translator Text, vous devez [vous inscrire à Microsoft Azure](translator-speech-how-to-signup.md).
 
-## <a name="2-authentication"></a>2. Authentification
+## <a name="2-authentication"></a>2. Authentication
 
 Utilisez la clé d’abonnement pour vous authentifier. L’API de traduction de conversation Translator Speech prend en charge deux modes d’authentification :
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez Microsoft Translator Hub pour générer votre propre système de traduction automatique à l’aide de la terminologie et du style de votre choix.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: e4e512a69fc783e6c4878298d848a9dccf8768c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c2ff97c61cee1f2f773710103ac422fc6f1d8714
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226923"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876060"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
 
@@ -50,10 +50,10 @@ L’ancien hub Microsoft Translator peut être utilisé pour obtenir une traduct
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2 uniquement   | V3 uniquement |
-| Personnalisation TA statistique | Oui   | Non  |
-| Personnalisation TA neuronale | Non     | Oui |
-| Nouvelle personnalisation unifiée des services vocaux | Non     | Oui |
-| [Sans trace](https://www.aka.ms/notrace) | Oui  | Oui |
+| Personnalisation TA statistique | OUI   | Non  |
+| Personnalisation TA neuronale | Non     | OUI |
+| Nouvelle personnalisation unifiée des services vocaux | Non     | OUI |
+| [Sans trace](https://www.aka.ms/notrace) | OUI  | OUI |
 
 ## <a name="collaborative-translations-framework"></a>Infrastructure de traductions collaboratives
 

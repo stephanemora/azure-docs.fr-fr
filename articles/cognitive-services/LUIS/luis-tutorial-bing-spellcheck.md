@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Corrigez les mots mal orthographiés dans les énoncés en ajoutant l’API Vérification orthographique Bing v7 aux requêtes de point de terminaison LUIS.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: d1c18c89cb8c7996aadeb4581af4d562195f135f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 3c1ea107d42e25080a2c8bd96dd4b6bb474e4404
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215131"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871683"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corriger les mots mal orthographiés avec la vérification orthographique Bing
 

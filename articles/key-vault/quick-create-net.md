@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8127a7a10c117edaefc4a215366990d847a165ec
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565545"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238281"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET
 
@@ -176,7 +176,7 @@ Maintenant lorsque vous exécutez l’application, vous devriez voir votre valeu
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 Supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées quand vous n’en avez plus besoin. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle et sélectionnez **Supprimer**.
 
-Supprimez le coffre de clés à l’aide de la commande [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) :
+Supprimez le coffre de clés à l’aide de la commande [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) :
 
 ```azurecli
 az keyvault delete --name

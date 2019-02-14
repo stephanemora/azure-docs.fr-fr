@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Le plug-in Project Acoustics Unity fournit une occlusion, une réverbération et une spatialisation pour les projets ciblant la réalité virtuelle et les écrans traditionnels.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 175203269f524f5c680345602e6382f5c26f1bd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8305eca478854eeff29268a86e4e49b697261ca2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178900"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868257"
 ---
 # <a name="what-is-project-acoustics"></a>Qu’est-ce que Project Acoustics ?
 Le plug-in Project Acoustics Unity fournit une occlusion, une réverbération et une spatialisation pour les projets ciblant la réalité virtuelle et les écrans traditionnels. Il fournit un moyen de concevoir des acoustiques de jeux qui calquent des intentions de concepteur de couches via une simulation d’ondes basée sur le moteur physique.
@@ -56,7 +56,7 @@ Avec l’approche fournie par le plug-in Project Acoustics Unity, vous fournisse
 * Windows UWP (x86, AMD64 et ARM)
 * Android (x 86 et ARM64)
 
-## <a name="download"></a>Download
+## <a name="download"></a>Téléchargement
 Si vous êtes intéressé par l’évaluation du plug-in Acoustics, inscrivez-vous [ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) pour rejoindre la préversion Designer Preview.
 
 ## <a name="next-steps"></a>Étapes suivantes

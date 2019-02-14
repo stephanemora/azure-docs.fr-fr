@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Zscaler Beta | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Zscaler Beta | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler Beta.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 731d99c84c9d34328ba7cc624610714c58ed00e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 39fc807e54e92a504c0bac730cd59c0223fde4b6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825390"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutoriel : Intégration d’Azure Active Directory à Zscaler Beta
 
@@ -116,7 +117,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler Beta, effectue
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
-    | NOM | Attribut source | 
+    | Nom | Attribut source | 
     | ---------------| --------------- |
     | memberOf  | user.assignedroles |
 

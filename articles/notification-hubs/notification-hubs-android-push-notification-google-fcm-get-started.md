@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
-ms.openlocfilehash: 9467197715d79527699eac0acf9c23f204b0e639
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d2de4a4be8838cf696d2d3ed6589e8f154a6ca05
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814895"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959828"
 ---
-# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Didacticiel : Notifications Push vers des appareils Android avec Azure Notification Hubs et Google Firebase Cloud Messaging
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutoriel : Notifications Push vers des appareils Android avec Azure Notification Hubs et Google Firebase Cloud Messaging
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -91,14 +91,14 @@ Votre hub de notification est à présent configuré pour fonctionner avec Fireb
 
 1. Dans le fichier `Build.Gradle` de **l’application**, dans la section **dépendances**, ajoutez les lignes suivantes.
 
-    ```text
+    ```gradle
     implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
 2. Ajoutez le référentiel suivant après la section **dépendances** .
 
-    ```text
+    ```gradle
     repositories {
         maven {
             url "http://dl.bintray.com/microsoftazuremobile/SDK"
@@ -110,13 +110,13 @@ Votre hub de notification est à présent configuré pour fonctionner avec Fireb
 
 1. Dans le fichier `Build.Gradle` de l’**application**, dans la section **dépendances**, ajoutez les lignes suivantes si elles n’y sont pas déjà. 
 
-    ```text
+    ```gradle
     implementation 'com.google.firebase:firebase-core:16.0.0'
     ```
 
 2. Ajoutez le plug-in suivant à la fin du fichier s’il n’y figure pas déjà. 
 
-    ```text
+    ```gradle
     apply plugin: 'com.google.gms.google-services'
     ```
 

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 43e08298618f059ff706d11ce6bbb3d486642872
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 1515a026ae297a960f220a97449d2258c0b75e58
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291816"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004536"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gérer un compte Video Indexer connecté à Azure
 
@@ -75,6 +75,6 @@ Si votre compte a besoin de quelques ajustements, les erreurs et les avertisseme
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez interagir par programmation avec votre compte d’évaluation et/ou avec les comptes Video Indexer connectés à Azure en suivant les instructions de la section [Utiliser des API](video-indexer-use-apis.md).
+Vous pouvez interagir par programmation avec votre compte d’évaluation et/ou avec les comptes Video Indexer connectés à Azure en suivant les instructions de la section [Utiliser des API](video-indexer-use-apis.md).
 
 Vous devez vous servir du même utilisateur Azure AD que lors de la connexion à Azure.

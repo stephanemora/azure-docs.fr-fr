@@ -4,19 +4,19 @@ titlesuffix: Face - Azure Cognitive Services
 description: Ce tutoriel pas à pas décrit comment télécharger, installer et exécuter des conteneurs pour Visage.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/11/2019
 ms.author: diberry
-ms.openlocfilehash: d738f089ff7af59c340a2ea9f67918c1298f9e47
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7a41bfaada64528e90f43064b34c394f9a9b8f8f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769791"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099086"
 ---
 # <a name="install-and-run-containers"></a>Installer et exécuter des conteneurs
 
@@ -68,8 +68,8 @@ Des images conteneur sont disponibles pour l’API Visage.
 
 ### <a name="docker-pull-for-the-face-container"></a>Commande docker pull du conteneur Visage
 
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>Comment utiliser le conteneur
@@ -132,18 +132,7 @@ Si vous exécutez le conteneur avec un [montage](./face-resource-container-confi
 
 Les conteneurs de l’API Visage envoient des informations de facturation à Azure à l’aide d’une ressource _API Visage_ sur votre compte Azure. 
 
-Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent configurer les conteneurs de manière à ce qu’ils communiquent les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas de données client à Microsoft. 
-
-La commande `docker run` utilise les arguments suivants lors de la facturation :
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | Clé d’API de la ressource _API Visage_ utilisée pour effectuer le suivi des informations de facturation. |
-| `Billing` | Point de terminaison de la ressource _API Visage_ utilisée pour effectuer le suivi des informations de facturation.|
-| `Eula` | Indique que vous avez accepté la licence pour le conteneur.<br/>La valeur de cette option doit être `accept`. |
-
-> [!IMPORTANT]
-> Les trois options doivent être spécifiées avec des valeurs valides ; sinon, le conteneur ne démarre pas.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Pour plus d’informations sur ces options, consultez [Configurer des conteneurs](./face-resource-container-config.md).
 

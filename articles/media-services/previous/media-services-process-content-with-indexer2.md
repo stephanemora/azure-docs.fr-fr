@@ -4,24 +4,24 @@ description: Azure Media Indexer permet de rendre le contenu de vos fichiers mul
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae06f397fd0ed3f1a1b5ebbdc418abc02789fe91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785678"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000913"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le processeur multimédia **Azure Media Indexer 2 Preview** permet d’effectuer des recherches dans les fichiers multimédias et le contenu et de générer des pistes de sous-titrage. Par rapport à la version précédente d’ [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** effectue une indexation plus rapide et offre une prise en charge plus large des langues. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (mandarin, simplifié), le portugais, l’arabe, le russe et le japonais.
 
 Le processeur multimédia **Azure Media Indexer 2 Preview** est actuellement disponible en version préliminaire.
@@ -87,7 +87,7 @@ Azure Media Indexer 2 Preview prend en charge la reconnaissance vocale pour les 
 * Japonais [JaJp]
 * Russe [RuRu]
 * Anglais britannique [EnGb]
-* Espagnol (Mexique) [EsMx] 
+* Espagnol (Mexique) [EsMx] 
 
 ## <a name="supported-file-types"></a>Types de fichiers pris en charge
 

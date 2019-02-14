@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f5826bf5266214d76648f3850b8e3deb478c8022
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496701"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106152"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Fonctions numériques pour les modèles Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Resource Manager fournit les expressions ci-après pour travailler avec des entiers :
 
@@ -49,8 +51,8 @@ Retourne la somme des deux entiers fournis.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- | 
-|operand1 |Oui |int |Premier nombre à ajouter. |
-|operand2 |Oui |int |Deuxième nombre à ajouter. |
+|operand1 |OUI |int |Premier nombre à ajouter. |
+|operand2 |OUI |int |Deuxième nombre à ajouter. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -166,8 +168,8 @@ Retourne la division entière des deux entiers fournis.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Le nombre à diviser. |
-| operand2 |Oui |int |Le nombre utilisé pour diviser. Ne peut pas être 0. |
+| operand1 |OUI |int |Le nombre à diviser. |
+| operand2 |OUI |int |Le nombre utilisé pour diviser. Ne peut pas être 0. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -237,7 +239,7 @@ Convertit la valeur en nombre à virgule flottante. Vous utilisez uniquement cet
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |chaîne ou entier |Valeur à convertir en nombre à virgule flottante. |
+| arg1 |OUI |chaîne ou entier |Valeur à convertir en nombre à virgule flottante. |
 
 ### <a name="return-value"></a>Valeur de retour
 Nombre à virgule flottante.
@@ -271,7 +273,7 @@ Convertit la valeur spécifiée en entier.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Oui |chaîne ou entier |La valeur à convertir en entier. |
+| valueToConvert |OUI |chaîne ou entier |La valeur à convertir en entier. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -331,7 +333,7 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
+| arg1 |OUI |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -395,7 +397,7 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
+| arg1 |OUI |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -459,8 +461,8 @@ Retourne le reste de la division entière des deux entiers fournis.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Le nombre à diviser. |
-| operand2 |Oui |int |Le nombre utilisé pour diviser, Ne peut pas être 0. |
+| operand1 |OUI |int |Le nombre à diviser. |
+| operand2 |OUI |int |Le nombre utilisé pour diviser, Ne peut pas être 0. |
 
 ### <a name="return-value"></a>Valeur de retour
 Entier représentant le reste.
@@ -529,8 +531,8 @@ Retourne la multiplication des deux entiers fournis.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Premier nombre à multiplier. |
-| operand2 |Oui |int |Deuxième nombre à multiplier. |
+| operand1 |OUI |int |Premier nombre à multiplier. |
+| operand2 |OUI |int |Deuxième nombre à multiplier. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -600,8 +602,8 @@ Retourne la soustraction des deux entiers fournis.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Le nombre auquel est appliquée la soustraction. |
-| operand2 |Oui |int |Le nombre qui est soustrait. |
+| operand1 |OUI |int |Le nombre auquel est appliquée la soustraction. |
+| operand2 |OUI |int |Le nombre qui est soustrait. |
 
 ### <a name="return-value"></a>Valeur de retour
 Entier représentant la multiplication.

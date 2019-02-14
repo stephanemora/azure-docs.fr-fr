@@ -1,34 +1,35 @@
 ---
-title: Optimiser les délais des requêtes dans Azure Database pour serveur PostgreSQL à l’aide de la stratégie de stockage de table toast
-description: Cet article décrit comment optimiser les délais des requêtes en utilisant la stratégie de stockage de table toast dans une base de données Azure pour un serveur PostgreSQL.
+title: Optimiser le temps de requête sur un serveur Azure Database pour PostgreSQL à l'aide de la stratégie de stockage de table TOAST
+description: Cet article explique comment optimiser le temps de requête à l'aide de la stratégie de stockage de table TOAST sur un serveur Azure Database pour PostgreSQL.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 1fb818a65e26f969f72131b0f5265f3efdd36bb6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542198"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820866"
 ---
-# <a name="optimizing-query-time-with-toast-table-storage-strategy"></a>Optimisation des délais des requêtes en utilisant la stratégie de stockage de table TOAST 
-Cet article décrit comment optimiser les délais des requêtes en utilisant la stratégie de stockage de table TOAST.
+# <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Optimiser le temps de requête à l'aide de la stratégie de stockage de table TOAST 
+Cet article explique comment optimiser les temps de requête à l'aide de la stratégie de stockage de table TOAST (The Oversized-Attribute Storage Technique - technique de stockage des attributs trop grands).
 
 ## <a name="toast-table-storage-strategies"></a>Stratégies de stockage de table TOAST
-Il existe quatre stratégies de stockage des colonnes toast sur un disque. Elles reposent sur différentes méthodes allant de la compression au stockage hors ligne. La stratégie peut être définie au niveau du type de données et au niveau des colonnes.
-- **Normale** empêche la compression ou le stockage hors ligne ; en outre, elle désactive l’utilisation d’en-têtes codées sur octet pour les types varlena. **Normale** est la seule stratégie possible pour les colonnes de types de données non toast.
-- **Étendue** permet la compression et le stockage hors-ligne. **Étendue** est la valeur par défaut pour la plupart des types de données toast. La compression sera tentée avant le contenu hors ligne si la ligne est trop importante.
-- **Externe** permet le stockage hors ligne, mais pas la compression. L’utilisation de la stratégie **Externe** accélère les opérations de sous-chaîne sur les colonnes de texte et de bytea larges, mais augmente l’espace de stockage, car ces opérations sont optimisées pour récupérer uniquement les parties requises de la valeur hors-ligne lorsqu’elle n'est pas comprimée.
-- **Principale** permet la compression, mais pas le stockage hors-ligne. Le stockage hors-ligne se fera toujours pour ces colonnes, mais uniquement en dernier recours lorsqu’il n’existe aucun autre moyen pour rendre la ligne suffisamment petite pour tenir sur une page.
+Quatre stratégies différentes sont utilisées pour stocker sur disque les colonnes qui peuvent utiliser TOAST. Celles-ci représentent diverses combinaisons entre la compression et le stockage hors ligne. La stratégie peut être définie au niveau du type de données et au niveau des colonnes.
+- **Normale** empêche la compression ou le stockage hors ligne. Cette stratégie désactive l'utilisation des en-têtes à un octet pour les types varlena. Normale est la seule stratégie possible pour les colonnes de types de données qui ne peuvent pas utiliser TOAST.
+- **Étendue** permet la compression et le stockage hors-ligne. Étendue est la valeur par défaut pour la plupart des types de données qui peuvent utiliser TOAST. Une compression est d'abord tentée. Un stockage hors ligne est tenté si la ligne est encore trop grande.
+- **Externe** permet le stockage hors ligne, mais pas la compression. Externe accélère les opérations de sous-chaîne sur les grandes colonnes de texte et d'octets. Cette vitesse s'accompagne d'une pénalité d'espace de stockage accru. Ces opérations sont optimisées pour n'extraire que les parties requises de la valeur hors ligne lorsqu'elle n'est pas compressée.
+- **Principale** permet la compression, mais pas le stockage hors-ligne. Le stockage hors ligne peut encore être effectué pour ces colonnes, mais uniquement en dernier recours. Il intervient lorsqu'il n'existe aucun autre moyen de rendre la ligne suffisamment petite pour tenir sur une page.
 
-## <a name="using-toast-table-storage-strategies"></a>Utilisation des stratégies de stockage de table TOAST
-Si vos requêtes accèdent aux types de données toast, nous vous recommandons d’utiliser la stratégie **Principale** au lieu de la stratégie par défaut **Étendue**, afin de réduire les délais des requêtes. **Principale** n’exclut pas le stockage hors-ligne. En revanche, si vos requêtes n’accèdent pas aux types de données toast, nous vous recommandons de conserver la stratégie **Étendue**. Ainsi, une plus grande partie des lignes de la table principale tiendront dans le cache partagé des tampons, améliorant ainsi les performances.
+## <a name="use-toast-table-storage-strategies"></a>Utiliser les stratégies de stockage de table TOAST
+Si vos requêtes accèdent à des types de données qui peuvent utiliser TOAST, pensez à utiliser la stratégie Principale au lieu de l'option par défaut Étendue afin de réduire les temps de requête. La stratégie Principale n'exclut pas le stockage hors ligne. Si vos requêtes n'accèdent pas à des types de données qui peuvent utiliser TOAST, nous vous recommandons de conserver la stratégie Étendue. Une plus grande partie des lignes de la table principale tiendra dans le cache partagé des tampons, améliorant ainsi les performances.
 
-Si l’une de vos charges de travail utilise un schéma contenant de larges tableaux et un grand nombre de caractères, nous vous recommandons d’utiliser des tables TOAST PostgreSQL. Prenons un exemple de table client contenant plus de 350 colonnes dont plusieurs couvrent 255 caractères. Son délai de requête de référence est passé de 4 203 à 467 secondes, soit une réduction de 89 %, lorsque sa stratégie TOAST a été définie sur **Principale**.
+Si l'une de vos charges de travail utilise un schéma contenant de larges tableaux et un grand nombre de caractères, nous vous recommandons d'utiliser des tables TOAST PostgreSQL. Prenons un exemple de table client contenant plus de 350 colonnes dont plusieurs couvrent 255 caractères. Après sa conversion à la stratégie Principale de table TOAST, son temps de requête de référence est passé de 4 203 secondes à 467 secondes. Ce qui représente une amélioration de 89 %.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Examinez les caractéristiques précédentes de votre charge de travail. 
 
-Passez en revue la documentation PostgreSQL suivante : [Chapitre 68, Stockage physique de base de données](https://www.postgresql.org/docs/current/storage-toast.html) 
+Passez en revue la documentation PostgreSQL suivante : 
+- [Chapitre 68, Stockage physique de base de données](https://www.postgresql.org/docs/current/storage-toast.html) 

@@ -4,7 +4,7 @@ description: Ce document est conçu pour vous aider à utiliser les fonctionnali
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 782e655edcb7cbac1965131bce4431dc5599328e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340623"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112918"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure
 Ce document est conçu pour vous aider à utiliser Azure Security Center afin de gérer et résoudre les alertes de sécurité.
@@ -108,5 +108,5 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 * [Gestion des incidents de sécurité dans Azure Security Center](security-center-incident.md)
 * [Fonctionnalités de détection d’Azure Security Center](security-center-detection-capabilities.md)
 * [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md)
-* [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions le plus souvent posées à propos de l’utilisation de ce service.
+* [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
 * [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/17/2018
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0d622f6f03f9d132f3c57910d8a60c5731ad7c94
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f1700e124d1f572d0bf0ca76ea7c465f1ecf96c1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425778"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657414"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Exécution de Runbooks sur un Runbook Worker hybride
 
@@ -106,7 +106,7 @@ Get-AzureRmVm | Select Name
 
 Dans le cadre de votre processus de génération automatisé pour le déploiement de ressources dans Azure, vous pouvez avoir besoin d’accéder aux systèmes locaux afin de prendre en charge une tâche ou un ensemble d’étapes de votre séquence de déploiement. Pour prendre en charge l’authentification auprès d’Azure avec le compte d’identification, vous devez installer le certificat du compte d’identification.
 
-Le runbook PowerShell suivant, **Export-RunAsCertificateToHybridWorker**, exporte le certificat d’identification de votre compte Azure Automation, le télécharge et l’importe dans le magasin de certificats de l’ordinateur local sur un Worker hybride connecté au même compte. Une fois cette étape terminée, il vérifie que le Worker peut s’authentifier auprès d’Azure avec le compte d’identification.
+Le runbook PowerShell suivant, **Export-RunAsCertificateToHybridWorker**, exporte le certificat d’identification de votre compte Azure Automation, le télécharge et l’importe dans le magasin de certificats de l’ordinateur local sur un Worker hybride, qui est connecté au même compte. Une fois cette étape terminée, il vérifie que le Worker peut s’authentifier auprès d’Azure avec le compte d’identification.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -181,7 +181,7 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 > [!IMPORTANT]
 > **Add-AzureRmAccount** est désormais un alias de **Connect-AzureRMAccount**. Quand vous effectuez une recherche dans vos éléments de bibliothèque, si vous ne voyez pas **Connect-AzureRMAccount**, vous pouvez utiliser **Add-AzureRmAccount** ou mettre à jour vos modules dans votre compte Automation.
 
-Enregistrez le Runbook *Export-RunAsCertificateToHybridWorker* sur votre ordinateur avec une extension `.ps1`. Importez-le dans votre compte Automation et modifiez le Runbook, en remplaçant la valeur de la variable `$Password` par votre mot de passe. Publiez, puis exécutez le runbook. Ciblez le groupe de Workers hybrides qui exécute et authentifie les runbooks avec le compte d’identification. Le flux de travaux signale la tentative d’importation du certificat dans le magasin de l’ordinateur local et complète par plusieurs lignes. Ce comportement dépend du nombre de comptes Automation définis dans votre abonnement et du résultat de l’authentification.
+Enregistrez le Runbook *Export-RunAsCertificateToHybridWorker* sur votre ordinateur avec une extension `.ps1`. Importez-le dans votre compte Automation et modifiez le Runbook, en remplaçant la valeur de la variable `$Password` par votre mot de passe. Publiez, puis exécutez le runbook. Ciblez le groupe de Worker hybride qui va s’exécuter et authentifier des runbooks au moyen du compte d’identification. Le flux de travaux signale la tentative d’importation du certificat dans le magasin de l’ordinateur local et complète par plusieurs lignes. Ce comportement dépend du nombre de comptes Automation définis dans votre abonnement et du résultat de l’authentification.
 
 ## <a name="job-behavior"></a>Comportement du travail
 
@@ -189,12 +189,14 @@ Les travaux sont gérés de façon légèrement différente sur des runbooks Wor
 
 ## <a name="run-only-signed-runbooks"></a>Exécuter seulement des runbooks signés
 
-Les workers hybrides de runbook peuvent être configurés pour exécuter seulement des runbooks signés avec une certaine configuration. La section suivante décrit comment configurer vos runbooks Workers hybrides pour exécuter des runbooks signés et comment signer vos runbooks.
+Les workers hybrides de runbook peuvent être configurés pour exécuter seulement des runbooks signés avec une certaine configuration. La section suivante explique la façon de configurer vos Runbooks Workers hybrides pour exécuter un [Runbook Worker hybride Windows](#windows-hybrid-runbook-worker) et un [Runbook Worker hybride Linux](#linux-hybrid-runbook-worker)
 
 > [!NOTE]
 > Une fois que vous avez configuré un worker hybride de runbook pour exécuter seulement des runbooks signés, les runbooks qui n’ont **pas** été signés n’arrivent pas à s’exécuter sur le worker.
 
-### <a name="create-signing-certificate"></a>Créer un certificat de signature
+### <a name="windows-hybrid-runbook-worker"></a>Runbooks Workers hybrides Windows
+
+#### <a name="create-signing-certificate"></a>Créer un certificat de signature
 
 L’exemple suivant crée un certificat auto-signé qui peut être utilisé pour signer des runbooks. L’exemple crée le certificat et l’exporte. Le certificat est importé ultérieurement dans les workers hybrides de runbook. L’empreinte numérique est également retournée : elle est utilisée plus tard pour référencer le certificat.
 
@@ -220,7 +222,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 $SigningCert.Thumbprint
 ```
 
-### <a name="configure-the-hybrid-runbook-workers"></a>Configurer les workers hybrides de runbook
+#### <a name="configure-the-hybrid-runbook-workers"></a>Configurer les workers hybrides de runbook
 
 Copiez le certificat créé sur chaque worker hybride de runbook d’un groupe. Exécutez le script suivant pour importer le certificat et configurer le worker hybride de façon à utiliser la validation de signature sur les runbooks.
 
@@ -236,7 +238,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
 ```
 
-### <a name="sign-your-runbooks-using-the-certificate"></a>Signer vos runbooks avec le certificat
+#### <a name="sign-your-runbooks-using-the-certificate"></a>Signer vos runbooks avec le certificat
 
 Si les Runbooks Workers hybrides sont configurés pour utiliser uniquement des runbooks signés, vous devez signer les runbooks qui doivent être utilisés par les Runbooks Workers hybrides. Utilisez l’exemple PowerShell suivant pour signer vos runbooks.
 
@@ -246,6 +248,64 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
 Une fois que le runbook a été signé, il doit être importé dans votre compte Automation et publié avec le bloc de signature. Pour savoir comment importer des runbooks, consultez [Importation d’un runbook à partir d’un fichier dans Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
+### <a name="linux-hybrid-runbook-worker"></a>Runbooks Workers hybrides Linux
+
+Pour signer des runbooks sur un Runbook Worker hybride de Linux, votre Runbook Worker hybride doit avoir le [GPG](https://gnupg.org/index.html) exécutable présent sur l’ordinateur.
+
+#### <a name="create-a-gpg-keyring-and-keypair"></a>Créer un porte-clés et une paire de clés GPG
+
+Pour créer le porte-clés et la paire de clés, vous aurez besoin d’utiliser le compte des Runbooks Workers hybrides `nxautomation`.
+
+Utilisez `sudo` pour vous connecter avec le compte `nxautomation`.
+
+```bash
+sudo su – nxautomation
+```
+
+Une fois que vous utilisez le compte `nxautomation`, générez la paire de clés gpg.
+
+```bash
+sudo gpg --generate-key
+```
+
+GPG va vous guider tout au long des étapes de la création de la paire de clés. Vous devrez fournir un nom, une adresse e-mail, une heure d'expiration, une phrase secrète et attendre suffisamment d'entropie sur la machine pour que la clé soit générée.
+
+Étant donné que le répertoire GPG a été généré avec sudo, vous devez remplacer son propriétaire par nxautomation. 
+
+Exécutez la commande suivante pour modifier le propriétaire.
+
+```bash
+sudo chown -R nxautomation ~/.gnupg
+```
+
+#### <a name="make-the-keyring-available-the-hybrid-runbook-worker"></a>Rendez le porte-clés disponible aux Runbooks Workers hybrides
+
+Une fois le porte-clés créé, vous devez le rendre disponible au Runbook Worker hybride. Modifier le fichier de paramètres `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` pour inclure l’exemple suivant sous la section `[worker-optional]`
+
+```bash
+gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+```
+
+#### <a name="verify-signature-validation-is-on"></a>Vérifiez que la validation de signature est activée
+
+Si la validation de la signature a été désactivée sur la machine, vous devez la mettre sous tension. Exécutez la commande suivante pour activer la validation de la signature. En remplaçant `<LogAnalyticsworkspaceId>` par votre ID d’espace de travail.
+
+```bash
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
+```
+
+#### <a name="sign-a-runbook"></a>Signer un runbook
+
+Une fois que la validation des signatures est configurée, vous pouvez utiliser la commande suivante pour signer un runbook :
+
+```bash
+gpg –clear-sign <runbook name>
+```
+
+Le runbook signé portera le nom `<runbook name>.asc`.
+
+Le runbook signé peut désormais être téléchargé dans Azure Automation et peut être exécuté en tant que runbook normal.
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 

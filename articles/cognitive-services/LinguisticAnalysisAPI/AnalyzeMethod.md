@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Comment utiliser la méthode d’analyse dans l’API Analyse linguistique pour analyser certaines entrées en langage naturel.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208633"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861678"
 ---
 # <a name="analyze-method"></a>Méthode d’analyse
 
@@ -38,11 +38,11 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Paramètres de la demande
 
-NOM | Type | Obligatoire | Description
+Nom | Type | Obligatoire | Description
 -----|-------|----------|------------
-**language**    | chaîne | Oui | Les deux lettres du code de langue ISO à utiliser pour l’analyse Par exemple, le code de langue anglais est « en ».
-**analyzerIds** | liste de valeurs string | Oui | Liste des GUID des analyseurs à appliquer. Pour plus d’informations, consultez la documentation Analyseurs.
-**text**        | chaîne | Oui | Entrée brute à analyser. Il peut s’agir d’une chaîne courte comme un mot ou une expression, une phrase complète, un paragraphe entier ou un discours.
+**language**    | chaîne | OUI | Les deux lettres du code de langue ISO à utiliser pour l’analyse Par exemple, le code de langue anglais est « en ».
+**analyzerIds** | liste de valeurs string | OUI | Liste des GUID des analyseurs à appliquer. Pour plus d’informations, consultez la documentation Analyseurs.
+**text**        | chaîne | OUI | Entrée brute à analyser. Il peut s’agir d’une chaîne courte comme un mot ou une expression, une phrase complète, un paragraphe entier ou un discours.
 
 ## <a name="response-json"></a>Réponse (JSON)
 
@@ -50,7 +50,7 @@ Un tableau des sorties de l’analyse, une pour chaque attribut spécifié dans 
 
 Les résultats se présentent comme suit :
 
-NOM | type | Description
+Nom | type | Description
 -----|------|--------------
 analyzerId | chaîne | GUID de l’analyseur spécifié
 result | objet | résultat de l’analyseur
@@ -59,7 +59,7 @@ Notez que le type de résultat varie selon le type de l’analyseur d’entrée.
 
 ### <a name="tokens-response-json"></a>Réponse des jetons (JSON)
 
-NOM | type | Description
+Nom | type | Description
 -----|------|-------------
 result | liste des objets de la phrase | limites de longueur de phrase identifiées dans le texte |
 result[x].Offset | int | décalage du caractère de début à chaque phrase |

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez convertir le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Go.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 976ca2623667abc4e49ceb91ec97706723bc32c2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 56f85a19b33223140d87833f8237fc728402d2f9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211744"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876230"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour translittérer du texte à l’aide de Go
 

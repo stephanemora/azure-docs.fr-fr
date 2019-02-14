@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez convertir le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Ruby.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 10f74e04349984885f9c69ac17ac1aa9b41e710f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 37ea719811d9b47dbe809278a0ad8f0bd9d25081
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461183"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982928"
 ---
 # <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>Démarrage rapide : Translittérer du texte à l’aide de l’API REST de traduction de texte Translator Text (Ruby)
 

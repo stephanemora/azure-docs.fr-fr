@@ -4,17 +4,17 @@ description: Découvrez comment des appareils et des modules IoT Edge peuvent fo
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/20/2018
+ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4c4713bade487ba46f1abdc6d0a76db3e81e38b1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7bf672715b45233807ab848c78aeb1bed2d352e9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096942"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699344"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge (préversion)
 
@@ -25,7 +25,7 @@ Azure IoT Edge prend en charge les opérations hors connexion étendues sur vos 
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Quand un appareil IoT Edge passe en mode hors connexion, le hub Edge assure trois rôles. Tout d’abord, il stocke tous les messages à acheminer en amont jusqu’à ce que l’appareil puisse se reconnecter. Ensuite, il authentifie, pour le compte d’IoT Hub, les modules et les appareils enfants afin qu’ils puissent continuer à fonctionner. Enfin, il rend possible la communication entre les appareils enfants qui communiquent normalement par le biais d’IoT Hub. 
+Quand un appareil IoT Edge passe en mode hors connexion, le hub IoT Edge assure trois rôles. Tout d’abord, il stocke tous les messages à acheminer en amont jusqu’à ce que l’appareil puisse se reconnecter. Ensuite, il authentifie, pour le compte d’IoT Hub, les modules et les appareils enfants afin qu’ils puissent continuer à fonctionner. Enfin, il rend possible la communication entre les appareils enfants qui communiquent normalement par le biais d’IoT Hub. 
 
 L’exemple de scénario IoT Edge suivant montre le fonctionnement en mode hors connexion :
 
@@ -39,7 +39,7 @@ L’exemple de scénario IoT Edge suivant montre le fonctionnement en mode hors 
 
 3. **Passer en mode hors connexion.**
 
-   Même quand ils ne sont plus connectés à IoT Hub, l’appareil IoT Edge, ses modules déployés et ses appareils IoT enfants peuvent continuer à fonctionner pendant une durée indéterminée. Les modules et les appareils enfants hors connexion peuvent démarrer et redémarrer en s’authentifiant auprès du hub Edge. Les données de télémétrie liées qui sont transmises en amont à IoT Hub sont stockées localement. La communication entre les modules ou entre les appareils IoT enfants est maintenue par le biais de méthodes ou messages directs. 
+   Même quand ils ne sont plus connectés à IoT Hub, l’appareil IoT Edge, ses modules déployés et ses appareils IoT enfants peuvent continuer à fonctionner pendant une durée indéterminée. Les modules et les appareils enfants hors connexion peuvent démarrer et redémarrer en s’authentifiant auprès du hub IoT Edge. Les données de télémétrie liées qui sont transmises en amont à IoT Hub sont stockées localement. La communication entre les modules ou entre les appareils IoT enfants est maintenue par le biais de méthodes ou messages directs. 
 
 4. **Reconnecter et resynchroniser avec IoT Hub.**
 
@@ -55,7 +55,7 @@ Seuls des appareils non IoT Edge peuvent être ajoutés en tant qu’appareils e
 
 Les appareils IoT Edge et leurs appareils enfants assignés peuvent fonctionner en mode hors connexion pendant une durée indéterminée dès lors qu’ils ont été synchronisés une fois. Toutefois, le stockage des messages dépend du paramètre de durée de vie (TTL) et de l’espace disque disponible pour stocker les messages. 
 
-## <a name="set-up-an-edge-device"></a>Configurer un appareil Edge
+## <a name="set-up-an-iot-edge-device"></a>Configurer un appareil IoT Edge
 
 Pour étendre les fonctionnalités hors connexion étendues d’un appareil IoT Edge aux appareils IoT enfants assignés, déclarez les relations parent-enfant appropriées dans le portail Azure.
 
@@ -71,7 +71,7 @@ Un appareil parent peut avoir plusieurs appareils enfants, mais un appareil enfa
 
 Pour améliorer la robustesse, il est recommandé de spécifier les adresses de serveur DNS utilisées dans votre environnement. Par exemple, sur Linux, mettez à jour **/etc/docker/daemon.json** (vous devrez peut-être créer le fichier) pour inclure :
 
-```
+```json
 {
     "dns": [“1.1.1.1”]
 }
@@ -82,13 +82,13 @@ Si vous utilisez un serveur DNS local, remplacez 1.1.1.1 par l’adresse IP du 
 
 ## <a name="optional-offline-settings"></a>Paramètres hors connexion facultatifs
 
-Si vos appareils sont susceptibles de rester hors connexion pendant de longues périodes, configurez le hub Edge pour qu’il puisse stocker tous les messages générés jusqu’à ce que ces derniers soient collectés une fois la connexion rétablie. Vous devez apporter deux modifications au hub Edge pour permettre le stockage prolongé des messages. Augmentez la valeur du paramètre de durée de vie et ajoutez de l’espace disque dédié au stockage des messages. 
+Si vous prévoyez de collecter tous les messages générés par vos appareils au cours de longues périodes hors connexion, configurez le hub IoT Edge pour qu’il puisse stocker tous les messages. Vous devez apporter deux modifications au hub IoT Edge pour permettre le stockage prolongé des messages. Tout d’abord, augmentez le paramètre de durée de vie. Ajoutez ensuite l’espace disque supplémentaire pour le stockage des messages. 
 
 ### <a name="time-to-live"></a>Durée de vie
 
 Le paramètre de durée de vie définit la durée (en secondes) pendant laquelle un message peut attendre d’être remis avant d’expirer. La durée par défaut est de 7 200 secondes (deux heures). 
 
-Ce paramètre est une propriété désirée du hub Edge, qui est stockée dans le jumeau du module. Vous pouvez le configurer dans le portail Azure, dans la section **Configurer les paramètres avancés du runtime Edge** ou directement dans le manifeste de déploiement. 
+Ce paramètre est une propriété désirée du hub IoT Edge, qui est stockée dans le jumeau du module. Vous pouvez le configurer dans le portail Azure, dans la section **Configurer les paramètres avancés du runtime Edge** ou directement dans le manifeste de déploiement. 
 
 ```json
 "$edgeHub": {
@@ -104,16 +104,25 @@ Ce paramètre est une propriété désirée du hub Edge, qui est stockée dans l
 
 ### <a name="additional-offline-storage"></a>Stockage hors connexion supplémentaire
 
-Par défaut, les messages sont stockés dans le système de fichiers du conteneur du hub Edge. Si l’espace de stockage n’est pas suffisant pour vos besoins hors connexion, vous pouvez dédier un stockage local sur l’appareil IoT Edge. Pour cela, créez une variable d’environnement pour le hub Edge qui pointe vers un dossier de stockage dans le conteneur. Utilisez ensuite les options de création pour lier ce dossier de stockage à un dossier situé sur la machine hôte. 
+Les messages sont stockés par défaut dans le système de fichiers du conteneur du hub IoT Edge. Si l’espace de stockage n’est pas suffisant pour vos besoins hors connexion, vous pouvez dédier un stockage local sur l’appareil IoT Edge. Créez une variable d’environnement pour le hub IoT Edge qui pointe vers un dossier de stockage dans le conteneur. Utilisez ensuite les options de création pour lier ce dossier de stockage à un dossier situé sur la machine hôte. 
 
-Vous pouvez configurer des variables d’environnement et les options de création pour le module du hub Edge dans la section **Configurer les paramètres avancés du runtime Edge** du portail Azure. Vous pouvez aussi les configurer directement dans le manifeste de déploiement. 
+Vous pouvez configurer des variables d’environnement et les options de création pour le module du hub IoT Edge dans la section **Configurer les paramètres avancés du runtime Edge** du Portail Microsoft Azure. Vous pouvez aussi les configurer directement dans le manifeste de déploiement. 
 
 ```json
 "edgeHub": {
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": {
+            "HostConfig": {
+                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
+                "PortBindings": {
+                    "8883/tcp": [{"HostPort":"8883"}],
+                    "443/tcp": [{"HostPort":"443"}],
+                    "5671/tcp": [{"HostPort":"5671"}]
+                }
+            }
+        }
     },
     "env": {
         "storageFolder": {
@@ -125,7 +134,11 @@ Vous pouvez configurer des variables d’environnement et les options de créati
 }
 ```
 
-Remplacez `<HostStoragePath>` et `<ModuleStoragePath>` par le chemin de stockage de votre hôte et de votre module. Les deux chemins doivent être des chemins absolus.  Par exemple, `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` signifie que le chemin de l’hôte `/etc/iotedge/storage` est mappé au chemin du conteneur `/iotedge/storage/`.  Vous trouverez aussi plus de détails sur createOptions dans la [documentation de docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+Remplacez `<HostStoragePath>` et `<ModuleStoragePath>` par le chemin de stockage de votre hôte et de votre module. Les deux chemins doivent être des chemins absolus. Dans les options de création, liez les chemins d’accès de stockage de l’hôte et du module. Ensuite, créez une variable d’environnement qui pointe vers le chemin d’accès de stockage du module.  
+
+Par exemple, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` signifie que le répertoire **/etc/iotedge/storage** sur votre système hôte est mappé au répertoire **/iotedge/stockage/** sur le conteneur. Ou autre exemple pour les systèmes Windows, `"Binds":["C:\\temp:C:\\contemp]"` signifie que le répertoire **C:\\temp** sur votre système hôte est mappé au répertoire **C:\\contemp** sur le conteneur. 
+
+Vous trouverez aussi plus de détails sur les options de création dans la [documentation de docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: d87248f778c6c39cc64b1cc4725cd61d029ce040
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e1a0dda4c13baf7fc2e5ba65d599db8c74591adb
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664740"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893236"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutoriel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise (préversion)
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Didacticiel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 
 Découvrez comment configurer des stratégies Apache Ranger pour des clusters Apache HBase avec le Pack Sécurité Entreprise (ESP). Les clusters ESP sont connectés à un domaine permettant aux utilisateurs de s’authentifier avec les informations d’identification du domaine. Dans ce tutoriel, vous créez deux stratégies Ranger pour restreindre l’accès à différentes familles de colonnes dans une table HBase.
 
@@ -22,7 +22,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer des utilisateurs du domaine
-> * Créer des stratégies Ranger
+> * Création de stratégies Ranger
 > * Créer des tables dans un cluster HBase
 > * Tester des stratégies Ranger
 
@@ -45,7 +45,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="create-domain-users"></a>Créer des utilisateurs du domaine
 
-Consultez [Créer un cluster HDInsight avec le Pack Sécurité Entreprise](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster) pour découvrir comment créer les utilisateurs du domaine **sales_user1** et **marketing_user1**. Dans un scénario de production, les utilisateurs du domaine proviennent de votre locataire Active Directory.
+Consultez [Créer un cluster HDInsight avec le Pack Sécurité Entreprise](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) pour découvrir comment créer les utilisateurs du domaine **sales_user1** et **marketing_user1**. Dans un scénario de production, les utilisateurs du domaine proviennent de votre locataire Active Directory.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Créer des tables HBase et importer des données d’exemple
 
@@ -106,8 +106,8 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
 
    |**Paramètre**  |**Valeur suggérée**  |
    |---------|---------|
-   |Policy Name (Nom de la stratégie)  |  sales_customers_name_contact   |
-   |HBase Table (Table HBase)   |  Customers |
+   |Nom de la stratégie  |  sales_customers_name_contact   |
+   |HBase Table (Table HBase)   |  Clients |
    |HBase Column-family (Famille de colonnes HBase)   |  Name, Contact |
    |HBase Column (Colonne HBase)   |  * |
    |Select Group (Sélectionner un groupe)  | |

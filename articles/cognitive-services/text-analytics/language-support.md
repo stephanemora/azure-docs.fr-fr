@@ -3,19 +3,19 @@ title: Prise en charge linguistique - API Analyse de texte
 titleSuffix: Azure Cognitive Services
 description: "Liste des langages naturels pris en charge par l’API Analyse de texte. Cet article explique quelles langues sont prises en charge pour chaque opération : analyse des sentiments, extraction de phrases clés, détection de langue et reconnaissance d'entité."
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: ec1858256c942fd50818a214de426fd00c3c2c88
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: a9f48c8cef8d977469bb6c583d0bc363e334f693
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216929"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245318"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Langues et régions prises en charge par l’API Analyse de texte
 

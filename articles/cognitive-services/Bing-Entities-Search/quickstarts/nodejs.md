@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez ce guide de démarrage rapide pour envoyer une requête en C# à l’API REST Recherche d’entités Bing et recevoir une réponse JSON.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 37e00c6cdc5340607a4aabc446d87e1a8575c552
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 87afdd9e949ec866c6ee962c2b68af42590bee67
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755133"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878712"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en utilisant Node.js
 
@@ -83,7 +83,7 @@ Alors que cette application est écrite en JavaScript, l’API est un service we
         });
         ```
 
-## <a name="send-a-request"></a>Envoyer une requête
+## <a name="send-a-request"></a>Option Send a request (Envoyer une demande)
 
 1. Créez une fonction appelée `Search` pour envoyer une requête de recherche. Dans cette requête, effectuez les étapes ci-après.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6e02f5a5b42da9c99a08782903cdc05ee32ec9d4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139855"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976915"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Agent Network Watcher pour Windows
 
@@ -65,7 +65,7 @@ Le JSON suivant illustre le schéma de l’extension Agent Network Watcher. L’
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| NOM | Valeur/Exemple |
+| Nom | Valeur/Exemple |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
@@ -79,10 +79,10 @@ Vous pouvez déployer les extensions de machines virtuelles Azure avec des modè
 
 ## <a name="powershell-deployment"></a>Déploiement PowerShell
 
-Utilisez la commande `Set-AzureRmVMExtension` pour déployer l’extension de machine virtuelle Agent Network Watcher sur une machine virtuelle existante :
+Utilisez la commande `Set-AzVMExtension` pour déployer l’extension de machine virtuelle Agent Network Watcher sur une machine virtuelle existante :
 
 ```powershell
-Set-AzureRmVMExtension `
+Set-AzVMExtension `
   -ResourceGroupName "myResourceGroup1" `
   -Location "WestUS" `
   -VMName "myVM1" `
@@ -99,7 +99,7 @@ Set-AzureRmVMExtension `
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure et à l’aide de PowerShell. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante à l’aide du module Azure PowerShell :
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
+Get-AzVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
 ```
 
 La sortie de l’exécution de l’extension est enregistrée dans les fichiers qui que se trouvent dans le répertoire suivant :

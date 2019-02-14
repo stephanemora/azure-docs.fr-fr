@@ -4,7 +4,7 @@ description: Ce didacticiel vous guide tout au long des étapes de création d�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services
@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e4f786eeb8994e44f827e5158811cae4a60453cc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d1dc92e134b7ebca8e0eed30ef125210bc00eb37
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780634"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989982"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Streaming en direct avec des encodeurs en local à l’aide du portail Azure
 > [!div class="op_single_selector"]
-> * [Portail](media-services-portal-live-passthrough-get-started.md)
+> * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
@@ -32,11 +32,10 @@ ms.locfileid: "33780634"
 Ce didacticiel vous guide tout au long des étapes d’utilisation du portail Azure afin de créer un **canal** configuré pour une livraison directe. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Les éléments suivants sont requis pour suivre le didacticiel :
 
 * Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Un compte Media Services. Pour créer un compte Media Services, consultez [Création d’un compte Media Services](media-services-portal-create-account.md).
+* Un compte Media Services. Pour créer un compte Media Services, voir [Création d’un compte Media Services](media-services-portal-create-account.md).
 * Une webcam. Par exemple, un [encodeur Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
 Il est vivement recommandé de consulter les articles suivants :
@@ -51,7 +50,7 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 >[!NOTE]
 >Assurez-vous que le point de terminaison à partir duquel vous souhaitez diffuser du contenu se trouve dans l’état **En cours d’exécution**. 
     
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local qui produit un flux à débit binaire multiple au format MP4 fragmenté ou RTMP. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local qui produit un flux à débit binaire multiple au format MP4 fragmenté ou RTMP. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824).
    
     Cette étape peut également être effectuée après la création du canal.
 2. Créez et démarrez un canal direct.
@@ -148,8 +147,7 @@ Pour gérer vos éléments multimédias, cliquez sur **Paramètre** puis sur **�
 
 ![ressources](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-## <a name="next-step"></a>Étapes suivantes
-
+## <a name="next-step"></a>Étape suivante
 Consultez les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

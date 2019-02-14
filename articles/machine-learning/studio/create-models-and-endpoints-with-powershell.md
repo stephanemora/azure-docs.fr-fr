@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 43d16c291391a3ffd94f404755e644dac0daf3a9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492825"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244296"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Utiliser PowerShell pour créer de nombreux modèles et points de terminaison de service web à partir d’une expérience
 
@@ -35,7 +35,7 @@ Heureusement, vous pouvez obtenir le même résultat en utilisant [l’API de re
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configurer l’expérience de formation
-Utilisez l’exemple [d’expérience de formation](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) qui se trouve dans la [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Ouvrez cette expérience dans votre espace de travail [Azure Machine Learning Studio](https://studio.azureml.net) .
+Utilisez l’exemple [d’expérience de formation](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) qui se trouve dans la [Cortana Intelligence Gallery](http://gallery.azure.ai). Ouvrez cette expérience dans votre espace de travail [Azure Machine Learning Studio](https://studio.azureml.net) .
 
 > [!NOTE]
 > Pour suivre cet exemple, il est préférable d’utiliser un espace de travail standard plutôt qu’un espace de travail gratuit. Vous créez un point de terminaison pour chaque client (soit 10 points de terminaison en tout), ce qui nécessite un espace de travail standard car un espace de travail gratuit est limité à trois points de terminaison. Si vous disposez uniquement d’un espace de travail gratuit, il suffit de changer les scripts pour autoriser uniquement trois emplacements.
@@ -63,7 +63,7 @@ Vous devez à présent déployer le service web de notation.
 Pour cela, cliquez sur **Set Up Web Service** (Configurer le service web) sous le canevas et sélectionnez **Predictive Web Service** (Service web prédictif). Une expérience de notation est créée.
 Vous devez effectuer quelques petits ajustements pour qu’elle fonctionne en tant que service web. Supprimez la colonne d’étiquette « cnt » des données d’entrée et limitez la sortie à l’ID d’instance et à la valeur prédite correspondante.
 
-Pour vous éviter ce travail, vous pouvez ouvrir [l’expérience prédictive](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) déjà préparée dans la galerie.
+Pour vous éviter ce travail, vous pouvez ouvrir [l’expérience prédictive](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) déjà préparée dans la galerie.
 
 Pour déployer le service web, exécutez l’expérience prédictive, puis cliquez sur le bouton **Deploy Web Service** sous le canevas. Nommez le service web de scoring « Bike Rental Scoring ».
 

@@ -4,7 +4,7 @@ description: Découvrez comment installer le service d’intégration des journa
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: c01d911a59647956914518aa62a616823241ab3b
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 473f9db7eb507fa910657696590bb656a8aff52f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304922"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109875"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Intégrer des journaux d’audit Azure Active Directory
 
@@ -28,7 +28,7 @@ Les événements d’audit Azure Active Directory (Azure AD) vous aident à iden
 
 
 >[!IMPORTANT]
-> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 01/06/2019. Les téléchargements d'AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
+> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 01/06/2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Procédure d’intégration des journaux d’audit Azure Active Directory
 

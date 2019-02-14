@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: b129715a33c6dd777d4327c5dbf8be863d7ea2a3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a13f181e90f0435f23e22a7c4db42976bd0afb44
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095504"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243544"
 ---
 # <a name="allowed-locations"></a>Emplacements autorisés
 
@@ -53,7 +53,7 @@ Code JSON définissant les paramètres de la stratégie, utilisé par l’interf
 
 ## <a name="parameters"></a>parameters
 
-|NOM |Type |Champ |Description |
+|Nom |Type |Champ |Description |
 |---|---|---|---|
 |listOfAllowedLocations |Tableau |Emplacements |Liste des emplacements autorisés|
 
@@ -80,7 +80,7 @@ Dans cet exemple de paramètre, seuls les emplacements _eastus2_ ou _westus_ ser
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### <a name="deploy-with-azure-powershell"></a>Déployer avec Azure PowerShell
 

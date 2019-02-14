@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Vous n’avez pas besoin de créer de clés d’abonnement pour utiliser vos 1 000 premières requêtes de point de terminaison gratuites. Si vous recevez une erreur _hors quota_ sous la forme d’une erreur HTTP 403 ou 429, vous devez créer une clé et l’affecter à votre application.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 26954c8f839ff0bfb2da484e4fb535f33d4e07ed
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3fd05e2dd5b55dd590af24f0757229bead041b6d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239177"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859111"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Utilisation des clés d’abonnement avec votre application LUIS
 

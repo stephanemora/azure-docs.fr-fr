@@ -17,12 +17,13 @@ ms.date: 09/14/2018
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a7745a0c8a53a0726a27dc1e2642733bafeb8f30
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 208ef1267571002a90433f0b3febebbb0ea7089a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104545"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173281"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliothèques d’authentification Azure Active Directory v2.0
 
@@ -53,7 +54,7 @@ Pour obtenir la liste des bibliothèques qui fonctionnent avec le point de termi
 
 Les bibliothèques d’authentification client sont utilisées pour obtenir un jeton pour appeler une API Web protégée
 
-| Plateforme | Bibliothèque | Download | Code source | Exemple | Informations de référence | Doc conceptuel | Feuille de route |
+| Plateforme | Bibliothèque | Téléchargement | Code source | Exemple | Informations de référence | Doc conceptuel | Feuille de route |
 | --- | --- | --- | --- | --- | --- | --- | ---|
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js (préversion) | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [Application à page unique](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  | [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki)|
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
@@ -66,7 +67,7 @@ Les bibliothèques d’authentification client sont utilisées pour obtenir un j
 
 Les bibliothèques de middleware sont utilisées pour protéger les applications web et les API web. Pour les applications web ou API web écrites avec ASP.NET ou ASP.NET Core, les bibliothèques de middleware sont utilisées par ASP.NET / ASP.NET Core
 
-| Plateforme | Bibliothèque | Download | Code source | Exemple | Informations de référence
+| Plateforme | Bibliothèque | Téléchargement | Code source | Exemple | Informations de référence
 | --- | --- | --- | --- | --- | --- |
 | ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | Sécurité ASP.NET |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[Sécurité ASP.NET (GitHub)](https://github.com/aspnet/Security) |[Application MVC](quickstart-v2-aspnet-webapp.md) |[Informations de référence sur l’API ASP.NET](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
 | ![.NET](media/sample-v2-code/logo_NET.png)| Extensions IdentityModel pour .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [Application MVC](quickstart-v2-aspnet-webapp.md) |[Référence](https://docs.microsoft.com/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |

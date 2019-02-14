@@ -4,21 +4,21 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez un bloc-notes Jupyter pour apprendre à utiliser l’API Émotion avec Python. Visualisez vos résultats à l’aide de bibliothèques populaires.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: tutorial
 ms.date: 05/23/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: ea96495fb9fa453f7c7f9d6a870291329d2793b2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9e03e5d534fa741def2010a21120edc3d7169964
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220533"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237465"
 ---
-# <a name="tutorial-use-the-emotion-api-with-a-jupyter-notebook--python"></a>Didacticiel : Utiliser l’API Émotion avec Jupyter Notebook et Python.
+# <a name="tutorial-use-the-emotion-api-with-a-jupyter-notebook--python"></a>Tutoriel : Utiliser l’API Émotion avec Jupyter Notebook et Python.
 
 > [!IMPORTANT]
 > L’API Émotion sera déconseillée à partir du 15 février 2019. La fonction de reconnaissance des émotions est maintenant accessible de façon générale dans le cadre de l’[API Visage](https://docs.microsoft.com/azure/cognitive-services/face/). 

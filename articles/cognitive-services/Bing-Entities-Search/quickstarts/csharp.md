@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez ce guide de démarrage rapide pour envoyer une requête en C# à l’API REST Recherche d’entités Bing et recevoir une réponse JSON.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 63890d916f80fbfac7173abd0df9e559bcd0b76b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: b61db97cec77fc724933c2b4e7d3fa7f7afc0ab6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754929"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884951"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en C#
 

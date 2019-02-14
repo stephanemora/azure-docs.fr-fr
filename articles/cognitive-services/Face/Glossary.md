@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Le glossaire explique les termes que vous êtes susceptible de rencontrer lorsque vous utilisez le service API Visage.
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 06c385b1ca43277b59c337646c41cae360ce48a5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ad3ea9b0cde16d5c9645e7eacee9ba7f9a08ed2d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816558"
+ms.locfileid: "55859163"
 ---
 # <a name="glossary"></a>Glossaire
 
@@ -302,7 +302,7 @@ Pour plus d’informations, consultez le guide [Visage - Détecter](https://west
 
 #### <a name="snapshot"></a>Instantané
 
-Un instantané est un stockage à distance temporaire pour certains types de données Visage. Il fonctionne comme une sorte de presse-papiers pour copier des données d’un abonnement à l’autre. L’utilisateur « prend » d’abord un instantané des données de l’abonnement source, puis les « applique » à un nouvel objet de données de l’abonnement cible. 
+Un instantané est un stockage à distance temporaire pour certains types de données Visage. Il fonctionne comme une sorte de Presse-papiers pour copier des données d’un abonnement à un autre. L’utilisateur « prend » d’abord un instantané des données de l’abonnement source, puis les « applique » à un nouvel objet de données de l’abonnement cible. 
 
 Pour plus de détails, consultez le [Guide de migration de Visage](./face-api-how-to-topics/how-to-migrate-face-data.md) ainsi que la documentation de référence REST sur [Instantané - Prendre](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/take) et [Instantané - Appliquer](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/apply).
 

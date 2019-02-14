@@ -4,19 +4,19 @@ titleSuffix: QnA Maker - Azure Cognitive Services
 description: Ce guide de démarrage rapide basé sur REST Go vous aide à publier votre base de connaissances qui envoie (push) la dernière version de la base de connaissances testée à un index de Recherche Azure dédié représentant la base de connaissances publiée. Il crée également un point de terminaison qui peut être appelé dans votre application ou bot conversationnel.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3750615cc1010bfe67d1b93937a424009d973e70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: bd836f0879c3136eac4ac6d3880d72f050e50293
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209212"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883829"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Démarrage rapide : Publier une base de connaissances dans QnA Maker à l’aide de Go
 

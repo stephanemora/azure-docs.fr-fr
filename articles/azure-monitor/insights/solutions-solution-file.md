@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105795"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999366"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Création d’un fichier de solution de gestion dans Azure (préversion)
 > [!NOTE]
@@ -53,7 +53,7 @@ La structure de base d’un fichier solution de gestion est identique à un [mod
 ## <a name="parameters"></a>parameters
 Les [Paramètres](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) sont des valeurs que l’utilisateur doit indiquer lorsqu’il installe la solution de gestion.  Il existe des paramètres standard compris dans toutes les solutions, et vous pouvez ajouter des paramètres supplémentaires en fonction des besoins spécifiques de votre solution.  La manière dont les utilisateurs fournissent des valeurs de paramètre lors de l’installation de la solution dépend du paramètre lui-même et de la façon dont la solution est installée.
 
-Quand un utilisateur [installe votre solution d’administration](solutions.md#install-a-management-solution) par le biais de la Place de Marché Azure ou des modèles de démarrage rapide Azure, il est invité à sélectionner un [espace de travail Log Analytics et un compte Automation](solutions.md#log-analytics-workspace-and-automation-account).  Ils sont utilisés pour remplir les valeurs de chacun des paramètres standard.  L’utilisateur n’est pas invité à fournir directement des valeurs pour les paramètres standard, mais il est invité à fournir une valeur pour tout paramètre supplémentaire.
+Quand un utilisateur [installe votre solution d’administration](solutions.md#install-a-monitoring-solution) par le biais de la Place de Marché Azure ou des modèles de démarrage rapide Azure, il est invité à sélectionner un [espace de travail Log Analytics et un compte Automation](solutions.md#log-analytics-workspace-and-automation-account).  Ils sont utilisés pour remplir les valeurs de chacun des paramètres standard.  L’utilisateur n’est pas invité à fournir directement des valeurs pour les paramètres standard, mais il est invité à fournir une valeur pour tout paramètre supplémentaire.
 
 
 Vous trouverez ci-dessous un exemple de paramètre.  
@@ -83,7 +83,7 @@ Le tableau suivant répertorie les paramètres standard pour toutes les solution
 >
 >
 
-| Paramètre | type | Description |
+| Paramètre | Type | Description |
 |:--- |:--- |:--- |
 | accountName |chaîne |Nom de compte Azure Automation. |
 | pricingTier |chaîne |Niveau tarifaire de l’espace de travail Log Analytics et du compte Azure Automation. |

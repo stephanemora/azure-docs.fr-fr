@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9e257c14c952a9458bf6652ec20ef9216bcaaea4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ef044d5ccba706ebc0c7102414cb1e2b42b537cb
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091561"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242156"
 ---
 # <a name="apply-tag-and-its-default-value"></a>Appliquer une étiquette et sa valeur par défaut
 
@@ -51,7 +51,7 @@ Code JSON définissant les paramètres de la stratégie, utilisé par l’interf
 
 [!code-json[parameters](../../../../policy-templates/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
-|NOM |Type |Champ |Description |
+|Nom |Type |Champ |Description |
 |---|---|---|---|
 |tagName |Chaîne |tags |Nom de la balise, par exemple costCenter|
 |tagValue |Chaîne |tags |Valeur de la balise, par exemple headquarter|
@@ -79,7 +79,7 @@ Dans cet exemple de paramètre, une _tagName_ de **costCenter** et une _tagValue
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### <a name="deploy-with-azure-powershell"></a>Déployer avec Azure PowerShell
 

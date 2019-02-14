@@ -4,7 +4,7 @@ description: Ce document vous montre comment implémenter la recommandation de l
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a951e60b417167f2e1566efb689ea0f2d4e65374
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344140"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111422"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corriger les configurations de sécurité dans Azure Security Center
 Azure Security Center analyse quotidiennement le système d’exploitation de vos machines virtuelles et ordinateurs et recherche les configurations qui pourraient les rendre plus vulnérables aux attaques. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation ne correspond pas aux règles de configuration de sécurité recommandées et d’apporter des modifications à la configuration pour supprimer ces vulnérabilités.

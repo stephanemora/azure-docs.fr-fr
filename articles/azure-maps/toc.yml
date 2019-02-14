@@ -31,6 +31,8 @@ items:
     href: azure-maps-event-grid-integration.md
   - name: Choisir le niveau tarifaire approprié
     href: choose-pricing-tier.md
+  - name: Authentification avec Azure Maps
+    href: azure-maps-authentication.md
   - name: Couverture
     items:
     - name: Couverture du géocodage
@@ -49,8 +51,10 @@ items:
   items:
   - name: Gérer les comptes Maps
     items:
-    - name: Gérer les comptes et les clés
+    - name: Gérer les comptes
       href: how-to-manage-account-keys.md
+    - name: Gérer l’authentification
+      href: how-to-manage-authentication.md
     - name: Gérer le niveau tarifaire
       href: how-to-manage-pricing-tier.md
     - name: Afficher les métriques d’utilisation
@@ -59,13 +63,15 @@ items:
     items:
     - name: Rechercher une adresse
       href: how-to-search-for-address.md
+    - name: Rendre les données personnalisées sur une carte statique
+      href: how-to-render-custom-data.md
   - name: Créer des cartes JavaScript
     items:
     - name: Utiliser le contrôle de carte
       href: how-to-use-map-control.md
     - name: Créer une carte
       href: map-create.md
-    - name: Choisir un style de mappage
+    - name: Choisir un style de carte
       href: choose-map-style.md
     - name: Ajouter des contrôles de carte
       href: map-add-controls.md
@@ -99,6 +105,10 @@ items:
       href: map-events.md
     - name: Applications de cartes accessibles
       href: map-accessibility.md
+  - name: Créer des cartes Android
+    items:
+    - name: Guide pratique pour utiliser les commandes de carte Android
+      href: how-to-use-android-map-control-library.md
 - name: Informations de référence
   items:
   - name: Extensions d’API et de paramètre
@@ -115,7 +125,7 @@ items:
     items:
     - name: Service de géolocalisation
       href: https://docs.microsoft.com/rest/api/maps/geolocation
-    - name: Render Service
+    - name: Service de rendu
       href: https://docs.microsoft.com/rest/api/maps/render
     - name: Service d’itinéraire
       href: https://docs.microsoft.com/rest/api/maps/route
@@ -137,7 +147,7 @@ items:
     href: /azure/templates/microsoft.maps/accounts
 - name: Rubriques connexes
   items:
-  - name: solutions
+  - name: Solutions
     items:
     - name: Accélérateurs de solution IoT
       href: /azure/iot-suite
@@ -181,11 +191,11 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-maps
   - name: Études de cas techniques
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Videos
+  - name: Vidéos
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: 0fb1d864dd18a781d0eeba4c8dea610e3ccb07f2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6a657596cb266db20404d7f2ec1074834d181772
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999451"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111048"

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Ce guide de démarrage rapide basé sur REST Node.js vous aide à obtenir programmatiquement une réponse à partir d’une base de connaissances.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 720d249321d20161b6a1ef19bb522ec6c2fc665e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fd6f6cd9b0078533541c9d846281c48a446f9c4a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216670"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883098"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Obtenir des réponses à une question à partir d’une base de connaissance avec Node.js
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 3de675adf7364e8281a03a46c5eeeaa1b74249b5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4187557ef9a38f55465547f83d7bc4c3bcad9ba7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969282"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236927"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Utiliser Azure PowerShell pour créer un cluster HDInsight avec Azure Data Lake Storage Gen1 (comme stockage complémentaire)
 
@@ -50,6 +50,9 @@ Pour configurer HDInsight afin qu’il fonctionne avec Data Lake Storage Gen1 à
 * Lancer une tâche de test sur le cluster
 
 ## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -65,25 +68,25 @@ Pour créer un compte Data Lake Storage Gen1, procédez comme suit.
 1. Sur votre bureau, ouvrez une nouvelle fenêtre Azure PowerShell et entrez l'extrait de code suivant. Lorsque vous êtes invité à vous connecter, vérifiez que vous vous connectez en tant qu’administrateur/propriétaire de l’abonnement :
 
         # Log in to your Azure account
-        Connect-AzureRmAccount
+        Connect-AzAccount
 
         # List all the subscriptions associated to your account
-        Get-AzureRmSubscription
+        Get-AzSubscription
 
         # Select a subscription
-        Set-AzureRmContext -SubscriptionId <subscription ID>
+        Set-AzContext -SubscriptionId <subscription ID>
 
         # Register for Data Lake Storage Gen1
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+        Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
    > [!NOTE]
-   > Si vous recevez une erreur similaire à `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` pendant l’inscription du fournisseur de ressources Data Lake Storage Gen1, il est possible que votre abonnement ne figure pas dans la liste approuvée pour Data Lake Storage Gen1. Veillez à activer votre abonnement Azure pour la version préliminaire publique de Data Lake Storage Gen1 en suivant ces [instructions](data-lake-store-get-started-portal.md).
+   > Si vous recevez une erreur similaire à `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` pendant l’inscription du fournisseur de ressources Data Lake Storage Gen1, il est possible que votre abonnement ne figure pas dans la liste approuvée pour Data Lake Storage Gen1. Veillez à activer votre abonnement Azure pour la version préliminaire publique de Data Lake Storage Gen1 en suivant ces [instructions](data-lake-store-get-started-portal.md).
    >
    >
 2. Un compte Data Lake Storage Gen1 est associé à un groupe de ressources Azure. Commencez par créer un groupe de ressources Azure.
 
         $resourceGroupName = "<your new resource group name>"
-        New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
+        New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
 
     Vous devriez obtenir un résultat similaire à ceci :
 
@@ -96,7 +99,7 @@ Pour créer un compte Data Lake Storage Gen1, procédez comme suit.
 3. Créer un compte Data Lake Storage Gen1. Le nom de compte que vous spécifiez doit contenir uniquement des lettres minuscules et des chiffres.
 
         $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 account name>"
-        New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
+        New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
 
     Un résultat similaire à ce qui suit s’affiche normalement :
 
@@ -118,7 +121,7 @@ Pour créer un compte Data Lake Storage Gen1, procédez comme suit.
 5. Téléchargez des exemples de données sur Data Lake Storage Gen1. Nous les utiliserons plus loin dans cet article pour vérifier que les données sont accessibles à partir d'un cluster HDInsight. Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
         $myrootdir = "/"
-        Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Path "C:\<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
+        Import-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Path "C:\<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-storage-gen1"></a>Configurer l’authentification pour définir un accès à Data Lake Storage Gen1 en fonction du rôle
@@ -164,7 +167,7 @@ Cette section décrit les étapes pour créer un principal du service pour une a
 
         $credential = [System.Convert]::ToBase64String($rawCertificateData)
 
-        $application = New-AzureRmADApplication `
+        $application = New-AzADApplication `
             -DisplayName "HDIADL" `
             -HomePage "https://contoso.com" `
             -IdentifierUris "https://mycontoso.com" `
@@ -175,13 +178,13 @@ Cette section décrit les étapes pour créer un principal du service pour une a
         $applicationId = $application.ApplicationId
 2. Créez un principal du service avec l'ID d'application.
 
-        $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
+        $servicePrincipal = New-AzADServicePrincipal -ApplicationId $applicationId
 
         $objectId = $servicePrincipal.Id
 3. Accordez au principal du service l’accès au dossier et au fichier Data Lake Storage Gen1 auxquels vous accéderez à partir du cluster HDInsight. L’extrait de code ci-dessous fournit l’accès à la racine du compte Data Lake Storage Gen1 (où vous avez copié l’exemple de fichier de données) et le fichier lui-même.
 
-        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
-        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
+        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
+        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
 
 ## <a name="create-an-hdinsight-linux-cluster-with-data-lake-storage-gen1-as-additional-storage"></a>Créer un cluster Linux HDInsight avec Data Lake Storage Gen1 comme stockage par supplémentaire
 
@@ -189,20 +192,20 @@ Dans cette section, nous créons un cluster HDInsight Hadoop Linux avec Data Lak
 
 1. Commencez par récupérer l’ID du client de l’abonnement. Vous en aurez besoin ultérieurement.
 
-        $tenantID = (Get-AzureRmContext).Tenant.TenantId
+        $tenantID = (Get-AzContext).Tenant.TenantId
 2. Pour cette version, pour un cluster Hadoop, Data Lake Storage Gen1 ne peut être utilisé que comme stockage supplémentaire pour le cluster. Le stockage par défaut sera toujours les objets blob Azure Storage (WASB). Par conséquent, nous allons tout d'abord créer le compte de stockage et les conteneurs de stockage requis par le cluster.
 
         # Create an Azure storage account
         $location = "East US 2"
         $storageAccountName = "<StorageAccountName>"   # Provide a Storage account name
 
-        New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
+        New-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 
         # Create an Azure Blob Storage container
         $containerName = "<ContainerName>"              # Provide a container name
-        $storageAccountKey = (Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
-        $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-        New-AzureStorageContainer -Name $containerName -Context $destContext
+        $storageAccountKey = (Get-AzStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
+        $destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+        New-AzStorageContainer -Name $containerName -Context $destContext
 3. Créez le cluster HDInsight. Utilisez les applets de commande suivantes.
 
         # Set these variables
@@ -211,7 +214,7 @@ Dans cette section, nous créons un cluster HDInsight Hadoop Linux avec Data Lak
         $httpCredentials = Get-Credential
         $sshCredentials = Get-Credential
 
-        New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.4" -OSType Linux -SshCredential $sshCredentials -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
+        New-AzHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.4" -OSType Linux -SshCredential $sshCredentials -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
     Après exécution de l'applet de commande, le résultat énumère les détails du cluster.
 

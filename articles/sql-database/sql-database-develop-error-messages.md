@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6bbb2bfa0fe3c157114d53b070d6c98e68099643
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 4da18fffc98367f24ec95bd27617e7638e3d5705
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464729"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003667"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codes d’erreur SQL pour les applications clientes SQL Database : erreurs de connexion de base de données et autres problèmes
 
@@ -99,8 +99,8 @@ Rubriques connexes :
 
 | Code d'erreur | Severity | Description |
 | ---:| ---:|:--- |
-| 10928 |20 |ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour plus d’informations, consultez [Limites de ressources de SQL Database pour les bases de données autonomes et regroupées](sql-database-resource-limits-database-server.md).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations, consultez [Limites de ressources de SQL Database pour les bases de données autonomes et regroupées](sql-database-resource-limits-database-server.md). Sinon, réessayez plus tard.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour en savoir plus, consultez [Limites de ressources de SQL Database pour les bases de données uniques et regroupées](sql-database-resource-limits-database-server.md).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour en savoir plus, consultez [Limites de ressources de SQL Database pour les bases de données uniques et regroupées](sql-database-resource-limits-database-server.md). Sinon, réessayez plus tard.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |La base de données a atteint son quota de taille. Partitionnez ou supprimez des données, supprimez des index ou consultez la documentation pour connaître les résolutions possibles. |
 | 40549 |16 |La session est arrêtée, car l’une des transactions est de longue durée. Essayez de la raccourcir. |
 | 40550 |16 |La session a été arrêtée, car elle a acquis trop de verrous. Essayez de lire ou de modifier moins de lignes dans une transaction unique. |

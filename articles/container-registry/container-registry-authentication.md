@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6ae388107e527b399dc758abccbefcec955a60d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 9682b9b832a8fd7374cb84e8cc6faad69df15945
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661630"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979063"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>S’authentifier avec un registre de conteneurs Docker
 
@@ -60,7 +60,7 @@ Les principaux de service activent une connectivité headless (administrée à d
 
 Vous pouvez également vous connecter directement avec un principal du service. Lorsque vous exécutez la commande suivante, fournissez de manière interactive l'appID (nom d'utilisateur) et le mot de passe du principal du service dès que vous y êtes invité. Pour connaître les meilleures pratiques de gestion des informations d'identification, consultez la référence de la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/) :
 
-```Docker
+```
 docker login myregistry.azurecr.io
 ```
 
@@ -80,7 +80,7 @@ Chaque registre de conteneurs inclut un compte d’utilisateur administrateur, q
 
 Le compte d’administrateur reçoit deux mots de passe qui peuvent être régénérés. Deux mots de passe vous permettent de maintenir la connexion au registre en utilisant un mot de passe tandis que vous régénérez l’autre. Si le compte d'administrateur est activé, vous pouvez transmettre le nom d'utilisateur et l'un ou l'autre des mots de passe à la commande `docker login` lorsque vous y êtes invité pour une authentification de base auprès du registre. Par exemple : 
 
-```Docker
+```
 docker login myregistry.azurecr.io 
 ```
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 5952c602a90568a9ce9e71dfa2c0dd383aed4e16
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dc798dc78ed0cdbf11bbe3bc2dd805433b127a4d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915369"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976914"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Guide pratique pour déployer Windows 10 sur Azure avec des droits d’hébergement multilocataire 
 Pour les clients avec Windows 10 Entreprise E3/E5 par utilisateur ou Windows Virtual Desktop Access par utilisateur (licences d’abonnement utilisateur ou licences d’abonnement utilisateur de composant additionnel), les droits d’hébergement multilocataire pour Windows 10 permettent de placer les licences Windows 10 sur le cloud et d’exécuter des machines virtuelles Windows 10 sur Azure sans acheter de licence supplémentaire. Pour plus d’informations, consultez [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Hébergement multilocataire pour Windows 10).
@@ -62,10 +62,10 @@ Pour plus d'informations :
 
 
 ## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>Déploiement de Windows 10 avec des droits d’hébergement multilocataire
-Vérifiez que vous avez [installé et configuré la dernière version d’Azure PowerShell](/powershell/azure/overview). Une fois votre disque dur virtuel préparé, chargez-le dans votre compte Azure Storage en utilisant l’applet de commande `Add-AzureRmVhd` comme suit :
+Vérifiez que vous avez [installé et configuré la dernière version d’Azure PowerShell](/powershell/azure/overview). Une fois votre disque dur virtuel préparé, chargez-le dans votre compte Azure Storage en utilisant l’applet de commande `Add-AzVhd` comme suit :
 
 ```powershell
-Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
+Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
     -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd"
 ```
 
@@ -79,15 +79,15 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
    }
 ```
 
-**Déploiement par le biais de PowerShell** Quand vous déployez votre machine virtuelle Windows Server par le biais de PowerShell, vous disposez d’un paramètre supplémentaire pour `-LicenseType`. Une fois votre disque dur virtuel chargé dans Azure, vous créez une machine virtuelle en utilisant `New-AzureRmVM` et spécifiez le type de licence comme suit :
+**Déploiement par le biais de PowerShell** Quand vous déployez votre machine virtuelle Windows Server par le biais de PowerShell, vous disposez d’un paramètre supplémentaire pour `-LicenseType`. Une fois votre disque dur virtuel chargé dans Azure, vous créez une machine virtuelle en utilisant `New-AzVM` et spécifiez le type de licence comme suit :
 ```powershell
-New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
+New-AzVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
 
 ## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>Vérifiez que votre machine virtuelle utilise l’avantage de licence
-Une fois votre machine virtuelle déployée par le biais de PowerShell ou de Resource Manager, vérifiez le type de licence avec `Get-AzureRmVM` comme suit :
+Une fois votre machine virtuelle déployée par le biais de PowerShell ou de Resource Manager, vérifiez le type de licence avec `Get-AzVM` comme suit :
 ```powershell
-Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
 Le résultat ressemble à l’exemple suivant pour Windows 10 avec le type de licence correct :

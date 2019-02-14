@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 15f362386197c76de578e2ffffae4c165ba59c67
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 939a6443fb0993592d9640c83b985ce761f0fa61
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568856"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168665"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-alertops"></a>Didacticiel : Intégration d’Azure Active Directory à AlertOps
+# <a name="tutorial-azure-active-directory-integration-with-alertops"></a>Tutoriel : Intégration d’Azure Active Directory à AlertOps
 
 Dans ce tutoriel, vous allez découvrir comment intégrer AlertOps à Azure Active Directory (Azure AD).
 L’intégration d’AlertOps à Azure AD vous offre les avantages suivants :
@@ -220,7 +221,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Configuration d’AlertOps](./media/alertops-tutorial/user2.png)
 
-4. Dans la boîte de dialogue **Add User** (Ajouter un utilisateur), procédez comme suit :
+4. Dans la boîte de dialogue **Ajouter un utilisateur**, procédez comme suit :
 
     ![Configuration d’AlertOps](./media/alertops-tutorial/user3.png)
 
@@ -228,7 +229,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     b. Dans la zone de texte **Official Email** (E-mail officiel), entrez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon@contoso.com**.
 
-    c. Dans la zone de texte **First Name** (Prénom), entrez le prénom de l’utilisateur, par exemple **Britta**.
+    c. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 
     d. Dans la zone de texte **Last name** (Nom), tapez le nom de famille de l’utilisateur, par exemple **Simon**.
 
@@ -251,4 +252,3 @@ Quand vous cliquez sur la vignette AlertOps dans le volet d’accès, vous devez
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

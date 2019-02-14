@@ -4,19 +4,19 @@ titleSuffix: QnA Maker - Azure Cognitive Services
 description: Ce guide de démarrage rapide basé sur REST Java vous aide à publier votre base de connaissances qui envoie (push) la dernière version de la base de connaissances testée à un index de Recherche Azure dédié représentant la base de connaissances publiée. Il crée également un point de terminaison qui peut être appelé dans votre application ou bot conversationnel.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 9f91f83ec7aced8dcfc8449f6a3575ecbe539c64
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c1ad32369baf3919a4479a8a39ee3d9b9131efb4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216725"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863242"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Démarrage rapide : Publier une base de connaissances dans QnA Maker à l’aide de Java
 

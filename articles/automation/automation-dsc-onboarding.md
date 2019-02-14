@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1076ddfb840ba845718c5ca0deea8c5788e7d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096702"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100327"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Intégration des machines pour la gestion avec Azure Automation State Configuration
 
@@ -24,7 +24,8 @@ Tout comme le service [Desired State Configuration de PowerShell](/powershell/ds
 
 Azure Automation State Configuration peut servir à gérer une grande diversité de machines :
 
-- Machines virtuelles Azure (déployées à la fois dans le modèle de déploiement classique et Azure Resource Manager)
+- Machines virtuelles Azure
+- Machines virtuelles Azure (classiques)
 - Instances EC2 d’Amazon Web Services (AWS)
 - Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS
 - Machines physiques/virtuelles Linux sur site, dans Azure, ou dans un cloud autre qu’Azure
@@ -35,6 +36,31 @@ En outre, si vous n’êtes pas prêt à gérer la configuration de la machine d
 > La gestion des machines virtuelles Azure avec State Configuration est fournie sans frais supplémentaires si l’extension DSC de la machine virtuelle installée est ultérieure à 2.70. Pour plus d’informations, reportez-vous à la [**page relative à la tarification d’Automation**](https://azure.microsoft.com/pricing/details/automation/).
 
 Les sections suivantes décrivent la façon dont vous pouvez intégrer chaque type de machine à Azure Automation State Configuration.
+
+## <a name="azure-virtual-machines"></a>Machines virtuelles Azure
+
+Azure Automation State Configuration vous permet d’intégrer facilement des machines virtuelles Azure pour une gestion de configuration par le biais du portail Azure, des modèles Azure Resource Manager ou de PowerShell. En arrière-plan, et sans qu’aucun administrateur n’ait à contrôler la machine virtuelle à distance, l’extension Azure VM Desired State Configuration inscrit la machine virtuelle auprès d’Azure Automation State Configuration.
+Étant donné que cette extension s’exécute de façon asynchrone, la section [**Résolution des problèmes liés à l’intégration de machines virtuelles Azure**](#troubleshooting-azure-virtual-machine-onboarding) suivante décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
+
+### <a name="azure-portal"></a>Portail Azure
+
+Dans le [portail Azure](https://portal.azure.com/), accédez au compte Azure Automation où vous souhaitez intégrer des machines virtuelles. Dans la page Configuration d’état et sous l’onglet **Nœuds**, cliquez sur **+ Ajouter**.
+
+Sélectionnez une machine virtuelle Azure à intégrer.
+
+Si l’extension d’état PowerShell souhaitée n’est pas installée sur la machine virtuelle et que l’état d’alimentation est en cours d’exécution, cliquez sur **Se connecter**.
+
+Sous **Inscription**, entrez les [valeurs du gestionnaire de configuration locale de PowerShell DSC](/powershell/dsc/metaconfig4) requises pour votre cas d’utilisation et, éventuellement, une configuration de nœud à attribuer à la machine virtuelle.
+
+![intégration](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+
+### <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
+
+Les machines virtuelles Azure peuvent être déployées et intégrées à Azure Automation State Configuration par le biais de modèles Azure Resource Manager. Pour un exemple de modèle intégrant une machine virtuelle existante à Azure Automation State Configuration, consultez [Configurer une machine virtuelle par le biais de l’extension DSC et d’Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/). Pour trouver la clé d’inscription et l’URL d’inscription utilisées comme entrées dans ce modèle, consultez la section [**Inscription sécurisée**](#secure-registration) suivante.
+
+### <a name="powershell"></a>PowerShell
+
+Vous pouvez utiliser l’applet de commande [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) pour intégrer des machines virtuelles au portail Azure par le biais de PowerShell.
 
 ## <a name="azure-virtual-machines-classic"></a>Machines virtuelles Azure (classiques)
 
@@ -116,31 +142,6 @@ $VM | Update-AzureVM
 
 > [!NOTE]
 > Les noms de configuration de nœud State Configuration respectent la casse dans le portail. S’ils ne correspondent pas, le nœud ne s’affiche pas sous l’onglet **Nœuds**.
-
-## <a name="azure-virtual-machines"></a>Machines virtuelles Azure
-
-Azure Automation State Configuration vous permet d’intégrer facilement des machines virtuelles Azure pour une gestion de configuration par le biais du portail Azure, des modèles Azure Resource Manager ou de PowerShell. En arrière-plan, et sans qu’aucun administrateur n’ait à contrôler la machine virtuelle à distance, l’extension Azure VM Desired State Configuration inscrit la machine virtuelle auprès d’Azure Automation State Configuration.
-Étant donné que cette extension s’exécute de façon asynchrone, la section [**Résolution des problèmes liés à l’intégration de machines virtuelles Azure**](#troubleshooting-azure-virtual-machine-onboarding) suivante décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
-
-### <a name="azure-portal"></a>Portail Azure
-
-Dans le [portail Azure](https://portal.azure.com/), accédez au compte Azure Automation où vous souhaitez intégrer des machines virtuelles. Dans la page Configuration d’état et sous l’onglet **Nœuds**, cliquez sur **+ Ajouter**.
-
-Sélectionnez une machine virtuelle Azure à intégrer.
-
-Si l’extension d’état PowerShell souhaitée n’est pas installée sur la machine virtuelle et que l’état d’alimentation est en cours d’exécution, cliquez sur **Se connecter**.
-
-Sous **Inscription**, entrez les [valeurs du gestionnaire de configuration locale de PowerShell DSC](/powershell/dsc/metaconfig4) requises pour votre cas d’utilisation et, éventuellement, une configuration de nœud à attribuer à la machine virtuelle.
-
-![intégration](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
-
-### <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
-
-Les machines virtuelles Azure peuvent être déployées et intégrées à Azure Automation State Configuration par le biais de modèles Azure Resource Manager. Pour un exemple de modèle intégrant une machine virtuelle existante à Azure Automation State Configuration, consultez [Configurer une machine virtuelle par le biais de l’extension DSC et d’Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/). Pour trouver la clé d’inscription et l’URL d’inscription utilisées comme entrées dans ce modèle, consultez la section [**Inscription sécurisée**](#secure-registration) suivante.
-
-### <a name="powershell"></a>PowerShell
-
-Vous pouvez utiliser l’applet de commande [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) pour intégrer des machines virtuelles au portail Azure par le biais de PowerShell.
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Machines virtuelles Amazon Web Services (AWS)
 

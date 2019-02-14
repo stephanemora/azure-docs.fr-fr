@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez obtenir la liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text avec Node.js.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 71af575273b7299979679fa149c4960143b2b221
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: eb852f0449a7f59ba0235ffc8ad7c8aff6f3babc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208344"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892747"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et Node.js pour obtenir la liste des langues prises en charge
 
 Dans ce démarrage rapide, vous allez apprendre à effectuer une requête GET qui retourne la liste des langues prises en charge à l’aide de Node.js et de l’API REST Traduction de texte Translator Text.
-
-Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Traduction de texte Translator Text. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Ce démarrage rapide nécessite :
 
 * [Node 8.12.x ou version ultérieure](https://nodejs.org/en/)
-* Une clé d’abonnement Azure pour Translator Text
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis
 
@@ -43,25 +40,6 @@ const uuidv4 = require('uuid/v4');
 > Si vous n’avez jamais utilisé ces modules auparavant, vous devrez les installer avant d’exécuter votre programme. Pour installer ces packages, exécuter `npm install request uuidv4`.
 
 Ces modules sont requis pour construire la requête HTTP et créer un identificateur unique pour l’en-tête `'X-ClientTraceId'`.
-
-## <a name="set-the-subscription-key"></a>Définir la clé d’abonnement
-
-Ce code tente de lire votre clé d’abonnement Translator Text depuis la variable d’environnement `TRANSLATOR_TEXT_KEY`. Si vous n’êtes pas familiarisé avec les variables d’environnement, vous pouvez définir `subscriptionKey` en tant que chaîne et commentez l’instruction conditionnelle.
-
-Copiez ce code dans votre projet :
-
-```javascript
-/* Checks to see if the subscription key is available
-as an environment variable. If you are setting your subscription key as a
-string, then comment these lines out.
-
-If you want to set your subscription key as a string, replace the value for
-the Ocp-Apim-Subscription-Key header as a string. */
-const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
-if (!subscriptionKey) {
-  throw new Error('Environment variable for your subscription key is not set.')
-};
-```
 
 ## <a name="configure-the-request"></a>Configurer la requête
 
@@ -79,17 +57,12 @@ let options = {
       'api-version': '3.0',
     },
     headers: {
-      'Ocp-Apim-Subscription-Key': subscriptionKey,
       'Content-type': 'application/json',
       'X-ClientTraceId': uuidv4().toString()
     },
     json: true,
 };
 ```
-
-### <a name="authentication"></a>Authentification
-
-La manière la plus simple d’authentifier une requête consiste à transmettre votre clé d’abonnement comme `Ocp-Apim-Subscription-Key`en-tête. C’est ce que nous avons fait dans ce modèle. Vous pouvez aussi échanger votre clé d’abonnement pour un jeton d’accès et transmettre le jeton d’accès en tant qu’`Authorization`en-tête pour valider votre requête. Pour en savoir plus, consultez [Authentification](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="make-the-request-and-print-the-response"></a>Effectuer la requête et imprimer la réponse
 

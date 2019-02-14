@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 19e6fa5c7286eea26397f0bd69aec1ac9cf03140
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e5b6b3e34f3c85d7fdc90f4f54acbbfac0d75061
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103878"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243907"
 ---
 # <a name="approved-vm-images"></a>Images de machine virtuelle approuvées
 
@@ -53,7 +53,7 @@ Code JSON définissant les paramètres de la stratégie, utilisé par l’interf
 
 ## <a name="parameters"></a>parameters
 
-|NOM |Type |Champ |Description |
+|Nom |Type |Champ |Description |
 |---|---|---|---|
 |imageIds |Tableau |Microsoft.Compute/imageIds |Liste d’images de machine virtuelle approuvées|
 
@@ -80,7 +80,7 @@ Dans cet exemple de paramètre, seule la valeur _ContosoStdImage_ du groupe de r
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### <a name="deploy-with-azure-powershell"></a>Déployer avec Azure PowerShell
 

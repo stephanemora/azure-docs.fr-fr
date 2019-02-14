@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: bd3711a88b14d7a24df7c20c72b49fca5953b568
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 81a84e1ff4a9ed974a69762ce35075780e8d1f96
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886459"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991529"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -41,7 +41,7 @@ La prise en charge du protocole HTTP/2 est disponible pour les clients se connec
 
 Par défaut, la prise en charge du protocole HTTP/2 est désactivée. L’exemple d’extrait de code Azure PowerShell suivant montre comment l’activer :
 
-```
+```powershell
 $gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
 Set-AzureRmApplicationGateway -ApplicationGateway $gw

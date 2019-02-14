@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Le service de reconnaissance vocale vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS. Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: df81c892df29b1ffd5fab2e93c82f664c7b613b7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c247ef748628c14074c2b5ea37df251793840b16
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216159"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876032"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Intégrer le service Speech à votre Language Understanding
 Le [service de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS. Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS. Le projet utilise le package [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) Speech, déjà inclus comme référence. 

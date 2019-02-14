@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez les opérations de flux de travail dans Azure Content Moderator pour créer ou mettre à jour un flux de travail, ou obtenir des informations sur le flux de travail à l’aide de l’API de révision.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: c71358828be1c5a2a83092f8079eca37c9e757dd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1c18544a0fd135eb546660c442b865bf1249dfe5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207205"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883081"
 ---
 # <a name="workflows-from-the-api-console"></a>Flux de travail à partir de la console d’API
 

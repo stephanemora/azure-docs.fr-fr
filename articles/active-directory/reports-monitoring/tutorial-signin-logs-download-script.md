@@ -16,14 +16,15 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ca3b25929a21e844b6350a79a3713d8e1b7ef0f8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b134482e571b235b462c027a6d4ae8967fc77413
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168641"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175470"
 ---
-# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Didacticiel : Télécharger et utiliser un script pour accéder aux journaux de connexion
+# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Tutoriel : Télécharger et utiliser un script pour accéder aux journaux de connexion
 
 Vous pouvez télécharger les données des activités de connexion si vous souhaitez les utiliser en dehors du portail Azure. L’option **Télécharger** du portail Azure crée un fichier CSV contenant les 5 000 enregistrements les plus récents. Si vous avez besoin d’une plus grande flexibilité, par exemple pour télécharger plus de 5 000 enregistrements à la fois ou pour télécharger les journaux à intervalles planifiés, vous pouvez utiliser le bouton **Script** pour générer un script PowerShell visant à télécharger vos données.
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Le kit de développement logiciel de l’API Recherche Web Bing simplifie l’intégration de l’API dans votre application C#. Dans ce démarrage rapide, vous allez apprendre à instancier un client, envoyer une requête et imprimer la réponse.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: 510cecdd4b646a9d0dd391632716c39759992a7d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 848f319836e492e486bfdcb3c9080860144a7e68
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180957"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869396"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Démarrage rapide : Utiliser le kit SDK Recherche Web Bing pour C#
 

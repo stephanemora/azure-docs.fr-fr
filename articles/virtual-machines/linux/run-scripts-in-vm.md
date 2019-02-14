@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: cb811e3dba7be87c83b9893db682475351ada1c1
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3881a6d0ee1139fa481908f09b6e96efda24a5cd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266997"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979001"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Exécuter des scripts dans votre machine virtuelle Linux
 
@@ -34,7 +34,7 @@ Pour automatiser les tâches ou résoudre les problèmes, vous devrez peut-être
 La fonctionnalité [Commande d’exécution](run-command.md) permet l’administration de la machine virtuelle et de l’application, ainsi que le dépannage, à l’aide de scripts. Elle est disponible même lorsque la machine virtuelle n’est pas accessible, par exemple, si le pare-feu invité n’a pas le port RDP ou SSH ouvert.
 
 * Exécutez des scripts dans des machines virtuelles Azure.
-* L’exécution peut se faire à l’aide du [portail Azure](run-command.md), de [l’API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), de la [CLI Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) ou de [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)
+* L’exécution peut se faire à l’aide du [portail Azure](run-command.md), de [l’API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), de la [CLI Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) ou de [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)
 * Exécutez rapidement un script et affichez la sortie, puis répétez autant que nécessaire dans le portail Azure.
 * Le script peut être tapé directement, ou vous pouvez exécuter l’un des scripts intégrés.
 * Exécutez le script PowerShell sur des ordinateurs Windows et le script Bash sur des ordinateurs Linux.

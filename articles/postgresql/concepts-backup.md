@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 49277fc260743d0179c40374241edeece0a0e1e2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b4086497375bb651f4c88411e3237b27740dfd07
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814331"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236751"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Sauvegarde et restauration dans Azure Database pour PostgreSQL
 
@@ -50,7 +50,7 @@ Deux types de restauration sont disponibles :
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
 > [!IMPORTANT]
-> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Pour protéger les ressources du serveur, après le déploiement, contre une suppression accidentelle ou des changements inattendus, les administrateurs peuvent utiliser [les verrous de gestion](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
+> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. À l'issue du déploiement, pour protéger les ressources du serveur d'une suppression accidentelle ou de changements inattendus, les administrateurs peuvent utiliser des [verrous de gestion](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 

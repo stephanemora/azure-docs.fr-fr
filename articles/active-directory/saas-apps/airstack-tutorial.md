@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à AirStack | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à AirStack | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AirStack.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a949d2154aba1916f3bc34e42b16e8e13f4b143
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ddc88f3e2f62004c1971db89d2324fcc001183be
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55105405"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airstack"></a>Tutoriel : Intégration d’Azure Active Directory à AirStack
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à RFPIO | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à RFPIO | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RFPIO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 23d745e084bf3439d8400b0cd6ac43bac75c7751
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3af5c3d5d92dea804221b2285d4fa5b9cedae665
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815691"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168088"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Tutoriel : Intégration d’Azure Active Directory à RFPIO
+# <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Didacticiel : Intégration d’Azure Active Directory à RFPIO
 
 Dans ce didacticiel, vous allez apprendre à intégrer RFPIO à Azure Active Directory (Azure AD).
 

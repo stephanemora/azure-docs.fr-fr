@@ -4,19 +4,19 @@ titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Ce tutoriel pas à pas décrit comment télécharger, installer et exécuter des conteneurs pour Analyse de texte.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 07fbf51f584d691b08d94f68fefa8c3f9348227f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f2b8b97878fc0970c8cfc95e5bd4420306e34cc0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294826"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977098"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 
@@ -77,19 +77,19 @@ Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/co
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull du conteneur d’extraction de phrases clés
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
 ### <a name="docker-pull-for-the-language-detection-container"></a>Docker pull du conteneur de détection de langue
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
 ### <a name="docker-pull-for-the-sentiment-container"></a>Docker pull du conteneur de sentiments
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
@@ -156,18 +156,7 @@ Si vous exécutez le conteneur avec un [montage](../text-analytics-resource-cont
 
 Les conteneurs Analyse de texte envoient des informations de facturation à Azure à l’aide d’une ressource _Analyse de texte_ sur votre compte Azure. 
 
-Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent configurer les conteneurs de manière à ce qu’ils communiquent les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas de données client à Microsoft. 
-
-La commande `docker run` utilise les arguments suivants lors de la facturation :
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | La clé d’API de la ressource _Analyse de texte_ utilisée pour effectuer le suivi des informations de facturation. |
-| `Billing` | Le point de terminaison de la ressource _Analyse de texte_ utilisée pour effectuer le suivi des informations de facturation.|
-| `Eula` | Indique que vous avez accepté la licence pour le conteneur.<br/>La valeur de cette option doit être `accept`. |
-
-> [!IMPORTANT]
-> Les trois options doivent être spécifiées avec des valeurs valides ; sinon, le conteneur ne démarre pas.
+[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Pour plus d’informations sur ces options, consultez [Configurer des conteneurs](../text-analytics-resource-container-config.md).
 

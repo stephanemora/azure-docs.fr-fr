@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous extrayez le texte imprimé d’une image en utilisant l’API Vision par ordinateur avec Node.js.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c9dc64a39e86271131ef188c39d927455d0bd289
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5c3314f61344dd56e0c96ca76fe143128c279b68
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215162"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870586"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Démarrage rapide : Extraire du texte imprimé (OCR) à l’aide de l’API REST et Node.js dans Vision par ordinateur
 

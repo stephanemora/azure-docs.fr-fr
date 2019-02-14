@@ -4,21 +4,21 @@ description: Cette rubrique montre comment copier un objet blob existant dans un
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 9305b3cb810af9f0653d980328c46e41a540bf1a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f34f7fe4fcdb79c6c01422f3248144fb000c2575
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783388"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998295"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copie d’objets blob dans un élément multimédia Media Services
 Cet article montre comment copier des objets blob à partir d’un compte de stockage dans un nouvel élément multimédia Azure Media Services (AMS) à l’aide des [extensions du kit SDK Azure Media Services pour .NET](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
@@ -41,7 +41,6 @@ L’article présente deux exemples de code :
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Copier des blob entre deux comptes AMS  
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 Deux comptes Media Services. Consultez l’article [Création d’un compte Media Services](media-services-portal-create-account.md).
 
@@ -160,7 +159,6 @@ namespace CopyExistingBlobsIntoAsset
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Copier des objets blob d’un compte de stockage dans un compte AMS 
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 - Un compte de stockage à partir duquel vous souhaitez copier des blobs.
 - Un compte AMS dans lequel vous souhaitez copier des blobs.

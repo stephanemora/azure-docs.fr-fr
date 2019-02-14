@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1a9cbb14bc6d6df25dbc627bba5a3e72db5350a6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bf3061509e08648aa63b843a4b1d7b8968f3e88e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727328"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114635"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Créer une passerelle d’application avec redirection externe à l’aide de l’interface CLI Azure
 
@@ -93,7 +93,7 @@ La création de la passerelle d’application peut prendre plusieurs minutes. Un
 
 ### <a name="add-the-redirection-configuration"></a>Ajouter la configuration de redirection
 
-Ajoutez la configuration de redirection qui envoie le trafic provenant de la passerelle d’application vers *bing.com* à l’aide de [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-configwork_application_gateway_redirect_config_create).
+Ajoutez la configuration de redirection qui envoie le trafic provenant de la passerelle d’application vers *bing.com* à l’aide de [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Ajouter un écouteur et une règle de routage
 
-Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée. Créez l’écouteur à l’aide de [az network application-gateway http-listener create](/cli/azure/network/application-gateway) et du port frontal créé avec [az network application-gateway frontend-port create](/cli/azure/network/application-gateway). Une règle est requise pour que l’écouteur sache vers où rediriger le trafic entrant. Créez une règle de base nommée *redirectRule* à l’aide de [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) avec la configuration de redirection.
+Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée. Créez l’écouteur à l’aide de [az network application-gateway http-listener create](/cli/azure/network/application-gateway) et du port frontal créé avec [az network application-gateway frontend-port create](/cli/azure/network/application-gateway). Une règle est requise pour que l’écouteur sache vers où rediriger le trafic entrant. Créez une règle de base nommée *redirectRule* à l’aide de [az network application-gateway rule create](/cli/azure/network/application-gateway) avec la configuration de redirection.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

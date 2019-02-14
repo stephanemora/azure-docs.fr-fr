@@ -16,12 +16,13 @@ ms.subservice: report-monitor
 ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da800b80c89aa0b63a386341a9b010d67f22e85a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a60f95bc8a98ea15c174f48bc3c3e63eae534d1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186533"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164055"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
@@ -134,11 +135,11 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Gestion des applications|AdminPolicyDatas-SetResources|
 |Gestion des applications|AdminUserJourneys-GetResources|
 |Gestion des applications|AdminUserJourneys-RemoveResources|
-|Authentification|AdminUserJourneys-SetResources|
-|Authentification|Créer un IdentityProvider|
-|Authentification|Créer une application V1|
-|Authentification|Créer une application V2|
-|Authentification|Créer un domaine personnalisé dans le locataire|
+|Authentication|AdminUserJourneys-SetResources|
+|Authentication|Créer un IdentityProvider|
+|Authentication|Créer une application V1|
+|Authentication|Créer une application V2|
+|Authentication|Créer un domaine personnalisé dans le locataire|
 |Authorization|Créer un AdminUserJourney|
 |Authorization|Créer une ressource json localisée|
 |Authorization|Créer un IDP personnalisé|

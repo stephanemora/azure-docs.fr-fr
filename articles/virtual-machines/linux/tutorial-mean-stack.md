@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754215"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237851"
 ---
-# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Didacticiel : Créer une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutoriel : Créer une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure
 
 Ce didacticiel montre comment implémenter une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure. La pile MEAN que vous créez permet l’ajout, la suppression et le référencement de livres dans une base de données. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -134,7 +134,7 @@ sudo apt-get install -y nodejs
 
 6. Créez un dossier du nom de *Books* et ajoutez-y un fichier nommé *server.js* qui contient la configuration du serveur web.
 
-    ```node.js
+    ```javascript
     var express = require('express');
     var bodyParser = require('body-parser');
     var app = express();
@@ -159,7 +159,7 @@ sudo apt-get install -y nodejs
 
 2. Dans le dossier *Books*, créez un dossier appelé *apps* et ajoutez un fichier nommé *routes.js* avec les itinéraires Express définis.
 
-    ```node.js
+    ```javascript
     var Book = require('./models/book');
     module.exports = function(app) {
       app.get('/book', function(req, res) {
@@ -201,7 +201,7 @@ sudo apt-get install -y nodejs
 
 3. Dans le dossier *apps*, créez un dossier appelé *models* et ajoutez un fichier nommé *book.js* avec la configuration de modèle de livre définie.  
 
-    ```node.js
+    ```javascript
     var mongoose = require('mongoose');
     var dbHost = 'mongodb://localhost:27017/test';
     mongoose.connect(dbHost);
@@ -223,7 +223,7 @@ sudo apt-get install -y nodejs
 
 1. Changez le répertoire de sauvegarde pour *Books* (`cd ../..`), puis créez un dossier du nom de *public* et ajoutez un fichier nommé *script.js* avec la configuration de contrôleur définie.
 
-    ```node.js
+    ```javascript
     var app = angular.module('myApp', []);
     app.controller('myCtrl', function($scope, $http) {
       $http( {

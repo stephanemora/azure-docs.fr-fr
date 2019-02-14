@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Découvrez comment effectuer une reconnaissance vocale (à partir d’un fichier, à partir d’un micro, avec un modèle personnalisé, en continu ou en une seule fois) à l’aide du kit SDK Speech pour C#.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: c2ea06fd578078489d2d13d4d067280d459e8416
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 126c801107080cf7ae0fd85fa2ec7648288c79e7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217932"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865844"
 ---
 # <a name="recognize-speech-by-using-the-speech-sdk-for-c"></a>Effectuer une reconnaissance vocale à l’aide du kit de développement logiciel (SDK) Speech pour C#
 

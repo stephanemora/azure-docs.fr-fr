@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 6bd41115f586bf2969dacb772f097d84654f0306
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0c942056e95812dfbbe6e3b1e8963799088273fb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092592"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981194"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionner une machine virtuelle Windows
 
@@ -29,6 +29,8 @@ Cet article vous explique comment changer la [taille d’une machine virtuelle](
 Une fois que vous avez créé une machine virtuelle, vous pouvez la mettre à l’échelle en modifiant sa taille. Dans certains cas, vous devez commencer par libérer la machine virtuelle. Cela peut se produire si la nouvelle taille n’est pas disponible sur le cluster matériel qui héberge actuellement la machine virtuelle.
 
 Si votre machine virtuelle utilise le stockage Premium, assurez-vous de choisir une version **s** de la taille pour obtenir un support de stockage Premium. Par exemple, choisissez Standard_E4**s**_v3 au lieu de Standard_E4_v3.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Redimensionner une machine virtuelle Windows qui ne se trouve pas dans un groupe à haute disponibilité
 
@@ -42,25 +44,25 @@ $vmName = "myVM"
 Liste les tailles de machines virtuelles qui sont disponibles sur le cluster matériel sur lequel la machine virtuelle est hébergée. 
    
 ```powershell
-Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
+Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
 Si la taille voulue est répertoriée, exécutez les commandes suivantes pour redimensionner la machine virtuelle. Si la taille souhaitée n’est pas répertoriée, passez à l’étape 3.
    
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
 $vm.HardwareProfile.VmSize = "<newVMsize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
 Si la taille voulue n’est pas répertoriée, exécutez les commandes suivantes pour libérer la machine virtuelle, la redimensionner et la redémarrer. Remplacez **<newVMsize>** par la taille voulue.
    
 ```powershell
-Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
+Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
 $vm.HardwareProfile.VmSize = "<newVMSize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
-Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 ```
 
 > [!WARNING]
@@ -80,15 +82,15 @@ $vmName = "myVM"
 Liste les tailles de machines virtuelles qui sont disponibles sur le cluster matériel sur lequel la machine virtuelle est hébergée. 
    
 ```powershell
-Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
+Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
 Si la taille voulue n’est pas répertoriée, exécutez les commandes suivantes pour redimensionner la machine virtuelle. Si elle n’est pas répertoriée, passez à la section suivante.
    
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName 
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName 
 $vm.HardwareProfile.VmSize = "<newVmSize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
     
 Si la taille voulue n’est pas répertoriée, passez aux étapes suivantes pour libérer toutes les machines virtuelles du groupe à haute disponibilité, les redimensionner et les redémarrer.
@@ -96,12 +98,12 @@ Si la taille voulue n’est pas répertoriée, passez aux étapes suivantes pour
 Arrêtez toutes les machines virtuelles du groupe à haute disponibilité.
    
 ```powershell
-$as = Get-AzureRmAvailabilitySet -ResourceGroupName $resourceGroup
+$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup
 $vmIds = $as.VirtualMachinesReferences
 foreach ($vmId in $vmIDs){
     $string = $vmID.Id.Split("/")
     $vmName = $string[8]
-    Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
     } 
 ```
 
@@ -109,15 +111,15 @@ Redimensionnez et redémarrez toutes les machines virtuelles du groupe à haute 
    
 ```powershell
 $newSize = "<newVmSize>"
-$as = Get-AzureRmAvailabilitySet -ResourceGroupName $resourceGroup
+$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup
 $vmIds = $as.VirtualMachinesReferences
   foreach ($vmId in $vmIDs){
     $string = $vmID.Id.Split("/")
     $vmName = $string[8]
-    $vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+    $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
     $vm.HardwareProfile.VmSize = $newSize
-    Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
-    Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+    Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
+    Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
     }
 ```
 

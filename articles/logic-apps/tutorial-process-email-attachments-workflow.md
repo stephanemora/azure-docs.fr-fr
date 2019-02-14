@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 7efa2f19aedfbd00ccced8b755d3b02847b31444
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f0d368097c72efccf5dc15fe15ec0b7d920279e5
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508604"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245880"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Didacticiel : Automatiser la gestion des e-mails et des pièces jointes avec Azure Logic Apps
 
@@ -82,7 +82,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
 
       ![Copier et enregistrer un nom de compte de stockage et une clé](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Pour obtenir la clé d’accès de votre compte de stockage, vous pouvez également utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) ou [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
+   Pour obtenir la clé d’accès de votre compte de stockage, vous pouvez également utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) ou [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
 
 3. Créez un conteneur de stockage d’objets blob pour vos pièces jointes.
    
@@ -100,7 +100,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
 
       ![Conteneur de stockage terminé](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Pour créer un conteneur de stockage, vous pouvez également utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) ou [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
+   Pour créer un conteneur de stockage, vous pouvez également utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontainer) ou [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
 
 À présent, connectez l’Explorateur Stockage à votre compte de stockage.
 
@@ -274,8 +274,8 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
       | Paramètre | Valeur | Description | 
       | ------- | ----- | ----------- | 
-      | **Contient une pièce jointe** | Oui | Récupère uniquement les e-mails comportant des pièces jointes. <p>**Remarque :** Le déclencheur ne supprime pas les e-mails de votre compte. Il vérifie uniquement les nouveaux messages et ne traite que les e-mails qui correspondent au filtre Objet. | 
-      | **Inclure des pièces jointes** | Oui | Récupérez les pièces jointes en tant qu’entrée de votre flux de travail au lieu de les rechercher simplement. | 
+      | **Contient une pièce jointe** | OUI | Récupère uniquement les e-mails comportant des pièces jointes. <p>**Remarque :** Le déclencheur ne supprime pas les e-mails de votre compte. Il vérifie uniquement les nouveaux messages et ne traite que les e-mails qui correspondent au filtre Objet. | 
+      | **Inclure des pièces jointes** | OUI | Récupérez les pièces jointes en tant qu’entrée de votre flux de travail au lieu de les rechercher simplement. | 
       | **Filtre Objet** | ```Business Analyst 2 #423501``` | Texte à rechercher dans l’objet de l’e-mail. | 
       |  |  |  | 
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Explique comment utiliser l’API Recherche de vidéos Bing dans une application web à page unique.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: f3a13bf15ed1ef1629cd17af43a0f71df80b1349
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 034ea49322f213971f549673a1d179a301585c96
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567534"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875210"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutoriel : Application monopage pour la recherche de vidéos
 L’API Recherche de vidéos Bing vous permet de parcourir le web et d’obtenir des résultats de vidéos relatifs à une requête de recherche. Dans ce didacticiel, nous allons générer une application web à page unique qui utilise l’API Recherche de vidéos Bing pour afficher les résultats de la recherche sur la page. L’application inclut des composants HTML, CSS et JavaScript.

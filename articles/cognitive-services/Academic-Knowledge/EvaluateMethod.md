@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode Evaluate pour renvoyer un ensemble d’entités universitaires basées sur une expression de requête.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187292"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871317"
 ---
 # <a name="evaluate-method"></a>Méthode Evaluate
 
@@ -28,9 +28,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 ## <a name="request-parameters"></a>Paramètres de la requête  
-NOM     | Valeur | Requis ?  | Description
+Nom     | Valeur | Requis ?  | Description
 -----------|-----------|---------|--------
-**expr**       | Chaîne de texte | Oui | Expression de requête qui spécifie les entités à renvoyer.
+**expr**       | Chaîne de texte | OUI | Expression de requête qui spécifie les entités à renvoyer.
 **model**      | Chaîne de texte | Non   | Nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).        
 **attributes** | Chaîne de texte | Non <br>par défaut : ID | Liste délimitée par des virgules qui spécifie les valeurs d’attribut qui sont incluses dans la réponse. Les noms d’attribut sont sensibles à la casse.
 **count**        | Number | Non <br>Valeur par défaut : 10 | Nombre de résultats à renvoyer.
@@ -39,7 +39,7 @@ NOM     | Valeur | Requis ?  | Description
   
  <br>
 ## <a name="response-json"></a>Réponse (JSON)
-NOM | Description
+Nom | Description
 -------|-----   
 **expr** |  Paramètre *expr* issu de la requête.
 **entities** |  Tableau comportant 0 ou plusieurs entités correspondant à l’expression de requête. Chaque entité contient une valeur de probabilité logarithmique naturelle et les valeurs des autres attributs requis.

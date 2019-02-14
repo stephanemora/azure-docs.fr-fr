@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4bdebe415bcd86867bebeb7f03dc6dafa8480169
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3f37b996caa60a54c18388cb1f65873bf0aa4ed9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259782"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877692"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparaison d’Azure Data Lake Storage Gen1 et d’Azure Storage Blob
-  >[!NOTE] 
-    >La [préversion d’Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) a été récemment annoncée. La préversion de Data Lake Storage Gen2 rassemble les fonctionnalités de nos deux services de stockage existants : Stockage Blob Azure et [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index). Les fonctionnalités d’Azure Data Lake Storage Gen1, comme la sémantique des systèmes de fichiers, la sécurité au niveau du fichier et la mise à l'échelle, sont combinées à celles du [stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction), comme le stockage hiérarchisé à bas coût et la haute disponibilité/reprise après sinistre. <br> Nous vous recommandons vivement de commencer à utiliser la préversion de Data Lake Storage Gen2 comme base pour créer les data lakes de votre entreprise et obtenir le meilleur du stockage Blob Azure ainsi que d’Azure Data Lake Storage Gen1.
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)] 
 
 Le tableau de cet article résume les différences entre Azure Data Lake Storage Gen1 et Azure Storage Blob pour certains aspects essentiels du traitement des données volumineuses. Azure Blob Storage est un magasin d’objets extensible généraliste conçu pour s’adapter à une large gamme de scénarios de stockage. Azure Data Lake Storage Gen1 est un référentiel à très grande échelle qui est optimisé pour les charges de travail d’analyse du Big Data.
-
-
-
-
 
 |  | Azure Data Lake Storage Gen1 | un stockage Azure Blob |
 | --- | --- | --- |
@@ -37,7 +33,7 @@ Le tableau de cet article résume les différences entre Azure Data Lake Storage
 | Structure |Système de fichiers hiérarchique |Magasin d’objets avec espace de noms plat |
 | API |API REST sur HTTPS |API REST sur HTTP/HTTPS |
 | API côté serveur |[API REST compatible WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API REST d’Azure Blob Storage](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Client de système de fichiers Hadoop |Oui |Oui |
+| Client de système de fichiers Hadoop |OUI |OUI |
 | Opérations de données - authentification |Basées sur les [Identités Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Basées sur les secrets partagés - [Clés d’accès au compte](../storage/common/storage-account-manage.md#access-keys) et [Clés de signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Opérations de données - protocole d’authentification |OAuth 2.0. Les appels doivent contenir un JWT (jeton web JSON) valide émis par Azure Active Directory |Code d’authentification de message basé sur hachage (HMAC). Les appels doivent contenir un hachage SHA-256 codé en Base64 sur une partie de la requête HTTP. |
 | Opérations de données - autorisation |Listes de contrôle d’accès (ACL) POSIX.  Les listes ACL basées sur les identités Azure Active Directory peuvent être définies aux niveaux fichier et dossier. |Pour l’autorisation au niveau des comptes – utilisez des [clés d’accès au compte](../storage/common/storage-account-manage.md#access-keys)<br>Pour l’autorisation au niveau d'un compte, d'un conteneur ou d'un objet blob - utilisez des [clés de signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Utilisez ce démarrage rapide pour rechercher des actualités à l’aide du Kit de développement logiciel (SDK) Recherche d’actualités Bing pour Java et traiter la réponse.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 5bfd07eb11fd4504fa8c674ecb144c5fe328cc06
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0922010ad6993c8bb1571c24595370895e49c498
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149575"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866163"
 ---
 # <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Démarrage rapide : Rechercher des actualités avec le SDK Recherche d’actualités Bing pour Java
 

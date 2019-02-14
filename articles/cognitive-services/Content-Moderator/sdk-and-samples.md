@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Obtenir des kits de développement logiciel (SDK) et des exemples Content Moderator
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 02/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: e05058be5b1ea8aa8faee3f3328a1b84935a3ac7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 929655f257dced1e12645d4d751b1475e2497b49
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228574"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868359"
 ---
 # <a name="content-moderator-sdks-and-samples"></a>Kits de développement logiciel (SDK) et exemples Content Moderator
 
@@ -67,7 +67,7 @@ Consultez tous les exemples .NET disponibles dans la rubrique [Exemples .NET Con
 
 Pour obtenir les procédures pas à pas de ces exemples, consultez le [webinaire à la demande](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html).
 
-## <a name="tutorials"></a>Didacticiels
+## <a name="tutorials"></a>Tutoriels
 - [Modération du catalogue e-Commerce](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration). Consulter le [tutoriel](ecommerce-retail-catalog-moderation.md).
 - [Modération du contenu Facebook](https://github.com/MicrosoftContentModerator/samples-fbPageModeration). Consulter le [tutoriel](facebook-post-moderation.md).
 - [Solution de modération et de révision des vidéos et transcriptions](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) Consulter le [tutoriel](video-transcript-moderation-review-tutorial-dotnet.md)

@@ -5,18 +5,18 @@ description: Cet article contient des informations sur l’entité prédéfinie 
 services: cognitive-services
 ms.custom: seodec18
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: fcd90d42f297cec86b32f9a806df4a148e6a93af
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 88a6c25d5b9cc2697482c400c9672d41102aa35b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214532"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879781"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie dimension pour une application LUIS
 L’entité prédéfinie dimension détecte différents types de dimensions, indépendamment de la culture de l’application LUIS. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des dimensions aux intentions de l’application. L’entité dimension est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 

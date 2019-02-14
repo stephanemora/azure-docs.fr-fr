@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 524e10b93905372377fe388a38c5dc55fdcee877
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509986"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991224"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Niveau de service Hyperscale (préversion) jusqu’à 100 To
 
@@ -32,7 +32,7 @@ Le niveau de service Hyperscale dans Azure SQL Database est le tout nouveau nive
 > [!IMPORTANT]
 > Le niveau de service Hyperscale est actuellement disponible en préversion publique dans un nombre limité de régions Azure. Pour obtenir la liste complète des régions, consultez [Régions disponibles pour le niveau de service Hyperscale](#available-regions). Nous vous recommandons de ne pas exécuter des charges de travail de production dans des bases de données Hyperscale pour le moment. Vous ne pouvez pas mettre à jour une base de données Hyperscale vers d’autres niveaux de service. À des fins de test, nous vous recommandons de faire une copie de votre base de données actuelle et de mettre à jour la copie vers le niveau de service Hyperscale.
 > [!NOTE]
-> Pour en savoir plus sur les niveaux de service Usage général et Critique pour l’entreprise du modèle d’achat vCore, consultez les niveaux de service [Usage général](sql-database-service-tier-general-purpose.md) et [Critique pour l’entreprise](sql-database-service-tier-business-critical.md). Pour obtenir une comparaison du modèle d’achat basé sur le nombre de cœurs virtuelss avec le modèle d’achat basé sur des unités DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-service-tiers.md).
+> Pour en savoir plus sur les niveaux de service Usage général et Critique pour l’entreprise du modèle d’achat vCore, consultez les niveaux de service [Usage général](sql-database-service-tier-general-purpose.md) et [Critique pour l’entreprise](sql-database-service-tier-business-critical.md). Pour obtenir une comparaison du modèle d’achat basé sur le nombre de cœurs virtuelss avec le modèle d’achat basé sur des unités DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-purchase-models.md).
 > [!IMPORTANT]
 > Le niveau de service Hyperscale est actuellement en préversion publique. Nous vous recommandons de ne pas exécuter des charges de travail de production dans des bases de données Hyperscale pour le moment. Vous ne pouvez pas mettre à jour une base de données Hyperscale vers d’autres niveaux de service. À des fins de test, nous vous recommandons de faire une copie de votre base de données actuelle et de mettre à jour la copie vers le niveau de service Hyperscale.
 
@@ -162,7 +162,7 @@ Le niveau de service Hyperscale est actuellement disponible en préversion publi
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour consultez un forum aux questions sur Hyperscale, consultez [Questions fréquentes (FAQ) sur Hyperscale](sql-database-service-tier-hyperscale-faq.md).
-- Pour plus d’informations sur les niveaux de service, consultez [Niveaux de service](sql-database-service-tiers.md)
+- Pour plus d’informations sur les niveaux de service, consultez [Niveaux de service](sql-database-purchase-models.md)
 - Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez l’article [Vue d’ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).
 - Pour connaître les limites du modèle d’achat pour une base de données unique, consultez [Limites du modèle d’achat basé sur le nombre de vCores d’Azure SQL Database pour une base de données unique](sql-database-vcore-resource-limits-single-databases.md).
 - Pour consulter la liste des fonctionnalités et les comparer, consultez [Fonctionnalités SQL communes](sql-database-features.md).
