@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 419368511065e6f45d7fb9b363f5806b47ce07e8
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bea60b0de0cf21c1d23669543f3c1daa367aea7c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076184"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197929"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Démarrage rapide : Exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud 
 
@@ -135,7 +136,7 @@ Dans votre stratégie, définissez :
 
 1. Sur la page **Nouveau**, dans la zone de texte **Nom**, saisissez **Require TOU for Isabella**.
 
-    ![NOM](./media/require-tou/71.png)
+    ![Nom](./media/require-tou/71.png)
 
 2. Dans la section **Affectation**, cliquez sur **Utilisateurs et groupes**.
 

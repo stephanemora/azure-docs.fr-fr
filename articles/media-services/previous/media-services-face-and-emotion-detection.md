@@ -4,7 +4,7 @@ description: Cette rubrique illustre la détection faciale et d’émotions avec
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5aab8a5d48b7a7d17aa44b74d65ee70cb9322944
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: fa51290623f68e94db9cb1b28cd69c88b5d5cf18
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817552"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000062"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Détection des visages et des émotions avec Azure Media Analytics
 ## <a name="overview"></a>Vue d’ensemble
@@ -42,7 +42,7 @@ Le processeur multimédia **Azure Media Face Detector** est uniquement disponibl
 Cet article apporte des précisions sur **Azure Media Face Detector** et illustre son utilisation avec le kit SDK Media Services pour .NET.
 
 ## <a name="face-detector-input-files"></a>Fichiers d’entrée du détecteur facial
-Fichiers vidéo. Actuellement, les formats suivants sont pris en charge : MP4, MOV et WMV.
+Fichiers vidéo. Actuellement, les formats suivants sont pris en charge : MP4, MOV et WMV.
 
 ## <a name="face-detector-output-files"></a>Fichiers de sortie du détecteur facial
 L’API de détection et de suivi facial permet une détection d’emplacement et un suivi de visage très précis ; elle peut détecter jusqu’à 64 visages humains dans une vidéo. Les visages filmés de face donnent les meilleurs résultats ; les visages filmés de côté ou les visages de taille réduite (24 x 24 pixels ou moins) peuvent ne pas être aussi précis.

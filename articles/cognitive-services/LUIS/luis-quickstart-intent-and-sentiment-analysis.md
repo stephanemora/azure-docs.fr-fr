@@ -4,21 +4,21 @@ titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application montrant comment obtenir le sentiment positif, négatif et neutre des énoncés. Le sentiment est déterminé à partir de l’énoncé entier.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b9465e7965c5f1c62134cf309ef0efe914e14f8d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9493e8b5d5e02f1408423334ceaa5c5c47ae6668
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215824"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867747"
 ---
-# <a name="tutorial--get-sentiment-of-utterance"></a>Didacticiel :  Obtenir le sentiment d’un énoncé
+# <a name="tutorial--get-sentiment-of-utterance"></a>Tutoriel :  Obtenir le sentiment d’un énoncé
 
 Dans ce tutoriel, vous allez créer une application montrant comment déterminer le sentiment positif, négatif et neutre des énoncés. Le sentiment est déterminé à partir de l’énoncé entier.
 

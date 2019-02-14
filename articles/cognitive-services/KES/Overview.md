@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Ajoutez à votre application les fonctions de recherche interactive et d’affinement des recherches à l’aide du service d’exploration des connaissances (KES).
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: overview
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 976cf0b98f9808ec269043c1dff2883bd2c148dd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: afd71999660d02c3c6d5ea174e786efcf43e54f6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224681"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860675"
 ---
 # <a name="knowledge-exploration-service"></a>Service d’exploration de la base de connaissances
 

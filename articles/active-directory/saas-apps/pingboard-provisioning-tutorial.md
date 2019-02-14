@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer Pingboard pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer Pingboard pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur Pingboard.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 4daf52318fc707de2ae365a6c12b676226ef7fcd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e36d0985aee53f2a7f701f9bf7887ae26a426b68
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188403"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203741"
 ---
-# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutoriel : Configurer Pingboard pour le provisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Didacticiel : Configurer Pingboard pour le provisionnement automatique d’utilisateurs
 
 L’objectif de ce tutoriel est de vous montrer les étapes à suivre pour activer et désactiver le provisionnement automatique de comptes d’utilisateur à partir d’Azure Active Directory (Azure AD) vers Pingboard.
 

@@ -4,7 +4,7 @@ description: Ce document vous aide à résoudre les problèmes dans Azure Securi
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0fceefb40ab43b659711b7862d7147d6199afbcd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: af85600593e725f1d90d5fbb3aae2aab6dd3f367
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812410"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114448"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure Security Center
 Ce guide s’adresse aux informaticiens professionnels, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises utilisent Azure Security Center et qui doivent résoudre des problèmes liés à ce service.
@@ -91,10 +91,10 @@ Le tableau suivant présente les ressources nécessaires pour la communication.
 
 | Ressource de l'agent | Ports | Ignorer l’inspection HTTPS |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Oui |
-| *.oms.opinsights.azure.com | 443 | Oui |
-| *.blob.core.windows.net | 443 | Oui |
-| *.azure-automation.net | 443 | Oui |
+| *.ods.opinsights.azure.com | 443 | OUI |
+| *.oms.opinsights.azure.com | 443 | OUI |
+| *.blob.core.windows.net | 443 | OUI |
+| *.azure-automation.net | 443 | OUI |
 
 Si vous rencontrez des problèmes d’intégration avec l’agent, lisez l’article [Comment faire pour résoudre les problèmes d’intégration de Microsoft Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 

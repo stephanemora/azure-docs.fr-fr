@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: b0bb45233aa34dce6794638e5d49fc2b47bef71d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615231"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213019"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(DÉPRÉCIÉ) Questions fréquentes (FAQ) sur Container Service
 
@@ -85,7 +85,7 @@ Vous pouvez retrouver des URL fréquemment utilisées pour votre cluster dans le
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Comment mettre à jour l’Orchestrator après le déploiement ?
 
-Actuellement, Azure Container Service ne fournit aucun outil permettant la mise à niveau de la version de l’orchestrateur que vous avez déployé sur votre cluster. Si Container Service prend en charge une version ultérieure, vous pouvez déployer un nouveau cluster. Une autre option consiste à utiliser les outils spécifiques Orchestrator s’ils sont disponibles pour mettre à niveau un cluster sur place. Par exemple, consultez [mise à niveau DC/OS](https://dcos.io/docs/1.8/administration/upgrading/).
+Actuellement, Azure Container Service ne fournit aucun outil permettant la mise à niveau de la version de l’orchestrateur que vous avez déployé sur votre cluster. Si Container Service prend en charge une version ultérieure, vous pouvez déployer un nouveau cluster. Une autre option consiste à utiliser les outils spécifiques Orchestrator s’ils sont disponibles pour mettre à niveau un cluster sur place. Par exemple, consultez [mise à niveau DC/OS](http://docs.mesosphere.com/1.12/installing/production/upgrading).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Où trouver la chaîne de connexion SSH à mon cluster ?
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à 4me | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à 4me | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et 4me.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 8f02260ff7a13ffb2f07e6e272be1e70d5a1577f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 30f111fb316e1bc58f684e6bd6dc3d8e4461473c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661579"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168865"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-4me"></a>Didacticiel : Intégration d’Azure Active Directory à 4me
+# <a name="tutorial-azure-active-directory-integration-with-4me"></a>Tutoriel : Intégration d’Azure Active Directory à 4me
 
 Dans ce tutoriel, vous allez apprendre à intégrer 4me à Azure Active Directory (Azure AD).
 L’intégration de 4me à Azure AD vous offre les avantages suivants :

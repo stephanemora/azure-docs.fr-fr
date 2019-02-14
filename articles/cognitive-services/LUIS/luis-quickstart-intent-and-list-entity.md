@@ -4,21 +4,21 @@ titleSuffix: Azure Cognitive Services
 description: Obtenez des données qui correspondent à une liste d’éléments prédéfinie. Chaque élément de la liste peut avoir des synonymes qui correspondent également exactement
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 0dd08fa85ea443a11f14769b63502978eaa8a378
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a815fac8ecdf108e940f0679536b038e4c0d0d43
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221145"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880806"
 ---
-# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutoriel : Obtenir des données exactes correspondant au texte d’un énoncé
+# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Didacticiel : Obtenir des données exactes correspondant au texte d’un énoncé
 
 Ce tutoriel explique comment obtenir des données d’entité correspondant à une liste de termes prédéfinie. 
 

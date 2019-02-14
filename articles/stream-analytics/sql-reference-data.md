@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d79e423dd617a498aee09cff6b774bbe90eeaa83
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701593"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118018"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics (préversion)
 
@@ -154,7 +154,7 @@ Quand vous utilisez la requête delta, des [tables temporelles dans Azure SQL Da
 
 **L’utilisation d’une entrée de données de référence SQL dans Azure Stream Analytics entraîne-t-elle des frais supplémentaires ?**
 
-Le [coût par unité de streaming](https://azure.microsoft.com/pricing/details/stream-analytics/) dans la tâche Stream Analytics ne change pas. Toutefois, la tâche Stream Analytics doit avoir un compte de stockage Azure associé. La tâche Stream Analytics interroge la base de données SQL (au démarrage de la tâche et à chaque intervalle d’actualisation) pour récupérer le jeu de données de référence, puis stocke cet instantané dans le compte de stockage. Le stockage de ces instantanés engendre des frais supplémentaires décrits dans la [page des tarifs](https://azure.microsoft.compricing/details/storage/) du compte de stockage Azure.
+Le [coût par unité de streaming](https://azure.microsoft.com/pricing/details/stream-analytics/) dans la tâche Stream Analytics ne change pas. Toutefois, la tâche Stream Analytics doit avoir un compte de stockage Azure associé. La tâche Stream Analytics interroge la base de données SQL (au démarrage de la tâche et à chaque intervalle d’actualisation) pour récupérer le jeu de données de référence, puis stocke cet instantané dans le compte de stockage. Le stockage de ces instantanés engendre des frais supplémentaires décrits dans la [page des tarifs](https://azure.microsoft.com/pricing/details/storage/) du compte de stockage Azure.
 
 **Comment faire pour savoir si un instantané de données de référence est interrogé à partir de la base de données SQL et utilisé dans la tâche Azure Stream Analytics ?**
 

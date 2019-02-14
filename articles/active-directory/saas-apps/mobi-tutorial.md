@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à MOBI | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à MOBI | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et MOBI.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 84cc56031beeed145a0af4cd799a79d33e87f148
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 41b937b32e54ff1c02b40716f434711c17b31002
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159877"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173383"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mobi"></a>Tutoriel : Intégration d’Azure Active Directory à MOBI
+# <a name="tutorial-azure-active-directory-integration-with-mobi"></a>Didacticiel : Intégration d’Azure Active Directory à MOBI
 
 Dans ce didacticiel, vous allez apprendre à intégrer MOBI à Azure Active Directory (Azure AD).
 

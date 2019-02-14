@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 97cdae49b4676500e29ac25b12712c94e575e5f8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819516"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960562"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gérer la capacité de stockage pour Azure Stack 
 
@@ -91,7 +91,7 @@ En tant qu’opérateur de cloud, vous pouvez utiliser le portail d’administra
 1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
 2. Sélectionnez **Tous les services** > **Stockage** pour ouvrir la liste de partages de fichiers où vous pouvez consulter les informations d’utilisation. 
 
-  ![Exemple : partages de fichiers du stockage](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![Exemple : partages de fichiers du stockage](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **TOTAL** représente l’espace total (en octets) disponible dans le partage. Cet espace est utilisé pour les données et métadonnées gérées par les services de stockage.
   - **UTILISÉ** représente la quantité de données (en octets) utilisée par toutes les extensions des fichiers qui stockent les données de locataire et les métadonnées associées.

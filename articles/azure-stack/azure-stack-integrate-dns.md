@@ -6,17 +6,17 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 13525fffb7e6720fe81759876ffd0fe71559279c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252309"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182848"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Intégration au centre de données Azure Stack - DNS
 Pour pouvoir accéder aux points de terminaison Azure Stack (**portal**, **adminportal**, **management**, **adminmanagement**, etc.) en dehors d’Azure Stack, vous devez intégrer les services DNS Azure Stack aux serveurs DNS qui hébergent les zones DNS que vous souhaitez utiliser dans Azure Stack.
@@ -114,9 +114,9 @@ D’après les exemples de valeur, les noms de domaine complets des serveurs DNS
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-Ces informations sont également créées à la fin de tous les déploiements d’Azure Stack dans un fichier nommé `AzureStackStampDeploymentInfo.json`. Ce fichier se trouve dans le dossier `C:\CloudDeployment\logs` de la machine virtuelle de déploiement. Si vous n’êtes pas sûr des valeurs qui ont été utilisées pour votre déploiement d’Azure Stack, vous pouvez les y retrouver.
+Ces informations sont également créées à la fin de tous les déploiements d’Azure Stack dans un fichier nommé `AzureStackStampInformation.json`. Ce fichier se trouve dans le dossier `C:\CloudDeployment\logs` de la machine virtuelle de déploiement. Si vous n’êtes pas sûr des valeurs qui ont été utilisées pour votre déploiement d’Azure Stack, vous pouvez les y retrouver.
 
-Si la machine virtuelle de déploiement n’est plus disponible ou n’est pas accessible, vous pouvez obtenir les valeurs en vous connectant au point de terminaison privilégié, puis en exécutant l’applet de commande PowerShell `Get-AzureStackInfo`. Pour plus d’informations, voir le [point de terminaison privilégié](azure-stack-privileged-endpoint.md).
+Si la machine virtuelle de déploiement n’est plus disponible ou n’est pas accessible, vous pouvez obtenir les valeurs en vous connectant au point de terminaison privilégié, puis en exécutant l’applet de commande PowerShell `Get-AzureStackStampInformation`. Pour plus d’informations, voir le [point de terminaison privilégié](azure-stack-privileged-endpoint.md).
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Configuration du transfert conditionnel vers Azure Stack
 

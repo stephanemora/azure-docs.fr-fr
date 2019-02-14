@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 242706a11304be50636d3186ab128e6de0b233d6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a2daa4f287123a81b1727d173557c0221ffaba6f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812027"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-visitly"></a>Tutoriel : Intégration d’Azure Active Directory à Visitly
 
@@ -110,7 +111,7 @@ Pour configurer l’authentification unique Azure AD avec Visitly, effectuez les
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez la revendication **Valeur de nom d’identificateur** en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et effectuez les étapes suivantes :
     
-    | NOM | Attribut source | 
+    | Nom | Attribut source | 
     | ---------------| --------------- |
     | Valeur de nom d’identificateur  | user.mail |
 

@@ -13,14 +13,16 @@ ms.devlang: na
 ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5c193ce7966cdc303004c4b75871877074bf4711
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c674c11f26d236e27852eb52bfc304aab12adcb5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494030"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112132"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutoriel : Créer des modèles Azure Resource Manager liés
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Découvrez comment créer des modèles Azure Resource Manager liés. Avec des modèles liés, un modèle peut appeler un autre modèle. C’est idéal pour la modularisation de modèles. Dans ce tutoriel, vous utilisez le même modèle que celui utilisé dans le [Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes](./resource-manager-tutorial-create-templates-with-dependent-resources.md), qui crée une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes, notamment un compte de stockage. Vous séparez la création de la ressource de compte de stockage à un modèle lié.
 
@@ -192,17 +194,17 @@ $storageAccount = New-AzStorageAccount `
 $context = $storageAccount.Context
 
 # Create a container
-New-AzureStorageContainer -Name $containerName -Context $context
+New-AzStorageContainer -Name $containerName -Context $context
 
 # Upload the linked template
-Set-AzureStorageBlobContent `
+Set-AzStorageBlobContent `
     -Container $containerName `
     -File "$home/$fileName" `
     -Blob $fileName `
     -Context $context
 
 # Generate a SAS token
-$templateURI = New-AzureStorageBlobSASToken `
+$templateURI = New-AzStorageBlobSASToken `
     -Context $context `
     -Container $containerName `
     -Blob $fileName `

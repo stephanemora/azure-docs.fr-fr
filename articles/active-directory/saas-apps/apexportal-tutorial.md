@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Apex Portal | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Apex Portal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Apex Portal.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 72db34202a0502dac5c6d494bfa0ef9dc897a42e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a494e403b8afa1424640ac2e24d0f832b3de02dd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471128"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210609"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Tutoriel : Intégration d’Azure Active Directory à Apex Portal
 
@@ -118,7 +119,7 @@ Pour configurer l’authentification unique Azure AD auprès d’Apex Portal, e
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM | Attribut source|
+    | Nom | Attribut source|
     | ------------------- | -------------------- |
     | FIRSTNAME | user.givenname |
     | LASTNAME | user.surname |

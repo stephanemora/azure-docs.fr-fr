@@ -1,10 +1,10 @@
 ---
 title: Améliorer la conformité aux réglementations à l’aide d’Azure Security Center | Microsoft Docs
-description: 'Didacticiel : Découvrez comment améliorer la conformité aux réglementations à l’aide d’Azure Security Center.'
+description: 'Tutoriel : Découvrez comment améliorer la conformité aux réglementations à l’aide d’Azure Security Center.'
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 252337c0d2bc162d418d20ca4641673d1564daa6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 2e73cbd1de4336a08e26a609dfe704da0a068860
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660424"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106001"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Didacticiel : Améliorer votre conformité aux normes
 ---

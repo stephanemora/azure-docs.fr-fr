@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à NetSuite | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à NetSuite | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et NetSuite.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: f93f6d01019b38fc157732ee221a5f73a156e809
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 58767438e7a1faf7e1e783fc95a33a35ece3774a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810395"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Didacticiel : Intégration d’Azure Active Directory à NetSuite
 
@@ -129,9 +130,9 @@ Pour configurer l’authentification unique Azure AD avec NetSuite, effectuez le
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
-    | NOM | Attribut source | 
+    | Nom | Attribut source | 
     | ---------------| --------------- |
-    | compte  | `account id` |
+    | account  | `account id` |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 

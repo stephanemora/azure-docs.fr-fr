@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 9b61362525962c5e01d7fef6d317cf9861dfd0a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cbbef13d2e64a5d1b177d8232c5b6ef1e64a1da9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977891"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179142"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Ajout d’un annuaire Azure Active Directory à l’aide de services connectés dans Visual Studio
 
@@ -64,7 +65,7 @@ Actuellement, le service connecté Active Directory ne prend pas en charge les a
     - [Prise en main des projets .NET MVC](vs-active-directory-dotnet-getting-started.md)
     - [Prise en main des projets WebAPI](vs-active-directory-webapi-getting-started.md)
 
-1. Vous pouvez également voir le domaine Active Directory dans le [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Vous pouvez également voir le domaine Active Directory dans le [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 ## <a name="how-your-project-is-modified"></a>Modifications apportées à votre projet
 

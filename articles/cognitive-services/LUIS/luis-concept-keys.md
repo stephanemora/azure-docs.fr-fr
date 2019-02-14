@@ -1,22 +1,22 @@
 ---
 title: Clés d’abonnement
-titleSuffix: Language Understadning - Azure Cognitive Services
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 'LUIS utilise deux clés : la clé de création gratuite pour créer votre modèle et la clé de point de terminaison limitée pour interroger le point de terminaison de prédiction avec des énoncés de l’utilisateur.'
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 81744e2af75410da911ee17f2c4acd05d5a57051
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1898d6e5119d3cbc2061aff8d4a7e673abd83198
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222591"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097455"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Clés de point de terminaison de création et de prédiction de requête dans LUIS
 LUIS utilise deux clés : [création](#programmatic-key) et [point de terminaison](#endpoint-key). La clé de création est générée automatiquement lorsque vous créez votre compte LUIS. Lorsque vous êtes prêt à publier votre application LUIS, vous devez [créer la clé de point de terminaison](luis-how-to-azure-subscription.md), [l’affecter](luis-how-to-azure-subscription.md) à votre application LUIS et [l’utiliser avec la requête de point de terminaison](#use-endpoint-key-in-query). 

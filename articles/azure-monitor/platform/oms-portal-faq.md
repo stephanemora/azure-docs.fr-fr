@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883396"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990426"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Questions courantes pour la transition depuis le portail OMS vers le portail Azure pour les utilisateurs de Log Analytics
 Log Analytics utilisait initialement son propre portail appelé portail OMS pour gérer sa configuration et analyser les données collectées.  Toutes les fonctionnalités accessibles depuis ce portail ont été déplacées vers le portail Azure où elles continueront d’être développées.
@@ -105,7 +105,7 @@ Gérez la plupart des paramètres de données dans le menu **Paramètres avancé
 Gérer les solutions dans le menu **Solutions** de l’espace de travail. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>Comment installer et supprimer des solutions de gestion ?
-Dans le portail OMS, vous installez des solutions de gestion à partir de la galerie de solutions et vous les supprimez des **Paramètres**. Dans le portail Azure, [installez des solutions de gestion](../insights/solutions.md#install-a-management-solution) à partir de la Place de marché Microsoft Azure. [Supprimer des solutions](../insights/solutions.md#remove-a-management-solution) de la liste des solutions installées.
+Dans le portail OMS, vous installez des solutions de gestion à partir de la galerie de solutions et vous les supprimez des **Paramètres**. Dans le portail Azure, [installez des solutions de gestion](../insights/solutions.md#install-a-monitoring-solution) à partir de la Place de marché Microsoft Azure. [Supprimer des solutions](../insights/solutions.md#remove-a-monitoring-solution) de la liste des solutions installées.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Comment créer et gérer les alertes ?
 Les règles d’alerte basées sur des requêtes Log Analytics sont désormais gérées dans [l’expérience d’alerte unifiée](../../azure-monitor/platform/alerts-metric.md). Consultez [Comment étendre des alertes à partir de Log Analytics dans Azure Alerts](../../azure-monitor/platform/alerts-extend-tool.md) pour plus d’informations sur la configuration et l’utilisation d’alertes dans le portail Azure.

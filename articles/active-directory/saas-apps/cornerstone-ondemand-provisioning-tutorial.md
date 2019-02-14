@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer Cornerstone OnDemand pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer Cornerstone OnDemand pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes d’utilisateur sur Cornerstone OnDemand.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 9f18fcb38e6e0855a00ffb454211273dfb2041a6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a24945cae273e072d3be314a66248674e25fe287
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168496"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198862"
 ---
-# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutoriel : Configurer Cornerstone OnDemand pour le provisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Didacticiel : Configurer Cornerstone OnDemand pour le provisionnement automatique d’utilisateurs
 
 
 L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Cornerstone OnDemand et Azure Active Directory (Azure AD) afin de configurer Azure AD pour l’approvisionnement et le retrait automatiques d’utilisateurs et/ou de groupes sur Cornerstone OnDemand.

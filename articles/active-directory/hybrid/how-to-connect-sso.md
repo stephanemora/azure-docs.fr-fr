@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46035da09bc2d02e89659e3c18fa313e947e1280
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 94b027900a3be4a43d6524fa595a5b4dc2909fa7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489749"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186214"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -62,11 +63,11 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 
 | Système d’exploitation\Navigateur |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Oui\*|Non |Oui|Oui\*\*\*|N/A
-|Windows 8.1|Oui\*|N/A|Oui|Oui\*\*\*|N/A
-|Windows 8|Oui\*|N/A|Oui|Oui\*\*\*|N/A
-|Windows 7|Oui\*|N/A|Oui|Oui\*\*\*|N/A
-|Windows Server 2012 R2 ou version ultérieure|Oui\*\*|N/A|Oui|Oui\*\*\*|N/A
+|Windows 10|Oui\*|Non |OUI|Oui\*\*\*|N/A
+|Windows 8.1|Oui\*|N/A|OUI|Oui\*\*\*|N/A
+|Windows 8|Oui\*|N/A|OUI|Oui\*\*\*|N/A
+|Windows 7|Oui\*|N/A|OUI|Oui\*\*\*|N/A
+|Windows Server 2012 R2 ou version ultérieure|Oui\*\*|N/A|OUI|Oui\*\*\*|N/A
 |Mac OS X|N/A|N/A|Oui\*\*\*|Oui\*\*\*|Oui\*\*\*
 
 

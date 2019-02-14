@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Jobbadmin | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Jobbadmin | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jobbadmin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 2c4f17a1c7c899d5f66ab2ba8c0cf06c412890da
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ad6989fc088e98b039781e387f397d115d11b893
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151071"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206427"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Didacticiel : Intégration d’Azure Active Directory à Jobbadmin
+# <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Tutoriel : Intégration d’Azure Active Directory à Jobbadmin
 
 Dans ce didacticiel, vous allez apprendre à intégrer Jobbadmin à Azure Active Directory (Azure AD).
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Découvrez comment envoyer des requêtes de recherche pour trouver des articles d’actualités générales, des rubriques tendance et des gros titres.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: scottwhi
-ms.openlocfilehash: a0164f29f062a29c72d28221612e6f6cd7f03af2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b7da1782491c4317713aafe54c4fd01c2c7110a9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153043"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880769"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Rechercher des actualités avec l’API Recherche d’actualités Bing
 

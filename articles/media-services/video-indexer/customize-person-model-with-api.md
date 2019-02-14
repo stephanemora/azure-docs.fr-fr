@@ -7,14 +7,14 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 2b035243e577adbbefa866acbae6243a9e7e9a31
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6fe4f391b5337929efc3f6190a925fd1e967cf1c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283305"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999349"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personnaliser un modèle de personne avec l’API Video Indexer
 
@@ -56,10 +56,10 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|chaîne|Oui|GUID pour ce compte|
-|Nom|chaîne|Oui|Le nom du modèle de personne|
-|accessToken|chaîne|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|chaîne|OUI|GUID pour ce compte|
+|Nom|chaîne|OUI|Le nom du modèle de personne|
+|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -101,10 +101,10 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|chaîne|Oui|GUID pour ce compte|
-|id|chaîne|Oui|L’id de modèle de personne (généré lors de la création du modèle de personne)|
-|accessToken|chaîne|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|chaîne|OUI|GUID pour ce compte|
+|id|chaîne|OUI|L’id de modèle de personne (généré lors de la création du modèle de personne)|
+|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -138,9 +138,9 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|chaîne|Oui|GUID pour ce compte|
-|accessToken|chaîne|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|chaîne|OUI|GUID pour ce compte|
+|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -193,12 +193,12 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|chaîne|Oui|GUID pour ce compte|
-|videoId|chaîne|Oui|ID de la vidéo dans laquelle le visage que vous souhaitez mettre à jour apparaît. Il est créé lorsque la vidéo est téléchargée et indexée.|
-|faceId|integer|Oui|ID du visage qui sera mise à jour. Vous pouvez obtenir le faceId à partir de l’index vidéo|
-|accessToken|chaîne|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
-|Nom|chaîne|Oui|Nouveau nom du visage à mettre à jour.|
+|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|chaîne|OUI|GUID pour ce compte|
+|videoId|chaîne|OUI|ID de la vidéo dans laquelle le visage que vous souhaitez mettre à jour apparaît. Il est créé lorsque la vidéo est téléchargée et indexée.|
+|faceId|integer|OUI|ID du visage qui sera mise à jour. Vous pouvez obtenir le faceId à partir de l’index vidéo|
+|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|Nom|chaîne|OUI|Nouveau nom du visage à mettre à jour.|
 
 Les noms étant uniques pour les modèles de personne, si vous affectez la même valeur au paramètre **nom** à deux visages du même modèle de personne, Video Indexer identifie les visages comme appartenant à la même personne et les rapproche quand vous réindexez votre vidéo. 
 

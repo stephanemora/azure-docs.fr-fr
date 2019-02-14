@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 1c24dfabcbbb94639e334e89f0b5e17888806b5f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0b2652676ad1187db4f58779fa0b891aa286fe01
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820838"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181199"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cbre-serviceinsight"></a>Tutoriel : Intégration d’Azure Active Directory à CBRE ServiceInsight
 
@@ -116,7 +117,7 @@ Pour configurer l’authentification unique Azure AD avec CBRE ServiceInsight, e
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM |  Attribut source|
+    | Nom |  Attribut source|
     | ------------ | --------- |
     | SSOCallerPhone | user.telephonenumber |
     | | |

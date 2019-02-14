@@ -14,19 +14,19 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: victorh
-ms.openlocfilehash: c02e4edabdcb73bc14c64b42788cddc98d78498c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 95eb0ef48f3e0cb6e835dc0582cc652f06315d44
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964119"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992855"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Personnaliser les règles de pare-feu d’applications web par le biais d’Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [interface de ligne de commande Azure](application-gateway-customize-waf-rules-cli.md)
+> * [Interface de ligne de commande Azure](application-gateway-customize-waf-rules-cli.md)
 
 Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une protection pour les applications web. Ces protections sont fournies par le jeu de règles (Core Rule Set, CRS) de l’Open Web Application Security Project (OWASP). Certaines règles peuvent entraîner des faux positifs et bloquer le trafic réel. Par conséquent, Application Gateway permet de personnaliser des règles et des groupes de règles. Pour plus d’informations sur les règles et groupes de règles spécifiques, consultez la [List of web application firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md) (Liste de règles et groupes de règles CRS de pare-feu d’applications web).
 
@@ -44,7 +44,7 @@ az network application-gateway waf-config list-rule-sets --type OWASP
 
 Voici un extrait de réponse issu de l’exemple précédent :
 
-```
+```json
 [
   {
     "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",
@@ -97,7 +97,7 @@ az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP
 
 Voici un extrait de réponse issu de l’exemple précédent :
 
-```
+```json
 [
   {
     "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",

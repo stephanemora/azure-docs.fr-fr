@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Adoddle cSaas Platform | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Adoddle cSaas Platform | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Adoddle cSaas Platform.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ac57045b38d31fd1dee11f410a7212ac69cd3fb6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ab31783f35a02202f9ac25e22683600495123235
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809818"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210966"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adoddle-csaas-platform"></a>Didacticiel : Intégration d’Azure Active Directory à Adoddle cSaas Platform
 

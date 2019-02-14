@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 06c32dbd9ee0d960e4cd17476349ba3d1a784d81
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f656b4ec9b0f7dae38b5b33cda5275c21d778ef0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818997"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210626"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Didacticiel : Intégration d’Azure Active Directory à Palo Alto Networks - Admin UI
+# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutoriel : Intégration d’Azure Active Directory à Palo Alto Networks - Admin UI
 
 Dans ce didacticiel, vous découvrez comment intégrer Palo Alto Networks - Admin UI avec Azure Active Directory (Azure AD).
 L’intégration de Palo Alto Networks - Admin UI avec Azure AD vous offre les avantages suivants :
@@ -124,7 +125,7 @@ Pour configurer l’authentification unique Azure AD avec Palo Alto Networks - A
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM |  Attribut source|
+    | Nom |  Attribut source|
     | --- | --- |
     | username | user.userprincipalname |
     | adminrole | customadmin |

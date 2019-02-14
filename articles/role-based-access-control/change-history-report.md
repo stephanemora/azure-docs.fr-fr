@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e47bb293d53df658641a50a1399ead85667e3225
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692737"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117646"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur les journaux d’activité, consultez [Afficher d
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-Pour afficher les journaux d'activité avec Azure PowerShell, utilisez la commande [Get-AzLog](/powershell/module/az.insights/get-azlog).
+Pour afficher les journaux d'activité avec Azure PowerShell, utilisez la commande [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog).
 
 Cette commande liste tous les changements d’attribution de rôle dans un abonnement au cours des sept derniers jours :
 

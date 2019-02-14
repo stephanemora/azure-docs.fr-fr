@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 981f4d78a351b6d2b61253407e5021dbeb285204
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 80118cc1d111ddc11f35f57a96b61a5b940460cc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54819541"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Tutoriel : Intégration d’Azure Active Directory à ADP
 
@@ -126,7 +127,7 @@ Pour configurer l’authentification unique Azure AD avec ADP, effectuez les é
 
 7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
-    | NOM | Attribut source | 
+    | Nom | Attribut source | 
     | ---------------| --------------- |
     | PersonImmutableID  | user.employeeid |
 

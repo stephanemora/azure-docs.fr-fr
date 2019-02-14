@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Sugar CRM | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Sugar CRM | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sugar CRM.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 857dc07239610ff460f8b43a951633062b690ab9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9a00c9cb0ce1bd8a6f36070e81df1185ef23a307
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171182"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201763"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Didacticiel : Intégration d'Azure AD à Sugar CRM
+# <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Tutoriel : Intégration d'Azure AD à Sugar CRM
 
 Dans ce didacticiel, vous allez apprendre à intégrer Sugar CRM avec Azure Active Directory (Azure AD).
 

@@ -10,14 +10,15 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 7b84e36ae447adcf36fae90b61564bc06c3bae89
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0fe472a45d99f966c851934ea44a346326cb4201
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081549"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175147"
 ---
-# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutoriel : Effectuer un déploiement pilote de réinitialisation de mot de passe en libre-service pour Azure AD
+# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Didacticiel : Effectuer un déploiement pilote de réinitialisation de mot de passe en libre-service pour Azure AD
 
 Dans ce didacticiel, vous activez un déploiement pilote de réinitialisation de mot de passe en libre-service (SSPR) pour Azure AD dans votre organisation et le testez à l’aide d’un compte non-administrateurs.
 

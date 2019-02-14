@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez cet article pour créer une instance Bing personnalisée qui peut effectuer des recherches dans les domaines et pages web que vous définissez.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2017
+ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 360860813e4901a3346eec1fd2a970f0d1e86c46
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d7a0c29ad3386fcdf85292b6e2852842a971c076
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177880"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56231907"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Démarrage rapide : Créer votre première instance de Recherche personnalisée Bing
 

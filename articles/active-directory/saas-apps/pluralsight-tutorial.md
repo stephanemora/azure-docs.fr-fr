@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à de Pluralsight | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à de Pluralsight | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Pluralsight.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5422704f126bbce9f2de7c2f007b5b1753f4d0ed
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c72ed2852f0f732c9f3b5641fc1ed819fc72476b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813047"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184463"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Tutoriel : Intégration d’Azure Active Directory à Pluralsight
+# <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Didacticiel : Intégration d’Azure Active Directory à Pluralsight
 
 Dans ce didacticiel, vous allez apprendre à intégrer Pluralsight à Azure AD (Azure Active Directory).
 L’intégration de Pluralsight à Azure AD vous offre les avantages suivants :
@@ -122,7 +123,7 @@ Pour configurer l’authentification unique Azure AD avec Pluralsight, effectuez
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
-    | NOM | Attribut source|
+    | Nom | Attribut source|
     | --------------- | --------- |
     | Prénom  | user.givenname  |
     | Nom  | user.surname  |

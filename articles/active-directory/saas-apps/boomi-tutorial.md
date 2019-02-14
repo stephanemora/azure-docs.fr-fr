@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 9be16f7ce1fbe37eb823a33e4f8cf1b29acc4fd6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 049c2ad008bfeda0969087a8c08a08cd00f38d5e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810429"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Tutoriel : Intégration d’Azure Active Directory à Boomi
 
@@ -117,7 +118,7 @@ Pour configurer l’authentification unique Azure AD avec Boomi, effectuez les 
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM |  Attribut source|
+    | Nom |  Attribut source|
     | ---------------|  --------- |
     | FEDERATION_ID | user.mail |
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à GoodPractice Toolkit | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à GoodPractice Toolkit | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et GoodPractice Toolkit.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: e5833c7eaf06a1c2b897aa13b0a742b845e0a227
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 538392c1812cfe6d703249fbe1802fd38b552bc2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820017"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174161"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Didacticiel : Intégration d’Azure Active Directory à GoodPractice Toolkit
+# <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Tutoriel : Intégration d’Azure Active Directory à GoodPractice Toolkit
 
 Dans ce didacticiel, vous allez apprendre à intégrer GoodPractice Toolkit à Azure Active Directory (Azure AD).
 L’intégration de GoodPractice Toolkit à Azure AD vous offre les avantages suivants :

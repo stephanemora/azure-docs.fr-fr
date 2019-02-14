@@ -4,16 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cbccab219e7b610c9ff51013a2d79764c2243e26
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736087"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889256"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
-
 #### <a name="to-create-a-new-service"></a>Création d’un service
 1. Utilisez les informations d’identification de votre compte Microsoft pour vous connecter au [portail Microsoft Azure Government](https://portal.azure.us/).
 2. Cliquez sur **+** dans le portail d’administration, puis sur **Afficher tout** sur la place de marché. Recherchez _StorSimple physique_. Sélectionnez **Série d’appareils physiques StorSimple** et cliquez dessus, puis cliquez sur **Créer**. Vous pouvez également cliquer sur **+** dans le portail d’administration, puis sur **Série d’appareils physiques StorSimple** dans **Stockage**.

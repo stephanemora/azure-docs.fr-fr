@@ -16,12 +16,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819091"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191723"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Démarrage rapide : Mettre à jour une application dans Azure Active Directory
 
@@ -144,7 +145,7 @@ Pour plus d’informations sur les concepts de manifeste d’application en gén
 
 Comme mentionné précédemment, vous pouvez non seulement exposer des API et y accéder pour vos propres applications, mais également inscrire votre application cliente pour accéder aux API exposées par les ressources Microsoft. L’API Graph de Microsoft, nommée « Microsoft Graph » dans la liste des API/ressources du portail, est disponible pour toutes les applications inscrites avec Azure AD. Si vous inscrivez votre application cliente dans un locataire contenant des comptes ayant souscrits un abonnement Office 365, vous pouvez également accéder aux étendues exposées par les différentes ressources de Office 365.
 
-Pour découvrir une description complète des étendues exposées par l’API Microsoft Graph, consultez l’article [Référence pour les autorisations pour Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference).
+Pour découvrir une description complète des étendues exposées par l’API Microsoft Graph, consultez l’article [Référence pour les autorisations pour Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
 > [!NOTE]
 > En raison d'une limitation actuelle, les applications clientes natives ne peuvent appeler l'API Graph Azure AD que si elles utilisent l'autorisation « Accéder au répertoire de votre organisation ». Cette restriction ne s'applique pas aux applications web.

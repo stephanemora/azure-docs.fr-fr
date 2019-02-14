@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 07e328c022e8e81782902445fd8fc6e320625a51
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261311"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978924"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Didacticiel : Préparer un registre de conteneurs Azure géorépliqué
 
@@ -118,7 +118,7 @@ Le fichier Dockerfile inclus dans l’exemple montre comment le conteneur est g�
 
 Le fichier [Dockerfile][dockerfile] se trouve à l’emplacement `./AcrHelloworld/Dockerfile` dans la source clonée.
 
-```dockerfile
+```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
@@ -162,7 +162,7 @@ uniqueregistryname.azurecr.io
 
 Ensuite, mettez à jour la ligne `ENV DOCKER_REGISTRY` avec le nom de domaine complet du serveur de connexion de votre registre. Cet exemple reflète l’exemple de nom de registre, *uniqueregistryname* :
 
-```dockerfile
+```Dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 ```
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 9a12940f08a11b66a0d09937d5ab8fab7304734f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 892ea129a57e77c59f37b305b96b42aa85dba32b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754334"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232705"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Basculer entre le mode d’affichage et le mode d’édition des rapports dans les collections d’espaces de travail Power BI
 
@@ -30,7 +30,7 @@ Vous devez créer un jeton d’accès qui vous donne la possibilité d’affiche
 > [!NOTE]
 > Cela vous permet de modifier un rapport existant et d’enregistrer ces modifications. Si vous souhaitez également bénéficier de la prise en charge de l’opération **Enregistrer sous**, vous devez fournir des autorisations supplémentaires. Pour plus d’informations, consultez la page [Étendues](app-token-flow.md#scopes).
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -46,9 +46,10 @@ Vous devez fournir les autorisations et un mode d’affichage pour voir le bouto
 
 Par exemple, dans JavaScript :
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -74,6 +75,7 @@ Par exemple, dans JavaScript :
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 La valeur **models.ViewMode.View** de **viewMode** indique que le rapport doit être incorporé en mode d’affichage.
@@ -82,7 +84,7 @@ La valeur **models.ViewMode.View** de **viewMode** indique que le rapport doit �
 
 Vous pouvez utiliser le code JavaScript suivant pour basculer en mode Affichage, si vous êtes en mode Édition.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 
@@ -98,7 +100,7 @@ report.switchMode("view");
 
 Vous pouvez utiliser le code JavaScript suivant pour basculer en mode Édition, si vous êtes en mode Affichage.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 

@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 51ae45b313cbe6b3cb61777a1571a75047632ca9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 43153edc3e10f15e0fd17e35fd98a7ddd11bdf6f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818453"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181250"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Didacticiel : Intégration d’Azure Active Directory avec Absorb LMS
+# <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutoriel : Intégration d’Azure Active Directory avec Absorb LMS
 
 Dans ce didacticiel, vous allez apprendre à intégrer Absorb LMS avec Azure Active Directory (Azure AD).
 L’intégration d’Absorb LMS avec Azure AD vous offre les avantages suivants :

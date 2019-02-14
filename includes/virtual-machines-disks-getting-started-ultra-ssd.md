@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ec8fa6c06dff0091627a800c895d45fd3b0e778e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e55058d6b1f76b4afcb847b946df85d5ab69971b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381469"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985412"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Activation d’Azure Ultra SSD
 
@@ -23,13 +23,13 @@ Ultra SSD est en préversion et vous devez vous y [inscrire](https://aka.ms/Ultr
 
 Une fois approuvé, exécutez l’une des commandes suivantes pour déterminer dans quelle zone de la région USA Est 2 vous devez déployer votre disque Ultra SSD :
 
-PowerShell : `Get-AzureRmComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
+PowerShell : `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
 Interface CLI : `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS’]”`
 
 La réponse est similaire au formulaire ci-dessous, où X correspond à la zone à choisir pour le déploiement dans la région USA Est 2. X peut être 1, 2 ou 3.
 
-|ResourceType  |NOM  |Lieu  |Zones  |Restriction  |Fonctionnalité  |Valeur  |
+|ResourceType  |Nom  |Lieu  |Zones  |Restriction  |Fonctionnalité  |Valeur  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 

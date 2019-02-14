@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 78834f1f12d2c748cb885e437496f2acf11b69ee
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170417"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232758"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Créer un rapport à partir d’un jeu de données dans Collections d’espaces de travail Power BI
 
@@ -40,13 +40,13 @@ La *classe PowerBIToken* requiert l’installation du [package NuGet Power BI Co
 
 **Installation du package NuGet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **Code C#**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -65,15 +65,16 @@ Pour pouvoir créer un nouveau rapport, la configuration de création doit être
 
 **Installation du package NuGet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **Code JavaScript**
 
-```
+```html
 <div id="reportContainer"></div>
-  
+
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -85,6 +86,7 @@ var embedCreateConfiguration = {
 
     // Create report
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
+</script>
 ```
 
 L’appel de *powerbi.createReport()* fait apparaître un canevas vide en mode Édition dans l’élément *div*.
@@ -95,7 +97,7 @@ L’appel de *powerbi.createReport()* fait apparaître un canevas vide en mode �
 
 Le rapport n’est pas créé tant que vous n’avez pas appelé l’opération **Enregistrer sous**. Vous pouvez le faire dans le menu Fichier ou à partir de JavaScript.
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -116,9 +118,9 @@ Le rapport n’est pas créé tant que vous n’avez pas appelé l’opération 
 
 Pour interagir avec le nouveau rapport, vous devez l’incorporer de la même façon que l’application incorpore un rapport normal, ce qui signifie qu’un nouveau jeton doit être émis spécifiquement pour le nouveau rapport avant que vous n’appeliez la méthode d’incorporation.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -130,13 +132,14 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatiser la sauvegarde et le chargement d’un nouveau rapport avec l’événement « enregistré »
 
 Pour automatiser le processus « enregistrer sous », puis charger le nouveau rapport, vous pouvez utiliser l’événement « enregistré ». Cet événement est déclenché quand l’opération « enregistrer » est terminée. Il retourne un objet JSON qui contient le nouvel ID du rapport, le nom du rapport, l’ancien ID du rapport (le cas échéant) et le type d’opération (« enregistrer sous » ou « enregistrer »).
 
-```
+```json
 {
   "reportObjectId": "5dac7a4a-4452-46b3-99f6-a25915e0fe54",
   "reportName": "newReport",
@@ -147,9 +150,9 @@ Pour automatiser le processus « enregistrer sous », puis charger le nouveau ra
 
 Pour automatiser le processus, vous pouvez écouter l’événement « enregistré », récupérer le nouvel ID du rapport, créer le nouveau jeton et y incorporer le nouveau rapport.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -192,6 +195,7 @@ var embedCreateConfiguration = {
    // report.off removes a given event handler if it exists.
    report.off("saved");
     });
+</script>
 ```
 
 ## <a name="see-also"></a>Voir aussi

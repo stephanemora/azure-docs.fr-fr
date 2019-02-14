@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Cisco Spark | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Cisco Spark | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory Cisco Spark.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e5ed2abca6c9a8bab6ee0df7a8aa05e40b48de5e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 87161c79bc58387d97863581675bb49f1e09160f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810803"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191552"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Tutoriel : Intégration d’Azure Active Directory à Cisco Spark
+# <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Didacticiel : Intégration d’Azure Active Directory à Cisco Spark
 
 Ce didacticiel explique comment intégrer Cisco Spark avec Azure Active Directory (Azure AD).
 L’intégration de Cisco Spark avec Azure AD offre les avantages suivants :
@@ -117,7 +118,7 @@ Pour configurer l’authentification unique Azure AD avec Cisco Spark, effectue
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
-    | NOM |  Attribut source|
+    | Nom |  Attribut source|
     | ---------------|--------- |
     | uid | user.userprincipalname |
 

@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a4f9e1111516d439f018e965883eb8268c83289c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 9846422405df491124a101a7898f356a1d9fb1d8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954780"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998669"
 ---
-# <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Créer une fabrique de données et un pipeline avec le kit .NET SDK
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Démarrage rapide : Créer une fabrique de données et un pipeline avec le kit .NET SDK
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version actuelle](quickstart-create-data-factory-dot-net.md)
 
-Ce guide de démarrage rapide explique comment utiliser le kit SDK .NET pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un tutoriel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Tutoriel : transformation des données à l’aide de Spark](transform-data-using-spark.md). 
+Ce guide de démarrage rapide explique comment utiliser le kit SDK .NET pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un tutoriel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Tutoriel : Transformer des données à l’aide de Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Cet article ne fournit pas de présentation détaillée du service Data Factory. Pour une présentation du service Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
@@ -38,7 +39,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 La procédure pas à pas de cet article utilise Visual Studio 2017. Vous pouvez également utiliser Visual Studio 2013 ou 2015.
 
 ### <a name="azure-net-sdk"></a>Kit de développement logiciel (SDK) .NET Azure
-Téléchargez et installez le [Kit de développement logiciel (SDK) .NET Azure](http://azure.microsoft.com/downloads/) sur votre machine.
+Téléchargez et installez le [Kit de développement logiciel (SDK) .NET Azure](https://azure.microsoft.com/downloads/) sur votre machine.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Créer une application dans Azure Active Directory
 Suivez les instructions fournies dans les sections de [cet article](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) pour accomplir les tâches suivantes : 
@@ -67,7 +68,6 @@ Suivez les instructions fournies dans les sections de [cet article](../active-di
     Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
     Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
     ```
 
 ## <a name="create-a-data-factory-client"></a>Créer un client de fabrique de données
@@ -85,7 +85,7 @@ Suivez les instructions fournies dans les sections de [cet article](../active-di
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Ajoutez le code suivant à la méthode **Main** qui définit les variables. Remplacez les espaces réservés par vos propres valeurs. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+2. Ajoutez le code suivant à la méthode **Main** qui définit les variables. Remplacez les espaces réservés par vos propres valeurs. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
     ```csharp
     // Set variables
@@ -299,7 +299,8 @@ Créez et démarrez l’application, puis vérifiez l’exécution du pipeline.
 
 La console affiche la progression de la création de la fabrique de données, du service lié, des jeux de données, du pipeline et de l’exécution du pipeline. Elle vérifie ensuite l’état de l’exécution du pipeline. Patientez jusqu’à l’affichage des détails de l’exécution de l’activité de copie avec la taille des données lues/écrites. Utilisez ensuite des outils comme l’[explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vérifier que les objets blob sont copiés dans « outputBlobPath » depuis « inputBlobPath » comme vous l’avez spécifié dans les variables.
 
-### <a name="sample-output"></a>Exemple de sortie : 
+### <a name="sample-output"></a>Exemple de sortie
+
 ```json
 Creating data factory SPv2Factory0907...
 {

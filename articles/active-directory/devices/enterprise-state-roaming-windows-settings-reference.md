@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 92d08d12571236276ad6e3d6f3705139ea050a8d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300232"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184497"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Référence des paramètres d’itinérance Windows 10
 Voici une liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10. 
@@ -31,10 +32,10 @@ Consultez le tableau suivant pour obtenir un récapitulatif des périphériques 
 
 | Type de compte et fonctionnement | Bureau | Mobile |
 | --- | --- | --- |
-| Azure Active Directory : synchronisation |Oui |Non  |
+| Azure Active Directory : synchronisation |OUI |Non  |
 | Azure Active Directory : sauvegarde/restauration |Non  |Non  |
-| Compte Microsoft : synchronisation |Oui |Oui |
-| Compte Microsoft : sauvegarde/restauration |Non  |Oui |
+| Compte Microsoft : synchronisation |OUI |OUI |
+| Compte Microsoft : sauvegarde/restauration |Non  |OUI |
 
 ## <a name="what-is-backup"></a>Qu’est-ce qu’une sauvegarde ?
 En règle générale, les paramètres Windows se synchronisent par défaut, cependant, certains paramètres sont simplement sauvegardés, notamment la liste des applications installées sur un périphérique. La sauvegarde est destinée uniquement aux appareils mobiles et n’est pas disponible pour les utilisateurs d’Enterprise State Roaming. La sauvegarde utilise un compte Microsoft et stocke les paramètres et données d’application dans OneDrive. Si, sur le périphérique , un utilisateur désactive la synchronisation avec l’application Settings, les données de l’application normalement synchronisées se transforment en simple sauvegarde. Les données de sauvegarde sont uniquement accessibles via l’opération de restauration lors de la première utilisation d’un nouvel appareil. Les sauvegardes peuvent être désactivées via les paramètres du périphérique et peuvent être gérées et supprimées via le compte OneDrive de l’utilisateur.

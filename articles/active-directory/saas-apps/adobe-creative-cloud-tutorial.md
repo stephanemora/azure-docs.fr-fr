@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Adobe Creative Cloud | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Adobe Creative Cloud | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Adobe Creative Cloud.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 4907179b9cc333103a898056ff951decf81c0f6c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ccb593e198e4dff8f30bddfe26071523ea7a893d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826801"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179227"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à Adobe Creative Cloud
+# <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutoriel : Intégration d’Azure Active Directory à Adobe Creative Cloud
 
 Dans ce didacticiel, vous allez apprendre à intégrer Adobe Creative Cloud à Azure Active Directory (Azure AD).
 L’intégration de Adobe Creative Cloud dans Azure AD vous offre les avantages suivants :
@@ -123,7 +124,7 @@ Pour configurer l’authentification unique Azure AD avec Adobe Creative Cloud, 
 
 7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
  
-    | NOM | Attribut source|
+    | Nom | Attribut source|
     |----- | --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |

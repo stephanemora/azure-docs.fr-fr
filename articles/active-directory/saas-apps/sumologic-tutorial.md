@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: e48c32d93da6cc84e35f2b2952827a5d06a5b319
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1fee91b857d9fd127839baaf7a70199c25cfab33
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149732"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191637"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Didacticiel : Intégration d'Azure Active Directory à SumoLogic
+# <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Tutoriel : Intégration d'Azure Active Directory à SumoLogic
 
 Dans ce didacticiel, vous allez apprendre à intégrer SumoLogic avec Azure Active Directory (Azure AD).
 

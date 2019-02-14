@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: b3ce3731f19565bfe950d03a2bbc980dda55a7f4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 386662a4e98b881228a82de3777632ed002bb5b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238656"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989148"
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services avec .NET
+# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services avec .NET 
+
 Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez surveiller les notifications de travaux Media Services à l’aide d’Azure WebHooks ou du [Stockage File d’attente Azure](media-services-dotnet-check-job-progress-with-queues.md). Cet article vous montre comment utiliser webhooks.
 
 Cet article montre comment
@@ -57,7 +58,7 @@ Lorsque vous développez des fonctions Media Services, il est utile d’ajouter 
 
 La section [Paramètres de l’application](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) définit les paramètres utilisés dans le webhook défini dans cet article. De même, ajoutez les paramètres suivants aux paramètres de l’application. 
 
-|NOM|Définition|Exemples| 
+|Nom|Définition|Exemples| 
 |---|---|---|
 |SigningKey |Clé de signature.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Adresse de point de terminaison webhook. Une fois que votre fonction webhook est créée, vous pouvez copier l’URL à partir du lien **Obtenir l’URL de la fonction**. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|

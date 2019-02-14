@@ -4,7 +4,7 @@ description: Cet article fournit un ensemble de listes de contrôle pour la séc
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: aa68bb0cb2e404072ef359591ce9309f8c27b631
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7895093eeb97857764530b52486c99b451dfc303
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403983"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105907"
 ---
 # <a name="azure-operational-security-checklist"></a>Liste de contrôle de la sécurité opérationnelle Azure
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer une application cloud en production, il peut être judicieux de disposer d’une liste de contrôle pour vous aider à évaluer votre application par rapport à une liste d’actions de sécurité opérationnelle essentielles et recommandées à prendre en compte.

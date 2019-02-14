@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Folloze | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Folloze | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Folloze.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 78752c7a3c47c8a61b179998533dbe9081c0a5ff
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 664a96569664460a25956c2688d999890c95801e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810310"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Tutoriel : Intégration d’Azure Active Directory à Folloze
 
@@ -111,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec Folloze, procédez com
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM |  Attribut source|
+    | Nom |  Attribut source|
     | ---------------| --------- |
     | Email | user.othermail |
     | Nameasemail | user.userprincipalname |

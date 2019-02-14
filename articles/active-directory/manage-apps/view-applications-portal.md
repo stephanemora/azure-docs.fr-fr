@@ -3,9 +3,8 @@ title: Afficher les applications du tenant - Azure Active Directory | Microsoft 
 description: Utilisez le portail Azure pour afficher les applications dans votre tenant Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/25/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: ab73cbb9c7b2a72d132074d8921487349f2993ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ec039beecdcfa6dacd19e5910209c58f13543fce
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179632"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199882"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Afficher les application du tenant Azure Active Directory
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SAP Cloud Platform | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à SAP Cloud Platform | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Cloud Platform.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: b7c1ea5d4e2134f3bafc486fb0747025a2140b83
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b2a68c6b3e71e066c6bee8f1398e20b5fdcca844
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809001"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174705"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP Cloud Platform
+# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutoriel : Intégration d’Azure Active Directory avec SAP Cloud Platform
 
 Dans ce didacticiel, vous allez apprendre à intégrer SAP Cloud Platform à Azure Active Directory (Azure AD).
 L’intégration de SAP Cloud Platform à Azure AD vous offre les avantages suivants :

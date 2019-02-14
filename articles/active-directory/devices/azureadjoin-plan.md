@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 88a1405a55432b6f5932f2675260540a8aea46aa
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8a299c5cf59a3c5b7a994303c9d85783ecfbb424
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697623"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201888"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Activation Planifier votre implémentation de la jointure d’Azure AD
 
@@ -236,11 +237,11 @@ Voici une comparaison de ces trois approches
  
 ||Configuration en libre-service|Windows Autopilot|Inscription en bloc|
 |---|---|---|---|
-|Nécessite une interaction utilisateur pour la configuration|Oui|Oui|Non |
-|Nécessite du travail de la part du département informatique|Non |OUI|Oui|
+|Nécessite une interaction utilisateur pour la configuration|OUI|OUI|Non |
+|Nécessite du travail de la part du département informatique|Non |OUI|OUI|
 |Flux applicables|OOBE et Paramètres|OOBE uniquement|OOBE uniquement|
 |Droits d’administrateur local pour l’utilisateur principal|Oui, par défaut|Configurable|Non |
-|Nécessite une prise en charge OEM|Non |Oui|Non |
+|Nécessite une prise en charge OEM|Non |OUI|Non |
 |Versions prises en charge|1511+|1709+|1703+|
  
 Choisissez votre ou vos approches de déploiement en consultant le tableau ci-dessus, et en examinant les points suivants pour l’adoption de l’une ou l’autre approche :  

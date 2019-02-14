@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Canvas | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Canvas | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Canvas.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: d9f4a616c1f182c3073c0febf2ba5c251655dc5e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ecc3ad9fcf1bb1aee9392f0dfcf40807b0edf508
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824335"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutoriel : Intégration d’Azure Active Directory à Canvas
 

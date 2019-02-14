@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez rechercher la longueur des phrases du texte à l’aide de l’API de traduction de texte Translator Text avec PHP.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 51b7691b856181ec3f66b1de595fec05104229f6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a9d16037bd814c8fb0e18a27187a905efafa3fd2
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209449"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984288"
 ---
 # <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-php"></a>Démarrage rapide : Obtenir la longueur des phrases avec l’API REST de traduction de texte Translator Text (PHP)
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: b242fca5a5a8490cc51222a6dd8b1ff1bb724417
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5d7b798c66ec6512c8badcccbf36d6f2f0d50e3b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247906"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882945"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Recommandations en matière de réglage des performances pour Storm sur HDInsight et Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Comprendre les facteurs à prendre en compte lorsque vous optimisez les performa
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Azure Data Lake Storage Gen2**. Pour obtenir des instructions afin d’en créer un, consultez [Démarrage rapide : Créer un compte de stockage pour l’analyse](data-lake-storage-quickstart-create-account.md).
-* **Un cluster Azure HDInsight** avec accès à un compte Data Lake Storage Gen2. Veillez à activer le Bureau à distance pour le cluster.
+* Un **cluster Azure HDInsight** avec un accès à un compte Data Lake Storage Gen2. Consultez [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Veillez à activer le Bureau à distance pour le cluster.
 * **Exécution d’un cluster Storm sur Data Lake Storage Gen2**. Pour plus d’informations, consultez [Présentation d’Apache Storm sur HDInsight : analyse en temps réel pour Hadoop](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Recommandations en matière de réglage des performances sur Data Lake Storage Gen2**.  Pour en savoir plus sur les concepts généraux relatifs aux performances, consultez [Recommandations en matière de réglage des performances de Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md).   
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3ec438132bc5e3dd035e199d0beca40dce9ff55f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 491140900dc74ade68109f3c9de586b0f3709b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453687"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172618"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Didacticiel : Intégration d’Azure Active Directory à AppNeta Performance Monitor
 
@@ -118,7 +119,7 @@ Pour configurer l’authentification unique Azure AD auprès d’AppNeta Perform
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit : 
 
-    | NOM | Attribut source|
+    | Nom | Attribut source|
     | --------| ----------------|
     | firstName| user.givenname|
     | lastName| user.surname|

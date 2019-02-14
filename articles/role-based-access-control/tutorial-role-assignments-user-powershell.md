@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 27b48e1d6aabf9cde7152bfb0dbf3e58bc619107
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 7f5e67edd2a5300ae1898e2620ee8ace80ac6d92
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696776"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109025"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Tutoriel : Accorder l’accès à un utilisateur avec RBAC et Azure PowerShell
 
@@ -111,7 +111,7 @@ Vous utilisez un groupe de ressources pour montrer comment attribuer un rôle à
 
 Pour accorder l’accès à l’utilisateur, utilisez la commande [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) afin d’attribuer un rôle. Vous devez spécifier le principal de sécurité, la définition de rôle et l’étendue.
 
-1. Obtenez l’ID de votre abonnement à l’aide de la commande [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
+1. Obtenez l’ID de votre abonnement à l’aide de la commande [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
     ```azurepowershell
     Get-AzSubscription

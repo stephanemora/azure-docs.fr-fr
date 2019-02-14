@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846334"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895854"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Contrôle d’accès Service Bus avec des signatures d’accès partagé
 
@@ -96,7 +96,7 @@ Un jeton SAP est valable pour toutes les ressources avec le préfixe `<resourceU
 
 Il est recommandé de régénérer régulièrement les clés utilisées dans l’objet [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) . Les emplacements des clés primaires et secondaires existent afin que vous puissiez permuter progressivement les clés. Si votre application utilise généralement la clé primaire, vous pouvez copier la clé primaire dans l’emplacement de la clé secondaire et alors seulement régénérer la clé primaire. La nouvelle valeur de clé primaire peut ensuite être configurée dans les applications clientes, qui bénéficient d’un accès continu à l’aide de l’ancienne clé primaire dans l’emplacement secondaire. Une fois que tous les clients sont mis à jour, vous pouvez régénérer la clé secondaire pour enfin mettre hors service l’ancienne clé primaire.
 
-Si vous avez connaissance ou suspectez qu’une clé est compromise et si vous devez révoquer les clés, vous pouvez régénérer les éléments [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) et [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) d’une règle [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), et les remplacer par de nouvelles clés. Cette procédure annule tous les jetons signés avec les anciennes clés.
+Si vous avez connaissance ou suspectez qu’une clé est compromise et si vous devez révoquer les clés, vous pouvez régénérer les éléments [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) et [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) d’une règle [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), et les remplacer par de nouvelles clés. Cette procédure annule tous les jetons signés avec les anciennes clés.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Authentification par signature d’accès partagé avec Service Bus
 

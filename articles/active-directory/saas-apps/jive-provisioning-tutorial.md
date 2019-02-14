@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer Jive pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Jive pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jive.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 302c87eab4fdf7e7d7553fe002c14b42c804a18a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 607d538a2a2636e17265e95195000a777f162dc4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178152"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192334"
 ---
-# <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutoriel : Configurer Jive pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Didacticiel : Configurer Jive pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Jive et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Jive.
 

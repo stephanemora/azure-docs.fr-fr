@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez obtenir la liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text avec Ruby.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 67f1a7b4a064aa46ef7d258dd72b1d686a797349
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1b92adcf528a1ccd00983e6c0dd952fefab5dd7d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458106"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975464"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>Démarrage rapide : Obtenir les langues prises en charge par l’API REST de traduction de texte Translator Text (Ruby)
 
@@ -25,16 +25,13 @@ Dans ce démarrage rapide, vous allez obtenir une liste des langues prises en ch
 
 [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) (ou une version ultérieure) est nécessaire pour exécuter ce code.
 
-Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [Comment s’inscrire à l’API de traduction de texte Translator Text](translator-text-how-to-signup.md).
-
 ## <a name="languages-request"></a>Requête Langues
 
 Le code suivant permet d’obtenir une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples, à l’aide de la méthode [Langues](./reference/v3-0-languages.md).
 
 1. Créez un nouveau projet Ruby dans votre éditeur de code favori.
 2. Ajoutez le code ci-dessous.
-3. Remplacez la valeur `key` par une clé d’accès valide pour votre abonnement.
-4. Exécutez le programme.
+3. Exécutez le programme.
 
 ```ruby
 require 'net/https'
@@ -42,20 +39,12 @@ require 'uri'
 require 'cgi'
 require 'json'
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the key string value with your valid subscription key.
-key = 'ENTER KEY HERE'
-
 host = 'https://api.cognitive.microsofttranslator.com'
 path = '/languages?api-version=3.0'
 
 uri = URI (host + path)
 
 request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = key
 
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
     http.request (request)
@@ -67,6 +56,7 @@ json = JSON.pretty_generate(JSON.parse(result))
 
 output_path = 'output.txt'
 
+# Write response to file
 File.open(output_path, 'w' ) do |output|
     output.print json
 end

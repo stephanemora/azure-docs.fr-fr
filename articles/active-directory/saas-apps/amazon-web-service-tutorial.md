@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Amazon Web Services (AWS) | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Amazon Web Services (AWS) | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Amazon Web Services (AWS).
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e377cf749119c23d37bb4db8ab78abb1ce8c82ae
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751087"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199746"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Didacticiel : Intégration d’Azure Active Directory à Amazon Web Services (AWS)
+# <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutoriel : Intégration d’Azure Active Directory à Amazon Web Services (AWS)
 
 Dans ce tutoriel, vous allez apprendre à intégrer Amazon Web Services à Azure Active Directory (Azure AD).
 L’intégration de Amazon Web Services (AWS) dans Azure AD vous offre les avantages suivants :
@@ -447,7 +448,7 @@ Quand vous cliquez sur la vignette Amazon Web Services (AWS) dans le volet d�
 
  * Dans la section **Provisionnement**, la sous-section **Mappages** affiche un message « Chargement en cours... » et n’affiche jamais les mappages d’attributs. Le seul workflow de provisionnement pris en charge aujourd’hui est l’importation des rôles à partir d’AWS dans Azure AD pour la sélection lors de l’affectation de groupe/utilisateur. Pour cela, les mappages d’attributs sont prédéterminés et non configurables.
  
- * La section **Provisionnement** prend uniquement en charge l’entrée d’un ensemble d’informations d’identification pour un locataire AWS à la fois. Tous les rôles importés sont écrits dans la propriété appRoles de l’[objet servicePrincipal](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) d’Azure AD pour le locataire AWS. Vous pouvez ajouter plusieurs locataires AWS (représentés par des objets servicePrincipals) à Azure AD à partir de la galerie pour le provisionnement, mais il existe un problème connu : il est impossible d’écrire automatiquement tous les rôles importés à partir des objets servicePrincipals AWS utilisés pour le provisionnement dans le servicePrincipal unique utilisé pour l’authentification unique. En guise de solution de contournement, vous pouvez utiliser l’[API Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) pour extraire tous les appRoles importés dans chaque servicePrincipal AWS où le provisionnement est configuré. Ces chaînes de rôle peuvent être ajoutées par la suite au servicePrincipal AWS où l’authentification unique est configurée.
+ * La section **Provisionnement** prend uniquement en charge l’entrée d’un ensemble d’informations d’identification pour un locataire AWS à la fois. Tous les rôles importés sont écrits dans la propriété appRoles de l’[objet servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) d’Azure AD pour le locataire AWS. Vous pouvez ajouter plusieurs locataires AWS (représentés par des objets servicePrincipals) à Azure AD à partir de la galerie pour le provisionnement, mais il existe un problème connu : il est impossible d’écrire automatiquement tous les rôles importés à partir des objets servicePrincipals AWS utilisés pour le provisionnement dans le servicePrincipal unique utilisé pour l’authentification unique. En guise de solution de contournement, vous pouvez utiliser l’[API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) pour extraire tous les appRoles importés dans chaque servicePrincipal AWS où le provisionnement est configuré. Ces chaînes de rôle peuvent être ajoutées par la suite au servicePrincipal AWS où l’authentification unique est configurée.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

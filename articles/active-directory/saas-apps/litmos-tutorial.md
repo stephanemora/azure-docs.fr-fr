@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 85b4045c609705eeca7450e26ead3467d3338a69
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3260be2f570e2ad7dcbe3cf459d3da289af46001
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818402"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165346"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Didacticiel : Intégration d’Azure Active Directory à Litmos
+# <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Tutoriel : Intégration d’Azure Active Directory à Litmos
 
 Dans ce didacticiel, vous allez apprendre à intégrer Litmos avec Azure Active Directory (Azure AD).
 L’intégration de Litmos dans Azure AD vous offre les avantages suivants :
@@ -119,7 +120,7 @@ Pour configurer l’authentification unique Azure AD avec Litmos, effectuez les
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM |  Attribut source |
+    | Nom |  Attribut source |
     |---------------|--------- |
     | FirstName | user.givenname |
     | LastName | user.surname |

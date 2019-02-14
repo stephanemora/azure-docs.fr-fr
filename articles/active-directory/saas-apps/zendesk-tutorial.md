@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Zendesk | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Zendesk | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zendesk.
 services: active-directory
 documentationCenter: na
@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2018
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f58bb8a1a3a0f0593513570355b8d3ba46816b9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 66a40597178a8267febfd6ad18277d6b865c084d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825831"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180162"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Didacticiel : Intégration d’Azure Active Directory à Zendesk
+# <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Tutoriel : Intégration d’Azure Active Directory à Zendesk
 
 Dans ce didacticiel, vous allez apprendre à intégrer Zendesk à Azure Active Directory (Azure AD).
 L’intégration de Zendesk à Azure AD vous offre les avantages suivants :
@@ -108,7 +109,12 @@ Pour configurer l’authentification unique Azure AD avec Zendesk, effectuez le
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.zendesk.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `<subdomain>.zendesk.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    | |
+    |-|-|
+    | `<subdomain>.zendesk.com` |
+    | `https://<subdomain>.zendesk.com` |
+    | |
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Zendesk](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -162,7 +168,7 @@ Pour configurer l’authentification unique Azure AD avec Zendesk, effectuez le
 
 11. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Zendesk**, vous êtes alors orienté vers l’application Zendesk. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Zendesk. Cette extension de navigateur configure automatiquement l’application pour vous et automatise la section **Configurer l’authentification unique Zendesk**.
 
-     ![image](./media/zendesk-tutorial/d2_saml.png)
+    ![image](./media/zendesk-tutorial/d2_saml.png)
 
 ### <a name="configure-zendesk-single-sign-on"></a>Configurer l’authentification unique Zendesk
 
@@ -190,7 +196,7 @@ Pour configurer l’authentification unique Azure AD avec Zendesk, effectuez le
 
     f. Cliquez sur **Enregistrer**.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
@@ -278,5 +284,4 @@ Le fait de cliquer sur la vignette Zendesk dans le panneau d’accès doit vous 
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configurer l’approvisionnement de l’utilisateur](zendesk-provisioning-tutorial.md) 
-
+- [Configurer l’approvisionnement de l’utilisateur](zendesk-provisioning-tutorial.md)

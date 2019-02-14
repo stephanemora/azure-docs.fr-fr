@@ -2,20 +2,21 @@
 title: Comment configurer l’authentification unique avec mot de passe pour une application ne relevant pas de la galerie | Microsoft Docs
 description: Comment configurer une application personnalisée ne relevant pas de la galerie pour l’authentification unique avec mot de passe lorsqu’elle n’est pas répertoriée dans la galerie d’applications Azure AD
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: barbkess
-ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8eefc02eccb2c90f3173ec096a79a913a2dede04
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812461"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211170"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique avec mot de passe pour une application ne relevant pas de la galerie
 

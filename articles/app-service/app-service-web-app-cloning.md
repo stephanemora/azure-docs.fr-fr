@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 17ea8545855cd926a393e9e40d3eccaabd6dba53
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2a28409120bac13ea7d288c7fc41f7154c003388
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886524"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106254"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonage de l’application Azure App Service à l’aide de PowerShell
-Avec la publication de Microsoft Azure PowerShell version 1.1.0, une nouvelle option a été ajoutée à `New-AzureRMWebApp`, qui permet à l’utilisateur de cloner une application App Service existante vers une application qui vient d’être créée dans une autre région ou dans la même région. Cette option permet aux utilisateurs de déployer de nombreuses applications dans différentes régions.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Avec la publication de Microsoft Azure PowerShell version 1.1.0, une nouvelle option a été ajoutée à `New-AzWebApp`, qui permet à l’utilisateur de cloner une application App Service existante vers une application qui vient d’être créée dans une autre région ou dans la même région. Cette option permet aux utilisateurs de déployer de nombreuses applications dans différentes régions.
 
 Le clonage d’application n’est actuellement pris en charge que pour les plans de service d’application de niveau Premium. Cette nouvelle fonctionnalité utilise les mêmes limitations que la fonctionnalité de sauvegarde App Service. Consultez [Sauvegarder une application dans Azure App Service](manage-backup.md).
 
@@ -33,31 +36,31 @@ Scénario : Vous souhaitez cloner le contenu d’une application de la région U
 En connaissant le nom du groupe de ressources qui contient l’application source, vous pouvez utiliser la commande PowerShell suivante pour obtenir les informations de l’application source (dans ce cas nommée `source-webapp`) :
 
 ```PowerShell
-$srcapp = Get-AzureRmWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
+$srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
-Pour créer un plan App Service, vous pouvez utiliser la commande `New-AzureRmAppServicePlan` comme dans l’exemple suivant
+Pour créer un plan App Service, vous pouvez utiliser la commande `New-AzAppServicePlan` comme dans l’exemple suivant
 
 ```PowerShell
-New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
+New-AzAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 ```
 
-À l’aide de la commande `New-AzureRmWebApp`, vous pouvez créer l’application dans la région USA Centre Nord et la lier à un plan App Service existant de niveau Premium. Par ailleurs, vous pouvez utiliser le même groupe de ressources que l’application source ou en définir un nouveau, comme le montre la commande suivante :
+À l’aide de la commande `New-AzWebApp`, vous pouvez créer l’application dans la région USA Centre Nord et la lier à un plan App Service existant de niveau Premium. Par ailleurs, vous pouvez utiliser le même groupe de ressources que l’application source ou en définir un nouveau, comme le montre la commande suivante :
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
+$destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-Pour cloner une application existante, notamment tous les emplacements de déploiement associés, vous devez utiliser le paramètre `IncludeSourceWebAppSlots`. La commande PowerShell suivante illustre l’utilisation de ce paramètre avec la commande `New-AzureRmWebApp` :
+Pour cloner une application existante, notamment tous les emplacements de déploiement associés, vous devez utiliser le paramètre `IncludeSourceWebAppSlots`. La commande PowerShell suivante illustre l’utilisation de ce paramètre avec la commande `New-AzWebApp` :
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
+$destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
 ```
 
 Pour cloner une application existante dans la même région, vous devez créer un groupe de ressources et un plan de service d’application dans la même région, puis utiliser la commande PowerShell suivante pour cloner l’application :
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
+$destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
 ```
 
 ## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonage d’une application existante vers un App Service Environment
@@ -66,13 +69,13 @@ Scénario : Vous souhaitez cloner le contenu d’une application de la région U
 En connaissant le nom du groupe de ressources qui contient l’application source, vous pouvez utiliser la commande PowerShell suivante pour obtenir les informations de l’application source (dans ce cas nommée `source-webapp`) :
 
 ```PowerShell
-$srcapp = Get-AzureRmWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
+$srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
 En connaissant le nom de l’environnement ASE et le nom du groupe de ressources auquel l’ASE appartient, vous pouvez créer l’application dans l’environnement ASE, comme le montre la commande suivante :
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
+$destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
 ```
 
 Le paramètre `Location` est requis en raison de l’héritage, mais il est ignoré lorsque vous créez l’application dans un environnement ASE. 
@@ -83,13 +86,13 @@ Scénario : Vous souhaitez cloner un emplacement de déploiement d’une applica
 En connaissant le nom du groupe de ressources qui contient l’application source, vous pouvez utiliser la commande PowerShell suivante pour obtenir les informations de l’emplacement d’application source (dans ce cas nommé `source-appslot`) lié à `source-app` :
 
 ```PowerShell
-$srcappslot = Get-AzureRmWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot
+$srcappslot = Get-AzWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot
 ```
 
 La commande suivante illustre la création d’un clone de l’application source vers une nouvelle application :
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-app -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
+$destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-app -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
 ```
 
 ## <a name="configuring-traffic-manager-while-cloning-an-app"></a>Configuration de Traffic Manager lors du clonage d’une application
@@ -99,7 +102,7 @@ La création d’applications sur plusieurs régions et la configuration d’Azu
 Scénario : Vous souhaitez cloner une application vers une autre région tout en configurant un profil de gestionnaire de trafic Azure Resource Manager qui inclut les deux applications. La commande suivante illustre la création d’un clone de l’application source vers une nouvelle application tout en configurant un nouveau profil Traffic Manager :
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
+$destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
 ### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>Ajout d’une nouvelle application clonée à un profil Traffic Manager existant
@@ -112,7 +115,7 @@ $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<
 Une fois l’ID de gestionnaire de trafic obtenu, la commande suivante illustre la création d’un clone de l’application source vers une nouvelle application tout en les ajoutant à un profil Traffic Manager existant :
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
+$destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 ```
 
 ## <a name="current-restrictions"></a>Restrictions actuelles

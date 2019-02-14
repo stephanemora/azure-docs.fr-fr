@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: c65fb1f0f635e79d594a7f080124827e3218f612
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: f8122f35ac6d604908fc31dcece7dfb53dd50286
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193372"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985415"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images de machine virtuelle managées personnalisées. Celle-ci vous permet de partager vos images avec différents utilisateurs, principaux de service ou groupes Active Directory au sein de votre organisation. Il est possible de répliquer des images partagées dans plusieurs régions, pour une mise à l’échelle plus rapide de vos déploiements.
 
@@ -74,9 +74,9 @@ Tout comme la Galerie d’images partagées, l’Image partagée et la version d
 
 | Partagé avec l’utilisateur     | Galerie d’images partagées | Image partagée | Version d’image partagée |
 |----------------------|----------------------|--------------|----------------------|
-| Galerie d’images partagées | Oui                  | OUI          | Oui                  |
-| Image partagée         | Non                    | OUI          | Oui                  |
-| Version d’image partagée | Non                    | Non            | Oui                  |
+| Galerie d’images partagées | OUI                  | OUI          | OUI                  |
+| Image partagée         | Non                    | OUI          | OUI                  |
+| Version d’image partagée | Non                    | Non            | OUI                  |
 
 
 
@@ -120,8 +120,8 @@ az provider register --name Microsoft.Compute
 **PowerShell** : 
 
 ```powershell
-Register-AzureRmProviderFeature -FeatureName GalleryPreview -ProviderNamespace Microsoft.Compute
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Register-AzProviderFeature -FeatureName GalleryPreview -ProviderNamespace Microsoft.Compute
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 **Q.** Comment lister toutes les ressources de galerie d’images partagées de différents abonnements ? 

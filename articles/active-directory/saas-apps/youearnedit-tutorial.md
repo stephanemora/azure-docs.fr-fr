@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à YouEarnedIt | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à YouEarnedIt | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et YouEarnedIt.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5b3746a1e29f436c277fd238e13fd46010941824
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6d9e7a2c067cde3522031c96a067e8be9b081b38
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825987"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184973"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutoriel : Intégration d’Azure Active Directory à YouEarnedIt
 

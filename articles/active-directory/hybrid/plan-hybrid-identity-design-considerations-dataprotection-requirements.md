@@ -16,12 +16,13 @@ ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ae7610b18a8ec09332612e6608f76e196376fdce
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495957"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189887"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planifier l'amélioration de la sécurité des données grâce à une solution d'identité solide
 La première étape de la protection des données est d’identifier qui peut accéder à ces données. En outre, vous devez disposer d’une solution d’identité qui peut s’intégrer à votre système pour fournir des fonctionnalités d’authentification et d’autorisation. Authentification et autorisation sont souvent confondues et leurs rôles mal compris. En réalité elles sont différentes, comme l'illustre la figure ci-dessous :

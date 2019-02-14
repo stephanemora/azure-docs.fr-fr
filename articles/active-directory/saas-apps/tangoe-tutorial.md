@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: ea272a6d7d045a01c72a7c88c048340b8d11ba83
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 986afa1239ad0efd9ccb936252ead37c8379b447
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152295"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192895"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Tutoriel : Intégration d’Azure Active Directory à Tangoe Command Premium Mobile
+# <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Didacticiel : Intégration d’Azure Active Directory à Tangoe Command Premium Mobile
 
 Dans ce didacticiel, vous allez apprendre à intégrer Tangoe Command Premium Mobile à Azure Active Directory (Azure AD).
 

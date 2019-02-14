@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 90c8af9b09a5050cc090725665501d60091c9ae5
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b6d821f8c4f2fa66e24e6a2409f58406820ef6d0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509165"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100770"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Résolution des différences de Transact-SQL durant la migration vers SQL Database
 
-Au moment de [migrer votre base de données](sql-database-cloud-migrate.md) SQL Server vers Azure SQL Server, vous découvrirez peut-être que sa conception est à revoir avant de pouvoir effectuer la migration. Cet article comprend des informations vous permettant d’apporter les révisions nécessaires et de comprendre les raisons sous-jacentes à ces changements. Pour détecter les incompatibilités, utilisez [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+Au moment de [migrer votre base de données](sql-database-single-database-migrate.md) SQL Server vers Azure SQL Server, vous découvrirez peut-être que sa conception est à revoir avant de pouvoir effectuer la migration. Cet article comprend des informations vous permettant d’apporter les révisions nécessaires et de comprendre les raisons sous-jacentes à ces changements. Pour détecter les incompatibilités, utilisez [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## <a name="overview"></a>Vue d’ensemble
 

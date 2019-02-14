@@ -12,17 +12,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: ca907e145067043b41dd6000248d44ecc1e3434f
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2f18b51a07bb58f13673427f0acadb6b80d7a1c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510440"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005316"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Niveau Critique pour l'entreprise - Azure SQL Database
 
 > [!NOTE]
-> Le niveau Critique pour l’entreprise s’appelle Premium dans le modèle d’achat DTU. Pour obtenir une comparaison du modèle d’achat basé sur le nombre de cœurs virtuelss avec le modèle d’achat basé sur des unités DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-service-tiers.md).
+> Le niveau Critique pour l’entreprise s’appelle Premium dans le modèle d’achat DTU. Pour obtenir une comparaison du modèle d’achat basé sur le nombre de cœurs virtuelss avec le modèle d’achat basé sur des unités DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-purchase-models.md).
 
 Azure SQL Database est basé sur une architecture de moteur de base de données SQL Server. Celle-ci est ajustée pour l’environnement cloud afin de garantir une disponibilité de 99,99 % même en cas de panne d’infrastructure. Trois modèles d’architecture sont utilisés dans Azure SQL Database :
 - Usage général/Standard 

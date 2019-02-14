@@ -3,7 +3,7 @@ title: 'Exemple PowerShell : Créer une base de données unique dans Azure SQL 
 description: Exemple de script Azure PowerShell pour créer une base de données unique dans Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 09a0e40bb935dd5f3e4955af0b45cef93ed1612b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 2e5ab2e84fa62eda90ce97a52ab75f729704c056
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458515"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998975"
 ---
 # <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>Utiliser PowerShell pour créer une base de données unique SQL Azure et configurer une règle de pare-feu de serveur SQL Database
 

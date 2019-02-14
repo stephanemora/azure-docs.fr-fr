@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 478b03c979f5f2b588d51306ffa7b3c84ef25887
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 4cac603b0d575a4cf70cf4c5df6924be19bdfa2e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902480"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100276"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Soumettre une demande de paiement d’abonnement Azure par facture
 
@@ -44,7 +44,7 @@ Vous pouvez obtenir un mode de paiement par facture pour votre abonnement Azure 
 
     * Nom de la société
     * Adresse de facturation
-    * [Adresse de messagerie de l’administrateur de compte](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
+    * [Adresse de messagerie de l’administrateur de compte](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
 
 1. Vérifiez vos coordonnées et votre méthode de contact préférée, puis cliquez sur **Créer**.
 

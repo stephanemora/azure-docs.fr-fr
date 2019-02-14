@@ -4,24 +4,24 @@ titlesuffix: Azure Cognitive Services
 description: Découvrez les attributs que vous pouvez utiliser avec l’entité Série de conférence.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: ff71b489cce01d8d6ea29e09905d7d3ac8429e34
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38b4aa4c899668a68041f042ce6981ddd8c58219
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155597"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884917"
 ---
 # <a name="conference-series-entity"></a>Entité Série de conférences
 
 <sub> *Les attributs suivants sont spécifiques à l’entité Série de conférence. (Ty = '3') </sub>
 
-NOM    |Description                            |Type       | Opérations
+Nom    |Description                            |Type       | Opérations
 ------- | ------------------------------------- | --------- | ----------------------------
 ID      |L’ID d’entité                              |Int64      |Égal à
 CN      |Nom normalisé de la série de conférences      |Chaîne     |Égal à

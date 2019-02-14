@@ -3,8 +3,8 @@ title: Problème de configuration de l’authentification unique avec mot de pas
 description: Comprendre les problèmes courants auxquels les utilisateurs sont confrontés lors de la configuration d’une authentification unique avec mot de passe pour les applications qui ne figurent pas dans la galerie d’applications Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
-ms.openlocfilehash: f7d6d381177bd2bd6b50e933b7a5157364fa0dfd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6bacefaada8ab0d63bb17d22f67b91c51a789de8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203995"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172329"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problème de configuration de l’authentification unique avec mot de passe pour une application non issue de la galerie
 

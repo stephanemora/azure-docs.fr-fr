@@ -4,7 +4,7 @@ description: Ce didacticiel explique comment implémenter un service de base de 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 6c98fcfa-39e6-43a5-83a5-d4954788f8a4
 ms.service: media-services
@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/07/2017
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 11babf8a66c38354499ce85fad424fed04c07c15
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d3c175bc4d2e5b25c8ce6d4a9b128f961e0af4aa
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780600"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210745"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Prise en main de la diffusion de contenus à la demande à l’aide du portail Azure
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo à la demande avec l’application Azure Media Services du portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Les éléments suivants sont requis pour suivre le didacticiel :
 
 * Un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -124,7 +124,7 @@ Une URL de signature d’accès partagé a le format suivant :
 > 
 > 
 
-Pour mettre à jour une date d’expiration sur un localisateur, vous pouvez utiliser une [API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou une [API .NET](http://go.microsoft.com/fwlink/?LinkID=533259). 
+Pour mettre à jour une date d’expiration sur un localisateur, vous pouvez utiliser une [API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou une [API .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Lorsque vous mettez à jour la date d’expiration d’un localisateur de signature d’accès partagé, l’URL est modifiée.

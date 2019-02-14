@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f2ed840065b4efd4b0e519333307388dca61827d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0742a08e0169d47307f28ff08491b0f7c7c4a914
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807012"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201514"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurer une application OpenID/OAuth à partir de la galerie d’applications Azure AD
 
@@ -105,7 +106,7 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
 
 3. Si l’utilisateur n’est pas déjà authentifié, le point de terminaison /authorize d’Azure AD l’invite à se connecter.
 
-    ![Authentification](./media/openidoauth-tutorial/authentication.png)
+    ![Authentication](./media/openidoauth-tutorial/authentication.png)
 
 4. Une fois l’utilisateur connecté, Azure AD détermine s’il est nécessaire d’afficher une page de consentement pour l’utilisateur. La détermination est différente selon que l’utilisateur (ou l’administrateur de son organisation), a déjà accordé ou non son consentement à l'application.
 

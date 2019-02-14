@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à M-Files | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à M-Files | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et M-Files.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 41c31a987e766551682b2c90c00473ea44215dd5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4c169f8d84ca5654af29f359bf8af20f2b8b58b5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150171"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193796"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutoriel : Intégration d’Azure Active Directory à M-Files
+# <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Didacticiel : Intégration d’Azure Active Directory à M-Files
 
 Dans ce didacticiel, vous allez apprendre à intégrer M-Files à Azure Active Directory (Azure AD).
 

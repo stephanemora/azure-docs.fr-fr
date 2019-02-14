@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 16b4512e7a53ba000dd6e0bdcb618886ad214765
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7572a074f482511602c2758a49fb26b32add223d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474256"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176320"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Didacticiel : Intégration d’Azure Active Directory à Achieve3000
 
@@ -117,7 +118,7 @@ Pour configurer l’authentification unique Azure AD auprès d’Achieve3000, e
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit : 
 
-    | NOM |  Attribut source|
+    | Nom |  Attribut source|
     | ---------------| --------- |
     | studentID     | user.mail |
     | | |

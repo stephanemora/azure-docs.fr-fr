@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5fe9fe8ced675f68161f0df9f2665b47f9d47ac5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52973236"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905118"
 ---
 ### <a name="server-auth"></a>Guide pratique pour l’authentification auprès d’un fournisseur (flux serveur)
 Pour que Mobile Apps gère le processus d’authentification dans votre application, vous devez inscrire votre application auprès de votre fournisseur d’identité. Ensuite, dans Azure App Service, vous devez configurer l’ID d’application et le secret fournis par votre fournisseur.
@@ -17,7 +17,7 @@ Pour plus d'informations, consultez le didacticiel [Ajout de l'authentification 
 
 Une fois que vous avez inscrit votre fournisseur d'identité, appelez la méthode `.login()` avec le nom de votre fournisseur. Par exemple, pour vous connecter avec Facebook, utilisez le code suivant :
 
-```
+```javascript
 client.login("facebook").done(function (results) {
      alert("You are now signed in as: " + results.userId);
 }, function (err) {
@@ -40,7 +40,7 @@ Votre application peut également contacter le fournisseur d’identité de mani
 
 Cet exemple utilise le SDK client Facebook pour l'authentification :
 
-```
+```javascript
 client.login(
      "facebook",
      {"access_token": token})
@@ -57,7 +57,7 @@ Cet exemple part du principe que le jeton fourni par le Kit de développement lo
 
 Les informations d’authentification peuvent être récupérées du point de terminaison `/.auth/me` à l’aide d’un appel HTTP avec une bibliothèque AJAX.  Veillez à définir l’en-tête `X-ZUMO-AUTH` sur votre jeton d’authentification.  Le jeton d'authentification est stocké dans `client.currentUser.mobileServiceAuthenticationToken`.  Par exemple, pour utiliser l’API d’extraction :
 
-```
+```javascript
 var url = client.applicationUrl + '/.auth/me';
 var headers = new Headers();
 headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);

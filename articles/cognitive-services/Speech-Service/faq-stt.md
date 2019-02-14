@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Découvrez les réponses aux questions les plus fréquemment posées sur le service de reconnaissance vocale.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 965d690184071da3f01ba165ccb0edd7e15f99b8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5c5a42908198b3a8f473efbe4f54bc481e250efa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225344"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875992"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -115,7 +115,7 @@ Si vous rencontrez des problèmes de confidentialité qui vous empêchent d’ut
 
 **Q : Dois-je me charger de la transcription des données d’adaptation ?**
 
-**R** :  Oui. Vous pouvez les transcrire vous-même ou utiliser un service de transcription professionnel. Certains utilisateurs se tournent vers des transcripteurs professionnels, d’autres optent pour une externalisation participative, et d’autres encore préfèrent transcrire eux-mêmes.
+**R** : Oui. Vous pouvez les transcrire vous-même ou utiliser un service de transcription professionnel. Certains utilisateurs se tournent vers des transcripteurs professionnels, d’autres optent pour une externalisation participative, et d’autres encore préfèrent transcrire eux-mêmes.
 
 ## <a name="accuracy-testing"></a>Tests de précision
 

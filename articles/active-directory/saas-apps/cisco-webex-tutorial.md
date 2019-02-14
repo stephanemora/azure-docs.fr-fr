@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Cisco Webex | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Cisco Webex | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cisco Webex.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: e718d37bc1d34bccf1ea8d0ce2607ff83fc355d1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7629d602362b9a76691dbf79a0a8ecd874d750a9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824404"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Tutoriel : Intégration d’Azure Active Directory à Cisco Webex
 
@@ -147,7 +148,7 @@ Pour configurer l’authentification unique Azure AD avec Cisco Webex, effectuez
 
 11. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
-    | NOM | Attribut source|
+    | Nom | Attribut source|
     | ---------------| --------------- | --------- |
     |   firstname    | user.givenname |
     |   lastname    | user.surname |
