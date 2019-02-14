@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 0ad6ab27a51cf082be71262b887a459f6c7cc906
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101970"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699123"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
 
@@ -21,44 +21,44 @@ Lorsque vous créez et gérez des clusters dans Azure Kubernetes Service (AKS), 
 Cet article porte sur les meilleures pratiques en matière de connectivité réseau et de sécurité pour les opérateurs de clusters. Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * comparer le mode réseau de base et le mode réseau avancé dans AKS ;
+> * comparer les modes réseau kubenet et Azure CNI dans Azure Kubernetes Service ;
 > * prévoir l’adressage IP et la connectivité nécessaires ;
 > * distribuer le trafic à l’aide d’équilibreurs de charge, de contrôleurs d’entrée ou de pare-feu d’applications web ;
 > * se connecter en toute sécurité aux nœuds de cluster.
 
 ## <a name="choose-the-appropriate-network-model"></a>Choisir le modèle réseau adapté
 
-**Meilleures pratiques** : pour une intégration avec des réseaux virtuels existants ou des réseaux locaux, utilisez la mise en réseau avancée dans AKS. Ce modèle réseau offre également une meilleure séparation des ressources et plus de contrôle dans un environnement d’entreprise.
+**Meilleures pratiques** : pour une intégration avec des réseaux virtuels existants ou des réseaux locaux, utilisez la mise en réseau Azure CNI dans AKS. Ce modèle réseau offre également une meilleure séparation des ressources et plus de contrôle dans un environnement d’entreprise.
 
 Les réseaux virtuels assurent une connectivité de base pour les nœuds AKS et les clients qui accèdent à vos applications. Il existe deux façons différentes de déployer des clusters AKS dans des réseaux virtuels :
 
-* **Mise en réseau de base** : Azure gère les ressources de réseau virtuel pendant le déploiement du cluster et utilise le plug-in Kubernetes [KubeNet][kubenet].
-* **Mise en réseau avancée** : le déploiement se fait dans un réseau virtuel existant, avec le plug-in Kubernetes [Azure Container Networking Interface (CNI)][cni-networking]. Les pods reçoivent des adresses IP individuelles qui peuvent communiquer avec d’autres services réseau ou ressources locales.
+* **Mise en réseau Kubenet** : Azure gère les ressources de réseau virtuel pendant le déploiement du cluster et utilise le plug-in Kubernetes [Kubenet][kubenet].
+* **Mise en réseau Azure CNI** : le déploiement se fait dans un réseau virtuel existant, avec le plug-in Kubernetes [Azure Container Networking Interface (CNI)][cni-networking]. Les pods reçoivent des adresses IP individuelles qui peuvent communiquer avec d’autres services réseau ou ressources locales.
 
 L’interface Azure CNI est un protocole indépendant du fournisseur qui permet au runtime du conteneur d’adresser des demandes à un fournisseur de réseau. Elle affecte des adresses IP aux pods et aux nœuds et offre des fonctionnalités de Gestion des adresses IP (IPAM) pour la connexion à des réseaux virtuels Azure existants. Chaque ressource de type nœud ou pod reçoit une adresse IP dans le réseau virtuel Azure, sans qu’aucun routage supplémentaire soit nécessaire pour communiquer avec d’autres ressources ou services.
 
 ![Diagramme représentant 2 nœuds avec des ponts les reliant chacun à un réseau virtuel Azure](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-La mise en réseau avancée est recommandée dans la plupart des déploiements de production. Ce modèle de réseau permet de séparer le contrôle et la gestion des ressources. Du point de vue de la sécurité, il est souvent préférable que différentes équipes gèrent et sécurisent ces ressources. La mise en réseau avancée permet de se connecter directement à des ressources Azure existantes, à des ressources locales ou à d’autres services avec les adresses IP affectées à chacun des pods.
+Pour la plupart des déploiements de production, une mise en réseau Azure CNI est recommandée. Ce modèle de réseau permet de séparer le contrôle et la gestion des ressources. Du point de vue de la sécurité, il est souvent préférable que différentes équipes gèrent et sécurisent ces ressources. Une mise en réseau Azure CNI vous permet de vous connecter directement à des ressources Azure existantes, à des ressources locales ou à d’autres services avec les adresses IP assignées à chacun des pods.
 
-Avec la mise en réseau avancée, la ressource de réseau virtuel se trouve dans un groupe de ressources distinct du cluster AKS. Déléguez des permissions au principal de service AKS pour qu’il puisse accéder à ces ressources et les gérer. Le principal du service utilisé par le cluster AKS doit disposer au moins des autorisations [Contributeur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) sur le sous-réseau de votre réseau virtuel. Si vous souhaitez définir un [rôle personnalisé](../role-based-access-control/custom-roles.md) au lieu d’utiliser le rôle de contributeur de réseau intégré, les autorisations suivantes sont nécessaires :
+Avec une mise en réseau Azure CNI, la ressource de réseau virtuel se trouve dans un groupe de ressources distinct du cluster AKS. Déléguez des permissions au principal de service AKS pour qu’il puisse accéder à ces ressources et les gérer. Le principal du service utilisé par le cluster AKS doit disposer au moins des autorisations [Contributeur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) sur le sous-réseau de votre réseau virtuel. Si vous souhaitez définir un [rôle personnalisé](../role-based-access-control/custom-roles.md) au lieu d’utiliser le rôle de contributeur de réseau intégré, les autorisations suivantes sont nécessaires :
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 Pour plus d’informations sur la délégation du principal du service AKS, voir [Déléguer l’accès à d’autres ressources Azure][sp-delegation].
 
-Dans la mesure où chaque nœud et chaque pod reçoit sa propre adresse IP, planifiez les plages d’adresses des sous-réseaux AKS. Le sous-réseau doit être assez grand pour offrir une adresse IP à chacun des nœuds, pods et ressources réseau déployés. Chaque cluster AKS doit être placé dans son propre sous-réseau. Pour autoriser la connexion à des réseaux locaux ou en peering dans Azure, n’utilisez pas de plages d’adresses IP qui recouvrent des ressources réseau existantes. Des limites par défaut s’appliquent au nombre de pods qu’exécute chaque nœud avec la mise en réseau de base et avancée. Pour gérer les événements de montée en puissance et les mises à niveau de cluster, des adresses IP supplémentaires sont également nécessaires dans le sous-réseau attribué.
+Dans la mesure où chaque nœud et chaque pod reçoit sa propre adresse IP, planifiez les plages d’adresses des sous-réseaux AKS. Le sous-réseau doit être assez grand pour offrir une adresse IP à chacun des nœuds, pods et ressources réseau déployés. Chaque cluster AKS doit être placé dans son propre sous-réseau. Pour autoriser la connexion à des réseaux locaux ou en peering dans Azure, n’utilisez pas de plages d’adresses IP qui recouvrent des ressources réseau existantes. Des limites par défaut s’appliquent au nombre de pods qu’exécute chaque nœud avec une mise en réseau Kubenet ou Azure CNI. Pour gérer les événements de montée en puissance et les mises à niveau de cluster, des adresses IP supplémentaires sont également nécessaires dans le sous-réseau attribué.
 
-Pour calculer l’adresse IP requise, voir [Configurer la mise en réseau avancée dans AKS][advanced-networking].
+Pour calculer l’adresse IP requise, voir [Configurer la mise en réseau Azure CNI dans AKS][advanced-networking].
 
-### <a name="basic-networking-with-kubenet"></a>Mise en réseau de base avec KubeNet
+### <a name="kubenet-networking"></a>Mise en réseau Kubenet
 
-Même si la mise en réseau de base n’impose pas de configurer les réseaux virtuels avant le déploiement du cluster, elle présente des inconvénients :
+Si la mise en réseau Kubenet n’impose pas de configurer les réseaux virtuels avant le déploiement du cluster, elle présente des inconvénients :
 
-* Les nœuds et les pods sont placés sur différents sous-réseaux IP. Le routage défini par l’utilisateur (UDR) et le transfert IP sont utilisés pour acheminer le trafic entre les nœuds et les pods. Ce routage supplémentaire réduit les performances du réseau.
-* Les connexions à des réseaux locaux existants et le peering avec d’autres réseaux virtuels Azure sont complexes.
+* Les nœuds et les pods sont placés sur différents sous-réseaux IP. Le routage défini par l’utilisateur (UDR) et le transfert IP sont utilisés pour acheminer le trafic entre les nœuds et les pods. Ce routage supplémentaire peut réduire les performances du réseau.
+* Les connexions à des réseaux locaux existants et le peering avec d’autres réseaux virtuels Azure peuvent être complexes.
 
-La mise en réseau de base convient aux petites charges de travail développement et de test, dans la mesure où il n’est pas nécessaire de créer le réseau virtuel et les sous-réseaux séparément du cluster AKS. Les sites web simples recevant peu de trafic et le lift-and-shift de charges de travail dans des conteneurs peuvent également tirer avantage de la simplicité des clusters AKS déployés avec la mise en réseau de base. La mise en réseau avancée est planifiée et utilisée dans la plupart des déploiements de production.
+Une mise en réseau Kubenet convient pour de petites charges de travail de développement et de test, dans la mesure où il n’est pas nécessaire de créer le réseau virtuel et les sous-réseaux séparément du cluster AKS. Les sites web simples recevant peu de trafic et le lift-and-shift de charges de travail dans des conteneurs peuvent également tirer avantage de la simplicité des clusters AKS déployés avec la mise en réseau Kubenet. Pour la plupart des déploiements de production, vous devez planifier et utiliser une mise en réseau Azure CNI. Vous pouvez également [configurer vos propres plages d’adresses IP et réseaux virtuels à l’aide de Kubenet][aks-configure-kubenet-networking].
 
 ## <a name="distribute-ingress-traffic"></a>Distribuer le trafic d’entrée
 
@@ -155,4 +155,5 @@ Cet article porte sur la sécurité et la connectivité réseau. Pour plus d’i
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
-[advanced-networking]: configure-advanced-networking.md
+[advanced-networking]: configure-azure-cni.md
+[aks-configure-kubenet-networking]: configure-kubenet.md

@@ -1,6 +1,6 @@
 ---
-title: Vue d'ensemble des entités Azure Media Services - Azure | Microsoft Docs
-description: Cet article fournit une vue d'ensemble des entités Azure Media Services.
+title: Filtrage, classement et pagination des d’entités Azure Media Services – Azure | Microsoft Docs
+description: Cet article décrit le filtrage, le classement et la pagination d’entités Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,27 +12,301 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3f3322245983508e374d081e5d7905f67344ad7a
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 4c6e3281bd2b37b60c8d165c6c3152e970a5ce32
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912644"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745094"
 ---
-# <a name="azure-media-services-entities-overview"></a>Vue d'ensemble des entités Azure Media Services
+# <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 
-Cet article offre une brève présentation des entités Azure Media Services et renvoie vers des articles pour plus d’informations sur l’utilisation de chaque entité dans les workflows Media Services. 
+## <a name="overview"></a>Vue d’ensemble
 
-| Rubrique | Description |
-|---|---|
-| [Filtres de comptes et d’actifs multimédias](filters-dynamic-manifest-overview.md)|Lorsque vous transmettez du contenu à des clients (diffusion en continu d'événements en direct ou vidéos à la demande), le fichier manifeste de l'élément multimédia par défaut ne permet pas toujours au client d'interagir avec le contenu comme il le voudrait. Azure Media Services vous permet de définir des [filtres de compte](https://docs.microsoft.com/rest/api/media/accountfilters) et des [filtres d'éléments multimédia](https://docs.microsoft.com/rest/api/media/assetfilters). Ensuite, utilisez les **manifestes dynamiques** basés sur les filtres prédéfinis. |
-| [Éléments multimédias](assets-concept.md)|Une entité de type [Élément multimédia](https://docs.microsoft.com/rest/api/media/assets) contient des fichiers numériques (vidéo, audio, images, collections de miniatures, légendes et fichiers de sous-titres) et les métadonnées associées à ces fichiers. Une fois les fichiers numériques chargés dans un élément multimédia, ils peuvent être utilisés dans des workflows Media Services d'encodage, de diffusion en continu et d'analyse de contenu.|
-| [Stratégies de clé de contenu](content-key-policy-concept.md)|Vous pouvez utiliser Media Services pour sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu'à la remise, en passant par le stockage et le traitement. Media Services vous permet de transmettre votre contenu dynamique ou à la demande chiffré dynamiquement avec la norme Advanced Encryption Standard (AES-128) ou un des principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés.|
-| [Événements en direct et sorties en direct](live-events-outputs-concept.md)|Media Services vous permet de transmettre des événements en direct auprès de vos clients dans le cloud Azure. Pour configurer vos événements de streaming en direct dans Media Services v3, vous devez en savoir plus sur les [Événements en direct](https://docs.microsoft.com/rest/api/media/liveevents) et les [Sorties en direct](https://docs.microsoft.com/rest/api/media/liveoutputs).|
-| [Points de terminaison de streaming](streaming-endpoint-concept.md)|Une entité [Points de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) représente un service de diffusion en continu qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de distribution de contenu (CDN) en vue de sa redistribution. Le flux sortant d’un service de point de terminaison de streaming peut être un flux dynamique ou une ressource de vidéo à la demande dans votre compte Media Services. Quand vous créez un compte Media Services, un point de terminaison de streaming **par défaut** est créé pour vous dans l’état Arrêté. Vous ne pouvez pas supprimer le point de terminaison de streaming **par défaut**. Vous pouvez créer d’autres points de terminaison de streaming sous votre compte. Pour démarrer le streaming de vidéos, vous devez démarrer le point de terminaison de streaming à partir duquel vous souhaitez diffuser votre vidéo. |
-| [Localisateurs de diffusion en continu](streaming-locators-concept.md)|Vous devez fournir à vos clients une URL qu'ils pourront utiliser pour lire les fichiers audio ou vidéo encodés. Vous devez également créer un [localisateur de diffusion en continu](https://docs.microsoft.com/rest/api/media/streaminglocators) et générer les URL de diffusion en continu.|
-| [Stratégies de diffusion en continu](streaming-policy-concept.md)| Les [stratégies de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingpolicies) vous permettent de définir les protocoles de diffusion en continu et les options de chiffrement de vos localisateurs de diffusion en continu. Vous pouvez spécifier le nom d'une stratégie de diffusion en continu personnalisée que vous avez créée ou utiliser l'une des stratégies prédéfinies proposées par Media Services. <br/><br/>Lorsque vous utilisez une stratégie de diffusion en continu personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos localisateurs de diffusion en continu chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Vous ne devez pas créer une stratégie de diffusion en continu pour chaque localisateur de diffusion en continu.|
-| [Transformations et travaux](transforms-jobs-concept.md)|Utilisez des [transformations](https://docs.microsoft.com/rest/api/media/transforms) pour configurer des tâches courantes de codage ou d'analyse des vidéos. Chaque **transformation** décrit une recette, ou un flux de travail de tâches pour le traitement de vos fichiers vidéo ou audio.<br/><br/>Un [travail](https://docs.microsoft.com/rest/api/media/jobs) est la requête réelle envoyée à Azure Media Services pour appliquer la **transformation** à un contenu vidéo ou audio d’entrée donné. Le **travail** spécifie des informations comme l’emplacement de la vidéo d’entrée et celui de la sortie. Vous pouvez spécifier l'emplacement de votre vidéo d'entrée en utilisant : des URL HTTPS, des URL SAS ou un élément multimédia.|
+Media Services prend en charge les options de requête OData suivantes pour les entités Media Services v3 : 
+
+* $filter 
+* $orderby 
+* $top 
+* $skiptoken 
+
+Description des opérateurs :
+
+* Eq = est égal à
+* Ne = n’est pas égal à
+* Ge = est supérieur ou égal à
+* Le = est inférieur ou égal à
+* Gt = est supérieur à
+* Lt = est inférieur à
+
+Les propriétés d’entités de type DateHeure sont toujours au format UTC.
+
+## <a name="page-results"></a>Résultats de la page
+
+Si une réponse de requête contient un grand nombre d’éléments, le service retourne une propriété « \@odata.nextLink » pour obtenir la page de résultats suivante. Celle-ci peut être utilisés pour parcourir le jeu de résultats entier. Vous ne pouvez pas configurer la taille de page. La taille de page varie selon le type d’entité. Pour plus d’informations, veuillez lire les sections suivantes.
+
+Si des entités sont créées ou supprimées pendant la pagination de la collection, les changements sont reflétés dans les résultats retournés (si ces changements concernent la partie de la collection qui n’a pas été téléchargée). 
+
+> [!TIP]
+> Vous devez toujours utiliser le lien suivant pour énumérer la collection et ne pas dépendre d’une taille de page particulière.
+
+## <a name="assets"></a>Éléments multimédias
+
+### <a name="filteringordering"></a>Filtrage/ordonnancement
+
+Le tableau suivant montre comment les options de filtrage et de classement peuvent être appliquées aux propriétés de [Ressource](https://docs.microsoft.com/rest/api/media/assets) : 
+
+|Nom|Filtrer|Ordre|
+|---|---|---|
+|id|||
+|Nom|eq, gt, lt| croissant et décroissant|
+|properties.alternateId |eq||
+|properties.assetId |eq||
+|properties.container |||
+|properties.created| eq, gt, lt| croissant et décroissant|
+|properties.description |||
+|properties.lastModified |||
+|properties.storageAccountName |||
+|properties.storageEncryptionFormat | ||
+|Type|||
+
+L’exemple C# suivant filtre sur la date de création :
+
+```csharp
+var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
+var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
+```
+
+### <a name="pagination"></a>Pagination 
+
+La pagination est prise en charge pour chacun des quatre ordres de tri activés. Actuellement, la taille de page est de 1 000.
+
+#### <a name="c-example"></a>Exemple en code C#
+
+L’exemple C# suivant montre comment énumérer tous les actifs multimédias dans le compte.
+
+```csharp
+var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+#### <a name="rest-example"></a>Exemple REST
+
+Prenons l’exemple suivant où $skiptoken est utilisé. Veillez à remplacer *amstestaccount* par le nom de votre compte et à définir la valeur *api-version* avec la version la plus récente.
+
+Si vous demandez une liste d’actifs multimédias comme suit :
+
+```
+GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
+x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
+Content-Type: application/json; charset=utf-8
+```
+
+Vous devez obtenir une réponse similaire à celle-ci :
+
+```
+HTTP/1.1 200 OK
+ 
+{
+"value":[
+{
+"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+},
+// lots more assets
+{
+"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+}
+],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
+}
+```
+
+Vous devez ensuite demander la page suivante en envoyant une requête GET pour :
+
+```
+https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
+```
+
+Pour obtenir des exemples REST, consultez [Actifs multimédias - Liste](https://docs.microsoft.com/rest/api/media/assets/list).
+
+## <a name="content-key-policies"></a>Stratégies de clé de contenu
+
+### <a name="filteringordering"></a>Filtrage/ordonnancement
+
+Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de [Stratégies de clé de contenu](https://docs.microsoft.com/rest/api/media/contentkeypolicies) : 
+
+|Nom|Filtrer|Ordre|
+|---|---|---|
+|id|||
+|Nom|eq, ne, ge, le, gt, lt|croissant et décroissant|
+|properties.created |eq, ne, ge, le,  gt, lt|croissant et décroissant|
+|properties.description |eq, ne, ge, le, gt, lt||
+|properties.lastModified|eq, ne, ge, le, gt, lt|croissant et décroissant|
+|properties.options |||
+|properties.policyId|eq, ne||
+|Type|||
+
+### <a name="pagination"></a>Pagination
+
+La pagination est prise en charge pour chacun des quatre ordres de tri activés. Actuellement, la taille de page est de 10.
+
+L’exemple C# suivant montre comment énumérer toutes les **Stratégies de clé de contenu** dans le compte.
+
+```csharp
+var firstPage = await MediaServicesArmClient.ContentKeyPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.ContentKeyPolicies.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+Pour obtenir des exemples REST, consultez [Stratégies de clé de contenu - Liste](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
+
+## <a name="jobs"></a>Tâches
+
+### <a name="filteringordering"></a>Filtrage/ordonnancement
+
+Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de [Travaux](https://docs.microsoft.com/rest/api/media/jobs) : 
+
+| Nom    | Filtrer                        | Ordre |
+|---------|-------------------------------|-------|
+| Nom                    | eq            | croissant et décroissant|
+| properties.state        | eq, ne        |                         |
+| properties.created      | gt, ge, lt, le| croissant et décroissant|
+| properties.lastModified | gt, ge, lt, le | croissant et décroissant| 
+
+
+### <a name="pagination"></a>Pagination
+
+La pagination des travaux est prise en charge dans Media Services v3.
+
+L’exemple C# suivant montre comment énumérer tous les travaux dans le compte.
+
+```csharp            
+List<string> jobsToDelete = new List<string>();
+var pageOfJobs = client.Jobs.List(config.ResourceGroup, config.AccountName, "Encode");
+
+bool exit;
+do
+{
+    foreach (Job j in pageOfJobs)
+    {
+        jobsToDelete.Add(j.Name);
+    }
+
+    if (pageOfJobs.NextPageLink != null)
+    {
+        pageOfJobs = client.Jobs.ListNext(pageOfJobs.NextPageLink);
+        exit = false;
+    }
+    else
+    {
+        exit = true;
+    }
+}
+while (!exit);
+
+```
+
+Pour obtenir des exemples REST, consultez [Travaux - Liste](https://docs.microsoft.com/rest/api/media/jobs/list)
+
+## <a name="streaming-locators"></a>Localisateurs de diffusion en continu
+
+### <a name="filteringordering"></a>Filtrage/ordonnancement
+
+Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés du localisateur de diffusion en continu : 
+
+|Nom|Filtrer|Ordre|
+|---|---|---|
+|id |||
+|Nom|eq, ne, ge, le, gt, lt|croissant et décroissant|
+|properties.alternativeMediaId  |||
+|properties.assetName   |||
+|properties.contentKeys |||
+|properties.created |eq, ne, ge, le,  gt, lt|croissant et décroissant|
+|properties.defaultContentKeyPolicyName |||
+|properties.endTime |eq, ne, ge, le, gt, lt|croissant et décroissant|
+|properties.startTime   |||
+|properties.streamingLocatorId  |||
+|properties.streamingPolicyName |||
+|Type   |||
+
+### <a name="pagination"></a>Pagination
+
+La pagination est prise en charge pour chacun des quatre ordres de tri activés. Actuellement, la taille de page est de 10.
+
+L’exemple C# suivant montre comment énumérer tous les localisateurs de diffusion en continu dans le compte.
+
+```csharp
+var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+Pour obtenir des exemples REST, consultez [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list) (Localisateurs de diffusion en continu : lister)
+
+## <a name="streaming-policies"></a>Stratégies de diffusion en continu
+
+### <a name="filteringordering"></a>Filtrage/ordonnancement
+
+Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de StreamingPolicy : 
+
+|Nom|Filtrer|Ordre|
+|---|---|---|
+|id|||
+|Nom|eq, ne, ge, le, gt, lt|croissant et décroissant|
+|properties.commonEncryptionCbcs|||
+|properties.commonEncryptionCenc|||
+|properties.created |eq, ne, ge, le,  gt, lt|croissant et décroissant|
+|properties.defaultContentKeyPolicyName |||
+|properties.envelopeEncryption|||
+|properties.noEncryption|||
+|Type|||
+
+### <a name="pagination"></a>Pagination
+
+La pagination est prise en charge pour chacun des quatre ordres de tri activés. Actuellement, la taille de page est de 10.
+
+L’exemple C# suivant montre comment énumérer toutes les stratégies StreamingPolicy dans le compte.
+
+```csharp
+var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+Pour obtenir des exemples REST, consultez [Stratégies de streaming - Liste](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+
+
+## <a name="transform"></a>Transformer
+
+### <a name="filteringordering"></a>Filtrage/ordonnancement
+
+Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de [Transformations](https://docs.microsoft.com/rest/api/media/transforms) : 
+
+| Nom    | Filtrer                        | Ordre |
+|---------|-------------------------------|-------|
+| Nom                    | eq            | croissant et décroissant|
+| properties.created      | gt, ge, lt, le| croissant et décroissant|
+| properties.lastModified | gt, ge, lt, le | croissant et décroissant|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

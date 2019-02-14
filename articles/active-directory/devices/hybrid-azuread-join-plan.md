@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 085f95e1df67a12afac5c327b4368efd275600b3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100170"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234100"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -111,7 +112,7 @@ Si votre organisation a besoin d’accéder à Internet via un proxy sortant aut
 
 La jointure Azure AD hybride est un processus qui consiste à inscrire automatiquement auprès d’Azure AD des appareils joints au domaine local. Si vous ne souhaitez pas que tous vos appareils s’inscrivent automatiquement, voir [Guide pratique pour contrôler la jointure Azure AD hybride de vos appareils](hybrid-azuread-join-control.md).
 
-Si vos appareils joints au domaine Windows 10 sont déjà [inscrits auprès d’Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) sur votre locataire, vous devriez envisager la suppression de cet état avant d’activer la jonction Azure AD Hybride. Le double état d’un appareil, à la fois être une jonction Azure AD Hybride et inscrit auprès d’Azure AD, n’est pas pris en charge. À partir de la version 1809 de Windows 10, les modifications suivantes ont été apportées pour éviter ce double état : 
+Si vos appareils joints au domaine Windows 10 sont déjà [inscrits auprès d’Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) sur votre locataire, nous vous recommandons vivement de supprimer cet état avant d’activer la jonction Azure AD Hybride. À partir de la version 1809 de Windows 10, les modifications suivantes ont été apportées pour éviter ce double état : 
  - Tout état existant inscrit à Azure AD est automatiquement supprimé dès lors que l’appareil est joint à Azure AD Hybride. 
  - Vous pouvez éviter que votre appareil joint au domaine soit inscrit à Azure AD en ajoutant cette clé de Registre - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
 
@@ -145,20 +146,20 @@ Depuis la version 1.1.819.0, Azure AD Connect comporte un Assistant permettant d
 - [Configurer la jointure hybride Azure Active Directory pour des domaines managés](hybrid-azuread-join-managed-domains.md)
 
 
- Si vous n’avez pas la possibilité d’installer la version requise d’Azure AD Connect, consultez le [Guide pratique pour configurer manuellement l’inscription des appareils](../device-management-hybrid-azuread-joined-devices-setup.md). 
+ Si vous n’avez pas la possibilité d’installer la version requise d’Azure AD Connect, consultez le [Guide pratique pour configurer manuellement l’inscription des appareils](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Prise en charge des ID de connexion de substitution dans une jonction Azure AD Hybride
+## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>Prise en charge d’un UPN AD local dans une jointure Azure AD Hybride
 
-Une jonction Azure AD Hybride Windows 10 offre une prise en charge limitée des [ID de connexion de substitution](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) en fonction du type d’ID de connexion de substitution, de la [méthode d’authentification](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), du type de domaine et de la version de Windows 10. Deux types d’ID de connexion de substitution peuvent exister au sein de votre environnement :
+Parfois, vos UPN AD locaux peuvent différer de vos UPN AD Azure. Dans ce cas, une jonction Azure AD Hybride Windows 10 offre une prise en charge limitée des UPN AD locaux, variable selon la [méthode d’authentification](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), le type de domaine et la version de Windows 10. Deux types d’UPN AD locaux peuvent exister dans votre environnement :
 
- - ID de connexion de substitution routable : un ID de connexion de substitution routable possède un domaine vérifié valide, qui est inscrit auprès d’un bureau d’enregistrement de domaines. Par exemple, si contoso.com est le domaine principal, contoso.org et contoso.co.uk sont des domaines valides appartenant à Contoso et [vérifiés dans Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - UPN routable : un UPN routable possède un domaine vérifié valide, qui est inscrit auprès d’un bureau d’enregistrement de domaines. Par exemple, si contoso.com est le domaine principal dans Azure AD, contoso.org est le domaine principal dans l’AD local appartenant à Contoso et [vérifié dans Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
- - ID de connexion de substitution non routable : un ID de connexion de substitution non routable ne dispose pas d’un domaine vérifié. Il est applicable uniquement au sein du réseau privé de votre organisation. Par exemple, si contoso.com est le domaine primaire, contoso.local n’est pas un domaine vérifiable sur internet mais il est utilisé au sein du réseau de Contoso.
+ - UPN non routable : un UPN non routable ne dispose pas d’un domaine vérifié. Il est applicable uniquement au sein du réseau privé de votre organisation. Par exemple, si contoso.com est le domaine principal dans Azure AD, contoso.local est le domaine principal dans l’AD local, mais n’est pas un domaine vérifiable sur Internet et n’est utilisé qu’à l’intérieur du réseau de Contoso.
  
-Le tableau ci-dessous fournit des détails sur la prise en charge de ces ID de connexion de substitution dans une jonction Windows 10 Azure AD Hybride
+Le tableau ci-dessous fournit des détails sur la prise en charge de ces UPN AD locaux dans une jointure Azure AD Hybride Windows 10
 
-|Type d’ID de connexion de substitution|Type de domaine|version Windows 10|Description|
+|Type d’UPN AD local|Type de domaine|version Windows 10|Description|
 |-----|-----|-----|-----|
 |Routable|Adresses IP fédérées |À partir de la version 1703|Mise à la disposition générale|
 |Routable|Adresses IP gérées|À partir de la version 1709|Actuellement en préversion privée. Le SSPR Azure AD n’est pas pris en charge |

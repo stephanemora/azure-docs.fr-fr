@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 58da86140b97c5292d390b6f91502b7f0622986a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476840"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563335"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles (préversion)
 Azure comprend plusieurs services qui effectuent individuellement un rôle spécifique ou une tâche dans l’espace de supervision, mais en fournissant une perspective approfondie de l’intégrité du système d’exploitation hébergé sur les machines virtuelles Azure qui n’était pas disponible auparavant.  Bien que vous puissiez surveiller différentes conditions à l’aide de Log Analytics ou d’Azure Monitor, ils n’ont pas été conçus pour modéliser et représenter l’intégrité des composants de base ou l’intégrité globale de la machine virtuelle.  La fonctionnalité de contrôle d’intégrité Azure Monitor pour les machines virtuelles surveille proactivement la disponibilité et les performances du système d'exploitation invité Windows ou Linux avec un modèle qui représente les composants clés et leurs relations (critères spécifiant comment mesurer l’intégrité de ces composants) et vous avertit lorsqu’un problème d’intégrité est détecté.  
@@ -30,11 +30,11 @@ Cet article vous aide à évaluer, examiner et résoudre rapidement les problèm
 Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](vminsights-onboard.md)(Activer Azure Monitor pour les machines virtuelles).
 
 >[!NOTE]
->À compter du 15 février 2019, nous commencerons à vous faire migrer du modèle d’intégrité actuel de la fonctionnalité d’intégrité Azure Monitor pour machines virtuelles, qui est visible dans l’expérience des diagnostics d’intégrité, vers une nouvelle version du modèle d’intégrité. Cette mise à jour améliore les performances de traitement du cumul d’intégrité et inclut un modèle d’intégrité affiné dans la vue Diagnostics d’intégrité. 
+>À compter du 11 février 2019, nous commencerons à vous faire migrer du modèle d’intégrité actuel de la fonctionnalité d’intégrité Azure Monitor pour machines virtuelles, qui est visible dans l’expérience des diagnostics d’intégrité, vers une nouvelle version du modèle d’intégrité. Cette mise à jour améliore les performances de traitement du cumul d’intégrité et inclut un modèle d’intégrité affiné dans la vue Diagnostics d’intégrité. 
 >
 >Avec le nouveau modèle d’intégrité, le cumul des critères d’intégrité enfants avec les critères d’intégrité de niveau entité/parent sera plus rapide. L’état d’intégrité du parent est donc mis à jour vers l’état souhaité ou ciblé avec une latence moindre. Vous pouvez toujours filtrer les critères d’intégrité des catégories **Performances** et **Disponibilité** contrairement à la méthode précédente basée sur les onglets pour sélectionner l’une ou l’autre des catégories dans la vue.
 >
->Pour plus d’informations sur la nouvelle expérience de diagnostics d’intégrité, consultez la [section](#health-diagnostics) Diagnostics d’intégrité de cet article. 
+>Pour plus d’informations sur l’expérience de diagnostics d’intégrité, consultez la [section](#health-diagnostics) Diagnostics d’intégrité de cet article. 
 >
 >Cette mise à jour améliore les éléments suivants : 
 >
@@ -106,14 +106,16 @@ Pour afficher l’intégrité d’une machine virtuelle Azure, sélectionnez **I
 
 ![Vue d’ensemble de l’intégrité des machines virtuelles Azure Monitor pour une machine virtuelle Azure donnée](./media/vminsights-health/vminsights-directvm-health.png)
 
-Dans l’onglet **Intégrité**, sous la section **Intégrité de la machine virtuelle invitée**, le tableau affiche l’état d’intégrité actuel de votre machine virtuelle et le nombre total d’alertes d’intégrité de la machine virtuelle déclenchées par un composant défectueux. Reportez-vous à [Alertes et gestion des alertes](#alerting-and-alert-management) pour plus d’informations.  
+Dans l’onglet **Intégrité**, sous la section **Intégrité de la machine virtuelle invitée**, le tableau affiche l’état d’intégrité actuel de votre machine virtuelle et le nombre total d’alertes d’intégrité de la machine virtuelle déclenchées par un composant défectueux. Pour plus d’informations sur l’expérience d’alerte, voir la section [Alertes](#alerting-and-alert-management).  
 
-Les états d’intégrité définis pour une machine virtuelle sont les suivants : 
+Les états d’intégrité définis pour une machine virtuelle sont décrits dans le tableau suivant : 
 
-* **Sain** : aucun problème détecté pour la machine virtuelle et le fonctionnement répond aux attentes.  
-* **Critique** : un ou plusieurs problèmes critiques ont été détectés et doivent être corrigés afin de restaurer le fonctionnement normal attendu. 
-* **Avertissement** : un ou plusieurs problèmes ont été détectés et doivent être corrigés pour éviter que la condition d’intégrité ne devienne critique.  
-* **Inconnu** : si le service n’a pas pu établir de connexion avec la machine virtuelle, l’état passe à Inconnu.  
+|Icône |État d’intégrité |Signification |
+|-----|-------------|------------|
+| |Healthy |L’état d’intégrité est Sain si les conditions d’intégrité définies sont remplies. Il indique qu’aucun problème n’a été détecté pour la machine virtuelle et fonctionne donc comme prévu. Dans le cas d’un moniteur Rollup parent, l’intégrité est regroupée et reflète le meilleur ou pire état de l’enfant.|
+| |Critique |L’état d’intégrité est Critique si les conditions d’intégrité définies ne sont pas remplies. Il indique qu’un ou plusieurs problèmes critiques ont été détectés qui devront être corrigés afin de rétablir le fonctionnement normal. Dans le cas d’un moniteur Rollup parent, l’intégrité est regroupée et reflète le meilleur ou pire état de l’enfant.|
+| |Avertissement |L’état d’intégrité est défini sur Avertissement s’il est compris entre deux seuils pour les conditions d’intégrité définies, où l’un indique l’état *Avertissement* et l’autre un état *Critique* (trois seuils d’état d’intégrité sont possibles), ou quand un problème non critique est détecté, qui pourrait occasionner des problèmes importants s’il n’est pas résolu. Dans le cas d’un moniteur Rollup parent, si un ou plusieurs des enfants sont dans un état d’avertissement, le parent reflète l’état *Avertissement*. Si un enfant se trouve dans un état *Critique* et un autre enfant dans un état d’*Avertissement*, le rollup parent affiche un état d’intégrité *Critique*.|
+| |Unknown |L’état d’intégrité est *Inconnu* lorsqu’il ne peut pas être calculé pour plusieurs raisons, par exemple en cas d’impossibilité de collecter des données, de service non initialisé, etc. Cet état d’intégrité n’est pas configurable.| 
 
 La sélection du lien **Afficher les diagnostics d’intégrité** ouvre une page qui présente tous les composants de la machine virtuelle, les critères d’intégrité associés, les changements d’état et les autres problèmes importants rencontrés par les composants de supervision liés à la machine virtuelle. Pour plus d’informations, consultez la section [Diagnostics d’intégrité](#health-diagnostics). 
 
@@ -140,13 +142,6 @@ Ici, vous pouvez rapidement identifier les principaux problèmes critiques déte
 La liste **Distribution de machine virtuelle par système d’exploitation** affiche les machines virtuelles répertoriées par édition Windows ou distribution Linux, ainsi que leur version. Dans chaque catégorie de système d’exploitation, les machines virtuelles sont ventilées selon l’intégrité de la machine virtuelle. 
 
 ![Perspective de distribution de machine virtuelle VM Insights](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
-
-Les états d’intégrité définis pour une machine virtuelle sont les suivants : 
-
-* **Sain** : aucun problème détecté pour la machine virtuelle et le fonctionnement répond aux attentes.  
-* **Critique** : un ou plusieurs problèmes critiques ont été détectés et doivent être corrigés afin de restaurer le fonctionnement normal attendu. 
-* **Avertissement** : un ou plusieurs problèmes ont été détectés et doivent être corrigés pour éviter que la condition d’intégrité ne devienne critique.  
-* **Inconnu** : si le service n’a pas pu établir de connexion avec la machine virtuelle, l’état passe à Inconnu.  
 
 Vous pouvez cliquer sur n’importe quel élément de la colonne - **Nombre de machines virtuelles**, **Critique**, **Avertissement**, **Sain** ou **Inconnu** pour éclater la page des **Machines virtuelles** selon une liste de résultats filtrés correspondant à la colonne sélectionnée. Par exemple, si nous souhaitons examiner toutes les machines virtuelles exécutant **Red Hat Enterprise Linux version 7.5**, cliquez sur la valeur **Nombre de machines virtuelles** pour ce système d’exploitation et la page suivante s’ouvre. Elle répertorie les machines virtuelles correspondant à ce filtre et leur état d’intégrité actuellement connu.  
 
@@ -191,16 +186,7 @@ Diagnostics d’intégrité classe les informations d’intégrité dans les cat
  
 Tous les critères d’intégrité sont définis pour un composant spécifique, par exemple un disque logique, un processeur, etc. En outre, la catégorie de l’analyse est consultable en regard de celle-ci dans la colonne **Critères d’intégrité**.  
 
-Un critère d’intégrité est défini par l’un des quatre états : *Critique*, *Avertissement*, *Sain* et *Inconnu*. Les trois premiers sont configurables, ce qui signifie que vous pouvez modifier les valeurs de seuil des analyses à l’aide de [l’API Analyse de charge de travail](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). L’état *Inconnu* n’est pas configurable et il est réservé aux scénarios spécifiques décrits dans le tableau ci-dessous.  
-
-Le tableau suivant fournit des détails sur les états d’intégrité représentés dans Diagnostics d’intégrité.
-
-|Icône |État d’intégrité |Signification |
-|-----|-------------|------------|
-| |Healthy |L’état d’intégrité est Sain si les conditions d’intégrité définies sont remplies. Il indique qu’aucun problème n’a été détecté pour la machine virtuelle qui fonctionne donc comme prévu. Dans le cas d’un moniteur Rollup parent, l’intégrité est regroupée et reflète le meilleur ou pire état de l’enfant.|
-| |Critique |L’état d’intégrité est Critique si les conditions d’intégrité définies ne sont pas remplies. Il indique qu’un ou plusieurs problèmes critiques ont été détectés qui devront être corrigés afin de rétablir le fonctionnement normal. Dans le cas d’un moniteur Rollup parent, l’intégrité est regroupée et reflète le meilleur ou pire état de l’enfant.|
-| |Avertissement |L’état d’intégrité est défini sur Avertissement s’il est compris entre deux seuils pour les conditions d’intégrité définies, où l’un indique l’état *Avertissement* et l’autre un état *Critique* (trois états contrôlés par l’utilisateur sont possibles) ou quand un problème non critique pouvant provoquer des problèmes importants s’il n’est pas résolu est détecté. Dans le cas d’un moniteur Rollup parent, si un ou plusieurs des enfants sont dans un état d’avertissement, le parent reflète l’état *Avertissement*. Si un enfant se trouve dans un état *Critique* et un autre enfant dans un état d’*Avertissement*, le rollup parent affiche un état d’intégrité *Critique*.|
-| |Unknown |L’état d’intégrité est *Inconnu* lorsqu’il ne peut pas être calculé pour plusieurs raisons, par exemple en cas d’impossibilité de collecter des données, de service non initialisé, etc. Il ne s’agit pas d’un état contrôlé par l’utilisateur.| 
+Un critère d’intégrité est défini par l’un des quatre états : *Critique*, *Avertissement*, *Sain* et *Inconnu*. Les trois premiers sont configurables, ce qui signifie que vous pouvez modifier les valeurs de seuil des analyses à l’aide de [l’API Analyse de charge de travail](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). L’état *Inconnu* n’est pas configurable et il est réservé à des scénarios spécifiques.  
 
 La page de diagnostics d’intégrité comporte trois sections principales :
 
@@ -233,7 +219,7 @@ La configuration du type de critère d’intégrité **Unité** peut être modif
 Dans le volet de configuration des critères d’intégrité sélectionnés, utilisez l’exemple **Average Disk Seconds Per Write** (Moyenne de secondes sur disque par écriture) dont le seuil peut être configuré avec une valeur numérique différente. Il s’agit d’une analyse à deux états, ce qui signifie que l’intégrité passe uniquement de l’état Sain à l’état Avertissement. D’autres critères d’intégrité peuvent comprendre trois états, pour lesquels vous pouvez configurer une valeur pour le seuil d’état d’intégrité Avertissement et une pour le seuil Critique.  
 
 >[!NOTE]
->L’application des modifications de configuration des critères d’intégrité à une instance se transmet à toutes les instances surveillées.  Par exemple, si vous sélectionnez **Disque physique -1 D:** et modifiez le seuil **Average Disk Seconds Per Write** (Moyenne de secondes sur disque par écriture), il ne s’applique pas seulement à cette instance, mais aussi à toutes les autres instances de disque découvertes et surveillées sur la machine virtuelle.
+>L’application des modifications de configuration des critères d’intégrité à une instance se transmet à toutes les instances surveillées.  Par exemple, si vous sélectionnez **Disk -1 D:** et modifiez le seuil **Average Disk Seconds Per Write** (Moyenne de secondes sur disque par écriture), il ne s’applique pas seulement à cette instance, mais aussi à toutes les autres instances de disque découvertes et surveillées sur la machine virtuelle.
 >
 
 ![Exemple de configuration d’un critère d’intégrité d’un moniteur d'unités](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
@@ -252,9 +238,9 @@ Les trois colonnes sont liées entre elles. Lorsque vous sélectionnez une insta
 
 ![Exemple de sélection d’instance et de résultats surveillés](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-Dans l’exemple ci-dessus, lorsque vous sélectionnez **Disque physique - 1 D:**, le filtre de l’arborescence des critères d’intégrité prend la valeur **Disque physique - 1 D:**. La colonne **Changement d’état** montre le changement d’état en fonction de la disponibilité de **Disque physique - 1 D:**. 
+Dans l’exemple ci-dessus, lorsque vous sélectionnez **Disk – 1 D:**, le filtre de l’arborescence des critères d’intégrité prend la valeur **Disk – 1 D:**. La colonne **Changement d’état** montre le changement d’état en fonction de la disponibilité de **Disk – 1 D:**. 
 
-Pour afficher l’état d’intégrité mis à jour, vous pouvez actualiser la page Diagnostics d’intégrité en cliquant sur le lien **Actualiser**.  S’il existe une mise à jour de l’état d’intégrité des critères d’intégrité en fonction de l’intervalle d’interrogation prédéfini, cette tâche vous permet d’éviter l’attente en reflétant l’état d’intégrité le plus récent.  **L’état des critères d’intégrité** est un filtre qui vous permet de limiter les résultats en fonction de l’état d’intégrité sélectionné : *Sain*, *Avertissement*, *Critique*, *Inconnu* et *Tous*.  L’heure **Dernière mise à jour** indiquée dans le coin supérieur droit correspond à la dernière actualisation de la page Diagnostics d’intégrité.  
+Pour afficher l’état d’intégrité mis à jour, vous pouvez actualiser la page Diagnostics d’intégrité en cliquant sur le lien **Actualiser**.  S’il existe une mise à jour de l’état d’intégrité des critères d’intégrité en fonction de l’intervalle d’interrogation prédéfini, cette tâche vous permet d’éviter l’attente en reflétant l’état d’intégrité le plus récent.  **L’état des critères d’intégrité** est un filtre qui vous permet de limiter les résultats en fonction de l’état d’intégrité sélectionné : *Sain*, *Avertissement*, *Critique*, *Inconnu* et *Tous*.  L’heure **Dernière mise à jour** indiquée dans l’angle supérieur droit correspond à la dernière actualisation de la page Diagnostics d’intégrité.  
 
 ## <a name="alerts"></a>Alertes
 La fonctionnalité Azure Monitor pour l’intégrité des machines virtuelles s’intègre aux [Alertes Azure](../../azure-monitor/platform/alerts-overview.md) et déclenche une alerte lorsque les critères d’intégrité prédéfinis passent d’un état sain à un état non intègre lorsque la condition est détectée. Les alertes sont classées par niveau de gravité : de 0 à 4, la gravité 0 représentant le niveau de gravité le plus élevé.  

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: d77cdd7781f3a371d6089573a16ba642fb1c774c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912780"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769866"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -26,7 +26,7 @@ Cet article décrit les limites et les détails de configuration liés à la cr�
 
 Les limites pour la définition d’une application logique sont les suivantes :
 
-| NOM | Limite | Notes | 
+| Nom | Limite | Notes | 
 | ---- | ----- | ----- | 
 | Actions par flux de travail | 500 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
 | Niveaux d’imbrication d’actions autorisés | 8 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. | 
@@ -48,7 +48,7 @@ Les limites pour la définition d’une application logique sont les suivantes :
 
 Les limites pour l’exécution d’une application logique sont les suivantes :
 
-| NOM | Limite | Notes | 
+| Nom | Limite | Notes | 
 |------|-------|-------| 
 | Durée d’exécution | 90 jours | Pour changer cette limite, consultez [Modifier la durée d’exécution et la rétention de stockage](#change-duration). | 
 | Rétention de stockage | 90 jours à compter de l’heure de début de l’exécution | Pour modifier cette limite par une valeur comprise entre 7 jours et 90 jours, consultez [modifier la rétention de stockage](#change-retention). | 
@@ -83,15 +83,15 @@ Lorsque vous supprimez une application logique, aucune nouvelle exécution n’e
 
 Les limites pour l’exécution d’une application logique sont les suivantes :
 
-| NOM | Limite | Notes | 
+| Nom | Limite | Notes | 
 | ---- | ----- | ----- | 
-| Déclencheur simultané | 50 lorsque vous limitez le déclencheur simultané | Lorsque vous activez le contrôle d’accès concurrentiel pour un déclencheur, la limite par défaut est 25. Cette limite décrit le nombre maximal d’instances d’application logique pouvant être lancées en même temps ou en parallèle. <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Modifier la limite du déclencheur simultané](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Exécutions en attente maximale | 100 lorsque vous limitez le déclencheur simultané | Lorsque vous activez le contrôle d’accès concurrentiel pour un déclencheur, la limite par défaut est 10. Cette limite décrit le nombre maximal d’instances d’application logique pouvant attendre de s’exécuter quand le nombre maximal d’instances simultanées sont déjà en cours d’exécution. <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 0 et 100 (inclus), consultez [Modifier les limites d’exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Éléments du tableau Foreach | 100 000 | Cette limite décrit le nombre maximal d’éléments de table qu’une boucle « for each » peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](../connectors/connectors-native-query.md). | 
-| Accès concurrentiel Foreach | 50 lorsque vous limitez le déclencheur simultané | Lorsque vous activez le contrôle d’accès concurrentiel pour cette boucle, la limite par défaut est 20. Cette limite décrit le nombre maximal d’itérations de boucles « for each » qui peuvent s’exécuter en même temps ou en parallèle. <p><p>Pour changer la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Changer la limite de simultanéité « for each »](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
-| Éléments SplitOn | 100 000 | | 
-| Itérations Until | 5 000 | | 
-|||| 
+| Déclencheur simultané | * Illimité lorsque le contrôle d’accès concurrentiel est désactivé <p><p>* 25 est la limite par défaut lorsque le contrôle d’accès concurrentiel est activé, ce qui ne peut pas être annulé une fois le contrôle activé. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant être exécutée simultanément ou en parallèle. <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Modifier la limite du déclencheur simultané](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Exécutions en attente maximale | Lorsque le contrôle d’accès concurrentiel est activé, le nombre minimal d’exécutions en attente est égal à 10 plus le nombre d’exécutions simultanées (concurrence du déclencheur). Vous pouvez modifier le nombre maximal jusqu’à la valeur maximale 100 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant attendre de s’exécuter quand votre application logique exécute déjà le nombre maximal d’instances simultanées. <p><p>Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Éléments du tableau Foreach | 100 000 | Cette limite décrit le nombre maximal d’éléments de tableau qu’une boucle « for each » peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](../connectors/connectors-native-query.md). | 
+| Accès concurrentiel Foreach | La limite par défaut est 20 lorsque le contrôle d’accès concurrentiel est désactivé. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite indique le nombre maximal d’itérations de boucles « for each » qui peuvent s’exécuter simultanément ou en parallèle. <p><p>Pour changer la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Changer la limite de simultanéité « for each »](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Éléments SplitOn | 100 000 | Pour les déclencheurs qui retournent un tableau, vous pouvez spécifier une expression utilisant une propriété « SplitOn » qui [fractionne ou dégroupe des éléments de tableau en plusieurs instances de workflows](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) à des fins de traitement, au lieu d’utiliser une boucle « for each ». Cette expression fait référence au tableau à utiliser pour la création et l’exécution d’une instance de workflow pour chaque élément du tableau. |
+| Itérations Until | 5 000 | |
+||||
 
 <a name="throughput-limits"></a>
 
@@ -99,7 +99,7 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 Les limites pour l’exécution d’une application logique sont les suivantes :
 
-| NOM | Limite | Notes | 
+| Nom | Limite | Notes | 
 | ---- | ----- | ----- | 
 | Action : Exécutions par tranche de 5 minutes | 300 000 | La limite par défaut est définie sur 100 000. Pour modifier la limite par défaut, consultez [exécuter votre application logique en mode de « débit élevé »](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), disponible dans la préversion. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
 | Action : Appels sortants simultanés | ~2,500 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. | 
@@ -117,7 +117,7 @@ Pour dépasser ces limites dans le cadre d’un traitement normal ou exécuter d
 
 ### <a name="file-size"></a>Taille du fichier
 
-| NOM | Limite | Notes |
+| Nom | Limite | Notes |
 |------|-------|-------|
 | FTP | 50 Mo | Pour dépasser cette limite pour les actions uniquement, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). <p>**Remarque**: La segmentation ne s’applique pas aux déclencheurs. En outre, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
 | SFTP | 50 Mo | Pour dépasser cette limite pour les actions uniquement, utilisez le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). <p>**Remarque**: La segmentation ne s’applique pas aux déclencheurs. En outre, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
@@ -134,7 +134,7 @@ Les limites pour un appel de connecteur synchrone ou de requête HTTP unique son
 
 Comme certaines opérations de connecteur effectuent des appels asynchrones ou écoutent les demandes de webhook, le délai d’expiration pour ces opérations peut dépasser ces limites. Pour plus d’informations, consultez les détails techniques pour le connecteur spécifique et aussi [Actions et déclencheurs de workflow](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| NOM | Limite | Notes | 
+| Nom | Limite | Notes | 
 | ---- | ----- | ----- | 
 | Requête sortante | 120 secondes | Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). | 
 | Réponse synchrone | 120 secondes | Pour que la requête d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). | 
@@ -142,7 +142,7 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 #### <a name="message-size"></a>Taille des messages
 
-| NOM | Limite | Notes | 
+| Nom | Limite | Notes | 
 | ---- | ----- | ----- | 
 | Taille des messages | 100 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
 | Taille des messages avec segmentation | 1 Go | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. Pour plus d’informations, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). | 
@@ -151,7 +151,7 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 #### <a name="retry-policy"></a>Stratégie de nouvelle tentative
 
-| NOM | Limite | Notes | 
+| Nom | Limite | Notes | 
 | ---- | ----- | ----- | 
 | Nouvelles tentatives | 90 | Valeur par défaut : 4. Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Délai maximal avant nouvelle tentative | 1 jour | Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
@@ -164,7 +164,7 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 Les limites pour les connecteurs personnalisés qu’il est possible de créer à partir d’API web sont les suivantes.
 
-| NOM | Limite | 
+| Nom | Limite | 
 | ---- | ----- | 
 | Nombre de connecteurs personnalisés | 1 000 par abonnement Azure | 
 | Nombre de demandes par minute pour chaque connexion créée par un connecteur personnalisé | 500 demandes par connexion |
@@ -174,7 +174,7 @@ Les limites pour les connecteurs personnalisés qu’il est possible de créer �
 
 ## <a name="managed-identities"></a>Identités managées
 
-| NOM | Limite | 
+| Nom | Limite | 
 | ---- | ----- | 
 | Nombre d’applications logiques avec des identités managées assignées par le système par abonnement Azure | 10 | 
 |||
@@ -195,53 +195,58 @@ Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pou
 
 | Artefact | Limite | Notes | 
 |----------|-------|-------| 
-| Partenaires commerciaux EDI | 25 | | 
-| Contrats commerciaux EDI | 10 | | 
-| Cartes | 25 | | 
-| Schémas | 25 | 
 | Assemblys | 10 | | 
 | Configurations par lots | 5. | 
 | Certificats | 25 | | 
+| Contrats commerciaux EDI | 10 | | 
+| Partenaires commerciaux EDI | 25 | | 
+| Cartes | 25 | | 
+| Schémas | 25 | 
 |||| 
 
 *Niveau de base*
 
 | Artefact | Limite | Notes | 
 |----------|-------|-------| 
-| Partenaires commerciaux EDI | 2 | | 
-| Contrats commerciaux EDI | 1 | | 
-| Cartes | 500 | | 
-| Schémas | 500 | 
 | Assemblys | 25 | | 
 | Configurations par lots | 1 | | 
 | Certificats | 2 | | 
+| Contrats commerciaux EDI | 1 | | 
+| Partenaires commerciaux EDI | 2 | | 
+| Cartes | 500 | | 
+| Schémas | 500 | 
 |||| 
 
 *Niveau standard*
 
 | Artefact | Limite | Notes | 
 |----------|-------|-------| 
-| Partenaires commerciaux EDI | 500 | | 
-| Contrats commerciaux EDI | 500 | | 
-| Cartes | 500 | | 
-| Schémas | 500 | 
 | Assemblys | 50 | | 
 | Configurations par lots | 5. |  
 | Certificats | 50 | | 
+| Contrats commerciaux EDI | 500 | | 
+| Partenaires commerciaux EDI | 500 | | 
+| Cartes | 500 | | 
+| Schémas | 500 | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
 
 ### <a name="artifact-capacity-limits"></a>Limites de capacité des artefacts
 
-| NOM | Limite | Notes | 
-| ---- | ----- | ----- | 
-| Schéma | 8 Mo | Pour charger des fichiers supérieurs à 2 Mo, utilisez [l’URI d’objet blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
-| Mappage (fichier XSLT) | 2 Mo | | 
-| Point de terminaison du runtime : appels de lecture toutes les cinq minutes | 60 000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
-| Point de terminaison du runtime : appels d’invocation toutes les cinq minutes | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
-| Point de terminaison du runtime : appels de suivi toutes les cinq minutes | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
-| Point de terminaison du runtime : appels simultanés de blocage | ~1,000 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. | 
+| Artefact | Limite | Notes | 
+| -------- | ----- | ----- | 
+| Assembly | 8 Mo | Pour charger des fichiers d’une taille supérieure à 2 Mo, utilisez un [compte de stockage Azure et un conteneur d’objets blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+| Mappage (fichier XSLT) | 8 Mo | Pour charger des fichiers d’une taille supérieure à 2 Mo, utilisez l’[API REST Azure Logic Apps – Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). | 
+| Schéma | 8 Mo | Pour charger des fichiers d’une taille supérieure à 2 Mo, utilisez un [compte de stockage Azure et un conteneur d’objets blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+||||
+
+| Point de terminaison du runtime | Limite | Notes |
+|------------------|-------|-------|
+| appels de lecture toutes les cinq minutes | 60 000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
+| appels d’invocation toutes les cinq minutes | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
+| appels de suivi toutes les cinq minutes | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
+| appels simultanés de blocage | ~1,000 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
@@ -250,7 +255,7 @@ Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pou
 
 Les limites qui s’appliquent aux protocoles B2B sont les suivantes :
 
-| NOM | Limite | Notes | 
+| Nom | Limite | Notes | 
 | ---- | ----- | ----- | 
 | AS2 | 50 Mo | S’applique au décodage et à l’encodage. | 
 | X 12 | 50 Mo | S’applique au décodage et à l’encodage. | 

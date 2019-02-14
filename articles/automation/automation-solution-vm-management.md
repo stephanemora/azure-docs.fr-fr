@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 1/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5cacd2d0e4308e15b562169f72efb0f98ce45289
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476394"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658384"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
@@ -136,7 +136,7 @@ Dans un environnement comprenant deux composants ou plus sur plusieurs machines 
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Configurer le démarrage et l’arrêt pour une liste de machines virtuelles
 
-1. Ajoutez des balises **sequencestart** et **sequencestop** contenant une valeur entière positive aux machines virtuelles que vous prévoyez d’ajouter à la variable **VMList**. 
+1. Ajoutez des balises **sequencestart** et **sequencestop** contenant une valeur entière positive aux machines virtuelles que vous prévoyez d’ajouter au paramètre **VMList**.
 1. Exécutez le runbook **SequencedStartStop_Parent** avec le paramètre ACTION défini sur **Start**, ajoutez une liste de machines virtuelles séparées par des virgules dans le paramètre *VMList* et définissez le paramètre WHATIF sur **True**. Affichez un aperçu de vos modifications.
 1. Configurez le paramètre **External_ExcludeVMNames** avec une liste de noms de machines virtuelles séparés par une virgule (VM1, VM2, VM3).
 1. Ce scénario ne tient pas compte des variables **External_Start_ResourceGroupNames** et **External_Stop_ResourceGroupnames**. Pour ce scénario, vous devez créer votre propre planification Automation. Pour plus d’informations, consultez [Planification d'un Runbook dans Azure Automation](../automation/automation-schedules.md).
@@ -319,13 +319,29 @@ Voici un exemple d’e-mail envoyé lorsque la solution arrête les machines vir
 
 ![Page de solution de gestion des mises à jour de Automation](media/automation-solution-vm-management/email.png)
 
+## <a name="add-exclude-vms"></a>Ajouter/exclure des machines virtuelles
+
+La solution offre la possibilité d’ajouter des machines virtuelles que la solution doit cible, ou d’exclure spécifiquement des machines de la solution.
+
+### <a name="add-a-vm"></a>Ajouter une machine virtuelle
+
+Il existe quelques options que vous pouvez utiliser pour vous assurer qu’une machine virtuelle est incluse dans la solution Start/Stop lorsqu’elle s’exécute.
+
+* Chaque [runbook](#runbooks) parent de la solution a un paramètre **VMList**. Vous pouvez passer d’une liste séparée par des virgules des noms de machines virtuelles à ce paramètre lors de la planification du runbook parent approprié pour votre situation. Ces machines virtuelles seront alors incluses lors de l’exécution de la solution.
+
+* Pour sélectionner plusieurs machines virtuelles, définissez les variables **External_Start_ResourceGroupNames** et **External_Stop_ResourceGroupNames** en utilisant les noms de groupe de ressources contenant les machines virtuelles que vous souhaitez démarrer ou arrêter. Vous pouvez également définir cette valeur sur `*` pour que la solution s’exécute sur tous les groupes de ressources dans l’abonnement.
+
+### <a name="exclude-a-vm"></a>Exclure une machine virtuelle
+
+Pour exclure une machine virtuelle de la solution, vous pouvez l’ajouter à la variable **External_ExcludeVMNames**. Cette variable est une liste séparée par des virgules de machines virtuelles spécifiques à exclure de la solution Start/Stop.
+
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modifier les planifications de démarrage et d’arrêt
 
-La gestion de la planification du démarrage et de l’arrêt dans cette solution suit la procédure indiquée dans [Planification d’un Runbook dans Azure Automation](automation-schedules.md).
+La gestion de la planification du démarrage et de l’arrêt dans cette solution suit la procédure indiquée dans [Planification d’un Runbook dans Azure Automation](automation-schedules.md). Il doit être une planification distincte pour le démarrage et l’arrêt des machines virtuelles.
 
-Il est possible de configurer la solution pour simplement arrêter les machines virtuelles à une certaine heure. Pour cela, vous devez procéder comme suit :
+Il est possible de configurer la solution pour simplement arrêter les machines virtuelles à une certaine heure. Dans ce scénario vous créez simplement une planification d’**arrêt**, sans planification de **démarrage** correspondante. Pour cela, vous devez procéder comme suit :
 
-1. Assurez-vous d’avoir ajouté les groupes de ressources des machines virtuelles à arrêter dans la variable **External_Start_ResourceGroupNames**.
+1. Assurez-vous d’avoir ajouté les groupes de ressources des machines virtuelles à arrêter dans la variable **External_Sop_ResourceGroupNames**.
 2. Créez votre propre planification pour l’heure à laquelle vous souhaitez arrêter les machines virtuelles.
 3. Accédez au runbook **ScheduledStartStop_Parent** et cliquez sur **Planification**. Cela vous permet de sélectionner la planification créée à l’étape précédente.
 4. Sélectionnez **Paramètres et valeurs pour l’exécution** et définissez le paramètre ACTION sur « Stop ».

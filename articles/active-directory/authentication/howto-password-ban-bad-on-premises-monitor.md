@@ -10,12 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 52b0b552eaced0187adbf0fd1db612aa7eb23a5b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4a3127cde66ce7de9a3920d238193a3a3b2225be
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55665760"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56195785"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Aperçu : Supervision et journalisation dans la protection par mot de passe Azure AD
 
@@ -254,7 +255,7 @@ Le logiciel de service d’agent DC installe un objet de compteur de performanc
 
 La cmdlet `Get-AzureADPasswordProtectionDCAgent` peut être utilisée pour afficher des informations de base sur les divers agents DC en cours d’exécution dans un domaine ou une forêt. Ces informations sont extraites des objets serviceConnectionPoint inscrits par les services d’agent DC en cours d’exécution.
 
-Voici un exemple de sortie de cette applet de commande :
+Voici un exemple de sortie de cette cmdlet :
 
 ```PowerShell
 Get-AzureADPasswordProtectionDCAgent
@@ -267,7 +268,7 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 Les différentes propriétés sont mises à jour par chaque service de l’agent DC environ toutes les heures. Les données sont toujours soumises à la latence de la réplication Active Directory.
 
-La portée de la requête de l’applet de commande peut être influencée à l’aide des paramètres –Forest ou –Domain.
+La portée de la requête de la cmdlet peut être influencée à l’aide des paramètres –Forest ou –Domain.
 
 Si la valeur HeartbeatUTC est périmée, cela peut indiquer que l’agent DC de la protection par mot de passe Azure AD sur ce contrôleur de domaine n’est pas actuellement exécuté ou qu’il a été désinstallé, ou encore que la machine a été rétrogradée et n’a plus le rôle de contrôleur de domaine.
 
@@ -307,7 +308,7 @@ Le journal texte est désactivé par défaut. Un redémarrage du service Proxy e
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
 > [!TIP]
-> Le journal texte reçoit les mêmes entrées de niveau débogage que celles qui peuvent être consignées dans le journal de trace, mais son format est généralement plus facile à consulter et à analyser.
+> Le journal texte reçoit les mêmes entrées de niveau débogage que celles qui peuvent être consignées dans le journal de trace, mais sont format est généralement plus facile à consulter et à analyser.
 
 > [!WARNING]
 > Quand il est activé, ce journal reçoit un volume élevé d’événements, ce qui peut impacter les performances de la machine. Par conséquent, ce journal amélioré doit uniquement être activé lorsqu’un problème nécessite un examen plus approfondi, puis seulement pendant une courte période.
@@ -320,13 +321,13 @@ De plus, la plupart des applets de commande PowerShell de la protection par mot 
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
-En cas d’erreur de l’applet de commande et si solution et/ou la cause n’est pas évidente, ces journaux texte peuvent servir de référence.
+En cas d’erreur du cmdlet et si solution et/ou la cause n’est pas évidente, ces journaux texte peuvent servir de référence.
 
 ## <a name="proxy-discovery"></a>Détection de services Proxy
 
 L’applet de commande `Get-AzureADPasswordProtectionProxy` permet d’afficher des informations de base sur les différents services Proxy de protection par mot de passe Azure AD qui sont actuellement exécutés dans un domaine ou une forêt. Ces informations sont extraites des objets serviceConnectionPoint inscrits par les services Proxy en cours d’exécution.
 
-Voici un exemple de sortie de cette applet de commande :
+Voici un exemple de sortie de cette cmdlet :
 
 ```PowerShell
 Get-AzureADPasswordProtectionProxy
@@ -338,7 +339,7 @@ HeartbeatUTC          : 12/25/2018 6:35:02 AM
 
 Les différentes propriétés sont mises à jour par chaque service Proxy environ toutes les heures. Les données sont toujours soumises à la latence de la réplication Active Directory.
 
-La portée de la requête de l’applet de commande peut être influencée à l’aide des paramètres –Forest ou –Domain.
+La portée de la requête de la cmdlet peut être influencée à l’aide des paramètres –Forest ou –Domain.
 
 Si la valeur HeartbeatUTC est périmée, cela peut indiquer que le service Proxy de la protection par mot de passe Azure AD sur cette machine n’est pas actuellement exécuté ou qu’il a été désinstallé.
 

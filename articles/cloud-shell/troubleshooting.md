@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 72f85761db08652f0dff7f36fbcb2ef90654e078
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334395"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568530"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Résolution des problèmes et limitations d’Azure Cloud Shell
 
@@ -30,37 +30,37 @@ Les solutions connues pour la résolution des problèmes d’Azure Cloud Shell s
 ### <a name="early-timeouts-in-firefox"></a>Délais d’expiration anticipés dans Firefox
 
 - **Détails** : Cloud Shell utilise un websocket ouvert pour passer les entrées/sorties à votre navigateur. Firefox a des stratégies prédéfinies qui peuvent fermer le websocket prématurément et causer des délais d’expiration anticipés dans Cloud Shell.
-- **Résolution** : ouvrez Firefox et accédez à « about:config » dans la barre d’URL. Recherchez « network.websocket.timeout.ping.request » et remplacez la valeur 0 par 10.
+- **Résolution** : ouvrez Firefox et accédez à « about:config » dans la barre d’URL. Recherchez « network.websocket.timeout.ping.request » et remplacez la valeur 0 par 10.
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Désactiver Cloud Shell dans un environnement réseau verrouillé
 
 - **Détails** : les administrateurs peuvent être amenés à désactiver l’accès à Cloud Shell pour les utilisateurs. Cloud Shell utilise l’accès au domaine `ux.console.azure.com`, qui peut être refusé, ce qui interrompt tout accès aux points d’entrée de Cloud Shell, y compris portal.azure.com, shell.azure.com, l’extension de compte Azure Visual Studio Code et docs.microsoft.com.
-- **Résolution** : limitez l’accès de `ux.console.azure.com` à votre environnement par le biais des paramètres réseau. L’icône Cloud Shell reste présente sur portal.azure.com, mais ne permettra pas la connexion au service.
+- **Résolution** : limitez l’accès de `ux.console.azure.com` à votre environnement par le biais des paramètres réseau. L’icône Cloud Shell reste présente sur portal.azure.com, mais ne permettra pas la connexion au service.
 
-### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Boîte de dialogue de stockage - Erreur : 403 RequestDisallowedByPolicy
+### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Boîte de dialogue Stockage – Erreur : 403 RequestDisallowedByPolicy
 
 - **Détails** : lorsque vous créez un compte de stockage par le biais de Cloud Shell, l’opération échoue en raison d’une stratégie Azure appliquée par votre administrateur. Le message d’erreur inclut le texte suivant :`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Résolution** : contactez votre administrateur Azure pour supprimer ou mettre à jour la stratégie Azure refusant la création du stockage.
+- **Résolution** : contactez votre administrateur Azure pour supprimer ou mettre à jour la stratégie Azure refusant la création du stockage.
 
-### <a name="storage-dialog---error-400-disallowedoperation"></a>Boîte de dialogue de stockage - Erreur : 400 DisallowedOperation
+### <a name="storage-dialog---error-400-disallowedoperation"></a>Boîte de dialogue Stockage – Erreur : 400 DisallowedOperation
 
-- **Détails** : lorsque j’utilise un abonnement Azure Active Directory, je ne peux pas créer de stockage.
+- **Détails** : lorsque vous utilisez un abonnement Azure Active Directory, vous ne pouvez pas créer de stockage.
 - **Résolution** : pour résoudre ce problème, utilisez un abonnement Azure habilité à créer des ressources de stockage. Les abonnements Azure AD ne peuvent pas créer de ressources Azure.
 
-### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Sortie du terminal - Erreur : Failed to connect terminal: websocket cannot be established. Press `Enter` to reconnect. (Échec de la connexion du terminal : impossible d’établir la connexion WebSocket. Appuyez sur Entrée pour rétablir la connexion.)
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Sortie du terminal – Erreur : Failed to connect terminal: websocket cannot be established. Press `Enter` to reconnect. (Échec de la connexion du terminal : impossible d’établir la connexion WebSocket. Appuyez sur Entrée pour rétablir la connexion.)
 - **Détails** : Cloud Shell doit pouvoir établir une connexion websocket à l’infrastructure Cloud Shell.
-- **Résolution** : vérifiez vous avez configuré vos paramètres réseau pour activer l’envoi de demandes https et websocket aux domaines sur *. console.azure.com.
+- **Résolution** : vérifiez vous avez configuré vos paramètres réseau pour activer l’envoi de demandes https et websocket aux domaines sur *. console.azure.com.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>Définir votre connexion Cloud Shell pour prendre en charge l’utilisation de TLS 1.2
  - **Détails** : pour définir la version de TLS pour votre connexion à Cloud Shell, vous devez définir des paramètres spécifiques au navigateur.
- - **Résolution** : accédez aux paramètres de sécurité de votre navigateur et cochez la case en regard de l’option d’utilisation de TLS 1.2.
+ - **Résolution** : accédez aux paramètres de sécurité de votre navigateur et cochez la case en regard de l’option d’utilisation de TLS 1.2.
 
 ## <a name="bash-troubleshooting"></a>Résolution des problèmes de Bash
 
 ### <a name="cannot-run-the-docker-daemon"></a>Impossible d’exécuter le démon Docker
 
-- **Détails** : comme Cloud Shell utilise un conteneur pour héberger votre environnement d’interpréteur de commandes, l’exécution du démon est interdite.
-- **Résolution** : utilisez l’outil [docker-machine](https://docs.docker.com/machine/overview/), qui est installé par défaut, pour gérer les conteneurs Docker d’un hôte Docker distant.
+- **Détails** : Cloud Shell utilisant un conteneur pour héberger votre environnement d’interpréteur de commandes, l’exécution du démon est interdite.
+- **Résolution** : utilisez l’outil [docker-machine](https://docs.docker.com/machine/overview/), qui est installé par défaut, pour gérer les conteneurs Docker d’un hôte Docker distant.
 
 ## <a name="powershell-troubleshooting"></a>Résolution des problèmes de PowerShell
 
@@ -73,13 +73,13 @@ Les solutions connues pour la résolution des problèmes d’Azure Cloud Shell s
 > [!NOTE]
 > Les machines virtuelles Azure doivent avoir une adresse IP publique.
 
-- **Détails** : en raison des paramètres de pare-feu Windows par défaut pour WinRM, l’erreur suivante peut s’afficher :`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Résolution** : exécutez `Enable-AzureRmVMPSRemoting` pour activer tous les aspects de la communication à distance PowerShell sur l’ordinateur cible.
+- **Détails** : en raison des paramètres de pare-feu Windows par défaut pour WinRM, l’erreur suivante peut s’afficher :`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Résolution** :  exécutez `Enable-AzureRmVMPSRemoting` pour activer tous les aspects de la communication à distance PowerShell sur l’ordinateur cible.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` ne met pas à jour le résultat dans le lecteur Azure.
 
 - **Détails** : par défaut, afin d’optimiser l’expérience utilisateur, les résultats de `dir` sont mis en cache dans le lecteur Azure.
-- **Résolution** : après avoir créé, mis à jour ou supprimé une ressource Azure, exécutez `dir -force` pour mettre à jour les résultats dans le lecteur Azure.
+- **Résolution** : après avoir créé, mis à jour ou supprimé une ressource Azure, exécutez `dir -force` pour mettre à jour les résultats dans le lecteur Azure.
 
 ## <a name="general-limitations"></a>Limitations générales
 
@@ -143,7 +143,7 @@ Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’
 
 ### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>Les commandes qui créent des fenêtres contextuelles dans l’interface graphique utilisateur ne sont pas prises en charge.
 
-Si l’utilisateur exécute une commande susceptible de créer une boîte de dialogue Windows, comme `Connect-AzureAD` ou `Connect-AzureRmAccount`, un message d’erreur apparaît tel que : `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Si l’utilisateur exécute une commande susceptible de créer une boîte de dialogue Windows, telle que `Connect-AzureAD`, `Connect-AzureRmAccount` ou `Connect-AzAccount`, un message d’erreur apparaît tel que : `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>La saisie semi-automatique via la touche Tab peut lever une exception PSReadline.
 
