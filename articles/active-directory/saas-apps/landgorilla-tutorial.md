@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Land Gorilla Client | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Land Gorilla Client | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Land Gorilla Client.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: f8f62736c803ec58c473d563728f68cfc729b974
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b2e1288885476aeeba01f966b615c23c5fe51081
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179189"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199508"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutoriel : Intégration d’Azure Active Directory à Land Gorilla Client
 

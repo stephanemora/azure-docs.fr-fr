@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à StatusPage | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à StatusPage | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et StatusPage.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 77de3e554e20b5380656e33bd15c9174a1f36681
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e940d7593b6760a81a781fd72c0bb45347b00c2a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734281"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168142"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Didacticiel : Intégration d'Azure Active Directory à StatusPage
+# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutoriel : Intégration d'Azure Active Directory à StatusPage
 
 Dans ce didacticiel, vous allez apprendre à intégrer StatusPage à Azure Active Directory (Azure AD).
 

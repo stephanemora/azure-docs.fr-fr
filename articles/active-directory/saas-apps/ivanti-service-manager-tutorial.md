@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Ivanti Service Manager (ISM) | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Ivanti Service Manager (ISM) | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Ivanti Service Manager (ISM).
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a125ea70a891d8db0ec652844a99153f19253bd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c8859c0363a738c744f5c9b496cf77f5aaf1ba61
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150289"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Tutoriel : Intégration d’Azure Active Directory à Ivanti Service Manager (ISM)
 

@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 109bd1c987c86721c6064fc0294913c85fa3a901
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e796afbb31c006b37b9a86556714ab3544c2fb8a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745569"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107513"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Fonctions logiques pour les modèles Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dans vos modèles.
 
@@ -42,8 +44,8 @@ Vérifie si toutes les valeurs de paramètres sont true.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
-| arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
+| arg1 |OUI |booléenne |La première valeur pour vérifier si c’est true. |
+| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
 | arguments supplémentaires |Non  |booléenne |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -105,7 +107,7 @@ Convertit le paramètre en valeur booléenne.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |chaîne ou entier |La valeur à convertir en booléen. |
+| arg1 |OUI |chaîne ou entier |La valeur à convertir en booléen. |
 
 ### <a name="return-value"></a>Valeur de retour
 Valeur booléenne de la valeur convertie.
@@ -170,9 +172,9 @@ Retourne une valeur indiquant si une condition est true ou false.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| condition |Oui |booléenne |La valeur pour vérifier si c’est true. |
-| trueValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
-| falseValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est false. |
+| condition |OUI |booléenne |La valeur pour vérifier si c’est true. |
+| trueValue |OUI | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
+| falseValue |OUI | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est false. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -280,7 +282,7 @@ Convertit la valeur booléenne à sa valeur opposée.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |booléenne |La valeur à convertir. |
+| arg1 |OUI |booléenne |La valeur à convertir. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -375,8 +377,8 @@ Vérifie si l’une des valeurs du paramètre est true.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
-| arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
+| arg1 |OUI |booléenne |La première valeur pour vérifier si c’est true. |
+| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
 | arguments supplémentaires |Non  |booléenne |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur de retour

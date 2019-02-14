@@ -15,12 +15,13 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: dcde2a09f9e066c49d870f230aed37655c4b6647
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5ed159decb51d71e8c0beddb285f6c01ae264ed2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093415"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206665"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Démarrage rapide : Sécuriser une API web avec Azure Active Directory
 
@@ -82,7 +83,7 @@ Les [arguments](/cli/azure/ad/app?view=azure-cli-latest#az-ad-app-create) de la 
 
 Avant de vous connecter à Azure Active Directory, vous avez besoin des informations suivantes :
 
-| NOM  | Description | Nom de la variable dans le fichier config |
+| Nom  | Description | Nom de la variable dans le fichier config |
 | ------------- | ------------- | ------------- |
 | Nom du locataire  | [Nom de locataire](quickstart-create-new-tenant.md) que vous souhaitez utiliser pour l’authentification | `tenantName`  |
 | ID client  | « ID de client » est un terme OAuth qui correspond à _l’ID d’application_ AAD. |  `clientID`  |

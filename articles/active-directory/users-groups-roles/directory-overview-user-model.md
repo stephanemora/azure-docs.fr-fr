@@ -12,12 +12,13 @@ ms.service: active-directory
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
-ms.openlocfilehash: d578794a258faa9ad0222207f73e108e11f3281f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 65983a5c9273b0eb88dbb7f2e3a8779b326352b3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770450"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205390"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Utilisateurs, groupes, licences et rôles pour grandes entreprises
 
@@ -58,7 +59,7 @@ De nouveaux rôles d’administrateur Azure AD sont ajoutés. Consultez le Porta
 
 ## <a name="assign-app-access"></a>Assigner l’accès aux applications
 
-Vous pouvez utiliser Azure AD pour assigner l’accès de groupe aux [applications d’entreprise qui sont déployées dans votre locataire Azure AD](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context). Si vous combinez des groupes dynamiques avec affectation de groupe aux applications, vous pouvez automatiser vos affectations d’accès utilisateur aux applications à mesure que votre entreprise se développe. Vous aurez besoin d’une licence Azure Active Directory Premium P1 ou Premium P2 pour assigner l’accès aux applications d’entreprise.
+Vous pouvez utiliser Azure AD pour assigner l’accès de groupe aux [applications d’entreprise qui sont déployées dans votre locataire Azure AD](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). Si vous combinez des groupes dynamiques avec affectation de groupe aux applications, vous pouvez automatiser vos affectations d’accès utilisateur aux applications à mesure que votre entreprise se développe. Vous aurez besoin d’une licence Azure Active Directory Premium P1 ou Premium P2 pour assigner l’accès aux applications d’entreprise.
 
 Azure AD vous permet également de contrôler plus précisément les données qui transitent entre l’application et les groupes auxquels vous assignez l’accès. Dans [Applications d’entreprise](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps), ouvrez une application et sélectionnez **Provisioning** (Approvisionnement) pour :
 
@@ -72,4 +73,4 @@ Azure AD vous permet également de contrôler plus précisément les données qu
 
 Si vous êtes un administrateur Azure AD novice, découvrez les principes de base dans [Azure Active Directory Fundamentals](https://docs.microsoft.com/azure/active-directory/fundamentals/index) (Notions de base d’Azure Active Directory).
 
-Vous pouvez également commencer à [créer des groupes](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [assigner des licences](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [assigner l’accès aux applications](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context) ou [assigner des rôles d’administrateur](directory-assign-admin-roles.md).
+Vous pouvez également commencer à [créer des groupes](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [assigner des licences](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [assigner l’accès aux applications](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) ou [assigner des rôles d’administrateur](directory-assign-admin-roles.md).

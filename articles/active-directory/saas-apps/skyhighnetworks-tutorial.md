@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Skyhigh Networks | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Skyhigh Networks | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Skyhigh Networks.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 6b66a7343c6ddaa9ff8cf36489798a96fbdf1c30
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b5469241bd285c60711d6e47f40bc4f5d2bf336d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175313"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178496"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Tutoriel : Intégration d’Azure Active Directory à Skyhigh Networks
 

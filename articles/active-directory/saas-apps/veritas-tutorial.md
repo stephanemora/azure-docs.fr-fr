@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Veritas Enterprise Vault.cloud SSO | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Veritas Enterprise Vault.cloud SSO | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Veritas Enterprise Vault.cloud SSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b2d4acb3a717f51d0ff15868dea917806b5b604
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 70adbcd8c25b3acb4408447070d3b0397d258847
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181960"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167454"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Veritas Enterprise Vault.cloud SSO
+# <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Tutoriel : Intégration d’Azure Active Directory à Veritas Enterprise Vault.cloud SSO
 
 Dans ce didacticiel, vous allez apprendre à intégrer Veritas Enterprise Vault.cloud SSO à Azure Active Directory (Azure AD).
 

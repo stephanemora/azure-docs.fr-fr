@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816269"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185314"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application ASP.NET
 
@@ -229,7 +230,7 @@ Cette option est un scénario courant pour les applications métier.
 Si vous souhaitez que votre application accepte les connexions uniquement à partir des comptes qui appartiennent à une instance Azure AD spécifique (y compris les *comptes invités* de cette instance), suivez les étapes suivantes :
 
 1. Remplacez le paramètre `Tenant` dans *web.config* de `Common` par le nom de locataire de l’organisation, par exemple *contoso.onmicrosoft.com*.
-1. Affectez la valeur `true` à l’argument `ValidateIssuer` dans votre [*classe de démarrage OWIN*](#configure-the-authentication-pipeline).
+1. Affectez la valeur `true` à l’argument `ValidateIssuer` dans votre [*classe de démarrage OWIN*](#step-4-configure-the-authentication-pipeline).
 
 Pour autoriser les utilisateurs à partir d’une liste d’organisations spécifiques, procédez comme suit :
 

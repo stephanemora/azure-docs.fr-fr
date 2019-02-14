@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a3807dc792c2e56c3e7c1b74f7d3e8f73ac0f4b0
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7fb382c6c57972484eff80c0d7355319a1f9178a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705087"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893549"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Établir un itinéraire vers un point d’intérêt avec Azure Maps
 
@@ -202,7 +202,7 @@ Cette section montre comment utiliser les API Route Service d’Azure Maps pour 
         endPoint.geometry.coordinates[0];
     ```
 
-3. Pour obtenir l’itinéraire, ajoutez le bloc de code suivant au script. Il interroge le service de routage Azure Maps via la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections), puis analyse la réponse au format GeoJSON à l’aide de [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes). Il ajoute ensuite la ligne de l’itinéraire dans la réponse à la source de données, qui l’affiche automatiquement sur la carte.
+3. Pour obtenir l’itinéraire, ajoutez le bloc de code suivant au script. Il interroge le service de routage Azure Maps via la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest), puis analyse la réponse au format GeoJSON à l’aide de [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Il ajoute ensuite la ligne de l’itinéraire dans la réponse à la source de données, qui l’affiche automatiquement sur la carte.
 
     ```JavaScript
     //Execute the car route query then add the route to the map once a response is received.

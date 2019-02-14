@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à iProva | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à iProva | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iProva.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: e07f893296ec20e8c722fc977f93a38a797fe5c9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6576366df214304bb30c46fa65a4bc8bc783cedf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490054"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182100"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Tutoriel : Intégration d’Azure Active Directory à iProva
 
@@ -164,15 +165,15 @@ Pour configurer l’authentification unique Azure AD avec iProva, effectuez les 
 
 1. Connectez-vous à iProva avec le compte **Administrateur**.
 
-2. Ouvrez le menu **Go to** (Atteindre).
+2. Ouvrez le menu **Atteindre**.
 
 3. Sélectionnez **Application management** (Gestion des applications).
 
 4. Sélectionnez **General** (Général) dans le panneau **System settings** (Paramètres système).
 
-5. Sélectionnez **Edit** (Modifier).
+5. Sélectionnez **Modifier**.
 
-6. Faites défiler jusqu’à **Access control** (Contrôle d’accès).
+6. Faites défiler jusqu’à **Contrôle d’accès**.
 
     ![Paramètres de contrôle d’accès iProva](media/iprova-tutorial/iprova-accesscontrol.png)
 
@@ -257,13 +258,13 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 1. Connectez-vous à iProva avec le compte **Administrateur**.
 
-2. Ouvrez le menu **Go to** (Atteindre).
+2. Ouvrez le menu **Atteindre**.
 
 3. Sélectionnez **Application management** (Gestion des applications).
 
 4. Sélectionnez **Users** (Utilisateurs) dans le panneau **Users and user groups** (Utilisateurs et groupes d’utilisateurs).
 
-5. Sélectionnez **Add** (Ajouter).
+5. Sélectionnez **Ajouter**.
 
 6. Dans la zone **Username** (Nom d’utilisateur), entrez *brittasimon@yourcompanydomain.extension*. 
     Par exemple BrittaSimon@contoso.com.

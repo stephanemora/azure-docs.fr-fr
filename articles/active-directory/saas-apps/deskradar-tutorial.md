@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Deskradar | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Deskradar | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Deskradar.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: fd1975239feb6d17d68e7932094a9a161a29f735
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5add648da98af6329e454e92f6e8db3b74d211b8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826511"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186316"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deskradar"></a>Tutoriel : Intégration d’Azure Active Directory à Deskradar
 
@@ -123,7 +124,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
 7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM | Attribut source|
+    | Nom | Attribut source|
     | ---------------| --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |

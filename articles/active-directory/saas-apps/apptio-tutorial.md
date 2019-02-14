@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Apptio | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Apptio | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Apptio.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: e600d9eb0cd100b1c2ab24b2545320a3e4cf1b39
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8303781e38ab2cb5284731f6ab038f038212810d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461030"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199542"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>Tutoriel : Intégration d’Azure Active Directory à Apptio
 
@@ -115,7 +116,7 @@ Pour configurer l’authentification unique Azure AD après d’Apptio, effectue
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit : 
 
-    | NOM |  Attribut source|
+    | Nom |  Attribut source|
     | -------------- | -------------------- |
     | fullname       | user.displayname |
     | mail           | user.mail |

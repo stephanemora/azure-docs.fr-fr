@@ -10,14 +10,15 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 5143b59028b3894d3b9a10add594dd91743a4196
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dabe0ad1a556ee43f3e6cae0e1cd421db5cde0fd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078880"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183205"
 ---
-# <a name="tutorial-enabling-password-writeback"></a>Tutoriel : Activation de la réécriture du mot de passe
+# <a name="tutorial-enabling-password-writeback"></a>Didacticiel : Activation de la réécriture du mot de passe
 
 Dans ce didacticiel, vous allez activer la réécriture du mot de passe pour votre environnement hybride. La réécriture du mot de passe permet de synchroniser les modifications de mot de passe dans Azure Active Directory (Azure AD) vers votre environnement de Active Directory Domain Services (AD DS) local. La réécriture du mot de passe est activée dans le cadre d’Azure AD Connect pour fournir un mécanisme sécurisé qui renvoie les modifications de mot de passe à un répertoire local existant à partir d’Azure AD. Vous trouverez plus de détails sur le fonctionnement interne de la réécriture du mot de passe dans l’article [What is password writeback](concept-sspr-writeback.md) (Qu’est-ce que la réécriture du mot de passe ?).
 

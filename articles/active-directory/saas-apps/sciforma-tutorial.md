@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Sciforma | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Sciforma | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sciforma.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: fea93e51d688887c831ae4b3526d717442281be7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1572a6af5523f6b8ea18c0e7f4365cd6ed20dea9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177489"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180043"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Tutoriel : Intégration d’Azure Active Directory à Sciforma
 

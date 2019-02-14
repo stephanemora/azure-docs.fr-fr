@@ -13,14 +13,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 49a2e16d198130d1c72d36377be1d914cbe3351b
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: fcef143f48bc9e7864fe69900e3c9002fd597fb5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745246"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001866"
 ---
-# <a name="create-a-data-factory-and-pipeline-using-python"></a>Créer une fabrique de données et un pipeline à l’aide de Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Démarrage rapide : Créer une fabrique de données et un pipeline à l’aide de Python
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version actuelle](quickstart-create-data-factory-python.md)
@@ -47,6 +48,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 2.  Utilisez des outils tels que l’[Explorateur Stockage Azure](http://storageexplorer.com/) pour créer le conteneur **adfv2tutorial** et **charger** le fichier sur ce dernier. Ensuite, chargez le fichier **input.txt** dans le dossier **input**.
 
 ## <a name="install-the-python-package"></a>Installer le package Python
+
 1. Ouvrez un terminal ou une invite de commandes avec des privilèges d’administrateur. 
 2. D’abord, installez le package Python pour les ressources de gestion Azure :
 
@@ -104,7 +106,6 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
             print("\tCopy duration: {}".format(activity_run.output['copyDuration']))
         else:
             print("\tErrors: {}".format(activity_run.error['message']))
-
     ```
 3. Ajoutez le code suivant à la méthode **Main** qui crée une instance de la classe DataFactoryManagementClient. Cet objet vous permet de créer la fabrique de données, un service lié, des jeux de données ainsi qu’un pipeline. Cet objet vous permet également de surveiller les détails de l’exécution du pipeline. Définissez la variable **subscription_id** pour l’ID de votre abonnement Azure. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
@@ -165,9 +166,11 @@ Vous allez créer des services liés dans une fabrique de données pour lier vos
     print_item(ls)
 ```
 ## <a name="create-datasets"></a>Créez les jeux de données
+
 Dans cette section, vous créez deux jeux de données : un pour la source et l’autre pour le récepteur.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Créer un jeu de données pour l’objet blob Azure source
+
 Ajoutez le code suivant à la méthode Main qui crée un jeu de données d’objet blob Azure. Pour plus d’informations sur les propriétés du jeu de données d’objet blob Azure, consultez l’article [Connecteur d’objets blob Azure](connector-azure-blob-storage.md#dataset-properties).
 
 Vous définissez un jeu de données qui représente les données sources dans l’objet blob Azure. Ce jeu de données d’objet blob fait référence au service lié Azure Storage que vous avez créé à l’étape précédente.
@@ -184,6 +187,7 @@ Vous définissez un jeu de données qui représente les données sources dans l�
 ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob"></a>Créer un jeu de données pour l’objet blob Azure récepteur
+
 Ajoutez le code suivant à la méthode Main qui crée un jeu de données d’objet blob Azure. Pour plus d’informations sur les propriétés du jeu de données d’objet blob Azure, consultez l’article [Connecteur d’objets blob Azure](connector-azure-blob-storage.md#dataset-properties).
 
 Vous définissez un jeu de données qui représente les données sources dans l’objet blob Azure. Ce jeu de données d’objet blob fait référence au service lié Azure Storage que vous avez créé à l’étape précédente.
@@ -218,7 +222,6 @@ Ajoutez le code suivant à la méthode **Main** qui crée un **pipeline avec une
     print_item(p)
 ```
 
-
 ## <a name="create-a-pipeline-run"></a>Créer une exécution du pipeline
 
 Ajoutez le code suivant à la méthode **Main** qui **déclenche une exécution du pipeline**.
@@ -232,6 +235,7 @@ Ajoutez le code suivant à la méthode **Main** qui **déclenche une exécution 
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>Surveiller une exécution du pipeline
+
 Pour surveiller l’exécution du pipeline, ajoutez le code suivant à la méthode **Main** :
 
 ```python
@@ -251,6 +255,7 @@ main()
 ```
 
 ## <a name="full-script"></a>Script complet
+
 Voici le code Python complet :
 
 ```python
@@ -381,6 +386,7 @@ main()
 ```
 
 ## <a name="run-the-code"></a>Exécuter le code
+
 Créez et démarrez l’application, puis vérifiez l’exécution du pipeline.
 
 La console affiche la progression de la création de la fabrique de données, du service lié, des jeux de données, du pipeline et de l’exécution du pipeline. Patientez jusqu’à l’affichage des détails de l’exécution de l’activité de copie avec la taille des données lues/écrites. Utilisez ensuite des outils comme l’[explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vérifier que les objets blob sont copiés dans « outputBlobPath » depuis « inputBlobPath » comme vous l’avez spécifié dans les variables.
@@ -417,8 +423,8 @@ Number of bytes written: 18
 Copy duration: 4
 ```
 
-
 ## <a name="clean-up-resources"></a>Supprimer des ressources
+
 Pour supprimer la fabrique de données, ajoutez le code suivant au programme :
 
 ```python
@@ -426,4 +432,5 @@ adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Consultez les [didacticiels](tutorial-copy-data-dot-net.md) pour en savoir plus sur l’utilisation de Data Factory dans d’autres scénarios.

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory dans Moxi Engage | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory dans Moxi Engage | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Moxi Engage.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 07f2893e799be44ed7b5f78fb6cd80b8cfb2a240
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4030d115bc085f500f5782df3d507cef928adba7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189015"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199610"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Tutoriel : Intégration d’Azure Active Directory dans Moxi Engage
+# <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Didacticiel : Intégration d’Azure Active Directory dans Moxi Engage
 
 Dans ce didacticiel, vous allez apprendre à intégrer Moxi Engage dans Azure Active Directory (Azure AD).
 

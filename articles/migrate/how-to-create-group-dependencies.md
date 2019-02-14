@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 007f7fe95be77a2b1661cd6c82118eb875401f24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5c4d16ff85972bc4b608e6ce2006912fb27d49d2
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472573"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895429"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Affiner un groupe à l’aide du mappage de dépendances de groupe
 
@@ -104,7 +104,7 @@ Une fois que vous avez installé les agents sur toutes les machines du groupe, v
 3. Pour afficher des dépendances plus précises, cliquez sur l’intervalle de temps et modifiez-le. Par défaut, il est fixé à une heure. Vous pouvez le modifier ou spécifier une date de début, une date de fin et une durée.
 
     > [!NOTE]
-      Actuellement, l’interface utilisateur de visualisation des dépendances ne prend pas en charge la sélection d’un intervalle de temps supérieur à une heure. Utilisez Log Analytics pour [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-a-group#query-dependency-data-from-log-analytics) sur une plus longue durée.
+      Actuellement, l’interface utilisateur de visualisation des dépendances ne prend pas en charge la sélection d’un intervalle de temps supérieur à une heure. Utilisez Log Analytics pour [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) sur une plus longue durée.
 
 4. Vérifiez les machines dépendantes, le processus en cours d’exécution pour chaque machine et identifiez les machines qui doivent être ajoutées ou supprimées du groupe.
 5. Utilisez Ctrl + clic pour sélectionner des machines sur la carte et les ajouter ou supprimer du groupe.

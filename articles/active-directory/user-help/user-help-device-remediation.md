@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 668d69921fd2001cd52bc864e5ee272d179a7bbc
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a7cd67a9a7027e8567e470acab006fd09748de54
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770467"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181709"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Raisons potentielles du message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
 Lorsque vous accédez aux applications ou services web internes de votre organisation, le message d’erreur **Vous ne pouvez pas y accéder à partir d’ici** peut s’afficher. Ce message signifie que votre organisation a mis en place une stratégie qui empêche votre appareil d’accéder à ses ressources. Avant de contacter votre service d’assistance pour résoudre le problème, voici un certain nombre de choses que vous pouvez essayer préalablement.

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Picturepark | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Picturepark | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Picturepark.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 10ddfa2f7b2b17c23da1e67474a4b464780bc2e6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e56dc54c2c296ee17b04070ac8ee68d2180b7046
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163643"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183443"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Didacticiel : Intégration d’Azure Active Directory à Picturepark
+# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutoriel : Intégration d’Azure Active Directory à Picturepark
 
 Ce didacticiel explique comment intégrer Picturepark avec Azure Active Directory (Azure AD).
 

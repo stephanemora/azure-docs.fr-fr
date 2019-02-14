@@ -13,12 +13,13 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 198fb3376d44123d39a0b3ca2fb1edbd070f1f09
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 797ac714d3205a271fe6590a3a320e1b9e2a073e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510984"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194731"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 
@@ -66,7 +67,7 @@ Vous devez modifier ou supprimer n’importe quelle ressource de ce type dans vo
 
 ### <a name="forcedelete-option"></a>Option ForceDelete
 
-Vous pouvez appliquer l’option **ForceDelete** à un nom de domaine dans le [Centre d’administration Azure AD](https://aad.portal.azure.com) ou à l’aide de [l’API Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete). Ces options utilisent une opération asynchrone et mettent à jour toutes les références depuis le nom de domaine personnalisé comme « user@contoso.com » vers le nom de domaine par défaut initial comme « user@contoso.onmicrosoft.com ». 
+Vous pouvez appliquer l’option **ForceDelete** à un nom de domaine dans le [Centre d’administration Azure AD](https://aad.portal.azure.com) ou à l’aide de [l’API Microsoft Graph](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Ces options utilisent une opération asynchrone et mettent à jour toutes les références depuis le nom de domaine personnalisé comme « user@contoso.com » vers le nom de domaine par défaut initial comme « user@contoso.onmicrosoft.com ». 
 
 Pour appeler **ForceDelete** dans le Portail Azure, vous devez vous assurer qu’il y a moins de 1 000 références au nom de domaine, et toutes les références dans lesquelles Exchange est le service d’approvisionnement doivent être mises à jour ou supprimées dans le [ Centre d’administration Exchange](https://outlook.office365.com/ecp/). Cela inclut les listes distribuées et les groupes de sécurité à extension messagerie ; pour plus d’informations, consultez [Supprimer les groupes de sécurité à extension messagerie](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). En outre, l’opération **ForceDelete** échoue si l’un des énoncés suivants est vrai :
 
@@ -112,4 +113,4 @@ La plupart des tâches de gestion des noms de domaine dans Azure Active Director
 
 * [Ajouter des noms de domaines personnalisés](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Supprimer les groupes de sécurité à extension messagerie](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [ForceDelete a custom domain name with Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete) (Appliquer une opération ForceDelete sur un nom de domaine personnalisé avec l’API Microsoft Graph)
+* [ForceDelete a custom domain name with Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta) (Appliquer une opération ForceDelete sur un nom de domaine personnalisé avec l’API Microsoft Graph)

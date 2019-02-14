@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Menlo Security | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Menlo Security | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Menlo Security.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: jeedes
-ms.openlocfilehash: fb4a82d1ae34c81df535e606a39eaf091f7df0da
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e779e4fab06802212514af94cafc1b016b737ca4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158058"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Tutoriel : Intégration d'Azure Active Directory à Menlo Security
 

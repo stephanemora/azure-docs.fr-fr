@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à iDiD Manager | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à iDiD Manager | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iDiD Manager.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a12a0b383db63cc80aea045ca5afe6c75b0b83a9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 524d1fbe69dc2f9c233834fa961c8a9e0b7c2d00
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100017"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196788"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Didacticiel : Intégration d’Azure Active Directory à iDiD Manager
+# <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Tutoriel : Intégration d’Azure Active Directory à iDiD Manager
 
 L’objectif de ce tutoriel est de vous apprendre à intégrer iDiD Manager à Azure Active Directory (Azure AD).
 L’intégration d’iDiD Manager à Azure AD vous offre les avantages suivants :

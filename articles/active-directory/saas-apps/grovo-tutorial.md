@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Grovo | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Grovo | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Grovo.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 057775f7818d1a6dc521fe81b01748fa40085cc8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 535e4a9c0555636d4ed068a7983b31c2cb91e75f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174242"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Tutoriel : Intégration d’Azure Active Directory à Grovo
 

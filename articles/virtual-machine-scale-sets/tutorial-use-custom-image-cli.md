@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: aafec48f86ee032b112e9bb1100f82fbb3b363ed
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755184"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118392"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Didacticiel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure CLI
 Lorsque vous créez un groupe identique, vous spécifiez une image à utiliser lors du déploiement des instances de machine virtuelle. Pour réduire le nombre de tâches une fois que les instances de machine virtuelle sont déployées, vous pouvez utiliser une image de machine virtuelle personnalisée. Cette image de machine virtuelle personnalisée inclut les configurations ou installations des applications requises. Toutes les instances de machine virtuelle créées dans le groupe identique utilisent l’image de machine virtuelle personnalisée et sont prêtes à répondre au trafic des applications. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -88,6 +88,7 @@ exit
 La machine virtuelle source est à présent personnalisée avec le serveur web Nginx installé. Nous allons créer l’image de machine virtuelle personnalisée à utiliser avec un groupe identique.
 
 Pour créer une image, la machine virtuelle doit être libérée. Libérez la machine virtuelle avec la commande [az vm deallocate](/cli//azure/vm). Définissez ensuite l’état de la machine virtuelle comme généralisé avec [az vm generalize](/cli//azure/vm), afin que la plateforme Azure sache que la machine virtuelle est prête pour utiliser une image personnalisée. Vous pouvez uniquement créer une image à partir d’une machine virtuelle généralisée :
+
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM

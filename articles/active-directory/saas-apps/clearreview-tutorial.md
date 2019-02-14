@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Clear Review | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Clear Review | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Clear Review.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ba4d6af15145bb043629a81e4bf21f53658875a3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 334981da69b0810653030aae82a7dd3a8b7a7147
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692186"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180683"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutoriel : Intégration d’Azure Active Directory à Clear Review
+# <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Didacticiel : Intégration d’Azure Active Directory à Clear Review
 
 Dans ce didacticiel, vous allez apprendre à intégrer Clear Review avec Azure Active Directory (Azure AD).
 L’intégration de Clear Review à Azure AD vous offre les avantages suivants :
