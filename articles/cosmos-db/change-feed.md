@@ -1,19 +1,19 @@
 ---
 title: Utilisation du support de flux de modification dans Azure Cosmos DB
 description: Utilisez le support de flux de modification d’Azure Cosmos DB pour suivre les modifications dans les documents et effectuer des opérations de traitement basées sur les événements tels que des déclencheurs et la mise à jour des systèmes de cache et d’analyse.
-author: rafats
-ms.author: rafats
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 95fd5b753d2018ebf422c4d9c88c2e3f6aba7bd8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2224c798d0854aab2d3ec7fc2c03b51de58dbfc0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452258"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244434"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Flux de modification dans Azure Cosmos DB - Vue d'ensemble
 
@@ -35,10 +35,10 @@ Cette fonctionnalité est prise en charge par les API et les SDK clients Azure C
 
 | **Pilotes clients** | **Interface de ligne de commande Azure** | **API SQL** | **API Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin**|**API de table** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | Oui | Non  | Non  | Oui | Non  |
-|Java|N/D|Oui|Non |Non |Oui|Non |
-|Python|N/D|Oui|Non |Non |Oui|Non |
-|Node/JS|N/D|Oui|Non |Non |Oui|Non |
+| .NET | N/D | OUI | Non  | Non  | OUI | Non  |
+|Java|N/D|OUI|Non |Non |OUI|Non |
+|Python|N/D|OUI|Non |Non |OUI|Non |
+|Node/JS|N/D|OUI|Non |Non |OUI|Non |
 
 ## <a name="change-feed-and-different-operations"></a>Flux de modification et différentes opérations
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: L’API Synthèse vocale propose plus de 75 voix dans plus de 45 langues et paramètres régionaux. Pour utiliser les polices de la voix standard, vous devez uniquement spécifier le nom de la voix ainsi que quelques autres paramètres lorsque vous appelez le service Speech.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251552"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859332"
 ---
 # <a name="about-the-text-to-speech-api"></a>À propos de l’API Synthèse vocale
 
@@ -53,13 +53,13 @@ La personnalisation de la voix de synthèse vocale vous permet de créer une voi
 
 Une grande partie des fonctionnalités de l’API **Synthèse vocale**, notamment celles qui ont trait à la personnalisation, sont disponibles par le biais de REST. Le tableau suivant récapitule les fonctionnalités de chaque méthode d’accès à l’API. Pour obtenir la liste complète des fonctionnalités et des détails de l’API, consultez [Informations de référence sur Swagger](https://westus.cris.ai/swagger/ui/index).
 
-| Cas d’utilisation | REST | Kits de développement logiciel (SDK) |
+| Cas d’utilisation | REST | Kits SDK |
 |-----|-----|-----|----|
-| Charger des jeux de données pour l’adaptation de la voix | Oui | Non  |
-| Créer et gérer des modèles de police de la voix | Oui | Non  |
-| Créer et gérer des déploiements de police de la voix | Oui | Non  |
-| Créer et gérer des tests de police de la voix| Oui | Non  |
-| Gérer les abonnements | Oui | Non  |
+| Charger des jeux de données pour l’adaptation de la voix | OUI | Non  |
+| Créer et gérer des modèles de police de la voix | OUI | Non  |
+| Créer et gérer des déploiements de police de la voix | OUI | Non  |
+| Créer et gérer des tests de police de la voix| OUI | Non  |
+| Gérer les abonnements | OUI | Non  |
 
 > [!NOTE]
 > L’API implémente une limitation des requêtes d’API à 25 toutes les 5 secondes. Les en-têtes de messages vous informeront des limites.
