@@ -1,18 +1,18 @@
 ---
 title: 'Concepts : mise en réseau dans AKS (Azure Kubernetes Service)'
-description: Découvrez la mise en réseau dans AKS (Azure Kubernetes Service ), notamment la mise en réseau de base et avancée, les contrôleurs d’entrée, les équilibreurs de charge et les adresses IP statiques.
+description: Découvrez la mise en réseau dans AKS (Azure Kubernetes Service), notamment la mise en réseau kubenet et Azure CNI, les contrôleurs d’entrée, les équilibreurs de charge et les adresses IP statiques.
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 62ba98f221041d5bbf9bb095a02d052218eb0fd0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380654"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820128"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -23,7 +23,7 @@ Cet article présente les concepts fondamentaux qui fournissent la mise en rése
 - [Services](#services)
 - [Réseaux virtuels Azure](#azure-virtual-networks)
 - [Contrôleurs d’entrée](#ingress-controllers)
-- [Stratégies réseau](#network-policies)
+- Stratégies réseau
 
 ## <a name="kubernetes-basics"></a>Concepts de base Kubernetes
 
@@ -61,37 +61,32 @@ Des équilibreurs de charge *internes* et *externes* peuvent être créés. Les 
 
 Dans AKS, vous pouvez déployer un cluster qui utilise un des deux modèles de réseau suivants :
 
-- Mise en réseau *de base* : les ressources réseau sont créées et configurées quand le cluster AKS est déployé.
-- Mise en réseau *avancée* : le cluster AKS est connecté à des configurations et ressources de réseau virtuel existantes.
+- Mise en réseau *Kubenet* : les ressources réseau sont généralement créées et configurées quand le cluster AKS est déployé.
+- Mise en réseau *Azure CNI (Container Networking Interface)*  : le cluster AKS est connecté à des configurations et ressources de réseau virtuel existantes.
 
-### <a name="basic-networking"></a>Mise en réseau de base
+### <a name="kubenet-basic-networking"></a>Mise en réseau Kubenet (de base)
 
-L’option de mise en réseau *de base* est la configuration par défaut de la création de cluster AKS. La plateforme Azure gère la configuration réseau du cluster et des pods. La mise en réseau de base est appropriée pour les déploiements qui ne nécessitent pas de configuration de réseau virtuel personnalisée. Avec la mise en réseau de base, vous ne pouvez pas définir de configuration réseau, par exemple des noms de sous-réseau ou les plages d’adresses IP affectées au cluster AKS.
+L’option de mise en réseau *kubenet* est la configuration par défaut de la création de cluster AKS. Avec *kubenet*, les nœuds obtiennent une adresse IP du sous-réseau du réseau virtuel Azure. Les pods reçoivent une adresse IP du sous-réseau de réseau virtuel Azure des nœuds à partir d’un espace d’adressage logiquement différent. La traduction d’adresses réseau (NAT) est ensuite configurée afin que les pods puissent accéder aux ressources sur le réseau virtuel Azure. L’adresse IP source du trafic fait l’objet d’une opération NAT sur l’adresse IP principale du nœud.
 
-Les nœuds d’un cluster AKS configurés pour la mise en réseau de base utilisent le plug-in Kubernetes [kubenet][kubenet].
+Les nœuds utilisent le plug-in Kubernetes [kubenet][kubenet]. Vous pouvez laisser la plateforme Azure créer et configurer les réseaux virtuels pour vous ou choisir de déployer votre cluster AKS dans un sous-réseau de réseau virtuel existant. Là encore, seuls les nœuds reçoivent une adresse IP routable et les pods utilisent NAT pour communiquer avec d’autres ressources à l’extérieur du cluster AKS. Cette approche réduit considérablement le nombre d’adresses IP que vous devez réserver dans votre espace réseau pour que les pods les utilisent.
 
-La mise en réseau de base fournit les fonctionnalités suivantes :
+Pour plus d’informations, consultez [Configurer une mise en réseau kubenet pour un cluster AKS][aks-configure-kubenet-networking].
 
-- Exposez un service Kubernetes en interne ou en externe via Azure Load Balancer.
-- Les pods peuvent accéder aux ressources sur les réseaux Internet publics.
+### <a name="azure-cni-advanced-networking"></a>Mise en réseau Azure CNI (avancée)
 
-### <a name="advanced-networking"></a>Mise en réseau avancée
+Avec Azure CNI, chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau et doivent être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche nécessite davantage de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos demandes d’applications augmentent.
 
-La mise en réseau *avancée* place vos pods dans un réseau virtuel Azure que vous configurez. Ce réseau virtuel fournit une connectivité automatique aux autres ressources Azure et une intégration à un large éventail de fonctionnalités. La mise en réseau avancée est appropriée pour les déploiements qui nécessitent des configurations de réseau virtuel spécifiques, par exemple pour utiliser un sous-réseau et une connectivité existants. Avec la mise en réseau avancée, vous pouvez définir ces noms de sous-réseaux et plages d’adresses IP.
-
-Les nœuds d’un cluster AKS configurés pour la mise en réseau avancée utilisent le plug-in Kubernetes[Azure Container Networking Interface (CNI)][cni-networking].
+Les nœuds utilisent le plug-in Kubernetes [Azure CNI (Container Networking Interface)][cni-networking].
 
 ![Diagramme représentant 2 nœuds avec des ponts les reliant chacun à un réseau virtuel Azure][advanced-networking-diagram]
 
-La mise en réseau avancée fournit les fonctionnalités suivantes par rapport à la mise en réseau de base :
+Azure CNI fournit les fonctionnalités suivantes par rapport à la mise en réseau kubenet :
 
-- Déployez votre cluster AKS sur un réseau virtuel existant ou créez un réseau virtuel et un sous-réseau pour votre cluster.
 - Chaque pod dans le cluster se voit affecter une adresse IP dans le réseau virtuel. Les pods du cluster peuvent communiquer directement entre eux et avec les autres nœuds du réseau virtuel.
-- Un pod peut se connecter à d’autres services dans un réseau virtuel appairé, notamment à des réseaux locaux via des connexions ExpressRoute et VPN site à site (S2S). Les pods sont également accessibles en local.
 - Les pods dans un sous-réseau disposant de points de terminaison de service activés peuvent se connecter de manière sécurisée aux services Azure (tels que Stockage Azure et SQL Database).
 - Vous pouvez créer des itinéraires définis par l’utilisateur pour acheminer le trafic des pods vers une appliance virtuelle réseau.
 
-Pour plus d’informations, consultez [Configurer un réseau avancé pour un cluster AKS][aks-configure-advanced-networking].
+Pour plus d’informations, consultez [Configurer Azure CNI pour un cluster AKS][aks-configure-advanced-networking].
 
 ## <a name="ingress-controllers"></a>Contrôleurs d’entrée
 
@@ -113,7 +108,7 @@ Il existe des règles de groupe de sécurité réseau par défaut pour le trafic
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour vous familiariser avec la mise en réseau AKS, consultez [Créer et configurer une mise en réseau avancée pour un cluster AKS][aks-configure-advanced-networking].
+Pour bien démarrer avec la mise en réseau AKS, créez et configurez un cluster AKS avec vos propres plages d’adresses IP à l’aide de [kubenet][aks-configure-kubenet-networking] ou d’[Azure CNI][aks-configure-advanced-networking].
 
 Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AKS, consultez les articles suivants :
 
@@ -137,7 +132,8 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
 [aks-ingress-tls]: ingress.md
-[aks-configure-advanced-networking]: configure-advanced-networking.md
+[aks-configure-kubenet-networking]: configure-kubenet.md
+[aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

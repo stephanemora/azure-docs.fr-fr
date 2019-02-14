@@ -5,24 +5,62 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: ccfe62e0002e3420303130840f1a0d393efb3420
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bcf5176728b520cae5d31750384f316efe244b7e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078761"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663619"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Aperçu :  Historique des versions de l’agent de protection par mot de passe Azure AD
 
 |     |
 | --- |
-| La protection par mot de passe Azure AD est une fonctionnalité de préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| La protection par mot de passe Azure AD est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="12650"></a>1.2.65.0
+
+Date de publication : 1/2/2019
+
+Modifications :
+
+* L’agent du contrôleur de domaine et le service proxy sont désormais pris en charge sur noyau du serveur. La configuration requise du système d’exploitation est identique à ce qu’elle était auparavant : Windows Server 2012 pour les agents du contrôleur de domaine et Windows Server 2012 R2 pour les proxys.
+* Les cmdlets Register-AzureADPasswordProtectionProxy et Register-AzureADPasswordProtectionForest prennent désormais en charge les modes d’authentification Azure basés sur le code d’appareil.
+* La cmdlet Get-AzureADPasswordProtectionDCAgent ignore les points de connexion de service altérés ou non valides. Cela résout le bogue qui avait pour effet que les contrôleurs de domaine apparaissaient parfois plusieurs fois dans la sortie.
+* La cmdlet Get-AzureADPasswordProtectionSummaryReport ignore les points de connexion de service altérés ou non valides. Cela résout le bogue qui avait pour effet que les contrôleurs de domaine apparaissaient parfois plusieurs fois dans la sortie.
+* Le module Powershell du proxy est désormais inscrit à partir de %ProgramFiles%\WindowsPowerShell\Modules. La variable d’environnement PSModulePath de la machine n’est plus modifiée.
+* Une nouvelle cmdlet Get-AzureADPasswordProtectionProxy a été ajoutée pour faciliter la découverte de proxys inscrits dans une forêt ou un domaine.
+* L’agent du contrôleur de domaine utilise un nouveau dossier dans le partage sysvol pour la réplication des stratégies de mot de passe et d’autres fichiers.
+
+   Ancien emplacement du dossier :
+
+   `\\<domain>\sysvol\<domain fqdn>\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
+
+   Nouvel emplacement du dossier :
+
+   `\\<domain>\sysvol\<domain fqdn>\AzureADPasswordProtection`
+
+   (Cette modification a été apportée pour éviter les avertissements « GPO orphelin » faux positifs.)
+
+   > [!NOTE]
+   > Aucun partage de données ou migration n’est effectué entre l’ancien dossier et le nouveau. Les versions antérieures de l’agent du contrôleur de domaine continueront à utiliser l’ancien emplacement jusqu’à leur mise à niveau vers cette version ou une version ultérieure. Une fois que tous les agents du contrôleur de domaine exécutent la version 1.2.65.0 ou version ultérieure, l’ancien dossier sysvol peut être supprimé manuellement.
+
+* Désormais, le service proxy et l’agent du contrôleur de domaine détectent et suppriment les copies altérées de leurs points de connexion de service respectifs.
+* Chaque agent du contrôleur de domaine supprime régulièrement les points de connexion de service altérés et périmés dans son domaine, pour les points de connexion tant de l’agent du contrôleur de domaine que du service proxy. Les points de connexion tant de l’agent du contrôleur de domaine que du service proxy sont considérés comme périmés si leur indicateur de pulsations date de plus de sept jours.
+* L’agent du contrôleur de domaine renouvelle désormais le certificat de la forêt en fonction des besoins.
+* Le service proxy renouvelle désormais le certificat du proxy en fonction des besoins.
+* Mises à jour de l’algorithme de validation de mot de passe : la liste globale de mots de passe interdits et la liste spécifique du client de mots de passe interdits (si configurée) sont combinées avant les validations de mot de passe. Un mot de passe donné peut désormais être rejeté (échec ou audit uniquement) s’il contient des jetons provenant tant de la liste globale que de la liste spécifique du client. La documentation sur le journal des événements a été mise à jour pour refléter cela. À cet égard, veuillez consulter [Surveiller la protection par mot de passe d’Azure AD](howto-password-ban-bad-on-premises-monitor.md).
+* Correctifs de performances et de robustesse
+* Amélioration de la journalisation
+
+> [!WARNING]
+> Fonctionnalité limitée dans le temps : le service de l’agent du contrôleur de domaine dans cette version (1.2.65.0) cessera de traiter les demandes de validation de mot de passe le 1e septembre 2019.  Les services de l’agent du contrôleur de domaine dans les versions antérieures (voir la liste ci-dessous) cesseront d’opérer le 1e juillet 2019. Le service de l’agent du contrôleur de domaine dans toutes les versions consignera des événements 10021 dans le journal des événements d’administration dans les deux mois précédant ces délais. Toutes les restrictions de limite de temps seront supprimées dans la version en disponibilité générale à venir. Le service de l’agent proxy n’est limité dans le temps dans aucune version, mais il doit toujours être mis à niveau vers la dernière version afin de tirer parti de tous les corrections de bogues et d’autres améliorations subséquentes.
 
 ## <a name="12250"></a>1.2.25.0
 
@@ -39,6 +77,7 @@ Correctifs :
 Modifications :
 
 * Windows Server 2012 R2 est désormais le système d'exploitation minimum requis pour le service proxy. Windows Server 2012 reste le système d'exploitation minimum requis pour le service de l'agent DC.
+* Le service proxy requiert désormais .NET version 4.6.2.
 * L’algorithme de validation de mot de passe utilise une table de normalisation des caractères étendus. Cela peut entraîner le rejet de mots de passe qui étaient acceptés dans les versions précédentes.
 
 ## <a name="12100"></a>1.2.10.0
@@ -73,4 +112,4 @@ Préversion publique initiale
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer la protection par mot de passe d’Azure AD](howto-password-ban-bad-on-premises-deploy.md)
+[Déployer la protection par mot de passe Azure AD](howto-password-ban-bad-on-premises-deploy.md)
