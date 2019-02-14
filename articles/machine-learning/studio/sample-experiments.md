@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 653b9aa0d6083436a394cf886f8c7d8d1ed2e2ab
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e62e5a1df2b5ad3099d2ef7e5dc33b0d11683988
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465518"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245930"
 ---
 # <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Créer des expériences Azure Machine Learning Studio à partir des exemples de travail dans la galerie AI Azure
 
-Découvrez comment démarrer avec des exemples d’expérience de la [galerie Azure AI](https://gallery.cortanaintelligence.com/) au lieu de créer des expériences d’apprentissage automatique de toutes pièces. Vous pouvez utiliser les exemples pour créer votre propre solution d’apprentissage automatique.
+Découvrez comment démarrer avec des exemples d’expérience de la [galerie Azure AI](https://gallery.azure.ai/) au lieu de créer des expériences d’apprentissage automatique de toutes pièces. Vous pouvez utiliser les exemples pour créer votre propre solution d’apprentissage automatique.
 
 La galerie contient des exemples d’expérience de l’équipe Microsoft Azure Machine Learning, ainsi que des exemples partagés par la communauté Machine Learning. Vous pouvez poser des questions ou publier des commentaires sur les expériences.
 
@@ -28,7 +28,7 @@ Pour savoir comment utiliser la galerie, regardez la vidéo de 3 minutes [Copier
 
 
 ## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Rechercher une expérience à copier dans la galerie AI Azure
-Pour afficher les expériences disponibles dans la galerie, rendez-vous dans la [Galerie](https://gallery.cortanaintelligence.com/) , puis cliquez sur **Expériences** en haut de la page.
+Pour afficher les expériences disponibles dans la galerie, rendez-vous dans la [Galerie](https://gallery.azure.ai/) , puis cliquez sur **Expériences** en haut de la page.
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>Rechercher les expériences les plus récentes ou les plus populaires
 Dans cette page, vous pouvez afficher les expériences **Recently added** (Récemment ajoutées), consulter la section **What’s popular** (Les plus demandées) ou découvrir les dernières **expériences Microsoft les plus populaires**.

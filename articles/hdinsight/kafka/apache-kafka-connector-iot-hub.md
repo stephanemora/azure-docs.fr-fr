@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd7254a9ec1ce5671aa5271ca26c678b20ef48cb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608628"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978066"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Utiliser Apache Kafka sur HDInsight avec Azure IoT Hub
 
@@ -127,7 +127,7 @@ Pour plus d’informations sur l’API Connect, consultez [https://kafka.apache.
 
     * Modifiez les lignes `key.converter=` et `value.converter=` en utilisant les valeurs suivantes :
 
-        ```text
+        ```ini
         key.converter=org.apache.kafka.connect.storage.StringConverter
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
@@ -189,7 +189,7 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
 
         Remplacez `myhubname` par le nom de votre IoT Hub. Vous obtenez une réponse semblable au texte suivant :
 
-        ```text
+        ```json
         "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
         "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
         "Partitions": 2
@@ -239,14 +239,14 @@ Pour configurer la source de telle sorte qu’elle fonctionne avec votre IoT Hub
 
     Dans l’éditeur, recherchez et modifiez les entrées suivantes :
 
-    * `Kafka.Topic=PLACEHOLDER`: Remplacez `PLACEHOLDER` par `iotin`. Les messages reçus d’IoT Hub sont placés dans la rubrique `iotin`.
+    * `Kafka.Topic=PLACEHOLDER`: Remplacez  par `iotin`. Les messages reçus d’IoT Hub sont placés dans la rubrique `iotin`.
     * `IotHub.EventHubCompatibleName=PLACEHOLDER`: remplacez `PLACEHOLDER` par le nom compatible Event Hub.
     * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: remplacez `PLACEHOLDER` par le point de terminaison compatible Event Hub.
     * `IotHub.Partitions=PLACEHOLDER`: remplacez `PLACEHOLDER` par le nombre de partitions des étapes précédentes.
-    * `IotHub.AccessKeyName=PLACEHOLDER`: Remplacez `PLACEHOLDER` par `service`.
+    * `IotHub.AccessKeyName=PLACEHOLDER`: Remplacez  par `service`.
     * `IotHub.AccessKeyValue=PLACEHOLDER`: remplacez `PLACEHOLDER` par la clé primaire de la stratégie `service`.
     * `IotHub.StartType=PLACEHOLDER`: remplacez `PLACEHOLDER` par une date UTC. Cette date correspond au moment où le connecteur commence à vérifier la présence de messages. Le format de date est `yyyy-mm-ddThh:mm:ssZ`.
-    * `BatchSize=100`: Remplacez `100` par `5`. Cette modification amène le connecteur à lire les messages dans Kafka dès qu’il y a cinq nouveaux messages dans IoT Hub.
+    * `BatchSize=100`: Remplacez  par `5`. Cette modification amène le connecteur à lire les messages dans Kafka dès qu’il y a cinq nouveaux messages dans IoT Hub.
 
     Pour voir un exemple de configuration, consultez [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
@@ -272,7 +272,7 @@ Pour configurer la connexion du récepteur de telle sorte qu’elle fonctionne a
 
     Dans l’éditeur, recherchez et modifiez les entrées suivantes :
 
-    * `topics=PLACEHOLDER`: Remplacez `PLACEHOLDER` par `iotout`. Les messages écrits dans la rubrique `iotout` sont transférés à l’IoT Hub.
+    * `topics=PLACEHOLDER`: Remplacez  par `iotout`. Les messages écrits dans la rubrique `iotout` sont transférés à l’IoT Hub.
     * `IotHub.ConnectionString=PLACEHOLDER`: remplacez `PLACEHOLDER` par la chaîne de connexion de la stratégie `service`.
 
     Pour voir un exemple de configuration, consultez [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
@@ -349,7 +349,7 @@ Pour envoyer des messages via le connecteur, procédez comme suit :
     > [!IMPORTANT]  
     > Vous devez définir la valeur de l’entrée `"deviceId"` en lui attribuant l’ID de votre appareil. Dans l’exemple suivant, l’appareil se nomme `fakepi` :
 
-    ```text
+    ```json
     {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
     ```
 

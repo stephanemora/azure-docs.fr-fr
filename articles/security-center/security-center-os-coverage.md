@@ -4,7 +4,7 @@ description: Ce document fournit une liste des fonctionnalités et des plateform
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/9/2019
 ms.author: rkarlin
-ms.openlocfilehash: 98d2d29e7822d9ca97ba488fcf67298a0b40efbf
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5422ba1b29ac48a7255f25ac0beb43e3481d256a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265462"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105890"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plateformes et fonctionnalités prises en charge par Azure Security Center
 
@@ -97,11 +97,11 @@ Le tableau suivant fournit une matrice de ce qui suit :
 
 | Protection du point de terminaison| Plateformes | Installation du centre de sécurité | Détection du centre de sécurité |
 |------|------|-----|-----|
-| Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| Oui |
-| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | Oui |
-| Trend Micro : toutes les versions | Gamme Windows Server  | Non  | Oui |
-| Symantec v12.1.1100+| Gamme Windows Server  | Non  | Oui |
-| McAfee v10+ | Gamme Windows Server  | Non  | Oui |
+| Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| OUI |
+| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | OUI |
+| Trend Micro : toutes les versions | Gamme Windows Server  | Non  | OUI |
+| Symantec v12.1.1100+| Gamme Windows Server  | Non  | OUI |
+| McAfee v10+ | Gamme Windows Server  | Non  | OUI |
 | Kaspersky| Gamme Windows Server  | Non  | Non   |
 | Sophos| Gamme Windows Server  | Non  | Non   |
 

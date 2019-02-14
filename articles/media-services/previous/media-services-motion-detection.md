@@ -4,21 +4,21 @@ description: Le processeur multimédia Azure Media Motion Detector vous permet d
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 26090067923c468b7102ac5b7bb78b9d7b7960bb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820969"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995610"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Détecter les mouvements avec Azure Media Analytics
 ## <a name="overview"></a>Vue d’ensemble
@@ -39,7 +39,7 @@ Lors de la création d’une tâche de vidéo **Azure Media Motion Detector**, v
 ### <a name="parameters"></a>parameters
 Vous pouvez utiliser les paramètres suivants :
 
-| NOM | Options | Description | Default |
+| Nom | Options | Description | Default |
 | --- | --- | --- | --- |
 | sensitivityLevel |Chaîne : « low », « medium », « high » |Définit le niveau de sensibilité auquel les mouvements sont signalés. Réglez cette option pour ajuster le nombre de faux positifs. |« medium » |
 | frameSamplingValue |Entier positif |Définit la fréquence d’exécution de l’algorithme. 1 = chaque trame, 2 = toutes les 2 trames, etc. |1 |
@@ -103,7 +103,7 @@ Le tableau suivant décrit les éléments du fichier de sortie JSON.
 | Duration |La durée de l’événement en « cycles ». |
 | Intervalle |L’intervalle de chaque entrée dans l’événement en « cycles ». |
 | Événements |Chaque fragment d’événement contient le mouvement détecté pendant cette durée. |
-| type |Dans la version actuelle, cette valeur est toujours de « 2 » pour le mouvement générique. Ce libellé permet aux API vidéo de classer le mouvement dans les versions ultérieures. |
+| Type |Dans la version actuelle, cette valeur est toujours de « 2 » pour le mouvement générique. Ce libellé permet aux API vidéo de classer le mouvement dans les versions ultérieures. |
 | RegionID |Comme expliqué ci-dessus, cette valeur sera toujours « 0 » dans la présente version. Ce libellé permet aux API vidéo de détecter du mouvement dans différentes régions dans les versions ultérieures. |
 | Régions |Fait référence à la zone dans la vidéo où un mouvement est susceptible de vous intéresser. <br/><br/>-« id » représente la zone de la région ; dans cette version, la seule valeur existante est ID 0. <br/>-« type » représente la forme de la région où un mouvement est susceptible de vous intéresser. Pour l’instant, seules « rectangle » et « polygone » sont prises en charge.<br/>  Si vous avez indiqué « rectangle », les dimensions de la région sont X, Y, Width et Height. Les coordonnées X et Y représentent les coordonnées XY de l’angle supérieur gauche de la région sur une échelle normalisée de 0,0 à 1,0. La largeur et la hauteur représentent la taille de la région sur une échelle normalisée de 0,0 à 1,0. Dans la version actuelle, X, Y, Width et Height sont toujours fixés à 0, 0 et 1, 1. <br/>Si vous avez indiqué « polygone », les dimensions de la région sont en points. <br/> |
 | Fragments |Les métadonnées sont mémorisées dans différents segments appelés fragments. Chaque fragment contient des valeurs de début (start), de durée (duration), un numéro d’intervalle et des événements (event). Un fragment sans aucun événement signifie qu’aucun mouvement n’a été détecté pendant cette heure de début et la durée. |

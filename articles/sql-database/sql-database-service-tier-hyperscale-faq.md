@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: 3ee952f10cebe374767e0db4a592695eeb1b4417
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810063"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099772"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Questions fréquentes (FAQ) sur les bases de données SQL Azure Hyperscale
 
@@ -100,7 +100,7 @@ SQL Database Hyperscale offre une scalabilité rapide en fonction de la demande 
 
 ### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>Puis-je combiner Hyperscale et des bases de données uniques sur mon serveur SQL Database ?
 
- Oui, vous pouvez.
+Oui, vous pouvez.
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>Hyperscale nécessite-t-il la modification de mon modèle de programmation d’application ?
 
@@ -198,7 +198,7 @@ Non
 
 ### <a name="is-database-compression-supported"></a>La compression de base de données est-elle prise en charge ?
 
-Oui
+OUI
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Si j’ai une table très grande, les données de ma table sont-elles réparties dans plusieurs fichiers de données ?
 
@@ -243,7 +243,7 @@ Le modèle de récupération simple ou de journalisation en bloc n’est pas pri
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>Quelle est la version la plus ancienne de SQL Server pour laquelle la migration de données vers SQL Database Hyperscale est prise en charge ?
 
-SQL Server 2005. Pour plus d’informations, consultez [Migrer vers une base de données unique ou une base de données mise en pool](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Pour les problèmes de compatibilité, consultez [Résolution des problèmes de compatibilité de la migration de base de données](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. Pour plus d’informations, consultez [Migrer vers une base de données unique ou une base de données mise en pool](sql-database-single-database-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Pour les problèmes de compatibilité, consultez [Résolution des problèmes de compatibilité de la migration de base de données](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues).
 
 ### <a name="does-sql-database-hyperscale-support-migration-from-other-data-sources-such-as-aurora-mysql-oracle-db2-and-other-database-platforms"></a>SQL Database Hyperscale prend-t-il en charge la migration depuis d’autres sources de données, comme Aurora, MySQL, Oracle, DB2 et d’autres plateformes de base de données ?
 
@@ -257,7 +257,7 @@ En règle générale, un contrat SLA n’est pas fourni pendant une préversion 
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Les sauvegardes de base de données sont-elles gérées pour moi par le service Azure SQL Database ?
 
-Oui
+OUI
 
 ### <a name="how-often-are-the-database-backups-taken"></a>Quelle est la fréquence des sauvegardes de base de données ?
 
@@ -265,7 +265,7 @@ Il n’existe pas de sauvegardes traditionnelles complètes, différentielles et
 
 ### <a name="does-sql-database-hyperscale-support-point-in-time-restore"></a>SQL Database Hyperscale prend-t-il en charge la récupération jusqu`à une date et heure ?
 
-Oui
+OUI
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>Quel est l’objectif de point de récupération (RPO)/objectif de délai de récupération (RTO) avec la sauvegarde/restauration dans SQL Database Hyperscale ?
 

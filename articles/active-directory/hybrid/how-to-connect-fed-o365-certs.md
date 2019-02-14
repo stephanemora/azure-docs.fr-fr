@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1a36cca9c0735d32ef56bfefca6c1f8f278f8e11
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 037c5210f73899483bebf131efce0d5f61a847c2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492502"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200358"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renouvellement des certificats de fédération pour Office 365 et Azure Active Directory
 ## <a name="overview"></a>Vue d’ensemble
@@ -97,8 +98,8 @@ Dans la sortie de Get-MsolFederationProperty ou Get-AdfsCertificate, vérifiez l
 
 | AutoCertificateRollover | Certificats synchronisés avec Azure AD | Les métadonnées de fédération sont accessibles publiquement | Validité | Action |
 |:---:|:---:|:---:|:---:|:---:|
-| Oui |OUI |Oui |- |Aucune action n'est nécessaire. Voir [Renouveler le certificat de signature de jetons automatiquement](#autorenew). |
-| Oui |Non  |- |Moins de 15 jours |Renouvelez immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
+| OUI |OUI |OUI |- |Aucune action n'est nécessaire. Voir [Renouveler le certificat de signature de jetons automatiquement](#autorenew). |
+| OUI |Non  |- |Moins de 15 jours |Renouvelez immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
 | Non  |- |- |Moins de 30 jours |Renouvelez immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
 
 \[-]  N’a pas d’importance

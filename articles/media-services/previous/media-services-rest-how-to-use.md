@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159738"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005452"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations
+# <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 L’API **REST Media Services Operations** est utilisée pour créer des tâches, des éléments multimédias, des canaux directs et d’autres ressources dans un compte Media Services. Pour plus d’informations, consultez [Référence de l’API REST Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
@@ -55,12 +55,12 @@ Les considérations suivantes s'appliquent lors de l'utilisation de REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>En-têtes de requête HTTP standard pris en charge par Media Services
 Pour chaque appel dans Media Services, il existe un ensemble d’en-têtes requis, que vous devez inclure dans votre requête, et un ensemble d’en-têtes facultatifs que vous pouvez également inclure. Le tableau ci-dessous répertorie les en-têtes nécessaires :
 
-| En-tête | type | Valeur |
+| En-tête | Type | Valeur |
 | --- | --- | --- |
 | Authorization |Support |Le support est le seul mécanisme d’autorisation accepté. La valeur doit également inclure le jeton d’accès fourni par Azure Active Directory. |
-| x-ms-version |Décimal |2.17 (ou version plus récente)|
-| DataServiceVersion |Décimal |3.0 |
-| MaxDataServiceVersion |Décimal |3.0 |
+| x-ms-version |Decimal |2.17 (ou version plus récente)|
+| DataServiceVersion |Decimal |3.0 |
+| MaxDataServiceVersion |Decimal |3.0 |
 
 > [!NOTE]
 > Étant donné que Media Services utilise OData pour exposer ses API REST, les en-têtes DataServiceVersion et MaxDataServiceVersion doivent être inclus dans toutes les requêtes. Toutefois, s’ils ne le sont pas, Media Services suppose que la valeur DataServiceVersion utilisée est 3.0.
@@ -69,7 +69,7 @@ Pour chaque appel dans Media Services, il existe un ensemble d’en-têtes requi
 
 Voici un ensemble d’en-têtes facultatifs :
 
-| En-tête | type | Valeur |
+| En-tête | Type | Valeur |
 | --- | --- | --- |
 | Date |Date RFC 1123 |Horodatage de la demande |
 | Acceptation |Type de contenu |Type de contenu demandé pour la réponse, comme :<p> -application/json;odata=verbose<p> - application/atom+xml<p> Les réponses peuvent avoir un type de contenu différent, par exemple une extraction d’objets blob, dans laquelle une réponse correcte contient le flux d’objets blob en tant que charge utile. |
@@ -83,7 +83,7 @@ Voici un ensemble d’en-têtes facultatifs :
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>En-têtes de réponse HTTP standard pris en charge par Media Services
 Voici un ensemble d’en-têtes pouvant être renvoyés, en fonction de la ressource demandée et de l’action à entreprendre.
 
-| En-tête | type | Valeur |
+| En-tête | Type | Valeur |
 | --- | --- | --- |
 | request-id |Chaîne |Un identificateur unique pour l’opération actuelle, généré par le service. |
 | client-request-id |Chaîne |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |

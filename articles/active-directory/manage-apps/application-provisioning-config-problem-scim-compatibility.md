@@ -4,7 +4,7 @@ description: Comment résoudre les problèmes courants de compatibilité des pro
 services: active-directory
 documentationcenter: ''
 author: asmalser
-manager: daveba
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
-ms.openlocfilehash: 48328a3ee379fc76fa6e70ea082395b37751d235
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181110"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190515"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problèmes et solutions connus relatifs à la conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD
 
@@ -36,10 +37,10 @@ Cet article décrit les problèmes actuels et passés concernant le respect du s
 
 | **Problèmes de conformité à SCIM 2.0** |  **Résolution ?** | **Date du correctif**  |  
 |---|---|---|
-| Azure AD nécessite que « /scim » soit à la racine de l’URL du point de terminaison SCIM de l’application  | Oui  |  18 décembre 2018 | 
-| Les attributs d’extension utilisent la notation point « . » avant les noms d’attribut, et non pas la notation deux-points « : » |  Oui  | 18 décembre 2018  | 
-|  Les demandes de correctif pour les attributs multivaleurs contiennent une syntaxe de filtre de chemin d’accès non valide | Oui  |  18 décembre 2018  | 
-|  Les demandes de création de groupe contiennent une URI de schéma non valide | Oui  |  18 décembre 2018  |  
+| Azure AD nécessite que « /scim » soit à la racine de l’URL du point de terminaison SCIM de l’application  | OUI  |  18 décembre 2018 | 
+| Les attributs d’extension utilisent la notation point « . » avant les noms d’attribut, et non pas la notation deux-points « : » |  OUI  | 18 décembre 2018  | 
+|  Les demandes de correctif pour les attributs multivaleurs contiennent une syntaxe de filtre de chemin d’accès non valide | OUI  |  18 décembre 2018  | 
+|  Les demandes de création de groupe contiennent une URI de schéma non valide | OUI  |  18 décembre 2018  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>Les corrections de services décrites ont-elles été automatiquement appliquées à mon application SCIM préexistante ?
 
@@ -59,7 +60,7 @@ Oui. Si vous utilisez déjà cette instance d’application pour l’authentific
 1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
 2. Dans la section **Azure Active Directory > Applications d’entreprise** du portail Azure, localisez et sélectionnez votre application SCIM existante.
 3.  Dans la section **Propriétés** de votre application SCIM existante, copiez l’**ID objet**.
-4.  Dans une nouvelle fenêtre de navigateur web, accédez à https://developer.microsoft.com/en-us/graph/graph-explorer et connectez-vous en tant qu’administrateur pour le locataire Azure AD où votre application est ajoutée.
+4.  Dans une nouvelle fenêtre de navigateur web, accédez à https://developer.microsoft.com/graph/graph-explorer et connectez-vous en tant qu’administrateur pour le locataire Azure AD où votre application est ajoutée.
 5. Dans l’Explorateur graphique, exécutez la commande suivante pour rechercher l’ID de votre travail d’approvisionnement. Remplacez « [object-id] » par l’ID du principal de service (ID d’objet) copié à partir de la troisième étape.
  
  `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -99,7 +100,7 @@ Oui. Si vous avez codé une application sur l’ancien comportement qui existait
 1.  Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
 2. Dans la section **Azure Active Directory > Applications d’entreprise > Créer une application** du portail Azure, créez une application **ne figurant pas dans la galerie**.
 3.  Dans la section **Propriétés** de votre nouvelle application personnalisée, copiez l’**ID objet**.
-4.  Dans une nouvelle fenêtre de navigateur web, accédez à https://developer.microsoft.com/en-us/graph/graph-explorer et connectez-vous en tant qu’administrateur pour le locataire Azure AD où votre application est ajoutée.
+4.  Dans une nouvelle fenêtre de navigateur web, accédez à https://developer.microsoft.com/graph/graph-explorer et connectez-vous en tant qu’administrateur pour le locataire Azure AD où votre application est ajoutée.
 5. Dans l’Explorateur graphique, exécutez la commande suivante pour initialiser la configuration d’approvisionnement de votre application.
 Remplacez « [object-id] » par l’ID du principal de service (ID d’objet) copié à partir de la troisième étape.
 

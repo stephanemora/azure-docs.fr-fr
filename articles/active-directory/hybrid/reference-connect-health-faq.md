@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 744344c9427604f46c3f428d8dfcd279d8f2ffba
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c1b653ee16864f5076cdad9d1dbc33e63b175ca
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486332"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167589"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -67,7 +68,7 @@ Azure AD Connect Health n’est pas pris en charge dans Germany Cloud à l’exc
 | contrôleur | Caractéristiques | Prise en charge dans Germany Cloud |
 | ------ | --------------- | --- |
 | Connect Health pour la synchronisation | Supervision/Insight/Alertes/Analyse | Non  |
-|  | Rapport d’erreurs de synchronisation | Oui |
+|  | Rapport d’erreurs de synchronisation | OUI |
 | Connect Health pour ADFS | Supervision/Insight/Alertes/Analyse | Non  |
 | Connect Health pour ADDS | Supervision/Insight/Alertes/Analyse | Non  |
 
