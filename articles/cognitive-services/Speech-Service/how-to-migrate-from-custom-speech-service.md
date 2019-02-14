@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Le service Custom Speech fait désormais partie du service Speech. Basculez vers le service Speech pour profiter des dernières mises à jour qualité et des fonctionnalités.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 594233b9e345f9578c218b042a64ea167d50addb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 698962aa0e3d72b204c4e990aa1384b44bf3896f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211030"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856888"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrer de Custom Speech Service vers le service Speech
 
@@ -40,12 +40,6 @@ Le modèle tarifaire est plus simple, car il utilise un modèle basé sur un tar
 3. Suivez les guides de démarrage rapide et les exemples du SDK pour utiliser les API appropriées. Si vous utilisez les API REST, vous devez également utiliser les points de terminaison et les clés de ressources corrects.
 
 4. Mettez à jour l’application cliente pour utiliser les API et le service Speech.
-
-> [!NOTE]
-> * Si vous avez activé la reconnaissance vocale dans LUIS (Language Understanding Intelligent Service), une seule ressource LUIS dans la même région fonctionne pour LUIS, ainsi que pour tous les services de reconnaissance vocale. Pour plus d’informations, consultez la documentation [Reconnaître les intentions vocales](how-to-recognize-intents-from-speech-csharp.md).
-> * La traduction de texte en texte ne fait pas partie du service Speech. Cette fonctionnalité nécessite son propre abonnement de ressources Azure.
- 
-
 
 ## <a name="migration-for-existing-customers"></a>Migration pour les clients actuels
 

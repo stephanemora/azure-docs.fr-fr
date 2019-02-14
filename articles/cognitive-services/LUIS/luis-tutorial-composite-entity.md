@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Ajoutez une entité composite pour regrouper les données extraites de différents types dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 43d72b88c96b45939cb394a26881b1272e250819
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0d78c365b171ea80d208c447f4746fe80b965ef2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217252"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883302"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Didacticiel : Regrouper et extraire les données associées
 Dans ce tutoriel, vous allez ajouter une entité composite pour regrouper les données extraites dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.

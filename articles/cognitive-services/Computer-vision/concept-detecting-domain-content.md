@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Apprenez à spécifier un domaine de catégorisation d'image pour renvoyer des informations plus détaillées sur une image.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 76484a2340e527dc016f321dbafa29adb7c358b5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: df7e61bb9d064c4530c0212cc02fbdd849017612
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157531"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871997"
 ---
 # <a name="detecting-domain-specific-content"></a>Détection du contenu spécifique à un domaine
 
@@ -33,7 +33,7 @@ Deux options existent pour utiliser les modèles spécifiques à un domaine :
 
 Vous pouvez répertorier les modèles spécifiques à un domaine et pris en charge par Vision par ordinateur. Actuellement, Vision par ordinateur prend en charge les modèles spécifiques à un domaine ci-après pour la détection de contenu spécifique à un domaine :
 
-| NOM | Description |
+| Nom | Description |
 |------|-------------|
 | celebrities | Reconnaissance des célébrités, prise en charge pour les images classées dans la catégorie `people_` |
 | landmarks | Reconnaissance des points de repère, prise en charge pour les images classées dans les catégories `outdoor_` ou `building_` |

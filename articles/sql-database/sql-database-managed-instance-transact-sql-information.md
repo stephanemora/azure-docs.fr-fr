@@ -1,6 +1,6 @@
 ---
-title: Différences T-SQL sur Azure SQL Database Managed Instance | Microsoft Docs
-description: Cet article décrit les différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
+title: Différences T-SQL d’instance gérée Azure SQL Database | Microsoft Docs
+description: Cet article décrit les différences T-SQL entre une instance gérée dans Azure SQL Database et dans SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,29 +11,33 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 3186261b935d48343eab2fd818cd8ed936f41f3f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472778"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734604"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL d’instance gérée Azure SQL Database par rapport à SQL Server
 
-Azure SQL Database Managed Instance fournit une haute compatibilité avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server local sont prises en charge par Managed Instance. Comme il existe toujours des différences de syntaxe et de comportement, cet article résume et explique ces différences.
+L’option de déploiement d’instance gérée est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance gérée.
 
-- [Différences T-SQL et fonctionnalités non prises en charge](#Differences)
-- [Fonctionnalités qui se comportent différemment dans Managed Instance](#Changes)
+![migration](./media/sql-database-managed-instance/migration.png)
+
+Comme il existe toujours des différences de syntaxe et de comportement, cet article résume et explique ces différences. <a name="Differences"></a>
+- [Disponibilité](#availability) incluant les différences dans [Always On](#always-on-availability) et [Sauvegardes](#backup),
+- [Sécurité](#security) incluant les différences dans [audit](#auditing), [Certificats](#certificates), [Informations d’identification](#credentials), [Fournisseurs de chiffrement](#cryptographic-providers), [Connexions/utilisateurs](#logins--users), [Clé de service et clé principale du service](#service-key-and-service-master-key),
+- [Configuration](#configuration) incluant les différences dans [Extension du pool de mémoires tampons](#buffer-pool-extension), [Classement](#collation), [Niveaux de compatibilité](#compatibility-levels), [Mise en miroir de bases de données](#database-mirroring), [Options de base de données](#database-options), [SQL Server Agent](#sql-server-agent), [Options de Table](#tables),
+- [Fonctionnalités](#functionalities) incluant [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transactions distribuées](#distributed-transactions), [Événements étendus](#extended-events), [Bibliothèques externes](#external-libraries), [FileStream et FileTable](#filestream-and-filetable), [Recherche sémantique de texte intégral](#full-text-semantic-search), [Serveurs liés](#linked-servers), [Polybase](#polybase), [Réplication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Procédures, fonctions et déclencheurs stockés](#stored-procedures-functions-triggers),
+- [Fonctionnalités qui se comportent différemment dans les instances gérées](#Changes)
 - [Limitations temporaires et problèmes connus](#Issues)
 
-## <a name="Differences"></a> Différences T-SQL par rapport à SQL Server
+## <a name="availability"></a>Disponibilité
 
-Cette section résume les principales différences de syntaxe et de comportement T-SQL entre Managed Instance et le moteur de base de données SQL Server local, ainsi que les fonctionnalités non prises en charge.
+### <a name="always-on-availability"></a>Always On
 
-### <a name="always-on-availability"></a>Disponibilité Always On
-
-[Haute disponibilité](sql-database-high-availability.md) est intégré à Managed Instance et ne peut pas être contrôlé par les utilisateurs. Les instructions suivantes ne sont pas prises en charge :
+La [haute disponibilité](sql-database-high-availability.md) étant intégrée dans l’instance gérée, les utilisateurs ne peuvent pas la contrôler. Les instructions suivantes ne sont pas prises en charge :
 
 - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
 - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
@@ -41,32 +45,11 @@ Cette section résume les principales différences de syntaxe et de comportement
 - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - Clause [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) de l’instruction [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="auditing"></a>Audit
-
-Les principales différences entre SQL Audit dans Managed Instance, Azure SQL Database et SQL Server en local sont :
-
-- Dans Managed Instance, SQL Audit fonctionne au niveau du serveur et stocke les fichiers `.xel` sur le compte de Stockage Blob Azure.  
-- Dans Azure SQL Database, SQL Audit fonctionne au niveau de la base de données.
-- Dans SQL Server en local/machine virtuelle, SQL Audit fonctionne au niveau du serveur, mais enregistre les événements sur les fichiers journaux des événements système/windows.  
-  
-L’audit XEvent sur Managed Instance prend en charge les cibles de Stockage Blob Azure. Les journaux de fichiers et de Windows ne sont pas pris en charge.
-
-Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azures sont :
-
-- Une nouvelle syntaxe `TO URL` est fournie et vous permet de spécifier l’URL du conteneur du Stockage Blob Azure où les fichiers `.xel` seront placés
-- La syntaxe `TO FILE` n’est pas prise en charge, car Managed Instance ne peut pas accéder aux partages de fichiers Windows.
-
-Pour plus d'informations, consultez les pages suivantes :  
-
-- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
-- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
-- [Audit](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
-
 ### <a name="backup"></a>Sauvegarde
 
-Managed Instance dispose de sauvegardes automatiques, et permet aux utilisateurs de créer des sauvegardes complètes `COPY_ONLY` des bases de données. Les sauvegardes différentielles, les sauvegardes de journaux et de captures instantanées de fichiers ne sont pas prises en charge.
+Les instances gérées disposent de sauvegardes automatiques qui permettent aux utilisateurs de créer des sauvegardes complètes `COPY_ONLY` des bases de données. Les sauvegardes différentielles, les sauvegardes de journaux et de captures instantanées de fichiers ne sont pas prises en charge.
 
-- Managed Instance peut sauvegarder une base de données uniquement vers un compte Stockage Blob Azure :
+- Avec une instance gérée, vous pouvez sauvegarder une base de données d’instance uniquement vers un compte Stockage Blob Azure :
   - Seul `BACKUP TO URL` est pris en charge
   - `FILE`, `TAPE`, et les unités de sauvegarde ne sont pas pris en charge  
 - La plupart des options générales `WITH` sont prises en charge
@@ -77,7 +60,7 @@ Managed Instance dispose de sauvegardes automatiques, et permet aux utilisateurs
 
 Limites :  
 
-- Managed Instance peut sauvegarder une base de données vers une sauvegarde comprenant jusqu’à 32 bandes, ce qui est suffisant pour les bases de données jusqu’à 4 To si la compression de sauvegarde est utilisée.
+- Une instance gérée permet de sauvegarder une base de données d’instance vers une sauvegarde comprenant jusqu’à 32 bandes, ce qui est suffisant pour les bases de données jusqu’à 4 To si la compression de sauvegarde est utilisée.
 - La taille maximale de la bande de sauvegarde est 195 Go (taille maximale d’un blob). Augmentez le nombre de bandes dans la commande de sauvegarde pour réduire la taille de bande individuelle et ne pas dépasser cette limite.
 
 > [!TIP]
@@ -85,21 +68,32 @@ Limites :
 
 Pour plus d’informations sur les sauvegardes à l’aide de T-SQL, consultez [BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
-### <a name="buffer-pool-extension"></a>Extension du pool de mémoires tampons
+## <a name="security"></a>Sécurité
 
-- L’[extension du pool de mémoires tampons](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) n’est pas prise en charge.
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` n’est pas pris en charge. Consultez [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
+### <a name="auditing"></a>Audit
 
-### <a name="bulk-insert--openrowset"></a>Insertion en bloc/openrowset
+Les principales différences entre l’audit des bases de données dans Azure SQL Database et des bases de données dans SQL Server sont les suivantes :
 
-Managed Instance ne peut pas accéder aux partages de fichiers et aux dossiers Windows. Les fichiers doivent donc être importés à partir du stockage Blob Azure :
+- Avec l’option de déploiement d’instance gérée dans Azure SQL Database, l’audit s’effectue au niveau du serveur et stocke les fichiers journaux `.xel` sur le compte Stockage Blob Azure.
+- Avec les options de déploiement de base de données unique et de pool élastique dans Azure SQL Database, l’audit fonctionne au niveau de la base de données.
+- Dans SQL Server (en local ou sur machines virtuelles), l’audit fonctionne au niveau du serveur, mais stocke les événements dans les journaux des événements du système de fichiers/Windows.
+  
+L’audit XEvent d’une instance gérée prend en charge les cibles de Stockage Blob Azure. Les journaux de fichiers et de Windows ne sont pas pris en charge.
 
-- `DATASOURCE` est requis dans la commande `BULK INSERT` lors de l’importation des fichiers depuis le Stockage Blob Azure. Consultez [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` est requis dans la fonction `OPENROWSET`lorsque vous lisez le contenu d’un fichier à partir du Stockage Blob Azure. Consultez [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azures sont :
+
+- Une nouvelle syntaxe `TO URL` est fournie et vous permet de spécifier l’URL du conteneur du Stockage Blob Azure où les fichiers `.xel` seront placés
+- La syntaxe `TO FILE` n’est pas prise en charge, car une instance gérée ne peut pas accéder à des partages de fichiers Windows.
+
+Pour plus d'informations, consultez les pages suivantes :  
+
+- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
+- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+- [Audit](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="certificates"></a>Certificats
 
-Managed Instance ne peut pas accéder aux partages de fichiers et aux dossiers Windows, les contraintes suivantes s’appliquent donc :
+Une instance gérée ne pouvant pas accéder à des partages de fichiers et à des dossiers Windows, les contraintes suivantes s’appliquent :
 
 - Le fichier `CREATE FROM`/`BACKUP TO` n’est pas pris en charge pour les certificats
 - Le certificat `CREATE`/`BACKUP` de `FILE`/`ASSEMBLY` n’est pas pris en charge. Les fichiers de clés privées ne peuvent pas être utilisés.  
@@ -114,13 +108,44 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="clr"></a>CLR
+### <a name="credential"></a>Informations d'identification
 
-Managed Instance ne peut pas accéder aux partages de fichiers et aux dossiers Windows, les contraintes suivantes s’appliquent donc :
+Seuls Azure Key Vault et les identités `SHARED ACCESS SIGNATURE` sont pris en charge. Les utilisateurs Windows ne sont pas pris en charge.
 
-- Seul `CREATE ASSEMBLY FROM BINARY` est pris en charge. Consultez [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
-- `CREATE ASSEMBLY FROM FILE` n’est pas pris en charge. Consultez [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
-- `ALTER ASSEMBLY` ne peut pas référencer des fichiers. Consultez [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
+Consultez [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) et [ALTER CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-credential-transact-sql).
+
+### <a name="cryptographic-providers"></a>Fournisseurs de chiffrement
+
+Une instance gérée ne pouvant pas accéder aux fichiers, des fournisseurs de chiffrement ne peuvent pas être créés :
+
+- `CREATE CRYPTOGRAPHIC PROVIDER` n’est pas pris en charge. Consultez [CREATE CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
+- `ALTER CRYPTOGRAPHIC PROVIDER` n’est pas pris en charge. Consultez [ALTER CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
+
+### <a name="logins--users"></a>Connexions/utilisateurs
+
+- Les connexions SQL créées `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, et `FROM SID` sont prises en charge. Consultez [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
+- Les connexions Azure Active Directory (AAD) créées avec la syntaxe [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou la syntaxe [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) sont prises en charge (**préversion publique**).
+- Les connexions Windows créées avec la syntaxe `CREATE LOGIN ... FROM WINDOWS` ne sont pas prises en charge. Utilisez des utilisateurs et des connexions Azure Active Directory.
+- L’utilisateur Azure Active Directory (Azure AD) qui a créé l’instance dispose de [privilèges d’administrateur illimités](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Les utilisateurs au niveau de la base de données Azure Active Directory (Azure AD) non-administrateurs peuvent être créés à l’aide de la syntaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consultez [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)
+
+### <a name="service-key-and-service-master-key"></a>Clé de service et clé principale de service
+
+- [Backup master key](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) n’est pas pris en charge (géré par SQL Database service)
+- [Restore master key](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) n’est pas pris en charge (géré par SQL Database service)
+- [Backup service master key](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) n’est pas pris en charge (géré par SQL Database service)
+- [Restore service master key](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) n’est pas pris en charge (géré par SQL Database service)
+
+## <a name="configuration"></a>Configuration
+
+### <a name="buffer-pool-extension"></a>Extension du pool de mémoires tampons
+
+- L’[extension du pool de mémoires tampons](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) n’est pas prise en charge.
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` n’est pas pris en charge. Consultez [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
+
+### <a name="collation"></a>Collation
+
+Le classement d’instance par défaut est `SQL_Latin1_General_CP1_CI_AS` et peut être spécifié comme paramètre de création. Consultez [Classements](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 ### <a name="compatibility-levels"></a>Niveaux de compatibilité
 
@@ -130,22 +155,14 @@ Managed Instance ne peut pas accéder aux partages de fichiers et aux dossiers W
 
 Consultez [Niveau de compatibilité ALTER TABLE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
 
-### <a name="credential"></a>Informations d'identification
+### <a name="database-mirroring"></a>Mise en miroir de bases de données
 
-Seuls Azure Key Vault et les identités `SHARED ACCESS SIGNATURE` sont pris en charge. Les utilisateurs Windows ne sont pas pris en charge.
+La mise en miroir de bases de données n’est pas prise en charge.
 
-Consultez [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) et [ALTER CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-credential-transact-sql).
+- Les options `ALTER DATABASE SET PARTNER` et `SET WITNESS` ne sont pas prises en charge.
+- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` n’est pas pris en charge.
 
-### <a name="cryptographic-providers"></a>Fournisseurs de chiffrement
-
-Managed Instance ne peut pas accéder aux fichiers, les fournisseurs de chiffrement ne peuvent donc pas être créés :
-
-- `CREATE CRYPTOGRAPHIC PROVIDER` n’est pas pris en charge. Consultez [CREATE CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
-- `ALTER CRYPTOGRAPHIC PROVIDER` n’est pas pris en charge. Consultez [ALTER CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
-
-### <a name="collation"></a>Collation
-
-Le classement d’instance par défaut est `SQL_Latin1_General_CP1_CI_AS` et peut être spécifié comme paramètre de création. Consultez [Classements](https://docs.microsoft.com/sql/t-sql/statements/collations).
+Pour plus d’informations, consultez [ALTER DATABASE SET PARTNER AND SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) et [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
 
 ### <a name="database-options"></a>Options de la base de données
 
@@ -174,7 +191,7 @@ Pour plus d’informations, consultez [CREATE DATABASE](https://docs.microsoft.c
 
 Certaines propriétés de fichier ne peuvent pas être définies ou modifiées :
 
-- Le chemin d’accès de fichier ne peut pas être spécifié dans l’instruction T-SQL `ALTER DATABASE ADD FILE (FILENAME='path')`. Enlevez `FILENAME` du script car Managed Instance place les fichiers automatiquement.  
+- Le chemin d’accès de fichier ne peut pas être spécifié dans l’instruction T-SQL `ALTER DATABASE ADD FILE (FILENAME='path')`. Enlevez `FILENAME` du script car une instance gérée place les fichiers automatiquement.  
 - Le nom de fichier ne peut pas être modifié à l’aide de l’instruction `ALTER DATABASE`.
 
 Les options suivantes sont définies par défaut et ne peuvent pas être modifiées :
@@ -209,18 +226,72 @@ La modification du nom n’est pas prise en charge.
 
 Pour en savoir plus, consultez [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="database-mirroring"></a>Mise en miroir de bases de données
+### <a name="sql-server-agent"></a>Agent SQL Server
 
-La mise en miroir de bases de données n’est pas prise en charge.
+- Les paramètres de l’Agent SQL sont en lecture seule. La procédure `sp_set_agent_properties` n’est pas prise en charge dans les instances gérées.  
+- Tâches
+  - Les étapes de travail T-SQL sont prises en charge.
+  - Les travaux de réplication suivants sont pris en charge :
+    - Lecteur de journaux de transactions  
+    - Instantané
+    - Serveur de distribution
+  - Les étapes de travail SSIS sont prises en charge
+  - Les autres types d’étapes de travail ne sont pas actuellement pris en charge, notamment :
+    - L’étape de travail de réplication de fusion n’est pas prise en charge.  
+    - L’agent de lecture de la file d’attente n’est pas pris en charge.  
+    - L’interpréteur de commandes n’est pas encore pris en charge
+  - Des instances gérées ne peuvent pas accéder à des ressources externes (par exemple, des partages réseau via robocopy).  
+  - PowerShell n’est pas encore pris en charge.
+  - Analysis Services n’est pas pris en charge
+- Les notifications sont partiellement prises en charge
+- Les notifications par e-mail sont prises en charge, elles requièrent la configuration d’un profil de messagerie de base de données. Il ne peut y avoir qu’un seul profil de messagerie de base de données et il doit être appelé `AzureManagedInstance_dbmail_profile` en préversion publique (limitation temporaire).  
+  - Les récepteurs de radiomessagerie ne sont pas pris en charge.  
+  - NetSend n’est pas pris en charge.
+  - Les alertes ne sont pas encore prises en charge.
+  - Les proxies ne sont pas pris en charge.  
+- EventLog n’est pas pris en charge.
 
-- Les options `ALTER DATABASE SET PARTNER` et `SET WITNESS` ne sont pas prises en charge.
-- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` n’est pas pris en charge.
+Les fonctionnalités suivantes ne sont actuellement pas prises en charge, mais seront activées à l’avenir :
 
-Pour plus d’informations, consultez [ALTER DATABASE SET PARTNER AND SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) et [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
+- Proxies
+- Planification de travaux sur une UC inactive
+- Activation/Désactivation de l’Agent
+- Alertes
+
+Pour plus d’informations sur SQL Server Agent, consultez [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+
+### <a name="tables"></a>Tables
+
+Les éléments suivants ne sont pas pris en charge :
+
+- `FILESTREAM`
+- `FILETABLE`
+- `EXTERNAL TABLE`
+- `MEMORY_OPTIMIZED`  
+
+Pour plus d’informations sur la création et modification des tables, consultez [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) et [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+
+## <a name="functionalities"></a>Fonctionnalités
+
+### <a name="bulk-insert--openrowset"></a>Insertion en bloc/openrowset
+
+Une instance gérée ne pouvant pas accéder à des partages de fichiers et à des dossiers Windows, les fichiers doivent être importés à partir du Stockage Blob Azure :
+
+- `DATASOURCE` est requis dans la commande `BULK INSERT` lors de l’importation des fichiers depuis le Stockage Blob Azure. Consultez [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` est requis dans la fonction `OPENROWSET`lorsque vous lisez le contenu d’un fichier à partir du Stockage Blob Azure. Consultez [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+
+### <a name="clr"></a>CLR
+
+Une instance gérée ne pouvant pas accéder à des partages de fichiers et à des dossiers Windows, les contraintes suivantes s’appliquent :
+
+- Seul `CREATE ASSEMBLY FROM BINARY` est pris en charge. Consultez [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
+- `CREATE ASSEMBLY FROM FILE` n’est pas pris en charge. Consultez [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
+- `ALTER ASSEMBLY` ne peut pas référencer des fichiers. Consultez [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
+
 
 ### <a name="dbcc"></a>DBCC
 
-Les instructions DBCC non documentées activées dans SQL Server ne sont pas prises en charge dans Managed Instance.
+Les instructions DBCC non documentées activées dans SQL Server ne sont pas prises en charge dans les instances gérées.
 
 - `Trace Flags` ne sont pas pris en charge. Consultez les [indicateurs de trace](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - `DBCC TRACEOFF` n’est pas pris en charge. Consultez [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
@@ -228,7 +299,7 @@ Les instructions DBCC non documentées activées dans SQL Server ne sont pas pri
 
 ### <a name="distributed-transactions"></a>Transactions distribuées
 
-Actuellement, ni MSDTC, ni les [Transactions élastiques](sql-database-elastic-transactions-overview.md) ne sont pris en charge dans Managed Instance.
+Actuellement, ni MSDTC, ni les [Transactions élastiques](sql-database-elastic-transactions-overview.md) ne sont pris en charge dans les instances gérées.
 
 ### <a name="extended-events"></a>Événements étendus
 
@@ -262,7 +333,7 @@ Pour plus d’informations, consultez [FILESTREAM](https://docs.microsoft.com/sq
 
 ### <a name="linked-servers"></a>Services liés
 
-Les serveurs liés dans Managed Instance prennent en charge un nombre limité de cibles :
+Les serveurs liés dans des instances gérées prennent en charge un nombre limité de cibles :
 
 - Cibles prises en charge : SQL Server et SQL Database
 - Cibles non prises en charge : fichiers, Analysis Services et autres SGBDR.
@@ -274,21 +345,13 @@ Opérations
 - La fonction `OPENROWSET` peut être utilisée pour exécuter des requêtes uniquement sur les instances de SQL Server (géré, local ou sur des machines virtuelles). Consultez [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - La fonction `OPENDATASOURCE` peut être utilisée pour exécuter des requêtes uniquement sur les instances de SQL Server (géré, local ou sur des machines virtuelles). Seules les valeurs `SQLNCLI`, `SQLNCLI11`, et `SQLOLEDB` sont prises en charge en tant que fournisseur. Par exemple : `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consultez [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
 
-### <a name="logins--users"></a>Connexions/utilisateurs
-
-- Les connexions SQL créées `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, et `FROM SID` sont prises en charge. Consultez [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Les connexions Azure Active Directory (AAD) créées avec la syntaxe [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou la syntaxe [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) sont prises en charge (**préversion publique**).
-- Les connexions Windows créées avec la syntaxe `CREATE LOGIN ... FROM WINDOWS` ne sont pas prises en charge. Utilisez des utilisateurs et des connexions Azure Active Directory.
-- L’utilisateur Azure Active Directory (Azure AD) qui a créé l’instance dispose de [privilèges d’administrateur illimités](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Les utilisateurs au niveau de la base de données Azure Active Directory (Azure AD) non-administrateurs peuvent être créés à l’aide de la syntaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consultez [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)
-
 ### <a name="polybase"></a>Polybase
 
 Les tables externes référençant les fichiers dans HDFS ou le Stockage Blob Azure ne sont pas prises en charge. Pour plus d’informations sur Polybase, consultez [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Réplication
 
-La réplication est disponible en préversion publique dans Managed Instance. Pour plus d’informations sur la réplication, consultez [Réplication SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Une réplication est disponible en préversion publique pour les instances gérées. Pour plus d’informations sur la réplication, consultez [Réplication SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### <a name="restore-statement"></a>L’instruction RESTORE
 
@@ -337,13 +400,6 @@ Le Service Broker entre instances n’est pas pris en charge :
 - `CREATE ROUTE` - vous ne pouvez pas utiliser `CREATE ROUTE` avec `ADDRESS` si la valeur de celle-ci est différente de `LOCAL`. Consultez [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` -Vous ne pouvez pas `ALTER ROUTE` avec une `ADDRESS` autre que `LOCAL`. Consultez [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
-### <a name="service-key-and-service-master-key"></a>Clé de service et clé principale de service
-
-- [Backup master key](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) n’est pas pris en charge (géré par SQL Database service)
-- [Restore master key](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) n’est pas pris en charge (géré par SQL Database service)
-- [Backup service master key](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) n’est pas pris en charge (géré par SQL Database service)
-- [Restore service master key](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) n’est pas pris en charge (géré par SQL Database service)
-
 ### <a name="stored-procedures-functions-triggers"></a>Procédures stockées, fonctions, déclencheurs
 
 - `NATIVE_COMPILATION` n’est actuellement pas pris en charge.
@@ -360,60 +416,15 @@ Le Service Broker entre instances n’est pas pris en charge :
 - `sp_attach_db`, `sp_attach_single_file_db`, et `sp_detach_db` ne sont pas pris en charge. Consultez [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) et [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` n’est pas pris en charge. Consultez [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### <a name="sql-server-agent"></a>Agent SQL Server
-
-- Les paramètres de l’Agent SQL sont en lecture seule. La procédure `sp_set_agent_properties` n’est pas prise en charge dans Managed Instance.  
-- Tâches
-  - Les étapes de travail T-SQL sont prises en charge.
-  - Les travaux de réplication suivants sont pris en charge :
-    - Lecteur de journaux de transactions  
-    - Instantané
-    - Serveur de distribution
-  - Les étapes de travail SSIS sont prises en charge
-  - Les autres types d’étapes de travail ne sont pas actuellement pris en charge, notamment :
-    - L’étape de travail de réplication de fusion n’est pas prise en charge.  
-    - L’agent de lecture de la file d’attente n’est pas pris en charge.  
-    - L’interpréteur de commandes n’est pas encore pris en charge
-  - Managed Instance ne peut pas accéder aux ressources externes (par exemple, les partages réseau via robocopy).  
-  - PowerShell n’est pas encore pris en charge.
-  - Analysis Services n’est pas pris en charge
-- Les notifications sont partiellement prises en charge
-- Les notifications par e-mail sont prises en charge, elles requièrent la configuration d’un profil de messagerie de base de données. Il ne peut y avoir qu’un seul profil de messagerie de base de données et il doit être appelé `AzureManagedInstance_dbmail_profile` en préversion publique (limitation temporaire).  
-  - Les récepteurs de radiomessagerie ne sont pas pris en charge.  
-  - NetSend n’est pas pris en charge.
-  - Les alertes ne sont pas encore prises en charge.
-  - Les proxies ne sont pas pris en charge.  
-- EventLog n’est pas pris en charge.
-
-Les fonctionnalités suivantes ne sont actuellement pas prises en charge, mais seront activées à l’avenir :
-
-- Proxies
-- Planification de travaux sur une UC inactive
-- Activation/Désactivation de l’Agent
-- Alertes
-
-Pour plus d’informations sur SQL Server Agent, consultez [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
-
-### <a name="tables"></a>Tables
-
-Les éléments suivants ne sont pas pris en charge :
-
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED`  
-
-Pour plus d’informations sur la création et modification des tables, consultez [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) et [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
-
 ## <a name="Changes"></a> Changements de comportement
 
 Les variables, fonctions et vues suivantes retournent des résultats différents :
 
-- `SERVERPROPERTY('EngineEdition')` retourne la valeur 8. Cette propriété identifie Managed Instance de façon unique. Consultez [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` retourne la valeur NULL, car le concept d’instance, tel qu’il existe pour SQL Server ne s’applique pas à Managed Instance. Consultez [SERVERPROPERTY(« InstanceName »)](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('EngineEdition')` retourne la valeur 8. Cette propriété identifie une instance gérée de façon unique. Consultez [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` retourne la valeur NULL, car le concept d’instance, tel qu’il existe pour SQL Server ne s’applique pas à une instance gérée. Consultez [SERVERPROPERTY(« InstanceName »)](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` retourne le nom DNS « connectable »complet, par exemple, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consultez [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` -retourne le nom DNS « connectable »complet, tel que `myinstance.domain.database.windows.net` pour les propriétés « name » et « data_source ». Consultez [SYS. SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME` retourne la valeur NULL, car le concept de service, tel qu’il existe pour SQL Server ne s’applique pas à Managed Instance. Consultez [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- `@@SERVICENAME` retourne la valeur NULL, car le concept de service, tel qu’il existe pour SQL Server ne s’applique pas à une instance gérée. Consultez [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` est pris en charge. Retourne NULL si le compte de connexion AAD n’est pas dans sys.syslogins. Consultez [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` n’est pas pris en charge. Retourne des données incorrectes (problème temporaire connu). Consultez [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
 - `GETDATE()` et autres fonctions de date et d’heure intégrées retourne toujours l’heure dans le fuseau horaire UTC. Consultez [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
@@ -426,14 +437,14 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Dépassement de l’espace de stockage avec des fichiers de base de données de petite taille
 
-Chaque instance gérée a jusqu’à 35 To de stockage réservé pour l’espace disque Premium Azure et chaque fichier de bases de données est placé sur un disque physique séparé. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne.
+Chaque instance gérée dispose de jusqu’à 35 To de stockage réservé pour l’espace disque Premium Azure, et chaque fichier de bases de données est placé sur un disque physique séparé. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne.
 
-Par exemple, une instance managée peut contenir un fichier d’une taille de 1,2 To placé sur un disque de 4 To et 248 fichiers (chacun d’une taille de 1 Go) placés sur des disques distincts de 128 Go. Dans cet exemple :
+Par exemple, une instance gérée peut contenir un fichier d’une taille de 1,2 To placé sur un disque de 4 To et 248 fichiers (chacun d’une taille de 1 Go) placés sur des disques distincts de 128 Go. Dans cet exemple :
 
 - La taille totale du stockage de disque alloué est de 1 x 4 To + 248 x 128 Go = 35 To.
 - L’espace total réservé pour les bases de données sur l’instance est de 1 x 1,2 To + 248 x 1 Go = 1,4 To.
 
-Cet exemple montre que dans certaines circonstances, du fait d’une distribution spécifique des fichiers, une instance managée peut atteindre les 35 To réservés pour le disque Premium Azure attaché sans que vous vous y attendiez.
+Cet exemple montre que, dans certaines circonstances, du fait d’une distribution spécifique des fichiers, une instance gérée peut atteindre les 35 To réservés pour le disque Premium Azure attaché sans que vous vous y attendiez.
 
 Dans cet exemple, les bases de données existantes continuent de fonctionner et peuvent croître sans aucun problème du moment que de nouveaux fichiers ne sont pas ajoutés. Toutefois, la création ou la restauration de bases de données est impossible, car il n’y a pas suffisamment d’espace pour les nouveaux lecteurs de disque, même si la taille totale de toutes les bases de données n’atteint pas la limite de taille d’instance. L’erreur retournée dans ce cas n’est pas claire.
 
@@ -444,7 +455,7 @@ Veillez à supprimer le `?` au début de la clé SAP générée à l’aide du p
 
 ### <a name="tooling"></a>Outils
 
-SQL Server Management Studio (SSMS) et SQL Server Data Tools (SSDT) peuvent rencontrer des problèmes au moment d’accéder à Managed Instance.
+SQL Server Management Studio (SSMS) et SQL Server Data Tools (SSDT) peuvent rencontrer des problèmes au moment d’accéder à une instance gérée.
 
 - L’utilisation de connexions et d’utilisateurs Azure AD (**préversion publique**) avec SSDT n’est actuellement pas prise en charge.
 - La création de scripts pour les utilisateurs et les connexions Azure AD (**préversion publique**) n’est pas prise en charge dans SSMS.
@@ -463,9 +474,9 @@ Les journaux des erreurs qui sont disponibles dans l’instance managée ne sont
 
 ### <a name="error-logs-are-verbose"></a>Les journaux des erreurs contiennent des détails non pertinents
 
-Managed Instance ajoute des informations détaillées dans les journaux des erreurs, dont la plupart ne sont pas pertinentes. La quantité d’informations qui s’y trouvent va être prochainement réduite.
+Une instance gérée ajoute des informations détaillées dans les journaux des erreurs, dont la plupart ne sont pas pertinentes. La quantité d’informations qui s’y trouvent va être prochainement réduite.
 
-**Solution de contournement** : utilisez une procédure personnalisée pour faire en sorte que les journaux des erreurs n’affichent pas les entrées non pertinentes. Pour plus d’informations, consultez [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Solution de contournement** : utilisez une procédure personnalisée pour faire en sorte que les journaux des erreurs n’affichent pas les entrées non pertinentes. Pour plus d’informations, voir [instance gérée – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>L’utilisation de la même étendue de transaction pour deux bases de données appartenant à une même instance n’est pas prise en charge
 
@@ -500,7 +511,7 @@ Même si ce code fonctionne avec les données d’une même instance, il nécess
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Les modules CLR et les serveurs liés n’arrivent pas à référencer l’adresse IP locale
 
-Il arrive que les modules CLR placés dans Managed Instance, et les requêtes distribuées ou serveurs liés faisant référence à une instance actuelle, ne parviennent pas à résoudre l’adresse IP de l’instance locale. Cette erreur est un problème temporaire.
+Il arrive que des modules CLR placés dans une instance gérée, et que des requêtes distribuées ou des serveurs liés faisant référence à une instance actuelle, ne parviennent pas à résoudre l’adresse IP de l’instance locale. Cette erreur est un problème temporaire.
 
 **Solution de contournement** : utilisez des connexions contextuelles dans le module CLR, si possible.
 
@@ -512,6 +523,6 @@ Vous ne pouvez pas exécuter `BACKUP DATABASE ... WITH COPY_ONLY` sur une base d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur Managed Instance, consultez [What is a Managed Instance?](sql-database-managed-instance.md) (Présentation de l’option Managed Instance)
+- Pour plus d’informations sur les instances gérées, voir [What is a Managed Instance?](sql-database-managed-instance.md) (Qu’est-ce qu’une instance gérée ?).
 - Pour consulter la liste des fonctionnalités et les comparer, consultez [Fonctionnalités SQL communes](sql-database-features.md).
-- Pour obtenir un guide de démarrage rapide vous expliquant comment créer une instance managée, consultez [Créer une instance managée SQL Azure](sql-database-managed-instance-get-started.md).
+- Pour obtenir un guide de démarrage rapide vous expliquant comment créer une instance gérée, voir [Creating a managed instance](sql-database-managed-instance-get-started.md) (Création d’une instance gérée).

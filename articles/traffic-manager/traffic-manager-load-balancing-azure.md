@@ -1,10 +1,10 @@
 ---
 title: Utilisation des services d’équilibrage de charge dans Azure | Microsoft Docs
-description: 'Ce didacticiel vous montre comment créer un scénario utilisant la gamme de services d’équilibrage de charge Azure : Traffic Manager, Application Gateway et Load Balancer.'
+description: 'Ce didacticiel vous montre comment créer un scénario à l’aide du portefeuille d’équilibrage de charge Azure : Traffic Manager, Application Gateway et Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
 author: liumichelle
-manager: vitinnan
+manager: dkays
 editor: ''
 ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: 86867a9d6d2c43e6505b1a06672546a017172bfe
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a6f7a690cac5718216636d3191f348c71bcfb5d6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401104"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734349"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilisation des services d’équilibrage de charge dans Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "29401104"
 
 Microsoft Azure propose plusieurs services destinés à gérer la distribution et l’équilibrage de la charge du trafic réseau. Vous pouvez utiliser ces services individuellement ou combiner leurs méthodes selon vos besoins spécifiques, afin d’élaborer une solution optimale.
 
-Dans ce didacticiel, nous allons tout d’abord définir le cas d’usage d’un client et voir comment nous pouvons le rendre plus robuste et plus performant en utilisant la gamme de services d’équilibrage de charge Azure, à savoir Traffic Manager, Application Gateway et Load Balancer. Nous donnerons ensuite des instructions détaillées permettant de créer un déploiement géographiquement redondant, qui distribue le trafic à des machines virtuelles et permet de gérer différents types de demandes.
+Dans ce didacticiel, nous allons tout d’abord définir le cas d’usage d’un client, puis voir comment nous pouvons le rendre plus robuste et plus performant en utilisant la gamme de services d’équilibrage de charge Azure : Traffic Manager, Application Gateway et Load Balancer. Nous donnerons ensuite des instructions détaillées permettant de créer un déploiement géographiquement redondant, qui distribue le trafic à des machines virtuelles et permet de gérer différents types de demandes.
 
 À un niveau conceptuel, chacun de ces services joue un rôle distinct dans la hiérarchie de l’équilibrage de charge.
 
@@ -35,8 +35,11 @@ Dans ce didacticiel, nous allons tout d’abord définir le cas d’usage d’un
   * Le routage basé sur les performances permet de rediriger le demandeur vers le point de terminaison le plus proche en termes de latence.
   * Le routage par priorité permet de rediriger l’ensemble du trafic vers un point de terminaison, les autres points de terminaison jouant le rôle de points de secours.
   * Le routage du trafic en tourniquet (round robin) pondéré permet de répartir le trafic en fonction de la pondération associée à chaque point de terminaison.
+  * Le routage basé sur la géographie permet de répartir le trafic sur des nœuds de point de terminaison d’application en fonction de l’emplacement géographique de l’utilisateur.
+  * Le routage basé sur le sous-réseau permet de répartir le trafic sur des nœuds de point de terminaison d’application en fonction du sous-réseau (plage d’adresses IP) de l’utilisateur.
+  * Le routage à valeurs multiples vous permet d’envoyer les adresses IP de plusieurs points de terminaison d’application dans une seule réponse DNS.
 
-  Le client se connecte directement à ce point de terminaison. Azure Traffic Manager est capable de détecter un point de terminaison défectueux. Si tel est le cas, il redirige les clients vers une autre instance intègre. Pour plus d’informations sur ce service, consultez la [documentation Azure Traffic Manager](traffic-manager-overview.md).
+  Le client se connecte directement au point de terminaison retourné par Traffic Manager. Azure Traffic Manager est capable de détecter un point de terminaison défectueux. Si tel est le cas, il redirige les clients vers une autre instance intègre. Pour plus d’informations sur ce service, consultez la [documentation Azure Traffic Manager](traffic-manager-overview.md).
 * **Application Gateway** intègre ADC (Application Delivery Controller) sous la forme d’un service, qui offre diverses fonctionnalités d’équilibrage de charge de couche 7 pour votre application. Il permet aux clients d’optimiser la productivité de la batterie de serveurs web en déchargeant une terminaison SSL gourmande en ressources du processeur vers la passerelle Application Gateway. Parmi les autres fonctionnalités de routage de couche 7, citons la distribution en tourniquet (round robin) du trafic entrant, l’affinité de session basée sur les cookies, le routage basé sur le chemin des URL et la possibilité d’héberger plusieurs sites web derrière une seule passerelle Application Gateway. Cette dernière peut être configurée en tant que passerelle accessible sur Internet, passerelle interne uniquement ou une combinaison des deux. La passerelle Application Gateway est une solution Azure entièrement gérée, très évolutive et hautement disponible. Elle fournit un ensemble complet de fonctionnalités de diagnostics et de journalisation, pour une meilleure gérabilité.
 * **Load Balancer** fait partie intégrante de la pile Azure SDN, et fournit des services d’équilibrage de charge de couche 4 hautement performants et à faible latence pour tous les protocoles UDP et TCP. Il gère les connexions entrantes et sortantes. Vous pouvez configurer des points de terminaison publics et internes avec équilibrage de charge, et définir des règles de mappage des connexions entrantes aux destinations du pool principal, en utilisant des options d’analyse d’intégrité TCP et HTTP de façon à gérer la disponibilité du service.
 
@@ -48,7 +51,7 @@ Par ailleurs, le pool de machines virtuelles par défaut affichant le contenu dy
 
 L’utilisation de Traffic Manager, d’Application Gateway et de Load Balancer permet à ce site web d’atteindre les objectifs de conception suivants :
 
-* **Géo-redondance multiple** : si une région connaît une défaillance, Traffic Manager achemine le trafic en toute transparence vers la région la plus proche sans aucune intervention du propriétaire de l’application.
+* **Géoredondance multiple** : si une région connaît une défaillance, Traffic Manager achemine le trafic en toute transparence vers la région la plus proche sans aucune intervention du propriétaire de l’application.
 * **Latence réduite** : comme Azure Traffic Manager dirige automatiquement le client vers la région la plus proche, celui-ci subit une latence plus faible quand il demande le contenu de la page web.
 * **Extensibilité indépendante** : comme la charge de travail de l’application web est répartie en fonction du type de contenu, le propriétaire de l’application peut mettre à l’échelle les charges de travail des demandes indépendamment les unes des autres. Application Gateway vérifie que le trafic est acheminé vers les pools appropriés, en fonction des règles spécifiées et de l’intégrité de l’application.
 * **Équilibrage de charge interne** : comme Load Balancer se trouve devant le cluster à haute disponibilité, seul le point de terminaison actif et intègre d’une base de données est exposé à l’application. Par ailleurs, un administrateur de base de données peut optimiser la charge de travail en répartissant les réplicas actifs et passifs dans le cluster, indépendamment de l’application frontale. Load Balancer fournit les connexions au cluster à haute disponibilité et fait en sorte que seules les bases de données intègres reçoivent des demandes de connexion.
@@ -62,14 +65,14 @@ Le diagramme suivant illustre l’architecture de ce scénario :
 
 ## <a name="setting-up-the-load-balancing-stack"></a>Configuration de la pile d’équilibrage de charge
 
-### <a name="step-1-create-a-traffic-manager-profile"></a>Étape 1 : créer un profil Traffic Manager
+### <a name="step-1-create-a-traffic-manager-profile"></a>Étape 1 : Créer un profil Traffic Manager
 
 1. Dans le portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
 2. Entrez les informations de base suivantes :
 
-  * **Nom** : donnez un nom de préfixe DNS à votre profil Traffic Manager.
+  * **Nom** : donnez un nom de préfixe DNS à votre profil Traffic Manager.
   * **Méthode de routage** : sélectionnez la stratégie de la méthode de routage du trafic. Pour en savoir plus sur les différentes méthodes , voir [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md).
-  * **Abonnement** : sélectionnez l’abonnement qui contient le profil.
+  * **Abonnement**: sélectionnez l’abonnement qui contient le profil.
   * **Groupe de ressources** : sélectionnez le groupe de ressources qui contient le profil. Il peut s’agir d’un groupe de ressources nouveau ou existant.
   * **Emplacement du groupe de ressources** : le service Traffic Manager est global, et non lié à un emplacement. Toutefois, vous devez spécifier une région pour le groupe hébergeant les métadonnées associées au profil Traffic Manager. Cet emplacement n’a aucune incidence sur la disponibilité du profil au moment de l’exécution.
 
@@ -77,16 +80,16 @@ Le diagramme suivant illustre l’architecture de ce scénario :
 
   ![Panneau Créer un profil Traffic Manager](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
-### <a name="step-2-create-the-application-gateways"></a>Étape 2 : créer des passerelles Application Gateway
+### <a name="step-2-create-the-application-gateways"></a>Étape 2 : créer des passerelles Application Gateway
 
 1. Dans le volet de gauche du portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Application Gateway**.
 2. Indiquez ensuite les informations de base suivantes sur la passerelle Application Gateway :
 
-  * **Nom** : nom de la passerelle Application Gateway.
+  * **Nom** : Nom de la passerelle Application Gateway.
   * **Taille de la référence** : taille de la passerelle Application Gateway (petite, moyenne ou grande).
-  * **Nombre d’instances** : nombre d’instances (valeur comprise entre 2 et 10).
+  * **Nombre d’instances** : nombre d’instances (valeur comprise entre 2 et 10).
   * **Groupe de ressources** : groupe de ressources qui contient la passerelle Application Gateway. Il peut s’agir d’un groupe existant, ou d’un nouveau groupe.
-  * **Emplacement** : région de la passerelle Application Gateway. Il s’agit du même emplacement que celui du groupe de ressources. Cet emplacement est important, dans la mesure où le réseau virtuel et l’adresse IP publique doivent se trouver au même endroit que la passerelle.
+  * **Emplacement** : région de la passerelle Application Gateway. Il s’agit du même emplacement que celui du groupe de ressources. Cet emplacement est important, dans la mesure où le réseau virtuel et l’adresse IP publique doivent se trouver au même endroit que la passerelle.
 3. Cliquez sur **OK**.
 4. Définissez le réseau virtuel, le sous-réseau, l’adresse IP frontale et les configurations d’écouteur pour la passerelle Application Gateway. Dans ce scénario, l’adresse IP frontale est de type **Public**. Elle peut ainsi être ajoutée comme point de terminaison au profil Traffic Manager.
 5. Configurez l’écouteur avec l’une des options suivantes :
@@ -113,24 +116,24 @@ Au moment de choisir le pool principal, une passerelle Application Gateway conf
 
    Paramètres de base :
 
-   + **Nom** : nom convivial de la règle accessible via le portail.
-   + **Écouteur** : écouteur utilisé pour la règle.
+   + **Nom** : nom convivial de la règle accessible via le portail.
+   + **Écouteur** : écouteur utilisé pour la règle.
    + **Pool principal par défaut** : pool principal à utiliser avec la règle par défaut.
-   + **Paramètres HTTP par défaut** : paramètres HTTP à utiliser avec la règle par défaut.
+   + **Paramètres HTTP par défaut** : paramètres HTTP à utiliser avec la règle par défaut.
 
    Règles basées sur le chemin :
 
-   + **Nom** : nom convivial de la règle basée sur le chemin.
+   + **Nom** : nom convivial de la règle basée sur le chemin.
    + **Chemins** : règle de chemin utilisée pour transférer le trafic.
    + **Pool principal** : pool principal à utiliser avec cette règle.
-   + **Paramètre HTTP** : paramètres HTTP à utiliser avec cette règle.
+   + **Paramètre HTTP** : paramètres HTTP à utiliser avec cette règle.
 
    > [!IMPORTANT]
    > Chemins : pour être valides, les chemins doivent commencer par « / ». Le caractère générique « \* » n’est autorisé qu’à la fin. Exemples valides : /xyz, /xyz\* ou /xyz/\*.
 
    ![Panneau Ajouter une règle basée sur le chemin d’Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
-### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>Étape 3 : ajouter des passerelles Application Gateway aux points de terminaison Traffic Manager
+### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>Étape 3 : ajouter des passerelles Application Gateway aux points de terminaison Traffic Manager
 
 Dans ce scénario, Traffic Manager est connecté à des instances Application Gateway (selon la configuration des étapes précédentes) qui résident dans des régions différentes. Maintenant que les passerelles Application Gateway sont configurées, l’étape suivante consiste à les connecter à votre profil Traffic Manager.
 
@@ -142,14 +145,14 @@ Dans ce scénario, Traffic Manager est connecté à des instances Application 
 3. Créez un point de terminaison en entrant les informations suivantes :
 
   * **Type** : sélectionnez le type de point de terminaison pour l’équilibrage de charge. Dans ce scénario, sélectionnez **Point de terminaison Azure**, car nous le connectons aux instances Application Gateway configurées précédemment.
-  * **Nom** : saisissez le nom du point de terminaison.
+  * **Nom** : saisissez le nom du point de terminaison.
   * **Type de ressource cible** : sélectionnez **Adresse IP publique** et, sous **Ressource cible**, sélectionnez l’adresse IP publique de la passerelle Application Gateway configurée précédemment.
 
    ![Ajouter un point de terminaison, dans Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
 4. Vous pouvez désormais tester votre configuration en y accédant avec le DNS de votre profil Traffic Manager (dans cet exemple : TrafficManagerScenario.trafficmanager.net). Vous pouvez renvoyer des demandes, mettre en service ou hors service les machines virtuelles et serveurs web créés dans différentes régions, puis modifier les paramètres du profil Traffic Manager pour tester votre configuration.
 
-### <a name="step-4-create-a-load-balancer"></a>Étape 4 : Créer un équilibrage de charge
+### <a name="step-4-create-a-load-balancer"></a>Étape 4 : Créer un équilibrage de charge
 
 Dans ce scénario, Load Balancer distribue les connexions de niveau web aux bases de données, au sein d’un cluster à haute disponibilité.
 
@@ -200,13 +203,13 @@ Pour en savoir plus sur la configuration d’un équilibrage de charge interne, 
 8. Sous **IP flottante**, sélectionnez **Désactivé** ou **Activé**.
 9. Cliquez sur **OK** pour créer la règle.
 
-### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Étape 5 : connecter des machines virtuelles de niveau web à l’équilibrage de charge
+### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Étape 5 : connecter des machines virtuelles de niveau web à l’équilibreur de charge
 
 Nous allons maintenant configurer l’adresse IP et le port frontal de l’équilibrage de charge dans les applications s’exécutant sur vos machines virtuelles de niveau web pour les connexions de base de données éventuelles. Cette configuration est propre aux applications qui s’exécutent sur ces machines virtuelles. Pour configurer l’adresse IP et le port de destination, consultez la documentation de l’application. Pour trouver l’adresse IP du serveur frontal, dans le portail Azure, accédez au pool d’adresses IP frontales dans le volet **Paramètres d’équilibrage de charge**.
 
 ![Volet de navigation Pool d’IP du serveur principal de Load Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
 * [Vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)

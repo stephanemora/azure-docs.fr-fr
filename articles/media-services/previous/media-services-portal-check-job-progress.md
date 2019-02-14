@@ -4,7 +4,7 @@ description: Ce didacticiel vous guide à travers les étapes de surveillance de
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: bb4e3ee3-1ab9-46d0-9ae7-848d945bc0b8
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: c6fd3ff4856050041c75ce5cf91192cf95268c30
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 303177cdbc0f9727e5b440b06816a47f88c63dfd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782888"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000862"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Surveiller la progression du travail d’encodage avec le Portail Azure
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.locfileid: "33782888"
 > 
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 

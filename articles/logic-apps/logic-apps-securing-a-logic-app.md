@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: a7d34b76eb6184e546c8217aa6b3723819be70be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 02/05/2019
+ms.openlocfilehash: c3057934d960efd0a846ef31c5fac5abd63a21f6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189528"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768466"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Accès sécurisé dans Azure Logic Apps
 
@@ -120,7 +120,7 @@ Si vous souhaitez que votre application logique se déclenche uniquement comme u
 
 #### <a name="set-ip-ranges---logic-app-deployment-template"></a>Définir des plages d’adresses IP - modèle de déploiement d’applications logiques
 
-Si vous automatisez les déploiements d’applications logiques en utilisant un [modèle de déploiement Azure Resource Manager](logic-apps-create-deploy-template.md), vous pouvez définir les plages d’adresses IP dans ce modèle, par exemple :
+Si vous automatisez les déploiements d’applications logiques en utilisant un [modèle de déploiement Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md), vous pouvez définir les plages d’adresses IP dans ce modèle, par exemple :
 
 ``` json
 {
@@ -131,7 +131,7 @@ Si vous automatisez les déploiements d’applications logiques en utilisant un 
          "triggers": {
             "allowedCallerIpAddresses": [
                {
-               "addressRange": "192.168.12.0/23"
+                  "addressRange": "192.168.12.0/23"
                },
                {
                   "addressRange": "2001:0db8::/64"
@@ -176,13 +176,14 @@ Pour configurer cette restriction dans le portail Azure, accédez aux paramètre
 1. Dans le menu de votre application logique, sous **Paramètres**, sélectionnez **Paramètres de flux de travail**.
 
 1. Sous **Configuration du contrôle d’accès** > 
-**Adresses IP entrantes autorisées**, sélectionnez **Plages d’adresses IP spécifiques**.
+   **Adresses IP entrantes autorisées**, sélectionnez **Plages d’adresses IP spécifiques**.
 
-1. Sous **Plages d’adresses IP pour le contenu**, spécifiez les plages d’adresses IP qui peuvent accéder au contenu issu des entrées et sorties. Une plage d’adresses IP valide utilise ces formats : *x.x.x.x/x* ou *x.x.x.x-x.x.x.x* 
+1. Sous **Plages d’adresses IP pour le contenu**, spécifiez les plages d’adresses IP qui peuvent accéder au contenu issu des entrées et sorties. 
+   Une plage d’adresses IP valide utilise ces formats : *x.x.x.x/x* ou *x.x.x.x-x.x.x.x* 
 
 ### <a name="set-ip-ranges---logic-app-deployment-template"></a>Définir des plages d’adresses IP - modèle de déploiement d’applications logiques
 
-Si vous automatisez les déploiements d’applications logiques en utilisant un [modèle de déploiement Azure Resource Manager](logic-apps-create-deploy-template.md), vous pouvez définir les plages d’adresses IP dans ce modèle, par exemple :
+Si vous automatisez les déploiements d’applications logiques en utilisant un [modèle de déploiement Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md), vous pouvez définir les plages d’adresses IP dans ce modèle, par exemple :
 
 ``` json
 {
@@ -193,7 +194,7 @@ Si vous automatisez les déploiements d’applications logiques en utilisant un 
          "contents": {
             "allowedCallerIpAddresses": [
                {
-               "addressRange": "192.168.12.0/23"
+                  "addressRange": "192.168.12.0/23"
                },
                {
                   "addressRange": "2001:0db8::/64"
@@ -210,44 +211,99 @@ Si vous automatisez les déploiements d’applications logiques en utilisant un 
 
 ## <a name="secure-action-parameters-and-inputs"></a>Sécuriser des entrées et paramètres d’action
 
-Lors d’un déploiement dans différents environnements, vous pouvez paramétrer des aspects spécifiques dans la définition du flux de travail de votre application logique. Par exemple, vous pouvez spécifier des paramètres dans le [modèle de déploiement Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Pour accéder à la valeur de paramètre d’une ressource pendant l’exécution, vous pouvez utiliser l’expression `@parameters('parameterName')`, qui est fournie par le [langage WDL](https://aka.ms/logicappsdocs). 
+Lors d’un déploiement dans différents environnements, vous pouvez paramétrer des éléments spécifiques dans la définition du flux de travail de votre application logique. De cette façon, vous pouvez fournir des entrées basées sur les environnements que vous utilisez, et protéger les informations sensibles. Par exemple, si vous authentifiez des actions HTTP avec [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication), définissez et sécurisez les paramètres qui acceptent l’ID client et la clé secrète client utilisée pour l’authentification. Pour ces paramètres, votre définition d’application logique a sa propre section `parameters`.
+Pour accéder aux valeurs de paramètre en cours d’exécution, vous pouvez utiliser l’expression `@parameters('parameterName')` fournie par le [Langage de définition du flux de travail](https://aka.ms/logicappsdocs). 
 
-Grâce au type de paramètre `securestring`, vous pouvez également sécuriser des paramètres spécifiques que vous ne souhaitez pas afficher lors de la modification du flux de travail de votre application logique. Par exemple, vous pouvez sécuriser des paramètres tels que l’ID client et le secret client utilisés pour authentifier une action HTTP avec [Azure Active Directory](../connectors/connectors-native-http.md#authentication).
-Lorsque vous spécifiez le type de paramètre `securestring`, le paramètre n’est pas renvoyé avec la définition de la ressource, et n’est pas accessible par l’affichage de la ressource après le déploiement. 
+Pour protéger les paramètres et valeurs que vous ne voulez pas présenter lors de la modification de votre application logique ou de l’affichage de l’historique d’exécution, vous pouvez définir des paramètres avec le type `securestring` et utiliser un encodage si nécessaire. Les paramètres de ce type ne sont pas retournés avec la définition de la ressource, et ne sont pas accessibles lors de l’affichage de la ressource après déploiement.
 
 > [!NOTE]
-> Lorsque vous utilisez un paramètre dans les en-têtes ou le corps d’une requête, il peut être visible si vous accédez à l’historique d’exécution de l’application logique et affichez la requête HTTP sortante. Veillez à définir vos stratégies d’accès au contenu en conséquence.
+> Lorsque vous utilisez un paramètre dans les en-têtes ou le corps d’une requête, celui-ci pourrait être visible lors de l’accès à l’historique d’exécution de votre application logique et à la requête HTTP sortante. Veillez à définir également les stratégies d’accès à votre contenu en conséquence.
 > Les en-têtes d’autorisation ne sont jamais visibles par le biais d’entrées ou de sorties. Si un secret est utilisé ici, il n’est pas récupérable.
 
-Cet exemple montre un modèle de déploiement Azure Resource Manager qui utilise plusieurs paramètres d’exécution avec le type `securestring` : 
+Pour plus d’informations sur la sécurisation de paramètres dans des définitions d’application logique, voir [Sécuriser des paramètres dans des définitions d’application logique](#secure-parameters-workflow) plus loin dans cette page.
+
+Si vous automatisez des déploiements avec des [modèles de déploiement Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters), vous pouvez également utiliser des paramètres sécurisés dans ces modèles. Par exemple, vous pouvez utiliser des paramètres pour obtenir des secrets de KeyVault lors de la création de votre application logique. Votre définition de modèle de déploiement a sa propre section `parameters`, distincte de la section `parameters` de votre application logique. Pour plus d’informations sur la sécurisation des paramètres dans les modèles de déploiement, voir [Sécuriser des paramètres dans des modèles de déploiement](#secure-parameters-deployment-template) plus loin dans cette page.
+
+<a name="secure-parameters-workflow"></a>
+
+### <a name="secure-parameters-in-logic-app-definitions"></a>Sécuriser des paramètres dans des définitions d’application logique
+
+Pour protéger des informations sensibles dans la définition de flux de travail de votre application logique, utilisez des paramètres sécurisés afin que ces informations ne soient pas visibles après l’enregistrement de votre application logique. Par exemple, supposons que vous utilisez une authentification `Basic` dans votre définition d’action HTTP. Cet exemple inclut une section `parameters` qui définit les paramètres pour la définition de l’action, plus une section `authentication` qui accepte les valeurs de paramètre `username` et `password`. Pour fournir des valeurs pour ces paramètres, vous pouvez utiliser un fichier de paramètres séparé, par exemple :
+
+```json
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+         "type": "Http",
+         "inputs": {
+            "method": "GET",
+            "uri": "http://www.microsoft.com",
+            "authentication": {
+               "type": "Basic",
+               "username": "@parameters('usernameParam')",
+               "password": "@parameters('passwordParam')"
+            }
+         },
+         "runAfter": {}
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "manual": {
+         "type": "Request",
+         "kind": "Http",
+         "inputs": {
+            "schema": {}
+         }
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+}
+```
+
+Si vous utilisez des secrets, vous pouvez les obtenir au moment du déploiement en utilisant un [KeyVault Azure Resource Manager](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+
+<a name="secure-parameters-deployment-template"></a>
+
+### <a name="secure-parameters-in-azure-resource-manager-deployment-templates"></a>Sécuriser des paramètres dans des modèles de déploiement Azure Resource Manager
+
+Cet exemple présente un modèle de déploiement Azure Resource Manager qui utilise plusieurs paramètres de runtime avec le type `securestring` :
 
 * `armTemplatePasswordParam`, qui est entré pour le paramètre `logicAppWfParam` de la définition de l’application logique
 
 * `logicAppWfParam`, qui est entré pour l’action HTTP dans le cadre de l’authentification de base
 
-Dans un fichier de paramètres distinct, vous pouvez spécifier la valeur d’environnement pour le paramètre `armTemplatePasswordParam` ou vous pouvez récupérer vos clés secrètes au moment du déploiement en utilisant le [Coffre de clés Azure Resource Manager](../azure-resource-manager/resource-manager-keyvault-parameter.md).
-La section interne `parameters` appartient à la définition du flux de travail de votre application logique, tandis que la section externe `parameters` appartient à votre modèle de déploiement.
+Cet exemple inclut une section `parameters` interne qui appartient à la définition de flux de travail de votre application logique, et une section `parameters` externe qui appartient à votre modèle de déploiement. Pour spécifier les valeurs d’environnement pour les paramètres, vous pouvez utiliser un fichier de paramètres séparé. 
 
 ```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
    "parameters": {
-      "logicAppName": {       
+      "logicAppName": {
          "type": "string",
          "minLength": 1,
          "maxLength": 80,
-         "metadata": {         
-            "description": "Name of the Logic App."       
-         }     
+         "metadata": {
+            "description": "Name of the Logic App."
+         }
       },
       "armTemplatePasswordParam": {
-         "type": "securestring"     
-      },     
-      "logicAppLocation": {       
+         "type": "securestring"
+      },
+      "logicAppLocation": {
          "type": "string",
          "defaultValue": "[resourceGroup().location]",
-         "allowedValues": [         
+         "allowedValues": [
             "[resourceGroup().location]",
             "eastasia",
             "southeastasia",
@@ -281,7 +337,7 @@ La section interne `parameters` appartient à la définition du flux de travail 
    },
    "variables": {},
    "resources": [
-      {       
+      {
          "name": "[parameters('logicAppName')]",
          "type": "Microsoft.Logic/workflows",
          "location": "[parameters('logicAppLocation')]",
@@ -300,15 +356,18 @@ La section interne `parameters` appartient à la définition du flux de travail 
                         "uri": "http://www.microsoft.com",
                         "authentication": {
                            "type": "Basic",
-                           "username": "username",
-                              "password": "@parameters('logicAppWfParam')"
+                           "username": "@parameters('usernameParam')",
+                           "password": "@parameters('logicAppWfParam')"
                         }
                      },
                   "runAfter": {}
                   }
                },
-               "parameters": { 
+               "parameters": {
                   "logicAppWfParam": {
+                     "type": "securestring"
+                  },
+                  "userNameParam": {
                      "type": "securestring"
                   }
                },
@@ -332,9 +391,11 @@ La section interne `parameters` appartient à la définition du flux de travail 
          }
       }
    ],
-   "outputs": {} 
-}   
+   "outputs": {}
+}
 ```
+
+Si vous utilisez des secrets, vous pouvez les obtenir au moment du déploiement en utilisant un [KeyVault Azure Resource Manager](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
 <a name="secure-requests"></a>
 
@@ -344,7 +405,7 @@ Voici quelques façons de sécuriser n’importe quel point d’accès où votre
 
 ### <a name="add-authentication-on-outbound-requests"></a>Ajouter l’authentification sur les requêtes sortantes
 
-Lorsque vous utilisez une action HTTP, HTTP + Swagger (API ouverte) ou Webhook, vous pouvez ajouter l’authentification à la requête envoyée par votre application logique. Par exemple, vous pouvez inclure l’authentification de base, l’authentification par certificat ou l’authentification Azure Active Directory. Pour plus d’informations, consultez [Authentifier des déclencheurs ou des actions](logic-apps-workflow-actions-triggers.md#connector-authentication) et [Authentification pour les actions HTTP](../connectors/connectors-native-http.md#authentication).
+Lorsque vous utilisez une action HTTP, HTTP + Swagger (API ouverte) ou Webhook, vous pouvez ajouter l’authentification à la requête envoyée par votre application logique. Par exemple, vous pouvez inclure l’authentification de base, l’authentification par certificat ou l’authentification Azure Active Directory. Pour plus d’informations, voir [Authentifier des déclencheurs ou des actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
 ### <a name="restrict-access-to-logic-app-ip-addresses"></a>Limiter l’accès aux adresses IP d’application logique
 

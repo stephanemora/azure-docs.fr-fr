@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 8d2d8d0595099081498202a3103caa10df8cf67d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b7214230d55831fa33d547ecf9e65051aa5bb4d9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657839"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891451"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Déployer Kubernetes sur Azure Stack à l’aide d’Azure Active Directory
 
@@ -37,7 +37,7 @@ Pour commencer, assurez-vous que vous disposez des autorisations appropriées et
 
 1. Vérifiez que vous pouvez créer des applications dans votre client Azure Active Directory (Azure AD). Ces autorisations sont nécessaires pour le déploiement de Kubernetes.
 
-    Pour obtenir des instructions sur la vérification de vos autorisations, voir [Vérifier les autorisations Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#check-azure-active-directory-permissions).
+    Pour obtenir des instructions sur la vérification de vos autorisations, voir [Vérifier les autorisations Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
 1. Générez une paire de clés publique et privée SSH pour vous connecter à la machine virtuelle Linux sur Azure Stack. Vous aurez besoin de la clé publique lors de la création du cluster.
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Découvrez comment utiliser des expressions de requête structurée dans l’API Service d’exploration de la base de connaissances (KES).
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 335bcc025d2f3e972a02234da89e35c90c91afeb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a544cdca1ef4be56fcf368a39040f4ee85076a9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222693"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860131"
 ---
 # <a name="structured-query-expression"></a>Expression de requête structurée
 

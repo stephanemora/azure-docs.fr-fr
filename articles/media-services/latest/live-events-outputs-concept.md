@@ -13,20 +13,20 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659505"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894049"
 ---
 # <a name="live-events-and-live-outputs"></a>Événements en direct et Sorties en direct
 
 Azure Media Services vous permet de transmettre des événements en direct auprès de vos clients dans le cloud Azure. Pour configurer vos événements de streaming en direct dans Media Services v3, vous devez comprendre les concepts abordés dans cet article :
 
 * [Événements en direct](#live-events)
-* [Types d’événements en direct](#live-vent-types)
-* [Comparaison des types d’événements en direct](#live-event-types-comparison)
+* Types d’événements en direct
+* Comparaison des types d’événements en direct
 * [Options de création d’événements en direct](#live-event-creation-options)
 * [URL de réception des événements en direct](#live-event-ingest-urls)
 * [URL de l’aperçu des événements en direct](#live-event-preview-url)

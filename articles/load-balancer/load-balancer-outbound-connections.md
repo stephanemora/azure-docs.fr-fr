@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201378"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814824"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -34,17 +34,17 @@ Pour exécuter cette fonction, Azure utilise une traduction d’adresses réseau
 Il existe plusieurs [scénarios sortants](#scenarios). Vous pouvez éventuellement combiner ces scénarios. Examinez-les soigneusement pour comprendre les fonctionnalités, les contraintes et les structures qui s’appliquent à vos modèle de déploiement et scénario d’application. Prenez connaissance des conseils relatifs à la [gestion de ces scénarios](#snatexhaust).
 
 >[!IMPORTANT] 
->L’équilibreur de charge standard introduit de nouvelles fonctionnalités et des comportements différents pour la connectivité sortante.   Par exemple, [scénario 3](#defaultsnat) n’existe pas lorsqu’un équilibreur de charge interne standard est présent et différentes étapes doivent être suivies.   Lisez attentivement la totalité de ce document pour comprendre les concepts et les différences généraux entre les références (SKU).
+>Standard Load Balancer et les adresses IP Standard introduisent de nouvelles fonctionnalités et des comportements différents pour la connectivité sortante.  Ils ne sont pas identiques aux références SKU De base.  Si vous souhaitez une connectivité sortante lorsque vous travaillez avec des références SKU Standard, vous devez explicitement la définir avec des adresses IP publiques Standard ou l’équilibreur de charge public Standard.  Cela inclut la création de la connectivité sortante lors de l’utilisation d’un équilibreur de charge Standard interne.  Nous vous recommandons de toujours utiliser des règles de trafic sortant sur un équilibreur de charge public Standard.  Le [scénario 3](#defaultsnat) n’est pas disponible avec la référence SKU Standard.  Cela signifie que lorsqu’un équilibreur de charge interne Standard est utilisé, vous devez prendre des mesures pour créer une connectivité sortante pour les machines virtuelles dans le pool principal si la connectivité sortante est souhaitée.  Dans le contexte de la connectivité sortante, une seule machine virtuelle autonome, toutes les machines virtuelles d’un groupe à haute disponibilité, toutes les instances dans un VMSS se comportent comme un groupe. Cela signifie que, si une seule machine virtuelle d’un groupe à haute disponibilité est associée à une référence SKU Standard, toutes les instances de machine virtuelle au sein de ce groupe à haute disponibilité se comportent maintenant selon les mêmes règles que si elles étaient associées avec la référence SKU Standard, même si une instance individuelle n’est pas directement associée.  Lisez attentivement la totalité de ce document pour comprendre les concepts généraux, passer en revue [Standard Load Balancer](load-balancer-standard-overview.md) pour connaître les différentes entre les références SKU et les [règles de trafic sortant](load-balancer-outbound-rules-overview.md).  L’utilisation de règles de trafic sortant vous permet un contrôle précis de tous les aspects de la connectivité sortante.
 
 ## <a name="scenarios"></a>Vue d’ensemble des scénarios
 
 Azure Load Balancer et les ressources associées sont définis explicitement quand vous utilisez [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Actuellement, Azure offre trois méthodes différentes pour obtenir une connexion sortante pour les ressources Azure Resource Manager. 
 
-| Scénario | Méthode | Protocoles IP | Description |
-| --- | --- | --- | --- |
-| [1. Machine virtuelle avec une adresse IP publique de niveau d’instance (avec ou sans Load Balancer)](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé | TCP, UDP, ICMP, ESP | Azure utilise l’adresse IP publique affectée à la configuration IP de la carte d’interface réseau de l’instance. L’instance a tous les ports éphémères disponibles. |
-| [2. Équilibreur de charge public associé à une machine virtuelle (aucune adresse IP publique de niveau d’instance sur l’instance)](#lb) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) en utilisant des frontends Load Balancer | TCP, UDP |Azure partage l’adresse IP publique des frontends Load Balancer publics avec plusieurs adresses IP privées. Azure utilise les ports éphémères des frontends pour la traduction d’adresse de port. |
-| [3. Machine virtuelle autonome (sans Load Balancer, sans adresse IP publique de niveau d’instance)](#defaultsnat) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) | TCP, UDP | Azure désigne automatiquement une adresse IP publique pour la traduction d’adresses réseau sources, partage cette adresse IP publique avec plusieurs adresses IP privées du groupe à haute disponibilité, puis utilise les ports éphémères de cette adresse IP publique. Ce scénario est une solution de secours pour les scénarios précédents. Nous vous le déconseillons si vous avez besoin de visibilité et de contrôle. |
+| Références (SKU) | Scénario | Méthode | Protocoles IP | Description |
+| --- | --- | --- | --- | --- |
+| Standard, De base | [1. Machine virtuelle avec une adresse IP publique de niveau d’instance (avec ou sans Load Balancer)](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé | TCP, UDP, ICMP, ESP | Azure utilise l’adresse IP publique affectée à la configuration IP de la carte d’interface réseau de l’instance. L’instance a tous les ports éphémères disponibles. Lorsque vous utilisez Standard Load Balancer, vous devez utiliser des [règles de trafic sortant](load-balancer-outbound-rules-overview.md) pour définir explicitement la connectivité sortante |
+| Standard, De base | [2. Équilibreur de charge public associé à une machine virtuelle (aucune adresse IP publique de niveau d’instance sur l’instance)](#lb) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) en utilisant des frontends Load Balancer | TCP, UDP |Azure partage l’adresse IP publique des frontends Load Balancer publics avec plusieurs adresses IP privées. Azure utilise les ports éphémères des frontends pour la traduction d’adresse de port. |
+| Aucune ou De base | [3. Machine virtuelle autonome (sans Load Balancer, sans adresse IP publique de niveau d’instance)](#defaultsnat) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) | TCP, UDP | Azure désigne automatiquement une adresse IP publique pour la traduction d’adresses réseau sources, partage cette adresse IP publique avec plusieurs adresses IP privées du groupe à haute disponibilité, puis utilise les ports éphémères de cette adresse IP publique. Ce scénario est une solution de secours pour les scénarios précédents. Nous vous le déconseillons si vous avez besoin de visibilité et de contrôle. |
 
 Si vous voulez empêcher une machine virtuelle de communiquer avec des points de terminaison en dehors d’Azure dans l’espace d’adressage IP public, vous pouvez utiliser des groupes de sécurité réseau (NSG) pour bloquer l’accès comme il se doit. La section [Empêchement des connexions sortantes](#preventoutbound) traite de façon plus détaillée des groupes de sécurité réseau. Les conseils sur la conception, l’implémentation et la gestion d’un réseau virtuel sans accès sortant n’entrent pas dans le cadre de cet article.
 
@@ -68,7 +68,7 @@ Les ports éphémères du frontend d’adresse IP publique de l’équilibreur 
 
 Les ports SNAT sont préaffectés comme décrit dans la section [Présentation de la traduction d’adresses réseau sources et de la traduction d’adresse de port](#snat). Il s’agit d’une ressource limitée sujette à épuisement. Il est important de comprendre comment ils sont [consommés](#pat). Pour savoir comment concevoir en fonction de cette consommation et d’en atténuer éventuellement les effets, consultez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust).
 
-Si [plusieurs adresses IP (publiques) sont associées à un équilibreur de charge de base](load-balancer-multivip-overview.md), toutes ces adresses sont [candidates pour les flux sortants](#multivipsnat), mais une seule d’entre elles est sélectionnée au hasard.  
+Si [plusieurs adresses IP (publiques) sont associées à un équilibreur de charge de base](load-balancer-multivip-overview.md), toutes ces adresses sont candidates pour les flux sortants, mais une seule d’entre elles est sélectionnée au hasard.  
 
 Pour surveiller l’intégrité des connexions sortantes avec l’équilibreur de charge de base, vous pouvez utiliser [Log Analytics pour Load Balancer](load-balancer-monitor-log.md) et les [journaux des événements d’alerte](load-balancer-monitor-log.md#alert-event-log) pour surveiller les messages signalant l’épuisement des ports SNAT.
 
@@ -164,7 +164,7 @@ Le tableau suivant présente les préaffectations de ports SNAT pour les différ
 | 801-1 000 | 32 |
 
 >[!NOTE]
-> Lorsque vous utilisez l’équilibreur de charge standard avec [plusieurs serveurs frontaux](load-balancer-multivip-overview.md), [chaque adresse IP de serveur frontal multiplie le nombre de ports SNAT disponibles](#multivipsnat) dans la table précédente. Par exemple, un pool backend de 50 machines virtuelles avec 2 règles d’équilibrage de charge, chacun avec une adresse IP frontend séparée, utilise 2048 ports SNAT (2 x 1024) par configuration IP. Affichez les détails pour [plusieurs serveurs frontaux](#multife).
+> Lorsque vous utilisez l’équilibreur de charge standard avec [plusieurs serveurs frontaux](load-balancer-multivip-overview.md), chaque adresse IP de serveur frontal multiplie le nombre de ports SNAT disponibles dans la table précédente. Par exemple, un pool backend de 50 machines virtuelles avec 2 règles d’équilibrage de charge, chacun avec une adresse IP frontend séparée, utilise 2048 ports SNAT (2 x 1024) par configuration IP. Affichez les détails pour [plusieurs serveurs frontaux](#multife).
 
 Ne perdez pas de vue que le nombre de ports SNAT disponibles ne se traduit pas directement en nombre de flux. Un port de traduction d’adresses réseau sources peut être réutilisé pour plusieurs destinations uniques. Les ports ne sont consommés que si cela permet de rendre les flux uniques. Pour obtenir des conseils concernant la conception et l’atténuation, consultez la section qui explique [comment gérer cette ressource épuisable](#snatexhaust), ainsi que la section qui décrit la [traduction d’adresse de port](#pat).
 
@@ -257,7 +257,8 @@ Si un groupe de sécurité réseau bloque les demandes d’analyse d’intégrit
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [Load Balancer](load-balancer-overview.md).
 - En savoir plus sur l’[équilibreur de charge standard](load-balancer-standard-overview.md).
+- En savoir plus sur les [règles de trafic sortant](load-balancer-outbound-rules-overview.md) pour l’équilibreur de charge Standard public.
+- En savoir plus sur [Load Balancer](load-balancer-overview.md).
 - En savoir plus sur les [groupes de sécurité réseau](../virtual-network/security-overview.md).
 - En savoir plus sur les autres [fonctionnalités de mise en réseau](../networking/networking-overview.md) clés d’Azure.

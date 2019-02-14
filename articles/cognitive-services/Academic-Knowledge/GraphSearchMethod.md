@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode Graph Search dans l’API Connaissances universitaires pour renvoyer un ensemble d’entités universitaires basé sur des modèles de graphique spécifiques.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: e8472323d99de9d0d81130eac5fbe3ec9e11c590
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197634"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864466"
 ---
 # <a name="graph-search-method"></a>Méthode Graph Search
 
@@ -29,9 +29,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Paramètres de la requête  
-NOM     | Valeur | Requis ?  | Description
+Nom     | Valeur | Requis ?  | Description
 -----------|-----------|---------|--------
-**mode**       | Chaîne de texte | Oui | Nom du modèle que vous souhaitez utiliser. La valeur est *json* ou *lambda*.
+**mode**       | Chaîne de texte | OUI | Nom du modèle que vous souhaitez utiliser. La valeur est *json* ou *lambda*.
 
 La méthode de recherche de graphique doit être appelée par le biais d’une requête HTTP POST. La requête post doit inclure l’en-tête de type de contenu : **application/json**.
 
@@ -46,7 +46,7 @@ Pour la recherche *lambda*, le corps POST est une chaîne de texte brut. Le corp
 
 <br>
 ## <a name="response-json"></a>Réponse (JSON)
-NOM | Description
+Nom | Description
 -------|-----   
 **results** | Tableau comportant 0 ou plusieurs entités correspondant à l’expression de requête. Chaque entité contient les valeurs des attributs requis. Ce champ est présent si la requête a bien été traitée.
 **error** | Codes d’état HTTP. Ce champ est présent si la requête échoue.

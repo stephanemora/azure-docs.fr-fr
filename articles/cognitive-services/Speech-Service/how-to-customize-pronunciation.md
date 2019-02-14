@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Découvrez comment personnaliser la prononciation avec le service Speech. La prononciation personnalisée vous permet de définir l’écriture et la forme phonétiques d’un mot ou d’un terme. Cela peut être utile pour traiter les termes personnalisés que sont notamment les noms et les acronymes. Pour commencer, vous n’avez besoin que d’un fichier de prononciation (un simple fichier .txt).
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 11680176ea8f9d89adfd0981c13712e73f110352
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0a3dfce10fc8ea76bc8f99e2459295bc637017dc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209908"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878406"
 ---
 # <a name="enable-custom-pronunciation"></a>Activer la prononciation personnalisée
 
