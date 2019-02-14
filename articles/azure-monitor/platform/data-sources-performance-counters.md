@@ -1,6 +1,6 @@
 ---
-title: Collecter et analyser les compteurs de performances dans Log Analytics | Microsoft Docs
-description: Log Analytics collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans l’espace de travail et comment les analyser dans le portail Azure.
+title: Collecter et analyser les compteurs de performances dans Azure Monitor | Microsoft Docs
+description: Azure Monitor collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans l’espace de travail et comment les analyser dans le portail Azure.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018l
 ms.author: magoedte
-ms.openlocfilehash: 8359dda2521773145f9e3e870c3c21db1546004b
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103704"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001917"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Sources de données de performance Windows et Linux dans Log Analytics
-Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Log Analytics peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Sources de données de performance Windows et Linux dans Azure Monitor
+Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Azure Monitor peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
 
 ![Compteurs de performances](media/data-sources-performance-counters/overview.png)
 
@@ -88,7 +88,7 @@ Les paramètres de cet élément sont décrits dans le tableau suivant.
 | interval | Fréquence de collecte des compteurs de l’objet. |
 
 
-Le tableau suivant répertorie les objets et compteurs que vous pouvez indiquer dans le fichier de configuration.  Des compteurs supplémentaires sont disponibles pour certaines applications tel que décrit dans [Collecte des compteurs de performances pour les applications Linux dans Log Analytics](data-sources-linux-applications.md).
+Le tableau suivant répertorie les objets et compteurs que vous pouvez indiquer dans le fichier de configuration.  Des compteurs supplémentaires sont disponibles pour certaines applications tel que décrit dans [Collecte des compteurs de performances pour les applications Linux dans Azure Monitor](data-sources-linux-applications.md).
 
 | Nom d’objet | Nom de compteur |
 |:--|:--|
@@ -182,7 +182,7 @@ La configuration par défaut des mesures de performances est la suivante.
     </source>
 
 ## <a name="data-collection"></a>Collecte des données
-Log Analytics collecte tous les compteurs de performances spécifiés selon l’intervalle d’échantillonnage spécifié sur tous les agents où le compteur est installé.  Les données ne sont pas agrégées, et les données brutes sont disponibles dans toutes les vues de requête de journal pendant la durée spécifiée par votre abonnement.
+Azure Monitor collecte tous les compteurs de performances spécifiés selon l’intervalle d’échantillonnage spécifié sur tous les agents où le compteur est installé.  Les données ne sont pas agrégées, et les données brutes sont disponibles dans toutes les vues de requête de journal pendant la durée spécifiée par votre abonnement.
 
 ## <a name="performance-record-properties"></a>Propriétés des enregistrements de performances
 Les enregistrements de performances sont de type **Perf** et leurs propriétés sont décrites dans le tableau suivant.

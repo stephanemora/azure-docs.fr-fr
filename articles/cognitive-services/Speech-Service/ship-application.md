@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Apprenez à créer des applications à l’aide du kit SDK Speech.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: b37ba55e0d9e1a93994f90630f92075deb4af7e5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2e35afe996ec80411d2e0e339fd4d49adecd1239
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206440"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857938"
 ---
 # <a name="ship-an-application"></a>Délivrer une application
 
@@ -39,7 +39,7 @@ Pour l’entrée du microphone, les bibliothèques Media Foundation doivent êtr
 
 Les fichiers du kit de développement logiciel (SDK) Speech requis peuvent être déployés dans le même répertoire que votre application. De cette façon, votre application peut accéder directement aux bibliothèques. Veillez à sélectionner la version appropriée (Win32/x64) correspondant à votre application.
 
-| NOM | Fonction
+| Nom | Fonction
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK principal, requis pour le déploiement natif et managé
 | `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Requis pour le déploiement managé

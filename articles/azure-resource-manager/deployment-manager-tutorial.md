@@ -13,14 +13,16 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 66e913f6d461d2671bd217745a9d128e24c1a60c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5c88bf00ed1f68e4ddab6175e86a46560c802744
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820927"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238213"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Didacticiel : Utiliser Azure Deployment Manager avec des modèles Resource Manager (préversion privée)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Découvrez comment utiliser [Azure Deployment Manager](./deployment-manager-overview.md) pour déployer vos applications dans plusieurs régions. Pour utiliser Deployment Manager, vous devez créer deux modèles :
 
@@ -274,7 +276,7 @@ Vous créez un fichier de paramètres à utiliser avec le modèle de lancement.
 2. Spécifiez les valeurs de paramètre :
 
     - **namePrefix** : entrez une chaîne de 4 à 5 caractères. Ce préfixe est utilisé pour créer des noms de ressources Azure uniques.
-    - **azureResourceLocation** : Actuellement, les ressources Azure Deployment Manager peuvent être créées uniquement dans **USA Centre** ou **USA Est 2**.
+    - **azureResourceLocation** : Actuellement, les ressources Azure Deployment Manager peuvent être créées uniquement dans USA Centre ou **USA Est 2**.
     - **artifactSourceSASLocation** : saisissez l’URI SAS vers le dossier racine (le conteneur d’objets blob) où le modèle d’unité de service et les fichiers de paramètres sont stockés pour le déploiement.  Consultez [Préparer les artefacts](#prepare-the-artifacts).
     - **binaryArtifactRoot** : sauf si vous modifiez la structure de dossiers des artefacts, utilisez **binaries/1.0.0.0** pour ce tutoriel.
     - **managedIdentityID** : entrez l’identité managée affectée par l’utilisateur. Voir [Créer l’identité managée affectée à l'utilisateur](#create-the-user-assigned-managed-identity). La syntaxe est :
@@ -293,17 +295,15 @@ Azure PowerShell peut être utilisé pour déployer les modèles.
 1. Exécutez le script pour déployer la topologie de service.
 
     ```azurepowershell-interactive
-    $deploymentName = "<Enter a Deployment Name>"
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
     
     # Create the service topology
-    New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
@@ -319,8 +319,7 @@ Azure PowerShell peut être utilisé pour déployer les modèles.
 
     ```azurepowershell-interactive
     # Create the rollout
-    New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"

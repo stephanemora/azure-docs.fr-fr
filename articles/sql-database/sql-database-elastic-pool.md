@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e7ec07c29f742202b17e94d96d88b0dfb223100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464345"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963843"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Microsoft Azure SQL
 
@@ -34,6 +34,9 @@ Les pools élastiques résolvent ce problème en vous assurant que les bases de 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
+
+> [!IMPORTANT]
+> Il n’existe pas de facturation par base de données pour les pools élastiques. Vous êtes facturé pour chaque heure d’existence d’un pool selon le nombre d’eDTUs ou de vCores le plus élevé, indépendamment de l’utilisation ou si le pool a été actif de moins d’une heure.
 
 Un pool élastique est un pool que partagent plusieurs bases de données, et pour lequel le développeur peut acheter des ressources lorsque les bases de données l’utilisent de manière imprévisible. Vous pouvez configurer les ressources du pool avec le [modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) ou le [modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md). Le besoin en ressources d’un pool est déterminé par l’utilisation globale de ses bases de données. La quantité de ressources disponibles pour le pool dépend du budget du développeur. Le développeur ajoute des bases de données au pool, définit le nombre minimal et maximal de ressources pour les bases de données (le nombre minimal ou maximal de DTU ou de vCore, selon le modèle d’allocation des ressources choisi), puis définit les ressources du pool en fonction du budget. Un développeur peut utiliser des pools pour faire évoluer en toute transparence son service en passant d’une lean startup à une entreprise mature à une vitesse sans cesse croissante.
 

@@ -12,14 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: cbd1a7a3a797cc20be92583bbb5ac163333729fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a9a1b5599468df6bc85cc1d535b577c508dd0a9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969799"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995644"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurer des DNS inversés dans les services hébergés par Azure
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Cet article explique comment configurer des recherches DNS inversées dans les services hébergés par Azure.
 
@@ -62,19 +64,19 @@ Actuellement, Azure ne prend en charge les DNS inversés que pour les ressources
 Pour ajouter un DNS inversé à des adresses IP publiques existantes :
 
 ```powershell
-$pip = Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+$pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
-Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
 Pour ajouter un DNS inversé à une adresse IP publique existante qui ne comporte pas encore de nom DNS, vous devez également spécifier un nom DNS :
 
 ```powershell
-$pip = Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+$pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 $pip.DnsSettings = New-Object -TypeName "Microsoft.Azure.Commands.Network.Models.PSPublicIpAddressDnsSettings"
 $pip.DnsSettings.DomainNameLabel = "contosoapp1"
 $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
-Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
 #### <a name="azure-classic-cli"></a>Azure Classic CLI
@@ -112,7 +114,7 @@ Pour créer une nouvelle adresse IP publique avec la propriété DNS inversée s
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "WestUS" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
+New-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "WestUS" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
 ```
 
 #### <a name="azure-classic-cli"></a>Azure Classic CLI
@@ -134,7 +136,7 @@ Pour afficher la valeur définie d’une adresse IP publique existante :
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 ```
 
 #### <a name="azure-classic-cli"></a>Azure Classic CLI
@@ -156,9 +158,9 @@ Pour supprimer une propriété DNS inversée d’une adresse IP publique existan
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-$pip = Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+$pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 $pip.DnsSettings.ReverseFqdn = ""
-Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
 #### <a name="azure-classic-cli"></a>Azure Classic CLI
@@ -222,7 +224,7 @@ Oui. Dès que vous avez défini la propriété DNS inversée pour votre service 
 
 ### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>Des enregistrements DNS inversés par défaut sont-ils créés pour mes services Azure ?
 
-Non. Le DNS inversé est une fonctionnalité optionnelle. Aucun enregistrement DNS inversé par défaut n’est créé si vous choisissez de ne pas les configurer.
+ Non. Le DNS inversé est une fonctionnalité optionnelle. Aucun enregistrement DNS inversé par défaut n’est créé si vous choisissez de ne pas les configurer.
 
 ### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>Quel est le format du nom de domaine complet (FQDN) ?
 
@@ -234,15 +236,15 @@ Lorsque le test de validation pour le DNS inversé échoue, l’opération de co
 
 ### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>Puis-je configurer un DNS inversé pour Azure App Service ?
 
-Non. Le DNS inversé n’est pas pris en charge dans Azure App Service.
+ Non. Le DNS inversé n’est pas pris en charge dans Azure App Service.
 
 ### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>Puis-je configurer plusieurs enregistrements DNS inversés pour mon service Azure ?
 
-Non. Azure ne prend en charge qu’un seul enregistrement DNS inversé pour chaque service cloud Azure ou adresse IP publique.
+ Non. Azure ne prend en charge qu’un seul enregistrement DNS inversé pour chaque service cloud Azure ou adresse IP publique.
 
 ### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>Puis-je configurer un DNS inversé pour des ressources PublicIpAddress IPv6 ?
 
-Non. Actuellement, Azure ne prend en charge le DNS inversé que pour les ressources PublicIpAddress IPv4.
+ Non. Actuellement, Azure ne prend en charge le DNS inversé que pour les ressources PublicIpAddress IPv4.
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Puis-je envoyer des courriers électroniques à des domaines externes à partir d’Azure Compute Services ?
 

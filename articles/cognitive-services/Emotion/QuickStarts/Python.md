@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Reconnaître les émotions sur des visages dans une
 description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Émotion avec Python.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 02/05/2018
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: bdc42233d027134ca42e52398eeefd83ae45669f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: bd267d40fe1f5a673f1d6b98b301665690b12f31
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211251"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233470"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Démarrage rapide : Générer une application permettant de reconnaître les émotions des visages dans une image.
 
@@ -24,7 +24,7 @@ ms.locfileid: "55211251"
 
 Cette procédure pas à pas fournit des informations et des exemples de code pour une prise en main rapide de la [méthode Recognize de l’API Émotion](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) avec Python afin de reconnaître les émotions exprimées par une ou plusieurs personnes dans une image.
 
-Vous pouvez exécuter cet exemple comme un bloc-notes Jupyter sur [MyBinder](https://mybinder.org) en cliquant sur le badge de lancement de Binder : [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
+Vous pouvez exécuter cet exemple comme un bloc-notes Jupyter sur [MyBinder](https://mybinder.org) en cliquant sur le badge de lancement de Binder : ![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
 
 
 ## <a name="prerequisite"></a>Configuration requise

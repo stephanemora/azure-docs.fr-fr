@@ -4,7 +4,7 @@ description: Apprenez à utiliser Azure Media Services pour créer une applicati
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 65625fcc12143a8ea53ff2ab7d1dfcb43a0def8d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828313"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992141"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Génération d'une application Windows Store de diffusion en continu lisse
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Génération d'une application Windows Store de diffusion en continu lisse  
 
 Le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 permet aux développeurs de générer des applications Windows Store pour la lecture de contenu de diffusion en continu lisse à la demande et en direct. Outre la lecture de contenu de diffusion en continu lisse, le Kit de développement logiciel propose également des fonctionnalités avancées comme la protection Microsoft PlayReady, la limitation du niveau de qualité, le magnétoscope numérique en direct (Live DVR), la commutation des flux audio, l'écoute des mises à jour d'état (par exemple, les modifications des niveaux de qualité), les événements d'erreur, etc. Pour plus d'informations sur les fonctionnalités prises en charge, consultez les [notes de publicationn](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Pour plus d’informations, consultez [Player Framework for Windows 8](http://playerframework.codeplex.com/). 
 
@@ -66,11 +66,11 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
 2. Dans le menu **FICHIER**, cliquez sur **Nouveau**, puis sur **Projet**.
 3. Dans la boîte de dialogue Nouveau projet, entrez ou sélectionnez les valeurs suivantes :
 
-| NOM | Valeur |
+| Nom | Valeur |
 | --- | --- |
 | Groupe de modèles |Installed/Templates/Visual C#/Windows Store |
 | Modèle |Application vide (XAML) |
-| NOM |SSPlayer |
+| Nom |SSPlayer |
 | Lieu |C:\SSTutorials |
 | Nom de la solution |SSPlayer |
 | Créer un répertoire pour la solution |(sélectionné) |
@@ -82,7 +82,7 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SSPlayer**, puis cliquez sur **Ajouter une référence**.
 2. Tapez ou sélectionnez les valeurs suivantes :
 
-| NOM | Valeur |
+| Nom | Valeur |
 | --- | --- |
 | Groupe de référence |Windows/Extensions |
 | Informations de référence |Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++ |

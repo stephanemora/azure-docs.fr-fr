@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118990"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960732"
 ---
 # <a name="article-top"></a>Migration de votre service mobile Azure existant vers Azure App Service
 Avec la [mise à la disposition générale d’Azure App Service], les sites Azure Mobile Services peuvent être facilement migrés sur place pour tirer parti de toutes les fonctionnalités d’Azure App Service.  Ce document explique ce qui se passe lors de la migration de votre site à partir d’Azure Mobile Services vers Azure App Service.
@@ -321,7 +321,7 @@ Comment afficher les journaux :
 3. Cliquez sur le bouton **Outils**.
 4. Dans le menu OBSERVER, sélectionnez **Flux de journaux** .
 
-Les journaux sont affichés dans la fenêtre à mesure de leur génération.  Vous pouvez également télécharger les journaux pour les analyser ultérieurement à l’aide de vos informations d’identification de déploiement. Pour plus d’informations, voir la documentation [Journalisation].
+Les journaux sont affichés dans la fenêtre à mesure de leur génération.  Vous pouvez également télécharger les journaux pour les analyser ultérieurement à l’aide de vos informations d’identification de déploiement. Pour plus d’informations, voir la documentation [Logging].
 
 ## <a name="known-issues"></a>Problèmes connus
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>La suppression d’un clone d’application mobile migré entraîne un arrêt du site
@@ -332,7 +332,7 @@ Résolution : Si vous souhaitez cloner votre site, utilisez le portail.
 ### <a name="changing-webconfig-does-not-work"></a>La modification du fichier web.config ne fonctionne pas
 Si vous avez un site ASP.NET, les changements apportés au fichier `Web.config` ne sont pas appliqués.  Azure App Service crée un fichier `Web.config` adapté lors du démarrage pour prendre en charge le runtime Mobile Services.  Vous pouvez remplacer certains paramètres (comme les en-têtes personnalisés) à l’aide d’un fichier de transformation XML.  Créez un fichier appelé `applicationHost.xdt` : ce fichier doit terminer dans le répertoire `D:\home\site` du Service Azure.  Chargez le fichier `applicationHost.xdt` via un script de déploiement personnalisé ou en utilisant directement Kudu.  Le code suivant vous fournit un exemple :
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>
@@ -388,7 +388,7 @@ Maintenant que votre application a été migrée vers App Service, vous pouvez u
 [Fiddler]: https://www.telerik.com/fiddler
 [Mise à la disposition générale d’Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Journalisation]: ../app-service/troubleshoot-diagnostic-logs.md
+[Logging]: ../app-service/troubleshoot-diagnostic-logs.md
 [Kit de développement logiciel (SDK) Mobile Apps Node.js]: https://github.com/azure/azure-mobile-apps-node
 [Mobile Services vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md

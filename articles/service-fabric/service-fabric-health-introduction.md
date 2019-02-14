@@ -14,21 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 87081398e844f1e2b085a7e12c2b7aafce330ec9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194285"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193762"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Présentation du contrôle d’intégrité de Service Fabric
 Azure Service Fabric introduit un modèle d’intégrité qui fournit une évaluation et des rapports d’intégrité riches, flexibles et extensibles. Ce modèle permet un contrôle quasiment en temps réel de l’état du cluster et des services qu’il exécute. Vous pouvez facilement obtenir les informations de contrôle d’intégrité et corriger les problèmes potentiels avant qu’ils ne s’enchaînent et ne provoquent des pannes massives. Dans le modèle standard, les services envoient des rapports en fonction de leur vue locale et les informations sont agrégées pour fournir une vue globale du cluster.
 
 Les composants Service Fabric utilisent ce modèle d’intégrité enrichi pour signaler leur état actuel. Vous pouvez utiliser le même mécanisme pour établir des rapports sur l’intégrité de vos applications. Si vous investissez dans une fonction de création de rapports sur l’intégrité de qualité élevée, qui capture vos conditions personnalisées, vous pouvez plus facilement détecter et corriger les problèmes liés aux applications en cours d’exécution.
-
-La vidéo suivante de la Microsoft Virtual Academy décrit également le modèle d’intégrité Service Fabric, ainsi que son utilisation : <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 > [!NOTE]
 > Nous avons créé le sous-système d’intégrité pour répondre au besoin des mises à niveau surveillées. Service Fabric offre des mises à niveau pour le cluster et les applications sous surveillance, qui offrent une disponibilité totale, sans temps d’arrêt, ainsi qu’une intervention de l’utilisateur réduite, voire inexistante. Pour atteindre ces objectifs, la mise à niveau vérifie l’intégrité en fonction des stratégies de mise à niveau configurées. La mise à niveau ne peut être effectuée que si l’intégrité respecte les seuils désirés. Sinon, la mise à niveau est automatiquement annulée ou suspendue pour offrir aux administrateurs la possibilité de corriger les problèmes. Pour en savoir plus sur les mises à niveau d’application, consultez [cet article](service-fabric-application-upgrade.md).
