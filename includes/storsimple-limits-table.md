@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8a349916d0c0efc0f7895368a614897e3c6a15dc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: db05ce33a9fb602d6d48d1a1606f48a7fbde246e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964548"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889423"
 ---
-<!--author=alkohli last changed: 12/15/15-->
-
 | Identificateur de la limite | Limite | Commentaires |
 | --- | --- | --- |
 | Nombre maximal d'informations d'identification du compte de stockage |64 | |
@@ -20,8 +18,8 @@ ms.locfileid: "50964548"
 | Nombre maximal de volumes |255 | |
 | Nombre maximal de planifications par modèle de bande passante |168 |Une planification par heure, tous les jours de la semaine (24*7). |
 | Taille maximale d'un volume à plusieurs niveaux sur les appareils physiques |64 To pour 8100 et 8600 |8100 et 8600 sont des appareils physiques. |
-| Taille maximale d'un volume à plusieurs niveaux sur les appareils virtuels dans Azure |30 To pour 8010  <br></br> 64 To pour 8020 |8010 et 8020 sont des appareils virtuels dans Azure qui utilisent le stockage Standard et Premium respectivement. |
-| Taille maximale d'un volume épinglé localement sur les appareils physiques |9 To pour 8100  <br></br> 24 To pour 8600 |8100 et 8600 sont des appareils physiques. |
+| Taille maximale d'un volume à plusieurs niveaux sur les appareils virtuels dans Azure |30 To pour 8010  <br></br>  64 To pour 8020 |8010 et 8020 sont des appareils virtuels dans Azure qui utilisent le stockage Standard et Premium respectivement. |
+| Taille maximale d'un volume épinglé localement sur les appareils physiques |9 To pour 8100  <br></br>  24 To pour 8600 |8100 et 8600 sont des appareils physiques. |
 | Nombre maximal de connexions iSCSI |512 | |
 | Nombre maximal de connexions iSCSI à partir d'initiateurs |512 | |
 | Nombre maximal d'enregistrements de contrôle d'accès par appareil |64 | |
