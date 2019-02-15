@@ -1,6 +1,6 @@
 ---
-title: Routage intelligent et versions de contrôle de validité avec Istio dans Azure Kubernetes Service (AKS)
-description: Découvrez comment utiliser Istio pour fournir un routage intelligent et déployer des versions de contrôle de validité sur un cluster Azure Kubernetes Service (AKS)
+title: Routage intelligent et déploiement Canary avec Istio dans Azure Kubernetes Service (AKS)
+description: Découvrez comment utiliser Istio pour fournir un routage intelligent et déployer des versions Canary sur un cluster Azure Kubernetes Service (AKS)
 services: container-service
 author: paulbouwer
 ms.service: container-service
@@ -14,18 +14,18 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 12/05/2018
 ms.locfileid: "52893094"
 ---
-# <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Utiliser le routage intelligent et les versions de contrôle de validité avec Istio dans Azure Kubernetes Service (AKS)
+# <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Utiliser le routage intelligent et le déploiement Canary avec Istio dans Azure Kubernetes Service (AKS)
 
 [Istio][istio-github] est un maillage de services (service mesh) open source qui fournit un jeu de fonctionnalités de base dans les microservices d’un cluster Kubernetes. Ces fonctionnalités incluent la gestion du trafic, l’identité et la sécurité des services, l’application des stratégies et l’observabilité. Pour plus d’informations sur Istio, consultez la documentation officielle [What is Istio?][istio-docs-concepts] (Présentation d’Istio).
 
-Cet article vous montre comment utiliser la fonctionnalité de gestion de trafic d’Istio. Un exemple d’application de vote AKS est utilisé pour explorer le routage intelligent et les versions de contrôle de validité.
+Cet article vous montre comment utiliser la fonctionnalité de gestion de trafic d’Istio. Un exemple d’application de vote AKS est utilisé pour explorer le routage intelligent et le déploiement de versions Canary.
 
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Déployer l’application
 > * Mettre à jour l’application
-> * Déployer une version de contrôle de validité de l’application
+> * Déployer une version Canary de l’application
 > * Finaliser le déploiement
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -42,7 +42,7 @@ Dans cet article, vous commencez par déployer la version *1.0* de l’applicat
 
 Vous mettez à niveau le composant d’analytique vers la version *1.1*, qui, outre les décomptes, fournit les totaux et les pourcentages.
 
-Un sous-ensemble d’utilisateurs testent la version *2.0* de l’application par le biais d’une version de contrôle de validité. Cette nouvelle version utilise un composant de stockage qui est associé à une base de données MySQL.
+Un sous-ensemble d’utilisateurs testent la version *2.0* de l’application par le biais d’un déploiement Canary. Cette nouvelle version utilise un composant de stockage qui est associé à une base de données MySQL.
 
 Une fois que vous êtes certain que la version *2.0* fonctionne comme prévu pour votre sous-ensemble d’utilisateurs, vous la déployez pour tous vos utilisateurs.
 
@@ -290,11 +290,11 @@ HOST:PORT                                        STATUS     SERVER     CLIENT   
 voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS       default/voting     voting-storage/voting
 ```
 
-## <a name="roll-out-a-canary-release-of-the-application"></a>Déployer une version de contrôle de validité de l’application
+## <a name="roll-out-a-canary-release-of-the-application"></a>Déployer une version Canary de l’application
 
 Maintenant, nous allons déployer une nouvelle version *2.0* des composants *voting-app*, *voting-analytics* et *voting-storage*. Le nouveau composant *voting-storage* utilise MySQL au lieu de Redis, et les composants *voting-app* et *voting-analytics* sont mis à jour pour pouvoir utiliser ce nouveau composant *voting-storage*.
 
-Le composant *voting-app* prend désormais en charge les fonctionnalités d’indicateur de fonctionnalité. Cet indicateur de fonctionnalité vous permet de tester les fonctionnalités des versions de contrôle de validité d’Istio pour un sous-ensemble d’utilisateurs.
+Le composant *voting-app* prend désormais en charge les fonctionnalités d’indicateur de fonctionnalité. Cet indicateur de fonctionnalité vous permet de tester les fonctionnalités du déploiement de versions Canary d’Istio pour un sous-ensemble d’utilisateurs.
 
 Le diagramme suivant montre la configuration en place à la fin de cette section.
 
@@ -344,7 +344,7 @@ Attendez que tous les pods version *2.0* soient en cours d’exécution. Utilis
 kubectl get pods --namespace voting
 ```
 
-Vous devez maintenant être en mesure de basculer entre la version *1.0* et la version *2.0* (contrôle de validité) de l’application de vote. Le commutateur d’indicateur de fonctionnalité en bas de l’écran définit un cookie. Le service virtuel *voting-app* se sert de ce cookie pour diriger les utilisateurs vers la nouvelle version *2.0*.
+Vous devez maintenant être en mesure de basculer entre la version *1.0* et la version *2.0* (Canary) de l’application de vote. Le commutateur d’indicateur de fonctionnalité en bas de l’écran définit un cookie. Le service virtuel *voting-app* se sert de ce cookie pour diriger les utilisateurs vers la nouvelle version *2.0*.
 
 ![Version 1.0 de l’application de vote AKS : indicateur de fonctionnalité non défini](media/istio/canary-release-01.png)
 
@@ -354,7 +354,7 @@ Les nombres de vote sont différents d’une version à l’autre de l’applica
 
 ## <a name="finalize-the-rollout"></a>Finaliser le déploiement
 
-Une fois que vous avez testé avec succès la version de contrôle de validité, mettez à jour le service virtuel *voting-app* pour router tout le trafic vers la version *2.0* du composant *voting-app*. Tous les utilisateurs voient alors la version *2.0* de l’application, que l’indicateur de fonctionnalité soit défini ou non :
+Une fois que vous avez testé avec succès la version Canary, mettez à jour le service virtuel *voting-app* pour router tout le trafic vers la version *2.0* du composant *voting-app*. Tous les utilisateurs voient alors la version *2.0* de l’application, que l’indicateur de fonctionnalité soit défini ou non :
 
 ![Composants de l’application de vote AKS et routage](media/istio/components-and-routing-04.png)
 

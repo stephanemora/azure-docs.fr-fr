@@ -46,7 +46,7 @@ Vous pouvez déplacer des fichiers dans un projet depuis le tableau de bord du p
 
     ![Charger à partir d'une fenêtre contextuelle d’URL](media/quickstarts/upload-from-url-popup.png)
 
-    - **À partir de l'ordinateur** : Faites glisser les fichiers dans le menu contextuel ou sélectionnez **Choisir des fichiers**, puis recherchez et sélectionnez les fichiers de données que vous souhaitez importer. Vous pouvez supprimer ou choisir le nombre de fichiers de votre choix, de même que leur type et leur format puisqu'il incombe au code du notebook d'ouvrir ces fichiers et d'analyser les données qu'ils contiennent.
+    - **À partir de l'ordinateur** : Faites glisser les fichiers dans la fenêtre contextuelle ou sélectionnez **Choisir des fichiers**, puis recherchez et sélectionnez les fichiers de données que vous souhaitez importer. Vous pouvez supprimer ou choisir le nombre de fichiers de votre choix, de même que leur type et leur format puisqu'il incombe au code du notebook d'ouvrir ces fichiers et d'analyser les données qu'ils contiennent.
 
     ![Charger à partir de la fenêtre contextuelle de l'ordinateur](media/quickstarts/upload-from-computer-popup.png)
 
@@ -58,7 +58,7 @@ Vous pouvez déplacer des fichiers dans un projet depuis le tableau de bord du p
 
     ![Commande de menu Chargement de fichiers dans un notebook](media/file-menu-upload.png)
 
-1. Dans la boîte de dialogue qui s’ouvre, accédez et sélectionnez les fichiers que vous souhaitez charger. Vous pouvez sélectionner le nombre et le type de fichiers de votre choix. Lorsque vous avez terminé, sélectionnez **Ouvrir**.
+1. Dans la boîte de dialogue qui s’ouvre, accédez aux fichiers et sélectionnez ceux que vous voulez charger. Vous pouvez sélectionner le nombre et le type de fichiers de votre choix. Lorsque vous avez terminé, sélectionnez **Ouvrir**.
 
 1. Dans la fenêtre **État du chargement** qui s'affiche, sélectionnez un **dossier de destination** à partir de la liste déroulante :
 
@@ -100,7 +100,7 @@ Vous pouvez exporter des données depuis le tableau de bord du projet ou un note
 
 Sur le tableau de bord du projet, cliquez avec le bouton droit sur un fichier, puis sélectionnez **Télécharger** :
 
-![Commande de téléchargement dans le menu contextuel des éléments de projet](media/download-command.png)
+![Commande de téléchargement dans la fenêtre contextuelle des éléments de projet](media/download-command.png)
 
 Vous pouvez également sélectionner un fichier et utiliser la commande **Télécharger** (raccourci clavier : d) sur le tableau de bord :
 
