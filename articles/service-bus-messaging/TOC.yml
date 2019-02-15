@@ -44,7 +44,7 @@ items:
       href: service-bus-python-how-to-use-topics-subscriptions.md
     - name: Publier et s’abonner à des messages - Ruby
       href: service-bus-ruby-how-to-use-topics-subscriptions.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Mettre à jour l’inventaire - PowerShell
     href: service-bus-tutorial-topics-subscriptions-powershell.md
@@ -74,7 +74,7 @@ items:
     href: service-bus-async-messaging.md
   - name: Gestion des urgences et des pannes
     href: service-bus-outages-disasters.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Créer un espace de noms
     href: service-bus-create-namespace-portal.md
@@ -143,8 +143,6 @@ items:
         href: service-bus-auto-forwarding.md
       - name: Traitement des transactions
         href: service-bus-transactions.md
-      - name: Implémentation de l’espace de noms associé
-        href: service-bus-paired-namespaces.md
     - name: Diagnostics et suivi de bout en bout
       href: service-bus-end-to-end-tracing.md
     - name: Créer une application Service Bus à plusieurs niveaux
@@ -226,13 +224,13 @@ items:
     href: https://github.com/paolosalvatori/ServiceBusExplorer
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=service-bus
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azureservicebus
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: d1caf87168de73bcf91f23fccd1a81f374c63e51
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 00411282f2d455ded92f3a093b9c0a6d14e6076c
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295132"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301432"
