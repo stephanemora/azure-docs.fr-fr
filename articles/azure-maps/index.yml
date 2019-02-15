@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f45fad91c94b35de512c0c995ef4e3a6311a25ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 684e6a798c690c65f70c2f6224ac8f11256ce6eb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767416"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270128"
 documentType: LandingData
 title: Documentation sur Azure Maps
 metadata:
@@ -16,7 +16,7 @@ metadata:
   ms.service: azure-maps
   services: azure-maps
   ms.topic: landing-page
-  ms.date: 02/04/2019
+  ms.date: 02/14/2019
   ms.author: philmea
 abstract:
   description: Azure Maps offre aux développeurs de tous les secteurs d’activité de puissantes fonctionnalités géospatiales comprenant les toutes dernières données cartographiques pour fournir un contexte géographique aux applications mobiles et web. Azure Maps est un jeu d’API REST conforme avec l’API Azure One pour les cartes, la recherche, le routage, le trafic, les fuseaux horaires, la géolocalisation, le geofencing, les données cartographiques et les opérations spatiales. Il est accompagné de kits SDK web et Android pour rendre le développement facile, flexible et portable sur de nombreuses plateformes.
@@ -35,13 +35,15 @@ sections:
 - title: Didacticiels pas à pas
   items:
   - type: paragraph
-    text: Créez une application web géospatiale pour rechercher des points d’intérêt et des itinéraires jusqu’à des emplacements à l’aide d’Azure Maps.
+    text: Créez une application web géospatiale pour rechercher des points d’intérêt, établir des itinéraires et suivre des appareils en créant une limite géographique à l’aide d’Azure Maps.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/azure-maps/tutorial-search-location">Rechercher des points d’intérêt</a>
     - html: <a href="/azure/azure-maps/tutorial-route-location">Itinéraire vers un point d’intérêt</a>
     - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Itinéraires par mode de déplacement</a>
+    - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Créer un localisateur de magasin</a>
+    - html: <a href="/azure/azure-maps/tutorial-geofence">Définir une limite géographique</a>
 - title: Informations de référence
   items:
   - type: list
@@ -51,4 +53,4 @@ sections:
     - title: JavaScript
       html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Commandes de la carte</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/maps/render">Render Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Service d’itinéraire</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Service de recherche</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Service de fuseau horaire</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Traffic Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Gestion de compte Maps</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/maps/data">Service de données</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Service de géolocalisation</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Render Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Service d’itinéraire</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Service de recherche</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Service spatial</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Service de fuseau horaire</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Traffic Service</a></p>

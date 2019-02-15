@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9c337f147eaebc376c7953e7f585b5b9f6a10f94
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f4b66f79e415be8f9598a0e6f5c875d8a2597514
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471682"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300021"
 documentType: LandingData
 title: Documentation du service Azure Machine Learning
 metadata:
@@ -22,12 +22,17 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Le service Azure Machine Learning fournit un environnement cloud que vous pouvez utiliser pour développer, entraîner, tester, déployer, gérer et suivre des modèles Machine Learning. Ce service prend entièrement en charge les technologies open source comme Scikit-learn, Tensorflow, Pytorch ou tout autre framework basé sur Python. Découvrez comment utiliser ce service pour vos workflows de machine learning à l’aide de nos tutoriels et guides de démarrage rapide.
+  description: Le service Azure Machine Learning offre un environnement cloud pour créer, entraîner et déployer rapidement vos modèles Machine Learning. Utilisez le machine learning automatisé pour identifier des algorithmes et régler les hyperparamètres plus rapidement. Améliorez la productivité et réduisez les coûts en utilisant la mise à l’échelle automatique du calcul et Azure DevOps pour le machine learning. Accédez à ces fonctionnalités depuis votre environnement Python à l’aide de frameworks open source, comme PyTorch, TensorFlow et scikit-learn, et des kits SDK des services. Découvrez comment avec nos tutoriels et nos guides de démarrage rapide.
 sections:
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: Commencez par créer un espace de travail et les ressources du service <a href="quickstart-get-started">dans le portail Azure</a> ou <a href="quickstart-create-workspace-with-python">dans Python</a>.
+    text: 'Pour utiliser ce service, vous avez besoin d’un espace de travail et de ressources associées.  Bien démarrer :'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="quickstart-get-started">Utilisez le guide de démarrage rapide du portail Azure</a> pour obtenir l’espace de travail et faire un essai sans rien installer.
+    - html: <a href="quickstart-create-workspace-with-python">Utilisez le guide de démarrage rapide Python</a> pour installer le kit SDK principal, créer un espace de travail et faire un essai dans un serveur de bloc-notes local.
 - title: Didacticiels pas à pas
   items:
   - type: paragraph
@@ -35,7 +40,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Entraîner</a> et <a href="tutorial-deploy-models-with-aml">déployer</a> des modèles de classification d’images (<b>série en deux parties</b>).<br>&nbsp;
+    - html: <a href="tutorial-train-models-with-aml">Entraîner</a> et <a href="tutorial-deploy-models-with-aml">déployer</a> des modèles de classification d’images (<b>série en deux parties</b>).
     - html: <a href="tutorial-data-prep">Préparer les données</a> et <a href="tutorial-auto-train-models">utiliser le machine learning automatisé</a> pour entraîner et adapter les modèles de régression (<b>série en deux parties</b>).
 - title: Exemples
   items:
