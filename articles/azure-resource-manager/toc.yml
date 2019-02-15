@@ -14,7 +14,7 @@ items:
   - name: Créer des modèles - Visual Studio
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Utiliser la référence de modèle
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
@@ -142,9 +142,6 @@ items:
       href: cli-azure-resource-manager.md
     - name: Déplacer des ressources
       href: resource-group-move-resources.md
-      items:
-      - name: Déplacer la prise en charge par type de ressource
-        href: move-support-resources.md
     - name: Organiser les ressources en utilisant des étiquettes
       href: resource-group-using-tags.md
     - name: Verrouiller des ressources
@@ -201,7 +198,7 @@ items:
   items:
   - name: Référence de modèle
     href: subtoc/toc.yml
-  - name: Fonctions des modèles de gestionnaire des ressources Azure
+  - name: Fonctions de modèle
     href: resource-group-template-functions.md
     items:
     - name: Fonctions de tableau et d’objet
@@ -218,8 +215,12 @@ items:
       href: resource-group-template-functions-resource.md
     - name: Fonctions de chaîne
       href: resource-group-template-functions-string.md
-  - name: Aide relative aux balises
-    href: tag-support.md
+  - name: Fonctionnalités de ressource
+    items:
+    - name: Prise en charge du déplacement
+      href: move-support-resources.md
+    - name: Prise en charge des étiquettes
+      href: tag-support.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - Gestionnaire de déploiement
@@ -242,15 +243,15 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=azure-resource-manager
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-resource-manager
   - name: Gérer des données personnelles
     href: resource-manager-personal-data.md
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 0256bc1bf00680a36d1a8f4286757e56243e54f5
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 3f42a8db14c953aa97f9cd7990ac7602d1d6b719
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329153"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235799"

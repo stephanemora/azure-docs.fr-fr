@@ -71,7 +71,7 @@ items:
       href: how-to-use-map-control.md
     - name: Créer une carte
       href: map-create.md
-    - name: Choisir un style de carte
+    - name: Choisir un style de mappage
       href: choose-map-style.md
     - name: Ajouter des contrôles de carte
       href: map-add-controls.md
@@ -123,6 +123,8 @@ items:
       href: supported-search-categories.md
   - name: REST
     items:
+    - name: Service de données
+      href: https://docs.microsoft.com/rest/api/maps/data
     - name: Service de géolocalisation
       href: https://docs.microsoft.com/rest/api/maps/geolocation
     - name: Service de rendu
@@ -131,6 +133,8 @@ items:
       href: https://docs.microsoft.com/rest/api/maps/route
     - name: Service de recherche
       href: https://docs.microsoft.com/rest/api/maps/search
+    - name: Service spatial
+      href: https://docs.microsoft.com/rest/api/maps/spatial
     - name: Service de fuseau horaire
       href: https://docs.microsoft.com/rest/api/maps/timezone
     - name: Traffic Service
@@ -147,7 +151,7 @@ items:
     href: /azure/templates/microsoft.maps/accounts
 - name: Rubriques connexes
   items:
-  - name: Solutions
+  - name: solutions
     items:
     - name: Accélérateurs de solution IoT
       href: /azure/iot-suite
@@ -191,11 +195,11 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-maps
   - name: Études de cas techniques
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Vidéos
+  - name: Videos
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: 6a657596cb266db20404d7f2ec1074834d181772
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 114647e85aa775d37dab827daef2e55867e5a47b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111048"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234388"
