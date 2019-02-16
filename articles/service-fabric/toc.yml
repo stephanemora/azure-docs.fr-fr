@@ -65,11 +65,7 @@ items:
   - name: Créer et gérer un cluster
     items:
     - name: 1- Créer un cluster sur Azure
-      items:
-      - name: 1a - Créer un cluster Windows
-        href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
-      - name: 1b - Créer un cluster Linux
-        href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
+      href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
     - name: 2 - Mettre le cluster à l’échelle
       href: service-fabric-tutorial-scale-cluster.md
     - name: 3 - Mettre à niveau le runtime du cluster
@@ -608,6 +604,8 @@ items:
           href: service-fabric-cluster-creation-via-arm.md
         - name: Créer à l’aide du nom commun du certificat
           href: service-fabric-create-cluster-using-cert-cn.md
+        - name: Créer un cluster Linux
+          href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
       - name: Scale
         items:
         - name: Augmenter manuellement la taille des instances
@@ -843,9 +841,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: ab29f0f543afe1c5d5bfc5c159f3bee7a8ac8c11
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: e46baa05ceda2bac38057c59411d8813de7607dd
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301653"
+ms.locfileid: "56309877"

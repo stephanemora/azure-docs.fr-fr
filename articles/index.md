@@ -6,12 +6,12 @@ description: Découvrez comment créer et gérer des applications performantes �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 3ed8c9b12bbccd0e31df4874a3798f0244666e62
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 4ae03eedb96ecd1b460b06df3a80a7349c04e099
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301626"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330713"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1066,7 +1066,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
+                                            <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>Stockage sur disque</p>
                                             </a>
@@ -1292,7 +1292,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                         <li>
                                             <a href="/azure/sdks">
                                                 <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
-                                                <p>Kits de développement logiciel (SDK)</p>
+                                                <p>Kits SDK</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2404,7 +2404,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4970,7 +4970,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Kits de développement logiciel (SDK)</h3>
+                                                    <h3>Kits SDK</h3>
                                                     <p>Créez des applications cloud avec les langages de programmation que vous connaissez déjà</p>
                                                 </div>
                                             </div>
