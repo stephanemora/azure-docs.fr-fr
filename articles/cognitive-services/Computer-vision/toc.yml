@@ -98,12 +98,12 @@ items:
       href: quickstarts-sdk/csharp-thumb-sdk.md
     - name: Extraction du texte
       href: quickstarts-sdk/csharp-hand-text-sdk.md
-- name: Didacticiels
+  - name: Utilisation du Kit de développement logiciel (SDK) Python
+    href: quickstarts-sdk/python-sdk.md
+- name: Tutoriels
   items:
   - name: Obtenir les métadonnées des images Azure
     href: Tutorials/storage-lab-tutorial.md
-  - name: Créer une application de traitement d’image
-    href: Tutorials/CSharpTutorial.md
 - name: Concepts
   items:
   - name: Étiquetage des images
@@ -132,7 +132,7 @@ items:
     href: concept-recognizing-text.md
   - name: Détection du contenu pour adultes et osé
     href: concept-detecting-adult-content.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Utiliser la vision par ordinateur
     items:
@@ -166,7 +166,7 @@ items:
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
   - name: API Vision par ordinateur v1.0
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
-  - name: Kits de développement logiciel (SDK)
+  - name: Kits SDK
     items:
     - name: .NET
       href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
@@ -183,7 +183,11 @@ items:
 - name: Ressources
   items:
   - name: Exemples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+    items:
+    - name: Explorer une application de traitement d’image
+      href: Tutorials/CSharpTutorial.md
+    - name: Autres exemples de Vision par ordinateur
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: Forum Aux Questions
     href: FAQ.md
   - name: Tarification et limites
@@ -192,15 +196,15 @@ items:
     href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
   - name: Taxonomie des catégories
     href: Category-Taxonomy.md
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: 700b14c16f1016a403fdf15972cc52021135c64a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 30b8a6937bafc469c4135a899af56277b4f3a9eb
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562349"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310710"

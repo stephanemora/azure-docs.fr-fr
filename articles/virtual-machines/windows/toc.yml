@@ -14,7 +14,7 @@ items:
   - name: Créer une machine virtuelle - Interface de ligne de commande Azure
     href: quick-create-cli.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: 1 - Créer/gérer une machine virtuelle
     href: tutorial-manage-vm.md
@@ -97,20 +97,13 @@ items:
   - name: Maintenance et mises à jour
     href: maintenance-and-updates.md
   - name: Stockage sur disque
-    href: about-disks-and-vhds.md
     items:
-    - name: Managed Disks
+    - name: Introduction aux disques managés
       href: managed-disks-overview.md
-    - name: SSD Premium
-      href: premium-storage.md
-    - name: Disques SSD Standard
-      href: disks-standard-ssd.md
-    - name: Disques Ultra SSD
-      href: disks-ultra-ssd.md
-    - name: Performances de stockage Premium
+    - name: Sélectionner un type de disque pour les machines virtuelles IaaS
+      href: disks-types.md
+    - name: Conception pour de hautes performances
       href: premium-storage-performance.md
-    - name: Stockage Standard
-      href: standard-storage.md
     - name: Objectifs d’extensibilité pour les disques
       href: disk-scalability-targets.md
     - name: Sauvegarde et récupération d’urgence pour les disques
@@ -137,7 +130,7 @@ items:
       href: infrastructure-example.md
     - name: Quotas de processeurs virtuels
       href: quotas.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Créer des machines virtuelles
     items:
@@ -334,6 +327,8 @@ items:
         href: attach-disk-ps.md
       - name: Portail Azure
         href: attach-managed-disk-portal.md
+    - name: Évaluer un disque
+      href: disks-benchmarks.md
     - name: Détacher un disque
       href: detach-disk.md
     - name: Redimensionner un disque
@@ -354,7 +349,7 @@ items:
       href: using-managed-disks-template-deployments.md
     - name: Activer l’accélérateur d’écriture
       href: how-to-enable-write-accelerator.md
-    - name: À l’aide de disques Ultra SSD
+    - name: Activer les disques Ultra
       href: disks-enable-ultra-ssd.md
     - name: Migrer vers Managed Disks
       href: migrate-to-managed-disks.md
@@ -460,15 +455,15 @@ items:
     href: https://azure.microsoft.com/pricing/details/#Linux
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/regions/services/
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: Forum Aux Questions
     href: faq.md
-ms.openlocfilehash: 770b828330bc0ad10b0aa78277f0872368cf201c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a94dc323129041ffaaadc65204fdc35327b88b33
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299868"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328824"

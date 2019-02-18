@@ -123,6 +123,8 @@ items:
     items:
     - name: Concepts du mappage de flux de données
       href: concepts-data-flow-overview.md
+    - name: Jeux de données de flux de données
+      href: concepts-data-flow-datasets.md
     - name: Mode débogage
       href: concepts-data-flow-debug-mode.md
     - name: Dérive de schéma
@@ -418,19 +420,19 @@ items:
       href: data-flow-conditional-split.md
     - name: Colonne dérivée
       href: data-flow-derived-column.md
-    - name: Existe
+    - name: Exists
       href: data-flow-exists.md
     - name: Filtrer
       href: data-flow-filter.md
-    - name: Jonction
+    - name: Join
       href: data-flow-join.md
     - name: Recherche
       href: data-flow-lookup.md
     - name: Nouvelle branche
       href: data-flow-new-branch.md
-    - name: Pivotement
+    - name: Ajouter un tableau croisé dynamique
       href: data-flow-pivot.md
-    - name: Sélectionner
+    - name: Sélectionnez
       href: data-flow-select.md
     - name: Récepteur
       href: data-flow-sink.md
@@ -442,13 +444,13 @@ items:
       href: data-flow-surrogate-key.md
     - name: Union
       href: data-flow-union.md
-    - name: Annuler le pivotement
+    - name: Supprimer le tableau croisé dynamique
       href: data-flow-unpivot.md
     - name: Fenêtre
       href: data-flow-window.md
-  - name: Paramétrer
+  - name: Paramétrable
     items:
-    - name: Paramétrer des services liés
+    - name: Services relatifs paramétrables
       href: parameterize-linked-services.md
     - name: Langage d’expression
       href: control-flow-expression-language-functions.md
@@ -566,9 +568,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Options de support
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 7ee5cd120a8f1ecb8a1f685c1fa2332a9d9c5dd1
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 848833c7e5524d8bad46150d4c3a8c560e2ef790
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270417"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330526"

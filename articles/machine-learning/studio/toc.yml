@@ -109,7 +109,7 @@ items:
   - name: Déployer des modèles
     items:
     - name: Déployer un service web
-      displayName: publish
+      displayName: publish, multiple regions
       href: publish-a-machine-learning-web-service.md
     - name: Fonctionnement
       href: model-progression-experiment-to-web-service.md
@@ -118,9 +118,6 @@ items:
     - name: Obtenir des données externes
       displayName: import, export
       href: web-services-that-use-import-export-modules.md
-    - name: Déploiement dans plusieurs régions
-      displayName: multiple regions
-      href: how-to-deploy-to-multiple-regions.md
     - name: Utiliser des paramètres de service web
       href: web-service-parameters.md
     - name: Activation de la journalisation
@@ -133,17 +130,14 @@ items:
       displayName: endpoint, endpoints
       href: manage-web-service-endpoints-using-api-management.md
     - name: Créer des points de terminaison
+      displayName: scale, scaling
       href: create-endpoint.md
-    - name: Mise à l'échelle
-      href: scaling-webservice.md
   - name: Reformer des modèles
     items:
-    - name: Vue d’ensemble
+    - name: Réentraîner et déployer un nouveau service web
       href: retrain-machine-learning-model.md
-    - name: Reformer un service web existant
-      href: retrain-existing-resource-manager-based-web-service.md
-    - name: Résolution des problèmes
-      href: troubleshooting-retraining-models.md
+    - name: Réentraîner et déployer un service web classique
+      href: retrain-classic-web-service.md
   - name: Consommer des modèles
     items:
     - name: Vue d’ensemble
@@ -194,9 +188,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Réseaux neuronaux personnalisés (Net#)
     href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: c9bbcd35f74e113c33ef0a8b449d806734501324
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: c6d072a6e032fb4059b422d0778eb78b01d3706e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266865"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327678"
