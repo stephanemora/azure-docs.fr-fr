@@ -1,6 +1,6 @@
 ---
-title: Organiser vos ressources avec des groupes d’administration Azure
-description: Découvrez les groupes d’administration et comment les utiliser.
+title: Organiser vos ressources avec des groupes d’administration Azure - Azure Governance
+description: Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.
 author: rthorn17
 manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -11,12 +11,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 9d606a46bd08ce3e999806bed2357968e5ffd914
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584602"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339285"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -111,14 +111,14 @@ Le graphique suivant montre la liste des rôles, ainsi que les actions prises en
 
 Les rôles RBAC personnalisés ne sont pas pris en charge par les groupes d’administration. Pour connaître le statut de cette prise en charge, consultez le [forum de commentaires des groupes d’administration](https://aka.ms/mgfeedback).
 
-## <a name="audit-management-groups-using-activity-logs"></a>Auditer les groupes d’administration à l’aide des journaux d’activité
+## <a name="audit-management-groups-using-activity-logs"></a>Auditer des groupes d’administration avec des journaux d’activité
 
-Pour suivre les groupes d’administration par le biais de cette API, utilisez l’[API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs). Actuellement, il est impossible d’utiliser le portail Azure, l’interface CLI ou PowerShell pour suivre l’activité des groupes d’administration.
+Pour suivre des groupes d’administration avec cette API, utilisez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs). Il est actuellement impossible d’utiliser PowerShell, l’interface CLI ou le Portail Azure pour suivre l’activité des groupes d’administration.
 
 1. En tant qu’administrateur locataire du locataire Azure AD, [élevez l’accès](../../role-based-access-control/elevate-access-global-admin.md), puis affectez un rôle de lecteur à l’utilisateur d’audit sur l’étendue `/providers/microsoft.insights/eventtypes/management`.
-1. En tant qu’utilisateur d’audit, appelez l’[API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs) pour voir les activités des groupes d’administration. Vous souhaiterez filtrer par fournisseur de ressources **Microsoft.Management** pour toutes les activités des groupes d’administration.  Exemple :
+1. En tant qu’utilisateur auditeur, appelez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs) pour voir les activités des groupes d’administration. Filtrez toute l’activité des groupes d’administration par fournisseur de ressources **Microsoft.Management**.  Exemple :
 
-```
+```http
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
 ```
 
@@ -131,6 +131,6 @@ Pour en savoir plus sur les groupes d’administration, consultez :
 
 - [Créer des groupes d’administration pour organiser les ressources Azure](create.md)
 - [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](manage.md)
-- [Consulter les groupes d’administration dans Azure PowerShell Resources Module](https://aka.ms/mgPSdocs)
+- [Consulter les groupes d’administration dans le module Azure PowerShell Resources](https://aka.ms/mgPSdocs)
 - [Consulter les groupes d’administration dans l’API REST](https://aka.ms/mgAPIdocs)
 - [Consulter les groupes d’administration dans Azure CLI](https://aka.ms/mgclidoc)

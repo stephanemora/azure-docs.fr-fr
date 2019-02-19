@@ -15,12 +15,15 @@ items:
 - name: Tutoriels
   items:
   - name: Encoder le fichier distant et diffuser la vidéo – REST
+    displayName: encoding, job, transform
     href: stream-files-tutorial-with-rest.md
   - name: Encoder le fichier chargé et diffuser la vidéo – REST
+    displayName: encode, encoding, job, transform
     href: stream-files-tutorial-with-api.md
   - name: Diffuser en direct - .NET
     href: stream-live-tutorial-with-api.md
   - name: Analyser votre vidéo - .NET
+    displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
   expanded: true
 - name: Exemples
@@ -31,33 +34,55 @@ items:
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: Ingestion
+  - name: Chargement et stockage sur le cloud
+    href: storage-account-concept.md
     items:
     - name: Éléments multimédias
       href: assets-concept.md
-  - name: Encoder
-    href: encoding-concept.md
+  - name: Encodage
     items:
+    - name: Vue d’ensemble
+      displayName: Presets
+      href: encoding-concept.md
     - name: Transformations et travaux
       href: transforms-jobs-concept.md
     - name: Formats Media Encoder Standard
       href: media-encoder-standard-formats.md
     - name: Autogen échelle de débit adaptatif
       href: autogen-bitrate-ladder.md
-  - name: Analyser
-    href: analyzing-video-audio-files-concept.md
+  - name: Analytique multimédia
     items:
+    - name: Vue d’ensemble
+      displayName: Presets
+      href: analyzing-video-audio-files-concept.md
     - name: Transformations et travaux
       href: transforms-jobs-concept.md
-  - name: Stream
+  - name: Empaquetage, remise, protection
     items:
+    - name: Packaging
+      items:
+      - name: l’empaquetage dynamique
+        href: dynamic-packaging-overview.md
+      - name: Filtres
+        href: filters-concept.md
+      - name: Manifestes dynamiques
+        href: filters-dynamic-manifest-overview.md
+    - name: Protection du contenu
+      href: content-protection-overview.md
+      items:
+      - name: Système multi-DRM avec contrôle d’accès
+        href: design-multi-drm-system-with-access-control.md
     - name: Points de terminaison de diffusion en continu
+      displayName: Origins
       href: streaming-endpoint-concept.md
     - name: Localisateurs de diffusion en continu
+      displayName: URLs
       href: streaming-locators-concept.md
     - name: Stratégies de diffusion en continu
       href: streaming-policy-concept.md
-  - name: Diffuser en direct
+    - name: Stratégies de clé de contenu
+      href: content-key-policy-concept.md
+  - name: Vidéo en flux continu
     href: live-streaming-overview.md
     items:
     - name: Événements en direct et Sorties en direct
@@ -72,36 +97,19 @@ items:
       href: live-event-states-billing.md
     - name: Latence
       href: live-event-latency.md
-  - name: Remettre
+  - name: Surveillance
     items:
-    - name: Filtres et manifeste dynamique
-      href: filters-dynamic-manifest-overview.md
-  - name: Surveiller
-    items:
-    - name: Event Grid
+    - name: Événements avec Event Grid
       href: reacting-to-media-services-events.md
-  - name: Protéger
-    href: content-protection-overview.md
+  - name: Clients Player
     items:
-    - name: Stratégies de clé de contenu
-      href: content-key-policy-concept.md
-    - name: Stratégies de diffusion en continu
-      href: streaming-policy-concept.md
-    - name: Localisateurs de diffusion en continu
-      href: streaming-locators-concept.md
-    - name: Système multi-DRM avec contrôle d’accès
-      href: design-multi-drm-system-with-access-control.md
-  - name: Lecture
-    href: use-azure-media-player.md
-  - name: Comptes
+    - name: Azure Media Player
+      href: use-azure-media-player.md
+  - name: Entités Media Services
     items:
-    - name: Quotas et limitations
-      href: limits-quotas-constraints.md
-    - name: Comptes de stockage
-      href: storage-account-concept.md
-  - name: Filtrer, classer et paginer des entités
-    href: entities-overview.md
-  - name: Migrer de v2 vers v3
+    - name: Tri, filtrage et pagination d’entités
+      href: entities-overview.md
+  - name: Conseils de migration de v2 vers v3
     href: migrate-from-v2-to-v3.md
 - name: Guides pratiques
   items:
@@ -113,19 +121,34 @@ items:
       href: access-api-cli-how-to.md
     - name: Mettre à l’échelle les unités réservées Multimédia - CLI
       href: media-reserved-units-cli-how-to.md
-  - name: Configurer Postman
-    href: media-rest-apis-with-postman.md
+    - name: Commencer à développer
+      href: developers-guide.md
+    - name: Configurer Postman
+      href: media-rest-apis-with-postman.md
   - name: Téléchargement de contenu
     items:
-    - name: À partir de HTTP - .NET
+    - name: À partir de HTTPS - .NET
+      displayName: upload
       href: job-input-from-http-how-to.md
     - name: À partir d’un fichier local - .NET
+      displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: À partir d’un fichier local - REST
+      displayName: upload
       href: upload-files-rest-how-to.md
   - name: Encodage de contenu
     items:
-    - name: Personnaliser les présélections de transformation - .NET
+    - name: HTTPS en tant qu’entrée de travail - .NET
+      displayName: encode, encoding
+      href: job-input-from-http-how-to.md
+    - name: Fichier local en tant qu’entrée de travail - .NET
+      displayName: encode, encoding
+      href: job-input-from-local-file-how-to.md
+    - name: Fichier local en tant qu’entrée de travail - REST
+      displayName: encode
+      href: upload-files-rest-how-to.md
+    - name: Utiliser une transformation personnalisée - .NET
+      displayName: encode, encoding, tranform
       href: customize-encoder-presets-how-to.md
   - name: Utiliser Event Grid
     items:
@@ -215,13 +238,15 @@ items:
     href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Notes de publication
     href: release-notes.md
+  - name: Quotas et limitations
+    href: limits-quotas-constraints.md
   - name: Forum Aux Questions
     href: frequently-asked-questions.md
   - name: Clouds et régions Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0ca98ea27a77418ee5a111a67bd013ab6ad40e55
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 05b20d905a5848cfcfd0f9c6d20e4addb5c776fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330016"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340431"

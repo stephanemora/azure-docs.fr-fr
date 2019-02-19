@@ -59,7 +59,11 @@ items:
 - name: Guides pratiques
   items:
   - name: Gestion des espaces de travail
-    href: how-to-manage-workspace.md
+    items:
+    - name: Utiliser le portail pour les espaces de travail
+      href: how-to-manage-workspace.md
+    - name: Utiliser un modèle Resource Manager
+      href: how-to-create-workspace-template.md
   - name: Configurer l’environnement de développement 
     items:
     - name: Configurer des environnements de développement
@@ -119,8 +123,6 @@ items:
       href: how-to-deploy-fpga-web-service.md
     - name: Résolution des problèmes
       href: how-to-troubleshoot-deployment.md
-    - name: Sécuriser des services web avec SSL
-      href: how-to-secure-web-service.md
   - name: Utiliser des services web
     items:
     - name: Consommer en temps réel
@@ -136,25 +138,27 @@ items:
       href: how-to-enable-data-collection.md
     - name: Surveiller avec Application Insights
       href: how-to-enable-app-insights.md
+  - name: Sécurité
+    items:
+    - name: Utiliser des réseaux virtuels
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: Sécuriser des services web avec SSL
+      href: how-to-secure-web-service.md
   - name: Créer votre premier pipeline
     href: how-to-create-your-first-pipeline.md
+  - name: Activation de la journalisation
+    displayName: logging
+    href: how-to-enable-logging.md
   - name: Gérer les quotas de ressources
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Sécuriser avec les réseaux virtuels
-    displayName: vnet
-    href: how-to-enable-virtual-network.md
   - name: Utiliser l’interface CLI Machine Learning
     displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Exporter et supprimer des données
     displayName: gdpr
     href: how-to-export-delete-data.md
-  - name: Utiliser un modèle Resource Manager
-    href: how-to-create-workspace-template.md
-  - name: Activation de la journalisation
-    displayName: logging
-    href: how-to-enable-logging.md
 - name: Informations de référence
   items:
   - name: SDK Machine Learning
@@ -166,8 +170,6 @@ items:
   - name: Kit de développement logiciel (SDK) de supervision
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
-  - name: Modèle Resource Manager
-    href: /azure/templates/microsoft.machinelearningservices/allversions
 - name: Ressources
   items:
   - name: Feuille de route Azure
@@ -183,9 +185,9 @@ items:
     href: support-for-aml-services.md
   - name: Comparer nos produits ML
     href: overview-more-machine-learning.md
-ms.openlocfilehash: eb803b44bbe72b80f4414a4de66bce519591dea7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 041a4b0f3ebecdaedb041ceb25f426a6e1825292
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268819"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338091"
