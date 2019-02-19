@@ -18,7 +18,7 @@ ms.locfileid: "54066988"
 Le stockage Azure offre trois types de comptes de stockage. Chaque type prend en charge différentes fonctionnalités et a son propre modèle tarifaire. Avant de créer un compte de stockage, tenez compte de ces différences pour déterminer l’option qui convient le mieux à vos applications. Les trois types de comptes de stockage proposés sont les suivants :
 
 * **Comptes de stockage à usage général v2** : Type de compte de stockage de base pour les objets blob, les fichiers, les files d’attente et les tables. Recommandé pour la plupart des scénarios utilisant Stockage Azure.
-* **Comptes v1 universels** : Type de compte de stockage hérité pour les objets blob, les fichiers, les files d’attente et les tables. Utilisez ce type de compte à la place des comptes v2 universels lorsque cela est possible.
+* **Comptes v1 universels** : Type de compte de stockage hérité pour les objets blob, les fichiers, les files d’attente et les tables. Utilisez des comptes à usage général v2 à la place lorsque cela est possible.
 * **Comptes de stockage d’objets blob** : Comptes de stockage Blob uniquement. Utilisez des comptes à usage général v2 à la place lorsque cela est possible. 
 
 Le tableau suivant répertorie les types de comptes de stockage disponibles et leurs fonctionnalités :

@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d99fcc9a8bb69926da7538edc06ae2b7533c86be
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 985f620caaa329b48b00d6ce586e7dcefbf5869d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507424"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341231"
 documentType: LandingData
-title: 'Gestion Azure : Gouvernance'
+title: 'Gestion de Azure : Gouvernance'
 metadata:
-  title: 'Gestion Azure : Gouvernance'
+  title: 'Gestion de Azure : Gouvernance'
   description: Découvrez-en davantage concernant les concepts et les services Azure disponibles pour la gestion de votre environnement avec cohérence, à l’aide d’une conception et de règles explicites et sur la manière d’effectuer les audits de la conformité.
   services: governance
   author: DCtheGeek
@@ -39,21 +39,25 @@ sections:
     - href: ./management-groups/overview
       html: <p>Découvrez-en davantage concernant le regroupement et l’organisation de vos abonnements dans une hiérarchie logique qui prend en charge le déploiement d’autres services de gouvernance de façon structurée.<br /></p>
       image:
+        alt: Groupes d'administration
         src: ./media/management-groups-illustration.svg
       title: Groupes d'administration
     - href: ./resource-graph/
       html: <p>Utilisez un puissant outil de commande en ligne (prend en charge Azure CLI et Azure PowerShell) pour interroger rapidement des détails complexes concernant vos ressources Azure. Recherchez et exposez des informations qui nécessitaient auparavant des scripts complexes et itératifs pour découvrir ces ressources à l’échelle.</p>
       image:
+        alt: Graphe des ressources
         src: ./media/resource-graph-illustration.svg
       title: Graphe des ressources
     - href: ./policy/
       html: <p>Définissez et appliquez des standards aux ressources dans votre environnement. Empêchez la création de ressources indésirables, améliorez les nouvelles ressources avec des éléments supplémentaires, réalisez un audit et corrigez les ressources déjà présentes dans votre environnement.</p>
       image:
+        alt: Stratégie
         src: ./media/policy-illustration.svg
       title: Stratégie
     - href: ./blueprints/
       html: <p>Créez un package natif Azure d’<i>artefacts</i> (groupes de ressources, stratégies, attributions de rôles, modèles Resource Manager et plus) qui peut être déployé dynamiquement sur des abonnements pour créer des environnements cohérents et reproductibles.</p>
       image:
+        alt: Blueprints
         src: ./media/blueprints-illustration.svg
       title: Blueprints
 - title: Implémentations
