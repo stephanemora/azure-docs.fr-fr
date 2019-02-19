@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/10/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 710ec72e9867ad180afcae8273a093f48933112a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251830"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991495"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming hors connexion pour iOS 
  Azure Media Services fournit un ensemble bien conçu de [services de protection de contenu](https://azure.microsoft.com/services/media-services/content-protection/), couvrant :
@@ -115,10 +115,10 @@ Désormais votre compte Media Services est configuré pour fournir des licences 
 ## <a name="sample-ios-player"></a>Exemple de lecteur iOS
 La prise en charge en mode hors connexion FPS est disponible uniquement sur iOS 10 et version ultérieure. Le Kit SDK 3.0 ou version ultérieure du serveur FPS contient le document ou l’exemple pour le mode hors connexion FPS. En particulier, le Kit SDK du serveur FPS (version 3.0 ou ultérieure) contient les deux éléments suivants associés au mode hors connexion :
 
-* Document : « lecture hors connexion avec FairPlay Streaming et HTTP Live Streaming. » Apple, 14 septembre 2016. Dans le Kit SDK du serveur FPS version 4.0, ce document est fusionné avec le document FPS principal.
-* Code en exemple : exemple HLSCatalog pour le mode hors connexion FPS dans \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. Dans l’application en exemple HLSCatalog, les fichiers de code suivants servent à mettre en œuvre des fonctionnalités en mode hors connexion :
+* Document : « Lecture hors connexion avec FairPlay Streaming et HTTP Live Streaming. » Apple, 14 septembre 2016. Dans le Kit SDK du serveur FPS version 4.0, ce document est fusionné avec le document FPS principal.
+* Exemple de code : Exemple HLSCatalog pour le mode hors connexion FPS dans \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. Dans l’application en exemple HLSCatalog, les fichiers de code suivants servent à mettre en œuvre des fonctionnalités en mode hors connexion :
 
-    - Fichier de code AssetPersistenceManager.swift : AssetPersistenceManager est la première classe de cet exemple qui démontre comment :
+    - Fichier de code AssetPersistenceManager.swift : AssetPersistenceManager est la principale classe de cet exemple qui démontre comment :
 
         - gérer le téléchargement des flux HLS, telles que les API pour démarrer et annuler les téléchargements et pour supprimer des éléments multimédia existants des appareils ;
         - contrôler la progression du téléchargement.

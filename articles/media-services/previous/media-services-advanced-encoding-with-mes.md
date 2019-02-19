@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250765"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998703"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Effectuer un encodage avancé en personnalisant les présélections MES 
 
@@ -240,13 +240,13 @@ Les considérations suivantes s'appliquent :
 
   * Entiers non négatifs : nombre d’images, par exemple "Start": "120",
   * Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%", OU
-  * Horodatage, s’il est exprimé au format HH:MM:SS, par exemple « Start » : « 00:01:00 »
+  * Horodatage, s’il est exprimé au format HH:MM:SS, par exemple "Start" : "00:01:00"
 
     Vous pouvez combiner et apparier les notations à votre guise.
 
-    En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
-  * La configuration par défaut est « Start:{Best} ».
-* Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
+    En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : (Step et Range sont ignorés quand Start est défini sur {Best})
+  * Configuration par défaut : Start:{Best}
+* Le format de sortie doit être fourni explicitement pour chaque format d’image : Jpg/Png/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
 ## <a id="trim_video"></a>Rognage d’une vidéo (extrait)
 Cette section explique comment modifier les présélections de l’encodeur pour découper ou rogner la vidéo d’entrée, dans laquelle l’entrée est ce que l’on appelle un fichier mezzanine ou un fichier à la demande. L’encodeur peut également servir à découper ou rogner un élément multimédia capturé ou archivé à partir d’un streaming en direct. Pour obtenir des détails à ce sujet, consultez [ce blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
@@ -752,7 +752,7 @@ Vous pouvez désactiver le désentrelacement automatique. Cette option n’est p
 
 
 ## <a id="audio_only"></a>Présélections audio uniquement
-Cette section présente deux présélections MES audio uniquement : Audio AAC et Bonne qualité audio AAC.
+Cette section présente deux présélections MES audio uniquement : Audio AAC et Bonne qualité audio AAC.
 
 ### <a name="aac-audio"></a>Audio AAC
     {

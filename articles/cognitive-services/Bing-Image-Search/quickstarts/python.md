@@ -4,103 +4,97 @@ titleSuffix: Azure Cognitive Services
 description: Utilisez ce démarrage rapide pour envoyer des requêtes de recherche d'images à l'API REST Recherche d'images Bing à l'aide de Python et recevoir des réponses JSON.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/20/2018
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 018f2b4b3f75ed9cef3fbc63ac4e93b56a756e14
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0fa60f8dc7a1bb0f72080e91adb1149c1c4c082d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174025"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234445"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Démarrage rapide : Rechercher des images à l'aide de l'API REST Recherche d'images Bing et de Python
 
-Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’images Bing et recevoir une réponse JSON. Cette application Python simple envoie une requête de recherche à l’API et affiche les résultats bruts.
-
-Alors que cette application est écrite en Python, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
+Utilisez ce guide de démarrage rapide pour commencer à envoyer des demandes de recherche à l’API Recherche d’images Bing. Cette application Python envoie une requête de recherche à l’API et affiche l’URL de la première image dans les résultats. Bien que cette application soit écrite en Python, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
 Vous pouvez exécuter cet exemple comme un bloc-notes Jupyter sur [MyBinder](https://mybinder.org) en cliquant sur le badge de lancement de Binder :
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
 
-De plus, le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py).
+Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py) avec une gestion des erreurs supplémentaire et des annotations.
+
 
 ## <a name="prerequisites"></a>Prérequis
 
+* [Python 2.x ou 3.x](https://www.python.org/)
+* La bibliothèque [Python Imaging Library (PIL)](https://pillow.readthedocs.io/en/stable/index.html)
+* [matplotlib](https://matplotlib.org/) 
+
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+## <a name="create-and-initialize-the-application"></a>Créer et initialiser l’application
 
-## <a name="running-the-quickstart"></a>Exécution du guide démarrage rapide
+1. Créez un fichier Python dans votre environnement de développement intégré (IDE) ou éditeur favori, et importez les modules suivants. Créez une variable pour votre clé d’abonnement, le point de terminaison de recherche et un terme de recherche.
 
-Pour commencer, définissez `subscription_key` sur une clé d’abonnement valide pour le service API Bing.
+    ```python
+    import requests
+    import matplotlib.pyplot as plt
+    from PIL import Image
+    from io import BytesIO
+    
+    subscription_key = "your-subscription-key"
+    search_url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
+    search_term = "puppies"
+    ```
 
-```python
-subscription_key = None
-assert subscription_key
-```
+2. Ajoutez votre clé d’abonnement à l’en-tête `Ocp-Apim-Subscription-Key` en créant un dictionnaire et en ajoutant la clé comme valeur. 
 
-Ensuite, vérifiez que le point de terminaison `search_url` est correct. Pour l’instant, un seul point de terminaison est utilisé pour les API Recherche Bing. Si vous rencontrez des erreurs d’autorisation, vérifiez bien cette valeur par rapport au point de terminaison de Recherche Bing dans votre tableau de bord Azure.
+    ```python
+    headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
+    ```
 
+## <a name="create-and-send-a-search-request"></a>Créer et envoyer la demande de recherche
 
-```python
-search_url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
-```
+1. Créez un dictionnaire pour les paramètres de la demande de recherche. Ajoutez votre terme de recherche au paramètre `q`. Utilisez « public » pour le paramètre `license` afin de rechercher des images dans le domaine public. Utilisez « photo » pour `imageType` afin de rechercher uniquement des photos.
 
-Définissez `search_term` pour rechercher des images de chiots.
+    ```python
+    params  = {"q": search_term, "license": "public", "imageType": "photo"}
+    ```
 
+2. Utilisez la bibliothèque `requests` pour appeler l’API Recherche d’images Bing. Ajoutez à la demande votre en-tête et vos paramètres, et renvoyez la réponse sous forme d’objet JSON. 
 
-```python
-search_term = "puppies"
-```
+    ```python
+    response = requests.get(search_url, headers=headers, params=params)
+    response.raise_for_status()
+    search_results = response.json()
+    ```
 
-Le bloc suivant utilise la bibliothèque `requests` dans Python pour faire appel aux API Recherche Bing et retourner les résultats en tant qu’objet JSON. Notez que nous transmettons la clé API par le biais du dictionnaire `headers`, et le terme recherché par celui du dictionnaire `params`. Pour afficher la liste complète des options pouvant être utilisées pour filtrer les résultats de recherche, consultez la documentation sur [l’API REST](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+## <a name="view-the-response"></a>Afficher la réponse
 
+1. Créez une figure avec quatre colonnes et quatre lignes à l’aide de la bibliothèque matplotlib. 
 
-```python
-import requests
+2. Effectuez une itération dans les lignes et colonnes de la figure, et utilisez la méthode `Image.open()` de la bibliothèque PIL pour ajouter une vignette de l’image à chaque espace. 
 
-headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
-params  = {"q": search_term, "license": "public", "imageType": "photo"}
-response = requests.get(search_url, headers=headers, params=params)
-response.raise_for_status()
-search_results = response.json()
-```
+    ```python
+    f, axes = plt.subplots(4, 4)
+    for i in range(4):
+        for j in range(4):
+            image_data = requests.get(thumbnail_urls[i+4*j])
+            image_data.raise_for_status()
+            image = Image.open(BytesIO(image_data.content))        
+            axes[i][j].imshow(image)
+            axes[i][j].axis("off")
+    ```
 
-L’objet `search_results` contient les images réelles ainsi que les métadonnées enrichies, telles que les éléments associés. Par exemple, la ligne de code suivante peut extraire les URL des miniatures pour les 16 premiers résultats.
+3. Utilisez `plt.show()` pour tracer la figure et afficher les images.
 
-
-```python
-thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
-```
-
-Utilisez ensuite la bibliothèque `PIL` pour télécharger les images miniatures et la bibliothèque `matplotlib` pour les afficher sur une grille de 4 sur 4.
-
-
-```python
-%matplotlib inline
-import matplotlib.pyplot as plt
-from PIL import Image
-from io import BytesIO
-
-f, axes = plt.subplots(4, 4)
-for i in range(4):
-    for j in range(4):
-        image_data = requests.get(thumbnail_urls[i+4*j])
-        image_data.raise_for_status()
-        image = Image.open(BytesIO(image_data.content))        
-        axes[i][j].imshow(image)
-        axes[i][j].axis("off")
-plt.show()
-```
-
-## <a name="sample-json-response"></a>Exemple de réponse JSON
+## <a name="example-json-response"></a>Exemple de réponse JSON
 
 Les réponses de l’API Recherche d’images Bing sont retournées au format JSON. Cet exemple de réponse a été tronqué pour afficher un résultat unique.
 
@@ -144,7 +138,7 @@ Les réponses de l’API Recherche d’images Bing sont retournées au format JS
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -153,10 +147,8 @@ Les réponses de l’API Recherche d’images Bing sont retournées au format JS
 > [!div class="nextstepaction"]
 > [Tutoriel d’une application monopage Recherche d’images Bing](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Voir aussi
-
-* [Qu’est-ce que la Recherche d’images Bing ?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Essayez une démonstration interactive en ligne](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Qu’est-ce que l’API Recherche d’images Bing ?](../overview.md)  
+* [Détail des prix](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) des API Recherche Bing. 
 * [Obtenir une clé d’accès Cognitive Services gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentation Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 * [Informations de référence sur l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

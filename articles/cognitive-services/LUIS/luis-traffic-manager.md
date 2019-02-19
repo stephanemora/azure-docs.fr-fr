@@ -3,20 +3,20 @@ title: Augmenter le quota de points de terminaison
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) offre la possibilité d’augmenter le quota de demandes des points de terminaison au-delà du quota d’une seule clé. Il suffit de créer plusieurs clés pour LUIS et de les ajouter à l’application LUIS dans la section **Ressources et clés** de la page **Publier**.
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 802a5cc629a467527c916c5a41a9c00d06e85600
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491720"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997904"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utiliser Microsoft Azure Traffic Manager pour gérer le quota de points de terminaison entre les clés
 Language Understanding (LUIS) offre la possibilité d’augmenter le quota de demandes des points de terminaison au-delà du quota d’une seule clé. Il suffit de créer plusieurs clés pour LUIS et de les ajouter à l’application LUIS dans la section **Ressources et clés** de la page **Publier**. 
@@ -362,6 +362,9 @@ En cas de succès, la réponse avec le point de terminaison LUIS est la suivante
 ## <a name="use-the-traffic-manager-parent-profile"></a>Utiliser le profil parent Traffic Manager
 Pour gérer le trafic entre les points de terminaison, vous devez insérer un appel au DNS Traffic Manager pour rechercher le point de terminaison LUIS. Cet appel, effectué à chaque demande du point de terminaison LUIS, doit simuler l’emplacement géographique de l’utilisateur de l’application cliente LUIS. Ajoutez le code de réponse DNS entre votre application cliente LUIS et la demande envoyée à LUIS pour la prédiction du point de terminaison. 
 
+## <a name="resolving-a-degraded-state"></a>Résolution d’un état détérioré
+
+Activez [journaux de diagnostic](../../traffic-manager/traffic-manager-diagnostic-logs.md) pour Traffic Manager afin de connaître la cause de la détérioration de l’état du point de terminaison.
 
 ## <a name="clean-up"></a>Nettoyer
 Supprimez les deux clés de point de terminaison LUIS, les trois profils Traffic Manager et le groupe de ressources contenant ces cinq ressources. Utilisez pour cela le Portail Azure. Supprimez les cinq ressources de la liste de ressources, puis supprimez le groupe de ressources. 

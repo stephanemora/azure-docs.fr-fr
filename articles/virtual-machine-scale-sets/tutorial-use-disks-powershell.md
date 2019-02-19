@@ -16,14 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abfd410e9137a897753fcf04ee113bd04749a7a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f3b49efa5e28eab2168c9a85d17e39ca7f0fce4a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881679"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984781"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutoriel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques à l’aide d’Azure PowerShell
+
 Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -35,9 +36,9 @@ Les groupes de machines virtuelles identiques utilisent des disques pour stocker
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, ce didacticiel requiert le module Azure PowerShell version 6.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure. 
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 
 ## <a name="default-azure-disks"></a>Disques Azure par défaut
@@ -95,12 +96,12 @@ Bien que le tableau ci-dessus identifie le nombre max. d’E/S par seconde par d
 Vous pouvez créer et attacher des disques lorsque vous créez un groupe identique, ou avec un groupe identique existant.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Attacher des disques lors de la création d’un groupe identique
-Créez un groupe identique de machines virtuelles avec [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Lorsque vous y êtes invité, saisissez un nom d’utilisateur et le mot de passe correspondant pour les instances de machine virtuelle. Pour distribuer le trafic aux différentes instances de machine virtuelle, un équilibreur de charge est également créé. L’équilibreur de charge inclut des règles pour distribuer le trafic sur le port TCP 80, ainsi que pour autoriser le trafic Bureau à distance sur le port TCP 3389 et le trafic Accès distant PowerShell sur le port TCP 5985.
+Créez un groupe de machines virtuelles identiques avec [New-AzVmss](/powershell/module/az.compute/new-azvmss). Lorsque vous y êtes invité, saisissez un nom d’utilisateur et le mot de passe correspondant pour les instances de machine virtuelle. Pour distribuer le trafic aux différentes instances de machine virtuelle, un équilibreur de charge est également créé. L’équilibreur de charge inclut des règles pour distribuer le trafic sur le port TCP 80, ainsi que pour autoriser le trafic Bureau à distance sur le port TCP 3389 et le trafic Accès distant PowerShell sur le port TCP 5985.
 
 Deux disques sont créés avec le paramètre `-DataDiskSizeGb`. Le premier disque fait *64* Go et le second disque fait *128* Go. Lorsque vous y êtes invité, fournissez vos propres informations d’identification d’administration souhaitées pour les instances de machine virtuelle dans le groupe identique :
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
@@ -115,23 +116,23 @@ New-AzureRmVmss `
 La création et la configuration de l’ensemble des ressources et des instances de machine virtuelle du groupe identique prennent quelques minutes.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Attacher un disque à un groupe identique existant
-Vous pouvez également attacher des disques à un groupe identique existant. Utilisez le groupe identique créé à l’étape précédente pour ajouter un autre disque avec la commande [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk). Dans l’exemple suivant, un disque supplémentaire de *128* Go est associé à un groupe identique existant :
+Vous pouvez également attacher des disques à un groupe identique existant. Utilisez le groupe identique créé à l’étape précédente pour ajouter un autre disque avec la commande [Add-AzVmssDataDisk](/powershell/module/az.compute/add-azvmssdatadisk). Dans l’exemple suivant, un disque supplémentaire de *128* Go est associé à un groupe identique existant :
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Attach a 128 GB data disk to LUN 2
-Add-AzureRmVmssDataDisk `
+Add-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -CreateOption Empty `
   -Lun 2 `
   -DiskSizeGB 128
 
 # Update the scale set to apply the change
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -143,11 +144,13 @@ Les disques créés et attachés aux instances de machine virtuelle de votre gro
 
 Pour automatiser le processus sur plusieurs instances de machine virtuelle dans un groupe identique, vous pouvez utiliser l’extension de script personnalisé Azure. Cette extension peut exécuter des scripts localement sur chaque instance de machine virtuelle, par exemple pour préparer les disques de données attachés. Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/windows/extensions-customscript.md).
 
-L’exemple suivant présente l’exécution d’un script à partir d’un référentiel d’exemples GitHub sur chaque instance de machine virtuelle avec la commande [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension) qui prépare tous les disques de données attachés bruts :
+
+L’exemple suivant présente l’exécution d’un script à partir d’un dépôt d’exemples GitHub sur chaque instance de machine virtuelle avec la commande [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) qui prépare tous les disques de données attachés bruts :
+
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
@@ -158,7 +161,7 @@ $publicSettings = @{
 }
 
 # Use Custom Script Extension to prepare the attached data disks
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
@@ -166,7 +169,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
   -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -174,17 +177,18 @@ Update-AzureRmVmss `
 
 Pour confirmer que les disques ont été correctement préparés, utilisez le protocole RDP sur l’une des instances de machine virtuelle. 
 
-Tout d’abord, obtenez l’objet d’équilibrage de charge avec [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Affichez ensuite les règles NAT entrantes avec [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig). Les règles NAT répertorient le *port du serveur frontal* pour chaque instance de machine virtuelle qui écoute le protocole RDP. Finalement, obtenez l’adresse IP publique de l’équilibreur de charge avec [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) :
+Tout d’abord, obtenez l’objet d’équilibrage de charge avec [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Affichez ensuite les règles NAT de trafic entrant avec [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig). Les règles NAT répertorient le *port du serveur frontal* pour chaque instance de machine virtuelle qui écoute le protocole RDP. Enfin, obtenez l’adresse IP publique de l’équilibreur de charge avec [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) :
+
 
 ```azurepowershell-interactive
 # Get the load balancer object
-$lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
+$lb = Get-AzLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
 
 # View the list of inbound NAT rules
-Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
+Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 
 # View the public IP address of the load balancer
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
 ```
 
 Pour vous connecter à votre machine virtuelle, spécifiez votre propre adresse IP publique et le numéro de port de l’instance de machine virtuelle, comme indiqué dans les commandes précédentes. À l’invite, saisissez les informations d’identification que vous avez utilisées lors de la création du groupe identique. Si vous utilisez Azure Cloud Shell, effectuez cette étape à partir d’une invite de commandes PowerShell locale ou du client Bureau à distance. L’exemple suivant établit une connexion à l’instance de machine virtuelle *1* :
@@ -244,11 +248,11 @@ Les disques sur chaque instance de machine virtuelle de votre groupe identique s
 Fermez la session de connexion Bureau à distance avec l’instance de machine virtuelle.
 
 
-## <a name="list-attached-disks"></a>Répertorier les disques attachés
-Pour afficher plus d’informations sur les disques attachés à un groupe identique, utilisez [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) comme suit :
+## <a name="list-attached-disks"></a>Afficher les disques attachés
+Pour afficher des informations sur les disques attachés à un groupe identique, utilisez [Get-AzVmss](/powershell/module/az.compute/get-azvmss) comme suit :
 
 ```azurepowershell-interactive
-Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
 ```
 
 Sous la propriété *VirtualMachineProfile.StorageProfile*, la liste des *disques de données* est affichée. Les informations sur la taille du disque, le niveau de stockage et le numéro d’unité logique s’affichent. L’exemple de sortie suivant détaille les trois disques de données attachés au groupe identique :
@@ -279,21 +283,21 @@ DataDisks[2]                            :
 
 
 ## <a name="detach-a-disk"></a>Détacher un disque
-Lorsque vous n’avez plus besoin d’un disque donné, vous pouvez le détacher du groupe identique. Le disque est supprimé de toutes les instances de machine virtuelle dans le groupe identique. Pour détacher un disque d’un groupe identique, utilisez la commande [Remove-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/remove-azurermvmssdatadisk) et spécifiez le numéro d’unité logique du disque. Les numéros d’unité logique sont affichés en sortie à partir de la commande [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) de la section précédente. L’exemple ci-après illustre le détachement du numéro d’unité logique *3* du groupe identique :
+Lorsque vous n’avez plus besoin d’un disque donné, vous pouvez le détacher du groupe identique. Le disque est supprimé de toutes les instances de machine virtuelle dans le groupe identique. Pour détacher un disque d’un groupe identique, utilisez la commande [Remove-AzVmssDataDisk](/powershell/module/az.compute/remove-azvmssdatadisk) et spécifiez le numéro d’unité logique du disque. Les numéros d’unité logique sont indiqués dans la sortie de la commande [Get-AzVmss](/powershell/module/az.compute/get-azvmss) mentionnée dans la section précédente. L’exemple ci-après illustre le détachement du numéro d’unité logique *3* du groupe identique :
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Detach a disk from the scale set
-Remove-AzureRmVmssDataDisk `
+Remove-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -Lun 2
 
 # Update the scale set and detach the disk from the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -301,10 +305,10 @@ Update-AzureRmVmss `
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Pour supprimer votre groupe identique vos disques, supprimez le groupe de ressources et toutes ses ressources avec [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Le paramètre `-Force` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin. Le paramètre `-AsJob` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine.
+Pour supprimer votre groupe identique et vos disques, supprimez le groupe de ressources et toutes ses ressources avec [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Le paramètre `-Force` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin. Le paramètre `-AsJob` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

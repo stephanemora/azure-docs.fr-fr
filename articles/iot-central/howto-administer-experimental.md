@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ebca3060e902c0a45619c2bd64240537cd95308d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b43e496323da75dfc63f889283257fac41f48abf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811849"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117729"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrer votre application IoT Central
 
@@ -141,15 +141,15 @@ Pour mener à bien ce processus en libre-service, effectuez ces étapes :
 
 ## <a name="export-data"></a>Exporter des données
 
-Vous pouvez activer l’**exportation continue de données** pour exporter des mesures, des appareils et des données de modèles d’appareils vers votre compte de stockage blob Azure. En savoir plus sur [la manière d’exporter vos données](#howto-export-data).
+Vous pouvez activer l’**exportation continue de données** pour exporter des mesures, des appareils et des données de modèles d’appareils vers votre compte de stockage blob Azure. En savoir plus sur l'[exportation de vos données](#export-data).
 
 ## <a name="manage-device-connection"></a>Gérer la connexion de l’appareil
 
-Connecter des appareils à l’échelle dans votre application à l’aide de clés et de certificats ici. En savoir plus sur la [connexion d’appareils](#concepts-connectivity).
+Connecter des appareils à l’échelle dans votre application à l’aide de clés et de certificats ici. En savoir plus sur la [connexion d’appareils](/azure/iot-central/concepts-connectivity-experimental?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## <a name="use-access-tokens"></a>Utiliser des jetons d’accès
 
-Générer des jetons d’accès pour les utiliser dans les outils de développeurs. Actuellement, un outil de développeur est l’explorateur IoT Central pour la supervision des messages d’appareils et des modifications dans les propriétés et les paramètres. En savoir plus sur l’[explorateur IoT Central](#howto-use-iotc-explorer). 
+Générer des jetons d’accès pour les utiliser dans les outils de développeurs. Actuellement, un outil de développeur est l’explorateur IoT Central pour la supervision des messages d’appareils et des modifications dans les propriétés et les paramètres. En savoir plus sur l'explorateur IoT Central. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Utiliser les kits de développement logiciel (SDK) Azure pour les opérations de plan de contrôle
 

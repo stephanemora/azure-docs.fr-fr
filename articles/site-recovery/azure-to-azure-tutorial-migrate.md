@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 70229a0b211acd08d285ad7a943f39285fad8012
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f6713326045ebd84f1cd484803fbc725ad798d7b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810420"
+ms.locfileid: "55882265"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment déplacer des machines virtuelles Azure vers une
 > * [Supprimer les ressources dans la région source](#discard-the-resource-in-the-source-region) 
 
 > [!IMPORTANT]
-> Ce document explique comment déplacer des machines virtuelles Azure d’une région à une autre en l’état. Si votre objectif est d’améliorer la disponibilité des machines virtuelles d’un groupe à haute disponibilité en les déplaçant vers une autre région pour les déployer en tant que machines virtuelles rattachées à une zone, consultez le tutoriel fourni ici.
+> Ce document explique comment déplacer des machines virtuelles Azure d’une région à une autre en l’état. Si votre objectif est d’améliorer la disponibilité des machines virtuelles d’un groupe à haute disponibilité en les déplaçant vers une autre région pour les déployer en tant que machines virtuelles rattachées à une zone, consultez le tutoriel fourni [ici](move-azure-VMs-AVset-Azone.md).
 
 ## <a name="verify-prerequisites"></a>Vérifier la configuration requise
 
@@ -73,14 +73,14 @@ Ce tutoriel vous montre comment déplacer des machines virtuelles Azure vers une
 
     - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [IP publique](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Adresse IP publique](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
     Pour tous les autres composants réseau, reportez-vous à cette [documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network) sur la mise en réseau. 
 
 4. Vous devez [créer un réseau hors production](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manuellement dans la région cible si vous souhaitez tester la configuration avant d’effectuer le déplacement final vers la région cible. Cette pratique est recommandée dans la mesure où elle limite les interférences avec l’environnement de production.
     
 ## <a name="copy-data-to-the-target-region"></a>Copier des données vers la région cible
-Suivez les étapes ci-dessous pour copier des données vers la région cible à l’aide d’Azure Site Recovery.
+Suivez les étapes ci-dessous pour copier les données vers la région cible à l’aide d’Azure Site Recovery.
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Créez le coffre dans n’importe quelle région, à l’exception de la région source.
 
@@ -99,7 +99,7 @@ Suivez les étapes ci-dessous pour copier des données vers la région cible à 
 
 Site Recovery récupère une liste des machines virtuelles associées à l’abonnement et au groupe de ressources.
 
-1. À l’étape suivante, sélectionnez la machine virtuelle que vous souhaitez déplacer. Cliquez ensuite sur **OK**.
+1. À l’étape suivante, Sélectionnez la machine virtuelle que vous souhaitez déplacer. Cliquez ensuite sur **OK**.
 3. Dans **Paramètres**, cliquez sur **Récupération d’urgence**.
 4. Dans **Configurer la récupération d’urgence** > **Région cible**, sélectionnez la région cible vers laquelle vous allez effectuer la réplication.
 5. Pour ce didacticiel, acceptez les autres paramètres par défaut.
@@ -128,7 +128,7 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 5. Une fois le basculement terminé, la machine virtuelle Azure de réplication apparaît dans le portail Azure > **Machines virtuelles**. Vérifiez que la machine virtuelle est en cours d’exécution, qu’elle est correctement dimensionnée et qu’elle est connectée au réseau approprié.
 6. Si vous souhaitez supprimer la machine virtuelle qui a été créée pour les besoins du test du déplacement, cliquez sur **Nettoyer le test de basculement** sur l’élément répliqué. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations sur le test.
 
-## <a name="perform-the-move-to-the-target-region-and-confirm"></a>Effectuer et valider le déplacement vers la région cible
+## <a name="perform-the-move-to-the-target-region-and-confirm"></a>Effectuez et validez le déplacement vers la région cible.
 
 1.  Accédez au coffre puis, dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle et ensuite sur **Basculement**.
 2. Dans **Basculement**, sélectionnez **Dernier**. 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: dd99a6b49894b3489d1cc01f1fcbc56d29247b41
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756357"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868563"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Didacticiel : automatiser la génération des images de conteneur dans le cloud lorsque vous validez le code source
 
@@ -51,6 +51,8 @@ ACR Tasks prend actuellement en charge les déclencheurs suivants :
 
 * Validation dans un référentiel Git
 * Mise à jour d’images de base
+
+Dans ce tutoriel, votre tâche ACR génère et envoie (push) une seule image conteneur spécifiée dans un Dockerfile. ACR Tasks peut également exécuter des [tâches multiétapes](container-registry-tasks-multi-step.md) (en préversion) à l’aide d’un fichier YAML pour définir les étapes permettant de générer, d’envoyer et éventuellement de tester plusieurs conteneurs.
 
 ## <a name="create-a-build-task"></a>Créer une tâche de génération
 
@@ -99,7 +101,7 @@ az acr task create \
 > [!IMPORTANT]
 > Si vous avez créé précédemment des tâches pendant la préversion avec la commande `az acr build-task`, ces tâches doivent être recréées à l’aide de la commande [az acr task][az-acr-task].
 
-Cette tâche spécifie que tout code temporel est validé dans la branche *maîtresse* du référentiel spécifié par `--context` et qu’ACR Tasks va générer l’image conteneur à partir du code de cette branche. Le fichier Dockerfile spécifié par `--file` à la racine du référentiel est utilisé. L’argument `--image` spécifie une valeur paramétrable de `{{.Run.ID}}` pour la partie « version » de la balise de l’image, garantissant ainsi que l’image générée est en corrélation avec une build spécifique et qu’elle est référencée de façon unique.
+Cette tâche spécifie que tout code temporel est validé dans la branche *maîtresse* du référentiel spécifié par `--context` et qu’ACR Tasks va générer l’image conteneur à partir du code de cette branche. Le Dockerfile spécifié par `--file` à la racine du dépôt est utilisé pour générer l’image. L’argument `--image` spécifie une valeur paramétrable de `{{.Run.ID}}` pour la partie « version » de la balise de l’image, garantissant ainsi que l’image générée est en corrélation avec une build spécifique et qu’elle est référencée de façon unique.
 
 La sortie d’une commande [az acr task create][az-acr-task-create] réussie se présente ainsi :
 

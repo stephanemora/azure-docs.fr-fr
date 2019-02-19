@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/07/2018
+ms.date: 02/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: b739db654a182433bbe1f47528d1ab99f1b10c08
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: e0f6e3068a26eef3b6cca79cffbb98614eb44a34
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242159"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100157"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architecture d’identité pour Azure Stack
-Avant de choisir un fournisseur d’identité à utiliser avec Azure Stack, vous devez comprendre les différences importantes entre les options d’Azure Active Directory (Azure AD) et les services de fédération Active Directory (AD FS). 
+
+Quand vous choisissez un fournisseur d’identité à utiliser avec Azure Stack, vous devez comprendre les différences importantes entre les options d’Azure Active Directory (Azure AD) et les services de fédération Active Directory (AD FS).
 
 ## <a name="capabilities-and-limitations"></a>Capacités et limitations 
 Le fournisseur d’identité que vous choisissez peut limiter vos options, dont la prise en charge d’architecture mutualisée. 
@@ -33,16 +34,16 @@ Le fournisseur d’identité que vous choisissez peut limiter vos options, dont 
 
 |Capacité ou scénario        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|Connecté à Internet     |Oui       |Facultatif|
-|Prise en charge d’architecture mutualisée     |Oui       |Non       |
-|Proposer des articles dans la place de marché |Oui       |Oui. Nécessite l’utilisation de l’outil [Syndication de Place de marché hors ligne](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).|
-|Prise en charge de la bibliothèque d’authentification Active Directory (ADAL) |Oui |Oui|
-|Prise en charge des outils tels que Azure CLI, Visual Studio et PowerShell  |Oui |Oui|
-|Créer des principaux de service via le portail Azure     |Oui |Non |
-|Créer des principaux de service avec des certificats      |Oui |Oui|
-|Créer des principaux de service avec des secrets (clés)    |Oui |Non |
-|Les applications peuvent utiliser le service Graph           |Oui |Non |
-|Les applications peuvent utiliser le fournisseur d’identité pour se connecter |Oui |Oui. Les applications doivent fédérer avec vos instances AD FS locales. |
+|Connecté à Internet     |OUI       |Facultatif|
+|Prise en charge d’architecture mutualisée     |OUI       |Non       |
+|Proposer des articles dans la place de marché |OUI       |Oui. Nécessite l’utilisation de l’outil [Syndication de Place de marché hors ligne](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).|
+|Prise en charge de la bibliothèque d’authentification Active Directory (ADAL) |OUI |OUI|
+|Prise en charge des outils tels que Azure CLI, Visual Studio et PowerShell  |OUI |OUI|
+|Créer des principaux de service via le portail Azure     |OUI |Non |
+|Créer des principaux de service avec des certificats      |OUI |OUI|
+|Créer des principaux de service avec des secrets (clés)    |OUI |Non |
+|Les applications peuvent utiliser le service Graph           |OUI |Non |
+|Les applications peuvent utiliser le fournisseur d’identité pour se connecter |OUI |Oui. Les applications doivent fédérer avec vos instances AD FS locales. |
 
 ## <a name="topologies"></a>Topologies
 Les sections suivantes traitent des différentes topologies d’identité que vous pouvez utiliser.

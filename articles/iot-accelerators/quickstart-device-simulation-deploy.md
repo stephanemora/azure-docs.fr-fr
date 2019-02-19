@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/28/2018
 ms.author: troyhop
-ms.openlocfilehash: 12f993f606fc1ef44280142d5acfa2687cd4e043
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 84b232b175d45a12bb6e0f8b462849282144c19b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601591"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097574"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Démarrage rapide : Déployer et exécuter une simulation d’appareil IoT dans Azure
 
@@ -44,7 +44,7 @@ Sélectionnez l’**Abonnement** et la **Région** à utiliser pour déployer l�
 
 Cochez la case pour déployer un hub IoT à utiliser avec votre solution de simulation d’appareil. Vous pourrez toujours modifier le hub IoT que votre simulation utilise plus tard.
 
-Cliquez sur **Créer une solution** pour commencer l’approvisionnement de votre solution. L’exécution de ce processus prend au moins cinq minutes :
+Cliquez sur **Créer** pour commencer le provisionnement de votre solution. L’exécution de ce processus prend au moins cinq minutes :
 
 ![Détails sur la solution de simulation d’appareil](./media/quickstart-device-simulation-deploy/createform.png)
 

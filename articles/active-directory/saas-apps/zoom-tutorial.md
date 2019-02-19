@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Zoom | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Zoom | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zoom.
 services: active-directory
 documentationCenter: na
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: ace02a0cb93cf3e56e4b895524b9e2d35440aecb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ca0e2c0ce12edba504745e2783844db5109ee01a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812980"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237703"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Didacticiel : Intégration d’Azure Active Directory à Zoom
 
@@ -117,13 +118,17 @@ Pour configurer l’authentification unique Azure AD avec Zoom, effectuez les �
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
-    | NOM | Espace de noms  |  Attribut source|
+    | Nom | Espace de noms  |  Attribut source|
     | ---------------| --------------- | --------- |
     | Adresse de messagerie  | user.mail  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail |
     | Prénom  | user.givenname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |
     | Nom  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
     | Numéro de téléphone  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
     | department  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
+    | role |    user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+
+    > [!NOTE]
+    > Cliquez [ici](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) pour savoir comment configurer un rôle dans Azure AD.
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
@@ -141,11 +146,14 @@ Pour configurer l’authentification unique Azure AD avec Zoom, effectuez les �
 
     f. Cliquez sur **Enregistrer**.
 
-4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+    > [!NOTE]
+    > &frankly peut attendre une revendication de groupe dans la charge utile SAML. Par conséquent, si vous avez créé un groupe, contactez l’[équipe de support client Zoom](https://support.zoom.us/hc/en-us) et communiquez-lui les informations de groupe pour qu’elle puisse également les configurer de son côté. Vous devez également fournir l’ID d’objet à l’[équipe de support client Zoom](https://support.zoom.us/hc/en-us) afin qu’elle le configure de son côté. Pour obtenir l’ID d’objet, veuillez suivre le [document](https://support.zoom.us/hc/en-us/articles/115005887566).
+
+7. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer Zoom**, copiez la ou les URL appropriées, selon vos besoins.
+8. Dans la section **Configurer Zoom**, copiez la ou les URL appropriées, selon vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -160,29 +168,29 @@ Pour configurer l’authentification unique Azure AD avec Zoom, effectuez les �
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zoom en tant qu’administrateur.
 
 2. Cliquez sur l’onglet **Single Sign-On** .
-   
-    ![Onglet Single Sign-On](./media/zoom-tutorial/IC784700.png "Single sign-on")
+
+    ![Onglet Single Sign-On](./media/zoom-tutorial/ic784700.png "Single sign-on")
 
 3. Cliquez sur l’onglet **Security Control**, puis accédez aux paramètres **Single Sign-On**.
 
 4. Dans la section Single Sign-On, procédez comme suit :
-   
-    ![Section Single Sign-On](./media/zoom-tutorial/IC784701.png "Single sign-on")
-   
+
+    ![Section Single Sign-On](./media/zoom-tutorial/ic784701.png "Single sign-on")
+
     a. Dans la zone de texte **URL de la page de connexion** , collez la valeur **URL de connexion** que vous avez copiée à partir du portail Azure.
-   
+
     b. Dans la zone de texte **URL de la page de déconnexion** , collez la valeur **URL de déconnexion** que vous avez copiée à partir du portail Azure.
-     
+
     c. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Identity provider certificate** .
 
     d. Dans la zone de texte **Émetteur**, collez la valeur **Identificateur Azure AD** que vous avez copiée à partir du portail Azure. 
 
     e. Cliquez sur **Enregistrer**.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Pour plus d’informations, consultez la documentation de Zoom à l’adresse [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
@@ -240,17 +248,17 @@ Pour pouvoir se connecter à Zoom, les utilisateurs d’Azure AD doivent être a
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
 1. Connectez-vous à votre site d’entreprise **Zoom** en tant qu’administrateur.
- 
+
 2. Cliquez sur l’onglet **Account Management**, puis sur **User Management**.
 
 3. Dans la section User Management, cliquez sur **Add users**.
-   
-    ![Gestion des utilisateurs](./media/zoom-tutorial/IC784703.png "gestion des utilisateurs")
+
+    ![Gestion des utilisateurs](./media/zoom-tutorial/ic784703.png "gestion des utilisateurs")
 
 4. Dans la page **Add users** , procédez comme suit :
-   
-    ![Ajouter des utilisateurs](./media/zoom-tutorial/IC784704.png "Ajouter des utilisateurs")
-   
+
+    ![Ajouter des utilisateurs](./media/zoom-tutorial/ic784704.png "Ajouter des utilisateurs")
+
     a. Comme **User Type**, sélectionnez **Basic**.
 
     b. Tapez l’adresse e-mail du compte Azure AD valide que vous souhaitez approvisionner dans la zone de texte **Emails**.
@@ -260,7 +268,7 @@ Pour pouvoir se connecter à Zoom, les utilisateurs d’Azure AD doivent être a
 > [!NOTE]
 > Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zoom pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -273,4 +281,3 @@ Le fait de cliquer sur la vignette Zoom dans le panneau d’accès doit vous con
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

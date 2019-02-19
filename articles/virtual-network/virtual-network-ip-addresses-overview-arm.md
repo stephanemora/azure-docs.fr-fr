@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: jdial
-ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e145642a12db941d52c55081032e247b6d65d38b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488089"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997327"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -71,7 +71,7 @@ Toutes les adresses IP publiques créées avant l’introduction de références
 Les adresses IP publiques de référence SKU standard :
 
 - Utilisent toujours la méthode d’allocation statique.
-- Ont un délai d’inactivité du flux entrant et sortant réglable de 4 à 66 minutes, avec une valeur par défaut de 4 minutes.
+- Ont un délai d’inactivité du flux entrant et sortant réglable de 4 à 30 minutes, avec une valeur par défaut de 4 minutes.
 - Sont sécurisées par défaut et fermées au trafic entrant. Vous devez expliciter le trafic entrant autorisé sur liste verte avec un [groupe de sécurité réseau](security-overview.md#network-security-groups).
 - Sont assignées à des interfaces réseau, des équilibreurs de charge publics standard, des passerelles d’application ou des passerelles VPN. Pour plus d’informations sur Standard Load Balancer, consultez [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Sont par défaut redondantes interzones et éventuellement zonales (vous pouvez les créer zonales et les garantir dans une zone de disponibilité spécifique). Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -128,10 +128,10 @@ Le tableau ci-dessous présente la propriété spécifique par le biais de laque
 
 | Ressources de niveau supérieur | Association d’adresse IP | Dynamique | statique |
 | --- | --- | --- | --- |
-| Machine virtuelle |interface réseau |Oui |Oui |
-| Équilibreur de charge accessible sur Internet |Configuration frontale |Oui |Oui |
-| passerelle VPN |Configuration IP de la passerelle |Oui |Oui |
-| passerelle d’application |Configuration frontale |Oui |Oui |
+| Machine virtuelle |interface réseau |OUI |OUI |
+| Équilibreur de charge accessible sur Internet |Configuration frontale |OUI |OUI |
+| passerelle VPN |Configuration IP de la passerelle |OUI |OUI |
+| passerelle d’application |Configuration frontale |OUI |OUI |
 
 ## <a name="private-ip-addresses"></a>Adresses IP privées
 Les adresses IP privées permettent aux ressources Azure de communiquer avec d’autres ressources dans un [réseau virtuel](virtual-networks-overview.md) ou dans un réseau local par le biais d’une passerelle VPN ou d’un circuit ExpressRoute, sans utiliser d’adresse IP accessible via Internet.
@@ -176,9 +176,9 @@ Le tableau ci-dessous présente la propriété spécifique par le biais de laque
 
 | Ressources de niveau supérieur | Association d’adresse IP | dynamique | statique |
 | --- | --- | --- | --- |
-| Machine virtuelle |interface réseau |Oui |Oui |
-| Équilibrage de charge |Configuration frontale |Oui |Oui |
-| passerelle d’application |Configuration frontale |Oui |Oui |
+| Machine virtuelle |interface réseau |OUI |OUI |
+| Équilibrage de charge |Configuration frontale |OUI |OUI |
+| passerelle d’application |Configuration frontale |OUI |OUI |
 
 ## <a name="limits"></a>limites
 Les limites imposées pour l’adressage IP sont indiquées dans l’ensemble des [limites pour la mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) dans Azure. Ces limites sont exprimées par région et par abonnement. Vous pouvez [contacter le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut jusqu’aux limites maximum en fonction des besoins de votre entreprise.

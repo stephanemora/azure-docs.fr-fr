@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Way We Do | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Way We Do | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Way We Do.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
-ms.openlocfilehash: bc415ec7c577e221a1ab5af585dff5b4fc9ab7dc
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5dc6d8e2cf7ac4786f30484325406a1fe696dff3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259491"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Tutoriel : Intégration d’Azure Active Directory à Way We Do
 
@@ -198,7 +199,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Way We Do. Way We Do prend en charge le provisionnement juste-à-temps, une option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas déjà, un utilisateur est créé lors d’une tentative d’accès à Way We Do.
 
 > [!Note]
-> Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support technique du client Way We Do](mailto:support@waywedo.com).
+> Si vous devez créer un utilisateur manuellement, contactez  [l’équipe de support technique du client Way We Do](mailto:support@waywedo.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

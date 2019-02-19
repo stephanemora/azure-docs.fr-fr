@@ -3,7 +3,7 @@ title: Ajouter un nouveau compte client Azure Stack dans Azure Active Directory 
 description: Après le déploiement du Kit de développement Microsoft Azure Stack, vous devrez créer au moins un compte utilisateur client pour pouvoir explorer le portail client.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: patricka
 manager: femila
 editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
-ms.author: jeffgilb
+ms.date: 02/12/2019
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: c0f457955bd8df7fe07e2a96469fde0a751417bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240317"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163221"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Ajouter un nouveau compte de locataire Azure Stack dans Azure Active Directory
 
@@ -56,14 +56,12 @@ Pour utiliser le portail Azure, vous devez disposer d’un abonnement Azure.
 7. Connectez-vous au portail Microsoft Azure avec le nouveau compte. Modifiez le mot de passe lorsque vous y êtes invité.
 8. Connectez-vous à `https://portal.local.azurestack.external` avec le nouveau compte pour afficher le portail client.
 
-## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>Création d’un compte de locataire Azure Stack à l’aide de PowerShell
+## <a name="create-an-azure-stack-user-account-using-powershell"></a>Création d’un compte d’utilisateur Azure Stack à l’aide de PowerShell
 
 Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portail Azure pour ajouter un compte utilisateur client. Dans ce cas, vous pouvez utiliser le module Azure Active Directory pour Windows PowerShell à la place.
 
 > [!NOTE]
 > Si vous utilisez un compte Microsoft (Live ID) pour déployer le Kit de développement Azure Stack, vous ne pouvez pas utiliser AAD PowerShell pour créer le compte client. 
-> 
-> 
 
 1. Installez [l’Assistant de connexion Microsoft Online Services pour les professionnels de l’informatique RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
 2. Installez le [module Azure Active Directory pour Windows PowerShell (version 64 bits)](https://go.microsoft.com/fwlink/p/?linkid=236297) et ouvrez-le.
@@ -85,3 +83,6 @@ Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portai
 1. Connectez-vous à Microsoft Azure avec le nouveau compte. Modifiez le mot de passe lorsque vous y êtes invité.
 2. Connectez-vous à `https://portal.local.azurestack.external` avec le nouveau compte pour afficher le portail client.
 
+## <a name="next-steps"></a>Étapes suivantes
+
+[Ajouter des utilisateurs Azure Stack dans AD FS](azure-stack-add-users-adfs.md)

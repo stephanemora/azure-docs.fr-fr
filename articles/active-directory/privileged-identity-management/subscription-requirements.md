@@ -16,12 +16,13 @@ ms.subservice: pim
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ad64fba0288aa5663e008484d6f0d2cbdff0bca6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f7b7aa010b3001045566bc55fb440a2171145881
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187281"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177246"
 ---
 # <a name="license-requirements-to-use-pim"></a>Licences requises pour utiliser PIM
 
@@ -33,6 +34,7 @@ Pour utiliser PIM, votre annuaire doit avoir l’une des licences payantes ou d�
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
+- Microsoft 365 M5
 
 Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](../fundamentals/active-directory-whatis.md).
 
@@ -63,5 +65,6 @@ Quand une licence Azure AD Premium P2, une licence EMS E5 ou une licence d’e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Déployer PIM](pim-deployment-plan.md)
 - [Commencer à utiliser PIM](pim-getting-started.md)
 - [Rôles que vous ne pouvez pas gérer dans PIM](pim-roles.md)

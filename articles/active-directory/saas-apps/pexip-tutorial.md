@@ -1,34 +1,34 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à DATABASICS | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et DATABASICS.
+title: 'Didacticiel : Intégration d’Azure Active Directory à Pexip | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Pexip.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: a37ded45-84c8-4e88-8d9b-c5b9443eb0d4
+ms.assetid: 4f7c6d94-bbda-4f35-8dea-f6aa315fac14
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53a1d00c4e61df3a160b4f96b6b285d824410bb7
+ms.openlocfilehash: 88af97a37f88cd8b37c2a385af7f9e312a43b12f
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165278"
+ms.locfileid: "56161249"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-databasics"></a>Tutoriel : Intégration d’Azure Active Directory à DATABASICS
+# <a name="tutorial-azure-active-directory-integration-with-pexip"></a>Tutoriel : Intégration d’Azure Active Directory à Pexip
 
-Dans ce didacticiel, vous allez apprendre à intégrer DATABASICS à Azure Active Directory (Azure AD).
-L’intégration de DATABASICS à Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez découvrir comment intégrer Pexip à Azure Active Directory (Azure AD).
+L’intégration de Pexip dans Azure AD vous offre les avantages suivants :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à DATABASICS.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à DATABASICS (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Dans Azure AD, vous pouvez contrôler qui a accès à Pexip.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Pexip (par le biais de l’authentification unique) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,22 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD DATABASICS, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD avec Pexip, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Un abonnement DATABASICS pour lequel l’authentification unique est activée
+* Un abonnement Pexip pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* DATABASICS prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Pexip prend en charge l’authentification unique lancée par le **fournisseur de services**
 
-## <a name="adding-databasics-from-the-gallery"></a>Ajouter DATABASICS à partir de la galerie
+## <a name="adding-pexip-from-the-gallery"></a>Ajout de Pexip à partir de la galerie
 
-Pour configurer l’intégration de DATABASICS à Azure AD, vous devez ajouter DATABASICS à votre liste d’applications SaaS gérées, à partir de la galerie.
+Pour configurer l’intégration de Pexip avec Azure AD, vous devez ajouter Pexip à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter DATABASICS à partir de la galerie, suivez les étapes ci-dessous :**
+**Pour ajouter Pexip à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Pour configurer l’intégration de DATABASICS à Azure AD, vous devez ajouter 
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **DATABASICS**, sélectionnez **DATABASICS** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Pexip**, sélectionnez **Pexip** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![DATABASICS dans la liste des résultats](common/search-new-app.png)
+     ![Pexip dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec DATABASICS pour un utilisateur de test nommé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur DATABASICS associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Pexip, avec un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Pexip associé doit être établie.
 
-Pour configurer et tester l’authentification unique Azure AD avec DATABASICS, vous devez suivre les blocs de construction suivants :
+Pour configurer et tester l’authentification unique Azure AD avec Pexip, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique DATABASICS](#configure-databasics-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+2. **[Configurer l’authentification unique Pexip](#configure-pexip-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test DATABASICS](#create-databasics-test-user)** pour avoir un équivalent de Britta Simon dans DATABASICS lié à la représentation Azure AD associée.
+5. **[Créer un utilisateur de test Pexip](#create-pexip-test-user)** pour avoir un équivalent de Britta Simon dans Pexip, associé à sa représentation dans Azure AD.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-Pour configurer l’authentification unique Azure AD avec DATABASICS, effectuez les étapes suivantes :
+Pour configurer l’authentification unique Azure AD avec Pexip, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **DATABASICS**, sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Pexip**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -103,20 +103,15 @@ Pour configurer l’authentification unique Azure AD avec DATABASICS, effectuez 
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL DATABASICS](common/sp-identifier.png)
+    ![Informations d’authentification unique dans Domaine et URL Pexip](common/sp-signonurl.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<sitenumber>.data-basics.net/<clientname>/saml_sso.jsp`
+    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://my.videxio.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une valeur : `DATA-BASICS_SP`
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    > [!NOTE]
-    > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Contactez [l’équipe de support client DATABASICS](https://www.data-basics.com/support/) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
-
-    ![Lien Téléchargement de certificat](common/metadataxml.png)
-
-6. Dans la section **Configurer DATABASICS**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
+6. Dans la section **Configurer Pexip**, copiez la ou les URL appropriées, en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -126,9 +121,9 @@ Pour configurer l’authentification unique Azure AD avec DATABASICS, effectuez 
 
     c. URL de déconnexion
 
-### <a name="configure-databasics-single-sign-on"></a>Configurer l’authentification unique DATABASICS
+### <a name="configure-pexip-single-sign-on"></a>Configurer l’authentification unique Pexip
 
-Pour configurer l’authentification unique côté **DATABASICS**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique DATABASICS](https://www.data-basics.com/support/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Pexip**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique Pexip](https://support.videxio.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -157,15 +152,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à DATABASICS.
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Pexip.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **DATABASICS**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Pexip**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **DATABASICS**.
+2. Dans la liste des applications, sélectionnez **Pexip**.
 
-    ![Lien DATABASICS dans la liste des applications](common/all-applications.png)
+    ![Lien Pexip dans la liste des applications](common/all-applications.png)
 
 3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
@@ -181,15 +176,15 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-databasics-test-user"></a>Créer un utilisateur de test DATABASICS
+### <a name="create-pexip-test-user"></a>Créer un utilisateur de test Pexip
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans DATABASICS. Collaborez avec l’ [équipe de support DATABASICS](https://www.data-basics.com/support/) pour ajouter les utilisateurs à la plateforme DATABASICS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Pexip. Collaborez avec l’ [équipe du support technique Pexip](https://support.videxio.com) pour ajouter les utilisateurs à la plateforme Pexip. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette DATABASICS dans le volet d’accès, vous devez être connecté automatiquement à l’application DATABASICS pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette Pexip dans le volet d’accès, vous devez être connecté automatiquement à l’application Pexip pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
