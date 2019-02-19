@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063231"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234677"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Choix du bon niveau tarifaire dans Azure Maps
 
@@ -30,19 +30,22 @@ Les niveaux tarifaires S0 et S1 gèrent différents débits de données. Avant
 | Fonctionnalité                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Recherche                                  |        ✓           |     ✓    |
+| Géocodage par lots (préversion)              |                   |     ✓    |
+| Polygones de recherche          |                   |     ✓    |
 | Routage                                 |        ✓           |     ✓    |
+| Plage de routes                    |                   |     ✓    |
+| Calcul d’itinéraires par lots (préversion)                |                   |     ✓    |
+| Calcul d’itinéraires par matrice (préversion)               |                   |     ✓    |
 | Rendu                                  |        ✓           |     ✓    |
+| Imagerie aérienne+hybride    |            |     ✓    |
 | Trafic                                 |        ✓           |     ✓    |
 | Fuseaux horaires                              |        ✓           |     ✓    |
-| * Imagerie aérienne+hybride (préversion)  |        ✓           |     ✓    |
-| * Plage de routes (préversion)                  |        ✓           |     ✓    |
-| * Emplacement IP 2 (préversion)                |        ✓           |     ✓    |
-| * Polygones de recherche (préversion)         |        ✓           |     ✓    |
-| * Géocodage par lots (préversion)              |        ✓           |     ✓    |
-| * Calcul d’itinéraires par lots (préversion)                |        ✓           |     ✓    |
-| * Calcul d’itinéraires par matrice (préversion)               |        ✓           |     ✓    |
+| Géolocalisation (préversion)                |        ✓           |     ✓    |
+| Données (préversion)               |                   |     ✓    |
+| Spatial (préversion)               |                   |     ✓    |
+| Geofencing (préversion)               |                   |     ✓    |
 
-\* L’accès à ces fonctionnalités à partir du niveau tarifaire S0 sera déprécié après le 4 février 2019.
+
 
 Ces points supplémentaires sont intéressants :
 * Quel type d’entreprise possédez-vous ?

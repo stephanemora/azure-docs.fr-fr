@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251875"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207532"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considérations relatives à l’intégration au centre de données pour les systèmes intégrés Azure Stack
-Si vous êtes intéressé par un système intégré Azure Stack, vous devez comprendre certaines considérations principales sur la planification traitant du déploiement et la façon dont le système s’adapte à votre centre de données. Cet article fournit une vue d’ensemble de ces considérations pour vous aider à prendre des décisions d’infrastructure importantes pour votre système Azure Stack à plusieurs nœuds. Comprendre ces considérations est utile pour collaborer avec votre fournisseur de matériel OEM lorsqu’il déploie Azure Stack vers votre centre de données.  
+Si vous êtes intéressé par un système intégré Azure Stack, vous devez comprendre les considérations principales sur la planification traitant du déploiement et la façon dont le système s’adapte à votre centre de données. Cet article fournit une vue d’ensemble de ces considérations pour vous aider à prendre des décisions d’infrastructure importantes pour votre système Azure Stack à plusieurs nœuds. Comprendre ces considérations est utile pour collaborer avec votre fournisseur de matériel OEM lorsqu’il déploie Azure Stack vers votre centre de données.  
 
 > [!NOTE]
 > Les systèmes Azure Stack à plusieurs nœuds ne peuvent être achetés qu’auprès de fournisseurs de matériel autorisés. 
@@ -53,8 +53,6 @@ Quand un niveau plus élevé d’accès est nécessaire pour résoudre des probl
 
 ### <a name="choose-identity-provider"></a>Choisir un fournisseur d’identité
 Vous devez prendre en compte le fournisseur d’identité que vous souhaitez utiliser pour le déploiement de Azure Stack, que ce soit Azure AD ou AD FS. Vous ne pouvez pas changer les fournisseurs d’identité après le déploiement sans effectuer un redéploiement complet du système. Si vous ne possédez pas de compte Azure AD et utilisez un compte fourni par votre fournisseur de services Cloud, et que vous décidez de changer de fournisseur pour utiliser un autre compte Active Directory, vous devrez à ce stade contacter votre fournisseur de solutions afin qu’il redéploie la solution pour vous, à vos frais.
-
-
 
 Votre choix de fournisseur d’identité n’a aucune incidence sur les machines virtuelles du client, le système d’identité et les comptes qu’ils utilisent, la possibilité de joindre un domaine Active Directory, etc. C’est différent.
 
@@ -88,7 +86,7 @@ Vous devez réfléchir à la façon dont vous souhaitez planifier votre espace d
 
 Le tableau suivant récapitule ces décisions d’attribution de noms de domaine.
 
-| NOM | Description | 
+| Nom | Description | 
 | -------- | ------------- | 
 |Nom de la région | Le nom de votre première région Azure Stack. Ce nom est utilisé comme partie du nom de domaine complet pour les adresses IP virtuelles publiques (VIP) gérées par Azure Stack. En règle générale, le nom de la région est un identificateur d’emplacement physique tel qu’un emplacement de centre de données.<br><br>Le nom de région doit uniquement comporter des lettres et des nombres compris entre 0 et 9. Les caractères spéciaux tels que « - » ou « # », etc. ne sont pas autorisés.| 
 | Nom de domaine externe | Le nom de la zone Domain Name System (DNS) pour les points de terminaison avec des adresses IP virtuelles externes. Utilisé dans le nom de domaine complet pour ces adresses IP virtuelles publiques. | 
@@ -110,7 +108,7 @@ Pour plus d’informations sur les certificats pour infrastructure à clé publi
 
 
 ## <a name="time-synchronization"></a>Synchronisation temporelle
-Vous devez choisir un serveur de temps spécifique, qui est utilisé pour synchroniser Azure Stack.  La synchronisation du temps est essentielle pour Azure Stack et ses rôles d’infrastructure, car elle est utilisée pour générer les tickets Kerberos utilisés pour authentifier les services internes avec eux.
+Vous devez choisir un serveur de temps spécifique, qui est utilisé pour synchroniser Azure Stack.  La synchronisation du temps est essentielle pour Azure Stack et ses rôles d’infrastructure, car elle permet de générer les tickets Kerberos utilisés pour authentifier les services internes entre eux.
 
 Vous devez spécifier une adresse IP pour le serveur de synchronisation du temps. Bien que la plupart des composants de l’infrastructure soit en mesure de résoudre une URL, certains prennent uniquement en charge les adresses IP. Si vous utilisez l’option de déploiement déconnecté, vous devez spécifier un serveur de temps sur votre réseau d’entreprise accessible à partir du réseau d’infrastructure dans Azure Stack.
 

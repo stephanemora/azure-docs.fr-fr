@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 509c9cbe3a4c2f930c9fdfda186d78118dbe4b80
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745587"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237839"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
 
@@ -41,12 +41,12 @@ Dans sa structure la plus simple, un modèle a les éléments suivants :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| $schema |Oui |Emplacement du fichier de schéma JSON qui décrit la version du langage du modèle.<br><br> Pour des déploiements de groupes de ressources, utilisez : `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Pour des déploiements d’abonnements, utilisez : `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
-| contentVersion |Oui |Version du modèle (par exemple, 1.0.0.0). Vous pouvez fournir n’importe quelle valeur pour cet élément. Utilisez cette valeur pour documenter les modifications importantes dans votre modèle. Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé. |
+| $schema |OUI |Emplacement du fichier de schéma JSON qui décrit la version du langage du modèle.<br><br> Pour des déploiements de groupes de ressources, utilisez : `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Pour des déploiements d’abonnements, utilisez : `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| contentVersion |OUI |Version du modèle (par exemple, 1.0.0.0). Vous pouvez fournir n’importe quelle valeur pour cet élément. Utilisez cette valeur pour documenter les modifications importantes dans votre modèle. Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé. |
 | parameters |Non  |Valeurs fournies lors de l'exécution du déploiement pour personnaliser le déploiement des ressources. |
 | variables |Non  |Valeurs utilisées en tant que fragments JSON dans le modèle pour simplifier les expressions du langage du modèle. |
 | functions |Non  |Fonctions définies par l’utilisateur et disponibles dans le modèle. |
-| les ressources |Oui |Types de ressource déployés ou mis à jour dans un groupe de ressources. |
+| les ressources |OUI |Types de ressource déployés ou mis à jour dans un groupe de ressources ou un abonnement. |
 | outputs |Non  |Valeurs retournées après le déploiement. |
 
 Chaque élément a des propriétés que vous pouvez définir. L’exemple suivant montre la syntaxe complète d’un modèle :
@@ -217,7 +217,7 @@ Dans votre modèle, vous pouvez créer vos propres fonctions. Ces fonctions peuv
 La définition d’une fonction utilisateur est soumise à certaines restrictions :
 
 * La fonction ne peut pas accéder aux variables.
-* La fonction ne peut pas accéder aux paramètres du modèle. Autrement dit, la [fonction de paramètres](resource-group-template-functions-deployment.md#parameters) est limitée aux paramètres de fonction.
+* La fonction ne peut utiliser que des paramètres définis dans l’autre fonction. Lorsque vous utilisez la [fonction parameters](resource-group-template-functions-deployment.md#parameters) dans une fonction définie par l’utilisateur, vous êtes limité aux paramètres de cette fonction.
 * La fonction ne peut pas appeler d’autres fonctions définies par l’utilisateur.
 * La fonction ne peut pas utiliser la [fonction de référence](resource-group-template-functions-resource.md#reference).
 * Les paramètres de la fonction ne peuvent pas avoir de valeur par défaut.
@@ -298,9 +298,23 @@ Dans la section des sorties, vous spécifiez des valeurs retournées à partir d
 
 Pour plus d’informations, consultez [Section Sorties des modèles Azure Resource Manager](resource-manager-templates-outputs.md).
 
-## <a name="comments"></a>Commentaires
+<a id="comments" />
 
-Vous avez quelques options permettant d’ajouter des commentaires à votre modèle.
+## <a name="comments-and-metadata"></a>Commentaires et métadonnées
+
+Vous avez quelques options permettant d’ajouter des commentaires et des métadonnées à votre modèle.
+
+Vous pouvez ajouter un objet `metadata` presque n’importe où dans votre modèle. Resource Manager ignore l’objet, mais votre éditeur JSON peut vous avertir que la propriété n’est pas valide. Dans l’objet, définissez les propriétés dont vous avez besoin.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
 
 Pour **parameters**, ajoutez un objet `metadata` avec une propriété `description`.
 
@@ -342,18 +356,6 @@ Pour **resources**, ajoutez un élément `comments` ou un objet de métadonnées
     "properties": {}
   }
 ]
-```
-
-Vous pouvez ajouter un objet `metadata` presque n’importe où dans votre modèle. Resource Manager ignore l’objet, mais votre éditeur JSON peut vous avertir que la propriété n’est pas valide. Dans l’objet, définissez les propriétés dont vous avez besoin.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
 ```
 
 Pour **outputs**, ajoutez un objet de métadonnées à la valeur de sortie.

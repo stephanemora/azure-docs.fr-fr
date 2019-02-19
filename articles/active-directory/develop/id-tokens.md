@@ -16,24 +16,25 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 74f071d91003c63fd8db590572a7c9dea1b8915b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c92472d276b3f03e5a3855587de4ca8a045bfec2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092748"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234422"
 ---
 # <a name="id-tokens"></a>Jetons d’ID
 
-Les jetons `id_tokens` sont envoyés à l’application cliente dans le cadre d’un flux [OpenID Connect](v1-protocols-openid-connect-code.md). Ils peuvent être envoyés avec ou à la place un jeton d’accès et sont utilisés par le client pour authentifier l’utilisateur. 
+Les jetons `id_tokens` sont envoyés à l’application cliente dans le cadre d’un flux [OpenID Connect](v1-protocols-openid-connect-code.md). Ils peuvent être envoyés avec ou à la place un jeton d’accès et sont utilisés par le client pour authentifier l’utilisateur.
 
 ## <a name="using-the-idtoken"></a>Utilisation du jeton id_token
 
-Les jetons d’ID doivent servir à confirmer qu’un utilisateur est bien celui qu’il prétend être et à obtenir des informations supplémentaires le concernant. Ils ne doivent pas être utilisés pour accorder une autorisation à la place d’un [jeton d’accès](access-tokens.md). Les revendications obtenues peuvent être utilisées pour l’expérience utilisateur au sein de votre application, saisir des informations dans une base de donnée et fournir l’accès à l’application cliente. 
+Les jetons d’ID doivent servir à confirmer qu’un utilisateur est bien celui qu’il prétend être et à obtenir des informations supplémentaires le concernant. Ils ne doivent pas être utilisés pour accorder une autorisation à la place d’un [jeton d’accès](access-tokens.md). Les revendications obtenues peuvent être utilisées pour l’expérience utilisateur au sein de votre application, saisir des informations dans une base de donnée et fournir l’accès à l’application cliente.
 
 ## <a name="claims-in-an-idtoken"></a>Revendications dans un jeton id_token
 
-Les jetons `id_tokens` d’une identité Microsoft sont des [JWT](https://tools.ietf.org/html/rfc7519), ce qui signifie qu’ils se composent d’une en-tête, d’une charge utile et d’une signature. Vous pouvez utiliser l’en-tête et la charge utile pour vérifier l’authenticité du jeton, tandis que la charge utile contient les informations concernant l’utilisateur qui sont demandées par votre client. Sauf indication contraire, toutes les revendications répertoriées ici apparaissent dans les jetons v1.0 et v2.0.
+Les jetons `id_tokens` d’une identité Microsoft sont des [JWT](https://tools.ietf.org/html/rfc7519), ce qui signifie qu’ils se composent d’une en-tête, d’une charge utile et d’une signature. Vous pouvez utiliser l’en-tête et la signature pour vérifier l’authenticité du jeton, tandis que la charge utile contient les informations concernant l’utilisateur qui sont demandées par votre client. Sauf indication contraire, toutes les revendications répertoriées ici apparaissent dans les jetons v1.0 et v2.0.
 
 ### <a name="v10"></a>v1.0
 

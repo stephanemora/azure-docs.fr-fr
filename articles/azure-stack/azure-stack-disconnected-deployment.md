@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4481bcf7a794423f98f45e4a21a139dbe4c32b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691165"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210779"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement déconnecté de Azure pour les systèmes intégrés Azure Stack
 Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
 
-Vous pouvez déployer et utiliser Azure Stack sans connexion à Internet. Toutefois, avec un déploiement déconnecté, vous êtes limité à un magasin d’identités AD FS et au modèle de facturation basée sur la capacité. Étant donné que l’architecture multilocataire nécessite l’utilisation d’Azure AD, elle n’est pas prise en charge pour les déploiements déconnectés. 
+Vous pouvez déployer et utiliser Azure Stack sans connexion à Internet. Toutefois, avec un déploiement déconnecté, vous êtes limité à un magasin d’identités AD FS et au modèle de facturation basée sur la capacité. Étant donné que l’architecture multilocataire nécessite l’utilisation d’Azure Active Directory (Azure AD), elle n’est pas prise en charge pour les déploiements déconnectés. 
 
 Choisissez cette option si :
 - Vous disposez de restrictions de sécurité (ou autre) vous obligeant à déployer Azure Stack dans un environnement non connecté à internet.
@@ -34,9 +34,9 @@ Choisissez cette option si :
 - Vous souhaitez utiliser Azure Stack uniquement comme une solution de cloud privé déployée sur votre intranet d’entreprise, et vous n’êtes pas intéressé par des scénarios hybrides.
 
 > [!TIP]
-> Parfois, ce type d’environnement est également nommé « scénario sous marin ».
+> Parfois, ce type d’environnement est également nommé *scénario sous-marin*.
 
-Un déploiement déconnecté ne signifie pas strictement que vous ne pourrez pas connecter plus tard votre instance de Azure Stack à Azure pour des scénarios hybrides de machine virtuelle de locataire. Cela signifie que vous ne disposez pas de connectivité à Azure au cours du déploiement ou que vous ne souhaitez pas utiliser Azure Active Directory comme magasin d’identités.
+Un déploiement déconnecté ne vous empêche pas de connecter plus tard votre instance de Azure Stack à Azure pour des scénarios hybrides de machine virtuelle de locataire. Cela signifie que vous ne disposez pas de connectivité à Azure au cours du déploiement ou que vous ne souhaitez pas utiliser Azure AD comme magasin d’identités.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Fonctionnalités altérées ou non disponibles dans les déploiements déconnectés 
 Azure Stack a été conçu pour fonctionner de façon optimale avec une connexion à Azure, il est donc important de noter que certains fonctionnalités sont altérées ou totalement indisponibles avec le mode Déconnecté. 

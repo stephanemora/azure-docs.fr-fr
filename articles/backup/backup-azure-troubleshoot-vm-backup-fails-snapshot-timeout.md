@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820434"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236972"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -253,3 +253,6 @@ Pour effacer manuellement la collection des points de restauration qui ne sont p
 
 5. Cliquez sur **Supprimer** pour nettoyer la collection de points de restauration.
 6. Renouvelez l’opération de sauvegarde.
+
+> [!NOTE]
+ >Si la ressource (RP Collection) possède un grand nombre de points de restauration, sa suppression du portail peut entraîner un dépassement de temps et un échec. Il s’agit d’un problème CRP connu, où tous les points de restauration ne sont pas supprimés dans le temps imparti, ce qui entraîne l’expiration du délai d’attente de l’opération ; cependant, l’opération de suppression réussit généralement après 2 ou 3 tentatives.

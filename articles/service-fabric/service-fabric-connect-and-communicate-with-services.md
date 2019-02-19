@@ -14,21 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 2b6fd2373a9cd0b376a6c8729d5952c5fc48ddf8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f11d680330a43dd49b3c36c864f50b9dc869d172
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205584"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211850"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Se connecter aux services et communiquer avec eux dans Service Fabric.
 Dans Service Fabric, un service s’exécute quelque part dans un cluster Service Fabric, généralement réparti sur plusieurs machines virtuelles. Il peut être déplacé d’un endroit à un autre, soit par le propriétaire du service, soit automatiquement par Service Fabric. Les services ne sont pas liés statiquement à une machine ou une adresse particulière.
 
 Une application Service Fabric est généralement composée de nombreux services différents qui effectuent chacun une tâche spécialisée. Ces services peuvent communiquer entre eux pour former une fonction complète, telle que le rendu des différentes parties d’une application web. Il existe également des applications clientes qui se connectent aux services et communiquent avec eux. Ce document décrit comment configurer la communication avec et entre vos services dans Service Fabric.
-
-Cette vidéo Microsoft Virtual Academy aborde également la communication de service :<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
-<img src="./media/service-fabric-connect-and-communicate-with-services/CommunicationVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
 
 ## <a name="bring-your-own-protocol"></a>Apportez votre propre protocole
 Service Fabric permet de gérer le cycle de vie de vos services, mais ne décide pas des rôles de ces derniers. Cela inclut la communication. L’ouverture de votre service par Service Fabric permet au service de configurer un point de terminaison pour les demandes entrantes à l’aide du protocole ou de la pile de communication du service de votre choix. Votre service écoute sur une adresse **IP:port** normale à l’aide d’un schéma d’adressage quelconque, tel qu’un URI. Plusieurs instances de service ou réplicas peuvent partager un processus hôte, auquel cas ils devront utiliser des ports différents ou un mécanisme de partage de ports, tel que le pilote du noyau http.sys dans Windows. Dans les deux cas, chaque instance de service ou réplica dans un processus hôte doit être adressable de manière unique.
@@ -46,9 +42,9 @@ Service Fabric fournit un service de détection et de résolution appelé Servic
 
 La résolution et la connexion aux services impliquent l’exécution des étapes suivantes en boucle :
 
-* **Résoudre**: obtenir le point de terminaison publié par un service à partir du Service d’attribution de noms.
-* **Connecter**: se connecter au service à l’aide du protocole que ce dernier utilise sur le point de terminaison en question.
-* **Réessayer** : une tentative de connexion peut échouer pour diverses raisons. Par exemple : si le service a été déplacé depuis la dernière fois que l’adresse de point de terminaison a été résolue. Si la tentative de connexion échoue, les étapes précédentes de résolution et de connexion doivent être réessayées, et ce cycle se répète jusqu’à ce que la connexion aboutisse.
+* **Résoudre** : Obtenir le point de terminaison publié par un service à partir du Service d’attribution de noms.
+* **Connecter** : Se connecter au service à l’aide du protocole que ce dernier utilise sur le point de terminaison en question.
+* **Réessayer** : Une tentative de connexion peut échouer pour diverses raisons. Par exemple : si le service a été déplacé depuis la dernière fois que l’adresse de point de terminaison a été résolue. Si la tentative de connexion échoue, les étapes précédentes de résolution et de connexion doivent être réessayées, et ce cycle se répète jusqu’à ce que la connexion aboutisse.
 
 ## <a name="connecting-to-other-services"></a>Connexion à d’autres services
 Les services se connectant entre eux, en général à l’intérieur d’un cluster, peuvent accéder directement aux points de terminaison d’autres services, car les nœuds d’un cluster se trouvent sur le même réseau local. Afin de faciliter la connexion entre les services, Service Fabric fournit des services supplémentaires qui utilisent le service d’affectation de noms : un service DNS et un service de proxy inverse.
@@ -82,31 +78,26 @@ Par exemple : les éléments suivants doivent être configurés pour accepter le
 
 1. Écrivez un service qui écoute sur le port 80. Configurez le port 80 dans le fichier ServiceManifest.xml du service et ouvrez un écouteur dans le service, tel qu’un serveur web auto-hébergé.
 
-    ```xml
-    <Resources>
-        <Endpoints>
-            <Endpoint Name="WebEndpoint" Protocol="http" Port="80" />
-        </Endpoints>
-    </Resources>
+    ```xml    <Resources> <Endpoints> <Endpoint Name="WebEndpoint" Protocol="http" Port="80" /> </Endpoints> </Resources>
     ```
     ```csharp
-        class HttpCommunicationListener : ICommunicationListener
+        class HttpCommunicationListener : ICommunicationListener
         {
             ...
 
             public Task<string> OpenAsync(CancellationToken cancellationToken)
             {
-                EndpointResourceDescription endpoint =
+                EndpointResourceDescription endpoint =
                     serviceContext.CodePackageActivationContext.GetEndpoint("WebEndpoint");
 
-                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
+                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
 
-                this.httpListener = new HttpListener();
+                this.httpListener = new HttpListener();
                 this.httpListener.Prefixes.Add(uriPrefix);
                 this.httpListener.Start();
 
-                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
-                return Task.FromResult(publishUri);
+                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+                return Task.FromResult(publishUri);
             }
 
             ...
@@ -118,7 +109,7 @@ Par exemple : les éléments suivants doivent être configurés pour accepter le
 
             protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
             {
-                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
+                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
             }
 
             ...
@@ -172,12 +163,12 @@ Par exemple : les éléments suivants doivent être configurés pour accepter le
 
 Gardez à l’esprit que l’Azure Load Balancer (équilibrage de charge Azure) et la sonde ont uniquement connaissance des *nœuds*, et non des *services* s’exécutant sur les nœuds. L’équilibrage de charge Azure envoie toujours le trafic aux nœuds qui répondent à la sonde. Vous devez donc veiller à ce que les services soient disponibles sur les nœuds en mesure de répondre à cette dernière.
 
-## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services : options d’API de communication intégrées
+## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services : Options d’API de communication intégrées
 L’infrastructure Reliable Services est livrée avec plusieurs options de communication intégrées. Le choix de l’API dépend du modèle de programmation utilisé, de la structure de communication et du langage de programmation dans lequel vos services sont écrits.
 
-* **Aucun protocole spécifique** : si vous pouvez choisir n’importe quelle infrastructure de communication, mais que vous souhaitez une solution rapidement opérationnelle, l’option idéale est le [service à distance](service-fabric-reliable-services-communication-remoting.md), qui rend possible des appels de procédure distante fortement typés pour Reliable Services et Reliable Actors. Il s'agit de la façon la plus simple et la plus rapide de prendre en main la communication avec les services. Le service à distance gère la résolution des adresses de service ainsi que la connexion, les nouvelles tentatives et la gestion des erreurs. Il est disponible pour les applications C# et Java.
-* **HTTP** : pour la communication sans langage spécifié, HTTP fournit un choix normalisé avec des outils et des serveurs HTTP disponibles dans plusieurs langues, le tout pris en charge par Service Fabric. Les services peuvent utiliser n’importe quelle pile HTTP, notamment l[’API web ASP.NET](service-fabric-reliable-services-communication-webapi.md) pour les applications C#. Les clients écrits en C# peuvent exploiter les classes `ICommunicationClient` et `ServicePartitionClient`. En revanche, pour ceux écrits en Java, utilisez les classes `CommunicationClient` et `FabricServicePartitionClient` [pour la résolution de service, les connexions HTTP et les boucles de nouvelle tentative](service-fabric-reliable-services-communication.md).
-* **WCF** : si votre code existant utilise WCF comme infrastructure de communication, vous pouvez utiliser `WcfCommunicationListener` pour le côté serveur et les classes `WcfCommunicationClient` et `ServicePartitionClient` pour le client. Cela n’est possible que pour les applications C# sur des clusters basés sur Windows. Pour plus d’informations, consultez cet article sur l’ [implémentation WCF de la pile de communication](service-fabric-reliable-services-communication-wcf.md).
+* **Aucun protocole spécifique** :  Si vous pouvez choisir n’importe quelle infrastructure de communication, mais que vous souhaitez une solution rapidement opérationnelle, l’option idéale est le [service à distance](service-fabric-reliable-services-communication-remoting.md), qui rend possible des appels de procédure distante fortement typés pour Reliable Services et Reliable Actors. Il s'agit de la façon la plus simple et la plus rapide de prendre en main la communication avec les services. Le service à distance gère la résolution des adresses de service ainsi que la connexion, les nouvelles tentatives et la gestion des erreurs. Il est disponible pour les applications C# et Java.
+* **HTTP** : Pour la communication sans langage spécifié, HTTP fournit un choix normalisé avec des outils et des serveurs HTTP disponibles dans plusieurs langues, le tout pris en charge par Service Fabric. Les services peuvent utiliser n’importe quelle pile HTTP, notamment l[’API web ASP.NET](service-fabric-reliable-services-communication-webapi.md) pour les applications C#. Les clients écrits en C# peuvent exploiter les classes `ICommunicationClient` et `ServicePartitionClient`. En revanche, pour ceux écrits en Java, utilisez les classes `CommunicationClient` et `FabricServicePartitionClient` [pour la résolution de service, les connexions HTTP et les boucles de nouvelle tentative](service-fabric-reliable-services-communication.md).
+* **WCF** : Si votre code existant utilise WCF comme infrastructure de communication, vous pouvez utiliser `WcfCommunicationListener` pour le côté serveur et les classes `WcfCommunicationClient` et `ServicePartitionClient` pour le client. Cela n’est possible que pour les applications C# sur des clusters basés sur Windows. Pour plus d’informations, consultez cet article sur l’ [implémentation WCF de la pile de communication](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Utilisation des protocoles personnalisés et d’autres infrastructures de communication
 Les services peuvent utiliser un protocole ou une infrastructure quelconque pour la communication, qu’il s’agisse d’un protocole binaire personnalisé passant par des sockets TCP ou d’événements de diffusion passant par [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) ou [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). Service Fabric fournit des API de communication sur lesquelles vous pouvez connecter votre pile de communication, tout en maintenant pour vous la transparence de la découverte et de la connexion. Pour plus d’informations, consultez cet article sur le [modèle de communication de service fiable](service-fabric-reliable-services-communication.md) .

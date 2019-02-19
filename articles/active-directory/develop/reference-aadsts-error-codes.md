@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/23/2019
+ms.date: 02/13/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 30d9cef89bed1c43fa1d058ff90fe2d9a52260f7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096685"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234286"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation
 
@@ -190,7 +191,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS90016 | MissingRequiredClaim : le jeton d’accès n’est pas valide. La revendication requise est manquante. |
 | AADSTS90019 | MissingTenantRealm : Azure AD n’a pas pu déterminer l’identificateur de locataire à partir de la requête. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat : le format du nom du principal n’est pas valide ou ne répond pas au format `name[/host][@realm]` attendu. Le nom du principal est requis, l’hôte et le domaine sont facultatifs et peuvent être définis sur null. |
-| AADSTS90023 | InvalidRequest |
+| AADSTS90023 | InvalidRequest - La demande de service d’authentification n’est pas valide. |
 | AADSTS90024 | RequestBudgetExceededError : une erreur temporaire s’est produite. Réessayez. |
 | AADSTS90033 | MsodsServiceUnavailable : Microsoft Online Directory Service (MSODS) n’est pas disponible. |
 | AADSTS90036 | MsodsServiceUnretryableFailure : une erreur inattendue et non renouvelable provenant du service WCF hébergé par MSODS s’est produite. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur. |

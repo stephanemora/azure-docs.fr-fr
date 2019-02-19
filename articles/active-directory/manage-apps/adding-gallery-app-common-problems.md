@@ -3,8 +3,8 @@ title: Problème lors de l’ajout d’une application de la galerie Azure AD | 
 description: Découvrez les problèmes courants auxquels les utilisateurs sont confrontés lors de l’ajout d’applications de la galerie Azure AD et ce que vous pouvez faire pour les résoudre
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: barbkess
-ms.openlocfilehash: 3621ca390add5c4a50cae6ed8f2baa5e3b1e2339
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173273"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237867"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problème lors de l’ajout d’une application de la galerie Azure AD
 
@@ -27,13 +28,13 @@ Cet article vous aide à comprendre les problèmes courants auxquels les utilisa
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>J’ai cliqué sur le bouton « Ajouter » et l’application a mis beaucoup de temps à s’afficher
 
-Dans certaines conditions, 1 à 2 minutes (et parfois plus) peuvent être nécessaires pour qu’une application apparaisse après avoir été ajoutée à votre annuaire. Même si ce comportement demeure anormal, vous pouvez visualiser la progression de l’ajout de l’application en cliquant sur l’icône **Notifications** (cloche) dans le coin supérieur droit du [portail Azure](https://portal.azure.com/) et en recherchant la notification **En cours** ou **Terminé** pour le champ **Créer une application.**
+Dans certaines conditions, 1 à 2 minutes (et parfois plus) peuvent être nécessaires pour qu’une application apparaisse après avoir été ajoutée à votre annuaire. Même si ce comportement demeure anormal, vous pouvez visualiser la progression de l’ajout de l’application en cliquant sur l’icône **Notifications** (cloche) dans le coin supérieur droit du [portail Azure](https://portal.azure.com/) et en recherchant la notification **En cours** ou **Terminé** pour le champ **Ajout d’une application.**
 
 Si votre application n’est jamais ajoutée, ou si vous rencontrez une erreur lorsque vous cliquez sur le bouton **Ajouter**, une **notification** affiche l’état **Erreur**. Si vous souhaitez obtenir plus de détails sur l’erreur afin d’en savoir plus sur ou de partager ces informations avec un ingénieur du support, vous pouvez afficher plus d’informations sur l’erreur en suivant les étapes décrites dans la section [Guide pratique pour afficher les détails d’une notification du portail](#how-to-see-the-details-of-a-portal-notification).
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>J’ai cliqué sur le bouton « Ajouter » et mon application n’apparaît pas
 
-En raison de problèmes temporaires, de problèmes de réseau ou d’un bogue, l’ajout d’une application peut parfois échouer. Ce problème se manifeste lorsque vous cliquez sur l’icône **Notifications** (cloche) dans le coin supérieur droit du portail Azure et qu’une icône rouge (!) apparaît en regard de votre notification **Créer une application**. Cela indique qu’une erreur est survenue lors de la création de l’application.
+En raison de problèmes temporaires, de problèmes de réseau ou d’un bogue, l’ajout d’une application peut parfois échouer. Ce problème se manifeste lorsque vous cliquez sur l’icône **Notifications** (cloche) dans le coin supérieur droit du portail Azure et qu’une icône rouge (!) apparaît en regard de votre notification **Ajout d’une application**. Cela indique qu’une erreur est survenue lors de la création de l’application.
 
 Si vous rencontrez une erreur lorsque vous cliquez sur le bouton **Ajouter**, une **notification** affiche l’état **Erreur**. Si vous souhaitez obtenir plus de détails sur l’erreur afin d’en savoir plus sur ou de partager ces informations avec un ingénieur du support, vous pouvez afficher plus d’informations sur l’erreur en suivant les étapes décrites dans la section [Guide pratique pour afficher les détails d’une notification du portail](#how-to-see-the-details-of-a-portal-notification).
 
@@ -43,13 +44,13 @@ Si vous avez besoin d’aide pour en savoir plus sur les applications, la [liste
 
 En outre, la [bibliothèque de documents Applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) vous fournit plus d’informations sur l’authentification unique avec Azure AD et son fonctionnement.
 
-## <a name="how-to-see-the-details-of-a-portal-notification"></a>Guide pratique pour afficher les détails d’une notification du portail
+## <a name="how-to-see-the-details-of-a-portal-notification"></a>Comment afficher les détails d’une notification du portail
 
 Vous pouvez afficher les détails d’une notification provenant du portail en suivant les étapes ci-dessous :
 
-1.  Cliquez sur l’icône **Notifications** (cloche) dans le coin supérieur droit du portail Azure.
+1.  Sélectionnez l’icône **Notifications** (cloche) dans le coin supérieur droit du portail Azure.
 
-2.  Sélectionnez n’importe quelle notification avec l’état **Erreur**, signalée par une croix rouge (!).
+2.  Sélectionnez n’importe quelle notification avec l’état **Erreur**, signalée par un (!) rouge.
 
     >[!NOTE]
     >Vous ne pouvez pas cliquer sur les notifications affichant l’état **Réussi** ou **En cours**.
@@ -60,9 +61,9 @@ Vous pouvez afficher les détails d’une notification provenant du portail en s
 
 5.  Si vous avez encore besoin d’aide, vous pouvez également partager ces informations avec un ingénieur du support technique ou du groupe de produits qui vous assistera pour résoudre votre problème.
 
-6.  Cliquez sur l’**icône** de **copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec un ingénieur du support technique ou du groupe de produits.
+6.  Cliquez sur **l’icône** de **copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec un ingénieur du support technique ou du groupe de produits.
 
-## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Guide pratique pour obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique
+## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique
 
 Il est très important que vous partagiez **tous les détails ci-dessous** avec un ingénieur du support technique si vous avez besoin d’aide, car celui-ci peut vous permettre de résoudre rapidement le problème. Vous pouvez facilement le faire en **prenant une capture d’écran** ou en cliquant sur **l’icône d’erreur de copie** située à droite de la zone de texte **Erreur de copie**.
 

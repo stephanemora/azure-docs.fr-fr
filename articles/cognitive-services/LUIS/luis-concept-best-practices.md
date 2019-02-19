@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Découvrez les bonnes pratiques LUIS pour obtenir les meilleurs résultats à partir du modèle de votre application LUIS.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/13/2019
 ms.author: diberry
-ms.openlocfilehash: 5a6f9c559ce6fe66d4fe3df9382bc931f4a55e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209364"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243414"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bonnes pratiques pour la création d’une application Language Understanding avec Cognitive Services
 Suivez le processus de création d’applications pour générer votre application LUIS. 
@@ -59,6 +59,12 @@ Prenons les exemples d’énoncés suivants :
 
 « Book a flight » (« Réserver un vol ») et « Book a hotel » (« Réserver un hôtel ») utilisent le même vocabulaire « Book a » (« Réserver un »). Le format étant le même, il doit s’agir de la même intention avec différentes entités extraites pour les mots « flight » (« vol ») et « hotel » (« hôtel »). 
 
+Pour plus d'informations :
+* Concept : [Concepts relatifs aux intentions dans votre application LUIS](luis-concept-intent.md)
+* Didacticiel : [Générer une application LUIS pour déterminer les intentions d’un utilisateur](luis-quickstart-intents-only.md)
+* Activation [Ajouter des intentions pour déterminer l’intention de l’utilisateur des énoncés](luis-how-to-add-intents.md)
+
+
 ## <a name="do-find-sweet-spot-for-intents"></a>Trouver l’équilibre idéal pour les intentions
 Utilisez les données de prédiction de LUIS pour déterminer si vos intentions se chevauchent, ce qui serait source de confusion pour LUIS. La meilleure intention serait alors trop proche d’une autre intention. Dans la mesure où LUIS n’utilise pas à chaque fois le même chemin d’accès à travers les données pour l’apprentissage, l’intention présentant un recoupement a des chances de finir première ou deuxième lors de l’apprentissage. Pour éviter cela, il faut que le score de l’énoncé de chaque intention soit plus éloigné. Lorsque les intentions sont bien distinctes les unes des autres, la meilleure intention devrait être à chaque fois conforme aux attentes. 
  
@@ -67,6 +73,9 @@ Conservez un jeu distinct d’énoncés ne servant pas d’[exemples d’énonc�
 
 Les développeurs doivent avoir trois jeux de données : les exemples d’énoncés servant à générer le modèle, un jeu permettant de tester le modèle au point de terminaison et les données de test aveugle utilisées dans les [tests par lots](luis-how-to-batch-test.md). Ce dernier jeu n’est ni utilisé pour entraîner l’application ni envoyé sur le point de terminaison.  
 
+Pour plus d'informations :
+* Concept : [Cycle de création de votre application LUIS](luis-concept-app-iteration.md)
+
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Ajouter des listes d’expressions et des modèles dans les itérations ultérieures
 Les [listes d’expressions](luis-concept-feature.md) vous permettent de définir des dictionnaires de mots liés à votre domaine d’application. Commencez par créer une liste d’expressions de quelques mots, puis utiliser la fonctionnalité de suggestion pour que LUIS connaisse d’autres mots de vocabulaire spécifiques à votre application. N’ajoutez pas tous les mots au vocabulaire, car la liste d’expressions ne fonctionne pas par correspondance exacte. 
 
@@ -74,7 +83,18 @@ Les énoncés d’utilisateurs réels du point de terminaison, très similaires 
 
 Utilisez la [syntaxe facultative](luis-concept-patterns.md) du modèle afin d’ignorer la ponctuation. Utilisez la [liste explicite](luis-concept-patterns.md#explicit-lists) pour compenser les problèmes de syntaxe pattern.any. 
 
-N’appliquez pas ces pratiques tant que votre application n’a pas reçu de demandes du point de terminaison, car cela fausserait la confiance.  
+N’appliquez pas ces pratiques tant que votre application n’a pas reçu de demandes du point de terminaison. Vous devez comprendre le comportement de l’application avant d’ajouter des listes d’expressions et des motifs. Cela permet de comprendre comment votre application se comporte sans ces éléments ; vous pouvez ensuite ajouter ces fonctionnalités selon les besoins. 
+
+Il n’est pas risqué de les ajouter au début de la conception de votre modèle mais il est plus aisé de constater les changements produits par chaque fonctionnalité si vous les ajoutez à l’application soumis au trafic réel. 
+
+Vous n’avez pas besoin d’ajouter ces fonctionnalités à chaque itération ou de les modifier à chaque version. 
+
+Pour plus d'informations :
+* Concept : [Cycle de création de votre application LUIS](luis-concept-app-iteration.md)
+* Concept : [Caractéristiques de liste d’expressions dans votre application LUIS](luis-concept-feature.md)
+* Concept : [Les modèles améliorent la précision de la prédiction](luis-concept-patterns.md)
+* Procédure : [Utiliser des listes d’expressions pour améliorer le signal de liste de mots](luis-how-to-add-features.md)
+* Procédure : [Comment ajouter des modèles pour améliorer la précision de la prédiction](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>Équilibrer vos énoncés entre toutes les intentions
 
@@ -86,9 +106,17 @@ Si vous avez une intention avec 100 exemples d’énoncés et une autre avec 20
 
 Cette intention est l’intention de secours, qui indique tout ce qui ne concerne pas l’application. Ajoutez un exemple d’énoncé à l’intention None tous les 10 exemples d’énoncés dans le reste de votre application LUIS.
 
+Pour plus d'informations :
+* Concept : [Comprendre ce que sont les bons énoncés pour votre application LUIS](luis-concept-utterance.md)
+
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Tirer parti de la fonctionnalité de suggestion pour l’apprentissage actif
 
 Utilisez régulièrement la fonctionnalité **Vérifier les énoncés du point de terminaison** de [l’apprentissage actif](luis-how-to-review-endoint-utt.md), au lieu d’ajouter d’autres exemples d’énoncés aux intentions. L’application reçoit constamment des énoncés du point de terminaison, ce qui allonge et fait évoluer cette liste.
+
+Pour plus d'informations :
+* Concept : [Concepts pour l’activation de l’apprentissage actif en passant en revue les énoncés de point de terminaison](luis-concept-review-endpoint-utterances.md)
+* Tutoriel : [Tutoriel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison](luis-tutorial-review-endpoint-utterances.md)
+* Procédure : [Comment passer en revue les énoncés de point de terminaison dans le portail LUIS](luis-how-to-review-endoint-utt.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Analyser les performances de l’application
 
@@ -133,6 +161,11 @@ Ajoutez 10 ou 15 énoncés avant de passer à l’apprentissage et à la publica
 ## <a name="do-use-versions-for-each-app-iteration"></a>Ne pas utiliser des versions pour chaque itération de l’application
 
 Chaque cycle de création doit figurer dans une nouvelle [version](luis-concept-version.md), clonée à partir d’une version existante. LUIS ne limite pas les versions. Un nom de version étant utilisé dans le cadre de la route d’API, il est important de choisir des caractères autorisés dans une URL et de ne pas dépasser 10 caractères. Développez une stratégie de nom de version pour organiser vos versions. 
+
+Pour plus d'informations :
+* Concept : [Comprendre comment et quand utiliser une version de LUIS](luis-concept-version.md)
+* Procédure : [Utiliser les versions pour modifier et tester sans impact sur les applications intermédiaires et de production](luis-how-to-manage-versions.md)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

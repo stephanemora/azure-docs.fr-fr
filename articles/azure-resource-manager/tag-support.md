@@ -4,22 +4,24 @@ description: Indique les types de ressources Azure qui prennent en charge les é
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509907"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246049"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md).
 
+Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des virgules, téléchargez [tag-tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
+
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| DomainServices | Oui | 
+| DomainServices | OUI | 
 | DomainServices/oucontainer | Non  | 
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
@@ -68,13 +70,13 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| servers | Oui | 
+| servers | OUI | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | reportFeedback | Non  | 
-| service | Oui | 
+| service | OUI | 
 | validateServiceName | Non  | 
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
@@ -100,10 +102,10 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| automationAccounts | Oui | 
-| automationAccounts/configurations | Oui | 
+| automationAccounts | OUI | 
+| automationAccounts/configurations | OUI | 
 | automationAccounts/jobs | Non  | 
-| automationAccounts/runbooks | Oui | 
+| automationAccounts/runbooks | OUI | 
 | automationAccounts/softwareUpdateConfigurations | Non  | 
 | automationAccounts/webhooks | Non  | 
 
@@ -118,19 +120,19 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| b2cDirectories | Oui | 
+| b2cDirectories | OUI | 
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| registrations | Oui | 
+| registrations | OUI | 
 | registrations/customerSubscriptions | Non  | 
 | registrations/products | Non  | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| batchAccounts | Oui | 
+| batchAccounts | OUI | 
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 | Type de ressource | Prend en charge les étiquettes |
@@ -189,13 +191,13 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| mapApis | Oui | 
+| mapApis | OUI | 
 | updateCommunicationPreference | Non  | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| BizTalk | Oui | 
+| BizTalk | OUI | 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | Type de ressource | Prend en charge les étiquettes |
@@ -211,14 +213,14 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| botServices | Oui | 
+| botServices | OUI | 
 | botServices/channels | Non  | 
 | botServices/connections | Non  | 
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| Redis | Oui | 
+| Redis | OUI | 
 | RedisConfigDefinition | Non  | 
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
@@ -244,8 +246,8 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | edgenodes | Non  | 
-| profiles | Oui | 
-| profiles/endpoints | Oui | 
+| profiles | OUI | 
+| profiles/endpoints | OUI | 
 | profiles/endpoints/customdomains | Non  | 
 | profiles/endpoints/origins | Non  | 
 | validateProbe | Non  | 
@@ -253,7 +255,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| certificateOrders | Oui | 
+| certificateOrders | OUI | 
 | certificateOrders/certificates | Non  | 
 | validateCertificateRegistrationInformation | Non  | 
 
@@ -314,7 +316,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | Oui | 
+| accounts | OUI | 
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 | Type de ressource | Prend en charge les étiquettes |
@@ -325,18 +327,18 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| availabilitySets | Oui | 
-| disks | Oui | 
-| images | Oui | 
-| restorePointCollections | Oui | 
+| availabilitySets | OUI | 
+| disks | OUI | 
+| images | OUI | 
+| restorePointCollections | OUI | 
 | restorePointCollections/restorePoints | Non  | 
-| sharedVMImages | Oui | 
-| sharedVMImages/versions | Oui | 
-| snapshots | Oui | 
-| virtualMachines | Oui | 
+| sharedVMImages | OUI | 
+| sharedVMImages/versions | OUI | 
+| snapshots | OUI | 
+| virtualMachines | OUI | 
 | virtualMachines/diagnosticSettings | Non  | 
-| virtualMachines/extensions | Oui | 
-| virtualMachineScaleSets | Oui | 
+| virtualMachines/extensions | OUI | 
+| virtualMachineScaleSets | OUI | 
 | virtualMachineScaleSets/extensions | Non  | 
 | virtualMachineScaleSets/networkInterfaces | Non  | 
 | virtualMachineScaleSets/publicIPAddresses | Non  | 
@@ -369,17 +371,17 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| containerGroups | Oui | 
+| containerGroups | OUI | 
 | serviceAssociationLinks | Non  | 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| registries | Oui | 
+| registries | OUI | 
 | registries/builds | Non  | 
 | registries/builds/cancel | Non  | 
 | registries/builds/getLogLink | Non  | 
-| registries/buildTasks | Oui | 
+| registries/buildTasks | OUI | 
 | registries/buildTasks/steps | Non  | 
 | registries/eventGridFilters | Non  | 
 | registries/getBuildSourceUploadUrl | Non  | 
@@ -388,39 +390,39 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | registries/queueBuild | Non  | 
 | registries/regenerateCredential | Non  | 
 | registries/regenerateCredentials | Non  | 
-| registries/replications | Oui | 
+| registries/replications | OUI | 
 | registries/runs | Non  | 
 | registries/runs/cancel | Non  | 
 | registries/scheduleRun | Non  | 
-| registries/tasks | Oui | 
+| registries/tasks | OUI | 
 | registries/updatePolicies | Non  | 
-| registries/webhooks | Oui | 
+| registries/webhooks | OUI | 
 | registries/webhooks/getCallbackConfig | Non  | 
 | registries/webhooks/ping | Non  | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| containerServices | Oui | 
-| managedclusters | Oui | 
+| containerServices | OUI | 
+| managedclusters | OUI | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| applications | Oui | 
+| applications | OUI | 
 | updateCommunicationPreference | Non  | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | Oui | 
+| accounts | OUI | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | Alertes | Non  | 
 | BillingAccounts | Non  | 
-| Connecteurs | Oui | 
+| Connecteurs | OUI | 
 | Departments | Non  | 
 | Dimensions | Non  | 
 | EnrollmentAccounts | Non  | 
@@ -432,7 +434,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| hubs | Oui | 
+| hubs | OUI | 
 | hubs/authorizationPolicies | Non  | 
 | hubs/connectors | Non  | 
 | hubs/connectors/mappings | Non  | 
@@ -449,42 +451,42 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| jobs | Oui | 
+| jobs | OUI | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| DataBoxEdgeDevices | Oui | 
+| DataBoxEdgeDevices | OUI | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| workspaces | Oui | 
+| workspaces | OUI | 
 | workspaces/virtualNetworkPeerings | Non  | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| catalogs | Oui | 
+| catalogs | OUI | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| connectionManagers | Oui | 
+| connectionManagers | OUI | 
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| dataFactories | Oui | 
+| dataFactories | OUI | 
 | dataFactories/diagnosticSettings | Non  | 
 | dataFactorySchema | Non  | 
-| factories | Oui | 
+| factories | OUI | 
 | factories/integrationRuntimes | Non  | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | Oui | 
+| accounts | OUI | 
 | accounts/dataLakeStoreAccounts | Non  | 
 | accounts/storageAccounts | Non  | 
 | accounts/storageAccounts/containers | Non  | 
@@ -492,34 +494,34 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | Oui | 
+| accounts | OUI | 
 | accounts/eventGridFilters | Non  | 
 | accounts/firewallRules | Non  | 
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| services | Oui | 
-| services/projects | Oui | 
+| services | OUI | 
+| services/projects | OUI | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| servers | Oui | 
+| servers | OUI | 
 | servers/recoverableServers | Non  | 
 | servers/virtualNetworkRules | Non  | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| servers | Oui | 
+| servers | OUI | 
 | servers/recoverableServers | Non  | 
 | servers/virtualNetworkRules | Non  | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| servers | Oui | 
+| servers | OUI | 
 | servers/advisors | Non  | 
 | servers/queryTexts | Non  | 
 | servers/recoverableServers | Non  | 
@@ -530,34 +532,34 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| IoTHubs | Oui | 
+| IoTHubs | OUI | 
 | IotHubs/eventGridFilters | Non  | 
-| ProvisioningServices | Oui | 
+| ProvisioningServices | OUI | 
 | usages | Non  | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| controllers | Oui | 
+| controllers | OUI | 
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| labs | Oui | 
-| labs/serviceRunners | Oui | 
-| labs/virtualMachines | Oui | 
-| schedules | Oui | 
+| labs | OUI | 
+| labs/serviceRunners | OUI | 
+| labs/virtualMachines | OUI | 
+| schedules | OUI | 
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | databaseAccountNames | Non  | 
-| databaseAccounts | Oui | 
+| databaseAccounts | OUI | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| domaines | Oui | 
+| domaines | OUI | 
 | domains/domainOwnershipIdentifiers | Non  | 
 | generateSsoRequest | Non  | 
 | topLevelDomains | Non  | 
@@ -573,18 +575,18 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| domaines | Oui | 
+| domaines | OUI | 
 | domains/topics | Non  | 
 | eventSubscriptions | Non  | 
 | extensionTopics | Non  | 
-| topics | Oui | 
+| topics | OUI | 
 | topicTypes | Non  | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| clusters | Oui | 
-| namespaces | Oui | 
+| clusters | OUI | 
+| namespaces | OUI | 
 | namespaces/authorizationrules | Non  | 
 | namespaces/disasterrecoveryconfigs | Non  | 
 | namespaces/eventhubs | Non  | 
@@ -622,18 +624,18 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| hanaInstances | Oui | 
+| hanaInstances | OUI | 
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| clusters | Oui | 
+| clusters | OUI | 
 | clusters/applications | Non  | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| jobs | Oui | 
+| jobs | OUI | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Type de ressource | Prend en charge les étiquettes |
@@ -647,14 +649,14 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| actiongroups | Oui | 
-| activityLogAlerts | Oui | 
-| alertrules | Oui | 
+| actiongroups | OUI | 
+| activityLogAlerts | OUI | 
+| alertrules | OUI | 
 | automatedExportSettings | Non  | 
-| autoscalesettings | Oui | 
+| autoscalesettings | OUI | 
 | baseline | Non  | 
 | calculatebaseline | Non  | 
-| components | Oui | 
+| components | OUI | 
 | components/events | Non  | 
 | components/pricingPlans | Non  | 
 | components/query | Non  | 
@@ -666,15 +668,15 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | logDefinitions | Non  | 
 | logprofiles | Non  | 
 | logs | Non  | 
-| metricAlerts | Oui |
+| metricAlerts | OUI |
 | migrateToNewPricingModel | Non  | 
 | myWorkbooks | Non  | 
 | queries | Non  | 
 | rollbackToLegacyPricingModel | Non  | 
-| scheduledqueryrules | Oui | 
+| scheduledqueryrules | OUI | 
 | vmInsightsOnboardingStatuses | Non  | 
-| webtests | Oui | 
-| workbooks | Oui | 
+| webtests | OUI | 
+| workbooks | OUI | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 | Type de ressource | Prend en charge les étiquettes |
@@ -685,25 +687,25 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| IoTApps | Oui | 
+| IoTApps | OUI | 
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| Graph | Oui | 
+| Graph | OUI | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | deletedVaults | Non  | 
-| vaults | Oui | 
+| vaults | OUI | 
 | vaults/accessPolicies | Non  | 
 | vaults/secrets | Non  | 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| clusters | Oui | 
+| clusters | OUI | 
 | clusters/databases | Non  | 
 | clusters/databases/dataconnections | Non  | 
 | clusters/databases/eventhubconnections | Non  | 
@@ -711,18 +713,18 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| labaccounts | Oui | 
+| labaccounts | OUI | 
 | users | Non  | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | Oui | 
+| accounts | OUI | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | Oui | 
+| accounts | OUI | 
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Type de ressource | Prend en charge les étiquettes |
@@ -732,42 +734,42 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| integrationAccounts | Oui | 
-| workflows | Oui | 
+| integrationAccounts | OUI | 
+| workflows | OUI | 
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| commitmentPlans | Oui | 
-| webServices | Oui | 
-| Workspaces | Oui | 
+| commitmentPlans | OUI | 
+| webServices | OUI | 
+| Workspaces | OUI | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | Oui | 
-| accounts/workspaces | Oui | 
-| accounts/workspaces/projects | Oui | 
-| teamAccounts | Oui | 
-| teamAccounts/workspaces | Oui | 
-| teamAccounts/workspaces/projects | Oui | 
+| accounts | OUI | 
+| accounts/workspaces | OUI | 
+| accounts/workspaces/projects | OUI | 
+| teamAccounts | OUI | 
+| teamAccounts/workspaces | OUI | 
+| teamAccounts/workspaces/projects | OUI | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | Oui | 
+| accounts | OUI | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| workspaces | Oui | 
+| workspaces | OUI | 
 | workspaces/computes | Non  | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | Identities | Non  | 
-| userAssignedIdentities | Oui | 
+| userAssignedIdentities | OUI | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 | Type de ressource | Prend en charge les étiquettes |
@@ -781,7 +783,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | Oui | 
+| accounts | OUI | 
 | accounts/eventGridFilters | Non  | 
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -801,7 +803,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| classicDevServices | Oui | 
+| classicDevServices | OUI | 
 | updateCommunicationPreference | Non  | 
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
@@ -813,18 +815,18 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| mediaservices | Oui | 
+| mediaservices | OUI | 
 | mediaservices/accountFilters | Non  | 
 | mediaservices/assets | Non  | 
 | mediaservices/assets/assetFilters | Non  | 
 | mediaservices/contentKeyPolicies | Non  | 
 | mediaservices/eventGridFilters | Non  | 
 | mediaservices/liveEventOperations | Non  | 
-| mediaservices/liveEvents | Oui | 
+| mediaservices/liveEvents | OUI | 
 | mediaservices/liveEvents/liveOutputs | Non  | 
 | mediaservices/liveOutputOperations | Non  | 
 | mediaservices/streamingEndpointOperations | Non  | 
-| mediaservices/streamingEndpoints | Oui | 
+| mediaservices/streamingEndpoints | OUI | 
 | mediaservices/streamingLocators | Non  | 
 | mediaservices/streamingPolicies | Non  | 
 | mediaservices/transforms | Non  | 
@@ -833,21 +835,21 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| projects | Oui | 
+| projects | OUI | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| applicationGateways | Oui | 
-| applicationSecurityGroups | Oui | 
+| applicationGateways | OUI | 
+| applicationSecurityGroups | OUI | 
 | azureFirewallFqdnTags | Non  | 
-| azureFirewalls | Oui | 
+| azureFirewalls | OUI | 
 | bgpServiceCommunities | Non  | 
-| connections | Oui | 
-| ddosCustomPolicies | Oui | 
-| ddosProtectionPlans | Oui | 
+| connections | OUI | 
+| ddosCustomPolicies | OUI | 
+| ddosProtectionPlans | OUI | 
 | dnsOperationStatuses | Non  | 
-| dnszones | Oui | 
+| dnszones | OUI | 
 | dnszones/A | Non  | 
 | dnszones/AAAA | Non  | 
 | dnszones/all | Non  | 
@@ -860,47 +862,47 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | dnszones/SOA | Non  | 
 | dnszones/SRV | Non  | 
 | dnszones/TXT | Non  | 
-| expressRouteCircuits | Oui | 
+| expressRouteCircuits | OUI | 
 | expressRouteServiceProviders | Non  | 
-| frontdoors | Oui | 
-| frontdoorWebApplicationFirewallPolicies | Oui | 
+| frontdoors | OUI | 
+| frontdoorWebApplicationFirewallPolicies | OUI | 
 | getDnsResourceReference | Non  | 
-| interfaceEndpoints | Oui | 
+| interfaceEndpoints | OUI | 
 | internalNotify | Non  | 
-| loadBalancers | Oui | 
-| localNetworkGateways | Oui | 
-| natGateways | Oui | 
-| networkIntentPolicies | Oui | 
-| networkInterfaces | Oui | 
-| networkProfiles | Oui | 
-| networkSecurityGroups | Oui | 
-| networkWatchers | Oui | 
-| networkWatchers/connectionMonitors | Oui | 
-| networkWatchers/lenses | Oui | 
-| networkWatchers/pingMeshes | Oui | 
-| privateLinkServices | Oui | 
-| publicIPAddresses | Oui | 
-| publicIPPrefixes | Oui | 
-| routeFilters | Oui | 
-| routeTables | Oui | 
-| serviceEndpointPolicies | Oui | 
+| loadBalancers | OUI | 
+| localNetworkGateways | OUI | 
+| natGateways | OUI | 
+| networkIntentPolicies | OUI | 
+| networkInterfaces | OUI | 
+| networkProfiles | OUI | 
+| networkSecurityGroups | OUI | 
+| networkWatchers | OUI | 
+| networkWatchers/connectionMonitors | OUI | 
+| networkWatchers/lenses | OUI | 
+| networkWatchers/pingMeshes | OUI | 
+| privateLinkServices | OUI | 
+| publicIPAddresses | OUI | 
+| publicIPPrefixes | OUI | 
+| routeFilters | OUI | 
+| routeTables | OUI | 
+| serviceEndpointPolicies | OUI | 
 | trafficManagerGeographicHierarchies | Non  | 
-| trafficmanagerprofiles | Oui | 
+| trafficmanagerprofiles | OUI | 
 | trafficmanagerprofiles/heatMaps | Non  | 
-| virtualHubs | Oui | 
-| virtualNetworkGateways | Oui | 
-| virtualNetworks | Oui | 
-| virtualNetworkTaps | Oui | 
-| virtualWans | Oui | 
-| vpnGateways | Oui | 
-| vpnSites | Oui | 
-| webApplicationFirewallPolicies | Oui | 
+| virtualHubs | OUI | 
+| virtualNetworkGateways | OUI | 
+| virtualNetworks | OUI | 
+| virtualNetworkTaps | OUI | 
+| virtualWans | OUI | 
+| vpnGateways | OUI | 
+| vpnSites | OUI | 
+| webApplicationFirewallPolicies | OUI | 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| namespaces | Oui | 
-| namespaces/notificationHubs | Oui | 
+| namespaces | OUI | 
+| namespaces/notificationHubs | OUI | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Type de ressource | Prend en charge les étiquettes |
@@ -908,7 +910,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | périphériques | Non  | 
 | linkTargets | Non  | 
 | storageInsightConfigs | Non  | 
-| workspaces | Oui | 
+| workspaces | OUI | 
 | workspaces/dataSources | Non  | 
 | workspaces/linkedServices | Non  | 
 | workspaces/query | Non  | 
@@ -917,9 +919,9 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | managementassociations | Non  | 
-| managementconfigurations | Oui | 
-| solutions | Oui | 
-| views | Oui | 
+| managementconfigurations | OUI | 
+| solutions | OUI | 
+| views | OUI | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Type de ressource | Prend en charge les étiquettes |
@@ -933,34 +935,34 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | consoles | Non  | 
-| dashboards | Oui | 
+| dashboards | OUI | 
 | userSettings | Non  | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| workspaceCollections | Oui | 
+| workspaceCollections | OUI | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| capacities | Oui | 
+| capacities | OUI | 
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | Oui | 
+| accounts | OUI | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | backupProtectedItems | Non  | 
-| vaults | Oui | 
+| vaults | OUI | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| namespaces | Oui | 
+| namespaces | OUI | 
 | namespaces/authorizationrules | Non  | 
 | namespaces/hybridconnections | Non  | 
 | namespaces/hybridconnections/authorizationrules | Non  | 
@@ -1005,20 +1007,20 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| applications | Oui | 
+| applications | OUI | 
 | saasresources | Non  | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| flows | Oui | 
-| jobcollections | Oui | 
+| flows | OUI | 
+| jobcollections | OUI | 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | resourceHealthMetadata | Non  | 
-| searchServices | Oui | 
+| searchServices | OUI | 
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | Type de ressource | Prend en charge les étiquettes |
@@ -1064,7 +1066,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| namespaces | Oui | 
+| namespaces | OUI | 
 | namespaces/authorizationrules | Non  | 
 | namespaces/disasterrecoveryconfigs | Non  | 
 | namespaces/eventgridfilters | Non  | 
@@ -1079,36 +1081,36 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| clusters | Oui | 
+| clusters | OUI | 
 | clusters/applications | Non  | 
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| applications | Oui | 
-| gateways | Oui | 
-| networks | Oui | 
-| secrets | Oui | 
-| volumes | Oui | 
+| applications | OUI | 
+| gateways | OUI | 
+| networks | OUI | 
+| secrets | OUI | 
+| volumes | OUI | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| SignalR | Oui | 
+| SignalR | OUI | 
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| applianceDefinitions | Oui | 
-| appliances | Oui | 
-| applicationDefinitions | Oui | 
-| applications | Oui | 
-| jitRequests | Oui | 
+| applianceDefinitions | OUI | 
+| appliances | OUI | 
+| applicationDefinitions | OUI | 
+| applications | OUI | 
+| jitRequests | OUI | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| managedInstances | Oui |
+| managedInstances | OUI |
 | managedInstances/databases | Oui (voir la remarque ci-dessous) |
 | managedInstances/databases/backupShortTermRetentionPolicies | Non  |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Non  |
@@ -1118,31 +1120,32 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | managedInstances/keys | Non  |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Non  |
 | managedInstances/vulnerabilityAssessments | Non  |
-| servers | Oui | 
+| servers | OUI | 
 | servers/administrators | Non  | 
 | servers/communicationLinks | Non  | 
 | servers/databases | Oui (voir la remarque ci-dessous) | 
 | servers/encryptionProtector | Non  | 
+| servers/firewallRules | Non  | 
 | servers/keys | Non  | 
 | servers/restorableDroppedDatabases | Non  | 
 | servers/serviceobjectives | Non  | 
 | servers/tdeCertificates | Non  | 
 
 > [!NOTE]
-> La base de données MASTER ne prend pas en charge les balises, à la différence d’autres bases de données.
+> La base de données MASTER ne prend pas en charge les balises, à la différence d’autres bases de données, comme les bases de données Data Warehouse.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| SqlVirtualMachineGroups | Oui | 
+| SqlVirtualMachineGroups | OUI | 
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | Non  | 
-| SqlVirtualMachines | Oui | 
+| SqlVirtualMachines | OUI | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| storageAccounts | Oui | 
+| storageAccounts | OUI | 
 | storageAccounts/blobServices | Non  | 
 | storageAccounts/fileServices | Non  | 
 | storageAccounts/queueServices | Non  | 
@@ -1153,7 +1156,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| storageSyncServices | Oui | 
+| storageSyncServices | OUI | 
 | storageSyncServices/registeredServers | Non  | 
 | storageSyncServices/syncGroups | Non  | 
 | storageSyncServices/syncGroups/cloudEndpoints | Non  | 
@@ -1163,7 +1166,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| managers | Oui | 
+| managers | OUI | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Type de ressource | Prend en charge les étiquettes |
@@ -1189,23 +1192,23 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| providerRegistrations | Oui | 
-| les ressources | Oui | 
+| providerRegistrations | OUI | 
+| les ressources | OUI | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| environments | Oui | 
+| environments | OUI | 
 | environments/accessPolicies | Non  | 
-| environments/eventsources | Oui | 
-| environments/referencedatasets | Oui | 
+| environments/eventsources | OUI | 
+| environments/referencedatasets | OUI | 
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| account | Oui | 
-| account/extension | Oui | 
-| account/project | Oui | 
+| account | OUI | 
+| account/extension | OUI | 
+| account/project | OUI | 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Type de ressource | Prend en charge les étiquettes |
@@ -1221,13 +1224,13 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | apiManagementAccounts/connectionAcls | Non  | 
 | apiManagementAccounts/connections | Non  | 
 | billingMeters | Non  | 
-| certificates | Oui | 
-| connectionGateways | Oui | 
-| connections | Oui | 
-| customApis | Oui | 
+| certificates | OUI | 
+| connectionGateways | OUI | 
+| connections | OUI | 
+| customApis | OUI | 
 | deletedSites | Non  | 
 | functions | Non  | 
-| hostingEnvironments | Oui | 
+| hostingEnvironments | OUI | 
 | hostingEnvironments/multiRolePools | Non  | 
 | hostingEnvironments/multiRolePools/instances | Non  | 
 | hostingEnvironments/workerPools | Non  | 
@@ -1236,17 +1239,17 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 | de films | Non  | 
 | resourceHealthMetadata | Non  | 
 | runtimes | Non  | 
-| serverFarms | Oui | 
+| serverFarms | OUI | 
 | serverFarms/workers | Non  | 
-| sites | Oui | 
+| sites | OUI | 
 | sites/domainOwnershipIdentifiers | Non  | 
 | sites/hostNameBindings | Non  | 
 | sites/instances | Non  | 
 | sites/instances/extensions | Non  | 
-| sites/premieraddons | Oui | 
+| sites/premieraddons | OUI | 
 | sites/recommendations | Non  | 
 | sites/resourceHealthMetadata | Non  | 
-| sites/slots | Oui | 
+| sites/slots | OUI | 
 | sites/slots/hostNameBindings | Non  | 
 | sites/slots/instances | Non  | 
 | sites/slots/instances/extensions | Non  | 
@@ -1263,7 +1266,7 @@ Cet article indique si un type de ressource prend en charge les [étiquettes](re
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| DeviceServices | Oui | 
+| DeviceServices | OUI | 
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 | Type de ressource | Prend en charge les étiquettes |
