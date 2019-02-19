@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Phraseanet | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Phraseanet | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Phraseanet.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeedes
-ms.openlocfilehash: cfeadbf1d46d9e36f8619cafe29d9dd69aad6eec
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 49a311b74fbc48f414f530e962af39d17a346353
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49118188"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175538"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Tutoriel : Intégration d’Azure Active Directory à Phraseanet
+# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Tutoriel : Intégration d'Azure Active Directory à Phraseanet
 
 Dans ce tutoriel, vous allez apprendre à intégrer Phraseanet à Azure Active Directory (Azure AD).
 
@@ -126,7 +127,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, dans le volet gauche, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![image](./media/phraseanet-tutorial/d_users_and_groups.png)
 
@@ -149,7 +150,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-phraseanet-test-user"></a>Créer un utilisateur de test Phraseanet
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Phraseanet. Collaborez avec [l’équipe du support technique Phraseanet](mailto:support@alchemy.fr) pour ajouter les utilisateurs dans la plateforme Phraseanet. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Phraseanet. Travaillez en collaboration avec l' [équipe du support technique de Phraseanet](mailto:support@alchemy.fr) pour ajouter des utilisateurs à la plateforme Phraseanet. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

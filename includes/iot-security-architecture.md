@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995690"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56246850"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Architecture de sécurité de l’Internet des objets (IdO)
 
@@ -225,7 +225,7 @@ Menaces pesant sur le chemin de communication entre des appareils, des passerell
 | **Composant** | **Menace** | **Atténuation** | **Risque** | **Implémentation** |
 | --- | --- | --- | --- | --- |
 | IoT Hub de périphérique |TID |(D)TLS (PSK/RSA) pour chiffrer le trafic |Écoute électronique ou interférence de la communication entre le périphérique et la passerelle. |Sécurité au niveau du protocole. Dans le cas de protocoles personnalisés, vous devez déterminer comment les protéger. Dans la plupart des cas, la communication s’effectue du périphérique vers l’IoT Hub (le périphérique établit la connexion). |
-| Périphérique Périphérique |TID |(D)TLS (PSK/RSA) pour chiffrer le trafic. |Lecture des données en transit entre les périphériques. Falsification des données. Surcharge du périphérique avec de nouvelles connexions. |Sécurité au niveau du protocole (MQTT/AMQP/HTTP/CoAP). Dans le cas de protocoles personnalisés, vous devez déterminer comment les protéger. La prévention des attaques par déni de service consiste à homologuer des périphériques via une passerelle cloud ou de champ et à les faire agir comme des clients pour le réseau. L’homologation peut entraîner une connexion directe entre les homologues après avoir été répartie par la passerelle. |
+| Appareil vers appareil |TID |(D)TLS (PSK/RSA) pour chiffrer le trafic. |Lecture des données en transit entre les périphériques. Falsification des données. Surcharge du périphérique avec de nouvelles connexions. |Sécurité au niveau du protocole (MQTT/AMQP/HTTP/CoAP). Dans le cas de protocoles personnalisés, vous devez déterminer comment les protéger. La prévention des attaques par déni de service consiste à homologuer des périphériques via une passerelle cloud ou de champ et à les faire agir comme des clients pour le réseau. L’homologation peut entraîner une connexion directe entre les homologues après avoir été répartie par la passerelle. |
 | Périphérique d’entité externe |TID |Couplage fort de l’entité externe au périphérique. |Écoute électronique de la connexion au périphérique. Interférence de la communication avec le périphérique. |Couplage sécurisé de l’entité externe au périphérique NFC/Bluetooth LE. Contrôle du panneau de commandes du périphérique (physique). |
 | Passerelle de champ Passerelle cloud |TID |TLS (PSK/RSA) pour chiffrer le trafic. |Écoute électronique ou interférence de la communication entre le périphérique et la passerelle. |Sécurité au niveau du protocole (MQTT/AMQP/HTTP/CoAP). Dans le cas de protocoles personnalisés, vous devez déterminer comment les protéger. |
 | Passerelle cloud de périphérique |TID |TLS (PSK/RSA) pour chiffrer le trafic. |Écoute électronique ou interférence de la communication entre le périphérique et la passerelle. |Sécurité au niveau du protocole (MQTT/AMQP/HTTP/CoAP). Dans le cas de protocoles personnalisés, vous devez déterminer comment les protéger. |

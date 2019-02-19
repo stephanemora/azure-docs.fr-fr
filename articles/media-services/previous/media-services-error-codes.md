@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 43e2b2b7f398e8adce0760678c6f0a5208c24c34
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d700423ea966cab3b0f546d21d4d2f5ca5208971
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240526"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990511"
 ---
 # <a name="azure-media-services-error-codes"></a>Codes d’erreur d’Azure Media Services
 lors de l’utilisation de Microsoft Azure Media Services, il se peut que vous receviez du service des codes d’erreur HTTP liés à problèmes tels que des jetons d’authentification qui expirent pour des actions qui ne sont pas prises en charge dans Media Services. Vous trouverez ci-dessous la liste des **codes d’erreur HTTP** qui peuvent être retournés par Media Services, ainsi que leurs causes possibles.  
@@ -56,7 +56,7 @@ La demande n’est pas autorisée pour l’une des raisons suivantes :
 
 * Le compte Media Services est introuvable ou a été supprimé.
 * Le compte Media Services est désactivé et le type de la demande n’est pas HTTP GET. Les opérations de service renvoient également une réponse 403.
-* Le jeton d’authentification ne contient pas les informations d’identification de l’utilisateur : AccountName et/ou SubscriptionId. Vous pouvez trouver ces informations dans l’extension interface utilisateur de Media Services pour votre compte Media Services dans le portail de gestion.
+* Le jeton d'authentification ne contient pas les informations d'identification de l'utilisateur : AccountName et/ou SubscriptionId. Vous pouvez trouver ces informations dans l’extension interface utilisateur de Media Services pour votre compte Media Services dans le portail de gestion.
 * La ressource est inaccessible.
   
   * Une tentative a été effectuée d’utiliser un processeur multimédia (MediaProcessor) non disponible pour votre compte Media Services.
@@ -117,7 +117,7 @@ Pour gérer cette erreur, nous recommandons d’utiliser une logique de nouvelle
 > 
 
 ## <a name="see-also"></a>Voir aussi
-[Codes d’erreur de gestion de Media Services](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Codes d’erreur de gestion de Media Services](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

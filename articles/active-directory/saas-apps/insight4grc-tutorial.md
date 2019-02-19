@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : intégration d’Azure Active Directory à Insight4GRC | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Insight4GRC | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Insight4GRC.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 256550dc6aaa832599747f6fe39c2ca77ed3f8d7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 08913fc2e12026d70976ea8e2169c190378f4054
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441579"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193728"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Tutoriel : intégration d’Azure Active Directory à Insight4GRC
+# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Tutoriel : Intégration d'Azure Active Directory à Insight4GRC
 
 Dans ce tutoriel, vous allez apprendre à intégrer Insight4GRC à Azure Active Directory (Azure AD).
 
@@ -167,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Insight4GRC. Insight4GRC prend en charge le provisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Insight4GRC s’il n’existe pas déjà.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe d’assistance client Insight4GRC](mailto:support.ss@rsmuk.com).
+>Si vous devez créer un utilisateur manuellement, contactez l' [équipe du support technique d'Insight4GRC](mailto:support.ss@rsmuk.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102394"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961888"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Mise à niveau et mise à jour d’un cluster Azure Service Fabric
 
@@ -27,7 +27,7 @@ Pour les systèmes modernes, la réussite à long terme d’un produit dépend d
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Contrôle de la version de la structure qui s’exécute sur votre cluster
 
-Faites en sorte que votre cluster exécute systématiquement une version prise en charge de la structure. Lorsque nous annonçons le lancement d’une nouvelle version de Service Fabric, la fin de la prise en charge de la version précédente est signalée 60 jours minimum après la date de lancement. Les nouvelles versions sont annoncées sur le blog de l’équipe Service Fabric. La nouvelle version peut alors être sélectionnée.
+Faites en sorte que votre cluster exécute systématiquement une [version prise en charge de la structure](service-fabric-versions.md). Lorsque nous annonçons le lancement d’une nouvelle version de Service Fabric, la fin de la prise en charge de la version précédente est signalée 60 jours minimum après la date de lancement. Les nouvelles versions sont annoncées sur le blog de l’équipe Service Fabric. La nouvelle version peut alors être sélectionnée.
 
 Un événement d’intégrité est généré 14 jours avant la date d’expiration de la version qu’exécute votre cluster. Il place le cluster dans un état d’avertissement. Ce dernier conserve cet état tant que vous n’avez pas effectué de mise à niveau vers une version prise en charge.
 

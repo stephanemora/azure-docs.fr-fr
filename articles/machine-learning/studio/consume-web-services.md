@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464379"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998079"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Guide pratique pour utiliser un service web Azure Machine Learning Studio
 
@@ -70,7 +70,7 @@ Pour récupérer la clé API pour un service web Machine Learning classique :
 ## <a id="connect"></a>Se connecter à un service web Machine Learning
 Vous pouvez vous connecter à un service web Machine Learning à l’aide de n’importe quel langage de programmation qui prend en charge les requêtes et réponses HTTP. Vous pouvez consulter des exemples en C#, Python et R sur l’une des pages d’aide du service web Machine Learning.
 
-**Aide de l’API Machine Learning** L’aide de l’API Machine Learning est créée quand vous déployez un service web. Consultez la page [Procédure pas à pas : déploiement du service web Azure Machine Learning](walkthrough-5-publish-web-service.md).
+**Aide de l’API Machine Learning** L’aide de l’API Machine Learning est créée quand vous déployez un service web. Consultez le [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md).
 L’aide sur l’API Machine Learning contient des détails sur un service web de prédiction.
 
 1. Cliquez sur le service web que vous utilisez.

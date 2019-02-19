@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Figma | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à Figma | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Figma.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeedes
-ms.openlocfilehash: b57fdb3f039a9395133854f8b4d4f2095e3a4f9b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3885f579e4543f25c409010c0aae970c26d2b9c4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095243"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183971"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutoriel : Intégration d’Azure Active Directory avec Figma
+# <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutoriel : Intégration d'Azure Active Directory à Figma
 
 Dans ce tutoriel, vous allez apprendre à intégrer Figma avec Azure Active Directory (Azure AD).
 
@@ -135,7 +136,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 8. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM | Attribut source|
+    | Nom | Attribut source|
     | ---------------| --------- |
     | `externalId` | `user.mailnickname` |
     | `displayName` | `user.displayname` |
@@ -227,7 +228,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Figma dans le volet d’accès, vous devez être connecté automatiquement à votre application Figma.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

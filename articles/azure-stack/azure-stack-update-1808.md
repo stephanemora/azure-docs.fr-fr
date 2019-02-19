@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: beb86284256d42c119e551a18d9900f0dad61b7f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d23aab91df2d69850e8c3b80a1c12f49f2e7fcaa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247491"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965169"
 ---
 # <a name="azure-stack-1808-update"></a>Mise à jour 1808 d’Azure Stack
 
@@ -130,9 +130,9 @@ Cette mise à jour contient également l’atténuation de la vulnérabilité du
 
 ### <a name="prerequisites"></a>Prérequis
 
-- Installez la [mise à jour 1807](azure-stack-update-1807.md) d’Azure Stack avant d’appliquer la mise à jour 1808 d’Azure Stack. 
+- Installez la mise à jour 1807 d'Azure Stack avant d'appliquer la mise à jour 1808. 
 
-- Installez [la dernière mise à jour ou le dernier correctif logiciel disponible pour la version 1807](azure-stack-update-1807.md#post-update-steps).  
+- Installez la dernière mise à jour ou le dernier correctif logiciel disponibles pour la version 1807.  
   > [!TIP]  
   > Abonnez-vous aux flux *RRS* ou *Atom* suivants pour vous tenir informés des correctifs logiciels Azure Stack :
   > - RRS : https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 

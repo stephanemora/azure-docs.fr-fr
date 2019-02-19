@@ -4,7 +4,7 @@ description: En savoir plus sur les différentes options de chiffrement dans Azu
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: dc1ca62ce184ac290f289975ff609b8240351099
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035094"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114652"
 ---
 # <a name="azure-encryption-overview"></a>Vue d’ensemble du chiffrement Azure
 
@@ -39,7 +39,7 @@ Azure prend en charge plusieurs modèles de chiffrement, notamment le chiffremen
 
 ### <a name="client-side-encryption"></a>chiffrement côté client
 
-Le chiffrement côté client est effectué en dehors d’Azure. Il inclut :
+Le chiffrement côté client est effectué en dehors d’Azure.  Il inclut :
 
 - Les données chiffrées par une application qui s’exécute dans le centre de données du client ou par une application de service.
 - Les données sont déjà chiffrées lorsqu’elles sont reçues par Azure.
@@ -50,9 +50,9 @@ Avec le chiffrement côté client, les fournisseurs de services cloud n’ont pa
 
 Les trois modèles de chiffrement côté serveur offrent différentes caractéristiques de gestion de clés, que vous pouvez choisir en fonction de vos besoins :
 
-- **Clés gérées par le service** : ce modèle fournit une combinaison de contrôle et de fonctionnalités avec une faible surcharge.
+- **Clés gérées par le service** : ce modèle offre une combinaison de contrôles et de fonctionnalités à faible surcharge.
 
-- **Clés gérées par le client** : ce modèle vous permet de contrôler les clés, avec notamment la prise en charge de BYOK (Bring Your Own Keys), ou d’en générer de nouvelles.
+- **Clés gérées par le client** : ce modèle vous permet de contrôler les clés, avec notamment la prise en charge de l'option BYOK (Bring Your Own Keys), ou d'en générer de nouvelles.
 
 - **Clés gérées par le service sur le matériel contrôlé par le client** : ce modèle vous permet de gérer les clés dans votre référentiel propriétaire, en dehors du contrôle de Microsoft. Cette caractéristique est appelée HYOK (Host Your Own Key). Toutefois, la configuration est complexe et la plupart des services Azure ne prennent pas en charge ce modèle.
 
@@ -78,7 +78,7 @@ Pour en savoir plus et télécharger la bibliothèque cliente de stockage Azure 
 
 Quand vous utilisez le chiffrement côté client avec Key Vault, vos données sont chiffrées à l’aide d’une clé de chiffrement de contenu (CEK) symétrique à usage unique qui est générée par le SDK client de stockage Azure. La clé CEK est chiffrée à l’aide d’une clé de chiffrement de clé (KEK), qui peut être une clé symétrique ou une paire de clés asymétriques. Vous pouvez la gérer localement ou la stocker dans Key Vault. Les données chiffrées sont ensuite chargées vers Stockage Azure.
 
-Pour en savoir plus sur le chiffrement côté client avec Key Vault et obtenir des instructions de démarrage pas à pas, consultez [Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l’aide d’Azure Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
+Pour en savoir plus sur le chiffrement côté client avec Key Vault et obtenir des instructions de démarrage pas à pas, consultez [Tutoriel : Chiffrement et déchiffrement d'objets blob dans le service Stockage Azure à l'aide d'Azure Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Pour finir, vous pouvez également utiliser la bibliothèque cliente de stockage Azure pour Java afin d’effectuer un chiffrement côté client avant de charger des données vers le stockage Azure et de déchiffrer les données lors de leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration à [Key Vault](https://azure.microsoft.com/services/key-vault/) pour la gestion des clés de compte de stockage.
 
@@ -170,9 +170,9 @@ Vous pouvez configurer une connexion VPN point à site à un réseau virtuel à 
 
 Pour en savoir plus sur les connexions VPN de point à site à des réseaux virtuels Azure, consultez :
 
-[Configurer une connexion point à site sur un réseau virtuel à l’aide d’une authentification par certificat Azure native : Portail Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
+[Configurer une connexion point à site sur un réseau virtuel à l'aide d'une authentification par certification : Portail Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
 
-[Configurer une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+[Configurer une connexion point à site sur un réseau virtuel à l'aide d'une authentification par certificat : PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="site-to-site-vpns"></a>VPN site à site 
 

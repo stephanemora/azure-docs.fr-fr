@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 5995c896f02720d82862895795e1e8d43f6bb226
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d24dcc6f12347c66abc033f4c8b25c3b49870a44
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756459"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895769"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utiliser le portail pour attacher un disque de données à une machine virtuelle Linux 
 Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Windows dans le Portail Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -102,10 +102,10 @@ Ici, *sdc* est le disque que nous recherchons.
 ### <a name="partition-a-new-disk"></a>Partitionnement d’un nouveau disque
 Si vous utilisez un disque existant contenant des données, passez au montage du disque. Si vous attachez un nouveau disque, vous devez partitionner ce disque.
 
-Partitionnez le disque avec `parted`. Si la taille du disque est supérieure ou égale à 2 tébioctets (Tio), vous devez utiliser le partitionnement GPT. Si elle est inférieure à 2 Tio, vous pouvez utiliser le partitionnement MBR ou GPT. Faites-en le disque principal sur la partition 1 et acceptez les autres valeurs par défaut. L’exemple suivant démarre le processus `parted` sur */dev/sdc* :
+Partitionnez le disque avec `fdisk`. Si la taille du disque est supérieure ou égale à 2 tébioctets (Tio), vous devez utiliser le partitionnement GPT. Pour procéder au partitionnement GPT, vous pouvez utiliser `parted`. Si la taille du disque est inférieure à 2 Tio, vous pouvez utiliser le partitionnement MBR ou GPT. Faites-en le disque principal sur la partition 1 et acceptez les autres valeurs par défaut. L’exemple suivant démarre le processus `fdisk` sur */dev/sdc* :
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 Utilisez la commande `n` pour ajouter une nouvelle partition. Dans cet exemple, nous avons également choisi `p` comme partition principale et accepté le reste des valeurs par défaut. Vous devez obtenir un résultat semblable à l’exemple qui suit :

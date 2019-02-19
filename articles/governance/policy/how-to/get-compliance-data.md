@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766406"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114108"
 ---
 # <a name="getting-compliance-data"></a>Obtention de données de conformité
 
@@ -428,11 +428,11 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## <a name="log-analytics"></a>Log Analytics
+## <a name="azure-monitor-logs"></a>Journaux Azure Monitor
 
-Si vous avez un espace de travail [Log Analytics](../../../log-analytics/log-analytics-overview.md) dans lequel la solution `AzureActivity` est liée à votre abonnement, vous pouvez également afficher les résultats non conformes à partir du cycle d’évaluation en utilisant des requêtes Azure Data Explorer simples et la table `AzureActivity`. Grâce aux détails de Log Analytics, les alertes peuvent être configurées de manière à vérifier la non-conformité.
+Si vous disposez d'un [espace de travail Log Analytics](../../../log-analytics/log-analytics-overview.md) dans lequel la solution `AzureActivity` est liée à votre abonnement, vous pouvez également afficher les résultats de non-conformité du cycle d'évaluation en utilisant des requêtes Azure Data Explorer simples et la table `AzureActivity`. Grâce aux informations des journaux Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
 
-![Conformité de la stratégie à l’aide de Log Analytics](../media/getting-compliance-data/compliance-loganalytics.png)
+![Conformité aux stratégies à l'aide des journaux Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

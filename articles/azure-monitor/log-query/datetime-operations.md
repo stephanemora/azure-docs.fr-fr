@@ -1,6 +1,6 @@
 ---
-title: Utilisation des valeurs de date et d’heure dans des requêtes Azure Log Analytics | Microsoft Docs
-description: Décrit comment utiliser des données de date et d’heure dans des requêtes Log Analytics.
+title: Utilisation de valeurs de date et d'heure dans les requêtes de journal Azure Monitor | Microsoft Docs
+description: Explique comment utiliser des données de date et d'heure dans les requêtes de journal Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 15767107a5c535cfda98da2a5177e15ca221f35d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214692"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999247"
 ---
-# <a name="working-with-date-time-values-in-log-analytics-queries"></a>Utilisation des valeurs de date et d’heure dans des requêtes Log Analytics
+# <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Utilisation de valeurs de date et d'heure dans les requêtes de journal Azure Monitor
 
 > [!NOTE]
 > Vous devez suivre [Bien démarrer avec le portail Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes](get-started-queries.md) avant d’effectuer cette leçon.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Cet article décrit comment utiliser des données de date et d’heure dans des requêtes Log Analytics.
+Cet article explique comment utiliser des données de date et d'heure dans les requêtes de journal Azure Monitor.
 
 
 ## <a name="date-time-basics"></a>Notions de base de date et d’heure
-Le langage de requête Log Analytics comporte deux principaux types de données associés aux dates et heures : datetime et timespan. Toutes les dates sont exprimées au format UTC. Même si plusieurs formats datetime sont pris en charge, le format ISO8601 est préféré. 
+Le langage de requête de Data Explorer comporte deux principaux types de données associés aux dates et heures : datetime et timespan. Toutes les dates sont exprimées au format UTC. Même si plusieurs formats datetime sont pris en charge, le format ISO8601 est préféré. 
 
 Les types timespan sont exprimés en tant que valeur décimale suivie d’une unité de temps :
 
@@ -133,7 +133,7 @@ Event
 
 Cela génère les résultats suivants :
 
-| timestamp|count_|
+|timestamp|count_|
 |--|--|
 |2018-07-28T00:00:00.000|7 136|
 |2018-07-29T00:00:00.000|12 315|
@@ -161,7 +161,7 @@ Event
 | Obtenir une date par rapport à une valeur  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez d’autres leçons pour l’utilisation du langage de requête Log Analytics :
+Reportez-vous à d'autres leçons sur l'utilisation du [langage de requête de Data Explorer](/azure/kusto/query/) avec des données de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Fonctions d’agrégation](aggregations.md)

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/04/2018
+ms.date: 02/08/2019
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: f6d4fcf5e6ec8029bb0e7c303849fdceef5bace7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1672eb2ef0db36c9b30ca444fa4224eb1afbe828
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012086"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998482"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Haivision KB pour envoyer un flux temps réel à débit binaire unique
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Haivision KB pour envoyer un flux temps réel à débit binaire unique  
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
@@ -60,29 +60,29 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 Vidéo :
 -   Codec : H.264
 -   Profil : Élevé (niveau 4.0)
--   Débit binaire : 5 000 kbit/s
+-   Vitesse de transmission : 5 000 Kbits/s
 -   Image clé : 2 secondes (60 images)
 -   Fréquence d’images : 30
 
 Audio :
 -   Codec : AAC (LC)
--   Débit binaire : 192 kbit/s
+-   Vitesse de transmission : 192 Kbits/s
 -   Taux d’échantillonnage : 44,1 kHz
 
 ## <a name="configuration-steps"></a>Configuration
 1.  Connectez-vous à l’interface utilisateur de Haivision KB.
 2.  Cliquez sur le bouton **Menu** dans le centre de contrôle de canal et sélectionnez **Add Channel (Ajouter un canal)**.  
-    ![Capture d’écran 2017-08-14 at 9.15.09 AM.png](./media/media-services-configure-kb-live-encoder/step2.png)
+    ![Capture d'écran du 14-08-2017 à 9.15.09](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  Tapez le nom du canal (**Channel Name**) dans le champ Name et cliquez sur Next.  
-    ![Capture d’écran 2017-08-14 at 9.19.07 AM.png](./media/media-services-configure-kb-live-encoder/step3.png)
+    ![Capture d'écran du 14-08-2017 à 9.19.07](./media/media-services-configure-kb-live-encoder/step3.png)
 4.  Sélectionnez la source d’entrée du canal (**Channel Input Source**) dans la liste déroulante **Input Source** (Source d’entrée) et cliquez sur Next.
-    ![Capture d’écran 2017-08-14 at 9.20.44 AM.png](./media/media-services-configure-kb-live-encoder/step4.png)
+    ![Capture d'écran du 14-08-2017 à 9.20.44](./media/media-services-configure-kb-live-encoder/step4.png)
 5.  Dans la liste déroulante **Encoder Template** (Modèle d’encodeur), choisissez **H264-720-AAC-192** et cliquez sur Next.
-    ![Capture d’écran 2017-08-14 at 9.23.15 AM.png](./media/media-services-configure-kb-live-encoder/step5.png)
+    ![Capture d'écran du 14-08-2017 à 9.23.15](./media/media-services-configure-kb-live-encoder/step5.png)
 6.  Dans la liste déroulante **Select New Output** (Sélectionner la nouvelle sortie), choisissez **RTMP** et cliquez sur Next.  
-    ![Capture d’écran 2017-08-14 at 9.27.51 AM.png](./media/media-services-configure-kb-live-encoder/step6.png)
+    ![Capture d'écran du 14-08-2017 à 9.27.51](./media/media-services-configure-kb-live-encoder/step6.png)
 7.  Dans la fenêtre **Channel Output** (Sortie de canal), renseignez les informations sur le flux Azure. Collez le lien **RTMP** de la configuration de canal initiale dans la zone **Server**. Dans la zone **Output Name** (Nom de la sortie), tapez le nom du canal. Dans la zone Stream Name Template (Modèle de nom de flux), utilisez le modèle RTMPStreamName_%video_bitrate% pour nommer le flux.
-    ![Capture d’écran 2017-08-14 at 9.33.17 AM.png](./media/media-services-configure-kb-live-encoder/step7.png)
+    ![Capture d'écran du 14-08-2017 à 9.33.17](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  Cliquez sur Next, puis sur Done (Terminé).
 9.  Cliquez sur le bouton Lecture (**Play**) pour démarrer le canal de l’encodeur.  
     ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)

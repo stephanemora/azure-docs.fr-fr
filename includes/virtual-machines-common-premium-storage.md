@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 2e8b2753a441b0d7f27745fdf622b26dcee7784a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572118"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246869"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Stockage Premium hautes performances et disques gérés pour machines virtuelles
 
@@ -51,7 +51,7 @@ Voici certaines des fonctionnalités du stockage Premium :
 
 * **Disques de stockage Premium**
 
-    Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique. Le Stockage Premium prend en charge un large éventail de machines virtuelles Azure. Vous avez le choix parmi 8 tailles de disque en disponibilité générale : P4 (32 Gio), P6 (64 Gio), P10 (128 Gio), P15 (256 Gio), P20 (512 Gio), P30 (1 024 Gio), P40 (2 048 Gio), P50 (4 095 Gio). Ainsi que 3 tailles de disques en préversion : P60 de 8 192 Gio (8 Tio), P70 de 16 348 Gio (16 Tio), P80 de 32 767 Gio (32 Tio). Les tailles de disque P4, P6, P15, P60, P70 et P80 ne sont actuellement prises en charge que par Managed Disks. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle. Nous donnons plus de détails sur ces spécifications dans [Objectifs de performance et d’extensibilité du stockage Premium](#scalability-and-performance-targets).
+    Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique. Le Stockage Premium prend en charge un large éventail de machines virtuelles Azure. Dans la version mise à la disposition générale, vous avez le choix entre huit tailles de disques :  P4 (32 Gio), P6 (64 Gio), P10 (128 Gio), P15 (256 Gio), P20 (512 Gio), P30 (1 024 Gio), P40 (2 048 Gio), P50 (4 095 Gio). Sans oublier les trois tailles de disques de la préversion : P60 8 192 Gio (8 Tio), P70 16 348 Gio (16 Tio), P80 32 767 Gio (32 Tio). Les tailles de disque P4, P6, P15, P60, P70 et P80 ne sont actuellement prises en charge que par Managed Disks. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle. Nous donnons plus de détails sur ces spécifications dans [Objectifs de performance et d’extensibilité du stockage Premium](#scalability-and-performance-targets).
 
 * **Objets blob de pages Premium**
 
@@ -67,7 +67,7 @@ Voici certaines des fonctionnalités du stockage Premium :
     - [Azure CLI pour le Stockage Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [L’API REST du fournisseur de ressources de Stockage Azure](https://docs.microsoft.com/rest/api/storagerp) (pour les déploiements Azure Resource Manager) ou l’une des bibliothèques clientes de fournisseur de ressources Azure Storage.
 
-    Pour en savoir plus sur les limites de compte de stockage Premium, consultez [Objectifs de performance et d’extensibilité du stockage Premium](#premium-storage-scalability-and-performance-targets).
+    Pour en savoir plus sur les limites des comptes de stockage Premium, consultez Objectifs de performance et d'extensibilité du stockage Premium.
 
 * **Stockage Premium localement redondant**
 
@@ -149,7 +149,7 @@ Pour plus d’informations, consultez [Objectifs d’extensibilité et de perfor
 Si vous utilisez des comptes de stockage Premium pour des disques non gérés et que votre application dépasse les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez envisager la migration vers des disques gérés. Si vous ne souhaitez pas migrer vers des disques gérés, générez votre application pour utiliser plusieurs comptes de stockage. Ensuite, partitionnez vos données sur ces comptes de stockage. Par exemple, si vous souhaitez attacher des disques de 51 To sur plusieurs machines virtuelles, répartissez-les entre deux comptes de stockage. La limite pour un compte de stockage Premium unique est de 35 To. Vérifiez qu’un compte de stockage Premium n’a jamais plus de 35 To de disques configurés.
 
 ### <a name="premium-storage-disk-limits"></a>Limites des disques de stockage Premium
-Lorsque vous configurez un disque de stockage Premium, la taille du disque détermine la valeur maximale d’E/S par seconde et le débit (bande passante). Azure propose huit types GA de disques de stockage premium : P4 (Managed Disks uniquement), P6 (Managed Disks uniquement), P10, P15 (Managed Disks uniquement), P20, P30, P40 et P50. Plus trois tailles de disque en préversion : P60, P70 et P80. Chaque type de disque de stockage Premium a des limites d’E/S par seconde et de débit spécifiques. Les limites pour ces types de disques sont décrites dans le tableau suivant :
+Lorsque vous configurez un disque de stockage Premium, la taille du disque détermine la valeur maximale d’E/S par seconde et le débit (bande passante). Dans la version mise à la disposition générale, Azure propose huit types de disques de stockage Premium : P4 (Managed Disks uniquement), P6 (Managed Disks uniquement), P10, P15 (Managed Disks uniquement), P20, P30, P40 et P50. La préversion propose également trois tailles de disques : P60, P70 et P80. Chaque type de disque de stockage Premium a des limites d’E/S par seconde et de débit spécifiques. Les limites pour ces types de disques sont décrites dans le tableau suivant :
 
 Les tailles signalées par un astérisque sont actuellement en préversion.
 
@@ -160,7 +160,7 @@ Les tailles signalées par un astérisque sont actuellement en préversion.
 | Débit par disque | 25 Mo par seconde | 50 Mo par seconde | 100 Mo par seconde | 125 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde | 480 Mo par seconde | 750 Mo par seconde | 750 Mo par seconde |
 
 > [!NOTE]
-> Assurez-vous que suffisamment de bande passante soit disponible sur votre machine virtuelle pour le trafic du disque, comme décrit dans [Machines virtuelles prises en charge par le stockage Premium](#premium-storage-supported-vms). Dans le cas contraire, votre débit de disque et les E/S par seconde sont limités à des valeurs moindres. Le débit maximal et les E/S par seconde sont basés sur les limites de la machine virtuelle, pas sur les limites du disque décrites dans le tableau précédent.  
+> Assurez-vous que suffisamment de bande passante soit disponible sur votre machine virtuelle pour le trafic du disque, comme décrit dans [Machines virtuelles prises en charge par le stockage Premium](). Dans le cas contraire, votre débit de disque et les E/S par seconde sont limités à des valeurs moindres. Le débit maximal et les E/S par seconde sont basés sur les limites de la machine virtuelle, pas sur les limites du disque décrites dans le tableau précédent.  
 > Azure a conçu une plate-forme Premium Storage hautement parallèle. Concevoir une application multi-thread vous aide à atteindre la cible de hautes performances proposée sur les tailles de disque supérieures.
 
 Voici quelques éléments importants à connaître sur les objectifs de performances et d’extensibilité du stockage Premium :
@@ -294,7 +294,7 @@ Les considérations de facturation suivantes s’appliquent lorsque vous utilise
 
 * **Taille de disque de stockage Premium et de l’objet blob**
 
-    La facturation pour un disque de stockage Premium ou un objet blob dépend de la taille configurée du disque ou de l’objet blob. Azure mappe la taille configurée (arrondie à la valeur supérieure) à l’option de disque de stockage Premium la plus proche. Pour plus d’informations, consultez le tableau dans [Objectifs de performance et d’extensibilité du stockage Premium](#premium-storage-scalability-and-performance-targets). Chaque disque mappe sur une taille de disque configurée prise en charge et est facturé en conséquence. La facturation de n’importe quel disque configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous configurez un disque P10 et le supprimez au bout de 20 heures, vous êtes facturé 20 heures pour l'offre P10. Le montant facturé est indépendant de la quantité de données écrites sur le disque ou de la quantité de débit et E/S par seconde utilisés.
+    La facturation pour un disque de stockage Premium ou un objet blob dépend de la taille configurée du disque ou de l’objet blob. Azure mappe la taille configurée (arrondie à la valeur supérieure) à l’option de disque de stockage Premium la plus proche. Pour plus d’informations, consultez le tableau dans [Objectifs de performance et d’extensibilité du stockage Premium](). Chaque disque mappe sur une taille de disque configurée prise en charge et est facturé en conséquence. La facturation de n’importe quel disque configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous configurez un disque P10 et le supprimez au bout de 20 heures, vous êtes facturé 20 heures pour l'offre P10. Le montant facturé est indépendant de la quantité de données écrites sur le disque ou de la quantité de débit et E/S par seconde utilisés.
 
 * **Captures instantanées de disques non gérés Premium**
 

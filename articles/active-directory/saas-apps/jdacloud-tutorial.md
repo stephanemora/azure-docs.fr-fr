@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec JDA Cloud | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à JDA Cloud | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et JDA Cloud.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 371ff15121e3da0bec5be6159fea9c6764b0aeda
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f2dfaf281130115ff04ff84b413e224f54cfcf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703371"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168338"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutoriel : Intégration d’Azure Active Directory avec JDA Cloud
+# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutoriel : Intégration d'Azure Active Directory à JDA Cloud
 
 Dans ce tutoriel, vous allez apprendre à intégrer JDA Cloud avec Azure Active Directory (Azure AD).
 
@@ -170,7 +171,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="create-a-jda-cloud-test-user"></a>Créer un utilisateur de test JDA Cloud
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans JDA Cloud. Collaborez avec l’[équipe de support technique de JDA Cloud](https://support.jda.com/) pour ajouter les utilisateurs dans la plateforme JDA Cloud. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans JDA Cloud. Travaillez en collaboration avec l' [équipe du support technique de JDA Cloud](https://support.jda.com/)  pour ajouter des utilisateurs à la plateforme JDA Cloud. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

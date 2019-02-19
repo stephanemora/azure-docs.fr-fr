@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: fe7d3956c1a5ead55acd8605086668e20e85e1d2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496072"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001695"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Guide pratique : préparer un modèle au déploiement dans Azure Machine Learning Studio
 
@@ -22,7 +22,7 @@ Azure Machine Learning Studio vous donne les outils nécessaires pour développe
 
 Pour cela, vous utiliserez Studio afin de créer une expérience, appelée *expérience de formation*, dans laquelle vous entraînerez, évaluerez et modifierez votre modèle. Une fois satisfait, vous préparerez votre modèle au déploiement en convertissant votre expérience de formation en une *expérience prédictive* configurée pour évaluer les données utilisateur.
 
-Vous pouvez voir un exemple de ce processus dans [Procédure pas à pas : Développer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Vous pouvez voir un exemple de ce processus dans [Tutoriel 1 : Prédire le risque de crédit](tutorial-part1-credit-risk.md).
 
 Cet article étudie en détail la façon dont une expérience de formation est convertie en une expérience prédictive et dont cette expérimentation prédictive est déployée. Ces informations vous permettront d’apprendre à configurer votre modèle déployé de façon à le rendre plus efficace.
 

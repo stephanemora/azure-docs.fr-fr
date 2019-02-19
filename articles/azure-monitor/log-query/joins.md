@@ -1,6 +1,6 @@
 ---
-title: Jointures dans des requêtes Azure Log Analytics | Microsoft Docs
-description: Cet article inclut une leçon sur l’utilisation de jointures dans le langage de requête Log Analytics.
+title: Utilisation de jointures dans les requêtes de journal Azure Monitor | Microsoft Docs
+description: Cet article comprend une leçon sur l'utilisation de jointures dans les requêtes de journal Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c1f578c11fff963ee4bec47bd3737cd224b14720
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884863"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004638"
 ---
-# <a name="joins-in-log-analytics-queries"></a>Jointures dans des requêtes Log Analytics
+# <a name="joins-in-azure-monitor-log-queries"></a>Utilisation de jointures dans les requêtes de journal Azure Monitor
 
 > [!NOTE]
-> Vous devez suivre [Bien démarrer avec le portail Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes](get-started-queries.md) avant d’effectuer cette leçon.
+> Vous devez terminer [Bien démarrer avec Azure Monitor Log Analytics](get-started-portal.md) et [Requêtes de journal Azure Monitor](get-started-queries.md) avant de suivre cette leçon.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -95,7 +95,7 @@ Spécifiez le type de jointure avec l’argument _kind_. Chaque type effectue un
 | leftsemi | Les enregistrements du côté gauche ayant des correspondance du côté droit sont inclus dans les résultats. La table de résultats comporte uniquement les colonnes de la table de gauche. |
 
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 Tenez compte des points suivants pour optimiser les performances :
 
@@ -105,7 +105,7 @@ Tenez compte des points suivants pour optimiser les performances :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez d’autres leçons pour l’utilisation du langage de requête Log Analytics :
+Reportez-vous à d'autres leçons pour utiliser des requêtes de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Fonctions d’agrégation](aggregations.md)

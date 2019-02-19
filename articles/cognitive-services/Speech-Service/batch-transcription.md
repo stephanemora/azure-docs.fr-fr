@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: La transcription Batch est idéale si vous souhaitez transcrire une grande quantité de données audio stockées dans des objets blob Azure, par exemple. Avec l’API REST dédiée, vous pouvez pointer vers des fichiers audio à l’aide d’un URI de signature d’accès partagé (SAS) et recevoir les transcriptions de manière asynchrone.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: bf89180ea98473d2da3495286396a12c6f25288f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228659"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867118"
 ---
 # <a name="why-use-batch-transcription"></a>Pourquoi utiliser la transcription Batch ?
 
@@ -49,7 +49,7 @@ L’API de transcription Batch prend en charge les formats suivants :
 > [!NOTE]
 > L’API de transcription Batch exige une clé S0 (niveau payant). Elle ne fonctionne pas avec une clé gratuite (f0).
 
-Dans le cas des flux audio stéréo, l’API de transcription Batch divise les canaux gauche et droit lors de la transcription. Elle crée deux fichiers JSON contenant le résultat relatif à chacun de ces deux canaux. Les timestamps par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement. L’exemple JSON suivant montre la sortie d’un canal, notamment les propriétés pour configurer le filtre d’obscénités et le modèle de ponctuation.
+Dans le cas des flux audio stéréo, l’API de transcription Batch divise les canaux gauche et droit lors de la transcription. Elle crée deux fichiers JSON contenant le résultat relatif à chacun de ces deux canaux. Les timestamps par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement. Le fichier JSON suivant présente un exemple de requête, avec les propriétés permettant de configurer le filtre d'obscénités, le modèle de ponctuation et les horodatages au niveau des mots.
 
 ```json
 {
@@ -60,7 +60,8 @@ Dans le cas des flux audio stéréo, l’API de transcription Batch divise les c
   "description": "An optional description of the transcription.",
   "properties": {
     "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic"
+    "PunctuationMode": "DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True"
   },
 ```
 
@@ -208,7 +209,7 @@ Pour l’instant, le seul stockage pris en charge est le Stockage Blob Azure.
 Vous trouverez l’exemple dans cet article sur [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Généralement, le temps nécessaire à l’exécution d’une transcription audio correspond à la durée du fichier audio plus un laps de temps supplémentaire de 2 à 3 minutes.
+> Nous ne fournissons pas de Contrat de niveau de service temporel pour les transcriptions audio par lots. Cela dit, une fois le travail de transcription déclenché (état En cours d'exécution), il est généralement traité plus rapidement qu'en temps réel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

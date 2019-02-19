@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: a4e115194d7e903edae4b4713c4f65eef9895cbf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9009e898b00212dba4dec9bf38af2bfa057b8ea
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467116"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244604"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Transférer des données avec AzCopy v10 (préversion)
 
@@ -54,8 +54,11 @@ AzCopy v10 ne nécessite pas d’installation. Ouvrez l’application de ligne d
 ## <a name="authentication-options"></a>Options d’authentification
 
 AzCopy v10 vous permet d’utiliser les options suivantes pour l’authentification auprès de Stockage Azure :
-- **Azure Active Directory [pris en charge sur les objets Blob et ADLS Gen2]**. Utilisez ```.\azcopy login``` pour vous connecter à l’aide d’Azure Active Directory.  L’utilisateur doit disposer du [rôle « Contributeur aux données Blob du stockage »](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) pour écrire dans Stockage Blob à l’aide de l’authentification Azure Active Directory.
-- **Jetons SAS [pris en charge sur les objets Blob et ADLS Gen2]**. Ajoutez le jeton SAS au chemin d’accès de l’objet blob sur la ligne de commande pour pouvoir l’utiliser. Vous pouvez générer un jeton SAP à l’aide du portail Azure, de [l’Explorateur Stockage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), de [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) ou d’autres outils de votre choix. Pour plus d’informations, consultez les [exemples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Azure Active Directory [pris en charge pour les services Blob et ADLS Gen2]**. Utilisez ```.\azcopy login``` pour vous connecter à l’aide d’Azure Active Directory.  L’utilisateur doit disposer du [rôle « Contributeur aux données Blob du stockage »](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) pour écrire dans Stockage Blob à l’aide de l’authentification Azure Active Directory.
+- **Jetons SAS [pris en charge pour les services Blob et Files]**. Ajoutez le jeton SAS au chemin d’accès de l’objet blob sur la ligne de commande pour pouvoir l’utiliser. Vous pouvez générer un jeton SAP à l’aide du portail Azure, de [l’Explorateur Stockage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), de [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) ou d’autres outils de votre choix. Pour plus d’informations, consultez les [exemples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+
+> [!IMPORTANT]
+> Lorsque vous adressez une demande d'assistance au Support Microsoft (ou que vous résolvez un problème impliquant un tiers), partagez la version expurgée de la commande que vous essayez d'exécuter pour vous assurer que le SAS n'a pas été accidentellement partagé avec quelqu'un. Vous trouverez la version expurgée au début du fichier journal. Pour plus d'informations, consultez la section Résolution des problèmes plus loin dans cet article.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -206,11 +209,33 @@ set AZCOPY_CONCURRENCY_VALUE=<value>
 export AZCOPY_CONCURRENCY_VALUE=<value>
 # For MacOS
 export AZCOPY_CONCURRENCY_VALUE=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
 ```
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-AzCopy v10 crée des fichiers journaux et des fichiers de plan pour tous les travaux. Vous pouvez utiliser les journaux pour examiner et résoudre les problèmes potentiels. Les journaux contiennent l’état de la défaillance (UPLOADFAILED, COPYFAILED et DOWNLOADFAILED), le chemin complet et la raison de la défaillance. Les journaux des travaux et les fichiers de plan se trouvent dans le dossier %USERPROFILE\\.azcopy.
+AzCopy v10 crée des fichiers journaux et des fichiers de plan pour tous les travaux. Vous pouvez utiliser les journaux pour examiner et résoudre les problèmes potentiels. Les journaux contiennent l’état de la défaillance (UPLOADFAILED, COPYFAILED et DOWNLOADFAILED), le chemin complet et la raison de la défaillance. Les journaux des travaux et les fichiers de plan se trouvent dans le dossier %USERPROFILE\\.azcopy sous Windows et dans le dossier $HOME\\.azcopy sous Mac et Linux.
+
+> [!IMPORTANT]
+> Lorsque vous adressez une demande d'assistance au Support Microsoft (ou que vous résolvez un problème impliquant un tiers), partagez la version expurgée de la commande que vous essayez d'exécuter pour vous assurer que le SAS n'a pas été accidentellement partagé avec quelqu'un. Vous trouverez la version expurgée au début du fichier journal.
+
+### <a name="change-the-location-of-the-log-files"></a>Changer l'emplacement des fichiers journaux
+
+Si nécessaire, ou pour éviter de saturer le disque du système d'exploitation, vous pouvez changer l'emplacement des fichiers journaux.
+
+```cmd
+# For Windows:
+set AZCOPY_LOG_LOCATION=<value>
+# For Linux:
+export AZCOPY_LOG_LOCATION=<value>
+# For MacOS
+export AZCOPY_LOG_LOCATION=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
+```
 
 ### <a name="review-the-logs-for-errors"></a>Passer en revue les journaux pour détecter la présence d’erreurs
 

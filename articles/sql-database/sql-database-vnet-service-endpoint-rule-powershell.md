@@ -1,5 +1,5 @@
 ---
-title: PowerShell pour points de terminaison de service de réseau virtuel et règles dans Azure SQL | Microsoft Docs
+title: PowerShell pour points de terminaison de réseau virtuel et règles relatives aux bases de données uniques et regroupées dans Azure SQL| Microsoft Docs
 description: Fournit des scripts PowerShell pour créer et gérer des points de terminaison de service virtuel pour Azure SQL Database et SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/11/2019
+ms.openlocfilehash: b30240620e3a8d3dea1849e895ec021c96fc11c6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566175"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117610"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell :  Créer un point de terminaison de service virtuel et une règle de réseau virtuel pour SQL
 
-Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) prennent tous deux en charge les points de terminaison de service virtuel.
+Les *règles de réseau virtuel* constituent une fonctionnalité de sécurité du pare-feu. Elles permettent de déterminer si le serveur de vos bases de données uniques et de votre pool élastique Azure [SQL Database](sql-database-technical-overview.md), ou de vos bases de données [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md), doit accepter les communications provenant de sous-réseaux spécifiques de réseaux virtuels.
 
-> [!NOTE]
-> Cet article s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. Cet article ne s’applique *pas* à **Azure SQL Database Managed Instance** car vous n’avez aucun point de terminaison de service associé à un sous-réseau Managed Instance.
+> [!IMPORTANT]
+> Cet article s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. Cet article ne s'applique *pas* au déploiement d'une **instance gérée** dans Azure SQL Database car aucun point de terminaison de service ne lui est associé.
 
 Cet article présente et décrit un script PowerShell qui effectue les actions suivantes :
 

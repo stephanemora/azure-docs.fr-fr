@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/15/2019
-ms.openlocfilehash: edc6e651c3ec352115e360e50f98a3e36cd287c0
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/11/2019
+ms.openlocfilehash: 39a7f7ce6660016f00e36c5f6619eba2fa461023
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904078"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993161"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>État des scénarios de migration pris en charge par Azure Database Migration Service
 Azure Database Migration Service est conçu pour prendre en charge plusieurs scénarios de migration (paires source/cible), aussi bien pour le mode hors connexion (migration ponctuelle) que le mode en ligne (synchronisation continue). Azure Database Migration Service couvre de plus en plus de scénarios au fil du temps. De nouveaux scénarios sont régulièrement ajoutés. Cet article identifie les scénarios de migration qui sont actuellement pris en charge par Azure Database Migration Service et l’état de chaque scénario (préversion privée [ou limitée], préversion publique ou disposition générale).
@@ -25,7 +25,7 @@ Azure Database Migration Service est conçu pour prendre en charge plusieurs sc�
 Lorsque vous migrez des bases de données vers Azure à l’aide d’Azure Database Migration Service, vous pouvez opter pour une migration hors connexion ou en ligne. Avec les migrations *hors connexion*, les temps d’arrêt de l’application commencent en même temps que la migration. Avec les migrations *en ligne*, les interruptions sont limitées au temps qui est nécessaire pour basculer vers le nouvel environnement une fois la migration terminée. Nous vous recommandons de tester une migration hors connexion pour déterminer si le temps d’arrêt est acceptable ; dans le cas contraire, privilégiez une migration en ligne.
 
 ## <a name="migration-scenario-status"></a>État du scénario de migration
-L’état de chaque scénario de migration pris en charge par Azure Database Migration Service varie dans le temps. En général, les scénarios sont d’abord mis en production sous forme de **préversion privée**. Afin de tirer parti de la fonctionnalité, le client doit envoyer une proposition par le biais du [site DMS Preview](https://aka.ms/dms-preview). Au terme de la préversion privée, le scénario passe à l’état de **préversion publique**. Tous les utilisateurs Azure Database Migration Service peuvent bénéficier des scénarios de migration disponibles en préversion publique. Toutefois, il se peut que le scénario de migration ne soit pas disponible dans toutes les régions et que la fonctionnalité subisse des modifications supplémentaires avant sa version finale. Lorsqu’un scénario de migration est mis **à disposition générale** (c’est-à-dire qu’il atteint son état final et qu’il est publié), la fonctionnalité est terminée et elle est mise à disposition de tous les utilisateurs Azure Database Migration Service. 
+L’état de chaque scénario de migration pris en charge par Azure Database Migration Service varie dans le temps. En général, les scénarios sont d'abord mis en production sous forme de **préversion privée**. Afin de tirer parti de la fonctionnalité, le client doit envoyer une proposition par le biais du [site DMS Preview](https://aka.ms/dms-preview). Au terme de la préversion privée, le scénario passe à l’état de **préversion publique**. Tous les utilisateurs Azure Database Migration Service peuvent bénéficier des scénarios de migration disponibles en préversion publique. Toutefois, il se peut que le scénario de migration ne soit pas disponible dans toutes les régions et que la fonctionnalité subisse des modifications supplémentaires avant sa version finale. Lorsqu'un scénario de migration est mis **à disposition générale** (c'est-à-dire lorsqu'il atteint son état final et qu'il est publié), la fonctionnalité est terminée et elle est mise à disposition de tous les utilisateurs Azure Database Migration Service. 
 
 ## <a name="migration-scenario-support"></a>Prise en charge du scénario de migration
 
@@ -50,7 +50,7 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | **Azure Cosmos DB**  | MongoDB | ✔ |
 | **Base de données Azure pour MySQL**  | MySQL |  |
 |   | RDS MySQL  |  |
-| **Base de données Azure pour PostgresSQL**  | PostgreSQL |  |
+| **Base de données Azure pour PostgreSQL**  | PostgreSQL |  |
 |  | RDS PostgreSQL  |  |
 
 ### <a name="online-continuous-sync-migration-support"></a>Prise en charge de la migration en ligne (synchronisation continue)
@@ -69,7 +69,7 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | **Azure Cosmos DB**  | MongoDB  | ✔ |
 | **Base de données Azure pour MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
-| **Base de données Azure pour PostgresSQL**  | PostgreSQL | ✔ |
+| **Base de données Azure pour PostgreSQL**  | PostgreSQL | ✔ |
 |  | RDS PostgreSQL  | ✔ |
 
 ## <a name="next-steps"></a>Étapes suivantes

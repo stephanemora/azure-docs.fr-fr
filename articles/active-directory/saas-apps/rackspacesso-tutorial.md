@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Rackspace SSO | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Rackspace SSO | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Rackspace SSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: jeedes
-ms.openlocfilehash: b825fb1d7f56aae923f6760c4fd6384e03274b7a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 24864fd1e21efaf37f846fc95b9dae39ffb19e5f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042055"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186831"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Rackspace SSO
+# <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Didacticiel : Intégration d'Azure Active Directory à Rackspace SSO
 
 Dans ce didacticiel, vous allez apprendre à intégrer Rackspace SSO à Azure Active Directory (Azure AD).
 

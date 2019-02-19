@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ec61b179627702af7f2c4bc0fc0989230f5eca84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885794"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001970"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consommer des données d’analyse à partir d’Azure
 
 Sur la plateforme Azure, nous rassemblons les données d’analyse dans un emplacement unique avec le pipeline Azure Monitor, mais sachez qu’aujourd'hui les données d’analyse ne sont pas encore toutes disponibles dans ce pipeline. Dans cet article, nous résumons les différentes façons dont vous pouvez accéder par programme aux données d’analyse à partir des services Azure.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="options-for-data-consumption"></a>Options pour la consommation de données
 
@@ -40,7 +42,7 @@ Sur la plateforme Azure, nous rassemblons les données d’analyse dans un empla
 | Alertes de métrique Azure Monitor | Notifications | [Consulter la liste ici](metrics-supported.md) | <ul><li>**Webhook :** [alertes de métrique Azure](alerts-webhooks.md)</li></ul> |
 | Alertes Journal d’activité Azure Monitor | Notifications | Tous les services Azure | <ul><li>**Webhook :** alertes de journal d’activité Azure</li></ul> |
 | Notifications de mise à l’échelle automatique | Notifications | [Consulter la liste ici](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook :** [schéma de la charge utile du webhook de notification de mise à l’échelle automatique](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Alertes Requête de recherche dans les journaux | Notifications | Log Analytics | <ul><li>**Webhook :** [action webhook pour les règles d’alerte de journal](alerts-log-webhook.md)</li></ul> |
+| Alertes Requête de recherche dans les journaux | Notifications | Journaux Azure Monitor | <ul><li>**Webhook :** [action webhook pour les règles d’alerte de journal](alerts-log-webhook.md)</li></ul> |
 | Alertes de métrique Application Insights | Notifications | Application Insights | <ul><li>**Webhook :** [alertes Application Insights](../../azure-monitor/app/alerts.md)</li></ul> |
 | Tests web Application Insights | Notifications | Application Insights | <ul><li>**Webhook :** [alertes Application Insights](../../azure-monitor/app/alerts.md)</li></ul> |
 

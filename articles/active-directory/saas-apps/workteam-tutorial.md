@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Workteam | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Workteam | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workteam.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d6ca6395e4f5e1aca361c56e21afc4e6bd1fc0c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6a1022ce74fd5514b274f498a4d4f764393e6428
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132383"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185772"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Didacticiel : Intégration d’Azure Active Directory avec Workteam
+# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Didacticiel : Intégration d'Azure Active Directory à Workteam
 
 Dans ce didacticiel, vous allez apprendre à intégrer Workteam à Azure Active Directory (Azure AD).
 
@@ -145,7 +146,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     c. Dans la zone de texte **SAML Entity ID** (ID d’entité SAML), collez la valeur de **l’ID d’entité SAML** que vous avez copiée à partir du Portail Azure.
 
-    d. Dans le Bloc-notes, ouvrez le **certificat codé en base 64** téléchargé à partir du Portail Azure, copiez son contenu, puis collez-le dans la zone **SAML Signing Certificate (Base64)** (Certificat de signature SAML (Base64)).
+    d. Dans le Bloc-notes, ouvrez le **certificat codé en base 64** que vous avez téléchargé à partir du Portail Azure, copiez son contenu, puis collez-le dans la zone **Certificat de signature SAML (Base64)** .
 
     e. Cliquez sur **OK**.
 

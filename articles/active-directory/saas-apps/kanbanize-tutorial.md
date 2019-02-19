@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Kanbanize | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à Kanbanize | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kanbanize.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 746eaadcdb9a588087367c4c70237922cf0f14bf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 22c136225e5a8526afd482e5ef8400198947422f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057831"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199678"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Tutoriel : Intégration d’Azure Active Directory à Kanbanize
+# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Didacticiel : Intégration d'Azure Active Directory à Kanbanize
 
 Dans ce tutoriel, vous allez apprendre à intégrer Kanbanize à Azure Active Directory (Azure AD).
 
@@ -168,7 +169,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!Note]
     > Vous pouvez obtenir ces valeurs en associant les valeurs de l’espace de noms et du nom de l’attribut, situées dans la section Attributs utilisateur du portail Azure.
 
-    g. Dans le Bloc-notes, ouvrez le certificat codé en base 64 téléchargé dans le portail Azure, copiez son contenu (sans les marques de début et de fin), puis collez-le dans la zone **Idp X.509 Certificate** (Certificat X.509 du fournisseur d’identité).
+    g. Dans le Bloc-notes, ouvrez le certificat codé en base 64 que vous avez téléchargé sur le portail Azure, copiez son contenu (sans les marques de début et de fin), puis collez-le dans la zone  **Certificat X.509 du fournisseur d'identité** .
 
     h. Cochez l’option **Enable login with both SSO and Kanbanize** (Permettre la connexion avec SSO et Kanbanize).
     
@@ -211,7 +212,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Kanbanize. Kanbanize prend en charge le provisionnement juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. Lorsque vous tentez d’accéder à Kanbanize, si aucun utilisateur n’existe, Kanbanize en crée un automatiquement.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe du support technique Kanbanize](mailto:support@ms.kanbanize.com).
+>Si vous devez créer un utilisateur manuellement, contactez l' [équipe du support technique de Kanbanize](mailto:support@ms.kanbanize.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

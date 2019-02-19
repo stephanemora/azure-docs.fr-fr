@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: mialdrid
+ms.date: 02/11/2019
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0415c329364f8df312667e725f3c5376ea13a6f4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098096"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100735"
 ---
 # <a name="about-expressroute-direct-preview"></a>À propos d’ExpressRoute Direct (préversion)
 
@@ -58,7 +58,7 @@ Dans la plupart des scénarios, la fonctionnalité se comporte comme des circuit
 
 ## <a name="circuit-skus"></a>Références SKU de circuit
 
-ExpressRoute Direct prend en charge des scénarios d’ingestion massive de données dans le Stockage Azure et d’autres services de Big Data. Désormais, les circuits ExpressRoute sur ExpressRoute Direct prennent également en charge les références SKU de circuit **40 Gbit/s** et **100 Gbit/s**.
+ExpressRoute Direct prend en charge des scénarios d’ingestion massive de données dans le Stockage Azure et d’autres services de Big Data. Désormais, les circuits ExpressRoute sur ExpressRoute Direct prennent également en charge les références SKU de circuit **40 Gbit/s** et **100 Gbit/s**. La bande passante des paires de ports physiques est de **100 Gbits/s** uniquement, et ils peuvent disposer de plusieurs circuits virtuels avec des bandes passantes de 5 Gbits/s, 10 Gbits/s, 40 Gbits/s, 100 Gbits/s - jusqu'à 200 Gbits/s quelle que soit leur combinaison. 
 
 ## <a name="vlan-tagging"></a>Balisage VLAN
 

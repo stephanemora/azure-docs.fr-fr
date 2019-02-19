@@ -12,47 +12,47 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 115be0ad1b7dec44f036f6d50c2ac30ceba37ba7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 17774ea74c2462cb5b8a9dfe638b3dec02499d81
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457086"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999162"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : Forum Aux Questions (FAQ)
 
 ## <a name="configuration-problems"></a>Problèmes de configuration
 *J’ai des difficultés à configurer :*
 
-* [Application .NET](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
-* [Analyse d’une application déjà en cours d’exécution](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)
+* [Application .NET](asp-net-troubleshoot-no-data.md)
+* [Analyse d’une application déjà en cours d’exécution](monitor-performance-live-website-now.md#troubleshoot)
 * [Diagnostics Azure](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Applications web Java](../../azure-monitor/app/java-troubleshoot.md)
+* [Applications web Java](java-troubleshoot.md)
 
 *Je ne reçois aucune donnée de mon serveur*
 
-* [Définir les exceptions de pare-feu](../../azure-monitor/app/ip-addresses.md)
-* [Configurer un serveur ASP.NET](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Configurer un serveur Java](../../azure-monitor/app/java-agent.md)
+* [Définir les exceptions de pare-feu](ip-addresses.md)
+* [Configurer un serveur ASP.NET](monitor-performance-live-website-now.md)
+* [Configurer un serveur Java](java-agent.md)
 
 ## <a name="can-i-use-application-insights-with-"></a>Puis-je utiliser Application Insights avec... ?
 
-* [Applications web sur un serveur IIS - en local ou sur une machine virtuelle](../../azure-monitor/app/asp-net.md)
-* [Applications web Java](../../azure-monitor/app/java-get-started.md)
-* [Applications Node.js](../../azure-monitor/app/nodejs.md)
-* [Applications web sur Azure](../../azure-monitor/app/azure-web-apps.md)
-* [Services cloud sur Azure](../../azure-monitor/app/cloudservices.md)
-* [Serveurs d’applications exécutés dans Docker](../../azure-monitor/app/docker.md)
-* [Applications web d’une seule page](../../azure-monitor/app/javascript.md)
+* [Applications web sur un serveur IIS - en local ou sur une machine virtuelle](asp-net.md)
+* [Applications web Java](java-get-started.md)
+* [Applications Node.js](nodejs.md)
+* [Applications web sur Azure](azure-web-apps.md)
+* [Services cloud sur Azure](cloudservices.md)
+* [Serveurs d’applications exécutés dans Docker](docker.md)
+* [Applications web d’une seule page](javascript.md)
 * [SharePoint](sharepoint.md)
-* [Applications de bureau Windows](../../azure-monitor/app/windows-desktop.md)
-* [autres plateformes](../../azure-monitor/app/platforms.md)
+* [Applications de bureau Windows](windows-desktop.md)
+* [autres plateformes](platforms.md)
 
 ## <a name="is-it-free"></a>Est-ce gratuit ?
 
 Oui, pour une utilisation expérimentale. Dans le plan de tarification de base, votre application peut envoyer un certain quota de données chaque mois sans frais. Le quota gratuit est suffisamment grand pour couvrir le développement et la publication d’une application pour un petit nombre d’utilisateurs. Vous pouvez définir un plafond pour empêcher le traitement des données au-delà d’un certain seuil.
 
-Les grands volumes de télémétrie sont facturés au Go. Nous vous offrons quelques conseils sur la façon de [limiter vos frais](../../azure-monitor/app/pricing.md).
+Les grands volumes de télémétrie sont facturés au Go. Nous vous offrons quelques conseils sur la façon de [limiter vos frais](pricing.md).
 
 Le plan Entreprise implique un coût journalier pour chaque nœud de serveur web qui envoie des données de télémétrie. Il est adapté si vous souhaitez utiliser l’exportation continue à grande échelle.
 
@@ -86,7 +86,7 @@ Cela dépend du type de projet. Pour une application web :
 * (Nouveaux projets uniquement - si vous [ajoutez Application Insights à un projet existant][start], vous devez le faire manuellement). Insère des extraits de code dans le code du client et du serveur, afin de les initialiser avec l'ID de la ressource Application Insights. Par exemple, dans une application MVC, le code est inséré dans la page maître Views/Shared/_Layout.cshtml.
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Comment mettre à niveau à partir d'anciennes versions du Kit de développement logiciel (SDK) ?
-Consultez les [notes de publication](../../azure-monitor/app/release-notes.md) du Kit de développement logiciel (SDK) adapté à votre type d'application.
+Consultez les [notes de publication](release-notes.md) du Kit de développement logiciel (SDK) adapté à votre type d'application.
 
 ## <a name="update"></a>Comment puis-je changer la ressource Azure à laquelle mon projet envoie des données ?
 Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `ApplicationInsights.config` , puis sélectionnez **Mettre à jour Application Insights**. Vous pouvez envoyer les données à une ressource existante ou à une nouvelle ressource dans Azure. L'Assistant Mise à jour modifie la clé d'instrumentation dans ApplicationInsights.config, qui détermine où le Kit de développement logiciel (SDK) du serveur envoie vos données. Cela modifie également la clé où de l'affichage dans vos pages web, sauf si vous désactivez l'option « Tout mettre à jour ».
@@ -95,33 +95,33 @@ Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `Application
 
 Une application de bureau que vous pouvez utiliser dans votre serveur web IIS pour faciliter la configuration d’Application Insights dans les applications web. Cette application ne collecte pas de données de télémétrie : vous pouvez l’arrêter lorsque vous ne configurez pas une application. 
 
-[Plus d’informations](../../azure-monitor/app/monitor-performance-live-website-now.md#questions)
+[Plus d’informations](monitor-performance-live-website-now.md#questions)
 
 ## <a name="what-telemetry-is-collected-by-application-insights"></a>Quelles sont les données de télémétrie recueillies par Application Insights ?
 
 À partir d’applications web serveur :
 
 * Requêtes HTTP
-* [Dépendances](../../azure-monitor/app/asp-net-dependencies.md). Appels passés aux instances SQL Database ; appels HTTP vers des services externes ; Azure Cosmos DB, table, stockage d’objets blob et file d’attente. 
-* [Exceptions](../../azure-monitor/app/asp-net-exceptions.md) et arborescences des appels de procédure.
-* [Compteurs de performances](../../azure-monitor/app/performance-counters.md) : si vous utilisez [Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md), [Supervision Azure](../../azure-monitor/app/azure-web-apps.md) ou le [writer collectd d’Application Insights](../../azure-monitor/app/java-collectd.md).
-* [Événements et mesures personnalisés](../../azure-monitor/app/api-custom-events-metrics.md) que vous codez.
-* [Journaux de suivi](../../azure-monitor/app/asp-net-trace-logs.md) si vous configurez le collecteur approprié.
+* [Dépendances](asp-net-dependencies.md). Appels passés aux instances SQL Database ; appels HTTP vers des services externes ; Azure Cosmos DB, table, stockage d’objets blob et file d’attente. 
+* [Exceptions](asp-net-exceptions.md) et arborescences des appels de procédure.
+* [Compteurs de performances](performance-counters.md) : si vous utilisez [Status Monitor](monitor-performance-live-website-now.md), [Supervision Azure](azure-web-apps.md) ou le [writer collectd d’Application Insights](java-collectd.md).
+* [Événements et mesures personnalisés](api-custom-events-metrics.md) que vous codez.
+* [Journaux de suivi](asp-net-trace-logs.md) si vous configurez le collecteur approprié.
 
-À partir des [ pages web client](../../azure-monitor/app/javascript.md) :
+À partir des [ pages web client](javascript.md) :
 
 * [Nombre de pages consultées](usage-overview.md)
-* [Appels AJAX](../../azure-monitor/app/asp-net-dependencies.md). Requêtes transmises à partir d’un script en cours d’exécution.
+* [Appels AJAX](asp-net-dependencies.md). Requêtes transmises à partir d’un script en cours d’exécution.
 * Données relatives au chargement de pages
 * Nombre de sessions et d’utilisateurs
-* [ID des utilisateurs authentifiés](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)
+* [ID des utilisateurs authentifiés](api-custom-events-metrics.md#authenticated-users)
 
 À partir d’autres sources, si vous les configurez :
 
-* [Diagnostics Azure](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Importer vers Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
-* [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
-* [Logstash](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
+* [Diagnostics Azure](../platform/diagnostics-extension-to-application-insights.md)
+* [Importer vers Analytics](../platform/data-collector-api.md)
+* [Log Analytics](../platform/data-collector-api.md)
+* [Logstash](../platform/data-collector-api.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Puis-je filtrer ou modifier des données de télémétrie ?
 
@@ -130,7 +130,7 @@ Oui, dans le serveur, vous pouvez écrire :
 * Un processeur de télémétrie, pour filtrer ou ajouter des propriétés aux éléments de télémétrie sélectionnés avant de les envoyer à partir de votre application.
 * Un initialiseur de télémétrie, pour ajouter des propriétés à tous les éléments de télémétrie.
 
-En savoir plus pour [ASP.NET](../../azure-monitor/app/api-filtering-sampling.md) ou [Java](../../azure-monitor/app/java-filter-telemetry.md).
+En savoir plus pour [ASP.NET](api-filtering-sampling.md) ou [Java](java-filter-telemetry.md).
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Comment sont calculées les données relative à la ville, au pays et aux autres emplacements géographiques ?
 
@@ -141,7 +141,7 @@ Nous recherchons l’adresse IP (IPv4 ou IPv6) du client web à l’aide de [Geo
 
 Vous pouvez configurer le `ClientIpHeaderTelemetryInitializer` pour récupérer l’adresse IP à partir d’un autre en-tête. Dans certains systèmes, par exemple, elle est déplacée vers `X-Originating-IP` par un proxy, un équilibreur de charge ou un CDN. [Plus d’informations](https://apmtips.com/blog/2016/07/05/client-ip-address/)
 
-Vous pouvez [utiliser Power BI](../../azure-monitor/app/export-power-bi.md ) pour afficher les données de télémétrie de votre requête sur une carte.
+Vous pouvez [utiliser Power BI](export-power-bi.md ) pour afficher les données de télémétrie de votre requête sur une carte.
 
 
 ## <a name="data"></a>Combien de temps les données sont-elles conservées dans le portail ? Sont-elles sécurisées ?
@@ -149,7 +149,7 @@ Voir [Rétention de données et confidentialité][data].
 
 ## <a name="could-personal-data-be-sent-in-the-telemetry"></a>Est-ce que des informations personnelles peuvent être envoyées dans les données de télémétrie ?
 
-Cela est possible si votre code envoie ce type de données. Cela peut également se produire si les variables dans les arborescences des appels de procédure incluent des données personnelles. Votre équipe de développement doit mener une évaluation des risques afin de s’assurer que les données personnelles sont correctement gérées. [En savoir plus sur la rétention et la confidentialité des données](../../azure-monitor/app/data-retention-privacy.md).
+Cela est possible si votre code envoie ce type de données. Cela peut également se produire si les variables dans les arborescences des appels de procédure incluent des données personnelles. Votre équipe de développement doit mener une évaluation des risques afin de s’assurer que les données personnelles sont correctement gérées. [En savoir plus sur la rétention et la confidentialité des données](data-retention-privacy.md).
 
 **Tous** les octets de l’adresse web du client ont toujours la valeur 0 lors de la recherche des attributs d’emplacement géographique.
 
@@ -173,35 +173,35 @@ Les données POST ne sont pas automatiquement consignées, mais vous pouvez uti
 Utilisez une ressource unique pour tous les composants ou rôles dans un système métier unique. Utilisez des ressources distinctes pour les versions de développement, de test et de publication, et pour les applications indépendantes.
 
 * [Suivez la discussion ici](separate-resources.md)
-* [Exemple : service cloud avec des rôles web et worker](../../azure-monitor/app/cloudservices.md)
+* [Exemple : service cloud avec des rôles web et worker](cloudservices.md)
 
 ## <a name="how-do-i-dynamically-change-the-instrumentation-key"></a>Comment modifier dynamiquement la clé d’instrumentation ?
 
 * [Discussion ici](separate-resources.md)
-* [Exemple : service cloud avec des rôles web et worker](../../azure-monitor/app/cloudservices.md)
+* [Exemple : service cloud avec des rôles web et worker](cloudservices.md)
 
 ## <a name="what-are-the-user-and-session-counts"></a>Que désignent les nombres d’utilisateurs et de sessions ?
 
 * Le SDK JavaScript définit un cookie utilisateur sur le client web pour identifier les utilisateurs récurrents, ainsi qu’un cookie de session pour regrouper des activités.
 * S’il n’existe aucun script côté client, vous pouvez [définir des cookies sur le serveur](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Si un utilisateur réel utilise votre site dans différents navigateurs, ou s’il utilise une navigation privée ou encore des ordinateurs différents, il sera comptabilisé plusieurs fois.
-* Pour identifier un utilisateur connecté sur différents ordinateurs et navigateurs, ajoutez un appel à [setAuthenticatedUserContext()](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
+* Pour identifier un utilisateur connecté sur différents ordinateurs et navigateurs, ajoutez un appel à [setAuthenticatedUserContext()](api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> Comment savoir si j'ai activé tout ce qu'il faut pour utiliser Application Insights ?
 | Ce qui suit doit s'afficher | Comment y accéder | Utilité |
 | --- | --- | --- |
-| Graphiques de disponibilité |[Tests web](../../azure-monitor/app/monitor-web-app-availability.md) |Savoir si votre application web est active |
-| Performances des applications de serveur (temps de réponse, etc.) |[Ajout d’Application Insights à votre projet](../../azure-monitor/app/asp-net.md) ou [Installation d’AI Status Monitor sur le serveur](../../azure-monitor/app/monitor-performance-live-website-now.md) (ou écrivez votre propre code pour [suivre des dépendances](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)) |Détecter les problèmes de performances |
-| Télémétrie des dépendances |[Installation d’AI Status Monitor sur le serveur](../../azure-monitor/app/monitor-performance-live-website-now.md) |Diagnostiquer les problèmes relatifs à des bases de données ou à d'autres composants externes |
-| Obtention de l'arborescence des appels de procédure à partir des exceptions |[Insertion d’appels TrackException dans votre code](../../azure-monitor/app/asp-net-exceptions.md) (certains d’entre eux sont cependant signalés automatiquement) |Détecter et diagnostiquer les exceptions |
-| Recherche des données de suivi des journaux |[Ajout d’un enregistreur de données](../../azure-monitor/app/asp-net-trace-logs.md) |Diagnostiquer les exceptions et problèmes de performances |
-| Principes fondamentaux d'utilisation des clients (vues de page, sessions, etc.) |[Initialiseur JavaScript dans les pages web](../../azure-monitor/app/javascript.md) |Analyse de l'utilisation |
-| Mesures personnalisées des clients |[Appels de suivi dans les pages web](../../azure-monitor/app/api-custom-events-metrics.md) |Améliorer l'expérience utilisateur |
-| Mesures personnalisées des serveurs |[Appels de suivi dans le serveur](../../azure-monitor/app/api-custom-events-metrics.md) |Décisionnel |
+| Graphiques de disponibilité |[Tests web](monitor-web-app-availability.md) |Savoir si votre application web est active |
+| Performances des applications de serveur (temps de réponse, etc.) |[Ajout d’Application Insights à votre projet](asp-net.md) ou [Installation d’AI Status Monitor sur le serveur](monitor-performance-live-website-now.md) (ou écrivez votre propre code pour [suivre des dépendances](api-custom-events-metrics.md#trackdependency)) |Détecter les problèmes de performances |
+| Télémétrie des dépendances |[Installation d’AI Status Monitor sur le serveur](monitor-performance-live-website-now.md) |Diagnostiquer les problèmes relatifs à des bases de données ou à d'autres composants externes |
+| Obtention de l'arborescence des appels de procédure à partir des exceptions |[Insertion d’appels TrackException dans votre code](asp-net-exceptions.md) (certains d’entre eux sont cependant signalés automatiquement) |Détecter et diagnostiquer les exceptions |
+| Recherche des données de suivi des journaux |[Ajout d’un enregistreur de données](asp-net-trace-logs.md) |Diagnostiquer les exceptions et problèmes de performances |
+| Principes fondamentaux d'utilisation des clients (vues de page, sessions, etc.) |[Initialiseur JavaScript dans les pages web](javascript.md) |Analyse de l'utilisation |
+| Mesures personnalisées des clients |[Appels de suivi dans les pages web](api-custom-events-metrics.md) |Améliorer l'expérience utilisateur |
+| Mesures personnalisées des serveurs |[Appels de suivi dans le serveur](api-custom-events-metrics.md) |Décisionnel |
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Pourquoi les graphiques de recherche et de mesures contiennent-ils des valeurs différentes ?
 
-[L’échantillonnage](../../azure-monitor/app/sampling.md) réduit le nombre d’éléments de télémétrie (demandes, événements personnalisés, etc.) qui sont réellement envoyés à partir de votre application sur le portail. Dans la Recherche, vous pouvez voir le nombre d’éléments réellement reçus. Dans les graphiques de mesure qui affichent un nombre d’événements, vous obtenez le nombre d’événements d’origine qui se sont produits. 
+[L’échantillonnage](sampling.md) réduit le nombre d’éléments de télémétrie (demandes, événements personnalisés, etc.) qui sont réellement envoyés à partir de votre application sur le portail. Dans la Recherche, vous pouvez voir le nombre d’éléments réellement reçus. Dans les graphiques de mesure qui affichent un nombre d’événements, vous obtenez le nombre d’événements d’origine qui se sont produits. 
 
 Chaque élément transmis comporte une propriété `itemCount` qui indique le nombre d’événements d’origine que représente cet élément. Pour observer l’échantillonnage en action, vous pouvez exécuter cette requête dans Analytics :
 
@@ -214,7 +214,7 @@ Chaque élément transmis comporte une propriété `itemCount` qui indique le no
 
 ### <a name="configuring-application-insights"></a>Configuration d'Application Insights
 
-Vous pouvez [écrire des scripts PowerShell](../../azure-monitor/app/powershell.md) à l’aide du moniteur de ressources Azure pour :
+Vous pouvez [écrire des scripts PowerShell](powershell.md) à l’aide du moniteur de ressources Azure pour :
 
 * Créer et mettre à jour des ressources Application Insights.
 * Définir le plan de tarification.
@@ -226,7 +226,7 @@ Vous ne peut pas définir un rapport état Metrics Explorer ou configurer une ex
 
 ### <a name="querying-the-telemetry"></a>Interrogation des données de télémétrie
 
-Utilisez [l’API REST](https://dev.applicationinsights.io/) pour exécuter des requêtes [Analytics](../../azure-monitor/app/analytics.md).
+Utilisez [l’API REST](https://dev.applicationinsights.io/) pour exécuter des requêtes [Analytics](analytics.md).
 
 ## <a name="how-can-i-set-an-alert-on-an-event"></a>Comment puis-je définir une alerte sur un événement ?
 
@@ -241,17 +241,17 @@ Cela ne dépend pas de l’emplacement où est hébergée votre ressource Applic
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Puis-je envoyer des données de télémétrie au portail Application Insights ?
 
-Nous vous recommandons d’utiliser nos Kits de développement logiciel (SDK) et [l’API du Kit SDK](../../azure-monitor/app/api-custom-events-metrics.md). Il existe des variantes du SDK pour les différentes [plateformes](../../azure-monitor/app/platforms.md). Ces kits de développement logiciel gèrent la mise en mémoire tampon, la compression, la limitation, les nouvelles tentatives, etc. Le [schéma d’ingestion](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) et le [protocole de point de terminaison](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sont toutefois publics.
+Nous vous recommandons d’utiliser nos Kits de développement logiciel (SDK) et [l’API du Kit SDK](api-custom-events-metrics.md). Il existe des variantes du SDK pour les différentes [plateformes](platforms.md). Ces kits de développement logiciel gèrent la mise en mémoire tampon, la compression, la limitation, les nouvelles tentatives, etc. Le [schéma d’ingestion](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) et le [protocole de point de terminaison](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sont toutefois publics.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Puis-je surveiller un serveur web intranet ?
 
 Oui, mais vous devez autoriser le trafic vers nos services à l’aide d’exceptions de pare-feu ou de redirections proxy.
-- QuickPulse `rt.services.visualstudio.com:443` 
+- QuickPulse `https://rt.services.visualstudio.com:443` 
 - ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
 - TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
 
-Passez en revue notre liste de services et les adresses IP [ici](../../azure-monitor/app/ip-addresses.md).
+Passez en revue la liste complète des services et adresses IP en cliquant [ici](../../azure-monitor/app/ip-addresses.md).
 
 ### <a name="firewall-exception"></a>Exception de pare-feu
 
@@ -293,9 +293,9 @@ _Remarque : ApplicationIdProvider est disponible à partir de la version 2.6.0_
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Puis-je exécuter des tests web de disponibilité sur un serveur intranet ?
 
-Nos [tests web](../../azure-monitor/app/monitor-web-app-availability.md) s’exécutent sur des points de présence qui sont répartis dans le monde entier. Il existe deux solutions :
+Nos [tests web](monitor-web-app-availability.md) s’exécutent sur des points de présence qui sont répartis dans le monde entier. Il existe deux solutions :
 
-* Pare-feu : autorisez les demandes envoyées à votre serveur parmi [la longue liste modifiable d’agents de test web](../../azure-monitor/app/ip-addresses.md).
+* Pare-feu : autorisez les demandes envoyées à votre serveur parmi [la longue liste modifiable d’agents de test web](ip-addresses.md).
 * Écrivez votre propre code pour envoyer des demandes régulières à votre serveur depuis votre intranet. Vous pouvez exécuter des tests web Visual Studio à cet effet. Le testeur peut envoyer les résultats à Application Insights à l’aide de l’API TrackAvailability().
 
 ## <a name="how-long-does-it-take-for-telemetry-to-be-collected"></a>Combien de temps dure la collecte de données de télémétrie ?
@@ -307,7 +307,7 @@ La plupart des données Application Insights ont une latence de moins de 5 minu
 
 <!--Link references-->
 
-[data]: ../../azure-monitor/app/data-retention-privacy.md
-[platforms]: ../../azure-monitor/app/platforms.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[data]: data-retention-privacy.md
+[platforms]: platforms.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

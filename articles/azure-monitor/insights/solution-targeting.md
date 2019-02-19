@@ -1,6 +1,6 @@
 ---
-title: Ciblage des solutions de gestion dans Azure | Microsoft Docs
-description: Le ciblage des solutions de gestion vous permet de limiter les solutions de gestion à un ensemble spécifique d’agents.  Cet article décrit comment créer une configuration d’étendue et l’appliquer à une solution.
+title: Ciblage des solutions de supervision dans Azure Monitor | Microsoft Docs
+description: Le ciblage des solutions de supervision vous permet de limiter les solutions de supervision à un ensemble spécifique d'agents.  Cet article décrit comment créer une configuration d’étendue et l’appliquer à une solution.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192751"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989183"
 ---
-# <a name="targeting-management-solutions-in-azure-preview"></a>Ciblage des solutions de gestion dans Azure (préversion)
-Quand vous ajoutez une solution de gestion à votre abonnement, elle est déployée automatiquement par défaut sur tous les agents Windows et Linux connectés à votre espace de travail Log Analytics.  Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents.  Cet article explique comment utiliser le **ciblage de solution**, une fonctionnalité qui permet d’appliquer une étendue à vos solutions.
+# <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Ciblage des solutions de supervision dans Azure Monitor (préversion)
+Lorsque vous ajoutez une solution de supervision à votre abonnement, par défaut, celle-ci est automatiquement déployée sur tous les agents Windows et Linux connectés à votre espace de travail Log Analytics.  Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents.  Cet article explique comment utiliser le **ciblage de solution**, une fonctionnalité qui permet d’appliquer une étendue à vos solutions.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="how-to-target-a-solution"></a>Ciblage d’une solution
 Il existe trois étapes au ciblage d’une solution, comme décrit dans les sections suivantes. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Créer un groupe d’ordinateurs
-Vous spécifiez les ordinateurs que vous souhaitez inclure dans une étendue en créant un [groupe d’ordinateurs](../../azure-monitor/platform/computer-groups.md) dans Log Analytics.  Le groupe d’ordinateurs peut être basé sur une recherche dans les journaux ou importé à partir d’autres sources comme les groupes WSUS ou Active Directory. Comme [décrit ci-dessous](#solutions-and-agents-that-cant-be-targeted), seuls les ordinateurs qui sont directement connectés à Log Analytics figurent dans l’étendue.
+Vous spécifiez les ordinateurs que vous souhaitez inclure dans une étendue en créant un [groupe d'ordinateurs](../platform/computer-groups.md) dans Azure Monitor.  Le groupe d'ordinateurs peut être basé sur une requête de journal ou importé à partir d'autres sources comme les groupes WSUS ou Active Directory. Comme [décrit ci-dessous](#solutions-and-agents-that-cant-be-targeted), seuls les ordinateurs qui sont directement connectés à Azure Monitor figurent dans l'étendue.
 
 Une fois que le groupe d’ordinateurs est créé dans votre espace de travail, vous devez l’inclure dans une configuration d’étendue qui peut être appliquée à une ou plusieurs solutions.
  
@@ -38,7 +40,7 @@ Une fois que le groupe d’ordinateurs est créé dans votre espace de travail, 
  
  Créez une configuration d’étendue à l’aide de la procédure suivante.  
 
- 1. Dans le portail Azure, accédez à **Log Analytics** et sélectionnez votre espace de travail.
+ 1. Sur le portail Azure, accédez à **Espaces de travail Log Analytics** et sélectionnez votre espace de travail.
  2. Dans les propriétés de l’espace de travail sous **Sources de données de l’espace de travail**, sélectionnez **Configurations d’étendue**.
  3. Cliquez sur **Ajouter** pour créer une configuration d’étendue.
  4. Entrez un **nom** pour la configuration d’étendue.
@@ -52,7 +54,7 @@ Une fois que vous avez une configuration d’étendue, vous pouvez l’appliquer
 
 Appliquez une configuration d’étendue à l’aide de la procédure suivante.  
 
- 1. Dans le portail Azure, accédez à **Log Analytics** et sélectionnez votre espace de travail.
+ 1. Sur le portail Azure, accédez à **Espaces de travail Log Analytics** et sélectionnez votre espace de travail.
  2. Dans les propriétés de l’espace de travail, sélectionnez **Solutions**.
  3. Cliquez sur la solution à laquelle appliquer une étendue.
  4. Dans les propriétés de la solution sous **Sources de données de l’espace de travail**, sélectionnez **Ciblage de solution**.  Si l’option n’est pas disponible, alors [cette solution ne peut pas être ciblée](#solutions-and-agents-that-cant-be-targeted).
@@ -65,7 +67,7 @@ Voici les critères pour les agents et les solutions qui ne peuvent pas être ut
 
 - Le ciblage de solution s’applique uniquement aux solutions avec déploiement sur les agents.
 - Le ciblage de solution s’applique uniquement aux solutions fournies par Microsoft.  Il ne s’applique pas aux solutions [créées par vous-même ou vos partenaires](solutions-creating.md).
-- Vous pouvez filtrer uniquement les agents qui se connectent directement à Log Analytics.  Les solutions se déploient automatiquement sur les agents (qu’ils soient inclus dans une configuration d’étendue ou non) qui font partie d’un groupe d’administration Operations Manager connecté.
+- Vous pouvez uniquement filtrer les agents qui se connectent directement à Azure Monitor.  Les solutions se déploient automatiquement sur les agents (qu’ils soient inclus dans une configuration d’étendue ou non) qui font partie d’un groupe d’administration Operations Manager connecté.
 
 ### <a name="exceptions"></a>Exceptions
 Le ciblage de solution ne peut pas être utilisé avec les solutions suivantes, même si elles sont conformes aux critères indiqués.
@@ -73,5 +75,5 @@ Le ciblage de solution ne peut pas être utilisé avec les solutions suivantes, 
 - Évaluation de l’intégrité de l’agent
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les solutions de gestion, notamment les solutions qui peuvent être installées dans votre environnement en consultant [Ajout de solutions de gestion Azure Log Analytics dans votre espace de travail](solutions.md).
-- En savoir plus sur la création de groupes d’ordinateurs en consultant [Groupes d’ordinateurs dans la recherche dans les journaux de Log Analytics](../../azure-monitor/platform/computer-groups.md).
+- Découvrez-en plus sur les solutions de supervision, notamment sur les solutions qui peuvent être installées dans votre environnement en consultant [Ajout de solutions de supervision Azure Log Analytics dans votre espace de travail](solutions.md).
+- Découvrez-en plus sur la création de groupes d'ordinateurs en consultant [Groupes d'ordinateurs dans les requêtes de journal Azure Monitor](../platform/computer-groups.md).

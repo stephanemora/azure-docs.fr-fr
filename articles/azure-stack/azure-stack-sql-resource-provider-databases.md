@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: bbb4f72e029a442362b792f3cdb4731e9563687b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6f56cdccd8f4cd690eb149c8f84a562a580325dc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244825"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164343"
 ---
 # <a name="create-sql-databases"></a>Créer des bases de données SQL
 
-Vous pouvez créer et gérer des bases de données libre-service dans le portail utilisateur. Un utilisateur Azure Stack doit disposer d’un abonnement avec une offre incluant le service de base de données SQL.
+Vous pouvez créer et gérer des bases de données libre-service dans le portail utilisateur. Un utilisateur Azure Stack doit disposer d'un abonnement avec une offre incluant le service SQL Database.
 
 1. Connectez-vous au portail utilisateur [Azure Stack](azure-stack-poc.md).
 

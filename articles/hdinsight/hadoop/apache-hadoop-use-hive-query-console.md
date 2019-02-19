@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e638bd348b7a5272dd8bfbe25aa841f38a51b9a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: e568a8b7cfb21483f447b8244056de292e21093f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409698"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169399"
 ---
 # <a name="run-apache-hive-queries-using-the-query-console"></a>Exécution de requêtes Apache Hive à l’aide de la console de requêtes
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -49,8 +49,8 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     Ces instructions effectuent les opérations suivantes :
 
-   * **DROP TABLE** : Supprime la table et le fichier de données, si la table existe déjà.
-   * **CREATE EXTERNAL TABLE** : Crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive ; les données restent à leur emplacement d’origine.
+   * **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
+   * **CREATE EXTERNAL TABLE** : Crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive ; les données restent à leur emplacement d’origine.
 
      > [!NOTE]  
      > Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe (comme un processus de téléchargement de données automatisé) ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
@@ -58,7 +58,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
      > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
      >
      >
-   * **ROW FORMAT** : Indique à Hive la façon dont les données sont mises en forme. Dans ce cas, les champs de chaque journal sont séparés par un espace.
+   * **ROW FORMAT** : indique à Hive la façon dont les données sont mises en forme. Dans ce cas, les champs de chaque journal sont séparés par un espace.
    * **STORED AS TEXTFILE LOCATION** : Indique à Hive où sont stockées les données (répertoire example/data) et qu’elles sont stockées sous forme de texte
    * **SELECT** : Sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande renvoie la valeur **3** , car trois lignes contiennent cette valeur.
    * **INPUT__FILE__NAME LIKE '%.log'** : indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log. Cela limite la recherche au fichier sample.log qui contient les données et l'empêche de renvoyer des données provenant d'autres fichiers d'exemple qui ne correspondent pas au schéma que nous avons défini.
@@ -80,10 +80,7 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 * [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hdinsight-use-pig.md)
 * [Utiliser MapReduce avec Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-Si vous utilisez Tez avec Hive, consultez les documents suivants pour les informations de débogage :
-
-* [Utiliser l’interface utilisateur Apache Tez sur HDInsight Windows](../hdinsight-debug-tez-ui.md)
-* [Utiliser la vue Tez Apache Ambari sur HDInsight Linux](../hdinsight-debug-ambari-tez-view.md)
+Si vous utilisez Tez avec Hive, consultez le document suivant pour accéder aux informations de débogage : [Utiliser la vue Tez Apache Ambari sur HDInsight Linux](../hdinsight-debug-ambari-tez-view.md).
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

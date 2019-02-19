@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2ef37e9661139b0b1d24ddc005df7bf338397803
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163804"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856357"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gérer la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -52,7 +52,18 @@ Les valeurs suivantes sont définies dans l’exemple précédent :
 - **Durée de vie des jetons d’actualisation** : la durée de vie d’un jeton d’actualisation est définie avec l’élément de métadonnées **refresh_token_lifetime_secs**. La valeur par défaut est de 1209600 secondes (14 jours).
 - **Durée de vie de la fenêtre glissante du jeton d’actualisation** : si vous souhaitez définir une durée de vie pour la fenêtre glissante de votre jeton d’actualisation, définissez la valeur de l’élément de métadonnées **rolling_refresh_token_lifetime_secs**. La valeur par défaut est de 7776000 jours (90 jours). Si vous ne souhaitez pas appliquer une durée de vie à la fenêtre glissante, remplacez l’élément par `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
 - **Revendication de l’émetteur (iss)** : la revendication de l’émetteur (iss) est définie avec l’élément de métadonnées **IssuanceClaimPattern**. Les valeurs possibles sont `AuthorityAndTenantGuid` et `AuthorityWithTfp`.
-- **Paramétrage de l’ID de stratégie représentant la revendication** : les options permettant de définir cette valeur sont `TFP` (Trust Framework Policy) et `ACR` (Authentication Context Reference). `TFP` est la valeur recommandée. Définissez **AuthenticationContextReferenceClaimPattern** avec la valeur de `None`. Dans votre élément **OutputClaims**, ajoutez cet élément :
+- **Paramétrage de l’ID de stratégie représentant la revendication** : les options permettant de définir cette valeur sont `TFP` (Trust Framework Policy) et `ACR` (Authentication Context Reference). `TFP` est la valeur recommandée. Définissez **AuthenticationContextReferenceClaimPattern** avec la valeur de `None`. 
+
+    Dans l'élément **ClaimsSchema**, ajoutez l'élément suivant : 
+    
+    ```XML
+    <ClaimType Id="trustFrameworkPolicy">
+      <DisplayName>Trust framework policy name</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    ```
+    
+    Dans votre élément **OutputClaims**, ajoutez l'élément suivant :
     
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />

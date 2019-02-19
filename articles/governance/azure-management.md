@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: f417338205b17c8b949156a6d5a60ef609458fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 504436060a71847641635b12baa63c79c77251e6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088134"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112205"
 ---
 # <a name="management-in-azure"></a>Gestion dans Azure
 
@@ -24,7 +24,7 @@ Le schéma ci-dessous illustre les différents domaines de gestion requis pour m
 
 ![Disciplines de gestion](../monitoring/media/management-overview/management-capabilities.png)
 
-Aucun service Azure ne répond complètement aux exigences d’un domaine de gestion en particulier. Au lieu de cela, chacune est réalisée par plusieurs services fonctionnant ensemble. Certains services, comme Application Insights, fournissent une fonctionnalité de supervision ciblée pour les applications web. D’autres, comme Log Analytics, stockent les données de gestion pour d’autres services. Cette fonctionnalité vous permet d’analyser des données de différents types collectées par différents services.
+Aucun service Azure ne répond complètement aux exigences d’un domaine de gestion en particulier. Au lieu de cela, chacune est réalisée par plusieurs services fonctionnant ensemble. Certains services, comme Application Insights, fournissent une fonctionnalité de supervision ciblée pour les applications web. D'autres, comme les journaux Azure Monitor, stockent les données de gestion pour d'autres services. Cette fonctionnalité vous permet d’analyser des données de différents types collectées par différents services.
 
 Les sections suivantes décrivent en bref les différents domaines de gestion et contiennent des liens vers du contenu détaillé sur les principaux services Azure destinés à répondre à ces besoins.
 

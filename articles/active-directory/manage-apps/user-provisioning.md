@@ -3,8 +3,8 @@ title: Attribution automatique des utilisateurs dans les applications SaaS dans 
 description: Cette introduction explique comment utiliser Azure AD pour approvisionner, annuler l’approvisionnement et mettre à jour de façon continue des comptes d’utilisateurs dans diverses applications SaaS tierces.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/30/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: a4fc037ed566905133f59163ef99d5e107ca4bcc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3e8b099f845df66dfe8c43bc6f968fd63b30d09d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190919"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186350"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
 
@@ -39,7 +40,7 @@ Azure Active Directory (Azure AD) vous permet d’automatiser la création, la m
 
 * Possibilité de faire correspondre des identités existantes entre les systèmes source et cible
 * Des mappages d’attributs personnalisables qui définissent les données utilisateurs qui doivent circuler entre le système source et le système cible
-* Des alertes par e-mail facultatives pour les erreurs d’approvisionnement
+* Alertes par courrier électronique pour les erreurs d’approvisionnement
 * Création de rapports et journaux d’activité pour faciliter la surveillance et la résolution des problèmes
 
 ## <a name="why-use-automated-provisioning"></a>Pourquoi utiliser l’approvisionnement automatique ?
@@ -47,7 +48,7 @@ Azure Active Directory (Azure AD) vous permet d’automatiser la création, la m
 Voici les principales raisons pour utiliser cette fonctionnalité :
 
 * Réduction des coûts, des inefficacités et des erreurs humaines associés aux processus d’approvisionnement manuel
-* Élimination des coûts liés à l’hébergement et à la gestion de scripts et de solutions d’approvisionnement personnalisées
+* Élimination des coûts liés à l'hébergement et à la gestion de scripts et de solutions d'approvisionnement personnalisés
 * Sécurisation de votre organisation en supprimant instantanément les identités des utilisateurs des applications SaaS lorsqu’ils quittent l’organisation
 * Importation facile de nombreux utilisateurs dans un système ou une application SaaS spécifique
 * Disposer d’un ensemble unique de stratégies pour déterminer qui est approvisionné et qui peut se connecter à une application
@@ -107,7 +108,7 @@ Dans l’écran de gestion des applications, la configuration de l’approvision
 
 ![Paramètres](./media/user-provisioning/provisioning_settings1.PNG)
 
-* Les **filtres d’étendue** indiquent au service d’approvisionnement les utilisateurs et groupes du système source à provisionner ou à déprovisionner dans le système cible. Deux aspects des filtres d’étendue sont évalués ensemble pour déterminer qui est concerné par l’approvisionnement :
+* Les **filtres d'étendue** indiquent au service d'approvisionnement quels utilisateurs et groupes du système source doivent être approvisionnés ou désapprovisionnés sur le système cible. Deux aspects des filtres d’étendue sont évalués ensemble pour déterminer qui est concerné par l’approvisionnement :
 
     * **Filter on attribute values** (Filtrer sur les valeurs d’attribut) : le menu Source Object Scope (Portée de l’objet source) dans les mappages d’attributs permet de filtrer sur des valeurs d’attribut spécifiques. Par exemple, vous pouvez spécifier que seuls les utilisateurs dont l’attribut « Service » est défini sur « Ventes » seront concernés par l’approvisionnement. Pour plus d’informations, consultez [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -214,13 +215,13 @@ Pour la configuration **Synchroniser l’utilisateur et les groupes affectés un
     
 Résumé des facteurs qui influencent le temps nécessaire pour terminer une **synchronisation initiale**  :
 
-* Le nombre total d’utilisateurs et groupes dans l’étendue pour l’approvisionnement
+* Nombre total d'utilisateurs et de groupes concernés par l'approvisionnement.
 
-* Le nombre total d’utilisateurs, groupes et membres du groupe présents dans le système source (Azure AD)
+* Nombre total d'utilisateurs, de groupes et de membres de groupe présents dans le système source (Azure AD).
 
 * Si les utilisateurs dans l’étendue pour l’approvisionnement sont mis en correspondance ou non avec des utilisateurs existants dans l’application cible, ou doivent être créés la première fois. Les travaux de synchronisation pour lesquels tous les utilisateurs sont créés pour la première fois prennent environ *deux fois plus* de temps que les travaux de synchronisation pour lesquels tous les utilisateurs sont mis en correspondance avec des utilisateurs existants.
 
-* Nombre d’erreurs dans les [journaux d’audit](check-status-user-account-provisioning.md). Les performances sont ralenties s’il existe de nombreuses erreurs et si le service d’approvisionnement est passé à l’état de quarantaine 
+* Nombre d’erreurs dans les [journaux d’audit](check-status-user-account-provisioning.md). Les performances sont ralenties s'il y a beaucoup d'erreurs et que le service d'approvisionnement est passé en quarantaine.    
 
 * Limites de taux de requêtes et limitation implémentées par le système cible. Certains systèmes cible implémentent des limites de taux de requêtes et une limitation qui peuvent affecter les performances lors d’opérations de synchronisation de grande envergure. Dans ces conditions, une application qui reçoit trop rapidement un trop grand nombre de requêtes risque d’afficher un taux de réponse plus faible ou d’interrompre la connexion. Pour améliorer les performances, le connecteur doit ajuster ce taux en évitant d’envoyer les requêtes d’application plus rapidement que ce que l’application est capable de traiter. Les connecteurs d’approvisionnement intégrés à Microsoft permettent d’effectuer cet ajustement. 
 

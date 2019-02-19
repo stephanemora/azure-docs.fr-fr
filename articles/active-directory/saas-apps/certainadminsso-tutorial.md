@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Certain Admin SSO | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à Certain Admin SSO | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Certain Admin SSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 40bdba8e7ce699f0fd6ca589c753f51b550fae05
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7d85e8dbac47bd41c759e9c225df5544c659cc05
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439451"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205526"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Tutoriel : Intégration d’Azure Active Directory avec Certain Admin SSO
+# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Tutoriel : Intégration d'Azure Active Directory à Certain Admin SSO
 
 Dans ce tutoriel, vous allez apprendre à intégrer Certain Admin SSO avec Azure Active Directory (Azure AD).
 
@@ -162,7 +163,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-certain-admin-sso-test-user"></a>Créer un utilisateur de test Certain Admin SSO
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Certain Admin SSO. Travaillez en collaboration avec [l’équipe de support de Certain Admin SSO](mailto:integrations@certain.com) pour ajouter des utilisateurs à la plateforme Certain Admin SSO. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Certain Admin SSO. Travaillez en collaboration avec l' [équipe du support technique de Certain Admin SSO](mailto:integrations@certain.com) pour ajouter des utilisateurs à la plateforme Certain Admin SSO. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

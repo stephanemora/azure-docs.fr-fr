@@ -11,20 +11,24 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: e2159e7cc59830c3d0d10f1c5b9697ab5b45b666
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/06/2019
+ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824928"
+ms.locfileid: "55875601"
 ---
 # <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Machine Learning Services (avec R) dans Azure SQL Database (préversion)
 
 Machine Learning Services est une fonctionnalité d’Azure SQL Database pour l’exécution de scripts R dans les bases de données. La fonctionnalité inclut les packages Microsoft R pour l’analyse prédictive haute performance et le machine learning. Les données relationnelles peuvent être utilisées dans des scripts R au moyen de procédures stockées, de scripts T-SQL contenant des instructions R ou de code R contenant T-SQL.
 
-> [!NOTE]
-> Machine Learning Services (avec R) dans Azure SQL Database est actuellement en préversion publique. [Inscrivez-vous à la préversion](#signup) ci-après.
+> [!IMPORTANT]
+> Dans Azure SQL Database, la fonctionnalité Machine Learning Services (avec R) est actuellement disponible en préversion publique pour les bases de données uniques et pour les pools élastiques qui utilisent le modèle d'achat vCore aux niveaux de service **Usage général** et **Critique pour l'entreprise**. Dans cette préversion publique initiale, le niveau de service **Hyperscale** et l'option de déploiement **Instance gérée** ne sont pas pris en charge. Actuellement, R est le seul langage pris en charge. Il n’existe aucune prise en charge de Python pour l’instant. 
+>
+> Cette préversion est actuellement disponible dans les régions suivantes : Europe Ouest, Europe Nord, USA Ouest 2, USA Est, USA Centre Sud, USA Centre Nord, Canada Centre, Asie Sud-Est, Inde Sud et Australie Sud-Est. 
+>
+> [Inscrivez-vous à la préversion](#signup) ci-après.
 
 ## <a name="what-you-can-do-with-r"></a>Fonctionnalités de R
 
@@ -56,14 +60,10 @@ Pour vous inscrire à la préversion publique, procédez comme suit :
 
 Une fois que vous êtes inscrit dans le programme, Microsoft vous intègre à la préversion publique et active R à votre base de données existante ou nouvelle.
 
-Les Machine Learning Services (avec R) dans SQL Database sont actuellement disponibles uniquement dans le modèle d’achat vCore des niveaux de service **General Purpose** (Usage général) et **Business Critical** (Critique pour l’entreprise) pour les options de déploiement autonome et de pool élastique. Dans cette préversion publique initiale, le niveau de service **Hyperscale** et le déploiement **Managed Instance** ne sont pas pris en charge.
-
-Actuellement, R est le seul langage pris en charge. Il n’existe aucune prise en charge de Python pour l’instant. Cette préversion est initialement disponible dans les régions suivantes : Europe Ouest, Europe Nord, USA Ouest 2, USA Est, USA Centre Sud, USA Centre Nord, Canada Centre, Asie Sud-Est, Inde Sud et Australie Sud-Est. Des régions supplémentaires seront ajoutées ultérieurement.
-
 N’utilisez pas Machine Learning Services avec R pour des charges de travail de production avec la préversion publique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Prenez connaissance des [différences principales de Machine Learning SQL Services dans SQL Server](sql-database-machine-learning-services-differences.md).
 - Pour apprendre à utiliser Machine Learning Services (avec R) dans Azure SQL Database, consultez le [Guide de démarrage rapide](sql-database-connect-query-r.md).
-- En savoir plus avec les [didacticiels du langage R avec SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sql-server-r-tutorials)
+- Pour plus d’informations, voir [Tutoriels du langage R avec SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sql-server-r-tutorials).

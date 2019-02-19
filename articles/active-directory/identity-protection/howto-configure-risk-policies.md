@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: f9ffbebee06ab7b9e010c7e6c84fee533611fb38
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567653"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197536"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procédure : Configurer les stratégies en matière de risque dans Azure Active Directory Identity Protection (version actualisée)
 
@@ -81,7 +82,7 @@ Toutefois, pour des raisons de sécurité, ce paramètre s’applique uniquement
 
 Si vous souhaitez exiger l’authentification multifacteur pour les connexions à risque, vous devez :
 
-1. Activer la [stratégie d’inscription à l’authentification multifacteur](#multi-factor-authentication-registration-policy) pour les utilisateurs concernés, et
+1. Activer la stratégie d'inscription à l'authentification multifacteur pour les utilisateurs concernés, et
 
 2. Demander aux utilisateurs concernés de se connecter à une session ne présentant aucun risque pour s’inscrire à une authentification MFA.
 

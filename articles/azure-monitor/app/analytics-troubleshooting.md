@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2016
+ms.date: 02/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecf0638aa999208331603ac30ccf4eb17b3c4500
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189930"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960681"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Dépannage d’Analytics dans Application Insights
 Des problèmes avec [Application Insights Analytics](analytics.md)? Démarrer ici. Analytics est le puissant outil de recherche d’Azure Application Insights.
@@ -34,9 +34,9 @@ Désactivez l’extension ou utilisez un autre navigateur.
 ## <a name="e-a"></a> « Erreur inattendue »
 ![Ecran Erreur inattendue](media/analytics-troubleshooting/010.png)
 
-Une erreur interne s’est produite lors de l’exécution du portail � exception non gérée.
+Une erreur interne s'est produite lors de l'exception non prise en charge du runtime du portail.
 
-* Nettoyez le cache du navigateur. 
+* Nettoyez le cache du navigateur.
 
 ## <a name="e-b"></a>403... essayez de recharger
 ![403... essayez de recharger](media/analytics-troubleshooting/020.png)
@@ -71,7 +71,7 @@ Une erreur d’authentification s’est produite (lors de l’authentification o
 ## <a name="e-d"></a>404 ... Ressource introuvable
 ![404... ressource introuvable](media/analytics-troubleshooting/040.png)
 
-Une ressource d’application a été supprimée d’Application Insights et n� est plus disponible. Cela peut se produire si vous avez enregistré l’URL dans la page Analytics.
+Une ressource d'application a été supprimée d'Application Insights et n'est plus disponible. Cela peut se produire si vous avez enregistré l’URL dans la page Analytics.
 
 ## <a name="e-e"></a>403 ... Aucune autorisation
 ![403... non autorisé](media/analytics-troubleshooting/050.png)

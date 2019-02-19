@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4adadf4951ffbb31a354284340a3716b194d864d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9ea62d731cf0c16c17f3c2e4f3e1954661289934
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219275"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245539"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 Le [cycle de vie du développement d’une base de connaissances](../Concepts/development-lifecycle-knowledge-base.md) vous guide de bout en bout sur la façon de gérer votre base de connaissances. Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
@@ -74,7 +74,7 @@ Les [questions alternatives](../How-To/edit-knowledge-base.md) augmentent la pro
 Les [métadonnées](../How-To/edit-knowledge-base.md) vous permettent aussi de réduire le nombre des résultats d’une requête utilisateur grâce aux balises de métadonnées. La réponse de la base de connaissances peut varier en fonction du mot clé de métadonnées, même si la requête est la même. Par exemple, dans le cas d’une chaîne de restaurants, la question *« Où se trouve le parking ? »* peut donner une réponse diffère en fonction du lieu du restaurant (ici, les métadonnées sont *Location: Seattle* versus *Location: Redmond*).
 
 ### <a name="use-synonyms"></a>Utiliser des synonymes
-Les synonymes en langue anglaise sont pris en charge. Utilisez des [variantes de mots](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes doivent être ajoutés au niveau du service QnA Maker et être partagés par toutes les bases de connaissances du service.
+Les synonymes en langue anglaise sont pris en charge. Utilisez des [variantes de mots](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) (sans respect de la casse) afin d'ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes doivent être ajoutés au niveau du service QnA Maker et être partagés par toutes les bases de connaissances du service.
 
 |Mot d’origine|Synonymes|
 |--|--|

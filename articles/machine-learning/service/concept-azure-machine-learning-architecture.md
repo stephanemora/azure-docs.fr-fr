@@ -11,16 +11,16 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 751a1dc84f81b388a1fffb82cc3dfbc4996eed1f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1b2934ceb402dab5e9cf98e7e0a53b1b438c66a8
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249627"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111847"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Voici comment Azure Machine Learning service fonctionne : Architecture et concepts
 
-Cet article décrit l’architecture et les concepts du service Azure Machine Learning. Le diagramme suivant représente les principaux composants du service et illustre le workflow général lors de l’utilisation du service : 
+Cet article décrit l’architecture et les concepts du service Azure Machine Learning. Le diagramme suivant représente les principaux composants du service et illustre le workflow général lors de l’utilisation du service :
 
 [![Architecture et workflow du service Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
@@ -32,7 +32,7 @@ Le workflow suit généralement cette séquence :
 1. **Interrogez cette expérience** pour obtenir les métriques journalisées relatives aux exécutions actuelles et passées. Si les métriques ne montrent pas le résultat souhaité, retournez à l’étape 1, puis itérez vos scripts.
 1. Une fois qu’une exécution satisfaisante est trouvée, inscrivez le modèle persistant dans le **registre de modèles**.
 1. Développez un script de scoring.
-1. **Créez une image** et inscrivez-la dans le **registre d’images**. 
+1. **Créez une image** et inscrivez-la dans le **registre d’images**.
 1. **Déployez l’image** comme un **service web** dans Azure.
 
 
@@ -61,11 +61,17 @@ Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement 
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) : Stocke les secrets qui sont utilisés par les cibles de calcul, ainsi que d’autres informations sensibles dont a besoin l’espace de travail.
 
 > [!NOTE]
-> En plus de créer de nouvelles versions, vous pouvez utiliser les services Azure existants. 
+> En plus de créer de nouvelles versions, vous pouvez utiliser les services Azure existants.
 
 Le diagramme suivant représente une taxonomie de l’espace de travail :
 
 [![Taxonomie de l’espace de travail](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+
+## <a name="experiment"></a>Expérience
+
+Une expérience est un regroupement d’exécutions provenant d’un script spécifié. Elle appartient toujours à un espace de travail. Lorsque vous envoyez une exécution, vous fournissez un nom pour l’expérience. Les informations concernant l’exécution sont stockées sous cette expérience. Si vous envoyez une exécution et spécifiez un nom d’expérience qui n’existe pas, une nouvelle expérience portant ce nom nouvellement spécifié est automatiquement créée.
+
+Pour obtenir un exemple de l’utilisation d’une expérience, consultez le [Guide de démarrage rapide : Prise en main d’Azure Machine Learning service](quickstart-get-started.md).
 
 ## <a name="model"></a>Modèle
 
@@ -79,7 +85,7 @@ Pour obtenir un exemple de l’apprentissage d’un modèle, consultez le [Guide
 
 ### <a name="model-registry"></a>Registre de modèles
 
-Le registre de modèles garde une trace de tous les modèles de l’espace de travail correspondant au service Azure Machine Learning. 
+Le registre de modèles garde une trace de tous les modèles de l’espace de travail correspondant au service Azure Machine Learning.
 
 Les modèles sont identifiés par leur nom et par leur version. Chaque fois que vous inscrivez un modèle portant le même nom qu’un modèle existant, le registre suppose qu’il s’agit d’une nouvelle version. La version est incrémentée et le nouveau modèle est inscrit sous le même nom.
 
@@ -88,6 +94,83 @@ Lorsque vous inscrivez le modèle, vous pouvez fournir des étiquettes de métad
 Vous ne pouvez pas supprimer les modèles qui sont utilisés par une image.
 
 Pour obtenir un exemple d’inscription de modèle, consultez [Entraîner un modèle de classification d’images avec Azure Machine Learning](tutorial-train-models-with-aml.md).
+
+## <a name="run-configuration"></a>Configuration de série de tests
+
+Une configuration d’exécution est un ensemble d’instructions qui définit la façon dont un script doit être exécuté dans une cible de calcul spécifiée. La spécification comprend un vaste ensemble de définitions de comportement, par exemple, s’il faut utiliser un environnement Python existant ou utiliser un environnement Conda créé à partir des spécifications.
+
+Une configuration d’exécution peut être rendue persistante dans un fichier du répertoire qui contient votre script d’entraînement, ou peut être construite comme un objet en mémoire et utilisée pour envoyer une exécution.
+
+Pour obtenir des exemples de configurations d’exécutions, consultez [Sélectionner et utiliser une cible de calcul pour entraîner votre modèle](how-to-set-up-training-targets.md).
+
+## <a name="datastore"></a>Magasin de données
+
+Un magasin de données est une abstraction de stockage d’un compte de stockage Azure. Le magasin de données peut utiliser un conteneur d’objets blob Azure ou un partage de fichiers Azure en tant que stockage backend. Chaque espace de travail comprend un magasin de données par défaut, et peut inscrire des magasins de données supplémentaires.
+
+Utilisez l’API du SDK Python ou l’interface CLI Azure Machine Learning pour stocker et récupérer des fichiers à partir du magasin de données.
+
+## <a name="compute-target"></a>Cible de calcul
+
+Une cible de calcul est une ressource de calcul que vous utilisez pour exécuter votre script de formation ou pour héberger votre déploiement de service. Les cibles de calcul prises en charge sont les suivantes :
+
+| Cible de calcul | Formation | Déploiement |
+| ---- |:----:|:----:|
+| Votre ordinateur local | ✓ | &nbsp; |
+| Capacité de calcul Azure Machine Learning | ✓ | &nbsp; |
+| Une machine virtuelle Linux dans Azure</br>(par exemple Data Science Virtual Machine) | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Service Analytique Azure Data Lake | ✓ | &nbsp; |
+| Apache Spark pour HDInsight | ✓ | &nbsp; |
+| Azure Container Instances | &nbsp; | ✓ |
+| Azure Kubernetes Service | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Projet Brainwave</br>(Field programmable gate array) | &nbsp; | ✓ |
+
+Les cibles de calcul sont attachées à un espace de travail. Les cibles de calcul autres que l’ordinateur local sont partagées par les utilisateurs de l’espace de travail.
+
+### <a name="managed-and-unmanaged-compute-targets"></a>Cibles de calcul managées et non managées
+
+* **Managées** : Cibles de calcul qui sont créées et managées par le service Azure Machine Learning. Ces cibles de calcul sont optimisées pour les charges de travail Machine Learning. À l’heure actuelle, la capacité de calcul Azure Machine Learning est la seule cible de calcul managée à partir du 4 décembre 2018. Il se peut que d’autres cibles de calcul managées soient ajoutées à l’avenir.
+
+    Vous pouvez créer des instances de capacité de calcul ML directement via l’espace de travail à l’aide du Portail Azure, du SDK Azure Machine Learning ou d’Azure CLI. Toutes les autres cibles de calcul doivent être créées hors de l’espace de travail avant d’y être jointes.
+
+* **Non managées** : Les cibles de calcul ne sont *pas* managées par Azure Machine Learning service. Il se peut que vous deviez les créer hors d’Azure Machine Learning, puis les joindre à votre espace de travail avant utilisation. Il se peut que des étapes supplémentaires soient requises pour ces cibles de calcul non managées afin de maintenir ou d’améliorer les performances des charges de travail Machine Learning.
+
+Pour plus d’informations sur la sélection d’une cible de calcul pour l’entraînement, consultez [Sélectionner et utiliser une cible de calcul pour entraîner votre modèle](how-to-set-up-training-targets.md).
+
+Pour plus d’informations sur la sélection d’une cible de calcul pour le déploiement, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md).
+
+## <a name="training-script"></a>Script d’entraînement
+
+Pour entraîner un modèle, vous devez spécifier le répertoire qui contient le script d’entraînement et les fichiers associés. Vous pouvez également spécifier un nom pour l’expérience, qui est utilisée pour stocker les informations qui sont collectées au cours de l’entraînement. Pendant l’entraînement, l’intégralité du répertoire est copiée dans l’environnement d’entraînement (la cible de calcul) et le script qui est spécifié par la configuration d’exécution est démarré. Un instantané du répertoire est également stocké sous l’expérience, dans l’espace de travail.
+
+Pour en voir un exemple, consultez [Créer un espace de travail avec Python](quickstart-get-started.md).
+
+## <a name="run"></a>Exécuter
+
+Une exécution est un enregistrement qui contient les informations suivantes :
+
+* Les métadonnées relatives à l’exécution (horodatage, durée, et ainsi de suite)
+* Les métriques qui sont journalisées par votre script
+* Les fichiers de sortie qui sont collectés automatiquement par l’expérience ou chargés explicitement par l’utilisateur
+* Un instantané du répertoire qui contient vos scripts, avant l’exécution
+
+Vous déclenchez une exécution lorsque vous envoyez un script pour entraîner un modèle. Une exécution peut avoir zéro, une ou plusieurs exécutions enfants. Par exemple, l’exécution de niveau supérieur peut avoir deux exécutions enfants, et chacune d’elles peut avoir sa propre exécution enfant.
+
+Pour obtenir un exemple de l’affichage des exécutions qui sont produites par l’apprentissage d’un modèle, consultez le [Guide de démarrage rapide : Prise en main d’Azure Machine Learning service](quickstart-get-started.md).
+
+## <a name="snapshot"></a>Instantané
+
+Lorsque vous envoyez une exécution, Azure Machine Learning compresse le répertoire qui contient le script dans un fichier zip, puis l’envoie à la cible de calcul. Le fichier zip est ensuite décompressé, et le script y est exécuté. Azure Machine Learning stocke également le fichier zip en tant qu’instantané dans l’enregistrement d’exécution. Toute personne ayant accès à l’espace de travail peut parcourir un enregistrement d’exécution et télécharger l’instantané.
+
+## <a name="activity"></a>Activité
+
+Une activité représente une opération de longue durée. Les opérations suivantes sont des exemples d’activités :
+
+* Création ou suppression d’une cible de calcul
+* Exécution d’un script sur une cible de calcul
+
+Les activités peuvent envoyer des notifications via le SDK ou l’interface utilisateur web, ce qui vous permet de superviser facilement la progression de ces opérations.
 
 ## <a name="image"></a>Image
 
@@ -110,7 +193,7 @@ Le registre d’images effectue le suivi des images qui sont créées à partir 
 
 ## <a name="deployment"></a>Déploiement
 
-Un déploiement est une instanciation de votre image soit dans un service web pouvant être hébergé dans le cloud, soit dans un module IoT pour les déploiements d’appareils intégrés. 
+Un déploiement est une instanciation de votre image soit dans un service web pouvant être hébergé dans le cloud, soit dans un module IoT pour les déploiements d’appareils intégrés.
 
 ### <a name="web-service"></a>Service Web
 
@@ -124,36 +207,11 @@ Pour obtenir un exemple de déploiement de modèle en tant que service, consulte
 
 ### <a name="iot-module"></a>Module IoT
 
-Un module IoT déployé est un conteneur Docker qui inclut votre modèle, ainsi que le script ou l’application associés et toutes les dépendances supplémentaires. Vous déployez ces modules à l’aide d’Azure IoT Edge sur les périphériques de périmètre. 
+Un module IoT déployé est un conteneur Docker qui inclut votre modèle, ainsi que le script ou l’application associés et toutes les dépendances supplémentaires. Vous déployez ces modules à l’aide d’Azure IoT Edge sur les périphériques de périmètre.
 
 Si vous avez activé la supervision, Azure collecte les données de télémétrie à partir du modèle qui se trouve dans le module Azure IoT Edge. Vous seul pouvez accéder aux données de télémétrie qui sont stockées dans votre instance de compte de stockage.
 
 Azure IoT Edge garantit l’exécution de votre module et supervise l’appareil qui l’héberge.
-
-## <a name="datastore"></a>Magasin de données
-
-Un magasin de données est une abstraction de stockage d’un compte de stockage Azure. Le magasin de données peut utiliser un conteneur d’objets blob Azure ou un partage de fichiers Azure en tant que stockage backend. Chaque espace de travail comprend un magasin de données par défaut, et peut inscrire des magasins de données supplémentaires. 
-
-Utilisez l’API du SDK Python ou l’interface CLI Azure Machine Learning pour stocker et récupérer des fichiers à partir du magasin de données. 
-
-## <a name="run"></a>Exécuter
-
-Une exécution est un enregistrement qui contient les informations suivantes :
-
-* Les métadonnées relatives à l’exécution (horodatage, durée, et ainsi de suite)
-* Les métriques qui sont journalisées par votre script
-* Les fichiers de sortie qui sont collectés automatiquement par l’expérience ou chargés explicitement par l’utilisateur
-* Un instantané du répertoire qui contient vos scripts, avant l’exécution
-
-Vous déclenchez une exécution lorsque vous envoyez un script pour entraîner un modèle. Une exécution peut avoir zéro, une ou plusieurs exécutions enfants. Par exemple, l’exécution de niveau supérieur peut avoir deux exécutions enfants, et chacune d’elles peut avoir sa propre exécution enfant.
-
-Pour obtenir un exemple de l’affichage des exécutions qui sont produites par l’apprentissage d’un modèle, consultez le [Guide de démarrage rapide : Prise en main d’Azure Machine Learning service](quickstart-get-started.md).
-
-## <a name="experiment"></a>Expérience
-
-Une expérience est un regroupement d’exécutions provenant d’un script spécifié. Elle appartient toujours à un espace de travail. Lorsque vous envoyez une exécution, vous fournissez un nom pour l’expérience. Les informations concernant l’exécution sont stockées sous cette expérience. Si vous envoyez une exécution et spécifiez un nom d’expérience qui n’existe pas, une nouvelle expérience portant ce nom nouvellement spécifié est automatiquement créée.
-
-Pour obtenir un exemple de l’utilisation d’une expérience, consultez le [Guide de démarrage rapide : Prise en main d’Azure Machine Learning service](quickstart-get-started.md).
 
 ## <a name="pipeline"></a>Pipeline
 
@@ -161,67 +219,9 @@ Vous utilisez des pipelines de machine learning pour créer et gérer des flux d
 
 Pour plus d’informations sur les pipelines Machine Learning disposant de ce service, consultez [Pipelines et Azure Machine Learning](concept-ml-pipelines.md).
 
-## <a name="compute-target"></a>Cible de calcul
-
-Une cible de calcul est une ressource de calcul que vous utilisez pour exécuter votre script de formation ou pour héberger votre déploiement de service. Les cibles de calcul prises en charge sont les suivantes : 
-
-| Cible de calcul | Formation | Déploiement |
-| ---- |:----:|:----:|
-| Votre ordinateur local | ✓ | &nbsp; |
-| Capacité de calcul Azure Machine Learning | ✓ | &nbsp; |
-| Une machine virtuelle Linux dans Azure</br>(par exemple Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; | &nbsp; |
-| Service Analytique Azure Data Lake | ✓ | &nbsp; |
-| Apache Spark pour HDInsight | ✓ | &nbsp; |
-| Azure Container Instances | &nbsp; | ✓ |
-| Azure Kubernetes Service | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| Projet Brainwave</br>(Field programmable gate array) | &nbsp; | ✓ |
-
-Les cibles de calcul sont attachées à un espace de travail. Les cibles de calcul autres que l’ordinateur local sont partagées par les utilisateurs de l’espace de travail.
-
-### <a name="managed-and-unmanaged-compute-targets"></a>Cibles de calcul managées et non managées
-
-* **Managées** : Cibles de calcul qui sont créées et managées par le service Azure Machine Learning. Ces cibles de calcul sont optimisées pour les charges de travail Machine Learning. À l’heure actuelle, la capacité de calcul Azure Machine Learning est la seule cible de calcul managée à partir du 4 décembre 2018. Il se peut que d’autres cibles de calcul managées soient ajoutées à l’avenir. 
-
-    Vous pouvez créer des instances de capacité de calcul ML directement via l’espace de travail à l’aide du Portail Azure, du SDK Azure Machine Learning ou d’Azure CLI. Toutes les autres cibles de calcul doivent être créées hors de l’espace de travail avant d’y être jointes.
-
-* **Non managées** : Les cibles de calcul ne sont *pas* managées par Azure Machine Learning service. Il se peut que vous deviez les créer hors d’Azure Machine Learning, puis les joindre à votre espace de travail avant utilisation. Il se peut que des étapes supplémentaires soient requises pour ces cibles de calcul non managées afin de maintenir ou d’améliorer les performances des charges de travail Machine Learning.
-
-Pour plus d’informations sur la sélection d’une cible de calcul pour l’entraînement, consultez [Sélectionner et utiliser une cible de calcul pour entraîner votre modèle](how-to-set-up-training-targets.md).
-
-Pour plus d’informations sur la sélection d’une cible de calcul pour le déploiement, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md).
-
-## <a name="run-configuration"></a>Configuration de série de tests
-
-Une configuration d’exécution est un ensemble d’instructions qui définit la façon dont un script doit être exécuté dans une cible de calcul spécifiée. La spécification comprend un vaste ensemble de définitions de comportement, par exemple, s’il faut utiliser un environnement Python existant ou utiliser un environnement Conda créé à partir des spécifications.
-
-Une configuration d’exécution peut être rendue persistante dans un fichier du répertoire qui contient votre script d’entraînement, ou peut être construite comme un objet en mémoire et utilisée pour envoyer une exécution.
-
-Pour obtenir des exemples de configurations d’exécutions, consultez [Sélectionner et utiliser une cible de calcul pour entraîner votre modèle](how-to-set-up-training-targets.md).
-
-## <a name="training-script"></a>Script d’entraînement
-
-Pour entraîner un modèle, vous devez spécifier le répertoire qui contient le script d’entraînement et les fichiers associés. Vous pouvez également spécifier un nom pour l’expérience, qui est utilisée pour stocker les informations qui sont collectées au cours de l’entraînement. Pendant l’entraînement, l’intégralité du répertoire est copiée dans l’environnement d’entraînement (la cible de calcul) et le script qui est spécifié par la configuration d’exécution est démarré. Un instantané du répertoire est également stocké sous l’expérience, dans l’espace de travail.
-
-Pour en voir un exemple, consultez [Créer un espace de travail avec Python](quickstart-get-started.md).
-
 ## <a name="logging"></a>Journalisation
 
-Lorsque vous développez votre solution, utilisez le SDK Python Azure Machine Learning dans votre script Python pour journaliser les métriques arbitraires. Après l’exécution, interrogez les métriques pour vérifier si celle-ci a produit le modèle que vous souhaitez déployer. 
-
-## <a name="snapshot"></a>Instantané
-
-Lorsque vous envoyez une exécution, Azure Machine Learning compresse le répertoire qui contient le script dans un fichier zip, puis l’envoie à la cible de calcul. Le fichier zip est ensuite décompressé, et le script y est exécuté. Azure Machine Learning stocke également le fichier zip en tant qu’instantané dans l’enregistrement d’exécution. Toute personne ayant accès à l’espace de travail peut parcourir un enregistrement d’exécution et télécharger l’instantané.
-
-## <a name="activity"></a>Activité
-
-Une activité représente une opération de longue durée. Les opérations suivantes sont des exemples d’activités :
-
-* Création ou suppression d’une cible de calcul
-* Exécution d’un script sur une cible de calcul
-
-Les activités peuvent envoyer des notifications via le SDK ou l’interface utilisateur web, ce qui vous permet de superviser facilement la progression de ces opérations.
+Lorsque vous développez votre solution, utilisez le SDK Python Azure Machine Learning dans votre script Python pour journaliser les métriques arbitraires. Après l’exécution, interrogez les métriques pour vérifier si celle-ci a produit le modèle que vous souhaitez déployer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -230,3 +230,4 @@ Pour prendre en main le service Azure Machine Learning, consultez :
 * [Qu’est-ce que le service Azure Machine Learning ?](overview-what-is-azure-ml.md)
 * [Démarrage rapide : Créer un espace de travail avec Python](quickstart-get-started.md)
 * [Tutoriel : Effectuer l'apprentissage d’un modèle](tutorial-train-models-with-aml.md)
+* [Créer un espace de travail avec un modèle Resource Manager](how-to-create-workspace-template.md)

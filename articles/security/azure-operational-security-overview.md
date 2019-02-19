@@ -4,7 +4,7 @@ description: Cet article fournit une vue d’ensemble de la sécurité opératio
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 478228ccb12fbfe3ca527bf4d16af05735b7ba92
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: da58737314012255f26d344f279d855244f0c1ba
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238537"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116471"
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 
@@ -72,7 +72,7 @@ Azure AD inclut également une suite complète de [fonctionnalités de gestion d
 - [Audit détaillé](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Surveillance et alerte de sécurité](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
 
-Avec Azure Active Directory, toutes les applications que vous publiez pour vos partenaires et clients (professionnels et particuliers) ont les mêmes fonctionnalités de gestion des identités et des accès. Vous êtes ainsi en mesure de réduire de manière significative vos coûts opérationnels.
+Avec Azure Active Directory, toutes les applications que vous publiez pour vos partenaires et clients (professionnels et particuliers) ont les mêmes fonctionnalités de gestion des identités et des accès.  Vous êtes ainsi en mesure de réduire de manière significative vos coûts opérationnels.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
@@ -139,15 +139,15 @@ Network Watcher simplifie la surveillance et le diagnostic de votre réseau Azur
 
 Network Watcher propose actuellement les fonctionnalités suivantes :
 
-- [Topologie](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) : affiche une vue des différentes interconnexions et associations entre les ressources d’un groupe.
-- [Capture de paquets variables](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) : capture les données des paquets qui entrent et sortent d’une machine virtuelle. Les options avancées de filtrage et les contrôles précis, comme la possibilité de définir des limites de taille et de temps, sont sources de polyvalence. Les données des paquets peuvent être stockées dans un magasin de blobs ou sur le disque local au format .cap.
-- [Vérification des flux IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) : vérifie si un paquet est autorisé ou refusé en fonction des paramètres de flux (adresse IP de destination, adresse IP source, port de destination, port source et protocole) des paquets à 5 tuples. Si un groupe de sécurité refuse le paquet, la règle et le groupe qui ont refusé ce paquet sont renvoyés.
-- [Tronçon suivant](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) : détermine le tronçon suivant des paquets routés dans la structure de réseau Azure, pour diagnostiquer les itinéraires définis par l’utilisateur mais mal configurés.
-- [Affichage des groupes de sécurité](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) : affiche les règles de sécurité en vigueur et appliquées sur une machine virtuelle.
-- [Journaux de flux NSG des groupes de sécurité réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) : vous permettent de capturer les journaux relatifs au trafic autorisé ou refusé par les règles de sécurité du groupe. Le flux est défini par des informations à 5 tuples : adresse IP source, adresse IP de destination, port source, port de destination et protocole.
-- [Résolution des problèmes de connexion et de passerelle de réseau virtuel](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) : permet de résoudre les problèmes associés aux connexions et passerelles de réseau virtuel.
-- [Limites d’abonnement réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : permet de visualiser l’utilisation des ressources du réseau par rapport aux limites.
-- [Journaux de diagnostic](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : fournit un volet permettant d’activer ou de désactiver les journaux de diagnostic des ressources réseau d’un groupe.
+- [Topologie](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) : affiche une vue des différentes interconnexions et associations entre les ressources réseau d'un groupe de ressources.
+- [Capture de paquets variables](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) : capture les données des paquets qui entrent et sortent d’une machine virtuelle. Les options avancées de filtrage et les contrôles précis, comme la possibilité de définir des limites de taille et de temps, sont sources de polyvalence. Les données des paquets peuvent être stockées dans un magasin de blobs ou sur le disque local au format .cap.
+- [Vérification des flux IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) : détermine si un paquet est autorisé ou refusé en fonction des paramètres de flux (adresse IP de destination, adresse IP source, port de destination, port source et protocole) des paquets à 5 tuples. Si un groupe de sécurité refuse le paquet, la règle et le groupe qui ont refusé ce paquet sont renvoyés.
+- [Tronçon suivant](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) : détermine le tronçon suivant des paquets routés dans la structure de réseau Azure pour diagnostiquer les itinéraires définis par l'utilisateur mais mal configurés.
+- [Affichage des groupes de sécurité](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) : Obtient les règles de sécurité effectives et appliquées à une machine virtuelle.
+- [Journaux de flux NSG des groupes de sécurité réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) : vous permettent de capturer les journaux relatifs au trafic autorisé ou refusé par les règles de sécurité du groupe. Le flux est défini par des informations à 5 tuples : adresse IP source, adresse IP de destination, port source, port de destination et protocole.
+- [Résolution des problèmes de passerelle de réseau virtuel et de connexion](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) : permet de résoudre les problèmes des connexions et des passerelles de réseau virtuel.
+- [Limites d’abonnement réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : vous permet d’afficher l’utilisation des ressources réseau par rapport aux limites.
+- [Journaux de diagnostic](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : fournit un volet permettant d'activer ou de désactiver les journaux de diagnostic des ressources réseau d'un groupe de ressources.
 
 Pour plus d’informations, consultez [Créer une instance d’Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 

@@ -16,12 +16,13 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077239"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185449"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Activation Fournir des revendications facultatives à votre application Azure AD (Préversion publique)
 
@@ -56,7 +57,7 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 
 **Tableau 2 : Ensemble de revendications facultatives standard**
 
-| NOM                        | Description   | Type de jeton | Type d’utilisateur | Notes  |
+| Nom                        | Description   | Type de jeton | Type d’utilisateur | Notes  |
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Heure de dernière authentification de l’utilisateur. Voir les spécifications OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Région du locataire de ressource. | JWT        |           | |
@@ -76,7 +77,7 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 | `ztdid`                    | ID de déploiement sans intervention | JWT | | Identité d’appareil utilisée pour [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 |`email`                     | Adresse e-mail de l'utilisateur, le cas échéant.  | JWT, SAML | | Cette valeur est incluse par défaut si l’utilisateur est un invité du locataire.  Pour les utilisateurs gérés (à l’intérieur du locataire), elle doit être demandée via cette revendication facultative ou, sur la version 2.0 uniquement, avec l’étendue OpenID.  Pour les utilisateurs gérés, l’adresse e-mail doit être définie dans le [portail d’administration Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Statut du compte utilisateur dans le client. | JWT, SAML | | Si l’utilisateur est membre du client, la valeur est `0`. S’il est un invité, la valeur est `1`. |
-| `upn`                      | Revendication UserPrincipalName. | JWT, SAML  |           | Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité. <br> Propriétés supplémentaires : <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
+| `upn`                      | Revendication UserPrincipalName. | JWT, SAML  |           | Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité.  |
 
 ### <a name="v20-optional-claims"></a>Revendications facultatives v2.0
 
@@ -84,31 +85,29 @@ Ces revendications sont toujours incluses dans les jetons v1.0, mais elles ne so
 
 **Tableau 3 : Revendications facultatives propres à V2.0**
 
-| Revendication JWT     | NOM                            | Description                                | Notes |
-|---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+| Revendication JWT     | Nom                            | Description                                | Notes |
+|---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Adresse IP                      | Adresse IP à partir de laquelle le client s’est connecté.   |       |
 | `onprem_sid`  | Identificateur de sécurité local |                                             |       |
 | `pwd_exp`     | Heure d’expiration du mot de passe        | Date et heure d’expiration du mot de passe. |       |
-| `pwd_url`     | Modifier l’URL de mot de passe             | URL à laquelle l’utilisateur peut accéder pour modifier son mot de passe.   |       |
-| `in_corp`     | Dans le périmètre du réseau d’entreprise        | Indique si le client se connecte à partir du réseau d’entreprise. Si ce n’est pas le cas, la revendication n’est pas incluse.   |       |
-| `nickname`    | Surnom                        | Autre nom de l’utilisateur, distinct du nom de famille et du prénom. |       |                                                                                                                |       |
-| `family_name` | Nom                       | Fournit le nom de famille de l’utilisateur tel que défini dans l’objet utilisateur Azure AD. <br>"family_name":"Miller" |       |
+| `pwd_url`     | Modifier l’URL de mot de passe             | URL à laquelle l’utilisateur peut accéder pour modifier son mot de passe.   |   |
+| `in_corp`     | Dans le périmètre du réseau d’entreprise        | Indique si le client se connecte à partir du réseau d’entreprise. Si ce n’est pas le cas, la revendication n’est pas incluse.   |  Basé sur les [adresses IP approuvées](../authentication/howto-mfa-mfasettings.md#trusted-ips) définies dans MFA.    |
+| `nickname`    | Surnom                        | Autre nom de l’utilisateur, distinct du nom de famille et du prénom. | 
+| `family_name` | Nom                       | Fournit le nom de famille de lutilisateur tel que défini dans l’objet utilisateur Azure AD. <br>"family_name":"Miller" |       |
 | `given_name`  | Prénom                      | Fournit le prénom de l’utilisateur tel que défini dans l’objet utilisateur Azure AD.<br>"given_name": "Frank"                   |       |
+| `upn`       | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s'agit pas d'un identificateur durable pour l'utilisateur et il ne doit pas être utilisé pour saisir des données. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriétés supplémentaires des revendications facultatives
 
-Certaines revendications facultatives peuvent être configurées pour modifier la façon dont la revendication est retournée. Ces propriétés supplémentaires servent principalement à faciliter la migration d’applications locales ayant des attentes différentes vis-à-vis des données (par exemple, `include_externally_authenticated_upn_without_hash` aide les clients qui ne prennent pas en charge les signes dièse (`#`) dans l’UPN)
+Certaines revendications facultatives peuvent être configurées pour modifier la façon dont la revendication est retournée. Ces propriétés supplémentaires servent principalement à faciliter la migration d'applications locales dont les attentes sont différentes vis-à-vis des données (par exemple, `include_externally_authenticated_upn_without_hash` aide les clients qui ne prennent pas en charge les signes dièse (`#`) dans l'UPN)
 
-**Tableau 4 : Valeurs de configuration des revendications facultatives standard**
+**Tableau 4 : Valeurs de configuration des revendications facultatives**
 
-| Nom de la propriété                                     | Nom de la propriété supplémentaire                                                                                                             | Description |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |  Peut être utilisée pour les réponses SAML et JWT.        |
-| | `include_externally_authenticated_upn`              | Inclut l’UPN de l’invité tel que stocké dans le locataire de ressource. Par exemple, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
-| | `include_externally_authenticated_upn_without_hash` | Comme ci-dessus, sauf que les signes dièse (`#`) sont remplacés par des traits de soulignement (`_`), par exemple `foo_hometenant.com_EXT_@resourcetenant.com`. |             
-
-> [!Note]
->Le fait de spécifier la revendication facultative UPN sans propriété supplémentaire ne change pas le comportement ; pour qu’une nouvelle revendication soit émise dans le jeton, il faut ajouter au moins l’une des propriétés supplémentaires. 
+| Nom de la propriété  | Nom de la propriété supplémentaire | Description |
+|----------------|--------------------------|-------------|
+| `upn`          |                          | Peut être utilisée pour les réponses SAML et JWT, ainsi que pour les jetons v1.0 et v2.0. |
+|                | `include_externally_authenticated_upn`  | Inclut l’UPN de l’invité tel que stocké dans le locataire de ressource. Par exemple, `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | Comme ci-dessus, sauf que les signes dièse (`#`) sont remplacés par des traits de soulignement (`_`), par exemple `foo_hometenant.com_EXT_@resourcetenant.com`. |
 
 #### <a name="additional-properties-example"></a>Exemple de propriétés supplémentaires
 
@@ -151,12 +150,12 @@ Vous pouvez configurer des revendications facultatives pour votre application en
 "saml2Token": [ 
               { 
                     "name": "upn", 
-                    "essential": true
+                    "essential": false
                },
                { 
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
-                    "essential": true
+                    "essential": false
                }
        ]
    }
@@ -168,7 +167,7 @@ Déclare les revendications facultatives demandées par une application. Une app
 
 **Tableau 5 : Propriétés de type OptionalClaims**
 
-| NOM        | type                       | Description                                           |
+| Nom        | type                       | Description                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Collection (OptionalClaim) | Revendications facultatives retournées dans le jeton d’ID JWT. |
 | `accessToken` | Collection (OptionalClaim) | Revendications facultatives retournées dans le jeton d’accès JWT. |
@@ -181,7 +180,7 @@ En cas de prise en charge par une revendication spécifique, vous pouvez égalem
 
 **Tableau 6 : Propriétés de type OptionalClaim**
 
-| NOM                 | type                    | Description                                                                                                                                                                                                                                                                                                   |
+| Nom                 | type                    | Description                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nom de la revendication facultative.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | Source (objet d’annuaire) de la revendication. Il existe des revendications prédéfinies et définies par l’utilisateur à partir des propriétés d’extension. Si la valeur source est null, la revendication est une revendication facultative prédéfinie. Si la valeur source est user, la valeur de la propriété name est la propriété d’extension à partir de l’objet utilisateur. |

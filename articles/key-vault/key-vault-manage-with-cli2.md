@@ -4,7 +4,7 @@ description: Utilisez cet article pour automatiser les tâches courantes dans Ke
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822491"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115621"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gérer Key Vault à l’aide de l’interface de ligne de commande Azure 
 
@@ -145,18 +145,18 @@ Si vous souhaitez qu’Azure Key Vault crée une clé protégée par logiciel, u
 az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
-Si vous avez une clé dans un fichier .pem, vous pouvez le télécharger dans Azure Key Vault. Vous pouvez choisir de protéger la clé avec un logiciel ou le HSM. Pour importer la clé à partir du fichier .pem et la protéger avec un logiciel, utilisez les éléments suivants :
+Si vous avez une clé dans un fichier .pem, vous pouvez le télécharger dans Azure Key Vault. Vous pouvez choisir de protéger la clé avec un logiciel ou le HSM. Cet exemple importe la clé à partir du fichier .pem et la protège avec un logiciel, en utilisant le mot de passe « hVFkk965BuUv » :
 
 ```azurecli
-az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "Pa$$w0rd" --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
 Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** pour toujours obtenir la version actuelle. Utilisez https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] pour obtenir cette version spécifique. Par exemple : **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
 
-Ajoutez un secret dans le coffre, c’est-à-dire un mot de passe nommé SQLPassword avec la valeur Pa$$w0rd dans Azure Key Vault. 
+Ajoutez un secret au coffre, c'est-à-dire un mot de passe nommé SQLPassword avec la valeur « hVFkk965BuUv » dans Azure Key Vault. 
 
 ```azurecli
-az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
 Faire référence à ce mot de passe à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword** pour toujours obtenir la version actuelle et https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] pour obtenir cette version spécifique. Par exemple : **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
@@ -164,7 +164,7 @@ Faire référence à ce mot de passe à l’aide de son URI. Utilisez **https://
 Importer un certificat dans le coffre en utilisant un fichier .pem ou .pfx.
 
 ```azurecli
-az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "Pa$$w0rd"
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "hVFkk965BuUv"
 ```
 
 Examinons la clé, le secret ou le certificat que vous avez créé :
@@ -203,7 +203,7 @@ Pour obtenir des instructions détaillées sur l’inscription d’une applicati
 Pour inscrire une application à Azure Active Directory :
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "Pa$$w0rd" --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 

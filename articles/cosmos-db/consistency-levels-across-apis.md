@@ -7,26 +7,26 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54806995"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001972"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveaux de cohérence et API Azure Cosmos DB
 
-Cinq modèles de cohérence offerts par Azure Cosmos DB sont pris en charge nativement par l’API SQL Azure Cosmos DB. Lorsque vous utilisez Azure Cosmos DB, l’API SQL est la valeur par défaut. 
+Cinq modèles de cohérence offerts par Azure Cosmos DB sont pris en charge nativement par l'API SQL. Lorsque vous utilisez Azure Cosmos DB, l’API SQL est la valeur par défaut. 
 
-Azure Cosmos DB fournit également la prise en charge native des API compatibles avec les protocoles filaires pour les bases de données les plus courantes. Les bases de données incluent le stockage Table Azure, MongoDB, Apache Cassandra et Gremlin. Celles-ci n’offrent pas de modèle de cohérence défini avec précision, ni de garantie reposant sur un contrat SLA pour les niveaux de cohérence. Elles ne fournissent généralement qu’un sous-ensemble des cinq modèles de cohérence offerts par Azure Cosmos DB. Pour les API SQL, Gremlin et Table, le niveau de cohérence configuré par défaut sur le compte Azure Cosmos DB est utilisé. 
+Azure Cosmos DB fournit également la prise en charge native des API compatibles avec les protocoles filaires pour les bases de données les plus courantes. Les bases de données incluent le stockage Table Azure, MongoDB, Apache Cassandra et Gremlin. Celles-ci n’offrent pas de modèle de cohérence défini avec précision, ni de garantie reposant sur un contrat SLA pour les niveaux de cohérence. Elles ne fournissent généralement qu’un sous-ensemble des cinq modèles de cohérence offerts par Azure Cosmos DB. Pour les API SQL, Gremlin et Table, le niveau de cohérence configuré par défaut sur le compte Azure Cosmos est utilisé. 
 
-Les sections suivantes montrent le mappage entre la cohérence des données demandée par un pilote de client OSS pour Apache Cassandra 4.x, et MongoDB 3.4. Ce document présente également les niveaux de cohérence Azure Cosmos DB correspondants pour Apache Cassandra et MongoDB.
+Les sections suivantes présentent le mappage entre la cohérence de données demandée par un pilote client OSS pour Apache Cassandra et MongoDB et les niveaux de cohérence correspondants dans Azure Cosmos DB.
 
 ## <a id="cassandra-mapping"></a>Mappage entre les niveaux de cohérence Apache Cassandra et Azure Cosmos DB
 
-Ce tableau ci-dessous montre le mappage des cohérences entre Apache Cassandra et les niveaux de cohérence par défaut dans Azure Cosmos DB. Pour chacun des niveaux de cohérences en lecture et en écriture Cassandra, le niveau de cohérence Cosmos DB correspondant offre de plus strictes garanties.
+Le tableau ci-dessous décrit les différentes combinaisons de cohérence possibles avec l'API Cassandra et le mappage de niveau de cohérence natif équivalent de Cosmos DB. Toutes les combinaisons de modes d'écriture et de lecture Apache Cassandra sont nativement prises en charge par Cosmos DB. Pour toutes les combinaisons de modèles de cohérence en écriture et en lecture Apache Cassandra, Cosmos DB fournit des garanties de cohérence supérieures ou égales à celles d'Apache Cassandra. En outre, Cosmos DB offre des garanties de durabilité supérieures à celles d'Apache Cassandra, même en mode d'écriture minimum.
 
-Le tableau suivant présente le **mappage de cohérence en écriture** entre Azure Cosmos DB et Cassandra :
+Le tableau suivant présente le **Mappage de cohérence en écriture** entre Azure Cosmos DB et Cassandra :
 
 | Cassandra | Azure Cosmos DB | Garantie |
 | - | - | - |
@@ -42,7 +42,7 @@ Le tableau suivant présente le **mappage de cohérence en écriture** entre Azu
 | LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | Obsolescence limitée | <ul><li>Obsolescence limitée.</li><li>Au plus des versions K ou d'un retard de temps.</li><li>Consultez la dernière valeur validée dans la région.</li></ul> |
 | ONE, LOCAL_ONE, ANY   | Préfixe cohérent | Préfixe cohérent par région |
 
-Le tableau suivant présente le **mappage de cohérence en lecture** entre Azure Cosmos DB et Cassandra :
+Le tableau suivant présente le **Mappage de cohérence en lecture** entre Azure Cosmos DB et Cassandra :
 
 | Cassandra | Azure Cosmos DB | Garantie |
 | - | - | - |

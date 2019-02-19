@@ -2,7 +2,7 @@
 title: Développement d’applications de lecteur vidéo
 description: La rubrique fournit des liens vers les infrastructures de lecteur et les plug-ins que vous pouvez utiliser pour développer vos propres applications clientes qui permettront de faire appel à la diffusion multimédia en continu à partir de Media Services.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237041"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004840"
 ---
 # <a name="develop-video-player-applications"></a>Développement d’applications de lecteur vidéo
 ## <a name="overview"></a>Vue d’ensemble

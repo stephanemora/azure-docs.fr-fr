@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: eca20b775b97296510545c4d2f2f005fd91d6758
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471315"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109756"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Haute disponibilité avec Azure Cosmos DB
 
@@ -58,11 +58,25 @@ Les pannes régionales ne sont pas rares et Azure Cosmos DB permet de s’assure
 
 ## <a name="building-highly-available-applications"></a>Génération d’applications hautement disponibles
 
-- Pour garantir une disponibilité élevée en écriture et en lecture, configurez votre compte Cosmos de façon à ce qu’il s’étendre sur au moins deux régions, avec plusieurs régions d’écriture. Cette configuration offre la disponibilité, la plus faible latence et l’évolutivité pour les lectures et les écritures soutenues par les contrats SLA. Pour en savoir plus, découvrez comment [configurer votre compte Cosmos avec plusieurs régions d’écriture](tutorial-global-distribution-sql-api.md).
+- Pour garantir une disponibilité élevée en écriture et en lecture, configurez votre compte Cosmos de façon à ce qu’il s’étendre sur au moins deux régions, avec plusieurs régions d’écriture. Cette configuration offre la disponibilité, la plus faible latence et l’évolutivité pour les lectures et les écritures soutenues par les contrats SLA. Pour en savoir plus, découvrez comment [configurer votre compte Cosmos avec plusieurs régions d’écriture](tutorial-global-distribution-sql-api.md). Pour configurer la fonction multimaître dans vos applications, consultez [Configurer la fonction multimaître](how-to-multi-master.md).
 
 - Pour les comptes Cosmos multirégion qui sont configurés avec une seule région d’écriture, [activez le « basculement automatique » à l’aide d’Azure CLI ou du portail Azure](how-to-manage-database-account.md#automatic-failover). Une fois le basculement automatique activé, Cosmos DB bascule automatiquement votre compte en cas de sinistre régional.  
 
 - Même si votre compte Cosmos est hautement disponible, votre application peut ne pas être pas correctement conçue pour rester hautement disponible. Pour tester la haute disponibilité de bout en bout pour votre application, appelez régulièrement le [basculement manuel à l’aide d’Azure CLI ou du portail Azure](how-to-manage-database-account.md#manual-failover), dans le cadre de procédures de récupération d’urgence ou de test de votre application.
+
+
+Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s'appelle l'objectif de délai de récupération (RTO, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective).
+
+Le tableau suivant présente les RPO et RTO pour les scénarios les plus courants.
+
+|Nombre de régions |Configuration |Niveau de cohérence|RPO |RTO |
+|---------|---------|---------|-------|-------|
+|1    | *    |*   | < 240 minutes | < 1 semaine |
+|>1     | Réplication maître unique | Session, Préfixe cohérent et Éventuel | < 15 minutes | < 15 minutes |
+|>1     | Réplication maître unique | Obsolescence limitée | K & T | < 15 minutes |
+|>1     | Réplication multimaître | Session, Préfixe cohérent et Éventuel | < 15 minutes | 0 |
+|>1     | Réplication multimaître | Obsolescence limitée | K & T | 0 |
+|>1     | * | Remarque | 0 | < 15 minutes |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -72,3 +86,4 @@ Vous pouvez ensuite découvrir la mise à l’échelle du débit dans l’articl
 * [Mise à l’échelle du débit provisionné au niveau global](scaling-throughput.md)
 * [Article relatif au principe de la distribution mondiale d’Azure Cosmos DB](global-dist-under-the-hood.md)
 * [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md)
+* [Configurer la fonction multimaître dans vos applications](how-to-multi-master.md)

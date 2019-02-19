@@ -1,6 +1,6 @@
 ---
-title: Bien démarrer avec les requêtes dans Azure Log Analytics | Microsoft Docs
-description: Cet article fournit un tutoriel pour commencer à écrire des requêtes dans Log Analytics.
+title: Bien démarrer avec les requêtes de journal dans Azure Monitor | Microsoft Docs
+description: Cet article fournit un tutoriel pour commencer à écrire des requêtes de journal dans Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 326e12444067e950b9d6ae0862424589d444b83d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884917"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994879"
 ---
-# <a name="get-started-with-queries-in-log-analytics"></a>Bien démarrer avec les requêtes dans Log Analytics
+# <a name="get-started-with-azure-monitor-log-queries"></a>Bien démarrer avec les requêtes de journal Azure Monitor
 
 
 > [!NOTE]
-> Vous devez suivre le tutoriel [Bien démarrer avec le portail Analytics](get-started-portal.md) avant d’effectuer ce tutoriel.
+> Vous devez terminer [Bien démarrer avec les requêtes de journal Azure Monitor](get-started-portal.md) avant de suivre ce tutoriel.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Dans ce tutoriel, vous allez apprendre à écrire des requêtes Azure Log Analytics. Au terme du tutoriel, vous saurez :
+Dans ce tutoriel, vous allez apprendre à écrire des requêtes de journal Azure Monitor. Au terme du tutoriel, vous saurez :
 
 - Comprendre la structure des requêtes
 - Trier les résultats d’une requête
@@ -43,10 +43,10 @@ Dans ce tutoriel, vous allez apprendre à écrire des requêtes Azure Log Analyt
 Les requêtes peuvent commencer par un nom de table ou la commande *search*. Vous devez commencer par un nom de table, dans la mesure où il définit une étendue précise pour la requête et améliore les performances de la requête et la pertinence des résultats.
 
 > [!NOTE]
-> Le langage de requête Azure Log Analytics respecte la casse. Les mots clés du langage sont généralement écrits en minuscules. Quand vous utilisez des noms de tables ou de colonnes dans une requête, veillez à utiliser la casse adéquate, comme indiqué dans le volet Schéma.
+> Le langage de requête de l'Explorateur de données utilisé par Azure Monitor est sensible à la casse. Les mots clés du langage sont généralement écrits en minuscules. Quand vous utilisez des noms de tables ou de colonnes dans une requête, veillez à utiliser la casse adéquate, comme indiqué dans le volet Schéma.
 
 ### <a name="table-based-queries"></a>Requêtes basées sur une table
-Azure Log Analytics organise les données en tables, chacune composée de plusieurs colonnes. Toutes les tables et colonnes sont affichées dans le volet Schéma du portail Analytics. Identifiez une table qui vous intéresse et jetez un œil à une partie des données :
+Azure Monitor organise les données de journal en tables, chacune composée de plusieurs colonnes. Toutes les tables et colonnes sont affichées dans le volet Schéma de Log Analytics sur le portail Analytics. Identifiez une table qui vous intéresse et jetez un œil à une partie des données :
 
 ```Kusto
 SecurityEvent
@@ -164,7 +164,7 @@ SecurityEvent
 
 L’exemple précédent génère cette sortie :
 
-![Résultats de la commande project Log Analytics](media/get-started-queries/project.png)
+![Résultats de la requête project](media/get-started-queries/project.png)
 
 Vous pouvez également utiliser **project** pour renommer des colonnes et en définir de nouvelles. L’exemple suivant utilise project pour effectuer les opérations suivantes :
 
@@ -236,7 +236,7 @@ Perf
 
 Pour rendre la sortie plus claire, vous décidez de l’afficher sous la forme d’un graphique de temps, qui indique la mémoire disponible au fil du temps :
 
-![Mémoire Log Analytics au fil du temps](media/get-started-queries/chart.png)
+![Mémoire d'interrogation au fil du temps](media/get-started-queries/chart.png)
 
 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766010"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237669"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unifier plusieurs ressources Application Insights Azure Monitor 
 Cet article décrit comment interroger et afficher toutes vos données du journal d’application Application Insights à partir d’un emplacement unique, même quand elles se trouvent dans différents abonnements Azure, en remplacement de la dépréciation d’Application Insights Connector. Le nombre de ressources Application Insights que vous pouvez inclure dans une seule requête est limité à 100.  
@@ -32,7 +32,7 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Créez une fonction à l’aide de l’opérateur union avec la liste des applications, puis enregistrez la requête en tant que fonction avec l’alias *applicationsScoping*.  
+Créez une fonction en utilisant l'opérateur union avec la liste des applications, puis enregistrez la requête en tant que fonction dans votre espace de travail avec l'alias *applicationsScoping*.  
 
 ```
 union withsource=SourceApp 
@@ -45,7 +45,7 @@ app('Contoso-app5').requests
 ```
 
 >[!NOTE]
->Vous pouvez changer les applications listées à tout moment en accédant à l’Explorateur de requêtes dans le portail de journaux et en modifiant la fonction, ou à l’aide de l’applet de commande PowerShell `SavedSearch`. La commande `withsource= SourceApp` ajoute une colonne aux résultats, qui désigne l’application ayant envoyé le journal. 
+>Vous pouvez à tout moment modifier les applications répertoriées sur le portail en accédant à l'Explorateur de requêtes de votre espace de travail, en sélectionnant la fonction à modifier et en enregistrant. Vous pouvez également utiliser la cmdlet PowerShell `SavedSearch`. La commande `withsource= SourceApp` ajoute une colonne aux résultats, qui désigne l’application ayant envoyé le journal. 
 >
 >La requête utilise le schéma Application Insights, bien qu’elle soit exécutée dans l’espace de travail, car la fonction applicationsScoping retourne la structure de données Application Insights. 
 >

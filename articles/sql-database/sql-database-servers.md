@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: db82c109e6ae807addafd4d188a24609c4066cd9
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756646"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100669"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Serveurs Azure SQL Database et leur gestion
 
 ## <a name="what-is-an-azure-sql-database-server"></a>Qu’est-ce qu’un serveur Azure SQL Database ?
 
-Un serveur Azure SQL Database est une construction logique qui agit comme un point d’administration central pour plusieurs bases de données autonomes ou [regroupées](sql-database-elastic-pool.md), des [connexions](sql-database-manage-logins.md), des [règles de pare-feu](sql-database-firewall-configure.md), des [règles d’audit](sql-database-auditing.md), des [stratégies de détection des menaces](sql-database-threat-detection.md) et des [groupes de basculement](sql-database-auto-failover-group.md). Un serveur Azure SQL Database peut se trouver dans une autre région que son groupe de ressources. Avant de pouvoir créer la base de données SQL Azure, vous devez déjà posséder un serveur Azure SQL Database. Toutes les bases de données gérées par un serveur SQL Database sont créées dans la même région que le serveur SQL Database.
+Un serveur SQL Database est une construction logique qui fait office de point d'administration central pour plusieurs bases de données uniques ou [regroupées](sql-database-elastic-pool.md), [connexions](sql-database-manage-logins.md), [règles de pare-feu](sql-database-firewall-configure.md), [règles d'audit](sql-database-auditing.md), [stratégies de détection des menaces](sql-database-threat-detection.md) et [groupes de basculement](sql-database-auto-failover-group.md). Un serveur SQL Database peut se trouver dans une région différente de celle de son groupe de ressources. Avant de pouvoir créer la base de données SQL Azure, vous devez déjà posséder un serveur Azure SQL Database. Toutes les bases de données gérées par un serveur SQL Database sont créées dans la même région que le serveur SQL Database.
 
 Un serveur SQL Database est distinct d’une instance SQL Server que vous connaissez peut-être dans le monde local. Plus précisément, le service SQL Database n’offre aucune garantie en ce qui concerne l’emplacement des bases de données par rapport au serveur SQL Database qui les gère et ne présente aucun accès ni aucune fonctionnalité au niveau de l’instance. En revanche, les bases de données d’instance dans une instance gérée sont toutes colocalisées, de la même manière que celle que vous connaissez avec SQL Server dans le monde local.
 
@@ -189,5 +189,5 @@ Pour créer et gérer un serveur, des bases de données et des pare-feux Azure S
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur la migration d’une base de données SQL Server, consultez la section [Migrer une base de données SQL](sql-database-cloud-migrate.md).
+- Pour en savoir plus sur la migration d’une base de données SQL Server, consultez la section [Migrer une base de données SQL](sql-database-single-database-migrate.md).
 - Pour plus d’informations sur les fonctionnalités prises en charge, consultez la page [Fonctionnalités](sql-database-features.md).

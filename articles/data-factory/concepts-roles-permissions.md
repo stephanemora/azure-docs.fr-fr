@@ -11,12 +11,12 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.openlocfilehash: e296606d219623c29bedca4fb0906a955a394b30
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ee35c7ae1b75c6fb4d656927d7e6e4384cd76836
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013415"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003939"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rôles et autorisations pour Azure Data Factory
 
@@ -78,7 +78,7 @@ Voici quelques exemples qui illustrent l’intérêt d’utiliser des rôles per
   Ce scénario nécessite deux attributions de rôles.
 
   1. Vous attribuez le rôle **Contributeur** au niveau de la fabrique de données.
-  2. Vous créez un rôle personnalisé avec l’autorisation *Microsoft.Resources/deployments/**. Vous attribuez ce rôle personnalisé à l’utilisateur au niveau du groupe de ressources.
+  2. Vous créez un rôle personnalisé avec l'autorisation **Microsoft.Resources/deployments/**. Vous attribuez ce rôle personnalisé à l’utilisateur au niveau du groupe de ressources.
 
 - Vous permettez à un utilisateur de mettre à jour une fabrique de données à partir de PowerShell ou du SDK, mais pas dans le portail Microsoft Azure.
 

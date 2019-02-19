@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d664c33c4535d25ec93fd1f36c990f2764a4e071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729266"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000811"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemples JavaScript pour une utilisation dans Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Vous pouvez ajouter votre propre code côté client JavaScript à vos applications Azure Active Directory (Azure AD) B2C. Cet article explique comment vous pouvez modifier votre [stratégie personnalisée](active-directory-b2c-overview-custom.md) pour permettre l’exécution des scripts.
+Vous pouvez ajouter votre propre code côté client JavaScript à vos applications Azure Active Directory (Azure AD) B2C. Cet article vous explique comment modifier votre [flux utilisateur](user-flow-javascript-overview.md) ou votre [stratégie personnalisée](active-directory-b2c-overview-custom.md) pour permettre l'exécution des scripts.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Sélectionnez un [contrat de page](page-contract.md) pour les éléments d’interface utilisateur de votre application. Si vous prévoyez d’utiliser JavaScript, vous devez définir une version de contrat de page pour l’ensemble de vos définitions de contenu dans votre stratégie personnalisée.
+Sélectionnez un [contrat de page](page-contract.md) pour les éléments d’interface utilisateur de votre application. Si vous prévoyez d'utiliser JavaScript, vous devez définir une version de contrat de page pour l'ensemble de vos définitions de contenu dans votre flux utilisateur ou stratégie personnalisée.
 
 ## <a name="add-the-scriptexecution-element"></a>Ajouter l’élément ScriptExecution
 

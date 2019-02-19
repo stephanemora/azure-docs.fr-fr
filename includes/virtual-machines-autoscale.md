@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594204"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213021"
 ---
 Vous pouvez facilement [mettre automatiquement à l’échelle](../articles/azure-monitor/platform/autoscale-best-practices.md) vos [machines virtuelles (VM)](../articles/virtual-machines/windows/overview.md) lorsque vous utilisez [les groupes de machine virtuelles identiques](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) et [la fonctionnalité de mise à l’échelle automatique de Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Vos machines virtuelles doivent être membres d’un groupe identique pour pouvoir être mises à l’échelle automatiquement. Cet article fournit des informations vous permettant de mieux comprendre comment mettre vos machines virtuelles à l’échelle, verticalement et horizontalement, à l’aide de méthodes automatique et manuelle.
 
@@ -57,11 +57,11 @@ Vous pouvez [définir des déclencheurs](../articles/azure-monitor/platform/auto
 
 Vous pouvez ajouter ou supprimer des machines virtuelles en modifiant la capacité du jeu de mise à l’échelle. Dans le portail Azure, vous pouvez réduire ou augmenter le nombre de machines virtuelles (indiqué en tant que **nombre d’instances**) dans le jeu de mise à l’échelle en faisant glisser la barre de condition de remplacement sur l’écran de mise à l’échelle gauche ou droit.
 
-À l’aide d’Azure PowerShell, vous devez obtenir l’objet du jeu de mise à l’échelle en utilisant [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Vous définissez ensuite la propriété **sku.capacity** pour le nombre de machines virtuelles que vous souhaitez et vous mettez à jour le jeu de mise à l’échelle avec [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). À l’aide d’Azure CLI, vous modifiez la capacité avec le paramètre **--new-capacity** pour la commande [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale).
+À l'aide d'Azure PowerShell, vous devez utiliser la commande [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) pour obtenir l'objet du groupe identique. Vous devez ensuite définir la propriété **sku.capacity** sur le nombre de machines virtuelles souhaité et mettre à jour le groupe identique avec [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). À l’aide d’Azure CLI, vous modifiez la capacité avec le paramètre **--new-capacity** pour la commande [az vmss scale](/cli/azure/vmss?view=azure-cli-latest#az-vmss-scale).
 
 ### <a name="vertical"></a>Vertical
 
-Vous pouvez modifier manuellement la taille des machines virtuelles dans le portail Azure depuis l’écran Taille du jeu de mise à l’échelle. Vous pouvez utiliser Azure PowerShell avec Get-AzureRmVmss, définissant la propriété SKU de référence d’image, puis utilisant [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) et [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+Vous pouvez modifier manuellement la taille des machines virtuelles dans le portail Azure depuis l’écran Taille du jeu de mise à l’échelle. À l'aide d'Azure PowerShell, vous pouvez utiliser Get-AzVmss pour définir la propriété SKU de référence de l'image, puis utiliser [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) et [Update-AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

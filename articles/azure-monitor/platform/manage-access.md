@@ -1,6 +1,6 @@
 ---
-title: Gérer les espaces de travail dans Azure Log Analytics et sur le portail OMS | Microsoft Docs
-description: Vous pouvez gérer les espaces de travail dans Azure Log Analytics et sur le portail OMS avec diverses tâches administratives sur les utilisateurs, comptes, espaces de travail et comptes Azure.
+title: Gérer les espaces de travail Log Analytics dans Azure Monitor | Microsoft Docs
+description: Vous pouvez gérer les espaces de travail Log Analytics dans Azure Monitor en accomplissant diverses tâches administratives sur les utilisateurs, les comptes, les espaces de travail et les comptes Azure.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,18 +11,17 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 32a31a87bacbb13cd3b2cb4561ac04e54d51ba46
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 4a777c2bd57d40b4bb6c8d36c996b655cb019e5f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656751"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005367"
 ---
-# <a name="manage-workspaces"></a>Gestion des espaces de travail
-
-Pour gérer l’accès à Log Analytics, effectuez diverses tâches administratives liées aux espaces de travail. Cet article fournit des conseils et des procédures pour gérer les espaces de travail. Un espace de travail est en fait un conteneur qui inclut des informations de compte et des informations de configuration simple pour le compte. Vous ou d’autres membres de votre organisation pouvez utiliser plusieurs espaces de travail pour gérer différents ensembles de données provenant de tout ou partie de votre infrastructure informatique.
+# <a name="manage-log-analytics-workspaces-in-azure-monitor"></a>Gérer les espaces de travail Log Analytics dans Azure Monitor
+Azure Monitor stocke les données de journal dans un espace de travail Log Analytics, qui n'est autre qu'un conteneur de données et d'informations de configuration. Pour gérer l'accès aux données de journal, vous accomplissez diverses tâches administratives liées aux espaces de travail. Vous ou d’autres membres de votre organisation pouvez utiliser plusieurs espaces de travail pour gérer différents ensembles de données provenant de tout ou partie de votre infrastructure informatique.
 
 Pour créer un espace de travail, vous devez :
 
@@ -32,11 +31,11 @@ Pour créer un espace de travail, vous devez :
 4. Choisissez un emplacement géographique.
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Définition du nombre d’espaces de travail nécessaires
-Un espace de travail est une ressource Azure et un conteneur dans lequel les données sont collectées, agrégées, analysées et présentées dans le portail Azure.
+Un espace de travail Log Analytics est une ressource Azure et un conteneur dans lequel les données sont collectées, agrégées, analysées et présentées dans Azure Monitor.
 
-Vous pouvez disposer de plusieurs espaces de travail par abonnement Azure et vous pouvez avoir accès à plus d’un espace de travail, avec la possibilité de pouvoir envoyer facilement des requêtes entre ceux-ci. Cette section décrit dans quelles conditions il peut être utile de créer plusieurs espaces de travail.
+Vous pouvez disposer de plusieurs espaces de travail par abonnement Azure et avoir accès à plusieurs espaces de travail, avec la possibilité des les interroger facilement. Cette section décrit dans quelles conditions il peut être utile de créer plusieurs espaces de travail.
 
-Aujourd'hui, un espace de travail fournit :
+Un espace de travail Log Analytics offre :
 
 * un emplacement géographique pour le stockage des données ;
 * une isolation des données pour définir différents droits d’accès utilisateur ;
@@ -44,7 +43,7 @@ Aujourd'hui, un espace de travail fournit :
 
 Du point de vue de la consommation, nous vous recommandons de créer aussi peu d’espaces de travail que possible. L’expérience d’administration et de requête n’en sera que plus simple et rapide. Cependant, compte tenu des caractéristiques précédentes, vous pouvez créer plusieurs espaces de travail si :
 
-* Vous travaillez pour une entreprise globale et vous avez besoin de stocker vos données dans des régions spécifiques pour des raisons de conformité ou de souveraineté des données.
+* Vous travaillez pour une entreprise internationale et vous avez besoin de stocker vos données de journal dans des régions spécifiques pour des raisons de conformité ou de souveraineté des données.
 * Vous utilisez Azure et vous souhaitez éviter les frais liés au transfert de données sortantes en configurant un espace de travail dans la même région que les ressources Azure qu’il gère.
 * Vous souhaitez allouer des frais à différents départements ou groupes métier en fonction de leur utilisation en créant un espace de travail pour chaque département ou groupe métier dans son propre abonnement Azure.
 * Vous êtes un fournisseur de services gérés et vous devez isoler les données Log Analytics des autres données de vos clients.
@@ -55,16 +54,14 @@ Lorsque vous utilisez des agents Windows pour collecter des données, vous pouve
 Si vous utilisez System Center Operations Manager, chaque groupe d’administration Operations Manager ne peut être connecté qu’à un seul espace de travail. Vous pouvez installer Microsoft Monitoring Agent sur les ordinateurs gérés par Operations Manager et configurer l’agent pour qu’il fournisse des rapports à Operations Manager et à un espace de travail Log Analytics différent.
 
 ## <a name="workspace-information"></a>Informations sur l’espace de travail
+L'espace de travail Log Analytics accessible via le menu **Azure Monitor** du portail Azure permet d'analyser les données, tandis que le menu **Espaces de travail Log Analytics** permet de créer et de gérer les espaces de travail.
+ 
 
-Vous pouvez afficher des détails sur votre espace de travail dans le portail Azure. 
-
-1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com).
-
-2. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.  
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Espaces de travail Log Analytics**.  
 
     ![Portail Azure](media/manage-access/azure-portal-01.png)  
 
-3. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail.
+3. Sélectionnez votre espace de travail dans la liste.
 
 4. La page de l’espace de travail affiche des détails sur le démarrage et la configuration, ainsi que des liens vers des informations supplémentaires.  
 
@@ -84,10 +81,10 @@ Les activités suivantes nécessitent également des autorisations Azure :
 | Gestion d’un espace de travail dans le portail Azure                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gestion de l’accès à Log Analytics à l’aide des autorisations Azure
+### <a name="managing-access-to-log-analytics-workspace-using-azure-permissions"></a>Gestion de l'accès à l'espace de travail Log Analytics à l'aide des autorisations Azure
 Pour accorder l’accès à l’espace de travail Log Analytics à l’aide des autorisations Azure, suivez les étapes de la page [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../../role-based-access-control/role-assignments-portal.md).
 
-Azure intègre deux rôles utilisateur pour Log Analytics :
+Azure intègre deux rôles utilisateur pour les espaces de travail Log Analytics :
 - Lecteur Log Analytics
 - Contributeur Log Analytics
 
@@ -149,5 +146,4 @@ Nous vous recommandons d’effectuer des affectations au niveau de la ressource 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Présentation de l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) pour collecter des données à partir d’ordinateurs dans votre centre de données ou d’un autre environnement cloud.
 * Consultez [Collecter des données sur les machines virtuelles Azure](../../azure-monitor/learn/quick-collect-azurevm.md) pour configurer la collecte de données à partir de machines virtuelles Azure.  
-* [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md) pour ajouter des fonctionnalités et collecter des données.
 

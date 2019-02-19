@@ -1,6 +1,6 @@
 ---
-title: Analyser des données de texte dans Azure Log Analytics | Microsoft Docs
-description: Décrit les différentes options pour l’analyse des données dans les enregistrements Log Analytics lorsque les données sont ingérées et lorsqu’elles sont extraites par une requête, en comparant les avantages de chacune.
+title: Analyser des données de texte dans les journaux Azure Monitor | Microsoft Docs
+description: Décrit différentes options pour l'analyse des données de journal dans les enregistrements Azure Monitor lorsque les données sont ingérées et lorsqu'elles sont extraites par une requête, en comparant les avantages de chacune.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214128"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002192"
 ---
-# <a name="parse-text-data-in-log-analytics"></a>Analyser des données de texte dans Log Analytics
-Certaines données collectées par Log Analytics incluent plusieurs éléments d’information dans une seule propriété. L’analyse de ces données dans plusieurs propriétés simplifie leur utilisation dans des requêtes. Un exemple courant est le [journal personnalisé](../../log-analytics/log-analytics-data-sources-custom-logs.md) qui collecte une entrée de journal entière avec plusieurs valeurs dans une seule propriété. En créant des propriétés distinctes pour les différentes valeurs, vous pouvez faire des recherches et des agrégations sur chacune d’elles.
+# <a name="parse-text-data-in-azure-monitor-logs"></a>Analyser des données de texte dans les journaux Azure Monitor
+Certaines données de journal collectées par Azure Monitor incluront plusieurs informations au sein d'une même propriété. L’analyse de ces données dans plusieurs propriétés simplifie leur utilisation dans des requêtes. Un exemple courant est le [journal personnalisé](../../log-analytics/log-analytics-data-sources-custom-logs.md) qui collecte une entrée de journal entière avec plusieurs valeurs dans une seule propriété. En créant des propriétés distinctes pour les différentes valeurs, vous pouvez faire des recherches et des agrégations sur chacune d’elles.
 
-Cet article décrit différentes options pour l’analyse des données dans les enregistrements Log Analytics lorsque les données sont ingérées et lorsqu’elles sont extraites par une requête, en comparant les avantages de chacune.
+Cet article décrit différentes options pour l'analyse des données de journal dans Azure Monitor lorsque les données sont ingérées et lorsqu'elles sont extraites par une requête, en comparant les avantages de chacune.
 
 
 ## <a name="parsing-methods"></a>Méthode d’analyse
@@ -60,7 +60,7 @@ Les inconvénients de cette méthode sont les suivants :
 - Elle peut créer une surcharge lors de l’exécution d’une logique complexe sur de très grands jeux d’enregistrement (comprenant des milliards d’enregistrements).
 
 ## <a name="parse-data-as-its-collected"></a>Analyser les données lors de la collecte
-Consultez [Créer des champs personnalisés dans Log Analytics](../../log-analytics/log-analytics-custom-fields.md) pour plus d’informations sur l’analyse des données lors de la collecte. Cela crée des propriétés personnalisées dans la table, pouvant être utilisées par les requêtes comme n’importe quelle autre propriété.
+Consultez [Créer des champs personnalisés dans Azure Monitor](../platform/custom-fields.md) pour plus d'informations sur l'analyse des données lors de la collecte. Cela crée des propriétés personnalisées dans la table, pouvant être utilisées par les requêtes comme n’importe quelle autre propriété.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Analyser les données dans une requête à l’aide de modèles
 Lorsque les données que vous souhaitez analyser peuvent être identifiées par un modèle répété sur plusieurs enregistrements, vous pouvez utiliser différents opérateurs dans le [langage de requête de l’Explorateur de données](/azure/kusto/query/) afin d’extraire la donnée spécifique dans une ou plusieurs nouvelles propriétés.
@@ -106,7 +106,7 @@ AzureActivity
 | distinct UPNUserPart, Caller
 ```
 
-Pour permettre une analyse efficace à grande échelle, Log Analytics utilise la version re2 des Expressions régulières, similaire mais pas identique à d’autres variantes d’expressions régulières. Reportez-vous à la [syntaxe d’expression re2](https://aka.ms/kql_re2syntax) pour plus d’informations.
+Pour permettre une analyse efficace à grande échelle, Azure Monitor utilise la version re2 des Expressions régulières, qui est similaire mais pas identique à d'autres variantes d'expressions régulières. Reportez-vous à la [syntaxe d’expression re2](https://aka.ms/kql_re2syntax) pour plus d’informations.
 
 
 ## <a name="parse-delimited-data-in-a-query"></a>Analyser des données délimitées dans une requête

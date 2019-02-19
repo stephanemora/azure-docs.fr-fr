@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b977a2fe9dadfe42e02063fa4fa291b9be484ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 09145612821cb669e26e3ccb8d15611112eca700
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733133"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980072"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Déployer votre application sur des groupes de machines virtuelles identiques
+
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Cet article présente des méthodes pour créer une image de machine virtuelle personnalisée d’un groupe identique, ou pour exécuter automatiquement des scripts d’installation sur des instances de machine virtuelle existantes. Vous apprendrez également à gérer des applications ou des mises à jour du système d’exploitation sur un groupe identique.
 
 
@@ -50,10 +51,10 @@ L’extension PowerShell DSC vous permet de personnaliser les instances de machi
 
 - Donne pour instruction aux instances de machine virtuelle de télécharger un package DSC à partir de GitHub – *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Définit l’extension pour exécuter un script d’installation - `configure-http.ps1`
-- Obtient des informations sur un groupe identique avec [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
-- Applique l’extension aux instances de machine virtuelle avec [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
+- Obtient des informations sur un groupe identique avec [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
+- Applique l'extension aux instances de machine virtuelle avec [Update-AzVmss](/powershell/module/az.compute/update-azvmss)
 
-L’extension DSC est appliquée aux instances de machine virtuelle *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*. Saisissez vos propres noms, comme suit :
+L’extension DSC est appliquée aux instances de machine virtuelle *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*. Entrez vos propres noms, comme suit :
 
 ```powershell
 # Define the script for your Desired Configuration to download and run
@@ -67,12 +68,12 @@ $dscConfig = @{
 }
 
 # Get information about the scale set
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
                 -ResourceGroupName "myResourceGroup" `
                 -VMScaleSetName "myScaleSet"
 
 # Add the Desired State Configuration extension to install IIS and configure basic website
-$vmss = Add-AzureRmVmssExtension `
+$vmss = Add-AzVmssExtension `
     -VirtualMachineScaleSet $vmss `
     -Publisher Microsoft.Powershell `
     -Type DSC `
@@ -81,13 +82,13 @@ $vmss = Add-AzureRmVmssExtension `
     -Setting $dscConfig
 
 # Update the scale set and apply the Desired State Configuration extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
     -ResourceGroupName "myResourceGroup" `
     -Name "myScaleSet"  `
     -VirtualMachineScaleSet $vmss
 ```
 
-Si la stratégie de mise à niveau de votre groupe identique est *manuelle*, mettez à jour vos instances de machine virtuelle avec [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). Cette applet de commande applique la configuration du groupe identique mis à jour aux instances de machine virtuelle, puis installe votre application.
+Si la stratégie de mise à niveau de votre groupe identique est *manuelle*, mettez à jour vos instances de machine virtuelle avec [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance). Cette applet de commande applique la configuration du groupe identique mis à jour aux instances de machine virtuelle, puis installe votre application.
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Installer une application sur une machine virtuelle Linux avec cloud-init

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 12/17/2018
+ms.date: 02/08/2019
 ms.author: danlep
-ms.openlocfilehash: 647890517e6f08a4602ebed8ee1057cb45f10cbe
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 35e846aa5954e3714d301c9c75cf42b31961fdfe
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075496"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160575"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Disponibilité des régions et quotas pour Azure Container Instances
 
@@ -28,13 +28,13 @@ Azure Container Instances est disponible dans les régions suivantes avec les li
 
 | Lieu | SE | UC | Mémoire (Go) |
 | -------- | -- | :---: | :-----------: |
-| Centre du Canada | Linux | 4 | 16 |
+| Canada Centre, USA Centre, USA Est 2 | Linux | 4 | 16 |
 | USA Est, Europe Nord, Europe Ouest, USA Ouest, USA Ouest 2 | Linux | 4 | 14 |
 | Japon Est | Linux | 2 | 8 |
-| Australie Est, USA Est 2, Asie Sud-Est | Linux | 2 | 7 |
+| Australie Est, Asie Sud-Est | Linux | 2 | 7 |
 | Inde Centre, Asie Est, USA Centre Nord, USA Centre Sud, Inde Sud | Linux | 2 | 3,5 |
 | USA Est, Europe Ouest, USA Ouest |  Windows | 4 | 14 |
-| Australie Est, Canada Centre, Inde Centre, Asie Est, USA Est 2, Japon Est, USA Centre Nord, Europe Nord, USA Centre Sud, Inde Sud, Asie Sud-Est, USA Ouest 2 |  Windows | 2 | 3,5 |
+| Australie Est, Canada Centre, Inde Centre, Asie Est, USA Centre, USA Est 2, Japon Est, USA Centre Nord, Europe Nord, USA Centre Sud, Inde Sud, Asie Sud-Est, USA Ouest 2 |  Windows | 2 | 3,5 |
 
 Les instances de conteneur créées dans les limites de ces ressources sont soumises à la disponibilité dans la région de déploiement. Quand une région a une charge importante, vous pouvez rencontrer un échec durant le déploiement des instances. Pour atténuer ce type d’échec de déploiement, essayez de déployer des instances avec des paramètres de mémoire et de processeur inférieurs, ou essayez d’effectuer le déploiement plus tard.
 

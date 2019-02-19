@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à SecureW2 JoinNow Connector | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à SecureW2 JoinNow Connector | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SecureW2 JoinNow Connector.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 283f8c935556006a21812578d0638b72adb6eed0
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5b367befb90ec28ece963d67b479749e1c8ad363
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906315"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175317"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>Tutoriel : Intégration d’Azure Active Directory à SecureW2 JoinNow Connector
+# <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>Tutoriel : Intégration d'Azure Active Directory à SecureW2 JoinNow Connector
 
 Dans ce tutoriel, vous allez apprendre à intégrer SecureW2 JoinNow Connector à Azure Active Directory (Azure AD).
 
@@ -158,7 +159,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-securew2-joinnow-connector-test-user"></a>Créer un utilisateur de test SecureW2 JoinNow Connector
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SecureW2 JoinNow Connector. Demandez l’aide de [l’équipe du support technique SecureW2 JoinNow Connector](mailto:support@securew2.com) pour ajouter des utilisateurs dans la plateforme SecureW2 JoinNow Connector. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SecureW2 JoinNow Connector. Travaillez en collaboration avec l' [équipe du support technique de SecureW2 JoinNow Connector](mailto:support@securew2.com) pour ajouter des utilisateurs à la plateforme SecureW2 JoinNow Connector. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

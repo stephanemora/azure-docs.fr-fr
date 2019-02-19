@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Gra-Pe | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à Gra-Pe | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Gra-Pe.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 5e642cba3354f4f8589e44d975c0cecf5692c5b5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 02df0a5d13aeb90049383f61d743e8a11e93fc79
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432920"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188526"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Didacticiel : Intégration d’Azure Active Directory à Gra-Pe
+# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutoriel : Intégration d'Azure Active Directory à Gra-Pe
 
 Dans ce didacticiel, vous allez apprendre à intégrer Gra-Pe dans Azure Active Directory (Azure AD).
 
@@ -109,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL d’authentification**, tapez l’URL :  `https://btm.tts.co.jp/portal/apl/SSOLogin.aspx`
+    Dans la zone de texte **URL de connexion**, tapez une URL comme `https://btm.tts.co.jp/portal/apl/SSOLogin.aspx`
 
     ![image](./media/grape-tutorial/tutorial_grape_url.png)
 
@@ -156,7 +157,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-gra-pe-test-user"></a>Créer un utilisateur de test Gra-Pe
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Gra-Pe. Collaborez avec l’[équipe du support technique Gra-Pe](https://www.toppantravel.com/inquiry/) pour ajouter des utilisateurs dans la plate-forme Gra-Pe. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Gra-Pe. Travaillez en collaboration avec l' [équipe du support technique de Gra-Pe](https://www.toppantravel.com/inquiry/) pour ajouter des utilisateurs à la plateforme Gra-Pe. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

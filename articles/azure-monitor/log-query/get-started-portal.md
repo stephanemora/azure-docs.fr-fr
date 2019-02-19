@@ -1,30 +1,25 @@
 ---
-title: Prise en main de Log Analytics dans le Portail Azure | Microsoft Docs
+title: Bien démarrer avec Azure Monitor Log Analytics | Microsoft Docs
 description: Cet article fournit un didacticiel dédié à l’écriture de requêtes dans le Portail Azure à l’aide de Log Analytics.
 services: log-analytics
-documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 6ed8906066d66b6e16ec482a53137f9ca70ae9c7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2adb23b63c3a8be56dc55293c7bb06534d9305c4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000048"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242105"
 ---
-# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Prise en main de Log Analytics dans le Portail Azure
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Bien démarrer avec Azure Monitor Log Analytics
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Dans ce didacticiel, vous allez apprendre à écrire des requêtes Log Analytics à partir de la page Log Analytics du portail Azure (actuellement en préversion). Au terme du tutoriel, vous saurez :
+Dans ce tutoriel, vous allez apprendre à utiliser Azure Monitor Log Analytics sur le portail Azure pour rédiger des requêtes de journal Azure Monitor. Au terme du tutoriel, vous saurez :
 
 - Écrire des requêtes simples
 - Comprendre le schéma de vos données
@@ -35,8 +30,8 @@ Dans ce didacticiel, vous allez apprendre à écrire des requêtes Log Analytics
 - Exporter et partager des requêtes
 
 
-## <a name="meet-the-log-analytics-page"></a>Découvrir la page Log Analytics 
-La page Log Analytics est un outil web utilisé pour écrire et exécuter des requêtes Azure Log Analytics. Ouvrez la page en sélectionnant **Journaux (préversion)** dans le menu Log Analytics. Une nouvelle requête vide s’affiche.
+## <a name="meet-log-analytics"></a>Répondre aux exigences de Log Analytics
+Log Analytics est un outil web utilisé pour rédiger et exécuter des requêtes de journal Azure Monitor. Pour l'ouvrir, sélectionnez **Journaux** dans le menu Azure Monitor. Une nouvelle requête vide s’affiche.
 
 ![page d'accueil](media/get-started-portal/homepage.png)
 
@@ -83,7 +78,7 @@ Commencez par récupérer tout le contenu de la table _Event_.
 Event
 ```
 
-La page Log Analytics définit automatiquement l’étendue des résultats par :
+Log Analytics définit automatiquement l'étendue des résultats par :
 
 - Intervalle de temps :  par défaut, les requêtes sont limitées aux dernières 24 heures.
 - Nombre de résultats : les résultats sont limités à un maximum de 10 000 enregistrements.
@@ -121,7 +116,7 @@ La table de résultats inclut souvent un grand nombre de colonnes. Peut-être co
 
 
 ## <a name="select-a-time-range"></a>Sélectionner un intervalle de temps
-Par défaut, la page Log Analytics applique l’intervalle de temps correspondant aux _dernières 24 heures_. Pour utiliser un autre intervalle, sélectionnez une autre valeur par le biais du sélecteur d’heure, puis cliquez sur **Exécuter**. Outre les valeurs prédéfinies, vous pouvez utiliser l’option _intervalle de temps personnalisé_ pour sélectionner un intervalle absolu pour votre requête.
+Par défaut, Log Analytics applique l'intervalle de temps correspondant aux _dernières 24 heures_. Pour utiliser un autre intervalle, sélectionnez une autre valeur par le biais du sélecteur d’heure, puis cliquez sur **Exécuter**. Outre les valeurs prédéfinies, vous pouvez utiliser l’option _intervalle de temps personnalisé_ pour sélectionner un intervalle absolu pour votre requête.
 
 ![Sélecteur d’heure](media/get-started-portal/time-picker.png)
 
@@ -183,12 +178,12 @@ L’icône Explorateur de requêtes se trouve dans la zone supérieure droite. I
 ![Explorateur de requêtes](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exporter et partager en tant que lien
-La page Log Analytics prend en charge plusieurs méthodes d’exportation :
+Log Analytics prend en charge plusieurs méthodes d'exportation :
 
-- Excel : enregistrer les résultats dans un fichier CSV.
-- Power BI : exporter les résultats dans Power BI. Pour plus d’informations, consultez [Importation de données Azure Log Analytics dans Power BI](../../azure-monitor/platform/powerbi.md).
+- Excel : enregistrer les résultats dans un fichier CSV.
+- Power BI : exporter les résultats dans Power BI. Pour plus d'informations, consultez [Importation de données de journal Azure Monitor dans Power BI](../../azure-monitor/platform/powerbi.md).
 - Partager un lien : vous pouvez partager la requête elle-même sous la forme d’un lien, puis envoyer celui-ci à d’autres utilisateurs ayant accès à l’espace de travail afin qu’ils puissent exécuter la requête.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez-en plus sur [l’écriture de requêtes Log Analytics](get-started-queries.md).
+- Découvrez-en plus sur la [rédaction des requêtes de journal Azure Monitor](get-started-queries.md).

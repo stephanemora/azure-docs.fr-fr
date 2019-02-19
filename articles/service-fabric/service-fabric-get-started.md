@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: f4ae164a9862a32b45fd5bd0ae7bc09a1180c344
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 373bcecfb1780aa567b1250e53096b9eed0d0f21
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733482"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858737"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Préparer votre environnement de développement sur Windows
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Les versions actuelles sont les suivantes :
 * Outils Service Fabric pour Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 inclut les outils Service Fabric pour Visual Studio 2.4.11024.1 
 
-Pour obtenir la liste des versions prises en charge, consultez l’article [Service Fabric support (Options de prise en charge de Service Fabric)](service-fabric-support.md).
+Pour obtenir la liste des versions prises en charge, consultez [Versions de Service Fabric](service-fabric-versions.md).
 
 > [!NOTE]
 > Les clusters de machine unique (OneBox) ne sont pas pris en charge pour les mises à niveau d’Application ou de Cluster. Si vous avez besoin d’effectuer une mise à niveau de Cluster ou rencontrez des problèmes de mise à niveau d’Application, supprimez le cluster OneBox, puis recréez-le. 

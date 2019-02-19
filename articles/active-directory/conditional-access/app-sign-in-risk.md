@@ -16,16 +16,17 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2c889368afe601bc7188f3b0989e7799c88131b4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e950450a1ebe710a56ccfa0e8abefc7104602ec5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081957"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206172"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Démarrage rapide : Bloquer l’accès lorsqu’un risque de session est détecté avec l’accès conditionnel Azure Active Directory  
 
-Pour protéger votre environnement, il se peut que vous souhaitiez empêcher les utilisateurs suspects de se connecter à l’activité. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyse chaque connexion et calcule la probabilité qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. La probabilité (faible, moyenne ou élevée) est indiquée sous forme de valeurs calculées appelées [niveaux de risque de connexion](conditions.md#sign-in-risk). En définissant la condition du risque de connexion, vous pouvez configurer une stratégie d’accès conditionnel afin de répondre aux niveaux de risque de connexion spécifiques. 
+Pour protéger votre environnement, vous devrez peut-être empêcher les utilisateurs suspects de se connecter. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyse chaque connexion et calcule la probabilité qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. La probabilité (faible, moyenne ou élevée) est indiquée sous forme de valeurs calculées appelées [niveaux de risque de connexion](conditions.md#sign-in-risk). En définissant la condition du risque de connexion, vous pouvez configurer une stratégie d’accès conditionnel afin de répondre aux niveaux de risque de connexion spécifiques. 
 
 Ce démarrage rapide décrit comment configurer une [stratégie d’accès conditionnel](../active-directory-conditional-access-azure-portal.md) qui bloque une connexion lorsqu’un niveau de risque de connexion configuré a été détecté. 
 
@@ -93,11 +94,11 @@ Cette section montre comment créer la stratégie d’accès conditionnel requis
  
 4. Dans la page **Accès conditionnel**, dans la barre d’outils en haut, cliquez sur **Ajouter**.
 
-    ![NOM](./media/app-sign-in-risk/108.png)
+    ![Nom](./media/app-sign-in-risk/108.png)
 
 5. Sur la page **Nouveau**, dans la zone de texte **Nom**, saisissez **Block access for medium risk level**.
 
-    ![NOM](./media/app-sign-in-risk/104.png)
+    ![Nom](./media/app-sign-in-risk/104.png)
 
 6. Dans la section **Affectation**, cliquez sur **Utilisateurs et groupes**.
 

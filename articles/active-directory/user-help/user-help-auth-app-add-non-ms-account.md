@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: afcac73af84010f37eccd018f39852712e495b84
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 714a78c436b7071717e2df12c2a65999920f8c63
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55771937"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192130"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Ajouter vos comptes non-Microsoft
 Ajoutez vos comptes non-Microsoft, tels que Google, Facebook ou GitHub, à l'application Microsoft Authenticator pour la vérification en deux étapes. L'application Microsoft Authenticator fonctionne avec n'importe quelle application qui utilise la vérification en deux étapes et n'importe quel compte qui prend en charge les mots de passe à usage unique et durée définie (normes TOTP).
@@ -55,7 +56,7 @@ Ajoutez votre compte Google en activant la vérification en deux étapes, puis e
 4. Utilisez l'appareil photo de votre appareil pour scanner le code QR de la page **Configurer Authentificator** de votre PC.
 
     >[!Note]
-    >Si votre appareil photo ne fonctionne pas correctement, vous pouvez [entrer manuellement le code QR et l’URL](#add-an-account-to-the-app-manually).
+    >Si votre appareil photo ne fonctionne pas correctement, vous pouvez entrer le code QR et l'URL manuellement.
 
 5. Examinez la page **Comptes** de l'application Microsoft Authenticator sur votre appareil pour vous assurer que vos informations de compte sont correctes et qu'un code de vérification à six chiffres y est associé.
 
@@ -94,7 +95,7 @@ Ajoutez votre compte Facebook en activant la vérification en deux étapes, puis
 3. Utilisez l'appareil photo de votre appareil pour scanner le code QR de la page **Authentification à deux facteurs** de votre PC.
 
     >[!Note]
-    >Si votre appareil photo ne fonctionne pas correctement, vous pouvez [entrer manuellement le code QR et l’URL](#add-an-account-to-the-app-manually).
+    >Si votre appareil photo ne fonctionne pas correctement, vous pouvez entrer le code QR et l'URL manuellement.
 
 4. Examinez la page **Comptes** de l'application Microsoft Authenticator sur votre appareil pour vous assurer que vos informations de compte sont correctes et qu'un code de vérification à six chiffres y est associé.
 
@@ -165,7 +166,7 @@ Ajoutez votre compte Amazon en activant la vérification en deux étapes, puis e
 6. Utilisez l'appareil photo de votre appareil pour scanner le code QR à partir de la page **Choisir comment recevoir les codes** de votre PC.
 
     >[!Note]
-    >Si votre appareil photo ne fonctionne pas correctement, vous pouvez [entrer manuellement le code QR et l’URL](#add-an-account-to-the-app-manually).
+    >Si votre appareil photo ne fonctionne pas correctement, vous pouvez entrer le code QR et l'URL manuellement.
 
 5. Examinez la page **Comptes** de l'application Microsoft Authenticator sur votre appareil pour vous assurer que vos informations de compte sont correctes et qu'un code de vérification à six chiffres y est associé.
 

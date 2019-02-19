@@ -2,17 +2,17 @@
 title: Azure Key Vault - Utilisation de la suppression réversible avec PowerShell
 description: Exemples d’utilisation de la suppression réversible avec extraits de code PowerShell
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: bryanla
-ms.openlocfilehash: c979d6eccd5c185d89252302b40fdd674e3c5916
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 70437403d3b78b7f8b9eef921c933a68793450da
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657499"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113581"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Utilisation de la suppression réversible Key Vault avec l’interface PowerShell
 
@@ -23,14 +23,16 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Azure PowerShell 4.0.0 ou version ultérieure - Si ce n’est pas encore fait, installez Azure PowerShell et associez-le à votre abonnement Azure. Voir [Guide pratique pour installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- Azure PowerShell 1.0.0 ou version ultérieure - Si ce n'est déjà fait, installez Azure PowerShell et associez-le à votre abonnement Azure. Voir [Guide pratique pour installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
 >[!NOTE]
 > Il existe une version obsolète de notre fichier de mise en forme de sortie Key Vault PowerShell qui **peut** se charger dans votre environnement à la place de la version correcte. Nous prévoyons de publier une version mise à jour de PowerShell avec la correction nécessaire de la mise en forme de sortie ; cette rubrique sera mise à jour à cette occasion. D’ici là, si vous rencontrez ce problème de mise en forme, voici comment le contourner :
-> - Utilisez la requête suivante si vous ne voyez pas la propriété de suppression réversible activée qui est décrite dans cette rubrique : `$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
+> - Utilisez la requête suivante si vous ne voyez pas la propriété de suppression réversible activée qui est décrite dans cette rubrique : `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
 
 
-Pour obtenir des informations de référence propres à Key Vault pour PowerShell, consultez la [référence Key Vault Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+Pour obtenir des informations de référence propres à Key Vault pour PowerShell, consultez la [référence Azure Key Vault PowerShell](/powershell/module/az.keyvault).
 
 ## <a name="required-permissions"></a>Autorisations requises
 
@@ -56,9 +58,9 @@ L’activation de la « suppression réversible » permet de récupérer un co
 Pour un coffre de clés existant nommé ContosoVault, vous pouvez activer la suppression réversible comme suit. 
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
 
 ### <a name="new-key-vault"></a>Nouveau coffre de clés
@@ -66,7 +68,7 @@ Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Prope
 L’activation de la suppression réversible pour un nouveau coffre de clés s’effectue au moment de la création en ajoutant l’indicateur « soft-delete enable » à votre commande de création.
 
 ```powershell
-New-AzureRmKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
+New-AzKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
 ```
 
 ### <a name="verify-soft-delete-enablement"></a>Vérifier l’activation de la suppression réversible
@@ -74,7 +76,7 @@ New-AzureRmKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Locatio
 Pour vérifier que la suppression réversible est activée pour un coffre de clés, exécutez la commande *show* et recherchez l’attribut « Soft Delete Enabled ? »  :
 
 ```powershell
-Get-AzureRmKeyVault -VaultName "ContosoVault"
+Get-AzKeyVault -VaultName "ContosoVault"
 ```
 
 ## <a name="deleting-a-soft-delete-protected-key-vault"></a>Suppression d'un coffre de clés protégé par la suppression réversible
@@ -85,7 +87,7 @@ Le comportement de la commande pour supprimer un coffre de clés varie selon que
 >Si vous exécutez la commande suivante pour un coffre de clés pour lequel la suppression réversible n’est pas activée, vous supprimez définitivement ce coffre de clés et tout son contenu, sans aucune option de récupération !
 
 ```powershell
-Remove-AzureRmKeyVault -VaultName 'ContosoVault'
+Remove-AzKeyVault -VaultName 'ContosoVault'
 ```
 
 ### <a name="how-soft-delete-protects-your-key-vaults"></a>Comment la suppression réversible protège-t-elle votre coffre de clés ?
@@ -99,7 +101,7 @@ Quand la suppression réversible est activée :
 Vous pouvez afficher les coffres de clé associés à votre abonnement qui sont à l’état supprimé en exécutant la commande suivante :
 
 ```powershell
-PS C:\> Get-AzureRmKeyVault -InRemovedState 
+PS C:\> Get-AzKeyVault -InRemovedState 
 ```
 
 - *Id* permet d’identifier la ressource durant la récupération ou le vidage. 
@@ -111,7 +113,7 @@ PS C:\> Get-AzureRmKeyVault -InRemovedState
 Pour récupérer un coffre de clés, vous spécifiez le nom du coffre de clés, le groupe de ressources et l’emplacement. Notez l’emplacement et le groupe de ressources du coffre de clés supprimé, car vous en aurez besoin pour le processus de récupération.
 
 ```powershell
-Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
+Undo-AzKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
 ```
 
 Quand un coffre de clés est récupéré, une ressource est créée avec l’ID de ressource d’origine du coffre de clés. Si le groupe de ressources d’origine est supprimé, un groupe de ressources doit être créé avec le même nom avant la tentative de récupération.
@@ -121,7 +123,7 @@ Quand un coffre de clés est récupéré, une ressource est créée avec l’ID 
 La commande suivante supprime la clé nommée « ContosoFirstKey » dans un coffre de clés nommé « ContosoVault » pour lequel la suppression réversible est activée :
 
 ```powershell
-Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey
+Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
 Quand la suppression réversible est activée pour votre coffre de clés, une clé supprimée apparaît toujours comme étant supprimée, sauf si vous énumérez explicitement les clés supprimées. La plupart des opérations effectuées sur une clé à l’état supprimé échouent, sauf l’énumération, la récupération ou le vidage d’une clé supprimée. 
@@ -129,7 +131,7 @@ Quand la suppression réversible est activée pour votre coffre de clés, une cl
 Par exemple, la commande suivante énumère les clés supprimées dans le coffre de clés « ContosoVault » :
 
 ```powershell
-Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
+Get-AzKeyVaultKey -VaultName ContosoVault -InRemovedState
 ```
 
 ### <a name="transition-state"></a>État de transition 
@@ -145,7 +147,7 @@ Tout comme les coffres de clés, une clé, un secret ou un certificat supprimé(
 Pour récupérer une clé qui a été supprimée de façon réversible :
 
 ```powershell
-Undo-AzureKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
+Undo-AzKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
 Pour supprimer définitivement (opération également appelée vidage) une clé qui a été supprimée de façon réversible :
@@ -154,7 +156,7 @@ Pour supprimer définitivement (opération également appelée vidage) une clé 
 > Le vidage d’une clé entraîne sa suppression définitive ; vous ne pourrez pas la récupérer ! 
 
 ```powershell
-Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
+Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
 ```
 
 Les actions **recover** et **purge** ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. Pour qu’un utilisateur ou un principal de service puisse exécuter une action **recover** ou **purge**, il doit disposer de l’autorisation correspondante pour cette clé ou ce secret. Par défaut, l’action **purge** n’est pas ajoutée à la stratégie d’accès d’un coffre de clés quand le raccourci « all » est utilisé pour accorder toutes les autorisations. Vous devez accorder spécifiquement l’autorisation **purge**. 
@@ -164,7 +166,7 @@ Les actions **recover** et **purge** ont leurs propres autorisations associées 
 La commande suivante accorde à user@contoso.com l’autorisation d’utiliser plusieurs opérations sur les clés dans *ContosoVault*, notamment **purge** :
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
+Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
 ```
 
 >[!NOTE] 
@@ -176,17 +178,17 @@ Comme les clés, les secrets sont gérés avec leurs propres commandes :
 
 - Supprimer un secret nommé SQLPassword : 
 ```powershell
-Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
 ```
 
 - Énumérer tous les secrets supprimés dans un coffre de clés : 
 ```powershell
-Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState
+Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
 ```
 
 - Récupérer un secret à l’état supprimé : 
 ```powershell
-Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 ```
 
 - Vider un secret à l’état supprimé : 
@@ -195,7 +197,7 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   > Le vidage d’un secret entraîne sa suppression définitive ; vous ne pourrez pas le récupérer !
 
   ```powershell
-  Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
+  Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
 ## <a name="purging-a-soft-delete-protected-key-vault"></a>Vidage d'un coffre de clés protégé par la suppression réversible
@@ -204,19 +206,19 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 > Le vidage d'un coffre de clés ou d'un des objets qui y est contenu entraîne sa suppression définitive, ce qui signifie que vous ne pourrez pas le récupérer !
 
 La fonction de vidage permet de supprimer définitivement un objet du coffre de clés ou un coffre de clés tout entier précédemment supprimé de façon réversible. Comme démontré à la section précédente, les objets stockés dans un coffre de clés et pour lesquels la fonction de suppression réversible est activée peuvent passer par différents états :
-
 - **Actif** : avant la suppression.
 - **Supprimé de manière réversible** : après la suppression ; l'objet peut être répertorié et rétabli à l'état Actif.
 - **Supprimé définitivement** : après le vidage ; il impossible de récupérer l'objet.
+
 
 Cela s'applique également au coffre de clés. Pour supprimer définitivement un coffre de clés supprimé de manière réversible et son contenu, vous devez vider le coffre de clés.
 
 ### <a name="purging-a-key-vault"></a>Vidage d'un coffre de clés
 
-Quand un coffre de clés est vidé, tout son contenu est supprimé définitivement, notamment les clés, les secrets et les certificats. Pour vider un coffre de clés supprimé de manière réversible, utilisez la commande `Remove-AzureRmKeyVault` avec l'option `-InRemovedState` et spécifiez l'emplacement du coffre de clés supprimé avec l'argument `-Location location`. Vous pouvez déterminer l’emplacement d’un coffre supprimé à l’aide de la commande `Get-AzureRmKeyVault -InRemovedState`.
+Quand un coffre de clés est vidé, tout son contenu est supprimé définitivement, notamment les clés, les secrets et les certificats. Pour vider un coffre de clés supprimé de manière réversible, utilisez la commande `Remove-AzKeyVault` avec l'option `-InRemovedState` et spécifiez l'emplacement du coffre de clés supprimé avec l'argument `-Location location`. Vous pouvez déterminer l’emplacement d’un coffre supprimé à l’aide de la commande `Get-AzKeyVault -InRemovedState`.
 
 ```powershell
-Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus
+Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 ```
 
 ### <a name="purge-permissions-required"></a>Autorisations de vidage requises
@@ -234,5 +236,5 @@ L’énumération des objets du coffre de clés supprimés indique également qu
 ## <a name="other-resources"></a>Autres ressources
 
 - Pour obtenir une présentation de la fonctionnalité de suppression réversible, consultez [Présentation de la suppression réversible d’Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Pour obtenir une vue d’ensemble de l’utilisation d’Azure Key Vault, consultez [Bien démarrer avec Azure Key Vault](key-vault-get-started.md).
+- Pour une vue d'ensemble de l'utilisation d'Azure Key Vault, consultez [Présentation d'Azure Key Vault](key-vault-overview.md).
 

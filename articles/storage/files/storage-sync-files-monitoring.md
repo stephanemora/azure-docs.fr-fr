@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 032b39846d19e34f2eb87c1311feeb4bb890cb24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5a0d02768b0fbd23e33d13c5e5c3fe84a41cdc52
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467456"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243652"
 ---
 # <a name="monitor-azure-file-sync"></a>Superviser Azure File Sync
 
@@ -29,7 +29,7 @@ Dans le portail Azure, vous pouvez afficher l’intégrité du serveur inscrit, 
 
 ### <a name="storage-sync-service"></a>Service de synchronisation de stockage
 
-Pour afficher les serveurs inscrits et l’intégrité du point de terminaison de serveur, accédez au service de synchronisation de stockage dans le portail Azure. L’intégrité du serveur inscrit est visible dans le panneau Serveurs inscrits. L’intégrité du point de terminaison de serveur est visible dans le panneau Groupes de synchronisation.
+Pour afficher l'intégrité du serveur inscrit ainsi que l'intégrité et les métriques du point de terminaison du serveur, accédez au service de synchronisation de stockage sur le portail Azure. L’intégrité du serveur inscrit est visible dans le panneau Serveurs inscrits. L’intégrité du point de terminaison de serveur est visible dans le panneau Groupes de synchronisation.
 
 Intégrité du serveur inscrit
 - Si l’état du serveur inscrit est défini sur « En ligne », le serveur communique avec le service.
@@ -38,6 +38,23 @@ Intégrité du serveur inscrit
 Intégrité du point de terminaison de serveur
 - L’intégrité du point de terminaison de serveur dans le portail est basée sur les événements de synchronisation qui sont enregistrés dans le journal d’événements de télémétrie sur le serveur (ID 9102 et 9302). Si une session de synchronisation échoue en raison d’une erreur temporaire (par exemple, erreur annulée), la synchronisation peut toujours être affichée comme étant intègre dans le portail tant que la session de synchronisation actuelle est en cours (l’ID d’événement 9302 est utilisé pour déterminer si des fichiers sont appliqués). Pour plus d’informations, consultez la documentation suivante : [Comment surveiller l’intégrité de synchronisation ?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [Comment surveiller la progression d’une session en cours de synchronisation ?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - Si le portail affiche une erreur de synchronisation en raison d’une synchronisation qui ne progresse pas, consultez la [documentation de dépannage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) pour obtenir des conseils.
+
+Mesures
+- Les métriques suivantes sont visibles sur le portail du service de synchronisation de stockage :
+
+  | Nom de métrique | Description | Panneau(x) du portail | 
+  |-|-|-|
+  | Octets synchronisés | Taille des données transférées (chargement et téléchargement) | Groupe de synchronisation, point de terminaison du serveur |
+  | Rappel de hiérarchisation cloud | Taille des données rappelées | Serveurs inscrits |
+  | Fichiers ne se synchronisant pas | Nombre de fichiers qui ne peuvent pas être synchronisés | Point de terminaison de serveur |
+  | Fichiers synchronisés | Nombre de fichiers transférés (chargement et téléchargement) | Groupe de synchronisation, point de terminaison du serveur |
+  | État du serveur en ligne | Nombre de pulsations reçues du serveur | Serveurs inscrits |
+
+- Pour en savoir plus, consultez la section [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor). 
+
+  > [!Note]  
+  > Un intervalle de temps de 24 heures s'applique aux graphiques du portail du service de synchronisation de stockage. Pour afficher d'autres intervalles de temps ou dimensions, utilisez Azure Monitor.
+
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
@@ -52,8 +69,8 @@ Les métriques suivantes pour Azure File Sync sont disponibles dans Azure Monito
 | Octets synchronisés | Taille des données transférées (chargement et téléchargement).<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
 | Rappel de hiérarchisation cloud | Taille des données rappelées.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom du serveur |
 | Fichiers ne se synchronisant pas | Nombre de fichiers qui ne peuvent pas être synchronisés.<br><br>Unité : Nombre<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
-| Fichiers synchronisés | Nombre de fichiers chargés et téléchargés.<br><br>Unité : Nombre<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
-| Pulsation du serveur | Nombre de pulsations reçues du serveur.<br><br>Unité : Nombre<br>Type d’agrégation : Maximale<br>Dimension applicable : Nom du serveur |
+| Fichiers synchronisés | Nombre de fichiers transférés (chargement et téléchargement).<br><br>Unité : Nombre<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+| État du serveur en ligne | Nombre de pulsations reçues du serveur.<br><br>Unité : Nombre<br>Type d’agrégation : Maximale<br>Dimension applicable : Nom du serveur |
 | Résultat de session de synchronisation | Résultat de session de synchronisation (1 = session de synchronisation réussie ; 0 = session de synchronisation ayant échoué)<br><br>Unité : Nombre<br>Types d’agrégation : Maximale<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
 
 ## <a name="windows-server"></a>Windows Server

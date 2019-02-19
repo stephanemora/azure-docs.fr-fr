@@ -1,26 +1,26 @@
 ---
-title: Utiliser Azure Data Lake Storage Gen2 (préversion) avec des clusters Azure HDInsight
-description: Découvrez comment interroger des données à partir d’Azure Data Lake Storage Gen2 (préversion) et à stocker les résultats de votre analyse.
+title: Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight
+description: Apprenez à interroger des données à partir d'Azure Data Lake Storage Gen2 et à stocker les résultats de votre analyse.
 author: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 739076289a1324cb47f0c980f0d21b153c7b5edc
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: df65c29b39921eda6ba2bd682e5938f58a9e4de7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662956"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964575"
 ---
-# <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Utiliser Azure Data Lake Storage Gen2 (préversion) avec des clusters Azure HDInsight
+# <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight
 
-Pour analyser les données dans un cluster HDInsight, vous pouvez stocker les données dans n’importe quelle combinaison de stockage Blob Azure, Azure Blob Storage avec Azure Data Lake Storage Gen2 ou Azure Data Lake Storage Gen1. Toutes les options de stockage vous permettent de supprimer de manière sécurisée des clusters HDInsight servant au calcul, sans perte de données utilisateur.
+Pour analyser des données dans un cluster HDInsight, vous pouvez stocker les données dans n'importe quelle combinaison de Stockage Blob Azure, Stockage Blob Azure avec Azure Data Lake Storage Gen2 activé, ou Azure Data Lake Storage Gen1. Toutes les options de stockage vous permettent de supprimer de manière sécurisée des clusters HDInsight servant au calcul, sans perte de données utilisateur.
 
 Hadoop prend en charge une notion de système de fichiers par défaut. Le système de fichiers par défaut implique un schéma et une autorité par défaut. Il peut également être utilisé pour résoudre les chemins d'accès relatifs. Pendant le processus de création du cluster HDInsight, vous pouvez spécifier un conteneur d’objets blob dans le stockage Azure ou l'espace de noms hiérarchique offert par Azure Data Lake Storage Gen2 comme système de fichiers par défaut. Sinon, utilisez HDInsight 3.5 pour sélectionner un conteneur ou un espace de noms hiérarchique comme système de fichiers par défaut, avec quelques exceptions.
 
-Dans cet article, vous découvrez le fonctionnement de Data Lake Storage Gen2 avec des clusters HDInsight. Pour plus d’informations sur la création d’un cluster HDInsight, consultez [Configurer des clusters HDInsight à l’aide d’Azure Data Lake Storage avec Hadoop, Spark, Kafka et bien plus encore](data-lake-storage-quickstart-create-connect-hdi-cluster.md).
+Dans cet article, vous découvrez le fonctionnement de Data Lake Storage Gen2 avec des clusters HDInsight. Pour plus d’informations sur la création d’un cluster HDInsight, consultez [Configurer des clusters HDInsight à l’aide d’Azure Data Lake Storage avec Hadoop, Spark, Kafka et bien plus encore](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
 
 Le stockage Azure est une solution de stockage à la fois robuste et polyvalente qui s’intègre en toute transparence à HDInsight. HDInsight peut utiliser Azure Data Lake Storage comme système de fichiers par défaut pour le cluster. Grâce à une interface HDFS (système de fichiers DFS hadoop), l’ensemble des composants de HDInsight peut fonctionner directement sur les fichiers dans Azure Data Lake Storage.
 
@@ -154,7 +154,7 @@ az storage account create \
 ```
 
 > [!NOTE]
-> Pendant la préversion publique de Data Lake Storage Gen2, seul `--sku Standard_LRS` est pris en charge.
+> Dans le cadre de la préversion publique de Data Lake Storage Gen2, seul `--sku Standard_LRS` est pris en charge.
 
 Vous devez spécifier la région géographique dans laquelle est créé le compte de stockage. Créez le compte de stockage dans la même région où vous voulez créer votre cluster HDInsight.
 
@@ -209,7 +209,6 @@ Pour plus d'informations, consultez les pages suivantes :
 
 * [Pilote de système de fichiers ABFS Hadoop pour Azure Data Lake Storage Gen2 (préversion)](data-lake-storage-abfs-driver.md)
 * [Présentation d’Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
-* [Configurer des clusters HDInsight à l’aide d’Azure Data Lake Storage Gen2 avec Hadoop, Spark, Kafka et bien plus encore](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 * [Ingérer des données dans Azure Data Lake Storage Gen2 à l’aide de distcp](data-lake-storage-use-distcp.md)
 
 [powershell-install]: /powershell/azure/install-az-ps

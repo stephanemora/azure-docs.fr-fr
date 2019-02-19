@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 607356bb59550626c9fe5f71d4609b9c3e2b2fe0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 77493782802eeb29313b57d11442535f1734c12e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251297"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097383"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Sauvegarde et récupération de données pour Azure Stack avec le service Infrastructure Backup
 
@@ -52,12 +52,16 @@ Le service contient les fonctionnalités suivantes.
   Vous avez besoin d’un partage de fichiers accessible depuis Azure Stack et pouvant contenir sept sauvegardes. Chaque sauvegarde est d’environ 10 Go. Votre partage doit pouvoir stocker 140 Go de sauvegardes. Pour plus d’informations sur la sélection d’un emplacement de stockage pour le service Azure Stack Infrastructure Backup, consultez [Configuration requise pour le contrôleur de sauvegarde](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Informations d'identification**  
   Vous avez besoin d’un compte d’utilisateur de domaine et d’informations d’identification : par exemple, vous pouvez utiliser les informations d’identification de l’administrateur d’Azure Stack.
-- **Clé de chiffrement**  
-  Les fichiers de sauvegarde sont chiffrés avec cette clé. Pensez à stocker cette clé à un emplacement sécurisé. Une fois que vous avez défini cette clé pour la première fois ou que vous procédez ultérieurement à une rotation de la clé, vous ne pouvez pas voir cette clé à partir de cette interface. Pour obtenir plus d’instructions en vue de générer une clé prépartagée, suivez les scripts de la rubrique [Activer la sauvegarde d’Azure Stack avec PowerShell](azure-stack-backup-enable-backup-powershell.md).
+- **Certificat de chiffrement**  
+  Les fichiers de sauvegarde sont chiffrés avec la clé publique dans le certificat. Pensez à stocker ce certificat à un emplacement sécurisé. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [activer la sauvegarde d’Azure Stack à partir du portail d’administration](azure-stack-backup-enable-backup-console.md).
-- Découvrez comment [activer la sauvegarde d’Azure Stack avec PowerShell](azure-stack-backup-enable-backup-powershell.md).
-- Découvrez comment [sauvegarder Azure Stack](azure-stack-backup-back-up-azure-stack.md )
-- Découvrez comment [récupérer des données suite à une perte catastrophique](azure-stack-backup-recover-data.md)
+Découvrez comment [activer la sauvegarde d’Azure Stack à partir du portail d’administration](azure-stack-backup-enable-backup-console.md).
+
+Découvrez comment [activer la sauvegarde d’Azure Stack avec PowerShell](azure-stack-backup-enable-backup-powershell.md).
+
+Découvrez comment [sauvegarder Azure Stack](azure-stack-backup-back-up-azure-stack.md )
+
+Découvrez comment [récupérer des données suite à une perte catastrophique](azure-stack-backup-recover-data.md)

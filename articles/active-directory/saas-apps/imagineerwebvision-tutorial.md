@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Imagineer WebVision | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à Imagineer WebVision | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Imagineer WebVision.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: jeedes
-ms.openlocfilehash: d86004680bf13c9716b4ff4e7a41af73ea186f27
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 377da86003543fb53240de4d5fc672f71e1ed5f2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047186"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202398"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Tutoriel : Intégration d’Azure Active Directory à Imagineer WebVision
+# <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Didacticiel : Intégration d'Azure Active Directory à Imagineer WebVision
 
 Dans ce tutoriel, vous allez apprendre à intégrer Imagineer WebVision à Azure Active Directory (Azure AD).
 
@@ -158,7 +159,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-an-imagineer-webvision-test-user"></a>Créer un utilisateur de test Imagineer WebVision
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Imagineer WebVision. Demandez l’aide de [l’équipe du support technique Imagineer WebVision](mailto:support@itgny.com) pour ajouter des utilisateurs dans la plateforme Imagineer WebVision. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Imagineer WebVision. Travaillez en collaboration avec l' [équipe du support technique d'Imagineer WebVision](mailto:support@itgny.com) pour ajouter des utilisateurs à la plateforme Imagineer WebVision. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

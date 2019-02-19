@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d0fac3a075923b000c453480edbf18599f5fed3d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564134"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994864"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestion des sauvegardes de machines virtuelles Azure
 
@@ -142,7 +142,7 @@ Si vous décidez d’arrêter la protection d’une machine virtuelle, vous devr
 
 La conservation des points de récupération dans le stockage présente un coût, mais elle a l’avantage de vous permettre de restaurer ultérieurement la machine virtuelle, si vous le souhaitez. Pour plus d’informations sur les coûts de conservation des points de récupération, consultez la [tarification](https://azure.microsoft.com/pricing/details/backup/). Si vous choisissez de supprimer tous les points de récupération, vous ne pourrez pas restaurer la machine virtuelle.
 
-Lorsque vous arrêtez une sauvegarde avec conservation des données, les points de récupération expirent conformément à la stratégie de rétention. Toutefois, la Sauvegarde Azure conserve le dernier point de récupération jusqu’à ce que vous supprimiez explicitement les données de sauvegarde. De même, si vous supprimez une source de données sans effectuer un arrêt de sauvegarde, les nouvelles sauvegardes échoueront et les anciens points de récupération expireront conformément à la stratégie de rétention. Toutefois, le dernier point de récupération sera conservé jusqu’à ce que vous arrêtiez une sauvegarde avec suppression des données.
+Le point de récupération sera conservé indéfiniment jusqu'à ce que l'élément de sauvegarde soit reprotégé avec une stratégie de rétention ou que la protection cesse (StopProtection) avec Supprimer les données. En cas de reprotection, la nouvelle stratégie associée est déterminante pour la rétention des points de récupération. De même, si vous supprimez une source de données sans effectuer un arrêt de sauvegarde, les nouvelles sauvegardes échoueront et les anciens points de récupération expireront conformément à la stratégie de conservation. Toutefois, le dernier point de récupération sera conservé jusqu’à ce que vous arrêtiez une sauvegarde avec suppression des données.
 
 Pour arrêter la protection d’une machine virtuelle :
 

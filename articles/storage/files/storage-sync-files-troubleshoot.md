@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 52e0521217fb99bc5fac3fdde8f43f9c80f86ac7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752090"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194233"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -145,12 +145,12 @@ Si un point de terminaison de serveur a l’état d’intégrité « Aucune acti
 
 Il peut être impossible pour un point de terminaison de serveur de journaliser l’activité de synchronisation pour les raisons suivantes :
 
-- Le serveur a une session de synchronisation VSS active (SnapshotSync). Quand une session de synchronisation VSS est active pour un point de terminaison de serveur, les autres points de terminaison de serveur sur le même volume ne peuvent pas démarrer une session de synchronisation tant que la session de synchronisation VSS n’est pas terminée.
+- La version 4.3.0.0 ou antérieure de l'agent est installée et le serveur dispose d'une session de synchronisation VSS active (SnapshotSync). Quand une session de synchronisation VSS est active pour un point de terminaison de serveur, les autres points de terminaison de serveur sur le même volume ne peuvent pas démarrer une session de synchronisation tant que la session de synchronisation VSS n’est pas terminée. Pour résoudre ce problème, installez la version 5.0.2.0 ou ultérieure de l'agent car elle prend en charge la synchronisation de plusieurs points de terminaison de serveur sur un volume lorsqu'une session de synchronisation VSS est active.
 
     Pour vérifier l’activité de synchronisation active sur un serveur, consultez [Comment suivre la progression d’une session de synchronisation active ?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 - Le serveur a atteint le nombre maximal de sessions de synchronisation simultanées. 
-    - Agent version 4.x et versions ultérieures : La limitation varie selon les ressources système disponibles.
+    - Agent version 4.x et versions ultérieures : La limitation varie selon les ressources système disponibles.
     - Agent version 3.x : 2 sessions de synchronisation actives par processeur ou un maximum de 8 sessions de synchronisation actives par serveur.
 
 > [!Note]  
@@ -286,7 +286,7 @@ Les sessions de synchronisation peuvent échouer pour diverses raisons, comme la
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT (décimal)** | -2147012889 | 
 | **Chaîne d’erreur** | WININET_E_NAME_NOT_RESOLVED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -306,7 +306,7 @@ Aucune action n’est requise; le serveur essayera à nouveau. Si cette erreur p
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (décimal)** | -2134364065 |
 | **Chaîne d’erreur** | ECS_E_CANNOT_ACCESS_EXTERNAL_STORAGE_ACCOUNT |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit parce que l’agent Azure File Sync ne peut pas accéder au partage de fichiers Azure, ce qui peut être dû au fait que le partage de fichiers Azure ou le compte de stockage qui l’héberge n’existent plus. Vous pouvez résoudre cette erreur en passant par les étapes suivantes :
 
@@ -321,7 +321,7 @@ Cette erreur se produit parce que l’agent Azure File Sync ne peut pas accéder
 | **HRESULT** | 0x80C83060 |
 | **HRESULT (décimal)** | -2134364064 |
 | **Chaîne d’erreur** | ECS_E_STORAGE_ACCOUNT_NAME_UNRESOLVED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 1. Vérifiez que vous pouvez résoudre le nom DNS de stockage à partir du serveur.
 
@@ -337,7 +337,7 @@ Cette erreur se produit parce que l’agent Azure File Sync ne peut pas accéder
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (décimal)** | -1906441138 |
 | **Chaîne d’erreur** | JET_errWriteConflict |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit lorsqu’il existe un problème avec la base de données interne utilisée par Azure File Sync. Lorsque ce problème se produit créez une demande de support et nous vous contacterons pour vous aider à résoudre ce problème.
 
@@ -347,7 +347,7 @@ Cette erreur se produit lorsqu’il existe un problème avec la base de données
 | **HRESULT** | 0x80C8306B |
 | **HRESULT (décimal)** | -2134364053 |
 | **Chaîne d’erreur** | ECS_E_AGENT_VERSION_BLOCKED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit si la version de l’agent Azure File Sync installé sur le serveur n’est pas prise en charge. Pour résoudre ce problème, [mettez à niveau]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) l’agent avec une [version prise en charge]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
@@ -357,7 +357,7 @@ Cette erreur se produit si la version de l’agent Azure File Sync installé sur
 | **HRESULT** | 0x80c8603e |
 | **HRESULT (décimal)** | -2134351810 |
 | **Chaîne d’erreur** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit lorsque la limite de stockage de partage de fichiers Azure a été atteinte, ce qui peut se produire si un quota est appliqué pour un partage de fichiers Azure ou si l’utilisation dépasse les limites d’un partage de fichiers Azure. Pour plus d’informations, consultez les [limites actuelles pour un partage de fichiers Azure](storage-files-scale-targets.md).
 
@@ -382,7 +382,7 @@ Si le partage est plein et si un quota n’est pas défini, il est possible de c
 | **HRESULT** | 0x80c86030 |
 | **HRESULT (décimal)** | -2134351824 |
 | **Chaîne d’erreur** | ECS_E_AZURE_FILE_SHARE_NOT_FOUND |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit lorsque le partage de fichiers Azure n’est pas accessible. Pour résoudre des problèmes :
 
@@ -397,7 +397,7 @@ Si le partage de fichiers Azure a été supprimé, vous devez créer un nouveau 
 | **HRESULT** | 0x80C83076 |
 | **HRESULT (décimal)** | -2134364042 |
 | **Chaîne d’erreur** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit lorsque l’abonnement Azure est suspendu. La synchronisation est réactivée lors de la restauration de l’abonnement Azure. Consultez [Pourquoi mon abonnement Azure est-il désactivé et comment puis-je le réactiver ?](../../billing/billing-subscription-become-disable.md) pour plus d’informations.
 
@@ -407,7 +407,7 @@ Cette erreur se produit lorsque l’abonnement Azure est suspendu. La synchronis
 | **HRESULT** | 0x80c8306c |
 | **HRESULT (décimal)** | -2134364052 |
 | **Chaîne d’erreur** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit lorsque le partage de fichiers Azure est inaccessible en raison d’un pare-feu de compte de stockage ou parce que le compte de stockage appartient à un réseau virtuel. Azure File Sync ne prend pas encore en charge cette fonctionnalité. Pour résoudre des problèmes :
 
@@ -437,7 +437,7 @@ Si cette erreur persiste pendant plusieurs heures, créez une demande de support
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (décimal)** | -2146762487 |
 | **Chaîne d’erreur** | CERT_E_UNTRUSTEDROOT |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur peut se produire si votre organisation utilise un proxy de terminaison SSL ou si une entité malveillante intercepte le trafic entre votre serveur et le service Azure File Sync. Si vous êtes certain que cela est prévu (car votre organisation utilise un certificat proxy de terminaison SSL), vous pouvez ignorer la vérification de certificat avec un remplacement du registre.
 
@@ -461,7 +461,7 @@ En définissant cette valeur de Registre, l’agent Azure File Sync accepte n’
 | **HRESULT** | 0x80072ee2 |
 | **HRESULT (décimal)** | -2147012894 |
 | **Chaîne d’erreur** | WININET_E_TIMEOUT |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -471,7 +471,7 @@ En définissant cette valeur de Registre, l’agent Azure File Sync accepte n’
 | **HRESULT** | 0x80c80300 |
 | **HRESULT (décimal)** | -2134375680 |
 | **Chaîne d’erreur** | ECS_E_SERVER_CREDENTIAL_NEEDED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur peut avoir les explications suivantes :
 
@@ -499,12 +499,12 @@ Si l’heure du serveur est correcte, effectuez les étapes suivantes pour réso
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT (décimal)** | -1906441711 |
 | **Chaîne d’erreur** | JET_errLogDiskFull |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 | | |
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (décimal)** | -2134375654 |
 | **Chaîne d’erreur** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit parce que le volume est saturé. Cette erreur se produit souvent parce que les fichiers situés à l’extérieur du point de terminaison de serveur occupent de l’espace sur le volume. Libérer de l’espace sur le volume en ajoutant des points de terminaison serveur supplémentaires, déplacer les fichiers vers un autre volume ou augmenter la taille du volume sur lequel se trouve le point d’extrémité du serveur.
 
@@ -526,19 +526,19 @@ Cette erreur se produit parce qu’il y a des changements sur le partage de fich
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (décimal)** | -2134364145 |
 | **Chaîne d’erreur** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (décimal)** | -2134375908 |
 | **Chaîne d’erreur** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 | | |
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (décimal)** | -2134375853 |
 | **Chaîne d’erreur** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
-Dans les cas où il y a beaucoup d’erreurs de synchronisation par fichier, les sessions de synchronisation peuvent commencer à échouer. Pour corriger cet état, consultez [Résolution des erreurs de synchronisation par fichier/répertoire]().
+Dans les cas où il y a beaucoup d’erreurs de synchronisation par fichier, les sessions de synchronisation peuvent commencer à échouer. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
 > Azure File Sync crée une capture instantanée VSS temporaire une fois par jour sur le serveur pour synchroniser les fichiers qui ont des descripteurs ouverts.
@@ -549,7 +549,7 @@ Dans les cas où il y a beaucoup d’erreurs de synchronisation par fichier, les
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (décimal)** | -2134376423 |
 | **Chaîne d’erreur** | ECS_E_SYNC_INVALID_PATH |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Vérifiez que le chemin d’accès existe, qu’il se trouve sur un volume NTFS local et n’est pas un point d’analyse ou un point de terminaison de serveur existant.
 
@@ -559,7 +559,7 @@ Vérifiez que le chemin d’accès existe, qu’il se trouve sur un volume NTFS 
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (décimal)** | -2134375817 |
 | **Chaîne d’erreur** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit parce que la version du pilote de filtre de hiérarchisation cloud (StorageSync.sys) chargée n’est pas compatible avec l’Agent de synchronisation de stockage (FileSyncSvc). Si l’agent Azure File Sync a été mis à niveau, redémarrez le serveur pour achever l’installation. Si l’erreur persiste, désinstallez l’agent, redémarrez le serveur, puis réinstallez l’agent Azure File Sync.
 

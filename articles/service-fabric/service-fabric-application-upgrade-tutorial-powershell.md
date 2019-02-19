@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e11ac55afe41231fcbc3aabb3ef54b46108eb49c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515316"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185841"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Mise à niveau d’applications Service Fabric à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -34,11 +34,9 @@ L'approche de la mise à niveau la plus fréquemment utilisée et recommandée e
 
 Une mise à niveau surveillée des applications peut être effectuée à l’aide des API managées ou natives, de PowerShell, REST, Java, ou de l’interface de ligne de commande Azure. Pour obtenir des instructions sur l’exécution d’une mise à niveau à l’aide de Visual Studio, consultez [Mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-Grâce à la mise à niveau propagée surveillée de Service Fabric, l’administrateur d’une application peut configurer la stratégie d’évaluation d’intégrité que Service Fabric utilise pour déterminer si l’application est saine. En outre, l’administrateur peut configurer l’action à entreprendre en cas d’échec de l’évaluation d’intégrité (par exemple, effectuer une restauration automatique). Cette section présente une procédure pas à pas de mise à niveau surveillée pour l’un des exemples du Kit de développement logiciel (SDK) à l’aide de PowerShell. La vidéo Microsoft Virtual Academy suivante vous guide également lors de la mise à niveau de l’application : <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
-<img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
+Grâce à la mise à niveau propagée surveillée de Service Fabric, l’administrateur d’une application peut configurer la stratégie d’évaluation d’intégrité que Service Fabric utilise pour déterminer si l’application est saine. En outre, l’administrateur peut configurer l’action à entreprendre en cas d’échec de l’évaluation d’intégrité (par exemple, effectuer une restauration automatique). Cette section présente une procédure pas à pas de mise à niveau surveillée pour l’un des exemples du Kit de développement logiciel (SDK) à l’aide de PowerShell. 
 
-## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Étape 1 : Créer et déployer l'exemple Visual Objects
+## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Étape 1 : Créer et déployer l'exemple Visual Objects
 Générez et publiez l’application en cliquant avec le bouton droit sur le projet d’application, **VisualObjectsApplication** et en sélectionnant la commande **Publier**.  Pour plus d’informations, consultez le [didacticiel sur la mise à niveau d’une application Service Fabric](service-fabric-application-upgrade-tutorial.md).  Vous pouvez également utiliser PowerShell pour déployer votre application.
 
 > [!NOTE]
@@ -50,7 +48,7 @@ Après avoir généré le projet dans Visual Studio, vous pouvez utiliser la com
 
 À présent, vous pouvez utiliser l' [Explorateur de Service Fabric pour afficher le cluster et l'application](service-fabric-visualizing-your-cluster.md). L’application a un service web accessible dans Internet Explorer en tapant [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) dans la barre d’adresse.  Vous devez normalement voir des objets visuels flottants en rotation à l'écran.  En outre, vous pouvez utiliser [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) pour vérifier l’état de l’application.
 
-## <a name="step-2-update-the-visual-objects-sample"></a>Étape 2 : Mettre à jour l'exemple Visual Objects
+## <a name="step-2-update-the-visual-objects-sample"></a>Étape 2 : Mettre à jour l'exemple Visual Objects
 Vous pouvez remarquer qu'avec la version qui a été déployée à l'étape 1, les objets visuels ne sont pas en rotation. Mettons à niveau cette application vers une application dans laquelle les objets visuels sont en rotation.
 
 Sélectionnez le projet VisualObjects.ActorService dans la solution VisualObjects et ouvrez le fichier StatefulVisualObjectActor.cs. Dans ce fichier, accédez à la méthode `MoveObject`, placez en commentaire `this.State.Move()` et effacez le commentaire de `this.State.Move(true)`. Cette modification fait pivoter les objets lorsque le service a été mis à niveau.
@@ -76,7 +74,7 @@ Une fois les modifications effectuées, le manifeste doit se présenter comme su
 
 À présent, générez le projet en sélectionnant uniquement le projet **ActorService**, puis en effectuant un clic droit et en sélectionnant l’option **Générer** dans Visual Studio. Si vous sélectionnez **Régénérer tout**, vous devez mettre à jour les versions pour tous les projets, étant donné que le code aura été modifié. Nous allons maintenant empaqueter l’application mise à jour en cliquant avec le bouton droit sur ***VisualObjectsApplication***, en sélectionnant le menu Service Fabric et en choisissant **Package**. Cette action crée un package d’application qui peut être déployé.  Votre application mise à jour est prête à être déployée.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Étape 3 : Décider des stratégies de contrôle d’intégrité et des paramètres de mise à niveau
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Étape 3 :  Décider des stratégies de contrôle d'intégrité et des paramètres de mise à niveau
 Familiarisez-vous avec les [paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md) et le [processus de mise à niveau](service-fabric-application-upgrade.md) pour bien comprendre les différents paramètres de mise à niveau, délais d’attente et critères d’intégrité appliqués. Pour cette procédure pas à pas, le critère d’évaluation d’intégrité du service est défini sur la valeur par défaut (recommandé), ce qui signifie que tous les services et instances doivent être *sains* après la mise à niveau.  
 
 Toutefois, nous allons remplacer le paramètre *HealthCheckStableDuration* par 180 secondes (afin que les services soient sains pendant au moins 120 secondes avant que la mise à niveau passe au domaine de mise à jour suivant).  Nous allons également définir *UpgradeDomainTimeout* sur 1200 secondes et *UpgradeTimeout* sur 3000 secondes.
@@ -91,7 +89,7 @@ UpgradeDomainTimeoutSec = 1200
 
 UpgradeTimeout = 3000
 
-## <a name="step-4-prepare-application-for-upgrade"></a>Étape 4 : Préparer l'application pour la mise à niveau
+## <a name="step-4-prepare-application-for-upgrade"></a>Étape 4 : Préparer l'application pour la mise à niveau
 À présent, l’application est créée et prête à être mise à niveau. Si vous ouvrez une fenêtre PowerShell en tant qu’administrateur et tapez [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps), la commande doit vous informer que le type d’application 1.0.0.0 de **VisualObjects** est en cours de déploiement.  
 
 Le package d’application est stocké sous le chemin d’accès relatif suivant où vous avez décompressé le Kit de développement logiciel (SDK) Fabric Service : *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Un dossier « Package » doit figurer dans ce répertoire ; il contient le package d’application. Vérifiez les horodatages pour vous assurer qu’il s’agit de la dernière version (vous devrez peut-être également modifier les chemins d’accès en conséquence).
@@ -116,7 +114,7 @@ Nous vous recommandons de supprimer le package d’application une fois que l’
 Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
 ```
 
-## <a name="step-5-start-the-application-upgrade"></a>Étape 5 : Démarrer la mise à niveau de l'application
+## <a name="step-5-start-the-application-upgrade"></a>Étape 5 : Démarrer la mise à niveau de l'application
 À présent, nous sommes prêts à démarrer la mise à niveau de l’application à l’aide de la commande [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) :
 
 ```powershell

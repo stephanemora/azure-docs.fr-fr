@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 89e28a9b70d078c3fe385225af305252ececefce
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3ac07b06e1cf7b5b24956c10e202f9baeab60b2b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249920"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992244"
 ---
-# <a name="content-protection-overview"></a>Présentation de la protection du contenu
+# <a name="content-protection-overview"></a>Présentation de la protection du contenu 
+
  Vous pouvez utiliser Azure Media Services pour sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à la remise, en passant par le stockage et le traitement. Media Services vous permet de transmettre votre contenu dynamique ou à la demande chiffré dynamiquement avec la norme Advanced Encryption Standard (AES-128) ou un des principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés. 
 
 L’image suivante illustre le flux de travail de protection du contenu Media Services : 
@@ -80,9 +81,9 @@ Les considérations suivantes s'appliquent :
 * Le type de chiffrement ne doit pas être spécifié dans l’URL si un seul chiffrement a été appliqué à la ressource.
 * Le type de chiffrement ne tient pas compte de la casse.
 * Les types de chiffrement suivants peuvent être spécifiés :
-  * **cenc** : pour PlayReady ou Widevine (chiffrement commun)
-  * **cbcs-aapl** : pour FairPlay (chiffrement CBC AES)
-  * **cbc** : pour le chiffrement de l’enveloppe AES
+  * **cenc** : pour PlayReady ou Widevine (chiffrement commun)
+  * **cbcs-aapl** : pour FairPlay (chiffrement CBC AES)
+  * **cbc** : chiffrement de l'enveloppe AES
 
 ## <a name="next-steps"></a>Étapes suivantes
 Les articles ci-dessous décrivent les étapes suivantes que vous pouvez exécuter pour mieux comprendre la protection du contenu :

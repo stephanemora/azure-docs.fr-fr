@@ -1,6 +1,6 @@
 ---
-title: Créer un pipeline de données avec l’API Collecte de données Azure Log Analytics | Microsoft Docs
-description: L’API Collecte de données HTTP Log Analytics permet d’ajouter des données POST JSON au référentiel de Log Analytics à partir de tout client pouvant appeler l’API REST. Cet article explique comment charger automatiquement des données stockées dans des fichiers.
+title: Créer un pipeline de données avec l'API Collecte de données d'Azure Monitor | Microsoft Docs
+description: L'API Collecte de données HTTP d'Azure Monitor permet d'ajouter des données POST JSON à l'espace de travail Log Analytics à partir de tout client capable d'appeler l'API REST. Cet article explique comment charger automatiquement des données stockées dans des fichiers.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 94d026ce1d055d18a615919df6ed5021b15bf108
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186070"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003854"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Créer un pipeline de données avec l’API Collecte de données
 
-[L’API Collecte de données Log Analytics](../../azure-monitor/platform/data-collector-api.md) vous permet d’importer des données personnalisées dans Log Analytics. Cette opération suppose simplement que les données soient au format JSON et qu’elles soient fractionnées en segments de 30 Mo maximum. Ce mécanisme parfaitement flexible peut être déclenché de nombreuses manières : avec des données directement envoyées à partir de votre application ou bien par des chargements ponctuels ad hoc. Cet article décrit les points de départ pour un scénario courant : télécharger des données stockées dans des fichiers de façon régulière et automatisée. Bien que le pipeline présenté ici ne soit pas le plus performant ou optimisé, il est destiné à servir de point de départ pour vous aider à créer votre propre pipeline de production.
+L'[API Collecte de données d'Azure Monitor ](data-collector-api.md) vous permet d'importer des données de journal personnalisées dans un espace de travail Log Analytics d'Azure Monitor. Cette opération suppose simplement que les données soient au format JSON et qu’elles soient fractionnées en segments de 30 Mo maximum. Ce mécanisme parfaitement flexible peut être déclenché de nombreuses manières : avec des données directement envoyées à partir de votre application ou bien par des chargements ponctuels ad hoc. Cet article décrit les points de départ pour un scénario courant : télécharger des données stockées dans des fichiers de façon régulière et automatisée. Bien que le pipeline présenté ici ne soit pas le plus performant ou optimisé, il est destiné à servir de point de départ pour vous aider à créer votre propre pipeline de production.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Exemple de problème
 Dans le reste de cet article, nous allons examiner les données en mode Page dans Application Insights. Dans notre scénario fictif, nous voulons mettre en corrélation les informations géographiques collectées par défaut par le SDK Application Insights avec des données personnalisées contenant la population de tous les pays du monde, afin de déterminer dans quelle région nous devons consacrer un maximum de notre budget marketing. 
@@ -42,13 +44,13 @@ Cet article n’explique pas comment créer des données ou [les charger dans un
 
 1. Un processus détectera que des nouvelles données ont été chargées.  Notre exemple utilise une [Azure Logic App](../../logic-apps/logic-apps-overview.md), qui dispose d’un déclencheur pour détecter les nouvelles données en cours de chargement dans un blob.
 
-2. Un processeur lit ces nouvelles données et les convertit au format JSON (le format exigé par Log Analytics).  Dans cet exemple, nous utilisons une [Azure Function](../../azure-functions/functions-overview.md) comme moyen léger et économique pour exécuter notre code de traitement. La fonction est déclenchée par la même application logique que nous avons utilisée pour détecter les nouvelles données.
+2. Un processeur lit ces nouvelles données et les convertit au format JSON, format requis par Azure Monitor. Dans cet exemple, nous utilisons une [fonction Azure](../../azure-functions/functions-overview.md) pour exécuter notre code de traitement car il s'agit d'un moyen simple et économique. La fonction est déclenchée par la même application logique que nous avons utilisée pour détecter les nouvelles données.
 
-3. Une fois que l’objet JSON est disponible, il est envoyé à Log Analytics. La même application logique envoie les données à Log Analytics en utilisant l’activité de collecteur de données intégrée de Log Analytics.
+3. Enfin, une fois que l'objet JSON est disponible, il est envoyé à Azure Monitor. La même application logique envoie les données à Azure Monitor en utilisant l'activité de collecte de données intégrée de Log Analytics.
 
 Bien que la configuration détaillée du stockage blob, de Logic App ou d’Azure Function ne soit pas décrite dans le présent article, des instructions détaillées sont disponibles sur les pages produits spécifiques.
 
-Pour surveiller ce pipeline, nous utilisons Application Insights pour surveiller notre Azure Function ([voir détails ici](../../azure-functions/functions-monitoring.md)) et Log Analytics pour surveiller notre Logic App ([voir détails ici](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)). 
+Dans le cadre de la surveillance de ce pipeline, nous utilisons Application Insights pour surveiller notre fonction Azure ([voir détails ici](../../azure-functions/functions-monitoring.md)) et Azure Monitor pour surveiller notre application logique ([voir détails ici](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)). 
 
 ## <a name="setting-up-the-pipeline"></a>Configuration du pipeline
 Pour configurer le pipeline, assurez-vous que vous avez créé et configuré votre conteneur blob. Vérifiez également que l’espace de travail Log Analytics vers lequel vous souhaitez envoyer les données a bien été créé.
@@ -136,10 +138,10 @@ Nous devons à présent revenir à la Logic App que nous avons commencé à gén
 ![Exemple complet de workflow Logic Apps](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
 ## <a name="testing-the-pipeline"></a>Test du pipeline
-Vous pouvez maintenant charger un nouveau fichier dans le blob configuré précédemment et le faire analyser par votre Logic App. Vous devriez bientôt pouvoir déclencher une nouvelle instance Logic App, appeler votre Azure Function et réussir à envoyer vos données vers Log Analytics. 
+Vous pouvez maintenant charger un nouveau fichier dans le blob configuré précédemment et le faire analyser par votre Logic App. Bientôt, vous devriez pouvoir déclencher une nouvelle application logique, appeler votre fonction Azure et réussir à envoyer vos données vers Azure Monitor. 
 
 >[!NOTE]
->La première fois que vous envoyez un nouveau type de données, vous risquez d’avoir à patienter 30 minutes le temps que les données s’affichent dans Log Analytics.
+>La première fois que vous envoyez un nouveau type de données, l'affichage des données dans Azure Monitor peut nécessiter une trentaine de minutes.
 
 
 ## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Mise en corrélation avec d’autres données dans Log Analytics et Application Insights
@@ -163,7 +165,7 @@ Cet article a présenté un prototype opérationnel et la logique sous-jacente q
 
 * Ajoutez une logique de gestion des erreurs et de nouvelle tentative dans votre Logic App et votre Azure Function.
 * Ajoutez une logique pour vous assurer que la limite de 30 Mo par simple appel de l’API d’ingestion Log Analytics n’est pas dépassée. Fractionnez si besoin les données en plus petits segments.
-* Configurez une stratégie de nettoyage sur votre stockage blob. Une fois les données envoyées à Log Analytics, à moins que vous ne souhaitiez conserver les données brutes à des fins d’archivage, il n’existe aucune raison de continuer de les conserver en mémoire. 
+* Configurez une stratégie de nettoyage sur votre stockage blob. Une fois les données envoyées à l'espace de travail Log Analytics, à moins que vous ne souhaitiez conserver les données brutes à des fins d'archivage, rien ne vous oblige à les stocker. 
 * Vérifiez que la supervision est activée dans l’ensemble du pipeline, en ajoutant des points de trace et des alertes si besoin.
 * Tirez parti du contrôle de code source pour gérer le code pour votre fonction et votre Logic App.
 * Assurez-vous que la stratégie de gestion des changements appropriée est bien respectée, de sorte que si le schéma est modifié, la fonction et les Logic Apps soient modifiées en conséquence.
@@ -171,4 +173,4 @@ Cet article a présenté un prototype opérationnel et la logique sous-jacente q
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur [l’API Collecte de données](../../azure-monitor/platform/data-collector-api.md) pour écrire des données dans Log Analytics à partir de n’importe quel client API REST.
+En savoir plus sur l'[API Collecte de données](data-collector-api.md) pour écrire des données dans l'espace de travail Log Analytics à partir d'un client API REST.

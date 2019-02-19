@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c223b55e8854c9d304354d917e07f4dd7720e72c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507807"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958488"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Le niveau de service Azure SQL Database Premium RS (préversion) est en cours de retrait – Options de migration
 
@@ -70,10 +70,10 @@ Nous recommandons de migrer les bases de données uniques nécessitant beaucoup 
 
 |**Si vous êtes actuellement sur…**|**Migrez vers le niveau par vCore comparable…**|**Migrez vers le niveau par DTU comparable…**|
 |---|---|---|
-|Premium RS 1|(Préversion) Hyperscale 1 vCore (Gen4) ou Critique pour l’entreprise 1 vCore (Gen4)|Premium 1|
-|Premium RS 2|(Préversion) Hyperscale 2 vCore (Gen4) ou Critique pour l’entreprise 2 vCore (Gen4)|Premium 2|
-|Premium RS 4|(Préversion) Hyperscale 4 vCore (Gen4) ou Critique pour l’entreprise 4 vCore (Gen4)|Premium 4
-|Premium RS 6|(Préversion) Hyperscale 6 vCore (Gen4) ou Critique pour l’entreprise 6 vCore (Gen4)|Premium 6|
+|Premium RS 1|(Préversion) Hyperscale 1 vCore (Gen4) ou Critique pour l'entreprise 1 vCore (Gen4)|Premium 1|
+|Premium RS 2|(Préversion) Hyperscale 2 vCores (Gen4) ou Critique pour l'entreprise 2 vCores (Gen4)|Premium 2|
+|Premium RS 4|(Préversion) Hyperscale 4 vCores (Gen4) ou Critique pour l'entreprise 4 vCores (Gen4)|Premium 4
+|Premium RS 6|(Préversion) Hyperscale 6 vCores (Gen4) ou Critique pour l'entreprise 6 vCores (Gen4)|Premium 6|
 
 |**Si vous êtes actuellement sur…**|**Migrez vers le niveau par vCore comparable…**|**Migrez vers le niveau par DTU comparable…**|
 |---|---|---|

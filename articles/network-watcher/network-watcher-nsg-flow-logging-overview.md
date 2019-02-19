@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332300"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097646"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -35,7 +35,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 Vous pouvez analyser les journaux de flux et obtenir des informations sur votre trafic réseau à l’aide de l’[analytique du trafic](traffic-analytics.md).
 
-Les mêmes stratégies de conservation que celles des autres journaux s’appliquent aux journaux de flux. Vous pouvez définir la stratégie de conservation de journal entre 1 jour et 2147483647 jours. Si aucune stratégie de conservation n’est définie, les journaux sont conservés indéfiniment.
+Les mêmes stratégies de conservation que celles des autres journaux s’appliquent aux journaux de flux. Vous pouvez définir la stratégie de conservation de journal entre 1 jour et 2147483647 jours. Si aucune stratégie de rétention n’est définie, les journaux sont conservés indéfiniment.
 
 > [!NOTE] 
 > L’utilisation de la fonctionnalité de stratégie de conservation avec la journalisation des flux de groupe de sécurité réseau peut entraîner un volume élevé d’opérations de stockage avec les coûts associés. Si vous n’avez pas besoin de la fonctionnalité de stratégie de conservation, nous vous recommandons de définir cette valeur sur 0.
@@ -287,5 +287,6 @@ Le texte ci-dessous est un exemple de journal de flux. Comme vous pouvez le voir
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour savoir comment activer les journaux de flux, consultez [Enable flow logs](network-watcher-nsg-flow-logging-portal.md) (Activer les journaux de flux).
+- Pour savoir comment lire les journaux de flux, consultez [Lire des journaux de flux NSG](network-watcher-read-nsg-flow-logs.md).
 - Pour en savoir plus sur la journalisation du groupe de sécurité réseau, consultez [Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Pour déterminer si le trafic est autorisé ou refusé vers ou à partir d’une machine virtuelle, consultez [Diagnostiquer un problème de filtre de trafic réseau de machines virtuelles](diagnose-vm-network-traffic-filtering-problem.md)

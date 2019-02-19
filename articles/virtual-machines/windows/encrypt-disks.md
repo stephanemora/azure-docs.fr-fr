@@ -15,15 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 738bdd303d6e8e41df179021ebca521100ace325
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4875464d7e7a7f49c1532871a69f4d2224b271a6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828075"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108243"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Chiffrer des disques virtuels sur une machine virtuelle Windows
 Pour renforcer la sécurité et la conformité de la machine virtuelle, les disques virtuels dans Azure peuvent être chiffrés. Les disques sont chiffrés à l’aide de clés de chiffrement sécurisées dans un coffre Azure Key Vault. Vous contrôlez ces clés de chiffrement et pouvez effectuer un audit de leur utilisation. Cet article explique comment chiffrer des disques virtuels sur une machine virtuelle Windows avec Azure PowerShell. Vous pouvez aussi [chiffrer une machine virtuelle Linux avec Azure CLI](../linux/encrypt-disks.md).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="overview-of-disk-encryption"></a>Présentation du chiffrement de disque
 Les disques virtuels des machines virtuelles Windows sont chiffrés au repos avec BitLocker. Le chiffrement de disques virtuels dans Azure n’occasionne pas de frais. Les clés de chiffrement sont stockées dans un coffre Azure Key Vault avec une protection logiciel ; cependant, vous pouvez les importer ou les générer dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Ces clés de chiffrement servent à chiffrer et à déchiffrer les disques virtuels attachés à une machine virtuelle. Vous en gardez le contrôle et pouvez effectuer un audit de leur utilisation. 
@@ -63,21 +65,21 @@ Avant de commencer, vérifiez que la dernière version du module Azure PowerShel
 
 La première étape consiste à créer un coffre de clés Azure pour y stocker les clés de chiffrement. Les coffres Azure Key Vault peuvent stocker des clés, des secrets et des mots de passe, ce qui permet de les implémenter en toute sécurité dans des applications et des services. Dans le cas du chiffrement de disque virtuel, il s’agit de créer un coffre de clés pour stocker une clé de chiffrement servant à chiffrer ou à déchiffrer les disques virtuels. 
 
-Activez le fournisseur Azure Key Vault au sein de votre abonnement Azure avec [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) puis créez un groupe de ressources avec [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *USA Est* :
+Activez le fournisseur Azure Key Vault au sein de votre abonnement Azure avec [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider), puis créez un groupe de ressources avec [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *USA Est* :
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $location = "East US"
 
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"
-New-AzureRmResourceGroup -Location $location -Name $rgName
+Register-AzResourceProvider -ProviderNamespace "Microsoft.KeyVault"
+New-AzResourceGroup -Location $location -Name $rgName
 ```
 
-Le coffre Azure Key Vault contenant les clés de chiffrement et les ressources de calcul associées, comme le stockage et la machine virtuelle proprement dite, doivent tous se trouver dans la même région. Créez un coffre Azure Key Vault avec [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) et activez Key Vault pour une utilisation avec le chiffrement de disque. Spécifiez un nom de Key Vault unique pour *keyVaultName* comme suit :
+Le coffre Azure Key Vault contenant les clés de chiffrement et les ressources de calcul associées, comme le stockage et la machine virtuelle proprement dite, doivent tous se trouver dans la même région. Créez un coffre Azure Key Vault avec [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) et activez-le pour une utilisation avec le chiffrement de disque. Spécifiez un nom de Key Vault unique pour *keyVaultName* comme suit :
 
 ```azurepowershell-interactive
 $keyVaultName = "myKeyVault$(Get-Random)"
-New-AzureRmKeyVault -Location $location `
+New-AzKeyVault -Location $location `
     -ResourceGroupName $rgName `
     -VaultName $keyVaultName `
     -EnabledForDiskEncryption
@@ -85,7 +87,7 @@ New-AzureRmKeyVault -Location $location `
 
 Pour stocker des clés de chiffrement, vous pouvez utiliser la protection logiciel ou HSM (module de sécurité matériel).  Un coffre de clés standard ne stocke que des clés protégées par logiciel. L’utilisation d’une protection HSM implique un coffre de clés Premium, qui suppose un coût supplémentaire. Pour créer un coffre Premium, ajoutez le paramètre *-Sku "Premium"* à l’étape précédente. L’exemple suivant utilise des clés protégées par logiciel puisque nous avons créé un coffre de clés standard. 
 
-Pour les deux modèles de protection, la plateforme Azure doit être autorisée à demander les clés de chiffrement lorsque la machine virtuelle démarre pour déchiffrer les disques virtuels. Créez une clé de chiffrement dans le coffre Key Vault avec [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey). L’exemple qui suit permet de créer une clé nommée *myKey* :
+Pour les deux modèles de protection, la plateforme Azure doit être autorisée à demander les clés de chiffrement lorsque la machine virtuelle démarre pour déchiffrer les disques virtuels. Créez une clé de chiffrement dans le coffre Key Vault avec [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey). L’exemple qui suit permet de créer une clé nommée *myKey* :
 
 ```azurepowershell-interactive
 Add-AzureKeyVaultKey -VaultName $keyVaultName `
@@ -94,12 +96,12 @@ Add-AzureKeyVaultKey -VaultName $keyVaultName `
 ```
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
-Pour tester le processus de chiffrement, créez une machine virtuelle avec la commande [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm). L’exemple qui suit permet de créer une machine virtuelle nommée *myVM* en utilisant une image *Windows Server 2016 Datacenter*. Lorsque vous êtes invité à fournir vos informations d’identification, entrez un nom d’utilisateur et un mot de passe à utiliser pour votre machine virtuelle :
+Pour tester le processus de chiffrement, créez une machine virtuelle à l'aide de la commande [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). L’exemple qui suit permet de créer une machine virtuelle nommée *myVM* en utilisant une image *Windows Server 2016 Datacenter*. Lorsque vous êtes invité à fournir vos informations d’identification, entrez un nom d’utilisateur et un mot de passe à utiliser pour votre machine virtuelle :
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -Location $location `
@@ -112,15 +114,15 @@ New-AzureRmVm `
 
 
 ## <a name="encrypt-a-virtual-machine"></a>Chiffrer une machine virtuelle
-Chiffrez votre machine virtuelle avec [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) à l’aide de la clé Azure Key Vault. L’exemple qui suit permet de récupérer toutes les informations sur la clé, puis de chiffrer la machine virtuelle nommée *myVM* :
+Chiffrez votre machine virtuelle avec [Set-AzVMDiskEncryptionExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiskencryptionextension) à l'aide de la clé Azure Key Vault. L’exemple qui suit permet de récupérer toutes les informations sur la clé, puis de chiffrer la machine virtuelle nommée *myVM* :
 
 ```azurepowershell-interactive
-$keyVault = Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
+$keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
 $diskEncryptionKeyVaultUrl = $keyVault.VaultUri;
 $keyVaultResourceId = $keyVault.ResourceId;
 $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
 
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
+Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -VMName "myVM" `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
     -DiskEncryptionKeyVaultId $keyVaultResourceId `
@@ -128,10 +130,10 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -KeyEncryptionKeyVaultId $keyVaultResourceId
 ```
 
-Acceptez l’invite pour poursuivre le chiffrement de la machine virtuelle. La machine virtuelle redémarre pendant le processus. Une fois le processus de chiffrement terminé et la machine virtuelle redémarrée, vérifiez l’état du chiffrement avec [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) :
+Acceptez l’invite pour poursuivre le chiffrement de la machine virtuelle. La machine virtuelle redémarre pendant le processus. Une fois le processus de chiffrement terminé et la machine virtuelle redémarrée, vérifiez l'état du chiffrement avec [Get-AzVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/az.compute/get-azvmdiskencryptionstatus) :
 
 ```azurepowershell-interactive
-Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
+Get-AzVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
 ```
 
 Le résultat ressemble à l’exemple suivant :

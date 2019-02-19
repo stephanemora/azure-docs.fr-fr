@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0de7979edd741a7e4a1dc3354a8dc895929a9532
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6a54dc6a1068a9f7908760fb70fea45ef34f5b60
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811679"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981432"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Création d’une machine virtuelle à partir d’un disque dur virtuel spécialisé dans un compte de stockage
 
@@ -31,13 +31,7 @@ Deux options s'offrent à vous :
 * [Charger un disque dur virtuel](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [Copier le disque dur virtuel d’une machine virtuelle Azure existante](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
-## <a name="before-you-begin"></a>Avant de commencer
-Si vous utilisez PowerShell, assurez-vous que vous disposez de la dernière version du module PowerShell AzureRM.Compute. Exécutez la commande suivante pour l’installer.
-
-```powershell
-Install-Module AzureRM.Compute 
-```
-Pour plus d’informations, consultez la page relative au [contrôle de version d’Azure PowerShell](/powershell/azure/overview).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>Option 1 : Charger un disque dur virtuel spécialisé
@@ -58,7 +52,7 @@ Vous avez besoin d’un compte de stockage dans Azure pour stocker l’image de 
 Pour afficher les comptes de stockage disponibles, tapez :
 
 ```powershell
-Get-AzureRmStorageAccount
+Get-AzStorageAccount
 ```
 
 Si vous voulez utiliser un compte de stockage existant, passez à la section Charger l’image de la machine virtuelle.
@@ -68,29 +62,29 @@ Si vous devez créer un compte de stockage, procédez comme suit :
 1. Vous avez besoin du nom du groupe de ressources dans lequel doit être créé le compte de stockage. Pour rechercher tous les groupes de ressources dans votre abonnement, tapez :
    
     ```powershell
-    Get-AzureRmResourceGroup
+    Get-AzResourceGroup
     ```
 
     Pour créer un groupe de ressources nommé **MyResourceGroup** dans la région **USA Ouest**, tapez :
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Créez un compte de stockage nommé **mystorageaccount** dans ce groupe de ressources en utilisant l’applet de commande [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) :
+2. Créez un compte de stockage nommé **mystorageaccount** dans ce groupe de ressources en utilisant la cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) :
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+    New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
    
 ### <a name="upload-the-vhd-to-your-storage-account"></a>Téléchargement du disque dur virtuel vers votre compte de stockage
-Utilisez l’applet de commande [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) pour charger l’image vers un conteneur de votre compte de stockage. Cet exemple télécharge le fichier **myVHD.vhd** de `"C:\Users\Public\Documents\Virtual hard disks\"` vers un compte de stockage nommé **mystorageaccount** dans le groupe de ressources **myResourceGroup**. Le fichier est placé dans le conteneur nommé **mycontainer** et le nouveau nom de fichier est **myUploadedVHD.vhd**.
+Utilisez la cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) pour charger l'image dans un conteneur de votre compte de stockage. Cet exemple télécharge le fichier **myVHD.vhd** de `"C:\Users\Public\Documents\Virtual hard disks\"` vers un compte de stockage nommé **mystorageaccount** dans le groupe de ressources **myResourceGroup**. Le fichier est placé dans le conteneur nommé **mycontainer** et le nouveau nom de fichier est **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
 $urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
+Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
     -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
@@ -119,17 +113,17 @@ Vous pouvez copier un disque dur virtuel vers un autre compte de stockage pour l
 ### <a name="before-you-begin"></a>Avant de commencer
 Veillez à :
 
-* Avoir à votre disposition des informations sur les **comptes de stockage source et de destination**. Pour la machine virtuelle source, vous devez disposer du nom du compte de stockage et du conteneur. En général, le nom du conteneur est **vhds**. Vous devez également disposer d’un compte de stockage de destination. Si ce n’est pas le cas, vous pouvez en créer un avec le portail (**Tous les services** > Comptes de stockage > Ajouter) ou l’applet de commande [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). 
+* Avoir à votre disposition des informations sur les **comptes de stockage source et de destination**. Pour la machine virtuelle source, vous devez disposer du nom du compte de stockage et du conteneur. En général, le nom du conteneur est **vhds**. Vous devez également disposer d’un compte de stockage de destination. Si ce n'est pas le cas, vous pouvez en créer un sur le portail (**Tous les services** > Comptes de stockage > Ajouter) ou en utilisant la cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount). 
 * Télécharger et installer [l’outil AzCopy](../../storage/common/storage-use-azcopy.md). 
 
 ### <a name="deallocate-the-vm"></a>Libérer la machine virtuelle
 Libérez la machine virtuelle, ce qui libère le disque dur virtuel à copier. 
 
 * **Portail** : cliquez sur **Machines virtuelles** > **myVM** > Arrêter
-* **Powershell** : utilisez [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) pour arrêter (libérer) la machine virtuelle nommée **myVM** dans le groupe de ressources **myResourceGroup**.
+* **Powershell** : utilisez [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) pour arrêter (libérer) la machine virtuelle nommée **myVM** dans le groupe de ressources **myResourceGroup**.
 
 ```powershell
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
 **L’état** de la machine virtuelle dans le Portail Azure passe de **Arrêté** à **Arrêté (libéré)**.
@@ -140,20 +134,20 @@ Vous avez besoin des URL des comptes de stockage source et de destination. Les U
 Vous pouvez utiliser le Portail Azure ou Azure PowerShell pour récupérer l’URL :
 
 * **Portail** : cliquez sur **>** pour **Tous les services** > **Comptes de stockage** > *compte de stockage* > **Blobs** ; votre fichier de disque dur virtuel source se trouve probablement dans le conteneur **vhds**. Cliquez sur les **Propriétés** du conteneur et copiez le texte intitulé **URL**. Vous aurez besoin des URL des conteneurs source et de destination. 
-* **Powershell** : utilisez [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) pour récupérer les informations de la machine virtuelle nommée **myVM** dans le groupe de ressources **myResourceGroup**. Dans les résultats, recherchez **l’URI du disque dur virtuel** dans la section **Profil de stockage**. La première partie de l’URI est l’URL du conteneur et la dernière est le nom du disque dur virtuel du système d’exploitation de la machine virtuelle.
+* **Powershell** : utilisez [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) pour récupérer les informations de la machine virtuelle nommée **myVM** dans le groupe de ressources **myResourceGroup**. Dans les résultats, recherchez **l’URI du disque dur virtuel** dans la section **Profil de stockage**. La première partie de l’URI est l’URL du conteneur et la dernière est le nom du disque dur virtuel du système d’exploitation de la machine virtuelle.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>Récupérer les clés d’accès de stockage
 Récupérez les clés d’accès des comptes de stockage source et de destination. Pour plus d’informations sur les clés d’accès, consultez la page [À propos des comptes de stockage Azure](../../storage/common/storage-create-storage-account.md).
 
 * **Portail** : cliquez sur **Tous les services** > **Comptes de stockage** > *compte de stockage* > **Clés d’accès**. Copiez la clé portant le nom **key1**.
-* **Powershell** : utilisez [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) pour récupérer la clé de stockage du compte de stockage **mystorageaccount** dans le groupe de ressources **myResourceGroup**. Copiez la clé portant le nom **key1**.
+* **Powershell** : utilisez [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) pour récupérer la clé de stockage du compte de stockage **mystorageaccount** dans le groupe de ressources **myResourceGroup**. Copiez la clé portant le nom **key1**.
 
 ```powershell
-Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
+Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
 ```
 
 ### <a name="copy-the-vhd"></a>Copier le disque dur virtuel
@@ -208,14 +202,14 @@ Créez le réseau virtuel et le sous-réseau du [réseau virtuel](../../virtual-
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubNet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+    $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
 2. Créez le réseau virtuel. Cet exemple définit le nom de réseau virtuel sur **myVnetName**, l’emplacement sur **USA Ouest** et le préfixe d’adresse du réseau virtuel sur **10.0.0.0/16**. 
    
     ```powershell
     $location = "West US"
     $vnetName = "myVnetName"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
+    $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Créer le groupe de sécurité réseau et une règle RDP
@@ -226,11 +220,11 @@ Cet exemple définit le nom du groupe de sécurité réseau sur **myNsg** et le 
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
     
 ```
@@ -244,14 +238,14 @@ Pour établir la communication avec la machine virtuelle dans le réseau virtuel
    
     ```powershell
     $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+    $pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
 2. Créez la carte réseau. Dans cet exemple, le nom de carte réseau est défini sur **myNicName**. Cette étape associe également le groupe de sécurité réseau créé précédemment à cette carte réseau.
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    $nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $rgName `
     -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
     ```
 
@@ -260,13 +254,13 @@ Pour établir la communication avec la machine virtuelle dans le réseau virtuel
 Cet exemple définit « myVM » en tant que nom de la machine virtuelle et « Standard_A2 » pour sa taille.
 ```powershell
 $vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
 ### <a name="add-the-nic"></a>Ajouter la carte réseau
     
 ```powershell
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+$vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
     
@@ -281,14 +275,14 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
     
     ```powershell
     $osDiskName = $vmName + "osDisk"
-    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
+    $vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
     ```
 
 Facultatif : si vous avez des disques de données qui doivent être attachés à la machine virtuelle, ajoutez les disques de données à l’aide des URL des disques durs virtuels de données et du numéro d’unité logique (LUN) approprié.
 
 ```powershell
 $dataDiskName = $vmName + "dataDisk"
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
+$vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
 ```
 
 Si vous utilisez un compte de stockage, les URL des disques de données et des disques du système d’exploitation se présentent comme suit : `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Pour obtenir les URL, rendez-vous sur le portail, accédez au conteneur de stockage de destination, cliquez sur le disque dur virtuel du système d’exploitation ou de données qui a été copié, puis copiez le contenu de l’URL.
@@ -300,7 +294,7 @@ Créez la machine virtuelle en utilisant les configurations que nous venons de c
 
 ```powershell
 #Create the new VM
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
 Si la commande a été exécutée avec succès, vous obtiendrez une sortie similaire à celle-ci :
@@ -316,7 +310,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 Vous devez voir la machine virtuelle nouvellement créée soit dans le [portail Azure](https://portal.azure.com) sous **Tous les services** > **Machines virtuelles**, soit en utilisant les commandes PowerShell suivantes :
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $rgName
+$vmList = Get-AzVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 

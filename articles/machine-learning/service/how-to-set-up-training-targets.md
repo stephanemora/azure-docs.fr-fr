@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 292063183561722eae76c3d30ce242facd22df26
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756527"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981449"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles
 
@@ -47,6 +47,11 @@ La prise en charge par Azure Machine Learning service varie selon les cibles de 
 |[Service Analytique Azure Data Lake](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
+**Toutes les cibles de calcul peuvent être réutilisées pour plusieurs travaux de formation**. Par exemple, une fois que vous avez joint une machine virtuelle distante à votre espace de travail, vous pouvez la réutiliser pour différents travaux.
+
+> [!NOTE]
+> La Capacité de calcul Azure Machine Learning peut être créée en tant que ressource persistante ou créée dynamiquement lorsque vous demandez une exécution. La création basée sur l'exécution supprime la cible de calcul au terme de la formation. Vous ne pouvez donc pas réutiliser les cibles de calcul créées de cette façon.
+
 ## <a name="whats-a-run-configuration"></a>Qu’est une configuration de série de tests ?
 
 Lors de l’apprentissage, il est courant de commencer par exécuter le script d’apprentissage sur l’ordinateur local, avant de l’exécuter sur une autre cible de calcul. Avec Azure Machine Learning service, vous pouvez exécuter votre script sur différentes cibles de calcul sans avoir à le modifier. 
@@ -65,7 +70,7 @@ Utilisez un environnement géré par le système lorsque vous souhaitez que [Con
 
 Il vous suffit de spécifier chaque dépendance de package à l’aide de la [classe CondaDependency](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py). Conda crée ensuite un fichier nommé **conda_dependencies.yml** dans le répertoire **aml_config** au sein de votre espace de travail avec votre liste de dépendances de package, et configure votre environnement Python lorsque vous soumettez votre expérience de formation. 
 
-La configuration initiale d’un nouvel environnement peut prendre plusieurs minutes, selon la taille des dépendances requises. Tant que la liste des packages reste inchangée, le temps de configuration ne change pas.
+La configuration initiale d'un nouvel environnement peut prendre quelques minutes en fonction de la taille des dépendances requises. Tant que la liste des packages reste inchangée, le temps de configuration ne change pas.
   
 Le code suivant présente un exemple d’environnement géré par le système nécessitant scikit-learn :
     
@@ -73,7 +78,7 @@ Le code suivant présente un exemple d’environnement géré par le système n�
 
 #### <a name="user-managed-environment"></a>Environnement géré par l’utilisateur
 
-Pour un environnement géré par l’utilisateur, vous êtes responsable de la configuration de votre environnement et de l’installation de chaque package dont votre script d’apprentissage a besoin sur la cible de calcul. Si votre environnement de formation est déjà configuré (par exemple, sur votre ordinateur local), vous pouvez ignorer l’étape de configuration en définissant `user_managed_dependencies` sur True. Conda ne vérifie pas votre environnement et n’installe rien à votre place.
+Pour un environnement géré par l'utilisateur, vous êtes responsable de la configuration de votre environnement et de l'installation de chaque package requis par votre script de formation sur la cible de calcul. Si votre environnement de formation est déjà configuré (par exemple, sur votre ordinateur local), vous pouvez ignorer l'étape de configuration en définissant `user_managed_dependencies` sur True. Conda ne vérifie pas votre environnement et n’installe rien à votre place.
 
 Le code suivant présente un exemple de configuration d’exécutions d’apprentissage pour un environnement géré par l’utilisateur :
 
@@ -242,7 +247,7 @@ Vous pouvez accéder aux cibles de calcul associées à votre espace de travail 
 
 * [Afficher les cibles de calcul](#portal-view) attachées à votre espace de travail
 * [Créer une cible de calcul](#portal-create) dans votre espace de travail
-* [Réutiliser des cibles de calcul existantes](#portal-reuse)
+* [Joindre une cible de calcul](#portal-reuse) créée en dehors de l'espace de travail
 
 Après avoir créé une cible et l’avoir attachée à votre espace de travail, vous allez l’utiliser dans votre configuration de série de tests avec un objet `ComputeTarget` : 
 
@@ -293,9 +298,11 @@ Suivez la procédure ci-dessus pour afficher la liste des cibles de calcul. Puis
 
 
 
-### <a id="portal-reuse"></a>Réutiliser des cibles de calcul existantes
+### <a id="portal-reuse"></a>Joindre des cibles de calcul
 
-Suivez la procédure décrite plus haut pour afficher la liste des cibles de calcul. Puis procédez comme suit pour réutiliser une cible de calcul : 
+Pour utiliser des cibles de calcul créées en dehors de l'espace de travail d'Azure Machine Learning service, vous devez les joindre. Une fois la cible de calcul jointe, elle sera disponible dans votre espace de travail.
+
+Suivez la procédure décrite plus haut pour afficher la liste des cibles de calcul. Suivez ensuite les étapes ci-dessous pour joindre une cible de calcul : 
 
 1. Cliquez sur le signe plus (+) pour ajouter une cible de calcul. 
 1. Entrez un nom pour la cible de calcul. 

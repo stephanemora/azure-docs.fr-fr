@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 64e353bbb83c7696960fc1d2e478478afbc94241
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0a8cb1178ec70d4e50f2a45834f9592c4708c5af
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249235"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998635"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Obtention d’une instance de processeur multimédia
+# <a name="how-to-get-a-media-processor-instance"></a>Activation Obtention d'une instance de processeur multimédia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -40,7 +40,7 @@ La rubrique suivante fournit une liste de processeurs multimédias :
 
 ## <a name="get-media-processor"></a>Obtention d'un processeur multimédia
 
-La méthode suivante montre comment obtenir une instance de processeur multimédia. L’exemple de code implique l’utilisation d’une variable au niveau du module, nommée **_context**, pour conserver une référence au contexte, tel que décrit dans la section [Comment : se connecter à Media Services par programmation](media-services-use-aad-auth-to-access-ams-api.md).
+La méthode suivante montre comment obtenir une instance de processeur multimédia. L'exemple de code implique l'utilisation au niveau du module d'une variable nommée **_context** pour référencer le contexte du serveur, comme décrit à la section [Procédure : Se connecter à Media Services par programmation](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {

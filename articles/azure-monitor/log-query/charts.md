@@ -1,6 +1,6 @@
 ---
-title: Création de graphiques et de diagrammes à partir de requêtes Azure Log Analytics | Microsoft Docs
-description: Décrit plusieurs visualisations dans Azure Log Analytics pour afficher vos données de différentes façons.
+title: Création de graphiques et de diagrammes à partir de requêtes de journal Azure Monitor | Microsoft Docs
+description: Décrit plusieurs visualisations dans Azure Monitor pour afficher vos données de journal de différentes façons.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 049e50f5800194c4126003f7e5ff7ae60b3de768
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 381e8361d31660d90eaee3f7a500139af1ef2a82
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186223"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992980"
 ---
-# <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Création de graphiques et de diagrammes à partir de requêtes Log Analytics
+# <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Création de graphiques et de diagrammes à partir de requêtes de journal Azure Monitor
 
 > [!NOTE]
-> Vous devez suivre [Agrégations avancées dans des requêtes Log Analytics](advanced-aggregations.md) avant d’effectuer cette leçon.
+> Vous devez terminer [Agrégations avancées dans des requêtes de journal Azure Monitor](advanced-aggregations.md) avant de suivre cette leçon.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Cet article décrit plusieurs visualisations dans Azure Log Analytics pour afficher vos données de différentes façons.
+Cet article décrit plusieurs visualisations dans Azure Monitor pour afficher vos données de journal de différentes façons.
 
 ## <a name="charting-the-results"></a>Affichage des résultats dans un graphique
 Commencez par passer en revue le nombre d’ordinateurs par système d’exploitation au cours de la dernière heure :
@@ -93,7 +93,7 @@ Vous pouvez changer de valeur en sélectionnant la liste déroulante avec le nom
 ![AccountType de graphique à barres](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez d’autres leçons pour l’utilisation du langage de requête Log Analytics :
+Reportez-vous à d'autres leçons sur l'utilisation du [langage de requête de Data Explorer](/azure/kusto/query/) avec des données de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Opérations de date et d’heure](datetime-operations.md)

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Déterminez quelles parties de votre application nécessitent des mises à jour pour utiliser les API Recherche Web Bing v7.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: reference
-ms.date: 01/15/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7c3e19fd809e442d58f7cb0e6922d4e565673fe2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8e5876c9141a3eb85593b12f45b0bde4c7984adf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188930"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175334"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Mise à niveau de l’API Recherche Web Bing v5 vers v7
 
@@ -26,7 +26,7 @@ Ce guide de mise à niveau identifie les changements entre la version 5 et la ve
 
 ### <a name="endpoints"></a>Points de terminaison
 
-- Le numéro de version du point de terminaison a changé entre la version 5 et la version 7. Par exemple, https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search.
+- Le numéro de version du point de terminaison a changé entre la version 5 et la version 7. Par exemple, https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objets de réponse d’erreur et codes d’erreur
 

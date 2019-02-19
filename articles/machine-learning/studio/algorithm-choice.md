@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 5edf301ffc87a17963c3c32c7ea1b559e0834cf7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 222891df5b54a8f2c3464fc3bddf9f6b32c28d36
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244468"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244791"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Guide pratique pour choisir des algorithmes pour Azure Machine Learning Studio
 
@@ -41,12 +41,10 @@ Lisez les chemins et les étiquettes d’algorithme sur l’aide-mémoire comme 
 Parfois, aucune n’est parfaite. Ce sont des recommandations générales, donc ne vous inquiétez pas de leur exactitude.
 Plusieurs scientifiques des données auxquels j’ai parlé m’ont affirmé que la seule façon de trouver le meilleur algorithme est de tous les essayer.
 
-Voici un exemple tiré de [Azure AI Gallery](http://gallery.cortanaintelligence.com/). Cette expérience teste plusieurs algorithmes sur les mêmes données et compare les résultats : [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92) (Comparer des classifieurs multiclasses : reconnaissance de lettres).
+Voici un exemple tiré de [Azure AI Gallery](http://gallery.azure.ai/). Cette expérience teste plusieurs algorithmes sur les mêmes données et compare les résultats : [Compare Multi-class Classifiers: Letter recognition](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92) (Comparer des classifieurs multiclasses : reconnaissance de lettres).
 
 > [!TIP]
-> Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](studio-overview-diagram.md).
-> 
-> 
+> Pour télécharger une vue d'ensemble infographique présentant de manière simple les concepts de base du Machine Learning afin de vous familiariser avec les algorithmes populaires utilisés pour répondre aux questions les plus courantes concernant le Machine Learning, consultez [Principes de base du Machine Learning avec exemples d'algorithmes](basics-infographic-with-algorithm-examples.md).
 
 ## <a name="flavors-of-machine-learning"></a>Types d'apprentissage automatique
 
@@ -242,13 +240,11 @@ Lancée et dirigée par John Langford de Microsoft Research, VW est une Formul
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une infographie téléchargeable décrivant les algorithmes et accompagnée d’exemples, consultez la page [Infographie téléchargeable : Principes de base de l’apprentissage automatique avec exemples d’algorithmes](basics-infographic-with-algorithm-examples.md).
+* Pour télécharger une vue d'ensemble infographique présentant de manière simple les concepts de base du Machine Learning afin de vous familiariser avec les algorithmes populaires utilisés pour répondre aux questions les plus courantes concernant le Machine Learning, consultez [Principes de base du Machine Learning avec exemples d'algorithmes](basics-infographic-with-algorithm-examples.md).
 
 * Pour obtenir la liste par catégorie de tous les algorithmes d’apprentissage automatique disponibles dans Machine Learning Studio, consultez [Initialiser le modèle](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) dans Machine Learning Studio : aide sur les algorithmes et les modules.
 
 * Pour obtenir la liste alphabétique complète des algorithmes et des modules de Machine Learning Studio, consultez [Liste alphabétique des modules de Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) dans Machine Learning Studio : aide sur les algorithmes et les modules.
-
-* Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](studio-overview-diagram.md).
 
 <!-- Media -->
 

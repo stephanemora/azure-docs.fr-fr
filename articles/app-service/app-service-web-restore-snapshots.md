@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
-ms.openlocfilehash: ab1ae63352e66da557cad49bf5f320b577055877
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8d4290f1411749e2d8d3d27fbd792ceeeea47ef7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726559"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100489"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restauration d’une application dans Azure à partir d’un instantané
 Cet article explique comment restaurer une application dans [Azure App Service](../app-service/overview.md) à partir d’un instantané. Vous pouvez utiliser l’un des instantanés de votre application pour restaurer cette dernière à un état antérieur. Il n’est pas nécessaire d’activer la sauvegarde d’instantanés : la plateforme enregistre automatiquement un instantané de toutes les applications dans le cadre de la récupération de données.
@@ -38,6 +38,7 @@ La restauration à partir d’instantanés est disponible pour des applications 
 - App Service arrête l’application cible ou l’emplacement cible pendant la restauration.
 - App Service conserve l’équivalent de trois mois d’instantanés pour la récupération de données de la plateforme.
 - Vous ne pouvez restaurer des instantanés qu’au cours des 30 derniers jours.
+- Les instances d'App Service exécutées dans App Service Environment ne prennent pas en charge les captures instantanées.
  
 
 ## <a name="restore-an-app-from-a-snapshot"></a>Restauration d’une application à partir d’un instantané

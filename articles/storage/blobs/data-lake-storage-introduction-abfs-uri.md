@@ -1,6 +1,6 @@
 ---
-title: Utiliser l’URI Azure Data Lake Storage Gen2 Preview
-description: Utiliser l’URI Azure Data Lake Storage Gen2 Preview
+title: Utiliser l’URI Azure Data Lake Storage Gen2
+description: Utiliser l’URI Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 63dcea94fd880102a784e6f776855c44d4e97c87
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fe020ab1091b91ba21174b59d0ce25ab0c6122ca
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243315"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878304"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Utiliser l’URI Azure Data Lake Storage Gen2
 
-Le pilote du [système de fichiers Hadoop](http://www.aosabook.org/en/hdfs.html) compatible avec Azure Data Lake Storage Gen2 Preview est connu par son identificateur de schéma `abfs` (Azure Blob File System). Conformément à d’autres pilotes de système de fichiers Hadoop, le pilote ABFS emploie un format d’URI pour traiter les fichiers et les répertoires dans un compte Data Lake Storage Gen2.
+Le pilote du [système de fichiers Hadoop](http://www.aosabook.org/en/hdfs.html) compatible avec Azure Data Lake Storage Gen2 est connu par son identificateur de schéma `abfs` (système de fichiers blob Azure). Conformément à d’autres pilotes de système de fichiers Hadoop, le pilote ABFS emploie un format d’URI pour traiter les fichiers et les répertoires dans un compte Data Lake Storage Gen2.
 
 ## <a name="uri-syntax"></a>Syntaxe d’URI
 

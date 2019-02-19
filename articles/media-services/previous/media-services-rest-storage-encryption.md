@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: ba5e3fae04c47420d90aa1bc800a3dbd0e5ba984
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: ff198bc5e921f1c78e2d7cb7c80bfe0615fc91bc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364429"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003259"
 ---
-# <a name="encrypting-your-content-with-storage-encryption"></a>Chiffrer votre contenu avec le chiffrement de stockage
+# <a name="encrypting-your-content-with-storage-encryption"></a>Chiffrer votre contenu avec le chiffrement de stockage 
 
 Il est fortement recommandé de chiffrer votre contenu localement à l’aide du chiffrement AES 256 bits, puis de le charger sur Stockage Azure pour l’y stocker au repos sous forme chiffrée.
 
@@ -111,12 +111,12 @@ Voici les étapes générales pour la génération de clés de contenu que vous 
 
     Propriété du corps de la demande    | Description
     ---|---
-    ID | L’ID de ContentKey est généré en utilisant le format suivant : « nb:kid:UUID:<NEW GUID> ».
+    ID | L'ID de ContentKey est généré en utilisant le format suivant : « nb:kid:UUID:<NEW GUID> ».
     ContentKeyType | Le type de clé de contenu est un entier qui définit la clé. La valeur est 1 pour le format de chiffrement du stockage.
     EncryptedContentKey | Nous créons une valeur de clé de contenu qui est une valeur de 256 bits (32 octets). La clé est chiffrée à l’aide du certificat X.509 de chiffrement du stockage que nous récupérons à partir de Microsoft Azure Media Services en exécutant une requête HTTP GET pour les méthodes GetProtectionKeyId et GetProtectionKey. À titre d’exemple, consultez le code .NET suivant : la méthode **EncryptSymmetricKeyData** définie [ici](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-    ProtectionKeyId | Il s’agit de l’ID de clé de protection pour le certificat X.509 de chiffrement de stockage qui a été utilisé pour chiffrer notre clé de contenu.
+    ProtectionKeyId | Il s'agit de l'ID de la clé de protection du certificat de chiffrement de stockage X.509 qui a été utilisé pour chiffrer notre clé de contenu.
     ProtectionKeyType | Il s’agit du type de chiffrement de la clé de protection qui a été utilisé pour chiffrer la clé de contenu. Cette valeur est StorageEncryption(1) dans notre exemple.
-    Somme de contrôle |La somme de contrôle calculée MD5 pour la clé de contenu. Elle est calculée en chiffrant l’ID de contenu avec la clé de contenu. L’exemple de code montre comment calculer la somme de contrôle.
+    Somme de contrôle |La somme de contrôle calculée MD5 pour la clé de contenu. Elle est calculée en chiffrant l'ID de contenu avec la clé de contenu. L’exemple de code montre comment calculer la somme de contrôle.
 
 
 ### <a name="retrieve-the-protectionkeyid"></a>Récupération de ProtectionKeyId

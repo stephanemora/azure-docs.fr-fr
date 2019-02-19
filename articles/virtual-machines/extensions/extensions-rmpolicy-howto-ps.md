@@ -13,18 +13,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434987"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980871"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Utiliser Azure Policy pour restreindre l’installation d’extensions sur les machines virtuelles Windows
 
 Si vous souhaitez empêcher l’utilisation ou l’installation de certaines extensions sur vos machines virtuelles Windows, vous pouvez créer une stratégie Azure à l’aide de PowerShell afin de restreindre les extensions pour les machines virtuelles d’un groupe de ressources. 
 
-Ce didacticiel utilise Azure PowerShell dans Cloud Shell, qui est constamment mise à jour vers la dernière version. Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 3.6 ou version ultérieure pour les besoins de ce didacticiel. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
+Ce didacticiel utilise Azure PowerShell dans Cloud Shell, qui est constamment mise à jour vers la dernière version. 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-a-rules-file"></a>Créer un fichier de règles
 
@@ -97,13 +99,13 @@ Lorsque vous avez terminé, appuyez sur **Ctrl + O**, puis sur **Entrée** pour 
 
 ## <a name="create-the-policy"></a>Création de la stratégie
 
-Une définition de stratégie est un objet servant à stocker la configuration que vous souhaitez utiliser. La définition de stratégie fait appel aux fichiers de règles et de paramètres pour définir la stratégie. Créez une définition de stratégie à l’aide de l’applet de commande [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+Une définition de stratégie est un objet servant à stocker la configuration que vous souhaitez utiliser. La définition de stratégie fait appel aux fichiers de règles et de paramètres pour définir la stratégie. Créez une définition de stratégie à l'aide de la cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition).
 
  Les règles de stratégie et les paramètres correspondent aux fichiers que vous avez créés et stockés en tant que fichiers .json dans votre Cloud Shell.
 
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
    -Name "not-allowed-vmextension-windows" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied."   `
@@ -116,13 +118,13 @@ $definition = New-AzureRmPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Affecter la stratégie
 
-Dans cet exemple, la stratégie est affectée à un groupe de ressources à l’aide de la commande [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment). N’importe quelle machine virtuelle créée dans le groupe de ressources **myResourceGroup** ne pourra pas installer les extensions VM Access Agent ou Custom Script. 
+Dans cet exemple, la stratégie est affectée à un groupe de ressources à l'aide de la commande [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). N’importe quelle machine virtuelle créée dans le groupe de ressources **myResourceGroup** ne pourra pas installer les extensions VM Access Agent ou Custom Script. 
 
-Utilisez le cmdlet [Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.profile/get-azurermsubscription) pour obtenir votre ID d’abonnement à utiliser à la place de celui de l’exemple.
+Utilisez la cmdlet [Get-AzSubscription | Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) pour obtenir l'ID d'abonnement qui remplacera celui de l'exemple.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
-$assignment = New-AzureRMPolicyAssignment `
+$assignment = New-AzPolicyAssignment `
    -Name "not-allowed-vmextension-windows" `
    -Scope $scope `
    -PolicyDefinition $definition `
@@ -139,10 +141,10 @@ $assignment
 
 ## <a name="test-the-policy"></a>Tester la stratégie
 
-Pour tester la stratégie, essayez d’utiliser l’extension d’accès de la machine virtuelle. Ce qui suit doit échouer avec le message « Set-AzureRmVMAccessExtension : La ressource 'myVMAccess' a été interdite par la stratégie. »
+Pour tester la stratégie, essayez d’utiliser l’extension d’accès de la machine virtuelle. Ce qui suit doit échouer avec le message « Set-AzVMAccessExtension : La ressource 'myVMAccess' a été interdite par la stratégie. »
 
 ```azurepowershell-interactive
-Set-AzureRmVMAccessExtension `
+Set-AzVMAccessExtension `
    -ResourceGroupName "myResourceGroup" `
    -VMName "myVM" `
    -Name "myVMAccess" `
@@ -154,13 +156,13 @@ Dans le portail, la modification de mot de passe doit échouer avec le message �
 ## <a name="remove-the-assignment"></a>Supprimer l’affectation
 
 ```azurepowershell-interactive
-Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
+Remove-AzPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 ```
 
 ## <a name="remove-the-policy"></a>Supprimer la stratégie
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension-windows
+Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>Étapes suivantes

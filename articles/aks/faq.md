@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: a7a7c8a6f16183d677aeb09ca62ac601cbd01289
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2366bd5543a7c3ee4a45eff74f71232a9c60989f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694038"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098531"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -60,7 +60,7 @@ Si vous créez des ressources qui seront utilisées avec votre cluster AKS, tels
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Puis-je modifier les balises et d’autres propriétés des ressources AKS dans le groupe de ressources MC_* ?
 
-La modification et la suppression de balises créées par Azure et d’autres propriétés de ressources dans le groupe de ressources *MC_** peuvent entraîner des résultats inattendus, notamment des erreurs de mise à l’échelle et de mise à niveau. La création et la modification de balises personnalisées supplémentaires, par exemple, pour affecter une unité commerciale ou un centre de coûts, sont prises en charge. La modification des ressources sous *MC_** dans le cluster AKS interrompt le SLO.
+La modification et la suppression de balises créées par Azure et d’autres propriétés de ressources dans le groupe de ressources *MC_** peuvent entraîner des résultats inattendus, notamment des erreurs de mise à l’échelle et de mise à niveau. La création et la modification de balises personnalisées supplémentaires, par exemple, pour affecter une unité commerciale ou un centre de coûts, sont prises en charge. La modification des ressources du groupe *MC_** dans le cluster AKS empêche d'atteindre l'objectif de niveau de service (SLO). Pour plus d'informations, consultez [AKS propose-t-il un contrat de niveau de service ?](#does-aks-offer-a-service-level-agreement).
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quels sont les contrôleurs d’admission Kubernetes qui sont pris en charge par AKS ? Les contrôleurs d’admission peuvent-ils être ajoutés ou supprimés ?
 

@@ -3,9 +3,8 @@ title: Automatiser l’approvisionnement des applications avec SCIM dans Azure A
 description: Azure Active Directory peut configurer automatiquement les utilisateurs et les groupes sur une application ou un magasin d’identités avec en façade un service web avec l’interface définie dans Spécification du protocole SCIM.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 946a70a1b3fe2ddcaf8ec58b9ebc297f1d8894fd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732581"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178853"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications
 
@@ -38,7 +38,7 @@ Cette fonctionnalité peut être utilisée conjointement avec la fonctionnalité
 
 Il existe deux cas d’utilisation de SCIM dans Azure Active Directory :
 
-* **L’attribution d’utilisateurs et de groupes à des applications qui prennent en charge SCIM** : les applications qui prennent en charge SCIM 2.0 et utilisent les jetons de porteur OAuth d’Azure AD pour l’authentification fonctionnent avec Azure AD sans configuration préalable.
+* **Approvisionnement d'utilisateurs et de groupes pour les applications qui prennent en charge SCIM** : les applications qui prennent en charge SCIM 2.0 et utilisent les jetons de porteur OAuth d'Azure AD pour l'authentification fonctionnent avec Azure AD sans configuration préalable.
   
 * **La création de votre propre solution d’attribution pour les applications qui prennent en charge d’autres approvisionnements basés sur une API** : pour les applications autres que SCIM, vous pouvez créer un point de terminaison SCIM pour la translation entre le point de terminaison SCIM d’Azure AD et l’API prise en charge par l’application pour l’attribution des utilisateurs. Pour vous aider à développer un point de terminaison SCIM, il existe des bibliothèques CLI (Common Language Infrastructure), ainsi que des exemples de code qui vous indiquent comment fournir un point de terminaison SCIM et convertir les messages SCIM.  
 
@@ -74,7 +74,7 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
    *Figure 3 : configuration de l’approvisionnement dans le Portail Azure*
     
 6. Dans le champ **URL du locataire**, entrez l’URL du point de terminaison SCIM de l’application. Exemple : https://api.contoso.com/scim/v2/
-7. Si le point de terminaison SCIM requiert un jeton de porteur OAuth d’un émetteur autre qu’Azure AD, copiez le jeton de porteur OAuth requis dans le champ facultatif **Secret Token** (Jeton secret). Si ce champ est laissé vide, Azure AD inclut un jeton de porteur OAuth émis par Azure AD avec chaque requête. Les applications qui utilisent Azure AD comme fournisseur d’identité peuvent valider ce jeton émis par Azure AD.
+7. Si le point de terminaison SCIM requiert un jeton de porteur OAuth d’un émetteur autre qu’Azure AD, copiez le jeton de porteur OAuth requis dans le champ facultatif **Secret Token** (Jeton secret). Si ce champ est laissé vide, Azure AD inclut un jeton de porteur OAuth émis par Azure AD avec chaque requête. Les applications qui utilisent Azure AD comme fournisseur d'identité peuvent valider ce jeton émis par Azure AD.
 8. Cliquez sur le bouton **Tester la connexion** pour qu’Azure Active Directory tente de se connecter au point de terminaison SCIM. Si les tentatives échouent, des informations d’erreur s’affichent.  
 
     >[!NOTE]
@@ -86,7 +86,7 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
     >[!NOTE]
     >Vous pouvez éventuellement désactiver la synchronisation des objets de groupe en désactivant le mappage « Groupes ». 
 
-11. Sous **Paramètres**, le champ **Étendue** définit les utilisateurs et/ou les groupes qui sont synchronisés. Si vous sélectionnez « Sync only assigned users and groups » (Synchroniser uniquement les utilisateurs et les groupes attribués) (recommandé), seuls les utilisateurs et les groupes attribués seront synchronisés dans l’onglet **Utilisateurs et groupes**.
+11. Sous **Paramètres**, le champ **Étendue** définit les utilisateurs et les groupes qui sont synchronisés. Si vous sélectionnez « Sync only assigned users and groups » (Synchroniser uniquement les utilisateurs et les groupes attribués) (recommandé), seuls les utilisateurs et les groupes attribués seront synchronisés dans l’onglet **Utilisateurs et groupes**.
 12. Une fois votre configuration terminée, modifiez l’**état d’approvisionnement** en **Activé**.
 13. Cliquez sur **Enregistrer** pour démarrer le service d’approvisionnement Azure AD. 
 14. Si vous synchronisez uniquement les utilisateurs et les groupes attribués (recommandé), veillez à sélectionner l’onglet **Utilisateurs et groupes** et à attribuer les utilisateurs et/ou groupes que vous souhaitez synchroniser.
@@ -153,7 +153,7 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
    ![][2]
    *Figure 4 : configuration de l’approvisionnement dans le Portail Azure*
     
-6. Dans le champ **URL du locataire**, saisissez l’URL côté Internet et le port de votre point de terminaison SCIM. L’entrée pourrait être http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, où <ip-address> est l’adresse IP Internet exposée.  
+6. Dans le champ **URL du locataire**, saisissez l’URL côté Internet et le port de votre point de terminaison SCIM. L'entrée pourrait se présenter comme suit : http://testmachine.contoso.com:9000 ou http://\<ip-address>:9000/, où \<ip-address> correspond à l'adresse IP exposée sur Internet.  
 7. Si le point de terminaison SCIM requiert un jeton de porteur OAuth d’un émetteur autre qu’Azure AD, copiez le jeton de porteur OAuth requis dans le champ facultatif **Secret Token** (Jeton secret). Si ce champ est laissé vide, Azure AD inclura un jeton de porteur OAuth émis par Azure AD avec chaque requête. Les applications qui utilisent Azure AD comme fournisseur d’identité peuvent valider ce jeton émis par Azure AD.
 8. Cliquez sur le bouton **Tester la connexion** pour qu’Azure Active Directory tente de se connecter au point de terminaison SCIM. Si les tentatives échouent, des informations d’erreur s’affichent.  
 

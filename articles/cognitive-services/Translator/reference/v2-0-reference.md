@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Documentation de référence pour l’API de traduction de texte Translator Text v2.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9491550aae8f88621d947572741f492adcf9cdd0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8d57723f6e51fb392e4fdbfb2b2a445d48635e3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463223"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861712"
 ---
 # <a name="translator-text-api-v20"></a>API de traduction de texte Translator Text v2.0
 
@@ -327,7 +327,7 @@ Type de contenu de réponse : application/xml
 |texte|(empty)   |Requis. Chaîne contenant une ou plusieurs phrases dans la langue spécifiée, à prononcer pour le flux WAV. La taille du texte à prononcer ne peut pas dépasser 2 000 caractères.|query|chaîne|
 |Langage|(empty)   |Requis. Chaîne représentant le code de la langue prise en charge dans laquelle prononcer le texte. Le code doit être présent dans la liste des codes renvoyée par la méthode `GetLanguagesForSpeak`.|query|chaîne|
 |format|(empty)|facultatif. Chaîne spécifiant l’ID de type de contenu. Actuellement, `audio/wav` et `audio/mp3` sont disponibles. La valeur par défaut est `audio/wav`.|query|chaîne|
-|options|(empty)    |<ul><li>facultatif. Chaîne spécifiant les propriétés de la parole synthétisée :<li>`MaxQuality` et `MinSize` sont disponibles pour spécifier la qualité des signaux audio. Avec `MaxQuality`, vous obtenez des voix de la qualité la plus haute et avec `MinSize`, vous obtenez des voix de la qualité la plus basse. La valeur par défaut est `MinSize`.</li><li>`female` et `male` sont disponibles pour spécifier le genre souhaité de la voix. La valeur par défaut est `female`. Utilisez la barre verticale.|` to include multiple options. For example  `MaxQuality|Male</li></li></ul> |query|chaîne|
+|options|(empty)    |<ul><li>facultatif. Chaîne spécifiant les propriétés de la parole synthétisée :<li>`MaxQuality` et `MinSize` sont disponibles pour spécifier la qualité des signaux audio. Avec `MaxQuality`, vous obtenez des voix de la qualité la plus haute et avec `MinSize`, vous obtenez des voix de la qualité la plus basse. La valeur par défaut est `MinSize`.</li><li>`female` et `male` sont disponibles pour spécifier le genre souhaité de la voix. La valeur par défaut est `female`. Utilisez la barre verticale `|` pour inclure plusieurs options. Par exemple : `MaxQuality|Male`.</li></li></ul> |query|chaîne|
 |Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|chaîne|
 |Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|chaîne|
 

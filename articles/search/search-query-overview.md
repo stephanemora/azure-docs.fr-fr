@@ -9,16 +9,29 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.custom: seodec2018
-ms.openlocfilehash: 9b682b9cd17c174363dcd04707a11075e30cc8e1
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 62f9d24204e734b7b5e2ed97f361ccf228ba89dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214825"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005044"
 ---
-# <a name="query-types-and-composition-in-azure-search"></a>Types et composition de requête dans Recherche Azure
+# <a name="how-to-compose-a-query-in-azure-search"></a>Rédiger une requête dans Recherche Azure
 
-Dans Recherche Azure, une requête est une spécification complète d’une opération d’aller-retour. Les paramètres fournissent les critères de correspondance pour rechercher des documents dans un index, les instructions d’exécution pour le moteur et des directives pour la mise en forme de la réponse. Plus précisément, vous pouvez spécifier les champs à prendre en compte, la méthode de recherche, les champs à retourner, des critères de tri ou de filtre, etc. Non spécifiée, une requête s’exécute sur tous les champs recherchables en tant qu’opération de recherche de texte intégral et retourne un jeu de résultats sans score dans un ordre arbitraire.
+Dans Recherche Azure, une requête est une spécification complète d’une opération d’aller-retour. Les paramètres de la requête fournissent des critères de correspondance pour la recherche de documents dans un index, des instructions d'exécution pour le moteur et des directives pour la mise en forme de la réponse. 
+
+Une demande de requête permet de spécifier les champs à prendre en compte, la méthode de recherche, les champs à renvoyer, les critères de tri ou de filtre, etc. Non spécifiée, une requête s’exécute sur tous les champs recherchables en tant qu’opération de recherche de texte intégral et retourne un jeu de résultats sans score dans un ordre arbitraire.
+
+### <a name="apis-and-tools-for-testing"></a>API et outils de test
+
+Le tableau suivant liste les API et les approches basées sur des outils pour envoyer des requêtes.
+
+| Méthodologie | Description |
+|-------------|-------------|
+| [Navigateur de recherche (portail)](search-explorer.md) | Fournit une barre de recherche et des options pour les sélections d’index et de version d’API. Les résultats sont retournés sous forme de documents JSON. <br/>[En savoir plus.](search-get-started-portal.md#query-index) | 
+| [Postman ou autre outil de test HTTP](search-fiddler.md) | Explique comment configurer un en-tête et un corps de requête HTTP pour l'envoi de requêtes à Recherche Azure.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client que vous pouvez utiliser pour interroger un index Recherche Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Rechercher des documents (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Méthodes GET ou POST sur un index, avec paramètres de requête pour une entrée supplémentaire.  |
 
 ## <a name="a-first-look-at-query-requests"></a>Présentation rapide des demandes de requête
 
@@ -52,7 +65,7 @@ Pour exécuter cette requête, utilisez l’option [Search explorer and the real
 
 Vous pouvez coller cette chaîne de requête dans la barre de recherche de l’explorateur : `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
 
-### <a name="how-query-operations-are-enabled-by-the-index"></a>Comment les opérations de requête sont activées par l’index
+## <a name="how-query-operations-are-enabled-by-the-index"></a>Comment les opérations de requête sont activées par l’index
 
 La conception des index et la conception des requêtes sont étroitement liées dans Recherche Azure. Il est important de savoir que le *schéma d’index*, qui comporte des attributs pour chaque champ, détermine le type de requête que vous pouvez créer. 
 
@@ -148,17 +161,6 @@ Si vous souhaitez que Recherche Azure retourne les résultats en les classant av
 
 ### <a name="hit-highlighting"></a>Mise en surbrillance des correspondances
 Dans Recherche Azure, vous pouvez mettre facilement en évidence la partie exacte des résultats de recherche qui correspondent à la requête de recherche en utilisant les paramètres **`highlight`**, **`highlightPreTag`** et **`highlightPostTag`**. Vous pouvez spécifier les champs *utilisables dans une recherche* dont le texte correspondant à la requête doit être mis en évidence ainsi que les balises de chaîne exactes à ajouter au début et à la fin du texte correspondant retourné par le service Recherche Azure.
-
-## <a name="apis-and-tools-for-testing"></a>API et outils de test
-
-Le tableau suivant liste les API et les approches basées sur des outils pour envoyer des requêtes.
-
-| Méthodologie | Description |
-|-------------|-------------|
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client que vous pouvez utiliser pour interroger un index Recherche Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Rechercher des documents (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Méthodes GET ou POST sur un index, avec paramètres de requête pour une entrée supplémentaire.  |
-| [Fiddler, Postman ou autre outil de test HTTP](search-fiddler.md) | Explique comment configurer un en-tête et un corps de requête pour l’envoi de requêtes à Recherche Azure.  |
-| [Explorateur de recherche dans le portail Azure](search-explorer.md) | Fournit une barre de recherche et des options pour les sélections d’index et de version d’API. Les résultats sont retournés sous forme de documents JSON. <br/>[En savoir plus.](search-get-started-portal.md#query-index) | 
 
 ## <a name="see-also"></a>Voir aussi
 

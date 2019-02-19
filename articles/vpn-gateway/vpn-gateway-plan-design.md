@@ -1,26 +1,18 @@
 ---
-title: 'Planification et conception des connexions entre les systèmes locaux : passerelle VPN Azure | Microsoft Docs'
+title: 'Planification et conception des connexions entre les systèmes locaux : passerelle VPN Azure | Microsoft Docs'
 description: En savoir plus sur la planification et la conception de la passerelle VPN pour les connexions entre locaux, hybrides et entre réseaux virtuels
 services: vpn-gateway
-documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
+author: yushwang
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 07/27/2017
-ms.author: cherylmc
-ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yushwang
+ms.openlocfilehash: 7802061ba09a30ca34ed3804ace846118c5edb9b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23125477"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235359"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>Planification et conception de la passerelle VPN
 
@@ -30,7 +22,7 @@ La planification et la conception de vos configurations intersites et entre rés
 
 ### <a name="compare"></a>Options de connectivité intersite
 
-Si vous voulez connecter vos sites locaux en toute sécurité à un réseau virtuel, vous disposez de trois options : Site à site, Point à site et ExpressRoute. Comparer les différentes connexions entre locaux qui sont disponibles. L’option choisie peut dépendre de la réponse à différentes questions, notamment :
+Si vous souhaitez connecter vos sites locaux de manière sécurisée à un réseau virtuel, trois options sont à votre disposition : Site à site, Point à site et ExpressRoute. Comparer les différentes connexions entre locaux qui sont disponibles. L’option choisie peut dépendre de la réponse à différentes questions, notamment :
 
 * Quel est le type de débit requis par votre solution ?
 * Souhaitez-vous communiquer sur l’Internet public par le biais d’un VPN sécurisé ou sur une connexion privée ?

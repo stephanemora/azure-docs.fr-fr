@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730003"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869090"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch
 
@@ -376,7 +376,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Lorsque vous créez un pool avec mise à l’échelle automatique, ne spécifiez pas le paramètre _targetDedicatedComputeNodes_ ni le paramètre _targetLowPriorityComputeNodes_ sur l’appel à **CreatePool**. Au lieu de cela, spécifiez les propriétés **AutoScaleEnabled** et **AutoScaleFormula** sur le pool. Les valeurs de ces propriétés déterminent le nombre cible de chaque type de nœud. De même, pour redimensionner manuellement un pool avec mise à l’échelle automatique (par exemple, avec [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), vous devez dans un premier temps **désactiver** la mise à l’échelle automatique dans le pool avant de le redimensionner.
+> Lorsque vous créez un pool avec mise à l’échelle automatique, ne spécifiez pas le paramètre _targetDedicatedNodes_ ni le paramètre _targetLowPriorityNodes_ sur l’appel à **CreatePool**. Au lieu de cela, spécifiez les propriétés **AutoScaleEnabled** et **AutoScaleFormula** sur le pool. Les valeurs de ces propriétés déterminent le nombre cible de chaque type de nœud. De même, pour redimensionner manuellement un pool avec mise à l’échelle automatique (par exemple, avec [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), vous devez dans un premier temps **désactiver** la mise à l’échelle automatique dans le pool avant de le redimensionner.
 >
 >
 
@@ -412,7 +412,7 @@ Quand vous activez la mise à l’échelle automatique sur un pool existant, n�
   * Si vous omettez la formule de mise à l’échelle automatique ou l’intervalle d’évaluation, le service Batch continue d’utiliser la valeur actuelle de ce paramètre.
 
 > [!NOTE]
-> Si vous avez spécifié des valeurs pour les paramètres *targetDedicatedComputeNodes* ou *targetLowPriorityComputeNodes* de la méthode **CreatePool** lorsque vous avez créé le pool dans .NET, ou pour les paramètres comparables dans un autre langage, ces valeurs sont ignorées lors de l’évaluation de la formule de mise à l’échelle automatique.
+> Si vous avez spécifié des valeurs pour les paramètres *targetDedicatedNodes* ou *targetLowPriorityNodes* de la méthode **CreatePool** lorsque vous avez créé le pool dans .NET, ou pour les paramètres comparables dans un autre langage, ces valeurs sont ignorées lors de l’évaluation de la formule de mise à l’échelle automatique.
 >
 >
 

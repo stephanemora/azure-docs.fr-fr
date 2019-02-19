@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à My Award Points Top Sub/Top Team | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à My Award Points Top Sub/Top Team | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et My Award Points Top Sub/Top Team.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 19ed1c12768eed0265f65388984a5859b8f0630b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247752"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210728"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Didacticiel : Intégration d’Azure Active Directory à My Award Points Top Sub/Top Team
+# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Tutoriel : Intégration d'Azure Active Directory à My Award Points Top Sub/Top Team
 
 Dans ce didacticiel, vous allez apprendre à intégrer My Award Points Top Sub/Top Team à Azure Active Directory (Azure AD).
 
@@ -161,7 +162,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="create-a-my-award-points-top-subtop-team-test-user"></a>Créer un utilisateur de test My Award Points Top Sub/Top Team
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans My Award Points Top Sub/Top Team. Collaborez avec [l’équipe du support technique de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com) pour ajouter des utilisateurs dans la plateforme My Award Points Top Sub/Top Team. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans My Award Points Top Sub/Top Team. Travaillez en collaboration avec l' [équipe du support technique de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com)  pour ajouter des utilisateurs à la plateforme My Award Points Top Sub/Top Team. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

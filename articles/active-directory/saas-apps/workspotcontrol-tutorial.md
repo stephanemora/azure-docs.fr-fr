@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Workspot Control | Microsoft Docs'
+title: "Didacticiel : Intégration d'Azure Active Directory à Workspot Control | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workspot Control.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 520e625ba9689ebf35e985fe95609c62102e2493
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311944"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211153"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutoriel : Intégration d’Azure Active Directory à Workspot Control
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutoriel : Intégration d'Azure Active Directory à Workspot Control
 
 Dans ce tutoriel, vous allez apprendre à intégrer Workspot Control à Azure Active Directory (Azure AD).
 
@@ -103,7 +104,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![image](./media/workspotcontrol-tutorial/b1_b2_saml_sso.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+3. Sur la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![image](./media/workspotcontrol-tutorial/b1-domains_and_urlsedit.png)
 
@@ -130,11 +131,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Configurer Workspot Control**, copiez l’URL appropriée en fonction de vos besoins.
 
-    Notez que l’URL peut indiquer que les éléments suivants :
+    Notez que l’URL peut indiquer les éléments suivants :
 
     a. URL de connexion
 
-    b. Identificateur Azure Active Directory
+    b. Identificateur Azure AD
 
     c. URL de déconnexion
 
@@ -142,7 +143,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Ouvrez une autre fenêtre de navigateur web, puis connectez-vous à Workspot Control en tant qu’administrateur de la sécurité.
 
-8. Dans la barre d’outils située en haut de la page, cliquez sur **Setup** (Configuration), puis sur **SAML**.
+8. Sur la barre d'outils située en haut de la page, cliquez sur  **Configuration**, puis sur  **SAML**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
@@ -150,7 +151,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
-    a. Dans la zone de texte **Entity ID** (Identificateur d’entité), collez l’**Identificateur Azure AD** que vous avez copié sur le portail Azure.   
+    a. Dans la zone de texte **Entity ID** (Identificateur d’entité), collez l’**Identificateur Azure AD** que vous avez copié sur le portail Azure.   
 
     Dans la zone de texte **Signon Service URL** (URL de service de connexion), collez l’**URL de connexion** que vous avez copiée sur le portail Azure.
 
@@ -164,7 +165,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, dans le volet gauche, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![image](./media/workspotcontrol-tutorial/d_users_and_groups.png)
 
@@ -178,7 +179,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -193,7 +194,7 @@ Pour se connecter à Workspot Control, les utilisateurs d’Azure AD doivent ê
 
 1. Connectez-vous à Workspot Control en tant qu’administrateur de la sécurité.
 
-2. Dans la barre d’outils située en haut de la page, cliquez sur **Users** (Utilisateurs), puis sur **Add User** (Ajouter un utilisateur).
+2. Sur la barre d'outils située en haut de la page, cliquez sur  **Utilisateurs**, puis sur  **Ajouter un utilisateur**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 

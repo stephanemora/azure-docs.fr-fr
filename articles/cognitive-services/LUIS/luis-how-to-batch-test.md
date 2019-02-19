@@ -4,23 +4,23 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Utilisez des jeux de tests par lot Language Understanding (LUIS) pour rechercher des énoncés avec des intentions et des entités incorrectes.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: dcc5e463eab6c5de612df45963f160156315a34a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213223"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116896"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test par lot avec un ensemble d’exemples d’énoncés
 
- Le test par lot est un test complet sur votre modèle formé en cours afin d’en mesurer les performances dans LUIS. Les jeux de données utilisés pour les tests par lot ne doivent pas inclure d’exemples d’énoncés dans les intentions ou énoncés reçus du point de terminaison de runtime de prédiction. 
+ Le test par lot est un test complet sur votre modèle formé en cours afin d’en mesurer les performances dans LUIS. Les jeux de données utilisés pour les tests par lot ne doivent pas inclure d'exemples d'énoncés dans les intentions ou énoncés reçus du point de terminaison du runtime de prédiction. 
 
 <a name="batch-testing"></a>
 

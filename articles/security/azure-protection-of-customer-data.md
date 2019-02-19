@@ -4,7 +4,7 @@ description: Cet article traite de la façon dont Azure protège les données cl
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 0b702cec6113e6b31e34750872479dce162e4cb6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173065"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104487"
 ---
 # <a name="azure-customer-data-protection"></a>Protection des données client Azure   
 L’accès aux données clientes par le personnel des opérations et du support Microsoft est refusé par défaut. Lorsque l’accès aux données clientes est accordé, l’approbation de la direction est obligatoire, puis l’accès est géré et journalisé avec soin. Les conditions de contrôle d’accès sont établies par la stratégie de sécurité Azure suivante :
@@ -35,18 +35,18 @@ Toutes les tentatives d’accès sont surveillées et peuvent être affichées d
 ## <a name="data-protection"></a>Protection des données
 Azure fournit aux clients une sécurité renforcée des données, à la fois par défaut et comme options pour les clients.
 
-**Séparation des données** : Azure est un service multilocataire, ce qui signifie que les déploiements et les machines virtuelles des clients sont stockés sur le même matériel physique. Azure utilise une isolation logique pour séparer les données de chaque client les unes des autres. La séparation offre les avantages financiers et d’échelle des services multilocataires, tout en empêchant rigoureusement les clients d’accéder aux données des autres.
+**Ségrégation des données :** Azure est un service multilocataire, ce qui signifie que plusieurs machines virtuelles et déploiements clients sont stockés sur le même matériel physique. Azure utilise une isolation logique pour séparer les données de chaque client les unes des autres. La séparation offre les avantages financiers et d’échelle des services multilocataires, tout en empêchant rigoureusement les clients d’accéder aux données des autres.
 
-**Protection des données au repos** : Les clients doivent veiller à chiffrer les données stockées dans Azure conformément à leurs standards, c’est leur responsabilité. Azure propose toute une série de fonctionnalités de chiffrement qui permettent aux clients de choisir la solution correspondant le mieux à leurs besoins. Azure Key Vault aide les clients à assurer facilement le contrôle des clés utilisées par les applications et les services cloud pour chiffrer les données. Azure Disk Encryption permet aux clients de chiffrer les machines virtuelles. Azure Storage Service Encryption offre la possibilité de chiffrer toutes les données placées dans le compte de stockage du client.
+**Protection des données au repos** : les clients sont tenus de veiller à ce que les données stockées dans Azure soient chiffrées conformément aux normes en vigueur. Azure propose toute une série de fonctionnalités de chiffrement qui permettent aux clients de choisir la solution correspondant le mieux à leurs besoins. Azure Key Vault aide les clients à assurer facilement le contrôle des clés utilisées par les applications et les services cloud pour chiffrer les données. Azure Disk Encryption permet aux clients de chiffrer les machines virtuelles. Azure Storage Service Encryption offre la possibilité de chiffrer toutes les données placées dans le compte de stockage du client.
 
-**Protection des données en transit** : Les clients peuvent activer le chiffrement pour le trafic entre leurs propres machines virtuelles et les utilisateurs finaux. Azure protège les données en transit depuis ou vers des composants externes et les données en transit en interne, par exemple entre deux réseaux virtuels. Azure utilise le protocole standard TLS (Transport Layer Security) 1.2 ou protocole ultérieur avec les clés de chiffrement 2 048 bits RSA/SHA256, comme recommandé par CESG/NCSC, pour chiffrer les communications entre :
+**Protection des données en transit** : les clients peuvent activer le chiffrement du trafic entre leurs propres machines virtuelles et les utilisateurs finaux. Azure protège les données en transit depuis ou vers des composants externes et les données en transit en interne, par exemple entre deux réseaux virtuels. Azure utilise le protocole standard TLS (Transport Layer Security) 1.2 ou protocole ultérieur avec les clés de chiffrement 2 048 bits RSA/SHA256, comme recommandé par CESG/NCSC, pour chiffrer les communications entre :
 
 - Le client et le cloud.
 - En interne entre les centres de données et les systèmes Azure.
 
-**Chiffrement** : Le chiffrement des données en stockage et en transit peut être déployé par les clients comme bonne pratique pour garantir la confidentialité et l’intégrité des données. Il est très facile pour les clients de configurer leurs services cloud Azure de sorte à utiliser SSL pour protéger les communications à partir d’Internet et même entre leurs machines virtuelles Azure hébergées.
+**Chiffrement** : le chiffrement des données en stockage et en transit peut être déployé par les clients comme bonne pratique pour garantir la confidentialité et l'intégrité des données. Il est très facile pour les clients de configurer leurs services cloud Azure de sorte à utiliser SSL pour protéger les communications à partir d’Internet et même entre leurs machines virtuelles Azure hébergées.
 
-**Redondance des données** : Microsoft garantit que les données sont protégées en cas de cyberattaque ou de dommage physique sur un centre de données. Les clients peuvent choisir :
+**Redondance des données** : Microsoft contribue à assurer la protection des données en cas de cyberattaque ou de dommages physiques sur un centre de données. Les clients peuvent choisir :
 
 - Un stockage dans leur pays pour des raisons de conformité ou de latence.
 - Un stockage hors de leur pays pour des raisons de sécurité ou de reprise d’activité après sinistre.
@@ -55,11 +55,11 @@ Les données peuvent être répliquées au sein d’une zone géographique séle
 
 Quand vous créez votre compte de stockage, vous devez sélectionner une des options de réplication suivantes :
 
-- **Le stockage localement redondant (LRS)** : effectue trois copies de vos données. Le stockage LRS est répliqué trois fois dans une même installation d’une même région. Le stockage LRS protège vos données contre les défaillances matérielles normales, mais pas des pannes susceptibles de se produire dans une installation donnée.
-- **Le stockage redondant dans une zone (ZRS)**  : effectue trois copies de vos données. Le stockage ZRS est répliqué trois fois sur deux à trois installations pour fournir une plus grande durabilité que celle du stockage LRS. La réplication a lieu dans une même région ou dans deux régions. Le stockage ZRS garantit la durabilité de vos données dans une même région.
-- **Le stockage géoredondant (GRS)** : Le stockage géoredondant avec accès en lecture est activé par défaut sur votre compte de stockage lors de la création de celui-ci. Le stockage GRS conserve six copies de vos données. Avec le stockage GRS, vos données sont répliquées trois fois dans la région principale. Vos données sont aussi répliquées trois fois dans une région secondaire située à des centaines de kilomètres de la région principale pour offrir le plus haut niveau de durabilité. En cas de défaillance dans la région principale, le stockage Azure bascule sur la région secondaire. Le stockage GRS assure la durabilité de vos données dans deux régions distinctes.
+- **Stockage localement redondant (LRS)**  : Le stockage localement redondant conserve trois copies de vos données. Le stockage LRS est répliqué trois fois dans une même installation d’une même région. Le stockage LRS protège vos données contre les défaillances matérielles normales, mais pas des pannes susceptibles de se produire dans une installation donnée.
+- **Stockage redondant interzone (ZRS)**  : Le stockage redondant interzone effectue trois copies de vos données. Le stockage ZRS est répliqué trois fois sur deux à trois installations pour fournir une plus grande durabilité que celle du stockage LRS. La réplication a lieu dans une même région ou dans deux régions. Le stockage ZRS garantit la durabilité de vos données dans une même région.
+- **Stockage géo-redondant (GRS)**  : Le stockage géoredondant est activé par défaut sur votre compte de stockage lors de la création de celui-ci. Le stockage GRS conserve six copies de vos données. Avec le stockage GRS, vos données sont répliquées trois fois dans la région principale. Vos données sont aussi répliquées trois fois dans une région secondaire située à des centaines de kilomètres de la région principale pour offrir le plus haut niveau de durabilité. En cas de défaillance dans la région principale, le stockage Azure bascule sur la région secondaire. Le stockage GRS assure la durabilité de vos données dans deux régions distinctes.
 
-**Destruction des données** : Quand les clients suppriment des données ou quittent Azure, Microsoft suit des standards stricts pour écraser les ressources de stockage avant de les réutiliser et de procéder à la destruction physique du matériel mis hors service. Microsoft supprime la totalité des données à la demande du client et à la fin du contrat.
+**Destruction des données** : lorsque les clients suppriment des données ou quittent Azure, Microsoft suit des normes strictes pour écraser les ressources de stockage avant leur réutilisation, ainsi que pour la destruction physique du matériel mis hors service. Microsoft supprime la totalité des données à la demande du client et à la fin du contrat.
 
 ## <a name="customer-data-ownership"></a>Propriété des données clientes
 Microsoft ne procède à aucune inspection, approbation ou surveillance des applications que les clients déploient dans Azure. Microsoft ne sait pas non plus quel type de données les clients choisissent de stocker dans Azure. Microsoft ne revendique pas la propriété des informations des clients entrées dans Azure.

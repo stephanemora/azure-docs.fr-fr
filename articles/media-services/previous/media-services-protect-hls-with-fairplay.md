@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 32f3f4fd3f4f299c9b084ab8604b56ea70e639a4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 49b763cba505a3423b47e5a2601db53b8e47a5fe
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368222"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993966"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Protéger votre contenu HLS avec Apple FairPlay ou Microsoft PlayReady
 Azure Media Services vous permet de chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) à l’aide des formats suivants :  
@@ -54,7 +54,7 @@ Les éléments suivants sont nécessaires pour utiliser Media Services afin de f
 
 Les éléments suivants doivent être définis du côté de la remise de clé Media Services :
 
-  * **App Cert (AC) (Certificat d’application)**  : fichier .pfx qui contient la clé privée. Vous devez créer ce fichier et le chiffrer avec un mot de passe.
+  * **Certificat d’application** : fichier .pfx qui contient la clé privée. Vous devez créer ce fichier et le chiffrer avec un mot de passe.
 
        Lorsque vous configurez une stratégie de remise de clé, vous devez fournir ce mot de passe et le fichier .pfx au format Base64.
 
@@ -69,15 +69,15 @@ Les éléments suivants doivent être définis du côté de la remise de clé Me
     3. Exécutez la commande suivante à partir de la ligne de commande. Elle permet de convertir le fichier .pem en fichier .pfx avec la clé privée. Le mot de passe du fichier .pfx est ensuite demandé par OpenSSL.
 
         « C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
-  * **App Cert password (Mot de passe du certificat d’application)**  : mot de passe pour créer le fichier .pfx.
-  * **App Cert password ID (ID de mot de passe du certificat d’application)**  : vous devez charger le mot de passe comme vous chargez les autres clés Media Services. Utilisez la valeur d’énumération **ContentKeyType.FairPlayPfxPassword** pour obtenir l’ID Media Services. C’est ce que vous devez utiliser dans l’option de stratégie de remise de clé.
+  * **Mot de passe du certificat d’application** : mot de passe pour créer le fichier .pfx.
+  * **ID de mot de passe du certificat d'application** : vous devez charger le mot de passe comme vous chargez les autres clés Media Services. Utilisez la valeur d’énumération **ContentKeyType.FairPlayPfxPassword** pour obtenir l’ID Media Services. C’est ce que vous devez utiliser dans l’option de stratégie de remise de clé.
   * **iv** : valeur aléatoire de 16 octets. Elle doit correspondre au vecteur d’initialisation de la stratégie de distribution d’éléments multimédias. Vous générez le vecteur d’initialisation et le placez aux deux endroits : la stratégie de distribution d’éléments multimédias et l’option de stratégie de remise de clé.
-  * **ASK** : cette clé est reçue lorsque vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement reçoit une ASK unique. Enregistrez une copie de la clé ASK et stockez-la dans un endroit sûr. Vous devrez configurer la clé ASK comme FairPlayAsk pour Media Services plus tard.
-  * **ASK ID (ID de clé ASK)**  : cet ID est obtenu lorsque vous chargez la clé ASK dans Media Services. Vous devez charger la clé ASK à l’aide de la valeur d’énumération **ContentKeyType.FairPlayAsk**. L’ID Media Services est retourné dans le résultat. C’est cet ID qui doit être utilisé lors de la définition de l’option de stratégie de remise de clé.
+  * **ASK** : cette clé est reçue quand vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement reçoit une ASK unique. Enregistrez une copie de la clé ASK et stockez-la dans un endroit sûr. Vous devrez configurer la clé ASK comme FairPlayAsk pour Media Services plus tard.
+  * **ID de clé ASK** : cet ID est obtenu lorsque vous chargez la clé ASK dans Media Services. Vous devez charger la clé ASK à l’aide de la valeur d’énumération **ContentKeyType.FairPlayAsk**. L’ID Media Services est retourné dans le résultat. C’est cet ID qui doit être utilisé lors de la définition de l’option de stratégie de remise de clé.
 
 Les éléments suivants doivent être définis par FPS côté client :
 
-  * **App Cert (AC) (Certificat d’application)**  : fichier .cer/.der qui contient la clé publique utilisée par le système d’exploitation pour chiffrer une charge utile. Media Services doit le connaître, car il est requis par le lecteur. Le service de remise de clé le déchiffre à l'aide de la clé privée correspondante.
+  * **Certificat d’application** : fichier .cer/.der qui contient la clé publique utilisée par le système d’exploitation pour chiffrer une charge utile. Media Services doit le connaître, car il est requis par le lecteur. Le service de remise de clé le déchiffre à l'aide de la clé privée correspondante.
 
 Pour lire un flux chiffré FairPlay, vous devez obtenir une clé ASK réelle en premier lieu, puis générer un certificat réel. Ce processus crée les trois composants suivants :
 
@@ -138,9 +138,9 @@ Les considérations suivantes s'appliquent :
 * Le type de chiffrement ne doit pas être spécifié dans l’URL si un seul chiffrement a été appliqué à l’élément multimédia.
 * Le type de chiffrement ne tient pas compte de la casse.
 * Les types de chiffrement suivants peuvent être spécifiés :  
-  * **cenc** : chiffrement commun (Playready ou Widevine)
-  * **cbcs-aapl** : Fairplay
-  * **cbc** : chiffrement de l’enveloppe AES
+  * **cenc** :  chiffrement commun (Playready ou Widevine)
+  * **cbcs-aapl** : FairPlay
+  * **cbc** : chiffrement de l'enveloppe AES
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 
@@ -550,7 +550,7 @@ namespace DynamicEncryptionWithFairPlay
 }
 ```
 
-## <a name="next-steps-media-services-learning-paths"></a>Étapes suivantes : Parcours d’apprentissage Media Services
+## <a name="next-steps-media-services-learning-paths"></a>Étapes suivantes : Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires

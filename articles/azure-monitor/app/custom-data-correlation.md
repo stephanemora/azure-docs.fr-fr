@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: d034bf130440fdb5b783db41161ab5a21a306478
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b7814ce2ae94216da691b9a54049d20a03aafdd9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103109"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994814"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Mise en corrélation de données Application Insights avec des sources de données personnalisées
 
@@ -28,19 +28,19 @@ Vous pouvez avoir besoin de données personnalisées dans les situations suivant
 
 - Tables d’enrichissement ou de recherche de données : par exemple, compléter un nom de serveur avec le propriétaire du serveur et l’emplacement de laboratoire dans lequel il peut être trouvé 
 - Corrélation avec des sources de données autres qu’Application Insights : par exemple, corréler des données concernant un achat effectué dans une boutique en ligne avec des informations obtenues auprès de votre service de traitement des achats pour déterminer la précision des estimations de vos délais de livraison 
-- Données complètement personnalisées : nombre de nos clients adorent le langage de requête et les performances de la plateforme de données Log Analytics qui sous-tend Application Insights, et cherchent à en tirer parti pour interroger les données qui ne sont pas du tout liées à Application Insights. Par exemple, pour suivre les performances de panneaux solaires dans le cadre d’une installation résidentielle intelligente, comme décrit [ici]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
+- Données complètement personnalisées : parmi nos clients, beaucoup adorent le langage de requête et les performances de la plateforme de journaux Azure Monitor qui sous-tend Application Insights, et cherchent à en tirer parti pour interroger les données qui ne sont pas du tout liées à Application Insights. Par exemple, pour suivre les performances de panneaux solaires dans le cadre d’une installation résidentielle intelligente, comme décrit [ici]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Comment mettre en corrélation des données personnalisées avec des données Application Insights 
 
-Étant donné qu’Application Insights est associé à la puissante plateforme de données Log Analytics, nous sommes en mesure d’exploiter toute la puissance de Log Analytics pour ingérer des données. Nous allons ensuite écrire des requêtes à l’aide de l’opérateur « join », qui met en corrélation ces données personnalisées avec les données dont nous disposons dans Log Analytics. 
+Étant donné qu'Application Insights est associé à la puissante plateforme de journaux Azure Monitor, nous sommes en mesure d'exploiter toute la puissance d'Azure Monitor pour ingérer les données. Nous allons ensuite rédiger des requêtes à l'aide de l'opérateur « join », qui mettra en corrélation ces données personnalisées avec les données dont nous disposons dans les journaux Azure Monitor. 
 
 ## <a name="ingesting-data"></a>Ingestion des données
 
-Dans cette section, nous allons voir comment importer vos données dans Log Analytics.
+Dans cette section, vous allez importer vos données dans les journaux Azure Monitor.
 
-Si vous ne l’avez pas déjà fait, configurez un nouvel espace de travail Log Analytics en suivant [ces instructions]( https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm) jusqu’à l’étape relative à la création d’un espace de travail.
+Si vous ne l’avez pas déjà fait, configurez un nouvel espace de travail Log Analytics en suivant [ces instructions](../learn/quick-collect-azurevm.md) jusqu’à l’étape relative à la création d’un espace de travail.
 
-Commencez à envoyer des données dans Log Analytics. Vous disposez de plusieurs options :
+Pour commencer à envoyer des données de journal dans Azure Monitor. Vous disposez de plusieurs options :
 
 - Pour un mécanisme synchrone, vous pouvez soit appeler directement [l’API Collecte de données](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) soit utiliser notre connecteur Logic App : il vous suffit de rechercher « Azure Log Analytics » et de choisir l’option « Envoyer des données » :
 
@@ -50,9 +50,9 @@ Commencez à envoyer des données dans Log Analytics. Vous disposez de plusieurs
 
 ## <a name="correlating-data"></a>Corrélation des données
 
-Application Insights s’appuie sur la plateforme de données Log Analytics. Par conséquent, nous pouvons utiliser des [jointures inter-ressources](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) pour mettre en corrélation des données que nous avons ingérées dans Log Analytics avec nos données Application Insights.
+Application Insights s'appuie sur la plateforme de journaux Azure Monitor. Par conséquent, nous pouvons utiliser des [jointures inter-ressources](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) pour mettre en corrélation des données que nous avons ingérées dans Azure Monitor avec nos données Application Insights.
 
-Par exemple, nous pouvons ingérer notre inventaire et nos emplacements de laboratoire dans une table appelée « LabLocations_CL » dans un espace de travail Log Analytics appelé « myLA ». Si nous voulons ensuite passer en revue nos requêtes surveillées dans l’appli Application Insights appelée « myAI » et mettre en corrélation les noms d’ordinateurs qui ont traité les requêtes vers les emplacements de ces ordinateurs stockés dans la table personnalisée mentionnée précédemment, nous pouvons exécuter la requête suivante à partir du contexte Application Insights ou Log Analytics :
+Par exemple, nous pouvons ingérer notre inventaire et nos emplacements de laboratoire dans une table appelée « LabLocations_CL » dans un espace de travail Log Analytics appelé « myLA ». Si nous voulons ensuite passer en revue nos requêtes surveillées dans l'appli Application Insights appelée « myAI » et mettre en corrélation les noms d'ordinateurs qui ont traité les requêtes avec les emplacements de ces ordinateurs stockés dans la table personnalisée mentionnée précédemment, nous pouvons exécuter la requête suivante à partir du contexte Application Insights ou Azure Monitor :
 
 ```
 app('myAI').requests

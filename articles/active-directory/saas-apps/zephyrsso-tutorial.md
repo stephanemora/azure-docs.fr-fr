@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec ZephyrSSO | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à ZephyrSSO | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ZephyrSSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 47bbdc1c50f0d96f1f26d5595a9e54814fa85188
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3be3008367f5c405f65dfd37b4384726ab2456c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310769"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209521"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Tutoriel : Intégration d’Azure Active Directory avec ZephyrSSO
+# <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Didacticiel : Intégration d'Azure Active Directory à ZephyrSSO
 
 Dans ce tutoriel, vous allez apprendre à intégrer ZephyrSSO avec Azure Active Directory (Azure AD).
 
@@ -160,7 +161,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   
 ### <a name="create-a-zephyrsso-test-user"></a>Créer un utilisateur de test ZephyrSSO
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ZephyrSSO. Collaborez avec l’[équipe de support technique ZephyrSSO](https://support.getzephyr.com) pour ajouter les utilisateurs dans la plateforme ZephyrSSO. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ZephyrSSO. Collaborez avec l' [équipe du support technique de ZephyrSSO](https://support.getzephyr.com)  pour ajouter des utilisateurs sur la plateforme ZephyrSSO. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
